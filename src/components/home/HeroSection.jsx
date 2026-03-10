@@ -62,7 +62,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-white/80 mt-6 text-lg md:text-xl max-w-lg leading-relaxed font-normal"
+            className="mt-6 text-lg md:text-xl max-w-lg leading-relaxed font-normal"
+            style={{ color: '#E8DFAF99' }}
           >
             Premium apparel for those who live by faith, value freedom, and refuse to blend in.
           </motion.p>
@@ -75,13 +76,19 @@ export default function HeroSection() {
           >
             <Link
               to={createPageUrl('BestSellers')}
-              className="flex items-center justify-center border-2 border-primary text-white px-8 py-4 rounded-lg font-heading font-bold text-sm tracking-widest uppercase hover:bg-primary/10 transition-all duration-300"
+              className="flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase transition-all duration-300 px-8 py-4 rounded-sm"
+              style={{ border: '1px solid #D6B565', color: '#E8DFAF', backgroundColor: 'transparent' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#C8A44D18'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
             >
               Shop Bestsellers
             </Link>
             <Link
               to={createPageUrl('Collections')}
-              className="flex items-center justify-center border-2 border-primary text-white px-8 py-4 rounded-lg font-heading font-bold text-sm tracking-widest uppercase hover:bg-primary/10 transition-all duration-300"
+              className="flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase transition-all duration-300 px-8 py-4 rounded-sm"
+              style={{ border: '1px solid #D6B565', color: '#E8DFAF', backgroundColor: 'transparent' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#C8A44D18'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
             >
               Shop Collections
             </Link>
