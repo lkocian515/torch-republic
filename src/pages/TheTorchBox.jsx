@@ -199,7 +199,7 @@ export default function TheTorchBox() {
             className="p-10 md:p-16 rounded-sm"
             style={{ border: '1px solid #D6B56530', backgroundColor: '#C8A44D08' }}
           >
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <p className="font-mono text-xs tracking-[0.4em] uppercase mb-3" style={{ color: '#C8A44D' }}>
                 What's Inside
               </p>
