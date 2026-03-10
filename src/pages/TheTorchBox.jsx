@@ -48,8 +48,17 @@ export default function TheTorchBox() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Box image - full width at very top */}
+      <section className="w-full">
+        <img
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
+          alt="The Torch Box"
+          className="w-full"
+        />
+      </section>
+
       {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-24 px-6">
+      <section className="relative overflow-hidden pt-12 pb-24 px-6">
         {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div
