@@ -37,7 +37,7 @@ const COLLECTIONS = [
 
 export default function FeaturedCollections() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6" style={{ marginTop: '-288px' }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
           <div>
