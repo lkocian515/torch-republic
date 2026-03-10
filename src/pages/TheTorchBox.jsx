@@ -76,7 +76,7 @@ export default function TheTorchBox() {
             className="flex justify-center"
           >
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/b8e9bae18_trashed-1775724694-file_0000000040a4722fab7309f8bca3cd1a.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
               alt="The Torch Box"
               className="w-64 md:w-80"
             />
