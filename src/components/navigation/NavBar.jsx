@@ -49,7 +49,7 @@ export default function NavBar() {
           </div>
 
           {/* Center: Logo */}
-          <Link to={createPageUrl('Home')} className="flex items-center" style={{ marginTop: '12px' }}>
+          <Link to={createPageUrl('Home')} className="flex items-center" style={{ marginTop: '24px' }}>
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
               alt="Torch Republic"
