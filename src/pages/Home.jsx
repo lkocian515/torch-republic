@@ -11,11 +11,11 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection />
       <div style={{ marginTop: '-288px' }}>
-      <FeaturedCollections />
-      <BestSellersSection />
-      <CategoryGrid />
-      <ManifestoSection />
-      <NewsletterSection />
+        <FeaturedCollections />
+        <BestSellersSection />
+        <CategoryGrid />
+        <ManifestoSection />
+        <NewsletterSection />
       </div>
     </div>
   );
