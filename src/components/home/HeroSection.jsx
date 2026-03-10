@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { } from 'lucide-react';
+
 
 export default function HeroSection() {
   const containerRef = useRef(null);
