@@ -1,0 +1,105 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
+import { Menu, X, ShoppingCart, Search } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const NAV_ITEMS = [
+  { label: 'Shop', page: 'Collections' },
+  { label: 'Best Sellers', page: 'BestSellers' },
+  { label: 'Our Mission', page: 'Mission' },
+  { label: 'Contact', page: 'Contact' },
+];
+
+export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link to={createPageUrl('Home')} className="flex items-center gap-2">
+            <div className="flex flex-col items-center">
+              <span className="text-primary text-2xl">🔥</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-foreground font-heading font-black text-lg tracking-wider uppercase leading-none">
+                Torch
+              </span>
+              <span className="text-primary font-heading font-black text-lg tracking-wider uppercase leading-none">
+                Republic
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.label}
+                to={createPageUrl(item.page)}
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Right icons */}
+          <div className="flex items-center gap-4">
+            <button className="text-muted-foreground hover:text-primary transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="text-muted-foreground hover:text-primary transition-colors relative">
+              <ShoppingCart className="w-5 h-5" />
+              <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
+                0
+              </span>
+            </button>
+            <button 
+              className="md:hidden text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
+          >
+            <div className="px-6 py-6 space-y-4">
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.label}
+                  to={createPageUrl(item.page)}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-lg font-heading font-semibold tracking-wider uppercase"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
