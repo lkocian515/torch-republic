@@ -6,7 +6,7 @@ export default function TopBar() {
     <motion.div 
       initial={{ y: -40 }}
       animate={{ y: 0 }}
-      className="w-full py-2.5 px-4"
+      className="w-full py-1.5 px-4"
       style={{ backgroundColor: '#0E2A2F', borderBottom: '1px solid #C8A44D22' }}
     >
       <p className="text-center text-sm font-mono tracking-widest uppercase" style={{ color: '#E8DFAF' }}>
