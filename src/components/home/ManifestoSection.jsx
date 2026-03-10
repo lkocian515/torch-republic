@@ -9,7 +9,7 @@ export default function ManifestoSection() {
     <section className="py-32 px-6 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-navy/40 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">

@@ -14,7 +14,7 @@ export default function BestSellersSection() {
   });
 
   return (
-    <section className="py-24 px-6 bg-card/30">
+    <section className="py-24 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
           <div>
