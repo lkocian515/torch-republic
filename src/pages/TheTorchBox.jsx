@@ -69,15 +69,18 @@ export default function TheTorchBox() {
             Coming Soon
           </motion.p>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-serif font-black uppercase leading-tight tracking-tight"
-            style={{ color: '#E8DFAF' }}
+            className="flex justify-center"
           >
-            The Torch Box
-          </motion.h1>
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/b8e9bae18_trashed-1775724694-file_0000000040a4722fab7309f8bca3cd1a.png"
+              alt="The Torch Box"
+              className="w-64 md:w-80"
+            />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
