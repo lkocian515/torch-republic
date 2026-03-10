@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const NAV_ITEMS = [
   { label: 'Shop', page: 'Collections' },
   { label: 'Best Sellers', page: 'BestSellers' },
+  { label: 'The Torch Box', page: 'TheTorchBox' },
   { label: 'Our Mission', page: 'Mission' },
   { label: 'Contact', page: 'Contact' },
 ];
