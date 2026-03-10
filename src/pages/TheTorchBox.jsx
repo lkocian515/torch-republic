@@ -146,16 +146,11 @@ export default function TheTorchBox() {
             className="relative rounded-sm overflow-hidden p-12 md:p-20 text-center"
             style={{ border: '1px solid #D6B56522', backgroundColor: '#0E2A2F22' }}
           >
-            <div className="text-8xl md:text-9xl mb-6">📦</div>
-            <p className="font-mono text-sm tracking-[0.3em] uppercase" style={{ color: '#C8A44D' }}>
-              The Torch Box
-            </p>
-            <p className="mt-2 text-2xl font-serif font-black uppercase" style={{ color: '#E8DFAF' }}>
-              Monthly Subscription
-            </p>
-            <p className="mt-4 text-base" style={{ color: '#E8DFAF66' }}>
-              Premium patriotic goods. Every single month.
-            </p>
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/cf2f1b31e_file_00000000d79c71f586d9ff26f890fe06.png"
+              alt="The Torch Box"
+              className="w-full rounded-sm"
+            />
           </div>
         </div>
       </section>
