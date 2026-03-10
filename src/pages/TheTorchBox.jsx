@@ -68,16 +68,6 @@ export default function TheTorchBox() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-mono text-xs tracking-[0.4em] uppercase mb-4"
-            style={{ color: '#C8A44D' }}
-          >
-            Coming Soon
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
