@@ -51,9 +51,9 @@ export default function NavBar() {
           {/* Center: Logo */}
           <Link to={createPageUrl('Home')} className="flex items-center">
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5dab8a01f_file_0000000013ac71f5b6204ade785a0d15.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
               alt="Torch Republic"
-              className="h-10 md:h-14 w-auto"
+              className="h-20 md:h-28 w-auto"
             />
           </Link>
 
