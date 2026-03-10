@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: 'Best Sellers', page: 'BestSellers' },
   { label: 'The Torch Box', page: 'TheTorchBox' },
   { label: 'Our Mission', page: 'Mission' },
+  { label: 'Track Your Order', page: 'TrackOrder' },
   { label: 'Contact', page: 'Contact' },
 ];
 
