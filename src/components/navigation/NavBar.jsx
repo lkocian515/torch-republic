@@ -26,31 +26,39 @@ export default function NavBar() {
       scrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+        <div className="relative flex items-center justify-center h-16 md:h-20">
+          {/* Left: Hamburger (mobile) + Nav (desktop) */}
+          <div className="absolute left-0 flex items-center gap-6">
+            <button 
+              className="md:hidden text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            <div className="hidden md:flex items-center gap-8">
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.label}
+                  to={createPageUrl(item.page)}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Center: Logo */}
           <Link to={createPageUrl('Home')} className="flex items-center">
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5dab8a01f_file_0000000013ac71f5b6204ade785a0d15.png"
               alt="Torch Republic"
-              className="h-10 md:h-12 w-auto"
+              className="h-10 md:h-14 w-auto"
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                to={createPageUrl(item.page)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
           {/* Right icons */}
-          <div className="flex items-center gap-4">
+          <div className="absolute right-0 flex items-center gap-4">
             <button className="text-muted-foreground hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
@@ -59,12 +67,6 @@ export default function NavBar() {
               <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
                 0
               </span>
-            </button>
-            <button 
-              className="md:hidden text-foreground"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
