@@ -64,11 +64,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-primary text-lg">🔥</span>
-            <span className="font-heading font-black text-sm tracking-widest uppercase text-foreground">
-              Torch Republic
-            </span>
+          <div className="flex items-center">
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5dab8a01f_file_0000000013ac71f5b6204ade785a0d15.png"
+              alt="Torch Republic"
+              className="h-10 w-auto"
+            />
           </div>
           <p className="text-muted-foreground text-xs font-mono tracking-wider">
             © 2025 TORCH REPUBLIC — ALL RIGHTS RESERVED

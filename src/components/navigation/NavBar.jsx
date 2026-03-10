@@ -28,18 +28,12 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to={createPageUrl('Home')} className="flex items-center gap-2">
-            <div className="flex flex-col items-center">
-              <span className="text-primary text-2xl">🔥</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-foreground font-heading font-black text-lg tracking-wider uppercase leading-none">
-                Torch
-              </span>
-              <span className="text-primary font-heading font-black text-lg tracking-wider uppercase leading-none">
-                Republic
-              </span>
-            </div>
+          <Link to={createPageUrl('Home')} className="flex items-center">
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5dab8a01f_file_0000000013ac71f5b6204ade785a0d15.png"
+              alt="Torch Republic"
+              className="h-10 md:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
