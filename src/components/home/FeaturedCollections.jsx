@@ -76,7 +76,6 @@ export default function FeaturedCollections() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="text-2xl mb-2 block">{col.icon}</span>
                   <h3 className="text-foreground font-heading font-bold text-lg uppercase tracking-wide">
                     {col.name}
                   </h3>
