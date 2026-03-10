@@ -26,7 +26,7 @@ export default function NavBar() {
       scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/60 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative flex items-center justify-center h-16 md:h-20">
+        <div className="relative flex items-center justify-center h-14 md:h-16">
           {/* Left: Hamburger (mobile) + Nav (desktop) */}
           <div className="absolute left-0 flex items-center gap-6">
             <button 
