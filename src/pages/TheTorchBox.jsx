@@ -85,7 +85,7 @@ export default function TheTorchBox() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="mt-6 text-base md:text-lg max-w-xs mx-auto leading-snug"
+            className="mt-3 text-base md:text-lg max-w-xs mx-auto leading-snug"
             style={{ color: '#E8DFAF99' }}
           >
             A monthly subscription box for those who stand for something. Curated with faith, freedom, and truth — delivered to your door.
