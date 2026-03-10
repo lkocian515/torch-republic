@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { } from 'lucide-react';
 
 export default function HeroSection() {
   const containerRef = useRef(null);
@@ -48,52 +48,39 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="max-w-2xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-6"
-          >
-            Faith · Freedom · Truth
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-black uppercase leading-[0.85] tracking-tight"
+            transition={{ delay: 0.2 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black uppercase leading-tight tracking-tight text-white"
           >
-            Wear What<br />
-            You <span className="text-primary">Stand</span><br />
-            For
+            Wear What You Stand For
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-muted-foreground mt-8 text-base md:text-lg max-w-lg leading-relaxed"
+            transition={{ delay: 0.4 }}
+            className="text-white/80 mt-6 text-lg md:text-xl max-w-lg leading-relaxed font-normal"
           >
-            Premium apparel for those who live by faith, value freedom, 
-            and refuse to blend in.
+            Premium apparel for those who live by faith, value freedom, and refuse to blend in.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-wrap gap-4 mt-10"
+            transition={{ delay: 0.6 }}
+            className="flex flex-col gap-3 mt-10 max-w-sm"
           >
             <Link
               to={createPageUrl('BestSellers')}
-              className="group flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-heading font-bold text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300"
+              className="flex items-center justify-center border-2 border-primary text-white px-8 py-4 rounded-lg font-heading font-bold text-sm tracking-widest uppercase hover:bg-primary/10 transition-all duration-300"
             >
               Shop Bestsellers
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to={createPageUrl('Collections')}
-              className="flex items-center gap-3 border border-foreground/20 text-foreground px-8 py-4 font-heading font-bold text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300"
+              className="flex items-center justify-center border-2 border-primary text-white px-8 py-4 rounded-lg font-heading font-bold text-sm tracking-widest uppercase hover:bg-primary/10 transition-all duration-300"
             >
               Shop Collections
             </Link>
