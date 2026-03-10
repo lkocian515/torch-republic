@@ -9,11 +9,11 @@
     --font-heading: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Premium obsidian black */
-    --background: 0 0% 3%;
+    /* Warm charcoal - matches the real site */
+    --background: 24 8% 8%;
     --foreground: 0 0% 97%;
 
-    --card: 0 0% 7%;
+    --card: 24 6% 11%;
     --card-foreground: 0 0% 97%;
 
     --popover: 0 0% 7%;
@@ -54,13 +54,13 @@
   }
 
   .dark {
-    --background: 0 0% 3%;
+    --background: 24 8% 8%;
     --foreground: 0 0% 97%;
 
-    --card: 0 0% 7%;
+    --card: 24 6% 11%;
     --card-foreground: 0 0% 97%;
 
-    --popover: 0 0% 7%;
+    --popover: 24 6% 11%;
     --popover-foreground: 0 0% 97%;
 
     --primary: 43 72% 48%;
@@ -69,8 +69,8 @@
     --secondary: 220 55% 18%;
     --secondary-foreground: 0 0% 97%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 52%;
+    --muted: 24 6% 14%;
+    --muted-foreground: 0 0% 58%;
 
     --accent: 220 55% 18%;
     --accent-foreground: 0 0% 97%;
@@ -78,8 +78,8 @@
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 13%;
-    --input: 0 0% 13%;
+    --border: 24 6% 16%;
+    --input: 24 6% 16%;
     --ring: 43 72% 48%;
   }
 }
