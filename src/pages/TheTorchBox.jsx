@@ -161,14 +161,7 @@ export default function TheTorchBox() {
         </div>
       </section>
 
-      {/* Box preview / mockup */}
-      <section className="py-16">
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
-          alt="The Torch Box"
-          className="w-full"
-        />
-      </section>
+
 
       {/* Perks */}
       <section className="py-20 px-6">
