@@ -86,10 +86,20 @@ export default function TheTorchBox() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="mt-6 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="mt-6 text-lg md:text-xl max-w-sm mx-auto leading-relaxed"
             style={{ color: '#E8DFAF99' }}
           >
             A monthly subscription box for those who stand for something. Curated with faith, freedom, and truth — delivered to your door.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42 }}
+            className="mt-3 text-sm font-mono tracking-wider"
+            style={{ color: '#C8A44D99' }}
+          >
+            Sign up below to be notified when it drops.
           </motion.p>
 
           {/* Email signup */}
