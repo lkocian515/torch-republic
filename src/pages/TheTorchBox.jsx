@@ -49,7 +49,7 @@ export default function TheTorchBox() {
   return (
     <div className="min-h-screen bg-background">
       {/* Box image - full width at very top */}
-      <section className="w-full">
+      <section className="w-full pt-24">
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
           alt="The Torch Box"
