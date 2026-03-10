@@ -59,7 +59,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-6 text-lg md:text-xl max-w-xl leading-relaxed font-normal"
+            className="mt-6 text-base md:text-lg max-w-2xl leading-relaxed font-normal"
             style={{ color: '#E8DFAF99' }}
           >
             Premium apparel for those who live by faith, value freedom, and refuse to blend in.
