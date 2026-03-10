@@ -140,19 +140,12 @@ export default function TheTorchBox() {
       </section>
 
       {/* Box preview / mockup */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div
-            className="relative rounded-sm overflow-hidden p-12 md:p-20 text-center"
-            style={{ border: '1px solid #D6B56522', backgroundColor: '#0E2A2F22' }}
-          >
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/cf2f1b31e_file_00000000d79c71f586d9ff26f890fe06.png"
-              alt="The Torch Box"
-              className="w-full rounded-sm"
-            />
-          </div>
-        </div>
+      <section className="py-16">
+        <img
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/cf2f1b31e_file_00000000d79c71f586d9ff26f890fe06.png"
+          alt="The Torch Box"
+          className="w-full"
+        />
       </section>
 
       {/* Perks */}
