@@ -52,7 +52,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black uppercase leading-tight tracking-tight text-white"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black uppercase leading-tight tracking-tight"
+            style={{ color: '#E8DFAF' }}
           >
             Wear What You Stand For
           </motion.h1>
