@@ -43,7 +43,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pb-4 w-full" style={{ marginTop: '-288px' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pb-4 w-full" style={{ marginTop: '-320px' }}>
         <div className="max-w-2xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
