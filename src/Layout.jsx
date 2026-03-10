@@ -6,9 +6,11 @@ import Footer from './components/navigation/Footer';
 export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <TopBar />
-      <NavBar />
-      <main className="flex-1 pt-16 md:pt-20">
+      <div className="sticky top-0 z-50">
+        <TopBar />
+        <NavBar />
+      </div>
+      <main className="flex-1">
         {children}
       </main>
       <Footer />
