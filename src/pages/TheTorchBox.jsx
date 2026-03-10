@@ -58,7 +58,7 @@ export default function TheTorchBox() {
       </section>
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-12 pb-24 px-6">
+      <section className="relative overflow-hidden pt-4 pb-8 px-6">
         {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div
