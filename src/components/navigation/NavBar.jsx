@@ -28,9 +28,9 @@ export default function NavBar() {
       scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/60 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative flex items-center justify-center h-14 md:h-16">
+        <div className="relative flex items-center justify-between h-14 md:h-16">
           {/* Left: Hamburger (mobile) + Nav (desktop) */}
-          <div className="absolute left-0 flex items-center gap-6">
+          <div className="flex items-center gap-6">
             <button 
               className="md:hidden text-foreground"
               onClick={() => setIsOpen(!isOpen)}
@@ -50,17 +50,8 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Center: Logo */}
-          <Link to={createPageUrl('Home')} className="flex items-center" style={{ marginTop: '24px' }}>
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
-              alt="Torch Republic"
-              className="h-20 md:h-24 w-auto"
-            />
-          </Link>
-
           {/* Right icons */}
-          <div className="absolute right-0 flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <button className="text-muted-foreground hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
@@ -71,6 +62,17 @@ export default function NavBar() {
               </span>
             </button>
           </div>
+        </div>
+        
+        {/* Center: Logo - below menu */}
+        <div className="flex justify-center py-4">
+          <Link to={createPageUrl('Home')} className="flex items-center">
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
+              alt="Torch Republic"
+              className="h-20 md:h-24 w-auto"
+            />
+          </Link>
         </div>
       </div>
 
