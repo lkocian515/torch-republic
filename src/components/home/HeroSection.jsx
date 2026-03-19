@@ -21,7 +21,7 @@ export default function HeroSection() {
     <div 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden bg-background"
+      className="relative w-full min-h-[50vh] flex items-center justify-center overflow-hidden bg-background"
     >
       {/* Spotlight gradient */}
       <div 
