@@ -34,9 +34,9 @@ export default function HeroSection() {
       {/* Hero background image */}
       <div className="absolute inset-0">
         <img
-          src="https://www.torchrepublic.com/cdn/shop/files/6_2d2f5f5e-881f-4c5b-98f3-2149aa49027c.png?v=1768744720&width=3840"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a1f33e3ce_hero.png"
           alt="Torch Republic Hero"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-90"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
