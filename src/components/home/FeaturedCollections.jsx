@@ -6,32 +6,40 @@ import { ArrowRight } from 'lucide-react';
 
 const COLLECTIONS = [
   {
-    name: 'God · Family · Country',
-    slug: 'god-family-country',
-    description: 'The foundation of everything we stand for.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/god-family-country-collection-1224586.png?v=1772308435&width=1500',
-    icon: '🏡'
+    name: 'Patriot Pride Collection',
+    slug: 'patriotic-pride',
+    description: 'Wear your love for this country front and center.',
+    image: 'https://www.torchrepublic.com/cdn/shop/collections/american-heart-collection-9399768.png?v=1772927307&width=1500',
   },
   {
-    name: 'Christ Is King',
-    slug: 'christ-is-king',
-    description: 'Unapologetically bold and rooted in truth.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/christ-is-king-collection-1952634.webp?v=1773006011&width=1500',
-    icon: '👑'
-  },
-  {
-    name: 'Faith Over Fear',
-    slug: 'faith-over-fear',
-    description: 'Stand firm in your faith no matter the storm.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/faith-over-fear-collection-4849812.webp?v=1772308432&width=1500',
-    icon: '✝️'
-  },
-  {
-    name: "Freedom Isn't Free",
+    name: 'Freedom Collection',
     slug: 'freedom-isnt-free',
     description: 'Honor those who paid the price for liberty.',
     image: 'https://www.torchrepublic.com/cdn/shop/collections/freedom-isnt-free-collection-9247105.png?v=1772308430&width=1500',
-    icon: '💥'
+  },
+  {
+    name: 'God, Family, Country Collection',
+    slug: 'god-family-country',
+    description: 'The foundation of everything we stand for.',
+    image: 'https://www.torchrepublic.com/cdn/shop/collections/god-family-country-collection-1224586.png?v=1772308435&width=1500',
+  },
+  {
+    name: 'We The People Collection',
+    slug: 'we-the-people',
+    description: 'Inspired by the Constitution and our founding principles.',
+    image: 'https://www.torchrepublic.com/cdn/shop/collections/we-the-people-collection-4279634.png?v=1772927373&width=1500',
+  },
+  {
+    name: 'Founders Collection',
+    slug: 'founders',
+    description: 'Premium, original, and built for those here from the beginning.',
+    image: 'https://www.torchrepublic.com/cdn/shop/collections/founders-collection-2446309.png?v=1772308439&width=1500',
+  },
+  {
+    name: 'American Heroes Collection',
+    slug: 'american-heroes',
+    description: 'Honor the brave men and women who served.',
+    image: 'https://www.torchrepublic.com/cdn/shop/collections/american-heroes-collection-3537113.png?v=1772308437&width=1500',
   },
 ];
 
