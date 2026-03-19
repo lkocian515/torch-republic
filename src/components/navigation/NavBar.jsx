@@ -133,27 +133,12 @@ export default function NavBar() {
                           <div className="space-y-2">
                             {BY_CATEGORY.map((c) => (
                               <Link
-                                key={c}
-                                to={createPageUrl('BestSellers')}
+                                key={c.label}
+                                to={createPageUrl('BestSellers') + `?category=${c.slug}`}
                                 onClick={() => setShopOpen(false)}
                                 className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                               >
-                                {c}
-                              </Link>
-                            ))}
-                          </div>
-                          <p className="text-xs font-mono tracking-[0.3em] uppercase mt-4 mb-2" style={{ color: '#C8A44D' }}>
-                            Jewelry
-                          </p>
-                          <div className="space-y-2">
-                            {JEWELRY.map((c) => (
-                              <Link
-                                key={c}
-                                to={createPageUrl('BestSellers')}
-                                onClick={() => setShopOpen(false)}
-                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                              >
-                                {c}
+                                {c.label}
                               </Link>
                             ))}
                           </div>
