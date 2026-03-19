@@ -14,6 +14,7 @@ export default function Home() {
       <div>
         <FeaturedCollections />
         <BestSellersSection />
+        <CategoryGrid />
         <ManifestoSection />
         <NewsletterSection />
       </div>
