@@ -1,26 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { Menu, X, ShoppingCart, Search } from 'lucide-react';
+import { Menu, X, ShoppingCart, Search, CalendarCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const COLLECTIONS = [
+  { label: 'Patriot Pride Collection', slug: 'patriotic-pride' },
+  { label: 'Freedom Collection', slug: 'freedom-isnt-free' },
+  { label: 'God, Family, Country Collection', slug: 'god-family-country' },
+  { label: 'We The People Collection', slug: 'we-the-people' },
+  { label: 'American Heroes Collection', slug: 'american-heroes' },
+  { label: 'Founders Collection', slug: 'founders' },
+  { label: 'Torchbearer Collection', slug: 'best-sellers' },
+];
+
+const BY_CATEGORY = [
+  'Tees',
+  'Hoodies & Sweatshirts',
+  'Tanks',
+  'Hats & Caps',
+  'Bags & Wallets',
+  'Jewelry',
+];
+
+const GIFTS_DECOR = [
+  'Car Magnets',
+  'Mugs and Tumblers',
+  'Bobbleheads',
+  'Flags',
+  'Posters & Prints',
+];
+
+const JEWELRY = ['Earrings', 'Necklaces'];
+
 const NAV_ITEMS = [
-  { label: 'Shop', page: 'Collections' },
   { label: 'Best Sellers', page: 'BestSellers' },
-  { label: 'The Torch Box', page: 'TheTorchBox' },
-  { label: 'Our Mission', page: 'Mission' },
-  { label: 'Track Your Order', page: 'TrackOrder' },
-  { label: 'Contact', page: 'Contact' },
+  { label: 'New Arrivals', page: 'BestSellers' },
+  { label: 'Contact Us', page: 'Contact' },
 ];
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [shopOpen, setShopOpen] = useState(false);
+  const shopRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (shopRef.current && !shopRef.current.contains(e.target)) {
+        setShopOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
   return (
@@ -31,13 +69,119 @@ export default function NavBar() {
         <div className="relative flex items-center justify-between h-14 md:h-16">
           {/* Left: Hamburger (mobile) + Nav (desktop) */}
           <div className="flex items-center gap-6">
-            <button 
+            <button
               className="md:hidden text-foreground"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
+
             <div className="hidden md:flex items-center gap-8">
+              {/* Shop with mega menu */}
+              <div ref={shopRef} className="relative">
+                <button
+                  onClick={() => setShopOpen(!shopOpen)}
+                  className={`text-sm font-mono tracking-wider uppercase transition-colors duration-300 ${shopOpen ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
+                >
+                  Shop
+                </button>
+
+                <AnimatePresence>
+                  {shopOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-2 w-[680px] bg-background border border-border shadow-2xl z-50 p-6"
+                    >
+                      <div className="grid grid-cols-3 gap-6">
+                        {/* By Collections */}
+                        <div>
+                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
+                            By Collections
+                          </p>
+                          <div className="space-y-2">
+                            {COLLECTIONS.map((c) => (
+                              <Link
+                                key={c.slug}
+                                to={createPageUrl('BestSellers') + `?collection=${c.slug}`}
+                                onClick={() => setShopOpen(false)}
+                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                {c.label}
+                              </Link>
+                            ))}
+                            <Link
+                              to={createPageUrl('Collections')}
+                              onClick={() => setShopOpen(false)}
+                              className="block text-xs font-mono mt-3 pt-3 border-t border-border"
+                              style={{ color: '#C8A44D' }}
+                            >
+                              Men →
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* By Category */}
+                        <div>
+                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
+                            By Category
+                          </p>
+                          <div className="space-y-2">
+                            {BY_CATEGORY.map((c) => (
+                              <Link
+                                key={c}
+                                to={createPageUrl('BestSellers')}
+                                onClick={() => setShopOpen(false)}
+                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                {c}
+                              </Link>
+                            ))}
+                          </div>
+                          <p className="text-xs font-mono tracking-[0.3em] uppercase mt-4 mb-2" style={{ color: '#C8A44D' }}>
+                            Jewelry
+                          </p>
+                          <div className="space-y-2">
+                            {JEWELRY.map((c) => (
+                              <Link
+                                key={c}
+                                to={createPageUrl('BestSellers')}
+                                onClick={() => setShopOpen(false)}
+                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                {c}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Patriotic Gifts & Decor */}
+                        <div>
+                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
+                            Patriotic Gifts & Decor
+                          </p>
+                          <div className="space-y-2">
+                            {GIFTS_DECOR.map((c) => (
+                              <Link
+                                key={c}
+                                to={createPageUrl('BestSellers')}
+                                onClick={() => setShopOpen(false)}
+                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                {c}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other nav items */}
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.label}
@@ -47,6 +191,15 @@ export default function NavBar() {
                   {item.label}
                 </Link>
               ))}
+
+              {/* Track Order with icon */}
+              <Link
+                to={createPageUrl('TrackOrder')}
+                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
+              >
+                <CalendarCheck className="w-4 h-4" />
+                Track Order
+              </Link>
             </div>
           </div>
 
@@ -63,10 +216,10 @@ export default function NavBar() {
             </button>
           </div>
         </div>
-        
-        {/* Center: Logo - below menu */}
+
+        {/* Center: Logo */}
         <div className="flex justify-center py-4">
-          <Link to={createPageUrl('Home')} className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
               alt="Torch Republic"
@@ -86,16 +239,36 @@ export default function NavBar() {
             className="md:hidden bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-6 py-6 space-y-4">
-              {NAV_ITEMS.map((item) => (
+              <p className="text-xs font-mono tracking-[0.3em] uppercase mb-2" style={{ color: '#C8A44D' }}>Shop</p>
+              {COLLECTIONS.map((c) => (
                 <Link
-                  key={item.label}
-                  to={createPageUrl(item.page)}
+                  key={c.slug}
+                  to={createPageUrl('BestSellers') + `?collection=${c.slug}`}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-sm font-heading tracking-wider"
+                >
+                  {c.label}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-border space-y-4">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={createPageUrl(item.page)}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-lg font-heading font-semibold tracking-wider uppercase"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <Link
+                  to={createPageUrl('TrackOrder')}
                   onClick={() => setIsOpen(false)}
                   className="block text-foreground hover:text-primary transition-colors text-lg font-heading font-semibold tracking-wider uppercase"
                 >
-                  {item.label}
+                  Track Order
                 </Link>
-              ))}
+              </div>
             </div>
           </motion.div>
         )}
