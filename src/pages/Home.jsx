@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <div style={{ marginTop: '-288px' }}>
+      <div>
         <FeaturedCollections />
         <BestSellersSection />
         <CategoryGrid />
