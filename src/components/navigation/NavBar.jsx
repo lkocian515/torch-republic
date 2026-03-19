@@ -120,7 +120,7 @@ export default function NavBar() {
                               className="block text-xs font-mono mt-3 pt-3 border-t border-border"
                               style={{ color: '#C8A44D' }}
                             >
-                              Men →
+                              View All Collections →
                             </Link>
                           </div>
                         </div>
