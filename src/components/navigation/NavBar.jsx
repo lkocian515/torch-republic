@@ -15,23 +15,24 @@ const COLLECTIONS = [
 ];
 
 const BY_CATEGORY = [
-  'Tees',
-  'Hoodies & Sweatshirts',
-  'Tanks',
-  'Hats & Caps',
-  'Bags & Wallets',
-  'Jewelry',
+  { label: 'Tees', slug: 't-shirts' },
+  { label: 'Hoodies & Sweatshirts', slug: 't-shirts' },
+  { label: 'Hats & Caps', slug: 'hats' },
+  { label: 'Accessories', slug: 'accessories' },
+  { label: 'Jewelry', slug: 'jewelry' },
+  { label: 'Home Decor', slug: 'home-decor' },
 ];
 
 const GIFTS_DECOR = [
-  'Car Magnets',
-  'Mugs and Tumblers',
-  'Bobbleheads',
-  'Flags',
-  'Posters & Prints',
+  { label: 'Car Magnets', slug: 'magnets' },
+  { label: 'Home Decor', slug: 'home-decor' },
+  { label: 'Accessories', slug: 'accessories' },
 ];
 
-const JEWELRY = ['Earrings', 'Necklaces'];
+const JEWELRY = [
+  { label: 'Earrings', slug: 'jewelry' },
+  { label: 'Necklaces', slug: 'jewelry' },
+];
 
 const NAV_ITEMS = [
   { label: 'Best Sellers', page: 'BestSellers' },
