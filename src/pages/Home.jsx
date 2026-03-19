@@ -11,13 +11,10 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection />
       <CategoryGrid />
-      <div>
-        <FeaturedCollections />
-        <BestSellersSection />
-        <CategoryGrid />
-        <ManifestoSection />
-        <NewsletterSection />
-      </div>
+      <FeaturedCollections />
+      <BestSellersSection />
+      <ManifestoSection />
+      <NewsletterSection />
     </div>
   );
 }
