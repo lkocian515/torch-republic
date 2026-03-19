@@ -18,11 +18,8 @@ export default function BestSellersSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
-              Top Picks
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase tracking-tight">
-              Best Sellers
+            <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest" style={{ color: '#E8DFAF' }}>
+              TOP PICKS
             </h2>
           </div>
           <Link
