@@ -45,49 +45,40 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pb-4 w-full" style={{ marginTop: '-320px' }}>
         <div className="max-w-2xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black uppercase leading-tight tracking-tight"
-            style={{ color: '#E8DFAF' }}
-          >
-            Wear What You Stand For
-          </motion.h1>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-6 text-base md:text-lg max-w-2xl leading-relaxed font-normal"
-            style={{ color: '#E8DFAF99' }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl font-bold mb-2"
+            style={{ color: '#FFFFFF' }}
           >
-            Premium apparel for those who live by faith, value freedom, and refuse to blend in.
+            Faith. Freedom. Truth.
           </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-serif font-black leading-tight tracking-tight"
+            style={{ color: '#FFFFFF' }}
+          >
+            Patriotic apparel built for the bold.
+          </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col gap-3 mt-10 max-w-sm"
+            transition={{ delay: 0.55 }}
+            className="mt-8"
           >
             <Link
-              to={createPageUrl('BestSellers')}
-              className="flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase transition-all duration-300 px-8 py-4 rounded-sm"
-              style={{ border: '1px solid #D6B565', color: '#E8DFAF', backgroundColor: 'transparent' }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#C8A44D18'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-            >
-              Shop Bestsellers
-            </Link>
-            <Link
               to={createPageUrl('Collections')}
-              className="flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase transition-all duration-300 px-8 py-4 rounded-sm"
+              className="inline-flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase transition-all duration-300 px-8 py-4 rounded-sm"
               style={{ border: '1px solid #D6B565', color: '#E8DFAF', backgroundColor: 'transparent' }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = '#C8A44D18'}
               onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              Shop Collections
+              Shop the Collection
             </Link>
           </motion.div>
         </div>
