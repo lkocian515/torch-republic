@@ -38,8 +38,8 @@ export default function HeroSection() {
           alt="Torch Republic Hero"
           className="w-full h-full object-cover opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
       </div>
 
       {/* Content */}
