@@ -36,7 +36,7 @@ const JEWELRY = ['Earrings', 'Necklaces'];
 const NAV_ITEMS = [
   { label: 'Best Sellers', page: 'BestSellers' },
   { label: 'New Arrivals', page: 'BestSellers' },
-  { label: 'Our Mission', page: 'Mission' },
+  { label: 'Our Mission', page: 'Mission', label: 'Our Mission' },
   { label: 'Contact Us', page: 'Contact' },
 ];
 
