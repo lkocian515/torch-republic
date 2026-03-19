@@ -80,15 +80,9 @@ export default function FeaturedCollections() {
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-foreground font-heading font-bold text-lg uppercase tracking-wide">
-                    {col.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
-                    {col.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-xs font-mono tracking-wider mt-3 group-hover:gap-2 transition-all">
-                    Explore <ArrowRight className="w-3 h-3" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <span className="inline-flex items-center gap-1 font-heading font-bold text-sm uppercase tracking-wide text-white group-hover:gap-2 transition-all">
+                    {col.name} <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
               </Link>
