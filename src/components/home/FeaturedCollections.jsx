@@ -49,11 +49,8 @@ export default function FeaturedCollections() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
-              Collections
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase tracking-tight">
-              Shop by Conviction
+            <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest" style={{ color: '#E8DFAF' }}>
+              Shop Collections
             </h2>
           </div>
           <Link
