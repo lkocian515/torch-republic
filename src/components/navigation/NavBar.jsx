@@ -152,12 +152,12 @@ export default function NavBar() {
                           <div className="space-y-2">
                             {GIFTS_DECOR.map((c) => (
                               <Link
-                                key={c}
-                                to={createPageUrl('BestSellers')}
+                                key={c.label}
+                                to={createPageUrl('BestSellers') + `?category=${c.slug}`}
                                 onClick={() => setShopOpen(false)}
                                 className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                               >
-                                {c}
+                                {c.label}
                               </Link>
                             ))}
                           </div>
