@@ -1,28 +1,26 @@
 import React from 'react';
-import { Truck, ShieldCheck, RotateCcw, Lock, Star, Phone } from 'lucide-react';
+import { Truck, ShieldCheck, RotateCcw, Star } from 'lucide-react';
 
 const SIGNALS = [
-  { icon: Truck, label: 'Free Shipping', sub: 'On orders over $75' },
   { icon: ShieldCheck, label: 'Secure Checkout', sub: '256-bit SSL encrypted' },
-  { icon: RotateCcw, label: 'Easy Returns', sub: '30-day hassle-free' },
-  { icon: Lock, label: '100% Safe Payment', sub: 'Visa, MC, PayPal & more' },
-  { icon: Star, label: '5-Star Rated', sub: 'Thousands of happy patriots' },
-  { icon: Phone, label: 'Real Support', sub: 'We actually respond' },
+  { icon: Truck, label: 'Ships from USA', sub: 'Orders out in 1–3 days' },
+  { icon: RotateCcw, label: '30-Day Returns', sub: 'Hassle-free, no questions' },
+  { icon: Star, label: '4.9 Star Rated', sub: 'Thousands of patriots served' },
 ];
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-border bg-card/60 py-6 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+    <section style={{ borderBottom: '1px solid rgba(200,164,77,0.12)', backgroundColor: '#0a0a0a' }}>
+      <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {SIGNALS.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex flex-col items-center text-center gap-2 py-2">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C8A44D18', border: '1px solid #C8A44D55' }}>
-                <Icon className="w-5 h-5" style={{ color: '#C8A44D' }} />
+            <div key={label} className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(200,164,77,0.1)', border: '1px solid rgba(200,164,77,0.3)' }}>
+                <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
               </div>
               <div>
-                <p className="text-xs font-heading font-bold uppercase tracking-wide text-foreground">{label}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
+                <p className="text-xs font-heading font-bold uppercase tracking-wide text-white">{label}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{sub}</p>
               </div>
             </div>
           ))}

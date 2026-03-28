@@ -14,17 +14,22 @@ export default function BestSellersSection() {
   });
 
   return (
-    <section className="py-12 px-6 bg-secondary/20">
+    <section className="py-20 px-6" style={{ backgroundColor: '#000' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest" style={{ color: '#E8DFAF' }}>
-              TOP PICKS
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-8" style={{ backgroundColor: '#C8A44D' }} />
+              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
+              Top Picks
             </h2>
           </div>
           <Link
             to={createPageUrl('BestSellers')}
-            className="hidden md:flex items-center gap-2 text-primary font-mono text-sm tracking-wider hover:gap-3 transition-all"
+            className="hidden md:flex items-center gap-2 font-mono text-sm tracking-wider hover:gap-3 transition-all"
+            style={{ color: '#C8A44D' }}
           >
             View All <ArrowRight className="w-4 h-4" />
           </Link>
@@ -34,9 +39,10 @@ export default function BestSellersSection() {
 
         <Link
           to={createPageUrl('BestSellers')}
-          className="md:hidden flex items-center justify-center gap-2 text-primary font-mono text-sm tracking-wider mt-8 hover:gap-3 transition-all"
+          className="md:hidden flex items-center justify-center gap-2 font-mono text-sm tracking-wider mt-8 hover:gap-3 transition-all"
+          style={{ color: '#C8A44D' }}
         >
-          View All Best Sellers <ArrowRight className="w-4 h-4" />
+          View All <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </section>
