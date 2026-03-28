@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const PRIZES = [
-  { label: '10% OFF',   code: 'TORCH10',   color: '#0d0d0d', textColor: '#D4AF5A' },
-  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#1a1200', textColor: '#D4AF5A' },
-  { label: '15% OFF',   code: 'TORCH15',   color: '#0d0d0d', textColor: '#D4AF5A' },
-  { label: 'TRY AGAIN', code: null,        color: '#111111', textColor: '#555555' },
-  { label: '20% OFF',   code: 'TORCH20',   color: '#1a1200', textColor: '#D4AF5A' },
-  { label: '5% OFF',    code: 'TORCH5',    color: '#0d0d0d', textColor: '#D4AF5A' },
-  { label: 'FREE GIFT', code: 'GIFTME',    color: '#1a1200', textColor: '#D4AF5A' },
-  { label: '12% OFF',   code: 'TORCH12',   color: '#0d0d0d', textColor: '#D4AF5A' },
+  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1628', textColor: '#D4AF5A' }, // deep navy
+  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#1a0d00', textColor: '#D4AF5A' }, // dark amber
+  { label: '15% OFF',   code: 'TORCH15',   color: '#0f0a1e', textColor: '#D4AF5A' }, // deep indigo
+  { label: 'TRY AGAIN', code: null,        color: '#111111', textColor: '#555555' }, // near black
+  { label: '20% OFF',   code: 'TORCH20',   color: '#0d1a0d', textColor: '#D4AF5A' }, // dark forest
+  { label: '5% OFF',    code: 'TORCH5',    color: '#1a0a0a', textColor: '#D4AF5A' }, // deep crimson
+  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0e1520', textColor: '#D4AF5A' }, // midnight blue
+  { label: '12% OFF',   code: 'TORCH12',   color: '#14100a', textColor: '#D4AF5A' }, // dark walnut
 ];
 
 const NUM = PRIZES.length;
