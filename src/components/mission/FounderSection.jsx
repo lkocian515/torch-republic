@@ -39,49 +39,12 @@ export default function FounderSection() {
           {/* Two-column layout */}
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-            {/* Left: Founder Image */}
+            {/* Left: Text */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="flex-shrink-0 flex flex-col items-center md:items-start"
-            >
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  width: '220px',
-                  borderRadius: '4px',
-                  boxShadow: '0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,162,74,0.18)',
-                }}
-              >
-                {/* Grain overlay */}
-                <div
-                  className="absolute inset-0 z-10 pointer-events-none"
-                  style={{
-                    backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")',
-                    opacity: 0.35,
-                    mixBlendMode: 'overlay',
-                  }}
-                />
-                <img
-                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bcb486ec5_ghgyugf.png"
-                  alt="Torch Republic Founder"
-                  className="w-full block"
-                  style={{
-                    filter: 'grayscale(100%) contrast(0.88) brightness(0.95)',
-                    display: 'block',
-                  }}
-                />
-              </div>
-            </motion.div>
-
-            {/* Right: Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
               className="flex-1 space-y-5"
             >
               <p className="text-base leading-[1.85]" style={{ color: '#EAEAEA' }}>
@@ -103,6 +66,43 @@ export default function FounderSection() {
                 Carry the flame.
               </p>
             </motion.div>
+
+            {/* Right: Founder Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex-shrink-0 flex flex-col items-center md:items-start"
+            >
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  width: '220px',
+                  borderRadius: '4px',
+                  boxShadow: '0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,162,74,0.18)',
+                }}
+              >
+                <div
+                  className="absolute inset-0 z-10 pointer-events-none"
+                  style={{
+                    backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")',
+                    opacity: 0.35,
+                    mixBlendMode: 'overlay',
+                  }}
+                />
+                <img
+                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bcb486ec5_ghgyugf.png"
+                  alt="Torch Republic Founder"
+                  className="w-full block"
+                  style={{
+                    filter: 'grayscale(100%) contrast(0.88) brightness(0.95)',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
