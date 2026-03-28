@@ -94,9 +94,9 @@ function Wheel({ rotation }) {
       <circle cx={cx} cy={cx} r={28} fill="#050505" stroke={GOLD} strokeWidth="2" />
       <circle cx={cx} cy={cx} r={22} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
       <image
-        href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
-        x={cx - 18} y={cx - 18}
-        width="36" height="36"
+        href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/45bacf9c2_2.png"
+        x={cx - 20} y={cx - 20}
+        width="40" height="40"
         clipPath="url(#hubClip)"
         preserveAspectRatio="xMidYMid meet"
       />
