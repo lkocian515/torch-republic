@@ -19,7 +19,7 @@ export default function BestSellersSection() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ backgroundColor: '#C8A44D' }} />
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
               <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">

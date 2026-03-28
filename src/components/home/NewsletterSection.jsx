@@ -25,9 +25,9 @@ export default function NewsletterSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
             <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Join the Torchbearers</span>
-            <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-3">
             Get 10% Off Your First Order
@@ -55,7 +55,7 @@ export default function NewsletterSection() {
               <button
                 type="submit"
                 className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap"
-                style={{ backgroundColor: '#C8A44D', color: '#000' }}
+                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
               >
                 Claim 10% Off
               </button>

@@ -15,7 +15,7 @@ export default function TrustBar() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {SIGNALS.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(200,164,77,0.1)', border: '1px solid rgba(200,164,77,0.3)' }}>
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(14,42,47,0.8), rgba(27,80,96,0.5))', border: '1px solid rgba(200,164,77,0.35)' }}>
                 <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
               </div>
               <div>

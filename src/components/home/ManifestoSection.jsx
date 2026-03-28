@@ -14,9 +14,9 @@ export default function ManifestoSection() {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
           <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Our Mission</span>
-          <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
         </div>
 
         <motion.h2
@@ -43,7 +43,7 @@ export default function ManifestoSection() {
           <Link
             to={createPageUrl('BestSellers')}
             className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-10 py-4"
-            style={{ backgroundColor: '#C8A44D', color: '#000' }}
+            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
           >
             Shop the Collection
           </Link>

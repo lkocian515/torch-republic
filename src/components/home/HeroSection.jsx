@@ -58,7 +58,7 @@ export default function HeroSection() {
             transition={{ delay: 0.1 }}
             className="inline-flex items-center gap-2 mb-5"
           >
-            <div className="h-px w-8" style={{ backgroundColor: '#C8A44D' }} />
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
             <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Faith · Freedom · Truth</span>
           </motion.div>
 
@@ -92,14 +92,14 @@ export default function HeroSection() {
             <Link
               to={createPageUrl('BestSellers')}
               className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ backgroundColor: '#C8A44D', color: '#000' }}
+              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
             >
               Shop the Collection
             </Link>
             <a
               href="#whats-inside"
               className="inline-flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ border: '1px solid rgba(200,164,77,0.5)', color: '#E8DFAF', backgroundColor: 'transparent' }}
+              style={{ border: '1px solid rgba(27,80,96,0.8)', color: '#E8DFAF', backgroundColor: 'rgba(14,42,47,0.4)', boxShadow: 'inset 0 0 20px rgba(14,42,47,0.3)' }}
             >
               See What's Inside
             </a>

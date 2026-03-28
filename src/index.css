@@ -99,6 +99,14 @@
   }
 }
 
+/* Brand gradient utilities */
+.gradient-brand {
+  background: linear-gradient(135deg, #0E2A2F 0%, #1B5060 45%, #C8A44D 100%);
+}
+.gradient-brand-border {
+  background: linear-gradient(90deg, transparent 0%, #0E2A2F 20%, #C8A44D 60%, transparent 100%);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
