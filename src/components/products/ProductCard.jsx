@@ -21,7 +21,7 @@ export default function ProductCard({ product, index = 0 }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="relative aspect-square overflow-hidden bg-card mb-4">
+        <div className="relative overflow-hidden bg-card mb-3" style={{ aspectRatio: '4/5' }}>
           <img
             src={product.image_url}
             alt={product.title}
@@ -65,33 +65,36 @@ export default function ProductCard({ product, index = 0 }) {
 
         {/* Info */}
         <div>
-          <h3 className="text-foreground font-heading font-semibold text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="text-white font-heading font-bold text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors mb-1">
             {product.title}
           </h3>
-          
-          <div className="flex items-center gap-2 mt-2">
-            {product.rating > 0 && (
-              <div className="flex items-center gap-1">
-                <Star className="w-3 h-3 fill-primary text-primary" />
-                <span className="text-xs text-muted-foreground font-mono">
-                  {product.rating?.toFixed(1)}
-                </span>
-                {product.review_count > 0 && (
-                  <span className="text-xs text-muted-foreground font-mono">
-                    ({product.review_count})
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
 
-          <div className="flex items-center gap-2 mt-2">
-            <span className="text-foreground font-mono font-semibold text-sm">
-              ${product.price?.toFixed(2)}
-            </span>
+          {product.rating > 0 && (
+            <div className="flex items-center gap-1 mb-2">
+              <Star className="w-3 h-3 fill-primary text-primary" />
+              <span className="text-xs font-mono" style={{ color: 'rgba(200,164,77,0.8)' }}>
+                {product.rating?.toFixed(1)}
+              </span>
+              {product.review_count > 0 && (
+                <span className="text-xs font-mono text-gray-500">({product.review_count})</span>
+              )}
+            </div>
+          )}
+
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-white font-mono font-bold text-sm">
+                ${product.price?.toFixed(2)}
+              </span>
+              {product.compare_at_price > product.price && (
+                <span className="text-gray-500 font-mono text-xs line-through">
+                  ${product.compare_at_price?.toFixed(2)}
+                </span>
+              )}
+            </div>
             {product.compare_at_price > product.price && (
-              <span className="text-muted-foreground font-mono text-xs line-through">
-                ${product.compare_at_price?.toFixed(2)}
+              <span className="font-mono text-[10px] font-bold px-1.5 py-0.5" style={{ backgroundColor: 'rgba(200,164,77,0.15)', color: '#C8A44D' }}>
+                SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
               </span>
             )}
           </div>

@@ -35,23 +35,24 @@ export default function CategoryGrid() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-4 gap-0">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5">
         {CATEGORIES.map((cat) => (
           <Link
             key={cat.label}
             to={createPageUrl(cat.page)}
             className="group relative block overflow-hidden"
-            style={{ aspectRatio: '3/4' }}
+            style={{ aspectRatio: '2/3' }}
           >
             <img
               src={cat.image}
               alt={cat.label}
               className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-              <span className="flex items-center gap-1 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase" style={{ color: '#FFFFFF' }}>
-                {cat.label} <ArrowRight className="w-3 h-3" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)' }} />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <span className="block font-heading font-black text-sm uppercase tracking-widest text-white mb-1.5">{cat.label}</span>
+              <span className="flex items-center gap-1 font-mono text-xs tracking-wider" style={{ color: '#C8A44D' }}>
+                Shop Now <ArrowRight className="w-3 h-3" />
               </span>
             </div>
           </Link>

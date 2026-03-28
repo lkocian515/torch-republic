@@ -17,45 +17,51 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section className="py-24 px-6 border-t border-border">
+    <section className="py-20 px-6" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(200,164,77,0.12)' }}>
       <div className="max-w-2xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-4">
-            Join The Torchbearers
-          </p>
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight mb-4">
-            Join the Movement
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Join the Torchbearers</span>
+            <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-3">
+            Get 10% Off Your First Order
           </h2>
-          <p className="text-muted-foreground text-sm mb-8">
-            Get early access to exclusive drops, insider updates, and special Torchbearer discounts.
+          <p className="text-gray-400 text-sm mb-8">
+            Join 50,000+ patriots. Get early drops, exclusive discounts, and zero spam.
           </p>
 
           {submitted ? (
-            <div className="flex items-center justify-center gap-2 text-primary font-mono text-sm">
+            <div className="flex items-center justify-center gap-2 font-mono text-sm" style={{ color: '#C8A44D' }}>
               <Check className="w-5 h-5" />
-              Welcome to the movement, Torchbearer.
+              Welcome to the movement. Check your inbox.
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex gap-2 max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-card border-border text-foreground placeholder:text-muted-foreground font-mono text-sm flex-1"
+                required
+                className="flex-1 font-mono text-sm"
+                style={{ backgroundColor: '#111', border: '1px solid rgba(200,164,77,0.25)', color: '#fff' }}
               />
-              <Button
+              <button
                 type="submit"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-xs tracking-wider px-6"
+                className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap"
+                style={{ backgroundColor: '#C8A44D', color: '#000' }}
               >
-                Get 10% Off <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+                Claim 10% Off
+              </button>
             </form>
           )}
+          <p className="text-gray-600 text-xs font-mono mt-4">No spam. Unsubscribe anytime.</p>
         </motion.div>
       </div>
     </section>
