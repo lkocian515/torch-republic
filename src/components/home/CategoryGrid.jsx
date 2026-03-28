@@ -30,7 +30,7 @@ export default function CategoryGrid() {
   return (
     <section className="py-0 px-0 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-2">
-        <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest mb-6" style={{ color: '#C8A44D' }}>
+        <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest mb-6 text-center whitespace-nowrap" style={{ color: '#C8A44D' }}>
           WEAR WHAT YOU STAND FOR
         </h2>
       </div>
