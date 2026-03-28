@@ -192,7 +192,7 @@ export default function Mission() {
             style={{ borderColor: '#C9A24A33' }}
           >
             <p className="text-lg md:text-xl font-light" style={{ color: '#FFFFFF' }}>
-              THE FLAME SURVIVES BECAUSE <span className="font-bold" style={{ color: '#C9A24A' }}>PEOPLE CHOOSE TO PASS IT FORWARD.</span>
+              THE FLAME SURVIVES BECAUSE <span className="font-bold" style={{ color: '#C9A24A' }}>PEOPLE CHOOSE TO CARRY IT FORWARD.</span>
             </p>
           </motion.div>
         </div>
