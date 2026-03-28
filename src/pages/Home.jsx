@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
+import SpinWheelPopup from '../components/SpinWheelPopup';
 import FeaturedCollections from '../components/home/FeaturedCollections';
 import TrustBar from '../components/home/TrustBar';
 import TrustSection from '../components/home/TrustSection';
@@ -12,6 +13,7 @@ import NewsletterSection from '../components/home/NewsletterSection';
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <SpinWheelPopup />
       <HeroSection />
       <TrustBar />
       <CategoryGrid />
