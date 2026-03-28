@@ -42,7 +42,7 @@ function Wheel({ rotation }) {
         const x2 = cx + r * Math.cos(endAngle);
         const y2 = cx + r * Math.sin(endAngle);
         const midAngle = ((i + 0.5) * SLICE - 90) * (Math.PI / 180);
-        const textR = r * 0.60;
+        const textR = r * 0.66;
         const tx = cx + textR * Math.cos(midAngle);
         const ty = cx + textR * Math.sin(midAngle);
         const textAngle = (i + 0.5) * SLICE;
@@ -61,10 +61,10 @@ function Wheel({ rotation }) {
               textAnchor="middle"
               dominantBaseline="middle"
               fill={prize.textColor}
-              fontSize="8.5"
-              fontWeight="700"
+              fontSize="10"
+              fontWeight="800"
               fontFamily="'JetBrains Mono', monospace"
-              letterSpacing="0.8"
+              letterSpacing="0.5"
               transform={`rotate(${textAngle}, ${tx}, ${ty})`}
             >
               {prize.label}
@@ -73,10 +73,21 @@ function Wheel({ rotation }) {
         );
       })}
 
-      {/* Center hub */}
-      <circle cx={cx} cy={cx} r={20} fill="#050505" stroke={GOLD} strokeWidth="1.5" />
-      <circle cx={cx} cy={cx} r={14} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.5" />
-      <text x={cx} y={cx + 1} textAnchor="middle" dominantBaseline="middle" fontSize="13">🔥</text>
+      {/* Center hub with logo */}
+      <circle cx={cx} cy={cx} r={24} fill="#050505" stroke={GOLD} strokeWidth="1.5" />
+      <circle cx={cx} cy={cx} r={18} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
+      <image
+        href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
+        x={cx - 16} y={cx - 16}
+        width="32" height="32"
+        clipPath="url(#hubClip)"
+        preserveAspectRatio="xMidYMid meet"
+      />
+      <defs>
+        <clipPath id="hubClip">
+          <circle cx={cx} cy={cx} r={20} />
+        </clipPath>
+      </defs>
     </svg>
   );
 }
