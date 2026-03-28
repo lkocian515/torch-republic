@@ -13,6 +13,7 @@ import FounderSection from '../components/home/FounderSection';
 import FAQSection from '../components/home/FAQSection';
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
+import MadeInUSABanner from '../components/home/MadeInUSABanner';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <SpinWheelPopup />
       <HeroSection />
       <TrustBar />
+      <MadeInUSABanner />
       <CategoryGrid />
       <BestSellersSection />
       <WhatsInsideSection />
