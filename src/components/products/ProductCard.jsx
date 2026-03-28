@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, Flame, Zap } from 'lucide-react';
+
+const StarRow = ({ rating }) => (
+  <div className="flex items-center gap-0.5">
+    {[1,2,3,4,5].map(i => (
+      <Star key={i} className={`w-3 h-3 ${i <= Math.round(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}`} />
+    ))}
+  </div>
+);
 
 export default function ProductCard({ product, index = 0 }) {
   const [hovered, setHovered] = useState(false);
@@ -21,7 +29,7 @@ export default function ProductCard({ product, index = 0 }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="relative overflow-hidden bg-card mb-3" style={{ aspectRatio: '4/5' }}>
+        <div className="relative overflow-hidden bg-card mb-3" style={{ aspectRatio: '4/5', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
           <img
             src={product.image_url}
             alt={product.title}
@@ -38,12 +46,12 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
 
           {/* Quick info overlay */}
-          <div className={`absolute bottom-0 left-0 right-0 p-4 transition-all duration-500 ${
+          <div className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-500 ${
             hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            <div className="bg-background/90 backdrop-blur-sm border border-border p-3 text-center">
-              <span className="text-primary font-mono text-xs tracking-widest uppercase">
-                View Details
+            <div className="p-3 text-center" style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)' }}>
+              <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
+                Shop Now →
               </span>
             </div>
           </div>
@@ -55,9 +63,14 @@ export default function ProductCard({ product, index = 0 }) {
             </div>
           )}
 
-          {/* Featured badge */}
-          {product.featured && (
-            <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 text-xs font-mono tracking-wider">
+          {/* Top rated badge */}
+          {product.rating >= 4.8 && (
+            <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 text-xs font-mono font-bold tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #1B5060)', border: '1px solid rgba(200,164,77,0.5)', color: '#C8A44D' }}>
+              <Flame className="w-3 h-3" /> HOT
+            </div>
+          )}
+          {product.featured && !product.rating >= 4.8 && (
+            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-mono tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
               BEST SELLER
             </div>
           )}
@@ -70,20 +83,20 @@ export default function ProductCard({ product, index = 0 }) {
           </h3>
 
           {product.rating > 0 && (
-            <div className="flex items-center gap-1 mb-2">
-              <Star className="w-3 h-3 fill-primary text-primary" />
-              <span className="text-xs font-mono" style={{ color: 'rgba(200,164,77,0.8)' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <StarRow rating={product.rating} />
+              <span className="text-xs font-mono font-bold" style={{ color: '#C8A44D' }}>
                 {product.rating?.toFixed(1)}
               </span>
               {product.review_count > 0 && (
-                <span className="text-xs font-mono text-gray-500">({product.review_count})</span>
+                <span className="text-xs font-mono text-gray-500">({product.review_count} reviews)</span>
               )}
             </div>
           )}
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-white font-mono font-bold text-sm">
+              <span className="font-mono font-bold text-base" style={{ color: '#C8A44D' }}>
                 ${product.price?.toFixed(2)}
               </span>
               {product.compare_at_price > product.price && (

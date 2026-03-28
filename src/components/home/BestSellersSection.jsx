@@ -9,7 +9,10 @@ import ProductGrid from '../products/ProductGrid';
 export default function BestSellersSection() {
   const { data: products, isLoading } = useQuery({
     queryKey: ['best-sellers-home'],
-    queryFn: () => base44.entities.Product.filter({ featured: true }, '-created_date', 8),
+    queryFn: async () => {
+      const items = await base44.entities.Product.filter({ featured: true }, '-rating', 8);
+      return items.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    },
     initialData: [],
   });
 
@@ -23,8 +26,9 @@ export default function BestSellersSection() {
               <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
-              Top Picks
+              Best Sellers
             </h2>
+            <p className="text-gray-400 text-sm mt-1 font-mono">Highest rated · Most loved · Ships fast</p>
           </div>
           <Link
             to={createPageUrl('BestSellers')}
