@@ -14,9 +14,9 @@ export default function BestSellersSection() {
   });
 
   return (
-    <section className="py-24 px-6 bg-secondary/20">
+    <section className="py-12 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-8">
           <div>
             <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest" style={{ color: '#E8DFAF' }}>
               TOP PICKS

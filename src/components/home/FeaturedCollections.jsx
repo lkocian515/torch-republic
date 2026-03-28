@@ -45,9 +45,9 @@ const COLLECTIONS = [
 
 export default function FeaturedCollections() {
   return (
-    <section className="pt-16 pb-24 px-6">
+    <section className="pt-10 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-8">
           <div>
             <h2 className="text-xl sm:text-2xl font-heading font-black uppercase tracking-widest" style={{ color: '#E8DFAF' }}>
               Shop Collections
