@@ -1,0 +1,32 @@
+{
+  "name": "Review",
+  "type": "object",
+  "properties": {
+    "reviewer_name": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "product_handle": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "body",
+    "rating",
+    "reviewer_name"
+  ]
+}

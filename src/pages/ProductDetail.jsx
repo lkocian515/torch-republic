@@ -8,6 +8,7 @@ import { Star, ArrowLeft, Minus, Plus, ShoppingCart, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
+import ReviewsSection from '../components/reviews/ReviewsSection';
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -239,6 +240,11 @@ export default function ProductDetail() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Reviews */}
+        <div className="max-w-7xl mx-auto px-0">
+          <ReviewsSection productHandle={product?.collection} />
         </div>
 
         {/* Related Products */}
