@@ -2,6 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
 
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay },
+});
+
 export default function FounderSection() {
   return (
     <>
@@ -14,9 +21,7 @@ export default function FounderSection() {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...fadeUp(0)}
             className="text-center mb-14"
           >
             <p className="font-mono text-xs tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.6)' }}>
@@ -30,9 +35,9 @@ export default function FounderSection() {
             </h2>
             {/* Gold divider */}
             <div className="flex items-center justify-center gap-4 mt-6">
-              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.5))' }} />
-              <Flame className="w-4 h-4 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.7)' }} />
-              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.5), transparent)' }} />
+              <div className="h-px w-24" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.5))' }} />
+              <Flame className="w-4 h-4 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.8)' }} />
+              <div className="h-px w-24" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.5), transparent)' }} />
             </div>
           </motion.div>
 
@@ -41,27 +46,24 @@ export default function FounderSection() {
 
             {/* Left: Text */}
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              {...fadeUp(0.1)}
               className="flex-1 space-y-5"
             >
-              <p className="text-base leading-[1.85]" style={{ color: '#EAEAEA' }}>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
                 Torch Republic began as a small Etsy shop during the COVID era—created during a time when the world felt uncertain and the meaning of freedom felt more personal than ever. What started as a creative outlet quickly became something more intentional.
               </p>
-              <p className="text-base leading-[1.85]" style={{ color: '#EAEAEA' }}>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
                 As conversations around rights, responsibility, and individual thought became more prominent, so did the purpose behind the brand. Built on a deep respect for the Constitution and the principles it represents, Torch Republic was officially established as an LLC in 2025—marking its transition from a small independent shop into a structured, mission-driven company.
               </p>
-              <p className="text-base leading-[1.85]" style={{ color: '#EAEAEA' }}>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
                 Every piece created reflects that foundation: thoughtful, deliberate, and grounded in the belief that what you stand for should be reflected in what you wear.
               </p>
-              <p className="text-base leading-[1.85]" style={{ color: '#CCCCCC' }}>
+              <p className="text-base leading-[1.9]" style={{ color: 'rgba(255,255,255,0.55)' }}>
                 Behind the brand is a founder committed to building something lasting—not just a store, but a standard. One rooted in clarity, independence, and quiet confidence.
               </p>
               <p
-                className="text-base font-serif tracking-widest uppercase pt-2"
-                style={{ color: '#C9A24A', letterSpacing: '0.2em' }}
+                className="text-sm font-mono tracking-[0.3em] uppercase pt-2"
+                style={{ color: '#C9A24A' }}
               >
                 Carry the flame.
               </p>
@@ -69,10 +71,7 @@ export default function FounderSection() {
 
             {/* Right: Founder Image */}
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              {...fadeUp(0.2)}
               className="flex-shrink-0 flex flex-col items-center md:items-start"
             >
               <div
@@ -80,7 +79,7 @@ export default function FounderSection() {
                 style={{
                   width: '220px',
                   borderRadius: '4px',
-                  boxShadow: '0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,162,74,0.18)',
+                  boxShadow: '0 16px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,162,74,0.2)',
                 }}
               >
                 <div
@@ -95,10 +94,7 @@ export default function FounderSection() {
                   src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bcb486ec5_ghgyugf.png"
                   alt="Torch Republic Founder"
                   className="w-full block"
-                  style={{
-                    filter: 'grayscale(100%) contrast(0.88) brightness(0.95)',
-                    display: 'block',
-                  }}
+                  style={{ filter: 'grayscale(100%) contrast(0.88) brightness(0.95)' }}
                 />
               </div>
             </motion.div>
