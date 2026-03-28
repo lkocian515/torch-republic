@@ -72,7 +72,6 @@ export default function HeroSection() {
             Premium Patriot Gear.<br />
             <span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
           </motion.h1>
-
           {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -121,6 +120,25 @@ export default function HeroSection() {
             ))}
           </motion.div>
         </div>
+      </div>
+
+      {/* Shirt text overlay */}
+      <div
+        className="absolute hidden md:flex flex-col items-center justify-center pointer-events-none"
+        style={{
+          right: '14%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          opacity: 0.55,
+          mixBlendMode: 'overlay',
+        }}
+      >
+        <span
+          className="block font-heading font-black uppercase tracking-[0.35em] text-white"
+          style={{ fontSize: '13px', letterSpacing: '0.5em', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
+        >
+          GOD · FAMILY · COUNTRY
+        </span>
       </div>
 
       {/* Scroll hint */}
