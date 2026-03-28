@@ -25,6 +25,8 @@ const CATEGORIES_MAP = {
   'candles': 'Candles',
   'magnets': 'Car Magnets',
   'jewelry': 'Jewelry',
+  'mugs-tumblers': 'Mugs & Tumblers',
+  'flags': 'Flags',
   'accessories': 'Accessories',
   'home-decor': 'Home Decor',
 };

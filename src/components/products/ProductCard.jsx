@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { Star, Flame, Zap } from 'lucide-react';
+import { Star, Flame } from 'lucide-react';
+
+const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80';
 
 const StarRow = ({ rating }) => (
   <div className="flex items-center gap-0.5">
@@ -14,6 +16,9 @@ const StarRow = ({ rating }) => (
 
 export default function ProductCard({ product, index = 0 }) {
   const [hovered, setHovered] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
+  const imageSrc = imgError || !product.image_url ? FALLBACK_IMAGE : product.image_url;
 
   return (
     <motion.div
@@ -31,7 +36,8 @@ export default function ProductCard({ product, index = 0 }) {
         {/* Image */}
         <div className="relative overflow-hidden bg-card mb-3" style={{ aspectRatio: '4/5', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
           <img
-            src={product.image_url}
+            src={imageSrc}
+            onError={() => setImgError(true)}
             alt={product.title}
             className={`w-full h-full object-cover transition-all duration-700 ${
               hovered ? 'scale-105' : 'scale-100'
@@ -69,7 +75,7 @@ export default function ProductCard({ product, index = 0 }) {
               <Flame className="w-3 h-3" /> HOT
             </div>
           )}
-          {product.featured && !product.rating >= 4.8 && (
+          {product.featured && product.rating < 4.8 && (
             <div className="absolute top-3 left-3 px-2 py-1 text-xs font-mono tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
               BEST SELLER
             </div>

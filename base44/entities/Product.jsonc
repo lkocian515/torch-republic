@@ -1,0 +1,90 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "price": {
+      "type": "number",
+      "description": "Product price in USD"
+    },
+    "compare_at_price": {
+      "type": "number",
+      "description": "Original price before discount"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Main product image URL"
+    },
+    "image_url_2": {
+      "type": "string",
+      "description": "Secondary product image URL"
+    },
+    "collection": {
+      "type": "string",
+      "enum": [
+        "best-sellers",
+        "liberty-flame",
+        "patriotic-pride",
+        "freedom-isnt-free",
+        "we-the-people",
+        "faith-over-fear",
+        "christ-is-king",
+        "god-family-country",
+        "american-heroes",
+        "founders"
+      ],
+      "description": "Which collection this product belongs to"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "t-shirts",
+        "hats",
+        "candles",
+        "magnets",
+        "jewelry",
+        "mugs-tumblers",
+        "flags",
+        "accessories",
+        "home-decor"
+      ],
+      "description": "Product category"
+    },
+    "sizes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Available sizes"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Average rating"
+    },
+    "review_count": {
+      "type": "number",
+      "description": "Number of reviews"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a featured product"
+    },
+    "in_stock": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the product is in stock"
+    }
+  },
+  "required": [
+    "title",
+    "price"
+  ]
+}
