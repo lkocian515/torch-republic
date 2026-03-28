@@ -336,7 +336,7 @@ export default function SpinWheelPopup() {
                         boxShadow: `0 4px 30px rgba(212,175,90,0.4)`,
                       }}
                     >
-                      🔥 SPIN TO WIN
+                      <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/45bacf9c2_2.png" className="inline-block w-5 h-5 mr-2 -mt-0.5" /> SPIN TO WIN
                     </motion.button>
 
                     <p className="text-center font-mono text-[9px] tracking-wider" style={{ color: '#333' }}>
