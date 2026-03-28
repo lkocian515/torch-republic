@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Flame, Gift, Zap } from 'lucide-react';
 
 const PRIZES = [
-  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1628', textColor: '#D4AF5A' }, // deep navy
-  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#1a0d00', textColor: '#D4AF5A' }, // dark amber
-  { label: '15% OFF',   code: 'TORCH15',   color: '#0f0a1e', textColor: '#D4AF5A' }, // deep indigo
-  { label: 'TRY AGAIN', code: null,        color: '#111111', textColor: '#555555' }, // near black
-  { label: '20% OFF',   code: 'TORCH20',   color: '#0d1a0d', textColor: '#D4AF5A' }, // dark forest
-  { label: '5% OFF',    code: 'TORCH5',    color: '#1a0a0a', textColor: '#D4AF5A' }, // deep crimson
-  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0e1520', textColor: '#D4AF5A' }, // midnight blue
-  { label: '12% OFF',   code: 'TORCH12',   color: '#14100a', textColor: '#D4AF5A' }, // dark walnut
+  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1628', textColor: '#F0D080' },
+  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#1a0d00', textColor: '#F0D080' },
+  { label: '15% OFF',   code: 'TORCH15',   color: '#0f0a1e', textColor: '#F0D080' },
+  { label: 'TRY AGAIN', code: null,        color: '#111111', textColor: '#555555' },
+  { label: '20% OFF',   code: 'TORCH20',   color: '#0d1a0d', textColor: '#F0D080' },
+  { label: '5% OFF',    code: 'TORCH5',    color: '#1a0a0a', textColor: '#F0D080' },
+  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0e1520', textColor: '#F0D080' },
+  { label: '12% OFF',   code: 'TORCH12',   color: '#14100a', textColor: '#F0D080' },
 ];
 
 const NUM = PRIZES.length;
@@ -18,21 +18,27 @@ const SLICE = 360 / NUM;
 const GOLD = '#D4AF5A';
 const GOLD_LIGHT = '#F0D080';
 
+const PERKS = [
+  { icon: Gift, text: 'Exclusive discount codes' },
+  { icon: Zap, text: 'Up to 20% OFF your order' },
+  { icon: Flame, text: 'Free gifts up for grabs' },
+];
+
 function Wheel({ rotation }) {
-  const size = 260;
+  const size = 280;
   const cx = size / 2;
-  const r = size / 2 - 6;
+  const r = size / 2 - 8;
 
   return (
     <svg
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
-      style={{ transform: `rotate(${rotation}deg)`, transition: 'none', filter: 'drop-shadow(0 0 18px rgba(212,175,90,0.25))' }}
+      style={{ transform: `rotate(${rotation}deg)`, transition: 'none' }}
     >
-      {/* Outer decorative ring */}
-      <circle cx={cx} cy={cx} r={r + 5} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.4" />
-      <circle cx={cx} cy={cx} r={r + 2} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.6" />
+      {/* Glow ring */}
+      <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.2" />
+      <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" opacity="0.5" />
 
       {PRIZES.map((prize, i) => {
         const startAngle = (i * SLICE - 90) * (Math.PI / 180);
@@ -53,9 +59,20 @@ function Wheel({ rotation }) {
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
               fill={prize.color}
               stroke={GOLD}
-              strokeWidth="0.8"
-              opacity="0.95"
+              strokeWidth="1"
             />
+            {/* Subtle radial highlight on each slice */}
+            <path
+              d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
+              fill={`url(#sliceGlow${i})`}
+              opacity="0.15"
+            />
+            <defs>
+              <radialGradient id={`sliceGlow${i}`} cx="30%" cy="30%">
+                <stop offset="0%" stopColor={GOLD_LIGHT} />
+                <stop offset="100%" stopColor="transparent" />
+              </radialGradient>
+            </defs>
             <text
               x={tx} y={ty}
               textAnchor="middle"
@@ -74,21 +91,45 @@ function Wheel({ rotation }) {
       })}
 
       {/* Center hub with logo */}
-      <circle cx={cx} cy={cx} r={24} fill="#050505" stroke={GOLD} strokeWidth="1.5" />
-      <circle cx={cx} cy={cx} r={18} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
+      <circle cx={cx} cy={cx} r={28} fill="#050505" stroke={GOLD} strokeWidth="2" />
+      <circle cx={cx} cy={cx} r={22} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
       <image
         href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
-        x={cx - 16} y={cx - 16}
-        width="32" height="32"
+        x={cx - 18} y={cx - 18}
+        width="36" height="36"
         clipPath="url(#hubClip)"
         preserveAspectRatio="xMidYMid meet"
       />
       <defs>
         <clipPath id="hubClip">
-          <circle cx={cx} cy={cx} r={20} />
+          <circle cx={cx} cy={cx} r={22} />
         </clipPath>
       </defs>
     </svg>
+  );
+}
+
+// Glowing dot decorations
+function GlowDots() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            width: Math.random() * 3 + 2,
+            height: Math.random() * 3 + 2,
+            background: GOLD_LIGHT,
+            left: `${10 + i * 15}%`,
+            top: `${15 + (i % 3) * 25}%`,
+            boxShadow: `0 0 8px ${GOLD}`,
+          }}
+          animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
+          transition={{ duration: 2 + i * 0.5, repeat: Infinity, delay: i * 0.3 }}
+        />
+      ))}
+    </div>
   );
 }
 
@@ -100,6 +141,7 @@ export default function SpinWheelPopup() {
   const [rotation, setRotation] = useState(0);
   const [prize, setPrize] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [focused, setFocused] = useState(false);
   const animRef = useRef(null);
 
   useEffect(() => {
@@ -123,7 +165,7 @@ export default function SpinWheelPopup() {
     setStep('spinning');
 
     let start = null;
-    const duration = 4500;
+    const duration = 5000;
     const startRot = rotation % 360;
     const endRot = startRot + targetAngle;
 
@@ -131,7 +173,7 @@ export default function SpinWheelPopup() {
       if (!start) start = ts;
       const elapsed = ts - start;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased = 1 - Math.pow(1 - progress, 4);
       setRotation(startRot + (endRot - startRot) * eased);
       if (progress < 1) {
         animRef.current = requestAnimationFrame(animate);
@@ -158,164 +200,236 @@ export default function SpinWheelPopup() {
     <AnimatePresence>
       {visible && (
         <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100]"
-            style={{ backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)' }}
+            style={{ backgroundColor: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(6px)' }}
             onClick={dismiss}
           />
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            initial={{ opacity: 0, scale: 0.85, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            transition={{ type: 'spring', damping: 22, stiffness: 180 }}
+            exit={{ opacity: 0, scale: 0.85, y: 40 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 160 }}
             className="fixed inset-0 z-[101] flex items-center justify-center px-4 pointer-events-none"
           >
             <div
-              className="relative w-full max-w-[360px] pointer-events-auto overflow-hidden"
+              className="relative w-full max-w-[380px] pointer-events-auto overflow-hidden"
               style={{
-                backgroundColor: '#080808',
-                border: '1px solid rgba(212,175,90,0.35)',
-                boxShadow: '0 0 60px rgba(212,175,90,0.12), 0 30px 80px rgba(0,0,0,0.8)',
+                backgroundColor: '#070707',
+                border: '1px solid rgba(212,175,90,0.4)',
+                boxShadow: `0 0 0 1px rgba(212,175,90,0.08), 0 0 80px rgba(212,175,90,0.15), 0 40px 100px rgba(0,0,0,0.9)`,
               }}
             >
-              {/* Top gold line */}
-              <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
+              <GlowDots />
+
+              {/* Top accent line */}
+              <div style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }} />
 
               {/* Close */}
               <button
                 onClick={dismiss}
-                className="absolute top-4 right-4 z-10 opacity-40 hover:opacity-100 transition-opacity"
-                style={{ color: GOLD }}
+                className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-40"
+                style={{ border: '1px solid rgba(212,175,90,0.3)', color: GOLD }}
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
 
               {/* Header */}
-              <div className="text-center pt-7 px-6 pb-2">
-                <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
-                  alt="Torch Republic"
-                  className="h-10 w-auto mx-auto mb-4 opacity-90"
-                />
-                <h2
-                  className="text-2xl font-heading font-black uppercase tracking-[0.15em]"
-                  style={{ color: '#FFFFFF' }}
+              <div className="text-center pt-6 px-6 pb-0 relative z-10">
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-full"
+                  style={{ backgroundColor: 'rgba(212,175,90,0.1)', border: '1px solid rgba(212,175,90,0.25)' }}
                 >
-                  Spin to Win
+                  <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase" style={{ color: GOLD }}>
+                    🎯 Limited Time Offer
+                  </span>
+                </motion.div>
+
+                <h2 className="text-3xl font-heading font-black uppercase leading-tight tracking-tight text-white">
+                  Spin &<br />
+                  <span style={{ color: GOLD_LIGHT }}>Win Big</span>
                 </h2>
-                <p className="font-mono text-xs tracking-[0.25em] uppercase mt-1" style={{ color: GOLD }}>
-                  Exclusive Discounts Await
+                <p className="font-mono text-xs tracking-wider mt-1.5 mb-3" style={{ color: 'rgba(212,175,90,0.6)' }}>
+                  Enter your email. One spin. Real rewards.
                 </p>
+
+                {/* Perks row */}
+                <div className="flex justify-center gap-4 mb-3">
+                  {PERKS.map(({ icon: Icon, text }, i) => (
+                    <div key={i} className="flex flex-col items-center gap-1">
+                      <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,90,0.1)', border: '1px solid rgba(212,175,90,0.2)' }}>
+                        <Icon className="w-3.5 h-3.5" style={{ color: GOLD }} />
+                      </div>
+                      <span className="text-[9px] font-mono tracking-wider text-center" style={{ color: 'rgba(255,255,255,0.4)', maxWidth: 60 }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Wheel */}
-              <div className="flex justify-center pt-4 pb-2 relative">
-                {/* Pointer arrow */}
-                <div className="absolute top-2 left-1/2 z-10" style={{ transform: 'translateX(-50%)' }}>
-                  <div
-                    className="w-0 h-0 border-l-[9px] border-r-[9px] border-t-[16px] border-l-transparent border-r-transparent"
-                    style={{ borderTopColor: GOLD_LIGHT }}
-                  />
+              <div className="flex justify-center pt-2 pb-1 relative z-10">
+                {/* Pointer */}
+                <div className="absolute top-0 left-1/2 z-20" style={{ transform: 'translateX(-50%)' }}>
+                  <motion.div
+                    animate={step === 'spinning' ? { scale: [1, 1.2, 1] } : {}}
+                    transition={{ duration: 0.3, repeat: Infinity }}
+                  >
+                    <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-t-[18px] border-l-transparent border-r-transparent"
+                      style={{ borderTopColor: GOLD_LIGHT, filter: `drop-shadow(0 2px 6px ${GOLD})` }} />
+                  </motion.div>
                 </div>
-                <Wheel rotation={rotation} />
+
+                {/* Wheel glow backdrop */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-64 h-64 rounded-full" style={{ background: `radial-gradient(circle, rgba(212,175,90,0.08) 0%, transparent 70%)` }} />
+                </div>
+
+                <motion.div
+                  animate={step === 'email' ? { rotate: [0, 1, -1, 0] } : {}}
+                  transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }}
+                >
+                  <Wheel rotation={rotation} />
+                </motion.div>
               </div>
 
-              {/* Thin gold divider */}
-              <div className="mx-6 mb-5" style={{ height: '1px', background: 'rgba(212,175,90,0.15)' }} />
+              {/* Divider */}
+              <div className="mx-5 mb-4" style={{ height: '1px', background: 'rgba(212,175,90,0.12)' }} />
 
-              {/* Content */}
-              <div className="px-6 pb-7">
+              {/* Form / Result */}
+              <div className="px-5 pb-6 relative z-10">
                 {step === 'email' && (
                   <form onSubmit={handleSpin} className="space-y-3">
-                    <input
-                      type="email"
-                      required
-                      placeholder="Your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 text-sm font-mono focus:outline-none placeholder:text-gray-600"
-                      style={{
-                        backgroundColor: '#111',
-                        border: '1px solid rgba(212,175,90,0.2)',
-                        color: '#fff',
-                      }}
-                    />
-                    <button
+                    <div className="relative">
+                      <input
+                        type="email"
+                        required
+                        placeholder="Enter your email to spin"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onFocus={() => setFocused(true)}
+                        onBlur={() => setFocused(false)}
+                        className="w-full px-4 py-3.5 text-sm font-mono focus:outline-none placeholder:text-gray-600 transition-all"
+                        style={{
+                          backgroundColor: '#111',
+                          border: `1px solid ${focused ? GOLD : 'rgba(212,175,90,0.2)'}`,
+                          color: '#fff',
+                          boxShadow: focused ? `0 0 20px rgba(212,175,90,0.15)` : 'none',
+                        }}
+                      />
+                    </div>
+
+                    <motion.button
                       type="submit"
-                      className="w-full py-3 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-opacity hover:opacity-85"
-                      style={{ background: `linear-gradient(135deg, #C8A44D, ${GOLD_LIGHT}, #C8A44D)`, color: '#000' }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-4 font-mono font-black text-sm tracking-[0.3em] uppercase relative overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, #C8A44D 0%, ${GOLD_LIGHT} 50%, #C8A44D 100%)`,
+                        color: '#000',
+                        boxShadow: `0 4px 30px rgba(212,175,90,0.4)`,
+                      }}
                     >
-                      SPIN THE WHEEL
-                    </button>
-                    <p className="text-center font-mono text-[10px] tracking-wider" style={{ color: '#444' }}>
-                      BY ENTERING YOU AGREE TO RECEIVE OFFERS. NO SPAM.
+                      🔥 SPIN TO WIN
+                    </motion.button>
+
+                    <p className="text-center font-mono text-[9px] tracking-wider" style={{ color: '#333' }}>
+                      NO PURCHASE REQUIRED · UNSUBSCRIBE ANYTIME
                     </p>
                   </form>
                 )}
 
                 {step === 'spinning' && (
-                  <p
-                    className="text-center font-mono text-xs tracking-[0.4em] uppercase py-2 animate-pulse"
-                    style={{ color: GOLD }}
-                  >
-                    Spinning...
-                  </p>
+                  <div className="text-center py-3">
+                    <motion.p
+                      animate={{ opacity: [1, 0.4, 1] }}
+                      transition={{ duration: 0.6, repeat: Infinity }}
+                      className="font-mono text-sm tracking-[0.4em] uppercase"
+                      style={{ color: GOLD }}
+                    >
+                      ✦ SPINNING ✦
+                    </motion.p>
+                  </div>
                 )}
 
                 {step === 'result' && prize && (
-                  <div className="text-center space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center space-y-3"
+                  >
                     {prize.code ? (
                       <>
                         <div>
-                          <p className="font-mono text-xs tracking-[0.3em] uppercase mb-1" style={{ color: GOLD }}>
-                            Congratulations
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: 'spring', damping: 10 }}
+                            className="text-4xl mb-2"
+                          >
+                            🎉
+                          </motion.div>
+                          <p className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: GOLD }}>
+                            You Won
                           </p>
-                          <p className="text-white font-heading font-black text-2xl uppercase tracking-tight">
-                            You Won {prize.label}
+                          <p className="text-white font-heading font-black text-3xl uppercase tracking-tight">
+                            {prize.label}
                           </p>
                         </div>
-                        <div
-                          className="py-4 px-4 cursor-pointer transition-opacity hover:opacity-80"
-                          style={{ border: '1px dashed rgba(212,175,90,0.5)', backgroundColor: '#0f0f0f' }}
+
+                        <motion.div
+                          whileHover={{ scale: 1.02 }}
+                          className="py-4 px-4 cursor-pointer"
+                          style={{ border: '1px dashed rgba(212,175,90,0.5)', backgroundColor: '#0f0f0f', boxShadow: 'inset 0 0 20px rgba(212,175,90,0.05)' }}
                           onClick={copyCode}
                         >
-                          <p className="font-mono font-bold text-xl tracking-[0.3em]" style={{ color: GOLD_LIGHT }}>
+                          <p className="font-mono font-black text-2xl tracking-[0.4em]" style={{ color: GOLD_LIGHT }}>
                             {prize.code}
                           </p>
-                          <p className="font-mono text-[10px] tracking-wider mt-1" style={{ color: '#555' }}>
-                            {copied ? '✓ COPIED TO CLIPBOARD' : 'CLICK TO COPY CODE'}
+                          <p className="font-mono text-[10px] tracking-wider mt-1.5" style={{ color: copied ? '#4ade80' : '#555' }}>
+                            {copied ? '✓ COPIED!' : 'TAP TO COPY'}
                           </p>
-                        </div>
-                        <button
+                        </motion.div>
+
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
                           onClick={dismiss}
-                          className="w-full py-3 font-mono font-bold text-sm tracking-[0.25em] uppercase hover:opacity-85 transition-opacity"
-                          style={{ background: `linear-gradient(135deg, #C8A44D, ${GOLD_LIGHT}, #C8A44D)`, color: '#000' }}
+                          className="w-full py-4 font-mono font-black text-sm tracking-[0.3em] uppercase"
+                          style={{
+                            background: `linear-gradient(135deg, #C8A44D 0%, ${GOLD_LIGHT} 50%, #C8A44D 100%)`,
+                            color: '#000',
+                            boxShadow: `0 4px 30px rgba(212,175,90,0.4)`,
+                          }}
                         >
                           SHOP NOW →
-                        </button>
+                        </motion.button>
                       </>
                     ) : (
                       <>
-                        <p className="text-white font-heading font-black text-xl uppercase">Better Luck Next Time</p>
+                        <p className="text-3xl">😤</p>
+                        <p className="text-white font-heading font-black text-xl uppercase">Better Luck Next Time!</p>
                         <button
                           onClick={dismiss}
-                          className="w-full py-3 font-mono font-bold text-sm tracking-[0.25em] uppercase hover:opacity-85 transition-opacity"
+                          className="w-full py-3 font-mono font-bold text-sm tracking-[0.25em] uppercase"
                           style={{ background: `linear-gradient(135deg, #C8A44D, ${GOLD_LIGHT}, #C8A44D)`, color: '#000' }}
                         >
                           SHOP ANYWAY →
                         </button>
                       </>
                     )}
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
-              {/* Bottom gold line */}
-              <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
+              {/* Bottom accent */}
+              <div style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }} />
             </div>
           </motion.div>
         </>
