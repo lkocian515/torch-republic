@@ -66,22 +66,7 @@ export default function Mission() {
         
         <div className="relative z-10 max-w-7xl w-full">
           <div className="max-w-2xl">
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-12"
-            >
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
-                alt="Torch Republic"
-                className="h-16 w-auto mb-4"
-              />
-              <p className="text-xs tracking-[0.3em] uppercase" style={{ color: '#C9A24A' }}>
-                Faith. Freedom. Truth.
-              </p>
-            </motion.div>
+
 
             {/* Main Headline */}
             <motion.h1
