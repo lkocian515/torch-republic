@@ -39,6 +39,14 @@ export function CartProvider({ children }) {
     }
   }, [cart]);
 
+  const getCheckoutUrl = useCallback((checkoutUrl) => {
+    if (!checkoutUrl) return null;
+    // Fix the hostname from torchrepublic.com to libertees-for-all.myshopify.com
+    let fixed = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+    fixed = fixed.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+    return fixed;
+  }, []);
+
   const removeFromCart = useCallback(async (lineId) => {
     if (!cart?.id) return;
     setIsLoading(true);
@@ -87,6 +95,7 @@ export function CartProvider({ children }) {
       addToCart,
       removeFromCart,
       updateQuantity,
+      getCheckoutUrl,
     }}>
       {children}
     </CartContext.Provider>

@@ -4,7 +4,7 @@ import { X, Minus, Plus, ShoppingBag, ExternalLink, ShieldCheck, RotateCcw, Truc
 import { useCart } from '@/lib/CartContext';
 
 export default function CartDrawer() {
-  const { cart, isOpen, setIsOpen, isLoading, removeFromCart, updateQuantity } = useCart();
+  const { cart, isOpen, setIsOpen, isLoading, removeFromCart, updateQuantity, getCheckoutUrl } = useCart();
 
   return (
     <AnimatePresence>
@@ -152,9 +152,9 @@ export default function CartDrawer() {
                 <button
                   onClick={() => {
                     if (cart?.checkoutUrl) {
-                      // Force external navigation by directly setting location
+                      const fixedUrl = getCheckoutUrl(cart.checkoutUrl);
                       setTimeout(() => {
-                        window.location.href = cart.checkoutUrl;
+                        window.location.href = fixedUrl;
                       }, 0);
                     } else {
                       alert('Unable to load checkout. Please try again.');
