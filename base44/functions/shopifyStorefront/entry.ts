@@ -204,20 +204,23 @@ const UPDATE_CART = `
 `;
 
 function formatCart(cart) {
-  if (!cart || !cart.checkoutUrl) return cart;
+  if (!cart) return null;
   try {
-    let checkoutUrl = cart.checkoutUrl;
+    let checkoutUrl = cart.checkoutUrl || '';
     // Replace all domain variations
-    checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-    checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-    checkoutUrl = checkoutUrl.replace('https://www.libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
-    checkoutUrl = checkoutUrl.replace('https://libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
-    
-    // Final safeguard: if still wrong domain, force rebuild
-    if (!checkoutUrl.includes('libertees-for-all.myshopify.com') && checkoutUrl.includes('/cart')) {
-      const cartPath = checkoutUrl.substring(checkoutUrl.indexOf('/cart'));
-      checkoutUrl = 'https://libertees-for-all.myshopify.com' + cartPath;
+    if (checkoutUrl) {
+      checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+      checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+      checkoutUrl = checkoutUrl.replace('https://www.libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
+      checkoutUrl = checkoutUrl.replace('https://libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
+      
+      // Final safeguard: if still wrong domain, force rebuild
+      if (!checkoutUrl.includes('libertees-for-all.myshopify.com') && checkoutUrl.includes('/cart')) {
+        const cartPath = checkoutUrl.substring(checkoutUrl.indexOf('/cart'));
+        checkoutUrl = 'https://libertees-for-all.myshopify.com' + cartPath;
+      }
     }
+    return { ...cart, checkoutUrl };
   } catch (e) {
     console.error('formatCart error:', e.message, 'Cart:', JSON.stringify(cart).substring(0, 300));
     throw e;
