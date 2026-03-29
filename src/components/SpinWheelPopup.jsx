@@ -36,7 +36,6 @@ function Wheel({ rotation }) {
       viewBox={`0 0 ${size} ${size}`}
       style={{ transform: `rotate(${rotation}deg)`, transition: 'none' }}
     >
-      {/* Glow ring */}
       <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.2" />
       <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" opacity="0.5" />
 
@@ -61,7 +60,6 @@ function Wheel({ rotation }) {
               stroke={GOLD}
               strokeWidth="1"
             />
-            {/* Subtle radial highlight on each slice */}
             <path
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
               fill={`url(#sliceGlow${i})`}
@@ -90,7 +88,6 @@ function Wheel({ rotation }) {
         );
       })}
 
-      {/* Center hub with logo */}
       <circle cx={cx} cy={cx} r={28} fill="#050505" stroke={GOLD} strokeWidth="2" />
       <circle cx={cx} cy={cx} r={22} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
       <image
@@ -109,7 +106,6 @@ function Wheel({ rotation }) {
   );
 }
 
-// Glowing dot decorations
 function GlowDots() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -145,8 +141,14 @@ export default function SpinWheelPopup() {
   const animRef = useRef(null);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem('spinWheelSeen');
-    if (seen) return;
+    // Never show again if they've already submitted their email
+    if (localStorage.getItem('spinWheelEmail')) return;
+    // Don't show if dismissed within the last 3 days
+    const dismissedAt = localStorage.getItem('spinWheelDismissedAt');
+    if (dismissedAt) {
+      const daysSince = (Date.now() - parseInt(dismissedAt)) / (1000 * 60 * 60 * 24);
+      if (daysSince < 3) return;
+    }
     const timer = setTimeout(() => setVisible(true), 3500);
     return () => clearTimeout(timer);
   }, []);
@@ -154,12 +156,18 @@ export default function SpinWheelPopup() {
   const dismiss = () => {
     setVisible(false);
     setDismissed(true);
-    sessionStorage.setItem('spinWheelSeen', '1');
+    // Only set dismissed timestamp if they haven't submitted their email
+    if (!localStorage.getItem('spinWheelEmail')) {
+      localStorage.setItem('spinWheelDismissedAt', Date.now().toString());
+    }
   };
 
   const handleSpin = (e) => {
     e.preventDefault();
     if (!email) return;
+    // Save email so popup never shows again
+    localStorage.setItem('spinWheelEmail', email);
+
     const prizeIdx = Math.floor(Math.random() * NUM);
     const targetAngle = 360 * 8 + (360 - prizeIdx * SLICE - SLICE / 2);
     setStep('spinning');
@@ -200,7 +208,6 @@ export default function SpinWheelPopup() {
     <AnimatePresence>
       {visible && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -227,10 +234,8 @@ export default function SpinWheelPopup() {
             >
               <GlowDots />
 
-              {/* Top accent line */}
               <div style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }} />
 
-              {/* Close */}
               <button
                 onClick={dismiss}
                 className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-40"
@@ -239,7 +244,6 @@ export default function SpinWheelPopup() {
                 <X className="w-3.5 h-3.5" />
               </button>
 
-              {/* Header */}
               <div className="text-center pt-6 px-6 pb-0 relative z-10">
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
@@ -260,7 +264,6 @@ export default function SpinWheelPopup() {
                   Enter your email. One spin. Real rewards.
                 </p>
 
-                {/* Perks row */}
                 <div className="flex justify-center gap-4 mb-3">
                   {PERKS.map(({ icon: Icon, text }, i) => (
                     <div key={i} className="flex flex-col items-center gap-1">
@@ -273,9 +276,7 @@ export default function SpinWheelPopup() {
                 </div>
               </div>
 
-              {/* Wheel */}
               <div className="flex justify-center pt-2 pb-1 relative z-10">
-                {/* Pointer */}
                 <div className="absolute top-0 left-1/2 z-20" style={{ transform: 'translateX(-50%)' }}>
                   <motion.div
                     animate={step === 'spinning' ? { scale: [1, 1.2, 1] } : {}}
@@ -286,7 +287,6 @@ export default function SpinWheelPopup() {
                   </motion.div>
                 </div>
 
-                {/* Wheel glow backdrop */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-64 h-64 rounded-full" style={{ background: `radial-gradient(circle, rgba(212,175,90,0.08) 0%, transparent 70%)` }} />
                 </div>
@@ -299,10 +299,8 @@ export default function SpinWheelPopup() {
                 </motion.div>
               </div>
 
-              {/* Divider */}
               <div className="mx-5 mb-4" style={{ height: '1px', background: 'rgba(212,175,90,0.12)' }} />
 
-              {/* Form / Result */}
               <div className="px-5 pb-6 relative z-10">
                 {step === 'email' && (
                   <form onSubmit={handleSpin} className="space-y-3">
@@ -428,7 +426,6 @@ export default function SpinWheelPopup() {
                 )}
               </div>
 
-              {/* Bottom accent */}
               <div style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }} />
             </div>
           </motion.div>
