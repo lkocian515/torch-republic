@@ -11,7 +11,7 @@ export default function OnSale() {
     initialData: [],
     select: (data) =>
       data
-        .filter(p => p.price < 10 && p.in_stock)
+        .filter(p => p.on_sale)
         .sort((a, b) => (a.price || 0) - (b.price || 0)),
   });
 

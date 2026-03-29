@@ -3,6 +3,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 // Maps Shopify collection handle → app collection enum value
 const COLLECTION_MAP = {
   'best-sellers': 'best-sellers',
+  'on-sale': 'on-sale',
   'liberty-flame-collection': 'liberty-flame',
   'patriot-pride': 'patriotic-pride',
   'freedom-collection': 'freedom-isnt-free',
@@ -35,6 +36,7 @@ const CATEGORY_MAP = {
 
 const SHOPIFY_BASE = 'https://libertees-for-all.myshopify.com';
 const BEST_SELLERS_HANDLE = 'best-sellers';
+const ON_SALE_HANDLE = 'on-sale';
 
 async function fetchCollectionProducts(handle) {
   const url = `${SHOPIFY_BASE}/collections/${handle}/products.json?limit=250`;
@@ -44,14 +46,13 @@ async function fetchCollectionProducts(handle) {
   return data.products || [];
 }
 
-function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank) {
+function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank, isOnSale) {
   const firstImage = product.images?.[0]?.src || product.variants?.[0]?.featured_image?.src || null;
   const secondImage = product.images?.[1]?.src || null;
   const firstVariant = product.variants?.[0];
   const price = firstVariant ? parseFloat(firstVariant.price) : 0;
   const comparePrice = firstVariant?.compare_at_price ? parseFloat(firstVariant.compare_at_price) : null;
 
-  // Extract sizes from variants
   const sizes = [...new Set(
     product.variants
       .filter(v => v.option1 && ['XS','S','M','L','XL','2XL','3XL','4XL','5XL'].includes(v.option1))
@@ -61,7 +62,6 @@ function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank) {
   const productType = product.product_type || '';
   let category = CATEGORY_MAP[productType] || 'accessories';
 
-  // Fallback category detection from tags
   if (category === 'accessories') {
     const tags = product.tags || [];
     if (tags.includes('hats') || tags.includes('cap')) category = 'hats';
@@ -86,6 +86,7 @@ function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank) {
     category,
     sizes: sizes.length > 0 ? sizes : [],
     featured: isBestSeller,
+    on_sale: isOnSale || false,
     best_seller_rank: bestSellerRank || null,
     in_stock: product.variants?.some(v => v.available) ?? true,
     rating: 0,
@@ -105,13 +106,17 @@ Deno.serve(async (req) => {
     const body = await req.json().catch(() => ({}));
     const dryRun = body.dry_run === true;
 
-    // Fetch best sellers first to mark featured products
+    // Fetch best sellers and on-sale collections first
     console.log('Fetching best sellers...');
     const bestSellerProducts = await fetchCollectionProducts(BEST_SELLERS_HANDLE);
-    // Map handle → rank (1-based position in the best-sellers list)
     const bestSellerRankMap = new Map(bestSellerProducts.map((p, i) => [p.handle, i + 1]));
     const bestSellerHandles = new Set(bestSellerProducts.map(p => p.handle));
     console.log(`Found ${bestSellerProducts.length} best sellers`);
+
+    console.log('Fetching on-sale products...');
+    const onSaleProducts = await fetchCollectionProducts(ON_SALE_HANDLE);
+    const onSaleHandles = new Set(onSaleProducts.map(p => p.handle));
+    console.log(`Found ${onSaleProducts.length} on-sale products`);
 
     // Fetch all themed collections
     const collectionsToSync = Object.keys(COLLECTION_MAP).filter(h => h !== 'best-sellers');
@@ -127,7 +132,7 @@ Deno.serve(async (req) => {
       for (const product of products) {
         if (!seenHandles.has(product.handle)) {
           seenHandles.add(product.handle);
-          allProducts.push(mapProduct(product, appSlug, bestSellerHandles.has(product.handle), bestSellerRankMap.get(product.handle) || null));
+          allProducts.push(mapProduct(product, appSlug, bestSellerHandles.has(product.handle), bestSellerRankMap.get(product.handle) || null, onSaleHandles.has(product.handle)));
         }
       }
     }
@@ -136,7 +141,15 @@ Deno.serve(async (req) => {
     for (const product of bestSellerProducts) {
       if (!seenHandles.has(product.handle)) {
         seenHandles.add(product.handle);
-        allProducts.push(mapProduct(product, 'best-sellers', true, bestSellerRankMap.get(product.handle) || null));
+        allProducts.push(mapProduct(product, 'best-sellers', true, bestSellerRankMap.get(product.handle) || null, onSaleHandles.has(product.handle)));
+      }
+    }
+
+    // Also add on-sale products that aren't in any other collection
+    for (const product of onSaleProducts) {
+      if (!seenHandles.has(product.handle)) {
+        seenHandles.add(product.handle);
+        allProducts.push(mapProduct(product, 'on-sale', false, null, true));
       }
     }
 
