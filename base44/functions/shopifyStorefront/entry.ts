@@ -207,8 +207,16 @@ function formatCart(cart) {
   if (!cart) return null;
   try {
     let checkoutUrl = cart.checkoutUrl || '';
-    checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-    checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+    // Aggressive domain replacement - handle all variations
+    checkoutUrl = checkoutUrl.replace(/https:\/\/(www\.)?torchrepublic\.com/g, 'https://libertees-for-all.myshopify.com');
+    checkoutUrl = checkoutUrl.replace(/https:\/\/(www\.)?libertees-for-all\.com/g, 'https://libertees-for-all.myshopify.com');
+    
+    // Final safeguard: if it somehow still contains custom domain, force rebuild
+    if (checkoutUrl.includes('torchrepublic') || !checkoutUrl.includes('libertees-for-all.myshopify.com')) {
+      const cartPath = checkoutUrl.substring(checkoutUrl.indexOf('/cart'));
+      checkoutUrl = 'https://libertees-for-all.myshopify.com' + cartPath;
+    }
+
     return {
       id: cart.id,
       checkoutUrl: checkoutUrl,
