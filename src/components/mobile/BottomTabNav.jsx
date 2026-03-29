@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, ShoppingBag, ShoppingCart, User } from 'lucide-react';
-import { useCart } from '@/lib/CartContext';
 
 export default function BottomTabNav() {
   const location = useLocation();
-  const { cart } = useCart();
   
   const tabs = [
     { path: '/', icon: Home, label: 'Home' },
     { path: '/BestSellers', icon: ShoppingBag, label: 'Shop' },
-    { path: '/cart', icon: ShoppingCart, label: 'Cart', badge: cart?.totalQuantity },
     { path: '/Profile', icon: User, label: 'Account' },
   ];
 
@@ -31,14 +28,7 @@ export default function BottomTabNav() {
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
-              <div className="relative">
-                <Icon className="w-5 h-5" />
-                {tab.badge > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-mono font-bold rounded-full w-4 h-4 flex items-center justify-center">
-                    {tab.badge}
-                  </span>
-                )}
-              </div>
+              <Icon className="w-5 h-5" />
               <span className="text-xs font-mono tracking-widest uppercase">{tab.label}</span>
             </Link>
           );
