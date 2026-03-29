@@ -13,7 +13,6 @@ import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
 import { CartProvider } from './lib/CartContext';
-import CartDrawer from './components/cart/CartDrawer';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -63,7 +62,6 @@ function App() {
         <CartProvider>
           <Router>
             <AuthenticatedApp />
-            <CartDrawer />
           </Router>
           <Toaster />
         </CartProvider>
