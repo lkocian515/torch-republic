@@ -8,6 +8,7 @@ import { Star, ArrowLeft, Minus, Plus, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
+import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
 
 export default function ProductDetail() {
@@ -81,28 +82,12 @@ export default function ProductDetail() {
       {/* Product */}
       <div className="pt-8 pb-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Image */}
+          {/* Image Carousel */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="relative"
           >
-            <div className="aspect-square bg-card overflow-hidden">
-              <img
-                src={product.image_url}
-                alt={product.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {product.image_url_2 && (
-              <div className="mt-4 aspect-square bg-card overflow-hidden">
-                <img
-                  src={product.image_url_2}
-                  alt={product.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
+            <ProductImageCarousel product={product} />
           </motion.div>
 
           {/* Details */}
