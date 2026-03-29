@@ -51,7 +51,7 @@ export default function ProductDetail() {
           action: 'getVariants',
           handle: product.shopify_handle,
         });
-        return res.data.variants;
+        return res.data.variants || [];
       } catch (err) {
         console.error('Variant fetch error:', err);
         return [];
@@ -60,6 +60,20 @@ export default function ProductDetail() {
     enabled: !!product?.shopify_handle,
     initialData: [],
   });
+
+  // Extract unique sizes from variants
+  const availableSizes = useMemo(() => {
+    if (!variantsData || variantsData.length === 0) return product?.sizes || [];
+    const sizeSet = new Set();
+    variantsData.forEach(v => {
+      v.selectedOptions?.forEach(opt => {
+        if (opt.name === 'Size' && opt.value) {
+          sizeSet.add(opt.value);
+        }
+      });
+    });
+    return sizeSet.size > 0 ? Array.from(sizeSet) : (product?.sizes || []);
+  }, [variantsData, product?.sizes]);
 
   const selectedVariant = useMemo(() => {
     if (!variantsData || variantsData.length === 0) return null;
@@ -177,7 +191,7 @@ export default function ProductDetail() {
             )}
 
             {/* Sizes */}
-            {product.sizes && product.sizes.length > 0 && (
+            {availableSizes && availableSizes.length > 0 && (
               <div className="mt-8">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-foreground font-mono text-xs tracking-wider uppercase">Size</p>
@@ -188,7 +202,7 @@ export default function ProductDetail() {
                   )}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {product.sizes.map(size => (
+                  {availableSizes.map(size => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}

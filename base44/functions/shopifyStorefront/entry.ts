@@ -240,8 +240,13 @@ Deno.serve(async (req) => {
 
     if (action === 'getVariants') {
       const data = await shopifyFetch(GET_VARIANTS, { handle: body.handle });
-      const product = data.product;
-      if (!product) return Response.json({ variants: [] });
+      const product = data?.product;
+      console.log('GET_VARIANTS handle:', body.handle);
+      console.log('Product data:', JSON.stringify(product).substring(0, 200));
+      if (!product) {
+        console.error('No product found for handle:', body.handle);
+        return Response.json({ variants: [], error: `No product found for handle: ${body.handle}` });
+      }
       const variants = product.variants.edges.map(({ node }) => ({
         id: node.id,
         title: node.title,
