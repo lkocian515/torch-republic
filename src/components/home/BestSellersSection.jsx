@@ -11,13 +11,14 @@ export default function BestSellersSection() {
     queryKey: ['best-sellers-home'],
     queryFn: async () => {
       const [featured, latest] = await Promise.all([
-        base44.entities.Product.filter({ featured: true }, '-rating', 6),
+        base44.entities.Product.filter({ featured: true }, 'best_seller_rank', 8),
         base44.entities.Product.list('-created_date', 4),
       ]);
-      // Merge: featured first, then sprinkle in latest that aren't already included
-      const featuredIds = new Set(featured.map(p => p.id));
+      // Sort featured by rank, then fill with latest non-featured
+      const sorted = [...featured].sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999));
+      const featuredIds = new Set(sorted.map(p => p.id));
       const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 2);
-      return [...featured, ...extras].slice(0, 8);
+      return [...sorted, ...extras].slice(0, 8);
     },
     initialData: [],
   });

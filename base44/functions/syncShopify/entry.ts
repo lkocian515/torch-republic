@@ -44,7 +44,7 @@ async function fetchCollectionProducts(handle) {
   return data.products || [];
 }
 
-function mapProduct(product, collectionSlug, isBestSeller) {
+function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank) {
   const firstImage = product.images?.[0]?.src || product.variants?.[0]?.featured_image?.src || null;
   const secondImage = product.images?.[1]?.src || null;
   const firstVariant = product.variants?.[0];
@@ -86,6 +86,7 @@ function mapProduct(product, collectionSlug, isBestSeller) {
     category,
     sizes: sizes.length > 0 ? sizes : [],
     featured: isBestSeller,
+    best_seller_rank: bestSellerRank || null,
     in_stock: product.variants?.some(v => v.available) ?? true,
     rating: 0,
     review_count: 0,
@@ -107,6 +108,8 @@ Deno.serve(async (req) => {
     // Fetch best sellers first to mark featured products
     console.log('Fetching best sellers...');
     const bestSellerProducts = await fetchCollectionProducts(BEST_SELLERS_HANDLE);
+    // Map handle → rank (1-based position in the best-sellers list)
+    const bestSellerRankMap = new Map(bestSellerProducts.map((p, i) => [p.handle, i + 1]));
     const bestSellerHandles = new Set(bestSellerProducts.map(p => p.handle));
     console.log(`Found ${bestSellerProducts.length} best sellers`);
 
@@ -124,7 +127,7 @@ Deno.serve(async (req) => {
       for (const product of products) {
         if (!seenHandles.has(product.handle)) {
           seenHandles.add(product.handle);
-          allProducts.push(mapProduct(product, appSlug, bestSellerHandles.has(product.handle)));
+          allProducts.push(mapProduct(product, appSlug, bestSellerHandles.has(product.handle), bestSellerRankMap.get(product.handle) || null));
         }
       }
     }
@@ -133,7 +136,7 @@ Deno.serve(async (req) => {
     for (const product of bestSellerProducts) {
       if (!seenHandles.has(product.handle)) {
         seenHandles.add(product.handle);
-        allProducts.push(mapProduct(product, 'best-sellers', true));
+        allProducts.push(mapProduct(product, 'best-sellers', true, bestSellerRankMap.get(product.handle) || null));
       }
     }
 

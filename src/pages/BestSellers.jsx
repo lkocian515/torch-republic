@@ -56,7 +56,10 @@ export default function BestSellers() {
     if (sortBy === 'price-low') return (a.price || 0) - (b.price || 0);
     if (sortBy === 'price-high') return (b.price || 0) - (a.price || 0);
     if (sortBy === 'rating') return (b.rating || 0) - (a.rating || 0);
-    // featured/default
+    // featured/default: best-seller rank first, then featured, then rest
+    const aRank = a.best_seller_rank || 9999;
+    const bRank = b.best_seller_rank || 9999;
+    if (aRank !== bRank) return aRank - bRank;
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return 0;
