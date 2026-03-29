@@ -27,7 +27,7 @@ export default function OnSale() {
             </p>
           </div>
           <h1 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tight">
-            🔥 On Sale — Under $10
+            🔥 On Sale
           </h1>
           <p className="text-muted-foreground font-mono text-sm mt-2">
             {isLoading ? '...' : `${products.length} deals · Grab them before they're gone`}
@@ -42,7 +42,7 @@ export default function OnSale() {
           style={{ backgroundColor: '#C8A44D', color: '#000' }}
         >
           <span className="font-black">⚡ IMPULSE BUY ALERT:</span>
-          <span>Everything here is under $10 — stock up while it lasts</span>
+          <span>Stock up while it lasts</span>
         </div>
       </div>
 
