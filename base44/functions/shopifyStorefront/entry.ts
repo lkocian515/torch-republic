@@ -14,8 +14,10 @@ async function shopifyFetch(query, variables = {}) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  const json = await res.json();
+  const text = await res.text();
   console.log('Shopify response status:', res.status);
+  console.log('Shopify raw response:', text);
+  const json = JSON.parse(text);
   if (json.errors) {
     console.error('Shopify errors:', JSON.stringify(json.errors));
     throw new Error(json.errors[0]?.message || JSON.stringify(json.errors));
