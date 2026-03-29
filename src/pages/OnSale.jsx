@@ -53,7 +53,7 @@ export default function OnSale() {
           {!isLoading && products.length === 0 && (
             <div className="text-center py-20">
               <p className="text-muted-foreground font-mono text-sm">
-                No products under $10 right now — check back soon!
+                No sale products right now — check back soon!
               </p>
             </div>
           )}
