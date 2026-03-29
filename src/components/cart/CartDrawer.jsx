@@ -150,12 +150,7 @@ export default function CartDrawer() {
                 </div>
 
                 <button
-                  onClick={() => {
-                    const checkoutUrl = cart?.checkoutUrl;
-                    if (checkoutUrl) {
-                      window.location.href = checkoutUrl;
-                    }
-                  }}
+                  onClick={() => window.location.href = cart?.checkoutUrl}
                   className="flex items-center justify-center gap-2 w-full py-4 font-mono text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
                   style={{
                     background: 'linear-gradient(135deg, #C8A44D 0%, #F0D080 50%, #C8A44D 100%)',

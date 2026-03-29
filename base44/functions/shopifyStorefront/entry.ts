@@ -205,26 +205,25 @@ const UPDATE_CART = `
 
 function formatCart(cart) {
   if (!cart) return null;
-  try {
-    let checkoutUrl = cart.checkoutUrl || '';
-    // Replace all domain variations
-    if (checkoutUrl) {
-      checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-      checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-      checkoutUrl = checkoutUrl.replace('https://www.libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
-      checkoutUrl = checkoutUrl.replace('https://libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
-      
-      // Final safeguard: if still wrong domain, force rebuild
-      if (!checkoutUrl.includes('libertees-for-all.myshopify.com') && checkoutUrl.includes('/cart')) {
-        const cartPath = checkoutUrl.substring(checkoutUrl.indexOf('/cart'));
-        checkoutUrl = 'https://libertees-for-all.myshopify.com' + cartPath;
-      }
-    }
-    return { ...cart, checkoutUrl };
-  } catch (e) {
-    console.error('formatCart error:', e.message, 'Cart:', JSON.stringify(cart).substring(0, 300));
-    throw e;
-  }
+  
+  // Flatten Shopify's nested lines structure into simple array
+  const lines = cart.lines?.edges?.map(({ node }) => ({
+    id: node.id,
+    quantity: node.quantity,
+    productTitle: node.merchandise?.product?.title || 'Product',
+    price: parseFloat(node.merchandise?.price?.amount || 0),
+    imageUrl: node.merchandise?.product?.featuredImage?.url,
+    selectedOptions: node.merchandise?.selectedOptions || [],
+    lineTotal: parseFloat(node.cost?.totalAmount?.amount || 0),
+  })) || [];
+
+  return {
+    id: cart.id,
+    checkoutUrl: cart.checkoutUrl || '',
+    totalQuantity: cart.totalQuantity || 0,
+    total: parseFloat(cart.cost?.totalAmount?.amount || 0),
+    lines,
+  };
 }
 
 Deno.serve(async (req) => {
