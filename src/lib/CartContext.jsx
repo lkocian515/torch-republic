@@ -32,12 +32,17 @@ export function CartProvider({ children }) {
     // Redirect immediately to Shopify cart
     if (newCart.checkoutUrl) {
       let checkoutUrl = newCart.checkoutUrl;
+      console.log('Checkout URL from Shopify:', checkoutUrl);
       // Replace torchrepublic.com hostname with libertees-for-all.myshopify.com while preserving path
       if (checkoutUrl.includes('torchrepublic.com')) {
         checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
         checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
       }
-      window.location.href = checkoutUrl;
+      console.log('Redirecting to:', checkoutUrl);
+      // Use setTimeout to ensure state updates finish before redirect
+      setTimeout(() => {
+        window.location.href = checkoutUrl;
+      }, 100);
     }
   }, []);
 
