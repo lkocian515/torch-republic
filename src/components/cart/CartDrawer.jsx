@@ -136,7 +136,10 @@ export default function CartDrawer() {
                   Shipping & taxes calculated at checkout
                 </p>
                 <button
-                  onClick={() => { window.open(cart.checkoutUrl, '_blank') || (window.location.href = cart.checkoutUrl); }}
+                  onClick={() => {
+                    const url = cart.checkoutUrl.startsWith('http') ? cart.checkoutUrl : `https://${cart.checkoutUrl}`;
+                    window.open(url, '_blank') || (window.location.href = url);
+                  }}
                   className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
