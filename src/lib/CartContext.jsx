@@ -1,53 +1,93 @@
-import React, { createContext, useContext, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
+  const [cart, setCart] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const addToCart = useCallback(async (variantId, quantity = 1) => {
-    const cartId = localStorage.getItem('shopify_cart_id');
-    let res;
-    
+    setIsLoading(true);
     try {
+      const cartId = cart?.id;
+      let res;
+      
       if (cartId) {
-        try {
-          res = await base44.functions.invoke('shopifyStorefront', { action: 'addToCart', cartId, variantId, quantity });
-        } catch {
-          // Cart expired — create a fresh one
-          localStorage.removeItem('shopify_cart_id');
-          res = await base44.functions.invoke('shopifyStorefront', { action: 'createCart', variantId, quantity });
-        }
+        res = await base44.functions.invoke('shopifyStorefront', {
+          action: 'addToCart',
+          cartId,
+          variantId,
+          quantity,
+        });
       } else {
-        res = await base44.functions.invoke('shopifyStorefront', { action: 'createCart', variantId, quantity });
+        res = await base44.functions.invoke('shopifyStorefront', {
+          action: 'createCart',
+          variantId,
+          quantity,
+        });
       }
+      
+      setCart(res.data.cart);
+      setIsOpen(true);
     } catch (error) {
       console.error('Add to cart error:', error);
       alert('Failed to add item to cart. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [cart]);
+
+  const removeFromCart = useCallback(async (lineId) => {
+    if (!cart?.id) return;
+    setIsLoading(true);
+    try {
+      const res = await base44.functions.invoke('shopifyStorefront', {
+        action: 'removeFromCart',
+        cartId: cart.id,
+        lineId,
+      });
+      setCart(res.data.cart);
+    } catch (error) {
+      console.error('Remove from cart error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [cart]);
+
+  const updateQuantity = useCallback(async (lineId, quantity) => {
+    if (!cart?.id) return;
+    if (quantity <= 0) {
+      removeFromCart(lineId);
       return;
     }
-    
-    const newCart = res.data.cart;
-    localStorage.setItem('shopify_cart_id', newCart.id);
-    
-    // Redirect immediately to Shopify cart
-    if (newCart.checkoutUrl) {
-      let checkoutUrl = newCart.checkoutUrl;
-      console.log('Checkout URL from Shopify:', checkoutUrl);
-      // Replace torchrepublic.com hostname with libertees-for-all.myshopify.com while preserving path
-      if (checkoutUrl.includes('torchrepublic.com')) {
-        checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-        checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-      }
-      console.log('Redirecting to:', checkoutUrl);
-      // Use setTimeout to ensure state updates finish before redirect
-      setTimeout(() => {
-        window.location.href = checkoutUrl;
-      }, 100);
+    setIsLoading(true);
+    try {
+      const res = await base44.functions.invoke('shopifyStorefront', {
+        action: 'updateCart',
+        cartId: cart.id,
+        lineId,
+        quantity,
+      });
+      setCart(res.data.cart);
+    } catch (error) {
+      console.error('Update cart error:', error);
+    } finally {
+      setIsLoading(false);
     }
-  }, []);
+  }, [cart, removeFromCart]);
 
   return (
-    <CartContext.Provider value={{ addToCart }}>
+    <CartContext.Provider value={{
+      cart,
+      isOpen,
+      setIsOpen,
+      isLoading,
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+    }}>
       {children}
     </CartContext.Provider>
   );
