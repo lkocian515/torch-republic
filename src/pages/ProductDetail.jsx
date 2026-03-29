@@ -4,7 +4,7 @@ import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Star, ArrowLeft, Minus, Plus, ShoppingCart, Check } from 'lucide-react';
+import { Star, ArrowLeft, Minus, Plus, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
@@ -16,7 +16,10 @@ export default function ProductDetail() {
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [added, setAdded] = useState(false);
+
+  const shopifyUrl = product?.shopify_handle
+    ? `https://libertees-for-all.myshopify.com/products/${product.shopify_handle}`
+    : 'https://libertees-for-all.myshopify.com';
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', productId],
@@ -37,10 +40,7 @@ export default function ProductDetail() {
     select: (data) => data?.filter(p => p.id !== productId)?.slice(0, 4),
   });
 
-  const handleAddToCart = () => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  };
+
 
   if (isLoading) {
     return (
@@ -203,24 +203,21 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Add to cart */}
-            <Button
-              onClick={handleAddToCart}
-              disabled={!product.in_stock}
-              className={`w-full mt-8 py-6 font-mono text-sm tracking-widest uppercase transition-all ${
-                added
-                  ? 'bg-green-600 hover:bg-green-600'
+            {/* Buy on Shopify */}
+            <a
+              href={shopifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full mt-8 py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
+                !product.in_stock
+                  ? 'bg-muted text-muted-foreground cursor-not-allowed pointer-events-none'
                   : 'bg-primary text-primary-foreground hover:bg-primary/90'
               }`}
             >
-              {!product.in_stock ? (
-                'Sold Out'
-              ) : added ? (
-                <span className="flex items-center gap-2"><Check className="w-4 h-4" /> Added to Cart</span>
-              ) : (
-                <span className="flex items-center gap-2"><ShoppingCart className="w-4 h-4" /> Add to Cart — ${(product.price * quantity).toFixed(2)}</span>
+              {!product.in_stock ? 'Sold Out' : (
+                <><ExternalLink className="w-4 h-4" /> Buy Now — ${(product.price * quantity).toFixed(2)}</>
               )}
-            </Button>
+            </a>
 
             {/* Specs */}
             <div className="mt-8 border-t border-border pt-6 space-y-3">

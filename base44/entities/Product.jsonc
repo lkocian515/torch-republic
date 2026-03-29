@@ -6,6 +6,10 @@
       "type": "string",
       "description": "Product name"
     },
+    "shopify_handle": {
+      "type": "string",
+      "description": "Shopify product handle for direct linking"
+    },
     "description": {
       "type": "string",
       "description": "Product description"

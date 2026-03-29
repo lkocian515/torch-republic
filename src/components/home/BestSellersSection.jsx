@@ -10,8 +10,14 @@ export default function BestSellersSection() {
   const { data: products, isLoading } = useQuery({
     queryKey: ['best-sellers-home'],
     queryFn: async () => {
-      const items = await base44.entities.Product.filter({ featured: true }, '-rating', 8);
-      return items.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      const [featured, latest] = await Promise.all([
+        base44.entities.Product.filter({ featured: true }, '-rating', 6),
+        base44.entities.Product.list('-created_date', 4),
+      ]);
+      // Merge: featured first, then sprinkle in latest that aren't already included
+      const featuredIds = new Set(featured.map(p => p.id));
+      const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 2);
+      return [...featured, ...extras].slice(0, 8);
     },
     initialData: [],
   });
@@ -26,9 +32,9 @@ export default function BestSellersSection() {
               <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
-              Best Sellers
+              Best Sellers & New Arrivals
             </h2>
-            <p className="text-gray-400 text-sm mt-1 font-mono">Highest rated · Most loved · Ships fast</p>
+            <p className="text-gray-400 text-sm mt-1 font-mono">Highest rated · Most loved · Just dropped</p>
           </div>
           <Link
             to={createPageUrl('BestSellers')}

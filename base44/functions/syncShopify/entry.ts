@@ -76,6 +76,7 @@ function mapProduct(product, collectionSlug, isBestSeller) {
 
   return {
     title: product.title,
+    shopify_handle: product.handle,
     description: product.body_html?.replace(/<[^>]+>/g, '').slice(0, 500) || '',
     price,
     compare_at_price: comparePrice,
@@ -151,10 +152,13 @@ Deno.serve(async (req) => {
     }
 
     // Clear existing products and bulk insert
+    // Delete in parallel batches to avoid rate limits
     const existing = await base44.asServiceRole.entities.Product.list('', 500);
     console.log(`Deleting ${existing.length} existing products...`);
+    // Delete sequentially to avoid rate limits
     for (const p of existing) {
       await base44.asServiceRole.entities.Product.delete(p.id);
+      await new Promise(r => setTimeout(r, 150));
     }
 
     // Bulk create in batches of 50
