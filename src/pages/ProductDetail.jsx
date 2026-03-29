@@ -94,7 +94,11 @@ export default function ProductDetail() {
       console.error('No variant selected:', selectedVariant);
       return;
     }
-    window.location.href = `https://libertees-for-all.myshopify.com/cart/${selectedVariant.id}:${quantity}`;
+    // Extract numeric ID from GID format (e.g., gid://shopify/ProductVariant/12345 -> 12345)
+    const variantId = selectedVariant.id.includes('ProductVariant/') 
+      ? selectedVariant.id.split('ProductVariant/')[1] 
+      : selectedVariant.id;
+    window.location.href = `https://libertees-for-all.myshopify.com/cart/${variantId}:${quantity}`;
   };
 
   if (isLoading) {
