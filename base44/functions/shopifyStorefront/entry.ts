@@ -207,34 +207,17 @@ function formatCart(cart) {
   if (!cart) return null;
   try {
     let checkoutUrl = cart.checkoutUrl || '';
-    // Aggressive domain replacement - handle all variations
-    checkoutUrl = checkoutUrl.replace(/https:\/\/(www\.)?torchrepublic\.com/g, 'https://libertees-for-all.myshopify.com');
-    checkoutUrl = checkoutUrl.replace(/https:\/\/(www\.)?libertees-for-all\.com/g, 'https://libertees-for-all.myshopify.com');
+    // Replace all domain variations
+    checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+    checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+    checkoutUrl = checkoutUrl.replace('https://www.libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
+    checkoutUrl = checkoutUrl.replace('https://libertees-for-all.com', 'https://libertees-for-all.myshopify.com');
     
-    // Final safeguard: if it somehow still contains custom domain, force rebuild
-    if (checkoutUrl.includes('torchrepublic') || !checkoutUrl.includes('libertees-for-all.myshopify.com')) {
+    // Final safeguard: if still wrong domain, force rebuild
+    if (!checkoutUrl.includes('libertees-for-all.myshopify.com')) {
       const cartPath = checkoutUrl.substring(checkoutUrl.indexOf('/cart'));
       checkoutUrl = 'https://libertees-for-all.myshopify.com' + cartPath;
     }
-
-    return {
-      id: cart.id,
-      checkoutUrl: checkoutUrl,
-      totalQuantity: cart.totalQuantity,
-      total: parseFloat(cart.cost?.totalAmount?.amount || 0),
-      lines: (cart.lines?.edges || []).map(({ node }) => ({
-        id: node.id,
-        quantity: node.quantity,
-        variantId: node.merchandise.id,
-        variantTitle: node.merchandise.title,
-        productTitle: node.merchandise.product.title,
-        productHandle: node.merchandise.product.handle,
-        imageUrl: node.merchandise.product.featuredImage?.url,
-        price: parseFloat(node.merchandise.price.amount),
-        lineTotal: parseFloat(node.cost.totalAmount.amount),
-        selectedOptions: node.merchandise.selectedOptions,
-      })),
-    };
   } catch (e) {
     console.error('formatCart error:', e.message, 'Cart:', JSON.stringify(cart).substring(0, 300));
     throw e;
