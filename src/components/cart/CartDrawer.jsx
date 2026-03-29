@@ -149,13 +149,14 @@ export default function CartDrawer() {
                   </div>
                 </div>
 
-                <a
-                  href={cart?.checkoutUrl || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => {
-                    if (!cart?.checkoutUrl) {
-                      e.preventDefault();
+                <button
+                  onClick={() => {
+                    if (cart?.checkoutUrl) {
+                      // Force external navigation by directly setting location
+                      setTimeout(() => {
+                        window.location.href = cart.checkoutUrl;
+                      }, 0);
+                    } else {
                       alert('Unable to load checkout. Please try again.');
                     }
                   }}
@@ -165,15 +166,11 @@ export default function CartDrawer() {
                     color: '#000',
                     fontWeight: 900,
                     boxShadow: '0 4px 30px rgba(200,164,77,0.4)',
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                   }}
                 >
                   <ShieldCheck className="w-4 h-4" />
                   Secure Checkout — ${cart.total.toFixed(2)}
-                </a>
+                </button>
 
                 {/* Payment icons */}
                 <div className="flex items-center justify-center gap-2 pt-1">
