@@ -138,7 +138,11 @@ export default function CartDrawer() {
                 <button
                   onClick={() => {
                     const url = cart.checkoutUrl.startsWith('http') ? cart.checkoutUrl : `https://${cart.checkoutUrl}`;
-                    window.open(url, '_blank') || (window.location.href = url);
+                    // Try to open in new tab; fall back to same tab (works on mobile Safari)
+                    const newTab = window.open(url, '_blank');
+                    if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                      window.location.href = url;
+                    }
                   }}
                   className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
                 >
