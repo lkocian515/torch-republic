@@ -29,7 +29,14 @@ export function CartProvider({ children }) {
   }, []);
 
   const addToCart = useCallback(async (variantId, quantity = 1) => {
-    setIsLoading(true);
+    // Optimistic update: increment cart immediately
+    setCart(prev => ({
+      ...prev,
+      totalQuantity: (prev?.totalQuantity || 0) + quantity,
+      lines: prev?.lines || []
+    }));
+    setIsOpen(true);
+    
     try {
       const cartId = localStorage.getItem('shopify_cart_id');
       let res;
@@ -47,9 +54,13 @@ export function CartProvider({ children }) {
       const newCart = res.data.cart;
       setCart(newCart);
       localStorage.setItem('shopify_cart_id', newCart.id);
-      setIsOpen(true);
-    } finally {
-      setIsLoading(false);
+    } catch (error) {
+      console.error('Add to cart error:', error);
+      // Revert optimistic update on error
+      setCart(prev => ({
+        ...prev,
+        totalQuantity: Math.max(0, (prev?.totalQuantity || 0) - quantity)
+      }));
     }
   }, []);
 

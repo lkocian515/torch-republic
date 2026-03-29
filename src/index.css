@@ -131,4 +131,20 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+/* Safe areas for notched devices */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* User select none for buttons and nav */
+button, a, [role="button"], nav {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
