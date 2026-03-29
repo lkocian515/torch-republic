@@ -1,11 +1,10 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
-
 const SHOPIFY_DOMAIN = 'libertees-for-all.myshopify.com';
 const API_VERSION = '2023-10';
 const ENDPOINT = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
 
 async function shopifyFetch(query, variables = {}) {
   const token = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
+  console.log('Token prefix:', token ? token.substring(0, 8) + '...' : 'MISSING', 'Length:', token?.length);
   const res = await fetch(ENDPOINT, {
     method: 'POST',
     headers: {
@@ -16,7 +15,7 @@ async function shopifyFetch(query, variables = {}) {
   });
   const text = await res.text();
   console.log('Shopify response status:', res.status);
-  console.log('Shopify raw response:', text);
+  console.log('Shopify raw response:', text.substring(0, 500));
   const json = JSON.parse(text);
   if (json.errors) {
     console.error('Shopify errors:', JSON.stringify(json.errors));
@@ -230,6 +229,11 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const { action } = body;
 
+    if (action === 'ping') {
+      const token = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
+      return Response.json({ token_length: token?.length, token_prefix: token?.substring(0, 8) });
+    }
+
     if (action === 'getVariants') {
       const data = await shopifyFetch(GET_VARIANTS, { handle: body.handle });
       const product = data.product;
@@ -247,7 +251,7 @@ Deno.serve(async (req) => {
 
     if (action === 'createCart') {
       const data = await shopifyFetch(CREATE_CART, {
-        lines: [{ merchandiseId: body.variantId, quantity: body.quantity || 1 }],
+        lines: body.variantId ? [{ merchandiseId: body.variantId, quantity: body.quantity || 1 }] : [],
       });
       const cart = data.cartCreate.cart;
       return Response.json({ cart: formatCart(cart) });
