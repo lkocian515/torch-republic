@@ -112,8 +112,8 @@ export default function ProductDetail() {
         quantity,
       });
       
-      console.log('✅ Item added, redirecting to cart');
-      window.location.href = 'https://www.torchrepublic.com/cart';
+      console.log('✅ Item added, redirecting to checkout');
+      window.location.href = 'https://libertees-for-all.myshopify.com/checkout';
     } catch (error) {
       console.error('❌ Error:', error.message);
       alert('Failed to add item to cart. Please try again.');
@@ -286,8 +286,8 @@ export default function ProductDetail() {
 
               <a
                 href={product?.shopify_handle
-                  ? `https://libertees-for-all.myshopify.com/products/${product.shopify_handle}`
-                  : 'https://libertees-for-all.myshopify.com'}
+                  ? `https://libertees-for-all.myshopify.com/checkout?variant=${selectedVariant?.id?.split('ProductVariant/')?.[1] || ''}`
+                  : 'https://libertees-for-all.myshopify.com/checkout'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
