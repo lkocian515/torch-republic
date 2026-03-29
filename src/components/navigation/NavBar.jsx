@@ -168,6 +168,15 @@ export default function NavBar() {
                 </AnimatePresence>
               </div>
 
+              {/* On Sale highlight */}
+              <Link
+                to="/OnSale"
+                className="text-sm font-mono tracking-wider uppercase transition-colors duration-300 font-bold"
+                style={{ color: '#C8A44D' }}
+              >
+                🔥 On Sale
+              </Link>
+
               {/* Other nav items */}
               {NAV_ITEMS.map((item) => (
                 <Link
@@ -238,16 +247,14 @@ export default function NavBar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-border space-y-4">
-                {NAV_ITEMS.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={createPageUrl(item.page)}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-foreground hover:text-primary transition-colors text-lg font-heading font-semibold tracking-wider uppercase"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                <Link
+                  to="/OnSale"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-lg font-heading font-bold tracking-wider uppercase"
+                  style={{ color: '#C8A44D' }}
+                >
+                  🔥 On Sale — Under $10
+                </Link>
                 <Link
                   to={createPageUrl('TrackOrder')}
                   onClick={() => setIsOpen(false)}
