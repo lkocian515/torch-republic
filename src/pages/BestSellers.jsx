@@ -42,7 +42,7 @@ export default function BestSellers() {
 
   const { data: products, isLoading } = useQuery({
     queryKey: ['products'],
-    queryFn: () => base44.entities.Product.list('-rating', 100),
+    queryFn: () => base44.entities.Product.list('', 250),
     initialData: [],
   });
 
