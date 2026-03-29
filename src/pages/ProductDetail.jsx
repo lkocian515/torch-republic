@@ -94,8 +94,7 @@ export default function ProductDetail() {
       console.error('No variant selected:', selectedVariant);
       return;
     }
-    const cartUrl = `/cart/${selectedVariant.id}:${quantity}`;
-    redirectToCheckout(cartUrl);
+    window.location.href = `https://libertees-for-all.myshopify.com/cart/${selectedVariant.id}:${quantity}`;
   };
 
   if (isLoading) {
