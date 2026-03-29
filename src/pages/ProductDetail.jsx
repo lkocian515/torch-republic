@@ -96,26 +96,30 @@ export default function ProductDetail() {
       return;
     }
     try {
-      // Extract numeric variant ID from GraphQL GID
-      const numericId = selectedVariant.id.split('ProductVariant/')[1] || selectedVariant.id;
-      console.log('Creating cart - Variant ID:', numericId, 'Quantity:', quantity);
+      console.log('selectedVariant:', selectedVariant);
+      console.log('Creating cart - Variant ID:', selectedVariant.id, 'Quantity:', quantity);
       
       // Use Storefront API via backend function to create cart
       const res = await base44.functions.invoke('shopifyStorefront', {
         action: 'createCart',
-        variantId: selectedVariant.id, // Pass full GID format
+        variantId: selectedVariant.id,
         quantity: quantity,
       });
       
+      console.log('Backend response:', res.data);
+      
       const checkoutUrl = res.data.cart?.checkoutUrl;
       if (!checkoutUrl) {
+        console.error('No checkoutUrl in response:', res.data);
         throw new Error('No checkout URL returned from Shopify');
       }
       
       console.log('Cart created, redirecting to:', checkoutUrl);
       window.location.href = checkoutUrl;
     } catch (error) {
-      console.error('Add to cart error:', error);
+      console.error('Full error object:', error);
+      console.error('Error message:', error?.message);
+      console.error('Error response:', error?.response?.data);
       alert('Failed to add item to cart. Please try again.');
     }
   };
