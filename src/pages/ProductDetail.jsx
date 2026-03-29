@@ -104,31 +104,23 @@ export default function ProductDetail() {
         ? selectedVariant.id.split('ProductVariant/')[1]
         : selectedVariant.id;
       
-      console.log('🛒 Adding to cart');
-      console.log('Selected variant:', selectedVariant);
-      console.log('Numeric variant ID:', variantId);
-      console.log('Quantity:', quantity);
+      console.log('🛒 Adding to cart - Variant ID:', variantId);
       
-      // Call backend to use Storefront API (handles CORS, auth, etc.)
-      const res = await base44.functions.invoke('shopifyStorefront', {
-        action: 'createCart',
-        variantId: selectedVariant.id, // Pass full GID to backend
-        quantity,
+      // Use Shopify AJAX API directly
+      const response = await fetch('https://www.torchrepublic.com/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity }),
       });
       
-      console.log('✅ Cart created:', res.data.cart);
-      
-      const checkoutUrl = res.data.cart?.checkoutUrl;
-      if (!checkoutUrl) {
-        console.error('❌ No checkoutUrl in response:', res.data);
-        throw new Error('No checkout URL from Shopify');
+      if (!response.ok) {
+        throw new Error(`Cart API error: ${response.status}`);
       }
       
-      console.log('🔗 Redirecting to:', checkoutUrl);
-      window.location.href = checkoutUrl;
+      console.log('✅ Item added, redirecting to cart');
+      window.location.href = 'https://www.torchrepublic.com/cart';
     } catch (error) {
-      console.error('❌ Cart error:', error.message);
-      if (error?.response?.data) console.error('Response:', error.response.data);
+      console.error('❌ Error:', error.message);
       alert('Failed to add item to cart. Please try again.');
     }
   };
