@@ -9,15 +9,11 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing variantId or quantity' }, { status: 400 });
     }
 
-    // Use form-encoded data for Shopify cart/add.js
-    const params = new URLSearchParams();
-    params.append('id', variantId);
-    params.append('quantity', quantity);
-
+    // POST to Shopify AJAX cart endpoint
     const res = await fetch('https://www.torchrepublic.com/cart/add.js', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity }),
     });
 
     console.log('[addToCart] Response status:', res.status);
