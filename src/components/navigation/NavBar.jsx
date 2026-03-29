@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useCart } from '@/lib/CartContext';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Menu, X, ShoppingCart, Search, CalendarCheck } from 'lucide-react';
@@ -42,7 +41,6 @@ const NAV_ITEMS = [
 ];
 
 export default function NavBar() {
-  const { addToCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);

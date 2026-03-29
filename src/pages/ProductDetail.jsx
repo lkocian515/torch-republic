@@ -9,7 +9,6 @@ import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
-import { useCart } from '@/lib/CartContext';
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -17,8 +16,6 @@ export default function ProductDetail() {
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [addingToCart, setAddingToCart] = useState(false);
-  const { addToCart } = useCart();
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', productId],
@@ -91,14 +88,13 @@ export default function ProductDetail() {
     return available || matching[0];
   }, [variantsData, selectedSize]);
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = () => {
     if (!selectedVariant || !selectedVariant.id) {
       console.error('No variant selected:', selectedVariant);
       return;
     }
-    setAddingToCart(true);
-    await addToCart(selectedVariant.id, quantity);
-    setAddingToCart(false);
+    const cartUrl = `https://libertees-for-all.myshopify.com/cart/${selectedVariant.id}:${quantity}`;
+    window.location.href = cartUrl;
   };
 
   if (isLoading) {
@@ -254,7 +250,7 @@ export default function ProductDetail() {
             <div className="flex flex-col gap-3 mt-8">
               <button
                 onClick={handleAddToCart}
-                disabled={!product.in_stock || addingToCart || !selectedVariant}
+                disabled={!product.in_stock || !selectedVariant}
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all border border-primary ${
                   !product.in_stock
                     ? 'bg-muted text-muted-foreground cursor-not-allowed border-muted'
@@ -262,7 +258,7 @@ export default function ProductDetail() {
                 }`}
               >
                 <ShoppingCart className="w-4 h-4" />
-                {addingToCart ? 'Adding...' : !product.in_stock ? 'Sold Out' : 'Add to Cart'}
+                {!product.in_stock ? 'Sold Out' : 'Add to Cart'}
               </button>
 
               <a
