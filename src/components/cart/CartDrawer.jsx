@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Minus, Plus, ShoppingBag, ExternalLink } from 'lucide-react';
+import { X, Minus, Plus, ShoppingBag, ExternalLink, ShieldCheck, RotateCcw, Truck } from 'lucide-react';
 import { useCart } from '@/lib/CartContext';
 
 export default function CartDrawer() {
@@ -127,28 +127,55 @@ export default function CartDrawer() {
 
             {/* Footer */}
             {cart && cart.lines.length > 0 && (
-              <div className="border-t border-border px-6 py-6 space-y-4">
+              <div className="border-t border-border px-6 py-5 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase">Subtotal</span>
                   <span className="font-mono text-lg font-bold">${cart.total.toFixed(2)}</span>
                 </div>
-                <p className="font-mono text-xs text-muted-foreground">
-                  Shipping & taxes calculated at checkout
-                </p>
+
+                {/* Trust signals */}
+                <div className="grid grid-cols-3 gap-2 py-2 border-y border-border/40">
+                  <div className="flex flex-col items-center gap-1 text-center">
+                    <ShieldCheck className="w-4 h-4" style={{ color: '#C8A44D' }} />
+                    <span className="font-mono text-[9px] tracking-wider text-muted-foreground">Secure Checkout</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-center">
+                    <Truck className="w-4 h-4" style={{ color: '#C8A44D' }} />
+                    <span className="font-mono text-[9px] tracking-wider text-muted-foreground">Free over $100</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-center">
+                    <RotateCcw className="w-4 h-4" style={{ color: '#C8A44D' }} />
+                    <span className="font-mono text-[9px] tracking-wider text-muted-foreground">Easy Returns</span>
+                  </div>
+                </div>
+
                 <button
                   onClick={() => {
                     const url = cart.checkoutUrl.startsWith('http') ? cart.checkoutUrl : `https://${cart.checkoutUrl}`;
-                    // Try to open in new tab; fall back to same tab (works on mobile Safari)
                     const newTab = window.open(url, '_blank');
                     if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
                       window.location.href = url;
                     }
                   }}
-                  className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-4 font-mono text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
+                  style={{
+                    background: 'linear-gradient(135deg, #C8A44D 0%, #F0D080 50%, #C8A44D 100%)',
+                    color: '#000',
+                    fontWeight: 900,
+                    boxShadow: '0 4px 30px rgba(200,164,77,0.4)',
+                  }}
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Checkout — ${cart.total.toFixed(2)}
+                  <ShieldCheck className="w-4 h-4" />
+                  Secure Checkout — ${cart.total.toFixed(2)}
                 </button>
+
+                {/* Payment icons */}
+                <div className="flex items-center justify-center gap-2 pt-1">
+                  <span className="font-mono text-[9px] text-muted-foreground tracking-wider">We accept:</span>
+                  {['VISA', 'MC', 'AMEX', 'PAYPAL', 'APPLE PAY'].map(p => (
+                    <span key={p} className="font-mono text-[8px] px-1.5 py-0.5 rounded border border-border text-muted-foreground">{p}</span>
+                  ))}
+                </div>
               </div>
             )}
           </motion.div>

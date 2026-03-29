@@ -13,8 +13,18 @@ export function CartProvider({ children }) {
     const cartId = localStorage.getItem('shopify_cart_id');
     if (cartId) {
       base44.functions.invoke('shopifyStorefront', { action: 'getCart', cartId })
-        .then(res => { if (res.data?.cart) setCart(res.data.cart); })
-        .catch(() => localStorage.removeItem('shopify_cart_id'));
+        .then(res => {
+          if (res.data?.cart) {
+            setCart(res.data.cart);
+          } else {
+            // Cart expired on Shopify side
+            localStorage.removeItem('shopify_cart_id');
+          }
+        })
+        .catch(() => {
+          localStorage.removeItem('shopify_cart_id');
+          setCart(null);
+        });
     }
   }, []);
 
@@ -24,7 +34,13 @@ export function CartProvider({ children }) {
       const cartId = localStorage.getItem('shopify_cart_id');
       let res;
       if (cartId) {
-        res = await base44.functions.invoke('shopifyStorefront', { action: 'addToCart', cartId, variantId, quantity });
+        try {
+          res = await base44.functions.invoke('shopifyStorefront', { action: 'addToCart', cartId, variantId, quantity });
+        } catch {
+          // Cart expired — create a fresh one
+          localStorage.removeItem('shopify_cart_id');
+          res = await base44.functions.invoke('shopifyStorefront', { action: 'createCart', variantId, quantity });
+        }
       } else {
         res = await base44.functions.invoke('shopifyStorefront', { action: 'createCart', variantId, quantity });
       }

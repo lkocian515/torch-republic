@@ -37,8 +37,7 @@ const JEWELRY = [
 
 const NAV_ITEMS = [
   { label: 'Best Sellers', page: 'BestSellers' },
-  { label: 'New Arrivals', page: 'BestSellers' },
-  { label: 'Our Mission', page: 'Mission', label: 'Our Mission' },
+  { label: 'Our Mission', page: 'Mission' },
   { label: 'Contact Us', page: 'Contact' },
 ];
 

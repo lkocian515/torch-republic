@@ -5,7 +5,6 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Star, ArrowLeft, Minus, Plus, ShoppingCart, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
@@ -50,7 +49,6 @@ export default function ProductDetail() {
     initialData: [],
   });
 
-  // Find the matching variant based on selected size
   const selectedVariant = useMemo(() => {
     if (!variantsData || variantsData.length === 0) return null;
     if (!selectedSize) return variantsData.find(v => v.availableForSale) || variantsData[0];
@@ -65,8 +63,6 @@ export default function ProductDetail() {
     await addToCart(selectedVariant.id, quantity);
     setAddingToCart(false);
   };
-
-
 
   if (isLoading) {
     return (
@@ -112,10 +108,7 @@ export default function ProductDetail() {
       <div className="pt-8 pb-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Image Carousel */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <ProductImageCarousel product={product} />
           </motion.div>
 
@@ -174,7 +167,14 @@ export default function ProductDetail() {
             {/* Sizes */}
             {product.sizes && product.sizes.length > 0 && (
               <div className="mt-8">
-                <p className="text-foreground font-mono text-xs tracking-wider uppercase mb-3">Size</p>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-foreground font-mono text-xs tracking-wider uppercase">Size</p>
+                  {!selectedSize && variantsData?.length > 0 && (
+                    <span className="font-mono text-[10px] tracking-wider uppercase" style={{ color: '#C8A44D' }}>
+                      ← Select a size to continue
+                    </span>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {product.sizes.map(size => (
                     <button
