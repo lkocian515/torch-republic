@@ -229,9 +229,7 @@ export default function ProductDetail() {
               </button>
 
               <a
-                href={product?.shopify_handle
-                  ? `https://torchrepublic.com/products/${product.shopify_handle}`
-                  : 'https://torchrepublic.com'}
+                href='https://libertees-for-all.myshopify.com/cart'
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
