@@ -96,24 +96,24 @@ export default function ProductDetail() {
       return;
     }
     try {
-      // Extract numeric variant ID from GraphQL GID (gid://shopify/ProductVariant/12345)
+      // Extract numeric variant ID from GraphQL GID
       const numericId = selectedVariant.id.split('ProductVariant/')[1] || selectedVariant.id;
-      console.log('Adding to cart - Variant ID:', numericId, 'Quantity:', quantity);
+      console.log('Creating cart - Variant ID:', numericId, 'Quantity:', quantity);
       
-      // Use Shopify AJAX cart API
-      const response = await fetch('https://libertees-for-all.myshopify.com/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: numericId, quantity: quantity }),
+      // Use Storefront API via backend function to create cart
+      const res = await base44.functions.invoke('shopifyStorefront', {
+        action: 'createCart',
+        variantId: selectedVariant.id, // Pass full GID format
+        quantity: quantity,
       });
       
-      if (!response.ok) {
-        throw new Error(`Cart API error: ${response.status}`);
+      const checkoutUrl = res.data.cart?.checkoutUrl;
+      if (!checkoutUrl) {
+        throw new Error('No checkout URL returned from Shopify');
       }
       
-      console.log('Item added to cart successfully');
-      // Redirect to cart page
-      window.location.href = 'https://libertees-for-all.myshopify.com/cart';
+      console.log('Cart created, redirecting to:', checkoutUrl);
+      window.location.href = checkoutUrl;
     } catch (error) {
       console.error('Add to cart error:', error);
       alert('Failed to add item to cart. Please try again.');
