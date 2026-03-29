@@ -9,6 +9,8 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
 import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
+import { CartProvider } from './lib/CartContext';
+import CartDrawer from './components/cart/CartDrawer';
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
 const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
@@ -72,10 +74,13 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
+        <CartProvider>
+          <Router>
+            <AuthenticatedApp />
+            <CartDrawer />
+          </Router>
+          <Toaster />
+        </CartProvider>
       </QueryClientProvider>
     </AuthProvider>
   )

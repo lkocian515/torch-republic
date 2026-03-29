@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Star, ArrowLeft, Minus, Plus, ExternalLink } from 'lucide-react';
+import { Star, ArrowLeft, Minus, Plus, ShoppingCart, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
+import { useCart } from '@/lib/CartContext';
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -17,6 +18,8 @@ export default function ProductDetail() {
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [addingToCart, setAddingToCart] = useState(false);
+  const { addToCart } = useCart();
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', productId],
@@ -36,6 +39,32 @@ export default function ProductDetail() {
     initialData: [],
     select: (data) => data?.filter(p => p.id !== productId)?.slice(0, 4),
   });
+
+  const { data: variantsData } = useQuery({
+    queryKey: ['variants', product?.shopify_handle],
+    queryFn: () => base44.functions.invoke('shopifyStorefront', {
+      action: 'getVariants',
+      handle: product.shopify_handle,
+    }).then(r => r.data.variants),
+    enabled: !!product?.shopify_handle,
+    initialData: [],
+  });
+
+  // Find the matching variant based on selected size
+  const selectedVariant = useMemo(() => {
+    if (!variantsData || variantsData.length === 0) return null;
+    if (!selectedSize) return variantsData.find(v => v.availableForSale) || variantsData[0];
+    return variantsData.find(v =>
+      v.selectedOptions.some(o => o.name === 'Size' && o.value === selectedSize)
+    ) || variantsData[0];
+  }, [variantsData, selectedSize]);
+
+  const handleAddToCart = async () => {
+    if (!selectedVariant) return;
+    setAddingToCart(true);
+    await addToCart(selectedVariant.id, quantity);
+    setAddingToCart(false);
+  };
 
 
 
@@ -184,23 +213,38 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Buy on Shopify */}
-            <a
-              href={product?.shopify_handle
-                ? `https://torchrepublic.com/products/${product.shopify_handle}`
-                : 'https://torchrepublic.com'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`w-full mt-8 py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
-                !product.in_stock
-                  ? 'bg-muted text-muted-foreground cursor-not-allowed pointer-events-none'
-                  : 'bg-primary text-primary-foreground hover:bg-primary/90'
-              }`}
-            >
-              {!product.in_stock ? 'Sold Out' : (
-                <><ExternalLink className="w-4 h-4" /> Buy Now — ${(product.price * quantity).toFixed(2)}</>
-              )}
-            </a>
+            {/* Add to Cart + Buy Now */}
+            <div className="flex flex-col gap-3 mt-8">
+              <button
+                onClick={handleAddToCart}
+                disabled={!product.in_stock || addingToCart || !selectedVariant}
+                className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all border border-primary ${
+                  !product.in_stock
+                    ? 'bg-muted text-muted-foreground cursor-not-allowed border-muted'
+                    : 'bg-transparent text-primary hover:bg-primary hover:text-primary-foreground'
+                }`}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                {addingToCart ? 'Adding...' : !product.in_stock ? 'Sold Out' : 'Add to Cart'}
+              </button>
+
+              <a
+                href={product?.shopify_handle
+                  ? `https://torchrepublic.com/products/${product.shopify_handle}`
+                  : 'https://torchrepublic.com'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
+                  !product.in_stock
+                    ? 'bg-muted text-muted-foreground cursor-not-allowed pointer-events-none'
+                    : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                }`}
+              >
+                {!product.in_stock ? 'Sold Out' : (
+                  <><ExternalLink className="w-4 h-4" /> Buy Now — ${(product.price * quantity).toFixed(2)}</>
+                )}
+              </a>
+            </div>
 
             {/* Specs */}
             <div className="mt-8 border-t border-border pt-6 space-y-3">
