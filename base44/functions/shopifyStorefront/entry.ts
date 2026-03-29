@@ -207,7 +207,7 @@ function formatCart(cart) {
   if (!cart) return null;
   return {
     id: cart.id,
-    checkoutUrl: cart.checkoutUrl,
+    checkoutUrl: cart.checkoutUrl?.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com') || cart.checkoutUrl,
     totalQuantity: cart.totalQuantity,
     total: parseFloat(cart.cost?.totalAmount?.amount || 0),
     lines: cart.lines.edges.map(({ node }) => ({
