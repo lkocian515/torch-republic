@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
+import { redirectToCheckout } from '../lib/checkoutUtils';
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -93,8 +94,8 @@ export default function ProductDetail() {
       console.error('No variant selected:', selectedVariant);
       return;
     }
-    const cartUrl = `https://libertees-for-all.myshopify.com/cart/${selectedVariant.id}:${quantity}`;
-    window.location.href = cartUrl;
+    const cartUrl = `/cart/${selectedVariant.id}:${quantity}`;
+    redirectToCheckout(cartUrl);
   };
 
   if (isLoading) {
