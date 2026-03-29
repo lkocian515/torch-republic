@@ -5,6 +5,7 @@ import ProductGrid from '../components/products/ProductGrid';
 import FilterBottomSheet from '../components/filters/FilterBottomSheet';
 import PullToRefresh from '../components/mobile/PullToRefresh';
 import { Sliders } from 'lucide-react';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';}
 
 const COLLECTIONS_MAP = {
   'all': 'All Products',
