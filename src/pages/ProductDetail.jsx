@@ -77,14 +77,25 @@ export default function ProductDetail() {
 
   const selectedVariant = useMemo(() => {
     if (!variantsData || variantsData.length === 0) return null;
-    if (!selectedSize) return variantsData.find(v => v.availableForSale) || variantsData[0];
-    return variantsData.find(v =>
-      v.selectedOptions.some(o => o.name === 'Size' && o.value === selectedSize)
-    ) || variantsData[0];
+    if (!selectedSize) {
+      const available = variantsData.find(v => v.availableForSale);
+      return available || variantsData[0];
+    }
+    // Find variant matching the selected size
+    // If multiple variants match (different colors), pick the first available
+    const matching = variantsData.filter(v =>
+      v.selectedOptions?.some(o => o.name === 'Size' && o.value === selectedSize)
+    );
+    if (matching.length === 0) return null;
+    const available = matching.find(v => v.availableForSale);
+    return available || matching[0];
   }, [variantsData, selectedSize]);
 
   const handleAddToCart = async () => {
-    if (!selectedVariant) return;
+    if (!selectedVariant || !selectedVariant.id) {
+      console.error('No variant selected:', selectedVariant);
+      return;
+    }
     setAddingToCart(true);
     await addToCart(selectedVariant.id, quantity);
     setAddingToCart(false);
