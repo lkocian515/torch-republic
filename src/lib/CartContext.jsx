@@ -26,7 +26,13 @@ export function CartProvider({ children }) {
       
       // Redirect immediately to Shopify cart
       if (newCart.checkoutUrl) {
-        window.location.href = newCart.checkoutUrl;
+        let checkoutUrl = newCart.checkoutUrl;
+        // Replace torchrepublic.com hostname with libertees-for-all.myshopify.com while preserving path
+        if (checkoutUrl.includes('torchrepublic.com')) {
+          checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+          checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+        }
+        window.location.href = checkoutUrl;
       }
     } catch (error) {
       console.error('Add to cart error:', error);
