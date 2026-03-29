@@ -78,16 +78,19 @@ export default function ProductDetail() {
     if (!variantsData || variantsData.length === 0) return null;
     if (!selectedSize) {
       const available = variantsData.find(v => v.availableForSale);
+      console.log('No size selected, defaulting to:', available || variantsData[0]);
       return available || variantsData[0];
     }
     // Find variant matching the selected size
-    // If multiple variants match (different colors), pick the first available
     const matching = variantsData.filter(v =>
       v.selectedOptions?.some(o => o.name === 'Size' && o.value === selectedSize)
     );
+    console.log('Matching variants for size', selectedSize, ':', matching);
     if (matching.length === 0) return null;
     const available = matching.find(v => v.availableForSale);
-    return available || matching[0];
+    const result = available || matching[0];
+    console.log('Selected variant:', result);
+    return result;
   }, [variantsData, selectedSize]);
 
   const handleAddToCart = async () => {
