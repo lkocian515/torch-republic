@@ -151,11 +151,13 @@ export default function CartDrawer() {
 
                 <button
                   onClick={() => {
-                    const url = cart.checkoutUrl.startsWith('http') ? cart.checkoutUrl : `https://${cart.checkoutUrl}`;
-                    const newTab = window.open(url, '_blank');
-                    if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
-                      window.location.href = url;
+                    let url = cart.checkoutUrl;
+                    if (!url.startsWith('http')) {
+                      url = url.startsWith('/')
+                        ? `https://libertees-for-all.myshopify.com${url}`
+                        : `https://${url}`;
                     }
+                    window.open(url, '_blank', 'noopener,noreferrer');
                   }}
                   className="flex items-center justify-center gap-2 w-full py-4 font-mono text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
                   style={{
