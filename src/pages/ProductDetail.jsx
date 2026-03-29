@@ -91,19 +91,29 @@ export default function ProductDetail() {
   }, [variantsData, selectedSize]);
 
   const handleAddToCart = async () => {
-    console.log('handleAddToCart called, selectedVariant:', selectedVariant);
     if (!selectedVariant || !selectedVariant.id) {
-      console.error('No variant selected:', selectedVariant);
       alert('Please select a size first');
       return;
     }
     try {
-      // Use Shopify's direct cart URL with the numeric variant ID
-      const variantId = selectedVariant.id.split('ProductVariant/')[1] || selectedVariant.id;
-      console.log('Extracted variantId:', variantId, 'quantity:', quantity);
-      const cartUrl = `https://libertees-for-all.myshopify.com/cart/${variantId}:${quantity}`;
-      console.log('Redirecting to:', cartUrl);
-      window.location.href = cartUrl;
+      // Extract numeric variant ID from GraphQL GID (gid://shopify/ProductVariant/12345)
+      const numericId = selectedVariant.id.split('ProductVariant/')[1] || selectedVariant.id;
+      console.log('Adding to cart - Variant ID:', numericId, 'Quantity:', quantity);
+      
+      // Use Shopify AJAX cart API
+      const response = await fetch('https://libertees-for-all.myshopify.com/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: numericId, quantity: quantity }),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Cart API error: ${response.status}`);
+      }
+      
+      console.log('Item added to cart successfully');
+      // Redirect to cart page
+      window.location.href = 'https://libertees-for-all.myshopify.com/cart';
     } catch (error) {
       console.error('Add to cart error:', error);
       alert('Failed to add item to cart. Please try again.');
