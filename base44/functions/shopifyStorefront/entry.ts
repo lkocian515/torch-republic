@@ -217,9 +217,15 @@ function formatCart(cart) {
     lineTotal: parseFloat(node.cost?.totalAmount?.amount || 0),
   })) || [];
 
+  // Ensure checkoutUrl is always absolute
+  let checkoutUrl = cart.checkoutUrl || '';
+  if (checkoutUrl && !checkoutUrl.startsWith('http')) {
+    checkoutUrl = `https://${SHOPIFY_DOMAIN}${checkoutUrl}`;
+  }
+
   return {
     id: cart.id,
-    checkoutUrl: cart.checkoutUrl || '',
+    checkoutUrl,
     totalQuantity: cart.totalQuantity || 0,
     total: parseFloat(cart.cost?.totalAmount?.amount || 0),
     lines,
