@@ -151,13 +151,7 @@ export default function CartDrawer() {
 
                 <button
                   onClick={() => {
-                    let url = cart.checkoutUrl;
-                    if (!url.startsWith('http')) {
-                      url = url.startsWith('/')
-                        ? `https://libertees-for-all.myshopify.com${url}`
-                        : `https://${url}`;
-                    }
-                    window.open(url, '_blank', 'noopener,noreferrer');
+                    window.open(cart.checkoutUrl, '_blank', 'noopener,noreferrer');
                   }}
                   className="flex items-center justify-center gap-2 w-full py-4 font-mono text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
                   style={{
