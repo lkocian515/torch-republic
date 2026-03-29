@@ -107,12 +107,13 @@ export default function ProductDetail() {
       console.log('🛒 Adding to cart - Variant ID:', variantId);
       
       // Use backend function to bypass CORS
-      const res = await base44.functions.invoke('shopifyAddToCart', {
+      const res = await base44.functions.invoke('addToCart', {
         variantId,
         quantity,
       });
       
-      window.location.href = res.checkoutUrl;
+      const checkoutUrl = res.data?.checkoutUrl || 'https://www.torchrepublic.com/cart';
+      window.location.href = checkoutUrl;
     } catch (error) {
       console.error('❌ Error:', error.message);
       alert('Failed to add item to cart. Please try again.');
