@@ -11,9 +11,10 @@ import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
 import { CartProvider } from './lib/CartContext';
 import CartDrawer from './components/cart/CartDrawer';
+
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
-const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
+const MainPage = Pages[mainPageKey];
 
 const LayoutWrapper = ({ children, currentPageName }) => Layout ?
   <Layout currentPageName={currentPageName}>{children}</Layout>
