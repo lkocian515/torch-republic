@@ -204,7 +204,10 @@ const UPDATE_CART = `
 `;
 
 function formatCart(cart) {
-  if (!cart) return null;
+  if (!cart) {
+    console.error('formatCart called with null/undefined cart');
+    return null;
+  }
   
   // Flatten Shopify's nested lines structure into simple array
   const lines = cart.lines?.edges?.map(({ node }) => ({
@@ -269,6 +272,9 @@ Deno.serve(async (req) => {
       });
       console.log('cartCreate response:', JSON.stringify(data.cartCreate).substring(0, 200));
       const cart = data.cartCreate?.cart;
+      if (!cart) {
+        throw new Error(`Cart creation failed: ${JSON.stringify(data.cartCreate?.userErrors)}`);
+      }
       const formatted = formatCart(cart);
       console.log('Formatted cart:', JSON.stringify(formatted).substring(0, 200));
       return Response.json({ cart: formatted });
