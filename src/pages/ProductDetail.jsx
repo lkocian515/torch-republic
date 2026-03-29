@@ -229,7 +229,9 @@ export default function ProductDetail() {
               </button>
 
               <a
-                href='https://libertees-for-all.myshopify.com/cart'
+                href={product?.shopify_handle
+                  ? `https://libertees-for-all.myshopify.com/products/${product.shopify_handle}`
+                  : 'https://libertees-for-all.myshopify.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${

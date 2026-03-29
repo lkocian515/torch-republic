@@ -151,7 +151,10 @@ export default function CartDrawer() {
 
                 <button
                   onClick={() => {
-                    window.open('https://libertees-for-all.myshopify.com/cart', '_blank', 'noopener,noreferrer');
+                    if (cart?.checkoutUrl) {
+                      const checkoutUrl = cart.checkoutUrl.replace('www.torchrepublic.com', 'libertees-for-all.myshopify.com');
+                      window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
+                    }
                   }}
                   className="flex items-center justify-center gap-2 w-full py-4 font-mono text-sm tracking-widest uppercase hover:opacity-90 transition-opacity"
                   style={{
