@@ -50,7 +50,7 @@ export default function CartDrawer() {
 
             {/* Items */}
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-              {!cart || cart.lines.length === 0 ? (
+              {!cart || !cart.lines || cart.lines.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center gap-4">
                   <ShoppingBag className="w-12 h-12 text-muted-foreground/30" />
                   <p className="font-mono text-sm text-muted-foreground">Your cart is empty</p>
@@ -81,6 +81,48 @@ export default function CartDrawer() {
                           {opt.name}: {opt.value}
                         </p>
                       ))}
+                      <p className="font-mono text-xs text-primary mt-1">
+                        ${line.price.toFixed(2)}
+                      </p>
+
+                      {/* Quantity + Remove */}
+                      <div className="flex items-center gap-3 mt-3">
+                        <div className="flex items-center border border-border">
+                          <button
+                            onClick={() => updateQuantity(line.id, line.quantity - 1)}
+                            disabled={isLoading}
+                            className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            <Minus className="w-3 h-3" />
+                          </button>
+                          <span className="px-3 font-mono text-xs">{line.quantity}</span>
+                          <button
+                            onClick={() => updateQuantity(line.id, line.quantity + 1)}
+                            disabled={isLoading}
+                            className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            <Plus className="w-3 h-3" />
+                          </button>
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(line.id)}
+                          disabled={isLoading}
+                          className="font-mono text-xs text-muted-foreground hover:text-destructive transition-colors"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Line total */}
+                    <div className="text-right flex-shrink-0">
+                      <p className="font-mono text-sm font-bold">
+                        ${line.lineTotal.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              )}
                       <p className="font-mono text-xs text-primary mt-1">
                         ${line.price.toFixed(2)}
                       </p>
