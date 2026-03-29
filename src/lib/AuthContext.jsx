@@ -1,5 +1,3 @@
-'use client';
-
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { appParams } from '@/lib/app-params';
@@ -17,10 +15,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkAppState();
-    syncDarkMode();
-  }, []);
-
-  const syncDarkMode = () => {
+    
+    // Sync dark mode
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (isDark) {
       document.documentElement.classList.add('dark');
@@ -38,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     };
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  };
+  }, []);
 
   const checkAppState = async () => {
     try {
