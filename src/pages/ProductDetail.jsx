@@ -99,30 +99,36 @@ export default function ProductDetail() {
       return;
     }
     try {
-      console.log('selectedVariant:', selectedVariant);
-      console.log('Creating cart - Variant ID:', selectedVariant.id, 'Quantity:', quantity);
+      // Extract numeric variant ID from GraphQL GID: gid://shopify/ProductVariant/12345 -> 12345
+      const variantId = selectedVariant.id.includes('ProductVariant/')
+        ? selectedVariant.id.split('ProductVariant/')[1]
+        : selectedVariant.id;
       
-      // Use Storefront API via backend function to create cart
+      console.log('🛒 Adding to cart');
+      console.log('Selected variant:', selectedVariant);
+      console.log('Numeric variant ID:', variantId);
+      console.log('Quantity:', quantity);
+      
+      // Call backend to use Storefront API (handles CORS, auth, etc.)
       const res = await base44.functions.invoke('shopifyStorefront', {
         action: 'createCart',
-        variantId: selectedVariant.id,
-        quantity: quantity,
+        variantId: selectedVariant.id, // Pass full GID to backend
+        quantity,
       });
       
-      console.log('Backend response:', res.data);
+      console.log('✅ Cart created:', res.data.cart);
       
       const checkoutUrl = res.data.cart?.checkoutUrl;
       if (!checkoutUrl) {
-        console.error('No checkoutUrl in response:', res.data);
-        throw new Error('No checkout URL returned from Shopify');
+        console.error('❌ No checkoutUrl in response:', res.data);
+        throw new Error('No checkout URL from Shopify');
       }
       
-      console.log('Cart created, redirecting to:', checkoutUrl);
+      console.log('🔗 Redirecting to:', checkoutUrl);
       window.location.href = checkoutUrl;
     } catch (error) {
-      console.error('Full error object:', error);
-      console.error('Error message:', error?.message);
-      console.error('Error response:', error?.response?.data);
+      console.error('❌ Cart error:', error.message);
+      if (error?.response?.data) console.error('Response:', error.response.data);
       alert('Failed to add item to cart. Please try again.');
     }
   };
