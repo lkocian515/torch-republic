@@ -135,15 +135,13 @@ export default function CartDrawer() {
                 <p className="font-mono text-xs text-muted-foreground">
                   Shipping & taxes calculated at checkout
                 </p>
-                <a
-                  href={cart.checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => { window.open(cart.checkoutUrl, '_blank') || (window.location.href = cart.checkoutUrl); }}
                   className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Checkout — ${cart.total.toFixed(2)}
-                </a>
+                </button>
               </div>
             )}
           </motion.div>
