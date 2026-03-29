@@ -42,7 +42,7 @@ const NAV_ITEMS = [
 ];
 
 export default function NavBar() {
-  const { itemCount, setIsOpen: openCart } = useCart();
+  const { addToCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
@@ -205,13 +205,9 @@ export default function NavBar() {
             <button className="text-muted-foreground hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
-            <button onClick={() => openCart(true)} className="text-muted-foreground hover:text-primary transition-colors relative">
+            <button onClick={() => window.location.href = 'https://libertees-for-all.myshopify.com/cart'} className="text-muted-foreground hover:text-primary transition-colors relative">
               <ShoppingCart className="w-5 h-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
-                  {itemCount}
-                </span>
-              )}
+              {/* Cart count removed since drawer disabled */}
             </button>
           </div>
         </div>
