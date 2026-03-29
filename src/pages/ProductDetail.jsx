@@ -17,10 +17,6 @@ export default function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
-  const shopifyUrl = product?.shopify_handle
-    ? `https://libertees-for-all.myshopify.com/products/${product.shopify_handle}`
-    : 'https://libertees-for-all.myshopify.com';
-
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', productId],
     queryFn: () => base44.entities.Product.filter({ id: productId }),
@@ -205,7 +201,9 @@ export default function ProductDetail() {
 
             {/* Buy on Shopify */}
             <a
-              href={shopifyUrl}
+              href={product?.shopify_handle
+                ? `https://torchrepublic.com/products/${product.shopify_handle}`
+                : 'https://torchrepublic.com'}
               target="_blank"
               rel="noopener noreferrer"
               className={`w-full mt-8 py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${

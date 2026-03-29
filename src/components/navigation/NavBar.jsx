@@ -253,7 +253,7 @@ export default function NavBar() {
                   className="block text-lg font-heading font-bold tracking-wider uppercase"
                   style={{ color: '#C8A44D' }}
                 >
-                  🔥 On Sale — Under $10
+                  🔥 On Sale
                 </Link>
                 <Link
                   to={createPageUrl('TrackOrder')}
