@@ -1,7 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
 const SHOPIFY_DOMAIN = 'libertees-for-all.myshopify.com';
-const API_VERSION = '2024-01';
+const API_VERSION = '2023-10';
 const ENDPOINT = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
 
 async function shopifyFetch(query, variables = {}) {
@@ -15,13 +15,17 @@ async function shopifyFetch(query, variables = {}) {
     body: JSON.stringify({ query, variables }),
   });
   const json = await res.json();
-  if (json.errors) throw new Error(json.errors[0].message);
+  console.log('Shopify response status:', res.status);
+  if (json.errors) {
+    console.error('Shopify errors:', JSON.stringify(json.errors));
+    throw new Error(json.errors[0]?.message || JSON.stringify(json.errors));
+  }
   return json.data;
 }
 
 const GET_VARIANTS = `
   query getProductVariants($handle: String!) {
-    productByHandle(handle: $handle) {
+    product(handle: $handle) {
       id
       title
       variants(first: 50) {
@@ -226,7 +230,7 @@ Deno.serve(async (req) => {
 
     if (action === 'getVariants') {
       const data = await shopifyFetch(GET_VARIANTS, { handle: body.handle });
-      const product = data.productByHandle;
+      const product = data.product;
       if (!product) return Response.json({ variants: [] });
       const variants = product.variants.edges.map(({ node }) => ({
         id: node.id,
