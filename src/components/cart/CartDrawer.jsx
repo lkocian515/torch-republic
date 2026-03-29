@@ -50,7 +50,7 @@ export default function CartDrawer() {
 
             {/* Items */}
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-              {!cart?.totalQuantity || !Array.isArray(cart.lines) || cart.lines.length === 0 ? (
+              {!cart || !cart.lines || cart.lines.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center gap-4">
                   <ShoppingBag className="w-12 h-12 text-muted-foreground/30" />
                   <p className="font-mono text-sm text-muted-foreground">Your cart is empty</p>
