@@ -49,6 +49,7 @@ export default function ProductDetail() {
           action: 'getVariants',
           handle: product.shopify_handle,
         });
+        console.log('Variants fetched:', res.data.variants);
         return res.data.variants || [];
       } catch (err) {
         console.error('Variant fetch error:', err);
