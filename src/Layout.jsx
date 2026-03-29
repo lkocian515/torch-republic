@@ -4,6 +4,7 @@ import NavBar from './components/navigation/NavBar';
 import Footer from './components/navigation/Footer';
 import BottomTabNav from './components/mobile/BottomTabNav';
 import MobileHeader from './components/mobile/MobileHeader';
+import CartDrawer from './components/cart/CartDrawer';
 
 export default function Layout({ children }) {
   return (
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
       </main>
       <Footer />
       <BottomTabNav />
+      <CartDrawer />
     </div>
   );
 }
