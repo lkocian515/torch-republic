@@ -106,16 +106,11 @@ export default function ProductDetail() {
       
       console.log('🛒 Adding to cart - Variant ID:', variantId);
       
-      // Use Shopify AJAX API directly
-      const response = await fetch('https://www.torchrepublic.com/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: variantId, quantity }),
+      // Use backend function to bypass CORS
+      const res = await base44.functions.invoke('addToCart', {
+        variantId,
+        quantity,
       });
-      
-      if (!response.ok) {
-        throw new Error(`Cart API error: ${response.status}`);
-      }
       
       console.log('✅ Item added, redirecting to cart');
       window.location.href = 'https://www.torchrepublic.com/cart';
