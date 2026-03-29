@@ -205,9 +205,12 @@ const UPDATE_CART = `
 
 function formatCart(cart) {
   if (!cart) return null;
+  let checkoutUrl = cart.checkoutUrl || '';
+  checkoutUrl = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
+  checkoutUrl = checkoutUrl.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
   return {
     id: cart.id,
-    checkoutUrl: cart.checkoutUrl?.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com') || cart.checkoutUrl,
+    checkoutUrl: checkoutUrl,
     totalQuantity: cart.totalQuantity,
     total: parseFloat(cart.cost?.totalAmount?.amount || 0),
     lines: cart.lines.edges.map(({ node }) => ({
