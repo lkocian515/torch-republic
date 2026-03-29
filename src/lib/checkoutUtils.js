@@ -1,18 +1,22 @@
 export function getAbsoluteCheckoutUrl(url) {
   if (!url) return null;
   
-  // If it's already an absolute URL, return as-is
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url;
-  }
+  let finalCheckoutUrl = url;
   
-  // If it's a relative path, prepend the Shopify domain
   if (url.startsWith('/')) {
-    return `https://libertees-for-all.myshopify.com${url}`;
+    finalCheckoutUrl = `https://libertees-for-all.myshopify.com${url}`;
+  } else {
+    const urlObj = new URL(url);
+    if (
+      urlObj.hostname === 'torchrepublic.com' ||
+      urlObj.hostname === 'www.torchrepublic.com'
+    ) {
+      urlObj.hostname = 'libertees-for-all.myshopify.com';
+    }
+    finalCheckoutUrl = urlObj.toString();
   }
   
-  // Fallback: treat as a path and prepend domain
-  return `https://libertees-for-all.myshopify.com/${url}`;
+  return finalCheckoutUrl;
 }
 
 export function redirectToCheckout(checkoutUrl) {
