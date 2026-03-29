@@ -89,16 +89,24 @@ export default function ProductDetail() {
     return available || matching[0];
   }, [variantsData, selectedSize]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
+    console.log('handleAddToCart called, selectedVariant:', selectedVariant);
     if (!selectedVariant || !selectedVariant.id) {
       console.error('No variant selected:', selectedVariant);
+      alert('Please select a size first');
       return;
     }
-    // Extract numeric ID from GID format (e.g., gid://shopify/ProductVariant/12345 -> 12345)
-    const variantId = selectedVariant.id.includes('ProductVariant/') 
-      ? selectedVariant.id.split('ProductVariant/')[1] 
-      : selectedVariant.id;
-    window.location.href = `https://libertees-for-all.myshopify.com/cart/${variantId}:${quantity}`;
+    try {
+      // Use Shopify's direct cart URL with the numeric variant ID
+      const variantId = selectedVariant.id.split('ProductVariant/')[1] || selectedVariant.id;
+      console.log('Extracted variantId:', variantId, 'quantity:', quantity);
+      const cartUrl = `https://libertees-for-all.myshopify.com/cart/${variantId}:${quantity}`;
+      console.log('Redirecting to:', cartUrl);
+      window.location.href = cartUrl;
+    } catch (error) {
+      console.error('Add to cart error:', error);
+      alert('Failed to add item to cart. Please try again.');
+    }
   };
 
   if (isLoading) {
