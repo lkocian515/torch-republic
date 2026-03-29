@@ -50,6 +50,7 @@ export default function Home() {
           Shop the Collection
         </Link>
       </div>
-    </PullToRefresh>
-  );
+      </div>
+      </PullToRefresh>
+      );
 }
