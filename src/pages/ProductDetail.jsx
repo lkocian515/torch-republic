@@ -41,10 +41,22 @@ export default function ProductDetail() {
 
   const { data: variantsData } = useQuery({
     queryKey: ['variants', product?.shopify_handle],
-    queryFn: () => base44.functions.invoke('shopifyStorefront', {
-      action: 'getVariants',
-      handle: product.shopify_handle,
-    }).then(r => r.data.variants),
+    queryFn: async () => {
+      if (!product?.shopify_handle) {
+        console.warn('No shopify_handle for product:', product?.id, product?.title);
+        return [];
+      }
+      try {
+        const res = await base44.functions.invoke('shopifyStorefront', {
+          action: 'getVariants',
+          handle: product.shopify_handle,
+        });
+        return res.data.variants;
+      } catch (err) {
+        console.error('Variant fetch error:', err);
+        return [];
+      }
+    },
     enabled: !!product?.shopify_handle,
     initialData: [],
   });
