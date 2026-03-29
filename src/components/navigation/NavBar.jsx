@@ -80,8 +80,8 @@ export default function NavBar() {
             </button>
 
             <div className="hidden md:flex items-center gap-8">
-              {/* Shop with mega menu */}
-              <div ref={shopRef} className="relative">
+              {/* Shop with mega menu - desktop only */}
+              <div ref={shopRef} className="relative hidden lg:block">
                 <button
                   onClick={() => setShopOpen(!shopOpen)}
                   className={`text-sm font-mono tracking-wider uppercase transition-colors duration-300 ${shopOpen ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
@@ -90,14 +90,14 @@ export default function NavBar() {
                 </button>
 
                 <AnimatePresence>
-                  {shopOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 mt-2 w-[680px] bg-background border border-border shadow-2xl z-50 p-6"
-                    >
+                   {shopOpen && (
+                     <motion.div
+                       initial={{ opacity: 0, y: 8 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       exit={{ opacity: 0, y: 8 }}
+                       transition={{ duration: 0.15 }}
+                       className="absolute top-full left-0 mt-2 w-[680px] bg-background border border-border shadow-2xl z-50 p-6 hidden lg:block"
+                     >
                       <div className="grid grid-cols-3 gap-6">
                         {/* By Collections */}
                         <div>

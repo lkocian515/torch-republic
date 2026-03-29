@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { createPageUrl } from '@/utils';
 import HeroSection from '../components/home/HeroSection';
 import SpinWheelPopup from '../components/SpinWheelPopup';
+import PullToRefresh from '../components/mobile/PullToRefresh';
 import FeaturedCollections from '../components/home/FeaturedCollections';
 import TrustBar from '../components/home/TrustBar';
 import TrustSection from '../components/home/TrustSection';
@@ -16,8 +18,15 @@ import NewsletterSection from '../components/home/NewsletterSection';
 import MadeInUSABanner from '../components/home/MadeInUSABanner';
 
 export default function Home() {
+  const queryClient = useQueryClient();
+  
+  const handleRefresh = useCallback(async () => {
+    await queryClient.invalidateQueries({ queryKey: ['products'] });
+  }, [queryClient]);
+
   return (
-    <div className="min-h-screen">
+    <PullToRefresh onRefresh={handleRefresh}>
+      <div className="min-h-screen">
       <SpinWheelPopup />
       <HeroSection />
       <TrustBar />
@@ -41,6 +50,6 @@ export default function Home() {
           Shop the Collection
         </Link>
       </div>
-    </div>
+    </PullToRefresh>
   );
 }
