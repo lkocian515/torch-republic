@@ -1,3 +1,4 @@
+// v2
 const SHOPIFY_DOMAIN = 'libertees-for-all.myshopify.com';
 const API_VERSION = '2023-10';
 const ENDPOINT = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
