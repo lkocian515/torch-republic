@@ -94,14 +94,25 @@ export default function ProductDetail() {
     return result;
   }, [variantsData, selectedSize]);
 
-  const { addToCart, cart } = useCart();
+  const { addToCart, isLoading: cartLoading } = useCart();
 
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) {
       alert('Please select a size first');
       return;
     }
-    await addToCart(selectedVariant.id, quantity);
+
+    if (!selectedVariant.availableForSale) {
+      alert('This size is currently sold out.');
+      return;
+    }
+
+    try {
+      await addToCart(selectedVariant.id, quantity);
+    } catch (error) {
+      console.error('\u274c Add to cart failed:', error);
+      alert('Failed to add item to cart. Please try again.');
+    }
   };
 
   if (isLoading) {

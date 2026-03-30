@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 
 const CartContext = createContext(null);
@@ -7,6 +7,28 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Restore cart from localStorage on mount
+  useEffect(() => {
+    const savedCartId = localStorage.getItem('shopify_cart_id');
+    if (!savedCartId) return;
+    const restoreCart = async () => {
+      try {
+        const res = await base44.functions.invoke('shopifyStorefront', {
+          action: 'getCart',
+          cartId: savedCartId,
+        });
+        if (res?.data?.cart) {
+          setCart(res.data.cart);
+        } else {
+          localStorage.removeItem('shopify_cart_id');
+        }
+      } catch {
+        localStorage.removeItem('shopify_cart_id');
+      }
+    };
+    restoreCart();
+  }, []);
 
   const addToCart = useCallback(async (variantId, quantity = 1) => {
     setIsLoading(true);
@@ -29,6 +51,7 @@ export function CartProvider({ children }) {
         });
       }
       
+      if (res.data.cart?.id) localStorage.setItem('shopify_cart_id', res.data.cart.id);
       setCart(res.data.cart);
       setIsOpen(true);
     } catch (error) {
