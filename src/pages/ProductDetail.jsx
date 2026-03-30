@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
+import { useCart } from '../lib/CartContext';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Star, ArrowLeft, Minus, Plus, ShoppingCart, ExternalLink } from 'lucide-react';
@@ -9,7 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
-import { redirectToCheckout } from '../lib/checkoutUtils';
+
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -93,31 +94,14 @@ export default function ProductDetail() {
     return result;
   }, [variantsData, selectedSize]);
 
+  const { addToCart, cart } = useCart();
+
   const handleAddToCart = async () => {
-    if (!selectedVariant || !selectedVariant.id) {
+    if (!selectedVariant?.id) {
       alert('Please select a size first');
       return;
     }
-    try {
-      // Extract numeric variant ID from GraphQL GID: gid://shopify/ProductVariant/12345 -> 12345
-      const variantId = selectedVariant.id.includes('ProductVariant/')
-        ? selectedVariant.id.split('ProductVariant/')[1]
-        : selectedVariant.id;
-      
-      console.log('🛒 Adding to cart - Variant ID:', variantId);
-      
-      // Use backend function to bypass CORS
-      const res = await base44.functions.invoke('addToCart', {
-        variantId,
-        quantity,
-      });
-      
-      const checkoutUrl = res.data?.checkoutUrl || 'https://www.torchrepublic.com/cart';
-      window.location.href = checkoutUrl;
-    } catch (error) {
-      console.error('❌ Error:', error.message);
-      alert('Failed to add item to cart. Please try again.');
-    }
+    await addToCart(selectedVariant.id, quantity);
   };
 
   if (isLoading) {
@@ -285,9 +269,9 @@ export default function ProductDetail() {
               </button>
 
               <a
-                href={product?.shopify_handle
+                href={cart?.checkoutUrl || (product?.shopify_handle
                   ? `https://www.torchrepublic.com/products/${product.shopify_handle}`
-                  : 'https://www.torchrepublic.com'}
+                  : 'https://www.torchrepublic.com')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
