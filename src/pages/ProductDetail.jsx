@@ -94,7 +94,7 @@ export default function ProductDetail() {
     return result;
   }, [variantsData, selectedSize]);
 
-  const { addToCart, isLoading: cartLoading } = useCart();
+  const { addToCart, cart, isLoading: cartLoading } = useCart();
 
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) {
