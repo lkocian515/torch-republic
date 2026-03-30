@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageTransition from './components/PageTransition';
+import { CartProvider } from './lib/CartContext';
 
 import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
@@ -54,17 +55,18 @@ const AuthenticatedApp = () => {
 
 
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
+        <CartProvider>
+          <Router>
+            <AuthenticatedApp />
+          </Router>
+          <Toaster />
+        </CartProvider>
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
 export default App
