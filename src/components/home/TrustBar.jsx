@@ -1,28 +1,26 @@
 import React from 'react';
-import { Flag, Award, ShieldCheck } from 'lucide-react';
+import { Truck, ShieldCheck, RotateCcw, Star } from 'lucide-react';
 
 const SIGNALS = [
-  { icon: Flag, label: 'American Made', sub: 'Designed & operated in the USA' },
-  { icon: Award, label: 'Premium Quality', sub: 'Built to last, not to fill a drawer' },
   { icon: ShieldCheck, label: 'Secure Checkout', sub: '256-bit SSL encrypted' },
+  { icon: Truck, label: 'Ships from USA', sub: 'Orders out in 1–3 days' },
+  { icon: RotateCcw, label: '30-Day Returns', sub: 'Hassle-free, no questions' },
+  { icon: Star, label: '4.9 Star Rated', sub: 'Thousands of patriots served' },
 ];
 
 export default function TrustBar() {
   return (
-    <section style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.08)', borderBottom: '1px solid rgba(201,162,74,0.08)' }}>
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section style={{ borderBottom: '1px solid rgba(200,164,77,0.12)', backgroundColor: '#0a0a0a' }}>
+      <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {SIGNALS.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex flex-col items-center text-center gap-3">
-              <div
-                className="w-10 h-10 flex items-center justify-center"
-                style={{ border: '1px solid rgba(201,162,74,0.25)', backgroundColor: 'rgba(201,162,74,0.04)' }}
-              >
-                <Icon className="w-4 h-4" style={{ color: '#C9A24A' }} />
+            <div key={label} className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(14,42,47,0.8), rgba(27,80,96,0.5))', border: '1px solid rgba(200,164,77,0.35)' }}>
+                <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
               </div>
               <div>
-                <p className="font-mono text-xs tracking-[0.3em] uppercase text-white mb-1">{label}</p>
-                <p className="font-heading font-light text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>{sub}</p>
+                <p className="text-xs font-heading font-bold uppercase tracking-wide text-white">{label}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{sub}</p>
               </div>
             </div>
           ))}

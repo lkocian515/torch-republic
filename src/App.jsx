@@ -11,10 +11,8 @@ import PageTransition from './components/PageTransition';
 import { CartProvider } from './lib/CartContext';
 
 import Reviews from './pages/Reviews';
-import CategoryPage from './pages/CategoryPage';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
-import TorchbearerCollection from './pages/TorchbearerCollection';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -49,8 +47,6 @@ const AuthenticatedApp = () => {
       <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
       <Route path="/OnSale" element={<LayoutWrapper currentPageName="OnSale"><OnSale /></LayoutWrapper>} />
       <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
-      <Route path="/TorchbearerCollection" element={<LayoutWrapper currentPageName="TorchbearerCollection"><TorchbearerCollection /></LayoutWrapper>} />
-      <Route path="/CategoryPage" element={<LayoutWrapper currentPageName="CategoryPage"><CategoryPage /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>

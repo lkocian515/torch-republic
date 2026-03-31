@@ -1,104 +1,159 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
+import { ShieldCheck, Truck, Star, ChevronDown } from 'lucide-react';
+
+const TRUST_SIGNALS = [
+  { icon: ShieldCheck, text: 'Secure Checkout' },
+  { icon: Truck, text: 'Ships from USA' },
+  { icon: Star, text: '5-Star Rated' },
+];
 
 export default function HeroSection() {
+  const containerRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
+  };
+
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0B0B0B' }}>
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="relative w-full min-h-[92vh] flex items-center overflow-hidden bg-background"
+    >
+      {/* Spotlight */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(700px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, hsl(49 100% 50% / 0.05), transparent 60%)`,
+        }}
+      />
+
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=85"
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ opacity: 0.45, filter: 'contrast(1.15) saturate(0.6)' }}
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a1f33e3ce_hero.png"
+          alt="Torch Republic Hero"
+          className="w-full h-full object-cover opacity-80"
         />
-        {/* Cinematic overlays */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.7) 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to top, #0B0B0B, transparent)' }} />
-        <div className="absolute top-0 left-0 right-0 h-24" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 40%, rgba(0,0,0,0.4) 100%)' }} />
       </div>
 
-      {/* Centered content */}
-      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="flex items-center justify-center gap-4 mb-8"
-        >
-          <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A)' }} />
-          <span className="font-mono text-xs tracking-[0.55em] uppercase" style={{ color: '#C9A24A' }}>
-            Torch Republic
-          </span>
-          <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, #C9A24A, transparent)' }} />
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif font-bold text-white leading-[1.0] tracking-tight mb-6"
-          style={{ fontSize: 'clamp(3.5rem, 10vw, 7.5rem)' }}
-        >
-          Carry the Flame.
-        </motion.h1>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.8 }}
-          className="font-mono text-sm md:text-base tracking-[0.5em] uppercase mb-12"
-          style={{ color: 'rgba(201,162,74,0.8)' }}
-        >
-          Faith &nbsp;·&nbsp; Freedom &nbsp;·&nbsp; Truth
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link
-            to={createPageUrl('BestSellers')}
-            className="w-full sm:w-auto inline-flex items-center justify-center font-mono text-sm tracking-[0.25em] uppercase px-10 py-5 transition-all duration-300 hover:opacity-90"
-            style={{ backgroundColor: '#C9A24A', color: '#0B0B0B', fontWeight: 700, minWidth: '220px' }}
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
+        <div className="max-w-2xl">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 mb-5"
           >
-            Shop Collection
-          </Link>
-          <a
-            href="https://torchbearer-nation.sintra.site/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center font-mono text-sm tracking-[0.25em] uppercase px-10 py-5 transition-all duration-300"
-            style={{ border: '1px solid rgba(201,162,74,0.4)', color: 'rgba(201,162,74,0.9)', backgroundColor: 'rgba(0,0,0,0.3)', minWidth: '220px' }}
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
+            <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Faith · Freedom · Truth</span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-heading font-black leading-[1.05] tracking-tight text-white mb-5"
           >
-            Explore The Torch Box
-          </a>
-        </motion.div>
+            Premium Patriot Gear. <span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
+          </motion.h1>
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed max-w-xl"
+          >
+            Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last. Made to mean something.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-3 mb-8"
+          >
+            <Link
+              to={createPageUrl('BestSellers')}
+              className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
+              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
+            >
+              Shop the Collection
+            </Link>
+            <a
+              href="#whats-inside"
+              className="inline-flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
+              style={{ border: '1px solid rgba(27,80,96,0.8)', color: '#E8DFAF', backgroundColor: 'rgba(14,42,47,0.4)', boxShadow: 'inset 0 0 20px rgba(14,42,47,0.3)' }}
+            >
+              See What's Inside
+            </a>
+          </motion.div>
+
+          {/* Trust signals */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.65 }}
+            className="flex flex-wrap gap-4"
+          >
+            {TRUST_SIGNALS.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-1.5">
+                <Icon className="w-3.5 h-3.5" style={{ color: '#C8A44D' }} />
+                <span className="font-mono text-xs tracking-wider" style={{ color: 'rgba(232,223,175,0.8)' }}>{text}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Shirt text overlay */}
+      <div
+        className="absolute hidden md:flex flex-col items-center justify-center pointer-events-none"
+        style={{
+          right: '14%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          opacity: 0.55,
+          mixBlendMode: 'overlay',
+        }}
+      >
+        <span
+          className="block font-heading font-black uppercase tracking-[0.35em] text-white"
+          style={{ fontSize: '13px', letterSpacing: '0.5em', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
+        >
+          GOD · FAMILY · COUNTRY
+        </span>
       </div>
 
       {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-10"
-          style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,162,74,0.5), transparent)' }}
-        />
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
+          <ChevronDown className="w-5 h-5" style={{ color: 'rgba(200,164,77,0.5)' }} />
+        </motion.div>
       </motion.div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background to-transparent" />
     </div>
   );
 }
