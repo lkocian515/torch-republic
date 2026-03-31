@@ -72,75 +72,65 @@ export default function TheTorchBox() {
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: '#080808' }}>
-        {/* Ambient torch glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 30%, rgba(201,162,74,0.07) 0%, transparent 70%)' }} />
 
-        <div className="max-w-5xl mx-auto px-6 pt-16 pb-4 flex flex-col items-center text-center">
-          {/* Box image — spotlight treatment */}
+      {/* Box image - full width at very top */}
+      <section className="w-full pt-24">
+        <img
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
+          alt="The Torch Box"
+          className="w-full"
+        />
+      </section>
+
+      <section className="relative overflow-hidden pt-4 pb-8 px-6">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10"
+            style={{ background: 'radial-gradient(circle, #C8A44D, transparent 70%)' }}
+          />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mb-10"
-            style={{ maxWidth: '540px', width: '100%' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center"
           >
-            {/* Glow under image */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-16 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, rgba(201,162,74,0.2) 0%, transparent 70%)', filter: 'blur(20px)' }} />
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
               alt="The Torch Box"
-              className="relative z-10 w-full"
-              style={{ filter: 'drop-shadow(0 0 40px rgba(201,162,74,0.15)) drop-shadow(0 20px 60px rgba(0,0,0,0.8))' }}
+              className="w-52 md:w-64 mt-12"
             />
           </motion.div>
 
-          {/* Logo wordmark */}
-          <motion.img
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
-            alt="The Torch Box"
-            className="w-48 md:w-60 mb-4"
-          />
-
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.7 }}
-            className="font-serif font-bold text-white mb-3"
-            style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)' }}
-          >
-            Built for Torchbearers.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.7 }}
-            className="font-heading font-light text-sm md:text-base leading-relaxed mb-3 max-w-md"
-            style={{ color: 'rgba(232,223,175,0.55)' }}
+            transition={{ delay: 0.35 }}
+            className="mt-3 text-base md:text-lg max-w-xs mx-auto leading-snug"
+            style={{ color: '#E8DFAF99' }}
           >
             A monthly subscription box for those who stand for something. Curated with faith, freedom, and truth — delivered to your door.
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.65 }}
-            className="font-mono text-xs tracking-[0.4em] uppercase mb-8"
-            style={{ color: 'rgba(201,162,74,0.6)' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42 }}
+            className="mt-3 text-sm font-mono tracking-wider whitespace-nowrap"
+            style={{ color: '#C8A44D99' }}
           >
             Sign up below to be notified when it drops.
           </motion.p>
 
-          {/* ── EMAIL FORM (unchanged logic) ── */}
+          {/* Email signup */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
-            className="w-full max-w-md"
+            transition={{ delay: 0.5 }}
+            className="mt-4 max-w-md mx-auto"
           >
             {submitted ? (
               <div
@@ -160,21 +150,21 @@ export default function TheTorchBox() {
                   placeholder="Enter your email address"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-3.5 text-sm font-mono bg-transparent focus:outline-none"
+                  className="flex-1 px-4 py-3 text-sm font-mono bg-transparent focus:outline-none"
                   style={{ border: '1px solid rgba(214,181,101,0.25)', color: '#E8DFAF', backgroundColor: 'rgba(255,255,255,0.04)' }}
                 />
                 <button
                   type="submit"
-                  className="px-7 py-3.5 font-mono font-bold text-sm tracking-widest uppercase transition-all duration-200 whitespace-nowrap"
-                  style={{ backgroundColor: '#C9A24A', color: '#080808' }}
+                  className="px-6 py-3 font-mono font-bold text-sm tracking-widest uppercase transition-all duration-200 whitespace-nowrap"
+                  style={{ backgroundColor: '#C8A44D', color: '#000000' }}
                   onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E4C46A'}
-                  onMouseLeave={e => e.currentTarget.style.backgroundColor = '#C9A24A'}
+                  onMouseLeave={e => e.currentTarget.style.backgroundColor = '#C8A44D'}
                 >
                   Notify Me
                 </button>
               </form>
             )}
-            <p className="mt-3 text-xs font-mono text-center" style={{ color: 'rgba(232,223,175,0.25)' }}>
+            <p className="mt-3 text-xs font-mono" style={{ color: '#E8DFAF44' }}>
               Be first to know when The Torch Box launches. No spam, ever.
             </p>
           </motion.div>
@@ -182,6 +172,7 @@ export default function TheTorchBox() {
       </section>
 
       {/* ── DIVIDER ── */}
+
       <div className="max-w-5xl mx-auto px-6 py-12">
         <div className="flex items-center gap-5">
           <div className="h-px flex-1" style={{ backgroundColor: 'rgba(201,162,74,0.1)' }} />
