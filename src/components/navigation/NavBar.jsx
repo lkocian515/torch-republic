@@ -187,6 +187,17 @@ export default function NavBar() {
                 </Link>
               ))}
 
+              {/* The Torch Box */}
+              <a
+                href="https://torchbearer-nation.sintra.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-mono tracking-wider uppercase transition-colors duration-300 font-bold"
+                style={{ color: '#C8A44D' }}
+              >
+                🔥 The Torch Box
+              </a>
+
               {/* Track Order with icon */}
               <Link
                 to={createPageUrl('TrackOrder')}
@@ -252,6 +263,16 @@ export default function NavBar() {
                 >
                   🔥 On Sale
                 </Link>
+                <a
+                  href="https://torchbearer-nation.sintra.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-lg font-heading font-bold tracking-wider uppercase"
+                  style={{ color: '#C8A44D' }}
+                >
+                  🔥 The Torch Box
+                </a>
                 <Link
                   to={createPageUrl('TrackOrder')}
                   onClick={() => setIsOpen(false)}

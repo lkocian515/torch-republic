@@ -16,6 +16,7 @@ import FAQSection from '../components/home/FAQSection';
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
 import MadeInUSABanner from '../components/home/MadeInUSABanner';
+import TorchBoxBanner from '../components/home/TorchBoxBanner';
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -33,6 +34,7 @@ export default function Home() {
       <MadeInUSABanner />
       <CategoryGrid />
       <BestSellersSection />
+      <TorchBoxBanner />
       <WhatsInsideSection />
       <ManifestoSection />
       <FounderSection />
