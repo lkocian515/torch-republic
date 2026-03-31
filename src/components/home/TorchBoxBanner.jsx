@@ -69,7 +69,7 @@ export default function TorchBoxBanner() {
           </a>
 
           <p className="font-mono text-xs text-muted-foreground mt-4 tracking-wider">
-            No purchase necessary. Be first to know.
+            Strictly for Torch Box updates — no spam, no ads, ever.
           </p>
         </motion.div>
       </div>
