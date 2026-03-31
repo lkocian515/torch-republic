@@ -43,7 +43,7 @@ export default function ProductImageCarousel({ product }) {
       )}
 
       {/* Main image */}
-      <div className="relative flex-1 bg-card overflow-hidden group" style={{ aspectRatio: '4/5' }}>
+      <div className="relative flex-1 overflow-hidden group" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #2a1a0a 30%, #0d0d0d 60%, #000000 100%)' }}> style={{ aspectRatio: '4/5' }}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={active}
