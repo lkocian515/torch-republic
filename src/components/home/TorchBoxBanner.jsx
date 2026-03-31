@@ -11,7 +11,16 @@ const TIERS = [
     borderColor: 'rgba(224,90,43,0.4)',
     badge: 'Starter',
     featured: false,
-    items: ['1 Exclusive Tee', 'Patriot Sticker Pack', 'Monthly Newsletter'],
+    subtext: 'Perfect entry into the Torchbearer community',
+    cta: 'Start with Ember →',
+    items: [
+      'Signature Torch Republic Tee',
+      'Patriot Decal Set (Vehicle + Gear)',
+      'Torchbearer Briefing (Monthly Edition)',
+      'Surprise Gift (Curated Monthly)',
+      'Torchbearer Membership Access',
+      'Printed Historical or Educational Insert',
+    ],
   },
   {
     name: 'Beacon',
@@ -21,7 +30,18 @@ const TIERS = [
     borderColor: 'rgba(200,164,77,0.6)',
     badge: 'Most Popular',
     featured: true,
-    items: ['2 Exclusive Items', 'Limited Hat or Accessory', 'Early Access Drops', 'Discount Code'],
+    subtext: 'Most popular for a reason',
+    cta: 'Join Beacon →',
+    items: [
+      '2 Premium Torch Republic Items',
+      'Limited Hat or Tactical Accessory',
+      'Torchbearer Briefing (Extended Edition)',
+      'Surprise Gift (Upgraded Tier)',
+      'Torchbearer Membership + Digital Account Access',
+      'Premium Historical or Educational Insert',
+      'Early Access to All Drops',
+      'Member Discount Privileges',
+    ],
   },
   {
     name: 'Blaze',
@@ -31,7 +51,18 @@ const TIERS = [
     borderColor: 'rgba(228,196,106,0.5)',
     badge: 'Elite',
     featured: false,
-    items: ['3–4 Premium Items', 'Exclusive Collectible', 'VIP Early Access', 'Free Shipping Always', 'Member-Only Gear'],
+    subtext: 'Built for the fully committed',
+    cta: 'Claim Blaze →',
+    items: [
+      '3–4 Premium Torch Republic Items',
+      'Exclusive Collectible (Monthly Rotation)',
+      'VIP Early Access to All Drops',
+      'Free Shipping (Always)',
+      'Member-Only Gear Releases',
+      'Surprise Gift (Premium Tier)',
+      'Torchbearer Membership + Physical ID Card',
+      'Collector-Level Historical or Educational Insert',
+    ],
   },
 ];
 
@@ -113,6 +144,8 @@ export default function TorchBoxBanner() {
                   ))}
                 </ul>
 
+                <p className="font-mono text-xs text-center mb-4" style={{ color: tier.color, opacity: 0.8 }}>{tier.subtext}</p>
+
                 <a
                   href="https://torchbearer-nation.sintra.site/"
                   target="_blank"
@@ -123,12 +156,14 @@ export default function TorchBoxBanner() {
                     : { borderColor: tier.borderColor, color: tier.color }
                   }
                 >
-                  Join {tier.name} →
+                  {tier.cta}
                 </a>
               </motion.div>
             );
           })}
         </div>
+
+        <p className="text-center font-mono text-xs tracking-wider mb-3" style={{ color: '#C8A44D', opacity: 0.9 }}>Includes exclusive Torchbearer materials not sold publicly</p>
 
         <p className="text-center font-mono text-xs text-muted-foreground tracking-wider">
           Cancel anytime · Ships to all 50 states · Torchbearers only
