@@ -2,57 +2,88 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { ArrowRight } from 'lucide-react';
 
 export default function ManifestoSection() {
   return (
-    <section className="py-20 px-6 relative overflow-hidden" style={{ backgroundColor: '#050505' }}>
-      {/* Gold glow center */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-        <div className="w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse, rgba(200,164,77,0.07) 0%, transparent 70%)' }} />
-      </div>
+    <section
+      className="relative py-36 px-6 overflow-hidden flex items-center justify-center"
+      style={{ backgroundColor: '#070707' }}
+    >
+      {/* Very subtle gold bloom */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,162,74,0.05) 0%, transparent 100%)' }}
+      />
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
-          <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Our Mission</span>
-          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
-        </div>
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
+        {/* Eyebrow */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-5 mb-12"
+        >
+          <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.5))' }} />
+          <span className="font-mono text-[10px] tracking-[0.6em] uppercase" style={{ color: 'rgba(201,162,74,0.7)' }}>
+            The Mission
+          </span>
+          <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.5), transparent)' }} />
+        </motion.div>
 
+        {/* Main statement — big serif */}
         <motion.h2
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif font-bold text-white leading-[1.1] mb-8"
+          style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
         >
           Faith gives life{' '}
-          <span style={{ color: '#D4AF5A' }}>meaning.</span><br />
+          <em style={{ color: '#C9A24A', fontStyle: 'italic' }}>meaning.</em>
+          <br />
           Freedom is worth{' '}
-          <span style={{ color: '#D4AF5A' }}>defending.</span><br />
+          <em style={{ color: '#C9A24A', fontStyle: 'italic' }}>defending.</em>
+          <br />
           Truth is worth{' '}
-          <span style={{ color: '#D4AF5A' }}>wearing.</span>
+          <em style={{ color: '#C9A24A', fontStyle: 'italic' }}>wearing.</em>
         </motion.h2>
 
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="font-heading font-light text-base leading-relaxed mb-14 max-w-xl mx-auto"
+          style={{ color: 'rgba(255,255,255,0.4)' }}
+        >
+          We don't make merch. We make statements.
+          Every piece starts with a conviction.
+        </motion.p>
+
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10"
+          transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
             to={createPageUrl('BestSellers')}
-            className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-10 py-4"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
+            className="group inline-flex items-center gap-2 font-mono text-sm tracking-[0.25em] uppercase px-10 py-5 transition-all duration-300"
+            style={{ backgroundColor: '#C9A24A', color: '#0B0B0B', fontWeight: 700 }}
           >
             Shop the Collection
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
           <Link
             to={createPageUrl('Mission')}
-            className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase"
-            style={{ color: 'rgba(200,164,77,0.7)' }}
+            className="font-mono text-xs tracking-[0.35em] uppercase transition-colors duration-300"
+            style={{ color: 'rgba(201,162,74,0.6)' }}
           >
-            Read Our Story <ArrowRight className="w-3.5 h-3.5" />
+            Read Our Story →
           </Link>
         </motion.div>
       </div>
