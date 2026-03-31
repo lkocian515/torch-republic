@@ -25,22 +25,23 @@ const CATEGORIES_MAP = {
   'all': 'All Categories',
   't-shirts': 'T-Shirts',
   'hoodies': 'Hoodies',
+  'tanks': 'Tanks',
   'hats': 'Hats & Caps',
-  'candles': 'Candles',
   'magnets': 'Car Magnets',
   'stickers': 'Stickers',
-  'jewelry': 'Jewelry',
   'mugs-tumblers': 'Mugs & Tumblers',
+  'candles': 'Candles',
   'flags': 'Flags',
-  'accessories': 'Accessories',
-  'home-decor': 'Home Decor',
   'bobbleheads': 'Bobbleheads',
-  'limited-edition': 'Limited Edition',
   'coffee': 'Coffee',
   'tea': 'Tea',
+  'jewelry': 'Jewelry',
+  'accessories': 'Accessories',
+  'home-decor': 'Home Decor',
 };
 
 export default function BestSellers() {
+
   const queryClient = useQueryClient();
   const urlParams = new URLSearchParams(window.location.search);
   const initialCollection = urlParams.get('collection') || 'all';

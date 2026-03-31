@@ -57,19 +57,19 @@
       "enum": [
         "t-shirts",
         "hoodies",
+        "tanks",
         "hats",
-        "candles",
         "magnets",
         "stickers",
         "jewelry",
         "mugs-tumblers",
+        "candles",
         "flags",
-        "accessories",
-        "home-decor",
         "bobbleheads",
-        "limited-edition",
         "coffee",
-        "tea"
+        "tea",
+        "accessories",
+        "home-decor"
       ],
       "description": "Product category"
     },
