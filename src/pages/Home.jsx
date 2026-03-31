@@ -30,8 +30,8 @@ export default function Home() {
       <div className="min-h-screen">
       <SpinWheelPopup />
       <HeroSection />
-      <TrustBar />
       <MadeInUSABanner />
+      <TrustBar />
       <CategoryGrid />
       <BestSellersSection />
       <TorchBoxBanner />
