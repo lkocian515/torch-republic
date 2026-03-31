@@ -6,19 +6,19 @@ const CATEGORIES = [
     label: 'Patriot Pride Collection',
     category: 'patriotic-pride',
     isCollection: true,
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/american-heart-collection-9399768.png?v=1772927307&width=1500',
+    image: 'https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=800&q=80',
   },
   {
     label: 'Freedom Collection',
     category: 'freedom-isnt-free',
     isCollection: true,
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/freedom-isnt-free-collection-9247105.png?v=1772308430&width=1500',
+    image: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800&q=80',
   },
   {
     label: 'God, Family, Country',
     category: 'god-family-country',
     isCollection: true,
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/god-family-country-collection-1224586.png?v=1772308435&width=1500',
+    image: 'https://images.unsplash.com/photo-1580752300992-559f8e0734e0?w=800&q=80',
   },
 ];
 
