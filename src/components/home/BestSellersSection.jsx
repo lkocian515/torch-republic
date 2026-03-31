@@ -24,18 +24,18 @@ export default function BestSellersSection() {
   });
 
   return (
-    <section className="py-20 px-6" style={{ backgroundColor: '#000' }}>
+    <section className="py-28 px-6" style={{ backgroundColor: '#0B0B0B' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex items-end justify-between mb-14">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A)' }} />
+              <span className="font-mono text-[11px] tracking-[0.45em] uppercase" style={{ color: '#C9A24A' }}>Best Sellers</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
-              Best Sellers & New Arrivals
+            <h2 className="font-serif font-bold text-white leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              The Collection
             </h2>
-            <p className="text-gray-400 text-sm mt-1 font-mono">Highest rated · Most loved · Just dropped</p>
+            <p className="font-heading font-light mt-3 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>Most loved · Highest rated · Just dropped</p>
           </div>
           <Link
             to={createPageUrl('BestSellers')}

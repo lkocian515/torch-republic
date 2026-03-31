@@ -2,30 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { Star, Flame } from 'lucide-react';
+import { Star } from 'lucide-react';
 
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80';
-
-const StarRow = ({ rating }) => (
-  <div className="flex items-center gap-0.5">
-    {[1,2,3,4,5].map(i => (
-      <Star key={i} className={`w-3 h-3 ${i <= Math.round(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}`} />
-    ))}
-  </div>
-);
+const FALLBACK = 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80';
 
 export default function ProductCard({ product, index = 0 }) {
   const [hovered, setHovered] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [imgErr, setImgErr] = useState(false);
 
-  const imageSrc = imgError || !product.image_url ? FALLBACK_IMAGE : product.image_url;
+  const src = imgErr || !product.image_url ? FALLBACK : product.image_url;
+  const hasDiscount = product.compare_at_price > product.price;
+  const savings = hasDiscount ? Math.round((1 - product.price / product.compare_at_price) * 100) : 0;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.05 }}
+      transition={{ delay: index * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
       <Link
         to={createPageUrl('ProductDetail') + `?id=${product.id}`}
@@ -34,86 +28,96 @@ export default function ProductCard({ product, index = 0 }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #2a1a0a 30%, #0d0d0d 60%, #000000 100%)', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
+        <div
+          className="relative overflow-hidden mb-4"
+          style={{
+            aspectRatio: '4/5',
+            backgroundColor: '#111',
+            transition: 'box-shadow 0.5s ease',
+            boxShadow: hovered
+              ? '0 0 0 1px rgba(201,162,74,0.4), 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(201,162,74,0.08)'
+              : '0 4px 24px rgba(0,0,0,0.5)',
+          }}
+        >
           <img
-            src={imageSrc}
-            onError={() => setImgError(true)}
+            src={src}
+            onError={() => setImgErr(true)}
             alt={product.title}
-            className={`w-full h-full object-cover transition-all duration-700 ${
-              hovered ? 'scale-105' : 'scale-100'
-            }`}
+            className="w-full h-full object-cover"
+            style={{
+              transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease',
+              transform: hovered ? 'scale(1.04)' : 'scale(1)',
+              filter: hovered ? 'brightness(1.05)' : 'brightness(0.95)',
+            }}
           />
-          
-          {/* Thermal overlay on hover */}
-          <div className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
-            hovered ? 'opacity-100' : 'opacity-0'
-          }`}>
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-primary/5 mix-blend-overlay" />
+
+          {/* Overlay on hover */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              transition: 'opacity 0.4s ease',
+              opacity: hovered ? 1 : 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%)',
+            }}
+          />
+
+          {/* "View Product" on hover */}
+          <div
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-4 pointer-events-none"
+            style={{ transition: 'opacity 0.35s ease, transform 0.35s ease', opacity: hovered ? 1 : 0, transform: hovered ? 'translateY(0)' : 'translateY(8px)' }}
+          >
+            <span className="font-mono text-xs tracking-[0.3em] uppercase font-bold" style={{ color: '#C9A24A' }}>
+              View Product →
+            </span>
           </div>
 
-          {/* Quick info overlay */}
-          <div className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-500 ${
-            hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-          }`}>
-            <div className="p-3 text-center" style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)' }}>
-              <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
-                Shop Now →
-              </span>
-            </div>
-          </div>
-
-          {/* Out of stock badge */}
+          {/* Badges */}
           {!product.in_stock && (
-            <div className="absolute top-3 left-3 bg-destructive text-destructive-foreground px-3 py-1 text-xs font-mono tracking-wider">
-              SOLD OUT
+            <div className="absolute top-3 left-3 px-3 py-1 font-mono text-[10px] tracking-widest uppercase" style={{ backgroundColor: 'rgba(0,0,0,0.85)', color: '#666', border: '1px solid #333' }}>
+              Sold Out
             </div>
           )}
-
-          {/* Top rated badge */}
-          {product.rating >= 4.8 && (
-            <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 text-xs font-mono font-bold tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #1B5060)', border: '1px solid rgba(200,164,77,0.5)', color: '#C8A44D' }}>
-              <Flame className="w-3 h-3" /> HOT
+          {product.in_stock && product.featured && (
+            <div className="absolute top-3 left-3 px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold" style={{ backgroundColor: '#C9A24A', color: '#0B0B0B' }}>
+              Best Seller
             </div>
           )}
-          {product.featured && product.rating < 4.8 && (
-            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-mono tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
-              BEST SELLER
+          {product.in_stock && !product.featured && hasDiscount && (
+            <div className="absolute top-3 left-3 px-3 py-1 font-mono text-[10px] tracking-widest uppercase" style={{ backgroundColor: 'rgba(0,0,0,0.85)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.3)' }}>
+              Save {savings}%
             </div>
           )}
         </div>
 
         {/* Info */}
-        <div>
-          <h3 className="text-white font-heading font-bold text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors mb-1">
+        <div className="space-y-2 px-1">
+          <h3
+            className="font-heading font-semibold text-sm leading-snug line-clamp-2 transition-colors duration-300"
+            style={{ color: hovered ? '#C9A24A' : 'rgba(255,255,255,0.9)' }}
+          >
             {product.title}
           </h3>
 
           {product.rating > 0 && (
-            <div className="flex items-center gap-2 mb-2">
-              <StarRow rating={product.rating} />
-              <span className="text-xs font-mono font-bold" style={{ color: '#C8A44D' }}>
-                {product.rating?.toFixed(1)}
-              </span>
+            <div className="flex items-center gap-2">
+              <div className="flex">
+                {[1,2,3,4,5].map(i => (
+                  <Star key={i} className="w-2.5 h-2.5" fill={i <= Math.round(product.rating) ? '#C9A24A' : 'transparent'} color={i <= Math.round(product.rating) ? '#C9A24A' : '#444'} />
+                ))}
+              </div>
               {product.review_count > 0 && (
-                <span className="text-xs font-mono text-gray-500">({product.review_count} reviews)</span>
+                <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>({product.review_count})</span>
               )}
             </div>
           )}
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="font-mono font-bold text-base" style={{ color: '#C8A44D' }}>
-                ${product.price?.toFixed(2)}
-              </span>
-              {product.compare_at_price > product.price && (
-                <span className="text-gray-500 font-mono text-xs line-through">
-                  ${product.compare_at_price?.toFixed(2)}
-                </span>
-              )}
-            </div>
-            {product.compare_at_price > product.price && (
-              <span className="font-mono text-[10px] font-bold px-1.5 py-0.5" style={{ backgroundColor: 'rgba(200,164,77,0.15)', color: '#C8A44D' }}>
-                SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
+          <div className="flex items-center gap-3">
+            <span className="font-mono font-bold text-base" style={{ color: '#C9A24A' }}>
+              ${product.price?.toFixed(2)}
+            </span>
+            {hasDiscount && (
+              <span className="font-mono text-xs line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                ${product.compare_at_price?.toFixed(2)}
               </span>
             )}
           </div>

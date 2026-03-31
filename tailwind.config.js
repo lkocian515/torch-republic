@@ -5,9 +5,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['var(--font-heading)'],
-        serif: ['var(--font-serif)'],
-        mono: ['var(--font-mono)'],
+        heading: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'Cormorant Garamond', 'Georgia', 'serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
