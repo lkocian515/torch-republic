@@ -4,48 +4,50 @@ import { Package, Star, Shield, Gift, ChevronRight, Check, Flame } from 'lucide-
 
 const PLANS = [
   {
-    tier: 'Ember',
+    name: 'Ember',
     price: 29,
-    tagline: 'Start the fire.',
+    description: 'Start the flame.',
     bullets: [
       '1 exclusive apparel item',
-      '2–3 patriotic accessories',
+      'Patriotic accessories',
       'Members-only discount code',
-      'Monthly theme reveal',
+      'Monthly themed content',
     ],
+    best: false,
   },
   {
-    tier: 'Beacon',
+    name: 'Beacon',
     price: 49,
-    tagline: 'Carry it further.',
-    best: true,
+    description: 'The most popular tier.',
     bullets: [
       'Everything in Ember',
-      '2 exclusive apparel items',
-      'Bonus collectible or gear item',
+      '2–3 curated items per box',
       'Early access to new drops',
+      'Bonus surprise item',
       'Priority shipping',
     ],
+    best: true,
   },
   {
-    tier: 'Blaze',
+    name: 'Blaze',
     price: 69,
-    tagline: 'Lead the charge.',
+    description: 'For those who carry it furthest.',
     bullets: [
       'Everything in Beacon',
-      'Premium limited-edition item',
-      'Surprise bonus item every box',
-      'Blaze member badge & recognition',
-      'Free shipping always',
+      'Exclusive Blaze-only gear',
+      'Limited edition collectibles',
+      'VIP member community access',
+      'Highest value per box',
     ],
+    best: false,
   },
 ];
 
 const BENEFITS = [
-  { icon: Package, title: 'Curated Monthly Box',        body: 'Hand-picked patriotic apparel, accessories, and exclusive items delivered to your door each month.' },
-  { icon: Star,    title: 'Members-Only Exclusives',    body: "Access to limited-edition products, early drops, and items you won't find anywhere else." },
-  { icon: Shield,  title: 'Faith · Freedom · Truth',    body: 'Every item in The Torch Box reflects our core values and the convictions you live by.' },
-  { icon: Gift,    title: 'Always More Than You Pay',   body: 'Each box is curated to deliver value that far exceeds the subscription price.' },
+  { icon: Gift,    title: 'Exclusive Gear',    description: 'Items you won\'t find anywhere else — designed for those who live it.' },
+  { icon: Star,    title: 'Monthly Themes',    description: 'Each box is built around a conviction. Faith. Freedom. Founders. Truth.' },
+  { icon: Shield,  title: 'Premium Quality',   description: 'Every item meets the Torch Republic standard. No filler. No compromise.' },
+  { icon: Package, title: 'Always More Value', description: 'Curated to deliver far more than the subscription price.' },
 ];
 
 const WHAT_TO_EXPECT = [
@@ -67,204 +69,190 @@ export default function TheTorchBox() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden pt-16 pb-24 px-6 flex flex-col items-center" style={{ minHeight: '90vh' }}>
-        {/* Ambient glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,162,74,0.07) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to top, #0B0B0B, transparent)' }} />
+      <section className="relative overflow-hidden" style={{ backgroundColor: '#080808' }}>
+        {/* Ambient torch glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 30%, rgba(201,162,74,0.07) 0%, transparent 70%)' }} />
 
-        {/* Box image — glowing on dark */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-xl mx-auto mb-8"
-        >
-          {/* Gold bloom behind the box */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 55%, rgba(201,162,74,0.18) 0%, transparent 70%)', filter: 'blur(24px)' }}
-          />
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
+        <div className="max-w-5xl mx-auto px-6 pt-16 pb-4 flex flex-col items-center text-center">
+          {/* Box image — spotlight treatment */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative mb-10"
+            style={{ maxWidth: '540px', width: '100%' }}
+          >
+            {/* Glow under image */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-16 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, rgba(201,162,74,0.2) 0%, transparent 70%)', filter: 'blur(20px)' }} />
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png"
+              alt="The Torch Box"
+              className="relative z-10 w-full"
+              style={{ filter: 'drop-shadow(0 0 40px rgba(201,162,74,0.15)) drop-shadow(0 20px 60px rgba(0,0,0,0.8))' }}
+            />
+          </motion.div>
+
+          {/* Logo wordmark */}
+          <motion.img
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
             alt="The Torch Box"
-            className="relative w-full"
-            style={{ filter: 'drop-shadow(0 0 40px rgba(201,162,74,0.25)) drop-shadow(0 20px 60px rgba(0,0,0,0.8))' }}
+            className="w-48 md:w-60 mb-4"
           />
-        </motion.div>
 
-        {/* Logo wordmark */}
-        <motion.img
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
-          alt="The Torch Box"
-          className="relative z-10 w-48 md:w-60 mb-5"
-        />
-
-        {/* Subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.8 }}
-          className="relative z-10 text-center mb-3"
-        >
-          <p className="font-serif font-bold text-white mb-2" style={{ fontSize: 'clamp(1.3rem, 3vw, 2rem)' }}>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.7 }}
+            className="font-serif font-bold text-white mb-3"
+            style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)' }}
+          >
             Built for Torchbearers.
-          </p>
-          <p className="font-heading font-light text-sm md:text-base max-w-md mx-auto leading-relaxed" style={{ color: 'rgba(232,223,175,0.55)' }}>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.7 }}
+            className="font-heading font-light text-sm md:text-base leading-relaxed mb-3 max-w-md"
+            style={{ color: 'rgba(232,223,175,0.55)' }}
+          >
             A monthly subscription box for those who stand for something. Curated with faith, freedom, and truth — delivered to your door.
-          </p>
-        </motion.div>
+          </motion.p>
 
-        {/* Coming soon badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="relative z-10 flex items-center gap-3 mb-8"
-        >
-          <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.5))' }} />
-          <span className="font-mono text-xs tracking-[0.45em] uppercase" style={{ color: 'rgba(201,162,74,0.7)' }}>
-            Coming Soon
-          </span>
-          <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.5), transparent)' }} />
-        </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.65 }}
+            className="font-mono text-xs tracking-[0.4em] uppercase mb-8"
+            style={{ color: 'rgba(201,162,74,0.6)' }}
+          >
+            Sign up below to be notified when it drops.
+          </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.75 }}
-          className="relative z-10 font-mono text-xs tracking-wider mb-6"
-          style={{ color: 'rgba(201,162,74,0.6)' }}
-        >
-          Sign up below to be notified when it drops.
-        </motion.p>
-
-        {/* Email form */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85 }}
-          className="relative z-10 w-full max-w-md"
-        >
-          {submitted ? (
-            <div className="flex items-center justify-center gap-3 px-6 py-4" style={{ border: '1px solid rgba(201,162,74,0.3)', backgroundColor: 'rgba(201,162,74,0.06)' }}>
-              <Check className="w-4 h-4" style={{ color: '#C8A44D' }} />
-              <p className="font-mono text-sm tracking-wider" style={{ color: '#E8DFAF' }}>
-                You're on the list. We'll notify you at launch!
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                required
-                placeholder="Enter your email address"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3.5 text-sm font-mono bg-transparent focus:outline-none"
-                style={{ border: '1px solid rgba(214,181,101,0.25)', color: '#E8DFAF', backgroundColor: 'rgba(255,255,255,0.04)' }}
-              />
-              <button
-                type="submit"
-                className="px-7 py-3.5 font-mono font-bold text-sm tracking-widest uppercase transition-all duration-200 whitespace-nowrap"
-                style={{ backgroundColor: '#C8A44D', color: '#000' }}
-                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E4C46A'}
-                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#C8A44D'}
+          {/* ── EMAIL FORM (unchanged logic) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75 }}
+            className="w-full max-w-md"
+          >
+            {submitted ? (
+              <div
+                className="flex items-center justify-center gap-3 px-6 py-4"
+                style={{ border: '1px solid rgba(201,162,74,0.3)', backgroundColor: 'rgba(201,162,74,0.06)' }}
               >
-                Notify Me
-              </button>
-            </form>
-          )}
-          <p className="mt-3 text-xs font-mono text-center" style={{ color: 'rgba(232,223,175,0.25)' }}>
-            Be first to know when The Torch Box launches. No spam, ever.
-          </p>
-        </motion.div>
+                <Check className="w-5 h-5" style={{ color: '#C9A24A' }} />
+                <p className="font-mono text-sm tracking-wider" style={{ color: '#E8DFAF' }}>
+                  You're on the list. We'll notify you at launch!
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  className="flex-1 px-4 py-3.5 text-sm font-mono bg-transparent focus:outline-none"
+                  style={{ border: '1px solid rgba(214,181,101,0.25)', color: '#E8DFAF', backgroundColor: 'rgba(255,255,255,0.04)' }}
+                />
+                <button
+                  type="submit"
+                  className="px-7 py-3.5 font-mono font-bold text-sm tracking-widest uppercase transition-all duration-200 whitespace-nowrap"
+                  style={{ backgroundColor: '#C9A24A', color: '#080808' }}
+                  onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E4C46A'}
+                  onMouseLeave={e => e.currentTarget.style.backgroundColor = '#C9A24A'}
+                >
+                  Notify Me
+                </button>
+              </form>
+            )}
+            <p className="mt-3 text-xs font-mono text-center" style={{ color: 'rgba(232,223,175,0.25)' }}>
+              Be first to know when The Torch Box launches. No spam, ever.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
+      {/* ── DIVIDER ── */}
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="flex items-center gap-5">
+          <div className="h-px flex-1" style={{ backgroundColor: 'rgba(201,162,74,0.1)' }} />
+          <Flame className="w-4 h-4" style={{ color: 'rgba(201,162,74,0.4)' }} />
+          <div className="h-px flex-1" style={{ backgroundColor: 'rgba(201,162,74,0.1)' }} />
+        </div>
+      </div>
+
       {/* ── PLANS ── */}
-      <section className="px-6 pb-28" style={{ backgroundColor: '#0B0B0B' }}>
+      <section className="px-6 pb-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-4 mb-5">
-              <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.4))' }} />
-              <span className="font-mono text-[11px] tracking-[0.5em] uppercase" style={{ color: 'rgba(201,162,74,0.7)' }}>Membership Tiers</span>
-              <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.4), transparent)' }} />
-            </div>
+            <p className="font-mono text-[11px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>Choose Your Tier</p>
             <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-              Choose Your Level
+              Select Your Membership
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {PLANS.map((plan, i) => (
               <motion.div
-                key={plan.tier}
-                initial={{ opacity: 0, y: 28 }}
+                key={plan.name}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.7 }}
-                className="relative flex flex-col p-8"
+                className="relative flex flex-col"
                 style={{
                   backgroundColor: plan.best ? 'rgba(201,162,74,0.05)' : 'rgba(255,255,255,0.02)',
-                  border: plan.best ? '1px solid rgba(201,162,74,0.5)' : '1px solid rgba(255,255,255,0.07)',
+                  border: plan.best ? '1px solid rgba(201,162,74,0.45)' : '1px solid rgba(255,255,255,0.07)',
                 }}
               >
                 {plan.best && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="font-mono text-[10px] tracking-[0.35em] uppercase px-4 py-1" style={{ backgroundColor: '#C9A24A', color: '#0B0B0B', fontWeight: 700 }}>
-                      Most Popular
+                    <span className="font-mono text-[10px] tracking-[0.3em] uppercase px-4 py-1" style={{ backgroundColor: '#C9A24A', color: '#080808', fontWeight: 700 }}>
+                      Best Value
                     </span>
                   </div>
                 )}
 
-                {/* Tier name */}
-                <div className="flex items-center gap-2 mb-2">
-                  <Flame className="w-4 h-4 flex-shrink-0" style={{ color: plan.best ? '#C9A24A' : 'rgba(201,162,74,0.45)' }} />
-                  <span className="font-mono text-[11px] tracking-[0.4em] uppercase" style={{ color: plan.best ? '#C9A24A' : 'rgba(201,162,74,0.5)' }}>
-                    {plan.tier}
-                  </span>
+                <div className="p-8 flex-1 flex flex-col">
+                  {/* Tier name */}
+                  <div className="mb-6">
+                    <p className="font-mono text-[11px] tracking-[0.45em] uppercase mb-2" style={{ color: plan.best ? '#C9A24A' : 'rgba(255,255,255,0.35)' }}>
+                      Tier {String(i + 1).padStart(2, '0')}
+                    </p>
+                    <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '2rem' }}>{plan.name}</h3>
+                    <p className="font-heading font-light text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>{plan.description}</p>
+                  </div>
+
+                  {/* Price */}
+                  <div className="flex items-baseline gap-2 mb-8 pb-8" style={{ borderBottom: `1px solid ${plan.best ? 'rgba(201,162,74,0.15)' : 'rgba(255,255,255,0.06)'}` }}>
+                    <span className="font-mono font-bold text-white" style={{ fontSize: '2.5rem' }}>${plan.price}</span>
+                    <span className="font-mono text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>/month</span>
+                  </div>
+
+                  {/* Bullets */}
+                  <ul className="space-y-3 flex-1 mb-8">
+                    {plan.bullets.map(b => (
+                      <li key={b} className="flex items-start gap-3">
+                        <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: '#C9A24A' }} />
+                        <span className="font-heading font-light text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA note */}
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(201,162,74,0.4)' }}>
+                    Coming Soon
+                  </p>
                 </div>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className="font-mono font-bold text-white" style={{ fontSize: '2.6rem' }}>${plan.price}</span>
-                  <span className="font-mono text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>/mo</span>
-                </div>
-
-                <p className="font-heading font-light text-sm mb-7" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                  {plan.tagline}
-                </p>
-
-                {/* Divider */}
-                <div className="h-px mb-7" style={{ backgroundColor: plan.best ? 'rgba(201,162,74,0.2)' : 'rgba(255,255,255,0.06)' }} />
-
-                {/* Bullets */}
-                <ul className="space-y-3 flex-1 mb-8">
-                  {plan.bullets.map(b => (
-                    <li key={b} className="flex items-start gap-2.5">
-                      <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: plan.best ? '#C9A24A' : 'rgba(201,162,74,0.5)' }} />
-                      <span className="font-heading font-light text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <button
-                  className="w-full py-4 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all duration-300"
-                  style={plan.best
-                    ? { backgroundColor: '#C9A24A', color: '#0B0B0B' }
-                    : { border: '1px solid rgba(201,162,74,0.3)', color: 'rgba(201,162,74,0.7)', backgroundColor: 'transparent' }
-                  }
-                  onMouseEnter={e => { if (!plan.best) e.currentTarget.style.borderColor = 'rgba(201,162,74,0.7)'; }}
-                  onMouseLeave={e => { if (!plan.best) e.currentTarget.style.borderColor = 'rgba(201,162,74,0.3)'; }}
-                >
-                  Join {plan.tier}
-                </button>
               </motion.div>
             ))}
           </div>
@@ -272,28 +260,29 @@ export default function TheTorchBox() {
       </section>
 
       {/* ── BENEFITS ── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#080808', borderTop: '1px solid rgba(201,162,74,0.06)' }}>
-        <div className="max-w-6xl mx-auto">
+      <section className="px-6 py-20" style={{ borderTop: '1px solid rgba(201,162,74,0.08)', backgroundColor: '#0B0B0B' }}>
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="font-mono text-[11px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.7)' }}>Why Subscribe</p>
-            <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>Built for the Bold</h2>
+            <p className="font-mono text-[11px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>Why Subscribe</p>
+            <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>Built for the Bold</h2>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {BENEFITS.map((b, i) => {
               const Icon = b.icon;
               return (
                 <motion.div
                   key={b.title}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08 }}
                   className="p-7"
                   style={{ border: '1px solid rgba(201,162,74,0.1)', backgroundColor: 'rgba(255,255,255,0.02)' }}
                 >
                   <Icon className="w-5 h-5 mb-5" style={{ color: '#C9A24A' }} />
-                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wide mb-3 text-white">{b.title}</h3>
-                  <p className="font-heading font-light text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>{b.body}</p>
+                  <h3 className="font-mono text-xs tracking-[0.3em] uppercase mb-3 text-white">{b.title}</h3>
+                  <p className="font-heading font-light text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{b.description}</p>
                 </motion.div>
               );
             })}
@@ -302,12 +291,15 @@ export default function TheTorchBox() {
       </section>
 
       {/* ── WHAT'S INSIDE ── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#0B0B0B' }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="p-12 md:p-16" style={{ border: '1px solid rgba(201,162,74,0.12)', backgroundColor: 'rgba(201,162,74,0.02)' }}>
+      <section className="px-6 py-20" style={{ backgroundColor: '#080808' }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="p-10 md:p-14"
+            style={{ border: '1px solid rgba(201,162,74,0.15)', backgroundColor: 'rgba(201,162,74,0.02)' }}
+          >
             <div className="text-center mb-10">
-              <p className="font-mono text-[11px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.7)' }}>What's Inside</p>
-              <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>Every Box Includes</h2>
+              <p className="font-mono text-[11px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>What's Inside</p>
+              <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)' }}>Every Box Includes</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {WHAT_TO_EXPECT.map((item, i) => (
@@ -320,7 +312,7 @@ export default function TheTorchBox() {
                   className="flex items-center gap-3"
                 >
                   <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#C9A24A' }} />
-                  <span className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>{item}</span>
+                  <span className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -328,24 +320,23 @@ export default function TheTorchBox() {
         </div>
       </section>
 
-      {/* ── CLOSING STATEMENT ── */}
-      <section className="py-24 px-6 text-center" style={{ backgroundColor: '#080808', borderTop: '1px solid rgba(201,162,74,0.06)' }}>
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-5 mb-8">
-            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.4))' }} />
+      {/* ── BOTTOM BRAND STATEMENT ── */}
+      <section className="px-6 py-24" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-5 mb-10">
+            <div className="h-px w-14" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.35))' }} />
             <div className="w-1 h-1 rounded-full" style={{ backgroundColor: '#C9A24A' }} />
-            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.4), transparent)' }} />
+            <div className="h-px w-14" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.35), transparent)' }} />
           </div>
-          <p className="font-serif font-bold text-white leading-tight mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-            "Don't just wear the message.<br />
-            <span style={{ color: '#C9A24A', fontStyle: 'italic' }}>Live it."</span>
+          <p className="font-serif font-bold text-white leading-tight mb-5" style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}>
+            "Carry the flame.<br />Every single month."
           </p>
-          <p className="font-heading font-light text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            The Torch Box is built for those who carry conviction into every room they walk into.<br />
-            Launching soon. Reserve your spot.
+          <p className="font-heading font-light text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            The Torch Box is coming. Be first in line.
           </p>
         </div>
       </section>
+
     </div>
   );
 }
