@@ -44,15 +44,27 @@ export default function TorchBoxBanner() {
 
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-6 mb-8">
             A curated box of patriotic gear hand-picked for true Torchbearers. 
-            Limited quantities. Exclusive items. Get on the waitlist before it's gone.
+            Limited quantities. Exclusive items. Three tiers of fire.
           </p>
 
-          {/* Feature pills */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {['Exclusive Gear', 'Limited Quantities', 'Patriot Curated', 'Ships Soon'].map((tag) => (
-              <span key={tag} className="font-mono text-xs tracking-wider uppercase px-3 py-1.5 border border-border text-muted-foreground">
-                {tag}
-              </span>
+          {/* Tiers */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto">
+            {[
+              { name: 'Ember', price: '$49/mo', desc: '3–4 curated items, apparel + accessories', color: '#9B7B2F' },
+              { name: 'Beacon', price: '$79/mo', desc: '5–7 items, premium gear + exclusives', color: '#C8A44D', featured: true },
+              { name: 'Blaze', price: '$129/mo', desc: '8–10 items, limited drops + signed gear', color: '#E4C46A' },
+            ].map((tier) => (
+              <div
+                key={tier.name}
+                className={`relative border p-5 text-left transition-all ${tier.featured ? 'border-primary bg-primary/5 scale-105' : 'border-border/50 bg-black/30'}`}
+              >
+                {tier.featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-[10px] font-mono font-bold tracking-widest uppercase" style={{ backgroundColor: '#C8A44D', color: '#000' }}>Most Popular</span>
+                )}
+                <p className="font-heading font-black text-lg uppercase tracking-wider" style={{ color: tier.color }}>{tier.name}</p>
+                <p className="font-mono font-bold text-2xl text-white mt-1">{tier.price}</p>
+                <p className="text-muted-foreground text-xs mt-2 leading-relaxed">{tier.desc}</p>
+              </div>
             ))}
           </div>
 

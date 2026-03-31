@@ -1,50 +1,115 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { Menu, X, ShoppingCart, Search, CalendarCheck } from 'lucide-react';
+import { Menu, X, ShoppingCart, ChevronDown, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const COLLECTIONS = [
-  { label: 'Patriot Pride Collection', slug: 'patriotic-pride' },
+const SHOP_MENU = [
+  {
+    heading: 'Apparel',
+    items: [
+      { label: 'T-Shirts', category: 't-shirts' },
+      { label: 'Hoodies', category: 'hoodies' },
+      { label: 'Tanks', category: 't-shirts' },
+    ],
+  },
+  {
+    heading: 'Accessories',
+    items: [
+      { label: 'Hats & Caps', category: 'hats' },
+      { label: 'Car Magnets', category: 'magnets' },
+      { label: 'Stickers', category: 'stickers' },
+    ],
+  },
+  {
+    heading: 'Home & Lifestyle',
+    items: [
+      { label: 'Mugs & Tumblers', category: 'mugs-tumblers' },
+      { label: 'Candles', category: 'candles' },
+      { label: 'Flags', category: 'flags' },
+    ],
+  },
+  {
+    heading: 'Collectibles',
+    items: [
+      { label: 'Bobbleheads', category: 'bobbleheads' },
+      { label: 'Limited Drops', category: 'limited-edition' },
+    ],
+  },
+  {
+    heading: 'Consumables',
+    items: [
+      { label: 'Coffee', category: 'coffee' },
+      { label: 'Tea', category: 'tea' },
+    ],
+  },
+];
+
+const COLLECTIONS_MENU = [
+  { label: 'Patriot Pride', slug: 'patriotic-pride' },
   { label: 'Freedom Collection', slug: 'freedom-isnt-free' },
-  { label: 'God, Family, Country Collection', slug: 'god-family-country' },
-  { label: 'We The People Collection', slug: 'we-the-people' },
-  { label: 'American Heroes Collection', slug: 'american-heroes' },
-  { label: 'Founders Collection', slug: 'founders' },
-  { label: 'Torchbearer Collection', slug: 'best-sellers' },
+  { label: 'God, Family, Country', slug: 'god-family-country' },
+  { label: 'We The People', slug: 'we-the-people' },
+  { label: 'American Heroes', slug: 'american-heroes' },
+  { label: "Founder's Collection", slug: 'founders' },
 ];
 
-const BY_CATEGORY = [
-  { label: 'Tees', slug: 't-shirts' },
-  { label: 'Hoodies & Sweatshirts', slug: 't-shirts' },
-  { label: 'Hats & Caps', slug: 'hats' },
-  { label: 'Accessories', slug: 'accessories' },
-  { label: 'Jewelry', slug: 'jewelry' },
-  { label: 'Home Decor', slug: 'home-decor' },
+const DROPS_MENU = [
+  { label: 'New Arrivals', collection: 'best-sellers' },
+  { label: 'Best Sellers', collection: 'best-sellers' },
+  { label: 'Limited Edition', category: 'limited-edition' },
 ];
 
-const GIFTS_DECOR = [
-  { label: 'Car Magnets', slug: 'magnets' },
-  { label: 'Home Decor', slug: 'home-decor' },
-  { label: 'Accessories', slug: 'accessories' },
+const ABOUT_MENU = [
+  { label: 'Mission', page: 'Mission' },
+  { label: 'Contact', page: 'Contact' },
 ];
 
-const JEWELRY = [
-  { label: 'Earrings', slug: 'jewelry' },
-  { label: 'Necklaces', slug: 'jewelry' },
-];
+function DropdownMenu({ label, children, gold = false }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
 
-const NAV_ITEMS = [
-  { label: 'Best Sellers', page: 'BestSellers' },
-  { label: 'Our Mission', page: 'Mission' },
-  { label: 'Contact Us', page: 'Contact' },
-];
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className={`flex items-center gap-1 text-sm font-mono tracking-wider uppercase transition-colors ${
+          gold ? 'font-bold' : ''
+        } ${open ? 'text-primary' : gold ? 'text-primary hover:text-primary/80' : 'text-muted-foreground hover:text-primary'}`}
+      >
+        {label}
+        <ChevronDown className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.15 }}
+            className="absolute top-full left-0 mt-2 bg-background border border-border shadow-2xl z-50"
+            style={{ minWidth: '180px' }}
+          >
+            {children(setOpen)}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [shopOpen, setShopOpen] = useState(false);
-  const shopRef = useRef(null);
+  const [mobileSection, setMobileSection] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -52,182 +117,143 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (shopRef.current && !shopRef.current.contains(e.target)) {
-        setShopOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, []);
-
   return (
     <nav className={`w-full transition-all duration-500 ${
-      scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/60 backdrop-blur-sm'
+      scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/80 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative flex items-center justify-between h-14 md:h-16">
-          {/* Left: Hamburger (mobile) + Nav (desktop) */}
-          <div className="flex items-center gap-6">
-            <button
-              className="md:hidden text-foreground"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+        {/* Top row: nav + icons */}
+        <div className="flex items-center justify-between h-12">
+          {/* Mobile hamburger */}
+          <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
 
-            <div className="hidden md:flex items-center gap-8">
-              {/* Shop with mega menu - desktop only */}
-              <div ref={shopRef} className="relative hidden lg:block">
-                <button
-                  onClick={() => setShopOpen(!shopOpen)}
-                  className={`text-sm font-mono tracking-wider uppercase transition-colors duration-300 ${shopOpen ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
-                >
-                  Shop
-                </button>
-
-                <AnimatePresence>
-                   {shopOpen && (
-                     <motion.div
-                       initial={{ opacity: 0, y: 8 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       exit={{ opacity: 0, y: 8 }}
-                       transition={{ duration: 0.15 }}
-                       className="absolute top-full left-0 mt-2 w-[680px] bg-background border border-border shadow-2xl z-50 p-6 hidden lg:block"
-                     >
-                      <div className="grid grid-cols-3 gap-6">
-                        {/* By Collections */}
-                        <div>
-                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
-                            By Collections
-                          </p>
-                          <div className="space-y-2">
-                            {COLLECTIONS.map((c) => (
-                              <Link
-                                key={c.slug}
-                                to={createPageUrl('BestSellers') + `?collection=${c.slug}`}
-                                onClick={() => setShopOpen(false)}
-                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                              >
-                                {c.label}
-                              </Link>
-                            ))}
-                            <Link
-                              to={createPageUrl('Collections')}
-                              onClick={() => setShopOpen(false)}
-                              className="block text-xs font-mono mt-3 pt-3 border-t border-border"
-                              style={{ color: '#C8A44D' }}
-                            >
-                              View All Collections →
-                            </Link>
-                          </div>
-                        </div>
-
-                        {/* By Category */}
-                        <div>
-                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
-                            By Category
-                          </p>
-                          <div className="space-y-2">
-                            {BY_CATEGORY.map((c) => (
-                              <Link
-                                key={c.label}
-                                to={createPageUrl('BestSellers') + `?category=${c.slug}`}
-                                onClick={() => setShopOpen(false)}
-                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                              >
-                                {c.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Patriotic Gifts & Decor */}
-                        <div>
-                          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
-                            Patriotic Gifts & Decor
-                          </p>
-                          <div className="space-y-2">
-                            {GIFTS_DECOR.map((c) => (
-                              <Link
-                                key={c.label}
-                                to={createPageUrl('BestSellers') + `?category=${c.slug}`}
-                                onClick={() => setShopOpen(false)}
-                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                              >
-                                {c.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-6">
+            {/* SHOP mega dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-mono tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors">
+                Shop <ChevronDown className="w-3 h-3" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-[600px] bg-background border border-border shadow-2xl z-50 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="grid grid-cols-5 gap-4">
+                  {SHOP_MENU.map((section) => (
+                    <div key={section.heading}>
+                      <p className="text-[10px] font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>
+                        {section.heading}
+                      </p>
+                      <div className="space-y-2">
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={`/BestSellers?category=${item.category}`}
+                            className="block text-xs text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              {/* On Sale highlight */}
-              <Link
-                to="/OnSale"
-                className="text-sm font-mono tracking-wider uppercase transition-colors duration-300 font-bold"
-                style={{ color: '#C8A44D' }}
-              >
-                🔥 On Sale
-              </Link>
-
-              {/* Other nav items */}
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.label}
-                  to={createPageUrl(item.page)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              {/* The Torch Box */}
-              <a
-                href="https://torchbearer-nation.sintra.site/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm font-mono tracking-wider uppercase transition-colors duration-300 font-bold"
-                style={{ color: '#C8A44D' }}
-              >
-                🔥 The Torch Box
-              </a>
-
-              {/* Track Order with icon */}
-              <Link
-                to={createPageUrl('TrackOrder')}
-                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-mono tracking-wider uppercase"
-              >
-                <CalendarCheck className="w-4 h-4" />
-                Track Order
-              </Link>
             </div>
+
+            {/* THE TORCH BOX */}
+            <a
+              href="https://torchbearer-nation.sintra.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm font-mono tracking-wider uppercase font-bold transition-colors"
+              style={{ color: '#C8A44D' }}
+            >
+              <Flame className="w-3.5 h-3.5" /> The Torch Box
+            </a>
+
+            {/* COLLECTIONS dropdown */}
+            <DropdownMenu label="Collections">
+              {(close) => (
+                <div className="p-4 space-y-2">
+                  {COLLECTIONS_MENU.map((c) => (
+                    <Link
+                      key={c.slug}
+                      to={`/BestSellers?collection=${c.slug}`}
+                      onClick={close}
+                      className="block text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                  <Link
+                    to={createPageUrl('Collections')}
+                    onClick={close}
+                    className="block text-xs font-mono pt-2 mt-2 border-t border-border"
+                    style={{ color: '#C8A44D' }}
+                  >
+                    View All →
+                  </Link>
+                </div>
+              )}
+            </DropdownMenu>
+
+            {/* NEW / DROPS dropdown */}
+            <DropdownMenu label="New / Drops">
+              {(close) => (
+                <div className="p-4 space-y-2">
+                  {DROPS_MENU.map((d) => (
+                    <Link
+                      key={d.label}
+                      to={d.category ? `/BestSellers?category=${d.category}` : `/BestSellers?collection=${d.collection}`}
+                      onClick={close}
+                      className="block text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                    >
+                      {d.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </DropdownMenu>
+
+            {/* ABOUT dropdown */}
+            <DropdownMenu label="About">
+              {(close) => (
+                <div className="p-4 space-y-2">
+                  {ABOUT_MENU.map((a) => (
+                    <Link
+                      key={a.label}
+                      to={createPageUrl(a.page)}
+                      onClick={close}
+                      className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {a.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </DropdownMenu>
+
+            {/* On Sale */}
+            <Link to="/OnSale" className="text-sm font-mono tracking-wider uppercase font-bold transition-colors" style={{ color: '#C8A44D' }}>
+              🔥 Sale
+            </Link>
           </div>
 
-          {/* Right icons */}
+          {/* Right: cart */}
           <div className="flex items-center gap-4">
-            <button className="text-muted-foreground hover:text-primary transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <button onClick={() => window.location.href = 'https://libertees-for-all.myshopify.com/cart'} className="text-muted-foreground hover:text-primary transition-colors relative">
+            <button onClick={() => window.location.href = 'https://libertees-for-all.myshopify.com/cart'} className="text-muted-foreground hover:text-primary transition-colors">
               <ShoppingCart className="w-5 h-5" />
-              {/* Cart count removed since drawer disabled */}
             </button>
           </div>
         </div>
 
-        {/* Center: Logo */}
-        <div className="flex justify-center py-4">
-          <Link to="/" className="flex items-center">
+        {/* Logo centered */}
+        <div className="flex justify-center py-3">
+          <Link to="/">
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
               alt="Torch Republic"
-              className="h-20 md:h-24 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
         </div>
@@ -240,47 +266,89 @@ export default function NavBar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
-            <div className="px-6 py-6 space-y-4">
-              <p className="text-xs font-mono tracking-[0.3em] uppercase mb-2" style={{ color: '#C8A44D' }}>Shop</p>
-              {COLLECTIONS.map((c) => (
-                <Link
-                  key={c.slug}
-                  to={createPageUrl('BestSellers') + `?collection=${c.slug}`}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors text-sm font-heading tracking-wider"
-                >
-                  {c.label}
-                </Link>
+            <div className="px-6 py-4 space-y-1">
+              {/* Torch Box */}
+              <a
+                href="https://torchbearer-nation.sintra.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 py-3 text-base font-heading font-black tracking-wider uppercase border-b border-border"
+                style={{ color: '#C8A44D' }}
+              >
+                <Flame className="w-4 h-4" /> The Torch Box
+              </a>
+
+              {/* SHOP sections */}
+              {SHOP_MENU.map((section) => (
+                <div key={section.heading}>
+                  <button
+                    onClick={() => setMobileSection(mobileSection === section.heading ? null : section.heading)}
+                    className="w-full flex items-center justify-between py-3 text-sm font-mono tracking-wider uppercase text-foreground border-b border-border/50"
+                  >
+                    {section.heading}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === section.heading ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileSection === section.heading && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={`/BestSellers?category=${item.category}`}
+                            onClick={() => setIsOpen(false)}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
-              <div className="pt-4 border-t border-border space-y-4">
-                <Link
-                  to="/OnSale"
-                  onClick={() => setIsOpen(false)}
-                  className="block text-lg font-heading font-bold tracking-wider uppercase"
-                  style={{ color: '#C8A44D' }}
-                >
-                  🔥 On Sale
-                </Link>
-                <a
-                  href="https://torchbearer-nation.sintra.site/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="block text-lg font-heading font-bold tracking-wider uppercase"
-                  style={{ color: '#C8A44D' }}
-                >
-                  🔥 The Torch Box
-                </a>
-                <Link
-                  to={createPageUrl('TrackOrder')}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors text-lg font-heading font-semibold tracking-wider uppercase"
-                >
-                  Track Order
-                </Link>
-              </div>
+
+              {/* Collections */}
+              <button
+                onClick={() => setMobileSection(mobileSection === 'collections' ? null : 'collections')}
+                className="w-full flex items-center justify-between py-3 text-sm font-mono tracking-wider uppercase text-foreground border-b border-border/50"
+              >
+                Collections
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === 'collections' ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {mobileSection === 'collections' && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden pl-4"
+                  >
+                    {COLLECTIONS_MENU.map((c) => (
+                      <Link key={c.slug} to={`/BestSellers?collection=${c.slug}`} onClick={() => setIsOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        {c.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <Link to="/OnSale" onClick={() => setIsOpen(false)} className="block py-3 text-base font-heading font-bold uppercase border-b border-border/50" style={{ color: '#C8A44D' }}>
+                🔥 On Sale
+              </Link>
+              <Link to={createPageUrl('Mission')} onClick={() => setIsOpen(false)} className="block py-3 text-sm font-mono tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors">
+                Mission
+              </Link>
+              <Link to={createPageUrl('Contact')} onClick={() => setIsOpen(false)} className="block py-3 text-sm font-mono tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors">
+                Contact
+              </Link>
             </div>
           </motion.div>
         )}

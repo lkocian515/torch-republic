@@ -56,14 +56,20 @@
       "type": "string",
       "enum": [
         "t-shirts",
+        "hoodies",
         "hats",
         "candles",
         "magnets",
+        "stickers",
         "jewelry",
         "mugs-tumblers",
         "flags",
         "accessories",
-        "home-decor"
+        "home-decor",
+        "bobbleheads",
+        "limited-edition",
+        "coffee",
+        "tea"
       ],
       "description": "Product category"
     },

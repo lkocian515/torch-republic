@@ -24,14 +24,20 @@ const COLLECTIONS_MAP = {
 const CATEGORIES_MAP = {
   'all': 'All Categories',
   't-shirts': 'T-Shirts',
+  'hoodies': 'Hoodies',
   'hats': 'Hats & Caps',
   'candles': 'Candles',
   'magnets': 'Car Magnets',
+  'stickers': 'Stickers',
   'jewelry': 'Jewelry',
   'mugs-tumblers': 'Mugs & Tumblers',
   'flags': 'Flags',
   'accessories': 'Accessories',
   'home-decor': 'Home Decor',
+  'bobbleheads': 'Bobbleheads',
+  'limited-edition': 'Limited Edition',
+  'coffee': 'Coffee',
+  'tea': 'Tea',
 };
 
 export default function BestSellers() {
