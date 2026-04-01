@@ -238,10 +238,10 @@ export default function SpinWheelPopup() {
 
               <button
                 onClick={dismiss}
-                className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-40"
-                style={{ border: '1px solid rgba(212,175,90,0.3)', color: GOLD }}
+                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-70"
+                style={{ border: '1px solid rgba(212,175,90,0.5)', color: GOLD, backgroundColor: 'rgba(0,0,0,0.6)' }}
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
 
               <div className="text-center pt-6 px-6 pb-0 relative z-10">
@@ -340,6 +340,7 @@ export default function SpinWheelPopup() {
                     <p className="text-center font-mono text-[9px] tracking-wider" style={{ color: '#333' }}>
                       NO PURCHASE REQUIRED · UNSUBSCRIBE ANYTIME
                     </p>
+                    <button onClick={dismiss} className="w-full text-center font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.25)' }}>No thanks, I don't want a discount</button>
                   </form>
                 )}
 
