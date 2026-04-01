@@ -4,19 +4,19 @@ import { createPageUrl } from '@/utils';
 
 const FOOTER_LINKS = [
   {
-    heading: 'COMMAND',
+    heading: 'SHOP',
     links: [
-      { label: 'Shop All', page: 'Collections' },
-      { label: 'Best Sellers', page: 'BestSellers' },
+      { label: 'All Products', page: 'BestSellers' },
+      { label: 'Collections', page: 'Collections' },
       { label: 'Our Mission', page: 'Mission' },
     ]
   },
   {
-    heading: 'INTEL',
+    heading: 'SUPPORT',
     links: [
-      { label: 'Track Order', page: 'Contact' },
-      { label: 'Returns', page: 'Contact' },
       { label: 'Contact Us', page: 'Contact' },
+      { label: 'Returns & Exchanges', page: 'Contact' },
+      { label: 'Track Your Order', page: 'Contact' },
     ]
   }
 ];
@@ -71,9 +71,9 @@ export default function Footer() {
               className="h-10 w-auto"
             />
           </div>
-          <p className="text-muted-foreground text-xs font-mono tracking-wider">
-            © 2025 TORCH REPUBLIC — ALL RIGHTS RESERVED
-          </p>
+          <div className="text-center md:text-right">
+            <p className="text-muted-foreground text-xs font-mono tracking-wider">© 2026 Torch Republic™ &nbsp;·&nbsp; A brand of LiberTees for All Apparel LLC</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -30,10 +30,10 @@ export default function NewsletterSection() {
             <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-3">
-            Get 10% Off Your First Order
+            Become a Torchbearer
           </h2>
           <p className="text-gray-400 text-sm mb-8">
-            Join 50,000+ patriots. Get early drops, exclusive discounts, and zero spam.
+            More than a customer. A member of something that stands.<br />Get early access to drops and exclusive releases.
           </p>
 
           {submitted ? (
@@ -55,9 +55,9 @@ export default function NewsletterSection() {
               <button
                 type="submit"
                 className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap"
-                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
+                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
               >
-                Claim 10% Off
+                Join Now
               </button>
             </form>
           )}

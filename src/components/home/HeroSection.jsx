@@ -45,8 +45,8 @@ export default function HeroSection() {
           className="w-full h-full object-contain"
           style={{ objectPosition: 'center 10%', backgroundColor: '#000' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, transparent 60%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 25%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 55%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 25%)' }} />
       </div>
 
       {/* Content */}
@@ -59,9 +59,9 @@ export default function HeroSection() {
             transition={{ delay: 0.1 }}
             className="inline-flex items-center gap-2 mb-5"
           >
-            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-            <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Faith · Freedom · Truth</span>
-            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
+            <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
+            <span className="font-mono tracking-[0.2em] sm:tracking-[0.35em] uppercase whitespace-nowrap" style={{ color: '#C8A44D', fontSize: '10px' }}>Faith · Freedom · Truth</span>
+            <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
           </motion.div>
 
           {/* Headline */}
@@ -90,19 +90,12 @@ export default function HeroSection() {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 mb-8"
           >
-            <a
-              href="#whats-inside"
-              className="inline-flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ border: '1px solid rgba(27,80,96,0.8)', color: '#E8DFAF', backgroundColor: 'rgba(14,42,47,0.4)', boxShadow: 'inset 0 0 20px rgba(14,42,47,0.3)' }}
-            >
-              See What's Inside
-            </a>
             <Link
               to={createPageUrl('BestSellers')}
               className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
+              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
             >
-              Shop the Collection
+              Shop Now
             </Link>
           </motion.div>
 

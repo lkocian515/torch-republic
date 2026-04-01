@@ -19,35 +19,38 @@ export default function ManifestoSection() {
           <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
         </div>
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6"
+          className="space-y-4 text-center max-w-2xl mx-auto"
         >
-          Faith. Freedom. <span style={{ color: '#D4AF5A' }}>Truth.</span>
-        </motion.h2>
+          <p className="text-2xl md:text-3xl font-serif font-bold leading-snug text-white">
+            Torch Republic exists for those who refuse to live passively.
+          </p>
+          <p className="text-lg md:text-xl font-serif text-gray-300 leading-relaxed">
+            This is not just apparel.<br />
+            <span style={{ color: '#C9A24A' }}>This is identity.</span>
+          </p>
+          <p className="text-base font-serif italic text-gray-400">
+            You don't wear the message.<br />
+            You carry it.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10"
+          transition={{ delay: 0.2 }}
+          className="flex items-center justify-center mt-10"
         >
           <Link
             to={createPageUrl('BestSellers')}
             className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-10 py-4"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
+            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
           >
             Shop the Collection
-          </Link>
-          <Link
-            to={createPageUrl('Mission')}
-            className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase"
-            style={{ color: 'rgba(200,164,77,0.7)' }}
-          >
-            Read Our Story <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </motion.div>
       </div>
