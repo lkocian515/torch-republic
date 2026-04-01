@@ -61,6 +61,7 @@ export default function HeroSection() {
           >
             <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
             <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Faith · Freedom · Truth</span>
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
           </motion.div>
 
           {/* Headline */}
