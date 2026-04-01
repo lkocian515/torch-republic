@@ -45,8 +45,8 @@ export default function HeroSection() {
           className="w-full h-full object-contain"
           style={{ objectPosition: 'center 10%', backgroundColor: '#000' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.04) 50%, transparent 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 30%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, transparent 60%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 25%)' }} />
       </div>
 
       {/* Content */}
