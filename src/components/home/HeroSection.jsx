@@ -79,7 +79,7 @@ export default function HeroSection() {
             transition={{ delay: 0.4 }}
             className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed max-w-xl"
           >
-            Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last. Made to mean something.
+            Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last.
           </motion.p>
 
           {/* CTAs */}
