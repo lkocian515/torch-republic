@@ -89,13 +89,6 @@ export default function HeroSection() {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 mb-8"
           >
-            <Link
-              to={createPageUrl('BestSellers')}
-              className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
-            >
-              Shop the Collection
-            </Link>
             <a
               href="#whats-inside"
               className="inline-flex items-center justify-center font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
@@ -103,6 +96,13 @@ export default function HeroSection() {
             >
               See What's Inside
             </a>
+            <Link
+              to={createPageUrl('BestSellers')}
+              className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
+              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(200,164,77,0.3)' }}
+            >
+              Shop the Collection
+            </Link>
           </motion.div>
 
           {/* Trust signals */}
