@@ -88,7 +88,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 mb-8"
+            className="flex flex-col gap-3 mb-8"
           >
             <Link
               to={createPageUrl('BestSellers')}
@@ -97,21 +97,13 @@ export default function HeroSection() {
             >
               Shop Bestsellers
             </Link>
-          </motion.div>
-
-          {/* Trust signals */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.65 }}
-            className="flex flex-wrap gap-4"
-          >
-            {TRUST_SIGNALS.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-1.5">
-                <Icon className="w-3.5 h-3.5" style={{ color: '#C8A44D' }} />
-                <span className="font-mono text-xs tracking-wider" style={{ color: 'rgba(232,223,175,0.8)' }}>{text}</span>
-              </div>
-            ))}
+            <Link
+              to={createPageUrl('Collections')}
+              className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
+              style={{ background: 'linear-gradient(135deg, #C9A24A 0%, #D4AF5A 50%, #E4C46A 100%)', color: '#000', boxShadow: '0 4px 30px rgba(201,162,74,0.4), 0 0 0 1px rgba(201,162,74,0.6)' }}
+            >
+              Shop by Collection
+            </Link>
           </motion.div>
         </div>
       </div>
