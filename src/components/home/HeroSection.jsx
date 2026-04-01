@@ -40,7 +40,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/355e8d026_generated_image.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/96f1028d2_hjhjhj.png"
           alt="Torch Republic Hero"
           className="w-full h-full object-cover object-center opacity-90"
         />
