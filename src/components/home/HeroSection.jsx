@@ -42,7 +42,8 @@ export default function HeroSection() {
         <img
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5755d4aa9_generated_image.png"
           alt="Torch Republic Hero"
-          className="w-full h-full object-cover object-center opacity-90"
+          className="w-full h-full object-cover opacity-90"
+          style={{ objectPosition: '50% 10%' }}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 40%, rgba(0,0,0,0.4) 100%)' }} />
