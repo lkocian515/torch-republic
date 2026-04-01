@@ -45,8 +45,9 @@ export default function HeroSection() {
           className="w-full h-full object-contain"
           style={{ objectPosition: 'center 10%', backgroundColor: '#000' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.04) 50%, transparent 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 30%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.1) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)' }} />
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.18)' }} />
       </div>
 
       {/* Content */}
@@ -69,8 +70,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
             className="text-4xl sm:text-5xl md:text-6xl font-heading font-black leading-[1.05] tracking-tight text-white mb-5"
-          >
-            Premium Patriot Gear. <span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
+        >
+          Premium Patriot Gear.<br /><span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
           </motion.h1>
           {/* Subheadline */}
           <motion.p
