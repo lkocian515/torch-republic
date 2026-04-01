@@ -40,7 +40,7 @@ export default function Home() {
             className="flex items-center justify-center w-full py-4 font-heading font-black text-sm tracking-widest uppercase"
             style={{ backgroundColor: '#C9A24A', color: '#000' }}
           >
-            Shop Now
+            Shop the Collection
           </Link>
         </div>
       </div>
