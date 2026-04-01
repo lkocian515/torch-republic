@@ -43,7 +43,7 @@ export default function HeroSection() {
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/56cf651fe_ggrtgtrgrt.png"
           alt="Torch Republic Hero"
           className="w-full h-full object-contain"
-          style={{ objectPosition: 'center 10%', backgroundColor: '#000', filter: 'contrast(1.18) brightness(1.08) saturate(1.12)' }}
+          style={{ objectPosition: 'center 10%', backgroundColor: '#000', filter: 'contrast(1.22) brightness(1.12) saturate(1.15)' }}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 55%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 25%)' }} />
@@ -51,7 +51,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
-        <div className="max-w-2xl">
+        <div className="max-w-lg">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -95,7 +95,7 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
               style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
             >
-              Shop Now
+              Shop the Collection
             </Link>
           </motion.div>
 
