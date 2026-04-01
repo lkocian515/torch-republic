@@ -43,7 +43,8 @@ export default function CategoryGrid() {
             <img
               src={cat.image}
               alt={cat.label}
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              style={{ objectPosition: '50% 30%' }}
             />
             <div
               className="absolute inset-0"
