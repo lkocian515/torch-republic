@@ -40,10 +40,10 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5755d4aa9_generated_image.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1da6eb455_generated_image.png"
           alt="Torch Republic Hero"
           className="w-full h-full object-cover opacity-90"
-          style={{ objectPosition: '50% 0%', transform: 'scale(1.15) translateY(-8%)' }}
+          style={{ objectPosition: '50% 20%' }}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 40%, rgba(0,0,0,0.4) 100%)' }} />
