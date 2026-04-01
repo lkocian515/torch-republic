@@ -38,7 +38,7 @@ export default function CategoryGrid() {
             key={cat.label}
             to={cat.isCollection ? `/BestSellers?collection=${cat.category}` : `/BestSellers?category=${cat.category}`}
             className="group relative block overflow-hidden"
-            style={{ aspectRatio: '3/2' }}
+            style={{ aspectRatio: '1/1' }}
           >
             <img
               src={cat.image}
