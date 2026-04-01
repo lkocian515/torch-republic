@@ -42,6 +42,7 @@ export default function ProductCard({ product, index = 0 }) {
             className={`w-full h-full object-cover transition-all duration-700 ${
               hovered ? 'scale-105' : 'scale-100'
             }`}
+            style={{ mixBlendMode: 'multiply' }}
           />
           
           {/* Thermal overlay on hover */}
