@@ -25,12 +25,7 @@ export default function ManifestoSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6"
         >
-          Faith gives life{' '}
-          <span style={{ color: '#D4AF5A' }}>meaning.</span><br />
-          Freedom is worth{' '}
-          <span style={{ color: '#D4AF5A' }}>defending.</span><br />
-          Truth is worth{' '}
-          <span style={{ color: '#D4AF5A' }}>wearing.</span>
+          Faith. Freedom. <span style={{ color: '#D4AF5A' }}>Truth.</span>
         </motion.h2>
 
         <motion.div

@@ -39,8 +39,7 @@ export default function WhatsInsideSection() {
             <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-4">
-            Built for Patriots.<br />
-            <span style={{ color: '#D4AF5A' }}>Made to Last.</span>
+            Built for Patriots. <span style={{ color: '#D4AF5A' }}>Made to Last.</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
             Every piece is handpicked for quality, meaning, and staying power. No filler. No fast fashion. Just gear worth wearing.

@@ -53,8 +53,7 @@ export default function FounderSection() {
               <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Why We Exist</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6">
-              We don't make merch.<br />
-              <span style={{ color: '#D4AF5A' }}>We make statements.</span>
+              We Don't Make Merch. <span style={{ color: '#D4AF5A' }}>We Make Statements.</span>
             </h2>
             <div className="space-y-4 text-gray-400 text-sm leading-relaxed">
               <p>
