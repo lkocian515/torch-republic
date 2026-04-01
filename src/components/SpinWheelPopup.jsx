@@ -149,7 +149,7 @@ export default function SpinWheelPopup() {
       const daysSince = (Date.now() - parseInt(dismissedAt)) / (1000 * 60 * 60 * 24);
       if (daysSince < 3) return;
     }
-    const timer = setTimeout(() => setVisible(true), 3500);
+    const timer = setTimeout(() => setVisible(true), 5000);
     return () => clearTimeout(timer);
   }, []);
 
