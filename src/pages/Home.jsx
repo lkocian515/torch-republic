@@ -34,15 +34,15 @@ export default function Home() {
         <NewsletterSection />
 
         {/* Sticky mobile CTA */}
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-4 pt-2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.98) 70%, transparent)' }}>
-          <Link
-            to={createPageUrl('BestSellers')}
-            className="flex items-center justify-center w-full py-4 font-heading font-black text-sm tracking-widest uppercase"
-            style={{ backgroundColor: '#C9A24A', color: '#000' }}
-          >
-            Shop the Collection
-          </Link>
-        </div>
+         <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-4 pt-2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.98) 70%, transparent)' }}>
+           <Link
+             to={createPageUrl('Collections')}
+             className="flex items-center justify-center w-full py-4 font-heading font-black text-sm tracking-widest uppercase"
+             style={{ backgroundColor: '#C9A24A', color: '#000' }}
+           >
+             Shop by Collection
+           </Link>
+         </div>
       </div>
     </PullToRefresh>
   );
