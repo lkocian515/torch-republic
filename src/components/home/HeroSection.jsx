@@ -68,7 +68,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-heading font-black leading-[1.1] tracking-tight text-white mb-5"
+            className="text-3xl sm:text-5xl md:text-6xl font-heading font-black leading-[1.1] tracking-tight text-white mb-5"
           >
             Premium Patriot Gear<br /><span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
           </motion.h1>
