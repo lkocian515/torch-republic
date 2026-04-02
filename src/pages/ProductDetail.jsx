@@ -93,12 +93,17 @@ export default function ProductDetail() {
   // Get numeric Shopify variant ID
   const numericVariantId = selectedVariant ? extractNumericId(selectedVariant.id) : null;
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
     if (!numericVariantId) { alert('Unable to add to cart. Please refresh and try again.'); return; }
     if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
-    setCartOpen(true);
-    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=${window.location.href}`;
+    try {
+      await base44.functions.invoke('addToShopifyCart', { variantId: numericVariantId, quantity });
+      setCartOpen(true);
+    } catch (err) {
+      console.error('Add to cart error:', err);
+      alert('Failed to add to cart. Please try again.');
+    }
   };
 
   const handleBuyNow = () => {
