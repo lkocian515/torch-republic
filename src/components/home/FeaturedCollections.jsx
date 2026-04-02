@@ -9,19 +9,19 @@ const COLLECTIONS = [
     name: 'Patriot Pride',
     slug: 'patriotic-pride',
     description: 'Wear your love for this country front and center.',
-    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&q=80',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8ea5a714d_ffffd.png',
   },
   {
     name: 'Freedom Collection',
     slug: 'freedom-isnt-free',
     description: 'Honor those who paid the price for liberty.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de8415b91_Untitledfdsfdsf.png',
   },
   {
     name: 'God, Family, Country',
     slug: 'god-family-country',
     description: 'The foundation of everything we stand for.',
-    image: 'https://images.unsplash.com/photo-1473621038790-b778b4750efe?w=800&q=80',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a28dae4f2_ChatGPTImageMar19202604_32_50AM.png',
   },
 ];
 
