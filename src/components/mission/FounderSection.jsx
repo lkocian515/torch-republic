@@ -90,6 +90,7 @@ export default function FounderSection() {
                   style={{ filter: 'grayscale(100%) contrast(0.88) brightness(0.95)' }}
                 />
               </div>
+              <p className="font-serif text-sm mt-3 text-center" style={{ color: '#C9A24A', letterSpacing: '0.05em' }}>Lisa M. Kocian</p>
             </motion.div>
 
           </div>
