@@ -4,12 +4,12 @@ import { X, Minus, Plus, ShieldCheck, Truck, RotateCcw, Flame } from 'lucide-rea
 import { useCart } from '@/lib/CartContext';
 
 const ADDONS = [
-  { name: 'Torch Republic Sticker Pack', price: 4.99, id: 'addon-sticker' },
-  { name: 'Car Magnet', price: 6.99, id: 'addon-magnet' },
-  { name: 'Freedom Decal', price: 5.99, id: 'addon-decal' }
+  { name: 'Sticker Pack', price: 4.99, id: 'addon-sticker', image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/sticker_pack.jpg?v=1' },
+  { name: 'Car Magnet', price: 6.99, id: 'addon-magnet', image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/car_magnet.jpg?v=1' },
+  { name: 'Freedom Decal', price: 5.99, id: 'addon-decal', image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/decal.jpg?v=1' }
 ];
 
-const FREE_SHIPPING_THRESHOLD = 100;
+const FREE_SHIPPING_THRESHOLD = 50;
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
   const { cart, updateQuantity, removeFromCart } = useCart();
@@ -55,7 +55,8 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-background border-l border-border z-50 flex flex-col"
+            className="fixed right-0 top-0 h-full w-full md:max-w-md bg-background border-l border-border z-50 flex flex-col"
+            style={{ backgroundColor: '#0B0B0B' }}
           >
             {/* Header */}
             <div className="px-6 py-5 border-b border-border">
@@ -108,6 +109,7 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
                         <p className="font-heading font-bold text-sm leading-tight truncate">
                           {line.productTitle}
                         </p>
+                        <p className="font-mono text-[10px] text-primary mt-1 tracking-widest">🔥 TORCHBEARER FAVORITE</p>
                         {line.selectedOptions?.filter(o => o.value !== 'Default Title').map(opt => (
                           <p key={opt.name} className="font-mono text-xs text-muted-foreground mt-0.5">
                             {opt.name}: {opt.value}
@@ -176,22 +178,32 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
                     <p className="font-heading font-bold text-sm uppercase tracking-tight">
                       Complete Your Order
                     </p>
-                    {ADDONS.map(addon => (
-                      <label key={addon.id} className="flex items-center gap-3 p-3 border border-border rounded cursor-pointer hover:bg-card/50 transition-colors">
-                        <input
-                          type="checkbox"
-                          checked={selectedAddons.includes(addon.id)}
-                          onChange={() => toggleAddon(addon.id)}
-                          className="w-4 h-4 accent-primary"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <p className="font-mono text-xs text-foreground">{addon.name}</p>
-                        </div>
-                        <span className="font-mono text-xs font-bold text-primary flex-shrink-0">
-                          ${addon.price.toFixed(2)}
-                        </span>
-                      </label>
-                    ))}
+                    <div className="grid grid-cols-3 gap-2">
+                      {ADDONS.map(addon => (
+                        <button
+                          key={addon.id}
+                          onClick={() => toggleAddon(addon.id)}
+                          className={`flex flex-col items-center gap-2 p-3 border rounded transition-all ${
+                            selectedAddons.includes(addon.id)
+                              ? 'border-primary bg-primary/10'
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                        >
+                          <div className="w-16 h-16 bg-card rounded overflow-hidden">
+                            <img src={addon.image} alt={addon.name} className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
+                          </div>
+                          <p className="font-mono text-[10px] text-foreground text-center leading-tight line-clamp-2">
+                            {addon.name}
+                          </p>
+                          <p className="font-mono text-xs font-bold text-primary">
+                            ${addon.price.toFixed(2)}
+                          </p>
+                          <p className="font-mono text-[9px] text-muted-foreground">
+                            {selectedAddons.includes(addon.id) ? 'Added ✓' : 'Add'}
+                          </p>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </>
               )}
