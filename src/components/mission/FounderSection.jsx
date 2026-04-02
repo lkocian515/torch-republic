@@ -77,23 +77,16 @@ export default function FounderSection() {
               <div
                 className="relative overflow-hidden"
                 style={{
-                  width: '220px',
+                  width: '80px',
+                  height: '80px',
                   borderRadius: '4px',
-                  boxShadow: '0 16px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,162,74,0.2)',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,162,74,0.2)',
                 }}
               >
-                <div
-                  className="absolute inset-0 z-10 pointer-events-none"
-                  style={{
-                    backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")',
-                    opacity: 0.35,
-                    mixBlendMode: 'overlay',
-                  }}
-                />
                 <img
                   src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bcb486ec5_ghgyugf.png"
                   alt="Torch Republic Founder"
-                  className="w-full block"
+                  className="w-full h-full object-cover block"
                   style={{ filter: 'grayscale(100%) contrast(0.88) brightness(0.95)' }}
                 />
               </div>
