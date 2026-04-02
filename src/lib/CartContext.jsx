@@ -13,22 +13,22 @@ function extractNumericId(gid) {
 }
 
 export function CartProvider({ children }) {
-  // Add item to Shopify native cart, then redirect to /cart
+  // Add item to Shopify native cart, then return to app
   const addToCart = useCallback((variantId, quantity = 1) => {
     const id = extractNumericId(variantId);
     if (!id) { console.error('Invalid variantId:', variantId); return; }
-    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=/cart`;
+    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=${window.location.origin}`;
   }, []);
 
   // Add item and go straight to checkout
   const buyNow = useCallback((variantId, quantity = 1) => {
     const id = extractNumericId(variantId);
     if (!id) { console.error('Invalid variantId:', variantId); return; }
-    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=/checkout`;
+    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=${window.location.origin}`;
   }, []);
 
   const goToCart = useCallback(() => {
-    window.location.href = `${SHOP}/cart`;
+    // No-op: cart is now a drawer, don't redirect
   }, []);
 
   return (

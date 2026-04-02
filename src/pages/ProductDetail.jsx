@@ -95,19 +95,17 @@ export default function ProductDetail() {
   const numericVariantId = selectedVariant ? extractNumericId(selectedVariant.id) : null;
 
   const handleAddToCart = () => {
-    // Only validate if size selector is visible and required
     if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
     if (!numericVariantId) { alert('Unable to add to cart. Please refresh and try again.'); return; }
     if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
-    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/cart`;
+    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=${window.location.origin}`;
   };
 
   const handleBuyNow = () => {
-    // Only validate if size selector is visible and required
     if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
     if (!numericVariantId) { alert('Unable to checkout. Please refresh and try again.'); return; }
     if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
-    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/checkout`;
+    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=${window.location.origin}`;
   };
 
   if (isLoading) {
