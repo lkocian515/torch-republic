@@ -6,7 +6,7 @@ const FEATURED_COLLECTIONS = [
   {
     title: 'Best Sellers',
     collection: 'best-sellers',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260402034720-1f12e46a-677d-6ad6-9ae4-bae5f30b448a.png?v=1775101698'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/unapologetic-patriot-t-shirt-american-flag-text-tee-7216289_f73066df-24fa-4442-9f6c-06c9cb1ca9ab.png?v=1773912287'
   },
   {
     title: 'New Drops',
