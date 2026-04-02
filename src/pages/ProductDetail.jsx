@@ -79,6 +79,17 @@ export default function ProductDetail() {
     return sizeSet.size > 0 ? Array.from(sizeSet) : (product?.sizes || []);
   }, [variantsData, product?.sizes]);
 
+  // Auto-select first available variant on load
+  React.useEffect(() => {
+    if (variantsData?.length > 0 && !selectedSize) {
+      const firstAvailable = variantsData.find(v => v.availableForSale) || variantsData[0];
+      const firstSize = firstAvailable?.selectedOptions?.find(o => o.name === 'Size')?.value;
+      if (firstSize && availableSizes.length === 1) {
+        setSelectedSize(firstSize);
+      }
+    }
+  }, [variantsData, availableSizes, selectedSize]);
+
   const selectedVariant = useMemo(() => {
     if (!variantsData || variantsData.length === 0) return null;
     if (!selectedSize) return variantsData.find(v => v.availableForSale) || variantsData[0];
@@ -205,13 +216,13 @@ export default function ProductDetail() {
             )}
 
             {/* Sizes */}
-            {availableSizes && availableSizes.length > 0 && (
+            {variantsData?.length > 0 && availableSizes?.length > 0 && (
               <div className="mt-8">
                 <div className="flex items-center justify-between mb-3">
-                  <p className="text-foreground font-mono text-xs tracking-wider uppercase">Size</p>
-                  {!selectedSize && variantsData?.length > 0 && (
+                  <p className="text-foreground font-mono text-xs tracking-wider uppercase">Size {availableSizes.length === 1 && <span style={{ color: '#C8A44D' }}>(auto-selected)</span>}</p>
+                  {availableSizes.length > 1 && !selectedSize && (
                     <span className="font-mono text-[10px] tracking-wider uppercase" style={{ color: '#C8A44D' }}>
-                      ← Select a size to continue
+                      ← Required
                     </span>
                   )}
                 </div>
