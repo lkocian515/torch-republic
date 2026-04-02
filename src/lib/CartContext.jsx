@@ -1,127 +1,50 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import React, { createContext, useContext, useCallback } from 'react';
 
 const CartContext = createContext(null);
 
+const SHOP = 'https://www.torchrepublic.com';
+
+// Shopify Storefront API returns GIDs like "gid://shopify/ProductVariant/12345678"
+// Shopify's native cart/add endpoint needs just the numeric ID
+function extractNumericId(gid) {
+  if (!gid) return null;
+  const parts = gid.split('/');
+  return parts[parts.length - 1];
+}
+
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Restore cart from localStorage on mount
-  useEffect(() => {
-    const savedCartId = localStorage.getItem('shopify_cart_id');
-    if (!savedCartId) return;
-    const restoreCart = async () => {
-      try {
-        const res = await base44.functions.invoke('shopifyStorefront', {
-          action: 'getCart',
-          cartId: savedCartId,
-        });
-        if (res?.data?.cart) {
-          setCart(res.data.cart);
-        } else {
-          localStorage.removeItem('shopify_cart_id');
-        }
-      } catch {
-        localStorage.removeItem('shopify_cart_id');
-      }
-    };
-    restoreCart();
+  // Add item to Shopify native cart, then redirect to /cart
+  const addToCart = useCallback((variantId, quantity = 1) => {
+    const id = extractNumericId(variantId);
+    if (!id) { console.error('Invalid variantId:', variantId); return; }
+    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=/cart`;
   }, []);
 
-  const addToCart = useCallback(async (variantId, quantity = 1) => {
-    setIsLoading(true);
-    try {
-      const cartId = cart?.id;
-      let res;
-      
-      if (cartId) {
-        res = await base44.functions.invoke('shopifyStorefront', {
-          action: 'addToCart',
-          cartId,
-          variantId,
-          quantity,
-        });
-      } else {
-        res = await base44.functions.invoke('shopifyStorefront', {
-          action: 'createCart',
-          variantId,
-          quantity,
-        });
-      }
-      
-      if (res.data.cart?.id) localStorage.setItem('shopify_cart_id', res.data.cart.id);
-      setCart(res.data.cart);
-      setIsOpen(true);
-    } catch (error) {
-      console.error('Add to cart error:', error);
-      alert('Failed to add item to cart. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  }, [cart]);
-
-  const getCheckoutUrl = useCallback((checkoutUrl) => {
-    if (!checkoutUrl) return null;
-    try {
-      const urlObj = new URL(checkoutUrl);
-      urlObj.hostname = 'www.torchrepublic.com';
-      return urlObj.toString();
-    } catch {
-      return checkoutUrl;
-    }
+  // Add item and go straight to checkout
+  const buyNow = useCallback((variantId, quantity = 1) => {
+    const id = extractNumericId(variantId);
+    if (!id) { console.error('Invalid variantId:', variantId); return; }
+    window.location.href = `${SHOP}/cart/add?id=${id}&quantity=${quantity}&return_to=/checkout`;
   }, []);
 
-  const removeFromCart = useCallback(async (lineId) => {
-    if (!cart?.id) return;
-    setIsLoading(true);
-    try {
-      const res = await base44.functions.invoke('shopifyStorefront', {
-        action: 'removeFromCart',
-        cartId: cart.id,
-        lineId,
-      });
-      setCart(res.data.cart);
-    } catch (error) {
-      console.error('Remove from cart error:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [cart]);
-
-  const updateQuantity = useCallback(async (lineId, quantity) => {
-    if (!cart?.id) return;
-    if (quantity <= 0) {
-      removeFromCart(lineId);
-      return;
-    }
-    setIsLoading(true);
-    try {
-      const res = await base44.functions.invoke('shopifyStorefront', {
-        action: 'updateCart',
-        cartId: cart.id,
-        lineId,
-        quantity,
-      });
-      setCart(res.data.cart);
-    } catch (error) {
-      console.error('Update cart error:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [cart, removeFromCart]);
+  const goToCart = useCallback(() => {
+    window.location.href = `${SHOP}/cart`;
+  }, []);
 
   return (
     <CartContext.Provider value={{
-      cart,
-      isOpen,
-      setIsOpen,
-      isLoading,
+      // Cart state — not available cross-origin, always null
+      cart: null,
+      isOpen: false,
+      setIsOpen: () => {},
+      isLoading: false,
+      // Actions
       addToCart,
-      removeFromCart,
-      updateQuantity,
-      getCheckoutUrl,
+      buyNow,
+      goToCart,
+      removeFromCart: () => {},
+      updateQuantity: () => {},
+      getCheckoutUrl: (u) => u,
     }}>
       {children}
     </CartContext.Provider>

@@ -11,6 +11,13 @@ import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
 
+const SHOP = 'https://www.torchrepublic.com';
+
+function extractNumericId(gid) {
+  if (!gid) return null;
+  const parts = gid.split('/');
+  return parts[parts.length - 1];
+}
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -73,24 +80,19 @@ export default function ProductDetail() {
     return matching.find(v => v.availableForSale) || matching[0];
   }, [variantsData, selectedSize]);
 
-  const { addToCart, cart, isLoading: cartLoading, getCheckoutUrl } = useCart();
+  // Get numeric Shopify variant ID
+  const numericVariantId = selectedVariant ? extractNumericId(selectedVariant.id) : null;
 
-  const handleAddToCart = async () => {
-    if (!selectedVariant?.id) { alert('Please select a size first'); return; }
+  const handleAddToCart = () => {
+    if (!numericVariantId) { alert('Please select a size first'); return; }
     if (!selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
-    await addToCart(selectedVariant.id, quantity);
+    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/cart`;
   };
 
-  const handleBuyNow = async () => {
-    if (!selectedVariant?.id) { alert('Please select a size first'); return; }
+  const handleBuyNow = () => {
+    if (!numericVariantId) { alert('Please select a size first'); return; }
     if (!selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
-    await addToCart(selectedVariant.id, quantity);
-    setTimeout(() => {
-      const checkoutUrl = cart?.checkoutUrl
-        ? getCheckoutUrl(cart.checkoutUrl)
-        : `https://www.torchrepublic.com/products/${product.shopify_handle}`;
-      window.location.href = checkoutUrl;
-    }, 400);
+    window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/checkout`;
   };
 
   if (isLoading) {
@@ -246,7 +248,7 @@ export default function ProductDetail() {
             <div className="flex flex-col gap-3 mt-8">
               <button
                 onClick={handleAddToCart}
-                disabled={!product.in_stock || cartLoading}
+                disabled={!product.in_stock}
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all border border-primary ${
                   !product.in_stock
                     ? 'bg-muted text-muted-foreground cursor-not-allowed border-muted'
@@ -254,12 +256,12 @@ export default function ProductDetail() {
                 }`}
               >
                 <ShoppingCart className="w-4 h-4" />
-                {!product.in_stock ? 'Sold Out' : cartLoading ? 'Adding...' : 'Add to Cart'}
+                {!product.in_stock ? 'Sold Out' : 'Add to Cart'}
               </button>
 
               <button
                 onClick={handleBuyNow}
-                disabled={!product.in_stock || cartLoading}
+                disabled={!product.in_stock}
                 className={`w-full py-5 flex items-center justify-center gap-2 font-mono text-sm tracking-widest uppercase transition-all ${
                   !product.in_stock
                     ? 'bg-muted text-muted-foreground cursor-not-allowed'
@@ -272,7 +274,7 @@ export default function ProductDetail() {
                   boxShadow: '0 4px 20px rgba(200,164,77,0.35)',
                 } : {}}
               >
-                {!product.in_stock ? 'Sold Out' : cartLoading ? 'Processing...' : (
+                {!product.in_stock ? 'Sold Out' : (
                   <><ExternalLink className="w-4 h-4" /> Buy Now — ${(product.price * quantity).toFixed(2)}</>
                 )}
               </button>

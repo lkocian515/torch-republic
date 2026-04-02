@@ -1,10 +1,5 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Minus, Plus, ShoppingBag, ExternalLink, ShieldCheck, RotateCcw, Truck } from 'lucide-react';
-import { useCart } from '@/lib/CartContext';
-
-export default function CartDrawer() {
-  const { cart, isOpen, setIsOpen, isLoading, removeFromCart, updateQuantity, getCheckoutUrl } = useCart();
+// CartDrawer is no longer used — cart is managed natively by Shopify at /cart
+export default function CartDrawer() { return null; } = useCart();
 
   return (
     <AnimatePresence>
