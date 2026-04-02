@@ -17,6 +17,8 @@ export default function ProductCard({ product, index = 0 }) {
   const [imgError, setImgError] = useState(false);
 
   const imageSrc = imgError || !product.image_url ? FALLBACK_IMAGE : product.image_url;
+  // Use shopify_handle if available, fallback to generated handle from title
+  const productHandle = product.shopify_handle || product.title?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
   return (
     <motion.div
@@ -26,8 +28,9 @@ export default function ProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.05 }}
     >
       <a
-        href={`https://www.torchrepublic.com/products/${product.shopify_handle}`}
-        target="_self"
+        href={`https://www.torchrepublic.com/products/${productHandle}`}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group block cursor-pointer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
