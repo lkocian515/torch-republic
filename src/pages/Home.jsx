@@ -12,6 +12,8 @@ import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
 
 import TorchbearerBlog from '../components/home/TorchbearerBlog';
+import FeaturedCollectionsGrid from '../components/home/FeaturedCollectionsGrid';
+import MadeInUSABanner from '../components/home/MadeInUSABanner';
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -24,6 +26,8 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
         <HeroSection />
+        <MadeInUSABanner />
+        <FeaturedCollectionsGrid />
         <CategoryGrid />
         <FeaturedCollections />
         <BestSellersSection />
