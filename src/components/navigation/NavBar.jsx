@@ -61,9 +61,9 @@ const DROPS_NAV = [
 ];
 
 const ABOUT_NAV = [
-  { label: 'Mission', page: 'Mission' },
-  { label: 'Meet the Founder', page: 'Mission' },
-  { label: 'Torchbearer Blog', page: 'Mission' },
+  { label: 'Mission', page: 'Mission', internal: true },
+  { label: 'Meet the Founder', page: 'Mission', internal: true },
+  { label: 'Torchbearer Blog', href: 'https://www.torchrepublic.com/blogs/torchbearer-blog', internal: false },
 ];
 
 export default function NavBar() {
@@ -198,9 +198,9 @@ export default function NavBar() {
                 <Dropdown id="about">
                   <div className="w-44 space-y-2">
                     {ABOUT_NAV.map((item) => (
-                      <Link key={item.label} to={createPageUrl(item.page)} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        {item.label}
-                      </Link>
+                      item.internal
+                        ? <Link key={item.label} to={createPageUrl(item.page)} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">{item.label}</Link>
+                        : <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">{item.label}</a>
                     ))}
                   </div>
                 </Dropdown>
