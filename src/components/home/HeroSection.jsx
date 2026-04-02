@@ -28,7 +28,7 @@ export default function HeroSection() {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[92vh] flex items-center justify-center overflow-hidden bg-background"
+      className="relative w-full min-h-[92vh] flex items-center overflow-hidden bg-background"
     >
       {/* Spotlight */}
       <div
@@ -50,65 +50,73 @@ export default function HeroSection() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 25%)' }} />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 py-24 flex justify-start">
-        <div className="max-w-lg">
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 mb-5"
-          >
-            <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-            <span className="font-mono tracking-[0.2em] sm:tracking-[0.35em] uppercase whitespace-nowrap" style={{ color: '#C8A44D', fontSize: '10px' }}>Faith · Freedom · Truth</span>
-            <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-                        className="text-2xl sm:text-4xl md:text-5xl font-heading font-black leading-[1.1] tracking-tight text-white mb-5"
-          >
-            Premium Patriot Gear<br /><span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
-          </motion.h1>
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed max-w-xl"
-          >
-            Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col gap-3 mb-8"
-          >
-            <Link
-              to={createPageUrl('BestSellers')}
-              className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
+      {/* Centered outer container */}
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 py-24">
+        {/* 2-column hero grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left column: text content */}
+          <div className="max-w-[550px]">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 mb-5"
             >
-              Shop Bestsellers
-            </Link>
-          </motion.div>
+              <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
+              <span className="font-mono tracking-[0.2em] sm:tracking-[0.35em] uppercase whitespace-nowrap" style={{ color: '#C8A44D', fontSize: '10px' }}>Faith · Freedom · Truth</span>
+              <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
+            </motion.div>
 
-          {/* Made in USA Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65 }}
-            className="-mx-6"
-          >
-            <MadeInUSABanner />
-          </motion.div>
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="text-2xl sm:text-4xl md:text-5xl font-heading font-black leading-[1.1] tracking-tight text-white mb-5"
+            >
+              Premium Patriot Gear<br /><span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
+            </motion.h1>
+
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed"
+            >
+              Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-col gap-3 mb-8"
+            >
+              <Link
+                to={createPageUrl('BestSellers')}
+                className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
+                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
+              >
+                Shop Bestsellers
+              </Link>
+            </motion.div>
+
+            {/* Made in USA Banner */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="md:hidden"
+            >
+              <MadeInUSABanner />
+            </motion.div>
+          </div>
+
+          {/* Right column: spacer for image (handled by background) */}
+          <div className="hidden md:block" />
         </div>
       </div>
 

@@ -46,7 +46,7 @@ export default function MadeInUSABanner() {
       {/* Blue canton accent */}
       <div className="absolute top-0 left-7 h-full w-10 opacity-20" style={{ backgroundColor: BLUE }} />
 
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-center sm:text-left px-8">
+      <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-center sm:text-left px-8">
         <div className="flex items-center gap-4">
           <USFlag />
           <div>
