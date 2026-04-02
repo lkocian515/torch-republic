@@ -33,18 +33,14 @@ const HatIcon = () => (
 const TankIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="tank-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
-    {/* Tank body */}
-    <rect x="6" y="20" width="28" height="10" rx="2" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    {/* Turret */}
-    <rect x="13" y="14" width="14" height="8" rx="1.5" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    {/* Cannon */}
-    <rect x="24" y="16" width="10" height="3" rx="1" fill="#C8A44D" opacity="0.85"/>
-    {/* Wheels */}
-    <circle cx="11" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
-    <circle cx="20" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
-    <circle cx="29" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
-    {/* Tread */}
-    <rect x="6" y="29" width="28" height="2" rx="1" fill="rgba(201,162,74,0.3)"/>
+    {/* Shoulders */}
+    <path d="M10 6 L6 14 L12 16 L12 34 L28 34 L28 16 L34 14 L30 6" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
+    {/* Neck scoop */}
+    <path d="M10 6 Q20 12 30 6" fill="none" stroke="rgba(201,162,74,0.7)" strokeWidth="1"/>
+    {/* Left armhole */}
+    <path d="M6 14 Q9 18 12 16" fill="none" stroke="rgba(201,162,74,0.5)" strokeWidth="0.8"/>
+    {/* Right armhole */}
+    <path d="M34 14 Q31 18 28 16" fill="none" stroke="rgba(201,162,74,0.5)" strokeWidth="0.8"/>
   </svg>
 );
 
