@@ -6,7 +6,7 @@ const FEATURED_COLLECTIONS = [
   {
     title: 'Best Sellers',
     collection: 'best-sellers',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dffd.png?v=1775139240'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Apr_2_2026_08_54_21_AM.png?v=1775138184'
   },
   {
     title: 'New Drops',
