@@ -11,7 +11,7 @@ const FEATURED_COLLECTIONS = [
   {
     title: 'New Drops',
     collection: 'on-sale',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260402110123-1f12e834-9649-611c-89af-3e97c7b75a08.png?v=1775128012'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260402141146-1f12e9de-1f1a-63a6-9540-8e11def1f423.png?v=1775139208'
   },
   {
     title: 'American Heroes',
