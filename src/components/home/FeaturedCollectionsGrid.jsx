@@ -47,6 +47,7 @@ export default function FeaturedCollectionsGrid() {
                   src={col.image}
                   alt={col.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{ objectPosition: col.collection === 'best-sellers' ? '50% 30%' : '50% 50%' }}
                 />
 
                 {/* Dark overlay */}
