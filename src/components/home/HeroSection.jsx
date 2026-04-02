@@ -28,7 +28,7 @@ export default function HeroSection() {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[92vh] flex items-center overflow-hidden bg-background"
+      className="relative w-full min-h-[92vh] flex items-center justify-center overflow-hidden bg-background"
     >
       {/* Spotlight */}
       <div
@@ -51,7 +51,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full py-24">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 py-24 flex justify-start">
         <div className="max-w-lg">
           {/* Eyebrow */}
           <motion.div
