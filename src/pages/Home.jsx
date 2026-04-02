@@ -11,7 +11,7 @@ import TorchBoxBanner from '../components/home/TorchBoxBanner';
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
 import MadeInUSABanner from '../components/home/MadeInUSABanner';
-import FounderSection from '../components/home/FounderSection';
+import TorchbearerBlog from '../components/home/TorchbearerBlog';
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -30,8 +30,7 @@ export default function Home() {
         <BestSellersSection />
         <TorchBoxBanner />
         <ManifestoSection />
-        <FounderSection />
-        <NewsletterSection />
+        <TorchbearerBlog />
 
         {/* Sticky mobile CTA */}
          <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-4 pt-2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.98) 70%, transparent)' }}>

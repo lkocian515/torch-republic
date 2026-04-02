@@ -55,14 +55,15 @@ const COLLECTIONS_NAV = [
 ];
 
 const DROPS_NAV = [
-  { label: 'New Arrivals', slug: 'best-sellers' },
   { label: 'Best Sellers', slug: 'best-sellers' },
-  { label: 'Limited Edition', slug: 'liberty-flame' },
+  { label: 'New Arrivals', slug: 'best-sellers' },
+  { label: 'Liberty Flame', slug: 'liberty-flame' },
 ];
 
 const ABOUT_NAV = [
   { label: 'Mission', page: 'Mission' },
   { label: 'Meet the Founder', page: 'Mission' },
+  { label: 'Torchbearer Blog', page: 'Mission' },
 ];
 
 export default function NavBar() {
@@ -167,13 +168,13 @@ export default function NavBar() {
                 </Dropdown>
               </div>
 
-              {/* NEW / DROPS */}
+              {/* NEW / BESTSELLERS */}
               <div className="relative">
                 <button
                   onClick={() => toggle('drops')}
                   className={`text-xs font-mono tracking-widest uppercase transition-colors ${openMenu === 'drops' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
                 >
-                  New / Drops ▾
+                  New / Bestsellers ▾
                 </button>
                 <Dropdown id="drops">
                   <div className="w-44 space-y-2">

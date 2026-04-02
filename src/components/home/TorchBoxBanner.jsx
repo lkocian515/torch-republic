@@ -85,13 +85,13 @@ export default function TorchBoxBanner() {
         >
           <div className="inline-flex items-center gap-2 border border-primary/40 px-4 py-1.5 mb-6 bg-primary/5">
             <Flame className="w-3 h-3 text-primary" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary">Premium Subscription Box</span>
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary">Coming Soon — Join the Waitlist</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-black uppercase tracking-tight leading-none mb-4">
             The <span style={{ color: '#C8A44D' }}>Torch Box</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            Hand-curated patriotic gear delivered monthly. Limited quantities. Exclusive drops. Pick your flame.
+            A monthly subscription of hand-curated patriotic gear — exclusive drops, limited quantities. Launching soon. Secure your spot now.
           </p>
         </motion.div>
 
@@ -132,8 +132,7 @@ export default function TorchBoxBanner() {
                 </div>
 
                 <div className="mb-5">
-                  <span className="font-mono font-bold text-3xl text-foreground">{tier.price}</span>
-                  <span className="font-mono text-xs text-muted-foreground">/mo</span>
+                  <span className="font-mono font-bold text-base text-muted-foreground tracking-widest uppercase">Coming Soon</span>
                 </div>
 
                 <ul className="space-y-2 mb-6">
@@ -156,7 +155,7 @@ export default function TorchBoxBanner() {
                     : { borderColor: tier.borderColor, color: tier.color }
                   }
                 >
-                  {tier.cta}
+                  Join the Waitlist →
                 </a>
               </motion.div>
             );
@@ -166,7 +165,7 @@ export default function TorchBoxBanner() {
         <p className="text-center font-mono text-xs tracking-wider mb-3" style={{ color: '#C8A44D', opacity: 0.9 }}>Includes exclusive Torchbearer materials not sold publicly</p>
 
         <p className="text-center font-mono text-xs text-muted-foreground tracking-wider">
-          Cancel anytime · Ships to all 50 states · Torchbearers only
+          Early access · Limited spots · Torchbearers only
         </p>
       </div>
     </section>
