@@ -31,10 +31,17 @@ const AuthenticatedApp = () => {
     <AnimatePresence mode="wait">
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
+        {/* Shopify Commerce Routes - Pass Through */}
         <Route path="/cart" element={<ShopifyPassthrough />} />
         <Route path="/cart/*" element={<ShopifyPassthrough />} />
         <Route path="/checkout" element={<ShopifyPassthrough />} />
         <Route path="/checkout/*" element={<ShopifyPassthrough />} />
+        <Route path="/products/*" element={<ShopifyPassthrough />} />
+        <Route path="/collections/*" element={<ShopifyPassthrough />} />
+        <Route path="/blogs/*" element={<ShopifyPassthrough />} />
+        <Route path="/a/p/products/*" element={<ShopifyPassthrough />} />
+        
+        {/* Base44 App Routes */}
         <Route path="/" element={
         <LayoutWrapper currentPageName={mainPageKey}>
           <MainPage />
