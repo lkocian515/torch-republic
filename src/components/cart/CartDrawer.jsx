@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, ShieldCheck, Truck, RotateCcw, Flame } from 'lucide-react';
 import { useCart } from '@/lib/CartContext';
@@ -12,11 +12,22 @@ const ADDONS = [
 const FREE_SHIPPING_THRESHOLD = 50;
 
 export default function CartDrawer({ isOpen, setIsOpen }) {
-  const { cart, updateQuantity, removeFromCart } = useCart();
+  const { updateQuantity, removeFromCart } = useCart();
+  const [cart, setCart] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState([]);
 
-  const subtotal = cart?.total || 0;
+  // Fetch cart from Shopify when drawer opens
+  useEffect(() => {
+    if (isOpen) {
+      fetch('https://torchrepublic.com/cart.js')
+        .then(res => res.json())
+        .then(data => setCart(data))
+        .catch(err => console.error('Cart fetch error:', err));
+    }
+  }, [isOpen]);
+
+  const subtotal = (cart?.total || 0) / 100; // Shopify returns in cents
   const addonsTotal = selectedAddons.reduce((sum, id) => sum + (ADDONS.find(a => a.id === id)?.price || 0), 0);
   const total = subtotal + addonsTotal;
   const shippingThreshold = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
