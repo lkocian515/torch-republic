@@ -1,28 +1,50 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
-
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
-    const { variantId, quantity } = await req.json();
+    const { variantId, quantity, cartId } = await req.json();
 
     if (!variantId || !quantity) {
       return Response.json({ error: 'Missing variantId or quantity' }, { status: 400 });
     }
 
-    // Add to cart via Shopify cart/add.js endpoint
-    const addRes = await fetch('https://torchrepublic.com/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity }),
-    });
-
-    if (!addRes.ok) {
-      return Response.json({ error: 'Failed to add to cart' }, { status: 500 });
+    const token = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
+    if (!token) {
+      return Response.json({ error: 'Storefront token not configured' }, { status: 500 });
     }
 
-    // Fetch updated cart
-    const cartRes = await fetch('https://torchrepublic.com/cart.js');
-    const cart = await cartRes.json();
+    // If no cartId, create a new cart
+    let cart = null;
+    if (!cartId) {
+      const createRes = await fetch('https://torchrepublic.com/api/2024-01/graphql.json', {
+        method: 'POST',
+        headers: {
+          'X-Shopify-Storefront-Access-Token': token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `mutation { cartCreate(input: { lines: { merchandiseId: "gid://shopify/ProductVariant/${variantId}", quantity: ${quantity} } }) { cart { id checkoutUrl } } }`,
+        }),
+      });
+      const data = await createRes.json();
+      cart = data.data?.cartCreate?.cart;
+    } else {
+      // Add to existing cart
+      const addRes = await fetch('https://torchrepublic.com/api/2024-01/graphql.json', {
+        method: 'POST',
+        headers: {
+          'X-Shopify-Storefront-Access-Token': token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `mutation { cartLinesAdd(cartId: "${cartId}", lines: { merchandiseId: "gid://shopify/ProductVariant/${variantId}", quantity: ${quantity} }) { cart { id checkoutUrl } } }`,
+        }),
+      });
+      const data = await addRes.json();
+      cart = data.data?.cartLinesAdd?.cart;
+    }
+
+    if (!cart) {
+      return Response.json({ error: 'Failed to add to cart' }, { status: 500 });
+    }
 
     return Response.json({ success: true, cart });
   } catch (error) {

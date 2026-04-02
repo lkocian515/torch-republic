@@ -22,7 +22,9 @@ export default function CartDrawer({ isOpen, setIsOpen }) {
     if (isOpen) {
       fetch('https://torchrepublic.com/cart.js')
         .then(res => res.json())
-        .then(data => setCart(data))
+        .then(data => {
+          setCart(data);
+        })
         .catch(err => console.error('Cart fetch error:', err));
     }
   }, [isOpen]);
