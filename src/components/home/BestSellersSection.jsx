@@ -10,14 +10,17 @@ export default function BestSellersSection() {
   const { data: products, isLoading } = useQuery({
     queryKey: ['best-sellers-home'],
     queryFn: async () => {
-      const [featured, latest] = await Promise.all([
+      const [featured, latest, godFamilyCountry] = await Promise.all([
         base44.entities.Product.filter({ featured: true }, 'best_seller_rank', 6),
         base44.entities.Product.list('-created_date', 4),
+        base44.entities.Product.filter({ collection: 'god-family-country' }, '', 1),
       ]);
       const sorted = [...featured].sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999));
       const featuredIds = new Set(sorted.map(p => p.id));
-      const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 2);
-      return [...sorted, ...extras].slice(0, 6);
+      const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 1);
+      const result = [...sorted, ...extras].slice(0, 5);
+      if (godFamilyCountry.length > 0) result.push(godFamilyCountry[0]);
+      return result;
     },
     initialData: [],
   });
