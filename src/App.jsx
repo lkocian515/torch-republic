@@ -8,14 +8,12 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageTransition from './components/PageTransition';
-import ShopifyPassthrough from './components/ShopifyPassthrough';
 import ScrollToTop from './components/ScrollToTop';
-import { CartProvider } from './lib/CartContext';
+
 
 import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
-import ProductDetail from './pages/ProductDetail';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -32,18 +30,6 @@ const AuthenticatedApp = () => {
     <AnimatePresence mode="wait">
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
-        {/* Product Detail - App Route */}
-        <Route path="/products/:handle" element={<LayoutWrapper currentPageName="ProductDetail"><ProductDetail /></LayoutWrapper>} />
-        
-        {/* Shopify Commerce Routes - Pass Through */}
-        <Route path="/cart" element={<ShopifyPassthrough />} />
-        <Route path="/cart/*" element={<ShopifyPassthrough />} />
-        <Route path="/checkout" element={<ShopifyPassthrough />} />
-        <Route path="/checkout/*" element={<ShopifyPassthrough />} />
-        <Route path="/collections/*" element={<ShopifyPassthrough />} />
-        <Route path="/blogs/*" element={<ShopifyPassthrough />} />
-        <Route path="/a/p/products/*" element={<ShopifyPassthrough />} />
-        
         {/* Base44 App Routes */}
         <Route path="/" element={
         <LayoutWrapper currentPageName={mainPageKey}>
@@ -75,12 +61,10 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <CartProvider>
-          <Router>
-            <AuthenticatedApp />
-          </Router>
-          <Toaster />
-        </CartProvider>
+        <Router>
+          <AuthenticatedApp />
+        </Router>
+        <Toaster />
       </QueryClientProvider>
     </AuthProvider>
   );

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
 import { Star, Flame } from 'lucide-react';
 
@@ -27,9 +25,9 @@ export default function ProductCard({ product, index = 0 }) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
     >
-      <Link
-        to={`/products/${product.shopify_handle}`}
-        className="group block"
+      <a
+        href={`https://torchrepublic.com/products/${product.shopify_handle}`}
+        className="group block cursor-pointer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -118,7 +116,7 @@ export default function ProductCard({ product, index = 0 }) {
             )}
           </div>
         </div>
-      </Link>
+      </a>
     </motion.div>
   );
 }
