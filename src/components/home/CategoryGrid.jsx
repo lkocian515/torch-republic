@@ -64,8 +64,8 @@ const StickerIcon = () => (
 const CATEGORIES = [
   { label: 'T-Shirts', category: 't-shirts', Icon: TShirtIcon },
   { label: 'Hoodies', category: 'hoodies', Icon: HoodieIcon },
-  { label: 'Hats', category: 'hats', Icon: HatIcon },
   { label: 'Tanks', category: 'tanks', Icon: TankIcon },
+  { label: 'Hats', category: 'hats', Icon: HatIcon },
   { label: 'Collectibles & Gifts', category: 'accessories', Icon: TeaIcon },
   { label: 'Magnets & Stickers', category: 'stickers', Icon: StickerIcon },
 ];
