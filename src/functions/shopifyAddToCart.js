@@ -34,9 +34,16 @@ Deno.serve(async (req) => {
     console.log('[shopifyAddToCart] Cart:', cart);
 
     // Return the checkout URL
+    let checkoutUrl = 'https://www.torchrepublic.com/cart';
+    if (cart.checkout_url) {
+      checkoutUrl = cart.checkout_url.startsWith('http')
+        ? cart.checkout_url
+        : `https://www.torchrepublic.com${cart.checkout_url}`;
+    }
+
     return Response.json({ 
       success: true,
-      checkoutUrl: cart.checkout_url ? `https://www.torchrepublic.com${cart.checkout_url}` : 'https://www.torchrepublic.com/cart'
+      checkoutUrl
     });
   } catch (error) {
     console.log('[shopifyAddToCart] Exception:', error.message);

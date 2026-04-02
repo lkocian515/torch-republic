@@ -28,9 +28,7 @@ export default function ProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.05 }}
     >
       <a
-        href={`https://www.torchrepublic.com/products/${productHandle}`}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={`https://libertees-for-all.myshopify.com/products/${productHandle}`}
         className="group block cursor-pointer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

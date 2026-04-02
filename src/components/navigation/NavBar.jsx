@@ -231,7 +231,7 @@ export default function NavBar() {
 
           {/* Right icons */}
           <div className="flex items-center gap-4">
-           <a href="https://torchrepublic.com/cart" className="text-muted-foreground hover:text-primary transition-colors">
+           <a href="https://www.torchrepublic.com/cart" className="text-muted-foreground hover:text-primary transition-colors">
              <Search className="w-5 h-5" />
            </a>
           </div>
