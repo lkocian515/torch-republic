@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
@@ -20,6 +20,15 @@ function extractNumericId(gid) {
 }
 
 export default function ProductDetail() {
+  // 301 redirect to Shopify product URL
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const handle = urlParams.get('handle');
+    if (handle) {
+      window.location.replace(`${SHOP}/products/${handle}`);
+    }
+  }, []);
+
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
