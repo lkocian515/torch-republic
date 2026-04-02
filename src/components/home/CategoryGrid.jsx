@@ -66,8 +66,8 @@ const CATEGORIES = [
   { label: 'Hoodies', category: 'hoodies', Icon: HoodieIcon },
   { label: 'Tanks', category: 'tanks', Icon: TankIcon },
   { label: 'Hats', category: 'hats', Icon: HatIcon },
-  { label: 'Collectibles & Gifts', category: 'accessories', Icon: TeaIcon },
   { label: 'Magnets & Stickers', category: 'stickers', Icon: StickerIcon },
+  { label: 'Collectibles & Gifts', category: 'accessories', Icon: TeaIcon },
 ];
 
 export default function CategoryGrid() {
