@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const SHOP_DOMAIN = 'https://libertees-for-all.myshopify.com';
+const SHOP_DOMAIN = 'https://www.torchrepublic.com';
 const BLOG_BASE = `${SHOP_DOMAIN}/blogs/torchbearer-blog`;
 
 const POSTS = [

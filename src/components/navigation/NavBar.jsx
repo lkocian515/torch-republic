@@ -235,7 +235,7 @@ export default function NavBar() {
               <Search className="w-5 h-5" />
             </button>
             <button
-              onClick={() => window.location.href = 'https://libertees-for-all.myshopify.com/cart'}
+              onClick={() => window.location.href = 'https://www.torchrepublic.com/cart'}
               className="text-muted-foreground hover:text-primary transition-colors relative"
             >
               <ShoppingCart className="w-5 h-5" />

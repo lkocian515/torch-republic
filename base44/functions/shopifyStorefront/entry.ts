@@ -220,10 +220,16 @@ function formatCart(cart) {
     lineTotal: parseFloat(node.cost?.totalAmount?.amount || 0),
   })) || [];
 
-  // Ensure checkoutUrl is always absolute
+  // Ensure checkoutUrl uses www.torchrepublic.com
   let checkoutUrl = cart.checkoutUrl || '';
-  if (checkoutUrl && !checkoutUrl.startsWith('http')) {
-    checkoutUrl = `https://${SHOPIFY_DOMAIN}${checkoutUrl}`;
+  if (checkoutUrl) {
+    try {
+      const urlObj = new URL(checkoutUrl.startsWith('/') ? `https://www.torchrepublic.com${checkoutUrl}` : checkoutUrl);
+      urlObj.hostname = 'www.torchrepublic.com';
+      checkoutUrl = urlObj.toString();
+    } catch {
+      checkoutUrl = cart.checkoutUrl || '';
+    }
   }
 
   return {

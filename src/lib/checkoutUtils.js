@@ -1,21 +1,20 @@
 export function getAbsoluteCheckoutUrl(url) {
   if (!url) return null;
-  
+
   let finalCheckoutUrl = url;
-  
+
   if (url.startsWith('/')) {
-    finalCheckoutUrl = `https://libertees-for-all.myshopify.com${url}`;
+    finalCheckoutUrl = `https://www.torchrepublic.com${url}`;
   } else {
-    const urlObj = new URL(url);
-    if (
-      urlObj.hostname === 'torchrepublic.com' ||
-      urlObj.hostname === 'www.torchrepublic.com'
-    ) {
-      urlObj.hostname = 'libertees-for-all.myshopify.com';
+    try {
+      const urlObj = new URL(url);
+      urlObj.hostname = 'www.torchrepublic.com';
+      finalCheckoutUrl = urlObj.toString();
+    } catch {
+      finalCheckoutUrl = url;
     }
-    finalCheckoutUrl = urlObj.toString();
   }
-  
+
   return finalCheckoutUrl;
 }
 
