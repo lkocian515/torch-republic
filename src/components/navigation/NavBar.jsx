@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Menu, X, ShoppingCart, Search, CalendarCheck } from 'lucide-react';
+import { useCart } from '@/lib/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SHOP_MENU = [
@@ -71,6 +72,7 @@ export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
   const navRef = useRef(null);
+  const { setIsOpen: openCart, cart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -235,10 +237,15 @@ export default function NavBar() {
               <Search className="w-5 h-5" />
             </button>
             <button
-              onClick={() => window.location.href = 'https://www.torchrepublic.com/cart'}
+              onClick={() => openCart(true)}
               className="text-muted-foreground hover:text-primary transition-colors relative"
             >
               <ShoppingCart className="w-5 h-5" />
+              {cart?.totalQuantity > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full flex items-center justify-center font-mono text-[9px] font-bold" style={{ backgroundColor: '#C8A44D', color: '#000' }}>
+                  {cart.totalQuantity}
+                </span>
+              )}
             </button>
           </div>
         </div>
