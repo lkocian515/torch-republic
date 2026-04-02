@@ -51,7 +51,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full py-24">
         <div className="max-w-lg">
           {/* Eyebrow */}
           <motion.div

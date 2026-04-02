@@ -24,7 +24,7 @@ export default function BestSellersSection() {
 
   return (
     <section className="py-20 px-6" style={{ backgroundColor: '#000' }}>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <div className="flex items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-3 mb-3">

@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="bg-background border-t border-border">
       {/* Manifesto */}
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-12">
+      <div className="max-w-[1200px] mx-auto px-6 pt-20 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
           <div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[0.9] tracking-tight text-foreground">

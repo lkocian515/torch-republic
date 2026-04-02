@@ -111,7 +111,7 @@ export default function NavBar() {
     <nav ref={navRef} className={`w-full transition-all duration-500 ${
       scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/60 backdrop-blur-sm'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1200px] mx-auto px-6">
         <div className="relative flex items-center justify-between h-14 md:h-16">
 
           {/* Left: hamburger (mobile) + nav links (desktop) */}

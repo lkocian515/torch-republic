@@ -69,7 +69,7 @@ const CATEGORIES = [
 export default function CategoryGrid() {
   return (
     <section className="py-14 px-6" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-xl font-heading font-black uppercase tracking-widest mb-1" style={{ color: '#C9A24A' }}>Quick Shop</h2>
           <p className="font-mono text-xs tracking-widest text-gray-500 uppercase">Browse by category</p>
