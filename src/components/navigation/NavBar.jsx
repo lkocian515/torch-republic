@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Menu, X, ShoppingCart, Search, CalendarCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import CartDrawer from '../cart/CartDrawer';
 
 const SHOP_MENU = [
   {
@@ -70,6 +71,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
+  const [cartOpen, setCartOpen] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -231,16 +233,16 @@ export default function NavBar() {
 
           {/* Right icons */}
           <div className="flex items-center gap-4">
-            <button className="text-muted-foreground hover:text-primary transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <a
-              href="https://www.torchrepublic.com/cart"
-              className="text-muted-foreground hover:text-primary transition-colors relative"
-              aria-label="View cart"
-            >
-              <ShoppingCart className="w-5 h-5" />
-            </a>
+           <button className="text-muted-foreground hover:text-primary transition-colors">
+             <Search className="w-5 h-5" />
+           </button>
+           <button
+             onClick={() => setCartOpen(true)}
+             className="text-muted-foreground hover:text-primary transition-colors relative"
+             aria-label="View cart"
+           >
+             <ShoppingCart className="w-5 h-5" />
+           </button>
           </div>
         </div>
 
@@ -324,6 +326,8 @@ export default function NavBar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <CartDrawer isOpen={cartOpen} setIsOpen={setCartOpen} />
     </nav>
   );
 }
