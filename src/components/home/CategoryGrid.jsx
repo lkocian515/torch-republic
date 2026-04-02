@@ -61,9 +61,9 @@ const CATEGORIES = [
   { label: 'T-Shirts', category: 't-shirts', Icon: TShirtIcon },
   { label: 'Hoodies', category: 'hoodies', Icon: HoodieIcon },
   { label: 'Hats', category: 'hats', Icon: HatIcon },
-  { label: 'Coffee', category: 'coffee', Icon: CoffeeIcon },
-  { label: 'Tea', category: 'tea', Icon: TeaIcon },
-  { label: 'Stickers', category: 'stickers', Icon: StickerIcon },
+  { label: 'Tanks', category: 'tanks', Icon: CoffeeIcon },
+  { label: 'Collectibles & Gifts', category: 'accessories', Icon: TeaIcon },
+  { label: 'Magnets & Stickers', category: 'stickers', Icon: StickerIcon },
 ];
 
 export default function CategoryGrid() {
