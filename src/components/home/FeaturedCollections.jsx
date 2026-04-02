@@ -33,8 +33,8 @@ const COLLECTIONS = [
 
 export default function FeaturedCollections() {
   return (
-    <section className="py-14 px-6" style={{ backgroundColor: '#0B0B0B' }}>
-      <div className="max-w-[1200px] mx-auto">
+    <section className="py-14 px-6 md:px-8" style={{ backgroundColor: '#0B0B0B' }}>
+      <div className="max-w-[1280px] mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-xl font-heading font-black uppercase tracking-widest mb-1" style={{ color: '#C9A24A' }}>Collections</h2>
           <p className="font-mono text-xs tracking-widest text-gray-500 uppercase">Shop by theme</p>

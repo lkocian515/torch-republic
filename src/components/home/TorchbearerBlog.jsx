@@ -32,10 +32,10 @@ const POSTS = [
 export default function TorchbearerBlog() {
   return (
     <section
-      className="py-20 px-6"
+      className="py-20 px-6 md:px-8"
       style={{ backgroundColor: '#080808', borderTop: '1px solid rgba(201,162,74,0.12)' }}
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <div>
