@@ -10,7 +10,7 @@ import BestSellersSection from '../components/home/BestSellersSection';
 import TorchBoxBanner from '../components/home/TorchBoxBanner';
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
-import MadeInUSABanner from '../components/home/MadeInUSABanner';
+
 import TorchbearerBlog from '../components/home/TorchbearerBlog';
 
 export default function Home() {
@@ -24,7 +24,6 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
         <HeroSection />
-        <MadeInUSABanner />
         <CategoryGrid />
         <FeaturedCollections />
         <BestSellersSection />

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
+import MadeInUSABanner from './MadeInUSABanner';
 import { ShieldCheck, Truck, Star, ChevronDown } from 'lucide-react';
 
 const TRUST_SIGNALS = [
@@ -97,6 +98,16 @@ export default function HeroSection() {
             >
               Shop Bestsellers
             </Link>
+          </motion.div>
+
+          {/* Made in USA Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            className="-mx-6"
+          >
+            <MadeInUSABanner />
           </motion.div>
         </div>
       </div>
