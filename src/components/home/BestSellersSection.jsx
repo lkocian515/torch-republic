@@ -16,9 +16,9 @@ export default function BestSellersSection() {
         base44.entities.Product.filter({ collection: 'god-family-country', title: 'God Family Country T-Shirt' }, '', 1),
       ]);
       const sorted = [...featured].sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999));
-      const featuredIds = new Set(sorted.map(p => p.id));
-      const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 1);
-      const result = [...sorted, ...extras].slice(0, 5);
+              const featuredIds = new Set(sorted.map(p => p.id));
+              const extras = latest.filter(p => !featuredIds.has(p.id)).slice(0, 2);
+              const result = [...sorted, ...extras].slice(0, 6);
       if (godFamilyCountry.length > 0) result.push(godFamilyCountry[0]);
       return result;
     },
