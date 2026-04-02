@@ -26,8 +26,8 @@ const COLLECTIONS = [
     slug: 'god-family-country',
     description: 'The foundation of everything we stand for.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a28dae4f2_ChatGPTImageMar19202604_32_50AM.png',
-    objectFit: 'contain',
-    objectPosition: 'center',
+    objectFit: 'cover',
+    objectPosition: 'center 30%',
   },
 ];
 
