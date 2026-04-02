@@ -104,14 +104,18 @@ export default function ProductDetail() {
   const numericVariantId = selectedVariant ? extractNumericId(selectedVariant.id) : null;
 
   const handleAddToCart = () => {
-    if (!numericVariantId) { alert('Please select a size first'); return; }
-    if (!selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
+    // Only validate if size selector is visible and required
+    if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
+    if (!numericVariantId) { alert('Unable to add to cart. Please refresh and try again.'); return; }
+    if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
     window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/cart`;
   };
 
   const handleBuyNow = () => {
-    if (!numericVariantId) { alert('Please select a size first'); return; }
-    if (!selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
+    // Only validate if size selector is visible and required
+    if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
+    if (!numericVariantId) { alert('Unable to checkout. Please refresh and try again.'); return; }
+    if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
     window.location.href = `${SHOP}/cart/add?id=${numericVariantId}&quantity=${quantity}&return_to=/checkout`;
   };
 
@@ -216,7 +220,7 @@ export default function ProductDetail() {
             )}
 
             {/* Sizes */}
-            {variantsData?.length > 0 && availableSizes?.length > 0 && (
+            {availableSizes?.length > 0 && (
               <div className="mt-8">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-foreground font-mono text-xs tracking-wider uppercase">Size {availableSizes.length === 1 && <span style={{ color: '#C8A44D' }}>(auto-selected)</span>}</p>
