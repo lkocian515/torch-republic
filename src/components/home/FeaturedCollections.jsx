@@ -10,18 +10,24 @@ const COLLECTIONS = [
     slug: 'patriotic-pride',
     description: 'Wear your love for this country front and center.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8ea5a714d_ffffd.png',
+    objectFit: 'cover',
+    objectPosition: 'center 20%',
   },
   {
     name: 'Freedom Collection',
     slug: 'freedom-isnt-free',
     description: 'Honor those who paid the price for liberty.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de8415b91_Untitledfdsfdsf.png',
+    objectFit: 'contain',
+    objectPosition: 'center',
   },
   {
     name: 'God, Family, Country',
     slug: 'god-family-country',
     description: 'The foundation of everything we stand for.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a28dae4f2_ChatGPTImageMar19202604_32_50AM.png',
+    objectFit: 'contain',
+    objectPosition: 'center',
   },
 ];
 
@@ -50,8 +56,8 @@ export default function FeaturedCollections() {
                 <img
                   src={col.image}
                   alt={col.name}
-                  className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
-                  style={{ backgroundColor: '#111' }}
+                  className="w-full h-full transition-all duration-700 group-hover:scale-105"
+                  style={{ backgroundColor: '#111', objectFit: col.objectFit, objectPosition: col.objectPosition }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'rgba(201,162,74,0.08)' }} />
