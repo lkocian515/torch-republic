@@ -52,7 +52,6 @@ import Collections from './pages/Collections';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Mission from './pages/Mission';
-import ProductDetail from './pages/ProductDetail';
 import TheTorchBox from './pages/TheTorchBox';
 import __Layout from './Layout.jsx';
 
@@ -63,7 +62,6 @@ export const PAGES = {
     "Contact": Contact,
     "Home": Home,
     "Mission": Mission,
-    "ProductDetail": ProductDetail,
     "TheTorchBox": TheTorchBox,
 }
 
