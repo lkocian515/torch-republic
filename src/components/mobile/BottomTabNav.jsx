@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, ShoppingBag, ShoppingCart, User } from 'lucide-react';
+import CartDrawer from '../cart/CartDrawer';
 
 export default function BottomTabNav() {
   const location = useLocation();
+  const [cartOpen, setCartOpen] = useState(false);
 
   const tabs = [
     { path: '/', icon: Home, label: 'Home' },
@@ -33,13 +35,14 @@ export default function BottomTabNav() {
             </Link>
           );
         })}
-        <a
-          href="https://torchrepublic.com/cart"
+        <button
+          onClick={() => setCartOpen(true)}
           className="flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors relative select-none text-muted-foreground hover:text-foreground"
         >
           <ShoppingCart className="w-5 h-5" />
           <span className="text-xs font-mono tracking-widest uppercase">Cart</span>
-        </a>
+        </button>
+        <CartDrawer isOpen={cartOpen} setIsOpen={setCartOpen} />
       </div>
     </div>
   );
