@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageTransition from './components/PageTransition';
+import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from './lib/CartContext';
 
 import Reviews from './pages/Reviews';
@@ -27,6 +28,7 @@ const AuthenticatedApp = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={
         <LayoutWrapper currentPageName={mainPageKey}>

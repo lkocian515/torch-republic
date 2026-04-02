@@ -11,7 +11,7 @@ import ProductGrid from '../components/products/ProductGrid';
 import ProductImageCarousel from '../components/products/ProductImageCarousel';
 import ReviewsSection from '../components/reviews/ReviewsSection';
 
-const SHOP = 'https://www.torchrepublic.com';
+const SHOP = 'https://torchrepublic.com';
 
 function extractNumericId(gid) {
   if (!gid) return null;

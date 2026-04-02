@@ -2,7 +2,7 @@ import React, { createContext, useContext, useCallback } from 'react';
 
 const CartContext = createContext(null);
 
-const SHOP = 'https://www.torchrepublic.com';
+const SHOP = 'https://torchrepublic.com';
 
 // Shopify Storefront API returns GIDs like "gid://shopify/ProductVariant/12345678"
 // Shopify's native cart/add endpoint needs just the numeric ID
