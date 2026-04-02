@@ -13,7 +13,7 @@ export default function BestSellersSection() {
       const [featured, latest, godFamilyCountry] = await Promise.all([
         base44.entities.Product.filter({ featured: true }, 'best_seller_rank', 6),
         base44.entities.Product.list('-created_date', 4),
-        base44.entities.Product.filter({ collection: 'god-family-country' }, '', 1),
+        base44.entities.Product.filter({ collection: 'god-family-country', title: 'God Family Country T-Shirt' }, '', 1),
       ]);
       const sorted = [...featured].sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999));
       const featuredIds = new Set(sorted.map(p => p.id));
