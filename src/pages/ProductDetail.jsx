@@ -94,15 +94,47 @@ export default function ProductDetail() {
   const numericVariantId = selectedVariant ? extractNumericId(selectedVariant.id) : null;
 
   const handleAddToCart = async () => {
-    if (availableSizes?.length > 1 && !selectedSize) { alert('Please select a size'); return; }
-    if (!numericVariantId) { alert('Unable to add to cart. Please refresh and try again.'); return; }
-    if (selectedVariant && !selectedVariant.availableForSale) { alert('This size is currently sold out.'); return; }
+    console.log('[ProductDetail] Add to Cart clicked');
+    console.log('[ProductDetail] Product:', { handle, id: product?.id });
+    console.log('[ProductDetail] Variant:', { selectedSize, variantId: numericVariantId, availableForSale: selectedVariant?.availableForSale });
+    
+    // Validation
+    if (availableSizes?.length > 1 && !selectedSize) {
+      alert('Please select a size');
+      return;
+    }
+    
+    if (!product?.in_stock) {
+      alert('This product is out of stock.');
+      return;
+    }
+    
+    if (!numericVariantId) {
+      console.error('[ProductDetail] No variant ID found');
+      console.error('[ProductDetail] variantsData:', variantsData);
+      alert('Product variant could not be loaded. Please refresh and try again.');
+      return;
+    }
+    
+    if (selectedVariant && !selectedVariant.availableForSale) {
+      alert('This size is currently sold out.');
+      return;
+    }
+    
     try {
-      await base44.functions.invoke('addToShopifyCart', { variantId: numericVariantId, quantity });
-      setCartOpen(true);
+      console.log('[ProductDetail] Calling addToShopifyCart with:', { variantId: numericVariantId, quantity });
+      const res = await base44.functions.invoke('addToShopifyCart', { variantId: numericVariantId, quantity });
+      console.log('[ProductDetail] addToShopifyCart response:', res);
+      if (res.data?.success) {
+        console.log('[ProductDetail] Cart add successful');
+        setCartOpen(true);
+      } else {
+        console.error('[ProductDetail] Cart add failed:', res.data?.error);
+        alert(res.data?.error || 'Failed to add to cart. Please try again.');
+      }
     } catch (err) {
-      console.error('Add to cart error:', err);
-      alert('Failed to add to cart. Please try again.');
+      console.error('[ProductDetail] Exception:', err);
+      alert(err.response?.data?.error || 'Failed to add to cart. Please try again.');
     }
   };
 
