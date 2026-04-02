@@ -15,6 +15,7 @@ import { CartProvider } from './lib/CartContext';
 import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
+import ProductDetail from './pages/ProductDetail';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -31,13 +32,14 @@ const AuthenticatedApp = () => {
     <AnimatePresence mode="wait">
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
+        {/* Product Detail - App Route */}
+        <Route path="/products/:handle" element={<LayoutWrapper currentPageName="ProductDetail"><ProductDetail /></LayoutWrapper>} />
+        
         {/* Shopify Commerce Routes - Pass Through */}
         <Route path="/cart" element={<ShopifyPassthrough />} />
         <Route path="/cart/*" element={<ShopifyPassthrough />} />
         <Route path="/checkout" element={<ShopifyPassthrough />} />
         <Route path="/checkout/*" element={<ShopifyPassthrough />} />
-        <Route path="/products/:handle" element={<ShopifyPassthrough />} />
-        <Route path="/products" element={<ShopifyPassthrough />} />
         <Route path="/collections/*" element={<ShopifyPassthrough />} />
         <Route path="/blogs/*" element={<ShopifyPassthrough />} />
         <Route path="/a/p/products/*" element={<ShopifyPassthrough />} />
