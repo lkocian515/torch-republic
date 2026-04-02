@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageTransition from './components/PageTransition';
+import ShopifyPassthrough from './components/ShopifyPassthrough';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from './lib/CartContext';
 
@@ -30,6 +31,10 @@ const AuthenticatedApp = () => {
     <AnimatePresence mode="wait">
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
+        <Route path="/cart" element={<ShopifyPassthrough />} />
+        <Route path="/cart/*" element={<ShopifyPassthrough />} />
+        <Route path="/checkout" element={<ShopifyPassthrough />} />
+        <Route path="/checkout/*" element={<ShopifyPassthrough />} />
         <Route path="/" element={
         <LayoutWrapper currentPageName={mainPageKey}>
           <MainPage />
