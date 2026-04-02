@@ -9,19 +9,19 @@ const COLLECTIONS = [
     name: 'Patriot Pride',
     slug: 'patriotic-pride',
     description: 'Wear your love for this country front and center.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/american-heart-collection-9399768.png?v=1772927307&width=1500',
+    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&q=80',
   },
   {
     name: 'Freedom Collection',
     slug: 'freedom-isnt-free',
     description: 'Honor those who paid the price for liberty.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/freedom-isnt-free-collection-9247105.png?v=1772308430&width=1500',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
   },
   {
     name: 'God, Family, Country',
     slug: 'god-family-country',
     description: 'The foundation of everything we stand for.',
-    image: 'https://www.torchrepublic.com/cdn/shop/collections/god-family-country-collection-1224586.png?v=1772308435&width=1500',
+    image: 'https://images.unsplash.com/photo-1473621038790-b778b4750efe?w=800&q=80',
   },
 ];
 
