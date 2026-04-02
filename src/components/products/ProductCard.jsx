@@ -28,7 +28,7 @@ export default function ProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.05 }}
     >
       <Link
-        to={`/ProductDetail?id=${product.id}`}
+        to={`/products/${product.shopify_handle}`}
         className="group block"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
