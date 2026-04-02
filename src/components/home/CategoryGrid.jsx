@@ -30,13 +30,21 @@ const HatIcon = () => (
   </svg>
 );
 
-const CoffeeIcon = () => (
+const TankIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="16" width="20" height="18" rx="2" fill="url(#cg)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    <path d="M28 20 Q34 20 34 25 Q34 30 28 30" stroke="#C8A44D" strokeWidth="1.2" fill="none"/>
-    <path d="M13 8 Q13 5 16 8 Q16 11 13 8" stroke="rgba(201,162,74,0.7)" strokeWidth="1" fill="none"/>
-    <path d="M19 6 Q19 3 22 6 Q22 9 19 6" stroke="rgba(201,162,74,0.7)" strokeWidth="1" fill="none"/>
-    <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    <defs><linearGradient id="tank-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    {/* Tank body */}
+    <rect x="6" y="20" width="28" height="10" rx="2" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
+    {/* Turret */}
+    <rect x="13" y="14" width="14" height="8" rx="1.5" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
+    {/* Cannon */}
+    <rect x="24" y="16" width="10" height="3" rx="1" fill="#C8A44D" opacity="0.85"/>
+    {/* Wheels */}
+    <circle cx="11" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
+    <circle cx="20" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
+    <circle cx="29" cy="31" r="3" fill="#C8A44D" opacity="0.7"/>
+    {/* Tread */}
+    <rect x="6" y="29" width="28" height="2" rx="1" fill="rgba(201,162,74,0.3)"/>
   </svg>
 );
 
@@ -61,7 +69,7 @@ const CATEGORIES = [
   { label: 'T-Shirts', category: 't-shirts', Icon: TShirtIcon },
   { label: 'Hoodies', category: 'hoodies', Icon: HoodieIcon },
   { label: 'Hats', category: 'hats', Icon: HatIcon },
-  { label: 'Tanks', category: 'tanks', Icon: CoffeeIcon },
+  { label: 'Tanks', category: 'tanks', Icon: TankIcon },
   { label: 'Collectibles & Gifts', category: 'accessories', Icon: TeaIcon },
   { label: 'Magnets & Stickers', category: 'stickers', Icon: StickerIcon },
 ];
@@ -91,7 +99,7 @@ export default function CategoryGrid() {
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,162,74,0.12)'; e.currentTarget.style.backgroundColor = '#111'; }}
               >
                 <cat.Icon />
-                <span className="font-mono text-xs tracking-wider uppercase text-white group-hover:text-yellow-300 transition-colors">{cat.label}</span>
+                <span className="font-mono text-xs tracking-wider uppercase text-white group-hover:text-yellow-300 transition-colors text-center">{cat.label}</span>
               </Link>
             </motion.div>
           ))}
