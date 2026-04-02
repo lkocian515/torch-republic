@@ -15,6 +15,7 @@ import { CartProvider } from './lib/CartContext';
 import Reviews from './pages/Reviews';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
+import ProductDetail from './pages/ProductDetail';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -61,6 +62,7 @@ const AuthenticatedApp = () => {
       <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
       <Route path="/OnSale" element={<LayoutWrapper currentPageName="OnSale"><OnSale /></LayoutWrapper>} />
       <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
+      <Route path="/ProductDetail" element={<LayoutWrapper currentPageName="ProductDetail"><ProductDetail /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>

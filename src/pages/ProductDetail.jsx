@@ -20,15 +20,6 @@ function extractNumericId(gid) {
 }
 
 export default function ProductDetail() {
-  // 301 redirect to Shopify product URL
-  React.useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const handle = urlParams.get('handle');
-    if (handle) {
-      window.location.replace(`${SHOP}/products/${handle}`);
-    }
-  }, []);
-
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
