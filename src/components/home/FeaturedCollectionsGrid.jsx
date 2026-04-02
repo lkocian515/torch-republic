@@ -6,22 +6,22 @@ const FEATURED_COLLECTIONS = [
   {
     title: 'Best Sellers',
     collection: 'best-sellers',
-    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260402034720-1f12e46a-677d-6ad6-9ae4-bae5f30b448a.png?v=1775101698'
   },
   {
     title: 'New Drops',
     collection: 'on-sale',
-    image: 'https://images.unsplash.com/photo-1505521585350-ea646e6221b7?w=500&q=80'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260402110123-1f12e834-9649-611c-89af-3e97c7b75a08.png?v=1775128012'
   },
   {
     title: 'American Heroes',
     collection: 'american-heroes',
-    image: 'https://images.unsplash.com/photo-1578932750294-708c5f69b854?w=500&q=80'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ghgyuj.png?v=1775128190'
   },
   {
     title: 'Torchbearer Collection',
     collection: 'founders',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80'
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsdss.png?v=1775128209'
   }
 ];
 
