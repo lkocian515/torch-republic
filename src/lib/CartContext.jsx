@@ -64,10 +64,13 @@ export function CartProvider({ children }) {
 
   const getCheckoutUrl = useCallback((checkoutUrl) => {
     if (!checkoutUrl) return null;
-    // Fix the hostname from torchrepublic.com to libertees-for-all.myshopify.com
-    let fixed = checkoutUrl.replace('https://www.torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-    fixed = fixed.replace('https://torchrepublic.com', 'https://libertees-for-all.myshopify.com');
-    return fixed;
+    try {
+      const urlObj = new URL(checkoutUrl);
+      urlObj.hostname = 'www.torchrepublic.com';
+      return urlObj.toString();
+    } catch {
+      return checkoutUrl;
+    }
   }, []);
 
   const removeFromCart = useCallback(async (lineId) => {
