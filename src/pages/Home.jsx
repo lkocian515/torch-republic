@@ -5,6 +5,8 @@ import { createPageUrl } from '@/utils';
 import HeroSection from '../components/home/HeroSection';
 import PullToRefresh from '../components/mobile/PullToRefresh';
 import TrustStrip from '../components/home/TrustStrip';
+import CustomerReviews from '../components/home/CustomerReviews';
+import TrustBadgeStrip from '../components/home/TrustBadgeStrip';
 import PremiumBestSellers from '../components/home/PremiumBestSellers';
 import GuaranteeBlock from '../components/home/GuaranteeBlock';
 import TorchbearerCTA from '../components/home/TorchbearerCTA';
@@ -24,6 +26,8 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
         <HeroSection />
+        <CustomerReviews />
+        <TrustBadgeStrip />
         <TrustStrip />
         <PremiumBestSellers />
         <GuaranteeBlock />

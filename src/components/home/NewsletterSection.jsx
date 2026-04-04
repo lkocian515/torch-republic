@@ -33,7 +33,7 @@ export default function NewsletterSection() {
             Become a Torchbearer
           </h2>
           <p className="text-gray-400 text-sm mb-8">
-            More than a customer. A member of something that stands.<br />Get early access to drops and exclusive releases.
+            Get 15% off your first order plus early access to drops and exclusive releases.
           </p>
 
           {submitted ? (

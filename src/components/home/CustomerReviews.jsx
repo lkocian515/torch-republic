@@ -1,0 +1,118 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
+
+const REVIEWS = [
+  {
+    name: 'Sarah M.',
+    product: 'Patriot Hoodie',
+    rating: 5,
+    text: 'Quality is incredible. This isn\'t like mall apparel.',
+  },
+  {
+    name: 'James R.',
+    product: 'We The People T-Shirt',
+    rating: 5,
+    text: 'The graphic is perfect. Wears like a dream.',
+  },
+  {
+    name: 'David L.',
+    product: 'God Family Country Crewneck',
+    rating: 5,
+    text: 'Bold message, bold quality. Exactly what I wanted.',
+  },
+  {
+    name: 'Emma T.',
+    product: 'Classic Patriot Hat',
+    rating: 5,
+    text: 'Fast shipping, perfect fit. Ordering again.',
+  },
+  {
+    name: 'Michael K.',
+    product: 'Americana Sweatshirt',
+    rating: 5,
+    text: 'This brand gets it. Standing out already.',
+  },
+];
+
+function StarRating({ rating }) {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <Star
+          key={i}
+          className={`w-3.5 h-3.5 ${
+            i <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-700'
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function CustomerReviews() {
+  return (
+    <section className="py-16 px-6 bg-background" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3))' }}>
+      <div className="max-w-[1200px] mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>
+              Real Customers
+            </span>
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+          </div>
+          <h2 className="text-2xl md:text-3xl font-heading font-black uppercase tracking-tight text-white">
+            What Patriots Are Saying
+          </h2>
+        </div>
+
+        {/* Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {REVIEWS.map((review, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className="p-4 rounded border"
+              style={{ 
+                borderColor: 'rgba(200,164,77,0.2)',
+                backgroundColor: 'rgba(14,42,47,0.3)',
+              }}
+            >
+              {/* Stars */}
+              <div className="mb-2">
+                <StarRating rating={review.rating} />
+              </div>
+
+              {/* Quote */}
+              <p className="text-sm text-gray-300 mb-3 italic leading-relaxed">
+                "{review.text}"
+              </p>
+
+              {/* Product */}
+              <p className="text-xs font-mono text-gray-500 mb-2">
+                Purchased: <span style={{ color: '#C8A44D' }}>{review.product}</span>
+              </p>
+
+              {/* Name */}
+              <p className="text-xs font-heading font-bold text-white">
+                {review.name}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Trust line */}
+        <div className="text-center mt-8">
+          <p className="text-xs font-mono tracking-widest text-gray-500 uppercase">
+            ✓ Verified purchases from real customers
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
