@@ -50,22 +50,40 @@ export default function FounderSection() {
               className="flex-1 space-y-5"
             >
               <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
-                Torch Republic began as a small Etsy shop during the COVID era—created during a time when the world felt uncertain and the meaning of freedom felt more personal than ever. What started as a creative outlet quickly became something more intentional.
+                Torch Republic started small—just an idea during a time when the world felt uncertain.
               </p>
               <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
-                As conversations around rights, responsibility, and individual thought became more prominent, so did the purpose behind the brand. Built on a deep respect for the Constitution and the principles it represents, Torch Republic was officially established as an LLC in 2025—marking its transition from a small independent shop into a structured, mission-driven company.
+                But it didn't stay small.
               </p>
               <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
-                Every piece created reflects that foundation: thoughtful, deliberate, and grounded in the belief that what you stand for should be reflected in what you wear.
+                What began as a creative outlet became a clear mission as conversations around freedom, responsibility, and independent thought took center stage. It became obvious that what you wear should stand for something.
               </p>
-              <p className="text-base leading-[1.9]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Behind the brand is a founder committed to building something lasting—not just a store, but a standard. One rooted in clarity, independence, and quiet confidence.
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                Built on a deep respect for the Constitution and what it represents, Torch Republic was established as an LLC in 2025—not just to grow, but to build something lasting.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                Not just a brand.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                A standard.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                Every piece reflects that commitment—intentional, grounded, and unapologetically clear in its message.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                This is for those who don't follow noise.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                They carry meaning.
+              </p>
+              <p className="text-base leading-[1.9]" style={{ color: '#EAEAEA' }}>
+                Carry the flame.
               </p>
               <p
                 className="text-sm font-mono tracking-[0.3em] uppercase pt-2"
                 style={{ color: '#C9A24A' }}
               >
-                Carry the flame.
+                — Lisa M. Kocian
               </p>
             </motion.div>
 
