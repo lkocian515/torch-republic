@@ -34,7 +34,7 @@ const CATEGORY_MAP = {
   'Magnet': 'magnets',
 };
 
-const SHOPIFY_BASE = 'https://libertees-for-all.myshopify.com';
+const SHOPIFY_BASE = 'https://torchrepublic.com';
 const BEST_SELLERS_HANDLE = 'best-sellers';
 const ON_SALE_HANDLE = 'on-sale';
 

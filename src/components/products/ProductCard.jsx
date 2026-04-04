@@ -17,8 +17,15 @@ export default function ProductCard({ product, index = 0 }) {
   const [imgError, setImgError] = useState(false);
 
   const imageSrc = imgError || !product.image_url ? FALLBACK_IMAGE : product.image_url;
-  // Use shopify_handle if available, fallback to generated handle from title
-  const productHandle = product.shopify_handle || product.title?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const productHandle = product.shopify_handle || null;
+
+  if (!productHandle) {
+    console.error(`[ProductCard] Missing Shopify handle for product: "${product.title}"`);
+  }
+
+  const productUrl = productHandle
+    ? `https://torchrepublic.com/products/${productHandle}`
+    : null;
 
   return (
     <motion.div
@@ -28,8 +35,11 @@ export default function ProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.05 }}
     >
       <a
-        href={`https://libertees-for-all.myshopify.com/products/${productHandle}`}
-        className="group block cursor-pointer"
+        href={productUrl || undefined}
+        onClick={!productUrl ? (e) => e.preventDefault() : undefined}
+        className={`group block ${productUrl ? 'cursor-pointer' : 'cursor-default opacity-70'}`}
+        target={productUrl ? '_blank' : undefined}
+        rel={productUrl ? 'noopener noreferrer' : undefined}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -52,6 +62,7 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
 
           {/* Quick info overlay */}
+          {productUrl && (
           <div className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-500 ${
             hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
@@ -61,6 +72,7 @@ export default function ProductCard({ product, index = 0 }) {
               </span>
             </div>
           </div>
+          )}
 
           {/* Out of stock badge */}
           {!product.in_stock && (
