@@ -7,6 +7,7 @@ const FOOTER_LINKS = [
     heading: 'SHOP',
     links: [
       { label: 'All Products', page: 'BestSellers' },
+      { label: 'The Torch Box', page: 'TheTorchBox' },
       { label: 'Collections', page: 'Collections' },
       { label: 'Our Mission', page: 'Mission' },
     ]

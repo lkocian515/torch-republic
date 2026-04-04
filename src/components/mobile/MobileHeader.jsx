@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 
-const ROOT_PAGES = ['/', '/BestSellers', '/OnSale', '/Collections', '/Contact', '/Mission', '/Profile'];
+const ROOT_PAGES = ['/', '/BestSellers', '/OnSale', '/Collections', '/Contact', '/Mission', '/Profile', '/TheTorchBox'];
 
 export default function MobileHeader() {
   const location = useLocation();
