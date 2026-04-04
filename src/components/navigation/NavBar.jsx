@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { Menu, X, Search, CalendarCheck } from 'lucide-react';
+import { Menu, X, ShoppingCart, CalendarCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SHOP_MENU = [
@@ -231,8 +231,8 @@ export default function NavBar() {
 
           {/* Right icons */}
           <div className="flex items-center gap-4">
-           <a href="https://torch-republic.com/cart" className="text-muted-foreground hover:text-primary transition-colors">
-             <Search className="w-5 h-5" />
+           <a href="https://torch-republic.com/cart" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Cart">
+             <ShoppingCart className="w-5 h-5" />
            </a>
           </div>
         </div>
