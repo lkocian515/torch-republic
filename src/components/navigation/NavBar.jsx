@@ -63,7 +63,7 @@ const DROPS_NAV = [
 const ABOUT_NAV = [
   { label: 'Mission', page: 'Mission', internal: true },
   { label: 'Meet the Founder', page: 'Mission', internal: true },
-  { label: 'Torchbearer Blog', href: 'https://www.torchrepublic.com/blogs/torchbearer-blog', internal: false },
+  { label: 'Torchbearer Blog', href: 'https://torch-republic.com/blogs/torchbearer-blog', internal: false },
 ];
 
 export default function NavBar() {
@@ -231,7 +231,7 @@ export default function NavBar() {
 
           {/* Right icons */}
           <div className="flex items-center gap-4">
-           <a href="https://www.torchrepublic.com/cart" className="text-muted-foreground hover:text-primary transition-colors">
+           <a href="https://torch-republic.com/cart" className="text-muted-foreground hover:text-primary transition-colors">
              <Search className="w-5 h-5" />
            </a>
           </div>

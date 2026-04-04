@@ -34,7 +34,7 @@ export default function BottomTabNav() {
           );
         })}
         <a
-          href="https://www.torchrepublic.com/cart"
+          href="https://torch-republic.com/cart"
           className="flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors relative select-none text-muted-foreground hover:text-foreground"
         >
           <ShoppingCart className="w-5 h-5" />

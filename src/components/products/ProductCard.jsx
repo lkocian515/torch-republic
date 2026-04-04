@@ -24,7 +24,7 @@ export default function ProductCard({ product, index = 0 }) {
   }
 
   const productUrl = productHandle
-    ? `https://libertees.shop/products/${productHandle}`
+    ? `https://torch-republic.com/products/${productHandle}`
     : null;
 
   return (
