@@ -3,18 +3,15 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 const SHOPIFY_STOREFRONT_API = 'https://torch-republic.myshopify.com/api/2024-01/graphql.json';
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
 
-Deno.serve(async (req) => {
-  try {
-    const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
+async function fetchAllShopifyProducts() {
+  const allProducts = [];
+  let hasNextPage = true;
+  let cursor = null;
 
-    if (!user) {
-      return Response.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
+  while (hasNextPage) {
     const query = `
       query {
-        products(first: 12) {
+        products(first: 250${cursor ? `, after: "${cursor}"` : ''}) {
           edges {
             node {
               id
@@ -34,6 +31,10 @@ Deno.serve(async (req) => {
                 }
               }
             }
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
           }
         }
       }
@@ -67,12 +68,43 @@ Deno.serve(async (req) => {
       };
     });
 
-    console.log(`[getFirstTopDesigns] Fetched ${products.length} products from Shopify`);
+    allProducts.push(...products);
+    hasNextPage = data.data.products.pageInfo.hasNextPage;
+    cursor = data.data.products.pageInfo.endCursor;
+  }
+
+  return allProducts;
+}
+
+Deno.serve(async (req) => {
+  try {
+    const base44 = createClientFromRequest(req);
+    const user = await base44.auth.me();
+
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    console.log('[getFirstTopDesigns] Fetching all products from Shopify...');
+    const products = await fetchAllShopifyProducts();
+    const totalCount = products.length;
+
+    console.log(`[getFirstTopDesigns] Total products fetched: ${totalCount}`);
+
+    if (totalCount === 0) {
+      console.error('[getFirstTopDesigns] ERROR: No products found in Shopify');
+      return Response.json({
+        success: false,
+        error: 'No products found in Shopify store',
+        total_count: 0,
+        products: []
+      }, { status: 400 });
+    }
 
     return Response.json({
       success: true,
-      products: products,
-      total_count: products.length
+      total_count: totalCount,
+      products: products
     });
   } catch (error) {
     console.error('[getFirstTopDesigns] Error:', error.message);
