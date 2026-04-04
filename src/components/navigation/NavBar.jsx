@@ -8,7 +8,7 @@ const MAIN_NAV = [
   { label: 'Shop', href: '/Shop' },
   { label: 'New Drops', href: '/Shop?section=new-drops' },
   { label: 'Best Sellers', href: '/BestSellers' },
-  { label: 'The Torch Box', href: 'https://torch-republic.com/products/the-torch-box', external: true },
+  { label: 'The Torch Box', href: '/TheTorchBox' },
   { label: 'About', href: '/Mission' },
 ];
 
