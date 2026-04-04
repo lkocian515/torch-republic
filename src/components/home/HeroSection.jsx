@@ -98,7 +98,7 @@ export default function HeroSection() {
               <Link
                 to={createPageUrl('BestSellers')}
                 className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-                style={{ background: 'linear-gradient(135deg, #070F1E 0%, #0B3D35 55%, #0D5244 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(7,15,30,0.8), 0 0 0 1px rgba(201,162,74,0.25)' }}
+                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
               >
                 Shop Bestsellers
               </Link>

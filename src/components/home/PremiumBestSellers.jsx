@@ -47,7 +47,7 @@ function ProductCard({ product, index }) {
     >
       <a href={url} onClick={e => { e.preventDefault(); window.location.href = url; }} className="block">
         {/* Image */}
-        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #060D18 0%, #0B2420 50%, #000 100%)' }}>
+        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #0d1a20 50%, #000 100%)' }}>
           <img
             src={imgError ? 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80' : product.image_url}
             onError={() => setImgError(true)}
@@ -56,7 +56,7 @@ function ProductCard({ product, index }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           {product.compare_at_price > product.price && (
-            <div className="absolute top-3 left-3 px-2 py-0.5 font-mono text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #070F1E, #0B3D35)', color: '#C8A44D', border: '1px solid rgba(200,164,77,0.3)' }}>
+            <div className="absolute top-3 left-3 px-2 py-0.5 font-mono text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
               SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
             </div>
           )}
@@ -79,7 +79,7 @@ function ProductCard({ product, index }) {
           </div>
           <div
             className="mt-1 py-2.5 text-center font-mono font-bold text-[11px] tracking-[0.2em] uppercase"
-            style={{ background: 'linear-gradient(135deg, #070F1E 0%, #0B3D35 60%, #0D5244 100%)', color: '#C8A44D' }}
+            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff' }}
           >
             View Product →
           </div>
@@ -141,7 +141,7 @@ export default function PremiumBestSellers() {
               onClick={() => setActiveTab(tab.key)}
               className="px-6 py-2 font-mono text-xs tracking-[0.25em] uppercase transition-all"
               style={activeTab === tab.key
-                ? { background: 'linear-gradient(135deg, #070F1E, #0B3D35, #0D5244)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.4)' }
+                ? { background: 'linear-gradient(135deg, #0E2A2F, #1B5060, #C8A44D)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
                 : { background: 'transparent', color: 'rgba(212,175,90,0.5)', border: '1px solid rgba(212,175,90,0.2)' }}
             >
               {tab.label}
