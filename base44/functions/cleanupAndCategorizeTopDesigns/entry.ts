@@ -40,16 +40,43 @@ const TOP_DESIGNS = {
   ]
 };
 
-// Flatten to map all titles to categories
-const titleToCategories = {};
+// Normalize title: remove special chars, quotes, dashes, extra spaces
+function normalizeTitle(title) {
+  return title
+    .toLowerCase()
+    .replace(/["'\-—–]/g, '') // remove quotes and dashes
+    .replace(/[^a-z0-9\s]/g, '') // remove special chars
+    .replace(/\s+/g, ' ') // collapse whitespace
+    .trim();
+}
+
+// Build normalized lookup
+const categoryMap = {};
 Object.entries(TOP_DESIGNS).forEach(([category, titles]) => {
   titles.forEach(title => {
-    if (!titleToCategories[title]) {
-      titleToCategories[title] = [];
-    }
-    titleToCategories[title].push(category);
+    const normalized = normalizeTitle(title);
+    categoryMap[normalized] = category;
   });
 });
+
+// Match product against normalized titles
+function findMatchingCategory(productTitle) {
+  const normalized = normalizeTitle(productTitle);
+  
+  // Exact normalized match
+  if (categoryMap[normalized]) {
+    return categoryMap[normalized];
+  }
+  
+  // Partial/keyword match: check if product contains key phrases from our list
+  for (const [knownTitle, category] of Object.entries(categoryMap)) {
+    if (normalized.includes(knownTitle) || knownTitle.includes(normalized)) {
+      return category;
+    }
+  }
+  
+  return null;
+}
 
 Deno.serve(async (req) => {
   try {
@@ -65,12 +92,13 @@ Deno.serve(async (req) => {
     let deleted = 0;
 
     for (const product of allProducts) {
-      if (titleToCategories[product.title]) {
-        // Update product with is_top_design=true and primary category
-        const primaryCategory = titleToCategories[product.title][0];
+      const matchingCategory = findMatchingCategory(product.title);
+      
+      if (matchingCategory) {
+        // Update product with is_top_design=true and matched category
         await base44.entities.Product.update(product.id, {
           is_top_design: true,
-          category: primaryCategory
+          category: matchingCategory
         });
         updated++;
       } else {
@@ -85,7 +113,7 @@ Deno.serve(async (req) => {
       message: `Updated ${updated} top designs. Deleted ${deleted} products.`,
       updated_count: updated,
       deleted_count: deleted,
-      keep_count: Object.keys(titleToCategories).length
+      keep_count: Object.keys(categoryMap).length
     });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
