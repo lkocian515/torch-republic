@@ -99,34 +99,76 @@ Deno.serve(async (req) => {
     }
 
     const allProducts = await base44.entities.Product.list('', 500);
-    let updated = 0;
-    let deleted = 0;
+    const productsByHandle = {};
+    const productsByTitle = {};
 
+    // Index products for lookup
+    allProducts.forEach(p => {
+      if (p.shopify_handle) productsByHandle[p.shopify_handle] = p;
+      productsByTitle[p.title.toLowerCase()] = p;
+    });
+
+    // Track results
+    const matched = [];
+    const notFound = [];
+    let updated = 0;
+
+    // Check each top design
+    Object.entries(TOP_DESIGNS).forEach(([category, titles]) => {
+      titles.forEach(topDesignTitle => {
+        const generatedHandle = generateHandle(topDesignTitle);
+        let foundProduct = null;
+
+        // Try exact handle match
+        if (productsByHandle[generatedHandle]) {
+          foundProduct = productsByHandle[generatedHandle];
+        } else {
+          // Try case-insensitive title match
+          const lowerTitle = topDesignTitle.toLowerCase();
+          for (const [productTitle, product] of Object.entries(productsByTitle)) {
+            if (productTitle.includes(lowerTitle) || lowerTitle.includes(productTitle)) {
+              foundProduct = product;
+              break;
+            }
+          }
+        }
+
+        if (foundProduct) {
+          console.log(`[cleanupAndCategorizeTopDesigns] MATCHED: ${topDesignTitle}`);
+          matched.push(topDesignTitle);
+        } else {
+          console.log(`[cleanupAndCategorizeTopDesigns] NOT FOUND: ${topDesignTitle}`);
+          notFound.push(topDesignTitle);
+        }
+      });
+    });
+
+    // Update matched products
     for (const product of allProducts) {
       const matchingCategory = findMatchingCategory(product.shopify_handle, product.title);
-      
       if (matchingCategory) {
-        // Update product with is_top_design=true and matched category
         await base44.entities.Product.update(product.id, {
           is_top_design: true,
           category: matchingCategory
         });
         updated++;
       } else {
-        // Delete product not in the list
+        // Delete products not in top design list
         await base44.entities.Product.delete(product.id);
-        deleted++;
       }
     }
 
     return Response.json({
       success: true,
-      message: `Updated ${updated} top designs. Deleted ${deleted} products.`,
+      message: `Matching complete: ${matched.length} found, ${notFound.length} not found`,
+      matched_count: matched.length,
+      not_found_count: notFound.length,
       updated_count: updated,
-      deleted_count: deleted,
-      keep_count: Object.keys(categoryMap).length
+      matched_products: matched,
+      not_found_products: notFound
     });
   } catch (error) {
+    console.error('[cleanupAndCategorizeTopDesigns] Error:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });
