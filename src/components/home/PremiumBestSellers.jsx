@@ -1,0 +1,155 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Star, ArrowRight } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
+
+const RECENT = [
+  'Jessica in Texas just purchased the Freedom Tee',
+  '12 people bought from this collection today',
+  'Michael in Florida just grabbed the Liberty Hoodie',
+  '8 people are viewing this section right now',
+];
+
+function StarRow({ rating = 4.8 }) {
+  return (
+    <div className="flex items-center gap-0.5">
+      {[1,2,3,4,5].map(i => (
+        <Star key={i} className={`w-3 h-3 ${i <= Math.round(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-700'}`} />
+      ))}
+    </div>
+  );
+}
+
+function ProductCard({ product, index }) {
+  const [imgError, setImgError] = useState(false);
+  const handle = product.shopify_handle;
+  const url = handle ? `https://torch-republic.com/products/${handle}` : 'https://torch-republic.com';
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="group flex flex-col"
+    >
+      <a
+        href={url}
+        onClick={e => { e.preventDefault(); window.location.href = url; }}
+        className="block"
+      >
+        {/* Image */}
+        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #0d1a20 50%, #000 100%)' }}>
+          <img
+            src={imgError || !product.image_url ? 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80' : product.image_url}
+            onError={() => setImgError(true)}
+            alt={product.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {product.compare_at_price > product.price && (
+            <div className="absolute top-3 left-3 px-2 py-0.5 font-mono text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
+              SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
+            </div>
+          )}
+        </div>
+
+        {/* Info */}
+        <div className="flex flex-col gap-1.5">
+          <h3 className="text-white font-heading font-bold text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+            {product.title}
+          </h3>
+          <div className="flex items-center gap-2">
+            <StarRow rating={product.rating || 4.8} />
+            <span className="font-mono text-[10px]" style={{ color: '#C8A44D' }}>{(product.rating || 4.8).toFixed(1)}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-mono font-bold text-sm" style={{ color: '#C8A44D' }}>${product.price?.toFixed(2)}</span>
+            {product.compare_at_price > product.price && (
+              <span className="font-mono text-xs text-gray-600 line-through">${product.compare_at_price?.toFixed(2)}</span>
+            )}
+          </div>
+          <div
+            className="mt-1 py-2.5 text-center font-mono font-bold text-[11px] tracking-[0.2em] uppercase transition-all duration-200"
+            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff' }}
+          >
+            View Product →
+          </div>
+        </div>
+      </a>
+    </motion.div>
+  );
+}
+
+export default function PremiumBestSellers() {
+  const [recentIdx] = useState(() => Math.floor(Math.random() * RECENT.length));
+
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: ['premium-best-sellers'],
+    queryFn: () => base44.entities.Product.filter({ featured: true }, 'best_seller_rank', 8),
+  });
+
+  return (
+    <section className="py-24 px-6" style={{ backgroundColor: '#000' }}>
+      <div className="max-w-[1200px] mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Top Picks</span>
+            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+          </div>
+          <h2 className="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight text-white">
+            Best Sellers
+          </h2>
+          <p className="text-gray-500 font-mono text-sm mt-2">Highest rated. Most loved. Patriot approved.</p>
+        </div>
+
+        {/* Recent purchase ticker */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-2 mb-10 px-4 py-2 mx-auto max-w-md"
+          style={{ background: 'rgba(14,42,47,0.4)', border: '1px solid rgba(212,175,90,0.15)' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+          <p className="font-mono text-[11px] tracking-wider" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            {RECENT[recentIdx]}
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        {isLoading ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="bg-gray-900 mb-3" style={{ aspectRatio: '4/5' }} />
+                <div className="h-3 bg-gray-900 mb-2 w-3/4" />
+                <div className="h-3 bg-gray-900 w-1/2" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
+            {products.slice(0, 8).map((p, i) => (
+              <ProductCard key={p.id} product={p} index={i} />
+            ))}
+          </div>
+        )}
+
+        {/* View All */}
+        <div className="text-center mt-12">
+          <a
+            href="https://torch-republic.com/collections/all"
+            className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-all hover:gap-3"
+            style={{ border: '1px solid rgba(212,175,90,0.4)', color: '#C8A44D' }}
+          >
+            View All Products <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

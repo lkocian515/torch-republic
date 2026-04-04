@@ -158,7 +158,10 @@ export default function SpinWheelPopup() {
   const animRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 2000);
+    if (localStorage.getItem('spinWheelEmail')) return;
+    const dismissedAt = localStorage.getItem('spinWheelDismissedAt');
+    if (dismissedAt && (Date.now() - parseInt(dismissedAt)) / (1000 * 60 * 60 * 24) < 3) return;
+    const timer = setTimeout(() => setVisible(true), 10000);
     return () => clearTimeout(timer);
   }, []);
 

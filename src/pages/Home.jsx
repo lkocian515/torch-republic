@@ -4,15 +4,14 @@ import { useQueryClient } from '@tanstack/react-query';
 import { createPageUrl } from '@/utils';
 import HeroSection from '../components/home/HeroSection';
 import PullToRefresh from '../components/mobile/PullToRefresh';
-import CategoryGrid from '../components/home/CategoryGrid';
-import FeaturedCollections from '../components/home/FeaturedCollections';
-import BestSellersSection from '../components/home/BestSellersSection';
-import TorchBoxBanner from '../components/home/TorchBoxBanner';
+import TrustStrip from '../components/home/TrustStrip';
+import PremiumBestSellers from '../components/home/PremiumBestSellers';
+import GuaranteeBlock from '../components/home/GuaranteeBlock';
+import TorchbearerCTA from '../components/home/TorchbearerCTA';
+import FeaturedCollectionsGrid from '../components/home/FeaturedCollectionsGrid';
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
-
 import TorchbearerBlog from '../components/home/TorchbearerBlog';
-import FeaturedCollectionsGrid from '../components/home/FeaturedCollectionsGrid';
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -25,13 +24,14 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
         <HeroSection />
+        <TrustStrip />
+        <PremiumBestSellers />
+        <GuaranteeBlock />
         <FeaturedCollectionsGrid />
-        <CategoryGrid />
-        <FeaturedCollections />
-        <BestSellersSection />
-        <TorchBoxBanner />
+        <TorchbearerCTA />
         <ManifestoSection />
         <TorchbearerBlog />
+        <NewsletterSection />
 
         {/* Sticky mobile CTA */}
          <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-4 pt-2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.98) 70%, transparent)' }}>
