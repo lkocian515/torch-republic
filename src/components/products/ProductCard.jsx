@@ -36,7 +36,9 @@ export default function ProductCard({ product, index = 0 }) {
     >
       <a
         href={productUrl || undefined}
-        onClick={!productUrl ? (e) => e.preventDefault() : undefined}
+        onClick={!productUrl ? (e) => e.preventDefault() : () => {
+          console.log(`Opening Shopify product:\nName: ${product.title}\nHandle: ${productHandle}\nURL: ${productUrl}`);
+        }}
         className={`group block ${productUrl ? 'cursor-pointer' : 'cursor-default opacity-70'}`}
         target={productUrl ? '_blank' : undefined}
         rel={productUrl ? 'noopener noreferrer' : undefined}
