@@ -93,6 +93,11 @@
       "default": false,
       "description": "Whether this is a featured product"
     },
+    "premium_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this product should be visible in storefront (curated high-identity designs only)"
+    },
     "best_seller_rank": {
       "type": "number",
       "description": "Position in best-sellers collection (1 = top seller). Null if not a best seller."

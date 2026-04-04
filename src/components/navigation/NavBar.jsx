@@ -5,65 +5,29 @@ import { Menu, X, ShoppingCart, CalendarCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SHOP_MENU = [
-  {
-    heading: 'Apparel',
-    items: [
-      { label: 'T-Shirts', category: 't-shirts' },
-      { label: 'Hoodies', category: 'hoodies' },
-      { label: 'Tanks', category: 'tanks' },
-    ],
-  },
-  {
-    heading: 'Accessories',
-    items: [
-      { label: 'Hats & Caps', category: 'hats' },
-      { label: 'Car Magnets', category: 'magnets' },
-      { label: 'Stickers', category: 'stickers' },
-    ],
-  },
-  {
-    heading: 'Home & Lifestyle',
-    items: [
-      { label: 'Mugs & Tumblers', category: 'mugs-tumblers' },
-      { label: 'Candles', category: 'candles' },
-      { label: 'Flags', category: 'flags' },
-    ],
-  },
-  {
-    heading: 'Collectibles',
-    items: [
-      { label: 'Bobbleheads', category: 'bobbleheads' },
-      { label: 'Limited Drops', category: 'accessories' },
-    ],
-  },
-  {
-    heading: 'Consumables',
-    items: [
-      { label: 'Coffee', category: 'coffee' },
-      { label: 'Tea', category: 'tea' },
-    ],
-  },
+  { label: 'T-Shirts', category: 't-shirts' },
+  { label: 'Hoodies', category: 'hoodies' },
+  { label: 'Hats', category: 'hats' },
+];
+
+const COFFEE_MENU = [
+  { label: 'Founders Series', page: 'Coffee' },
+  { label: 'Subscription', disabled: true },
 ];
 
 const COLLECTIONS_NAV = [
-  { label: 'Patriot Pride', slug: 'patriotic-pride' },
-  { label: 'Freedom Collection', slug: 'freedom-isnt-free' },
-  { label: 'God Family Country', slug: 'god-family-country' },
-  { label: 'We The People', slug: 'we-the-people' },
+  { label: 'Founders Series', slug: 'founders' },
   { label: 'American Heroes', slug: 'american-heroes' },
-  { label: "Founder's Collection", slug: 'founders' },
+  { label: 'We The People', slug: 'we-the-people' },
+  { label: 'God, Family, Country', slug: 'god-family-country' },
 ];
 
 const DROPS_NAV = [
-  { label: 'Best Sellers', slug: 'best-sellers' },
-  { label: 'New Arrivals', slug: 'best-sellers' },
-  { label: 'Liberty Flame', slug: 'liberty-flame' },
+  { label: 'The Torch Box', page: 'TheTorchBox' },
 ];
 
 const ABOUT_NAV = [
   { label: 'Mission', page: 'Mission', internal: true },
-  { label: 'Meet the Founder', page: 'Mission', internal: true },
-  { label: 'Torchbearer Blog', href: 'https://torch-republic.com/blogs/torchbearer-blog', internal: false },
 ];
 
 export default function NavBar() {
@@ -132,18 +96,34 @@ export default function NavBar() {
                   Shop ▾
                 </button>
                 <Dropdown id="shop">
-                  <div className="grid grid-cols-5 gap-8 w-[680px]">
-                    {SHOP_MENU.map((group) => (
-                      <div key={group.heading}>
-                        <p className="text-[10px] font-mono tracking-[0.3em] uppercase mb-3" style={{ color: '#C8A44D' }}>{group.heading}</p>
-                        <div className="space-y-2">
-                          {group.items.map((item) => (
-                            <Link key={item.label} to={`/BestSellers?category=${item.category}`} onClick={close} className="block text-xs text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                  <div className="w-40 space-y-2">
+                    {SHOP_MENU.map((item) => (
+                      <Link key={item.label} to={`/BestSellers?category=${item.category}`} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </Dropdown>
+              </div>
+
+              {/* COFFEE */}
+              <div className="relative">
+                <button
+                  onClick={() => toggle('coffee')}
+                  className={`text-xs font-mono tracking-widest uppercase transition-colors ${openMenu === 'coffee' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
+                >
+                  Coffee <span className="text-[10px]" style={{ color: '#C8A44D' }}>●</span> Soon ▾
+                </button>
+                <Dropdown id="coffee">
+                  <div className="w-44 space-y-2">
+                    {COFFEE_MENU.map((item) => (
+                      item.disabled ? (
+                        <div key={item.label} className="block text-sm text-muted-foreground py-1">{item.label} <span style={{ color: '#C8A44D' }}>●</span></div>
+                      ) : (
+                        <Link key={item.label} to={createPageUrl(item.page)} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+                          {item.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 </Dropdown>
@@ -168,24 +148,10 @@ export default function NavBar() {
                 </Dropdown>
               </div>
 
-              {/* NEW / BESTSELLERS */}
-              <div className="relative">
-                <button
-                  onClick={() => toggle('drops')}
-                  className={`text-xs font-mono tracking-widest uppercase transition-colors ${openMenu === 'drops' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
-                >
-                  New / Bestsellers ▾
-                </button>
-                <Dropdown id="drops">
-                  <div className="w-44 space-y-2">
-                    {DROPS_NAV.map((c) => (
-                      <Link key={c.label} to={`/BestSellers?collection=${c.slug}`} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </Dropdown>
-              </div>
+              {/* THE TORCH BOX */}
+              <Link to={createPageUrl('TheTorchBox')} className="text-xs font-mono tracking-widest uppercase font-bold transition-colors hover:text-primary text-muted-foreground">
+                THE TORCH BOX
+              </Link>
 
               {/* ABOUT */}
               <div className="relative">
@@ -206,26 +172,24 @@ export default function NavBar() {
                 </Dropdown>
               </div>
 
-              {/* On Sale */}
-              <Link to="/OnSale" className="text-xs font-mono tracking-widest uppercase font-bold transition-colors" style={{ color: '#C8A44D' }}>
-                🔥 Sale
-              </Link>
-
-              {/* The Torch Box */}
-              <a
-                href="https://torchbearer-nation.sintra.site/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-mono tracking-widest uppercase font-black px-3 py-1 border transition-all hover:bg-primary/10"
-                style={{ borderColor: '#C8A44D', color: '#C8A44D' }}
-              >
-                🔥 Torch Box
-              </a>
-
-              {/* Track Order */}
-              <Link to={createPageUrl('TrackOrder')} className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-xs font-mono tracking-widest uppercase">
-                <CalendarCheck className="w-3.5 h-3.5" /> Track
-              </Link>
+              {/* ABOUT */}
+              <div className="relative">
+                <button
+                  onClick={() => toggle('about')}
+                  className={`text-xs font-mono tracking-widest uppercase transition-colors ${openMenu === 'about' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
+                >
+                  About ▾
+                </button>
+                <Dropdown id="about">
+                  <div className="w-44 space-y-2">
+                    {ABOUT_NAV.map((item) => (
+                      <Link key={item.label} to={createPageUrl(item.page)} onClick={close} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </Dropdown>
+              </div>
             </div>
           </div>
 
@@ -260,21 +224,37 @@ export default function NavBar() {
           >
             <div className="px-6 py-6 space-y-5 max-h-[80vh] overflow-y-auto">
               {/* Shop categories */}
-              {SHOP_MENU.map((group) => (
-                <div key={group.heading}>
-                  <p className="text-[10px] font-mono tracking-[0.3em] uppercase mb-2" style={{ color: '#C8A44D' }}>{group.heading}</p>
-                  {group.items.map((item) => (
+              {SHOP_MENU.map((item) => (
+                <Link
+                  key={item.label}
+                  to={`/BestSellers?category=${item.category}`}
+                  onClick={close}
+                  className="block py-1.5 text-foreground hover:text-primary transition-colors text-sm font-heading tracking-wider"
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              {/* Coffee */}
+              <div className="pt-2 border-t border-border">
+                <p className="text-[10px] font-mono tracking-[0.3em] uppercase mb-2" style={{ color: '#C8A44D' }}>Coffee <span style={{ color: '#C8A44D' }}>●</span> Coming Soon</p>
+                {COFFEE_MENU.map((item) => (
+                  item.disabled ? (
+                    <div key={item.label} className="py-1.5 text-foreground text-sm font-heading tracking-wider opacity-50">
+                      {item.label}
+                    </div>
+                  ) : (
                     <Link
                       key={item.label}
-                      to={`/BestSellers?category=${item.category}`}
+                      to={createPageUrl(item.page)}
                       onClick={close}
                       className="block py-1.5 text-foreground hover:text-primary transition-colors text-sm font-heading tracking-wider"
                     >
                       {item.label}
                     </Link>
-                  ))}
-                </div>
-              ))}
+                  )
+                ))}
+              </div>
 
               {/* Collections */}
               <div className="pt-2 border-t border-border">
@@ -293,24 +273,11 @@ export default function NavBar() {
 
               {/* CTAs */}
               <div className="pt-2 border-t border-border space-y-3">
-                <Link to="/OnSale" onClick={close} className="block text-base font-heading font-bold tracking-wider uppercase" style={{ color: '#C8A44D' }}>
-                  🔥 On Sale
+                <Link to={createPageUrl('TheTorchBox')} onClick={close} className="block text-base font-heading font-bold tracking-wider uppercase" style={{ color: '#C8A44D' }}>
+                  The Torch Box
                 </Link>
-                <a
-                  href="https://torchbearer-nation.sintra.site/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={close}
-                  className="block text-base font-heading font-bold tracking-wider uppercase"
-                  style={{ color: '#C8A44D' }}
-                >
-                  🔥 The Torch Box
-                </a>
                 <Link to={createPageUrl('Mission')} onClick={close} className="block text-foreground hover:text-primary transition-colors text-sm font-heading font-semibold tracking-wider uppercase">
-                  Our Mission
-                </Link>
-                <Link to={createPageUrl('TrackOrder')} onClick={close} className="block text-foreground hover:text-primary transition-colors text-sm font-heading font-semibold tracking-wider uppercase">
-                  Track Order
+                  Mission
                 </Link>
               </div>
             </div>

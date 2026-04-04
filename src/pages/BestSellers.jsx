@@ -41,12 +41,11 @@ export default function BestSellers() {
 
   const { data: products, isLoading } = useQuery({
     queryKey: ['products'],
-    queryFn: () => base44.entities.Product.list('', 250),
+    queryFn: () => base44.entities.Product.filter({ premium_featured: true }, '', 250),
     initialData: [],
   });
 
   const filteredProducts = products.filter(p => {
-    if (HIDDEN_CATEGORIES.has(p.category)) return false;
     if (!p.image_url) return false;
     const colMatch = collection === 'all' || p.collection === collection;
     const catMatch = category === 'all' || p.category === category;
