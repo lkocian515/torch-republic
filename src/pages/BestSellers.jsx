@@ -8,37 +8,21 @@ import { Sliders } from 'lucide-react';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 
 const COLLECTIONS_MAP = {
-  'all': 'All Products',
+  'all': 'All',
   'best-sellers': 'Best Sellers',
-  'liberty-flame': 'Liberty Flame',
-  'patriotic-pride': 'Patriotic Pride',
-  'freedom-isnt-free': "Freedom Isn't Free",
-  'we-the-people': 'We The People',
-  'faith-over-fear': 'Faith Over Fear',
-  'christ-is-king': 'Christ Is King',
-  'god-family-country': 'God · Family · Country',
+  'founders': 'Founders Series',
   'american-heroes': 'American Heroes',
-  'founders': 'Founders',
+  'we-the-people': 'We The People',
+  'god-family-country': 'God · Family · Country',
 };
 
-const CATEGORIES_MAP = {
-  'all': 'All Categories',
-  't-shirts': 'T-Shirts',
-  'hoodies': 'Hoodies',
-  'tanks': 'Tanks',
-  'hats': 'Hats & Caps',
-  'magnets': 'Car Magnets',
-  'stickers': 'Stickers',
-  'mugs-tumblers': 'Mugs & Tumblers',
-  'candles': 'Candles',
-  'flags': 'Flags',
-  'bobbleheads': 'Bobbleheads',
-  'coffee': 'Coffee',
-  'tea': 'Tea',
-  'jewelry': 'Jewelry',
-  'accessories': 'Accessories',
-  'home-decor': 'Home Decor',
-};
+const HIDDEN_CATEGORIES = new Set(['jewelry','tea','candles','home-decor','bobbleheads','accessories']);
+
+const CATEGORY_TABS = [
+  { key: 't-shirts', label: 'T-Shirts' },
+  { key: 'hoodies', label: 'Hoodies' },
+  { key: 'hats', label: 'Hats' },
+];
 
 export default function BestSellers() {
 
@@ -48,7 +32,7 @@ export default function BestSellers() {
   const initialCategory = urlParams.get('category') || 'all';
 
   const [collection, setCollection] = useState(initialCollection);
-  const [category, setCategory] = useState(initialCategory);
+  const [category, setCategory] = useState(initialCategory || 't-shirts');
   const [sortBy, setSortBy] = useState('featured');
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -63,8 +47,10 @@ export default function BestSellers() {
   });
 
   const filteredProducts = products.filter(p => {
+    if (HIDDEN_CATEGORIES.has(p.category)) return false;
+    if (!p.image_url) return false;
     const colMatch = collection === 'all' || p.collection === collection;
-    const catMatch = category === 'all' || p.category === category;
+    const catMatch = p.category === category;
     return colMatch && catMatch;
   });
 
@@ -103,46 +89,46 @@ export default function BestSellers() {
           </div>
         </div>
 
-        {/* Filters - Desktop */}
-        <div className="hidden md:block px-6 pb-8">
-          <div className="max-w-7xl mx-auto flex flex-wrap gap-3">
-            <Select value={collection} onValueChange={setCollection}>
-              <SelectTrigger className="w-48 bg-card border-border text-foreground font-mono text-xs">
-                <SelectValue placeholder="Collection" />
-              </SelectTrigger>
-              <SelectContent className="bg-card border-border">
-                {Object.entries(COLLECTIONS_MAP).map(([key, label]) => (
-                  <SelectItem key={key} value={key} className="font-mono text-xs">
-                    {label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="w-44 bg-card border-border text-foreground font-mono text-xs">
-                <SelectValue placeholder="Category" />
-              </SelectTrigger>
-              <SelectContent className="bg-card border-border">
-                {Object.entries(CATEGORIES_MAP).map(([key, label]) => (
-                  <SelectItem key={key} value={key} className="font-mono text-xs">
-                    {label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-40 bg-card border-border text-foreground font-mono text-xs">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent className="bg-card border-border">
-                <SelectItem value="featured" className="font-mono text-xs">Featured</SelectItem>
-                <SelectItem value="price-low" className="font-mono text-xs">Price: Low → High</SelectItem>
-                <SelectItem value="price-high" className="font-mono text-xs">Price: High → Low</SelectItem>
-                <SelectItem value="rating" className="font-mono text-xs">Top Rated</SelectItem>
-              </SelectContent>
-            </Select>
+        {/* Apparel Tabs */}
+        <div className="px-6 pb-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center gap-2 flex-wrap">
+              {CATEGORY_TABS.map(tab => (
+                <button
+                  key={tab.key}
+                  onClick={() => setCategory(tab.key)}
+                  className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all"
+                  style={category === tab.key
+                    ? { background: 'linear-gradient(135deg, #0E2A2F, #1B5060, #C8A44D)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
+                    : { background: 'transparent', color: 'rgba(212,175,90,0.6)', border: '1px solid rgba(212,175,90,0.2)' }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+              <div className="flex items-center gap-2 ml-auto">
+                <Select value={collection} onValueChange={setCollection}>
+                  <SelectTrigger className="w-44 bg-card border-border text-foreground font-mono text-xs">
+                    <SelectValue placeholder="Collection" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {Object.entries(COLLECTIONS_MAP).map(([key, label]) => (
+                      <SelectItem key={key} value={key} className="font-mono text-xs">{label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Select value={sortBy} onValueChange={setSortBy}>
+                  <SelectTrigger className="w-36 bg-card border-border text-foreground font-mono text-xs">
+                    <SelectValue placeholder="Sort" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    <SelectItem value="featured" className="font-mono text-xs">Featured</SelectItem>
+                    <SelectItem value="price-low" className="font-mono text-xs">Price ↑</SelectItem>
+                    <SelectItem value="price-high" className="font-mono text-xs">Price ↓</SelectItem>
+                    <SelectItem value="rating" className="font-mono text-xs">Top Rated</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -153,7 +139,7 @@ export default function BestSellers() {
             className="w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-border rounded hover:bg-card transition-colors font-mono text-xs tracking-widest uppercase select-none"
           >
             <Sliders className="w-4 h-4" />
-            Filter & Sort
+            Sort & Filter
           </button>
         </div>
 

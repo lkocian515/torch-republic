@@ -4,6 +4,17 @@ import { Star, ArrowRight } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
+const APPAREL_TABS = [
+  { key: 't-shirts', label: 'T-Shirts' },
+  { key: 'hoodies', label: 'Hoodies' },
+  { key: 'hats', label: 'Hats' },
+];
+
+const HIDDEN_CATEGORIES = new Set([
+  'jewelry','tea','candles','home-decor','bobbleheads',
+  'accessories','mugs-tumblers','flags','stickers','magnets','coffee',
+]);
+
 const RECENT = [
   'Jessica in Texas just purchased the Freedom Tee',
   '12 people bought from this collection today',
@@ -34,15 +45,11 @@ function ProductCard({ product, index }) {
       transition={{ delay: index * 0.05 }}
       className="group flex flex-col"
     >
-      <a
-        href={url}
-        onClick={e => { e.preventDefault(); window.location.href = url; }}
-        className="block"
-      >
+      <a href={url} onClick={e => { e.preventDefault(); window.location.href = url; }} className="block">
         {/* Image */}
         <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #0d1a20 50%, #000 100%)' }}>
           <img
-            src={imgError || !product.image_url ? 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80' : product.image_url}
+            src={imgError ? 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80' : product.image_url}
             onError={() => setImgError(true)}
             alt={product.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -71,7 +78,7 @@ function ProductCard({ product, index }) {
             )}
           </div>
           <div
-            className="mt-1 py-2.5 text-center font-mono font-bold text-[11px] tracking-[0.2em] uppercase transition-all duration-200"
+            className="mt-1 py-2.5 text-center font-mono font-bold text-[11px] tracking-[0.2em] uppercase"
             style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff' }}
           >
             View Product →
@@ -84,17 +91,23 @@ function ProductCard({ product, index }) {
 
 export default function PremiumBestSellers() {
   const [recentIdx] = useState(() => Math.floor(Math.random() * RECENT.length));
+  const [activeTab, setActiveTab] = useState('t-shirts');
 
-  const { data: products = [], isLoading } = useQuery({
+  const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['premium-best-sellers'],
-    queryFn: () => base44.entities.Product.filter({ featured: true }, 'best_seller_rank', 8),
+    queryFn: () => base44.entities.Product.list('best_seller_rank', 200),
   });
+
+  const products = allProducts
+    .filter(p => p.image_url && !HIDDEN_CATEGORIES.has(p.category) && p.category === activeTab)
+    .sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999))
+    .slice(0, 8);
 
   return (
     <section className="py-24 px-6" style={{ backgroundColor: '#000' }}>
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
             <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Top Picks</span>
@@ -106,12 +119,12 @@ export default function PremiumBestSellers() {
           <p className="text-gray-500 font-mono text-sm mt-2">Highest rated. Most loved. Patriot approved.</p>
         </div>
 
-        {/* Recent purchase ticker */}
+        {/* Social proof ticker */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-2 mb-10 px-4 py-2 mx-auto max-w-md"
+          className="flex items-center justify-center gap-2 mb-8 px-4 py-2 mx-auto max-w-md"
           style={{ background: 'rgba(14,42,47,0.4)', border: '1px solid rgba(212,175,90,0.15)' }}
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
@@ -120,9 +133,25 @@ export default function PremiumBestSellers() {
           </p>
         </motion.div>
 
+        {/* Apparel Tabs */}
+        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+          {APPAREL_TABS.map(tab => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className="px-6 py-2 font-mono text-xs tracking-[0.25em] uppercase transition-all"
+              style={activeTab === tab.key
+                ? { background: 'linear-gradient(135deg, #0E2A2F, #1B5060, #C8A44D)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
+                : { background: 'transparent', color: 'rgba(212,175,90,0.5)', border: '1px solid rgba(212,175,90,0.2)' }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
         {/* Grid */}
         {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="animate-pulse">
                 <div className="bg-gray-900 mb-3" style={{ aspectRatio: '4/5' }} />
@@ -131,9 +160,11 @@ export default function PremiumBestSellers() {
               </div>
             ))}
           </div>
+        ) : products.length === 0 ? (
+          <p className="text-center font-mono text-sm text-gray-600 py-12">No products found in this category.</p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
-            {products.slice(0, 8).map((p, i) => (
+            {products.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
           </div>
