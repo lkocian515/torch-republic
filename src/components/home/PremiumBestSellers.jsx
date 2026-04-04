@@ -5,14 +5,23 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
 const APPAREL_TABS = [
+  { key: 'all', label: 'All' },
   { key: 't-shirts', label: 'T-Shirts' },
   { key: 'hoodies', label: 'Hoodies' },
   { key: 'hats', label: 'Hats' },
 ];
 
+const PREMIUM_LAUNCH_HANDLES = new Set([
+  'god-bless-america-car-magnet-patriotic-american-flag-vehicle-decal-copy',
+  'america-land-of-the-free-tee-patriotic-eagle-t-shirt-for-women',
+  'usa-patriotic-womens-v-neck-tee-red-white-blue-stars-ribbon',
+  'freedom-is-my-love-language-womens-tee-patriotic-eagle-flag-graphic-shirt',
+  'freedom-is-my-love-language-raglan-shirt',
+]);
+
 const HIDDEN_CATEGORIES = new Set([
   'jewelry','tea','candles','home-decor','bobbleheads',
-  'accessories','mugs-tumblers','flags','stickers','magnets','coffee',
+  'accessories','mugs-tumblers','flags','stickers','coffee',
 ]);
 
 const RECENT = [
@@ -91,16 +100,48 @@ function ProductCard({ product, index }) {
 
 export default function PremiumBestSellers() {
   const [recentIdx] = useState(() => Math.floor(Math.random() * RECENT.length));
-  const [activeTab, setActiveTab] = useState('t-shirts');
+  const [activeTab, setActiveTab] = useState('all');
 
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['premium-best-sellers'],
     queryFn: () => base44.entities.Product.list('best_seller_rank', 200),
   });
 
-  const products = allProducts
-    .filter(p => p.image_url && !HIDDEN_CATEGORIES.has(p.category) && p.category === activeTab)
+  // Get top 10 best sellers
+  const bestSellers = allProducts
+    .filter(p => p.image_url && !HIDDEN_CATEGORIES.has(p.category))
     .sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999))
+    .slice(0, 10);
+
+  // Get premium launch products
+  const premiumLaunchProducts = allProducts.filter(p => 
+    p.shopify_handle && PREMIUM_LAUNCH_HANDLES.has(p.shopify_handle) && p.image_url
+  );
+
+  // Mix premium products into best sellers at intervals
+  const mergedProducts = [];
+  const addedPremium = new Set();
+  
+  for (let i = 0; i < bestSellers.length; i++) {
+    mergedProducts.push(bestSellers[i]);
+    if (i % 2 === 1) {
+      const nextPremium = premiumLaunchProducts.find(p => !addedPremium.has(p.id));
+      if (nextPremium) {
+        mergedProducts.push(nextPremium);
+        addedPremium.add(nextPremium.id);
+      }
+    }
+  }
+  premiumLaunchProducts.forEach(p => {
+    if (!addedPremium.has(p.id)) {
+      mergedProducts.push(p);
+      addedPremium.add(p.id);
+    }
+  });
+
+  // Filter by tab
+  const products = mergedProducts
+    .filter(p => activeTab === 'all' || p.category === activeTab || PREMIUM_LAUNCH_HANDLES.has(p.shopify_handle))
     .slice(0, 8);
 
   return (
