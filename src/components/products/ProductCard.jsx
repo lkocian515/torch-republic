@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Flame } from 'lucide-react';
+import { Star, Flame, Ruler } from 'lucide-react';
+import SizeGuide from './SizeGuide';
 
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80';
 
@@ -15,9 +16,18 @@ const StarRow = ({ rating }) => (
 export default function ProductCard({ product, index = 0 }) {
   const [hovered, setHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
 
   const imageSrc = imgError || !product.image_url ? FALLBACK_IMAGE : product.image_url;
+  const detailImageSrc = product.image_url_2 || null;
   const productHandle = product.shopify_handle || null;
+  const categoryMap = {
+    't-shirts': 'tshirts',
+    'hoodies-sweatshirts': 'hoodies',
+    'hats': 'hats',
+  };
+  const sizeCategory = categoryMap[product.category] || 'tshirts';
 
   if (!productHandle) {
     console.error(`[ProductCard] Missing Shopify handle for product: "${product.title}"`);
@@ -47,14 +57,32 @@ export default function ProductCard({ product, index = 0 }) {
       >
         {/* Image */}
         <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #2a1a0a 30%, #0d0d0d 60%, #000000 100%)', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
-          <img
-            src={imageSrc}
-            onError={() => setImgError(true)}
-            alt={product.title}
-            className={`w-full h-full object-cover transition-all duration-700 ${
-              hovered ? 'scale-105' : 'scale-100'
-            }`}
-          />
+        <img
+         src={showDetail && detailImageSrc ? detailImageSrc : imageSrc}
+         onError={() => setImgError(true)}
+         alt={product.title}
+         className={`w-full h-full object-cover transition-all duration-700 ${
+           hovered ? 'scale-105' : 'scale-100'
+         }`}
+        />
+
+        {/* Detail image indicator */}
+        {detailImageSrc && (
+         <button
+           onClick={(e) => {
+             e.preventDefault();
+             setShowDetail(!showDetail);
+           }}
+           className="absolute top-3 right-3 px-2 py-1 text-xs font-mono font-bold tracking-wider rounded opacity-90 hover:opacity-100 transition-opacity"
+           style={{
+             background: showDetail ? '#C8A44D' : 'rgba(14,42,47,0.7)',
+             color: showDetail ? '#000' : '#C8A44D',
+             border: '1px solid rgba(200,164,77,0.5)',
+           }}
+         >
+           {showDetail ? '← MAIN' : 'DETAIL →'}
+         </button>
+        )}
           
           {/* Thermal overlay on hover */}
           <div className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
@@ -68,10 +96,23 @@ export default function ProductCard({ product, index = 0 }) {
           <div className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-500 ${
             hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            <div className="p-3 text-center" style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)' }}>
-              <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
-                Shop Now →
-              </span>
+            <div className="space-y-2">
+              <div className="p-3 text-center" style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)' }}>
+                <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
+                  Shop Now →
+                </span>
+              </div>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSizeGuideOpen(true);
+                }}
+                className="w-full p-2 text-center flex items-center justify-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase rounded"
+                style={{ background: 'rgba(200,164,77,0.2)', color: '#C8A44D', border: '1px solid rgba(200,164,77,0.5)' }}
+              >
+                <Ruler className="w-3 h-3" />
+                Size Guide
+              </button>
             </div>
           </div>
           )}
@@ -133,6 +174,13 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
         </div>
       </a>
+      
+      {/* Size Guide Modal */}
+      <SizeGuide
+        isOpen={sizeGuideOpen}
+        onClose={() => setSizeGuideOpen(false)}
+        category={sizeCategory}
+      />
     </motion.div>
   );
 }
