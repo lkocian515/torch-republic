@@ -9,7 +9,6 @@ const COLLECTIONS = [
   { title: 'New Drops', key: 'new-drops', description: 'Just released' },
   { title: 'American Heroes', key: 'american-heroes', collection: 'american-heroes' },
   { title: 'Freedom Collection', key: 'freedom', collection: 'freedom-isnt-free' },
-  { title: 'God · Family · Country', key: 'god-family', collection: 'god-family-country' },
 ];
 
 export default function Shop() {

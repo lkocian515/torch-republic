@@ -15,7 +15,6 @@ const COLLECTIONS_MAP = {
   'founders': 'Founders Series',
   'american-heroes': 'American Heroes',
   'we-the-people': 'We The People',
-  'god-family-country': 'God · Family · Country',
 };
 
 const HIDDEN_CATEGORIES = new Set(['jewelry','tea','candles','home-decor','bobbleheads','accessories']);

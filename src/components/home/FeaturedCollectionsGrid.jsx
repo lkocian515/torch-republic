@@ -17,11 +17,6 @@ const FEATURED_COLLECTIONS = [
     title: 'American Heroes',
     collection: 'american-heroes',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ghgyuj.png?v=1775128190'
-  },
-  {
-    title: 'Torchbearer Collection',
-    collection: 'founders',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsdss.png?v=1775128209'
   }
 ];
 
@@ -29,7 +24,7 @@ export default function FeaturedCollectionsGrid() {
   return (
     <section className="py-12 px-6 md:px-8" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.1)', borderBottom: '1px solid rgba(201,162,74,0.1)' }}>
       <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {FEATURED_COLLECTIONS.map((col, i) => (
             <motion.div
               key={col.collection}
