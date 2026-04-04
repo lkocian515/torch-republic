@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Flame, Gift, Zap } from 'lucide-react';
 
 const PRIZES = [
-  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1e24', textColor: '#F0D080' },
-  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#061018', textColor: '#F0D080' },
-  { label: '15% OFF',   code: 'TORCH15',   color: '#0d2030', textColor: '#F0D080' },
-  { label: 'TRY AGAIN', code: null,        color: '#0a0a0a', textColor: '#444' },
-  { label: '20% OFF',   code: 'TORCH20',   color: '#0a1e24', textColor: '#F0D080' },
-  { label: '5% OFF',    code: 'TORCH5',    color: '#061018', textColor: '#F0D080' },
-  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0d2030', textColor: '#F0D080' },
-  { label: '12% OFF',   code: 'TORCH12',   color: '#0a1e24', textColor: '#F0D080' },
+  { label: '10% OFF',   code: 'TORCH10',   dark: '#0d2a35', light: '#0a1e28' },
+  { label: 'FREE SHIP', code: 'FREESHIP',  dark: '#071828', light: '#061220' },
+  { label: '15% OFF',   code: 'TORCH15',   dark: '#0d2a35', light: '#0a1e28' },
+  { label: 'TRY AGAIN', code: null,        dark: '#0d0d0d', light: '#080808' },
+  { label: '20% OFF',   code: 'TORCH20',   dark: '#0d2a35', light: '#0a1e28' },
+  { label: '5% OFF',    code: 'TORCH5',    dark: '#071828', light: '#061220' },
+  { label: 'FREE GIFT', code: 'GIFTME',    dark: '#0d2a35', light: '#0a1e28' },
+  { label: '12% OFF',   code: 'TORCH12',   dark: '#071828', light: '#061220' },
 ];
 
 const NUM = PRIZES.length;
@@ -25,27 +25,33 @@ const PERKS = [
 ];
 
 function Wheel({ rotation }) {
-  const size = 280;
+  const size = 300;
   const cx = size / 2;
-  const r = size / 2 - 8;
+  const r = size / 2 - 10;
 
   return (
     <svg
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
-      style={{ transform: `rotate(${rotation}deg)`, transition: 'none' }}
+      style={{ transform: `rotate(${rotation}deg)`, transition: 'none', filter: `drop-shadow(0 0 18px rgba(212,175,90,0.25))` }}
     >
       <defs>
-        <radialGradient id="rimGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={GOLD} stopOpacity="0" />
-          <stop offset="85%" stopColor={GOLD} stopOpacity="0.15" />
-          <stop offset="100%" stopColor={GOLD_LIGHT} stopOpacity="0.5" />
+        <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#1B5060" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="transparent" stopOpacity="0" />
         </radialGradient>
+        <clipPath id="hubClip">
+          <circle cx={cx} cy={cx} r={24} />
+        </clipPath>
       </defs>
-      <circle cx={cx} cy={cx} r={r + 8} fill="none" stroke="#0E2A2F" strokeWidth="4" opacity="0.8" />
-      <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.25" />
-      <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" opacity="0.6" />
+
+      {/* Outer glow ring */}
+      <circle cx={cx} cy={cx} r={r + 10} fill="url(#bgGlow)" />
+      <circle cx={cx} cy={cx} r={r + 9} fill="none" stroke="#0E2A2F" strokeWidth="6" />
+      <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1.5" opacity="0.4" />
+      <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="2" opacity="0.7" />
+      <circle cx={cx} cy={cx} r={r + 1} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.3" />
 
       {PRIZES.map((prize, i) => {
         const startAngle = (i * SLICE - 90) * (Math.PI / 180);
@@ -55,44 +61,47 @@ function Wheel({ rotation }) {
         const x2 = cx + r * Math.cos(endAngle);
         const y2 = cx + r * Math.sin(endAngle);
         const midAngle = ((i + 0.5) * SLICE - 90) * (Math.PI / 180);
-        const textR = r * 0.66;
+        const textR = r * 0.64;
         const tx = cx + textR * Math.cos(midAngle);
         const ty = cx + textR * Math.sin(midAngle);
         const textAngle = (i + 0.5) * SLICE;
+        const gradId = `sg${i}`;
+        const glowId = `gg${i}`;
 
         return (
           <g key={i}>
             <defs>
-              <linearGradient id={`sliceGrad${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor={prize.code ? '#0d2a35' : '#111'} />
-                <stop offset="100%" stopColor={prize.code ? '#071218' : '#080808'} />
+              <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor={prize.dark || '#0d0d0d'} />
+                <stop offset="100%" stopColor={prize.light || '#080808'} />
               </linearGradient>
-              <radialGradient id={`sliceGlow${i}`} cx="30%" cy="30%">
-                <stop offset="0%" stopColor={GOLD_LIGHT} stopOpacity="0.18" />
+              <radialGradient id={glowId} cx="25%" cy="25%" r="75%">
+                <stop offset="0%" stopColor={prize.code ? GOLD_LIGHT : '#fff'} stopOpacity={prize.code ? '0.12' : '0.02'} />
                 <stop offset="100%" stopColor="transparent" stopOpacity="0" />
               </radialGradient>
             </defs>
             <path
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
-              fill={`url(#sliceGrad${i})`}
+              fill={`url(#${gradId})`}
               stroke={GOLD}
-              strokeWidth="1.2"
-              strokeOpacity="0.6"
+              strokeWidth="1"
+              strokeOpacity="0.5"
             />
             <path
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
-              fill={`url(#sliceGlow${i})`}
+              fill={`url(#${glowId})`}
             />
             <text
               x={tx} y={ty}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill={prize.textColor}
-              fontSize="10"
-              fontWeight="800"
+              fill={prize.code ? GOLD_LIGHT : '#444'}
+              fontSize="9.5"
+              fontWeight="900"
               fontFamily="'JetBrains Mono', monospace"
-              letterSpacing="0.5"
+              letterSpacing="0.8"
               transform={`rotate(${textAngle}, ${tx}, ${ty})`}
+              style={{ textShadow: prize.code ? `0 0 6px ${GOLD}` : 'none' }}
             >
               {prize.label}
             </text>
@@ -100,20 +109,16 @@ function Wheel({ rotation }) {
         );
       })}
 
-      <circle cx={cx} cy={cx} r={28} fill="#071520" stroke={GOLD} strokeWidth="2.5" style={{ filter: `drop-shadow(0 0 8px ${GOLD})` }} />
-      <circle cx={cx} cy={cx} r={22} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
+      {/* Center hub */}
+      <circle cx={cx} cy={cx} r={30} fill="#071520" stroke={GOLD} strokeWidth="2" />
+      <circle cx={cx} cy={cx} r={26} fill="none" stroke={GOLD_LIGHT} strokeWidth="0.8" opacity="0.5" />
       <image
         href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/45bacf9c2_2.png"
-        x={cx - 20} y={cx - 20}
-        width="40" height="40"
+        x={cx - 22} y={cx - 22}
+        width="44" height="44"
         clipPath="url(#hubClip)"
         preserveAspectRatio="xMidYMid meet"
       />
-      <defs>
-        <clipPath id="hubClip">
-          <circle cx={cx} cy={cx} r={22} />
-        </clipPath>
-      </defs>
     </svg>
   );
 }
@@ -237,13 +242,18 @@ export default function SpinWheelPopup() {
             className="fixed inset-0 z-[101] flex items-center justify-center px-4 pointer-events-none"
           >
             <div
-              className="relative w-full max-w-[380px] pointer-events-auto overflow-hidden"
+              className="relative w-full max-w-[400px] pointer-events-auto overflow-hidden"
               style={{
-                background: 'linear-gradient(160deg, #060f14 0%, #0a1e24 40%, #071018 70%, #030a0d 100%)',
-                border: '1px solid rgba(212,175,90,0.5)',
-                boxShadow: `0 0 0 1px rgba(14,42,47,0.8), 0 0 100px rgba(14,42,47,0.6), 0 0 60px rgba(212,175,90,0.18), 0 40px 120px rgba(0,0,0,0.95)`,
+                background: 'linear-gradient(175deg, #04111a 0%, #071e2a 25%, #0a2535 50%, #071520 75%, #020c12 100%)',
+                border: '1px solid rgba(212,175,90,0.6)',
+                boxShadow: `0 0 0 1px rgba(14,42,47,0.9), 0 0 0 3px rgba(212,175,90,0.06), 0 0 120px rgba(14,42,47,0.8), 0 0 80px rgba(212,175,90,0.2), 0 50px 140px rgba(0,0,0,0.98)`,
               }}
             >
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none" style={{ borderTop: `2px solid ${GOLD}`, borderLeft: `2px solid ${GOLD}`, opacity: 0.6 }} />
+              <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none" style={{ borderTop: `2px solid ${GOLD}`, borderRight: `2px solid ${GOLD}`, opacity: 0.6 }} />
+              <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none" style={{ borderBottom: `2px solid ${GOLD}`, borderLeft: `2px solid ${GOLD}`, opacity: 0.6 }} />
+              <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none" style={{ borderBottom: `2px solid ${GOLD}`, borderRight: `2px solid ${GOLD}`, opacity: 0.6 }} />
               <GlowDots />
 
               <div style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }} />
@@ -268,9 +278,9 @@ export default function SpinWheelPopup() {
                   </span>
                 </motion.div>
 
-                <h2 className="text-3xl font-heading font-black uppercase leading-tight tracking-tight text-white">
+                <h2 className="text-3xl font-heading font-black uppercase leading-tight tracking-tight" style={{ color: '#fff', textShadow: `0 0 30px rgba(212,175,90,0.3)` }}>
                   Spin &<br />
-                  <span style={{ color: GOLD_LIGHT }}>Win Big</span>
+                  <span style={{ color: GOLD_LIGHT, textShadow: `0 0 20px ${GOLD}, 0 0 40px rgba(212,175,90,0.4)` }}>Win Big</span>
                 </h2>
                 <p className="font-mono text-xs tracking-wider mt-1.5 mb-3" style={{ color: 'rgba(212,175,90,0.6)' }}>
                   Enter your email. One spin. Real rewards.
@@ -300,7 +310,7 @@ export default function SpinWheelPopup() {
                 </div>
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 rounded-full" style={{ background: `radial-gradient(circle, rgba(212,175,90,0.08) 0%, transparent 70%)` }} />
+                  <div className="w-72 h-72 rounded-full" style={{ background: `radial-gradient(circle, rgba(14,42,47,0.6) 0%, rgba(212,175,90,0.06) 50%, transparent 70%)` }} />
                 </div>
 
                 <motion.div
