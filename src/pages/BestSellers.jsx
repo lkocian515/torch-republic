@@ -29,10 +29,9 @@ export default function BestSellers() {
   const queryClient = useQueryClient();
   const urlParams = new URLSearchParams(window.location.search);
   const initialCollection = urlParams.get('collection') || 'all';
-  const initialCategory = urlParams.get('category') || 'all';
 
   const [collection, setCollection] = useState(initialCollection);
-  const [category, setCategory] = useState(initialCategory || 't-shirts');
+  const [category, setCategory] = useState(urlParams.get('category') || 't-shirts');
   const [sortBy, setSortBy] = useState('featured');
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -50,7 +49,7 @@ export default function BestSellers() {
     if (HIDDEN_CATEGORIES.has(p.category)) return false;
     if (!p.image_url) return false;
     const colMatch = collection === 'all' || p.collection === collection;
-    const catMatch = p.category === category;
+    const catMatch = category === 'all' || p.category === category;
     return colMatch && catMatch;
   });
 
