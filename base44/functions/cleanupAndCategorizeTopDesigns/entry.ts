@@ -40,38 +40,49 @@ const TOP_DESIGNS = {
   ]
 };
 
-// Normalize title: remove special chars, quotes, dashes, extra spaces
-function normalizeTitle(title) {
+// Generate Shopify-style handle from title
+function generateHandle(title) {
   return title
     .toLowerCase()
-    .replace(/["'\-—–]/g, '') // remove quotes and dashes
-    .replace(/[^a-z0-9\s]/g, '') // remove special chars
-    .replace(/\s+/g, ' ') // collapse whitespace
-    .trim();
+    .replace(/[^a-z0-9\s\-]/g, '') // keep only alphanumeric, spaces, hyphens
+    .replace(/\s+/g, '-') // replace spaces with hyphens
+    .replace(/\-+/g, '-') // collapse multiple hyphens
+    .replace(/^\-|\-$/g, ''); // trim hyphens from ends
 }
 
-// Build normalized lookup
-const categoryMap = {};
+// Build handle and case-insensitive title lookup
+const handleMap = {};
+const caseLookup = {};
 Object.entries(TOP_DESIGNS).forEach(([category, titles]) => {
   titles.forEach(title => {
-    const normalized = normalizeTitle(title);
-    categoryMap[normalized] = category;
+    const handle = generateHandle(title);
+    handleMap[handle] = category;
+    caseLookup[title.toLowerCase()] = category;
   });
 });
 
-// Match product against normalized titles
-function findMatchingCategory(productTitle) {
-  const normalized = normalizeTitle(productTitle);
-  
-  // Exact normalized match
-  if (categoryMap[normalized]) {
-    return categoryMap[normalized];
+// Match product by handle or fallback to case-insensitive partial match
+function findMatchingCategory(productHandle, productTitle) {
+  // Try exact handle match first
+  if (productHandle && handleMap[productHandle]) {
+    return handleMap[productHandle];
   }
   
-  // Partial/keyword match: check if product contains key phrases from our list
-  for (const [knownTitle, category] of Object.entries(categoryMap)) {
-    if (normalized.includes(knownTitle) || knownTitle.includes(normalized)) {
-      return category;
+  // Generate handle from product title and try
+  if (productTitle) {
+    const generatedHandle = generateHandle(productTitle);
+    if (handleMap[generatedHandle]) {
+      return handleMap[generatedHandle];
+    }
+  }
+  
+  // Fallback: case-insensitive partial match on title
+  if (productTitle) {
+    const lowerTitle = productTitle.toLowerCase();
+    for (const [knownTitle, category] of Object.entries(caseLookup)) {
+      if (lowerTitle.includes(knownTitle) || knownTitle.includes(lowerTitle)) {
+        return category;
+      }
     }
   }
   
@@ -92,7 +103,7 @@ Deno.serve(async (req) => {
     let deleted = 0;
 
     for (const product of allProducts) {
-      const matchingCategory = findMatchingCategory(product.title);
+      const matchingCategory = findMatchingCategory(product.shopify_handle, product.title);
       
       if (matchingCategory) {
         // Update product with is_top_design=true and matched category
