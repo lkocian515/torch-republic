@@ -158,15 +158,7 @@ export default function SpinWheelPopup() {
   const animRef = useRef(null);
 
   useEffect(() => {
-    // Never show again if they've already submitted their email
-    if (localStorage.getItem('spinWheelEmail')) return;
-    // Don't show if dismissed within the last 3 days
-    const dismissedAt = localStorage.getItem('spinWheelDismissedAt');
-    if (dismissedAt) {
-      const daysSince = (Date.now() - parseInt(dismissedAt)) / (1000 * 60 * 60 * 24);
-      if (daysSince < 3) return;
-    }
-    const timer = setTimeout(() => setVisible(true), 10000);
+    const timer = setTimeout(() => setVisible(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
