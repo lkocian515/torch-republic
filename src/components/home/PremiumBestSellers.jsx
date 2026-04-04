@@ -7,28 +7,8 @@ import { useQuery } from '@tanstack/react-query';
 const APPAREL_TABS = [
   { key: 'all', label: 'All' },
   { key: 't-shirts', label: 'T-Shirts' },
-  { key: 'hoodies', label: 'Hoodies' },
+  { key: 'hoodies-sweatshirts', label: 'Hoodies' },
   { key: 'hats', label: 'Hats' },
-];
-
-const PREMIUM_LAUNCH_HANDLES = new Set([
-  'god-bless-america-car-magnet-patriotic-american-flag-vehicle-decal-copy',
-  'america-land-of-the-free-tee-patriotic-eagle-t-shirt-for-women',
-  'usa-patriotic-womens-v-neck-tee-red-white-blue-stars-ribbon',
-  'freedom-is-my-love-language-womens-tee-patriotic-eagle-flag-graphic-shirt',
-  'freedom-is-my-love-language-raglan-shirt',
-]);
-
-const HIDDEN_CATEGORIES = new Set([
-  'jewelry','tea','candles','home-decor','bobbleheads',
-  'accessories','mugs-tumblers','flags','stickers','coffee',
-]);
-
-const RECENT = [
-  'Jessica in Texas just purchased the Freedom Tee',
-  '12 people bought from this collection today',
-  'Michael in Florida just grabbed the Liberty Hoodie',
-  '8 people are viewing this section right now',
 ];
 
 function StarRow({ rating = 4.8 }) {
