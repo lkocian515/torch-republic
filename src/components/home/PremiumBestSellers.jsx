@@ -11,6 +11,26 @@ const APPAREL_TABS = [
   { key: 'hats', label: 'Hats' },
 ];
 
+const RECENT = [
+  '✓ Sarah just purchased the Patriot Hoodie',
+  '✓ Mike ordered the We The People T-Shirt',
+  '✓ Jessica verified buyer — "Love the quality!"',
+  '✓ David just claimed his best seller',
+  '✓ Emma purchased the Classic Letterman Jacket',
+  '✓ James verified — "Worth every penny"',
+];
+
+const HIDDEN_CATEGORIES = new Set(['jewelry', 'tea', 'candles', 'home-decor', 'bobbleheads', 'accessories']);
+
+const PREMIUM_LAUNCH_HANDLES = new Set([
+  'usa-flag-full-zip-hoodie',
+  'patriotic-camouflage-cropped-hoodie',
+  'unapologetic-patriot-hoodie',
+  'classic-black-white-letterman-jacket',
+  'patriot-crewneck-sweatshirt',
+  '1776-party-sweatshirt',
+]);
+
 function StarRow({ rating = 4.8 }) {
   return (
     <div className="flex items-center gap-0.5">
