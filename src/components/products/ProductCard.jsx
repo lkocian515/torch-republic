@@ -24,7 +24,7 @@ export default function ProductCard({ product, index = 0 }) {
   }
 
   const productUrl = productHandle
-    ? `https://libertees-for-all.myshopify.com/products/${productHandle}`
+    ? `https://www.torchrepublic.com/products/${productHandle}`
     : null;
 
   return (
@@ -36,12 +36,12 @@ export default function ProductCard({ product, index = 0 }) {
     >
       <a
         href={productUrl || undefined}
-        onClick={!productUrl ? (e) => e.preventDefault() : () => {
-          console.log(`Opening Shopify product:\nName: ${product.title}\nHandle: ${productHandle}\nURL: ${productUrl}`);
+        onClick={(e) => {
+          if (!productUrl) { e.preventDefault(); return; }
+          e.preventDefault();
+          window.location.href = productUrl;
         }}
         className={`group block ${productUrl ? 'cursor-pointer' : 'cursor-default opacity-70'}`}
-        target={productUrl ? '_blank' : undefined}
-        rel={productUrl ? 'noopener noreferrer' : undefined}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
