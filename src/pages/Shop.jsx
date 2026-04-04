@@ -38,6 +38,12 @@ export default function Shop() {
     return [];
   };
 
+  // Filter out sections with no products
+  const availableCollections = COLLECTIONS.filter(col => {
+    const products = getCollectionProducts(col.key, col.collection);
+    return products.length > 0;
+  });
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
       {/* Header */}
@@ -58,7 +64,7 @@ export default function Shop() {
       {/* Collections */}
       <div className="px-6 pb-24">
         <div className="max-w-7xl mx-auto space-y-24">
-          {COLLECTIONS.map((collection) => {
+          {availableCollections.map((collection) => {
             const products = getCollectionProducts(collection.key, collection.collection);
             
             return (

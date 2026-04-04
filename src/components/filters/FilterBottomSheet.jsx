@@ -43,8 +43,15 @@ const SORT_OPTIONS = [
   { value: 'rating', label: 'Top Rated' },
 ];
 
-export default function FilterBottomSheet({ open, onOpenChange, collection, category, sortBy, onCollectionChange, onCategoryChange, onSortChange }) {
+export default function FilterBottomSheet({ open, onOpenChange, collection, category, sortBy, onCollectionChange, onCategoryChange, onSortChange, products = [] }) {
   const handleClose = () => onOpenChange(false);
+
+  // Get available categories (only those with products)
+  const HIDDEN_CATEGORIES = new Set(['jewelry','tea','candles','home-decor','bobbleheads','accessories']);
+  const availableCategories = Object.entries(CATEGORIES_MAP).filter(([key]) => {
+    if (key === 'all') return true;
+    return products.some(p => p.category === key && !HIDDEN_CATEGORIES.has(p.category) && p.image_url);
+  });
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
@@ -87,7 +94,7 @@ export default function FilterBottomSheet({ open, onOpenChange, collection, cate
           <div>
             <p className="text-foreground font-mono text-xs tracking-wider uppercase mb-3">Category</p>
             <div className="space-y-2">
-              {Object.entries(CATEGORIES_MAP).map(([key, label]) => (
+              {availableCategories.map(([key, label]) => (
                 <button
                   key={key}
                   onClick={() => {

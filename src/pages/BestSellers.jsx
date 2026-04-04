@@ -19,7 +19,7 @@ const COLLECTIONS_MAP = {
 
 const HIDDEN_CATEGORIES = new Set(['jewelry','tea','candles','home-decor','bobbleheads','accessories']);
 
-const CATEGORY_TABS = [
+const ALL_CATEGORY_TABS = [
   { key: 't-shirts', label: 'T-Shirts' },
   { key: 'hoodies', label: 'Hoodies' },
   { key: 'hats', label: 'Hats' },
@@ -49,11 +49,19 @@ export default function BestSellers() {
     initialData: [],
   });
 
+  // Get available categories (only those with products)
+  const availableCategories = ALL_CATEGORY_TABS.filter(tab =>
+    products.some(p => p.category === tab.key && !HIDDEN_CATEGORIES.has(p.category) && p.image_url)
+  );
+
+  // Reset category if current one is empty
+  const safeCategory = availableCategories.some(cat => cat.key === category) ? category : (availableCategories[0]?.key || 'all');
+
   const filteredProducts = products.filter(p => {
     if (HIDDEN_CATEGORIES.has(p.category)) return false;
     if (!p.image_url) return false;
     const colMatch = collection === 'all' || p.collection === collection;
-    const catMatch = category === 'all' || p.category === category;
+    const catMatch = safeCategory === 'all' || p.category === safeCategory;
     return colMatch && catMatch;
   });
 
@@ -96,12 +104,12 @@ export default function BestSellers() {
         <div className="px-6 pb-6">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 flex-wrap">
-              {CATEGORY_TABS.map(tab => (
+              {availableCategories.map(tab => (
                 <button
                   key={tab.key}
                   onClick={() => setCategory(tab.key)}
                   className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all min-h-[44px] flex items-center"
-                  style={category === tab.key
+                  style={safeCategory === tab.key
                     ? { background: 'linear-gradient(135deg, #070F1E, #0B3D35, #0D5244)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
                     : { background: 'transparent', color: 'rgba(212,175,90,0.6)', border: '1px solid rgba(212,175,90,0.2)' }}
                 >
@@ -179,11 +187,12 @@ export default function BestSellers() {
           open={filterOpen}
           onOpenChange={setFilterOpen}
           collection={collection}
-          category={category}
+          category={safeCategory}
           sortBy={sortBy}
           onCollectionChange={setCollection}
           onCategoryChange={setCategory}
           onSortChange={setSortBy}
+          products={products}
         />
 
         {/* Collection Drawer */}
