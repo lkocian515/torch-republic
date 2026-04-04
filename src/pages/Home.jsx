@@ -26,7 +26,6 @@ export default function Home() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
         <HeroSection />
-        <CustomerReviews />
         <TrustBadgeStrip />
         <TrustStrip />
         <PremiumBestSellers />
@@ -35,6 +34,7 @@ export default function Home() {
         <TorchbearerCTA />
         <ManifestoSection />
         <TorchbearerBlog />
+        <CustomerReviews />
         <NewsletterSection />
 
         {/* Sticky mobile CTA */}
