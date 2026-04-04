@@ -56,7 +56,7 @@ export default function ProductCard({ product, index = 0 }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(160deg, #1a0e00 0%, #2a1a0a 30%, #0d0d0d 60%, #000000 100%)', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
+        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(135deg, #0a0f1f 0%, #0E2A2F 50%, #000 100%)', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
         <img
          src={showDetail && detailImageSrc ? detailImageSrc : imageSrc}
          onError={() => setImgError(true)}
