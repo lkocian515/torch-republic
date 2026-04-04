@@ -77,7 +77,7 @@ export default function TheTorchBox() {
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/0f7488514_THETORCHBOX_20260310_040137_0000.png"
               alt="The Torch Box"
-              className="w-52 md:w-64 mt-12"
+              className="w-40 md:w-48 mt-12"
             />
           </motion.div>
 
