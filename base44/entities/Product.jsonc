@@ -98,18 +98,9 @@
       "default": false,
       "description": "Whether this product should be visible in storefront (curated high-identity designs only)"
     },
-    "is_top_design": {
-      "type": "boolean",
-      "default": false,
-      "description": "Whether this is a top 20 core design for homepage showcase"
-    },
     "best_seller_rank": {
       "type": "number",
       "description": "Position in best-sellers collection (1 = top seller). Null if not a best seller."
-    },
-    "top_design_rank": {
-      "type": "number",
-      "description": "Position in top 20 core designs (1-20). Null if not in top 20 designs."
     },
     "in_stock": {
       "type": "boolean",

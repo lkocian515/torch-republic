@@ -12,8 +12,6 @@ import FeaturedCollectionsGrid from '../components/home/FeaturedCollectionsGrid'
 import ManifestoSection from '../components/home/ManifestoSection';
 import NewsletterSection from '../components/home/NewsletterSection';
 import TorchbearerBlog from '../components/home/TorchbearerBlog';
-import TopDesignsSection from '../components/home/TopDesignsSection';
-import NewDropsSection from '../components/home/NewDropsSection';
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -27,8 +25,6 @@ export default function Home() {
       <div className="min-h-screen">
         <HeroSection />
         <TrustStrip />
-        <TopDesignsSection />
-        <NewDropsSection />
         <PremiumBestSellers />
         <GuaranteeBlock />
         <FeaturedCollectionsGrid />

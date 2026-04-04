@@ -7,7 +7,7 @@ import { Tag } from 'lucide-react';
 export default function OnSale() {
   const { data: products, isLoading } = useQuery({
     queryKey: ['on-sale'],
-    queryFn: () => base44.entities.Product.list('-updated_date', 20),
+    queryFn: () => base44.entities.Product.list('', 250),
     initialData: [],
     select: (data) =>
       data

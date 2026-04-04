@@ -41,22 +41,7 @@ export default function BestSellers() {
 
   const { data: products, isLoading } = useQuery({
     queryKey: ['products'],
-    queryFn: async () => {
-      const topDesigns = await base44.entities.Product.filter(
-        { top_design_rank: { $lte: 20, $exists: true } },
-        'top_design_rank',
-        20
-      );
-      const recentDesigns = await base44.entities.Product.list('-created_date', 20);
-      const allDesigns = await base44.entities.Product.filter({ premium_featured: true }, '', 250);
-      
-      // Return all but prioritize top designs + recent
-      const topIds = new Set(topDesigns.map(p => p.id));
-      const recentIds = new Set(recentDesigns.map(p => p.id));
-      const others = allDesigns.filter(p => !topIds.has(p.id) && !recentIds.has(p.id));
-      
-      return [...topDesigns, ...recentDesigns.filter(p => !topIds.has(p.id)), ...others];
-    },
+    queryFn: () => base44.entities.Product.filter({ premium_featured: true }, '', 250),
     initialData: [],
   });
 
