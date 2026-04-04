@@ -99,7 +99,7 @@ export default function BestSellers() {
                   onClick={() => setCategory(tab.key)}
                   className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all"
                   style={category === tab.key
-                    ? { background: 'linear-gradient(135deg, #0E2A2F, #1B5060, #C8A44D)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
+                    ? { background: 'linear-gradient(135deg, #070F1E, #0B3D35, #0D5244)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.4)' }
                     : { background: 'transparent', color: 'rgba(212,175,90,0.6)', border: '1px solid rgba(212,175,90,0.2)' }}
                 >
                   {tab.label}

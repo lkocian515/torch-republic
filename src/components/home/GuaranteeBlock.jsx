@@ -10,7 +10,7 @@ const ITEMS = [
 
 export default function GuaranteeBlock() {
   return (
-    <section className="py-14 px-6" style={{ backgroundColor: '#020810', borderTop: '1px solid rgba(212,175,90,0.1)', borderBottom: '1px solid rgba(212,175,90,0.1)' }}>
+    <section className="py-14 px-6" style={{ backgroundColor: '#060D18', borderTop: '1px solid rgba(212,175,90,0.1)', borderBottom: '1px solid rgba(212,175,90,0.1)' }}>
       <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {ITEMS.map((item, i) => {
           const Icon = item.icon;
@@ -23,7 +23,7 @@ export default function GuaranteeBlock() {
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center text-center gap-3"
             >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0E2A2F, #1B5060)', border: '1px solid rgba(212,175,90,0.3)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #070F1E, #0B3D35)', border: '1px solid rgba(212,175,90,0.3)' }}>
                 <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
               </div>
               <div>

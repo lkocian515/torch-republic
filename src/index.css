@@ -101,10 +101,10 @@
 
 /* Brand gradient utilities */
 .gradient-brand {
-  background: linear-gradient(135deg, #0E2A2F 0%, #1B5060 45%, #C8A44D 100%);
+  background: linear-gradient(135deg, #070F1E 0%, #0B3D35 45%, #0D4A3A 100%);
 }
 .gradient-brand-border {
-  background: linear-gradient(90deg, transparent 0%, #0E2A2F 20%, #C8A44D 60%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #0B3D35 20%, #C8A44D 60%, transparent 100%);
 }
 
 /* Custom scrollbar */

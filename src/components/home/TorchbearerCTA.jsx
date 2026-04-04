@@ -12,7 +12,7 @@ const BULLETS = [
 
 export default function TorchbearerCTA() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #040c10 0%, #071828 40%, #0a2535 70%, #040c10 100%)' }}>
+    <section className="py-24 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #060D1A 0%, #071E1A 30%, #0B3D35 60%, #070F1E 100%)' }}>
       {/* Glow */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(14,42,47,0.6) 0%, transparent 70%)' }} />
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,90,0.4), transparent)' }} />
@@ -51,7 +51,7 @@ export default function TorchbearerCTA() {
           <Link
             to={createPageUrl('TheTorchBox')}
             className="inline-flex items-center justify-center px-10 py-4 font-mono font-black text-sm tracking-[0.3em] uppercase transition-all hover:brightness-110"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff', boxShadow: '0 4px 40px rgba(14,42,47,0.8), 0 0 0 1px rgba(212,175,90,0.2)' }}
+            style={{ background: 'linear-gradient(135deg, #070F1E 0%, #0B3D35 60%, #0D5244 100%)', color: '#fff', boxShadow: '0 4px 40px rgba(7,15,30,0.9), 0 0 0 1px rgba(212,175,90,0.25)' }}
           >
             Explore The Torch Box
           </Link>
