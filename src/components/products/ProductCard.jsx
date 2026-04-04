@@ -24,7 +24,7 @@ export default function ProductCard({ product, index = 0 }) {
   }
 
   const productUrl = productHandle
-    ? `https://torchrepublic.com/products/${productHandle}`
+    ? `https://www.torchrepublic.com/products/${productHandle}`
     : null;
 
   return (
