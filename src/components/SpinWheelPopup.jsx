@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Flame, Gift, Zap } from 'lucide-react';
 
 const PRIZES = [
-  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1628', textColor: '#F0D080' },
-  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#1a0d00', textColor: '#F0D080' },
-  { label: '15% OFF',   code: 'TORCH15',   color: '#0f0a1e', textColor: '#F0D080' },
-  { label: 'TRY AGAIN', code: null,        color: '#111111', textColor: '#555555' },
-  { label: '20% OFF',   code: 'TORCH20',   color: '#0d1a0d', textColor: '#F0D080' },
-  { label: '5% OFF',    code: 'TORCH5',    color: '#1a0a0a', textColor: '#F0D080' },
-  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0e1520', textColor: '#F0D080' },
-  { label: '12% OFF',   code: 'TORCH12',   color: '#14100a', textColor: '#F0D080' },
+  { label: '10% OFF',   code: 'TORCH10',   color: '#0a1e24', textColor: '#F0D080' },
+  { label: 'FREE SHIP', code: 'FREESHIP',  color: '#061018', textColor: '#F0D080' },
+  { label: '15% OFF',   code: 'TORCH15',   color: '#0d2030', textColor: '#F0D080' },
+  { label: 'TRY AGAIN', code: null,        color: '#0a0a0a', textColor: '#444' },
+  { label: '20% OFF',   code: 'TORCH20',   color: '#0a1e24', textColor: '#F0D080' },
+  { label: '5% OFF',    code: 'TORCH5',    color: '#061018', textColor: '#F0D080' },
+  { label: 'FREE GIFT', code: 'GIFTME',    color: '#0d2030', textColor: '#F0D080' },
+  { label: '12% OFF',   code: 'TORCH12',   color: '#0a1e24', textColor: '#F0D080' },
 ];
 
 const NUM = PRIZES.length;
@@ -36,8 +36,16 @@ function Wheel({ rotation }) {
       viewBox={`0 0 ${size} ${size}`}
       style={{ transform: `rotate(${rotation}deg)`, transition: 'none' }}
     >
-      <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.2" />
-      <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" opacity="0.5" />
+      <defs>
+        <radialGradient id="rimGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={GOLD} stopOpacity="0" />
+          <stop offset="85%" stopColor={GOLD} stopOpacity="0.15" />
+          <stop offset="100%" stopColor={GOLD_LIGHT} stopOpacity="0.5" />
+        </radialGradient>
+      </defs>
+      <circle cx={cx} cy={cx} r={r + 8} fill="none" stroke="#0E2A2F" strokeWidth="4" opacity="0.8" />
+      <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1" opacity="0.25" />
+      <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" opacity="0.6" />
 
       {PRIZES.map((prize, i) => {
         const startAngle = (i * SLICE - 90) * (Math.PI / 180);
@@ -54,23 +62,27 @@ function Wheel({ rotation }) {
 
         return (
           <g key={i}>
+            <defs>
+              <linearGradient id={`sliceGrad${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor={prize.code ? '#0d2a35' : '#111'} />
+                <stop offset="100%" stopColor={prize.code ? '#071218' : '#080808'} />
+              </linearGradient>
+              <radialGradient id={`sliceGlow${i}`} cx="30%" cy="30%">
+                <stop offset="0%" stopColor={GOLD_LIGHT} stopOpacity="0.18" />
+                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+              </radialGradient>
+            </defs>
             <path
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
-              fill={prize.color}
+              fill={`url(#sliceGrad${i})`}
               stroke={GOLD}
-              strokeWidth="1"
+              strokeWidth="1.2"
+              strokeOpacity="0.6"
             />
             <path
               d={`M${cx},${cx} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`}
               fill={`url(#sliceGlow${i})`}
-              opacity="0.15"
             />
-            <defs>
-              <radialGradient id={`sliceGlow${i}`} cx="30%" cy="30%">
-                <stop offset="0%" stopColor={GOLD_LIGHT} />
-                <stop offset="100%" stopColor="transparent" />
-              </radialGradient>
-            </defs>
             <text
               x={tx} y={ty}
               textAnchor="middle"
@@ -88,7 +100,7 @@ function Wheel({ rotation }) {
         );
       })}
 
-      <circle cx={cx} cy={cx} r={28} fill="#050505" stroke={GOLD} strokeWidth="2" />
+      <circle cx={cx} cy={cx} r={28} fill="#071520" stroke={GOLD} strokeWidth="2.5" style={{ filter: `drop-shadow(0 0 8px ${GOLD})` }} />
       <circle cx={cx} cy={cx} r={22} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.4" />
       <image
         href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/45bacf9c2_2.png"
@@ -149,7 +161,7 @@ export default function SpinWheelPopup() {
       const daysSince = (Date.now() - parseInt(dismissedAt)) / (1000 * 60 * 60 * 24);
       if (daysSince < 3) return;
     }
-    const timer = setTimeout(() => setVisible(true), 8000);
+    const timer = setTimeout(() => setVisible(true), 10000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -227,9 +239,9 @@ export default function SpinWheelPopup() {
             <div
               className="relative w-full max-w-[380px] pointer-events-auto overflow-hidden"
               style={{
-                backgroundColor: '#070707',
-                border: '1px solid rgba(212,175,90,0.4)',
-                boxShadow: `0 0 0 1px rgba(212,175,90,0.08), 0 0 80px rgba(212,175,90,0.15), 0 40px 100px rgba(0,0,0,0.9)`,
+                background: 'linear-gradient(160deg, #060f14 0%, #0a1e24 40%, #071018 70%, #030a0d 100%)',
+                border: '1px solid rgba(212,175,90,0.5)',
+                boxShadow: `0 0 0 1px rgba(14,42,47,0.8), 0 0 100px rgba(14,42,47,0.6), 0 0 60px rgba(212,175,90,0.18), 0 40px 120px rgba(0,0,0,0.95)`,
               }}
             >
               <GlowDots />
