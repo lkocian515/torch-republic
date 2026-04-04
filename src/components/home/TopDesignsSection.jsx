@@ -6,10 +6,15 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import ProductGrid from '../products/ProductGrid';
 
+const LOW_PRIORITY_CATEGORIES = new Set(['jewelry', 'tea', 'candles', 'bobbleheads']);
+
 export default function TopDesignsSection() {
   const { data: products, isLoading } = useQuery({
     queryKey: ['top-designs-home'],
-    queryFn: () => base44.entities.Product.filter({ top_design_rank: { $lte: 20, $exists: true } }, 'top_design_rank', 12),
+    queryFn: async () => {
+      const topDesigns = await base44.entities.Product.filter({ is_top_design: true }, '-created_date', 20);
+      return topDesigns.filter(p => !LOW_PRIORITY_CATEGORIES.has(p.category) && p.image_url);
+    },
     initialData: [],
   });
 
