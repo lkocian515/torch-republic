@@ -64,11 +64,11 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <NavigationProvider>
-          <Router>
-          <AuthenticatedApp />
-          </Router>
-        </NavigationProvider>
+        <Router>
+          <NavigationProvider>
+            <AuthenticatedApp />
+          </NavigationProvider>
+        </Router>
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
