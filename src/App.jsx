@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { pagesConfig } from './pages.config'
+import { NavigationProvider } from '@/contexts/NavigationContext'
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
@@ -63,9 +64,11 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <NavigationProvider>
+          <Router>
           <AuthenticatedApp />
-        </Router>
+          </Router>
+        </NavigationProvider>
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>

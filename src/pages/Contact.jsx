@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Check, Mail, Package, RotateCcw } from 'lucide-react';
+import { Send, Check, Mail, Package, RotateCcw, Loader } from 'lucide-react';
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [optimisticSubmit, setOptimisticSubmit] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: async (formData) => {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      return { success: true };
+    },
+    onMutate: () => {
+      setOptimisticSubmit(true);
+    },
+    onSuccess: () => {
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setOptimisticSubmit(false), 2000);
+    },
+    onError: () => {
+      setOptimisticSubmit(false);
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    mutation.mutate(form);
   };
 
   return (
@@ -68,7 +87,7 @@ export default function Contact() {
 
           {/* Form */}
           <div>
-            {submitted ? (
+            {optimisticSubmit ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -122,9 +141,18 @@ export default function Contact() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 font-mono text-sm tracking-widest uppercase"
+                  disabled={mutation.isPending}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 font-mono text-sm tracking-widest uppercase min-h-[44px]"
                 >
-                  <Send className="w-4 h-4 mr-2" /> Send Message
+                  {mutation.isPending ? (
+                    <>
+                      <Loader className="w-4 h-4 mr-2 animate-spin" /> Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" /> Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             )}

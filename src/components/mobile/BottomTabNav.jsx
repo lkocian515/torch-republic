@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, ShoppingBag, ShoppingCart, User } from 'lucide-react';
+import { useNavigationStack } from '@/contexts/NavigationContext';
 
 export default function BottomTabNav() {
   const location = useLocation();
+  const { resetTabStack } = useNavigationStack();
+  const tabClickTimers = useRef({});
 
   const tabs = [
     { path: '/', icon: Home, label: 'Home' },
@@ -12,6 +15,21 @@ export default function BottomTabNav() {
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  const handleTabClick = (path) => {
+    if (isActive(path)) {
+      // Check for double tap
+      if (tabClickTimers.current[path]) {
+        clearTimeout(tabClickTimers.current[path]);
+        delete tabClickTimers.current[path];
+        resetTabStack(path);
+      } else {
+        tabClickTimers.current[path] = setTimeout(() => {
+          delete tabClickTimers.current[path];
+        }, 300);
+      }
+    }
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 border-t border-border bg-background z-40 md:hidden">
@@ -22,7 +40,8 @@ export default function BottomTabNav() {
             <Link
               key={tab.path}
               to={tab.path}
-              className={`flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors relative select-none ${
+              onClick={() => handleTabClick(tab.path)}
+              className={`flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none ${
                 isActive(tab.path)
                   ? 'text-primary'
                   : 'text-muted-foreground hover:text-foreground'
@@ -35,7 +54,7 @@ export default function BottomTabNav() {
         })}
         <a
           href="https://torch-republic.com/cart"
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors relative select-none text-muted-foreground hover:text-foreground"
+          className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none text-muted-foreground hover:text-foreground"
         >
           <ShoppingCart className="w-5 h-5" />
           <span className="text-xs font-mono tracking-widest uppercase">Cart</span>

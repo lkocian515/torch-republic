@@ -3,8 +3,10 @@ import { base44 } from '@/api/base44Client';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import ProductGrid from '../components/products/ProductGrid';
 import FilterBottomSheet from '../components/filters/FilterBottomSheet';
+import SelectorDrawer from '../components/filters/SelectorDrawer';
 import PullToRefresh from '../components/mobile/PullToRefresh';
 import { Sliders } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 
 const COLLECTIONS_MAP = {
@@ -30,10 +32,13 @@ export default function BestSellers() {
   const urlParams = new URLSearchParams(window.location.search);
   const initialCollection = urlParams.get('collection') || 'all';
 
+  const isMobile = useIsMobile();
   const [collection, setCollection] = useState(initialCollection);
   const [category, setCategory] = useState(urlParams.get('category') || 't-shirts');
   const [sortBy, setSortBy] = useState('featured');
   const [filterOpen, setFilterOpen] = useState(false);
+  const [collectionDrawerOpen, setCollectionDrawerOpen] = useState(false);
+  const [sortDrawerOpen, setSortDrawerOpen] = useState(false);
 
   const handleRefresh = useCallback(async () => {
     await queryClient.invalidateQueries({ queryKey: ['products'] });
@@ -96,7 +101,7 @@ export default function BestSellers() {
                 <button
                   key={tab.key}
                   onClick={() => setCategory(tab.key)}
-                  className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all"
+                  className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all min-h-[44px] flex items-center"
                   style={category === tab.key
                     ? { background: 'linear-gradient(135deg, #070F1E, #0B3D35, #0D5244)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
                     : { background: 'transparent', color: 'rgba(212,175,90,0.6)', border: '1px solid rgba(212,175,90,0.2)' }}
@@ -105,27 +110,48 @@ export default function BestSellers() {
                 </button>
               ))}
               <div className="flex items-center gap-2 ml-auto">
-                <Select value={collection} onValueChange={setCollection}>
-                  <SelectTrigger className="w-44 bg-card border-border text-foreground font-mono text-xs">
-                    <SelectValue placeholder="Collection" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    {Object.entries(COLLECTIONS_MAP).map(([key, label]) => (
-                      <SelectItem key={key} value={key} className="font-mono text-xs">{label}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-36 bg-card border-border text-foreground font-mono text-xs">
-                    <SelectValue placeholder="Sort" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    <SelectItem value="featured" className="font-mono text-xs">Featured</SelectItem>
-                    <SelectItem value="price-low" className="font-mono text-xs">Price ↑</SelectItem>
-                    <SelectItem value="price-high" className="font-mono text-xs">Price ↓</SelectItem>
-                    <SelectItem value="rating" className="font-mono text-xs">Top Rated</SelectItem>
-                  </SelectContent>
-                </Select>
+               {isMobile ? (
+                 <>
+                   <button
+                     onClick={() => setCollectionDrawerOpen(true)}
+                     className="px-4 py-2 font-mono text-xs tracking-[0.2em] uppercase rounded min-h-[44px] flex items-center"
+                     style={{ background: 'rgba(212,175,90,0.2)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.3)' }}
+                   >
+                     {COLLECTIONS_MAP[collection] || 'Collection'}
+                   </button>
+                   <button
+                     onClick={() => setSortDrawerOpen(true)}
+                     className="px-4 py-2 font-mono text-xs tracking-[0.2em] uppercase rounded min-h-[44px] flex items-center"
+                     style={{ background: 'rgba(212,175,90,0.2)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.3)' }}
+                   >
+                     {sortBy === 'featured' ? 'Featured' : sortBy === 'price-low' ? 'Price ↑' : sortBy === 'price-high' ? 'Price ↓' : 'Top Rated'}
+                   </button>
+                 </>
+               ) : (
+                 <>
+                   <Select value={collection} onValueChange={setCollection}>
+                     <SelectTrigger className="w-44 bg-card border-border text-foreground font-mono text-xs">
+                       <SelectValue placeholder="Collection" />
+                     </SelectTrigger>
+                     <SelectContent className="bg-card border-border">
+                       {Object.entries(COLLECTIONS_MAP).map(([key, label]) => (
+                         <SelectItem key={key} value={key} className="font-mono text-xs">{label}</SelectItem>
+                       ))}
+                     </SelectContent>
+                   </Select>
+                   <Select value={sortBy} onValueChange={setSortBy}>
+                     <SelectTrigger className="w-36 bg-card border-border text-foreground font-mono text-xs">
+                       <SelectValue placeholder="Sort" />
+                     </SelectTrigger>
+                     <SelectContent className="bg-card border-border">
+                       <SelectItem value="featured" className="font-mono text-xs">Featured</SelectItem>
+                       <SelectItem value="price-low" className="font-mono text-xs">Price ↑</SelectItem>
+                       <SelectItem value="price-high" className="font-mono text-xs">Price ↓</SelectItem>
+                       <SelectItem value="rating" className="font-mono text-xs">Top Rated</SelectItem>
+                     </SelectContent>
+                   </Select>
+                 </>
+               )}
               </div>
             </div>
           </div>
@@ -135,7 +161,7 @@ export default function BestSellers() {
         <div className="md:hidden px-6 pb-4">
           <button
             onClick={() => setFilterOpen(true)}
-            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-border rounded hover:bg-card transition-colors font-mono text-xs tracking-widest uppercase select-none"
+            className="w-full flex items-center justify-center gap-2 min-h-[44px] px-4 border border-border rounded hover:bg-card transition-colors font-mono text-xs tracking-widest uppercase select-none"
           >
             <Sliders className="w-4 h-4" />
             Sort & Filter
@@ -159,6 +185,31 @@ export default function BestSellers() {
           onCollectionChange={setCollection}
           onCategoryChange={setCategory}
           onSortChange={setSortBy}
+        />
+
+        {/* Collection Drawer */}
+        <SelectorDrawer
+          open={collectionDrawerOpen}
+          onOpenChange={setCollectionDrawerOpen}
+          title="Select Collection"
+          options={Object.entries(COLLECTIONS_MAP).map(([key, label]) => ({ key, label }))}
+          value={collection}
+          onValueChange={setCollection}
+        />
+
+        {/* Sort Drawer */}
+        <SelectorDrawer
+          open={sortDrawerOpen}
+          onOpenChange={setSortDrawerOpen}
+          title="Sort By"
+          options={[
+            { key: 'featured', label: 'Featured' },
+            { key: 'price-low', label: 'Price ↑' },
+            { key: 'price-high', label: 'Price ↓' },
+            { key: 'rating', label: 'Top Rated' },
+          ]}
+          value={sortBy}
+          onValueChange={setSortBy}
         />
       </div>
     </PullToRefresh>

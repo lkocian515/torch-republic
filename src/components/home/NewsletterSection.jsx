@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Loader } from 'lucide-react';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [optimisticSubmit, setOptimisticSubmit] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: async (emailValue) => {
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      return { success: true };
+    },
+    onMutate: () => {
+      setOptimisticSubmit(true);
+    },
+    onSuccess: () => {
+      setEmail('');
+      setTimeout(() => setOptimisticSubmit(false), 2000);
+    },
+    onError: () => {
+      setOptimisticSubmit(false);
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      setSubmitted(true);
-      setEmail('');
+      mutation.mutate(email);
     }
   };
 
@@ -36,7 +53,7 @@ export default function NewsletterSection() {
             Get 15% off your first order plus early access to drops and exclusive releases.
           </p>
 
-          {submitted ? (
+          {optimisticSubmit ? (
             <div className="flex items-center justify-center gap-2 font-mono text-sm" style={{ color: '#C8A44D' }}>
               <Check className="w-5 h-5" />
               Welcome to the movement. Check your inbox.
@@ -48,16 +65,18 @@ export default function NewsletterSection() {
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={mutation.isPending}
                 required
                 className="flex-1 font-mono text-sm"
                 style={{ backgroundColor: '#111', border: '1px solid rgba(200,164,77,0.25)', color: '#fff' }}
               />
               <button
                 type="submit"
-                className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap"
+                disabled={mutation.isPending}
+                className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap min-h-[44px] flex items-center justify-center disabled:opacity-70"
                 style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
               >
-                Join Now
+                {mutation.isPending ? <Loader className="w-4 h-4 animate-spin" /> : 'Join Now'}
               </button>
             </form>
           )}
