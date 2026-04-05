@@ -33,6 +33,9 @@ export default function Home() {
 
         {/* Founders Series Coffee Banner */}
         <div className="w-full">
+          <div className="text-center py-4" style={{ backgroundColor: '#000' }}>
+            <span className="font-mono font-bold text-xs tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>⭐ Coming Soon ⭐</span>
+          </div>
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/499adec76_file_00000000457c71f58ce4377bbc72d356.png"
             alt="Torch Republic Founders Series Coffee - Coming Soon"
