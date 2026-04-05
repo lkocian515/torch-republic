@@ -30,10 +30,6 @@ export default function Home() {
         <TrustStrip />
         <PremiumBestSellers />
         <GuaranteeBlock />
-        <FeaturedCollectionsGrid />
-        <TorchbearerCTA />
-        <ManifestoSection />
-        <TorchbearerBlog />
 
         {/* Founders Series Coffee Banner */}
         <div className="w-full">
@@ -44,6 +40,10 @@ export default function Home() {
           />
         </div>
 
+        <FeaturedCollectionsGrid />
+        <TorchbearerCTA />
+        <ManifestoSection />
+        <TorchbearerBlog />
         <NewsletterSection />
         <CustomerReviews />
 
