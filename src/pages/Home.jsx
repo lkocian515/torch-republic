@@ -34,6 +34,16 @@ export default function Home() {
         <TorchbearerCTA />
         <ManifestoSection />
         <TorchbearerBlog />
+
+        {/* Founders Series Coffee Banner */}
+        <div className="w-full">
+          <img
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/499adec76_file_00000000457c71f58ce4377bbc72d356.png"
+            alt="Torch Republic Founders Series Coffee - Coming Soon"
+            className="w-full object-cover"
+          />
+        </div>
+
         <NewsletterSection />
         <CustomerReviews />
 
