@@ -107,20 +107,24 @@ function FounderCard({ founder, index }) {
       style={{
         background: `linear-gradient(160deg, ${founder.color} 0%, #050505 100%)`,
         border: '1px solid rgba(200,164,77,0.1)',
+        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
       }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.45)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(196,163,90,0.15)'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(200,164,77,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
   >
       {/* Top accent line */}
       <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${founder.accent}88, transparent)` }} />
 
       {/* Product image */}
-      <div className="relative overflow-hidden" style={{ height: '180px', background: founder.color }}>
+      <div className="relative overflow-hidden" style={{ height: '200px', background: founder.color }}>
         <img
           src={founder.image}
           alt={`${founder.name} Blend`}
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-500 group-hover:scale-105 transition-transform"
-          style={{ transform: 'scale(1.02)' }}
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-all duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${founder.color}EE 0%, transparent 60%)` }} />
+        {/* Vignette */}
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${founder.color}EE 0%, transparent 55%)` }} />
         <div className="absolute bottom-3 left-3">
           <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-1" style={{ color: founder.accent, background: 'rgba(0,0,0,0.7)', border: `1px solid ${founder.accent}40` }}>
             {founder.code}
@@ -137,7 +141,14 @@ function FounderCard({ founder, index }) {
           <span className="font-mono text-[8px] text-gray-600">|</span>
           <span className="font-mono text-[8px] text-gray-500">{founder.seriesNum}</span>
           <span className="font-mono text-[8px] text-gray-600">|</span>
-          <span className="font-mono text-[8px] tracking-wider" style={{ color: founder.rarity === "FOUNDER'S EDITION" ? '#C8A44D' : founder.rarity === 'CORE' ? '#6B7280' : founder.accent }}>
+          <span
+            className="font-mono text-[8px] tracking-wider px-2 py-0.5"
+            style={{
+              color: founder.rarity === "FOUNDER'S EDITION" ? '#E8D08A' : '#6B7280',
+              background: founder.rarity === "FOUNDER'S EDITION" ? 'linear-gradient(90deg, rgba(196,163,90,0.15), rgba(232,208,138,0.2), rgba(196,163,90,0.15))' : 'transparent',
+              border: founder.rarity === "FOUNDER'S EDITION" ? '1px solid rgba(232,208,138,0.3)' : 'none',
+            }}
+          >
             {founder.rarity}
           </span>
         </div>
@@ -183,7 +194,7 @@ function FounderCard({ founder, index }) {
 
 export default function FoundersSeriesSection() {
   return (
-    <section id="founders-series" className="py-24 px-6 md:px-10" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(200,164,77,0.08)' }}>
+    <section id="founders-series" className="py-32 px-6 md:px-10" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(196,163,90,0.08)' }}>
       <div className="max-w-[1280px] mx-auto">
 
         {/* Header */}

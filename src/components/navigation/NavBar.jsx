@@ -5,8 +5,9 @@ import { Menu, X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MAIN_NAV = [
-  { label: 'Coffee', href: 'https://torch-republic.com/collections/coffee', external: true },
-  { label: 'Founders Series', href: '/BestSellers?category=coffee' },
+  { label: 'Coffee', href: '/collections/coffee' },
+  { label: 'Founders Series', href: '/#founders-series' },
+  { label: 'Torch Box', href: '/TheTorchBox' },
   { label: 'Journal', href: '/Journal' },
   { label: 'Shop', href: '/Shop' },
   { label: 'About', href: '/Mission' },
@@ -36,9 +37,11 @@ export default function NavBar() {
   const close = () => setIsOpen(false);
 
   return (
-    <nav ref={navRef} className={`w-full transition-all duration-500 ${
-      scrolled ? 'bg-black/98 backdrop-blur-md border-b' : 'bg-black/70 backdrop-blur-sm'
-    }`} style={{ borderColor: 'rgba(200,164,77,0.12)' }}>
+    <nav ref={navRef} className="w-full transition-all duration-500" style={{
+      backgroundColor: scrolled ? 'rgba(10,14,26,0.95)' : 'rgba(0,0,0,0.6)',
+      backdropFilter: 'blur(12px)',
+      borderBottom: scrolled ? '1px solid rgba(196,163,90,0.2)' : '1px solid transparent',
+    }}>
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="relative flex items-center justify-between h-14 md:h-16">
 
@@ -49,30 +52,22 @@ export default function NavBar() {
             </button>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-7">
-              {MAIN_NAV.map((item) => 
-                item.external ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-mono tracking-[0.15em] transition-colors hover:text-primary"
-                    style={{ color: item.label === 'Coffee' ? '#C8A44D' : 'rgba(255,255,255,0.55)' }}
-                  >
+            <div className="hidden md:flex items-center gap-8">
+              {MAIN_NAV.map((item) => (
+                item.href.startsWith('http') ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
+                    className="nav-link font-mono uppercase tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ fontSize: '11px', color: item.label === 'Coffee' ? '#C4A35A' : 'rgba(255,255,255,0.5)' }}>
                     {item.label}
                   </a>
                 ) : (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="text-xs font-mono tracking-[0.15em] transition-colors hover:text-primary"
-                    style={{ color: 'rgba(255,255,255,0.55)' }}
-                  >
+                  <Link key={item.label} to={item.href}
+                    className="nav-link font-mono uppercase tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ fontSize: '11px', color: item.label === 'Torch Box' ? '#C4A35A' : 'rgba(255,255,255,0.5)' }}>
                     {item.label}
                   </Link>
                 )
-              )}
+              ))}
             </div>
           </div>
 

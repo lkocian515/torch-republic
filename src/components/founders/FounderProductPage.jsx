@@ -103,15 +103,29 @@ export default function FounderProductPage({ data }) {
       </section>
 
       {/* THE MOMENT */}
-      <section className="py-20 px-6" style={{ background: 'linear-gradient(135deg, #050505 0%, #0A0A05 100%)', borderTop: '1px solid rgba(200,164,77,0.06)' }}>
-        <div className="max-w-[700px] mx-auto text-center">
-          <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-10" style={{ color: `${accent}66` }}>The Moment</p>
+      <section className="py-28 px-6" style={{
+        background: '#0A0E1A',
+        borderTop: '1px solid rgba(196,163,90,0.08)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Grain texture */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+          opacity: 0.04,
+        }} />
+        <div className="max-w-[640px] mx-auto text-center relative z-10">
+          {/* Top rule */}
+          <div className="w-24 h-px mx-auto mb-12" style={{ background: `linear-gradient(90deg, transparent, ${accent}40, transparent)` }} />
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-12" style={{ color: `${accent}55` }}>The Moment</p>
           {theMoment.map((line, i) => (
-            <motion.p key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="font-serif mb-4" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: accent, fontStyle: 'italic' }}>
+            <motion.p key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+              className="font-serif mb-5" style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2rem)', color: accent, fontStyle: 'italic', letterSpacing: '0.04em', lineHeight: 2.0 }}>
               {line}
             </motion.p>
           ))}
+          {/* Bottom rule */}
+          <div className="w-24 h-px mx-auto mt-12" style={{ background: `linear-gradient(90deg, transparent, ${accent}40, transparent)` }} />
         </div>
       </section>
 
