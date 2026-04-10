@@ -53,7 +53,10 @@ export default function FounderProductPage({ data }) {
 
             {/* Price + CTA */}
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex items-center gap-4 mb-4 flex-wrap">
-              <span className="font-mono font-bold text-2xl" style={{ color: accent }}>{price}</span>
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono font-bold text-2xl" style={{ color: accent }}>{price}</span>
+                <span className="font-mono text-sm text-gray-600 line-through">$21.99</span>
+              </div>
               <a href={`https://torch-republic.com/products/${shopifyHandle}`}
                 className="px-8 py-3.5 font-heading font-black text-sm tracking-[0.15em] uppercase"
                 style={{ background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${accent} 100%)`, color: '#fff' }}>
@@ -61,6 +64,22 @@ export default function FounderProductPage({ data }) {
               </a>
             </motion.div>
             <p className="font-mono text-[10px] text-gray-600 tracking-wider">Part of the Founders Series — Collect them all.</p>
+
+            {/* Bundle upsell */}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+              className="mt-4 p-4 flex items-center justify-between gap-4 flex-wrap"
+              style={{ background: `${accent}08`, border: `1px solid ${accent}25` }}>
+              <div>
+                <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: accent }}>Complete Your Set</p>
+                <p className="text-white text-sm font-heading font-bold">Add 2 more blends for $29.99</p>
+                <p className="font-mono text-[10px] text-gray-600">$37.98 value → save $7.99</p>
+              </div>
+              <a href="https://torch-republic.com/products/founders-starter-pack"
+                className="px-5 py-2.5 font-mono text-[10px] tracking-[0.2em] uppercase whitespace-nowrap"
+                style={{ border: `1px solid ${accent}50`, color: accent }}>
+                Add Bundle →
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>

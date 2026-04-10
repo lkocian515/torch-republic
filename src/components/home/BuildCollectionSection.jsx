@@ -1,35 +1,109 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const COLLECTIONS = [
+const BUNDLES = [
   {
-    name: 'Founders Starter',
-    tagline: 'The perfect entry point.',
-    blends: ['Washington Blend (TR-001)', 'Jefferson Blend (TR-002)', 'Franklin Blend (TR-003)'],
-    price: '$49',
+    tag: 'BEST SELLER',
+    name: 'The Founders Starter Set',
+    tagline: 'The perfect introduction to the Founders Series.',
+    desc: 'Three blends. Three mindsets. One starting point.',
+    blends: ['Washington Blend — Dark Roast', 'Jefferson Blend — Medium Roast', 'Franklin Blend — Light Roast'],
+    was: '$56.97',
+    price: '$49.99',
+    savings: 'Save $6.98',
     accent: '#C8A44D',
-    desc: 'The three FOUNDER\'S EDITION blends. Perfect gift. Highest conversion. Start your collection here.',
     handle: 'founders-starter-pack',
+    featured: true,
   },
   {
-    name: 'Revolution Pack',
-    tagline: 'For those who don\'t ask permission.',
-    blends: ['Adams Blend (TR-004)', 'Samuel Adams (TR-009)', 'Patrick Henry (TR-010)'],
-    price: '$59',
+    tag: 'BUILD YOUR OWN',
+    name: 'Any 3 Blends',
+    tagline: 'Choose your set.',
+    desc: 'Pick any three from the Founders Series. Mix roasts. Build your profile.',
+    blends: ['Choose Dark, Medium, or Light', 'Any combination from the series', 'Ships together at a discount'],
+    was: '$56.97',
+    price: '$49.99',
+    savings: 'Save $6.98',
     accent: '#9BB8CC',
-    desc: 'The firebrand trio. Three men who chose coffee as an act of defiance.',
-    handle: 'revolution-pack',
+    handle: 'build-your-own-3-pack',
+    featured: false,
   },
   {
-    name: 'Power Pack',
-    tagline: 'Quiet strength. Maximum output.',
-    blends: ['Roosevelt Blend (TR-006)', 'Lincoln Blend (TR-005)', 'Hamilton Blend (TR-007)'],
-    price: '$69',
-    accent: '#7AC87A',
-    desc: 'Built for the serious. No limits, no excuses. The endurance collection.',
-    handle: 'power-pack',
+    tag: 'COLLECTOR\'S CHOICE',
+    name: 'The Complete Founders Collection',
+    tagline: 'All six blends. Every profile. The full system.',
+    desc: 'For the serious collector. Perfect for gifting. The complete set.',
+    blends: ['All 6 Founders Series blends', 'Washington · Jefferson · Franklin', 'Adams · Lincoln · Roosevelt'],
+    was: '$113.94',
+    price: '$89.99',
+    savings: 'Save $23.95',
+    accent: '#D4C97A',
+    handle: 'complete-founders-collection',
+    featured: false,
   },
 ];
+
+function BundleCard({ b, i }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.1 }}
+      className="relative flex flex-col"
+      style={{
+        background: b.featured ? 'linear-gradient(160deg, #0E0A02 0%, #050505 100%)' : '#050505',
+        border: b.featured ? `1px solid ${b.accent}40` : '1px solid rgba(200,164,77,0.1)',
+        boxShadow: b.featured ? `0 0 40px ${b.accent}12` : 'none',
+      }}
+    >
+      <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${b.accent}99, transparent)` }} />
+
+      {/* Tag */}
+      <div className="px-7 pt-6">
+        <span className="font-mono text-[9px] font-bold tracking-[0.4em] uppercase px-2.5 py-1" style={{ color: b.accent, border: `1px solid ${b.accent}35`, background: `${b.accent}10` }}>
+          {b.tag}
+        </span>
+      </div>
+
+      <div className="p-7 flex flex-col gap-4 flex-1">
+        <div>
+          <h3 className="font-serif text-white mb-1" style={{ fontSize: '1.45rem', fontWeight: 700 }}>{b.name}</h3>
+          <p className="font-mono text-[10px]" style={{ color: `${b.accent}88` }}>{b.tagline}</p>
+        </div>
+
+        <p className="text-sm text-gray-500 leading-relaxed">{b.desc}</p>
+
+        <div className="space-y-2">
+          {b.blends.map(bl => (
+            <div key={bl} className="flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full shrink-0" style={{ background: b.accent }} />
+              <span className="font-mono text-[10px] text-gray-500">{bl}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Pricing */}
+        <div className="flex items-baseline gap-3 mt-auto pt-2">
+          <span className="font-mono font-bold text-2xl" style={{ color: b.accent }}>{b.price}</span>
+          <span className="font-mono text-sm text-gray-600 line-through">{b.was}</span>
+          <span className="font-mono text-[10px] font-bold px-2 py-0.5" style={{ color: '#000', background: b.accent }}>{b.savings}</span>
+        </div>
+
+        <a
+          href={`https://torch-republic.com/products/${b.handle}`}
+          className="py-3.5 text-center font-heading font-black text-xs tracking-[0.2em] uppercase transition-all"
+          style={b.featured
+            ? { background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${b.accent} 100%)`, color: '#fff' }
+            : { border: `1px solid ${b.accent}40`, color: b.accent, background: `${b.accent}08` }
+          }
+        >
+          {b.featured ? 'Get The Starter Set →' : 'Shop This Set →'}
+        </a>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function BuildCollectionSection() {
   return (
@@ -40,63 +114,26 @@ export default function BuildCollectionSection() {
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Build Your Collection</span>
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Start Your Collection</span>
             <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
-          <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
-            Start Your Collection.
+          <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
+            Build Your Founders Collection
           </h2>
           <p className="text-gray-500 font-mono text-sm max-w-md mx-auto">
-            Not bundles. Collections. Each set is a narrative — three figures, one story arc, one decision.
+            Start your set. Choose any 3 blends — or go all in.
           </p>
         </div>
 
-        {/* Collection cards */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {COLLECTIONS.map((c, i) => (
-            <motion.div
-              key={c.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col"
-              style={{ background: '#050505', border: '1px solid rgba(200,164,77,0.1)' }}
-            >
-              <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${c.accent}88, transparent)` }} />
-
-              <div className="p-7 flex flex-col gap-4 flex-1">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>Collection</p>
-                    <h3 className="font-serif text-white" style={{ fontSize: '1.5rem', fontWeight: 700 }}>{c.name}</h3>
-                    <p className="font-mono text-[10px] mt-1" style={{ color: `${c.accent}99` }}>{c.tagline}</p>
-                  </div>
-                  <span className="font-mono font-bold text-xl" style={{ color: c.accent }}>{c.price}</span>
-                </div>
-
-                <p className="text-sm text-gray-500 leading-relaxed flex-1">{c.desc}</p>
-
-                <div className="space-y-1.5">
-                  {c.blends.map(b => (
-                    <div key={b} className="flex items-center gap-2">
-                      <div className="w-1 h-1 rounded-full" style={{ background: c.accent }} />
-                      <span className="font-mono text-[10px] text-gray-500">{b}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href={`https://torch-republic.com/products/${c.handle}`}
-                  className="mt-2 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
-                  style={{ border: `1px solid ${c.accent}40`, color: c.accent, background: `${c.accent}08` }}
-                >
-                  Start This Collection
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          {BUNDLES.map((b, i) => <BundleCard key={b.name} b={b} i={i} />)}
         </div>
+
+        {/* Single price note */}
+        <p className="text-center font-mono text-[10px] text-gray-700 mt-8 tracking-wider uppercase">
+          Single bags always $18.99 — bundles are the smart move.
+        </p>
       </div>
     </section>
   );
