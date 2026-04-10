@@ -47,10 +47,10 @@ export default function NewsletterSection() {
             <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-3">
-            Become a Torchbearer
+            Join the Republic
           </h2>
           <p className="text-gray-400 text-sm mb-8">
-            Get 15% off your first order plus early access to drops and exclusive releases.
+            Get first access to new Founder blends, limited drops, and subscriber-only offers. Plus 15% off your first order.
           </p>
 
           {optimisticSubmit ? (
