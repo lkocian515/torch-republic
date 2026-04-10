@@ -41,7 +41,7 @@ export default function TorchBoxFeature() {
               onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
               onMouseLeave={e => e.currentTarget.style.opacity = '1'}
             >
-              Learn More
+              Explore The Torch Box
             </Link>
           </motion.div>
 

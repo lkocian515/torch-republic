@@ -24,7 +24,7 @@ const MAIN_NAV = [
     label: 'About',
     children: [
       { label: 'Mission', href: '/Mission' },
-      { label: 'Journal', href: '/Journal' },
+      { label: 'Story', href: '/Journal' },
     ],
   },
 ];
