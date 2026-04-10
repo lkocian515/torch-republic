@@ -15,6 +15,14 @@ export default function PremiumHero() {
         }}
       />
 
+      {/* Text backdrop — deep radial behind content */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 70%, transparent 100%)',
+        }}
+      />
+
       {/* Bottom fade into page */}
       <div
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
@@ -30,7 +38,7 @@ export default function PremiumHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, delay: 0.3 }}
           className="font-mono uppercase tracking-[0.55em]"
-          style={{ fontSize: '9px', color: 'rgba(201,162,74,0.4)', marginBottom: '2.5rem' }}
+          style={{ fontSize: '9px', color: 'rgba(201,162,74,0.65)', marginBottom: '2.5rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}
         >
           Founders Series · Small-Batch Coffee
         </motion.p>
@@ -43,11 +51,12 @@ export default function PremiumHero() {
           className="font-serif"
           style={{
             fontSize: 'clamp(4rem, 10vw, 8rem)',
-            fontWeight: 700,
-            lineHeight: 1,
+            fontWeight: 800,
+            lineHeight: 1.05,
             letterSpacing: '-0.02em',
-            color: '#F0EBE1',
-            marginBottom: '2rem',
+            color: '#FFFFFF',
+            marginBottom: '2.5rem',
+            textShadow: '0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,1)',
           }}
         >
           Carry the<br />
@@ -61,11 +70,12 @@ export default function PremiumHero() {
           transition={{ duration: 1.4, delay: 0.9 }}
           className="font-serif"
           style={{
-            fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
+            fontSize: 'clamp(1rem, 1.6vw, 1.2rem)',
             fontStyle: 'italic',
-            fontWeight: 400,
-            lineHeight: 1.8,
-            color: 'rgba(240,235,225,0.3)',
+            fontWeight: 500,
+            lineHeight: 2,
+            color: 'rgba(255,255,255,0.6)',
+            textShadow: '0 1px 12px rgba(0,0,0,0.9)',
             marginBottom: '3.5rem',
             maxWidth: '420px',
           }}
