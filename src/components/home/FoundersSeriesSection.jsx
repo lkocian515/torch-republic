@@ -6,61 +6,79 @@ const FOUNDERS = [
     name: 'George Washington',
     short: 'Washington',
     roast: 'Dark Roast',
-    notes: 'Bold · Smoky · Dark Chocolate',
-    hook: 'Steady, disciplined, foundational. Built for those who lead from the front — no hesitation, no retreat.',
+    notes: 'Cocoa · Toasted Nut · Full Body',
+    hook: 'Steady, disciplined, foundational. The night was freezing. The river was filled with ice. Most men would have turned back. He didn\'t.',
     color: '#160D04',
     accent: '#C8A44D',
     handle: 'washington-blend',
+    code: 'TR-001',
+    seriesNum: 'Founders #01',
+    rarity: "FOUNDER'S EDITION",
   },
   {
     name: 'Thomas Jefferson',
     short: 'Jefferson',
     roast: 'Medium Roast',
-    notes: 'Smooth · Nutty · Caramel',
-    hook: 'Thoughtful, layered, refined. A blend for the philosopher-patriot who sees the world in principles.',
+    notes: 'Dark Chocolate · Almond · Toffee',
+    hook: 'Books. Thought. Coffee. That\'s where revolutions begin. Jefferson declared coffee "the favorite drink of the civilized world."',
     color: '#080F14',
     accent: '#9BB8CC',
     handle: 'jefferson-blend',
+    code: 'TR-002',
+    seriesNum: 'Founders #02',
+    rarity: "FOUNDER'S EDITION",
   },
   {
     name: 'Benjamin Franklin',
     short: 'Franklin',
-    roast: 'Medium-Dark Roast',
-    notes: 'Rich · Spice · Brown Sugar',
-    hook: 'Curious, bright, inventive. For the restless mind that experiments before the world wakes up.',
+    roast: 'Light Roast',
+    notes: 'Caramel · Lemon · Sweet',
+    hook: 'He didn\'t scroll. He studied. He didn\'t network. He debated. Coffeehouses were his battlefield — ideas were his weapon.',
     color: '#0E0E06',
     accent: '#D4C97A',
     handle: 'franklin-blend',
+    code: 'TR-003',
+    seriesNum: 'Founders #03',
+    rarity: "FOUNDER'S EDITION",
   },
   {
     name: 'Abraham Lincoln',
     short: 'Lincoln',
-    roast: 'Dark Roast',
-    notes: 'Deep · Earthy · Dark Cherry',
-    hook: 'Strong, humble, enduring. Forged in adversity — this blend doesn\'t break under pressure.',
+    roast: 'Medium-Dark',
+    notes: 'Dark Chocolate · Almond · Toffee',
+    hook: 'Slow steps. Strong mind. No retreat. Lincoln carried weight most men would collapse under. He didn\'t ask for comfort.',
     color: '#100707',
     accent: '#C87070',
     handle: 'lincoln-blend',
+    code: 'TR-005',
+    seriesNum: 'Founders #05',
+    rarity: 'CORE',
   },
   {
     name: 'Theodore Roosevelt',
     short: 'Roosevelt',
-    roast: 'Light-Medium Roast',
-    notes: 'Bright · Citrus · Honey',
-    hook: 'Bold, energetic, vigorous. The man who charged uphill — this cup meets you at the same altitude.',
+    roast: 'Dark Roast',
+    notes: 'Cocoa · Toasted Nut · Full Body',
+    hook: 'A gallon of coffee. A morning hunt. A full day of governing the free world. Roosevelt didn\'t believe in limits.',
     color: '#070E07',
     accent: '#7AC87A',
     handle: 'roosevelt-blend',
+    code: 'TR-006',
+    seriesNum: 'Founders #06',
+    rarity: 'CORE',
   },
   {
     name: 'John Adams',
     short: 'Adams',
     roast: 'Medium Roast',
-    notes: 'Balanced · Cocoa · Toasted Oak',
-    hook: 'Sharp, principled, intense. The conscience of the republic — uncompromising in flavor and character.',
+    notes: 'Toffee · Dark Chocolate · Citrus',
+    hook: 'After the Boston Tea Party, he chose coffee. On purpose. Adams didn\'t follow the crowd — he stood for structure when others wanted chaos.',
     color: '#0E070E',
     accent: '#B87AC8',
     handle: 'adams-blend',
+    code: 'TR-004',
+    seriesNum: 'Founders #04',
+    rarity: 'CORE',
   },
 ];
 
@@ -82,6 +100,19 @@ function FounderCard({ founder, index }) {
       <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${founder.accent}88, transparent)` }} />
 
       <div className="p-6 md:p-7 flex flex-col gap-4 flex-1">
+        {/* Identity bar */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-0.5" style={{ color: founder.accent, background: `${founder.accent}12`, border: `1px solid ${founder.accent}30` }}>
+            {founder.code}
+          </span>
+          <span className="font-mono text-[8px] text-gray-600">|</span>
+          <span className="font-mono text-[8px] text-gray-500">{founder.seriesNum}</span>
+          <span className="font-mono text-[8px] text-gray-600">|</span>
+          <span className="font-mono text-[8px] tracking-wider" style={{ color: founder.rarity === "FOUNDER'S EDITION" ? '#C8A44D' : founder.rarity === 'CORE' ? '#6B7280' : founder.accent }}>
+            {founder.rarity}
+          </span>
+        </div>
+
         {/* Roast badge */}
         <span className="font-mono text-[9px] tracking-[0.35em] uppercase self-start px-2.5 py-1" style={{ color: founder.accent, border: `1px solid ${founder.accent}28`, background: `${founder.accent}08` }}>
           {founder.roast}
@@ -91,7 +122,7 @@ function FounderCard({ founder, index }) {
         <div>
           <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>{founder.name}</p>
           <h3 className="font-serif text-white leading-none mb-1" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2rem)', fontWeight: 700 }}>{founder.short}</h3>
-          <p className="font-mono text-[10px] tracking-widest" style={{ color: `${founder.accent}66` }}>Founders Blend</p>
+          <p className="font-mono text-[10px] tracking-widest" style={{ color: `${founder.accent}66` }}>Founders Series</p>
         </div>
 
         {/* Tasting notes */}
@@ -110,7 +141,7 @@ function FounderCard({ founder, index }) {
           className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
           style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}
         >
-          Shop This Blend
+          Carry the Flame →
         </a>
       </div>
     </motion.div>
@@ -130,6 +161,8 @@ export default function FoundersSeriesSection() {
             <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700 }}>
+            The Founders Series
+          </h2>
           <p className="text-gray-500 font-mono text-sm max-w-lg mx-auto leading-relaxed">
             Six premium roasts. Six American archetypes. Each blend honors a founder whose conviction shaped a nation.
           </p>

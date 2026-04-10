@@ -43,14 +43,14 @@ export default function NewsletterSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Join the Torchbearers</span>
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Become a Torchbearer</span>
             <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
-            Join the Republic
+            Carry the Flame First.
           </h2>
           <p className="text-gray-400 text-sm mb-8">
-            Get first access to new Founder blends, limited drops, and subscriber-only offers. Plus 15% off your first order.
+            Access exclusive blends, early drops, and members-only releases. Built for those who stand firm — not the general public.
           </p>
 
           {optimisticSubmit ? (

@@ -80,7 +80,9 @@ export default function CuratedApparel() {
               <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Apparel</span>
             </div>
             <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
-            <p className="text-gray-600 font-mono text-xs mt-2">Curated. Premium. Purpose-driven.</p>
+              Carry the Brand.
+            </h2>
+            <p className="text-gray-600 font-mono text-xs mt-2">Built for those who stand firm.</p>
           </div>
           <a
             href="https://torch-republic.com/collections/all"

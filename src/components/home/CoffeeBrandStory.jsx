@@ -32,9 +32,11 @@ export default function CoffeeBrandStory() {
             <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Why Torch Republic Coffee</span>
           </div>
           <h2 className="font-serif text-white leading-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
+            Coffee is the medium.<br />
+            <span style={{ color: '#C8A44D' }}>History is the message.</span>
+          </h2>
           <p className="text-gray-500 text-sm leading-relaxed">
-            Torch Republic began as patriotic apparel. Now it's something more — a premium coffee company and heritage lifestyle brand.
-            The Founders Series is our core: collectible, historical, and built for people who think deeply about what they stand for.
+            Torch Republic exists to preserve, teach, and pass down the ideas that built civilization — through everyday ritual. The flame is yours to carry.
           </p>
         </div>
 

@@ -48,8 +48,8 @@ export default function CoffeeHeroSection() {
             className="font-serif leading-[1.0] tracking-tight text-white mb-6"
             style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', fontWeight: 800 }}
           >
-            History in<br />
-            <span style={{ color: '#C8A44D' }}>Every Cup.</span>
+            Carry the<br />
+            <span style={{ color: '#C8A44D' }}>Flame.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -58,11 +58,10 @@ export default function CoffeeHeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
             className="leading-relaxed mb-10"
-            style={{ color: 'rgba(232,223,175,0.75)' }}
-            style={{ fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', maxWidth: '500px' }}
+            style={{ color: 'rgba(232,223,175,0.75)', fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', maxWidth: '500px' }}
           >
-            Collectible founder-inspired roasts crafted for patriots, thinkers, and builders.
-            Premium small-batch coffee honoring America's greatest figures — one blend at a time.
+            Coffee for those who think, build, and refuse to follow.
+            Premium small-batch roasts honoring history's greatest figures — one collectible blend at a time.
           </motion.p>
 
           {/* CTAs */}
@@ -77,15 +76,15 @@ export default function CoffeeHeroSection() {
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
               style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(200,164,77,0.2)' }}
             >
-              Shop Coffee
+              Shop the Founders Series
             </a>
-            <button
-              onClick={() => document.getElementById('founders-series')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="/TheTorchBox"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
               style={{ background: 'transparent', border: '1px solid rgba(200,164,77,0.4)', color: '#C8A44D' }}
             >
-              Explore the Series →
-            </button>
+              Join Torch Box →
+            </a>
           </motion.div>
 
           {/* Trust micro-line */}
