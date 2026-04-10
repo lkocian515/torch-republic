@@ -6,7 +6,7 @@ import CoffeeHeroSection from '../components/home/CoffeeHeroSection';
 import FoundersSeriesSection from '../components/home/FoundersSeriesSection';
 import CoffeeBrandStory from '../components/home/CoffeeBrandStory';
 import CoffeeLifestyleBanner from '../components/home/CoffeeLifestyleBanner';
-import CuratedApparel from '../components/home/CuratedApparel';
+
 import CollectorSystemSection from '../components/home/CollectorSystemSection';
 import SeriesExpansionSection from '../components/home/SeriesExpansionSection';
 import BuildCollectionSection from '../components/home/BuildCollectionSection';
@@ -33,7 +33,6 @@ export default function Home() {
         <CoffeeLifestyleBanner />
         <BuildCollectionSection />
         <TorchBoxTiers />
-        <CuratedApparel />
         <SeriesExpansionSection />
         <NewsletterSection />
         <CustomerReviews />

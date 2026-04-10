@@ -106,7 +106,8 @@ function FounderCard({ founder, index }) {
       className="group relative flex flex-col"
       style={{
         background: `linear-gradient(160deg, ${founder.color} 0%, #050505 100%)`,
-        border: '1px solid rgba(200,164,77,0.1)',
+        border: '1px solid rgba(200,164,77,0.18)',
+        boxShadow: '0 2px 20px rgba(0,0,0,0.6)',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
       }}
       onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.45)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(196,163,90,0.15)'; }}
@@ -135,14 +136,14 @@ function FounderCard({ founder, index }) {
       <div className="p-6 md:p-7 flex flex-col gap-4 flex-1">
         {/* Identity bar */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-0.5" style={{ color: founder.accent, background: `${founder.accent}12`, border: `1px solid ${founder.accent}30` }}>
+          <span className="font-mono text-[11px] font-bold tracking-wider px-2.5 py-1" style={{ color: founder.accent, background: `${founder.accent}18`, border: `1px solid ${founder.accent}50` }}>
             {founder.code}
           </span>
-          <span className="font-mono text-[8px] text-gray-600">|</span>
-          <span className="font-mono text-[8px] text-gray-500">{founder.seriesNum}</span>
-          <span className="font-mono text-[8px] text-gray-600">|</span>
+          <span className="font-mono text-[9px] text-gray-600">|</span>
+          <span className="font-mono text-[9px] text-gray-500">{founder.seriesNum}</span>
+          <span className="font-mono text-[9px] text-gray-600">|</span>
           <span
-            className="font-mono text-[8px] tracking-wider px-2 py-0.5"
+            className="font-mono text-[10px] tracking-wider px-2.5 py-1 font-bold"
             style={{
               color: founder.rarity === "FOUNDER'S EDITION" ? '#E8D08A' : '#6B7280',
               background: founder.rarity === "FOUNDER'S EDITION" ? 'linear-gradient(90deg, rgba(196,163,90,0.15), rgba(232,208,138,0.2), rgba(196,163,90,0.15))' : 'transparent',
@@ -202,7 +203,7 @@ export default function FoundersSeriesSection() {
           <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700 }}>
             The Founders Series
           </h2>
-          <p className="text-gray-500 font-mono text-sm max-w-lg mx-auto leading-relaxed">
+          <p className="text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
             Six premium roasts. Six American archetypes. Each blend honors a founder whose conviction shaped a nation.
           </p>
         </div>

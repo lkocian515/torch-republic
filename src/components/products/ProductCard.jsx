@@ -52,6 +52,7 @@ export default function ProductCard({ product, index = 0 }) {
           window.location.href = productUrl;
         }}
         className={`group block ${productUrl ? 'cursor-pointer' : 'cursor-default opacity-70'}`}
+        style={{ background: 'linear-gradient(160deg, #0a0a0a 0%, #050505 100%)', border: '1px solid rgba(200,164,77,0.12)', padding: '0 0 8px' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -97,7 +98,7 @@ export default function ProductCard({ product, index = 0 }) {
             hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
             <div className="space-y-2">
-              <div className="p-3 text-center" style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)' }}>
+              <div className="p-3 text-center" style={{ background: '#C4A35A' }}>
                 <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
                   Shop Now →
                 </span>
@@ -150,7 +151,7 @@ export default function ProductCard({ product, index = 0 }) {
                 {product.rating?.toFixed(1)}
               </span>
               {product.review_count > 0 && (
-                <span className="text-xs font-mono text-gray-500">({product.review_count} reviews)</span>
+                <span className="text-xs text-gray-500">({product.review_count} reviews)</span>
               )}
             </div>
           )}

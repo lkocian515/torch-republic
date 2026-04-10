@@ -87,7 +87,7 @@ export default function Footer() {
             className="h-8 w-auto opacity-60"
           />
           <p className="text-xs font-mono text-center" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            © 2026 Torch Republic™ &nbsp;·&nbsp; A brand of LiberTees for All Apparel LLC
+            © 2026 Torch Republic™
           </p>
         </div>
       </div>

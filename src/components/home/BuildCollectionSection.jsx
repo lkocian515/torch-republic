@@ -94,7 +94,7 @@ function BundleCard({ b, i }) {
           href={`https://torch-republic.com/products/${b.handle}`}
           className="py-3.5 text-center font-heading font-black text-xs tracking-[0.2em] uppercase transition-all"
           style={b.featured
-            ? { background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${b.accent} 100%)`, color: '#fff' }
+            ? { background: '#C4A35A', color: '#000', boxShadow: '0 4px 20px rgba(196,163,90,0.25)' }
             : { border: `1px solid ${b.accent}40`, color: b.accent, background: `${b.accent}08` }
           }
         >

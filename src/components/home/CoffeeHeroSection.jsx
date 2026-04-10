@@ -74,7 +74,7 @@ export default function CoffeeHeroSection() {
             <a
               href="/CoffeeCollection"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
-              style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(200,164,77,0.2)' }}
+              style={{ background: '#C4A35A', color: '#000', boxShadow: '0 4px 30px rgba(196,163,90,0.3)' }}
             >
               Shop the Founders Series
             </a>

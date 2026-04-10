@@ -60,7 +60,8 @@ function ProductCard({ p, index }) {
       className="group relative flex flex-col"
       style={{
         background: `linear-gradient(160deg, ${p.color} 0%, #050505 100%)`,
-        border: '1px solid rgba(200,164,77,0.1)',
+        border: '1px solid rgba(200,164,77,0.18)',
+        boxShadow: '0 2px 20px rgba(0,0,0,0.6)',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
       }}
       onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.45)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(196,163,90,0.15)'; }}
@@ -84,8 +85,8 @@ function ProductCard({ p, index }) {
       </div>
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[9px] font-bold tracking-wider" style={{ color: p.accent }}>{p.code}</span>
-          <span className="font-mono text-[8px] text-gray-700">·</span>
+          <span className="font-mono text-[11px] font-bold tracking-wider px-2 py-0.5" style={{ color: p.accent, background: `${p.accent}15`, border: `1px solid ${p.accent}40` }}>{p.code}</span>
+          <span className="font-mono text-[9px] text-gray-700">·</span>
           <span className="font-mono text-[9px] text-gray-500">{p.seriesNum}</span>
         </div>
         <div>
@@ -124,7 +125,7 @@ export default function CoffeeCollection() {
             The Torch Index
           </h1>
           <p className="font-mono text-sm mb-2" style={{ color: 'rgba(196,163,90,0.7)' }}>History in Every Cup. Collect before they're gone.</p>
-          <p className="font-mono text-xs max-w-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-xs max-w-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
             Every product in the Torch Republic catalog has a permanent identity number. Some are CORE — always available. Others retire to the Archive forever.
           </p>
         </div>
@@ -161,7 +162,7 @@ export default function CoffeeCollection() {
         <h2 className="font-serif text-white mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', fontWeight: 700 }}>Build Your Collection</h2>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/" className="inline-flex items-center justify-center px-8 py-3.5 font-mono text-xs tracking-[0.2em] uppercase"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C4A35A 100%)', color: '#fff' }}>
+            style={{ background: '#C4A35A', color: '#000' }}>
             See All Bundles
           </Link>
           <Link to="/TheTorchBox" className="inline-flex items-center justify-center px-8 py-3.5 font-mono text-xs tracking-[0.2em] uppercase"
