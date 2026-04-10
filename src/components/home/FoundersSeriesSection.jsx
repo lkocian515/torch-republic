@@ -222,7 +222,7 @@ export default function FoundersSeriesSection() {
         {/* View all */}
         <div className="text-center mt-12">
           <a
-            href="https://torch-republic.com/collections/coffee"
+            href="/CoffeeCollection"
             className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase"
             style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#C8A44D' }}
           >

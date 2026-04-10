@@ -5,8 +5,8 @@ import { Menu, X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MAIN_NAV = [
-  { label: 'Coffee', href: '/collections/coffee' },
-  { label: 'Founders Series', href: '/#founders-series' },
+  { label: 'Coffee', href: '/CoffeeCollection' },
+  { label: 'Founders Series', href: '/CoffeeCollection' },
   { label: 'Torch Box', href: '/TheTorchBox' },
   { label: 'Journal', href: '/Journal' },
   { label: 'Shop', href: '/Shop' },

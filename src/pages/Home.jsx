@@ -10,6 +10,7 @@ import CuratedApparel from '../components/home/CuratedApparel';
 import CollectorSystemSection from '../components/home/CollectorSystemSection';
 import SeriesExpansionSection from '../components/home/SeriesExpansionSection';
 import BuildCollectionSection from '../components/home/BuildCollectionSection';
+import TorchBoxTiers from '../components/home/TorchBoxTiers';
 import NewsletterSection from '../components/home/NewsletterSection';
 import CoffeeTrustBar from '../components/home/CoffeeTrustBar';
 import CustomerReviews from '../components/home/CustomerReviews';
@@ -31,6 +32,7 @@ export default function Home() {
         <CoffeeBrandStory />
         <CoffeeLifestyleBanner />
         <BuildCollectionSection />
+        <TorchBoxTiers />
         <CuratedApparel />
         <SeriesExpansionSection />
         <NewsletterSection />

@@ -6,10 +6,10 @@ const FOOTER_LINKS = [
   {
     heading: 'Coffee',
     links: [
-      { label: 'Founders Series', href: 'https://torch-republic.com/collections/coffee', external: true },
-      { label: 'Washington Blend', href: 'https://torch-republic.com/products/washington-blend', external: true },
-      { label: 'Jefferson Blend', href: 'https://torch-republic.com/products/jefferson-blend', external: true },
-      { label: 'Shop All Coffee', href: 'https://torch-republic.com/collections/coffee', external: true },
+      { label: 'Founders Series', href: '/CoffeeCollection' },
+      { label: 'Torch Index', href: '/CoffeeCollection' },
+      { label: 'Torch Box', href: '/TheTorchBox' },
+      { label: 'Gift Bundles', href: '/' },
     ]
   },
   {
@@ -58,27 +58,17 @@ export default function Footer() {
                 </h3>
                 <ul className="space-y-3.5">
                   {section.links.map(link => (
-                    <li key={link.label}>
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-mono transition-colors hover:text-white"
-                          style={{ color: 'rgba(255,255,255,0.35)' }}
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Link
-                          to={`/${link.page}`}
-                          className="text-xs font-mono transition-colors hover:text-white"
-                          style={{ color: 'rgba(255,255,255,0.35)' }}
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
+                   <li key={link.label}>
+                     {link.href ? (
+                       <Link to={link.href} className="text-xs font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                         {link.label}
+                       </Link>
+                     ) : (
+                       <Link to={`/${link.page}`} className="text-xs font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                         {link.label}
+                       </Link>
+                     )}
+                   </li>
                   ))}
                 </ul>
               </div>
