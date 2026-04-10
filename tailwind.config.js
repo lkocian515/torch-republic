@@ -44,7 +44,7 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         navy: "#0E2A2F",
-        gold: "#C4A35A",
+        gold: "#C9A24A",
         "gold-dark": "#9B7B2F",
         "gold-highlight": "#E8D08A",
         "gold-cream": "#F2ECD8",
