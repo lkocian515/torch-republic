@@ -12,7 +12,7 @@ const DATA = {
   price: '$18.99',
   shopifyHandle: 'washington-blend',
   accent: '#C8A44D',
-  heroImage: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1200&q=80',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
   hook: [
     'Built for those who lead from the front.',
     'A bold, full-bodied roast designed for early mornings, long days, and unwavering focus.',

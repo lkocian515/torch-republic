@@ -8,7 +8,7 @@ const PRODUCTS = [
     name: 'Washington Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
     price: '$18.99', accent: '#C8A44D', color: '#160D04',
     route: '/WashingtonBlend',
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
   },
   {
     code: 'TR-002', seriesNum: 'Founders #02', rarity: "FOUNDER'S EDITION",

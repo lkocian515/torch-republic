@@ -15,7 +15,7 @@ const FOUNDERS = [
     code: 'TR-001',
     seriesNum: 'Founders #01',
     rarity: "FOUNDER'S EDITION",
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
   },
   {
     name: 'Thomas Jefferson',
