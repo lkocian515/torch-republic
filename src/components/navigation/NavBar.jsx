@@ -83,7 +83,7 @@ export default function NavBar() {
         <div className="flex justify-center py-3">
           <Link to="/" className="flex items-center">
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
               alt="Torch Republic"
               className="h-16 md:h-20 w-auto"
             />
