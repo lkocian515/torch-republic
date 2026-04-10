@@ -45,8 +45,8 @@ export default function CoffeeHeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="font-heading font-black uppercase leading-[1.0] tracking-tight text-white mb-6"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}
+            className="font-serif leading-[1.0] tracking-tight text-white mb-6"
+            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', fontWeight: 800 }}
           >
             History in<br />
             <span style={{ color: '#C8A44D' }}>Every Cup.</span>
@@ -57,7 +57,8 @@ export default function CoffeeHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="text-gray-300 leading-relaxed mb-10"
+            className="leading-relaxed mb-10"
+            style={{ color: 'rgba(232,223,175,0.75)' }}
             style={{ fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', maxWidth: '500px' }}
           >
             Collectible founder-inspired roasts crafted for patriots, thinkers, and builders.

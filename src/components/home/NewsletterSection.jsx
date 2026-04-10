@@ -46,7 +46,7 @@ export default function NewsletterSection() {
             <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Join the Torchbearers</span>
             <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-3">
+          <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
             Join the Republic
           </h2>
           <p className="text-gray-400 text-sm mb-8">

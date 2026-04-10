@@ -5,10 +5,10 @@ import { Menu, X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MAIN_NAV = [
+  { label: 'Coffee', href: 'https://torch-republic.com/collections/coffee', external: true },
+  { label: 'Founders Series', href: '/BestSellers?category=coffee' },
+  { label: 'Journal', href: '/Journal' },
   { label: 'Shop', href: '/Shop' },
-  { label: 'New Drops', href: '/Shop?section=new-drops' },
-  { label: 'Best Sellers', href: '/BestSellers' },
-  { label: 'The Torch Box', href: '/TheTorchBox' },
   { label: 'About', href: '/Mission' },
 ];
 
@@ -37,8 +37,8 @@ export default function NavBar() {
 
   return (
     <nav ref={navRef} className={`w-full transition-all duration-500 ${
-      scrolled ? 'bg-background/98 backdrop-blur-md border-b border-border' : 'bg-background/60 backdrop-blur-sm'
-    }`}>
+      scrolled ? 'bg-black/98 backdrop-blur-md border-b' : 'bg-black/70 backdrop-blur-sm'
+    }`} style={{ borderColor: 'rgba(200,164,77,0.12)' }}>
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="relative flex items-center justify-between h-14 md:h-16">
 
@@ -48,8 +48,8 @@ export default function NavBar() {
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            {/* Desktop nav - simplified */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-7">
               {MAIN_NAV.map((item) => 
                 item.external ? (
                   <a
@@ -57,7 +57,8 @@ export default function NavBar() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono tracking-widest uppercase transition-colors hover:text-primary text-muted-foreground"
+                    className="text-xs font-mono tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ color: item.label === 'Coffee' ? '#C8A44D' : 'rgba(255,255,255,0.55)' }}
                   >
                     {item.label}
                   </a>
@@ -65,7 +66,8 @@ export default function NavBar() {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className="text-xs font-mono tracking-widest uppercase transition-colors hover:text-primary text-muted-foreground"
+                    className="text-xs font-mono tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ color: 'rgba(255,255,255,0.55)' }}
                   >
                     {item.label}
                   </Link>
@@ -83,12 +85,12 @@ export default function NavBar() {
         </div>
 
         {/* Center: Logo */}
-        <div className="flex justify-center py-4">
+        <div className="flex justify-center py-3">
           <Link to="/" className="flex items-center">
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/c53d23798_IMG_20260213_173838.png"
               alt="Torch Republic"
-              className="h-20 md:h-24 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
         </div>
@@ -103,7 +105,7 @@ export default function NavBar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
           >
-            <div className="px-6 py-6 space-y-4">
+            <div className="px-6 py-8 space-y-5">
               {MAIN_NAV.map((item) =>
                 item.external ? (
                   <a
@@ -112,7 +114,8 @@ export default function NavBar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={close}
-                    className="block text-base font-heading font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+                    className="block text-sm font-mono tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ color: item.label === 'Coffee' ? '#C8A44D' : 'rgba(255,255,255,0.6)' }}
                   >
                     {item.label}
                   </a>
@@ -121,7 +124,8 @@ export default function NavBar() {
                     key={item.label}
                     to={item.href}
                     onClick={close}
-                    className="block text-base font-heading font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+                    className="block text-sm font-mono tracking-[0.15em] transition-colors hover:text-primary"
+                    style={{ color: 'rgba(255,255,255,0.6)' }}
                   >
                     {item.label}
                   </Link>

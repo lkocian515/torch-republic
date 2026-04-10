@@ -79,9 +79,7 @@ export default function CuratedApparel() {
               <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
               <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Apparel</span>
             </div>
-            <h2 className="font-heading font-black uppercase text-white tracking-tight" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}>
-              Wear the Standard
-            </h2>
+            <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
             <p className="text-gray-600 font-mono text-xs mt-2">Curated. Premium. Purpose-driven.</p>
           </div>
           <a

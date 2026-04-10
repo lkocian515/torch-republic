@@ -63,9 +63,7 @@ export default function CustomerReviews() {
             </span>
             <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
           </div>
-          <h2 className="text-2xl md:text-3xl font-heading font-black uppercase tracking-tight text-white">
-            What Patriots Are Saying
-          </h2>
+          <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 700 }}>
         </div>
 
         {/* Reviews Grid */}

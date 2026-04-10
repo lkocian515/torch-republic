@@ -43,8 +43,8 @@ export default function CoffeeLifestyleBanner() {
           </div>
 
           <h2
-            className="font-heading font-black uppercase text-white leading-tight tracking-tight mb-6"
-            style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)' }}
+            className="font-serif text-white leading-tight mb-6"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', fontWeight: 700 }}
           >
             Built for mornings<br />
             <span style={{ color: '#C8A44D' }}>with purpose.</span>

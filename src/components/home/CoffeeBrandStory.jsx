@@ -31,9 +31,7 @@ export default function CoffeeBrandStory() {
             <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
             <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Why Torch Republic Coffee</span>
           </div>
-          <h2 className="font-heading font-black uppercase text-white leading-tight tracking-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}>
-            Not a Merch Brand.<br />A Coffee Company.
-          </h2>
+          <h2 className="font-serif text-white leading-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
           <p className="text-gray-500 text-sm leading-relaxed">
             Torch Republic began as patriotic apparel. Now it's something more — a premium coffee company and heritage lifestyle brand.
             The Founders Series is our core: collectible, historical, and built for people who think deeply about what they stand for.
@@ -55,7 +53,7 @@ export default function CoffeeBrandStory() {
               <div className="w-10 h-10 flex items-center justify-center mb-5" style={{ background: 'rgba(200,164,77,0.08)', border: '1px solid rgba(200,164,77,0.2)' }}>
                 <p.icon className="w-5 h-5" style={{ color: '#C8A44D' }} />
               </div>
-              <h3 className="font-heading font-black text-white uppercase tracking-tight mb-3 text-lg">{p.title}</h3>
+              <h3 className="font-serif text-white mb-3" style={{ fontSize: '1.25rem', fontWeight: 600 }}>{p.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{p.body}</p>
             </motion.div>
           ))}

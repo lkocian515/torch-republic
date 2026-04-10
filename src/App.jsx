@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 import Reviews from './pages/Reviews';
+import Journal from './pages/Journal';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
 import Shop from './pages/Shop';
@@ -55,6 +56,7 @@ const AuthenticatedApp = () => {
       <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
       <Route path="/Shop" element={<LayoutWrapper currentPageName="Shop"><Shop /></LayoutWrapper>} />
       <Route path="/TheTorchBox" element={<LayoutWrapper currentPageName="TheTorchBox"><TheTorchBox /></LayoutWrapper>} />
+      <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
