@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 import Reviews from './pages/Reviews';
 import WashingtonBlend from './pages/WashingtonBlend';
+import LincolnBlend from './pages/LincolnBlend';
 import JeffersonBlend from './pages/JeffersonBlend';
 import FranklinBlend from './pages/FranklinBlend';
 import Journal from './pages/Journal';
@@ -63,6 +64,7 @@ const AuthenticatedApp = () => {
       <Route path="/WashingtonBlend" element={<LayoutWrapper currentPageName="WashingtonBlend"><WashingtonBlend /></LayoutWrapper>} />
       <Route path="/JeffersonBlend" element={<LayoutWrapper currentPageName="JeffersonBlend"><JeffersonBlend /></LayoutWrapper>} />
       <Route path="/FranklinBlend" element={<LayoutWrapper currentPageName="FranklinBlend"><FranklinBlend /></LayoutWrapper>} />
+      <Route path="/LincolnBlend" element={<LayoutWrapper currentPageName="LincolnBlend"><LincolnBlend /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>

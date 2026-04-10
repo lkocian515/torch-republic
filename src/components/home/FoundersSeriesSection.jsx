@@ -56,7 +56,7 @@ const FOUNDERS = [
     code: 'TR-005',
     seriesNum: 'Founders #05',
     rarity: 'CORE',
-    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
   },
   {
     name: 'Theodore Roosevelt',
