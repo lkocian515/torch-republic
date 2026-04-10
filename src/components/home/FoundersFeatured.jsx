@@ -47,18 +47,20 @@ export default function FoundersFeatured() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-28">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>Flagship Collection</p>
+        <div className="text-center mb-20">
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>
+            Flagship Collection
+          </p>
           <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.01em' }}>
             The Founders Series
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontWeight: 300, fontSize: '0.95rem', maxWidth: '420px', margin: '0 auto', lineHeight: 1.8 }}>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: 300, maxWidth: '380px', margin: '0 auto' }}>
             A collectible coffee line inspired by the architects of freedom.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {FEATURED.map((f, i) => (
             <motion.div
               key={f.code}
@@ -90,7 +92,6 @@ export default function FoundersFeatured() {
                   style={{ opacity: 0.7 }}
                 />
                 <div className="absolute inset-0" style={{ background: `linear-gradient(to top, #111111 0%, transparent 60%)` }} />
-                {/* Code stamp */}
                 <div className="absolute top-3 left-3">
                   <span className="font-mono text-[10px] font-black tracking-widest px-2.5 py-1" style={{ background: '#C9A24A', color: '#0B0B0B' }}>
                     {f.code}
