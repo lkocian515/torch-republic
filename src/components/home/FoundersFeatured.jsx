@@ -46,13 +46,15 @@ export default function FoundersFeatured() {
     <section style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.08)' }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-28">
 
-        {/* Section label */}
-        <div className="flex items-center gap-5 mb-20">
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.3))' }} />
-          <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-            Founders Series
-          </span>
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.3), transparent)' }} />
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>Flagship Collection</p>
+          <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.01em' }}>
+            The Founders Series
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontWeight: 300, fontSize: '0.95rem', maxWidth: '420px', margin: '0 auto', lineHeight: 1.8 }}>
+            A collectible coffee line inspired by the architects of freedom.
+          </p>
         </div>
 
         {/* Cards */}

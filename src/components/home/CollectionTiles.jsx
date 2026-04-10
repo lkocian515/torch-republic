@@ -5,24 +5,24 @@ import { Link } from 'react-router-dom';
 const TILES = [
   {
     label: 'Founders Coffee',
-    sub: 'Six collectible roasts. Limited edition.',
-    link: '/CoffeeCollection',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d9a87ee6a_torch_republic_cinematic_hero.png',
-    cta: 'Shop Coffee',
+    sub: 'Six blends. Six archetypes.',
+    href: '/CoffeeCollection',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
+    cta: 'Explore the Series',
   },
   {
     label: 'Apparel',
-    sub: 'Wear the mission.',
-    link: '/Shop',
-    image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80',
-    cta: 'Browse Shop',
+    sub: 'Wear what you stand for.',
+    href: '/Shop',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80',
+    cta: 'Shop Apparel',
   },
   {
     label: 'The Torch Box',
-    sub: 'Monthly drops. For those who collect.',
-    link: '/TheTorchBox',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/d7b6f1c99_Untitleddesign_20260310_044300_0000.png',
-    cta: 'Join Now',
+    sub: 'Monthly. Premium. Yours.',
+    href: '/TheTorchBox',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
+    cta: 'Become a Torchbearer',
   },
 ];
 

@@ -3,8 +3,6 @@ import PremiumHero from '../components/home/PremiumHero';
 import FoundersFeatured from '../components/home/FoundersFeatured';
 import BrandStatement from '../components/home/BrandStatement';
 import CollectionTiles from '../components/home/CollectionTiles';
-import TorchBoxFeature from '../components/home/TorchBoxFeature';
-import SocialProof from '../components/home/SocialProof';
 import NewsletterSection from '../components/home/NewsletterSection';
 
 export default function Home() {
@@ -14,8 +12,6 @@ export default function Home() {
       <FoundersFeatured />
       <BrandStatement />
       <CollectionTiles />
-      <TorchBoxFeature />
-      <SocialProof />
       <NewsletterSection />
     </div>
   );
