@@ -28,7 +28,7 @@ const FOUNDERS = [
     code: 'TR-002',
     seriesNum: 'Founders #02',
     rarity: "FOUNDER'S EDITION",
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jefferson_mockup_study.png?v=1775823812',
   },
   {
     name: 'Benjamin Franklin',

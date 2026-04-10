@@ -12,7 +12,7 @@ const DATA = {
   price: '$18.99',
   shopifyHandle: 'jefferson-blend',
   accent: '#9BB8CC',
-  heroImage: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jefferson_mockup_study.png?v=1775823812',
   hook: [
     'Balanced, smooth, and layered.',
     'Built for thinkers, creators, and those who see beyond the moment.',
