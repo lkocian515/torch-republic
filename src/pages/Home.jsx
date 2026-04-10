@@ -1,53 +1,22 @@
-import React, { useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { useQueryClient } from '@tanstack/react-query';
-import PullToRefresh from '../components/mobile/PullToRefresh';
-import CoffeeHeroSection from '../components/home/CoffeeHeroSection';
-import FoundersSeriesSection from '../components/home/FoundersSeriesSection';
-import CoffeeBrandStory from '../components/home/CoffeeBrandStory';
-import CoffeeLifestyleBanner from '../components/home/CoffeeLifestyleBanner';
-
-import CollectorSystemSection from '../components/home/CollectorSystemSection';
-import SeriesExpansionSection from '../components/home/SeriesExpansionSection';
-import BuildCollectionSection from '../components/home/BuildCollectionSection';
-import TorchBoxTiers from '../components/home/TorchBoxTiers';
+import React from 'react';
+import PremiumHero from '../components/home/PremiumHero';
+import FoundersFeatured from '../components/home/FoundersFeatured';
+import BrandStatement from '../components/home/BrandStatement';
+import CollectionTiles from '../components/home/CollectionTiles';
+import TorchBoxFeature from '../components/home/TorchBoxFeature';
+import SocialProof from '../components/home/SocialProof';
 import NewsletterSection from '../components/home/NewsletterSection';
-import CoffeeTrustBar from '../components/home/CoffeeTrustBar';
-import CustomerReviews from '../components/home/CustomerReviews';
 
 export default function Home() {
-  const queryClient = useQueryClient();
-  
-  const handleRefresh = useCallback(async () => {
-    await queryClient.invalidateQueries({ queryKey: ['products'] });
-  }, [queryClient]);
-
   return (
-    <PullToRefresh onRefresh={handleRefresh}>
-      <div className="min-h-screen">
-        <CoffeeHeroSection />
-        <CoffeeTrustBar />
-        <FoundersSeriesSection />
-        <CollectorSystemSection />
-        <CoffeeBrandStory />
-        <CoffeeLifestyleBanner />
-        <BuildCollectionSection />
-        <TorchBoxTiers />
-        <SeriesExpansionSection />
-        <NewsletterSection />
-        <CustomerReviews />
-
-        {/* Sticky mobile CTA */}
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-4 pb-4 pt-2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.98) 70%, transparent)' }}>
-          <a
-            href="https://torch-republic.com/collections/coffee"
-            className="flex items-center justify-center w-full py-4 font-heading font-black text-sm tracking-widest uppercase"
-            style={{ backgroundColor: '#C9A24A', color: '#000' }}
-          >
-            Shop Coffee
-          </a>
-        </div>
-      </div>
-    </PullToRefresh>
+    <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B' }}>
+      <PremiumHero />
+      <FoundersFeatured />
+      <BrandStatement />
+      <CollectionTiles />
+      <TorchBoxFeature />
+      <SocialProof />
+      <NewsletterSection />
+    </div>
   );
 }

@@ -33,7 +33,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#030303', borderTop: '1px solid rgba(200,164,77,0.1)' }}>
+    <footer style={{ background: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
       {/* Top manifesto */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 mb-16">
