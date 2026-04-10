@@ -76,15 +76,29 @@ export default function FounderProductPage({ data }) {
               {title}
             </h1>
 
-            {/* Hook */}
-            <p style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
+            {/* Subline */}
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(201,162,74,0.5)' }}>
               Crafted for thinkers, builders, and patriots.
             </p>
 
-            {/* Tasting notes inline */}
-            <p className="font-mono text-xs tracking-widest" style={{ color: 'rgba(201,162,74,0.6)' }}>
-              {tastingNotes.join(' · ')}
-            </p>
+            {/* Description block */}
+            <div style={{ borderLeft: '1px solid rgba(201,162,74,0.15)', paddingLeft: '1.25rem' }}>
+              <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300, marginBottom: '1rem' }}>
+                A bold, historically inspired roast built for clarity and conviction.
+              </p>
+              <p className="font-mono text-[10px] mb-2" style={{ color: 'rgba(201,162,74,0.5)', letterSpacing: '0.1em' }}>Notes of:</p>
+              <div className="space-y-1.5 mb-4">
+                {tastingNotes.map(n => (
+                  <div key={n} className="flex items-center gap-3">
+                    <span style={{ color: 'rgba(201,162,74,0.4)', fontSize: '0.75rem' }}>•</span>
+                    <span className="font-mono text-[11px]" style={{ color: 'rgba(240,235,225,0.4)' }}>{n}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: 'rgba(201,162,74,0.35)' }}>
+                Part of the Founders Series.
+              </p>
+            </div>
 
             {/* Divider */}
             <div className="h-px w-full" style={{ background: 'rgba(201,162,74,0.1)' }} />
