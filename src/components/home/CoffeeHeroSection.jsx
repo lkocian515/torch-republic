@@ -9,7 +9,7 @@ export default function CoffeeHeroSection() {
       {/* Background image — founders coffee */}
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/499adec76_file_00000000457c71f58ce4377bbc72d356.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d9a87ee6a_torch_republic_cinematic_hero.png"
           alt="Founders Series Coffee"
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center center', opacity: 0.55 }}
