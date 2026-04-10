@@ -105,13 +105,13 @@ function FounderCard({ founder, index }) {
       transition={{ delay: index * 0.07 }}
       className="group relative flex flex-col"
       style={{
-        background: `linear-gradient(160deg, ${founder.color} 0%, #050505 100%)`,
-        border: '1px solid rgba(200,164,77,0.18)',
+        background: `linear-gradient(160deg, ${founder.color} 0%, #0F1422 100%)`,
+        border: '1px solid rgba(196,163,90,0.2)',
         boxShadow: '0 2px 20px rgba(0,0,0,0.6)',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
       }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.45)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(196,163,90,0.15)'; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(200,164,77,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.6)'; e.currentTarget.style.boxShadow = '0 0 16px rgba(196,163,90,0.12)'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(196,163,90,0.2)'; e.currentTarget.style.boxShadow = '0 2px 20px rgba(0,0,0,0.6)'; }}
   >
       {/* Top accent line */}
       <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${founder.accent}88, transparent)` }} />
@@ -127,7 +127,7 @@ function FounderCard({ founder, index }) {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${founder.color}EE 0%, transparent 55%)` }} />
         <div className="absolute bottom-3 left-3">
-          <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-1" style={{ color: founder.accent, background: 'rgba(0,0,0,0.7)', border: `1px solid ${founder.accent}40` }}>
+          <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ color: '#0A0D14', background: founder.accent, letterSpacing: '0.15em' }}>
             {founder.code}
           </span>
         </div>
@@ -136,18 +136,16 @@ function FounderCard({ founder, index }) {
       <div className="p-6 md:p-7 flex flex-col gap-4 flex-1">
         {/* Identity bar */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-mono text-[11px] font-bold tracking-wider px-2.5 py-1" style={{ color: founder.accent, background: `${founder.accent}18`, border: `1px solid ${founder.accent}50` }}>
+          <span className="font-mono text-xs font-black tracking-widest px-3 py-1" style={{ color: '#0A0D14', background: founder.accent }}>
             {founder.code}
           </span>
-          <span className="font-mono text-[9px] text-gray-600">|</span>
           <span className="font-mono text-[9px] text-gray-500">{founder.seriesNum}</span>
-          <span className="font-mono text-[9px] text-gray-600">|</span>
           <span
-            className="font-mono text-[10px] tracking-wider px-2.5 py-1 font-bold"
+            className="font-mono text-[11px] tracking-wider px-3 py-1 font-black uppercase"
             style={{
-              color: founder.rarity === "FOUNDER'S EDITION" ? '#E8D08A' : '#6B7280',
-              background: founder.rarity === "FOUNDER'S EDITION" ? 'linear-gradient(90deg, rgba(196,163,90,0.15), rgba(232,208,138,0.2), rgba(196,163,90,0.15))' : 'transparent',
-              border: founder.rarity === "FOUNDER'S EDITION" ? '1px solid rgba(232,208,138,0.3)' : 'none',
+              color: founder.rarity === "FOUNDER'S EDITION" ? '#0A0D14' : '#9CA3AF',
+              background: founder.rarity === "FOUNDER'S EDITION" ? '#C4A35A' : 'transparent',
+              border: founder.rarity === "FOUNDER'S EDITION" ? 'none' : '1px solid rgba(107,114,128,0.3)',
             }}
           >
             {founder.rarity}
@@ -155,15 +153,15 @@ function FounderCard({ founder, index }) {
         </div>
 
         {/* Roast badge */}
-        <span className="font-mono text-[9px] tracking-[0.35em] uppercase self-start px-2.5 py-1" style={{ color: founder.accent, border: `1px solid ${founder.accent}28`, background: `${founder.accent}08` }}>
+        <span className="font-mono text-[9px] tracking-[0.35em] uppercase self-start px-2.5 py-1" style={{ color: founder.accent, border: `1px solid ${founder.accent}40`, background: `${founder.accent}10` }}>
           {founder.roast}
         </span>
 
         {/* Name */}
         <div>
-          <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>{founder.name}</p>
+          <p className="text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-heading)' }}>{founder.name}</p>
           <h3 className="font-serif text-white leading-none mb-1" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2rem)', fontWeight: 700 }}>{founder.short}</h3>
-          <p className="font-mono text-[10px] tracking-widest" style={{ color: `${founder.accent}66` }}>Founders Series</p>
+          <p className="font-mono text-[9px] tracking-widest" style={{ color: `${founder.accent}55` }}>Founders Series</p>
         </div>
 
         {/* Tasting notes */}
@@ -172,15 +170,15 @@ function FounderCard({ founder, index }) {
         </p>
 
         {/* Story blurb */}
-        <p className="text-sm leading-relaxed flex-1" style={{ color: 'rgba(232,223,175,0.55)', fontStyle: 'italic' }}>
+        <p className="text-sm leading-relaxed flex-1 font-serif" style={{ color: 'rgba(232,223,175,0.5)', fontStyle: 'italic' }}>
           &ldquo;{founder.hook}&rdquo;
         </p>
 
         {/* CTA */}
         <a
           href={`https://torch-republic.com/products/${founder.handle}`}
-          className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
-          style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
+          className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
+          style={{ background: '#C4A35A', color: '#0A0D14', fontWeight: 800 }}>
           Carry the Flame →
         </a>
       </div>
@@ -190,7 +188,7 @@ function FounderCard({ founder, index }) {
 
 export default function FoundersSeriesSection() {
   return (
-    <section id="founders-series" className="py-32 px-6 md:px-10" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(196,163,90,0.08)' }}>
+    <section id="founders-series" className="py-32 px-6 md:px-10" style={{ backgroundColor: '#080B12', borderTop: '1px solid rgba(196,163,90,0.08)' }}>
       <div className="max-w-[1280px] mx-auto">
 
         {/* Header */}
@@ -219,8 +217,8 @@ export default function FoundersSeriesSection() {
         <div className="text-center mt-12">
           <a
             href="https://torch-republic.com/collections/coffee"
-            className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase"
-            style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#C8A44D' }}
+            className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-all hover:opacity-90"
+            style={{ border: '1px solid rgba(196,163,90,0.4)', color: '#C4A35A' }}
           >
             Shop All Coffee →
           </a>

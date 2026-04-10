@@ -95,7 +95,7 @@ function BundleCard({ b, i }) {
           className="py-3.5 text-center font-heading font-black text-xs tracking-[0.2em] uppercase transition-all"
           style={b.featured
             ? { background: '#C4A35A', color: '#000', boxShadow: '0 4px 20px rgba(196,163,90,0.25)' }
-            : { border: `1px solid ${b.accent}40`, color: b.accent, background: `${b.accent}08` }
+            : { border: '1px solid #C4A35A', color: 'white', background: 'transparent' }
           }
         >
           {b.featured ? 'Get The Starter Set →' : 'Shop This Set →'}

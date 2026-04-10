@@ -81,7 +81,7 @@ export default function CoffeeHeroSection() {
             <a
               href="/TheTorchBox"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
-              style={{ background: 'transparent', border: '1px solid rgba(200,164,77,0.4)', color: '#C8A44D' }}
+              style={{ background: 'transparent', border: '1px solid #C4A35A', color: 'white' }}
             >
               Join Torch Box →
             </a>

@@ -27,11 +27,9 @@ export default function FounderProductPage({ data }) {
           <div className="max-w-[600px]">
             {/* Identity bar */}
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 mb-5 flex-wrap">
-              <span className="font-mono text-[10px] font-bold tracking-wider px-2.5 py-1" style={{ color: accent, border: `1px solid ${accent}40`, background: `${accent}10` }}>{code}</span>
-              <span className="font-mono text-[9px] text-gray-600">|</span>
+              <span className="font-mono text-sm font-black tracking-widest px-3 py-1.5" style={{ color: '#0A0D14', background: accent }}>{code}</span>
               <span className="font-mono text-[9px] text-gray-500">{seriesNum}</span>
-              <span className="font-mono text-[9px] text-gray-600">|</span>
-              <span className="font-mono text-[9px] font-bold" style={{ color: accent }}>{rarity}</span>
+              <span className="font-mono text-[11px] font-black tracking-widest px-3 py-1.5 uppercase" style={{ color: rarity === "FOUNDER'S EDITION" ? '#0A0D14' : '#9CA3AF', background: rarity === "FOUNDER'S EDITION" ? '#C4A35A' : 'transparent', border: rarity === "FOUNDER'S EDITION" ? 'none' : '1px solid rgba(107,114,128,0.3)' }}>{rarity}</span>
             </motion.div>
 
             {/* Title */}
@@ -40,7 +38,7 @@ export default function FounderProductPage({ data }) {
               {title}
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-              className="font-mono text-sm mb-6" style={{ color: `${accent}99` }}>
+              className="font-serif text-sm mb-6" style={{ color: `${accent}99`, fontStyle: 'italic' }}>
               {subline}
             </motion.p>
 
@@ -101,7 +99,7 @@ export default function FounderProductPage({ data }) {
 
       {/* THE MOMENT */}
       <section className="py-28 px-6" style={{
-        background: '#0A0E1A',
+        background: '#080B12',
         borderTop: '1px solid rgba(196,163,90,0.08)',
         position: 'relative',
         overflow: 'hidden',
@@ -246,7 +244,7 @@ export default function FounderProductPage({ data }) {
           <div className="text-center mt-8">
             <a href="https://torch-republic.com/products/founders-starter-pack"
               className="inline-flex items-center gap-2 px-8 py-3.5 font-heading font-black text-sm tracking-[0.15em] uppercase"
-              style={{ background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${accent} 100%)`, color: '#fff' }}>
+              style={{ background: '#C4A35A', color: '#0A0D14', fontWeight: 800 }}>
               Build Your Founders Series
             </a>
           </div>
