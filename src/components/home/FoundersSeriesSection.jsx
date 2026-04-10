@@ -176,17 +176,12 @@ function FounderCard({ founder, index }) {
         </p>
 
         {/* CTA */}
-        {isInternal ? (
-          <a href={url} className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
-            style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
-            Carry the Flame →
-          </a>
-        ) : (
-          <a href={url} className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
-            style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
-            Carry the Flame →
-          </a>
-        )}
+        <a
+          href={`https://torch-republic.com/products/${founder.handle}`}
+          className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
+          style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
+          Carry the Flame →
+        </a>
       </div>
     </motion.div>
   );
@@ -222,7 +217,7 @@ export default function FoundersSeriesSection() {
         {/* View all */}
         <div className="text-center mt-12">
           <a
-            href="/CoffeeCollection"
+            href="https://torch-republic.com/collections/coffee"
             className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase"
             style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#C8A44D' }}
           >

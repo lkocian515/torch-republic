@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import AddToCartButton from './AddToCartButton';
 
 export default function FounderProductPage({ data }) {
   const {
@@ -57,11 +58,7 @@ export default function FounderProductPage({ data }) {
                 <span className="font-mono font-bold text-2xl" style={{ color: accent }}>{price}</span>
                 <span className="font-mono text-sm text-gray-600 line-through">$21.99</span>
               </div>
-              <a href={`https://torch-republic.com/products/${shopifyHandle}`}
-                className="px-8 py-3.5 font-heading font-black text-sm tracking-[0.15em] uppercase"
-                style={{ background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${accent} 100%)`, color: '#fff' }}>
-                Add to Cart — Carry the Flame
-              </a>
+              <AddToCartButton shopifyHandle={shopifyHandle} accent={accent} />
             </motion.div>
             <p className="font-mono text-[10px] text-gray-600 tracking-wider">Part of the Founders Series — Collect them all.</p>
 
