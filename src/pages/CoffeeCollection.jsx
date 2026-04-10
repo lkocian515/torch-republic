@@ -15,21 +15,21 @@ const PRODUCTS = [
     name: 'Jefferson Blend', roast: 'Medium Roast', notes: 'Dark Chocolate · Almond · Toffee',
     price: '$18.99', accent: '#9BB8CC', color: '#080F14',
     route: '/JeffersonBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jefferson_mockup_study.png?v=1775823812',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/55117f78-5325-4d77-b880-5a92e73fcbb1.png?v=1775823238',
   },
   {
     code: 'TR-003', seriesNum: 'Founders #03', rarity: "FOUNDER'S EDITION",
     name: 'Franklin Blend', roast: 'Light Roast', notes: 'Caramel · Lemon · Sweet Finish',
     price: '$18.99', accent: '#D4C97A', color: '#0E0E06',
     route: '/FranklinBlend',
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/b1d86420-df99-4a9b-85cc-69ff17a156b3.png?v=1775823429',
   },
   {
     code: 'TR-004', seriesNum: 'Founders #04', rarity: 'CORE',
     name: 'Adams Blend', roast: 'Medium Roast', notes: 'Toffee · Dark Chocolate · Citrus',
     price: '$18.99', accent: '#B87AC8', color: '#0E070E',
     route: '/AdamsBlend',
-    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
   },
   {
     code: 'TR-005', seriesNum: 'Founders #05', rarity: 'CORE',
@@ -43,7 +43,7 @@ const PRODUCTS = [
     name: 'Roosevelt Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
     price: '$18.99', accent: '#7AC87A', color: '#070E07',
     route: '/RooseveltBlend',
-    image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/roosevelt_mockup_wilderness.png?v=1775828726',
   },
 ];
 

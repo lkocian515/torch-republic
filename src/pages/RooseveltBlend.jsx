@@ -12,7 +12,7 @@ const DATA = {
   price: '$18.99',
   shopifyHandle: 'roosevelt-blend',
   accent: '#7AC87A',
-  heroImage: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&q=80',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/roosevelt_mockup_wilderness.png?v=1775828726',
   hook: [
     'He drank a gallon a day.',
     'He was also the most accomplished man in any room he ever entered.',

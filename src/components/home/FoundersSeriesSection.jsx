@@ -30,7 +30,7 @@ const FOUNDERS = [
     code: 'TR-002',
     seriesNum: 'Founders #02',
     rarity: "FOUNDER'S EDITION",
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jefferson_mockup_study.png?v=1775823812',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/55117f78-5325-4d77-b880-5a92e73fcbb1.png?v=1775823238',
   },
   {
     name: 'Benjamin Franklin',
@@ -45,7 +45,7 @@ const FOUNDERS = [
     code: 'TR-003',
     seriesNum: 'Founders #03',
     rarity: "FOUNDER'S EDITION",
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/b1d86420-df99-4a9b-85cc-69ff17a156b3.png?v=1775823429',
   },
   {
     name: 'John Adams',
@@ -60,7 +60,7 @@ const FOUNDERS = [
     code: 'TR-004',
     seriesNum: 'Founders #04',
     rarity: 'CORE',
-    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
   },
   {
     name: 'Abraham Lincoln',
@@ -90,7 +90,7 @@ const FOUNDERS = [
     code: 'TR-006',
     seriesNum: 'Founders #06',
     rarity: 'CORE',
-    image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/roosevelt_mockup_wilderness.png?v=1775828726',
   },
 ];
 

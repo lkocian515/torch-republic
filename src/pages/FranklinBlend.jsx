@@ -12,7 +12,7 @@ const DATA = {
   price: '$18.99',
   shopifyHandle: 'franklin-blend',
   accent: '#D4C97A',
-  heroImage: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/b1d86420-df99-4a9b-85cc-69ff17a156b3.png?v=1775823429',
   hook: [
     'Bright, energetic, and sharp.',
     'Built for curiosity, momentum, and constant forward motion.',

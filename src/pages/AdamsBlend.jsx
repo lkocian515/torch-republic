@@ -12,7 +12,7 @@ const DATA = {
   price: '$18.99',
   shopifyHandle: 'adams-blend',
   accent: '#B87AC8',
-  heroImage: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1200&q=80',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
   hook: [
     'He switched from tea to coffee on principle.',
     'And he never looked back.',
