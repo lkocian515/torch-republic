@@ -14,6 +14,7 @@ const FOUNDERS = [
     code: 'TR-001',
     seriesNum: 'Founders #01',
     rarity: "FOUNDER'S EDITION",
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
   },
   {
     name: 'Thomas Jefferson',
@@ -27,6 +28,7 @@ const FOUNDERS = [
     code: 'TR-002',
     seriesNum: 'Founders #02',
     rarity: "FOUNDER'S EDITION",
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
   },
   {
     name: 'Benjamin Franklin',
@@ -40,6 +42,7 @@ const FOUNDERS = [
     code: 'TR-003',
     seriesNum: 'Founders #03',
     rarity: "FOUNDER'S EDITION",
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
   },
   {
     name: 'Abraham Lincoln',
@@ -53,6 +56,7 @@ const FOUNDERS = [
     code: 'TR-005',
     seriesNum: 'Founders #05',
     rarity: 'CORE',
+    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80',
   },
   {
     name: 'Theodore Roosevelt',
@@ -66,6 +70,7 @@ const FOUNDERS = [
     code: 'TR-006',
     seriesNum: 'Founders #06',
     rarity: 'CORE',
+    image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
   },
   {
     name: 'John Adams',
@@ -79,6 +84,7 @@ const FOUNDERS = [
     code: 'TR-004',
     seriesNum: 'Founders #04',
     rarity: 'CORE',
+    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
   },
 ];
 
@@ -98,6 +104,22 @@ function FounderCard({ founder, index }) {
     >
       {/* Top accent line */}
       <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${founder.accent}88, transparent)` }} />
+
+      {/* Product image */}
+      <div className="relative overflow-hidden" style={{ height: '180px', background: founder.color }}>
+        <img
+          src={founder.image}
+          alt={`${founder.name} Blend`}
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-500 group-hover:scale-105 transition-transform"
+          style={{ transform: 'scale(1.02)' }}
+        />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${founder.color}EE 0%, transparent 60%)` }} />
+        <div className="absolute bottom-3 left-3">
+          <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-1" style={{ color: founder.accent, background: 'rgba(0,0,0,0.7)', border: `1px solid ${founder.accent}40` }}>
+            {founder.code}
+          </span>
+        </div>
+      </div>
 
       <div className="p-6 md:p-7 flex flex-col gap-4 flex-1">
         {/* Identity bar */}
