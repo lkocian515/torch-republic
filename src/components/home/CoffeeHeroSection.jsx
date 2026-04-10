@@ -94,7 +94,7 @@ export default function CoffeeHeroSection() {
             transition={{ delay: 0.8 }}
             className="flex items-center gap-4 mt-10"
           >
-            {['Small-Batch Roasted', 'Premium Arabica', 'Collectible Series'].map((item, i) => (
+            {['Small-Batch Roasted', 'Premium Arabica', 'Collectible Series', "Collector's Edition System"].map((item, i) => (
               <span key={i} className="font-mono text-[10px] tracking-widest uppercase" style={{ color: 'rgba(200,164,77,0.5)' }}>
                 {i > 0 && <span className="mr-4" style={{ color: 'rgba(200,164,77,0.2)' }}>·</span>}
                 {item}

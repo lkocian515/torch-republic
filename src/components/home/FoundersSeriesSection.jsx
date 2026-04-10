@@ -11,6 +11,7 @@ const FOUNDERS = [
     color: '#160D04',
     accent: '#C8A44D',
     handle: 'washington-blend',
+    route: '/WashingtonBlend',
     code: 'TR-001',
     seriesNum: 'Founders #01',
     rarity: "FOUNDER'S EDITION",
@@ -25,6 +26,7 @@ const FOUNDERS = [
     color: '#080F14',
     accent: '#9BB8CC',
     handle: 'jefferson-blend',
+    route: '/JeffersonBlend',
     code: 'TR-002',
     seriesNum: 'Founders #02',
     rarity: "FOUNDER'S EDITION",
@@ -39,10 +41,26 @@ const FOUNDERS = [
     color: '#0E0E06',
     accent: '#D4C97A',
     handle: 'franklin-blend',
+    route: '/FranklinBlend',
     code: 'TR-003',
     seriesNum: 'Founders #03',
     rarity: "FOUNDER'S EDITION",
     image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
+  },
+  {
+    name: 'John Adams',
+    short: 'Adams',
+    roast: 'Medium Roast',
+    notes: 'Toffee · Dark Chocolate · Citrus',
+    hook: 'After the Boston Tea Party, he chose coffee. On purpose. Adams didn\'t follow the crowd — he stood for structure when others wanted chaos.',
+    color: '#0E070E',
+    accent: '#B87AC8',
+    handle: 'adams-blend',
+    route: '/AdamsBlend',
+    code: 'TR-004',
+    seriesNum: 'Founders #04',
+    rarity: 'CORE',
+    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
   },
   {
     name: 'Abraham Lincoln',
@@ -53,6 +71,7 @@ const FOUNDERS = [
     color: '#100707',
     accent: '#C87070',
     handle: 'lincoln-blend',
+    route: '/LincolnBlend',
     code: 'TR-005',
     seriesNum: 'Founders #05',
     rarity: 'CORE',
@@ -67,29 +86,17 @@ const FOUNDERS = [
     color: '#070E07',
     accent: '#7AC87A',
     handle: 'roosevelt-blend',
+    route: '/RooseveltBlend',
     code: 'TR-006',
     seriesNum: 'Founders #06',
     rarity: 'CORE',
     image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
   },
-  {
-    name: 'John Adams',
-    short: 'Adams',
-    roast: 'Medium Roast',
-    notes: 'Toffee · Dark Chocolate · Citrus',
-    hook: 'After the Boston Tea Party, he chose coffee. On purpose. Adams didn\'t follow the crowd — he stood for structure when others wanted chaos.',
-    color: '#0E070E',
-    accent: '#B87AC8',
-    handle: 'adams-blend',
-    code: 'TR-004',
-    seriesNum: 'Founders #04',
-    rarity: 'CORE',
-    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
-  },
 ];
 
 function FounderCard({ founder, index }) {
-  const url = `https://torch-republic.com/products/${founder.handle}`;
+  const url = founder.route || `https://torch-republic.com/products/${founder.handle}`;
+  const isInternal = founder.route;
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -101,7 +108,7 @@ function FounderCard({ founder, index }) {
         background: `linear-gradient(160deg, ${founder.color} 0%, #050505 100%)`,
         border: '1px solid rgba(200,164,77,0.1)',
       }}
-    >
+  >
       {/* Top accent line */}
       <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${founder.accent}88, transparent)` }} />
 
@@ -158,13 +165,17 @@ function FounderCard({ founder, index }) {
         </p>
 
         {/* CTA */}
-        <a
-          href={url}
-          className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
-          style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}
-        >
-          Carry the Flame →
-        </a>
+        {isInternal ? (
+          <a href={url} className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
+            style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
+            Carry the Flame →
+          </a>
+        ) : (
+          <a href={url} className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
+            style={{ border: `1px solid ${founder.accent}40`, color: founder.accent, background: `${founder.accent}08` }}>
+            Carry the Flame →
+          </a>
+        )}
       </div>
     </motion.div>
   );

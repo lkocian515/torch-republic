@@ -4,34 +4,34 @@ import { Star } from 'lucide-react';
 
 const REVIEWS = [
   {
-    name: 'Sarah M.',
-    product: 'Patriot Hoodie',
+    name: 'Marcus T.',
+    product: 'Washington Blend | TR-001',
     rating: 5,
-    text: 'Quality is incredible. This isn\'t like mall apparel.',
+    text: 'The Washington Blend hits hard. Dark, bold, no nonsense — exactly what the name should be. Already ordered the Jefferson.',
   },
   {
-    name: 'James R.',
-    product: 'We The People T-Shirt',
+    name: 'Rachel K.',
+    product: 'Franklin Blend | TR-003',
     rating: 5,
-    text: 'The graphic is perfect. Wears like a dream.',
+    text: 'I bought it as a gift and ended up keeping it for myself. The story on the back of the bag alone is worth the price.',
   },
   {
-    name: 'David L.',
-    product: 'God Family Country Crewneck',
+    name: 'Daniel W.',
+    product: 'Founders Starter Pack',
     rating: 5,
-    text: 'Bold message, bold quality. Exactly what I wanted.',
+    text: 'I\'ve tried a lot of \'patriotic\' coffee brands. This one actually backs it up. The rarity system makes it feel like you\'re collecting something real.',
   },
   {
-    name: 'Emma T.',
-    product: 'Classic Patriot Hat',
+    name: 'Stephanie R.',
+    product: 'Roosevelt Blend | TR-006',
     rating: 5,
-    text: 'Fast shipping, perfect fit. Ordering again.',
+    text: 'The Roosevelt Blend is my morning ritual now. Bold, full-body, no apologies. Like its namesake.',
   },
   {
-    name: 'Michael K.',
-    product: 'Americana Sweatshirt',
+    name: 'James P.',
+    product: 'Founders Starter Pack',
     rating: 5,
-    text: 'This brand gets it. Standing out already.',
+    text: 'Ordered the Founders Starter Pack for my dad\'s birthday. He called me the next morning to ask where to get more. That says everything.',
   },
 ];
 

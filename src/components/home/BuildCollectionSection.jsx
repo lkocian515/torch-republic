@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const BUNDLES = [
   {
     tag: 'BEST SELLER',
-    name: 'The Founders Starter Set',
+    name: 'Founders Starter Pack',
     tagline: 'The perfect introduction to the Founders Series.',
     desc: 'Three blends. Three mindsets. One starting point.',
     blends: ['Washington Blend — Dark Roast', 'Jefferson Blend — Medium Roast', 'Franklin Blend — Light Roast'],
