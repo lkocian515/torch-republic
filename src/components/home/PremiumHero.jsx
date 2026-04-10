@@ -7,7 +7,7 @@ export default function PremiumHero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundColor: '#000000',
-        backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27cb9ad61_generated_image.png)',
+        backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/617a1986c_ChatGPTImageApr10202612_28_03PM.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
