@@ -74,7 +74,7 @@ export default function NavBar() {
           <div className="flex-shrink-0 md:mx-6">
             <Link to="/" className="flex items-center justify-center">
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
                 alt="Torch Republic"
                 style={{ height: '34px', width: 'auto' }}
               />
@@ -137,7 +137,7 @@ export default function NavBar() {
             {/* Overlay header */}
             <div className="flex items-center justify-between px-5 flex-shrink-0" style={{ height: '46px', borderBottom: '1px solid rgba(196,163,90,0.1)' }}>
               <Link to="/" onClick={() => setOpen(false)}>
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
                   alt="Torch Republic" style={{ height: '30px', width: 'auto' }} />
               </Link>
               <button
