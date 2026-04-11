@@ -6,14 +6,14 @@ const ARTICLES = [
   {
     category: 'Heritage',
     title: 'Why Washington Drank Rye, Not Coffee — And What Changed Everything',
-    excerpt: 'The story of how America's founders traded tea for coffee during the Revolution, and why that shift defines our relationship with the cup to this day.',
+    excerpt: "The story of how America's founders traded tea for coffee during the Revolution, and why that shift defines our relationship with the cup to this day.",
     date: 'April 2026',
     image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80',
   },
   {
     category: 'Craft',
     title: 'What Small-Batch Actually Means — and Why It Matters',
-    excerpt: 'In an era of mass production, the decision to roast in limited runs isn't just a marketing choice. It's a commitment to taste, quality, and accountability.',
+    excerpt: "In an era of mass production, the decision to roast in limited runs isn't just a marketing choice. It's a commitment to taste, quality, and accountability.",
     date: 'March 2026',
     image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80',
   },

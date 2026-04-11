@@ -10,7 +10,7 @@ const PILLARS = [
   {
     icon: '🦅',
     title: 'Heritage-Inspired',
-    body: "Named for the architects of America's founding — each product carries the weight of legacy and the clarity of conviction.", — each product carries the weight of legacy and the clarity of conviction.',
+    body: "Named for the architects of America's founding — each product carries the weight of legacy and the clarity of conviction.",
   },
   {
     icon: '◈',
