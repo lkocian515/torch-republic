@@ -47,7 +47,7 @@ export default function NavBar() {
     <>
       <nav
         style={{
-          height: '52px',
+          height: '46px',
           backgroundColor: scrolled ? 'rgba(4,4,6,0.97)' : 'rgba(0,0,0,0.6)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -135,7 +135,7 @@ export default function NavBar() {
             style={{ zIndex: 200, background: '#040407' }}
           >
             {/* Overlay header */}
-            <div className="flex items-center justify-between px-5 flex-shrink-0" style={{ height: '52px', borderBottom: '1px solid rgba(196,163,90,0.1)' }}>
+            <div className="flex items-center justify-between px-5 flex-shrink-0" style={{ height: '46px', borderBottom: '1px solid rgba(196,163,90,0.1)' }}>
               <Link to="/" onClick={() => setOpen(false)}>
                 <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
                   alt="Torch Republic" style={{ height: '30px', width: 'auto' }} />

@@ -5,7 +5,7 @@ export default function TopBar() {
     <div
       className="w-full flex items-center justify-center px-6"
       style={{
-        height: '28px',
+        height: '22px',
         backgroundColor: '#0A0A0D',
         borderBottom: '1px solid rgba(196,163,90,0.12)',
       }}
