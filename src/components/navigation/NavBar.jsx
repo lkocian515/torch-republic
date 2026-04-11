@@ -4,29 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MAIN_NAV = [
-  {
-    label: 'Shop',
-    children: [
-      { label: 'Coffee', href: '/CoffeeCollection' },
-      { label: 'Apparel', href: '/Shop' },
-      { label: 'Accessories', href: '/Shop' },
-    ],
-  },
-  { label: 'The Torch Box', href: '/TheTorchBox', highlight: true },
-  {
-    label: 'Collections',
-    children: [
-      { label: 'Founders Series', href: '/CoffeeCollection' },
-      { label: 'Best Sellers', href: '/BestSellers' },
-    ],
-  },
-  {
-    label: 'About',
-    children: [
-      { label: 'Mission', href: '/Mission' },
-      { label: 'Story', href: '/Journal' },
-    ],
-  },
+  { label: 'Shop', href: '/Shop' },
+  { label: 'Coffee', href: '/CoffeeCollection' },
+  { label: 'Best Sellers', href: '/BestSellers' },
+  { label: 'Torch Box', href: '/TheTorchBox', highlight: true },
+  { label: 'Our Story', href: '/Mission' },
+  { label: 'Journal', href: '/Journal' },
 ];
 
 export default function NavBar() {
@@ -69,51 +52,14 @@ export default function NavBar() {
           </button>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-9">
+          <div className="hidden md:flex items-center gap-8">
             {MAIN_NAV.map((item) => (
-              item.children ? (
-                <div key={item.label} className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <button
-                    className="nav-link font-mono uppercase tracking-[0.15em] transition-colors hover:text-white"
-                    style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', background: 'none', border: 'none', cursor: 'pointer' }}
-                  >
-                    {item.label}
-                  </button>
-                  <AnimatePresence>
-                    {openDropdown === item.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 pt-3"
-                        style={{ minWidth: '160px' }}
-                      >
-                        <div style={{ background: 'rgba(10,10,10,0.98)', border: '1px solid rgba(201,162,74,0.15)', backdropFilter: 'blur(12px)' }}>
-                          {item.children.map(child => (
-                            <Link key={child.label} to={child.href} onClick={close}
-                              className="block px-5 py-3 font-mono uppercase tracking-[0.12em] transition-colors hover:text-white"
-                              style={{ fontSize: '10px', color: 'rgba(255,255,255,0.45)', borderBottom: '1px solid rgba(201,162,74,0.06)' }}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link key={item.label} to={item.href}
-                  className="nav-link font-mono uppercase tracking-[0.15em] transition-colors"
-                  style={{ fontSize: '11px', color: item.highlight ? '#C9A24A' : 'rgba(255,255,255,0.5)', fontWeight: item.highlight ? 700 : 400 }}
-                >
-                  {item.label}
-                </Link>
-              )
+              <Link key={item.label} to={item.href}
+                className="nav-link font-mono uppercase tracking-[0.15em] transition-colors hover:text-white"
+                style={{ fontSize: '11px', color: item.highlight ? '#C9A24A' : 'rgba(255,255,255,0.5)', fontWeight: item.highlight ? 700 : 400 }}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
 

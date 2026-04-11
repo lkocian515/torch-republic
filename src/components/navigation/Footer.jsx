@@ -79,6 +79,15 @@ export default function Footer() {
         {/* Divider */}
         <div className="h-px w-full mb-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(200,164,77,0.2), transparent)' }} />
 
+        {/* Trust bar */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+          {['Secure Checkout', '30-Day Returns', 'Proudly American', 'Free Shipping $75+'].map(badge => (
+            <span key={badge} className="font-mono text-[9px] tracking-[0.3em] uppercase px-4 py-2" style={{ color: 'rgba(201,162,74,0.6)', border: '1px solid rgba(201,162,74,0.12)', background: 'rgba(201,162,74,0.04)' }}>
+              {badge}
+            </span>
+          ))}
+        </div>
+
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <img
@@ -87,7 +96,7 @@ export default function Footer() {
             className="h-8 w-auto opacity-60"
           />
           <p className="text-xs font-mono text-center" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            © 2026 Torch Republic™
+            © 2026 Torch Republic™ · Heritage-crafted for patriots who demand the best.
           </p>
         </div>
       </div>

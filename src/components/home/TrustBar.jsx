@@ -1,31 +1,29 @@
 import React from 'react';
-import { Truck, ShieldCheck, RotateCcw, Star } from 'lucide-react';
+import { Shield, RotateCcw, Truck, Star } from 'lucide-react';
 
-const SIGNALS = [
-  { icon: ShieldCheck, label: 'Secure Checkout', sub: '256-bit SSL encrypted' },
-  { icon: Truck, label: 'Ships from USA', sub: 'Orders out in 1–3 days' },
-  { icon: RotateCcw, label: '30-Day Returns', sub: 'Hassle-free, no questions' },
-  { icon: Star, label: '4.9 Star Rated', sub: 'Thousands of patriots served' },
+const ITEMS = [
+  { icon: Shield, label: 'Secure Checkout', sub: 'SSL encrypted · all major cards' },
+  { icon: RotateCcw, label: '30-Day Returns', sub: 'No questions asked' },
+  { icon: Truck, label: 'Free Shipping', sub: 'On orders over $50' },
+  { icon: Star, label: '10,000+ Proud Owners', sub: 'Verified 4.9 star rating' },
 ];
 
 export default function TrustBar() {
   return (
-    <section style={{ borderBottom: '1px solid rgba(200,164,77,0.12)', backgroundColor: '#0a0a0a' }}>
-      <div className="max-w-7xl mx-auto px-6 py-5">
+    <div style={{ background: '#070707', borderTop: '1px solid rgba(201,162,74,0.07)', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {SIGNALS.map(({ icon: Icon, label, sub }) => (
+          {ITEMS.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(14,42,47,0.8), rgba(27,80,96,0.5))', border: '1px solid rgba(200,164,77,0.35)' }}>
-                <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
-              </div>
+              <Icon className="w-4 h-4 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.5)' }} />
               <div>
-                <p className="text-xs font-heading font-bold uppercase tracking-wide text-white">{label}</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{sub}</p>
+                <p className="font-mono text-[10px] font-bold text-white">{label}</p>
+                <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>{sub}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
