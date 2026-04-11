@@ -7,7 +7,7 @@ export default function TopBar() {
       initial={{ y: -32 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="w-full py-2 px-4"
+      className="w-full py-1.5 px-4"
       style={{ backgroundColor: '#090909', borderBottom: '1px solid rgba(196,163,90,0.15)' }}
     >
       <div className="flex items-center justify-center gap-6 flex-wrap">

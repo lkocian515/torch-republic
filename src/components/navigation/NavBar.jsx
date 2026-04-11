@@ -35,7 +35,7 @@ export default function NavBar() {
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Main row */}
-        <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="flex items-center justify-between h-14">
 
           {/* Left nav — desktop */}
           <div className="hidden md:flex items-center gap-7 flex-1">
@@ -55,7 +55,7 @@ export default function NavBar() {
               <img
                 src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
                 alt="Torch Republic"
-                className="h-14 md:h-16 w-auto"
+                className="h-10 md:h-11 w-auto"
                 style={{ filter: 'brightness(1.05)' }}
               />
             </Link>
