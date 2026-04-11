@@ -50,16 +50,27 @@ export default function PremiumHero() {
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-white"
           style={{
-            fontSize: 'clamp(3.5rem, 8vw, 7.5rem)',
-            fontWeight: 800,
-            lineHeight: 1.02,
-            letterSpacing: '-0.025em',
+            fontSize: 'clamp(2.2rem, 4.5vw, 4rem)',
+            fontWeight: 700,
+            lineHeight: 1.05,
+            letterSpacing: '-0.01em',
             textShadow: '0 2px 40px rgba(0,0,0,0.9)',
-            marginBottom: '0.5rem',
+            marginBottom: '0.4rem',
           }}
         >
           Carry the Flame.
         </motion.h1>
+
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.6 }}
+          className="font-mono uppercase tracking-[0.35em]"
+          style={{ fontSize: '10px', color: 'rgba(196,163,90,0.6)', marginBottom: '1.5rem' }}
+        >
+          Live Free. &nbsp;·&nbsp; Stay Ready.
+        </motion.p>
 
         {/* Subheadline */}
         <motion.p

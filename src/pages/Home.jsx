@@ -8,12 +8,14 @@ import LuxuryTestimonials from '../components/home/LuxuryTestimonials';
 import JournalTeaser from '../components/home/JournalTeaser';
 import TorchbearerCTA from '../components/home/TorchbearerCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
+import BrandMission from '../components/home/BrandMission';
 
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#050508' }}>
       <PremiumHero />
       <TrustBar />
+      <BrandMission />
       <FoundersFeatured />
       <CollectionTiles />
       <WhyTorchRepublic />
