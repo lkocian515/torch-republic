@@ -8,29 +8,24 @@ export default function ExitIntentPopup() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem('tr_popup_seen');
-    if (seen) return;
-
-    const handleMouseLeave = (e) => {
-      if (e.clientY <= 0) {
-        setVisible(true);
-        sessionStorage.setItem('tr_popup_seen', '1');
-      }
-    };
-
+    if (sessionStorage.getItem('exit_shown')) return;
     const timer = setTimeout(() => {
+      const handleMouseLeave = (e) => {
+        if (e.clientY <= 0) {
+          setVisible(true);
+          sessionStorage.setItem('exit_shown', '1');
+          document.removeEventListener('mouseleave', handleMouseLeave);
+        }
+      };
       document.addEventListener('mouseleave', handleMouseLeave);
+      return () => document.removeEventListener('mouseleave', handleMouseLeave);
     }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (email) setSubmitted(true);
   };
 
   return (
@@ -40,64 +35,75 @@ export default function ExitIntentPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[999] flex items-center justify-center px-6"
-          style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(6px)' }}
           onClick={() => setVisible(false)}
         >
           <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="relative max-w-lg w-full p-12 text-center"
-            style={{ background: '#0B0B0B', border: '1px solid rgba(201,162,74,0.25)' }}
+            className="relative w-full max-w-lg p-10 text-center"
+            style={{ background: '#0A0A0D', border: '1px solid rgba(196,163,90,0.25)' }}
             onClick={e => e.stopPropagation()}
           >
-            <button onClick={() => setVisible(false)} className="absolute top-5 right-5 transition-opacity hover:opacity-50" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            <button onClick={() => setVisible(false)}
+              className="absolute top-4 right-4 transition-opacity hover:opacity-60"
+              style={{ color: 'rgba(255,255,255,0.3)' }}>
               <X className="w-4 h-4" />
             </button>
 
-            <div className="w-px h-10 mx-auto mb-8" style={{ background: 'linear-gradient(to bottom, transparent, #C9A24A)' }} />
+            {/* Top line */}
+            <div className="h-px w-full mb-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D, transparent)' }} />
 
-            {!submitted ? (
-              <>
-                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.6)' }}>Before You Go</p>
-                <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, lineHeight: 1.2 }}>
-                  Join the Legacy
-                </h2>
-                <p style={{ color: 'rgba(240,235,225,0.4)', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-                  Get <strong style={{ color: '#C9A24A' }}>15% off</strong> your first order + free shipping when you join our community of 10,000+ patriots.
-                </p>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="Your email address"
-                    required
-                    className="w-full px-5 py-3.5 font-mono text-sm text-white outline-none"
-                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,162,74,0.2)', color: 'rgba(255,255,255,0.8)' }}
-                  />
-                  <button type="submit" className="w-full py-4 font-mono text-[11px] tracking-[0.3em] uppercase font-black transition-opacity hover:opacity-80" style={{ background: '#C9A24A', color: '#000' }}>
-                    Claim My 15% Off
-                  </button>
-                </form>
-                <button onClick={() => setVisible(false)} className="mt-4 font-mono text-[9px] tracking-widest uppercase transition-opacity hover:opacity-60" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                  No thanks, I'll pay full price
-                </button>
-              </>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(196,163,90,0.6)' }}>
+              Welcome, Torchbearer
+            </p>
+
+            <h2 className="font-serif text-white mb-3" style={{ fontSize: '2rem', fontWeight: 700, lineHeight: 1.1 }}>
+              Join the Legacy.<br />
+              <span style={{ color: '#C8A44D' }}>15% Off Your First Order.</span>
+            </h2>
+
+            <p className="font-mono text-xs mb-8 max-w-xs mx-auto" style={{ color: 'rgba(255,255,255,0.3)', lineHeight: 1.8 }}>
+              Plus free shipping and early access to new Founders Series drops.
+            </p>
+
+            {submitted ? (
+              <div className="py-4">
+                <p className="font-mono text-sm" style={{ color: '#C8A44D' }}>The flame is lit. Check your inbox.</p>
+                <p className="font-mono text-xs mt-2" style={{ color: 'rgba(255,255,255,0.25)' }}>Use code TORCH20 at checkout.</p>
+              </div>
             ) : (
-              <>
-                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: '#C9A24A' }}>Welcome to the Legacy</p>
-                <h2 className="font-serif text-white mb-4" style={{ fontSize: '1.8rem', fontWeight: 700 }}>Your Code is On the Way</h2>
-                <p style={{ color: 'rgba(240,235,225,0.4)', fontSize: '0.875rem', lineHeight: 1.8 }}>
-                  Check your inbox for your 15% discount code and free shipping offer. The flame is yours to carry.
-                </p>
-                <button onClick={() => setVisible(false)} className="mt-8 font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-3.5 transition-opacity hover:opacity-80" style={{ background: '#C9A24A', color: '#000' }}>
-                  Start Shopping
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  className="w-full px-5 py-4 text-sm font-mono text-center outline-none"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(196,163,90,0.2)',
+                    color: 'rgba(255,255,255,0.7)',
+                    fontSize: '12px',
+                  }}
+                />
+                <button type="submit"
+                  className="w-full py-4 font-mono font-bold uppercase tracking-[0.3em] transition-opacity hover:opacity-85"
+                  style={{ fontSize: '11px', background: '#C8A44D', color: '#000' }}>
+                  Claim My 15% Off
                 </button>
-              </>
+              </form>
             )}
+
+            <button onClick={() => setVisible(false)}
+              className="mt-5 font-mono text-[9px] tracking-widest uppercase transition-opacity hover:opacity-60"
+              style={{ color: 'rgba(255,255,255,0.2)' }}>
+              No thanks, I'll pay full price
+            </button>
           </motion.div>
         </motion.div>
       )}
