@@ -8,28 +8,28 @@ const PRODUCTS = [
     name: 'Washington Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
     price: '$18.99', accent: '#C8A44D', color: '#160D04',
     route: '/WashingtonBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
   },
   {
     code: 'TR-002', seriesNum: 'Founders #02', rarity: "FOUNDER'S EDITION",
     name: 'Jefferson Blend', roast: 'Medium Roast', notes: 'Dark Chocolate · Almond · Toffee',
     price: '$18.99', accent: '#9BB8CC', color: '#080F14',
     route: '/JeffersonBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/55117f78-5325-4d77-b880-5a92e73fcbb1.png?v=1775823238',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-8_3f3a45dd-8d2c-4a04-b3e7-7657eb306db4.jpg?v=1775891841',
   },
   {
     code: 'TR-003', seriesNum: 'Founders #03', rarity: "FOUNDER'S EDITION",
     name: 'Franklin Blend', roast: 'Light Roast', notes: 'Caramel · Lemon · Sweet Finish',
     price: '$18.99', accent: '#D4C97A', color: '#0E0E06',
     route: '/FranklinBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/b1d86420-df99-4a9b-85cc-69ff17a156b3.png?v=1775823429',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-9_4f650292-3215-4b0f-aed8-7ed4c1a02fb6.jpg?v=1775891986',
   },
   {
     code: 'TR-004', seriesNum: 'Founders #04', rarity: 'CORE',
     name: 'Adams Blend', roast: 'Medium Roast', notes: 'Toffee · Dark Chocolate · Citrus',
     price: '$18.99', accent: '#B87AC8', color: '#0E070E',
     route: '/AdamsBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-10_6f98a910-06fe-466c-b034-23133f53a324.jpg?v=1775892090',
   },
   {
     code: 'TR-005', seriesNum: 'Founders #05', rarity: 'CORE',
@@ -43,7 +43,7 @@ const PRODUCTS = [
     name: 'Roosevelt Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
     price: '$18.99', accent: '#7AC87A', color: '#070E07',
     route: '/RooseveltBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/roosevelt_mockup_wilderness.png?v=1775828726',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-6_9c4a00ed-4e07-40bf-b93c-42f039931d2e.jpg?v=1775891504',
   },
 ];
 
