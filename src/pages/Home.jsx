@@ -8,6 +8,7 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import JournalTeaser from '../components/home/JournalTeaser';
 import NewsletterSection from '../components/home/NewsletterSection';
 import TrustBar from '../components/home/TrustBar';
+import TorchbearerCTA from '../components/home/TorchbearerCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <WhyTorchRepublic />
       <TestimonialsSection />
       <JournalTeaser />
+      <TorchbearerCTA />
       <NewsletterSection />
       <ExitIntentPopup />
     </div>
