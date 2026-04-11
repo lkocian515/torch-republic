@@ -1,20 +1,26 @@
 import React from 'react';
 import PremiumHero from '../components/home/PremiumHero';
 import FoundersFeatured from '../components/home/FoundersFeatured';
-import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
-import LuxuryTestimonials from '../components/home/LuxuryTestimonials';
+import BrandStatement from '../components/home/BrandStatement';
 import CollectionTiles from '../components/home/CollectionTiles';
+import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
+import TestimonialsSection from '../components/home/TestimonialsSection';
+import JournalTeaser from '../components/home/JournalTeaser';
 import NewsletterSection from '../components/home/NewsletterSection';
+import TrustBar from '../components/home/TrustBar';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
 
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B' }}>
       <PremiumHero />
+      <TrustBar />
       <FoundersFeatured />
-      <WhyTorchRepublic />
-      <LuxuryTestimonials />
+      <BrandStatement />
       <CollectionTiles />
+      <WhyTorchRepublic />
+      <TestimonialsSection />
+      <JournalTeaser />
       <NewsletterSection />
       <ExitIntentPopup />
     </div>

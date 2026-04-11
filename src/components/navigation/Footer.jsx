@@ -89,15 +89,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a6bbf1327_Untitleddesign9.png"
             alt="Torch Republic"
             className="h-8 w-auto opacity-60"
           />
-          <p className="text-xs font-mono text-center" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            © 2026 Torch Republic™ · Heritage-crafted for patriots who demand the best.
-          </p>
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🔒 Secure Checkout</span>
+            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🇺🇸 Proudly American</span>
+            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>↩ 30-Day Returns</span>
+          </div>
+          <p className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.2)' }}>© 2026 Torch Republic™</p>
         </div>
       </div>
     </footer>

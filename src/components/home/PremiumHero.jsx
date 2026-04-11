@@ -56,17 +56,17 @@ export default function PremiumHero() {
           transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="font-serif"
           style={{
-            fontSize: 'clamp(4rem, 10vw, 8rem)',
+            fontSize: 'clamp(3rem, 7vw, 6.5rem)',
             fontWeight: 800,
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             color: '#FFFFFF',
-            marginBottom: '2.5rem',
+            marginBottom: '1.5rem',
             textShadow: '0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,1)',
           }}
         >
-          Carry the<br />
-          <em style={{ color: '#C9A24A', fontStyle: 'normal' }}>Flame.</em>
+          Carry the Flame —<br />
+          <em style={{ color: '#C9A24A', fontStyle: 'normal' }}>Timeless American Excellence.</em>
         </motion.h1>
 
         {/* Subtext */}
@@ -76,18 +76,17 @@ export default function PremiumHero() {
           transition={{ duration: 1.4, delay: 0.9 }}
           className="font-serif"
           style={{
-            fontSize: 'clamp(1rem, 1.6vw, 1.2rem)',
+            fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
             fontStyle: 'italic',
             fontWeight: 500,
             lineHeight: 2,
             color: 'rgba(255,255,255,0.6)',
             textShadow: '0 1px 12px rgba(0,0,0,0.9)',
             marginBottom: '3.5rem',
-            maxWidth: '420px',
+            maxWidth: '460px',
           }}
         >
-          Premium coffee honoring history's greatest figures.
-          One collectible blend at a time.
+          Premium patriotic coffee crafted for those who value heritage, quality, and pride.
         </motion.p>
 
         {/* Single gold CTA */}
@@ -96,19 +95,33 @@ export default function PremiumHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
-          <a
-            href="/CoffeeCollection"
-            className="inline-flex items-center justify-center font-mono font-black uppercase tracking-[0.3em] transition-opacity hover:opacity-80"
-            style={{
-              fontSize: '11px',
-              background: '#C9A24A',
-              color: '#000',
-              padding: '1rem 2.75rem',
-              boxShadow: '0 0 50px rgba(201,162,74,0.15)',
-            }}
-          >
-            Shop the Founders Series
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href="/CoffeeCollection"
+              className="inline-flex items-center justify-center font-mono font-black uppercase tracking-[0.3em] transition-opacity hover:opacity-80"
+              style={{
+                fontSize: '11px',
+                background: '#C9A24A',
+                color: '#000',
+                padding: '1rem 2.75rem',
+                boxShadow: '0 0 50px rgba(201,162,74,0.15)',
+              }}
+            >
+              Shop the Collection
+            </a>
+            <a
+              href="/Mission"
+              className="inline-flex items-center justify-center font-mono uppercase tracking-[0.3em] transition-opacity hover:opacity-80"
+              style={{
+                fontSize: '11px',
+                color: 'rgba(255,255,255,0.5)',
+                padding: '1rem 2rem',
+                border: '1px solid rgba(255,255,255,0.15)',
+              }}
+            >
+              Our Story
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>
