@@ -15,15 +15,32 @@ const NAV_RIGHT = [
   { label: 'Contact', href: '/Contact' },
 ];
 
-const ALL_NAV = [
-  { label: 'Home', href: '/' },
-  { label: 'Founders Series', href: '/CoffeeCollection' },
-  { label: 'Apparel', href: '/Shop' },
-  { label: 'Accessories', href: '/Shop' },
-  { label: 'Torch Box', href: '/TheTorchBox' },
-  { label: 'Our Legacy', href: '/Mission' },
-  { label: 'Journal', href: '/Journal' },
-  { label: 'Contact', href: '/Contact' },
+const NAV_GROUPS = [
+  {
+    category: 'Coffee',
+    items: [
+      { label: 'Founders Series', href: '/CoffeeCollection' },
+      { label: 'Washington Blend', href: '/WashingtonBlend' },
+      { label: 'Jefferson Blend', href: '/JeffersonBlend' },
+      { label: 'Torch Box', href: '/TheTorchBox' },
+    ],
+  },
+  {
+    category: 'Apparel',
+    items: [
+      { label: 'All Apparel', href: '/Shop' },
+      { label: 'On Sale', href: '/OnSale' },
+    ],
+  },
+  {
+    category: 'Brand',
+    items: [
+      { label: 'Home', href: '/' },
+      { label: 'Our Legacy', href: '/Mission' },
+      { label: 'Journal', href: '/Journal' },
+      { label: 'Contact', href: '/Contact' },
+    ],
+  },
 ];
 
 export default function NavBar() {
@@ -47,12 +64,12 @@ export default function NavBar() {
     <>
       <nav
         style={{
-          height: '46px',
-          backgroundColor: scrolled ? 'rgba(4,4,6,0.97)' : 'rgba(0,0,0,0.6)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: scrolled ? '1px solid rgba(196,163,90,0.14)' : '1px solid rgba(196,163,90,0.05)',
-          transition: 'background-color 0.25s ease, border-color 0.25s ease',
+          height: '42px',
+          backgroundColor: scrolled ? 'rgba(3,3,5,0.98)' : 'rgba(0,0,0,0.52)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderBottom: scrolled ? '1px solid rgba(196,163,90,0.12)' : '1px solid rgba(196,163,90,0.04)',
+          transition: 'background-color 0.3s ease, border-color 0.3s ease',
           position: 'relative',
           zIndex: 50,
         }}
@@ -171,35 +188,52 @@ export default function NavBar() {
               </Link>
             </div>
 
-            {/* Nav items */}
-            <div className="flex-1 overflow-y-auto px-5">
-              {ALL_NAV.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + i * 0.04, duration: 0.25 }}
-                >
-                  <Link
-                    to={item.href}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-between transition-colors group"
+            {/* Nav items — grouped by category */}
+            <div className="flex-1 overflow-y-auto px-5 pb-4">
+              {NAV_GROUPS.map((group) => (
+                <div key={group.category} className="mb-2">
+                  <p
+                    className="font-mono uppercase"
                     style={{
-                      padding: '18px 0',
-                      borderBottom: '1px solid rgba(196,163,90,0.06)',
-                      fontSize: '18px',
-                      color: 'rgba(255,255,255,0.62)',
-                      fontFamily: 'var(--font-heading)',
-                      fontWeight: 400,
-                      letterSpacing: '0.01em',
+                      fontSize: '8px',
+                      letterSpacing: '0.5em',
+                      color: 'rgba(196,163,90,0.28)',
+                      padding: '18px 0 8px',
+                      borderTop: '1px solid rgba(196,163,90,0.05)',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#C4A35A'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.62)'}
                   >
-                    <span>{item.label}</span>
-                    <span style={{ color: 'rgba(196,163,90,0.3)', fontSize: '14px', transition: 'color 0.2s' }}>→</span>
-                  </Link>
-                </motion.div>
+                    {group.category}
+                  </p>
+                  {group.items.map((item, i) => (
+                    <motion.div
+                      key={item.label}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.04 + i * 0.035, duration: 0.22 }}
+                    >
+                      <Link
+                        to={item.href}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center justify-between group"
+                        style={{
+                          padding: '13px 0',
+                          borderBottom: '1px solid rgba(196,163,90,0.05)',
+                          fontSize: '17px',
+                          color: 'rgba(255,255,255,0.58)',
+                          fontFamily: 'var(--font-heading)',
+                          fontWeight: 400,
+                          letterSpacing: '0.005em',
+                          transition: 'color 0.2s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#C4A35A'}
+                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.58)'}
+                      >
+                        <span>{item.label}</span>
+                        <span style={{ color: 'rgba(196,163,90,0.25)', fontSize: '13px', transition: 'color 0.2s' }}>→</span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
               ))}
             </div>
 

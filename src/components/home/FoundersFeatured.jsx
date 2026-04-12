@@ -47,16 +47,25 @@ export default function FoundersFeatured() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-28">
 
         {/* Header */}
-        <div className="text-center mb-20">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>
-            Flagship Collection
-          </p>
-          <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.01em' }}>
-            The Founders Series
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: 300, maxWidth: '380px', margin: '0 auto' }}>
-            A collectible coffee line inspired by the architects of freedom.
-          </p>
+        <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.45))' }} />
+              <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(196,163,90,0.5)' }}>
+                Founders Series · Small-Batch Excellence
+              </p>
+            </div>
+            <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: 1.1 }}>
+              Heritage-Crafted Blends<br />
+              <span style={{ color: 'rgba(201,162,74,0.75)', fontStyle: 'italic' }}>Worth Remembering.</span>
+            </h2>
+          </div>
+          <Link
+            to="/CoffeeCollection"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase flex items-center gap-2 transition-opacity hover:opacity-55 flex-shrink-0"
+            style={{ color: 'rgba(196,163,90,0.5)', borderBottom: '1px solid rgba(196,163,90,0.18)', paddingBottom: '3px' }}>
+            View All Six Founders →
+          </Link>
         </div>
 
         {/* Cards */}

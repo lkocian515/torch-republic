@@ -42,6 +42,8 @@ export default function FounderProductPage({ data }) {
   } = data;
 
   const [activeTab, setActiveTab] = useState('story');
+  const [activeImg, setActiveImg] = useState(0);
+  const images = data.images || [heroImage, heroImage, heroImage];
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
@@ -61,37 +63,65 @@ export default function FounderProductPage({ data }) {
       <section className="max-w-[1200px] mx-auto px-5 md:px-10 pt-8 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-start">
 
-          {/* Left: Image */}
+          {/* Left: Image Gallery */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative overflow-hidden"
-            style={{ background: '#111', aspectRatio: '4/5' }}
+            className="flex flex-col gap-3"
           >
-            <img
-              src={heroImage}
-              alt={`${title} Blend`}
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-              style={{ opacity: 0.9 }}
-            />
-            {/* Top-left code badge */}
-            <div className="absolute top-4 left-4">
-              <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ background: accent || '#C9A24A', color: '#0B0B0B' }}>
-                {code}
-              </span>
-            </div>
-            {/* Founders Edition badge */}
-            {rarity === "FOUNDER'S EDITION" && (
-              <div className="absolute bottom-4 right-4">
-                <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5" style={{ background: '#C9A24A', color: '#0B0B0B' }}>
-                  Founder's Edition
+            {/* Main image */}
+            <div className="relative overflow-hidden group" style={{ background: '#111', aspectRatio: '4/5' }}>
+              <img
+                src={images[activeImg]}
+                alt={`${title} Blend`}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                style={{ opacity: 0.9 }}
+              />
+              {/* Code badge */}
+              <div className="absolute top-4 left-4">
+                <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ background: accent || '#C9A24A', color: '#0B0B0B' }}>
+                  {code}
                 </span>
               </div>
-            )}
-            {/* Gradient fade bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-              style={{ background: 'linear-gradient(to top, #080808, transparent)' }} />
+              {/* Founder's Edition badge */}
+              {rarity === "FOUNDER'S EDITION" && (
+                <div className="absolute bottom-4 right-4">
+                  <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5" style={{ background: '#C9A24A', color: '#0B0B0B' }}>
+                    Founder's Edition
+                  </span>
+                </div>
+              )}
+              {/* Gradient bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, #080808, transparent)' }} />
+              {/* Image counter */}
+              <div className="absolute top-4 right-4">
+                <span className="font-mono text-[9px] tracking-wider" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.5)', padding: '3px 8px' }}>
+                  {activeImg + 1} / {images.length}
+                </span>
+              </div>
+            </div>
+
+            {/* Thumbnail strip */}
+            <div className="flex gap-2">
+              {images.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveImg(i)}
+                  className="flex-1 overflow-hidden transition-all duration-200"
+                  style={{
+                    aspectRatio: '1/1',
+                    background: '#111',
+                    border: i === activeImg ? `1px solid ${accent || '#C9A24A'}` : '1px solid rgba(196,163,90,0.1)',
+                    opacity: i === activeImg ? 1 : 0.55,
+                  }}
+                  aria-label={`View image ${i + 1}`}
+                >
+                  <img src={img} alt={`${title} view ${i + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Right: Product Info — sticky on desktop */}
