@@ -1,7 +1,7 @@
 /* global Deno */
 const ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.myshopify.com';
+const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 Deno.serve(async (_req) => {
   // Test Admin API

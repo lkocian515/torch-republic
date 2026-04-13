@@ -1,6 +1,6 @@
 /* global Deno */
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.myshopify.com';
+const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 Deno.serve(async (_req) => {
   const tokenPreview = STOREFRONT_TOKEN ? `${STOREFRONT_TOKEN.substring(0, 8)}...` : 'NOT SET';
