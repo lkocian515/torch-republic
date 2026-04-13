@@ -45,7 +45,42 @@ const PRODUCTS = [
     route: '/RooseveltBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-6_9c4a00ed-4e07-40bf-b93c-42f039931d2e.jpg?v=1775891504',
   },
-];
+  {
+    code: 'LI-001', seriesNum: 'Liberty Icons #01', rarity: 'CORE',
+    name: "Eagle's Flight Blend", roast: 'Dark Roast', notes: 'Praline · Roasted Peanuts · Dark Chocolate',
+    price: '$20.00', accent: '#8B6D47', color: '#0F0A05',
+    route: '/EaglesFlightBlend',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+  },
+  {
+    code: 'LI-002', seriesNum: 'Liberty Icons #02', rarity: 'CORE',
+    name: 'Liberty Torch Blend', roast: 'Medium Roast', notes: 'Sundried Citrus · Golden Honey · Clean Finish',
+    price: '$20.00', accent: '#C4A35A', color: '#050D08',
+    route: '/LibertyTorchBlend',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/30_fda88503-e869-47ed-8acc-33230f6246c9.png?v=1776038701',
+  },
+  {
+    code: 'LI-003', seriesNum: 'Liberty Icons #03', rarity: 'CORE',
+    name: 'Old Glory House Blend', roast: 'Medium Roast', notes: 'Caramel · Sweet Cream · Subtle Spice',
+    price: '$18.00', accent: '#B38B4D', color: '#0A0604',
+    route: '/OldGloryHouseBlend',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/32.png?v=1776038800',
+  },
+  {
+    code: 'LI-004', seriesNum: 'Liberty Icons #04', rarity: 'CORE',
+    name: "Rosie's Grind", roast: 'Medium Dark Roast', notes: 'Praline · Roasted Peanuts · Smooth Finish',
+    price: '$20.00', accent: '#A8893A', color: '#0A0805',
+    route: '/RosiesGrind',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
+  },
+  {
+    code: 'LI-005', seriesNum: 'Liberty Icons #05', rarity: 'CORE',
+    name: "Uncle Sam's Bold Brew", roast: 'Dark Roast', notes: 'Bittersweet Chocolate · Smoke · Deep Roast',
+    price: '$20.00', accent: '#9B7B4D', color: '#080603',
+    route: '/UncleSamsBoldBrew',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/27.png?v=1776038585',
+  },
+  ];
 
 const FILTERS = ['ALL', 'CORE', "FOUNDER'S EDITION"];
 
