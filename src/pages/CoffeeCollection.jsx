@@ -166,6 +166,21 @@ export default function CoffeeCollection() {
         </div>
       </section>
 
+      {/* Hero Image */}
+      <section className="px-6 md:px-12 pb-16">
+        <div className="max-w-[1280px] mx-auto">
+          <motion.img
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d877937a8_collection_all6png_preview.jpg"
+            alt="Founders Collection"
+            className="w-full h-auto rounded"
+          />
+        </div>
+      </section>
+
       {/* Filter bar */}
       <div className="sticky top-0 z-20 px-6 md:px-12 py-4" style={{ background: 'rgba(0,0,0,0.95)', borderBottom: '1px solid rgba(196,163,90,0.08)', backdropFilter: 'blur(12px)' }}>
         <div className="max-w-[1280px] mx-auto flex items-center gap-3 flex-wrap">
