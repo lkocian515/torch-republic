@@ -5,7 +5,7 @@ const SHOP_DOMAIN = 'torch-republic.myshopify.com';
 Deno.serve(async (_req) => {
   const tokenPreview = STOREFRONT_TOKEN ? `${STOREFRONT_TOKEN.substring(0, 8)}...` : 'NOT SET';
   
-  const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+  const res = await fetch(`https://${SHOP_DOMAIN}/api/2025-01/graphql.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
