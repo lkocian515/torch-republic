@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const NAV_LEFT = [
   { label: 'Founders Series', href: '/CoffeeCollection' },
+  { label: 'Liberty Icons', href: '/LibertyIcons' },
   { label: 'Apparel', href: '/Shop' },
   { label: 'Torch Box', href: '/TheTorchBox' },
 ];
@@ -20,6 +21,7 @@ const NAV_GROUPS = [
     category: 'Coffee',
     items: [
       { label: 'Founders Series', href: '/CoffeeCollection' },
+      { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Washington Blend', href: '/WashingtonBlend' },
       { label: 'Jefferson Blend', href: '/JeffersonBlend' },
       { label: 'Torch Box', href: '/TheTorchBox' },
