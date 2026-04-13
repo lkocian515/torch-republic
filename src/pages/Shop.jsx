@@ -19,20 +19,22 @@ export default function Shop() {
   });
 
   const getCollectionProducts = (key, collection) => {
+    const apparelCategories = ['t-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
+    
     if (key === 'top-designs') {
       return allProducts
-        .filter(p => p.featured && p.image_url)
+        .filter(p => p.featured && apparelCategories.includes(p.category) && p.image_url)
         .sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999))
         .slice(0, 12);
     }
     if (key === 'new-drops') {
       return allProducts
-        .filter(p => p.image_url)
+        .filter(p => apparelCategories.includes(p.category) && p.image_url)
         .slice(0, 12);
     }
     if (collection) {
       return allProducts
-        .filter(p => p.collection === collection && p.image_url)
+        .filter(p => p.collection === collection && apparelCategories.includes(p.category) && p.image_url)
         .slice(0, 12);
     }
     return [];
