@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroSection from '../components/home/HeroSection';
+import PremiumHero from '../components/home/PremiumHero';
 import TrustBar from '../components/home/TrustBar';
 import FoundersFeatured from '../components/home/FoundersFeatured';
 import CollectionTiles from '../components/home/CollectionTiles';
@@ -13,7 +13,7 @@ import BrandMission from '../components/home/BrandMission';
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#050508' }}>
-      <HeroSection />
+      <PremiumHero />
       <TrustBar />
       <BrandMission />
       <FoundersFeatured />
