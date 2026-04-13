@@ -34,6 +34,7 @@ import RosiesGrind from './pages/RosiesGrind';
 import OldGloryHouseBlend from './pages/OldGloryHouseBlend';
 import Shop from './pages/Shop';
 import TheTorchBox from './pages/TheTorchBox';
+import LibertyIcons from './pages/LibertyIcons';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -89,6 +90,7 @@ const AuthenticatedApp = () => {
       <Route path="/LibertyTorchBlend" element={<LayoutWrapper currentPageName="LibertyTorchBlend"><LibertyTorchBlend /></LayoutWrapper>} />
       <Route path="/RosiesGrind" element={<LayoutWrapper currentPageName="RosiesGrind"><RosiesGrind /></LayoutWrapper>} />
       <Route path="/OldGloryHouseBlend" element={<LayoutWrapper currentPageName="OldGloryHouseBlend"><OldGloryHouseBlend /></LayoutWrapper>} />
+      <Route path="/LibertyIcons" element={<LayoutWrapper currentPageName="LibertyIcons"><LibertyIcons /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
