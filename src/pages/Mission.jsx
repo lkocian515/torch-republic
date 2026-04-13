@@ -262,93 +262,88 @@ export default function Mission() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* FOUNDER STORY SECTION */}
+      {/* SYMBOLISM SECTION — TORCH / COFFEE / REPUBLIC */}
       {/* ════════════════════════════════════════════════════════════════ */}
-      <section className="py-32 px-6" style={{ backgroundColor: '#000000' }}>
+      <section className="py-32 px-6" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-6xl mx-auto">
           <TorchDivider animate />
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-4xl md:text-5xl font-bold text-center mb-16"
-            style={{ color: '#C9A24A' }}
-          >
-            Where the Flame Began
-          </motion.h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-16" style={{ color: '#C9A24A' }}>
+            What We Stand On
+          </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Story text */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Torch */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
+              transition={{ delay: 0 }}
+              className="text-center"
             >
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.7)' }}>
-                Torch Republic wasn't built in a boardroom. It was built in Corpus Christi, Texas—over coffee, conversation, and a deep respect for the people who carry this country forward.
+              <motion.div
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="flex justify-center mb-6"
+              >
+                <Flame className="w-16 h-16" style={{ color: '#C9A24A' }} />
+              </motion.div>
+              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
+                The Torch
+              </h3>
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                The torch represents truth, responsibility, and the duty to carry light forward—especially when the world grows dim.
               </p>
-
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
-                Our founder grew up where stories mattered. Around the table, over a fresh pot of coffee, she learned that some of the strongest people in this country are not always the loudest—they are the ones who quietly serve, endure, sacrifice, and keep going.
-              </p>
-
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
-                Years later, near Naval Air Station Corpus Christi, those lessons deepened. After more than two decades working alongside veterans, active-duty service members, and military families, one truth became impossible to ignore: the strongest bonds are formed not in grand moments, but in ordinary ones—shared meals, hard conversations, new beginnings, late nights, and a good cup of coffee.
-              </p>
-
-              <div className="pt-4 border-t" style={{ borderColor: 'rgba(201,162,74,0.15)' }}>
-                <p className="font-heading text-base leading-relaxed font-bold" style={{ color: '#C9A24A' }}>
-                  What began as small-batch roasting became something more. Not just coffee. Not just apparel.
-                </p>
-                <p className="font-heading text-base leading-relaxed mt-4" style={{ color: '#C9A24A' }}>
-                  A symbol. A way to honor resilience. A way to tell stories. A way to carry the flame forward.
-                </p>
-              </div>
             </motion.div>
 
-            {/* Story image area */}
+            {/* Coffee */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-              style={{
-                aspectRatio: '4/5',
-                backgroundColor: '#0A0A0A',
-                border: '1px solid rgba(201,162,74,0.2)',
-                overflow: 'hidden'
-              }}
+              transition={{ delay: 0.15 }}
+              className="text-center"
             >
-              <div 
-                className="w-full h-full flex items-center justify-center"
-                style={{
-                  backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5d69f9920_Untitleddesign12.png)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  opacity: 0.7
-                }}
-              />
-              
-              {/* Gradient overlay */}
-              <div 
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(201,162,74,0.1) 100%)'
-                }}
-              />
-
-              {/* Torch glow in center */}
               <motion.div
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute inset-0 flex items-center justify-center"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                className="flex justify-center mb-6"
               >
-                <Flame className="w-32 h-32" style={{ color: 'rgba(201,162,74,0.2)' }} />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(201,162,74,0.2)' }}>
+                  <span style={{ fontSize: '2rem' }}>☕</span>
+                </div>
               </motion.div>
+              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
+                The Cup
+              </h3>
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                Coffee is ritual, gathering, warmth, reflection, and the spark that starts conversations that change everything.
+              </p>
+            </motion.div>
+
+            {/* Republic */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-center"
+            >
+              <motion.div
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                className="flex justify-center mb-6"
+              >
+                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(201,162,74,0.2)' }}>
+                  <span style={{ fontSize: '2rem' }}>🇺🇸</span>
+                </div>
+              </motion.div>
+              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
+                The Republic
+              </h3>
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                A republic depends on its people—citizens who remember, who think, who speak, who stand, and who refuse to let the flame go out.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -450,88 +445,93 @@ export default function Mission() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* SYMBOLISM SECTION — TORCH / COFFEE / REPUBLIC */}
+      {/* FOUNDER STORY SECTION */}
       {/* ════════════════════════════════════════════════════════════════ */}
-      <section className="py-32 px-6" style={{ backgroundColor: '#0A0A0A' }}>
+      <section className="py-32 px-6" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto">
           <TorchDivider animate />
 
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-16" style={{ color: '#C9A24A' }}>
-            What We Stand On
-          </h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-serif text-4xl md:text-5xl font-bold text-center mb-16"
+            style={{ color: '#C9A24A' }}
+          >
+            Where the Flame Began
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Torch */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Story text */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0 }}
-              className="text-center"
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <motion.div
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="flex justify-center mb-6"
-              >
-                <Flame className="w-16 h-16" style={{ color: '#C9A24A' }} />
-              </motion.div>
-              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
-                The Torch
-              </h3>
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                The torch represents truth, responsibility, and the duty to carry light forward—especially when the world grows dim.
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.7)' }}>
+                Torch Republic wasn't built in a boardroom. It was built in Corpus Christi, Texas—over coffee, conversation, and a deep respect for the people who carry this country forward.
               </p>
+
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
+                Our founder grew up where stories mattered. Around the table, over a fresh pot of coffee, she learned that some of the strongest people in this country are not always the loudest—they are the ones who quietly serve, endure, sacrifice, and keep going.
+              </p>
+
+              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
+                Years later, near Naval Air Station Corpus Christi, those lessons deepened. After more than two decades working alongside veterans, active-duty service members, and military families, one truth became impossible to ignore: the strongest bonds are formed not in grand moments, but in ordinary ones—shared meals, hard conversations, new beginnings, late nights, and a good cup of coffee.
+              </p>
+
+              <div className="pt-4 border-t" style={{ borderColor: 'rgba(201,162,74,0.15)' }}>
+                <p className="font-heading text-base leading-relaxed font-bold" style={{ color: '#C9A24A' }}>
+                  What began as small-batch roasting became something more. Not just coffee. Not just apparel.
+                </p>
+                <p className="font-heading text-base leading-relaxed mt-4" style={{ color: '#C9A24A' }}>
+                  A symbol. A way to honor resilience. A way to tell stories. A way to carry the flame forward.
+                </p>
+              </div>
             </motion.div>
 
-            {/* Coffee */}
+            {/* Story image area */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="text-center"
+              transition={{ duration: 0.8 }}
+              className="relative"
+              style={{
+                aspectRatio: '4/5',
+                backgroundColor: '#0A0A0A',
+                border: '1px solid rgba(201,162,74,0.2)',
+                overflow: 'hidden'
+              }}
             >
-              <motion.div
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                className="flex justify-center mb-6"
-              >
-                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(201,162,74,0.2)' }}>
-                  <span style={{ fontSize: '2rem' }}>☕</span>
-                </div>
-              </motion.div>
-              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
-                The Cup
-              </h3>
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                Coffee is ritual, gathering, warmth, reflection, and the spark that starts conversations that change everything.
-              </p>
-            </motion.div>
+              <div 
+                className="w-full h-full flex items-center justify-center"
+                style={{
+                  backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69afc77e4c80e5e88ca6e3ec/5d69f9920_Untitleddesign12.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  opacity: 0.7
+                }}
+              />
+              
+              {/* Gradient overlay */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(201,162,74,0.1) 100%)'
+                }}
+              />
 
-            {/* Republic */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
+              {/* Torch glow in center */}
               <motion.div
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="flex justify-center mb-6"
+                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(201,162,74,0.2)' }}>
-                  <span style={{ fontSize: '2rem' }}>🇺🇸</span>
-                </div>
+                <Flame className="w-32 h-32" style={{ color: 'rgba(201,162,74,0.2)' }} />
               </motion.div>
-              <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: '#F0EBE1' }}>
-                The Republic
-              </h3>
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                A republic depends on its people—citizens who remember, who think, who speak, who stand, and who refuse to let the flame go out.
-              </p>
             </motion.div>
           </div>
         </div>
