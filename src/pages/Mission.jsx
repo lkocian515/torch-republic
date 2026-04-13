@@ -288,7 +288,7 @@ export default function Mission() {
               className="space-y-6"
             >
               <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.7)' }}>
-                Torch Republic wasn't built in a boardroom. It was built in Bishop, Texas—over coffee, conversation, and a deep respect for the people who carry this country forward.
+                Torch Republic wasn't built in a boardroom. It was built in Corpus Christi, Texas—over coffee, conversation, and a deep respect for the people who carry this country forward.
               </p>
 
               <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
