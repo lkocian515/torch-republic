@@ -11,16 +11,16 @@ async function storefrontQuery(query, variables = {}) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  return res.json();
+  const json = await res.json();
+  console.log('Storefront response:', JSON.stringify(json));
+  return json;
 }
 
 Deno.serve(async (req) => {
   try {
     const { handle, quantity = 1 } = await req.json();
 
-    if (!handle) {
-      return Response.json({ error: 'handle is required' }, { status: 400 });
-    }
+    console.log('Token (first 8 chars):', STOREFRONT_TOKEN ? STOREFRONT_TOKEN.substring(0, 8) : 'NOT SET');
 
     // Step 1: get first variant ID for this product handle
     const productData = await storefrontQuery(`
