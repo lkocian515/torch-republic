@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Shield, Heart, Users } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
-import FounderSection from '../components/mission/FounderSection';
 
 const TorchDivider = () => (
   <motion.div 
@@ -265,7 +264,6 @@ export default function Mission() {
         </div>
       </section>
 
-      <FounderSection />
     </div>
   );
 }
