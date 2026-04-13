@@ -1,7 +1,6 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
-
+/* global Deno */
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.com';
+const SHOP_DOMAIN = 'torch-republic.myshopify.com';
 
 async function storefrontQuery(query, variables = {}) {
   const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
@@ -43,7 +42,7 @@ Deno.serve(async (req) => {
 
     const variant = productData?.data?.productByHandle?.variants?.edges?.[0]?.node;
     if (!variant) {
-      return Response.json({ error: 'Product not found' }, { status: 404 });
+      return Response.json({ error: 'Product not found', details: productData?.errors }, { status: 404 });
     }
 
     // Step 2: create cart with that variant
