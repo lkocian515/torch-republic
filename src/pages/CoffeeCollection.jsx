@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: 'Old Glory House Blend', roast: 'Medium Roast', notes: 'Caramel · Sweet Cream · Subtle Spice',
     price: '$18.00', accent: '#B38B4D', color: '#0A0604',
     route: '/OldGloryHouseBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/32.png?v=1776038800',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/j9ihuio.png?v=1776038315',
   },
   {
     code: 'LI-004', seriesNum: 'Liberty Icons #04', rarity: 'CORE',

@@ -6,7 +6,7 @@ const DATA = {
   subtitle: 'The Blend That Built America',
   shopify_handle: 'old-glory-house-blend',
   price: 18.00,
-  image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/32.png?v=1776038800',
+  image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/j9ihuio.png?v=1776038315',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/old-glory-2.png?v=1776038800',
   color: '#B38B4D',
   icon: '🇺🇸',
