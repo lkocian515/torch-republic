@@ -6,15 +6,16 @@ import { ArrowRight } from 'lucide-react';
 export default function PremiumHero() {
   return (
     <div
-      className="relative flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden premium-hero-bg"
       style={{
         minHeight: '100svh',
         backgroundColor: '#000',
         backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e901cbba_LighttheTorchWeartheTruth2000x1000px1920x1080pxbhjgukm.png)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center 30%',
+        backgroundPosition: '68% center',
       }}
     >
+      <style>{`@media (min-width: 768px) { .premium-hero-bg { background-position: center 30% !important; } }`}</style>
       {/* Layered cinematic overlays */}
       <div className="absolute inset-0" style={{ background: 'linear-gradient(165deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.42) 50%, rgba(0,0,0,0.78) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 55%, rgba(0,0,0,0.5) 0%, transparent 80%)' }} />
