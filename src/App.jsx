@@ -26,6 +26,12 @@ import FranklinBlend from './pages/FranklinBlend';
 import Journal from './pages/Journal';
 import OnSale from './pages/OnSale';
 import Profile from './pages/Profile';
+import LadyLibertyBlend from './pages/LadyLibertyBlend';
+import EaglesFlightBlend from './pages/EaglesFlightBlend';
+import UncleSamsBoldBrew from './pages/UncleSamsBoldBrew';
+import LibertyTorchBlend from './pages/LibertyTorchBlend';
+import RosiesGrind from './pages/RosiesGrind';
+import OldGloryHouseBlend from './pages/OldGloryHouseBlend';
 import Shop from './pages/Shop';
 import TheTorchBox from './pages/TheTorchBox';
 
@@ -77,6 +83,12 @@ const AuthenticatedApp = () => {
       <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
       <Route path="/Bundles" element={<LayoutWrapper currentPageName="Bundles"><Bundles /></LayoutWrapper>} />
       <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
+      <Route path="/LadyLibertyBlend" element={<LayoutWrapper currentPageName="LadyLibertyBlend"><LadyLibertyBlend /></LayoutWrapper>} />
+      <Route path="/EaglesFlightBlend" element={<LayoutWrapper currentPageName="EaglesFlightBlend"><EaglesFlightBlend /></LayoutWrapper>} />
+      <Route path="/UncleSamsBoldBrew" element={<LayoutWrapper currentPageName="UncleSamsBoldBrew"><UncleSamsBoldBrew /></LayoutWrapper>} />
+      <Route path="/LibertyTorchBlend" element={<LayoutWrapper currentPageName="LibertyTorchBlend"><LibertyTorchBlend /></LayoutWrapper>} />
+      <Route path="/RosiesGrind" element={<LayoutWrapper currentPageName="RosiesGrind"><RosiesGrind /></LayoutWrapper>} />
+      <Route path="/OldGloryHouseBlend" element={<LayoutWrapper currentPageName="OldGloryHouseBlend"><OldGloryHouseBlend /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
