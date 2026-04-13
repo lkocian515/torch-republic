@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 import Reviews from './pages/Reviews';
+import Bundles from './pages/Bundles';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
 import AdamsBlend from './pages/AdamsBlend';
@@ -74,6 +75,7 @@ const AuthenticatedApp = () => {
       <Route path="/RooseveltBlend" element={<LayoutWrapper currentPageName="RooseveltBlend"><RooseveltBlend /></LayoutWrapper>} />
       <Route path="/CoffeeCollection" element={<LayoutWrapper currentPageName="CoffeeCollection"><CoffeeCollection /></LayoutWrapper>} />
       <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
+      <Route path="/Bundles" element={<LayoutWrapper currentPageName="Bundles"><Bundles /></LayoutWrapper>} />
       <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
