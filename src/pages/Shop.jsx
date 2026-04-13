@@ -24,7 +24,6 @@ export default function Shop() {
     if (key === 'top-designs') {
       return allProducts
         .filter(p => p.featured && apparelCategories.includes(p.category) && p.image_url)
-        .sort((a, b) => (a.best_seller_rank || 999) - (b.best_seller_rank || 999))
         .slice(0, 12);
     }
     if (key === 'new-drops') {
