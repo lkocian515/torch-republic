@@ -10,7 +10,7 @@ export default function PremiumHero() {
       style={{
         minHeight: '100svh',
         backgroundColor: '#000',
-        backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/29ced6b7f_1001704061.jpg)',
+        backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d4ebec951_LighttheTorchWeartheTruth2000x1000px1920x1080px_20260412_195412_0000.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center 30%',
       }}
