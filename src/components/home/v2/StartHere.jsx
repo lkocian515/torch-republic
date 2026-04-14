@@ -39,7 +39,7 @@ export default function StartHere() {
   return (
     <section
       className="py-28 px-6 md:px-12"
-      style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(196,163,90,0.08)' }}
+      style={{ backgroundColor: '#111111', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       <div className="max-w-[1200px] mx-auto">
 
@@ -72,7 +72,7 @@ export default function StartHere() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group relative flex flex-col overflow-hidden"
-              style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.1)' }}
+              style={{ background: '#131313', border: '1px solid rgba(196,163,90,0.15)' }}
             >
               {/* Image */}
               <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
@@ -101,7 +101,7 @@ export default function StartHere() {
                 <h3 className="font-serif leading-tight" style={{ fontSize: '1.4rem', fontWeight: 700, color: '#F0EBE1' }}>
                   {opt.title}
                 </h3>
-                <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 1.8 }}>
+                <p className="font-heading text-sm leading-relaxed flex-1 font-normal" style={{ color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 1.8 }}>
                   {opt.benefit}
                 </p>
                 <Link

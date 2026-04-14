@@ -28,7 +28,7 @@ export default function TorchBoxFeature() {
   return (
     <section
       className="py-28 px-6 md:px-12"
-      style={{ backgroundColor: '#080808', borderTop: '1px solid rgba(196,163,90,0.07)' }}
+      style={{ backgroundColor: '#111111', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       <div className="max-w-[1200px] mx-auto">
 
@@ -64,7 +64,7 @@ export default function TorchBoxFeature() {
               transition={{ delay: i * 0.1, duration: 0.6 }}
               className="flex flex-col p-8 relative"
               style={{
-                background: tier.featured ? 'rgba(201,162,74,0.05)' : '#0F0F0F',
+                background: tier.featured ? 'rgba(201,162,74,0.07)' : '#161616',
                 border: tier.featured ? '1px solid rgba(201,162,74,0.35)' : '1px solid rgba(196,163,90,0.1)',
               }}
             >
@@ -86,7 +86,7 @@ export default function TorchBoxFeature() {
               <p className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 700, color: '#F0EBE1' }}>
                 {tier.price}
               </p>
-              <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.62)', fontWeight: 300, lineHeight: 1.7 }}>
+              <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.8 }}>
                 {tier.description}
               </p>
 
@@ -94,7 +94,7 @@ export default function TorchBoxFeature() {
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-3">
                     <span style={{ color: '#C9A24A', flexShrink: 0, fontSize: '0.7rem', marginTop: '3px' }}>✦</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.6 }}>{item}</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.78)', fontWeight: 400, lineHeight: 1.7 }}>{item}</span>
                   </div>
                 ))}
               </div>

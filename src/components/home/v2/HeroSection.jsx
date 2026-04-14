@@ -8,20 +8,20 @@ export default function HeroSection() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ minHeight: 'clamp(520px, 85vh, 860px)', backgroundColor: '#0B0B0B' }}
+      style={{ minHeight: 'clamp(520px, 85vh, 860px)', backgroundColor: '#111111' }}
     >
       {/* ── SPLIT GRID ── */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2" style={{ minHeight: 'clamp(520px, 85vh, 860px)' }}>
 
         {/* LEFT — Text */}
-        <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 lg:py-0">
+        <div className="relative z-10 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 lg:py-0">
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] tracking-[0.55em] uppercase mb-6"
-            style={{ color: 'rgba(201,162,74,0.9)' }}
+            className="font-mono text-[10px] md:text-[10px] tracking-[0.55em] uppercase mb-6"
+            style={{ color: '#C9A24A' }}
           >
             Torch Republic · Founders Series
           </motion.p>
@@ -32,11 +32,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif leading-none mb-6"
             style={{
-              fontSize: 'clamp(3rem, 7vw, 6rem)',
+              fontSize: 'clamp(2.8rem, 7vw, 6rem)',
               fontWeight: 800,
-              color: '#F5F3EE',
+              color: '#FFFFFF',
               letterSpacing: '-0.025em',
-              textShadow: '0 2px 40px rgba(0,0,0,0.8)',
+              textShadow: '0 2px 40px rgba(0,0,0,0.9)',
             }}
           >
             Carry the<br />Flame.
@@ -58,10 +58,10 @@ export default function HeroSection() {
             className="font-heading mb-10 max-w-[360px]"
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
-              color: 'rgba(234,234,234,0.85)',
-              fontWeight: 300,
-              letterSpacing: '0.04em',
-              lineHeight: 1.9,
+              color: '#E8E5DE',
+              fontWeight: 400,
+              letterSpacing: '0.03em',
+              lineHeight: 2,
             }}
           >
             Discipline, brewed daily.<br />For those who still stand for something.
@@ -77,10 +77,10 @@ export default function HeroSection() {
               to="/TheTorchBox"
               className="inline-flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-85 btn-glow"
               style={{
-                background: '#C9A24A',
+                background: '#D4AE57',
                 color: '#0B0B0B',
-                fontWeight: 700,
-                padding: '17px 36px',
+                fontWeight: 800,
+                padding: '18px 36px',
               }}
             >
               Start Your Ritual
@@ -90,9 +90,9 @@ export default function HeroSection() {
               to="/CoffeeCollection"
               className="inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-75"
               style={{
-                color: 'rgba(201,162,74,0.65)',
-                border: '1px solid rgba(201,162,74,0.22)',
-                padding: '17px 28px',
+                color: '#C9A24A',
+                border: '1px solid rgba(201,162,74,0.5)',
+                padding: '18px 28px',
               }}
             >
               Explore the Blends
@@ -117,7 +117,9 @@ export default function HeroSection() {
 
       {/* Mobile image — subtle background */}
       <div className="absolute inset-0 lg:hidden pointer-events-none">
-        <img src={HERO_IMAGE} alt="" className="w-full h-full object-cover object-center" style={{ opacity: 0.14 }} />
+        <img src={HERO_IMAGE} alt="" className="w-full h-full object-cover object-center" style={{ opacity: 0.22, filter: 'brightness(1.1) contrast(1.05)' }} />
+        {/* Dark gradient behind text on mobile */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(17,17,17,0.75) 0%, rgba(17,17,17,0.4) 60%, transparent 100%)' }} />
       </div>
 
       {/* Bottom fade */}

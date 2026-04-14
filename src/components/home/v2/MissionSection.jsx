@@ -6,7 +6,7 @@ export default function MissionSection() {
   return (
     <section
       className="py-28 px-6"
-      style={{ backgroundColor: '#060606', borderTop: '1px solid rgba(196,163,90,0.07)' }}
+      style={{ backgroundColor: '#101010', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

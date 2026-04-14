@@ -6,7 +6,7 @@ export default function FinalCTA() {
   return (
     <section
       className="relative py-36 px-6 overflow-hidden"
-      style={{ backgroundColor: '#000', borderTop: '1px solid rgba(196,163,90,0.08)' }}
+      style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">

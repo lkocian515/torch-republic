@@ -24,7 +24,7 @@ export default function SocialProof() {
   return (
     <section
       className="py-20 overflow-hidden"
-      style={{ backgroundColor: '#060606', borderTop: '1px solid rgba(196,163,90,0.07)' }}
+      style={{ backgroundColor: '#0F0F0F', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       {/* Header */}
       <div className="px-6 md:px-12 mb-12 text-center">
@@ -60,10 +60,10 @@ export default function SocialProof() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5 }}
               className="p-6 flex flex-col"
-              style={{ background: '#0E0E0E', border: '1px solid rgba(196,163,90,0.07)' }}
+              style={{ background: '#141414', border: '1px solid rgba(196,163,90,0.12)' }}
             >
               <Stars />
-              <p className="font-heading text-sm flex-1 leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
+              <p className="font-heading text-sm flex-1 leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.82)', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
                 "{r.text}"
               </p>
               <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(196,163,90,0.07)' }}>

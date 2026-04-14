@@ -30,7 +30,7 @@ export default function CollectionHighlight() {
   return (
     <section
       className="py-28 px-6 md:px-12"
-      style={{ backgroundColor: '#050505', borderTop: '1px solid rgba(196,163,90,0.07)' }}
+      style={{ backgroundColor: '#0E0E0E', borderTop: '1px solid rgba(196,163,90,0.1)' }}
     >
       <div className="max-w-[1200px] mx-auto">
 
