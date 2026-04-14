@@ -39,6 +39,18 @@ import CommandersSeries from './pages/CommandersSeries';
 import WomenOfTheRepublic from './pages/WomenOfTheRepublic';
 import Visionaries from './pages/Visionaries';
 import Patriots from './pages/Patriots';
+import WashingtonQR from './pages/qr/WashingtonQR';
+import JeffersonQR from './pages/qr/JeffersonQR';
+import AdamsQR from './pages/qr/AdamsQR';
+import FranklinQR from './pages/qr/FranklinQR';
+import LincolnQR from './pages/qr/LincolnQR';
+import RooseveltQR from './pages/qr/RooseveltQR';
+import LibertyTorchQR from './pages/qr/LibertyTorchQR';
+import LadyLibertyQR from './pages/qr/LadyLibertyQR';
+import OldGloryQR from './pages/qr/OldGloryQR';
+import UncleSamQR from './pages/qr/UncleSamQR';
+import RosiesQR from './pages/qr/RosiesQR';
+import EaglesFlightQR from './pages/qr/EaglesFlightQR';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -99,6 +111,18 @@ const AuthenticatedApp = () => {
       <Route path="/WomenOfTheRepublic" element={<LayoutWrapper currentPageName="WomenOfTheRepublic"><WomenOfTheRepublic /></LayoutWrapper>} />
       <Route path="/Visionaries" element={<LayoutWrapper currentPageName="Visionaries"><Visionaries /></LayoutWrapper>} />
       <Route path="/Patriots" element={<LayoutWrapper currentPageName="Patriots"><Patriots /></LayoutWrapper>} />
+      <Route path="/qr/washington" element={<LayoutWrapper currentPageName="WashingtonQR"><WashingtonQR /></LayoutWrapper>} />
+      <Route path="/qr/jefferson" element={<LayoutWrapper currentPageName="JeffersonQR"><JeffersonQR /></LayoutWrapper>} />
+      <Route path="/qr/adams" element={<LayoutWrapper currentPageName="AdamsQR"><AdamsQR /></LayoutWrapper>} />
+      <Route path="/qr/franklin" element={<LayoutWrapper currentPageName="FranklinQR"><FranklinQR /></LayoutWrapper>} />
+      <Route path="/qr/lincoln" element={<LayoutWrapper currentPageName="LincolnQR"><LincolnQR /></LayoutWrapper>} />
+      <Route path="/qr/roosevelt" element={<LayoutWrapper currentPageName="RooseveltQR"><RooseveltQR /></LayoutWrapper>} />
+      <Route path="/qr/liberty-torch" element={<LayoutWrapper currentPageName="LibertyTorchQR"><LibertyTorchQR /></LayoutWrapper>} />
+      <Route path="/qr/lady-liberty" element={<LayoutWrapper currentPageName="LadyLibertyQR"><LadyLibertyQR /></LayoutWrapper>} />
+      <Route path="/qr/old-glory" element={<LayoutWrapper currentPageName="OldGloryQR"><OldGloryQR /></LayoutWrapper>} />
+      <Route path="/qr/uncle-sam" element={<LayoutWrapper currentPageName="UncleSamQR"><UncleSamQR /></LayoutWrapper>} />
+      <Route path="/qr/rosies" element={<LayoutWrapper currentPageName="RosiesQR"><RosiesQR /></LayoutWrapper>} />
+      <Route path="/qr/eagles-flight" element={<LayoutWrapper currentPageName="EaglesFlightQR"><EaglesFlightQR /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
