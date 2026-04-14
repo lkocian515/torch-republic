@@ -16,6 +16,11 @@ const COLLECTIONS = [
     route: '/CoffeeCollection',
     outline: true,
   },
+  {
+    label: 'Shop Apparel',
+    route: '/BestSellers',
+    outline: true,
+  },
 ];
 
 export default function CoffeeCollectionMenu() {
