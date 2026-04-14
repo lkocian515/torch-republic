@@ -7,8 +7,6 @@ import PullToRefresh from '../components/mobile/PullToRefresh';
 const CATEGORY_TABS = [
   { key: 'all', label: 'All' },
   { key: 't-shirts', label: 'T-Shirts' },
-  { key: 'hoodies-sweatshirts', label: 'Hoodies' },
-  { key: 'hats', label: 'Hats' },
 ];
 
 const SORT_OPTIONS = [
