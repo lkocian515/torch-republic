@@ -35,6 +35,10 @@ import OldGloryHouseBlend from './pages/OldGloryHouseBlend';
 import Shop from './pages/Shop';
 import TheTorchBox from './pages/TheTorchBox';
 import LibertyIcons from './pages/LibertyIcons';
+import CommandersSeries from './pages/CommandersSeries';
+import WomenOfTheRepublic from './pages/WomenOfTheRepublic';
+import Visionaries from './pages/Visionaries';
+import Patriots from './pages/Patriots';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -91,6 +95,10 @@ const AuthenticatedApp = () => {
       <Route path="/RosiesGrind" element={<LayoutWrapper currentPageName="RosiesGrind"><RosiesGrind /></LayoutWrapper>} />
       <Route path="/OldGloryHouseBlend" element={<LayoutWrapper currentPageName="OldGloryHouseBlend"><OldGloryHouseBlend /></LayoutWrapper>} />
       <Route path="/LibertyIcons" element={<LayoutWrapper currentPageName="LibertyIcons"><LibertyIcons /></LayoutWrapper>} />
+      <Route path="/CommandersSeries" element={<LayoutWrapper currentPageName="CommandersSeries"><CommandersSeries /></LayoutWrapper>} />
+      <Route path="/WomenOfTheRepublic" element={<LayoutWrapper currentPageName="WomenOfTheRepublic"><WomenOfTheRepublic /></LayoutWrapper>} />
+      <Route path="/Visionaries" element={<LayoutWrapper currentPageName="Visionaries"><Visionaries /></LayoutWrapper>} />
+      <Route path="/Patriots" element={<LayoutWrapper currentPageName="Patriots"><Patriots /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>

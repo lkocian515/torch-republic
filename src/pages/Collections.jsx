@@ -1,147 +1,175 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 
-const ALL_COLLECTIONS = [
+const COLLECTIONS = [
   {
-    name: 'Best Sellers',
-    slug: 'best-sellers',
-    description: 'Discover our best-selling patriotic apparel, accessories, and lifestyle goods.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/best-sellers-7682039.png?v=1774225529',
-    page: 'BestSellers',
+    name: 'Founders Series',
+    description: 'The origin of the flame. Built on legacy, leadership, and first principles.',
+    route: '/CoffeeCollection',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
+    live: true,
   },
   {
-    name: 'Liberty Flame Collection',
-    slug: 'liberty-flame',
-    description: 'The Liberty Flame Collection represents the fire of freedom that never goes out.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/liberty-flame-collection-7358623.jpg?v=1772308427',
-    icon: '🔥',
-    page: 'BestSellers',
+    name: 'Liberty Icons',
+    description: 'Symbols of freedom, reimagined through bold, modern blends.',
+    route: '/LibertyIcons',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/30_fda88503-e869-47ed-8acc-33230f6246c9.png?v=1776038701',
+    live: true,
   },
   {
-    name: 'Patriot Pride Collection',
-    slug: 'patriotic-pride',
-    description: 'Wear your love for this country where it belongs — front and center.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/american-heart-collection-9399768.png?v=1774017679',
-    icon: '🦅',
-    page: 'BestSellers',
+    name: 'Commanders Series',
+    description: 'Leadership under pressure. Built for those who take command.',
+    route: '/CommandersSeries',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-8_3f3a45dd-8d2c-4a04-b3e7-7657eb306db4.jpg?v=1775891841',
+    live: false,
   },
   {
-    name: "Freedom Isn't Free",
-    slug: 'freedom-isnt-free',
-    description: 'Freedom comes at a cost, and this collection honors those who paid the price.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/freedom-isnt-free-collection-9247105.png?v=1773932191',
-    icon: '💥',
-    page: 'BestSellers',
+    name: 'Women of the Republic',
+    description: 'Strength, influence, and legacy—honoring the women who shaped history.',
+    route: '/WomenOfTheRepublic',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-9_4f650292-3215-4b0f-aed8-7ed4c1a02fb6.jpg?v=1775891986',
+    live: false,
   },
   {
-    name: 'We The People',
-    slug: 'we-the-people',
-    description: 'Inspired by the Constitution and the founding principles of this nation.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/we-the-people-collection-4279634.png?v=1773931307',
-    icon: '📜',
-    page: 'BestSellers',
+    name: 'Visionaries',
+    description: 'Ideas that changed the world. Coffee for those who think ahead.',
+    route: '/Visionaries',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-10_6f98a910-06fe-466c-b034-23133f53a324.jpg?v=1775892090',
+    live: false,
   },
   {
-    name: 'Faith Over Fear',
-    slug: 'faith-over-fear',
-    description: 'Stand firm in your faith no matter the storm.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/faith-over-fear-collection-4849812.webp?v=1772308432',
-    icon: '✝️',
-    page: 'BestSellers',
-  },
-  {
-    name: 'Christ Is King',
-    slug: 'christ-is-king',
-    description: 'Unapologetically bold and rooted in truth.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/christ-is-king-collection-1952634.webp?v=1773006011',
-    icon: '👑',
-    page: 'BestSellers',
-  },
-  {
-    name: 'God · Family · Country',
-    slug: 'god-family-country',
-    description: 'The foundation of everything we stand for.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/god-family-country-collection-1224586.png?v=1772308435',
-    icon: '🏡',
-    page: 'BestSellers',
-  },
-  {
-    name: 'American Heroes',
-    slug: 'american-heroes',
-    description: 'Honor the brave men and women who served.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/american-heroes-collection-3537113.png?v=1772308437',
-    icon: '🎖',
-    page: 'BestSellers',
-  },
-  {
-    name: 'Founders Collection',
-    slug: 'founders',
-    description: 'Premium, original, and built for those who were here from the beginning.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/founders-collection-2446309.png?v=1772308439',
-    icon: '🏛',
-    page: 'BestSellers',
+    name: 'Patriots',
+    description: 'For those who stand firm. Everyday courage, brewed strong.',
+    route: '/Patriots',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+    live: false,
   },
 ];
 
+function CollectionCard({ col, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08 }}
+      className="group relative overflow-hidden"
+      style={{ aspectRatio: '3/4', backgroundColor: '#0A0A0A' }}
+    >
+      <Link to={col.route} className="block w-full h-full relative">
+        {/* Image */}
+        <img
+          src={col.image}
+          alt={col.name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          style={{ opacity: 0.55 }}
+        />
+
+        {/* Edge fades */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)' }} />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 55%)' }} />
+
+        {/* Gold hover overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{ background: 'linear-gradient(135deg, rgba(196,163,90,0.08) 0%, transparent 100%)' }} />
+
+        {/* Coming Soon badge */}
+        {!col.live && (
+          <div className="absolute top-4 right-4">
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase px-3 py-1.5"
+              style={{
+                background: 'rgba(0,0,0,0.75)',
+                border: '1px solid rgba(196,163,90,0.4)',
+                color: '#C9A24A',
+                backdropFilter: 'blur(8px)',
+              }}>
+              Coming Soon
+            </span>
+          </div>
+        )}
+
+        {/* Text content */}
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <h3 className="font-serif font-bold mb-2 leading-tight"
+            style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#F0EBE1' }}>
+            {col.name}
+          </h3>
+          <p className="font-mono text-[10px] leading-relaxed mb-4"
+            style={{ color: 'rgba(240,235,225,0.5)' }}>
+            {col.description}
+          </p>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase transition-all duration-200"
+            style={{ color: col.live ? '#C9A24A' : 'rgba(196,163,90,0.45)' }}>
+            {col.live ? 'Explore →' : 'Preview →'}
+          </span>
+        </div>
+
+        {/* Gold bottom border on hover */}
+        <div className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.6), transparent)' }} />
+      </Link>
+    </motion.div>
+  );
+}
+
 export default function Collections() {
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <div className="pt-12 pb-8 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
-            Torch Republic
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase tracking-tight">
-            Collections
-          </h1>
-          <p className="text-muted-foreground mt-4 max-w-lg">
-            Browse our signature collections — each one built around a conviction worth wearing.
-          </p>
-        </div>
-      </div>
+    <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1' }}>
 
-      {/* Grid */}
-      <div className="px-6 pb-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {ALL_COLLECTIONS.map((col, index) => (
-            <motion.div
-              key={col.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <Link
-                to={createPageUrl(col.page) + `?collection=${col.slug}`}
-                className="group relative block aspect-[4/3] overflow-hidden bg-card"
-              >
-                <img
-                  src={col.image}
-                  alt={col.name}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:opacity-70"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  {col.icon && <span className="text-2xl mb-2 block">{col.icon}</span>}
-                  <h3 className="text-foreground font-heading font-bold text-lg uppercase tracking-wide">
-                    {col.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
-                    {col.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-xs font-mono tracking-wider mt-3 group-hover:gap-2 transition-all">
-                    Shop Now <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+      {/* ── HERO ── */}
+      <section className="pt-24 pb-16 px-6 text-center" style={{ borderBottom: '1px solid rgba(196,163,90,0.08)' }}>
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6"
+              style={{ color: 'rgba(196,163,90,0.55)' }}>
+              Torch Republic
+            </p>
+            <h1 className="font-serif font-bold mb-5 leading-none"
+              style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+              Shop the Flame
+            </h1>
+            <p className="font-heading text-sm leading-relaxed mb-8 max-w-xl mx-auto"
+              style={{ color: 'rgba(240,235,225,0.5)' }}>
+              Signature coffee collections and premium goods for those who carry it forward.
+            </p>
+            {/* Gold divider */}
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.5))' }} />
+              <div className="w-1 h-1 rounded-full" style={{ background: 'rgba(196,163,90,0.5)' }} />
+              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.5), transparent)' }} />
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+      {/* ── FEATURED COLLECTIONS ── */}
+      <section className="py-16 px-6 md:px-10">
+        <div className="max-w-[1280px] mx-auto">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="font-mono text-[10px] tracking-[0.4em] uppercase mb-10 text-center"
+            style={{ color: 'rgba(196,163,90,0.4)' }}
+          >
+            Coffee Collections
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {COLLECTIONS.map((col, i) => (
+              <CollectionCard key={col.name} col={col} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
