@@ -20,17 +20,17 @@ export default function FinalCTA() {
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center max-w-[600px] mx-auto"
       >
-        <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-6" style={{ color: 'rgba(201,162,74,0.45)' }}>
+        <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-6" style={{ color: '#C9A24A' }}>
           Begin the Ritual
         </p>
 
-        <h2 className="font-serif leading-none mb-6" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.025em' }}>
+        <h2 className="font-serif leading-none mb-6" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.025em' }}>
           Carry the<br />Flame.
         </h2>
 
         <div className="h-px w-16 mx-auto mb-8" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A60, transparent)' }} />
 
-        <p className="font-heading mb-12" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.35)', fontWeight: 300, lineHeight: 1.9 }}>
+        <p className="font-heading mb-12" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.75)', fontWeight: 400, lineHeight: 1.9 }}>
           Start your ritual today.
         </p>
 

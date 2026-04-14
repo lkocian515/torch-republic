@@ -51,13 +51,13 @@ export default function StartHere() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>
+          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#C9A24A' }}>
             New Here?
           </p>
-          <h2 className="font-serif leading-tight mb-4" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif leading-tight mb-4" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Start Here.
           </h2>
-          <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.62)', fontWeight: 300, maxWidth: '360px', margin: '0 auto' }}>
+          <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, maxWidth: '360px', margin: '0 auto', lineHeight: 1.85 }}>
             For first-time Torchbearers. Pick one. You can't go wrong.
           </p>
         </motion.div>
@@ -80,7 +80,7 @@ export default function StartHere() {
                   src={opt.image}
                   alt={opt.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ opacity: 0.6 }}
+                  style={{ opacity: 0.72, filter: 'brightness(1.08) contrast(1.05)' }}
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0F0F0F 0%, transparent 60%)' }} />
                 {/* Tag */}
@@ -101,13 +101,13 @@ export default function StartHere() {
                 <h3 className="font-serif leading-tight" style={{ fontSize: '1.4rem', fontWeight: 700, color: '#F0EBE1' }}>
                   {opt.title}
                 </h3>
-                <p className="font-heading text-sm leading-relaxed flex-1 font-normal" style={{ color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 1.8 }}>
+                <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.9 }}>
                   {opt.benefit}
                 </p>
                 <Link
                   to={opt.to}
                   className="mt-3 flex items-center justify-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase py-4 transition-all hover:opacity-80"
-                  style={{ background: '#C9A24A', color: '#0B0B0B', fontWeight: 700 }}
+                  style={{ background: '#D4AE57', color: '#080808', fontWeight: 800 }}
                 >
                   {opt.cta} →
                 </Link>

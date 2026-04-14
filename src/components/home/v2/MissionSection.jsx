@@ -22,22 +22,22 @@ export default function MissionSection() {
           <div className="h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.3), transparent)' }} />
         </div>
 
-        <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(201,162,74,0.45)' }}>
+        <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6" style={{ color: '#C9A24A' }}>
           Why Torch Republic Exists
         </p>
 
-        <h2 className="font-serif mb-8 leading-tight" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+        <h2 className="font-serif mb-8 leading-tight" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
           Coffee as ritual.<br />Legacy as purpose.
         </h2>
 
-        <p className="font-heading leading-relaxed mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 2 }}>
+        <p className="font-heading leading-relaxed mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.88)', fontWeight: 400, lineHeight: 2.1 }}>
           The founding generation didn't build this country from comfort. They built it from conviction — morning by morning, decision by decision. Torch Republic exists to remind you of that. Every blend carries a legacy. Every cup is a declaration.
         </p>
 
         <Link
           to="/Journal"
           className="font-mono text-[10px] tracking-[0.35em] uppercase transition-opacity hover:opacity-50 pb-0.5"
-          style={{ color: 'rgba(201,162,74,0.6)', borderBottom: '1px solid rgba(201,162,74,0.25)' }}
+          style={{ color: '#C9A24A', borderBottom: '1px solid rgba(201,162,74,0.5)' }}
         >
           Read the Mission →
         </Link>

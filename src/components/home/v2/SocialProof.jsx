@@ -34,7 +34,7 @@ export default function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.45)' }}>
+          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: '#C9A24A' }}>
             Verified Reviews
           </p>
           <div className="flex items-center justify-center gap-3 mb-2">
@@ -43,7 +43,7 @@ export default function SocialProof() {
             </div>
             <span className="font-serif font-bold text-white" style={{ fontSize: '1.3rem' }}>5.0</span>
           </div>
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.55)' }}>
             Trusted by Torchbearers Nationwide
           </p>
         </motion.div>
@@ -67,8 +67,8 @@ export default function SocialProof() {
                 "{r.text}"
               </p>
               <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(196,163,90,0.07)' }}>
-                <span className="font-mono text-[10px] font-bold" style={{ color: 'rgba(255,255,255,0.45)' }}>{r.name}</span>
-                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{r.location}</span>
+                <span className="font-mono text-[10px] font-bold" style={{ color: 'rgba(255,255,255,0.75)' }}>{r.name}</span>
+                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.45)' }}>{r.location}</span>
               </div>
             </motion.div>
           ))}

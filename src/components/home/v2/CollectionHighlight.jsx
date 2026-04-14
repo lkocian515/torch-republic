@@ -42,8 +42,8 @@ export default function CollectionHighlight() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(196,163,90,0.45)' }}>Collections</p>
-          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.015em' }}>
+          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: '#C9A24A' }}>Collections</p>
+          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.015em' }}>
             Every Legacy Has a Blend.
           </h2>
         </motion.div>
@@ -63,7 +63,7 @@ export default function CollectionHighlight() {
                   src={col.image}
                   alt={col.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ opacity: 0.45 }}
+                  style={{ opacity: 0.58, filter: 'brightness(1.08) contrast(1.05)' }}
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 55%, transparent 100%)' }} />
                 <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${col.accent}50, transparent)` }} />
@@ -72,7 +72,7 @@ export default function CollectionHighlight() {
                   <h3 className="font-serif leading-tight mb-3" style={{ fontSize: '1.45rem', fontWeight: 700, color: col.accent }}>
                     {col.title}
                   </h3>
-                  <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.75 }}>
+                  <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.88)', fontWeight: 400, lineHeight: 1.85 }}>
                     {col.description}
                   </p>
                   <span
