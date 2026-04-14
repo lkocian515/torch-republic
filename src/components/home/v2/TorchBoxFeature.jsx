@@ -48,7 +48,7 @@ export default function TorchBoxFeature() {
             The Torch Box
           </h2>
           <div className="h-px w-16 mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A60, transparent)' }} />
-          <p className="font-heading" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.38)', fontWeight: 300, maxWidth: '440px', margin: '0 auto', lineHeight: 1.9 }}>
+          <p className="font-heading" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.62)', fontWeight: 300, maxWidth: '440px', margin: '0 auto', lineHeight: 1.9 }}>
             A monthly ritual for those who carry the flame.<br />Not a subscription — a movement.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function TorchBoxFeature() {
               <p className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 700, color: '#F0EBE1' }}>
                 {tier.price}
               </p>
-              <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.38)', fontWeight: 300, lineHeight: 1.7 }}>
+              <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.62)', fontWeight: 300, lineHeight: 1.7 }}>
                 {tier.description}
               </p>
 

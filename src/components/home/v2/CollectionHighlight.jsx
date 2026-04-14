@@ -72,7 +72,7 @@ export default function CollectionHighlight() {
                   <h3 className="font-serif leading-tight mb-3" style={{ fontSize: '1.45rem', fontWeight: 700, color: col.accent }}>
                     {col.title}
                   </h3>
-                  <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.38)', fontWeight: 300, lineHeight: 1.75 }}>
+                  <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.75 }}>
                     {col.description}
                   </p>
                   <span

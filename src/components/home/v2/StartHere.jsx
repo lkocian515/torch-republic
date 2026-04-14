@@ -57,7 +57,7 @@ export default function StartHere() {
           <h2 className="font-serif leading-tight mb-4" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
             Start Here.
           </h2>
-          <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.35)', fontWeight: 300, maxWidth: '360px', margin: '0 auto' }}>
+          <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.62)', fontWeight: 300, maxWidth: '360px', margin: '0 auto' }}>
             For first-time Torchbearers. Pick one. You can't go wrong.
           </p>
         </motion.div>
@@ -101,7 +101,7 @@ export default function StartHere() {
                 <h3 className="font-serif leading-tight" style={{ fontSize: '1.4rem', fontWeight: 700, color: '#F0EBE1' }}>
                   {opt.title}
                 </h3>
-                <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.42)', fontWeight: 300, lineHeight: 1.8 }}>
+                <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 1.8 }}>
                   {opt.benefit}
                 </p>
                 <Link

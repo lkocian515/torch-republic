@@ -21,7 +21,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="font-mono text-[10px] tracking-[0.55em] uppercase mb-6"
-            style={{ color: 'rgba(201,162,74,0.55)' }}
+            style={{ color: 'rgba(201,162,74,0.8)' }}
           >
             Torch Republic · Founders Series
           </motion.p>
@@ -34,8 +34,9 @@ export default function HeroSection() {
             style={{
               fontSize: 'clamp(3rem, 7vw, 6rem)',
               fontWeight: 800,
-              color: '#EAEAEA',
+              color: '#F5F3EE',
               letterSpacing: '-0.025em',
+              textShadow: '0 2px 40px rgba(0,0,0,0.8)',
             }}
           >
             Carry the<br />Flame.
@@ -57,7 +58,7 @@ export default function HeroSection() {
             className="font-heading mb-10 max-w-[360px]"
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
-              color: 'rgba(234,234,234,0.45)',
+              color: 'rgba(234,234,234,0.72)',
               fontWeight: 300,
               letterSpacing: '0.04em',
               lineHeight: 1.9,

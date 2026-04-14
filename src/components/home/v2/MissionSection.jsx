@@ -30,7 +30,7 @@ export default function MissionSection() {
           Coffee as ritual.<br />Legacy as purpose.
         </h2>
 
-        <p className="font-heading leading-relaxed mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.45)', fontWeight: 300, lineHeight: 2 }}>
+        <p className="font-heading leading-relaxed mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.68)', fontWeight: 300, lineHeight: 2 }}>
           The founding generation didn't build this country from comfort. They built it from conviction — morning by morning, decision by decision. Torch Republic exists to remind you of that. Every blend carries a legacy. Every cup is a declaration.
         </p>
 
