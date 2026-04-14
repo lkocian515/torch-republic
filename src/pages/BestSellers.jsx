@@ -2,74 +2,43 @@ import React, { useState, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import ProductGrid from '../components/products/ProductGrid';
-import FilterBottomSheet from '../components/filters/FilterBottomSheet';
-import SelectorDrawer from '../components/filters/SelectorDrawer';
 import PullToRefresh from '../components/mobile/PullToRefresh';
-import { Sliders } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 
-const COLLECTIONS_MAP = {
-  'all': 'All',
-  'best-sellers': 'Best Sellers',
-  'founders': 'Founders Series',
-  'american-heroes': 'American Heroes',
-  'we-the-people': 'We The People',
-};
-
-const HIDDEN_CATEGORIES = new Set(['jewelry','tea','candles','home-decor','bobbleheads','accessories']);
-
-const ALL_CATEGORY_TABS = [
+const CATEGORY_TABS = [
+  { key: 'all', label: 'All' },
   { key: 't-shirts', label: 'T-Shirts' },
-  { key: 'hoodies', label: 'Hoodies' },
+  { key: 'hoodies-sweatshirts', label: 'Hoodies' },
   { key: 'hats', label: 'Hats' },
 ];
 
+const SORT_OPTIONS = [
+  { key: 'featured', label: 'Featured' },
+  { key: 'price-low', label: 'Price ↑' },
+  { key: 'price-high', label: 'Price ↓' },
+];
+
 export default function BestSellers() {
-
   const queryClient = useQueryClient();
-  const urlParams = new URLSearchParams(window.location.search);
-  const initialCollection = urlParams.get('collection') || 'all';
-
-  const isMobile = useIsMobile();
-  const [collection, setCollection] = useState(initialCollection);
-  const [category, setCategory] = useState(urlParams.get('category') || 't-shirts');
+  const [category, setCategory] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
-  const [filterOpen, setFilterOpen] = useState(false);
-  const [collectionDrawerOpen, setCollectionDrawerOpen] = useState(false);
-  const [sortDrawerOpen, setSortDrawerOpen] = useState(false);
 
   const handleRefresh = useCallback(async () => {
-    await queryClient.invalidateQueries({ queryKey: ['products'] });
+    await queryClient.invalidateQueries({ queryKey: ['best-sellers'] });
   }, [queryClient]);
 
-  const { data: products, isLoading } = useQuery({
-    queryKey: ['products'],
-    queryFn: () => base44.entities.Product.list('', 250),
-    initialData: [],
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: ['best-sellers'],
+    queryFn: () => base44.entities.Product.filter({ collection: 'best-sellers' }, '', 500),
   });
 
-  // Get available categories (only those with products)
-  const availableCategories = ALL_CATEGORY_TABS.filter(tab =>
-    products.some(p => p.category === tab.key && !HIDDEN_CATEGORIES.has(p.category) && p.image_url)
-  );
-
-  // Reset category if current one is empty
-  const safeCategory = availableCategories.some(cat => cat.key === category) ? category : (availableCategories[0]?.key || 'all');
-
-  const filteredProducts = products.filter(p => {
-    if (HIDDEN_CATEGORIES.has(p.category)) return false;
+  const filtered = products.filter(p => {
     if (!p.image_url) return false;
-    const colMatch = collection === 'all' || p.collection === collection;
-    const catMatch = safeCategory === 'all' || p.category === safeCategory;
-    return colMatch && catMatch;
+    return category === 'all' || p.category === category;
   });
 
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
+  const sorted = [...filtered].sort((a, b) => {
     if (sortBy === 'price-low') return (a.price || 0) - (b.price || 0);
     if (sortBy === 'price-high') return (b.price || 0) - (a.price || 0);
-    if (sortBy === 'rating') return (b.rating || 0) - (a.rating || 0);
-    // featured/default: best-seller rank first, then featured, then rest
     const aRank = a.best_seller_rank || 9999;
     const bRank = b.best_seller_rank || 9999;
     if (aRank !== bRank) return aRank - bRank;
@@ -78,147 +47,74 @@ export default function BestSellers() {
     return 0;
   });
 
-  const title = collection !== 'all' 
-    ? COLLECTIONS_MAP[collection] || 'Products'
-    : 'All Products';
-
   return (
     <PullToRefresh onRefresh={handleRefresh}>
-      <div className="min-h-screen">
-        {/* Header */}
-        <div className="pt-12 pb-4 px-6 md:pt-12 md:pb-4">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
-              Torch Republic
-            </p>
-            <h1 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tight">
-              {title}
+      <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
+
+        {/* ── HERO ── */}
+        <section className="pt-20 pb-10 px-6 md:px-12" style={{ borderBottom: '1px solid rgba(196,163,90,0.1)' }}>
+          <div className="max-w-[1280px] mx-auto">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C4A35A)' }} />
+              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>
+                Torch Republic
+              </span>
+            </div>
+            <h1 className="font-serif mb-2" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: '#F0EBE1', lineHeight: 1 }}>
+              Best Sellers
             </h1>
-            <p className="text-muted-foreground font-mono text-sm mt-2">
-              {sortedProducts.length} product{sortedProducts.length !== 1 ? 's' : ''}
+            <p className="font-mono text-sm" style={{ color: 'rgba(196,163,90,0.6)' }}>
+              Premium apparel for those who carry the flame.
             </p>
           </div>
-        </div>
+        </section>
 
-        {/* Apparel Tabs */}
-        <div className="px-6 pb-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-2 flex-wrap">
-              {availableCategories.map(tab => (
+        {/* ── FILTERS ── */}
+        <div className="sticky top-0 z-20 px-6 md:px-12 py-3"
+          style={{ background: 'rgba(0,0,0,0.95)', borderBottom: '1px solid rgba(196,163,90,0.07)', backdropFilter: 'blur(12px)' }}>
+          <div className="max-w-[1280px] mx-auto flex items-center gap-2 flex-wrap">
+            {/* Category tabs */}
+            <div className="flex items-center gap-2 flex-wrap flex-1">
+              {CATEGORY_TABS.map(tab => (
                 <button
                   key={tab.key}
                   onClick={() => setCategory(tab.key)}
-                  className="px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-all min-h-[44px] flex items-center"
-                  style={safeCategory === tab.key
-                    ? { background: 'linear-gradient(135deg, #070F1E, #0B3D35, #0D5244)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
-                    : { background: 'transparent', color: 'rgba(212,175,90,0.6)', border: '1px solid rgba(212,175,90,0.2)' }}
+                  className="font-mono text-[10px] tracking-[0.3em] uppercase px-4 py-2 transition-all"
+                  style={{
+                    color: category === tab.key ? '#000' : 'rgba(255,255,255,0.4)',
+                    background: category === tab.key ? '#C4A35A' : 'transparent',
+                    border: category === tab.key ? '1px solid #C4A35A' : '1px solid rgba(255,255,255,0.1)',
+                  }}
                 >
                   {tab.label}
                 </button>
               ))}
-              <div className="flex items-center gap-2 ml-auto">
-               {isMobile ? (
-                 <>
-                   <button
-                     onClick={() => setCollectionDrawerOpen(true)}
-                     className="px-4 py-2 font-mono text-xs tracking-[0.2em] uppercase rounded min-h-[44px] flex items-center"
-                     style={{ background: 'rgba(212,175,90,0.2)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.3)' }}
-                   >
-                     {COLLECTIONS_MAP[collection] || 'Collection'}
-                   </button>
-                   <button
-                     onClick={() => setSortDrawerOpen(true)}
-                     className="px-4 py-2 font-mono text-xs tracking-[0.2em] uppercase rounded min-h-[44px] flex items-center"
-                     style={{ background: 'rgba(212,175,90,0.2)', color: '#C8A44D', border: '1px solid rgba(212,175,90,0.3)' }}
-                   >
-                     {sortBy === 'featured' ? 'Featured' : sortBy === 'price-low' ? 'Price ↑' : sortBy === 'price-high' ? 'Price ↓' : 'Top Rated'}
-                   </button>
-                 </>
-               ) : (
-                 <>
-                   <Select value={collection} onValueChange={setCollection}>
-                     <SelectTrigger className="w-44 bg-card border-border text-foreground font-mono text-xs">
-                       <SelectValue placeholder="Collection" />
-                     </SelectTrigger>
-                     <SelectContent className="bg-card border-border">
-                       {Object.entries(COLLECTIONS_MAP).map(([key, label]) => (
-                         <SelectItem key={key} value={key} className="font-mono text-xs">{label}</SelectItem>
-                       ))}
-                     </SelectContent>
-                   </Select>
-                   <Select value={sortBy} onValueChange={setSortBy}>
-                     <SelectTrigger className="w-36 bg-card border-border text-foreground font-mono text-xs">
-                       <SelectValue placeholder="Sort" />
-                     </SelectTrigger>
-                     <SelectContent className="bg-card border-border">
-                       <SelectItem value="featured" className="font-mono text-xs">Featured</SelectItem>
-                       <SelectItem value="price-low" className="font-mono text-xs">Price ↑</SelectItem>
-                       <SelectItem value="price-high" className="font-mono text-xs">Price ↓</SelectItem>
-                       <SelectItem value="rating" className="font-mono text-xs">Top Rated</SelectItem>
-                     </SelectContent>
-                   </Select>
-                 </>
-               )}
-              </div>
+            </div>
+
+            {/* Sort + count */}
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[10px] text-gray-600">{sorted.length} items</span>
+              <select
+                value={sortBy}
+                onChange={e => setSortBy(e.target.value)}
+                className="font-mono text-[10px] tracking-widest uppercase px-3 py-2 outline-none"
+                style={{ background: 'rgba(196,163,90,0.06)', border: '1px solid rgba(196,163,90,0.2)', color: '#C4A35A' }}
+              >
+                {SORT_OPTIONS.map(o => (
+                  <option key={o.key} value={o.key} style={{ background: '#111' }}>{o.label}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
 
-        {/* Mobile Filter Button */}
-        <div className="md:hidden px-6 pb-4">
-          <button
-            onClick={() => setFilterOpen(true)}
-            className="w-full flex items-center justify-center gap-2 min-h-[44px] px-4 border border-border rounded hover:bg-card transition-colors font-mono text-xs tracking-widest uppercase select-none"
-          >
-            <Sliders className="w-4 h-4" />
-            Sort & Filter
-          </button>
-        </div>
-
-        {/* Product Grid */}
-        <div className="px-6 pb-24">
-          <div className="max-w-7xl mx-auto">
-            <ProductGrid products={sortedProducts} isLoading={isLoading} />
+        {/* ── GRID ── */}
+        <section className="py-12 px-6 md:px-12">
+          <div className="max-w-[1280px] mx-auto">
+            <ProductGrid products={sorted} isLoading={isLoading} />
           </div>
-        </div>
+        </section>
 
-        {/* Filter Bottom Sheet */}
-        <FilterBottomSheet
-          open={filterOpen}
-          onOpenChange={setFilterOpen}
-          collection={collection}
-          category={safeCategory}
-          sortBy={sortBy}
-          onCollectionChange={setCollection}
-          onCategoryChange={setCategory}
-          onSortChange={setSortBy}
-          products={products}
-        />
-
-        {/* Collection Drawer */}
-        <SelectorDrawer
-          open={collectionDrawerOpen}
-          onOpenChange={setCollectionDrawerOpen}
-          title="Select Collection"
-          options={Object.entries(COLLECTIONS_MAP).map(([key, label]) => ({ key, label }))}
-          value={collection}
-          onValueChange={setCollection}
-        />
-
-        {/* Sort Drawer */}
-        <SelectorDrawer
-          open={sortDrawerOpen}
-          onOpenChange={setSortDrawerOpen}
-          title="Sort By"
-          options={[
-            { key: 'featured', label: 'Featured' },
-            { key: 'price-low', label: 'Price ↑' },
-            { key: 'price-high', label: 'Price ↓' },
-            { key: 'rating', label: 'Top Rated' },
-          ]}
-          value={sortBy}
-          onValueChange={setSortBy}
-        />
       </div>
     </PullToRefresh>
   );
