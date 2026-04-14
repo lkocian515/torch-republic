@@ -49,23 +49,38 @@ export default function BestSellers() {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
 
-        {/* ── HERO ── */}
-        <section className="pt-20 pb-10 px-6 md:px-12" style={{ borderBottom: '1px solid rgba(196,163,90,0.1)' }}>
-          <div className="max-w-[1280px] mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C4A35A)' }} />
-              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>
-                Torch Republic
-              </span>
-            </div>
-            <h1 className="font-serif mb-2" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: '#F0EBE1', lineHeight: 1 }}>
+        {/* ── CINEMATIC BANNER ── */}
+        <section className="relative w-full overflow-hidden" style={{ height: 'clamp(380px, 55vh, 600px)' }}>
+          <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=85"
+            alt="Best Sellers"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.5 }}
+          />
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, #000 0%, transparent 18%, transparent 60%, #000 100%)' }} />
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #000 0%, transparent 20%, transparent 80%, #000 100%)' }} />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: 'rgba(196,163,90,0.6)' }}>
+              Torch Republic
+            </p>
+            <h1 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, color: '#C9A24A', letterSpacing: '-0.02em', textShadow: '0 2px 40px rgba(0,0,0,0.7)' }}>
               Best Sellers
             </h1>
-            <p className="font-mono text-sm" style={{ color: 'rgba(196,163,90,0.6)' }}>
-              Premium apparel for those who carry the flame.
+            <p className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.4)' }}>
+              The ones people keep coming back for.
             </p>
+            <div className="h-px w-20 mt-6" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.5), transparent)' }} />
           </div>
         </section>
+
+        {/* ── DESCRIPTION ── */}
+        <div className="max-w-[720px] mx-auto px-6 py-16 text-center">
+          <p style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.5)', lineHeight: 2, fontWeight: 300 }}>
+            Premium apparel for those who carry the flame. These are the designs our community keeps coming back to — built with the same conviction that drives everything we do.
+          </p>
+        </div>
 
         {/* ── FILTERS ── */}
         <div className="sticky top-0 z-20 px-6 md:px-12 py-3"
@@ -111,6 +126,14 @@ export default function BestSellers() {
           <div className="max-w-[1280px] mx-auto">
             <ProductGrid products={sorted} isLoading={isLoading} />
           </div>
+        </section>
+
+        {/* ── CLOSING QUOTE ── */}
+        <section className="px-6 py-28 text-center" style={{ borderTop: '1px solid rgba(196,163,90,0.07)', backgroundColor: '#060606' }}>
+          <blockquote className="font-serif italic max-w-[760px] mx-auto"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, color: '#F0EBE1', lineHeight: 1.25 }}>
+            "Wear what you believe."
+          </blockquote>
         </section>
 
       </div>

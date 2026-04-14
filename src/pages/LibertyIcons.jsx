@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Flame } from 'lucide-react';
+import ProductImage from '../components/products/ProductImage';
 
 const LIBERTY_ICONS = [
   {
@@ -66,17 +67,14 @@ const ProductCard = ({ product, index }) => (
     className="group"
   >
     <Link to={`/${product.handle}`} className="block">
-      <div className="relative overflow-hidden mb-5" style={{ aspectRatio: '4/5', backgroundColor: '#0A0A0A' }}>
-        <img
+      <div className="relative mb-5">
+        <ProductImage
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          variant="clean"
+          aspectRatio="4/5"
         />
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ background: `linear-gradient(135deg, ${product.color}22 0%, transparent 100%)` }}
-        />
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-4 right-4 z-10">
           <span style={{ fontSize: '1.5rem' }}>{product.icon}</span>
         </div>
       </div>

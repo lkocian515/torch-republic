@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Flame, Ruler } from 'lucide-react';
 import SizeGuide from './SizeGuide';
+import ProductImage from './ProductImage';
 
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80';
 
@@ -57,14 +58,13 @@ export default function ProductCard({ product, index = 0 }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="relative overflow-hidden mb-3" style={{ aspectRatio: '4/5', background: 'linear-gradient(135deg, #0a0f1f 0%, #0E2A2F 50%, #000 100%)', boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
-        <img
-         src={showDetail && detailImageSrc ? detailImageSrc : imageSrc}
-         onError={() => setImgError(true)}
-         alt={product.title}
-         className={`w-full h-full object-cover transition-all duration-700 ${
-           hovered ? 'scale-105' : 'scale-100'
-         }`}
+        <div className="relative overflow-hidden mb-3 group" style={{ boxShadow: hovered ? '0 8px 40px rgba(200,164,77,0.15)' : '0 4px 20px rgba(0,0,0,0.4)', transition: 'box-shadow 0.4s ease' }}>
+        <ProductImage
+          src={showDetail && detailImageSrc ? detailImageSrc : imageSrc}
+          alt={product.title}
+          variant="clean"
+          aspectRatio="4/5"
+          hoverScale={hovered}
         />
 
         {/* Detail image indicator */}
