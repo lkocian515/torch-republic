@@ -38,7 +38,7 @@ export default function CollectionTiles() {
         <div className="text-center mb-16">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(196,163,90,0.5)' }}>Signature Offerings</p>
           <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, letterSpacing: '-0.015em' }}>
-            Curated for the Discerning
+            Created with Purpose
           </h2>
         </div>
 
