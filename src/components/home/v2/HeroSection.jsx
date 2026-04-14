@@ -7,10 +7,10 @@ export default function HeroSection() {
     <section className="relative w-full overflow-hidden" style={{ minHeight: '100svh' }}>
       {/* Background image */}
       <img
-        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1800&q=85"
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/73803359d_generated_image.png"
         alt="Coffee hero"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.55 }}
+        style={{ opacity: 0.85 }}
       />
 
       {/* Edge fades */}
@@ -48,7 +48,7 @@ export default function HeroSection() {
             className="font-heading text-base md:text-lg mb-10 max-w-[480px] leading-relaxed"
             style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}
           >
-            Coffee for those who refuse to forget what built this country.
+            History in a cup. Brewed daily.
           </motion.p>
 
           <motion.div
