@@ -14,10 +14,10 @@ import CoffeeCollectionMenu from '../components/home/CoffeeCollectionMenu';
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#050508' }}>
-      <CoffeeCollectionMenu />
       <PremiumHero />
       <TrustBar />
       <BrandMission />
+      <CoffeeCollectionMenu />
       <FoundersFeatured />
       <CollectionTiles />
       <WhyTorchRepublic />
