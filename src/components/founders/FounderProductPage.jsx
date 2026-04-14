@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton';
+import ProductImage from '../products/ProductImage';
 import { ChevronRight, ShieldCheck, Truck, RotateCcw, Star, Flame, Coffee, Leaf, Zap } from 'lucide-react';
 
 // ── Flavor note icon map ──────────────────────────────────────────────────────
@@ -105,12 +106,18 @@ export default function FounderProductPage({ data }) {
           SECTION 1 — HERO (full-width cinematic image)
       ═══════════════════════════════════════════════ */}
       <section className="relative w-full mt-6 overflow-hidden" style={{ height: 'clamp(400px, 60vh, 680px)' }}>
+        {/* Cinematic hero image */}
         <img
           src={heroImage}
           alt={title}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.75 }}
+          style={{ opacity: 0.72, filter: 'grayscale(12%) contrast(1.06)' }}
         />
+        {/* Grain overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px 200px', opacity: 0.45,
+        }} />
         {/* Cinematic edge fades */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #080808 0%, transparent 25%, transparent 75%, #080808 100%)' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #080808 0%, transparent 40%)' }} />
@@ -207,18 +214,17 @@ export default function FounderProductPage({ data }) {
             className="flex flex-col gap-6 lg:sticky lg:top-24"
           >
             {/* Image gallery */}
-            <div className="relative overflow-hidden group" style={{ background: '#111', aspectRatio: '4/5' }}>
-              <img
+            <div className="relative group">
+              <ProductImage
                 src={images[activeImg]}
-                alt={`${title}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                style={{ opacity: 0.9 }}
+                alt={title}
+                variant="clean"
+                aspectRatio="4/5"
+                hoverScale={true}
               />
-              <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-                style={{ background: 'linear-gradient(to top, #080808, transparent)' }} />
               {images.length > 1 && (
-                <div className="absolute top-4 right-4">
-                  <span className="font-mono text-[9px] tracking-wider px-2 py-1" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.5)' }}>
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="font-mono text-[9px] tracking-wider px-2 py-1" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.6)' }}>
                     {activeImg + 1} / {images.length}
                   </span>
                 </div>
@@ -230,8 +236,8 @@ export default function FounderProductPage({ data }) {
               <div className="flex gap-2">
                 {images.map((img, i) => (
                   <button key={i} onClick={() => setActiveImg(i)} className="flex-1 overflow-hidden transition-all"
-                    style={{ aspectRatio: '1/1', background: '#111', border: i === activeImg ? `1px solid ${ac}` : '1px solid rgba(196,163,90,0.1)', opacity: i === activeImg ? 1 : 0.5 }}>
-                    <img src={img} alt="" className="w-full h-full object-cover" />
+                    style={{ border: i === activeImg ? `1px solid ${ac}` : '1px solid rgba(196,163,90,0.1)', opacity: i === activeImg ? 1 : 0.5 }}>
+                    <ProductImage src={img} alt="" variant="clean" aspectRatio="1/1" hoverScale={false} />
                   </button>
                 ))}
               </div>
