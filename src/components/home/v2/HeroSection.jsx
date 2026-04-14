@@ -14,14 +14,14 @@ export default function HeroSection() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2" style={{ minHeight: 'clamp(520px, 85vh, 860px)' }}>
 
         {/* LEFT — Text */}
-        <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-20 lg:py-0">
+        <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 lg:py-0">
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="font-mono text-[10px] tracking-[0.55em] uppercase mb-6"
-            style={{ color: 'rgba(201,162,74,0.8)' }}
+            style={{ color: 'rgba(201,162,74,0.9)' }}
           >
             Torch Republic · Founders Series
           </motion.p>
@@ -58,7 +58,7 @@ export default function HeroSection() {
             className="font-heading mb-10 max-w-[360px]"
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
-              color: 'rgba(234,234,234,0.72)',
+              color: 'rgba(234,234,234,0.85)',
               fontWeight: 300,
               letterSpacing: '0.04em',
               lineHeight: 1.9,
