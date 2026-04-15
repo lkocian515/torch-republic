@@ -4,6 +4,7 @@ import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
 import FeaturedCollections from '../components/home/v2/FeaturedCollections';
 import BundleSection from '../components/home/v2/BundleSection';
+import FoundersStarterPack from '../components/bundles/FoundersStarterPack';
 import SocialProof from '../components/home/v2/SocialProof';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
@@ -16,6 +17,7 @@ export default function Home() {
       <WhyTorchRepublic />
       <FeaturedCollections />
       <BundleSection />
+      <FoundersStarterPack />
       <SocialProof />
       <FinalCTA />
       <ExitIntentPopup />

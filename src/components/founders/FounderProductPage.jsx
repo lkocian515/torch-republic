@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton';
 import ProductImage from '../products/ProductImage';
 import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck } from 'lucide-react';
+import FoundersStarterPack from '../bundles/FoundersStarterPack';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -351,6 +352,11 @@ export default function FounderProductPage({ data }) {
           ))}
         </div>
       </section>
+
+      {/* Founders Starter Pack */}
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10">
+        <FoundersStarterPack compact={true} />
+      </div>
 
       {/* Complete Your Collection */}
       {completePair?.length > 0 && (
