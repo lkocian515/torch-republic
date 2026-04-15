@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 import Reviews from './pages/Reviews';
 import OutfitBuilder from './pages/OutfitBuilder';
+import StyleAdvisor from './pages/StyleAdvisor';
 import Bundles from './pages/Bundles';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
@@ -125,6 +126,7 @@ const AuthenticatedApp = () => {
       <Route path="/qr/rosies" element={<LayoutWrapper currentPageName="RosiesQR"><RosiesQR /></LayoutWrapper>} />
       <Route path="/qr/eagles-flight" element={<LayoutWrapper currentPageName="EaglesFlightQR"><EaglesFlightQR /></LayoutWrapper>} />
       <Route path="/OutfitBuilder" element={<LayoutWrapper currentPageName="OutfitBuilder"><OutfitBuilder /></LayoutWrapper>} />
+      <Route path="/StyleAdvisor" element={<LayoutWrapper currentPageName="StyleAdvisor"><StyleAdvisor /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
