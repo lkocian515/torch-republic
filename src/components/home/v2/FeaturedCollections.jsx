@@ -6,7 +6,7 @@ const COLLECTIONS = [
   {
     title: 'Founders Series',
     description: 'Six small-batch blends. Six presidents who shaped a nation. Each one retires when it\'s gone.',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/576e1d934_hero.jpg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5455ef981_generated_image.png',
     cta: 'Explore the Series',
     route: '/CoffeeCollection',
     accent: '#C9A24A',
@@ -15,7 +15,7 @@ const COLLECTIONS = [
   {
     title: 'Liberty Icons',
     description: 'Bold blends named for the symbols that define American freedom. Uncompromising flavor. Unforgettable story.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/22b58bc3c_generated_image.png',
     cta: 'Shop Liberty Icons',
     route: '/LibertyIcons',
     accent: '#9BB8CC',

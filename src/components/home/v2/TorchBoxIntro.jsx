@@ -33,7 +33,7 @@ export default function TorchBoxIntro() {
           >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#111' }}>
               <img
-                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5b60912f0_generated_image.png"
                 alt="The Torch Box"
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.78, filter: 'brightness(1.08) contrast(1.05)' }}

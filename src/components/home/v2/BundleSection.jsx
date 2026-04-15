@@ -69,7 +69,7 @@ export default function BundleSection() {
           >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#111' }}>
               <img
-                src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=85"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/24258672a_generated_image.png"
                 alt="Founders Bundle"
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.72, filter: 'brightness(1.05) contrast(1.06)' }}

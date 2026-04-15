@@ -11,7 +11,7 @@ export default function FinalCTA() {
       {/* Background image */}
       <div className="absolute inset-0 pointer-events-none">
         <img
-          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1400&q=80"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5b60912f0_generated_image.png"
           alt=""
           className="w-full h-full object-cover"
           style={{ opacity: 0.12, filter: 'brightness(0.8) grayscale(30%)' }}
