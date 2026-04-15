@@ -1,10 +1,10 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
-import StartHere from '../components/home/v2/StartHere';
+import BestSellersStrip from '../components/home/v2/BestSellersStrip';
+import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
+import FeaturedCollections from '../components/home/v2/FeaturedCollections';
+import BundleSection from '../components/home/v2/BundleSection';
 import SocialProof from '../components/home/v2/SocialProof';
-import CollectionHighlight from '../components/home/v2/CollectionHighlight';
-import TorchBoxFeature from '../components/home/v2/TorchBoxFeature';
-import MissionSection from '../components/home/v2/MissionSection';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
 
@@ -12,11 +12,11 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
       <HeroSection />
-      <StartHere />
+      <BestSellersStrip />
+      <WhyTorchRepublic />
+      <FeaturedCollections />
+      <BundleSection />
       <SocialProof />
-      <CollectionHighlight />
-      <TorchBoxFeature />
-      <MissionSection />
       <FinalCTA />
       <ExitIntentPopup />
     </div>
