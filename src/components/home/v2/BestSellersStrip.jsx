@@ -83,7 +83,7 @@ export default function BestSellersStrip() {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-3" style={{ color: '#C9A24A' }}>Top Picks</p>
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-3" style={{ color: '#C9A24A' }}>Best Selling Coffee</p>
             <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
               Start Here.
             </h2>

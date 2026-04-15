@@ -4,10 +4,11 @@ import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const NAV_LEFT = [
+  { label: 'Shop Coffee', href: '/CoffeeCollection' },
   { label: 'Founders Series', href: '/CoffeeCollection' },
   { label: 'Liberty Icons', href: '/LibertyIcons' },
+  { label: 'The Torch Box', href: '/TheTorchBox' },
   { label: 'Apparel', href: '/Shop' },
-  { label: 'Torch Box', href: '/TheTorchBox' },
 ];
 
 const NAV_RIGHT = [
@@ -18,17 +19,18 @@ const NAV_RIGHT = [
 
 const NAV_GROUPS = [
   {
-    category: 'Coffee',
+    category: 'Shop Coffee',
     items: [
+      { label: 'All Coffee', href: '/CoffeeCollection' },
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Washington Blend', href: '/WashingtonBlend' },
       { label: 'Jefferson Blend', href: '/JeffersonBlend' },
-      { label: 'Torch Box', href: '/TheTorchBox' },
+      { label: 'The Torch Box', href: '/TheTorchBox' },
     ],
   },
   {
-    category: 'Apparel',
+    category: 'Apparel & Gear',
     items: [
       { label: 'All Apparel', href: '/Shop' },
       { label: 'On Sale', href: '/OnSale' },
