@@ -3,39 +3,22 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton';
 import ProductImage from '../products/ProductImage';
-import { ChevronRight, ShieldCheck, Truck, RotateCcw, Star, Flame, Coffee, Leaf, Zap } from 'lucide-react';
+import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck } from 'lucide-react';
 
-// ── Flavor note icon map ──────────────────────────────────────────────────────
 const FLAVOR_ICONS = {
-  'Dark Chocolate': '🍫',
-  'Chocolate': '🍫',
-  'Cocoa': '🍫',
-  'Smoke': '🌫️',
-  'Smoky': '🌫️',
-  'Citrus': '🍋',
-  'Lemon': '🍋',
-  'Orange': '🍊',
-  'Caramel': '🍮',
-  'Toffee': '🍯',
-  'Almond': '🌰',
-  'Toasted Nut': '🌰',
-  'Praline': '🌰',
-  'Honey': '🍯',
-  'Vanilla': '🤍',
-  'Spice': '🌶️',
-  'Berry': '🫐',
-  'Floral': '🌸',
-  'Full Body': '⚫',
-  'Sweet Cream': '🥛',
-  'Smooth, lingering finish': '✨',
-  'Smooth Finish': '✨',
-  'Clean Finish': '✨',
-  'Sweet Finish': '✨',
-  'Deep Roast': '🔥',
-  'Bittersweet Chocolate': '🍫',
-  'Roasted Peanuts': '🥜',
-  'Sundried Citrus': '🍋',
-  'Golden Honey': '🍯',
+  'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
+  'Smoke': '🌫️', 'Smoky': '🌫️',
+  'Citrus': '🍋', 'Lemon': '🍋', 'Orange': '🍊',
+  'Caramel': '🍮', 'Toffee': '🍯',
+  'Almond': '🌰', 'Toasted Nut': '🌰', 'Praline': '🌰',
+  'Honey': '🍯', 'Golden Honey': '🍯',
+  'Vanilla': '🤍', 'Spice': '🌶️',
+  'Berry': '🫐', 'Floral': '🌸',
+  'Full Body': '⚫', 'Sweet Cream': '🥛',
+  'Smooth, lingering finish': '✨', 'Smooth Finish': '✨',
+  'Clean Finish': '✨', 'Sweet Finish': '✨',
+  'Deep Roast': '🔥', 'Bittersweet Chocolate': '🍫',
+  'Roasted Peanuts': '🥜', 'Sundried Citrus': '🍋',
 };
 
 const BREW_METHODS = [
@@ -44,24 +27,41 @@ const BREW_METHODS = [
   { name: 'Pour Over', icon: '◈', tip: 'Medium grind · Slow bloom · 30s pre-infusion' },
 ];
 
-const TRUST_STRIP = [
-  { emoji: '🔥', label: 'Small Batch Roasted', sub: 'Every bag, made to order' },
-  { emoji: '🌱', label: 'Premium Beans', sub: 'Sourced for character, not convenience' },
-  { emoji: '☕', label: 'Built for Daily Ritual', sub: 'Your morning. Your legacy.' },
+const WHY_YOULL_LOVE = [
+  'Smooth, satisfying finish — no bitterness',
+  'Bold, complex flavor that holds up to cream or black',
+  'Small-batch roasted to order — never stale',
 ];
 
-const SAMPLE_REVIEWS = [
-  { name: 'Marcus T.', location: 'Nashville, TN', rating: 5, text: 'The most heritage-forward coffee I\'ve ever tasted. Rich, complex, and worthy of the name it carries.' },
-  { name: 'Sarah K.', location: 'Charleston, SC', rating: 5, text: 'Absolutely extraordinary. Every morning feels like a deliberate act of legacy with this blend.' },
-  { name: 'James R.', location: 'Austin, TX', rating: 5, text: 'Heritage-crafted in the truest sense. Uncompromising quality from first pour to last drop.' },
+const TRUST_ITEMS = [
+  { Icon: Flame, label: 'Fresh Roasted', sub: 'Every bag made to order' },
+  { Icon: Leaf, label: 'Premium Beans', sub: 'Sourced for character' },
+  { Icon: ShieldCheck, label: 'Satisfaction Guaranteed', sub: 'Love it or we make it right' },
 ];
 
-function GoldDivider() {
+const ROAST_LEVELS = ['Light', 'Medium-Light', 'Medium', 'Medium-Dark', 'Dark', 'Extra Dark'];
+
+function RoastIndicator({ roast, accent }) {
+  const idx = ROAST_LEVELS.findIndex(r => roast?.toLowerCase().includes(r.toLowerCase()));
+  const active = idx >= 0 ? idx : 3;
   return (
-    <div className="flex items-center gap-4 my-12">
-      <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.3))' }} />
-      <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'rgba(196,163,90,0.4)' }} />
-      <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.3), transparent)' }} />
+    <div>
+      <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: `${accent}70` }}>Roast Level</p>
+      <div className="flex items-center gap-1.5 mb-2">
+        {ROAST_LEVELS.map((level, i) => (
+          <div
+            key={level}
+            className="flex-1 h-2 rounded-sm"
+            style={{
+              background: i <= active
+                ? `rgba(${201 - i * 8}, ${162 - i * 12}, 74, ${0.4 + i * 0.12})`
+                : 'rgba(196,163,90,0.08)',
+              border: i === active ? `1px solid ${accent}` : '1px solid transparent',
+            }}
+          />
+        ))}
+      </div>
+      <p className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.45)' }}>{roast}</p>
     </div>
   );
 }
@@ -76,11 +76,17 @@ function Stars({ n = 5 }) {
   );
 }
 
+const SAMPLE_REVIEWS = [
+  { name: 'Marcus T.', location: 'Nashville, TN', rating: 5, text: 'The most heritage-forward coffee I\'ve ever tasted. Rich, complex, and worthy of the name it carries.' },
+  { name: 'Sarah K.', location: 'Charleston, SC', rating: 5, text: 'Every morning feels like a deliberate act of legacy. I don\'t start my day without it.' },
+  { name: 'James R.', location: 'Austin, TX', rating: 5, text: 'Heritage-crafted in the truest sense. Uncompromising quality from first pour to last drop.' },
+];
+
 export default function FounderProductPage({ data }) {
   const {
     title, subline, code, seriesNum, rarity, roast, price,
     shopifyHandle, founderStory, tastingNotes,
-    roastProfile, whoFor, histFacts, quote, completePair,
+    histFacts, quote, completePair,
     accent, heroImage,
   } = data;
 
@@ -91,147 +97,119 @@ export default function FounderProductPage({ data }) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
 
-      {/* ── BREADCRUMB ── */}
+      {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 pt-5">
         <nav className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]" style={{ letterSpacing: '0.08em' }}>
           <Link to="/" className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.28)' }}>Home</Link>
           <ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(255,255,255,0.18)' }} />
           <Link to="/CoffeeCollection" className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.28)' }}>Collection</Link>
           <ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(255,255,255,0.18)' }} />
-          <span style={{ color: 'rgba(196,163,90,0.7)' }}>{title}</span>
+          <span style={{ color: `${ac}70` }}>{title}</span>
         </nav>
       </div>
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 1 — HERO (full-width cinematic image)
-      ═══════════════════════════════════════════════ */}
-      <section className="relative w-full mt-6 overflow-hidden" style={{ height: 'clamp(400px, 60vh, 680px)' }}>
-        {/* Cinematic hero image */}
-        <img
-          src={heroImage}
-          alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.72, filter: 'grayscale(12%) contrast(1.06)' }}
-        />
-        {/* Grain overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
-          backgroundSize: '200px 200px', opacity: 0.45,
-        }} />
-        {/* Cinematic edge fades */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #080808 0%, transparent 25%, transparent 75%, #080808 100%)' }} />
+      {/* Cinematic hero image */}
+      <section className="relative w-full mt-6 overflow-hidden" style={{ height: 'clamp(340px, 52vh, 580px)' }}>
+        <img src={heroImage} alt={title} className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.7, filter: 'contrast(1.05)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #080808 0%, transparent 30%, transparent 70%, #080808 100%)' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #080808 0%, transparent 40%)' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #080808 0%, transparent 25%)' }} />
-
-        {/* Code badge */}
-        <div className="absolute top-6 left-6 md:left-10">
-          <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ background: ac, color: '#0B0B0B' }}>
-            {code}
-          </span>
+        <div className="absolute top-5 left-5 md:left-10">
+          <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ background: ac, color: '#0B0B0B' }}>{code}</span>
         </div>
-
-        {/* Rarity badge */}
         {rarity === "FOUNDER'S EDITION" && (
-          <div className="absolute top-6 right-6 md:right-10">
-            <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5" style={{ background: 'rgba(196,163,90,0.15)', color: ac, border: `1px solid ${ac}40` }}>
+          <div className="absolute top-5 right-5 md:right-10">
+            <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5"
+              style={{ background: 'rgba(196,163,90,0.15)', color: ac, border: `1px solid ${ac}40` }}>
               Founder's Edition
             </span>
           </div>
         )}
       </section>
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 2 — TITLE + STORY + PURCHASE
-      ═══════════════════════════════════════════════ */}
-      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pt-14 pb-0">
+      {/* ── MAIN PRODUCT SECTION ── */}
+      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pt-12 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* Left: Title + Story + Flavor + Why it exists */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-6" style={{ background: 'rgba(196,163,90,0.4)' }} />
-              <p className="font-mono text-[9px] tracking-[0.5em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-                {seriesNum} · {roast}
+          {/* LEFT — Product details */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }}>
+
+            {/* 1. Title */}
+            <div className="mb-2">
+              <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: `${ac}60` }}>
+                {seriesNum} · Founders Series
               </p>
+              <h1 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+                {title}
+              </h1>
             </div>
 
-            {/* Title */}
-            <h1 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.015em' }}>
-              {title}
-            </h1>
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-8" style={{ color: `${ac}70` }}>
-              {subline || 'Heritage-Crafted · Small-Batch Excellence'}
+            {/* 2. Hook */}
+            <p className="font-heading mb-7" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
+              {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
             </p>
 
-            {/* Gold divider */}
-            <div className="h-px w-full mb-8" style={{ background: `linear-gradient(90deg, ${ac}40, transparent)` }} />
+            <div className="h-px w-full mb-8" style={{ background: `linear-gradient(90deg, ${ac}30, transparent)` }} />
 
-            {/* Story — 3-4 lines */}
-            <div className="mb-10 space-y-4">
-              {(founderStory || []).slice(0, 3).map((p, i) => (
-                <p key={i} style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.9, fontWeight: 300 }}>{p}</p>
-              ))}
-            </div>
-
-            {/* Flavor Profile Icons */}
-            {tastingNotes && tastingNotes.length > 0 && (
-              <div className="mb-10">
-                <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: `${ac}70` }}>Flavor Profile</p>
-                <div className="flex flex-wrap gap-3">
+            {/* 3. Flavor Notes */}
+            {tastingNotes?.length > 0 && (
+              <div className="mb-8">
+                <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: `${ac}65` }}>Flavor Notes</p>
+                <div className="flex flex-wrap gap-2">
                   {tastingNotes.map(note => (
-                    <div key={note} className="flex flex-col items-center gap-1.5 px-4 py-3 min-w-[72px]"
-                      style={{ background: 'rgba(196,163,90,0.04)', border: '1px solid rgba(196,163,90,0.12)' }}>
-                      <span style={{ fontSize: '1.3rem' }}>{FLAVOR_ICONS[note] || '☕'}</span>
-                      <span className="font-mono text-[9px] text-center" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.3 }}>{note}</span>
+                    <div key={note} className="flex items-center gap-2 px-3 py-2"
+                      style={{ background: 'rgba(196,163,90,0.05)', border: '1px solid rgba(196,163,90,0.14)' }}>
+                      <span style={{ fontSize: '1rem' }}>{FLAVOR_ICONS[note] || '☕'}</span>
+                      <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.65)' }}>{note}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Why It Exists — historical tie-in */}
-            {histFacts && histFacts.length > 0 && (
-              <div className="mb-4">
-                <div className="h-px w-full mb-8" style={{ background: 'rgba(196,163,90,0.08)' }} />
-                <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: `${ac}70` }}>Why It Exists</p>
-                <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-                  {histFacts[0]}
-                </p>
+            {/* 4. Roast Level */}
+            {roast && (
+              <div className="mb-8">
+                <RoastIndicator roast={roast} accent={ac} />
               </div>
             )}
+
+            {/* 5. Brew Methods */}
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: `${ac}65` }}>Best Brewed As</p>
+              <div className="grid grid-cols-3 gap-2">
+                {BREW_METHODS.map(m => (
+                  <div key={m.name} className="flex flex-col items-center text-center gap-2 p-4"
+                    style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.09)' }}>
+                    <span style={{ fontSize: '1.4rem' }}>{m.icon}</span>
+                    <p className="font-mono text-[9px] tracking-widest uppercase font-bold" style={{ color: ac }}>{m.name}</p>
+                    <p className="font-mono text-[8px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.3)' }}>{m.tip}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </motion.div>
 
-          {/* Right: Image + Purchase — sticky */}
+          {/* RIGHT — Image + Purchase (sticky) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="flex flex-col gap-6 lg:sticky lg:top-24"
+            transition={{ duration: 0.75, delay: 0.15 }}
+            className="flex flex-col gap-5 lg:sticky lg:top-24"
           >
-            {/* Image gallery */}
-            <div className="relative group">
-              <ProductImage
-                src={images[activeImg]}
-                alt={title}
-                variant="clean"
-                aspectRatio="4/5"
-                hoverScale={true}
-              />
+            {/* Image */}
+            <div className="relative">
+              <ProductImage src={images[activeImg]} alt={title} variant="clean" aspectRatio="4/5" hoverScale={true} />
               {images.length > 1 && (
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="font-mono text-[9px] tracking-wider px-2 py-1" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.6)' }}>
+                <div className="absolute top-3 right-3">
+                  <span className="font-mono text-[9px] px-2 py-1" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.6)' }}>
                     {activeImg + 1} / {images.length}
                   </span>
                 </div>
               )}
             </div>
-
-            {/* Thumbnails */}
             {images.length > 1 && (
               <div className="flex gap-2">
                 {images.map((img, i) => (
@@ -243,120 +221,98 @@ export default function FounderProductPage({ data }) {
               </div>
             )}
 
-            {/* Price */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <span className="font-mono font-black" style={{ fontSize: '2rem', color: ac }}>{price}</span>
-              <span className="font-mono text-sm line-through" style={{ color: 'rgba(240,235,225,0.18)' }}>$21.99</span>
-              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1"
-                style={{ background: 'rgba(201,162,74,0.1)', color: ac, border: '1px solid rgba(201,162,74,0.2)' }}>
-                Small-Batch
-              </span>
-            </div>
+            {/* 6. Add-to-Cart */}
+            <div className="p-6" style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.15)' }}>
+              {/* Price */}
+              <div className="flex items-baseline gap-3 mb-5">
+                <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>{price}</span>
+                <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.18)' }}>$21.99</span>
+                <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5"
+                  style={{ background: `${ac}15`, color: ac, border: `1px solid ${ac}25` }}>
+                  Small-Batch
+                </span>
+              </div>
 
-            {/* Add to cart */}
-            <div className="flex flex-col gap-3">
+              {/* Why buy bullets — scan-friendly */}
+              <ul className="space-y-2 mb-6">
+                {WHY_YOULL_LOVE.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <Check className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: ac }} />
+                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.75)', lineHeight: 1.6 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
               <Link to="/TheTorchBox"
-                className="flex items-center justify-center py-3.5 font-mono uppercase tracking-[0.25em] transition-all hover:opacity-70"
-                style={{ fontSize: '10px', border: '1px solid rgba(196,163,90,0.2)', color: 'rgba(196,163,90,0.6)' }}>
+                className="mt-3 flex items-center justify-center py-3.5 font-mono uppercase tracking-[0.25em] transition-all hover:opacity-70"
+                style={{ fontSize: '10px', border: '1px solid rgba(196,163,90,0.18)', color: 'rgba(196,163,90,0.55)' }}>
                 + Add to Torch Box
               </Link>
+            </div>
+
+            {/* Trust strip */}
+            <div className="grid grid-cols-3 gap-2">
+              {TRUST_ITEMS.map(({ Icon, label, sub }) => (
+                <div key={label} className="flex flex-col items-center text-center gap-1.5 py-4 px-2"
+                  style={{ background: '#0C0C0C', border: '1px solid rgba(196,163,90,0.08)' }}>
+                  <Icon className="w-4 h-4" style={{ color: ac }} />
+                  <p className="font-heading text-[11px] font-semibold leading-tight" style={{ color: '#F0EBE1' }}>{label}</p>
+                  <p className="font-mono text-[8px] leading-tight" style={{ color: 'rgba(240,235,225,0.3)' }}>{sub}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Divider */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
-        <GoldDivider />
+        <div className="flex items-center gap-4 my-14">
+          <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.25))' }} />
+          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'rgba(196,163,90,0.35)' }} />
+          <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.25), transparent)' }} />
+        </div>
       </div>
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 3 — BREW GUIDE
-      ═══════════════════════════════════════════════ */}
-      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pb-16">
-        <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-8 text-center" style={{ color: `${ac}70` }}>
-          Brew Guide
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {BREW_METHODS.map(m => (
-            <div key={m.name} className="flex items-start gap-5 p-6"
-              style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.08)' }}>
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>{m.icon}</span>
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold mb-2" style={{ color: ac }}>{m.name}</p>
-                <p className="font-mono text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.35)' }}>{m.tip}</p>
-              </div>
-            </div>
+      {/* 7. STORY SECTION */}
+      <section className="max-w-[800px] mx-auto px-5 md:px-10 pb-16">
+        <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6" style={{ color: `${ac}60` }}>The Story</p>
+        <div className="space-y-5">
+          {(founderStory || []).slice(0, 2).map((p, i) => (
+            <p key={i} style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.7)', lineHeight: 2, fontWeight: 300 }}>{p}</p>
           ))}
+          {histFacts?.length > 0 && (
+            <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.45)', lineHeight: 1.95, fontWeight: 300, fontStyle: 'italic', borderLeft: `2px solid ${ac}30`, paddingLeft: '1.25rem' }}>
+              {histFacts[0]}
+            </p>
+          )}
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10">
-        <GoldDivider />
-      </div>
-
-      {/* ═══════════════════════════════════════════════
-          SECTION 4 — TRUST STRIP
-      ═══════════════════════════════════════════════ */}
-      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {TRUST_STRIP.map(t => (
-            <div key={t.label} className="flex items-center gap-5 p-6"
-              style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.07)' }}>
-              <span style={{ fontSize: '1.5rem' }}>{t.emoji}</span>
-              <div>
-                <p className="font-heading font-bold text-sm mb-0.5" style={{ color: '#F0EBE1' }}>{t.label}</p>
-                <p className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.3)' }}>{t.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════
-          SECTION 5 — FOUNDER QUOTE
-      ═══════════════════════════════════════════════ */}
+      {/* Founder Quote */}
       {quote && (
         <section style={{ backgroundColor: '#0C0C0C', borderTop: '1px solid rgba(196,163,90,0.06)', borderBottom: '1px solid rgba(196,163,90,0.06)' }}>
-          <div className="max-w-[720px] mx-auto px-5 md:px-10 py-20 text-center">
-            <blockquote className="font-serif italic mb-6"
-              style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: 'rgba(240,235,225,0.75)', lineHeight: 1.6 }}>
+          <div className="max-w-[680px] mx-auto px-5 md:px-10 py-20 text-center">
+            <blockquote className="font-serif italic mb-5"
+              style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.7rem)', color: 'rgba(240,235,225,0.78)', lineHeight: 1.65 }}>
               "{quote.text}"
             </blockquote>
-            <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: `${ac}60` }}>
-              — {quote.author}
-            </p>
+            <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: `${ac}55` }}>— {quote.author}</p>
           </div>
         </section>
       )}
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 6 — COLLECTIBILITY
-      ═══════════════════════════════════════════════ */}
+      {/* Collectibility */}
       <section style={{ backgroundColor: '#0A0A0A', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
-        <div className="max-w-[720px] mx-auto px-5 md:px-10 py-20 text-center">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>
-            The Torch Index
-          </p>
-          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F0EBE1', fontWeight: 700 }}>
+        <div className="max-w-[680px] mx-auto px-5 md:px-10 py-20 text-center">
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${ac}45` }}>The Torch Index</p>
+          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F0EBE1', fontWeight: 700 }}>
             Each blend retires. Forever.
           </h2>
-          <p style={{ color: 'rgba(240,235,225,0.35)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.9rem', maxWidth: '460px', margin: '0 auto 2rem' }}>
-            Core blends endure. Founder's Edition blends retire to the Archive — once gone, they're gone.
+          <p style={{ color: 'rgba(240,235,225,0.35)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.9rem', maxWidth: '420px', margin: '0 auto 2rem' }}>
+            Once retired, a blend joins the Archive — never to be roasted again.
           </p>
-          <div className="flex items-center justify-center gap-8 flex-wrap mb-10">
-            <div className="text-center">
-              <p className="font-mono text-2xl font-black" style={{ color: ac }}>{code}</p>
-              <p className="font-mono text-[9px] tracking-widest uppercase mt-1" style={{ color: 'rgba(240,235,225,0.2)' }}>Identity</p>
-            </div>
-            <div className="h-8 w-px" style={{ background: 'rgba(201,162,74,0.15)' }} />
-            <div className="text-center">
-              <p className="font-mono text-lg font-black" style={{ color: rarity === "FOUNDER'S EDITION" ? ac : 'rgba(255,255,255,0.35)' }}>
-                {rarity}
-              </p>
-              <p className="font-mono text-[9px] tracking-widest uppercase mt-1" style={{ color: 'rgba(240,235,225,0.2)' }}>Status</p>
-            </div>
-          </div>
           <Link to="/CoffeeCollection"
             className="font-mono text-[10px] tracking-[0.35em] uppercase transition-opacity hover:opacity-55"
             style={{ color: `${ac}60`, borderBottom: '1px solid rgba(201,162,74,0.22)', paddingBottom: '3px' }}>
@@ -365,32 +321,28 @@ export default function FounderProductPage({ data }) {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 7 — REVIEWS
-      ═══════════════════════════════════════════════ */}
+      {/* Reviews */}
       <section className="max-w-[1200px] mx-auto px-5 md:px-10 py-24">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.45)' }}>Verified Reviews</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${ac}45` }}>Verified Reviews</p>
             <div className="flex items-center gap-3">
               <Stars n={5} />
-              <span className="font-serif text-white font-bold" style={{ fontSize: '1.4rem' }}>5.0</span>
-              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>from 200+ orders</span>
+              <span className="font-serif text-white font-bold" style={{ fontSize: '1.3rem' }}>5.0</span>
+              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>200+ orders</span>
             </div>
           </div>
           <Link to="/Reviews" className="font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-55"
-            style={{ color: `${ac}60`, borderBottom: '1px solid rgba(201,162,74,0.2)', paddingBottom: '3px' }}>
+            style={{ color: `${ac}55`, borderBottom: '1px solid rgba(201,162,74,0.18)', paddingBottom: '3px' }}>
             View All →
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {SAMPLE_REVIEWS.map((r, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="p-7 flex flex-col gap-4" style={{ background: '#0E0E0E', border: '1px solid rgba(196,163,90,0.08)' }}>
+              className="p-6 flex flex-col gap-4" style={{ background: '#0E0E0E', border: '1px solid rgba(196,163,90,0.08)' }}>
               <Stars n={r.rating} />
-              <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.85, fontStyle: 'italic', fontWeight: 300 }}>
-                "{r.text}"
-              </p>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.85, fontStyle: 'italic', fontWeight: 300 }}>"{r.text}"</p>
               <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: '1px solid rgba(196,163,90,0.07)' }}>
                 <span className="font-mono text-[10px] font-bold" style={{ color: 'rgba(255,255,255,0.45)' }}>{r.name}</span>
                 <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{r.location}</span>
@@ -400,13 +352,11 @@ export default function FounderProductPage({ data }) {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════
-          SECTION 8 — COMPLETE YOUR COLLECTION
-      ═══════════════════════════════════════════════ */}
-      {completePair && completePair.length > 0 && (
+      {/* Complete Your Collection */}
+      {completePair?.length > 0 && (
         <section style={{ backgroundColor: '#0E0E0E', borderTop: '1px solid rgba(201,162,74,0.07)' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-10 text-center" style={{ color: 'rgba(201,162,74,0.45)' }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-10 text-center" style={{ color: `${ac}45` }}>
               Complete Your Legacy
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
@@ -417,10 +367,10 @@ export default function FounderProductPage({ data }) {
                   onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,162,74,0.4)'}
                   onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,162,74,0.1)'}>
                   <div>
-                    <p className="font-serif text-white font-bold" style={{ fontSize: '1.1rem' }}>{p.name}</p>
+                    <p className="font-serif text-white font-bold" style={{ fontSize: '1.05rem' }}>{p.name}</p>
                     <p className="font-mono text-[10px] mt-1" style={{ color: 'rgba(240,235,225,0.3)' }}>{p.roast}</p>
                   </div>
-                  <span className="font-mono text-sm transition-all group-hover:translate-x-1" style={{ color: `${ac}70` }}>→</span>
+                  <span className="font-mono text-sm transition-all group-hover:translate-x-1" style={{ color: `${ac}65` }}>→</span>
                 </Link>
               ))}
             </div>
