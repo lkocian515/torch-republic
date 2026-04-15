@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
+import BrandExplainer from '../components/home/v2/BrandExplainer';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
 import FeaturedCollections from '../components/home/v2/FeaturedCollections';
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
       <HeroSection />
+      <BrandExplainer />
       <BestSellersStrip />
       <WhyTorchRepublic />
       <FeaturedCollections />
