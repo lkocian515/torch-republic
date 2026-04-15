@@ -14,12 +14,11 @@ export default function HeroSection() {
           src={HERO_IMAGE}
           alt="Torch Republic"
           className="w-full h-full object-cover object-center"
-          style={{ opacity: 0.55, filter: 'brightness(1.05) contrast(1.08)' }}
+          style={{ opacity: 0.65, filter: 'brightness(1.1) contrast(1.06)' }}
         />
-        {/* Gradient: dark on left/bottom, fading into black */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.25) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 45%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 20%)' }} />
       </div>
 
       {/* Content */}
@@ -91,11 +90,11 @@ export default function HeroSection() {
               Shop Coffee →
             </Link>
             <Link
-              to="/CoffeeCollection"
+              to="/TheTorchBox"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
-              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.45)', padding: '18px 32px' }}
+              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '18px 32px' }}
             >
-              Explore the Founders
+              Join the Torch Box
             </Link>
           </motion.div>
         </div>
