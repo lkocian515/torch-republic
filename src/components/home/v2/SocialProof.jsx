@@ -6,7 +6,7 @@ const REVIEWS = [
   {
     name: 'Marcus T.',
     location: 'Nashville, TN',
-    headline: 'Best coffee I've had in years.',
+    headline: 'Best coffee I\'ve had in years.',
     text: 'The most heritage-forward coffee I\'ve ever had. Rich, complex, and worthy of the name it carries. You can tell this isn\'t generic store coffee — it feels intentional.',
     tags: ['Founders Series', 'Smooth'],
     rating: 5,
