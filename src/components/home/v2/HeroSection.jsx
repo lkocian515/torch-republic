@@ -73,7 +73,7 @@ export default function HeroSection() {
               textShadow: '0 1px 12px rgba(0,0,0,0.8)',
             }}
           >
-            Small-batch coffee inspired by the men and moments that built a nation.
+            Small-batch coffee inspired by the men and women that built a nation.
           </motion.p>
 
           <motion.div
