@@ -5,6 +5,7 @@ import BrandExplainer from '../components/home/v2/BrandExplainer';
 import FeaturedCollections from '../components/home/v2/FeaturedCollections';
 import FoundersStarterPack from '../components/bundles/FoundersStarterPack';
 import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
+import CoffeeQuiz from '../components/home/CoffeeQuiz';
 import TorchBoxIntro from '../components/home/v2/TorchBoxIntro';
 import ApparelSection from '../components/home/v2/ApparelSection';
 import SocialProof from '../components/home/v2/SocialProof';
@@ -26,7 +27,9 @@ export default function Home() {
       <FoundersStarterPack />
       {/* 6. Why Choose Us */}
       <WhyTorchRepublic />
-      {/* 7. Torch Box subscription intro */}
+      {/* 7. Coffee Discovery Quiz */}
+      <CoffeeQuiz />
+      {/* 8. Torch Box subscription intro */}
       <TorchBoxIntro />
       {/* 8. Apparel — secondary */}
       <ApparelSection />
