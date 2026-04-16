@@ -5,6 +5,8 @@ import AddToCartButton from './AddToCartButton';
 import ProductImage from '../products/ProductImage';
 import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck } from 'lucide-react';
 import FoundersStarterPack from '../bundles/FoundersStarterPack';
+import ReviewsSection from '../reviews/ReviewsSection';
+import { GoldStars } from '../reviews/ReviewCard';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -145,6 +147,13 @@ export default function FounderProductPage({ data }) {
                 {title}
               </h1>
             </div>
+
+            {/* Trust booster — rating under title */}
+            <a href="#reviews" className="flex items-center gap-2 mb-5 w-fit group">
+              <GoldStars rating={5} />
+              <span className="font-mono text-[10px]" style={{ color: '#C9A24A' }}>4.8</span>
+              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>(200+ reviews)</span>
+            </a>
 
             {/* 2. Hook */}
             <p className="font-heading mb-7" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
@@ -323,34 +332,8 @@ export default function FounderProductPage({ data }) {
       </section>
 
       {/* Reviews */}
-      <section className="max-w-[1200px] mx-auto px-5 md:px-10 py-24">
-        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-          <div>
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${ac}45` }}>Verified Reviews</p>
-            <div className="flex items-center gap-3">
-              <Stars n={5} />
-              <span className="font-serif text-white font-bold" style={{ fontSize: '1.3rem' }}>5.0</span>
-              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>200+ orders</span>
-            </div>
-          </div>
-          <Link to="/Reviews" className="font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-55"
-            style={{ color: `${ac}55`, borderBottom: '1px solid rgba(201,162,74,0.18)', paddingBottom: '3px' }}>
-            View All →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {SAMPLE_REVIEWS.map((r, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="p-6 flex flex-col gap-4" style={{ background: '#0E0E0E', border: '1px solid rgba(196,163,90,0.08)' }}>
-              <Stars n={r.rating} />
-              <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.85, fontStyle: 'italic', fontWeight: 300 }}>"{r.text}"</p>
-              <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: '1px solid rgba(196,163,90,0.07)' }}>
-                <span className="font-mono text-[10px] font-bold" style={{ color: 'rgba(255,255,255,0.45)' }}>{r.name}</span>
-                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{r.location}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pb-20">
+        <ReviewsSection productHandle={shopifyHandle} />
       </section>
 
       {/* Founders Starter Pack */}
