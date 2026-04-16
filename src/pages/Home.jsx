@@ -1,9 +1,9 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
-import BestSellersStrip from '../components/home/v2/BestSellersStrip';
-import BrandExplainer from '../components/home/v2/BrandExplainer';
-import FeaturedCollections from '../components/home/v2/FeaturedCollections';
 import FoundersStarterPack from '../components/bundles/FoundersStarterPack';
+import BestSellersStrip from '../components/home/v2/BestSellersStrip';
+import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
+import BrandExplainer from '../components/home/v2/BrandExplainer';
 import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
 import CoffeeQuiz from '../components/home/CoffeeQuiz';
 import TorchBoxIntro from '../components/home/v2/TorchBoxIntro';
@@ -17,25 +17,25 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
       {/* 1. Hero */}
       <HeroSection />
-      {/* 2. Start Here — top 4 coffee products */}
-      <BestSellersStrip />
-      {/* 3. What is Torch Republic */}
-      <BrandExplainer />
-      {/* 4. Featured Collections — Founders + Liberty Icons */}
-      <FeaturedCollections />
-      {/* 5. Founders Starter Pack bundle */}
+      {/* 2. Founders Starter Pack — coffee first */}
       <FoundersStarterPack />
+      {/* 3. All 6 Founders Series blends — dynamic from DB */}
+      <BestSellersStrip />
+      {/* 4. Liberty Icons Coffee Collection — dynamic from DB */}
+      <LibertyIconsStrip />
+      {/* 5. Brand story */}
+      <BrandExplainer />
       {/* 6. Why Choose Us */}
       <WhyTorchRepublic />
       {/* 7. Coffee Discovery Quiz */}
       <CoffeeQuiz />
-      {/* 8. Torch Box subscription intro */}
+      {/* 8. Torch Box subscription */}
       <TorchBoxIntro />
-      {/* 8. Apparel — secondary */}
+      {/* 9. Apparel — secondary, below all coffee */}
       <ApparelSection />
-      {/* 9. Social proof */}
+      {/* 10. Social proof */}
       <SocialProof />
-      {/* 10. Final CTA */}
+      {/* 11. Final CTA */}
       <FinalCTA />
       <ExitIntentPopup />
     </div>
