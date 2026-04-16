@@ -2,40 +2,72 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Check, Star } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { base44 } from '@/api/base44Client';
 
-const BUNDLE_PRODUCTS = [
-  {
-    name: 'Washington Blend',
-    roast: 'Dark Roast',
-    note: 'Smoky · Dark Chocolate · Full Body',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/053b77352_generated_image.png',
-    route: '/WashingtonBlend',
-    price: 16.99,
-  },
-  {
-    name: 'Lincoln Blend',
-    roast: 'Medium-Dark Roast',
-    note: 'Bittersweet Chocolate · Caramel · Smooth',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5a35c9646_generated_image.png',
-    route: '/LincolnBlend',
-    price: 16.99,
-  },
-  {
-    name: 'Jefferson Blend',
-    roast: 'Medium Roast',
-    note: 'Citrus · Honey · Clean Finish',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/24258672a_generated_image.png',
-    route: '/JeffersonBlend',
-    price: 16.99,
-  },
+const FOUNDER_HANDLES = [
+  'washington-blend',
+  'lincoln-blend',
+  'jefferson-blend',
 ];
 
-const RETAIL_PRICE = 50.97; // 3 × $16.99
-const BUNDLE_PRICE = 42.99;
+// Extract a clean tasting note / roast line from the description
+function extractRoastNote(description) {
+  if (!description) return '';
+  // Strip HTML tags
+  const plain = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  // Look for "Roast Level:" pattern
+  const roastMatch = plain.match(/Roast Level[:\s]+([^|.]+)/i);
+  if (roastMatch) return roastMatch[1].trim();
+  // Look for roast keywords in first 120 chars
+  const roastKeywords = ['Dark Roast', 'Medium Roast', 'Medium-Dark', 'Light Roast', 'Extra Bold', 'Strong Dark', 'Bold Medium'];
+  for (const kw of roastKeywords) {
+    if (plain.toLowerCase().includes(kw.toLowerCase())) return kw;
+  }
+  return '';
+}
+
+function extractTastingNote(description) {
+  if (!description) return '';
+  const plain = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const notesMatch = plain.match(/Tasting Notes?[:\s]+([^|.]+)/i);
+  if (notesMatch) return notesMatch[1].trim();
+  return '';
+}
+
+function getProductRoute(handle) {
+  const routeMap = {
+    'washington-blend': '/WashingtonBlend',
+    'lincoln-blend': '/LincolnBlend',
+    'jefferson-blend': '/JeffersonBlend',
+    'franklin-blend': '/FranklinBlend',
+    'adams-blend': '/AdamsBlend',
+    'roosevelt-blend': '/RooseveltBlend',
+  };
+  return routeMap[handle] || '/CoffeeCollection';
+}
+
+const RETAIL_PRICE = 60.0; // 3 × $20
+const BUNDLE_PRICE = 50.99;
 const SAVINGS = (RETAIL_PRICE - BUNDLE_PRICE).toFixed(2);
 const SHOPIFY_BUNDLE_URL = 'https://torch-republic.com/collections/coffee';
 
 export default function FoundersStarterPack({ compact = false }) {
+  const { data: allProducts = [], isLoading } = useQuery({
+    queryKey: ['founders-starter-pack'],
+    queryFn: () => base44.entities.Product.filter({ category: 'coffee' }, '', 50),
+  });
+
+  // Filter to the 3 featured founders blends in order
+  const products = FOUNDER_HANDLES.map(handle =>
+    allProducts.find(p => p.shopify_handle === handle)
+  ).filter(Boolean);
+
+  // Fallback: if not found yet, show first 3 coffee products
+  const displayProducts = products.length >= 3
+    ? products
+    : allProducts.filter(p => p.image_url && p.in_stock !== false).slice(0, 3);
+
   return (
     <section
       className="relative py-20 px-6 md:px-12 overflow-hidden"
@@ -59,7 +91,6 @@ export default function FoundersStarterPack({ compact = false }) {
           className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12"
         >
           <div>
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5"
               style={{ background: 'rgba(212,174,87,0.12)', border: '1px solid rgba(212,174,87,0.35)' }}>
               <Star className="w-3 h-3 fill-current" style={{ color: '#D4AE57' }} />
@@ -90,43 +121,69 @@ export default function FoundersStarterPack({ compact = false }) {
 
         {/* Product cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          {BUNDLE_PRODUCTS.map((product, i) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <Link
-                to={product.route}
-                className="group flex flex-col overflow-hidden transition-all"
-                style={{ background: '#111', border: '1px solid rgba(196,163,90,0.14)' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,174,87,0.4)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(196,163,90,0.14)'}
-              >
-                <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ opacity: 0.82, filter: 'brightness(1.05)' }}
-                  />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)' }} />
-                  {/* Number badge */}
-                  <div className="absolute top-4 left-4 w-7 h-7 flex items-center justify-center font-mono font-black text-xs"
-                    style={{ background: '#D4AE57', color: '#080808' }}>
-                    0{i + 1}
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-serif font-bold mb-1" style={{ fontSize: '1.05rem', color: '#FFFFFF' }}>{product.name}</h3>
-                  <p className="font-mono text-[9px] tracking-widest uppercase mb-2" style={{ color: 'rgba(201,162,74,0.65)' }}>{product.roast}</p>
-                  <p className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.6 }}>{product.note}</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+          {isLoading
+            ? [...Array(3)].map((_, i) => (
+                <div key={i} className="animate-pulse" style={{ background: '#111', aspectRatio: '1/1', border: '1px solid rgba(196,163,90,0.1)' }} />
+              ))
+            : displayProducts.map((product, i) => {
+                const roast = extractRoastNote(product.description);
+                const note = extractTastingNote(product.description);
+                const route = getProductRoute(product.shopify_handle);
+                const shopifyUrl = `https://torch-republic.com/products/${product.shopify_handle}`;
+
+                return (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                  >
+                    <a
+                      href={shopifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col overflow-hidden transition-all"
+                      style={{ background: '#111', border: '1px solid rgba(196,163,90,0.14)', display: 'flex', flexDirection: 'column' }}
+                      onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,174,87,0.4)'}
+                      onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(196,163,90,0.14)'}
+                    >
+                      <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                        <img
+                          src={product.image_url}
+                          alt={product.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          style={{ opacity: 0.9, filter: 'brightness(1.05)' }}
+                        />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)' }} />
+                        {/* Number badge */}
+                        <div className="absolute top-4 left-4 w-7 h-7 flex items-center justify-center font-mono font-black text-xs"
+                          style={{ background: '#D4AE57', color: '#080808' }}>
+                          0{i + 1}
+                        </div>
+                        {product.price && (
+                          <div className="absolute top-4 right-4 font-mono font-bold text-xs px-2 py-1"
+                            style={{ background: 'rgba(0,0,0,0.7)', color: '#D4AE57', border: '1px solid rgba(212,174,87,0.3)' }}>
+                            ${parseFloat(product.price).toFixed(2)}
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-5 flex flex-col gap-1.5 flex-1">
+                        <h3 className="font-serif font-bold leading-snug" style={{ fontSize: '1.05rem', color: '#FFFFFF' }}>
+                          {product.title.replace(/[-–]\s*Founders Series Coffee/i, '').trim()}
+                        </h3>
+                        {roast && (
+                          <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: 'rgba(201,162,74,0.7)' }}>{roast}</p>
+                        )}
+                        {note && (
+                          <p className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.6 }}>{note}</p>
+                        )}
+                      </div>
+                    </a>
+                  </motion.div>
+                );
+              })
+          }
         </div>
 
         {/* CTA row */}
@@ -138,7 +195,6 @@ export default function FoundersStarterPack({ compact = false }) {
           className="flex flex-col sm:flex-row items-center gap-5"
           style={{ background: '#111', border: '1px solid rgba(196,163,90,0.2)', padding: '1.75rem 2rem' }}
         >
-          {/* What's included */}
           <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-wrap">
             {['3 small-batch bags', '15% bundle savings', 'Free shipping'].map((item) => (
               <div key={item} className="flex items-center gap-2">
