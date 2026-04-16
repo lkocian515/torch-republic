@@ -2,10 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
-import { ArrowRight } from 'lucide-react';
-
-// Roosevelt, Grant, Jackson featured first when available
-const FEATURED_COMMANDERS = ['roosevelt-blend', 'grant-blend', 'jackson-blend'];
+import { ArrowRight, Shield } from 'lucide-react';
 
 function ProductCard({ product, index }) {
   const url = `https://torch-republic.com/products/${product.shopify_handle}`;
@@ -55,26 +52,58 @@ function ProductCard({ product, index }) {
   );
 }
 
+function ComingSoon() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="flex flex-col items-center text-center py-16 px-6"
+      style={{ border: '1px solid rgba(201,162,74,0.15)', background: 'rgba(201,162,74,0.03)' }}
+    >
+      <div className="flex items-center justify-center w-14 h-14 mb-6"
+        style={{ border: '1px solid rgba(201,162,74,0.25)', background: 'rgba(201,162,74,0.06)' }}>
+        <Shield className="w-6 h-6" style={{ color: 'rgba(201,162,74,0.6)' }} />
+      </div>
+      <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.55)' }}>
+        Coming Soon
+      </p>
+      <p className="font-heading max-w-md" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.85, fontWeight: 400 }}>
+        Commanders Series is preparing for launch. Check back soon for bold roasts inspired by legendary military leaders.
+      </p>
+      <a
+        href="https://torch-republic.com/collections/commanders-series"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase mt-8 transition-all hover:opacity-75 pb-0.5"
+        style={{ color: 'rgba(201,162,74,0.65)', borderBottom: '1px solid rgba(201,162,74,0.25)' }}
+      >
+        View Collection <ArrowRight className="w-3 h-3" />
+      </a>
+    </motion.div>
+  );
+}
+
 export default function CommandersStrip() {
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-commanders-strip'],
     queryFn: () => base44.entities.Product.filter({ category: 'coffee' }, '', 50),
   });
 
+  // Match only real Commanders Series products by title keyword
   const commanders = allProducts.filter(p =>
     p.title && p.title.toLowerCase().includes('commanders series')
   );
 
-  const priority = FEATURED_COMMANDERS.map(h => commanders.find(p => p.shopify_handle === h)).filter(Boolean);
-  const rest = commanders.filter(p => !FEATURED_COMMANDERS.includes(p.shopify_handle));
-  const display = [...priority, ...rest].slice(0, 4);
-
-  if (!isLoading && display.length === 0) return null;
+  const display = commanders.slice(0, 6);
+  const hasProducts = display.length > 0;
 
   return (
     <section className="py-20 md:py-28 px-5 md:px-12" style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.07)' }}>
       <div className="max-w-[1280px] mx-auto">
 
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,33 +121,54 @@ export default function CommandersStrip() {
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Commanders Series
               </h2>
-              <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 440 }}>
-                Built for those who lead. High-intensity blends forged in strength, conviction, and command.
+              <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.8, maxWidth: 480 }}>
+                Bold roasts and battlefield legends. Built for strength, discipline, and resolve.
               </p>
             </div>
 
-            <a
-              href="https://torch-republic.com/collections/commanders-series"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75 flex-shrink-0 pb-0.5"
-              style={{ color: '#C9A24A', borderBottom: '1px solid rgba(201,162,74,0.3)' }}
-            >
-              Lead From the Front <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            {hasProducts && (
+              <a
+                href="https://torch-republic.com/collections/commanders-series"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75 flex-shrink-0 pb-0.5"
+                style={{ color: '#C9A24A', borderBottom: '1px solid rgba(201,162,74,0.3)' }}
+              >
+                Lead From the Front <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
         </motion.div>
 
+        {/* Gold rule */}
         <div className="mb-10" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(201,162,74,0.55) 0%, rgba(201,162,74,0.08) 55%, transparent 100%)' }} />
 
+        {/* Content: real products or coming soon */}
         {isLoading ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-            {[...Array(4)].map((_, i) => <div key={i} className="animate-pulse" style={{ background: '#161616', aspectRatio: '1/1' }} />)}
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="animate-pulse" style={{ background: '#161616', aspectRatio: '1/1' }} />
+            ))}
           </div>
+        ) : hasProducts ? (
+          <>
+            <div className={`grid grid-cols-2 gap-3 md:gap-5 ${display.length <= 3 ? 'md:grid-cols-3' : display.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3 lg:grid-cols-6'}`}>
+              {display.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
+            </div>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="https://torch-republic.com/collections/commanders-series"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-80 btn-glow"
+                style={{ background: 'transparent', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.35)', padding: '14px 36px' }}
+              >
+                Shop Commanders Series <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-            {display.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
-          </div>
+          <ComingSoon />
         )}
       </div>
     </section>

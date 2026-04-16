@@ -61,6 +61,7 @@ export default function LibertyIconsStrip() {
     queryFn: () => base44.entities.Product.filter({ category: 'coffee' }, '', 50),
   });
 
+  // Filter by title keyword — matches actual Shopify product titles synced to DB
   const liberty = allProducts.filter(p =>
     p.title && p.title.toLowerCase().includes('liberty icons series')
   );
