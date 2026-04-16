@@ -1,14 +1,10 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
-import FoundersStarterPack from '../components/bundles/FoundersStarterPack';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
 import CommandersStrip from '../components/home/v2/CommandersStrip';
-import BrandExplainer from '../components/home/v2/BrandExplainer';
-import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
-import CoffeeQuiz from '../components/home/CoffeeQuiz';
-import TorchBoxIntro from '../components/home/v2/TorchBoxIntro';
 import ApparelSection from '../components/home/v2/ApparelSection';
+import TorchBoxIntro from '../components/home/v2/TorchBoxIntro';
 import SocialProof from '../components/home/v2/SocialProof';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
@@ -16,29 +12,21 @@ import ExitIntentPopup from '../components/home/ExitIntentPopup';
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
-      {/* 1. Hero */}
+      {/* 1. Hero — Carry the Flame */}
       <HeroSection />
-      {/* 2. Founders Starter Pack — coffee first */}
-      <FoundersStarterPack />
-      {/* 3. All 6 Founders Series blends — dynamic from DB */}
+      {/* 2. Founders Series — primary coffee, "Where it all began" */}
       <BestSellersStrip />
-      {/* 4. Liberty Icons Coffee Collection — dynamic from DB */}
+      {/* 3. Liberty Icons — "Symbols that outlive time" */}
       <LibertyIconsStrip />
-      {/* 5. Commanders Series — only renders if products exist */}
+      {/* 4. Commanders Series — "Built for those who lead" */}
       <CommandersStrip />
-      {/* 5. Brand story */}
-      <BrandExplainer />
-      {/* 6. Why Choose Us */}
-      <WhyTorchRepublic />
-      {/* 7. Coffee Discovery Quiz */}
-      <CoffeeQuiz />
-      {/* 8. Torch Box subscription */}
-      <TorchBoxIntro />
-      {/* 9. Apparel — secondary, below all coffee */}
+      {/* 5. Shirts — secondary expression, tighter weight */}
       <ApparelSection />
-      {/* 10. Social proof */}
+      {/* 6. Torch Box subscription */}
+      <TorchBoxIntro />
+      {/* 7. Social proof */}
       <SocialProof />
-      {/* 11. Final CTA */}
+      {/* 8. Final CTA */}
       <FinalCTA />
       <ExitIntentPopup />
     </div>
