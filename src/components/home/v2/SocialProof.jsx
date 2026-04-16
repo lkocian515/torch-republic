@@ -4,11 +4,11 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GoldStars } from '../../../components/reviews/ReviewCard';
 
 const REVIEWS = [
-  { name: 'Marcus T.', location: 'Nashville, TN', rating: 5, headline: 'Best coffee I've had in years.', text: 'The most heritage-forward coffee I\'ve ever had. Rich, complex, and worthy of the name it carries. You can tell this isn\'t generic store coffee — it\'s intentional in every way.' },
-  { name: 'Sarah K.', location: 'Charleston, SC', rating: 5, headline: 'Every morning feels like a ritual.', text: 'Every morning feels like a deliberate act of legacy. I don\'t start my day without it. The Founders Series has ruined me for grocery store coffee permanently.' },
-  { name: 'James R.', location: 'Austin, TX', rating: 5, headline: 'This feels like a collector's item.', text: 'I bought the Founders Series for myself and three friends. Everyone ordered again within a week. The quality is undeniable — smooth, balanced, and genuinely impressive.' },
-  { name: 'David M.', location: 'Bozeman, MT', rating: 5, headline: 'It\'s not just coffee. It\'s a mindset.', text: 'Torch Republic gets it. The story behind each blend makes every cup mean something. I\'ve tried them all and each one is distinct. Bold flavors, zero bitterness.' },
-  { name: 'Rachel B.', location: 'Knoxville, TN', rating: 5, headline: 'The Torch Box is unreal.', text: 'The Torch Box is the best subscription I\'ve ever signed up for. Every month feels like a reveal. Premium coffee, premium packaging, premium experience — all the way through.' },
+  { name: 'Marcus T.', location: 'Nashville, TN', rating: 5, headline: "Best coffee I've had in years.", text: "The most heritage-forward coffee I've ever had. Rich, complex, and worthy of the name it carries. You can tell this isn't generic store coffee — it's intentional in every way." },
+  { name: 'Sarah K.', location: 'Charleston, SC', rating: 5, headline: "Every morning feels like a ritual.", text: "Every morning feels like a deliberate act of legacy. I don't start my day without it. The Founders Series has ruined me for grocery store coffee permanently." },
+  { name: 'James R.', location: 'Austin, TX', rating: 5, headline: "This feels like a collector's item.", text: "I bought the Founders Series for myself and three friends. Everyone ordered again within a week. The quality is undeniable — smooth, balanced, and genuinely impressive." },
+  { name: 'David M.', location: 'Bozeman, MT', rating: 5, headline: "It's not just coffee. It's a mindset.", text: "Torch Republic gets it. The story behind each blend makes every cup mean something. I've tried them all and each one is distinct. Bold flavors, zero bitterness." },
+  { name: 'Rachel B.', location: 'Knoxville, TN', rating: 5, headline: "The Torch Box is unreal.", text: "The Torch Box is the best subscription I've ever signed up for. Every month feels like a reveal. Premium coffee, premium packaging, premium experience — all the way through." },
 ];
 
 export default function SocialProof() {
