@@ -3,6 +3,7 @@ import HeroSection from '../components/home/v2/HeroSection';
 import FoundersStarterPack from '../components/bundles/FoundersStarterPack';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
+import CommandersStrip from '../components/home/v2/CommandersStrip';
 import BrandExplainer from '../components/home/v2/BrandExplainer';
 import WhyTorchRepublic from '../components/home/v2/WhyTorchRepublic';
 import CoffeeQuiz from '../components/home/CoffeeQuiz';
@@ -23,6 +24,8 @@ export default function Home() {
       <BestSellersStrip />
       {/* 4. Liberty Icons Coffee Collection — dynamic from DB */}
       <LibertyIconsStrip />
+      {/* 5. Commanders Series — only renders if products exist */}
+      <CommandersStrip />
       {/* 5. Brand story */}
       <BrandExplainer />
       {/* 6. Why Choose Us */}
