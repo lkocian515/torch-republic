@@ -91,9 +91,12 @@ export default function CommandersStrip() {
     queryFn: () => base44.entities.Product.filter({ category: 'coffee' }, '', 50),
   });
 
-  // Match only real Commanders Series products by title keyword
+  // Match real Commander's Series products — Shopify uses apostrophe: "Commander's Series"
   const commanders = allProducts.filter(p =>
-    p.title && p.title.toLowerCase().includes('commanders series')
+    p.title && (
+      p.title.toLowerCase().includes("commander's series") ||
+      p.title.toLowerCase().includes('commanders series')
+    )
   );
 
   const display = commanders.slice(0, 6);
