@@ -46,7 +46,16 @@ function ProductCard({ product, index }) {
       <div className="p-5 flex flex-col gap-2">
         <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#FFFFFF', lineHeight: 1.25 }}>{title}</h3>
         {roast && <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>{roast}</p>}
-        <span className="font-mono font-bold text-sm mt-1" style={{ color: '#C9A24A' }}>${parseFloat(product.price).toFixed(2)}</span>
+        <div className="flex items-center gap-2 mt-0.5">
+          <div className="flex gap-0.5">
+            {[1,2,3,4,5].map(i => (
+              <span key={i} style={{ color: '#C9A24A', fontSize: '10px' }}>★</span>
+            ))}
+          </div>
+          <span className="font-mono text-[9px] font-bold" style={{ color: '#C9A24A' }}>4.9</span>
+          <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>· Verified</span>
+        </div>
+        <span className="font-mono font-bold text-sm" style={{ color: '#C9A24A' }}>${parseFloat(product.price).toFixed(2)}</span>
       </div>
     </motion.a>
   );

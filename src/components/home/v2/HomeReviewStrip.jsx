@@ -53,11 +53,14 @@ export default function HomeReviewStrip() {
           className="text-center mb-10"
         >
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.45)' }}>
-            Verified Reviews
+            Verified Buyers · Real Feedback
           </p>
-          <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', letterSpacing: '-0.02em' }}>
             Trusted by Those Who Carry the Flame
           </h2>
+          <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            Small batch roasted · Premium sourced beans · Satisfaction guaranteed
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
