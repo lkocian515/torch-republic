@@ -129,7 +129,7 @@ export default function FounderProductPage({ data, DATA }) {
   const images = normalized.images || [heroImage];
   const ac = accent || '#C9A24A';
 
-  const rawPrice = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 18.99;
+  const rawPrice = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 19.99;
   const displayPrice = purchaseMode === 'subscribe'
     ? `$${(rawPrice * 0.85).toFixed(2)}`
     : `$${rawPrice.toFixed(2)}`;
@@ -350,6 +350,11 @@ export default function FounderProductPage({ data, DATA }) {
                   </li>
                 ))}
               </ul>
+
+              {/* Value messaging */}
+              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${ac}45` }}>
+                ★ Save 15% when you subscribe · Best value
+              </p>
 
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
 

@@ -10,7 +10,7 @@ const TIERS = [
     tagline: 'Start the fire.',
     price: '$29',
     per: '/mo',
-    savings: 'Save ~$8/mo vs one-time',
+    savings: 'Save ~$8/mo vs one-time purchases',
     color: '#C87050',
     items: [
       '1 Founders Series Blend (12 oz)',
@@ -26,7 +26,7 @@ const TIERS = [
     tagline: 'Lead the way.',
     price: '$54',
     per: '/mo',
-    savings: 'Save ~$18/mo vs one-time',
+    savings: 'Save ~$18/mo vs one-time purchases',
     color: '#C9A24A',
     items: [
       '2 Founders Series Blends (12 oz each)',
@@ -43,7 +43,7 @@ const TIERS = [
     tagline: 'Carry the flame for all.',
     price: '$89',
     per: '/mo',
-    savings: 'Save ~$35/mo vs one-time',
+    savings: 'Save ~$35/mo · Includes free shipping',
     color: '#E8D08A',
     items: [
       'Full 3-Blend Rotation (12 oz each)',
@@ -344,7 +344,7 @@ export default function TheTorchBox() {
               {tier.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="font-mono text-[9px] font-black tracking-[0.35em] uppercase px-4 py-1"
-                    style={{ background: tier.color, color: '#0B0B0B' }}>Most Popular</span>
+                    style={{ background: tier.color, color: '#0B0B0B' }}>★ Most Popular</span>
                 </div>
               )}
 

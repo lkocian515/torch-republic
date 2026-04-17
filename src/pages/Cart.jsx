@@ -138,7 +138,7 @@ export default function Cart() {
             {freeShippingRemaining > 0 && (
               <div className="p-4" style={{ background: 'rgba(201,162,74,0.06)', border: '1px solid rgba(201,162,74,0.12)' }}>
                 <p className="font-mono text-[10px] uppercase tracking-wider mb-2.5" style={{ color: 'rgba(201,162,74,0.6)' }}>
-                  Add ${freeShippingRemaining.toFixed(2)} more for free shipping
+                  ✦ Free shipping at $150+ · Build your collection faster
                 </p>
                 <div className="w-full h-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
                   <div className="h-1 rounded-full transition-all duration-500"
@@ -368,13 +368,13 @@ export default function Cart() {
                 </div>
               </div>
 
-              {/* Cart upsell nudge */}
+              {/* Cart value messaging */}
               <div className="p-3.5 text-center" style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.1)' }}>
                 <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-                  Secure checkout · Fast shipping · No-risk purchase
+                  Premium roasted · Small batch · No-risk purchase
                 </p>
                 <p className="font-mono text-[8px] mt-1" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                  Backed by our satisfaction guarantee
+                  Save 15% with Torch Box subscription
                 </p>
               </div>
 
