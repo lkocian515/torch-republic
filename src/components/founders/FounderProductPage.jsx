@@ -110,6 +110,11 @@ export default function FounderProductPage({ data, DATA }) {
     images:       raw.images || (raw.image ? [raw.image, raw.image_2].filter(Boolean) : undefined),
   };
 
+  const seriesName = normalized.seriesNum
+    ? 'Founders Series'
+    : (raw.taglineLabel || raw.seriesLabel || 'Liberty Icons Series');
+  const seriesCount = normalized.seriesNum ? 6 : 8;
+
   const {
     title, subline, code, seriesNum, rarity, roast, price,
     shopifyHandle, founderStory, tastingNotes,
@@ -197,9 +202,9 @@ export default function FounderProductPage({ data, DATA }) {
 
             {/* Scarcity / urgency */}
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#C9A24A' }} />
+              <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
               <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Small batch — not mass produced
+                Small batch roasted — availability may vary
               </span>
             </div>
 
@@ -259,16 +264,14 @@ export default function FounderProductPage({ data, DATA }) {
               </ul>
             </div>
 
-            {/* Founders Series Collector callout */}
-            {seriesNum && (
-              <div className="mt-4 p-4 flex items-center gap-4" style={{ background: `${ac}08`, border: `1px solid ${ac}20` }}>
-                <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: ac }}>Part of the Founders Series</p>
-                  <p className="font-mono text-[9px] mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Collect all 6. Each blend retires forever.</p>
-                </div>
+            {/* Collector callout — Founders + Liberty Icons */}
+            <div className="mt-4 p-4 flex items-center gap-4" style={{ background: `${ac}08`, border: `1px solid ${ac}20` }}>
+              <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
+              <div>
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: ac }}>Part of the {seriesName}</p>
+                <p className="font-mono text-[9px] mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Collect all {seriesCount}. Each blend retires forever.</p>
               </div>
-            )}
+            </div>
 
           </motion.div>
 
@@ -339,11 +342,21 @@ export default function FounderProductPage({ data, DATA }) {
               </ul>
 
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
-              <Link to="/TheTorchBox"
-                className="mt-3 flex items-center justify-center py-3.5 font-mono uppercase tracking-[0.25em] transition-all hover:opacity-70"
-                style={{ fontSize: '10px', border: '1px solid rgba(196,163,90,0.18)', color: 'rgba(196,163,90,0.55)' }}>
-                + Add to Torch Box
-              </Link>
+
+              {/* Subscription support */}
+              <div className="mt-4 p-3.5" style={{ background: `${ac}07`, border: `1px solid ${ac}18` }}>
+                <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold mb-1" style={{ color: ac }}>
+                  Get this delivered monthly with Torch Box
+                </p>
+                <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.32)' }}>
+                  Save + unlock exclusive releases
+                </p>
+                <Link to="/TheTorchBox"
+                  className="mt-2 inline-flex items-center gap-1 font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-60"
+                  style={{ color: `${ac}70` }}>
+                  Learn more →
+                </Link>
+              </div>
             </div>
 
             {/* Trust strip */}
@@ -371,18 +384,18 @@ export default function FounderProductPage({ data, DATA }) {
       </div>
 
       {/* 7. STORY SECTION */}
-      <section className="max-w-[800px] mx-auto px-5 md:px-10 pb-16">
-        <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6" style={{ color: `${ac}60` }}>The Story</p>
-        <div className="space-y-5">
-          {(founderStory || []).slice(0, 2).map((p, i) => (
-            <p key={i} style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.7)', lineHeight: 2, fontWeight: 300 }}>{p}</p>
-          ))}
-          {histFacts?.length > 0 && (
-            <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.45)', lineHeight: 1.95, fontWeight: 300, fontStyle: 'italic', borderLeft: `2px solid ${ac}30`, paddingLeft: '1.25rem' }}>
-              {histFacts[0]}
-            </p>
-          )}
-        </div>
+      <section className="max-w-[720px] mx-auto px-5 md:px-10 pb-16">
+      <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-6" style={{ color: `${ac}60` }}>The Story</p>
+      <div className="space-y-4">
+        {(founderStory || []).slice(0, 3).map((p, i) => (
+          <p key={i} style={{ fontSize: '0.975rem', color: 'rgba(240,235,225,0.72)', lineHeight: 1.9, fontWeight: 300 }}>{p}</p>
+        ))}
+        {histFacts?.length > 0 && (
+          <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.38)', lineHeight: 1.85, fontWeight: 300, fontStyle: 'italic', borderLeft: `2px solid ${ac}28`, paddingLeft: '1rem' }}>
+            {histFacts[0]}
+          </p>
+        )}
+      </div>
       </section>
 
       {/* Founder Quote */}
