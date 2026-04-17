@@ -235,9 +235,10 @@ export default function TheTorchBox() {
           {/* Retention hook strip */}
           <div className="flex flex-wrap items-center justify-center gap-6 mt-12 pt-10" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
             {[
-              'Exclusive blends only available to subscribers',
-              'Limited subscriber releases',
-              'Priority access to new collections',
+              'Subscriber-only blends — never sold publicly',
+              'Early access to new releases',
+              'Limited runs reserved for Torch Box members',
+              'Built for daily discipline',
             ].map((line, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full" style={{ background: '#C9A24A', flexShrink: 0 }} />
@@ -266,10 +267,19 @@ export default function TheTorchBox() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-center mb-14"
+            className="font-serif text-center mb-3"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F0EBE1', fontWeight: 700, letterSpacing: '-0.01em' }}>
             Three pillars. One ritual.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-center mb-14"
+            style={{ color: 'rgba(201,162,74,0.4)' }}>
+            Every month is a new chapter.
+          </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {WHATS_INSIDE.map((item, i) => {
               const Icon = item.icon;
@@ -306,7 +316,7 @@ export default function TheTorchBox() {
             Three tiers. One mission.
           </h2>
           <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            Cancel anytime — but most don't.
+            Pause or cancel anytime — but most stay.
           </p>
         </div>
 
@@ -397,16 +407,24 @@ export default function TheTorchBox() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Collector System</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Build Your Collection</p>
             <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
-              Build your collection faster<br />with Torch Box.
+              Each delivery brings you closer<br />to completing the series.
             </h2>
             <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '480px', margin: '0 auto 1rem', fontSize: '0.95rem' }}>
-              Each Torch Box ships a different Founder. Collect all six. Once a blend retires, it joins the Archive — never roasted again.
+              Collect all 6 Founders. Each Torch Box ships a different blend — and once a roast retires, it joins the Archive forever.
             </p>
-            <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-              Complete the set.
-            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-6">
+              <span className="font-mono text-[9px] tracking-[0.25em] uppercase flex items-center gap-2" style={{ color: 'rgba(201,162,74,0.6)' }}>
+                <span className="w-1 h-1 rounded-full inline-block" style={{ background: '#C9A24A' }} /> Collect all 6 Founders
+              </span>
+              <span className="font-mono text-[9px] tracking-[0.25em] uppercase flex items-center gap-2" style={{ color: 'rgba(201,162,74,0.6)' }}>
+                <span className="w-1 h-1 rounded-full inline-block" style={{ background: '#C9A24A' }} /> New series releasing regularly
+              </span>
+              <span className="font-mono text-[9px] tracking-[0.25em] uppercase flex items-center gap-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                <span className="w-1 h-1 rounded-full inline-block" style={{ background: 'rgba(255,255,255,0.25)' }} /> Next drop: Commanders Series
+              </span>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
@@ -489,7 +507,51 @@ export default function TheTorchBox() {
 
       <TorchDivider />
 
-      {/* ── 6. FINAL CTA ── */}
+      {/* ── 6. MONTHLY EXPERIENCE STRIP ── */}
+      <section style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.07)', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>The Torch Box Experience</p>
+            <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: '#F0EBE1', fontWeight: 700, letterSpacing: '-0.01em' }}>
+              You'll look forward to every delivery.
+            </h2>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.4)' }}>
+              You won't want to miss next month.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { label: 'When It Ships', msg: '"Your next chapter is on the way."', sub: 'A personal note about what\'s inside this month\'s box.' },
+              { label: 'Monthly Reveal', msg: '"Here\'s what you\'re receiving this month."', sub: 'The story behind this month\'s founder, blend, and insert.' },
+              { label: 'Next Drop Teaser', msg: '"Next month\'s drop is coming."', sub: 'A preview of what\'s arriving — and why you won\'t want to miss it.' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-7 flex flex-col gap-4"
+                style={{ background: '#0F0F0F', border: '1px solid rgba(201,162,74,0.09)' }}
+              >
+                <p className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: 'rgba(201,162,74,0.45)' }}>{item.label}</p>
+                <p className="font-serif italic" style={{ fontSize: '1.05rem', color: '#F0EBE1', fontWeight: 500, lineHeight: 1.5 }}>{item.msg}</p>
+                <p style={{ color: 'rgba(240,235,225,0.35)', fontSize: '0.82rem', lineHeight: 1.8, fontWeight: 300 }}>{item.sub}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <TorchDivider />
+
+      {/* ── 7. FINAL CTA ── */}
       <section className="max-w-[720px] mx-auto px-6 md:px-12 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -507,8 +569,11 @@ export default function TheTorchBox() {
             Join the Torch Box.<br />
             <span style={{ color: '#C9A24A' }}>Carry the Flame.</span>
           </h2>
-          <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '420px', margin: '0 auto 3rem', fontSize: '0.95rem' }}>
-            Monthly. Premium. Yours. Cancel anytime — but most Torchbearers never do.
+          <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '420px', margin: '0 auto 1.5rem', fontSize: '0.95rem' }}>
+            Monthly. Premium. Yours. A new chapter every delivery — coffee, history, and collector experience in one box.
+          </p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-12" style={{ color: 'rgba(201,162,74,0.45)' }}>
+            Pause or cancel anytime — but most stay.
           </p>
 
           <a
