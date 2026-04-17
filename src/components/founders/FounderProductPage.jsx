@@ -96,8 +96,14 @@ export default function FounderProductPage({ data }) {
   } = data;
 
   const [activeImg, setActiveImg] = useState(0);
+  const [purchaseMode, setPurchaseMode] = useState('subscribe');
   const images = data.images || [heroImage];
   const ac = accent || '#C9A24A';
+
+  const rawPrice = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 18.99;
+  const displayPrice = purchaseMode === 'subscribe'
+    ? `$${(rawPrice * 0.85).toFixed(2)}`
+    : `$${rawPrice.toFixed(2)}`;
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
@@ -239,12 +245,14 @@ export default function FounderProductPage({ data }) {
             {/* 6. Add-to-Cart */}
             <div className="p-6" style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.15)' }}>
              {/* Subscribe Toggle — above cart */}
-             <SubscribeToggle accent={ac} price={price} />
+             <SubscribeToggle accent={ac} price={price} onModeChange={setPurchaseMode} />
 
-             {/* Price */}
-             <div className="flex items-baseline gap-3 mb-5">
-                <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>{price}</span>
-                <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.18)' }}>$21.99</span>
+              {/* Price — reactive to toggle */}
+              <div className="flex items-baseline gap-3 mb-5">
+                <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>{displayPrice}</span>
+                {purchaseMode === 'subscribe' && (
+                  <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.22)' }}>${rawPrice.toFixed(2)}</span>
+                )}
                 <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5"
                   style={{ background: `${ac}15`, color: ac, border: `1px solid ${ac}25` }}>
                   Small-Batch
