@@ -14,13 +14,13 @@ const DATA = {
   heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
   founderStory: [
     "Lincoln didn't shout. He endured.",
-    "Through pressure, loss, and impossible odds — he stayed steady.",
-    "Union soldiers wrote about coffee more than war — because it kept them going.",
-    "This blend is deep, bold, and built to last.",
+    'Through pressure, loss, and impossible odds — he stayed steady.',
+    'Union soldiers wrote about coffee more than war — because it kept them going.',
+    'This blend is deep, bold, and built to last.',
   ],
   tastingNotes: ['Cocoa', 'Molasses', 'Toasted Oak'],
   histFacts: [
-    "Lincoln worked through the night sustained by strong coffee — known to endure weeks of sleepless crisis during the Civil War.",
+    'Union soldiers carried coffee as a staple ration — Lincoln understood it was what kept the army moving.',
   ],
   quote: { text: 'Give me six hours to chop down a tree and I will spend the first four sharpening the axe.', author: 'Abraham Lincoln' },
   completePair: [
