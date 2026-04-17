@@ -53,6 +53,7 @@ import OldGloryQR from './pages/qr/OldGloryQR';
 import UncleSamQR from './pages/qr/UncleSamQR';
 import RosiesQR from './pages/qr/RosiesQR';
 import EaglesFlightQR from './pages/qr/EaglesFlightQR';
+import LandingPage from './pages/LandingPage';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -127,6 +128,7 @@ const AuthenticatedApp = () => {
       <Route path="/qr/eagles-flight" element={<LayoutWrapper currentPageName="EaglesFlightQR"><EaglesFlightQR /></LayoutWrapper>} />
       <Route path="/OutfitBuilder" element={<LayoutWrapper currentPageName="OutfitBuilder"><OutfitBuilder /></LayoutWrapper>} />
       <Route path="/StyleAdvisor" element={<LayoutWrapper currentPageName="StyleAdvisor"><StyleAdvisor /></LayoutWrapper>} />
+      <Route path="/landing" element={<LayoutWrapper currentPageName="LandingPage"><LandingPage /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
