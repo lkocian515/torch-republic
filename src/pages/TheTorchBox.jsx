@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Flame, Check, Truck, Coffee, BookOpen, Zap, Star, Lock, Gift, Shield } from 'lucide-react';
+import { Flame, Check, Truck, Coffee, BookOpen, Zap, Star, Lock, Gift, Shield, QrCode, CreditCard, Trophy } from 'lucide-react';
+import TorchbearerCard from '../components/torchbox/TorchbearerCard';
 
 const TIERS = [
   {
@@ -62,7 +63,7 @@ const MEMBER_BENEFITS = [
   { icon: Lock, label: 'Exclusive Subscriber Blends', detail: 'Roasts never sold to the public. Yours only as a member.' },
   { icon: Zap, label: 'Early Access to New Releases', detail: 'Get new collections before anyone else. First in, always.' },
   { icon: Gift, label: 'Monthly Collector Experience', detail: 'Numbered inserts, artifacts, and pieces of American history — every box.' },
-  { icon: Shield, label: 'Member-Only Rewards', detail: 'Priority access, archive editions, and Inner Circle benefits.' },
+  { icon: QrCode, label: 'Digital Content via QR', detail: 'Scan your card to access exclusive stories, history, and collector rewards.' },
 ];
 
 const WHATS_INSIDE = [
@@ -195,16 +196,19 @@ export default function TheTorchBox() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Membership</p>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Become a Torchbearer</p>
             <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}>
               You're not just buying coffee.<br />
               <span style={{ color: '#C9A24A' }}>You're a Torchbearer.</span>
             </h2>
-            <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.95, fontWeight: 300, maxWidth: '520px', margin: '0 auto 1rem', fontSize: '1rem' }}>
-              Built for daily discipline. A morning ritual with meaning — every cup tied to a story, a legacy, a purpose.
+            <p style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.95, fontWeight: 300, maxWidth: '520px', margin: '0 auto 0.75rem', fontSize: '1rem' }}>
+              This isn't just coffee. It's a commitment to discipline, history, and purpose.
+            </p>
+            <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.85, fontWeight: 300, maxWidth: '480px', margin: '0 auto 1rem', fontSize: '0.9rem' }}>
+              Every member receives a Torchbearer card — your access to the full Torch Republic experience.
             </p>
             <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.45)' }}>
-              Carry the Flame.
+              Membership continues as long as your Torch Box stays active.
             </p>
           </motion.div>
 
@@ -460,7 +464,92 @@ export default function TheTorchBox() {
 
       <TorchDivider />
 
-      {/* ── 5. SOCIAL PROOF ── */}
+      {/* ── 5. TORCHBEARER CARD ── */}
+      <section style={{ backgroundColor: '#080808', borderTop: '1px solid rgba(201,162,74,0.07)', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left — Card visual */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center gap-6"
+            >
+              <TorchbearerCard />
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase text-center" style={{ color: 'rgba(201,162,74,0.3)' }}>
+                Torchbearer Membership Card · Issued Upon Activation
+              </p>
+            </motion.div>
+
+            {/* Right — Copy */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="flex flex-col gap-7"
+            >
+              <div>
+                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Your Torchbearer Card</p>
+                <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                  A symbol of commitment.<br />
+                  <span style={{ color: '#C9A24A' }}>A key to access.</span>
+                </h2>
+                <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.95rem' }}>
+                  Each card includes a unique QR code unlocking exclusive content, stories, and rewards. Your Torchbearer card is your passport to the full Torch Republic experience.
+                </p>
+              </div>
+
+              {/* QR Experience bullets */}
+              <div className="flex flex-col gap-3">
+                {[
+                  { icon: QrCode, label: 'Hall of History', detail: 'Scan to access curated historical content, founder stories, and rare quotes.' },
+                  { icon: Trophy, label: 'Collection Progress', detail: 'Track your Founders Series milestones and unlock achievements.' },
+                  { icon: CreditCard, label: 'Member Rewards', detail: 'Exclusive content, trivia, challenges, and future member-only drops.' },
+                ].map(({ icon: Icon, label, detail }) => (
+                  <div key={label} className="flex items-start gap-4 p-4"
+                    style={{ background: '#0F0F0F', border: '1px solid rgba(201,162,74,0.09)' }}>
+                    <div className="w-8 h-8 flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(201,162,74,0.07)', border: '1px solid rgba(201,162,74,0.15)' }}>
+                      <Icon className="w-3.5 h-3.5" style={{ color: '#C9A24A' }} />
+                    </div>
+                    <div>
+                      <p className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold mb-1" style={{ color: '#C9A24A' }}>{label}</p>
+                      <p style={{ color: 'rgba(240,235,225,0.4)', fontSize: '0.82rem', lineHeight: 1.75, fontWeight: 300 }}>{detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Collect the Founders */}
+              <div className="p-5 flex items-start gap-4"
+                style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.2)' }}>
+                <Flame className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#C9A24A' }} />
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-black mb-1" style={{ color: '#C9A24A' }}>
+                    Collect the Founders. Build your legacy.
+                  </p>
+                  <p style={{ color: 'rgba(240,235,225,0.4)', fontSize: '0.82rem', lineHeight: 1.75, fontWeight: 300 }}>
+                    Your card tracks collection progress and unlocks milestones as you complete each series.
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-purchase note */}
+              <p className="font-mono text-[9px] tracking-[0.3em] uppercase"
+                style={{ color: 'rgba(201,162,74,0.35)', borderLeft: '2px solid rgba(201,162,74,0.2)', paddingLeft: '12px' }}>
+                ✦ Your Torchbearer card is being prepared — included with Torch Box membership.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <TorchDivider />
+
+      {/* ── 6. SOCIAL PROOF ── */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -507,7 +596,7 @@ export default function TheTorchBox() {
 
       <TorchDivider />
 
-      {/* ── 6. MONTHLY EXPERIENCE STRIP ── */}
+      {/* ── 7. MONTHLY EXPERIENCE STRIP ── */}
       <section style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.07)', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20">
           <motion.div
@@ -551,7 +640,7 @@ export default function TheTorchBox() {
 
       <TorchDivider />
 
-      {/* ── 7. FINAL CTA ── */}
+      {/* ── 8. FINAL CTA ── */}
       <section className="max-w-[720px] mx-auto px-6 md:px-12 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
