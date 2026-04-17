@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton';
 import ProductImage from '../products/ProductImage';
-import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck } from 'lucide-react';
+import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck, Truck, Lock } from 'lucide-react';
 import FoundersStarterPack from '../bundles/FoundersStarterPack';
 import ReviewsSection from '../reviews/ReviewsSection';
 import { GoldStars } from '../reviews/ReviewCard';
 import BrewGuide from './BrewGuide';
 import SubscribeToggle from '../products/SubscribeToggle';
 import FoundersCollectionProgress from './FoundersCollectionProgress';
+import BundleSection from './BundleSection';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -202,11 +203,19 @@ export default function FounderProductPage({ data, DATA }) {
             </p>
 
             {/* Scarcity / urgency */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
-              <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Small batch roasted — availability may vary
-              </span>
+            <div className="flex flex-col gap-1.5 mb-6">
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  Small batch roasted — availability may vary
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'rgba(201,162,74,0.35)' }} />
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                  Limited production run — high demand blend
+                </span>
+              </div>
             </div>
 
             <div className="h-px w-full mb-8" style={{ background: `linear-gradient(90deg, ${ac}30, transparent)` }} />
@@ -273,11 +282,6 @@ export default function FounderProductPage({ data, DATA }) {
                 <p className="font-mono text-[9px] mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Collect all {seriesCount}. Each blend retires forever.</p>
               </div>
             </div>
-
-            {/* Founders Collection Progress — only for Founders Series */}
-            {seriesNum && (
-              <FoundersCollectionProgress currentHandle={shopifyHandle} accent={ac} />
-            )}
 
           </motion.div>
 
@@ -347,17 +351,29 @@ export default function FounderProductPage({ data, DATA }) {
                 ))}
               </ul>
 
+              {/* Low-stock indicator */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: `${ac}70` }} />
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>
+                  Only a few batches left this week
+                </span>
+              </div>
+
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
 
-              {/* Post-cart micro trust */}
+              {/* Add-to-cart trust boosters */}
               <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>🔒 Secure Checkout</span>
-                <span style={{ color: 'rgba(255,255,255,0.12)' }}>·</span>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>🚚 Fast U.S. Shipping</span>
-                <span style={{ color: 'rgba(255,255,255,0.12)' }}>·</span>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>✓ 30-Day Guarantee</span>
+                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <Truck className="w-3 h-3" style={{ color: `${ac}50` }} /> Fast U.S. Shipping
+                </span>
+                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <Lock className="w-3 h-3" style={{ color: `${ac}50` }} /> Secure Checkout
+                </span>
+                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <ShieldCheck className="w-3 h-3" style={{ color: `${ac}50` }} /> Guaranteed
+                </span>
               </div>
-              <p className="font-mono text-[8px] text-center mt-1" style={{ color: `${ac}45` }}>
+              <p className="font-mono text-[8px] text-center mt-1.5" style={{ color: `${ac}45` }}>
                 Roasted fresh — ships quickly
               </p>
 
@@ -391,6 +407,13 @@ export default function FounderProductPage({ data, DATA }) {
           </motion.div>
         </div>
       </section>
+
+      {/* Bundle Section */}
+      {seriesNum && (
+        <section className="max-w-[1200px] mx-auto px-5 md:px-10 pt-10">
+          <BundleSection accent={ac} />
+        </section>
+      )}
 
       {/* Divider */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">

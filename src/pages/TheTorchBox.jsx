@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Flame, Check, Truck, Coffee, BookOpen, Zap, Star } from 'lucide-react';
+import { Flame, Check, Truck, Coffee, BookOpen, Zap, Star, Lock, Gift, Shield } from 'lucide-react';
 
 const TIERS = [
   {
@@ -52,9 +52,17 @@ const TIERS = [
       'Torch Republic Inner Circle',
     ],
     featured: false,
+    bestValue: true,
     freeShipping: true,
     handle: 'torch-box-blaze',
   },
+];
+
+const MEMBER_BENEFITS = [
+  { icon: Lock, label: 'Exclusive Subscriber Blends', detail: 'Roasts never sold to the public. Yours only as a member.' },
+  { icon: Zap, label: 'Early Access to New Releases', detail: 'Get new collections before anyone else. First in, always.' },
+  { icon: Gift, label: 'Monthly Collector Experience', detail: 'Numbered inserts, artifacts, and pieces of American history — every box.' },
+  { icon: Shield, label: 'Member-Only Rewards', detail: 'Priority access, archive editions, and Inner Circle benefits.' },
 ];
 
 const WHATS_INSIDE = [
@@ -174,6 +182,58 @@ export default function TheTorchBox() {
 
       <TorchDivider />
 
+      {/* ── 1b. BECOME A TORCHBEARER ── */}
+      <section style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.06)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Membership</p>
+            <h2 className="font-serif mb-5" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}>
+              Become a Torchbearer
+            </h2>
+            <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.95, fontWeight: 300, maxWidth: '500px', margin: '0 auto', fontSize: '1rem' }}>
+              This isn't just coffee. It's a commitment to discipline, history, and purpose.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {MEMBER_BENEFITS.map((b, i) => {
+              const Icon = b.icon;
+              return (
+                <motion.div
+                  key={b.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex flex-col gap-4 p-6"
+                  style={{ background: '#111', border: '1px solid rgba(201,162,74,0.1)' }}
+                >
+                  <div className="w-9 h-9 flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(201,162,74,0.07)', border: '1px solid rgba(201,162,74,0.15)' }}>
+                    <Icon className="w-4 h-4" style={{ color: '#C9A24A' }} />
+                  </div>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold leading-snug" style={{ color: '#C9A24A' }}>{b.label}</p>
+                  <p style={{ color: 'rgba(240,235,225,0.45)', fontSize: '0.85rem', lineHeight: 1.8, fontWeight: 300 }}>{b.detail}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
+              Exclusive blends · Priority access · Limited subscriber releases
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <TorchDivider />
+
       {/* ── 2. WHAT YOU GET ── */}
       <section id="whats-inside" style={{ backgroundColor: '#0E0E0E', borderTop: '1px solid rgba(201,162,74,0.07)', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
@@ -226,9 +286,12 @@ export default function TheTorchBox() {
       <section id="tiers" className="max-w-[1200px] mx-auto px-6 md:px-12 py-28">
         <div className="text-center mb-16">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Choose Your Level</p>
-          <h2 className="font-serif" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
             Three tiers. One mission.
           </h2>
+          <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            Cancel anytime — but most Torchbearers never do.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -255,6 +318,14 @@ export default function TheTorchBox() {
                 </div>
               )}
 
+              {tier.bestValue && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <span className="font-mono text-[9px] font-black tracking-[0.35em] uppercase px-4 py-1"
+                    style={{ background: 'rgba(232,208,138,0.15)', color: '#E8D08A', border: '1px solid rgba(232,208,138,0.4)' }}>
+                    Best Value
+                  </span>
+                </div>
+              )}
               {tier.freeShipping && (
                 <div className="absolute top-5 right-5 flex items-center gap-1 px-2 py-1"
                   style={{ background: 'rgba(201,162,74,0.1)', border: '1px solid rgba(201,162,74,0.25)' }}>
@@ -314,10 +385,13 @@ export default function TheTorchBox() {
           >
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Collector System</p>
             <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
-              Collect the Founders.<br />Build your legacy.
+              Build your collection faster<br />with Torch Box.
             </h2>
-            <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem' }}>
+            <p style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '480px', margin: '0 auto 0.75rem', fontSize: '0.95rem' }}>
               Each Torch Box ships a different Founder. Collect all six. Once a blend retires, it joins the Archive — never roasted again.
+            </p>
+            <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
+              Complete the set.
             </p>
           </motion.div>
 

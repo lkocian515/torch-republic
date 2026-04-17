@@ -22,14 +22,14 @@ export default function AddToCartButton({ shopifyHandle, accent, label = 'Add to
   };
 
   return (
-    <div>
+    <div className="w-full">
       <button
         onClick={handleClick}
         disabled={loading}
-        className="px-8 py-3.5 font-heading font-black text-sm tracking-[0.15em] uppercase transition-all disabled:opacity-60"
-        style={{ background: `linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, ${accent} 100%)`, color: '#fff' }}
+        className="w-full py-4 font-mono font-black text-[11px] tracking-[0.3em] uppercase transition-all disabled:opacity-60 btn-glow"
+        style={{ background: accent, color: '#080808' }}
       >
-        {loading ? 'Adding to Cart...' : label}
+        {loading ? 'Opening Checkout...' : label}
       </button>
       {error && <p className="font-mono text-xs mt-2" style={{ color: '#ff6b6b' }}>{error}</p>}
     </div>
