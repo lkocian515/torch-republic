@@ -5,47 +5,6 @@ import { motion } from 'framer-motion';
 import ReviewCard, { GoldStars } from './ReviewCard';
 import TrustBar from './TrustBar';
 
-// Static fallback reviews shown when no DB reviews exist yet
-const STATIC_REVIEWS = {
-  'washington-blend': [
-    { id: 's1', reviewer_name: 'James R.', location: 'Nashville, TN', rating: 5, body: "Washington Blend is my go-to now. Balanced and smooth — holds up black or with cream.", product_handle: 'washington-blend' },
-    { id: 's2', reviewer_name: 'Marcus T.', location: 'Bozeman, MT', rating: 5, body: "Strong without being bitter. Exactly what I was looking for in a daily driver.", product_handle: 'washington-blend' },
-    { id: 's3', reviewer_name: 'Daniel M.', location: 'Austin, TX', rating: 5, body: "Packaging is premium and the coffee backs it up. You can tell this isn't mass produced.", product_handle: 'washington-blend' },
-  ],
-  'franklin-blend': [
-    { id: 's1', reviewer_name: 'Chris T.', location: 'Charleston, SC', rating: 5, body: "Smooth and layered — way more complex than I expected at this price point.", product_handle: 'franklin-blend' },
-    { id: 's2', reviewer_name: 'Ryan B.', location: 'Denver, CO', rating: 5, body: "Franklin is my morning blend now. Never goes bitter, even when I let it sit.", product_handle: 'franklin-blend' },
-    { id: 's3', reviewer_name: 'Andrew K.', location: 'Knoxville, TN', rating: 5, body: "Finally a brand that stands for something. Subscribed after the first bag.", product_handle: 'franklin-blend' },
-  ],
-  'jefferson-blend': [
-    { id: 's1', reviewer_name: 'Thomas W.', location: 'Richmond, VA', rating: 5, body: "Refined and clean. The dark chocolate notes are real — not just marketing copy.", product_handle: 'jefferson-blend' },
-    { id: 's2', reviewer_name: 'Nathan P.', location: 'Philadelphia, PA', rating: 5, body: "Best medium roast I've had. Smooth start, clean finish. Nothing to complain about.", product_handle: 'jefferson-blend' },
-    { id: 's3', reviewer_name: 'Michael D.', location: 'Atlanta, GA', rating: 5, body: "Great for pour over. Bought three bags after the first one.", product_handle: 'jefferson-blend' },
-  ],
-  'lincoln-blend': [
-    { id: 's1', reviewer_name: 'Scott H.', location: 'Springfield, IL', rating: 5, body: "Bold and deep — exactly what I need at 5am. No bitterness, no nonsense.", product_handle: 'lincoln-blend' },
-    { id: 's2', reviewer_name: 'David R.', location: 'Chicago, IL', rating: 5, body: "Lincoln Blend hits different. Strong, full body, holds up in a French press perfectly.", product_handle: 'lincoln-blend' },
-    { id: 's3', reviewer_name: 'James M.', location: 'Columbus, OH', rating: 5, body: "Bought this for my dad. He reordered before I even got a thank you.", product_handle: 'lincoln-blend' },
-  ],
-  'roosevelt-blend': [
-    { id: 's1', reviewer_name: 'Tyler S.', location: 'Dallas, TX', rating: 5, body: "Bold from the first sip. No wasted motion — exactly what the name promises.", product_handle: 'roosevelt-blend' },
-    { id: 's2', reviewer_name: 'Greg F.', location: 'Phoenix, AZ', rating: 5, body: "This is my pre-gym coffee. Dark, structured, and it hits clean.", product_handle: 'roosevelt-blend' },
-    { id: 's3', reviewer_name: 'Kevin O.', location: 'Portland, OR', rating: 5, body: "Legitimately the best dark roast I've tried. No burnt aftertaste.", product_handle: 'roosevelt-blend' },
-  ],
-  'adams-blend': [
-    { id: 's1', reviewer_name: 'Brian L.', location: 'Boston, MA', rating: 5, body: "Firm and grounded — this is a serious coffee for serious mornings.", product_handle: 'adams-blend' },
-    { id: 's2', reviewer_name: 'Paul N.', location: 'Cincinnati, OH', rating: 5, body: "Medium-dark done right. No gimmicks, just a really solid cup.", product_handle: 'adams-blend' },
-    { id: 's3', reviewer_name: 'Chris A.', location: 'Baltimore, MD', rating: 5, body: "Adams Blend doesn't try too hard and that's what makes it great.", product_handle: 'adams-blend' },
-  ],
-};
-
-// Generic fallback for Liberty Icons or any other product
-const GENERIC_REVIEWS = [
-  { id: 'g1', reviewer_name: 'Marcus T.', location: 'Nashville, TN', rating: 5, body: "Best coffee I've had in years. Smooth, strong, and actually consistent." },
-  { id: 'g2', reviewer_name: 'Daniel M.', location: 'Austin, TX', rating: 5, body: "Packaging is premium and the coffee backs it up. You can tell this isn't mass produced." },
-  { id: 'g3', reviewer_name: 'Chris T.', location: 'Charleston, SC', rating: 5, body: "Finally a brand that stands for something. Subscribed immediately after the first cup." },
-];
-
 const FILTERS = [
   { key: 'recent', label: 'Most Recent' },
   { key: 'top', label: 'Highest Rated' },
