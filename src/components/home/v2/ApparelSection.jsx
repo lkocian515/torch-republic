@@ -72,7 +72,7 @@ export default function ApparelSection() {
   if (!isLoading && shirts.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 px-5 md:px-12" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.06)' }}>
+    <section className="py-10 md:py-14 px-5 md:px-12" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.04)' }}>
       <div className="max-w-[1280px] mx-auto">
 
         <motion.div
@@ -83,8 +83,8 @@ export default function ApparelSection() {
           className="flex items-end justify-between mb-8 flex-wrap gap-4"
         >
           <div>
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-2" style={{ color: 'rgba(201,162,74,0.45)' }}>Shirts</p>
-            <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-2" style={{ color: 'rgba(201,162,74,0.35)' }}>Shirts</p>
+            <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 600, color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.01em' }}>
               Wear the Message.
             </h2>
           </div>

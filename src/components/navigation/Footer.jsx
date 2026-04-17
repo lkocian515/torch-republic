@@ -88,6 +88,21 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Contact + policy links */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8">
+          <a href="mailto:hello@torchrepublic.com" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            hello@torchrepublic.com
+          </a>
+          <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
+          <a href="https://torch-republic.com/policies/shipping-policy" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            Shipping Policy
+          </a>
+          <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
+          <a href="https://torch-republic.com/policies/refund-policy" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            Returns & Guarantee
+          </a>
+        </div>
+
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <img
@@ -95,10 +110,15 @@ export default function Footer() {
             alt="Torch Republic"
             className="h-8 w-auto opacity-60"
           />
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🔒 Secure Checkout</span>
-            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🇺🇸 Proudly American</span>
-            <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>↩ 30-Day Returns</span>
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.5)' }}>
+              Torch Republic Coffee Company — Carry the Flame
+            </p>
+            <div className="flex items-center gap-3 flex-wrap justify-center">
+              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🔒 Secure Checkout</span>
+              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🇺🇸 Made in USA</span>
+              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>↩ 30-Day Returns</span>
+            </div>
           </div>
           <p className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.2)' }}>© 2026 Torch Republic™</p>
         </div>

@@ -10,7 +10,7 @@ export default function BottomTabNav() {
 
   const tabs = [
     { path: '/', icon: Home, label: 'Home' },
-    { path: '/BestSellers', icon: ShoppingBag, label: 'Shop' },
+    { path: '/CoffeeCollection', icon: ShoppingBag, label: 'Coffee' },
     { path: '/Profile', icon: User, label: 'Account' },
   ];
 
@@ -52,13 +52,14 @@ export default function BottomTabNav() {
             </Link>
           );
         })}
-        <a
-          href="https://torch-republic.com/cart"
-          className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none text-muted-foreground hover:text-foreground"
+        <Link
+          to="/TheTorchBox"
+          className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none"
+          style={{ color: '#C9A24A' }}
         >
-          <ShoppingCart className="w-5 h-5" />
-          <span className="text-xs font-mono tracking-widest uppercase">Cart</span>
-        </a>
+          <Flame className="w-5 h-5" />
+          <span className="text-xs font-mono tracking-widest uppercase">Torch Box</span>
+        </Link>
       </div>
     </div>
   );

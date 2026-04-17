@@ -4,15 +4,12 @@ import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const NAV_LEFT = [
-  { label: 'Shop Coffee', href: '/CoffeeCollection' },
-  { label: 'Founders Series', href: '/CoffeeCollection' },
-  { label: 'Liberty Icons', href: '/LibertyIcons' },
-  { label: 'The Torch Box', href: '/TheTorchBox' },
-  { label: 'Apparel', href: '/Shop' },
+  { label: 'Shop', href: '/CoffeeCollection' },
+  { label: 'Collections', href: '/CoffeeCollection' },
+  { label: 'About', href: '/Mission' },
 ];
 
 const NAV_RIGHT = [
-  { label: 'Our Legacy', href: '/Mission' },
   { label: 'Journal', href: '/Journal' },
   { label: 'Contact', href: '/Contact' },
 ];
@@ -26,13 +23,13 @@ const NAV_GROUPS = [
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Washington Blend', href: '/WashingtonBlend' },
       { label: 'Jefferson Blend', href: '/JeffersonBlend' },
-      { label: 'The Torch Box', href: '/TheTorchBox' },
+      { label: '🔥 The Torch Box', href: '/TheTorchBox' },
     ],
   },
   {
-    category: 'Apparel & Gear',
+    category: 'Shirts & Gear',
     items: [
-      { label: 'All Apparel', href: '/Shop' },
+      { label: 'All Shirts', href: '/Shop' },
       { label: 'On Sale', href: '/OnSale' },
     ],
   },
@@ -40,7 +37,7 @@ const NAV_GROUPS = [
     category: 'Brand',
     items: [
       { label: 'Home', href: '/' },
-      { label: 'Our Legacy', href: '/Mission' },
+      { label: 'About', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
       { label: 'Contact', href: '/Contact' },
     ],
@@ -89,6 +86,11 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
+            <Link to="/TheTorchBox"
+              className="nav-link whitespace-nowrap transition-colors"
+              style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A24A', fontWeight: 700 }}>
+              Torch Box
+            </Link>
           </div>
 
           {/* Center logo */}

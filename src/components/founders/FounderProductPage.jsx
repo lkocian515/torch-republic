@@ -186,9 +186,22 @@ export default function FounderProductPage({ data, DATA }) {
             </a>
 
             {/* 2. Hook */}
-            <p className="font-heading mb-7" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
+            <p className="font-heading mb-4" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
               {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
             </p>
+
+            {/* Emotional hook line */}
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: `${ac}70` }}>
+              Built for discipline. Brewed for purpose.
+            </p>
+
+            {/* Scarcity / urgency */}
+            <div className="flex items-center gap-2 mb-6">
+              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#C9A24A' }} />
+              <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                Small batch — not mass produced
+              </span>
+            </div>
 
             <div className="h-px w-full mb-8" style={{ background: `linear-gradient(90deg, ${ac}30, transparent)` }} />
 
@@ -233,6 +246,30 @@ export default function FounderProductPage({ data, DATA }) {
             {/* Brew Guide */}
             <BrewGuide roast={roast} accent={ac} />
 
+            {/* Why This Coffee */}
+            <div className="mt-10 p-5" style={{ background: '#0D0D0D', border: `1px solid ${ac}18` }}>
+              <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: `${ac}60` }}>Why This Coffee</p>
+              <ul className="space-y-2.5">
+                {['Small-batch roasted — never warehouse coffee', 'Premium sourced beans, chosen for character', 'Designed for daily discipline and ritual'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ac }} />
+                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.65 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Founders Series Collector callout */}
+            {seriesNum && (
+              <div className="mt-4 p-4 flex items-center gap-4" style={{ background: `${ac}08`, border: `1px solid ${ac}20` }}>
+                <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: ac }}>Part of the Founders Series</p>
+                  <p className="font-mono text-[9px] mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Collect all 6. Each blend retires forever.</p>
+                </div>
+              </div>
+            )}
+
           </motion.div>
 
           {/* RIGHT — Image + Purchase (sticky) */}
@@ -266,6 +303,16 @@ export default function FounderProductPage({ data, DATA }) {
 
             {/* 6. Add-to-Cart */}
             <div className="p-6" style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.15)' }}>
+             {/* Popular Choice badge */}
+             <div className="flex items-center gap-2 mb-4">
+               <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
+                 style={{ background: `${ac}12`, color: ac, border: `1px solid ${ac}30` }}>
+                 ★ Popular Choice
+               </span>
+               <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                 Ordered recently by Torchbearers
+               </span>
+             </div>
              {/* Subscribe Toggle — above cart */}
              <SubscribeToggle accent={ac} price={price} onModeChange={setPurchaseMode} />
 
