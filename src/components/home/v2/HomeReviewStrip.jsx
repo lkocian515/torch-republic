@@ -6,7 +6,7 @@ const REVIEWS = [
   {
     name: 'Marcus T.',
     location: 'Nashville, TN',
-    text: 'Best coffee I've had in years. The Washington Blend is my daily ritual now.',
+    text: "Best coffee I've had in years. The Washington Blend is my daily ritual now.",
     rating: 5,
   },
   {
