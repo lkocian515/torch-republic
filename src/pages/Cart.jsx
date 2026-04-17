@@ -401,6 +401,16 @@ export default function Cart() {
               </p>
             </div>
 
+            {/* Trust reinforcement */}
+            <div className="p-4 text-center" style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.12)' }}>
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold mb-1" style={{ color: '#C9A24A' }}>
+                Secure checkout. Fast shipping. No-risk purchase.
+              </p>
+              <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                Backed by our 30-day satisfaction guarantee.
+              </p>
+            </div>
+
             {/* Trust badges */}
             <div className="grid grid-cols-2 gap-2">
               {TRUST.map(({ icon: Icon, label }) => (

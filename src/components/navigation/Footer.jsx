@@ -1,32 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
+import { Flame } from 'lucide-react';
 
 const FOOTER_LINKS = [
   {
     heading: 'Coffee',
     links: [
       { label: 'Founders Series', href: '/CoffeeCollection' },
-      { label: 'Torch Index', href: '/CoffeeCollection' },
+      { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Torch Box', href: '/TheTorchBox' },
-      { label: 'Gift Bundles', href: '/' },
+      { label: 'All Coffee', href: '/CoffeeCollection' },
     ]
   },
   {
     heading: 'Shop',
     links: [
-      { label: 'Best Sellers', page: 'BestSellers' },
-      { label: 'Apparel', page: 'Shop' },
-      { label: 'The Torch Box', page: 'TheTorchBox' },
-      { label: 'On Sale', page: 'OnSale' },
+      { label: 'Best Sellers', href: '/BestSellers' },
+      { label: 'Apparel', href: '/Shop' },
+      { label: 'Bundles', href: '/Bundles' },
+      { label: 'On Sale', href: '/OnSale' },
     ]
   },
   {
-    heading: 'Brand',
+    heading: 'Company',
     links: [
-      { label: 'Our Story', page: 'Mission' },
-      { label: 'Journal', page: 'Journal' },
-      { label: 'Contact', page: 'Contact' },
+      { label: 'Our Story', href: '/Mission' },
+      { label: 'Journal', href: '/Journal' },
+      { label: 'Reviews', href: '/Reviews' },
+      { label: 'Contact', href: '/Contact' },
+    ]
+  },
+  {
+    heading: 'Policies',
+    links: [
+      { label: 'Shipping Policy', external: 'https://torch-republic.com/policies/shipping-policy' },
+      { label: 'Return Policy', external: 'https://torch-republic.com/policies/refund-policy' },
+      { label: 'Privacy Policy', external: 'https://torch-republic.com/policies/privacy-policy' },
+      { label: 'Terms of Service', external: 'https://torch-republic.com/policies/terms-of-service' },
     ]
   }
 ];
@@ -34,41 +44,62 @@ const FOOTER_LINKS = [
 export default function Footer() {
   return (
     <footer style={{ background: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
-      {/* Top manifesto */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 mb-16">
-          {/* Brand column */}
+
+        {/* Top: Brand + Link columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
+
+          {/* Brand identity */}
           <div className="lg:col-span-2">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: '#C8A44D' }}>Torch Republic</p>
-            <h2 className="font-serif leading-[1.05] tracking-tight text-white mb-6" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 700 }}>
-              History in<br />
-              <span style={{ color: '#C8A44D' }}>Every Cup.</span>
-            </h2>
-            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(232,223,175,0.4)', fontFamily: 'var(--font-mono)' }}>
-              A premium coffee and heritage lifestyle brand. The Founders Series pairs bold roast profiles with collectible historical design — built for people who value craftsmanship, conviction, and character.
+            <div className="flex items-center gap-2.5 mb-5">
+              <Flame className="w-4 h-4" style={{ color: '#C9A24A' }} />
+              <p className="font-mono text-[10px] tracking-[0.45em] uppercase font-bold" style={{ color: '#C9A24A' }}>
+                Torch Republic
+              </p>
+            </div>
+            <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem', lineHeight: 1.3 }}>
+              Torch Republic Coffee Company
             </p>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>
+              "Carry the Flame"
+            </p>
+            <p className="text-xs leading-relaxed max-w-xs mb-6" style={{ color: 'rgba(240,235,225,0.35)', fontFamily: 'var(--font-mono)', fontSize: '11px', lineHeight: 1.8 }}>
+              Premium small-batch coffee and heritage apparel — built for people who value craftsmanship, conviction, and character.
+            </p>
+
+            {/* Contact */}
+            <div className="space-y-2">
+              <a href="mailto:hello@torchrepublic.com" className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                hello@torchrepublic.com
+              </a>
+              <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.22)' }}>
+                U.S.-Based · Corpus Christi, TX
+              </p>
+            </div>
           </div>
 
           {/* Link columns */}
-          <div className="lg:col-span-3 grid grid-cols-3 gap-8">
+          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {FOOTER_LINKS.map(section => (
               <div key={section.heading}>
-                <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: '#C8A44D' }}>
+                <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-5" style={{ color: '#C9A24A' }}>
                   {section.heading}
                 </h3>
-                <ul className="space-y-3.5">
+                <ul className="space-y-3">
                   {section.links.map(link => (
-                   <li key={link.label}>
-                     {link.href ? (
-                       <Link to={link.href} className="text-xs font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                         {link.label}
-                       </Link>
-                     ) : (
-                       <Link to={`/${link.page}`} className="text-xs font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                         {link.label}
-                       </Link>
-                     )}
-                   </li>
+                    <li key={link.label}>
+                      {link.external ? (
+                        <a href={link.external} target="_blank" rel="noopener noreferrer"
+                          className="text-[11px] font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link to={link.href}
+                          className="text-[11px] font-mono transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -77,50 +108,24 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px w-full mb-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(200,164,77,0.2), transparent)' }} />
+        <div className="h-px w-full mb-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.2), transparent)' }} />
 
-        {/* Trust bar */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-          {['Secure Checkout', '30-Day Returns', 'Proudly American', 'Free Shipping $75+'].map(badge => (
-            <span key={badge} className="font-mono text-[9px] tracking-[0.3em] uppercase px-4 py-2" style={{ color: 'rgba(201,162,74,0.6)', border: '1px solid rgba(201,162,74,0.12)', background: 'rgba(201,162,74,0.04)' }}>
-              {badge}
-            </span>
-          ))}
-        </div>
-
-        {/* Contact + policy links */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8">
-          <a href="mailto:hello@torchrepublic.com" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            hello@torchrepublic.com
-          </a>
-          <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
-          <a href="https://torch-republic.com/policies/shipping-policy" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Shipping Policy
-          </a>
-          <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
-          <a href="https://torch-republic.com/policies/refund-policy" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.25em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Returns & Guarantee
-          </a>
-        </div>
+        {/* Trust line */}
+        <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-8" style={{ color: 'rgba(201,162,74,0.4)' }}>
+          Small-batch roasted in the USA · Secure checkout · 30-day satisfaction guarantee
+        </p>
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
             alt="Torch Republic"
-            className="h-8 w-auto opacity-60"
+            className="h-8 w-auto opacity-50"
           />
-          <div className="flex flex-col items-center gap-2">
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.5)' }}>
-              Torch Republic Coffee Company — Carry the Flame
-            </p>
-            <div className="flex items-center gap-3 flex-wrap justify-center">
-              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🔒 Secure Checkout</span>
-              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>🇺🇸 Made in USA</span>
-              <span className="font-mono text-[9px] tracking-widest uppercase px-3 py-1.5" style={{ border: '1px solid rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.4)' }}>↩ 30-Day Returns</span>
-            </div>
-          </div>
-          <p className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.2)' }}>© 2026 Torch Republic™</p>
+          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,162,74,0.35)' }}>
+            Torch Republic Coffee Company — Carry the Flame
+          </p>
+          <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.18)' }}>© 2026 Torch Republic™</p>
         </div>
       </div>
     </footer>

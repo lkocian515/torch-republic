@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Flame } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function GuaranteeBar() {
@@ -10,27 +10,37 @@ export default function GuaranteeBar() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-10 px-5 md:px-12"
-      style={{ background: 'rgba(201,162,74,0.04)', borderTop: '1px solid rgba(201,162,74,0.12)', borderBottom: '1px solid rgba(201,162,74,0.08)' }}
+      className="py-16 md:py-20 px-5 md:px-12"
+      style={{ background: '#080808', borderTop: '1px solid rgba(201,162,74,0.1)', borderBottom: '1px solid rgba(201,162,74,0.1)' }}
     >
-      <div className="max-w-[680px] mx-auto flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center"
-          style={{ border: '1px solid rgba(201,162,74,0.25)', background: 'rgba(201,162,74,0.06)' }}>
-          <ShieldCheck className="w-5 h-5" style={{ color: '#C9A24A' }} />
+      <div className="max-w-[720px] mx-auto text-center">
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="h-px flex-1 max-w-16" style={{ background: 'rgba(201,162,74,0.2)' }} />
+          <ShieldCheck className="w-6 h-6" style={{ color: '#C9A24A' }} />
+          <div className="h-px flex-1 max-w-16" style={{ background: 'rgba(201,162,74,0.2)' }} />
         </div>
-        <div>
-          <p className="font-serif font-semibold text-white mb-1" style={{ fontSize: '1.05rem' }}>
-            Our Guarantee
-          </p>
-          <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.75 }}>
-            If it's not the best coffee you've had, we'll make it right.{' '}
-            <Link to="/Contact" className="transition-opacity hover:opacity-70 pb-0.5"
-              style={{ color: 'rgba(201,162,74,0.65)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}>
-              Contact us
-            </Link>
-            .
-          </p>
-        </div>
+
+        <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>
+          Our Promise
+        </p>
+
+        <h2 className="font-serif font-bold text-white mb-4" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', letterSpacing: '-0.01em' }}>
+          Shop with Confidence
+        </h2>
+
+        <p className="font-heading text-base mb-2" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.8 }}>
+          If it's not the best coffee you've had, we'll make it right.
+        </p>
+
+        <p className="font-mono text-[10px] mb-6" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          No hassle. No stress. Just great coffee.
+        </p>
+
+        <Link to="/Contact"
+          className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-0.5"
+          style={{ color: 'rgba(201,162,74,0.6)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}>
+          <Flame className="w-3 h-3" /> Contact Us
+        </Link>
       </div>
     </motion.section>
   );

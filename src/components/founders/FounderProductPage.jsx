@@ -9,6 +9,7 @@ import ReviewsSection from '../reviews/ReviewsSection';
 import { GoldStars } from '../reviews/ReviewCard';
 import BrewGuide from './BrewGuide';
 import SubscribeToggle from '../products/SubscribeToggle';
+import FoundersCollectionProgress from './FoundersCollectionProgress';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
