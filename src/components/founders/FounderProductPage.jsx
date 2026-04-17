@@ -351,44 +351,26 @@ export default function FounderProductPage({ data, DATA }) {
                 ))}
               </ul>
 
-              {/* Low-stock indicator */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: `${ac}70` }} />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>
-                  Only a few batches left this week
-                </span>
-              </div>
-
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
 
-              {/* Add-to-cart trust boosters */}
-              <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
-                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  <Truck className="w-3 h-3" style={{ color: `${ac}50` }} /> Fast U.S. Shipping
-                </span>
-                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  <Lock className="w-3 h-3" style={{ color: `${ac}50` }} /> Secure Checkout
-                </span>
-                <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  <ShieldCheck className="w-3 h-3" style={{ color: `${ac}50` }} /> Guaranteed
-                </span>
-              </div>
-              <p className="font-mono text-[8px] text-center mt-1.5" style={{ color: `${ac}45` }}>
-                Roasted fresh — ships quickly
-              </p>
-
               {/* Subscription support */}
-              <div className="mt-4 p-3.5" style={{ background: `${ac}07`, border: `1px solid ${ac}18` }}>
+              <div className="mt-4 p-4" style={{ background: `${ac}08`, border: `1px solid ${ac}25` }}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2 py-0.5"
+                    style={{ background: `${ac}18`, color: ac, border: `1px solid ${ac}35` }}>
+                    Available in Torch Box
+                  </span>
+                </div>
                 <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold mb-1" style={{ color: ac }}>
-                  Get this delivered monthly with Torch Box
+                  Get this in your Torch Box — save + unlock exclusives
                 </p>
-                <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.32)' }}>
-                  Save + unlock exclusive releases
+                <p className="font-mono text-[8px] mb-2" style={{ color: 'rgba(255,255,255,0.32)' }}>
+                  Exclusive subscriber-only blends · Priority access · Never run out
                 </p>
                 <Link to="/TheTorchBox"
-                  className="mt-2 inline-flex items-center gap-1 font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-60"
+                  className="inline-flex items-center gap-1 font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-60"
                   style={{ color: `${ac}70` }}>
-                  Learn more →
+                  Become a Torchbearer →
                 </Link>
               </div>
             </div>
@@ -407,13 +389,6 @@ export default function FounderProductPage({ data, DATA }) {
           </motion.div>
         </div>
       </section>
-
-      {/* Bundle Section */}
-      {seriesNum && (
-        <section className="max-w-[1200px] mx-auto px-5 md:px-10 pt-10">
-          <BundleSection accent={ac} />
-        </section>
-      )}
 
       {/* Divider */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">

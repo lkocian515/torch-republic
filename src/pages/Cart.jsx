@@ -246,8 +246,8 @@ export default function Cart() {
                     </p>
                   </div>
                   <p className="font-serif text-white font-bold mb-1" style={{ fontSize: '1.1rem' }}>
-                      Upgrade to Torch Box — Never Run Out
-                    </p>
+                    Upgrade to Torch Box — Save 15%
+                  </p>
                   <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, fontWeight: 300 }}>
                     Want this delivered monthly? Subscribe & save on every order. Cancel anytime. First Torch Box ships free.
                   </p>
@@ -272,11 +272,14 @@ export default function Cart() {
                   }} />
                 </button>
               </div>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase mt-3" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                Upgrade to Torch Box and never run out.
+              </p>
               {torchBox && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
-                  className="font-mono text-[10px] uppercase tracking-wider mt-4 pt-4"
+                  className="font-mono text-[10px] uppercase tracking-wider mt-2 pt-3"
                   style={{ borderTop: '1px solid rgba(201,162,74,0.1)', color: 'rgba(201,162,74,0.7)' }}
                 >
                   ✓ Subscription discount applied — saving ${(subtotal * 0.15).toFixed(2)}
