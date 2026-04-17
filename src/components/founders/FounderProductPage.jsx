@@ -87,17 +87,39 @@ const SAMPLE_REVIEWS = [
   { name: 'James R.', location: 'Austin, TX', rating: 5, text: 'Heritage-crafted in the truest sense. Uncompromising quality from first pour to last drop.' },
 ];
 
-export default function FounderProductPage({ data }) {
+export default function FounderProductPage({ data, DATA }) {
+  // Normalize: Liberty Icons pages pass DATA={...}, Founders pages pass data={...}
+  // Also normalize field name differences between the two series
+  const raw = data || DATA || {};
+  const normalized = {
+    title:        raw.title || raw.name,
+    subline:      raw.subline || raw.subtitle,
+    code:         raw.code,
+    seriesNum:    raw.seriesNum,
+    rarity:       raw.rarity,
+    roast:        raw.roast || raw.roastProfile,
+    price:        raw.price,
+    shopifyHandle: raw.shopifyHandle || raw.shopify_handle,
+    founderStory: raw.founderStory,
+    tastingNotes: raw.tastingNotes,
+    histFacts:    raw.histFacts,
+    quote:        raw.quote,
+    completePair: raw.completePair,
+    accent:       raw.accent || raw.color,
+    heroImage:    raw.heroImage || raw.image,
+    images:       raw.images || (raw.image ? [raw.image, raw.image_2].filter(Boolean) : undefined),
+  };
+
   const {
     title, subline, code, seriesNum, rarity, roast, price,
     shopifyHandle, founderStory, tastingNotes,
     histFacts, quote, completePair,
     accent, heroImage,
-  } = data;
+  } = normalized;
 
   const [activeImg, setActiveImg] = useState(0);
   const [purchaseMode, setPurchaseMode] = useState('subscribe');
-  const images = data.images || [heroImage];
+  const images = normalized.images || [heroImage];
   const ac = accent || '#C9A24A';
 
   const rawPrice = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 18.99;
