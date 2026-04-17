@@ -111,7 +111,14 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <div className="flex items-center gap-4 ml-3 pl-4" style={{ borderLeft: '1px solid rgba(196,163,90,0.12)' }}>
+            <div className="flex items-center gap-3 ml-3 pl-4" style={{ borderLeft: '1px solid rgba(196,163,90,0.12)' }}>
+              <Link
+                to="/TheTorchBox"
+                className="hidden lg:inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-90 btn-glow"
+                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
+              >
+                Join Torch Box
+              </Link>
               <button style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">
                 <Search className="w-[15px] h-[15px]" />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import TorchBoxBanner from './TorchBoxBanner';
 
 /**
  * CollectionPageTemplate
@@ -119,6 +120,7 @@ export default function CollectionPageTemplate({
           PRODUCT GRID (children)
       ════════════════════════════════════════════ */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-12 pb-28">
+        <TorchBoxBanner />
         {children}
       </section>
 

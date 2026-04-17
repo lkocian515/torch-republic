@@ -8,6 +8,7 @@ import FoundersStarterPack from '../bundles/FoundersStarterPack';
 import ReviewsSection from '../reviews/ReviewsSection';
 import { GoldStars } from '../reviews/ReviewCard';
 import BrewGuide from './BrewGuide';
+import SubscribeToggle from '../products/SubscribeToggle';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -237,8 +238,11 @@ export default function FounderProductPage({ data }) {
 
             {/* 6. Add-to-Cart */}
             <div className="p-6" style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.15)' }}>
-              {/* Price */}
-              <div className="flex items-baseline gap-3 mb-5">
+             {/* Subscribe Toggle — above cart */}
+             <SubscribeToggle accent={ac} price={price} />
+
+             {/* Price */}
+             <div className="flex items-baseline gap-3 mb-5">
                 <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>{price}</span>
                 <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.18)' }}>$21.99</span>
                 <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5"

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, ShoppingBag, ShoppingCart, User } from 'lucide-react';
+import { Home, ShoppingBag, ShoppingCart, User, Flame } from 'lucide-react';
 import { useNavigationStack } from '@/contexts/NavigationContext';
 
 export default function BottomTabNav() {

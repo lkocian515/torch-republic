@@ -118,6 +118,16 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
           )}
 
+          {/* Available in Torch Box badge — coffee only */}
+          {product.category === 'coffee' && product.in_stock !== false && (
+            <div className="absolute bottom-3 left-3">
+              <span className="font-mono text-[8px] font-black tracking-[0.2em] uppercase px-2 py-1"
+                style={{ background: 'rgba(201,162,74,0.85)', color: '#0B0B0B' }}>
+                In Torch Box
+              </span>
+            </div>
+          )}
+
           {/* Out of stock badge */}
           {!product.in_stock && (
             <div className="absolute top-3 left-3 bg-destructive text-destructive-foreground px-3 py-1 text-xs font-mono tracking-wider">

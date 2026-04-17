@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import TorchBoxCollectionBanner from '../components/collections/TorchBoxCollectionBanner';
 
 const PRODUCTS = [
   {
@@ -107,7 +108,7 @@ function ProductCard({ p, index }) {
         <img src={p.image} alt={p.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-all duration-700 group-hover:scale-105" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${p.color}EE 0%, transparent 55%)` }} />
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
           <span className="font-mono text-[8px] font-bold tracking-wider px-2 py-1"
             style={{
               color: isFounder ? '#E8D08A' : '#6B7280',
@@ -115,6 +116,10 @@ function ProductCard({ p, index }) {
               border: isFounder ? '1px solid rgba(232,208,138,0.35)' : '1px solid rgba(107,114,128,0.3)',
             }}>
             {p.rarity}
+          </span>
+          <span className="font-mono text-[7px] font-bold tracking-wider px-1.5 py-0.5"
+            style={{ background: 'rgba(201,162,74,0.15)', color: 'rgba(201,162,74,0.8)', border: '1px solid rgba(201,162,74,0.2)' }}>
+            In Torch Box
           </span>
         </div>
       </div>
@@ -199,8 +204,13 @@ export default function CoffeeCollection() {
         </div>
       </div>
 
+      {/* Torch Box Banner */}
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 pt-8">
+        <TorchBoxCollectionBanner />
+      </div>
+
       {/* Grid */}
-      <section className="py-16 px-6 md:px-12">
+      <section className="py-8 px-6 md:px-12">
         <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-5">
           {filtered.map((p, i) => <ProductCard key={p.code} p={p} index={i} />)}
         </div>
