@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
-import { motion } from 'framer-motion';
 import ReviewCard, { GoldStars } from './ReviewCard';
 import TrustBar from './TrustBar';
 
@@ -10,7 +9,6 @@ const FILTERS = [
   { key: 'top', label: 'Highest Rated' },
 ];
 
-// Static fallback reviews shown when no DB reviews exist yet
 const STATIC_REVIEWS = {
   'washington-blend': [
     { id: 's1', reviewer_name: 'James R.', location: 'Nashville, TN', rating: 5, body: "Washington Blend is my daily now. Balanced and smooth — holds up black or with cream.", product_handle: 'washington-blend', review_date: '2025-12-10' },
@@ -68,7 +66,6 @@ export default function ReviewsSection({ productHandle }) {
       : base44.entities.Review.list('-review_date', 8),
   });
 
-  // Use DB reviews if available, fall back to static curated reviews
   const staticFallback = productHandle
     ? (STATIC_REVIEWS[productHandle] || DEFAULT_FALLBACK)
     : DEFAULT_FALLBACK;
@@ -99,7 +96,6 @@ export default function ReviewsSection({ productHandle }) {
             <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{reviews.length} reviews</span>
           </div>
         </div>
-        {/* Filter pills */}
         <div className="flex gap-2">
           {FILTERS.map(f => (
             <button key={f.key} onClick={() => setFilter(f.key)}
@@ -115,20 +111,16 @@ export default function ReviewsSection({ productHandle }) {
         </div>
       </div>
 
-      {/* Trust bar */}
       <TrustBar avgRating={avgRating} />
 
-      {/* Featured top review */}
       <div className="mb-5">
         <ReviewCard review={featured} featured={true} index={0} />
       </div>
 
-      {/* Rest */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {rest.map((r, i) => <ReviewCard key={r.id} review={r} index={i + 1} />)}
       </div>
 
-      {/* CTA */}
       <div className="mt-14 py-12 text-center rounded-xl" style={{ border: '1px solid rgba(201,162,74,0.1)', background: '#0B0B0B' }}>
         <p className="font-mono text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.5)' }}>Join the Torchbearers</p>
         <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.4rem' }}>Share your experience.</h3>
