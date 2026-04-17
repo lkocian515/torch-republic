@@ -3,6 +3,7 @@ import HeroSection from '../components/home/v2/HeroSection';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
 import CommandersStrip from '../components/home/v2/CommandersStrip';
+import WomenOfTheRepublicStrip from '../components/home/v2/WomenOfTheRepublicStrip';
 import ApparelSection from '../components/home/v2/ApparelSection';
 import TorchBoxIntro from '../components/home/v2/TorchBoxIntro';
 import SocialProof from '../components/home/v2/SocialProof';
@@ -20,6 +21,8 @@ export default function Home() {
       <LibertyIconsStrip />
       {/* 4. Commanders Series — "Built for those who lead" */}
       <CommandersStrip />
+      {/* 4b. Women of the Republic — Coming Soon */}
+      <WomenOfTheRepublicStrip />
       {/* 5. Shirts — secondary expression, tighter weight */}
       <ApparelSection />
       {/* 6. Torch Box subscription */}
