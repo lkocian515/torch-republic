@@ -69,17 +69,17 @@ const WHATS_INSIDE = [
   {
     icon: Coffee,
     label: 'Premium Small-Batch Coffee',
-    detail: 'Founders Series roasts, crafted in small batches and shipped fresh. Each cup carries a legacy.',
+    detail: 'Founders Series roasts crafted in small batches and shipped fresh. Built for daily discipline — every cup carries a legacy.',
   },
   {
     icon: BookOpen,
-    label: 'Historical Collector Series',
-    detail: 'Limited-edition inserts, numbered prints, and artifacts tied to the men and women who built this nation.',
+    label: 'Story-Driven Collector Insert',
+    detail: 'A new historical figure or theme every month. Numbered prints, artifacts, and pieces of American history — never repeated.',
   },
   {
     icon: Zap,
-    label: 'Exclusive Subscriber Drops',
-    detail: 'Subscriber-only items never sold individually. First access, archive editions, and Inner Circle perks.',
+    label: 'Subscriber-Only Drops',
+    detail: 'Limited runs reserved for Torch Box members. Early access to new releases, archive editions, and blends never sold to the public.',
   },
 ];
 
@@ -138,11 +138,15 @@ export default function TheTorchBox() {
               <div className="h-0.5 w-16 mb-6" style={{ background: 'linear-gradient(90deg, #C9A24A, transparent)' }} />
 
               <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', color: 'rgba(240,235,225,0.65)', lineHeight: 1.95, maxWidth: '440px', fontWeight: 300 }}>
-                More than coffee. A ritual of discipline, history, and purpose.
+                Every month is a new chapter.
               </p>
 
-              <p className="mt-3 mb-10" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.4)', lineHeight: 1.85, maxWidth: '420px', fontWeight: 300 }}>
-                Premium coffee. Historic stories. Delivered to your door.
+              <p className="mt-3 mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.4)', lineHeight: 1.85, maxWidth: '420px', fontWeight: 300 }}>
+                Premium coffee. A story-driven collector insert. A ritual built for daily discipline — delivered to your door.
+              </p>
+
+              <p className="mb-10 font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
+                You won't want to miss next month.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
@@ -192,11 +196,15 @@ export default function TheTorchBox() {
             className="text-center mb-14"
           >
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Membership</p>
-            <h2 className="font-serif mb-5" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}>
-              Become a Torchbearer
+            <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}>
+              You're not just buying coffee.<br />
+              <span style={{ color: '#C9A24A' }}>You're a Torchbearer.</span>
             </h2>
-            <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.95, fontWeight: 300, maxWidth: '520px', margin: '0 auto', fontSize: '1rem' }}>
-              This isn't just coffee. It's a commitment to discipline, history, and purpose.
+            <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.95, fontWeight: 300, maxWidth: '520px', margin: '0 auto 1rem', fontSize: '1rem' }}>
+              Built for daily discipline. A morning ritual with meaning — every cup tied to a story, a legacy, a purpose.
+            </p>
+            <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.45)' }}>
+              Carry the Flame.
             </p>
           </motion.div>
 
