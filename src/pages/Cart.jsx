@@ -235,69 +235,53 @@ export default function Cart() {
               )}
             </div>
 
-            {/* Torch Box upsell — primary conversion block */}
-            <div style={{
-              background: torchBox ? 'rgba(201,162,74,0.08)' : '#0E0E12',
-              border: torchBox ? '1px solid rgba(201,162,74,0.35)' : '1px solid rgba(201,162,74,0.18)',
-              boxShadow: torchBox ? '0 0 30px rgba(201,162,74,0.08)' : 'none',
-              transition: 'all 0.3s ease',
-            }}>
-              {/* "Want this delivered monthly?" prompt */}
-              <div className="px-5 pt-4 pb-3" style={{ borderBottom: '1px solid rgba(201,162,74,0.1)' }}>
-                <p className="font-mono text-[9px] tracking-[0.45em] uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>
-                  ✦ Want this delivered monthly?
-                </p>
-              </div>
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <p className="font-serif text-white font-bold mb-1.5" style={{ fontSize: '1.05rem' }}>
-                      Turn this into a Torch Box subscription
-                    </p>
-                    <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontWeight: 300 }}>
-                      Save 15% every order · Cancel anytime · First Torch Box ships free
+            {/* Torch Box toggle */}
+            <div className="p-6" style={{ background: 'linear-gradient(135deg, #0F0C02 0%, #0E0E12 100%)', border: '1px solid rgba(201,162,74,0.3)', boxShadow: '0 0 24px rgba(201,162,74,0.06)' }}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Flame className="w-3.5 h-3.5" style={{ color: '#C9A24A' }} />
+                    <p className="font-mono text-[9px] tracking-[0.4em] uppercase font-black" style={{ color: '#C9A24A' }}>
+                      Turn this into a subscription and save
                     </p>
                   </div>
-                  <button
-                    onClick={() => setTorchBox(v => !v)}
-                    className="flex-shrink-0 transition-all"
-                    style={{
-                      width: 44, height: 24, borderRadius: 12,
-                      background: torchBox ? '#C9A24A' : 'rgba(255,255,255,0.08)',
-                      border: torchBox ? 'none' : '1px solid rgba(196,163,90,0.2)',
-                      position: 'relative',
-                    }}
-                    aria-label="Toggle Torch Box subscription"
-                  >
-                    <div style={{
-                      width: 18, height: 18, borderRadius: '50%',
-                      background: '#fff',
-                      position: 'absolute', top: '3px',
-                      left: torchBox ? '23px' : '3px',
-                      transition: 'left 0.2s ease',
-                    }} />
-                  </button>
+                  <p className="font-serif text-white font-bold mb-1" style={{ fontSize: '1.1rem' }}>
+                    Upgrade to Torch Box — Save 15%
+                  </p>
+                  <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, fontWeight: 300 }}>
+                    Want this delivered monthly? Subscribe & save on every order. Cancel anytime. First Torch Box ships free.
+                  </p>
                 </div>
-                {!torchBox && (
-                  <button
-                    onClick={() => setTorchBox(true)}
-                    className="w-full mt-4 py-3 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
-                    style={{ background: '#C9A24A', color: '#0B0B0B' }}
-                  >
-                    Upgrade to Torch Box — Save 15% →
-                  </button>
-                )}
-                {torchBox && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="font-mono text-[10px] uppercase tracking-wider mt-4 pt-4"
-                    style={{ borderTop: '1px solid rgba(201,162,74,0.1)', color: '#C9A24A' }}
-                  >
-                    ✓ Torch Box applied — you are saving ${(subtotal * 0.15).toFixed(2)}
-                  </motion.p>
-                )}
+                <button
+                  onClick={() => setTorchBox(v => !v)}
+                  className="flex-shrink-0 transition-all"
+                  style={{
+                    width: 44, height: 24, borderRadius: 12,
+                    background: torchBox ? '#C9A24A' : 'rgba(255,255,255,0.08)',
+                    border: torchBox ? 'none' : '1px solid rgba(196,163,90,0.2)',
+                    position: 'relative',
+                  }}
+                  aria-label="Toggle Torch Box subscription"
+                >
+                  <div style={{
+                    width: 18, height: 18, borderRadius: '50%',
+                    background: '#fff',
+                    position: 'absolute', top: '3px',
+                    left: torchBox ? '23px' : '3px',
+                    transition: 'left 0.2s ease',
+                  }} />
+                </button>
               </div>
+              {torchBox && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="font-mono text-[10px] uppercase tracking-wider mt-4 pt-4"
+                  style={{ borderTop: '1px solid rgba(201,162,74,0.1)', color: 'rgba(201,162,74,0.7)' }}
+                >
+                  ✓ Subscription discount applied — saving ${(subtotal * 0.15).toFixed(2)}
+                </motion.p>
+              )}
             </div>
 
             {/* Email */}

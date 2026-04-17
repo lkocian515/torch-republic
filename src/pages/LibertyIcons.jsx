@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Flame } from 'lucide-react';
 import ProductImage from '../components/products/ProductImage';
+import TorchBoxCollectionBanner from '../components/collections/TorchBoxCollectionBanner';
 
 const LIBERTY_ICONS = [
   {
@@ -74,8 +75,12 @@ const ProductCard = ({ product, index }) => (
           variant="clean"
           aspectRatio="4/5"
         />
-        <div className="absolute top-4 right-4 z-10">
+        <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-1">
           <span style={{ fontSize: '1.5rem' }}>{product.icon}</span>
+          <span className="font-mono text-[7px] font-bold tracking-wider px-1.5 py-0.5"
+            style={{ background: 'rgba(201,162,74,0.2)', color: 'rgba(201,162,74,0.9)', border: '1px solid rgba(201,162,74,0.3)' }}>
+            In Torch Box
+          </span>
         </div>
       </div>
       
@@ -130,9 +135,10 @@ export default function LibertyIcons() {
       </section>
 
       {/* ════ COLLECTION GRID ════ */}
-      <section className="py-24 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <TorchBoxCollectionBanner />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             {LIBERTY_ICONS.map((product, i) => (
               <ProductCard key={i} product={product} index={i} />
             ))}
