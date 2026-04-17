@@ -274,6 +274,11 @@ export default function FounderProductPage({ data, DATA }) {
               </div>
             </div>
 
+            {/* Founders Collection Progress — only for Founders Series */}
+            {seriesNum && (
+              <FoundersCollectionProgress currentHandle={shopifyHandle} accent={ac} />
+            )}
+
           </motion.div>
 
           {/* RIGHT — Image + Purchase (sticky) */}
@@ -343,6 +348,18 @@ export default function FounderProductPage({ data, DATA }) {
               </ul>
 
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
+
+              {/* Post-cart micro trust */}
+              <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>🔒 Secure Checkout</span>
+                <span style={{ color: 'rgba(255,255,255,0.12)' }}>·</span>
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>🚚 Fast U.S. Shipping</span>
+                <span style={{ color: 'rgba(255,255,255,0.12)' }}>·</span>
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>✓ 30-Day Guarantee</span>
+              </div>
+              <p className="font-mono text-[8px] text-center mt-1" style={{ color: `${ac}45` }}>
+                Roasted fresh — ships quickly
+              </p>
 
               {/* Subscription support */}
               <div className="mt-4 p-3.5" style={{ background: `${ac}07`, border: `1px solid ${ac}18` }}>

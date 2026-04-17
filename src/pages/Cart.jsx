@@ -365,6 +365,16 @@ export default function Cart() {
                 </div>
               </div>
 
+              {/* Cart upsell nudge */}
+              <div className="p-3.5 text-center" style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.1)' }}>
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
+                  Secure checkout · Fast shipping · No-risk purchase
+                </p>
+                <p className="font-mono text-[8px] mt-1" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                  Backed by our satisfaction guarantee
+                </p>
+              </div>
+
               {/* CTA */}
               <a
                 href={buildShopifyCartUrl()}
@@ -398,16 +408,6 @@ export default function Cart() {
               {/* Payment icons */}
               <p className="font-mono text-[9px] text-center" style={{ color: 'rgba(255,255,255,0.18)' }}>
                 Visa · Mastercard · Amex · Discover
-              </p>
-            </div>
-
-            {/* Trust reinforcement */}
-            <div className="p-4 text-center" style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.12)' }}>
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold mb-1" style={{ color: '#C9A24A' }}>
-                Secure checkout. Fast shipping. No-risk purchase.
-              </p>
-              <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Backed by our 30-day satisfaction guarantee.
               </p>
             </div>
 
