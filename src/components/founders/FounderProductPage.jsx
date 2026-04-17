@@ -7,6 +7,7 @@ import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck } from 'luc
 import FoundersStarterPack from '../bundles/FoundersStarterPack';
 import ReviewsSection from '../reviews/ReviewsSection';
 import { GoldStars } from '../reviews/ReviewCard';
+import BrewGuide from './BrewGuide';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -199,6 +200,9 @@ export default function FounderProductPage({ data }) {
                 ))}
               </div>
             </div>
+
+            {/* Brew Guide */}
+            <BrewGuide roast={roast} accent={ac} />
 
           </motion.div>
 
