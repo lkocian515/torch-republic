@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 import { LogOut, Trash2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import SubscriptionManager from '@/components/profile/SubscriptionManager';
 
 export default function Profile() {
   const { user, logout, isLoadingAuth } = useAuth();
@@ -69,6 +70,9 @@ export default function Profile() {
             </div>
           )}
         </div>
+
+        {/* Subscription */}
+        <SubscriptionManager />
 
         {/* Actions */}
         <div className="space-y-4">
