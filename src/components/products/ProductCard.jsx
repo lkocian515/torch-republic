@@ -128,8 +128,8 @@ export default function ProductCard({ product, index = 0 }) {
             </div>
           )}
 
-          {/* Out of stock badge */}
-          {!product.in_stock && (
+          {/* Out of stock badge — never show for coffee (availability checked live at checkout) */}
+          {!product.in_stock && product.category !== 'coffee' && (
             <div className="absolute top-3 left-3 bg-destructive text-destructive-foreground px-3 py-1 text-xs font-mono tracking-wider">
               SOLD OUT
             </div>
