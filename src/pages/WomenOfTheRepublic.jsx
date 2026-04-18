@@ -13,7 +13,7 @@ const LIVE = [
     roast: 'Light Roast · Floral & Bright',
     price: '$19.99',
     route: '/AbigailAdamsBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/abigail-adams-blend.jpg',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/29.png?v=1776037980',
   },
   {
     name: 'Harriet Tubman Blend',
@@ -21,7 +21,7 @@ const LIVE = [
     roast: 'Dark Roast · Bold & Unyielding',
     price: '$19.99',
     route: '/HarrietTubmanBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/harriet-tubman-blend.jpg',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
   },
 ];
 

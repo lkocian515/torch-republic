@@ -9,7 +9,7 @@ const LIVE_PRODUCTS = [
     subtitle: 'Light Roast · Floral & Bright',
     price: '$19.99',
     route: '/AbigailAdamsBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/abigail-adams-blend.jpg',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/29.png?v=1776037980',
     code: 'WR-001',
   },
   {
@@ -17,7 +17,7 @@ const LIVE_PRODUCTS = [
     subtitle: 'Dark Roast · Bold & Unyielding',
     price: '$19.99',
     route: '/HarrietTubmanBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/harriet-tubman-blend.jpg',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
     code: 'WR-002',
   },
 ];
