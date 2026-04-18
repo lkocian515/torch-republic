@@ -11,8 +11,8 @@ const AC_RGB = '212,160,192';
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80';
 
 const INTERNAL_ROUTES = {
-  'abigail-adams-blend': '/AbigailAdamsBlend',
-  'harriet-tubman-blend': '/HarrietTubmanBlend',
+  'remember-the-ladies': '/AbigailAdamsBlend',
+  'midnight-railway': '/HarrietTubmanBlend',
 };
 
 const COMING_SOON = [

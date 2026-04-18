@@ -7,7 +7,7 @@ const DATA = {
   code: 'WR-002',
   roast: 'Dark Roast',
   price: 19.99,
-  shopifyHandle: 'harriet-tubman-blend',
+  shopifyHandle: 'midnight-railway',
   accent: '#D4A0C0',
   // heroImage and images are intentionally omitted — loaded live from DB by handle
   seriesLabel: 'Women of the Republic',
@@ -31,5 +31,5 @@ const DATA = {
 };
 
 export default function HarrietTubmanBlend() {
-  return <WomenProductPageLoader shopifyHandle="harriet-tubman-blend" staticData={DATA} />;
+  return <WomenProductPageLoader shopifyHandle="midnight-railway" staticData={DATA} />;
 }

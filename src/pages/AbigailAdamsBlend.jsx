@@ -7,7 +7,7 @@ const DATA = {
   code: 'WR-001',
   roast: 'Light Roast',
   price: 19.99,
-  shopifyHandle: 'abigail-adams-blend',
+  shopifyHandle: 'remember-the-ladies',
   accent: '#D4A0C0',
   // heroImage and images are intentionally omitted — loaded live from DB by handle
   seriesLabel: 'Women of the Republic',
@@ -31,5 +31,5 @@ const DATA = {
 };
 
 export default function AbigailAdamsBlend() {
-  return <WomenProductPageLoader shopifyHandle="abigail-adams-blend" staticData={DATA} />;
+  return <WomenProductPageLoader shopifyHandle="remember-the-ladies" staticData={DATA} />;
 }
