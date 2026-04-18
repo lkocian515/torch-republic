@@ -4,11 +4,12 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 const COLLECTION_MAP = {
   'best-sellers': 'best-sellers',
   'on-sale': 'on-sale',
+  // Coffee series collections (try these handles; fall back gracefully if they don't exist in Shopify)
   'founders-series': 'founders-series',
   'liberty-icons-coffee': 'liberty-icons',
   'commanders-series': 'commanders-series',
   'women-of-the-republic': 'women-of-the-republic',
-  // legacy handles (keep for backward compat)
+  // Legacy apparel collection handles
   'liberty-flame-collection': 'liberty-flame',
   'patriot-pride': 'patriotic-pride',
   'freedom-collection': 'freedom-isnt-free',
@@ -19,6 +20,16 @@ const COLLECTION_MAP = {
   'american-heroes-collection': 'american-heroes',
   'founders-collection': 'founders',
 };
+
+// Keyword-based series detection for coffee products (when no Shopify collection exists)
+function detectCoffeeSeries(title) {
+  const t = title.toLowerCase();
+  if (t.includes('founders series')) return 'founders-series';
+  if (t.includes('liberty icons series') || t.includes('liberty icons')) return 'liberty-icons';
+  if (t.includes("commander's series") || t.includes('commanders series')) return 'commanders-series';
+  if (t.includes('women of the republic')) return 'women-of-the-republic';
+  return null;
+}
 
 const COFFEE_COLLECTIONS = new Set([
   'founders-series',
@@ -88,7 +99,7 @@ function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank, isOnS
   if (!category) {
     const titleLower = product.title.toLowerCase();
     const tags = (product.tags || []).map(t => t.toLowerCase());
-    if (COFFEE_COLLECTIONS.has(collectionSlug) || tags.includes('coffee') || titleLower.includes('blend') || titleLower.includes('brew') || titleLower.includes('grind') || titleLower.includes('roast')) {
+    if (COFFEE_COLLECTIONS.has(collectionSlug) || tags.includes('coffee') || tags.includes('founders-series') || tags.includes('liberty-icons') || tags.includes('commanders-series') || tags.includes('women-of-the-republic') || titleLower.includes('blend') || titleLower.includes('brew') || titleLower.includes('grind') || titleLower.includes('roast')) {
       category = 'coffee';
     } else if (tags.includes('hats') || tags.includes('cap')) {
       category = 'hats';
@@ -184,6 +195,35 @@ Deno.serve(async (req) => {
             onSaleHandles.has(product.handle)
           ));
         }
+      }
+    }
+
+    // Also fetch all Coffee-type products from Admin API to catch any not in a collection
+    if (!collectionOnly) {
+      console.log('Fetching all Coffee product_type products via Admin API...');
+      const adminToken = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
+      const shopDomain = 'torch-republic.myshopify.com';
+      try {
+        const coffeeRes = await fetch(`https://${shopDomain}/admin/api/2024-01/products.json?product_type=Coffee&limit=250`, {
+          headers: { 'X-Shopify-Access-Token': adminToken, 'Content-Type': 'application/json' }
+        });
+        if (coffeeRes.ok) {
+          const coffeeData = await coffeeRes.json();
+          const coffeeProducts = coffeeData.products || [];
+          console.log(`Found ${coffeeProducts.length} Coffee-type products via Admin API`);
+          for (const product of coffeeProducts) {
+            if (!seenHandles.has(product.handle)) {
+              seenHandles.add(product.handle);
+              const seriesSlug = detectCoffeeSeries(product.title) || 'founders-series';
+              const mapped = mapProduct(product, seriesSlug, bestSellerHandles.has(product.handle), bestSellerRankMap.get(product.handle) || null, onSaleHandles.has(product.handle));
+              mapped.category = 'coffee'; // enforce coffee category
+              allProducts.push(mapped);
+              console.log(`  Added coffee product: "${product.title}" → ${seriesSlug}`);
+            }
+          }
+        }
+      } catch (e) {
+        console.log(`Admin API coffee fetch failed: ${e.message}`);
       }
     }
 

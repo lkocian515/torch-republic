@@ -117,11 +117,7 @@ function ComingSoonCard({ card, index }) {
 export default function WomenOfTheRepublicStrip() {
   const { data: liveProducts = [], isLoading } = useQuery({
     queryKey: ['home-women-strip'],
-    queryFn: async () => {
-      const res = await base44.functions.invoke('fetchShopifyCollection', { handle: 'women-of-the-republic' });
-      return res.data?.products || [];
-    },
-    staleTime: 5 * 60 * 1000,
+    queryFn: () => base44.entities.Product.filter({ collection: 'women-of-the-republic' }, '', 10),
   });
 
   return (

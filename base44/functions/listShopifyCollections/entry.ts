@@ -1,24 +1,46 @@
-const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.com';
+// Lists all collections from Shopify Admin API to find real handles
+const SHOPIFY_ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
+const SHOP_DOMAIN = 'torch-republic.myshopify.com';
 
 Deno.serve(async (req) => {
-  const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
-    },
-    body: JSON.stringify({
-      query: `{
-        collections(first: 50) {
-          edges {
-            node { title handle id }
-          }
-        }
-      }`
-    }),
-  });
-  const data = await res.json();
-  const collections = data?.data?.collections?.edges?.map(e => e.node) || [];
-  return Response.json({ total: collections.length, collections });
+  try {
+    // Fetch custom collections
+    const customRes = await fetch(`https://${SHOP_DOMAIN}/admin/api/2024-01/custom_collections.json?limit=250`, {
+      headers: {
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_TOKEN,
+        'Content-Type': 'application/json',
+      }
+    });
+    const customData = await customRes.json();
+    const custom = (customData.custom_collections || []).map(c => ({
+      id: c.id,
+      title: c.title,
+      handle: c.handle,
+      type: 'custom',
+    }));
+
+    // Fetch smart collections
+    const smartRes = await fetch(`https://${SHOP_DOMAIN}/admin/api/2024-01/smart_collections.json?limit=250`, {
+      headers: {
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_TOKEN,
+        'Content-Type': 'application/json',
+      }
+    });
+    const smartData = await smartRes.json();
+    const smart = (smartData.smart_collections || []).map(c => ({
+      id: c.id,
+      title: c.title,
+      handle: c.handle,
+      type: 'smart',
+    }));
+
+    const all = [...custom, ...smart].sort((a, b) => a.title.localeCompare(b.title));
+
+    return Response.json({
+      total: all.length,
+      collections: all,
+    });
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
 });

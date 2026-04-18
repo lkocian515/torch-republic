@@ -5,7 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { ArrowRight, Shield } from 'lucide-react';
 
 function ProductCard({ product, index }) {
-  const url = `https://torch-republic.com/products/${product.handle || product.shopify_handle}`;
+  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
   const title = product.title
     .replace(/[-–]\s*Commanders Series Coffee/i, '')
     .replace(/[-–]\s*Commanders Series/i, '')
@@ -88,11 +88,7 @@ function ComingSoon() {
 export default function CommandersStrip() {
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-commanders-strip'],
-    queryFn: async () => {
-      const res = await base44.functions.invoke('fetchShopifyCollection', { handle: 'commanders-series' });
-      return res.data?.products || [];
-    },
-    staleTime: 5 * 60 * 1000,
+    queryFn: () => base44.entities.Product.filter({ collection: 'commanders-series' }, '', 20),
   });
 
   const display = allProducts.slice(0, 6);

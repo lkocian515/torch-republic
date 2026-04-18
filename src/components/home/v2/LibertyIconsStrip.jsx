@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 const FEATURED_LIBERTY = ['liberty-torch-blend', 'lady-liberty-blend', 'eagles-flight-blend'];
 
 function ProductCard({ product, index }) {
-  const url = `https://torch-republic.com/products/${product.handle || product.shopify_handle}`;
+  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
   const title = product.title
     .replace(/[-–]\s*Liberty Icons Series Coffee/i, '')
     .replace(/[-–]\s*Liberty Icons/i, '')
@@ -67,15 +67,11 @@ function ProductCard({ product, index }) {
 export default function LibertyIconsStrip() {
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-liberty-icons-strip'],
-    queryFn: async () => {
-      const res = await base44.functions.invoke('fetchShopifyCollection', { handle: 'liberty-icons-coffee' });
-      return res.data?.products || [];
-    },
-    staleTime: 5 * 60 * 1000,
+    queryFn: () => base44.entities.Product.filter({ collection: 'liberty-icons' }, '', 20),
   });
 
-  const priority = FEATURED_LIBERTY.map(h => allProducts.find(p => p.handle === h)).filter(Boolean);
-  const rest = allProducts.filter(p => !FEATURED_LIBERTY.includes(p.handle));
+  const priority = FEATURED_LIBERTY.map(h => allProducts.find(p => p.shopify_handle === h)).filter(Boolean);
+  const rest = allProducts.filter(p => !FEATURED_LIBERTY.includes(p.shopify_handle));
   const display = [...priority, ...rest].slice(0, 4);
 
   if (!isLoading && display.length === 0) return null;
