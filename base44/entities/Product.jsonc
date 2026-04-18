@@ -35,6 +35,10 @@
       "enum": [
         "best-sellers",
         "on-sale",
+        "founders-series",
+        "liberty-icons",
+        "commanders-series",
+        "women-of-the-republic",
         "liberty-flame",
         "liberty-icons",
         "patriotic-pride",

@@ -1,9 +1,14 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 // Maps Shopify collection handle → app collection enum value
 const COLLECTION_MAP = {
   'best-sellers': 'best-sellers',
   'on-sale': 'on-sale',
+  'founders-series': 'founders-series',
+  'liberty-icons-coffee': 'liberty-icons',
+  'commanders-series': 'commanders-series',
+  'women-of-the-republic': 'women-of-the-republic',
+  // legacy handles (keep for backward compat)
   'liberty-flame-collection': 'liberty-flame',
   'patriot-pride': 'patriotic-pride',
   'freedom-collection': 'freedom-isnt-free',
@@ -15,12 +20,19 @@ const COLLECTION_MAP = {
   'founders-collection': 'founders',
 };
 
-// Maps Shopify product_type → app category enum
+const COFFEE_COLLECTIONS = new Set([
+  'founders-series',
+  'liberty-icons',
+  'commanders-series',
+  'women-of-the-republic',
+]);
+
 const CATEGORY_MAP = {
   'T-Shirt': 't-shirts',
-  'Hoodie': 't-shirts',
+  'Hoodie': 'hoodies-sweatshirts',
+  'Sweatshirt': 'hoodies-sweatshirts',
   'Long-sleeve': 't-shirts',
-  'Tank Top': 't-shirts',
+  'Tank Top': 'tanks',
   'Hat': 'hats',
   'Hats': 'hats',
   'Home Decor': 'home-decor',
@@ -32,18 +44,28 @@ const CATEGORY_MAP = {
   'Flag': 'flags',
   'Accessories': 'accessories',
   'Magnet': 'magnets',
+  'Coffee': 'coffee',
+  'Candle': 'candles',
+  'Sticker': 'stickers',
+  'Bobblehead': 'bobbleheads',
 };
 
 const SHOPIFY_BASE = 'https://torchrepublic.com';
-const BEST_SELLERS_HANDLE = 'best-sellers';
-const ON_SALE_HANDLE = 'on-sale';
 
 async function fetchCollectionProducts(handle) {
   const url = `${SHOPIFY_BASE}/collections/${handle}/products.json?limit=250`;
-  const res = await fetch(url);
-  if (!res.ok) return [];
-  const data = await res.json();
-  return data.products || [];
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.log(`  Collection "${handle}" returned ${res.status}`);
+      return [];
+    }
+    const data = await res.json();
+    return data.products || [];
+  } catch (e) {
+    console.log(`  Error fetching "${handle}": ${e.message}`);
+    return [];
+  }
 }
 
 function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank, isOnSale) {
@@ -54,24 +76,39 @@ function mapProduct(product, collectionSlug, isBestSeller, bestSellerRank, isOnS
   const comparePrice = firstVariant?.compare_at_price ? parseFloat(firstVariant.compare_at_price) : null;
 
   const sizes = [...new Set(
-    product.variants
+    (product.variants || [])
       .filter(v => v.option1 && ['XS','S','M','L','XL','2XL','3XL','4XL','5XL'].includes(v.option1))
       .map(v => v.option1)
   )];
 
   const productType = product.product_type || '';
-  let category = CATEGORY_MAP[productType] || 'accessories';
+  let category = CATEGORY_MAP[productType] || null;
 
-  if (category === 'accessories') {
-    const tags = product.tags || [];
-    if (tags.includes('hats') || tags.includes('cap')) category = 'hats';
-    else if (tags.includes('jewelry') || tags.includes('earring') || tags.includes('necklace')) category = 'jewelry';
-    else if (tags.includes('magnet') || tags.includes('car magnets')) category = 'magnets';
-    else if (tags.includes('flag')) category = 'flags';
-    else if (tags.includes('mug') || tags.includes('tumbler')) category = 'mugs-tumblers';
-    else if (tags.includes('hoodie') || tags.includes('sweatshirt')) category = 't-shirts';
-    else if (tags.includes('tees') || tags.includes('t-shirt') || tags.includes('tank')) category = 't-shirts';
-    else if (tags.includes('home') || tags.includes('decor') || tags.includes('candle')) category = 'home-decor';
+  // Auto-detect coffee category
+  if (!category) {
+    const titleLower = product.title.toLowerCase();
+    const tags = (product.tags || []).map(t => t.toLowerCase());
+    if (COFFEE_COLLECTIONS.has(collectionSlug) || tags.includes('coffee') || titleLower.includes('blend') || titleLower.includes('brew') || titleLower.includes('grind') || titleLower.includes('roast')) {
+      category = 'coffee';
+    } else if (tags.includes('hats') || tags.includes('cap')) {
+      category = 'hats';
+    } else if (tags.includes('jewelry') || tags.includes('earring') || tags.includes('necklace')) {
+      category = 'jewelry';
+    } else if (tags.includes('magnet') || tags.includes('car magnets')) {
+      category = 'magnets';
+    } else if (tags.includes('flag')) {
+      category = 'flags';
+    } else if (tags.includes('mug') || tags.includes('tumbler')) {
+      category = 'mugs-tumblers';
+    } else if (tags.includes('hoodie') || tags.includes('sweatshirt')) {
+      category = 'hoodies-sweatshirts';
+    } else if (tags.includes('tees') || tags.includes('t-shirt') || tags.includes('tank')) {
+      category = 't-shirts';
+    } else if (tags.includes('home') || tags.includes('decor') || tags.includes('candle')) {
+      category = 'home-decor';
+    } else {
+      category = 'accessories';
+    }
   }
 
   return {
@@ -105,79 +142,96 @@ Deno.serve(async (req) => {
 
     const body = await req.json().catch(() => ({}));
     const dryRun = body.dry_run === true;
+    const collectionOnly = body.collection || null; // optionally sync just one collection
 
-    // Fetch best sellers and on-sale collections first
+    console.log('Starting Shopify sync...');
+
+    // Fetch best sellers and on-sale first for ranking/flags
     console.log('Fetching best sellers...');
-    const bestSellerProducts = await fetchCollectionProducts(BEST_SELLERS_HANDLE);
+    const bestSellerProducts = await fetchCollectionProducts('best-sellers');
     const bestSellerRankMap = new Map(bestSellerProducts.map((p, i) => [p.handle, i + 1]));
     const bestSellerHandles = new Set(bestSellerProducts.map(p => p.handle));
     console.log(`Found ${bestSellerProducts.length} best sellers`);
 
     console.log('Fetching on-sale products...');
-    const onSaleProducts = await fetchCollectionProducts(ON_SALE_HANDLE);
+    const onSaleProducts = await fetchCollectionProducts('on-sale');
     const onSaleHandles = new Set(onSaleProducts.map(p => p.handle));
     console.log(`Found ${onSaleProducts.length} on-sale products`);
 
     // Fetch all themed collections
-    const collectionsToSync = Object.keys(COLLECTION_MAP).filter(h => h !== 'best-sellers');
+    const collectionsToSync = Object.keys(COLLECTION_MAP).filter(h => h !== 'best-sellers' && h !== 'on-sale');
+    const filteredCollections = collectionOnly
+      ? collectionsToSync.filter(h => h === collectionOnly || COLLECTION_MAP[h] === collectionOnly)
+      : collectionsToSync;
+
     let allProducts = [];
     const seenHandles = new Set();
 
-    for (const shopifyHandle of collectionsToSync) {
+    for (const shopifyHandle of filteredCollections) {
       const appSlug = COLLECTION_MAP[shopifyHandle];
-      console.log(`Fetching ${shopifyHandle} → ${appSlug}...`);
+      console.log(`Fetching collection: ${shopifyHandle} → ${appSlug}...`);
       const products = await fetchCollectionProducts(shopifyHandle);
-      console.log(`  ${products.length} products`);
+      console.log(`  Found ${products.length} products`);
 
       for (const product of products) {
         if (!seenHandles.has(product.handle)) {
           seenHandles.add(product.handle);
-          allProducts.push(mapProduct(product, appSlug, bestSellerHandles.has(product.handle), bestSellerRankMap.get(product.handle) || null, onSaleHandles.has(product.handle)));
+          allProducts.push(mapProduct(
+            product,
+            appSlug,
+            bestSellerHandles.has(product.handle),
+            bestSellerRankMap.get(product.handle) || null,
+            onSaleHandles.has(product.handle)
+          ));
         }
       }
     }
 
-    // Also add best sellers that aren't in any themed collection
-    for (const product of bestSellerProducts) {
-      if (!seenHandles.has(product.handle)) {
-        seenHandles.add(product.handle);
-        allProducts.push(mapProduct(product, 'best-sellers', true, bestSellerRankMap.get(product.handle) || null, onSaleHandles.has(product.handle)));
+    // Add best sellers not already seen
+    if (!collectionOnly) {
+      for (const product of bestSellerProducts) {
+        if (!seenHandles.has(product.handle)) {
+          seenHandles.add(product.handle);
+          allProducts.push(mapProduct(product, 'best-sellers', true, bestSellerRankMap.get(product.handle), onSaleHandles.has(product.handle)));
+        }
+      }
+
+      // Add on-sale products not already seen
+      for (const product of onSaleProducts) {
+        if (!seenHandles.has(product.handle)) {
+          seenHandles.add(product.handle);
+          allProducts.push(mapProduct(product, 'on-sale', false, null, true));
+        }
       }
     }
 
-    // Also add on-sale products that aren't in any other collection
-    for (const product of onSaleProducts) {
-      if (!seenHandles.has(product.handle)) {
-        seenHandles.add(product.handle);
-        allProducts.push(mapProduct(product, 'on-sale', false, null, true));
-      }
-    }
+    const collectionCounts = allProducts.reduce((acc, p) => {
+      acc[p.collection] = (acc[p.collection] || 0) + 1;
+      return acc;
+    }, {});
 
     console.log(`Total unique products to sync: ${allProducts.length}`);
+    console.log('Collection counts:', JSON.stringify(collectionCounts));
 
     if (dryRun) {
       return Response.json({
         dry_run: true,
         total: allProducts.length,
         sample: allProducts.slice(0, 3),
-        collection_counts: allProducts.reduce((acc, p) => {
-          acc[p.collection] = (acc[p.collection] || 0) + 1;
-          return acc;
-        }, {}),
+        collection_counts: collectionCounts,
+        coffee_products: allProducts.filter(p => p.category === 'coffee').map(p => ({ title: p.title, handle: p.shopify_handle, collection: p.collection, image: p.image_url })),
       });
     }
 
-    // Clear existing products and bulk insert
-    // Delete in parallel batches to avoid rate limits
+    // Delete existing and re-insert
     const existing = await base44.asServiceRole.entities.Product.list('', 500);
     console.log(`Deleting ${existing.length} existing products...`);
-    // Delete sequentially to avoid rate limits
     for (const p of existing) {
       await base44.asServiceRole.entities.Product.delete(p.id);
-      await new Promise(r => setTimeout(r, 150));
+      await new Promise(r => setTimeout(r, 100));
     }
 
-    // Bulk create in batches of 50
+    // Bulk create in batches
     const batchSize = 50;
     let created = 0;
     for (let i = 0; i < allProducts.length; i += batchSize) {
@@ -190,10 +244,7 @@ Deno.serve(async (req) => {
     return Response.json({
       success: true,
       synced: allProducts.length,
-      collection_counts: allProducts.reduce((acc, p) => {
-        acc[p.collection] = (acc[p.collection] || 0) + 1;
-        return acc;
-      }, {}),
+      collection_counts: collectionCounts,
     });
 
   } catch (error) {

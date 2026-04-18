@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 const FEATURED_FOUNDERS = ['washington-blend', 'lincoln-blend', 'franklin-blend'];
 
 function ProductCard({ product, index }) {
-  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
+  const url = `https://torch-republic.com/products/${product.handle || product.shopify_handle}`;
   const title = product.title.replace(/[-–]\s*Founders Series Coffee/i, '').trim();
   const plain = (product.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   const roastMatch = plain.match(/Roast Level[:\s]+([^·|.<\n]+)/i);
@@ -64,17 +64,16 @@ function ProductCard({ product, index }) {
 export default function BestSellersStrip() {
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-founders-strip'],
-    queryFn: () => base44.entities.Product.filter({ category: 'coffee' }, '', 50),
+    queryFn: async () => {
+      const res = await base44.functions.invoke('fetchShopifyCollection', { handle: 'founders-series' });
+      return res.data?.products || [];
+    },
+    staleTime: 5 * 60 * 1000,
   });
 
-  // Filter by title keyword — matches actual Shopify product titles synced to DB
-  const founders = allProducts.filter(p =>
-    p.title && p.title.toLowerCase().includes('founders series')
-  );
-
   // Show Washington, Lincoln, Franklin first — then fill to 4 if available
-  const priority = FEATURED_FOUNDERS.map(h => founders.find(p => p.shopify_handle === h)).filter(Boolean);
-  const rest = founders.filter(p => !FEATURED_FOUNDERS.includes(p.shopify_handle));
+  const priority = FEATURED_FOUNDERS.map(h => allProducts.find(p => p.handle === h)).filter(Boolean);
+  const rest = allProducts.filter(p => !FEATURED_FOUNDERS.includes(p.handle));
   const display = [...priority, ...rest].slice(0, 4);
 
   return (
