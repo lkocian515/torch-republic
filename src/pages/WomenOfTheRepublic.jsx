@@ -22,8 +22,10 @@ const COMING_SOON = [
 ];
 
 function ProductCard({ product, index }) {
-  const route = INTERNAL_ROUTES[product.shopify_handle];
+  const handle = product.shopify_handle || product.handle;
+  const route = INTERNAL_ROUTES[handle];
   const title = product.title.replace(/[-–]\s*(Women of the Republic|Coffee)\s*/gi, '').trim();
+  // Always use this product's own image — no fallback to another product's image
   const imgSrc = product.image_url || PLACEHOLDER;
 
   const inner = (
@@ -63,13 +65,14 @@ function ProductCard({ product, index }) {
   );
 
   if (route) return <Link key={product.id} to={route} style={{ textDecoration: 'none' }}>{inner}</Link>;
-  return <a key={product.id} href={`https://torch-republic.com/products/${product.shopify_handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{inner}</a>;
+  return <a key={product.id} href={`https://torch-republic.com/products/${handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{inner}</a>;
 }
 
 export default function WomenOfTheRepublic() {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['women-of-the-republic-products'],
     queryFn: () => base44.entities.Product.filter({ collection: 'women-of-the-republic' }, '', 20),
+    staleTime: 0,
   });
 
   return (

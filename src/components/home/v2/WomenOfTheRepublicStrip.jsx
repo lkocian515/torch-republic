@@ -21,8 +21,11 @@ const INTERNAL_ROUTES = {
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80';
 
 function LiveProductCard({ product, index }) {
-  const route = INTERNAL_ROUTES[product.handle];
-  const title = product.title.replace(/[-–]\s*Women of the Republic\s*/gi, '').trim();
+  // DB field is shopify_handle, not handle
+  const handle = product.shopify_handle || product.handle;
+  const route = INTERNAL_ROUTES[handle];
+  const title = product.title.replace(/[-–]\s*(Women of the Republic|Coffee)\s*/gi, '').trim();
+  // Use this product's own image_url only — no cross-product fallback
   const imgSrc = product.image_url || PLACEHOLDER;
 
   const inner = (
@@ -73,7 +76,7 @@ function LiveProductCard({ product, index }) {
   );
 
   if (route) return <Link to={route} style={{ textDecoration: 'none' }}>{inner}</Link>;
-  return <a href={`https://torch-republic.com/products/${product.handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{inner}</a>;
+  return <a href={`https://torch-republic.com/products/${handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{inner}</a>;
 }
 
 function ComingSoonCard({ card, index }) {
@@ -118,6 +121,7 @@ export default function WomenOfTheRepublicStrip() {
   const { data: liveProducts = [], isLoading } = useQuery({
     queryKey: ['home-women-strip'],
     queryFn: () => base44.entities.Product.filter({ collection: 'women-of-the-republic' }, '', 10),
+    staleTime: 0,
   });
 
   return (
