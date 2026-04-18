@@ -54,6 +54,8 @@ import UncleSamQR from './pages/qr/UncleSamQR';
 import RosiesQR from './pages/qr/RosiesQR';
 import EaglesFlightQR from './pages/qr/EaglesFlightQR';
 import LandingPage from './pages/LandingPage';
+import AbigailAdamsBlend from './pages/AbigailAdamsBlend';
+import HarrietTubmanBlend from './pages/HarrietTubmanBlend';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -129,6 +131,8 @@ const AuthenticatedApp = () => {
       <Route path="/OutfitBuilder" element={<LayoutWrapper currentPageName="OutfitBuilder"><OutfitBuilder /></LayoutWrapper>} />
       <Route path="/StyleAdvisor" element={<LayoutWrapper currentPageName="StyleAdvisor"><StyleAdvisor /></LayoutWrapper>} />
       <Route path="/landing" element={<LayoutWrapper currentPageName="LandingPage"><LandingPage /></LayoutWrapper>} />
+      <Route path="/AbigailAdamsBlend" element={<LayoutWrapper currentPageName="AbigailAdamsBlend"><AbigailAdamsBlend /></LayoutWrapper>} />
+      <Route path="/HarrietTubmanBlend" element={<LayoutWrapper currentPageName="HarrietTubmanBlend"><HarrietTubmanBlend /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
