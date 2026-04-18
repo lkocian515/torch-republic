@@ -1,5 +1,5 @@
 import React from 'react';
-import FounderProductPage from '../components/founders/FounderProductPage';
+import WomenProductPageLoader from '../components/women/WomenProductPageLoader';
 
 const DATA = {
   title: 'Abigail Adams Blend',
@@ -9,8 +9,7 @@ const DATA = {
   price: 19.99,
   shopifyHandle: 'abigail-adams-blend',
   accent: '#D4A0C0',
-  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/29.png?v=1776037980',
-  images: ['https://cdn.shopify.com/s/files/1/0620/7140/6844/files/29.png?v=1776037980', 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/IMG_20260405_041048.jpg?v=1776038585'],
+  // heroImage and images are intentionally omitted — loaded live from DB by handle
   seriesLabel: 'Women of the Republic',
   taglineLabel: 'Women of the Republic',
   tastingNotes: ['Floral', 'Citrus', 'Honey', 'Clean Finish'],
@@ -32,5 +31,5 @@ const DATA = {
 };
 
 export default function AbigailAdamsBlend() {
-  return <FounderProductPage DATA={DATA} />;
+  return <WomenProductPageLoader shopifyHandle="abigail-adams-blend" staticData={DATA} />;
 }

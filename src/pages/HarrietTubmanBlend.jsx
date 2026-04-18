@@ -1,5 +1,5 @@
 import React from 'react';
-import FounderProductPage from '../components/founders/FounderProductPage';
+import WomenProductPageLoader from '../components/women/WomenProductPageLoader';
 
 const DATA = {
   title: 'Harriet Tubman Blend',
@@ -9,8 +9,7 @@ const DATA = {
   price: 19.99,
   shopifyHandle: 'harriet-tubman-blend',
   accent: '#D4A0C0',
-  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
-  images: ['https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440', 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/vhjvhjm.png?v=1776038440'],
+  // heroImage and images are intentionally omitted — loaded live from DB by handle
   seriesLabel: 'Women of the Republic',
   taglineLabel: 'Women of the Republic',
   tastingNotes: ['Dark Chocolate', 'Smoke', 'Deep Roast', 'Full Body'],
@@ -32,5 +31,5 @@ const DATA = {
 };
 
 export default function HarrietTubmanBlend() {
-  return <FounderProductPage DATA={DATA} />;
+  return <WomenProductPageLoader shopifyHandle="harriet-tubman-blend" staticData={DATA} />;
 }
