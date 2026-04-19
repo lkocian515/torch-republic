@@ -4,30 +4,30 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 
-const HANDLE = 'washington-blend';
-const INTERNAL_ROUTE = '/WashingtonBlend';
-const FALLBACK_HANDLE = 'jefferson-blend';
-const FALLBACK_ROUTE = '/JeffersonBlend';
+// Exact Shopify handle for Washington Blend Pods (coffee pod product, NOT bag)
+const POD_HANDLE = 'washington-blend-coffee-pods';
+
+async function fetchPodProduct() {
+  // Pull directly from Shopify Storefront API — no DB cache
+  const res = await base44.functions.invoke('getSpotlightProduct', { handle: POD_HANDLE });
+  return res.data;
+}
 
 export default function FeaturedProductSpotlight() {
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ['featured-spotlight', HANDLE],
-    queryFn: async () => {
-      const primary = await base44.entities.Product.filter({ shopify_handle: HANDLE }, '', 1);
-      if (primary.length > 0) return primary;
-      return base44.entities.Product.filter({ shopify_handle: FALLBACK_HANDLE }, '', 1);
-    },
-    staleTime: 5 * 60 * 1000,
+  const { data: product, isLoading } = useQuery({
+    queryKey: ['spotlight-pods', POD_HANDLE],
+    queryFn: fetchPodProduct,
+    staleTime: 0,        // never serve stale — always fresh from Shopify
+    gcTime: 0,           // don't cache in memory
+    retry: 1,
   });
 
-  const product = products[0];
-
-  // Hide section if no product found and not loading
-  if (!isLoading && !product) return null;
+  // Hide if product not found after load
+  if (!isLoading && !product?.firstImage) return null;
 
   const price = product?.price ? `$${Number(product.price).toFixed(2)}` : '$20.00';
-  const imageUrl = product?.image_url;
-  const route = product?.shopify_handle === HANDLE ? INTERNAL_ROUTE : FALLBACK_ROUTE;
+  const imageUrl = product?.firstImage;
+  const shopifyUrl = `https://torch-republic.com/products/${POD_HANDLE}`;
 
   return (
     <section
@@ -49,7 +49,7 @@ export default function FeaturedProductSpotlight() {
 
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-24">
 
-          {/* ── LEFT: Product Image ── */}
+          {/* ── LEFT: Product Image (from Shopify) ── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +62,7 @@ export default function FeaturedProductSpotlight() {
               className="absolute"
               style={{
                 inset: '5%',
-                background: 'radial-gradient(ellipse at center, rgba(201,162,74,0.1) 0%, transparent 65%)',
+                background: 'radial-gradient(ellipse at center, rgba(201,162,74,0.12) 0%, transparent 65%)',
                 filter: 'blur(40px)',
                 borderRadius: '50%',
                 zIndex: 0,
@@ -72,15 +72,12 @@ export default function FeaturedProductSpotlight() {
             {isLoading ? (
               <div
                 className="animate-pulse w-full"
-                style={{ aspectRatio: '4/5', background: '#161616', maxWidth: '440px' }}
+                style={{ aspectRatio: '1/1', background: '#161616', maxWidth: '480px' }}
               />
             ) : imageUrl ? (
               <div
-                className="relative z-10 w-full overflow-hidden"
-                style={{
-                  maxWidth: '440px',
-                  boxShadow: '0 24px 72px rgba(0,0,0,0.7), 0 0 40px rgba(201,162,74,0.05)',
-                }}
+                className="relative z-10 w-full"
+                style={{ maxWidth: '480px' }}
               >
                 {/* Founders Series badge */}
                 <div
@@ -92,9 +89,14 @@ export default function FeaturedProductSpotlight() {
 
                 <img
                   src={imageUrl}
-                  alt="Washington Blend — Founders Series Coffee"
+                  alt="Washington Blend Pods"
                   className="w-full block"
-                  style={{ aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center' }}
+                  style={{
+                    objectFit: 'contain',
+                    objectPosition: 'center',
+                    boxShadow: '0 24px 80px rgba(0,0,0,0.8), 0 0 60px rgba(201,162,74,0.06)',
+                    background: 'transparent',
+                  }}
                 />
               </div>
             ) : null}
@@ -110,24 +112,24 @@ export default function FeaturedProductSpotlight() {
           >
             {/* Eyebrow */}
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.55)' }}>
-              Torch Republic · Founders #01
+              Torch Republic · Founders Series · Pods
             </p>
 
             {/* Headline */}
             <h2
               className="font-serif leading-none mb-3"
               style={{
-                fontSize: 'clamp(2.2rem, 4.5vw, 4rem)',
+                fontSize: 'clamp(2rem, 4vw, 3.6rem)',
                 fontWeight: 800,
                 color: '#C9A24A',
                 letterSpacing: '-0.02em',
               }}
             >
               WASHINGTON<br />
-              <span style={{ color: '#FFFFFF' }}>BLEND</span>
+              <span style={{ color: '#FFFFFF' }}>BLEND PODS</span>
             </h2>
 
-            {/* Subheadline — flavor notes */}
+            {/* Subheadline */}
             <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-6" style={{ color: 'rgba(201,162,74,0.55)' }}>
               Dark Roast · Cocoa · Smoke · Bold Spice
             </p>
@@ -148,6 +150,7 @@ export default function FeaturedProductSpotlight() {
             >
               Strength without noise. Built for discipline, not comfort.<br />
               A bold, full-bodied dark roast inspired by the man who set the standard.
+              Now available in single-serve pods.
             </p>
 
             {/* Price */}
@@ -157,15 +160,17 @@ export default function FeaturedProductSpotlight() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <Link
-                to={route}
+              <a
+                href={shopifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all"
-                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 38px' }}
+                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 38px', textDecoration: 'none' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#DDB95E'}
                 onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
               >
                 SHOP NOW
-              </Link>
+              </a>
               <Link
                 to="/CoffeeCollection"
                 className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.28em] uppercase transition-all"
