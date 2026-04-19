@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
-import HeroConversionStrip from '../components/home/v2/HeroConversionStrip';
+import HeroTrustBar from '../components/home/v2/HeroTrustBar';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
@@ -18,8 +18,8 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
       {/* 1. Hero — Carry the Flame */}
       <HeroSection />
-      {/* Conversion strip directly under hero */}
-      <HeroConversionStrip />
+      {/* Trust bar directly under hero */}
+      <HeroTrustBar />
       {/* 2. Founders Series — primary coffee */}
       <BestSellersStrip />
       {/* 3. Torch Box — primary conversion driver */}
