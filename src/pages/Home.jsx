@@ -2,7 +2,10 @@ import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
+import PodsBenefitsStrip from '../components/home/v2/PodsBenefitsStrip';
+import PodsSocialProof from '../components/home/v2/PodsSocialProof';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
+import BuildYourRoutine from '../components/home/v2/BuildYourRoutine';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
 import CommandersStrip from '../components/home/v2/CommandersStrip';
@@ -21,9 +24,13 @@ export default function Home() {
       <HeroSection />
       {/* Trust bar directly under hero */}
       <HeroTrustBar />
-      {/* 1b. Featured Product Spotlight — Washington Blend */}
+      {/* 1b. Featured Product Spotlight — Washington Blend Pods */}
       <FeaturedProductSpotlight />
-      {/* 2. Founders Series — primary coffee */}
+      {/* 1c. Pod benefits strip */}
+      <PodsBenefitsStrip />
+      {/* 1d. Social proof quote */}
+      <PodsSocialProof />
+      {/* 2. Founders Series — demoted slightly */}
       <BestSellersStrip />
       {/* 3. Torch Box — primary conversion driver */}
       <TorchBoxSection />
@@ -33,6 +40,8 @@ export default function Home() {
       <CommandersStrip />
       {/* 5b. Women of the Republic — Coming Soon */}
       <WomenOfTheRepublicStrip />
+      {/* 5c. Build Your Routine funnel */}
+      <BuildYourRoutine />
       {/* 6. Review strip */}
       <HomeReviewStrip />
       {/* 7. Guarantee bar */}

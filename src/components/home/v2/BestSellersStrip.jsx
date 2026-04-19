@@ -73,7 +73,7 @@ export default function BestSellersStrip() {
   const display = [...priority, ...rest].slice(0, 4);
 
   return (
-    <section className="py-20 md:py-28 px-5 md:px-12" style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.15)' }}>
+    <section className="py-14 md:py-20 px-5 md:px-12" style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.08)' }}>
       <div className="max-w-[1280px] mx-auto">
 
         {/* Header */}
@@ -82,16 +82,16 @@ export default function BestSellersStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="mb-10 md:mb-14"
+          className="mb-8 md:mb-10"
         >
-          <div className="flex items-center gap-3 mb-5">
-            <div style={{ width: 36, height: 1, background: '#C9A24A' }} />
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase" style={{ color: '#C9A24A' }}>Collection 01</p>
+          <div className="flex items-center gap-3 mb-4">
+            <div style={{ width: 28, height: 1, background: 'rgba(201,162,74,0.6)' }} />
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>Collection 01</p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
             <div>
-              <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+              <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Founders Series
               </h2>
               <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
@@ -103,16 +103,16 @@ export default function BestSellersStrip() {
               href="https://torch-republic.com/collections/founders-series"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-80 btn-glow flex-shrink-0"
-              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '15px 36px' }}
+              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-px flex-shrink-0"
+              style={{ color: 'rgba(201,162,74,0.6)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}
             >
-              Start With the Founders <ArrowRight className="w-3.5 h-3.5" />
+              View Collection <ArrowRight className="w-3 h-3" />
             </a>
           </div>
         </motion.div>
 
         {/* Gold rule */}
-        <div className="mb-10" style={{ height: '1px', background: 'linear-gradient(90deg, #C9A24A 0%, rgba(201,162,74,0.12) 55%, transparent 100%)' }} />
+        <div className="mb-8" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(201,162,74,0.4) 0%, rgba(201,162,74,0.06) 55%, transparent 100%)' }} />
 
         {/* Product Grid — 4 columns */}
         {isLoading ? (
