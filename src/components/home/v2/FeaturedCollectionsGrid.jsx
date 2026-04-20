@@ -6,22 +6,6 @@ import { Link } from 'react-router-dom';
 
 const AC = '#C9A24A';
 
-// Curated products for homepage collection previews
-const CURATED_PRODUCTS = {
-  apparel: [
-    'the-second-amendment-1791-rifle-graphic-tee',
-    'continental-army-1776-born-free-patriotic-tee',
-    'remember-the-alamo-texas-historical-graphic-tee',
-    'no-taxation-without-caffeination-vintage-coffee-liberty-tee',
-  ],
-  mugs: [
-    'ceramic-mug-proud-american-1776-torch-republic',
-    'patriotic-live-free-torch-the-republic-insulated-coffee-mug',
-    'ceramic-mug-live-free-be-ready-tactical-coffee-adventure',
-    'constitution-we-the-people-20oz-tumbler-patriotic-travel-cup',
-  ],
-};
-
 // Collection definitions with Shopify handles and internal routing
 const COLLECTIONS = [
   {
@@ -31,7 +15,6 @@ const COLLECTIONS = [
     link: '/CoffeeCollection',
     shopifyHandle: 'founders-series',
     color: '#C9A24A',
-    isCurated: false,
   },
   {
     id: 'liberty-icons',
@@ -40,7 +23,6 @@ const COLLECTIONS = [
     link: '/LibertyIcons',
     shopifyHandle: 'liberty-icons',
     color: '#C9A24A',
-    isCurated: false,
   },
   {
     id: 'women',
@@ -49,7 +31,6 @@ const COLLECTIONS = [
     link: '/WomenOfTheRepublic',
     shopifyHandle: 'women-of-the-republic',
     color: '#C9A24A',
-    isCurated: false,
   },
   {
     id: 'commanders',
@@ -58,7 +39,6 @@ const COLLECTIONS = [
     link: '/CommandersSeries',
     shopifyHandle: 'commanders-series',
     color: '#C9A24A',
-    isCurated: false,
   },
   {
     id: 'pods',
@@ -67,7 +47,6 @@ const COLLECTIONS = [
     link: '/CoffeeCollection',
     shopifyHandle: 'coffee-pods',
     color: '#C9A24A',
-    isCurated: false,
   },
   {
     id: 'mugs',
@@ -76,7 +55,6 @@ const COLLECTIONS = [
     link: '/mugs-tumblers',
     shopifyHandle: 'mugs-and-tumblers',
     color: '#C9A24A',
-    isCurated: true,
   },
   {
     id: 'shirts',
@@ -85,33 +63,21 @@ const COLLECTIONS = [
     link: '/Shop',
     shopifyHandle: 'apparel',
     color: '#C9A24A',
-    isCurated: true,
   },
 ];
 
 async function fetchAllCollections() {
   try {
     const results = await Promise.all(
-      COLLECTIONS.map(col => {
-        if (col.isCurated) {
-          // Fetch specific curated products by handle
-          const handles = CURATED_PRODUCTS[col.id];
-          if (!handles || handles.length === 0) return [];
-          
-          return Promise.all(
-            handles.map(handle =>
-              base44.functions.invoke('getSpotlightProduct', { handle })
-                .then(res => res.data)
-                .catch(() => null)
-            )
-          ).then(products => products.filter(Boolean));
-        } else {
-          // Fetch collection in storefront order
-          return base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
-            .then(res => res.data?.products || [])
-            .catch(() => []);
-        }
-      })
+      COLLECTIONS.map(col =>
+        // Fetch first 4 products from live Shopify collection in storefront order
+        base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
+          .then(res => {
+            const products = res.data?.products || [];
+            return products.slice(0, 4);
+          })
+          .catch(() => [])
+      )
     );
     return results;
   } catch (error) {
