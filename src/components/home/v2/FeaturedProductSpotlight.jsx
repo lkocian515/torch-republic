@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
+import ProductBadge from '../../products/ProductBadge';
 
 const POD_HANDLE = 'washington-blend-coffee-pods';
 const SHOPIFY_URL = `https://torch-republic.com/products/${POD_HANDLE}`;

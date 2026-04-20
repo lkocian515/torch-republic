@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
-import ProductBadge from '../products/ProductBadge';
+import ProductBadge from '../../products/ProductBadge';
 
 // LOCKED ORDER — Founders Series display sequence. Do not reorder.
 // Collection filter: 'founders-series' ONLY. Never pull from other collections.
