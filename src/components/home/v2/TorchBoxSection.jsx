@@ -54,7 +54,7 @@ export default function TorchBoxSection() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div style={{ width: 36, height: 1, background: '#C9A24A' }} />
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase" style={{ color: '#C9A24A' }}>Monthly Subscription</p>
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase" style={{ color: '#C9A24A' }}>Step 2: Build Your Legacy · Membership</p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -66,10 +66,10 @@ export default function TorchBoxSection() {
                 </span>
               </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                More Than Coffee.<br />A System.
+                Ready to Collect<br />All Six Founders?
               </h2>
               <p className="font-heading mb-2" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 420 }}>
-                Exclusive member-only blends. Premium small-batch roasted. Delivered monthly with intention.
+                Move beyond single purchases. Exclusive member-only blends delivered monthly. Build your complete Founders Series collection.
               </p>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A', fontWeight: 600 }}>
                 Save up to $42/mo + exclusive first box bonus

@@ -11,6 +11,7 @@ import BrewGuide from './BrewGuide';
 import SubscribeToggle from '../products/SubscribeToggle';
 import FoundersCollectionProgress from './FoundersCollectionProgress';
 import BundleSection from './BundleSection';
+import NextStepBridge from './NextStepBridge';
 
 const FLAVOR_ICONS = {
   'Dark Chocolate': '🍫', 'Chocolate': '🍫', 'Cocoa': '🍫',
@@ -488,6 +489,20 @@ export default function FounderProductPage({ data, DATA }) {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10">
+        <div className="flex items-center gap-4 my-14">
+          <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.25))' }} />
+          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'rgba(196,163,90,0.35)' }} />
+          <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.25), transparent)' }} />
+        </div>
+      </div>
+
+      {/* NEXT STEP — Guide to Torch Box */}
+      <section className="max-w-[1200px] mx-auto px-5 md:px-10 pb-16">
+        <NextStepBridge productName={title} accent={ac} />
       </section>
 
       {/* Divider */}

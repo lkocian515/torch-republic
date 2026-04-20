@@ -30,14 +30,14 @@ export default function TorchBoxCollectionBanner() {
         <div>
           <div className="flex items-center gap-2 mb-0.5">
             <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: '#C9A24A' }}>
-              Exclusive Member Blends
+              Step 2: Build Your Collection
             </p>
             <span className="font-mono text-[8px] font-black px-1.5 py-0.5 rounded" style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.4)' }}>
-              Limited Stock
+              Limited Spots
             </span>
           </div>
           <p className="font-mono text-[9px] mt-0" style={{ color: 'rgba(240,235,225,0.5)' }}>
-            Blends not available in store + exclusive first box bonus
+            After purchasing single blends, join Torch Box for exclusive member-only releases and complete the full Founders Series
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function TorchBoxCollectionBanner() {
         className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase font-black transition-all hover:opacity-85 flex-shrink-0 relative z-10"
         style={{ background: '#C9A24A', color: '#000', padding: '10px 22px', boxShadow: '0 4px 12px rgba(201,162,74,0.2)' }}>
         <Zap className="w-3 h-3" />
-        Claim Your Box <ArrowRight className="w-3 h-3" />
+        Upgrade to Membership <ArrowRight className="w-3 h-3" />
       </Link>
     </motion.div>
   );

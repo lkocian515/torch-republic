@@ -35,7 +35,7 @@ export default function FeaturedProductSpotlight() {
         <div className="flex items-center gap-3 mb-12">
           <div style={{ width: 28, height: 1, background: 'rgba(201,162,74,0.55)' }} />
           <p className="font-mono text-[9px] tracking-[0.6em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-            Featured Product · Limited Launch
+            Step 1: Your Entry Point · Featured Product
           </p>
         </div>
 
@@ -122,8 +122,8 @@ export default function FeaturedProductSpotlight() {
               {price}
             </p>
 
-            {/* CTAs — fast conversion */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            {/* CTAs — clear customer journey */}
+            <div className="flex flex-col gap-3 w-full sm:w-auto">
               <a
                 href={SHOPIFY_URL}
                 target="_blank"
@@ -131,8 +131,13 @@ export default function FeaturedProductSpotlight() {
                 className="inline-flex items-center justify-center font-mono tracking-[0.35em] uppercase transition-all"
                 style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px', fontSize: '11px', textDecoration: 'none' }}
               >
-                Add to Cart
+                Start Here: Add to Cart
               </a>
+              <div className="flex items-center gap-2 text-center">
+                <div style={{ flex: 1, height: '1px', background: 'rgba(201,162,74,0.2)' }} />
+                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.35)' }}>Or Subscribe</span>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(201,162,74,0.2)' }} />
+              </div>
               <a
                 href={TORCH_BOX_URL}
                 target="_blank"
@@ -140,7 +145,7 @@ export default function FeaturedProductSpotlight() {
                 className="inline-flex items-center justify-center font-mono tracking-[0.28em] uppercase transition-all"
                 style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)', padding: '16px 28px', fontSize: '11px', textDecoration: 'none' }}
               >
-                Subscribe Instead
+                Join Torch Box → Never Miss a Blend
               </a>
             </div>
           </motion.div>

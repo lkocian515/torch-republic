@@ -637,7 +637,7 @@ export default function TheTorchBox() {
             <Flame className="w-8 h-8 mx-auto mb-6" style={{ color: 'rgba(201,162,74,0.55)' }} />
 
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(201,162,74,0.4)' }}>
-              Torch Republic · Membership
+              Step 3: Complete Your Membership
             </p>
             <h2 className="font-serif mb-5" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#F0EBE1', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.025em' }}>
               Become a Torchbearer.<br />
@@ -662,9 +662,21 @@ export default function TheTorchBox() {
               ))}
             </div>
             
+            {/* Customer Journey Navigation */}
+            <div className="mt-10 pt-8 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(255,255,255,0.25)' }}>Your Journey with Torch Republic</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-[9px]">
+                <Link to="/" className="transition-colors hover:opacity-70" style={{ color: 'rgba(201,162,74,0.6)' }}>← Home</Link>
+                <span style={{ color: 'rgba(255,255,255,0.15)' }}>·</span>
+                <Link to="/CoffeeCollection" className="transition-colors hover:opacity-70" style={{ color: 'rgba(201,162,74,0.6)' }}>Explore Collection</Link>
+                <span style={{ color: 'rgba(255,255,255,0.15)' }}>·</span>
+                <span style={{ color: '#C9A24A' }} className="font-bold">Join Torch Box</span>
+              </div>
+            </div>
+            
             {/* Brand signature */}
-            <div className="mt-8 pt-6 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.1)' }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.35)' }}>Torch Republic Coffee Company</p>
+            <div className="mt-6 pt-4 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.35)' }}>Torch Republic Coffee Company · Est. 2024</p>
             </div>
           </motion.div>
         </div>
