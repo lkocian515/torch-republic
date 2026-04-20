@@ -2,27 +2,27 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-// Explicit product array with exact image URLs
+// Explicit product array with exact Shopify CDN image URLs
 const MUGS_PRODUCTS = [
   {
     id: 1,
     name: 'Ceramic Mug — Proud American 1776',
-    imageUrl: 'https://www.torchrepublic.com/10165213082785054444_2048',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15969944434815795483_2048.jpg?v=1776674406',
   },
   {
     id: 2,
     name: 'Insulated Coffee Mug — Live Free',
-    imageUrl: 'https://www.torchrepublic.com/15087694528115492524_2048',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/10186435281355099154_2048.jpg?v=1776674625',
   },
   {
     id: 3,
     name: 'Ceramic Mug — Live Free, Be Ready',
-    imageUrl: 'https://www.torchrepublic.com/7135904884323381504_2048',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17060907646666543992_2048.jpg?v=1776674691',
   },
   {
     id: 4,
     name: 'We the People 20oz Tumbler',
-    imageUrl: 'https://www.torchrepublic.com/constitution-we-the-people-20oz-tumbler-patriotic-stainless-travel-cup-4783947',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/constitution-we-the-people-20oz-tumbler-patriotic-stainless-travel-cup-4783947.jpg?v=1771884340',
   },
 ];
 
