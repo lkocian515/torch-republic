@@ -54,10 +54,10 @@ export default function TorchBoxSection() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                The Torch Box
+                Start Your Collection
               </h2>
               <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
-                Carry the Flame Monthly — Premium coffee. Historic stories. Delivered to your door.
+                Monthly delivery. Exclusive blends. Historic stories. Save up to $42/mo versus buying individually.
               </p>
             </div>
             <Link
@@ -135,9 +135,19 @@ export default function TorchBoxSection() {
           ))}
         </div>
 
-        <p className="text-center font-mono text-[9px] mt-6" style={{ color: 'rgba(255,255,255,0.2)' }}>
-          Cancel or pause anytime · No contracts
-        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-6"
+          style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
+          <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            Cancel or pause anytime · No contracts
+          </p>
+          <Link
+            to="/TheTorchBox"
+            className="font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-px"
+            style={{ color: 'rgba(201,162,74,0.55)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}
+          >
+            See all subscription details →
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -119,10 +119,10 @@ export default function BestSellersStrip() {
                 </span>
               </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                Founders Series
+                Choose Your Blend
               </h2>
               <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
-                Where it all began. Six blends. Six founders. Each one retires — forever. Collect before they're gone.
+                Six founders. Six small-batch blends. Each one retires permanently — collect yours before it's gone.
               </p>
             </div>
 
@@ -154,6 +154,30 @@ export default function BestSellersStrip() {
           <p className="font-mono text-sm text-center py-12" style={{ color: 'rgba(255,255,255,0.3)' }}>
             Founders blends loading…
           </p>
+        )}
+
+        {/* Bottom CTA row */}
+        {!isLoading && display.length > 0 && (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+            <a
+              href="https://torch-republic.com/collections/founders-series"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
+              style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px' }}
+            >
+              Shop the Founders Series →
+            </a>
+            <a
+              href="https://torch-republic.com/collections/all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
+              style={{ color: 'rgba(201,162,74,0.55)', borderBottom: '1px solid rgba(201,162,74,0.2)', paddingBottom: '2px' }}
+            >
+              View All Blends →
+            </a>
+          </div>
         )}
       </div>
     </section>

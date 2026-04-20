@@ -1,10 +1,8 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
-import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
-import PodsBenefitsStrip from '../components/home/v2/PodsBenefitsStrip';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
-import BuildYourRoutine from '../components/home/v2/BuildYourRoutine';
+import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
 import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
 import CommandersStrip from '../components/home/v2/CommandersStrip';
@@ -12,52 +10,44 @@ import WomenOfTheRepublicStrip from '../components/home/v2/WomenOfTheRepublicStr
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
 import GuaranteeBar from '../components/home/v2/GuaranteeBar';
 import ApparelSection from '../components/home/v2/ApparelSection';
-import SocialProof from '../components/home/v2/SocialProof';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
 
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
-      {/* 1. Hero — Carry the Flame */}
+      {/* 1. Hero */}
       <HeroSection />
-      {/* Trust bar directly under hero */}
       <HeroTrustBar />
-      {/* 1b. Featured Product Spotlight — Washington Blend Pods */}
-      <FeaturedProductSpotlight />
-      {/* 1c. Pod benefits strip */}
-      <PodsBenefitsStrip />
+
       {/*
-        ═══════════════════════════════════════════════════════════
-        COLLECTION HIERARCHY — LOCKED. DO NOT REORDER.
-        01 · Founders Series        → BestSellersStrip (collection: founders-series)
-        02 · Liberty Icons          → LibertyIconsStrip (collection: liberty-icons)
-        03 · Commanders Series      → CommandersStrip (collection: commanders-series)
-        04 · Women of the Republic  → WomenOfTheRepublicStrip (collection: women-of-the-republic)
-        Each strip fetches ONLY its own collection. No cross-collection fallback.
-        ═══════════════════════════════════════════════════════════
+        ── SCROLL FLOW: Product → Collection → Subscription ──
+        01 · Best Sellers (Founders Series) — immediate product engagement
+        02 · Featured Product Spotlight — pods upsell
+        03 · Torch Box — subscription conversion
+        04 · Liberty Icons → Commanders → Women of the Republic — deeper collections
+        05 · Reviews → Guarantee → Apparel → Final CTA
+        ──────────────────────────────────────────────────────
       */}
-      {/* COLLECTION 01 — Founders Series */}
+
+      {/* STEP 1 — Best-selling coffee FIRST */}
       <BestSellersStrip />
-      {/* Torch Box — conversion driver between collections */}
+
+      {/* STEP 2 — Featured product upsell */}
+      <FeaturedProductSpotlight />
+
+      {/* STEP 3 — Subscription conversion */}
       <TorchBoxSection />
-      {/* COLLECTION 02 — Liberty Icons */}
+
+      {/* STEP 4 — Explore more collections */}
       <LibertyIconsStrip />
-      {/* COLLECTION 03 — Commanders Series */}
       <CommandersStrip />
-      {/* COLLECTION 04 — Women of the Republic */}
       <WomenOfTheRepublicStrip />
-      {/* 5c. Build Your Routine funnel */}
-      <BuildYourRoutine />
-      {/* 6. Review strip */}
+
+      {/* STEP 5 — Social proof + close */}
       <HomeReviewStrip />
-      {/* 7. Guarantee bar */}
       <GuaranteeBar />
-      {/* 8. Shirts — reduced weight, below all coffee */}
       <ApparelSection />
-      {/* 9. Social proof carousel */}
-      <SocialProof />
-      {/* 10. Final CTA */}
       <FinalCTA />
       <ExitIntentPopup />
     </div>

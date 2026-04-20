@@ -118,10 +118,10 @@ export default function LibertyIconsStrip() {
                 </span>
               </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                Liberty Icons
+                Shop the Liberty Icons
               </h2>
               <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 440 }}>
-                Symbols that outlive time. Bold, identity-driven blends named for the icons of American freedom.
+                Bold, identity-driven blends named for the icons of American freedom. Small batch — limited quantities.
               </p>
             </div>
 
