@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Flame, Check, Truck, Shield, Lock, Star, Coffee, BookOpen, QrCode, CreditCard, RefreshCw } from 'lucide-react';
 import TorchbearerCard from '../components/torchbox/TorchbearerCard';
+import FirstOrderBonus from '../components/torchbox/FirstOrderBonus';
 
 const AC = '#C9A24A';
 
@@ -279,6 +280,13 @@ export default function TheTorchBox() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: 'linear-gradient(to top, #0B0B0B, transparent)' }} />
+      </section>
+
+      <Divider />
+
+      {/* ── FIRST ORDER BONUS ── */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-12 py-20">
+        <FirstOrderBonus />
       </section>
 
       <Divider />

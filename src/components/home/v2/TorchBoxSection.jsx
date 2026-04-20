@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Check, Flame, Zap, Shield, Package } from 'lucide-react';
+import { Check, Flame, Zap, Shield, Package, Zap as ZapIcon } from 'lucide-react';
 
 const TIERS = [
   {
@@ -9,27 +9,33 @@ const TIERS = [
     price: '$29',
     color: '#C87050',
     savings: 'Save ~$8/mo',
-    items: ['1 Founders Series Blend', 'Monthly Collectible Insert', 'Member Badge'],
+    items: ['1 Founders Series Blend', 'Monthly Collectible Insert', 'Member Badge', '+ Exclusive First Box Bonus'],
     handle: 'torch-box-ember',
     featured: false,
+    exclusivity: 'Blends not available in store',
+    urgency: 'Limited monthly availability',
   },
   {
     name: 'Founder',
     price: '$54',
     color: '#C9A24A',
     savings: 'Save ~$22/mo',
-    items: ['2 Founders Series Blends', 'Exclusive Collectible + Insert', 'Exclusive Coffee Access', 'Early Access'],
+    items: ['2 Founders Series Blends', 'Exclusive Collectible + Insert', 'Exclusive Coffee Access', 'Early Access', '+ Exclusive First Box Bonus'],
     handle: 'torch-box-beacon',
     featured: true,
+    exclusivity: 'Blends not available in store',
+    urgency: 'Limited monthly availability',
   },
   {
     name: 'Legacy',
     price: '$89',
     color: '#E8D08A',
     savings: 'Save ~$40/mo + Free Ship',
-    items: ['Full 3-Blend Rotation', 'Premium Collectible Object', 'Exclusive Torch Bonus', 'Inner Circle Access'],
+    items: ['Full 3-Blend Rotation', 'Premium Collectible Object', 'Exclusive Torch Bonus', 'Inner Circle Access', '+ Exclusive First Box Bonus'],
     handle: 'torch-box-blaze',
     featured: false,
+    exclusivity: 'Blends not available in store',
+    urgency: 'Limited monthly availability',
   },
 ];
 
@@ -53,19 +59,28 @@ export default function TorchBoxSection() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="font-mono text-[9px] tracking-[0.35em] uppercase px-3 py-1.5 font-black rounded-sm"
+                  style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.5)' }}>
+                  ⚡ Limited Availability
+                </span>
+              </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                Pick Your First Box
+                Claim Your Box
               </h2>
-              <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 420 }}>
-                Monthly delivery. Premium blends. Save up to $42/mo.
+              <p className="font-heading mb-2" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 420 }}>
+                Get exclusive blends. Monthly delivery. Save up to $42/mo.
+              </p>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A', fontWeight: 600 }}>
+                + Exclusive first box bonus
               </p>
             </div>
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-80 btn-glow flex-shrink-0"
-              style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '15px 36px' }}
+              style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
             >
-              Join the Torch Box →
+              Claim Your Box →
             </Link>
           </div>
         </motion.div>
@@ -92,11 +107,14 @@ export default function TorchBoxSection() {
               <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${tier.color}90, transparent)` }} />
 
               {tier.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="font-mono text-[9px] font-black tracking-[0.35em] uppercase px-4 py-1" style={{ background: tier.color, color: '#0B0B0B' }}>
-                    Most Popular
-                  </span>
-                </div>
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+                 <span className="font-mono text-[9px] font-black tracking-[0.35em] uppercase px-4 py-1" style={{ background: tier.color, color: '#0B0B0B' }}>
+                   Most Popular
+                 </span>
+                 <span className="font-mono text-[8px] font-black tracking-[0.3em] uppercase px-2.5 py-1 animate-pulse" style={{ background: 'rgba(201,162,74,0.25)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)' }}>
+                   Limited
+                 </span>
+               </div>
               )}
 
               <div className="p-6 flex flex-col gap-5 flex-1">
@@ -112,23 +130,46 @@ export default function TorchBoxSection() {
                 <div className="h-px" style={{ background: 'rgba(201,162,74,0.07)' }} />
 
                 <div className="flex flex-col gap-2 flex-1">
-                  {tier.items.map(item => (
-                    <div key={item} className="flex items-start gap-2.5">
-                      <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: tier.color }} />
-                      <span style={{ color: 'rgba(240,235,225,0.55)', fontSize: '0.82rem', lineHeight: 1.65, fontWeight: 300 }}>{item}</span>
-                    </div>
-                  ))}
+                  {tier.items.map(item => {
+                    const isBonus = item.includes('Bonus');
+                    const isExclusive = item.includes('Exclusive') && item.includes('Blends');
+                    return (
+                      <div key={item} className="flex items-start gap-2.5">
+                        <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: isBonus ? '#E8D08A' : tier.color }} />
+                        <span style={{
+                          color: isBonus ? '#E8D08A' : 'rgba(240,235,225,0.55)',
+                          fontSize: '0.82rem',
+                          lineHeight: 1.65,
+                          fontWeight: isBonus ? 600 : 300,
+                        }}>
+                          {item}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Member Exclusivity + Urgency */}
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center gap-1.5 text-[9px]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    <span style={{ fontSize: '0.65rem' }}>✦</span>
+                    <span>{tier.exclusivity}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-mono" style={{ color: 'rgba(201,162,74,0.7)' }}>
+                    <Zap className="w-2.5 h-2.5 flex-shrink-0" />
+                    <span>{tier.urgency}</span>
+                  </div>
                 </div>
 
                 <a
                   href={`https://torch-republic.com/products/${tier.handle}`}
-                  className="py-3.5 text-center font-mono font-black text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-90"
+                  className="py-3.5 text-center font-mono font-black text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-90 mt-1"
                   style={tier.featured
                     ? { background: tier.color, color: '#0B0B0B' }
                     : { border: `1px solid ${tier.color}40`, color: tier.color }
                   }
                 >
-                  Join the Torch Box →
+                  Claim Your Box →
                 </a>
               </div>
             </motion.div>
