@@ -8,9 +8,10 @@ import { Zap, Check, RefreshCw } from 'lucide-react';
  *   accent      - brand color string
  *   price       - original price string like "$18.99" or number
  *   onModeChange - callback(mode: 'subscribe'|'onetime')
+ *   isSubscriptionProduct - whether this product supports subscriptions (default: false)
  */
-export default function SubscribeToggle({ accent = '#C9A24A', price = '$18.99', onModeChange }) {
-  const [mode, setMode] = useState('subscribe');
+export default function SubscribeToggle({ accent = '#C9A24A', price = '$18.99', onModeChange, isSubscriptionProduct = false }) {
+  const [mode, setMode] = useState(isSubscriptionProduct ? 'subscribe' : 'onetime');
   const isSubscribe = mode === 'subscribe';
 
   const raw = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 18.99;
@@ -21,6 +22,11 @@ export default function SubscribeToggle({ accent = '#C9A24A', price = '$18.99', 
     setMode(m);
     onModeChange?.(m);
   };
+
+  // Don't show toggle for non-subscription products
+  if (!isSubscriptionProduct) {
+    return null;
+  }
 
   return (
     <div className="mb-6">

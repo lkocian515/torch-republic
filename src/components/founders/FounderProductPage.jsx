@@ -127,9 +127,12 @@ export default function FounderProductPage({ data, DATA }) {
   } = normalized;
 
   const [activeImg, setActiveImg] = useState(0);
-  const [purchaseMode, setPurchaseMode] = useState('subscribe');
+  const [purchaseMode, setPurchaseMode] = useState('onetime');
   const images = normalized.images || [heroImage];
   const ac = accent || '#C9A24A';
+  
+  // Only Torch Box subscription products show subscription toggle
+  const isTorchBoxProduct = false; // Standard coffee/apparel products are one-time purchases
 
   const rawPrice = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 19.99;
   const displayPrice = purchaseMode === 'subscribe'
@@ -387,15 +390,14 @@ export default function FounderProductPage({ data, DATA }) {
                  Ordered recently by Torchbearers
                </span>
              </div>
-             {/* Subscribe Toggle — above cart */}
-             <SubscribeToggle accent={ac} price={price} onModeChange={setPurchaseMode} />
+             {/* Subscribe Toggle — only for Torch Box products */}
+             {isTorchBoxProduct && (
+               <SubscribeToggle accent={ac} price={price} onModeChange={setPurchaseMode} isSubscriptionProduct={true} />
+             )}
 
-              {/* Price — reactive to toggle */}
+              {/* Price — always show one-time for standard products */}
               <div className="flex items-baseline gap-3 mb-5">
-                <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>{displayPrice}</span>
-                {purchaseMode === 'subscribe' && (
-                  <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.22)' }}>${rawPrice.toFixed(2)}</span>
-                )}
+                <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: ac }}>${rawPrice.toFixed(2)}</span>
                 <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5"
                   style={{ background: `${ac}15`, color: ac, border: `1px solid ${ac}25` }}>
                   Small-Batch
@@ -418,9 +420,11 @@ export default function FounderProductPage({ data, DATA }) {
                 ))}
               </div>
 
-              <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-4" style={{ color: `${ac}45` }}>
-                ★ Save 15% when you subscribe · Best value
-              </p>
+              {isTorchBoxProduct && (
+                <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-4" style={{ color: `${ac}45` }}>
+                  ★ Save 15% when you subscribe · Best value
+                </p>
+              )}
 
               {/* Micro-trust above CTA */}
               <div className="flex items-center justify-center gap-5 mb-3 flex-wrap">
@@ -454,7 +458,7 @@ export default function FounderProductPage({ data, DATA }) {
                 </div>
               </div>
 
-              {/* Subscription support */}
+              {/* Torch Box subscription upsell — always available */}
               <div className="mt-4 p-4" style={{ background: `${ac}08`, border: `1px solid ${ac}25` }}>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2 py-0.5"

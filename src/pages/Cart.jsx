@@ -235,56 +235,29 @@ export default function Cart() {
               )}
             </div>
 
-            {/* Torch Box toggle */}
+            {/* Torch Box subscription upsell */}
             <div className="p-6" style={{ background: 'linear-gradient(135deg, #0F0C02 0%, #0E0E12 100%)', border: '1px solid rgba(201,162,74,0.3)', boxShadow: '0 0 24px rgba(201,162,74,0.06)' }}>
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Flame className="w-3.5 h-3.5" style={{ color: '#C9A24A' }} />
                     <p className="font-mono text-[9px] tracking-[0.4em] uppercase font-black" style={{ color: '#C9A24A' }}>
-                      Turn this into a subscription and save
+                      Never run out of premium coffee
                     </p>
                   </div>
                   <p className="font-serif text-white font-bold mb-1" style={{ fontSize: '1.1rem' }}>
-                    Upgrade to Torch Box — Save 15%
+                    Become a Torchbearer — Join Torch Box
                   </p>
                   <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, fontWeight: 300 }}>
-                    Want this delivered monthly? Subscribe & save on every order. Cancel anytime. First Torch Box ships free.
+                    Get these blends delivered monthly. Save 15% on every box, unlock exclusive releases, and become part of the movement.
                   </p>
                 </div>
-                <button
-                  onClick={() => setTorchBox(v => !v)}
-                  className="flex-shrink-0 transition-all"
-                  style={{
-                    width: 44, height: 24, borderRadius: 12,
-                    background: torchBox ? '#C9A24A' : 'rgba(255,255,255,0.08)',
-                    border: torchBox ? 'none' : '1px solid rgba(196,163,90,0.2)',
-                    position: 'relative',
-                  }}
-                  aria-label="Toggle Torch Box subscription"
-                >
-                  <div style={{
-                    width: 18, height: 18, borderRadius: '50%',
-                    background: '#fff',
-                    position: 'absolute', top: '3px',
-                    left: torchBox ? '23px' : '3px',
-                    transition: 'left 0.2s ease',
-                  }} />
-                </button>
+                <a href="/TheTorchBox"
+                  className="flex-shrink-0 transition-all font-mono text-[10px] uppercase tracking-widest px-3 py-2"
+                  style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, whiteSpace: 'nowrap' }}>
+                  Learn More
+                </a>
               </div>
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase mt-3" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Upgrade to Torch Box and never run out.
-              </p>
-              {torchBox && (
-                <motion.p
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  className="font-mono text-[10px] uppercase tracking-wider mt-2 pt-3"
-                  style={{ borderTop: '1px solid rgba(201,162,74,0.1)', color: 'rgba(201,162,74,0.7)' }}
-                >
-                  ✓ Subscription discount applied — saving ${(subtotal * 0.15).toFixed(2)}
-                </motion.p>
-              )}
             </div>
 
             {/* Email */}
@@ -350,12 +323,7 @@ export default function Cart() {
                   <span className="font-mono text-[11px]" style={{ color: 'rgba(255,255,255,0.38)' }}>Subtotal</span>
                   <span className="font-mono text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>${subtotal.toFixed(2)}</span>
                 </div>
-                {torchBox && (
-                  <div className="flex justify-between">
-                    <span className="font-mono text-[11px]" style={{ color: 'rgba(201,162,74,0.6)' }}>Torch Box (−15%)</span>
-                    <span className="font-mono text-[11px]" style={{ color: '#C9A24A' }}>−${torchBoxDiscount.toFixed(2)}</span>
-                  </div>
-                )}
+
                 <div className="flex justify-between">
                   <span className="font-mono text-[11px]" style={{ color: 'rgba(255,255,255,0.38)' }}>Shipping</span>
                   <span className="font-mono text-[11px]" style={{ color: shipping === 0 ? '#C9A24A' : 'rgba(255,255,255,0.6)' }}>
@@ -371,10 +339,10 @@ export default function Cart() {
               {/* Cart value messaging */}
               <div className="p-3.5 text-center" style={{ background: 'rgba(201,162,74,0.04)', border: '1px solid rgba(201,162,74,0.1)' }}>
                 <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
-                  Premium roasted · Small batch · No-risk purchase
+                  Premium roasted · Small batch · Secure checkout
                 </p>
                 <p className="font-mono text-[8px] mt-1" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                  Save 15% with Torch Box subscription
+                  One-time purchase. Ships fresh to order.
                 </p>
               </div>
 
