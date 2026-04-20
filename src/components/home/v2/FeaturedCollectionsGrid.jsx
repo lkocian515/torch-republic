@@ -73,6 +73,11 @@ async function fetchAllCollections() {
         base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
           .then(res => {
             const allProducts = res.data?.products || [];
+            console.log(`[fetchAllCollections] Raw response for ${col.id}:`, {
+              handle: col.shopifyHandle,
+              totalReturned: allProducts.length,
+              firstProductRaw: allProducts[0],
+            });
             
             // Extract first 4 products with valid featured images
             const previewProducts = [];
@@ -84,15 +89,15 @@ async function fetchAllCollections() {
               if (imageUrl) {
                 previewProducts.push({
                   title: product.title,
-                  handle: product.shopify_handle,
+                  handle: product.handle,
                   imageUrl: imageUrl,
                   alt: product.title,
                 });
               }
             }
             
-            // Debug logging
-            console.log(`[FeaturedCollectionsGrid] Fetched ${col.id} (${col.shopifyHandle}):`, {
+            console.log(`[FeaturedCollectionsGrid] Processed ${col.id}:`, {
+              collectionHandle: col.shopifyHandle,
               totalProducts: allProducts.length,
               previewCount: previewProducts.length,
               previewUrls: previewProducts.map(p => p.imageUrl),
@@ -107,6 +112,7 @@ async function fetchAllCollections() {
           })
       )
     );
+    console.log(`[fetchAllCollections] FINAL RESULT - all collections:`, results);
     return results;
   } catch (error) {
     console.error('[FeaturedCollectionsGrid] Error fetching all collections:', error);
@@ -125,10 +131,33 @@ function CollectionTile({ collection, products, isLoading, index }) {
   }, [products, collection.id]);
   
   // Extract image URLs from previewProducts array
-  const previewImages = products
+  let previewImages = products
     .filter(p => p && p.imageUrl)
     .slice(0, 4)
     .map(p => ({ url: p.imageUrl, alt: p.alt || p.title }));
+
+  // TEMPORARY TEST: Hard-code Apparel images to verify rendering works
+  if (collection.id === 'shirts' && previewImages.length === 0) {
+    console.warn('[CollectionTile] Apparel has no preview images - using hard-coded test URLs');
+    previewImages = [
+      {
+        url: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/ScreenShot2024-12-19at7.48.29PM.png?v=1734641324&width=500',
+        alt: 'Test image 1',
+      },
+      {
+        url: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/ScreenShot2024-12-19at7.48.29PM.png?v=1734641324&width=500',
+        alt: 'Test image 2',
+      },
+      {
+        url: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/ScreenShot2024-12-19at7.48.29PM.png?v=1734641324&width=500',
+        alt: 'Test image 3',
+      },
+      {
+        url: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/products/ScreenShot2024-12-19at7.48.29PM.png?v=1734641324&width=500',
+        alt: 'Test image 4',
+      },
+    ];
+  }
 
   return (
     <motion.div
@@ -230,6 +259,20 @@ export default function FeaturedCollectionsGrid() {
     ...col,
     products: allCollectionProducts[idx] || [],
   }));
+
+  // DEBUG: Log mapped data for Apparel and Mugs
+  React.useEffect(() => {
+    const apparelTile = collectionData.find(c => c.id === 'shirts');
+    const mugsTile = collectionData.find(c => c.id === 'mugs');
+    console.log(`[FeaturedCollectionsGrid] Apparel tile:`, {
+      productCount: apparelTile?.products?.length,
+      products: apparelTile?.products,
+    });
+    console.log(`[FeaturedCollectionsGrid] Mugs tile:`, {
+      productCount: mugsTile?.products?.length,
+      products: mugsTile?.products,
+    });
+  }, [collectionData]);
 
   return (
     <section className="px-6 md:px-12 py-20 md:py-28" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(201,162,74,0.1)' }}>

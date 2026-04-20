@@ -64,6 +64,8 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'handle is required' }, { status: 400 });
     }
 
+    console.log(`[fetchShopifyCollection] Received request for handle: ${handle}`);
+
     // Try collection by handle first
     const collectionId = await getCollectionIdByHandle(handle);
     let raw = [];
@@ -78,6 +80,8 @@ Deno.serve(async (req) => {
       source = `tag:${handle}`;
     }
 
+    console.log(`[fetchShopifyCollection] Handle: ${handle}, Source: ${source}, Raw products count: ${raw.length}`);
+
     const products = raw.map(p => ({
       title: p.title,
       handle: p.handle,
@@ -90,9 +94,12 @@ Deno.serve(async (req) => {
       tags: Array.isArray(p.tags) ? p.tags : (p.tags || '').split(',').map(t => t.trim()).filter(Boolean),
     }));
 
+    console.log(`[fetchShopifyCollection] Mapped ${products.length} products with image_urls:`, products.slice(0, 2).map(p => ({ title: p.title, image_url: p.image_url })));
+
     return Response.json({ products, count: products.length, handle, source });
 
   } catch (error) {
+    console.error(`[fetchShopifyCollection] Error:`, error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });
