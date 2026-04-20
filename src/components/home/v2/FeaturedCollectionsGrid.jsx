@@ -70,22 +70,36 @@ async function fetchAllCollections() {
   try {
     const results = await Promise.all(
       COLLECTIONS.map(col =>
-        // Fetch first 4 products from live Shopify collection in storefront order
         base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
           .then(res => {
-            const products = res.data?.products || [];
-            const first4 = products.slice(0, 4);
+            const allProducts = res.data?.products || [];
             
-            // Debug logging for Apparel and Mugs collections
-            if (col.id === 'shirts' || col.id === 'mugs') {
-              console.log(`[FeaturedCollectionsGrid] ${col.id} (${col.shopifyHandle}):`, {
-                totalProducts: products.length,
-                first4Handles: first4.map(p => p.shopify_handle),
-                first4Titles: first4.map(p => p.title),
-              });
+            // Extract first 4 products with valid featured images
+            const previewProducts = [];
+            for (const product of allProducts) {
+              if (previewProducts.length >= 4) break;
+              
+              // Get featured image URL from product
+              const imageUrl = product.image_url || product.featured_image?.src;
+              if (imageUrl) {
+                previewProducts.push({
+                  title: product.title,
+                  handle: product.shopify_handle,
+                  imageUrl: imageUrl,
+                  alt: product.title,
+                });
+              }
             }
             
-            return first4;
+            // Debug logging
+            console.log(`[FeaturedCollectionsGrid] Fetched ${col.id} (${col.shopifyHandle}):`, {
+              totalProducts: allProducts.length,
+              previewCount: previewProducts.length,
+              previewUrls: previewProducts.map(p => p.imageUrl),
+              previewTitles: previewProducts.map(p => p.title),
+            });
+            
+            return previewProducts;
           })
           .catch(err => {
             console.error(`[FeaturedCollectionsGrid] Error fetching ${col.shopifyHandle}:`, err);
@@ -101,21 +115,20 @@ async function fetchAllCollections() {
 }
 
 function CollectionTile({ collection, products, isLoading, index }) {
-  // Debug: log product data for Apparel and Mugs
+  // Debug: log preview product data
   useEffect(() => {
-    if (!isLoading && (collection.id === 'shirts' || collection.id === 'mugs')) {
-      console.log(`[CollectionTile] ${collection.id}:`, {
-        productCount: products.length,
-        products: products.map(p => ({ title: p.title, imageUrl: p.image_url })),
-      });
-    }
-  }, [products, isLoading, collection.id]);
+    console.log(`[CollectionTile] ${collection.id} render:`, {
+      productCount: products.length,
+      hasImages: products.filter(p => p && p.imageUrl).length,
+      products: products.map(p => ({ title: p.title, imageUrl: p.imageUrl })),
+    });
+  }, [products, collection.id]);
   
-  // Use only the first 4 products in the exact order returned by Shopify
-  const validImages = products
+  // Extract image URLs from previewProducts array
+  const previewImages = products
+    .filter(p => p && p.imageUrl)
     .slice(0, 4)
-    .filter(p => p && p.image_url)
-    .map(p => p.image_url);
+    .map(p => ({ url: p.imageUrl, alt: p.alt || p.title }));
 
   return (
     <motion.div
@@ -144,23 +157,27 @@ function CollectionTile({ collection, products, isLoading, index }) {
         <div className="relative overflow-hidden h-64 bg-gradient-to-b from-[#161616] to-[#0A0A0A]">
           {isLoading ? (
             <div className="w-full h-full animate-pulse" />
-          ) : validImages.length > 0 ? (
+          ) : previewImages.length > 0 ? (
             <div className="grid grid-cols-2 gap-0.5 p-2 h-full">
-              {validImages.map((img, i) => (
+              {previewImages.map((item, i) => (
                 <div key={i} className="relative overflow-hidden bg-black group/img">
                   <img
-                    src={img}
-                    alt={`${collection.name} product ${i + 1}`}
+                    src={item.url}
+                    alt={item.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
                     loading={i > 0 ? 'lazy' : 'eager'}
                     style={{ opacity: 0.85 }}
+                    onError={(e) => {
+                      console.warn(`[CollectionTile] Image failed to load: ${item.url}`);
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                 </div>
               ))}
             </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center" style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.3)' }}>
-              <span className="font-mono text-[10px]">Collection</span>
+              <span className="font-mono text-[10px]">No preview images</span>
             </div>
           )}
 
