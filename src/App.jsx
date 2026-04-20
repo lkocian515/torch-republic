@@ -55,6 +55,7 @@ import LandingPage from './pages/LandingPage';
 import AbigailAdamsBlend from './pages/AbigailAdamsBlend';
 import HarrietTubmanBlend from './pages/HarrietTubmanBlend';
 import WashingtonPodsProduct from './pages/WashingtonPodsProduct';
+import MugsTumblers from './pages/MugsTumblers';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -131,6 +132,7 @@ const AuthenticatedApp = () => {
       <Route path="/AbigailAdamsBlend" element={<LayoutWrapper currentPageName="AbigailAdamsBlend"><AbigailAdamsBlend /></LayoutWrapper>} />
       <Route path="/HarrietTubmanBlend" element={<LayoutWrapper currentPageName="HarrietTubmanBlend"><HarrietTubmanBlend /></LayoutWrapper>} />
       <Route path="/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
+      <Route path="/mugs-tumblers" element={<LayoutWrapper currentPageName="MugsTumblers"><MugsTumblers /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
