@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
@@ -74,23 +74,47 @@ async function fetchAllCollections() {
         base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
           .then(res => {
             const products = res.data?.products || [];
-            return products.slice(0, 4);
+            const first4 = products.slice(0, 4);
+            
+            // Debug logging for Apparel and Mugs collections
+            if (col.id === 'shirts' || col.id === 'mugs') {
+              console.log(`[FeaturedCollectionsGrid] ${col.id} (${col.shopifyHandle}):`, {
+                totalProducts: products.length,
+                first4Handles: first4.map(p => p.shopify_handle),
+                first4Titles: first4.map(p => p.title),
+              });
+            }
+            
+            return first4;
           })
-          .catch(() => [])
+          .catch(err => {
+            console.error(`[FeaturedCollectionsGrid] Error fetching ${col.shopifyHandle}:`, err);
+            return [];
+          })
       )
     );
     return results;
   } catch (error) {
-    console.error('Error fetching collections:', error);
+    console.error('[FeaturedCollectionsGrid] Error fetching all collections:', error);
     return COLLECTIONS.map(() => []);
   }
 }
 
 function CollectionTile({ collection, products, isLoading, index }) {
-  // Ensure we have valid product images
+  // Debug: log product data for Apparel and Mugs
+  useEffect(() => {
+    if (!isLoading && (collection.id === 'shirts' || collection.id === 'mugs')) {
+      console.log(`[CollectionTile] ${collection.id}:`, {
+        productCount: products.length,
+        products: products.map(p => ({ title: p.title, imageUrl: p.image_url })),
+      });
+    }
+  }, [products, isLoading, collection.id]);
+  
+  // Use only the first 4 products in the exact order returned by Shopify
   const validImages = products
-    .filter(p => p && p.image_url)
     .slice(0, 4)
+    .filter(p => p && p.image_url)
     .map(p => p.image_url);
 
   return (
@@ -174,7 +198,9 @@ export default function FeaturedCollectionsGrid() {
   const { data: allCollectionProducts = [], isLoading } = useQuery({
     queryKey: ['all-featured-collections'],
     queryFn: fetchAllCollections,
-    staleTime: 15 * 60 * 1000,
+    staleTime: 0,
+    gcTime: 0,
+    refetchOnWindowFocus: true,
   });
 
   // Map products to collections
