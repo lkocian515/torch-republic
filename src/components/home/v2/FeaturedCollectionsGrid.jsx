@@ -6,15 +6,14 @@ import { Link } from 'react-router-dom';
 
 const AC = '#C9A24A';
 
-// Collection definitions with internal routing paths
+// Collection definitions with Shopify handles and internal routing
 const COLLECTIONS = [
   {
     id: 'founders',
     name: 'Founders Series',
     descriptor: 'Premium small-batch blends inspired by American patriots',
     link: '/CoffeeCollection',
-    filterType: 'collection',
-    filterValue: 'founders-series',
+    shopifyHandle: 'founders-series',
     color: '#C9A24A',
   },
   {
@@ -22,8 +21,7 @@ const COLLECTIONS = [
     name: 'Liberty Icons',
     descriptor: 'Historical coffee celebrating American icons',
     link: '/LibertyIcons',
-    filterType: 'collection',
-    filterValue: 'liberty-icons',
+    shopifyHandle: 'liberty-icons',
     color: '#C9A24A',
   },
   {
@@ -31,8 +29,7 @@ const COLLECTIONS = [
     name: 'Women of the Republic',
     descriptor: 'Honoring the women who shaped America',
     link: '/WomenOfTheRepublic',
-    filterType: 'collection',
-    filterValue: 'women-of-the-republic',
+    shopifyHandle: 'women-of-the-republic',
     color: '#C9A24A',
   },
   {
@@ -40,8 +37,7 @@ const COLLECTIONS = [
     name: 'Commanders Series',
     descriptor: 'Bold blends honoring military leadership',
     link: '/CommandersSeries',
-    filterType: 'collection',
-    filterValue: 'commanders-series',
+    shopifyHandle: 'commanders-series',
     color: '#C9A24A',
   },
   {
@@ -49,8 +45,7 @@ const COLLECTIONS = [
     name: 'Coffee Pods',
     descriptor: 'Premium pods for easy brewing',
     link: '/CoffeeCollection',
-    filterType: 'category',
-    filterValue: 'coffee',
+    shopifyHandle: 'coffee-pods',
     color: '#C9A24A',
   },
   {
@@ -58,8 +53,7 @@ const COLLECTIONS = [
     name: 'Mugs & Tumblers',
     descriptor: 'Premium drinkware for your daily ritual',
     link: '/mugs-tumblers',
-    filterType: 'category',
-    filterValue: 'mugs-tumblers',
+    shopifyHandle: 'mugs-and-tumblers',
     color: '#C9A24A',
   },
   {
@@ -67,8 +61,7 @@ const COLLECTIONS = [
     name: 'Shirts',
     descriptor: 'Historically themed apparel collection',
     link: '/Shop',
-    filterType: 'category',
-    filterValue: 't-shirts',
+    shopifyHandle: 'apparel',
     color: '#C9A24A',
   },
 ];
@@ -76,14 +69,11 @@ const COLLECTIONS = [
 async function fetchAllCollections() {
   try {
     const results = await Promise.all(
-      COLLECTIONS.map(col => {
-        const query = col.filterType === 'collection'
-          ? { collection: col.filterValue }
-          : { category: col.filterValue };
-        
-        return base44.entities.Product.filter(query, '', 8)
-          .catch(() => []);
-      })
+      COLLECTIONS.map(col =>
+        base44.functions.invoke('fetchShopifyCollection', { handle: col.shopifyHandle })
+          .then(res => res.data?.products || [])
+          .catch(() => [])
+      )
     );
     return results;
   } catch (error) {
