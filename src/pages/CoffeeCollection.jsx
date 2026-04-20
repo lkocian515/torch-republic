@@ -176,22 +176,21 @@ export default function CoffeeCollection() {
         <div className="max-w-[1280px] mx-auto">
           <div className="flex items-center gap-3 mb-5">
             <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C4A35A)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>Founders · Liberty Icons · Commanders · Women of the Republic</span>
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>Premium Coffee Collections</span>
           </div>
           <h1 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 800, lineHeight: 1 }}>
-            The Torch Index
+            Founders Series
           </h1>
-          <p className="font-mono text-sm mb-2" style={{ color: 'rgba(196,163,90,0.7)' }}>History in Every Cup. Collect before they're gone.</p>
-          <p className="text-xs max-w-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Four active collections. Every blend carries a permanent identity number — some are CORE, others retire to the Archive forever.
+          <p className="font-mono text-sm mb-2" style={{ color: 'rgba(196,163,90,0.7)' }}>Six Premium Small-Batch Roasts. Each Retires Forever.</p>
+          <p className="text-xs max-w-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            The Founders Series is our flagship collection — six named roasts inspired by American patriots and founding figures. Each blend is small-batch roasted, collectible, and permanent. Once a roast retires, it moves to the Archive and is never roasted again. Build your complete set.
           </p>
-          {/* Active collection quick-links */}
+          {/* Other collection quick-links */}
           <div className="flex flex-wrap gap-3 mt-6">
             {[
-              { label: 'Founders Series', href: '/CoffeeCollection' },
               { label: 'Liberty Icons', href: '/LibertyIcons' },
-              { label: 'Commanders', href: '/CommandersSeries' },
-              { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
+              { label: 'Commanders Series', href: '/CommandersSeries' },
+              { label: 'All Coffee', href: '/CoffeeCollection' },
             ].map(c => (
               <Link key={c.label} to={c.href}
                 className="font-mono text-[9px] tracking-[0.3em] uppercase px-3 py-1.5 transition-all"
@@ -253,18 +252,31 @@ export default function CoffeeCollection() {
         </div>
       </section>
 
-      {/* Bundle CTA */}
-      <section className="py-16 px-6 md:px-12 text-center" style={{ borderTop: '1px solid rgba(196,163,90,0.08)' }}>
-        <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: '#C4A35A' }}>Bundle & Save</p>
-        <h2 className="font-serif text-white mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', fontWeight: 700 }}>Build Your Collection</h2>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link to="/" className="inline-flex items-center justify-center px-8 py-3.5 font-mono text-xs tracking-[0.2em] uppercase"
-            style={{ background: '#C4A35A', color: '#000' }}>
-            See All Bundles
+      {/* Matching Apparel Section */}
+      <section className="py-20 px-6 md:px-12" style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(196,163,90,0.08)', borderBottom: '1px solid rgba(196,163,90,0.08)' }}>
+        <div className="max-w-[1280px] mx-auto text-center mb-12">
+          <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: '#C4A35A' }}>Extend Your Collection</p>
+          <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700 }}>Founders Series Apparel</h2>
+          <p className="text-sm max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            Historical apparel inspired by the Founders. Wear the legacy while you build your collection.
+          </p>
+        </div>
+        <div className="text-center">
+          <Link to="/Shop" className="inline-flex items-center justify-center px-8 py-3.5 font-mono text-xs tracking-[0.2em] uppercase"
+            style={{ background: 'rgba(196,163,90,0.15)', color: '#C4A35A', border: '1px solid rgba(196,163,90,0.35)' }}>
+            Explore Founders Apparel →
           </Link>
+        </div>
+      </section>
+
+      {/* Bundle CTA */}
+      <section className="py-16 px-6 md:px-12 text-center">
+        <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: '#C4A35A' }}>Premium Experience</p>
+        <h2 className="font-serif text-white mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', fontWeight: 700 }}>Build Your Collection with Torch Box</h2>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/TheTorchBox" className="inline-flex items-center justify-center px-8 py-3.5 font-mono text-xs tracking-[0.2em] uppercase"
-            style={{ border: '1px solid rgba(196,163,90,0.4)', color: '#C4A35A' }}>
-            Join Torch Box →
+            style={{ background: '#C4A35A', color: '#000' }}>
+            Join Torch Box Subscription →
           </Link>
         </div>
       </section>

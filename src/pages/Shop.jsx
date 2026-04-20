@@ -11,56 +11,56 @@ const COLLECTIONS = [
   { title: 'Freedom Collection', key: 'freedom', collection: 'freedom-isnt-free' },
 ];
 
-export default function Shop() {
-  const { data: allProducts = [], isLoading } = useQuery({
-    queryKey: ['shop-products'],
-    queryFn: () => base44.entities.Product.list('-updated_date', 500),
-    initialData: [],
-  });
+export default function Apparel() {
+   const { data: allProducts = [], isLoading } = useQuery({
+     queryKey: ['shop-products'],
+     queryFn: () => base44.entities.Product.list('-updated_date', 500),
+     initialData: [],
+   });
 
-  const getCollectionProducts = (key, collection) => {
-    const apparelCategories = ['t-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
-    
-    if (key === 'top-designs') {
-      return allProducts
-        .filter(p => p.featured && apparelCategories.includes(p.category) && p.image_url)
-        .slice(0, 12);
-    }
-    if (key === 'new-drops') {
-      return allProducts
-        .filter(p => apparelCategories.includes(p.category) && p.image_url)
-        .slice(0, 12);
-    }
-    if (collection) {
-      return allProducts
-        .filter(p => p.collection === collection && apparelCategories.includes(p.category) && p.image_url)
-        .slice(0, 12);
-    }
-    return [];
-  };
+   const getCollectionProducts = (key, collection) => {
+     const apparelCategories = ['t-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
 
-  // Filter out sections with no products
-  const availableCollections = COLLECTIONS.filter(col => {
-    const products = getCollectionProducts(col.key, col.collection);
-    return products.length > 0;
-  });
+     if (key === 'top-designs') {
+       return allProducts
+         .filter(p => p.featured && apparelCategories.includes(p.category) && p.image_url)
+         .slice(0, 12);
+     }
+     if (key === 'new-drops') {
+       return allProducts
+         .filter(p => apparelCategories.includes(p.category) && p.image_url)
+         .slice(0, 12);
+     }
+     if (collection) {
+       return allProducts
+         .filter(p => p.collection === collection && apparelCategories.includes(p.category) && p.image_url)
+         .slice(0, 12);
+     }
+     return [];
+   };
 
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
-      {/* Header */}
-      <div className="pt-16 pb-8 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
-            Curated Collections
-          </p>
-          <h1 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tight text-white mb-3">
-            Shop Torch Republic
-          </h1>
-          <p className="text-muted-foreground font-mono text-sm">
-            Premium small-batch coffee and collectible blends — carry the flame
-          </p>
-        </div>
-      </div>
+   // Filter out sections with no products
+   const availableCollections = COLLECTIONS.filter(col => {
+     const products = getCollectionProducts(col.key, col.collection);
+     return products.length > 0;
+   });
+
+   return (
+     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
+       {/* Header */}
+       <div className="pt-16 pb-8 px-6 text-center">
+         <div className="max-w-4xl mx-auto">
+           <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-3">
+             Historical Collections
+           </p>
+           <h1 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tight text-white mb-3">
+             Torch Republic Apparel
+           </h1>
+           <p className="text-muted-foreground font-mono text-sm">
+             Historical apparel inspired by the Founders, Liberty Icons, and Commanders Series — extensions of our coffee collections
+           </p>
+         </div>
+       </div>
 
       {/* Collections */}
       <div className="px-6 pb-24">

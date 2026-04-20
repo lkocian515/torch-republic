@@ -4,22 +4,13 @@ import { Flame } from 'lucide-react';
 
 const FOOTER_LINKS = [
   {
-    heading: 'Coffee',
+    heading: 'Coffee Collections',
     links: [
+      { label: 'Shop All Coffee', href: '/CoffeeCollection' },
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Commanders Series', href: '/CommandersSeries' },
-      { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
-      { label: 'Torch Box', href: '/TheTorchBox' },
-    ]
-  },
-  {
-    heading: 'Shop',
-    links: [
-      { label: 'Best Sellers', href: '/BestSellers' },
-      { label: 'Torch Apparel', href: '/Shop' },
-      { label: 'Bundles', href: '/Bundles' },
-      { label: 'On Sale', href: '/OnSale' },
+      { label: 'Torch Box Subscription', href: '/TheTorchBox' },
     ]
   },
   {
@@ -27,12 +18,13 @@ const FOOTER_LINKS = [
     links: [
       { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
+      { label: 'Best Sellers', href: '/BestSellers' },
       { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ]
   },
   {
-    heading: 'Policies',
+    heading: 'Legal',
     links: [
       { label: 'Shipping Policy', external: 'https://torch-republic.com/policies/shipping-policy' },
       { label: 'Return Policy', external: 'https://torch-republic.com/policies/refund-policy' },

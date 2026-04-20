@@ -4,8 +4,7 @@ import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const NAV_LEFT = [
-  { label: 'Shop', href: '/CoffeeCollection' },
-  { label: 'Collections', href: '/CoffeeCollection' },
+  { label: 'Shop Coffee', href: '/CoffeeCollection' },
   { label: 'About', href: '/Mission' },
 ];
 
@@ -18,27 +17,21 @@ const NAV_GROUPS = [
   {
     category: 'Shop Coffee',
     items: [
-      { label: 'All Coffee', href: '/CoffeeCollection' },
+      { label: 'All Collections', href: '/CoffeeCollection' },
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Commanders Series', href: '/CommandersSeries' },
-      { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
-      { label: '🔥 The Torch Box', href: '/TheTorchBox' },
-    ],
-  },
-  {
-    category: 'Shirts & Gear',
-    items: [
-      { label: 'All Shirts', href: '/Shop' },
-      { label: 'On Sale', href: '/OnSale' },
+      { label: '🔥 Torch Box Subscription', href: '/TheTorchBox' },
     ],
   },
   {
     category: 'Brand',
     items: [
       { label: 'Home', href: '/' },
-      { label: 'About', href: '/Mission' },
+      { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
+      { label: 'Best Sellers', href: '/BestSellers' },
+      { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ],
   },
