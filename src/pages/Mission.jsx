@@ -125,7 +125,7 @@ export default function Mission() {
               className="font-heading text-sm max-w-xl mx-auto mb-10"
               style={{ color: 'rgba(240,235,225,0.6)' }}
             >
-              Born from coffee, conviction, and the quiet responsibility of remembrance.
+              A premium small-batch coffee brand — rooted in history, built on conviction, and brewed for those who carry the flame forward.
             </motion.p>
 
             {/* CTA buttons */}
@@ -297,7 +297,7 @@ export default function Mission() {
               OUR MISSION
             </h2>
             <p className="font-heading text-xs max-w-xl mx-auto" style={{ color: 'rgba(240,235,225,0.5)' }}>
-              Torch Republic was built to gather people around something meaningful.
+              Torch Republic is a premium small-batch coffee brand built around American history, collectible blends, and the belief that every cup is a chance to carry the flame.
             </p>
           </div>
 
@@ -428,10 +428,10 @@ export default function Mission() {
               'We believe truth still matters.',
               'We believe faith, freedom, and memory must be actively carried—or they disappear.',
               'We believe the table still matters.',
-              'What you wear can say something. What you drink can remind you. What you build can either fade into noise—or become a signal.',
+              'What you drink can remind you. What you collect can honor them. What you build can either fade into noise—or become a signal.',
               'Torch Republic is that signal.',
               'A reminder that liberty is not passive. That remembrance is not optional. That identity is shaped by what we honor.',
-              'So we roast with intention. We design with meaning. And we build for those who still believe this country is worth carrying forward.'
+              'So we roast with intention. We source with care. And we build for those who still believe this country is worth carrying forward — one cup at a time.'
             ].map((text, i) => (
               <p key={i} className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>
                 <span style={{ color: text.includes('We believe') || text === 'Torch Republic is that signal.' ? '#C9A24A' : 'inherit' }} className={text.includes('We believe') || text === 'Torch Republic is that signal.' ? 'font-bold' : ''}>
@@ -465,8 +465,8 @@ export default function Mission() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { emoji: '☕', text: 'Coffee with Conviction' },
-              { emoji: '👕', text: 'Apparel with Meaning' },
+              { emoji: '☕', text: 'Small-Batch Coffee' },
+              { emoji: '📖', text: 'Historical Storytelling' },
               { emoji: '🔥', text: 'A Brand for Torchbearers' }
             ].map((item, i) => (
               <motion.div

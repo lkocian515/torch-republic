@@ -65,7 +65,7 @@ export default function Footer() {
               "Carry the Flame"
             </p>
             <p className="text-xs leading-relaxed max-w-xs mb-6" style={{ color: 'rgba(240,235,225,0.35)', fontFamily: 'var(--font-mono)', fontSize: '11px', lineHeight: 1.8 }}>
-              Premium small-batch coffee and heritage apparel — built for people who value craftsmanship, conviction, and character.
+              Premium small-batch coffee rooted in American history — four collectible series, one unbroken flame.
             </p>
 
             {/* Contact */}
