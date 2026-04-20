@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
+import ProductBadge from '../products/ProductBadge';
 
 // LOCKED ORDER — Founders Series display sequence. Do not reorder.
 // Collection filter: 'founders-series' ONLY. Never pull from other collections.
@@ -15,7 +16,7 @@ const FOUNDERS_DISPLAY_ORDER = [
   'adams-blend',
 ];
 
-function ProductCard({ product, index }) {
+function ProductCard({ product, index, badge }) {
   const url = `https://torch-republic.com/products/${product.shopify_handle}`;
   const title = product.title.replace(/[-–]\s*Founders Series Coffee/i, '').trim();
   const plain = (product.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
@@ -42,6 +43,11 @@ function ProductCard({ product, index }) {
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
+      {badge && (
+        <div className="absolute top-3 left-3 z-10">
+          <ProductBadge type={badge} />
+        </div>
+      )}
       <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
         <img
           src={product.image_url}
@@ -139,7 +145,11 @@ export default function BestSellersStrip() {
           </div>
         ) : display.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {display.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
+            {display.map((p, i) => {
+              // First product is recommended for first-time customers
+              const badge = i === 0 ? 'Recommended First' : i === 1 ? 'Best Seller' : null;
+              return <ProductCard key={p.id} product={p} index={i} badge={badge} />;
+            })}
           </div>
         ) : null}
 

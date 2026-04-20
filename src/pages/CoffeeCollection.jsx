@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import TorchBoxCollectionBanner from '../components/collections/TorchBoxCollectionBanner';
+import FirstTimeCTA from '../components/collections/FirstTimeCTA';
 
 const PRODUCTS = [
   {
@@ -87,6 +88,8 @@ const FILTERS = ['ALL', 'CORE', "FOUNDER'S EDITION"];
 
 function ProductCard({ p, index }) {
   const isFounder = p.rarity === "FOUNDER'S EDITION";
+  const isFirstRecommended = p.name === 'Washington Blend';
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -108,6 +111,12 @@ function ProductCard({ p, index }) {
         <img src={p.image} alt={p.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-all duration-700 group-hover:scale-105" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${p.color}EE 0%, transparent 55%)` }} />
+        {isFirstRecommended && (
+          <div className="absolute top-3 left-3 z-10 font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1.5 font-black rounded-sm"
+            style={{ background: 'rgba(196,163,90,0.2)', color: '#E8D08A', border: '1px solid rgba(196,163,90,0.55)' }}>
+            → Start Here
+          </div>
+        )}
         <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
           <span className="font-mono text-[8px] font-bold tracking-wider px-2 py-1"
             style={{
@@ -227,8 +236,13 @@ export default function CoffeeCollection() {
         </div>
       </div>
 
+      {/* First-Time Customer Guidance */}
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 pt-10">
+        <FirstTimeCTA />
+      </div>
+
       {/* Torch Box Banner */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12 pt-8">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 pb-4">
         <TorchBoxCollectionBanner />
       </div>
 

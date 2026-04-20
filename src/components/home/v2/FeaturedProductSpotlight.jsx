@@ -72,11 +72,8 @@ export default function FeaturedProductSpotlight() {
             ) : imageUrl ? (
               <div className="relative z-10 w-full" style={{ maxWidth: '560px' }}>
                 {/* Badge */}
-                <div
-                  className="absolute top-4 left-4 z-20 font-mono text-[8px] tracking-[0.35em] uppercase px-3 py-1.5"
-                  style={{ background: '#C9A24A', color: '#080808', fontWeight: 800 }}
-                >
-                  FOUNDERS SERIES
+                <div className="absolute top-4 left-4 z-20">
+                  <ProductBadge type="Recommended First" />
                 </div>
                 <img
                   src={imageUrl}

@@ -1,15 +1,11 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
+import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
-import LibertyIconsStrip from '../components/home/v2/LibertyIconsStrip';
-import CommandersStrip from '../components/home/v2/CommandersStrip';
-import WomenOfTheRepublicStrip from '../components/home/v2/WomenOfTheRepublicStrip';
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
-import GuaranteeBar from '../components/home/v2/GuaranteeBar';
-import ApparelSection from '../components/home/v2/ApparelSection';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
 
@@ -20,10 +16,13 @@ export default function Home() {
       <HeroSection />
       <HeroTrustBar />
 
+      {/* First-Time Customer Guidance */}
+      <FirstTimeGuidance />
+
       {/*
         ── OPTIMIZED CONVERSION FLOW (5-10 second decision path) ──
-        01 · Best Sellers (Founders Series) — choose a coffee
-        02 · Featured Product Spotlight — upsell opportunity
+        01 · Best Sellers (Founders Series) — choose a coffee (badges for guidance)
+        02 · Featured Product Spotlight — recommended starting product
         03 · Torch Box — subscription option
         04 · Reviews → Final CTA — social proof + close
         ────────────────────────────────────────────────────
@@ -31,7 +30,7 @@ export default function Home() {
         Apparel, GuaranteeBar (low conversion sections)
       */}
 
-      {/* STEP 1 — Choose Your Blend */}
+      {/* STEP 1 — Choose Your Blend (with guidance badges) */}
       <BestSellersStrip />
 
       {/* STEP 2 — Premium Product Highlight */}
