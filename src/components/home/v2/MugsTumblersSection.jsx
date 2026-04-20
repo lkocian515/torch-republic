@@ -2,34 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-// Explicit product array with exact Shopify image references
+// Explicit product array with exact image URLs
 const MUGS_PRODUCTS = [
   {
     id: 1,
     name: 'Ceramic Mug — Proud American 1776',
-    imageRef: '10165213082785054444_2048',
+    imageUrl: 'https://www.torchrepublic.com/10165213082785054444_2048',
   },
   {
     id: 2,
     name: 'Insulated Coffee Mug — Live Free',
-    imageRef: '15087694528115492524_2048',
+    imageUrl: 'https://www.torchrepublic.com/15087694528115492524_2048',
   },
   {
     id: 3,
     name: 'Ceramic Mug — Live Free, Be Ready',
-    imageRef: '7135904884323381504_2048',
+    imageUrl: 'https://www.torchrepublic.com/7135904884323381504_2048',
   },
   {
     id: 4,
     name: 'We the People 20oz Tumbler',
-    imageRef: 'constitution-we-the-people-20oz-tumbler-patriotic-stainless-travel-cup-4783947',
+    imageUrl: 'https://www.torchrepublic.com/constitution-we-the-people-20oz-tumbler-patriotic-stainless-travel-cup-4783947',
   },
 ];
-
-// Build Shopify CDN image URLs from references
-function getShopifyImageUrl(ref) {
-  return `https://cdn.shopify.com/s/files/1/0792/3093/1664/products/${ref}.jpg`;
-}
 
 export default function MugsTumblersSection() {
   return (
@@ -86,7 +81,7 @@ export default function MugsTumblersSection() {
               {/* Image Container */}
               <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#000' }}>
                 <img
-                  src={getShopifyImageUrl(product.imageRef)}
+                  src={product.imageUrl}
                   alt={product.name}
                   style={{
                     width: '100%',
