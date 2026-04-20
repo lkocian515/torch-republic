@@ -30,15 +30,25 @@ export default function Home() {
       <PodsBenefitsStrip />
       {/* 1d. Social proof quote */}
       <PodsSocialProof />
-      {/* 2. Founders Series — demoted slightly */}
+      {/*
+        ═══════════════════════════════════════════════════════════
+        COLLECTION HIERARCHY — LOCKED. DO NOT REORDER.
+        01 · Founders Series        → BestSellersStrip (collection: founders-series)
+        02 · Liberty Icons          → LibertyIconsStrip (collection: liberty-icons)
+        03 · Commanders Series      → CommandersStrip (collection: commanders-series)
+        04 · Women of the Republic  → WomenOfTheRepublicStrip (collection: women-of-the-republic)
+        Each strip fetches ONLY its own collection. No cross-collection fallback.
+        ═══════════════════════════════════════════════════════════
+      */}
+      {/* COLLECTION 01 — Founders Series */}
       <BestSellersStrip />
-      {/* 3. Torch Box — primary conversion driver */}
+      {/* Torch Box — conversion driver between collections */}
       <TorchBoxSection />
-      {/* 4. Liberty Icons */}
+      {/* COLLECTION 02 — Liberty Icons */}
       <LibertyIconsStrip />
-      {/* 5. Commanders Series */}
+      {/* COLLECTION 03 — Commanders Series */}
       <CommandersStrip />
-      {/* 5b. Women of the Republic — Coming Soon */}
+      {/* COLLECTION 04 — Women of the Republic */}
       <WomenOfTheRepublicStrip />
       {/* 5c. Build Your Routine funnel */}
       <BuildYourRoutine />

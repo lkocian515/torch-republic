@@ -4,8 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
 
-// Washington, Lincoln, Franklin are the 3 featured founders
-const FEATURED_FOUNDERS = ['washington-blend', 'lincoln-blend', 'franklin-blend'];
+// LOCKED ORDER — Founders Series display sequence. Do not reorder.
+// Collection filter: 'founders-series' ONLY. Never pull from other collections.
+const FOUNDERS_DISPLAY_ORDER = [
+  'washington-blend',
+  'franklin-blend',
+  'jefferson-blend',
+  'lincoln-blend',
+  'roosevelt-blend',
+  'adams-blend',
+];
 
 function ProductCard({ product, index }) {
   const url = `https://torch-republic.com/products/${product.shopify_handle}`;
@@ -62,15 +70,20 @@ function ProductCard({ product, index }) {
 }
 
 export default function BestSellersStrip() {
+  // LOCKED: only fetches 'founders-series'. staleTime prevents silent reorders on cache expiry.
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-founders-strip'],
     queryFn: () => base44.entities.Product.filter({ collection: 'founders-series' }, '', 20),
+    staleTime: 5 * 60 * 1000,
   });
 
-  // Show Washington, Lincoln, Franklin first — then fill to 4 if available
-  const priority = FEATURED_FOUNDERS.map(h => allProducts.find(p => p.shopify_handle === h)).filter(Boolean);
-  const rest = allProducts.filter(p => !FEATURED_FOUNDERS.includes(p.shopify_handle));
-  const display = [...priority, ...rest].slice(0, 4);
+  // Display in locked canonical order — never auto-reorder
+  const ordered = FOUNDERS_DISPLAY_ORDER
+    .map(h => allProducts.find(p => p.shopify_handle === h))
+    .filter(Boolean);
+  // Append any founders-series products not in the locked list (e.g. newly added)
+  const extras = allProducts.filter(p => !FOUNDERS_DISPLAY_ORDER.includes(p.shopify_handle));
+  const display = [...ordered, ...extras].slice(0, 4);
 
   return (
     <section className="py-14 md:py-20 px-5 md:px-12" style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(201,162,74,0.08)' }}>

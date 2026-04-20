@@ -86,9 +86,11 @@ function ComingSoon() {
 }
 
 export default function CommandersStrip() {
+  // LOCKED: only fetches 'commanders-series'. staleTime prevents silent reorders on cache expiry.
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-commanders-strip'],
     queryFn: () => base44.entities.Product.filter({ collection: 'commanders-series' }, '', 20),
+    staleTime: 5 * 60 * 1000,
   });
 
   const display = allProducts.slice(0, 6);

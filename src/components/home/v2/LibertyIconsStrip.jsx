@@ -4,8 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
 
-// Liberty Torch, Lady Liberty, Eagles Flight featured first
-const FEATURED_LIBERTY = ['liberty-torch-blend', 'lady-liberty-blend', 'eagles-flight-blend'];
+// LOCKED ORDER — Liberty Icons Series display sequence. Do not reorder.
+// Collection filter: 'liberty-icons' ONLY. Never pull from other collections.
+const LIBERTY_DISPLAY_ORDER = [
+  'liberty-torch-blend',
+  'lady-liberty-blend',
+  'eagles-flight-blend',
+  'uncle-sams-bold-brew',
+  'rosies-grind',
+  'old-glory-house-blend',
+];
 
 function ProductCard({ product, index }) {
   const url = `https://torch-republic.com/products/${product.shopify_handle}`;
@@ -65,14 +73,19 @@ function ProductCard({ product, index }) {
 }
 
 export default function LibertyIconsStrip() {
+  // LOCKED: only fetches 'liberty-icons'. staleTime prevents silent reorders on cache expiry.
   const { data: allProducts = [], isLoading } = useQuery({
     queryKey: ['home-liberty-icons-strip'],
     queryFn: () => base44.entities.Product.filter({ collection: 'liberty-icons' }, '', 20),
+    staleTime: 5 * 60 * 1000,
   });
 
-  const priority = FEATURED_LIBERTY.map(h => allProducts.find(p => p.shopify_handle === h)).filter(Boolean);
-  const rest = allProducts.filter(p => !FEATURED_LIBERTY.includes(p.shopify_handle));
-  const display = [...priority, ...rest].slice(0, 4);
+  // Display in locked canonical order — never auto-reorder
+  const ordered = LIBERTY_DISPLAY_ORDER
+    .map(h => allProducts.find(p => p.shopify_handle === h))
+    .filter(Boolean);
+  const extras = allProducts.filter(p => !LIBERTY_DISPLAY_ORDER.includes(p.shopify_handle));
+  const display = [...ordered, ...extras].slice(0, 4);
 
   if (!isLoading && display.length === 0) return null;
 

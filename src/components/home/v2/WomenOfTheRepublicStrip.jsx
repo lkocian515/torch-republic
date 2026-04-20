@@ -118,10 +118,11 @@ function ComingSoonCard({ card, index }) {
 }
 
 export default function WomenOfTheRepublicStrip() {
+  // LOCKED: only fetches 'women-of-the-republic'. staleTime prevents silent reorders on cache expiry.
   const { data: liveProducts = [], isLoading } = useQuery({
     queryKey: ['home-women-strip'],
     queryFn: () => base44.entities.Product.filter({ collection: 'women-of-the-republic' }, '', 10),
-    staleTime: 0,
+    staleTime: 5 * 60 * 1000,
   });
 
   return (
@@ -190,7 +191,7 @@ export default function WomenOfTheRepublicStrip() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
             {liveProducts.map((p, i) => (
-              <LiveProductCard key={p.handle} product={p} index={i} />
+              <LiveProductCard key={p.shopify_handle || p.id} product={p} index={i} />
             ))}
             {COMING_SOON.map((card, i) => (
               <ComingSoonCard key={card.name} card={card} index={i} />
