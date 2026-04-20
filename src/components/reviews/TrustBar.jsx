@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, Shield, Flame, Lock } from 'lucide-react';
 
 export default function TrustBar({ avgRating = '4.8', totalReviews = null }) {
   const stats = [
-    { icon: <Star className="w-4 h-4 fill-current" style={{ color: '#C9A24A' }} />, value: `${avgRating}/5`, label: 'Average Rating' },
-    { icon: <span style={{ fontSize: '1rem' }}>☕</span>, value: '1,000+', label: 'Cups Brewed' },
-    { icon: <span style={{ fontSize: '1rem' }}>🔥</span>, value: 'Top Rated', label: 'Founders Series' },
+    { icon: <Star className="w-4 h-4 fill-current" style={{ color: '#C9A24A' }} />, value: `${avgRating}/5`, label: 'Verified Rating' },
+    { icon: <Flame className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Small Batch', label: 'Roasted to Order' },
+    { icon: <Shield className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Guaranteed', label: 'Quality Promise' },
+    { icon: <Lock className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Secure', label: 'Checkout' },
   ];
 
   return (
@@ -21,7 +22,7 @@ export default function TrustBar({ avgRating = '4.8', totalReviews = null }) {
       <p className="font-mono text-[10px] tracking-[0.5em] uppercase text-center mb-6" style={{ color: 'rgba(201,162,74,0.55)' }}>
         Trusted by Patriots Across the Country
       </p>
-      <div className="flex items-center justify-center gap-8 md:gap-16 flex-wrap">
+      <div className="flex items-center justify-center gap-6 md:gap-12 flex-wrap">
         {stats.map((s, i) => (
           <div key={i} className="text-center flex flex-col items-center gap-2">
             <div className="flex items-center gap-2">

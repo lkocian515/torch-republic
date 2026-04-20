@@ -50,6 +50,34 @@ const STATIC_REVIEWS = {
     { id: 's1', reviewer_name: 'John P.', location: 'Nashville, TN', rating: 5, body: "Liberty Torch hits exactly right for an afternoon cup. Smooth and dependable.", product_handle: 'liberty-torch-blend', review_date: '2025-12-03' },
     { id: 's2', reviewer_name: 'Greg M.', location: 'Louisville, KY', rating: 5, body: "The packaging alone is worth it. And the coffee is genuinely great.", product_handle: 'liberty-torch-blend', review_date: '2025-11-14' },
   ],
+  'eagles-flight-blend': [
+    { id: 's1', reviewer_name: 'Mike D.', location: 'Colorado Springs, CO', rating: 5, body: "Crisp and bold — exactly what I want first thing in the morning. Eagle's Flight is now my everyday.", product_handle: 'eagles-flight-blend', review_date: '2025-12-07' },
+    { id: 's2', reviewer_name: 'Travis H.', location: 'Fayetteville, NC', rating: 5, body: "The citrus note is subtle but real. Light roast done right. No bitterness at all.", product_handle: 'eagles-flight-blend', review_date: '2025-11-23' },
+    { id: 's3', reviewer_name: 'Cole R.', location: 'San Antonio, TX', rating: 5, body: "Ordered on a recommendation. Won't need another recommendation — I'm subscribed now.", product_handle: 'eagles-flight-blend', review_date: '2025-11-09' },
+  ],
+  'uncle-sams-bold-brew': [
+    { id: 's1', reviewer_name: 'Rick B.', location: 'Pittsburgh, PA', rating: 5, body: "Dark, bold, zero compromise. Uncle Sam's is what coffee is supposed to taste like.", product_handle: 'uncle-sams-bold-brew', review_date: '2025-12-09' },
+    { id: 's2', reviewer_name: 'Aaron M.', location: 'Memphis, TN', rating: 5, body: "I drink it black and it delivers every time. Intense without burning your palate.", product_handle: 'uncle-sams-bold-brew', review_date: '2025-11-25' },
+    { id: 's3', reviewer_name: 'Steve J.', location: 'Tampa, FL', rating: 5, body: "The boldest roast in the lineup and worth every cent. Packaging is premium too.", product_handle: 'uncle-sams-bold-brew', review_date: '2025-11-11' },
+  ],
+  "rosies-grind": [
+    { id: 's1', reviewer_name: 'Lauren T.', location: 'Richmond, VA', rating: 5, body: "Smooth and approachable. Rosie's Grind is the one I reach for when I want something reliable.", product_handle: "rosies-grind", review_date: '2025-12-05' },
+    { id: 's2', reviewer_name: 'Jessica M.', location: 'Raleigh, NC', rating: 5, body: "Medium roast that actually has character. Chocolate note is real and not overpowering.", product_handle: "rosies-grind", review_date: '2025-11-20' },
+    { id: 's3', reviewer_name: 'Hannah K.', location: 'Greenville, SC', rating: 5, body: "Got this as a gift and now I'm buying my third bag. Smooth, consistent, and delicious.", product_handle: "rosies-grind", review_date: '2025-11-06' },
+  ],
+  'old-glory-house-blend': [
+    { id: 's1', reviewer_name: 'Frank L.', location: 'Columbus, OH', rating: 5, body: "Old Glory is the house blend done right. Every morning, no complaints, no variation.", product_handle: 'old-glory-house-blend', review_date: '2025-12-04' },
+    { id: 's2', reviewer_name: 'Bill S.', location: 'Kansas City, MO', rating: 5, body: "Balanced and consistent. I've been through four bags and it's the same quality every time.", product_handle: 'old-glory-house-blend', review_date: '2025-11-18' },
+    { id: 's3', reviewer_name: 'Gary W.', location: 'Omaha, NE', rating: 5, body: "Classic medium roast. Clean, dependable, and worth the price. This is my default now.", product_handle: 'old-glory-house-blend', review_date: '2025-11-02' },
+  ],
+  'remember-the-ladies': [
+    { id: 's1', reviewer_name: 'Claire B.', location: 'Philadelphia, PA', rating: 5, body: "The Abigail Adams blend is beautiful — bright and refined. Feels like drinking a piece of history.", product_handle: 'remember-the-ladies', review_date: '2025-12-06' },
+    { id: 's2', reviewer_name: 'Susan W.', location: 'Boston, MA', rating: 5, body: "Smooth, bright, and complex. The story behind it makes every cup more meaningful.", product_handle: 'remember-the-ladies', review_date: '2025-11-22' },
+  ],
+  'midnight-railway': [
+    { id: 's1', reviewer_name: 'Diana H.', location: 'Baltimore, MD', rating: 5, body: "Bold and deep — the dark roast is exactly right. A coffee with real conviction behind it.", product_handle: 'midnight-railway', review_date: '2025-12-08' },
+    { id: 's2', reviewer_name: 'Renee T.', location: 'Detroit, MI', rating: 5, body: "Midnight Railway is rich and intentional. A dark roast that doesn't overpower — just delivers.", product_handle: 'midnight-railway', review_date: '2025-11-24' },
+  ],
 };
 
 const DEFAULT_FALLBACK = [
