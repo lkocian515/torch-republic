@@ -7,6 +7,9 @@ import FirstOrderBonus from '../components/torchbox/FirstOrderBonus';
 import SubscriptionTerms from '../components/torchbox/SubscriptionTerms';
 import WhatsInTheBox from '../components/torchbox/WhatsInTheBox';
 import OnlyForTorchbearers from '../components/torchbox/OnlyForTorchbearers';
+import WhyJoinTorchBox from '../components/torchbox/WhyJoinTorchBox';
+import ThisMonthFeature from '../components/torchbox/ThisMonthFeature';
+import BecomeATorchbearer from '../components/torchbox/BecomeATorchbearer';
 
 const AC = '#C9A24A';
 
@@ -106,7 +109,14 @@ const FOUNDERS = [
   { name: 'Adams', img: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-9_c3c4e4b9-9cf6-4b74-b937-8ca5be6da89f.jpg' },
   { name: 'Lincoln', img: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-10_55eaf3da-19a5-40c5-9a5c-47c88cf40a44.jpg' },
   { name: 'Roosevelt', img: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-11_a1b79234-5f92-443e-bdba-7c3dc9046b14.jpg' },
-];
+  ];
+
+  // Enhanced tier descriptions for clarity
+  const TIER_HIGHLIGHTS = {
+  ember: ['1 premium coffee product', '1 exclusive insert'],
+  beacon: ['2 premium coffee products', 'Collector card included', 'Early access unlocked'],
+  blaze: ['2-3 premium products', 'Exclusive bonus blend', 'Surprise collectible item', 'Free shipping monthly'],
+  };
 
 const REVIEWS = [
   { name: 'Marcus T.', location: 'Nashville, TN', text: 'The most heritage-forward coffee I\'ve ever had. Torch Box pays for itself.', rating: 5 },
@@ -388,12 +398,22 @@ export default function TheTorchBox() {
               Buying individually vs. Torch Box
             </h2>
             <p className="font-heading mb-0" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.4)', fontWeight: 300 }}>
-              Members always pay less — plus get exclusive blends you can't buy anywhere else.
+              Members always pay less — plus get exclusive blends you cannot buy anywhere else.
             </p>
             <ValueComparisonTable />
           </motion.div>
         </div>
       </section>
+
+      <Divider />
+
+      {/* ── WHY JOIN TORCH BOX ── */}
+      <WhyJoinTorchBox />
+
+      <Divider />
+
+      {/* ── THIS MONTH'S FEATURE ── */}
+      <ThisMonthFeature />
 
       <Divider />
 
@@ -466,14 +486,27 @@ export default function TheTorchBox() {
 
                 <div className="h-px" style={{ background: 'rgba(201,162,74,0.08)' }} />
 
-                {/* Items */}
+                {/* Items with enhanced highlights */}
                 <div className="flex flex-col gap-3 flex-1">
-                  {tier.items.map(item => (
-                    <div key={item} className="flex items-start gap-2.5">
-                      <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: tier.color }} />
-                      <span style={{ color: 'rgba(240,235,225,0.65)', fontSize: '0.875rem', lineHeight: 1.7, fontWeight: 300 }}>{item}</span>
-                    </div>
-                  ))}
+                  {tier.items.map((item, idx) => {
+                    const highlights = TIER_HIGHLIGHTS[tier.id];
+                    const isHighlighted = highlights && highlights.includes(item);
+                    return (
+                      <div key={item} className="flex items-start gap-2.5">
+                        <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: tier.color }} />
+                        <span
+                          style={{
+                            color: isHighlighted ? '#FFFFFF' : 'rgba(240,235,225,0.65)',
+                            fontSize: '0.875rem',
+                            lineHeight: 1.7,
+                            fontWeight: isHighlighted ? 500 : 300,
+                          }}
+                        >
+                          {item}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* CTA */}
@@ -515,6 +548,11 @@ export default function TheTorchBox() {
 
       {/* ── WHAT'S IN THE BOX CLARITY ── */}
       <WhatsInTheBox />
+
+      <Divider />
+
+      {/* ── BECOME A TORCHBEARER IDENTITY ── */}
+      <BecomeATorchbearer />
 
       <Divider />
 
