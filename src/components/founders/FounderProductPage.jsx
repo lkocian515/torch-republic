@@ -149,24 +149,37 @@ export default function FounderProductPage({ data, DATA }) {
         </nav>
       </div>
 
-      {/* Cinematic hero image */}
-      <section className="relative w-full mt-6 overflow-hidden" style={{ height: 'clamp(340px, 52vh, 580px)' }}>
-        <img src={heroImage} alt={title} className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.7, filter: 'contrast(1.05)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #080808 0%, transparent 30%, transparent 70%, #080808 100%)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, #080808 0%, transparent 40%)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #080808 0%, transparent 25%)' }} />
-        <div className="absolute top-5 left-5 md:left-10">
-          <span className="font-mono text-xs font-black tracking-widest px-3 py-1.5" style={{ background: ac, color: '#0B0B0B' }}>{code}</span>
-        </div>
+      {/* Hero — clean black with centered product + gold glow */}
+      <section className="relative w-full mt-6 flex items-center justify-center overflow-hidden"
+        style={{ minHeight: 'clamp(280px, 42vh, 480px)', background: '#050505' }}>
+        {/* Subtle gold radial glow behind product */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `radial-gradient(ellipse 55% 55% at 50% 52%, ${ac}14 0%, transparent 70%)`,
+        }} />
+        <motion.img
+          src={heroImage}
+          alt={title}
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 object-contain"
+          style={{ maxHeight: 'clamp(220px, 36vh, 420px)', maxWidth: '72%', filter: 'drop-shadow(0 0 40px rgba(201,162,74,0.18))' }}
+        />
+        {/* Series code badge */}
+        {code && (
+          <div className="absolute top-5 left-5 md:left-10 z-20">
+            <span className="font-mono text-[10px] font-black tracking-[0.35em] uppercase px-3 py-1.5" style={{ background: ac, color: '#0B0B0B' }}>{code}</span>
+          </div>
+        )}
         {rarity === "FOUNDER'S EDITION" && (
-          <div className="absolute top-5 right-5 md:right-10">
+          <div className="absolute top-5 right-5 md:right-10 z-20">
             <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5"
-              style={{ background: 'rgba(196,163,90,0.15)', color: ac, border: `1px solid ${ac}40` }}>
+              style={{ background: 'rgba(196,163,90,0.12)', color: ac, border: `1px solid ${ac}40` }}>
               Founder's Edition
             </span>
           </div>
         )}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 80, background: 'linear-gradient(to top, #080808, transparent)' }} />
       </section>
 
       {/* ── MAIN PRODUCT SECTION ── */}
@@ -176,54 +189,44 @@ export default function FounderProductPage({ data, DATA }) {
           {/* LEFT — Product details */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }}>
 
-            {/* 1. Title */}
-            <div className="mb-2">
-              <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: `${ac}60` }}>
-                {seriesNum ? `${seriesNum} · ${seriesName}` : seriesName}
-              </p>
-              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-                {title}
-              </h1>
-              {/* Format subtitle — part of the title identity */}
-              <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                {format === 'PODS BOX' ? 'Coffee Pods Box' : format === 'GROUND COFFEE BOX' ? 'Ground Coffee Box' : 'Whole Bean Coffee Box'}
-              </p>
-              {/* FORMAT badge — unmissable indicator */}
-              <div className="flex items-center gap-2 mb-3 flex-wrap">
-                <span className="font-mono text-[9px] tracking-[0.35em] uppercase px-3 py-1.5 font-black"
-                  style={{ background: 'rgba(196,163,90,0.18)', color: '#E8D08A', border: '1px solid rgba(196,163,90,0.6)', letterSpacing: '0.25em' }}>
-                  ▣ FORMAT: {format}
+            {/* 1. Title block */}
+            <div className="mb-6">
+              {/* Series + format subheadline */}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
+                  style={{ background: `${ac}12`, color: ac, border: `1px solid ${ac}30` }}>
+                  {seriesName}
                 </span>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase px-2 py-1"
-                  style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  Small-Batch Roasted
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase px-2.5 py-1"
+                  style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  Small Batch
+                </span>
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase px-2.5 py-1"
+                  style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  Limited Release
                 </span>
               </div>
+
+              {/* Product title + format */}
+              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+                {title}
+              </h1>
+              <p className="font-mono text-[11px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                {format === 'PODS BOX' ? '— Coffee Pods Box' : format === 'GROUND COFFEE BOX' ? '— Ground Coffee Box' : '— Whole Bean Coffee Box'}
+              </p>
+
+              {/* Rating */}
+              <a href="#reviews" className="flex items-center gap-2 mb-5 w-fit">
+                <GoldStars rating={5} />
+                <span className="font-mono text-[10px]" style={{ color: '#C9A24A' }}>4.8</span>
+                <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>(200+ reviews)</span>
+              </a>
+
+              {/* Subline */}
+              <p className="font-heading mb-5" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.85 }}>
+                {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
+              </p>
             </div>
-
-            {/* Trust booster — rating under title */}
-            <a href="#reviews" className="flex items-center gap-2 mb-5 w-fit group">
-              <GoldStars rating={5} />
-              <span className="font-mono text-[10px]" style={{ color: '#C9A24A' }}>4.8</span>
-              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>(200+ reviews)</span>
-            </a>
-
-            {/* 2. Hook — format-reinforcing first line */}
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.35)' }}>
-              {format === 'PODS BOX'
-                ? 'Delivered as single-serve pods in a premium Torch Republic coffee box.'
-                : format === 'GROUND COFFEE BOX'
-                ? 'Delivered as ground coffee in a premium Torch Republic coffee box.'
-                : 'Delivered as whole bean coffee in a premium Torch Republic coffee box.'}
-            </p>
-            <p className="font-heading mb-4" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
-              {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
-            </p>
-
-            {/* Emotional hook line */}
-            <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: `${ac}70` }}>
-              Built for discipline. Brewed for purpose.
-            </p>
 
             {/* Scarcity / urgency */}
             <div className="flex flex-col gap-1.5 mb-6">
@@ -243,17 +246,18 @@ export default function FounderProductPage({ data, DATA }) {
 
             <div className="h-px w-full mb-8" style={{ background: `linear-gradient(90deg, ${ac}30, transparent)` }} />
 
-            {/* 3. Flavor Notes */}
+            {/* 3. Flavor Profile */}
             {tastingNotes?.length > 0 && (
-              <div className="mb-8">
-                <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: `${ac}65` }}>Flavor Notes</p>
-                <div className="flex flex-wrap gap-2">
+              <div className="mb-8 p-5" style={{ background: '#0D0D0D', border: `1px solid ${ac}14` }}>
+                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${ac}55` }}>Tasting Notes</p>
+                <p className="font-serif" style={{ fontSize: '1.15rem', color: '#F0EBE1', fontWeight: 600, letterSpacing: '0.01em' }}>
+                  {tastingNotes.join(' · ')}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3">
                   {tastingNotes.map(note => (
-                    <div key={note} className="flex items-center gap-2 px-3 py-2"
-                      style={{ background: 'rgba(196,163,90,0.05)', border: '1px solid rgba(196,163,90,0.14)' }}>
-                      <span style={{ fontSize: '1rem' }}>{FLAVOR_ICONS[note] || '☕'}</span>
-                      <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.65)' }}>{note}</span>
-                    </div>
+                    <span key={note} className="font-mono text-[9px]" style={{ color: `${ac}60` }}>
+                      {FLAVOR_ICONS[note] || '☕'}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -297,13 +301,25 @@ export default function FounderProductPage({ data, DATA }) {
               </ul>
             </div>
 
-            {/* Collector callout — Founders + Liberty Icons */}
-            <div className="mt-4 p-4 flex items-center gap-4" style={{ background: `${ac}08`, border: `1px solid ${ac}20` }}>
-              <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: ac }}>Part of the {seriesName}</p>
-                <p className="font-mono text-[9px] mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Collect all {seriesCount}. Each blend retires forever.</p>
+            {/* Collector hook */}
+            <div className="mt-4 p-5" style={{ background: `${ac}08`, border: `1px solid ${ac}22` }}>
+              <div className="flex items-center gap-3 mb-3">
+                <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
+                <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: ac }}>
+                  Part of the {seriesName}
+                </p>
               </div>
+              <p className="font-serif mb-3" style={{ fontSize: '1.1rem', color: '#F0EBE1', fontWeight: 600 }}>
+                Collect All {seriesCount}.
+              </p>
+              <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                Each blend retires from production — permanently. Once gone, it joins the Archive forever.
+              </p>
+              <Link to="/CoffeeCollection"
+                className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
+                style={{ color: ac, borderBottom: `1px solid ${ac}35`, paddingBottom: '2px' }}>
+                View the Full Series →
+              </Link>
             </div>
 
           </motion.div>
@@ -315,8 +331,11 @@ export default function FounderProductPage({ data, DATA }) {
             transition={{ duration: 0.75, delay: 0.15 }}
             className="flex flex-col gap-5 lg:sticky lg:top-24"
           >
-            {/* Image */}
-            <div className="relative">
+            {/* Image — clean black bg with gold glow */}
+            <div className="relative" style={{ background: '#050505' }}>
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${ac}10 0%, transparent 70%)`,
+              }} />
               <ProductImage src={images[activeImg]} alt={title} variant="clean" aspectRatio="4/5" hoverScale={true} />
               {images.length > 1 && (
                 <div className="absolute top-3 right-3">
@@ -364,18 +383,23 @@ export default function FounderProductPage({ data, DATA }) {
                 </span>
               </div>
 
-              {/* Why buy bullets — scan-friendly */}
-              <ul className="space-y-2 mb-6">
-                {WHY_YOULL_LOVE.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <Check className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: ac }} />
-                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.75)', lineHeight: 1.6 }}>{item}</span>
-                  </li>
+              {/* Quick value strip */}
+              <div className="grid grid-cols-2 gap-2 mb-5">
+                {[
+                  { icon: '🔥', label: 'Small Batch Roasted' },
+                  { icon: '✦', label: 'Premium Sourced Beans' },
+                  { icon: '🏛️', label: 'Collectible Series' },
+                  { icon: '📦', label: 'Ships Fresh to Order' },
+                ].map(({ icon, label }) => (
+                  <div key={label} className="flex items-center gap-2 px-3 py-2.5"
+                    style={{ background: `${ac}07`, border: `1px solid ${ac}15` }}>
+                    <span style={{ fontSize: '0.85rem' }}>{icon}</span>
+                    <span className="font-mono text-[9px] tracking-wide" style={{ color: 'rgba(240,235,225,0.65)' }}>{label}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              {/* Value messaging */}
-              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${ac}45` }}>
+              <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-4" style={{ color: `${ac}45` }}>
                 ★ Save 15% when you subscribe · Best value
               </p>
 
@@ -503,8 +527,11 @@ export default function FounderProductPage({ data, DATA }) {
       {completePair?.length > 0 && (
         <section style={{ backgroundColor: '#0E0E0E', borderTop: '1px solid rgba(201,162,74,0.07)' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-10 text-center" style={{ color: `${ac}45` }}>
-              Complete Your Legacy
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: `${ac}45` }}>
+              Complete the {seriesName}
+            </p>
+            <p className="font-serif text-center mb-10" style={{ fontSize: '1.4rem', color: '#F0EBE1', fontWeight: 700 }}>
+              Collect All {seriesCount} Blends
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
               {completePair.map(p => (
