@@ -7,77 +7,77 @@ const PRODUCTS = [
   {
     code: 'TR-001', seriesNum: 'Founders #01', rarity: "FOUNDER'S EDITION",
     name: 'Washington Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
-    price: '$18.99', accent: '#C8A44D', color: '#160D04',
+    price: '$18.99', accent: '#C8A44D', color: '#160D04', format: 'WHOLE BEAN BOX',
     route: '/WashingtonBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
   },
   {
     code: 'TR-002', seriesNum: 'Founders #02', rarity: "FOUNDER'S EDITION",
     name: 'Jefferson Blend', roast: 'Medium Roast', notes: 'Dark Chocolate · Almond · Toffee',
-    price: '$18.99', accent: '#9BB8CC', color: '#080F14',
+    price: '$18.99', accent: '#9BB8CC', color: '#080F14', format: 'WHOLE BEAN BOX',
     route: '/JeffersonBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-8_3f3a45dd-8d2c-4a04-b3e7-7657eb306db4.jpg?v=1775891841',
   },
   {
     code: 'TR-003', seriesNum: 'Founders #03', rarity: "FOUNDER'S EDITION",
     name: 'Franklin Blend', roast: 'Light Roast', notes: 'Caramel · Lemon · Sweet Finish',
-    price: '$18.99', accent: '#D4C97A', color: '#0E0E06',
+    price: '$18.99', accent: '#D4C97A', color: '#0E0E06', format: 'WHOLE BEAN BOX',
     route: '/FranklinBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-9_4f650292-3215-4b0f-aed8-7ed4c1a02fb6.jpg?v=1775891986',
   },
   {
     code: 'TR-004', seriesNum: 'Founders #04', rarity: 'CORE',
     name: 'Adams Blend', roast: 'Medium Roast', notes: 'Toffee · Dark Chocolate · Citrus',
-    price: '$18.99', accent: '#B87AC8', color: '#0E070E',
+    price: '$18.99', accent: '#B87AC8', color: '#0E070E', format: 'WHOLE BEAN BOX',
     route: '/AdamsBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-10_6f98a910-06fe-466c-b034-23133f53a324.jpg?v=1775892090',
   },
   {
     code: 'TR-005', seriesNum: 'Founders #05', rarity: 'CORE',
     name: 'Lincoln Blend', roast: 'Medium-Dark Roast', notes: 'Dark Chocolate · Almond · Toffee',
-    price: '$18.99', accent: '#C87070', color: '#100707',
+    price: '$18.99', accent: '#C87070', color: '#100707', format: 'WHOLE BEAN BOX',
     route: '/LincolnBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
   },
   {
     code: 'TR-006', seriesNum: 'Founders #06', rarity: 'CORE',
     name: 'Roosevelt Blend', roast: 'Dark Roast', notes: 'Cocoa · Toasted Nut · Full Body',
-    price: '$18.99', accent: '#7AC87A', color: '#070E07',
+    price: '$18.99', accent: '#7AC87A', color: '#070E07', format: 'WHOLE BEAN BOX',
     route: '/RooseveltBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-6_9c4a00ed-4e07-40bf-b93c-42f039931d2e.jpg?v=1775891504',
   },
   {
     code: 'LI-001', seriesNum: 'Liberty Icons #01', rarity: 'CORE',
     name: "Eagle's Flight Blend", roast: 'Dark Roast', notes: 'Praline · Roasted Peanuts · Dark Chocolate',
-    price: '$20.00', accent: '#8B6D47', color: '#0F0A05',
+    price: '$20.00', accent: '#8B6D47', color: '#0F0A05', format: 'WHOLE BEAN BOX',
     route: '/EaglesFlightBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
   },
   {
     code: 'LI-002', seriesNum: 'Liberty Icons #02', rarity: 'CORE',
     name: 'Liberty Torch Blend', roast: 'Medium Roast', notes: 'Sundried Citrus · Golden Honey · Clean Finish',
-    price: '$20.00', accent: '#C4A35A', color: '#050D08',
+    price: '$20.00', accent: '#C4A35A', color: '#050D08', format: 'WHOLE BEAN BOX',
     route: '/LibertyTorchBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/30_fda88503-e869-47ed-8acc-33230f6246c9.png?v=1776038701',
   },
   {
     code: 'LI-003', seriesNum: 'Liberty Icons #03', rarity: 'CORE',
     name: 'Old Glory House Blend', roast: 'Medium Roast', notes: 'Caramel · Sweet Cream · Subtle Spice',
-    price: '$18.00', accent: '#B38B4D', color: '#0A0604',
+    price: '$18.00', accent: '#B38B4D', color: '#0A0604', format: 'WHOLE BEAN BOX',
     route: '/OldGloryHouseBlend',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/j9ihuio.png?v=1776038315',
   },
   {
     code: 'LI-004', seriesNum: 'Liberty Icons #04', rarity: 'CORE',
     name: "Rosie's Grind", roast: 'Medium Dark Roast', notes: 'Praline · Roasted Peanuts · Smooth Finish',
-    price: '$20.00', accent: '#A8893A', color: '#0A0805',
+    price: '$20.00', accent: '#A8893A', color: '#0A0805', format: 'WHOLE BEAN BOX',
     route: '/RosiesGrind',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
   },
   {
     code: 'LI-005', seriesNum: 'Liberty Icons #05', rarity: 'CORE',
     name: "Uncle Sam's Bold Brew", roast: 'Dark Roast', notes: 'Bittersweet Chocolate · Smoke · Deep Roast',
-    price: '$20.00', accent: '#9B7B4D', color: '#080603',
+    price: '$20.00', accent: '#9B7B4D', color: '#080603', format: 'WHOLE BEAN BOX',
     route: '/UncleSamsBoldBrew',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/27.png?v=1776038585',
   },
@@ -124,16 +124,24 @@ function ProductCard({ p, index }) {
         </div>
       </div>
       <div className="p-5 flex flex-col gap-3 flex-1">
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-[11px] font-bold tracking-wider px-2 py-0.5" style={{ color: p.accent, background: `${p.accent}15`, border: `1px solid ${p.accent}40` }}>{p.code}</span>
-          <span className="font-mono text-[9px] text-gray-700">·</span>
-          <span className="font-mono text-[9px] text-gray-500">{p.seriesNum}</span>
-        </div>
-        <div>
-          <h3 className="font-serif text-white mb-1" style={{ fontSize: '1.4rem', fontWeight: 700 }}>{p.name}</h3>
-          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: p.accent + '88' }}>{p.roast}</p>
-        </div>
-        <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{p.notes}</p>
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="font-mono text-[11px] font-bold tracking-wider px-2 py-0.5" style={{ color: p.accent, background: `${p.accent}15`, border: `1px solid ${p.accent}40` }}>{p.code}</span>
+        <span className="font-mono text-[9px] text-gray-700">·</span>
+        <span className="font-mono text-[9px] text-gray-500">{p.seriesNum}</span>
+      </div>
+      <div>
+        <h3 className="font-serif text-white mb-0.5" style={{ fontSize: '1.4rem', fontWeight: 700 }}>{p.name}</h3>
+        <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-1" style={{ color: 'rgba(255,255,255,0.35)' }}>
+          {p.format === 'PODS BOX' ? 'Coffee Pods Box' : p.format === 'GROUND COFFEE BOX' ? 'Ground Coffee Box' : 'Whole Bean Coffee Box'}
+        </p>
+        <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: p.accent + '88' }}>{p.roast}</p>
+      </div>
+      {/* Format badge — unmissable at card level */}
+      <span className="self-start font-mono text-[7px] tracking-[0.3em] uppercase px-2 py-1 font-black"
+        style={{ background: 'rgba(196,163,90,0.1)', color: 'rgba(232,208,138,0.8)', border: '1px solid rgba(196,163,90,0.3)' }}>
+        ▣ {p.format || 'WHOLE BEAN BOX'}
+      </span>
+      <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{p.notes}</p>
         <div className="flex items-center justify-between mt-auto pt-2">
           <span className="font-mono font-bold text-lg" style={{ color: p.accent }}>{p.price}</span>
           <Link to={p.route} className="font-mono text-[10px] tracking-[0.25em] uppercase px-4 py-2 transition-all"

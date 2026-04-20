@@ -179,16 +179,20 @@ export default function FounderProductPage({ data, DATA }) {
             {/* 1. Title */}
             <div className="mb-2">
               <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: `${ac}60` }}>
-                {seriesNum} · Founders Series
+                {seriesNum ? `${seriesNum} · ${seriesName}` : seriesName}
               </p>
-              <h1 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
                 {title}
               </h1>
-              {/* Format indicator — crystal clear product format */}
+              {/* Format subtitle — part of the title identity */}
+              <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                {format === 'PODS BOX' ? 'Coffee Pods Box' : format === 'GROUND COFFEE BOX' ? 'Ground Coffee Box' : 'Whole Bean Coffee Box'}
+              </p>
+              {/* FORMAT badge — unmissable indicator */}
               <div className="flex items-center gap-2 mb-3 flex-wrap">
-                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
-                  style={{ background: 'rgba(196,163,90,0.15)', color: '#C9A24A', border: '1px solid rgba(196,163,90,0.5)', fontWeight: 800 }}>
-                  FORMAT: {format}
+                <span className="font-mono text-[9px] tracking-[0.35em] uppercase px-3 py-1.5 font-black"
+                  style={{ background: 'rgba(196,163,90,0.18)', color: '#E8D08A', border: '1px solid rgba(196,163,90,0.6)', letterSpacing: '0.25em' }}>
+                  ▣ FORMAT: {format}
                 </span>
                 <span className="font-mono text-[8px] tracking-[0.2em] uppercase px-2 py-1"
                   style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.1)' }}>
