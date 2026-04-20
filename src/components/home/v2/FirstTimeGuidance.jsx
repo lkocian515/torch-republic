@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Lightbulb } from 'lucide-react';
 
 export default function FirstTimeGuidance() {
@@ -27,18 +26,21 @@ export default function FirstTimeGuidance() {
             </p>
           </div>
         </div>
-        <Link
-          to="/WashingtonBlend"
+        <a
+          href="https://torch-republic.com/products/washington-blend"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase transition-all hover:opacity-90 flex-shrink-0"
           style={{
             background: 'rgba(201,162,74,0.25)',
             color: '#C9A24A',
             padding: '10px 20px',
             border: '1px solid rgba(201,162,74,0.35)',
+            textDecoration: 'none',
           }}
         >
           Get Started <ArrowRight className="w-3 h-3" />
-        </Link>
+        </a>
       </div>
     </motion.section>
   );
