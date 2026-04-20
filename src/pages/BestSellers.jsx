@@ -78,7 +78,7 @@ export default function BestSellers() {
         {/* ── DESCRIPTION ── */}
         <div className="max-w-[720px] mx-auto px-6 py-16 text-center">
           <p style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.5)', lineHeight: 2, fontWeight: 300 }}>
-            Premium apparel for those who carry the flame. These are the designs our community keeps coming back to — built with the same conviction that drives everything we do.
+            Premium products for those who carry the flame. These are the blends and designs our community keeps coming back to — built with the same conviction that drives everything we do.
           </p>
         </div>
 

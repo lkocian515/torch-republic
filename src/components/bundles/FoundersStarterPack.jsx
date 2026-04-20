@@ -196,7 +196,7 @@ export default function FoundersStarterPack({ compact = false }) {
           style={{ background: '#111', border: '1px solid rgba(196,163,90,0.2)', padding: '1.75rem 2rem' }}
         >
           <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-wrap">
-            {['3 small-batch bags', '15% bundle savings', 'Free shipping'].map((item) => (
+            {['3 small-batch boxes', '15% bundle savings', 'Free shipping'].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#D4AE57' }} />
                 <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.78)' }}>{item}</span>

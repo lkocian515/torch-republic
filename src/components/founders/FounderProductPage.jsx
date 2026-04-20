@@ -41,7 +41,7 @@ const WHY_YOULL_LOVE = [
 ];
 
 const TRUST_ITEMS = [
-  { Icon: Flame, label: 'Fresh Roasted', sub: 'Every bag made to order' },
+  { Icon: Flame, label: 'Fresh Roasted', sub: 'Every box made to order' },
   { Icon: Leaf, label: 'Premium Beans', sub: 'Sourced for character' },
   { Icon: ShieldCheck, label: 'Satisfaction Guaranteed', sub: 'Love it or we make it right' },
 ];
