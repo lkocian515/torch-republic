@@ -41,9 +41,9 @@ const WHY_YOULL_LOVE = [
 ];
 
 const TRUST_ITEMS = [
-  { Icon: Flame, label: 'Fresh Roasted', sub: 'Every box made to order' },
-  { Icon: Leaf, label: 'Premium Beans', sub: 'Sourced for character' },
-  { Icon: ShieldCheck, label: 'Satisfaction Guaranteed', sub: 'Love it or we make it right' },
+  { Icon: Flame, label: 'Small Batch Roasted', sub: 'Every box made to order' },
+  { Icon: ShieldCheck, label: 'Quality Guaranteed', sub: 'Love it or we make it right' },
+  { Icon: Lock, label: 'Secure Checkout', sub: 'SSL encrypted · Safe payment' },
 ];
 
 const ROAST_LEVELS = ['Light', 'Medium-Light', 'Medium', 'Medium-Dark', 'Dark', 'Extra Dark'];
@@ -380,6 +380,22 @@ export default function FounderProductPage({ data, DATA }) {
               </p>
 
               <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
+
+              {/* Secure checkout micro-trust */}
+              <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
+                <div className="flex items-center gap-1.5">
+                  <Lock className="w-3 h-3" style={{ color: 'rgba(255,255,255,0.25)' }} />
+                  <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>Secure Checkout</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3 h-3" style={{ color: 'rgba(255,255,255,0.25)' }} />
+                  <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>Quality Guaranteed</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Flame className="w-3 h-3" style={{ color: 'rgba(255,255,255,0.25)' }} />
+                  <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>Small Batch Roasted</span>
+                </div>
+              </div>
 
               {/* Subscription support */}
               <div className="mt-4 p-4" style={{ background: `${ac}08`, border: `1px solid ${ac}25` }}>
