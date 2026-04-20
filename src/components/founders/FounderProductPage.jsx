@@ -223,23 +223,28 @@ export default function FounderProductPage({ data, DATA }) {
               </a>
 
               {/* Subline */}
-              <p className="font-heading mb-5" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.85 }}>
+              <p className="font-heading mb-4" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.85 }}>
                 {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
+              </p>
+
+              {/* Identity hook */}
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-5" style={{ color: `${ac}80` }}>
+                Not just coffee — this is {title} in a cup.
               </p>
             </div>
 
-            {/* Scarcity / urgency */}
+            {/* Urgency + scarcity */}
             <div className="flex flex-col gap-1.5 mb-6">
               <div className="flex items-center gap-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                  Small batch roasted — availability may vary
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  Small Batch Release — Limited Run Blend
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'rgba(201,162,74,0.35)' }} />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                  Limited production run — high demand blend
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                  While supplies last — high demand blend
                 </span>
               </div>
             </div>
@@ -403,7 +408,21 @@ export default function FounderProductPage({ data, DATA }) {
                 ★ Save 15% when you subscribe · Best value
               </p>
 
-              <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} />
+              {/* Micro-trust above CTA */}
+              <div className="flex items-center justify-center gap-4 mb-3 flex-wrap">
+                {[
+                  { dot: '🔥', label: 'Fresh Roasted' },
+                  { dot: '⚡', label: 'Ships Fast' },
+                  { dot: '✓', label: 'Quality Guaranteed' },
+                ].map(({ dot, label }) => (
+                  <div key={label} className="flex items-center gap-1.5">
+                    <span style={{ fontSize: '0.7rem' }}>{dot}</span>
+                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.42)' }}>{label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} label="Secure Your Blend — Carry the Flame" />
 
               {/* Secure checkout micro-trust */}
               <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
