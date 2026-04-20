@@ -14,7 +14,7 @@ export default function SubscriptionTerms() {
     {
       icon: Truck,
       label: 'Shipping Timing',
-      detail: 'Boxes ship within 3–5 business days of billing. You'll receive tracking info via email.',
+      detail: 'Boxes ship within 3-5 business days of billing. You will receive tracking info via email.',
     },
     {
       icon: X,
@@ -24,7 +24,7 @@ export default function SubscriptionTerms() {
     {
       icon: CheckCircle,
       label: 'Satisfaction Guaranteed',
-      detail: 'Don't love it? Let us know, and we'll make it right. Your membership is risk-free.',
+      detail: 'Don\'t love it? Let us know, and we will make it right. Your membership is risk-free.',
     },
   ];
 

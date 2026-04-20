@@ -14,7 +14,7 @@ export default function OnlyForTorchbearers() {
     {
       icon: Lock,
       label: 'Exclusive Blends Not Sold Publicly',
-      detail: 'Member-only roasts you can't buy anywhere else. Subscriber-exclusive coffee available nowhere else.',
+      detail: 'Member-only roasts you cannot buy anywhere else. Subscriber-exclusive coffee available nowhere else.',
     },
     {
       icon: Star,
@@ -24,7 +24,7 @@ export default function OnlyForTorchbearers() {
     {
       icon: Gift,
       label: 'Collectible Inserts & Torchbearer Card',
-      detail: 'Limited-edition cards, inserts, and tokens that build your collector's experience.',
+      detail: 'Limited-edition cards, inserts, and tokens that build your collector experience.',
     },
     {
       icon: Flame,
