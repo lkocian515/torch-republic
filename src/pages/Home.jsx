@@ -7,6 +7,7 @@ import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
+import LibertyIconsBanner from '../components/home/v2/LibertyIconsBanner';
 import MugsTumblersSection from '../components/home/v2/MugsTumblersSection';
 import ApparelSection from '../components/home/v2/ApparelSection';
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
@@ -48,6 +49,9 @@ export default function Home() {
 
       {/* STEP 3 — Start with Subscription */}
       <TorchBoxSection />
+
+      {/* STEP 3.5 — Liberty Icons */}
+      <LibertyIconsBanner />
 
       {/* STEP 4 — Mugs & Tumblers Collection */}
       <MugsTumblersSection />
