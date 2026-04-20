@@ -306,24 +306,34 @@ export default function FounderProductPage({ data, DATA }) {
               </ul>
             </div>
 
-            {/* Collector hook */}
-            <div className="mt-4 p-5" style={{ background: `${ac}08`, border: `1px solid ${ac}22` }}>
+            {/* Collector hook — "Part of a collectible series" */}
+            <div className="mt-4 p-5" style={{ background: `${ac}08`, border: `1px solid ${ac}30` }}>
               <div className="flex items-center gap-3 mb-3">
                 <Flame className="w-4 h-4 flex-shrink-0" style={{ color: ac }} />
                 <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: ac }}>
-                  Part of the {seriesName}
+                  Part of a Collectible Series
                 </p>
               </div>
-              <p className="font-serif mb-3" style={{ fontSize: '1.1rem', color: '#F0EBE1', fontWeight: 600 }}>
-                Collect All {seriesCount}.
+              <p className="font-serif mb-1" style={{ fontSize: '1.1rem', color: '#F0EBE1', fontWeight: 700 }}>
+                Collect All {seriesCount} Founders
               </p>
               <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                Each blend retires from production — permanently. Once gone, it joins the Archive forever.
+                Each blend retires permanently — once gone, it joins the Archive forever.
+              </p>
+              {/* Progress dots */}
+              <div className="flex items-center gap-2 mb-4">
+                {[...Array(seriesCount)].map((_, i) => (
+                  <div key={i} className="h-1.5 flex-1 rounded-sm"
+                    style={{ background: i < Math.ceil(seriesCount * 0.6) ? `${ac}` : `${ac}1A` }} />
+                ))}
+              </div>
+              <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-4" style={{ color: `${ac}55` }}>
+                {seriesCount} Blends in the Series · Build Your Set
               </p>
               <Link to="/CoffeeCollection"
-                className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
-                style={{ color: ac, borderBottom: `1px solid ${ac}35`, paddingBottom: '2px' }}>
-                View the Full Series →
+                className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
+                style={{ background: ac, color: '#0B0B0B', padding: '10px 18px', fontWeight: 800 }}>
+                Collect All Founders →
               </Link>
             </div>
 
@@ -516,18 +526,27 @@ export default function FounderProductPage({ data, DATA }) {
 
       {/* Collectibility */}
       <section style={{ backgroundColor: '#0A0A0A', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
-        <div className="max-w-[680px] mx-auto px-5 md:px-10 py-20 text-center">
+        <div className="max-w-[760px] mx-auto px-5 md:px-10 py-20 text-center">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${ac}45` }}>The Torch Index</p>
-          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F0EBE1', fontWeight: 700 }}>
-            Each blend retires. Forever.
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F0EBE1', fontWeight: 800 }}>
+            Build Your Set. Collect All {seriesCount}.
           </h2>
-          <p style={{ color: 'rgba(240,235,225,0.35)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.9rem', maxWidth: '420px', margin: '0 auto 2rem' }}>
-            Once retired, a blend joins the Archive — never to be roasted again.
+          <p style={{ color: 'rgba(240,235,225,0.35)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.9rem', maxWidth: '420px', margin: '0 auto 1.5rem' }}>
+            Once a blend retires, it joins the Archive — never to be roasted again.
+          </p>
+          {/* Series dots */}
+          <div className="flex items-center justify-center gap-2 mb-6">
+            {[...Array(seriesCount)].map((_, i) => (
+              <div key={i} className="h-2 w-8 rounded-sm" style={{ background: i < Math.ceil(seriesCount * 0.6) ? `${ac}` : `${ac}18` }} />
+            ))}
+          </div>
+          <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-6" style={{ color: `${ac}50` }}>
+            {seriesCount} Founders in the Series
           </p>
           <Link to="/CoffeeCollection"
-            className="font-mono text-[10px] tracking-[0.35em] uppercase transition-opacity hover:opacity-55"
-            style={{ color: `${ac}60`, borderBottom: '1px solid rgba(201,162,74,0.22)', paddingBottom: '3px' }}>
-            View Full Torch Index
+            className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
+            style={{ background: ac, color: '#0B0B0B', padding: '13px 28px' }}>
+            Collect All Founders →
           </Link>
         </div>
       </section>
@@ -547,10 +566,13 @@ export default function FounderProductPage({ data, DATA }) {
         <section style={{ backgroundColor: '#0E0E0E', borderTop: '1px solid rgba(201,162,74,0.07)' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: `${ac}45` }}>
-              Complete the {seriesName}
+              Build Your Set
             </p>
-            <p className="font-serif text-center mb-10" style={{ fontSize: '1.4rem', color: '#F0EBE1', fontWeight: 700 }}>
-              Collect All {seriesCount} Blends
+            <p className="font-serif text-center mb-2" style={{ fontSize: '1.4rem', color: '#F0EBE1', fontWeight: 800 }}>
+              Collect All {seriesCount} Founders
+            </p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-center mb-10" style={{ color: 'rgba(255,255,255,0.28)' }}>
+              Part of a collectible series · Each blend retires permanently
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
               {completePair.map(p => (

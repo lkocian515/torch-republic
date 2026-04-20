@@ -111,19 +111,28 @@ export default function BestSellersStrip() {
                 </span>
                 <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
                   style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
-                  Limited Release
+                  Collect All Founders
                 </span>
                 <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
                   style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
-                  Collect the Series
+                  Build Your Set
                 </span>
               </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Choose Your Blend
               </h2>
-              <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
+              <p className="font-heading mb-4" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
                 Six founders. Six small-batch blends. Each one retires permanently — collect yours before it's gone.
               </p>
+              {/* Series progress indicator */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="w-6 h-1.5 rounded-sm" style={{ background: i < 4 ? '#C9A24A' : 'rgba(201,162,74,0.18)', transition: 'background 0.2s' }} />
+                  ))}
+                </div>
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>6 Founders in the Series</span>
+              </div>
             </div>
 
             <a
@@ -156,27 +165,46 @@ export default function BestSellersStrip() {
           </p>
         )}
 
-        {/* Bottom CTA row */}
+        {/* Stacked boxes visual + CTA */}
         {!isLoading && display.length > 0 && (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <a
-              href="https://torch-republic.com/collections/founders-series"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
-              style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px' }}
-            >
-              Shop the Founders Series →
-            </a>
-            <a
-              href="https://torch-republic.com/collections/all"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
-              style={{ color: 'rgba(201,162,74,0.55)', borderBottom: '1px solid rgba(201,162,74,0.2)', paddingBottom: '2px' }}
-            >
-              View All Blends →
-            </a>
+          <div className="mt-10 p-6 flex flex-col md:flex-row items-center gap-8"
+            style={{ background: '#0D0D0D', border: '1px solid rgba(201,162,74,0.14)' }}>
+            {/* Stacked boxes visual */}
+            <div className="flex-shrink-0 flex items-end gap-[-8px]">
+              {display.slice(0, 4).map((p, i) => (
+                <div key={p.id}
+                  className="w-14 h-14 overflow-hidden rounded-sm border"
+                  style={{
+                    marginLeft: i === 0 ? 0 : '-10px',
+                    zIndex: display.length - i,
+                    position: 'relative',
+                    border: '1px solid rgba(201,162,74,0.3)',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                    transform: `rotate(${[-2, 1, -1, 2][i]}deg)`,
+                  }}>
+                  <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" style={{ opacity: 0.9 }} />
+                </div>
+              ))}
+              <div className="w-14 h-14 flex items-center justify-center rounded-sm ml-[-10px] relative z-0"
+                style={{ border: '1px dashed rgba(201,162,74,0.3)', background: 'rgba(201,162,74,0.05)' }}>
+                <span className="font-mono text-[10px] font-black" style={{ color: 'rgba(201,162,74,0.5)' }}>+2</span>
+              </div>
+            </div>
+            {/* Text + CTA */}
+            <div className="flex-1 text-center md:text-left">
+              <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,162,74,0.5)' }}>Complete the Set</p>
+              <p className="font-serif font-bold mb-1" style={{ fontSize: '1.1rem', color: '#FFFFFF' }}>Collect All 6 Founders</p>
+              <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>Each blend retires permanently — once gone, it's gone forever.</p>
+              <a
+                href="https://torch-republic.com/collections/founders-series"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
+                style={{ background: '#C9A24A', color: '#080808', padding: '13px 28px' }}
+              >
+                Build Your Set <ArrowRight className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         )}
       </div>
