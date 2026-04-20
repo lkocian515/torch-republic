@@ -9,7 +9,7 @@ import { base44 } from '@/api/base44Client';
  * - Passes the chosen variantId directly to createShopifyCheckout so we skip
  *   the server-side "first variant" lookup (faster, more accurate)
  */
-export default function AddToCartButton({ shopifyHandle, accent, label = 'Add to Cart — Carry the Flame' }) {
+export default function AddToCartButton({ shopifyHandle, accent, label = 'Get Your Box — Carry the Flame' }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [variants, setVariants] = useState([]);

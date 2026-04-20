@@ -228,8 +228,8 @@ export default function FounderProductPage({ data, DATA }) {
               </p>
 
               {/* Identity hook */}
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-5" style={{ color: `${ac}80` }}>
-                Not just coffee — this is {title} in a cup.
+              <p className="font-serif italic mb-5" style={{ fontSize: '0.95rem', color: `${ac}90`, fontWeight: 500, lineHeight: 1.6 }}>
+                Not just coffee. This is {title.replace(/ Blend$/, '').replace(/ Coffee$/, '')} in a cup.
               </p>
             </div>
 
@@ -237,14 +237,14 @@ export default function FounderProductPage({ data, DATA }) {
             <div className="flex flex-col gap-1.5 mb-6">
               <div className="flex items-center gap-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                  Small Batch Release — Limited Run Blend
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                  Small Batch Release · Limited Run Blend
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'rgba(201,162,74,0.35)' }} />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                  While supplies last — high demand blend
+                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#ef4444' }} />
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                  Limited availability — while supplies last
                 </span>
               </div>
             </div>
@@ -409,20 +409,20 @@ export default function FounderProductPage({ data, DATA }) {
               </p>
 
               {/* Micro-trust above CTA */}
-              <div className="flex items-center justify-center gap-4 mb-3 flex-wrap">
+              <div className="flex items-center justify-center gap-5 mb-3 flex-wrap">
                 {[
-                  { dot: '🔥', label: 'Fresh Roasted' },
-                  { dot: '⚡', label: 'Ships Fast' },
-                  { dot: '✓', label: 'Quality Guaranteed' },
-                ].map(({ dot, label }) => (
+                  { icon: Flame, label: 'Fresh Roasted' },
+                  { icon: Truck, label: 'Ships Fast' },
+                  { icon: ShieldCheck, label: 'Quality Guaranteed' },
+                ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-1.5">
-                    <span style={{ fontSize: '0.7rem' }}>{dot}</span>
-                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.42)' }}>{label}</span>
+                    <Icon className="w-3 h-3 flex-shrink-0" style={{ color: `${ac}60` }} />
+                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.45)' }}>{label}</span>
                   </div>
                 ))}
               </div>
 
-              <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} label="Secure Your Blend — Carry the Flame" />
+              <AddToCartButton shopifyHandle={shopifyHandle} accent={ac} label="Get Your Box — Carry the Flame" />
 
               {/* Secure checkout micro-trust */}
               <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
