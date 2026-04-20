@@ -113,13 +113,13 @@ export default function BestSellersStrip() {
             <div>
               <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black mb-3 inline-block"
                 style={{ background: 'rgba(201,162,74,0.15)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)' }}>
-                Collect All 6
+                Build Your Set
               </span>
               <h2 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                Choose Your Blend
+                The Founders Series
               </h2>
               <p className="font-heading mb-0" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 400 }}>
-                Six premium coffee blends. Each retires forever.
+                Six premium small-batch blends inspired by American legacy. Each roasted once. Each retires forever.
               </p>
             </div>
 
@@ -130,7 +130,7 @@ export default function BestSellersStrip() {
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow flex-shrink-0"
               style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '14px 28px' }}
             >
-              Shop the Founders Series <ArrowRight className="w-3 h-3" />
+              Explore All Six <ArrowRight className="w-3 h-3" />
             </a>
           </div>
         </motion.div>
@@ -190,7 +190,7 @@ export default function BestSellersStrip() {
                 className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
                 style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px', boxShadow: '0 4px 20px rgba(201,162,74,0.25)' }}
               >
-                Build Your Set <ArrowRight className="w-3 h-3" />
+                Collect the Full Series <ArrowRight className="w-3 h-3" />
               </a>
             </div>
           </div>

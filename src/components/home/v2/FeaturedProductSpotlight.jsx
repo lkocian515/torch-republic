@@ -108,13 +108,13 @@ export default function FeaturedProductSpotlight() {
               className="font-serif leading-none mb-2"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#C9A24A', letterSpacing: '-0.02em' }}
             >
-              Start with<br />
-              <span style={{ color: '#FFFFFF' }}>Washington</span>
+              The Foundation<br />
+              <span style={{ color: '#FFFFFF' }}>Washington Blend</span>
             </h2>
 
             {/* Value line */}
             <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: '380px' }}>
-              Bold, disciplined dark roast. Premium sourced. Small-batch roasted.
+              A bold, disciplined dark roast. Premium sourced beans. Small-batch roasted with precision. The perfect entry point into the collection.
             </p>
 
             {/* Price */}

@@ -204,8 +204,8 @@ export default function TheTorchBox() {
     <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1' }}>
 
       {/* Brand Authority Line */}
-      <div className="w-full text-center py-2 px-5" style={{ background: 'rgba(201,162,74,0.02)', borderBottom: '1px solid rgba(201,162,74,0.08)' }}>
-        <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.4)' }}>Torch Republic Coffee Company · Premium Roasted Coffee Subscription</p>
+      <div className="w-full text-center py-3 px-5" style={{ background: 'rgba(201,162,74,0.02)', borderBottom: '1px solid rgba(201,162,74,0.08)' }}>
+        <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: '#C9A24A' }}>Torch Republic Coffee Company · Est. 2024 · Premium Roasted Collector System</p>
       </div>
       <FomoBanner />
 
@@ -228,17 +228,17 @@ export default function TheTorchBox() {
 
             <h1 className="font-serif leading-none mb-5"
               style={{ fontSize: 'clamp(3rem, 7vw, 5.8rem)', fontWeight: 800, letterSpacing: '-0.025em', color: '#FFFFFF' }}>
-              Join the<br />
-              <span style={{ color: AC }}>Torchbearers.</span>
+              Become a<br />
+              <span style={{ color: AC }}>Torchbearer.</span>
             </h1>
 
             <div className="h-0.5 w-14 mb-6" style={{ background: `linear-gradient(90deg, ${AC}, transparent)` }} />
 
             <p style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)', color: 'rgba(240,235,225,0.75)', lineHeight: 1.9, maxWidth: '440px', fontWeight: 300, marginBottom: '0.75rem' }}>
-              Premium coffee. Historical legacy. Delivered monthly.
+              Premium small-batch coffee. Historical legacy. Monthly collector editions.
             </p>
-            <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.38)', lineHeight: 1.85, maxWidth: '400px', fontWeight: 300, marginBottom: '2.5rem' }}>
-              Not just a subscription — a collector system built around the founders and icons of American history.
+            <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.85, maxWidth: '400px', fontWeight: 400, marginBottom: '2.5rem' }}>
+              More than a subscription. A intentional system built around the patriots and icons who shaped America — delivered to your door every month.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -640,11 +640,11 @@ export default function TheTorchBox() {
               Torch Republic · Membership
             </p>
             <h2 className="font-serif mb-5" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#F0EBE1', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.025em' }}>
-              Join the Torchbearers.<br />
+              Become a Torchbearer.<br />
               <span style={{ color: AC }}>Carry the Flame.</span>
             </h2>
-            <p style={{ color: 'rgba(240,235,225,0.38)', lineHeight: 1.9, fontWeight: 300, maxWidth: '400px', margin: '0 auto 1rem', fontSize: '0.95rem' }}>
-              Premium coffee. Historical legacy. Delivered monthly. A new chapter every delivery.
+            <p style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 400, maxWidth: '400px', margin: '0 auto 1rem', fontSize: '0.95rem' }}>
+              Premium small-batch coffee. American historical legacy. Built intentionally. Delivered monthly.
             </p>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-10" style={{ color: 'rgba(201,162,74,0.4)' }}>
               Cancel anytime · No commitment required

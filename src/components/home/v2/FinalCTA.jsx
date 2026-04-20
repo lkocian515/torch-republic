@@ -27,27 +27,27 @@ export default function FinalCTA() {
         className="relative z-10 max-w-[600px] mx-auto"
       >
         <h2 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-          Ready to Begin?
+          Built for Those Who Carry the Flame.
         </h2>
 
-        <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
-          Choose your first blend or start with a subscription.
+        <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.72)', fontWeight: 400, lineHeight: 1.6, maxWidth: '480px', margin: '0 auto' }}>
+          Torch Republic Coffee Company delivers premium small-batch blends roasted with intention. Choose a single blend or join a Torchbearer membership and build your legacy.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to="/CoffeeCollection"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
-            style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '15px 36px' }}
+            style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
           >
-            Choose Your Blend
+            Explore the Collection
           </Link>
           <Link
             to="/TheTorchBox"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75"
-            style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)', padding: '15px 28px' }}
+            style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)', padding: '16px 28px' }}
           >
-            Pick Your First Box
+            Become a Torchbearer
           </Link>
         </div>
       </motion.div>

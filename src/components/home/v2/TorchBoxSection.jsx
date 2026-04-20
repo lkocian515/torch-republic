@@ -62,17 +62,17 @@ export default function TorchBoxSection() {
               <div className="flex items-center gap-2 mb-4">
                 <span className="font-mono text-[9px] tracking-[0.35em] uppercase px-3 py-1.5 font-black rounded-sm"
                   style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.5)' }}>
-                  ⚡ Limited Availability
+                  ⚡ Limited Monthly Availability
                 </span>
               </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-                Claim Your Box
+                More Than Coffee.<br />A System.
               </h2>
               <p className="font-heading mb-2" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 420 }}>
-                Get exclusive blends. Monthly delivery. Save up to $42/mo.
+                Exclusive member-only blends. Premium small-batch roasted. Delivered monthly with intention.
               </p>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A', fontWeight: 600 }}>
-                + Exclusive first box bonus
+                Save up to $42/mo + exclusive first box bonus
               </p>
             </div>
             <Link

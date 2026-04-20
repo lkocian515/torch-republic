@@ -32,7 +32,7 @@ export default function HeroSection() {
             className="font-mono text-[10px] tracking-[0.6em] uppercase mb-6"
             style={{ color: '#C9A24A' }}
           >
-            Torch Republic · Small-Batch Coffee
+            Torch Republic Coffee Company · Est. 2024
           </motion.p>
 
           <motion.h1
@@ -48,7 +48,7 @@ export default function HeroSection() {
               textShadow: '0 4px 48px rgba(0,0,0,0.95)',
             }}
           >
-            Carry the<br />Flame.
+            Built for Those<br />Who Carry<br />the Flame.
           </motion.h1>
 
           <motion.div
@@ -73,8 +73,8 @@ export default function HeroSection() {
                textShadow: '0 1px 12px rgba(0,0,0,0.8)',
              }}
            >
-             Premium coffee from the icons of American history.
-           </motion.p>
+             Premium small-batch coffee roasted with intention. Built around the legacy of American patriots and icons.
+             </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -87,14 +87,14 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
               style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
             >
-              Choose Your Blend →
+              Explore the Collection →
             </Link>
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
               style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '16px 28px' }}
             >
-              Pick Your First Box
+              Join the Torchbearers →
             </Link>
           </motion.div>
         </div>
