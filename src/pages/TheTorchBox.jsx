@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { Flame, Check, Truck, Shield, Lock, Star, Coffee, BookOpen, QrCode, CreditCard, RefreshCw } from 'lucide-react';
 import TorchbearerCard from '../components/torchbox/TorchbearerCard';
 import FirstOrderBonus from '../components/torchbox/FirstOrderBonus';
+import SubscriptionTerms from '../components/torchbox/SubscriptionTerms';
+import WhatsInTheBox from '../components/torchbox/WhatsInTheBox';
+import OnlyForTorchbearers from '../components/torchbox/OnlyForTorchbearers';
 
 const AC = '#C9A24A';
 
@@ -250,6 +253,13 @@ export default function TheTorchBox() {
               </a>
             </div>
 
+            {/* Hero trust microcopy */}
+            <div className="flex flex-col gap-2 text-sm">
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>
+                ✓ Transparent billing · Cancel anytime · Risk-free guarantee
+              </p>
+            </div>
+
             {/* Mini trust strip */}
             <div className="flex flex-wrap gap-5">
               {['Cancel anytime', 'Fresh roasted guarantee', 'Secure checkout'].map(t => (
@@ -355,9 +365,14 @@ export default function TheTorchBox() {
           {/* Mid-page CTA */}
           <div className="flex flex-col items-center gap-3 mt-14">
             <StartBoxCTA />
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.22)' }}>
-              Cancel anytime · No contracts
-            </p>
+            <div className="flex flex-col items-center gap-1.5">
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.22)' }}>
+                Cancel anytime · No long-term commitment
+              </p>
+              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(201,162,74,0.5)' }}>
+                Secure checkout · Your risk-free trial
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -379,6 +394,16 @@ export default function TheTorchBox() {
           </motion.div>
         </div>
       </section>
+
+      <Divider />
+
+      {/* ── SUBSCRIPTION TRANSPARENCY ── */}
+      <SubscriptionTerms />
+
+      <Divider />
+
+      {/* ── ONLY FOR TORCHBEARERS ── */}
+      <OnlyForTorchbearers />
 
       <Divider />
 
@@ -485,6 +510,11 @@ export default function TheTorchBox() {
           ))}
         </div>
       </section>
+
+      <Divider />
+
+      {/* ── WHAT'S IN THE BOX CLARITY ── */}
+      <WhatsInTheBox />
 
       <Divider />
 
@@ -652,14 +682,21 @@ export default function TheTorchBox() {
 
             <StartBoxCTA size="lg" label="Claim Your Box Today" />
 
-            {/* Final trust row */}
-            <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
+            {/* Enhanced final trust row */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-10 px-4">
               {TRUST.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-1.5">
                   <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.55)' }} />
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</span>
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Bottom trust statement */}
+            <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
+              <p className="font-mono text-[8px] tracking-[0.2em] uppercase text-center" style={{ color: 'rgba(201,162,74,0.45)' }}>
+                Join 200+ Torchbearers already collecting premium coffee · Risk-free, fully transparent
+              </p>
             </div>
             
             {/* Customer Journey Navigation */}
