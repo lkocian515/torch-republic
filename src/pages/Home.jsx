@@ -7,7 +7,7 @@ import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
-import CollectionCardsSection from '../components/home/v2/CollectionCardsSection';
+import MugsTumblersPreview from '../components/home/v2/MugsTumblersPreview';
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
@@ -48,8 +48,8 @@ export default function Home() {
       {/* STEP 3 — Start with Subscription */}
       <TorchBoxSection />
 
-      {/* STEP 4 — Extended Collection Cards */}
-      <CollectionCardsSection />
+      {/* STEP 4 — Mugs & Tumblers Preview */}
+      <MugsTumblersPreview />
 
       {/* STEP 5 — Trust + Convert */}
       <HomeReviewStrip />

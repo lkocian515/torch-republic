@@ -10,14 +10,6 @@ const COLLECTIONS = [
     cta: 'Shop Mugs & Tumblers',
     url: '/collections/mugs-tumblers',
   },
-  {
-    id: 'apparel',
-    title: 'Shirts',
-    subtitle: 'Historically inspired designs built for everyday wear.',
-    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80',
-    cta: 'Shop Shirts',
-    url: '/collections/apparel',
-  },
 ];
 
 export default function CollectionCardsSection() {
