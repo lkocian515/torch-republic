@@ -135,19 +135,20 @@ export default function Mission() {
               transition={{ delay: 0.9 }}
               className="flex flex-col sm:flex-row justify-center gap-3"
             >
-              <Link
-                to="#mission"
-                className="px-7 py-3 font-mono text-xs tracking-widest uppercase transition-all"
+              <a
+                href="#mission"
+                className="px-7 py-3 font-mono text-xs tracking-widest uppercase transition-all inline-block"
                 style={{
                   backgroundColor: '#C9A24A',
                   color: '#000000',
-                  border: '1px solid #C9A24A'
+                  border: '1px solid #C9A24A',
+                  textDecoration: 'none'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E4C46A'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#C9A24A'}
               >
                 Our Mission
-              </Link>
+              </a>
               <Link
                 to="/CoffeeCollection"
                 className="px-7 py-3 font-mono text-xs tracking-widest uppercase transition-all"
