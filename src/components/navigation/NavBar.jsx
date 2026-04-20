@@ -30,7 +30,7 @@ const NAV_GROUPS = [
       { label: 'Home', href: '/' },
       { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
-      { label: 'Best Sellers', href: '/BestSellers' },
+      { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ],

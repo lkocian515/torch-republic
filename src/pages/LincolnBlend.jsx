@@ -2,11 +2,8 @@ import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
 
 const DATA = {
-  title: 'Lincoln Blend',
+  title: 'Lincoln Blend — Founders Series Coffee',
   subline: 'Endurance is the real strength.',
-  code: 'TR-004',
-  seriesNum: 'Founders #04',
-  rarity: "FOUNDER'S EDITION",
   roast: 'Dark Roast',
   price: '$18.99',
   shopifyHandle: 'lincoln-blend-founders-series-coffee',
@@ -25,8 +22,8 @@ const DATA = {
   ],
   quote: { text: 'Give me six hours to chop down a tree and I will spend the first four sharpening the axe.', author: 'Abraham Lincoln' },
   completePair: [
-    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast · TR-001' },
-    { to: '/RooseveltBlend', name: 'Roosevelt Blend', roast: 'Dark Roast · TR-005' },
+    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast' },
+    { to: '/RooseveltBlend', name: 'Roosevelt Blend', roast: 'Dark Roast' },
   ],
 };
 

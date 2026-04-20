@@ -2,11 +2,8 @@ import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
 
 const DATA = {
-  title: 'Jefferson Blend',
+  title: 'Jefferson Blend — Founders Series Coffee',
   subline: 'Ideas built the nation before anything else.',
-  code: 'TR-003',
-  seriesNum: 'Founders #03',
-  rarity: "FOUNDER'S EDITION",
   roast: 'Medium Roast',
   price: '$18.99',
   shopifyHandle: 'jefferson-blend',
@@ -24,8 +21,8 @@ const DATA = {
   ],
   quote: { text: 'I like the dreams of the future better than the history of the past.', author: 'Thomas Jefferson' },
   completePair: [
-    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast · TR-001' },
-    { to: '/FranklinBlend', name: 'Franklin Blend', roast: 'Medium-Dark · TR-002' },
+    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast' },
+    { to: '/FranklinBlend', name: 'Franklin Blend', roast: 'Medium-Dark Roast' },
   ],
 };
 

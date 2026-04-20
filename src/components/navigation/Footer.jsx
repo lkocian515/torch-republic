@@ -18,7 +18,7 @@ const FOOTER_LINKS = [
     links: [
       { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
-      { label: 'Best Sellers', href: '/BestSellers' },
+      { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ]

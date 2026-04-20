@@ -2,11 +2,8 @@ import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
 
 const DATA = {
-  title: 'Washington Blend',
+  title: 'Washington Blend — Founders Series Coffee',
   subline: 'Lead from the front. Finish what you start.',
-  code: 'TR-001',
-  seriesNum: 'Founders #01',
-  rarity: "FOUNDER'S EDITION",
   roast: 'Medium Roast',
   price: '$18.99',
   shopifyHandle: 'washington-blend',
@@ -25,8 +22,8 @@ const DATA = {
   ],
   quote: { text: 'Discipline is the soul of an army.', author: 'George Washington' },
   completePair: [
-    { to: '/JeffersonBlend', name: 'Jefferson Blend', roast: 'Medium Roast · TR-003' },
-    { to: '/FranklinBlend', name: 'Franklin Blend', roast: 'Medium-Dark · TR-002' },
+    { to: '/JeffersonBlend', name: 'Jefferson Blend', roast: 'Medium Roast' },
+    { to: '/FranklinBlend', name: 'Franklin Blend', roast: 'Medium-Dark Roast' },
   ],
 };
 

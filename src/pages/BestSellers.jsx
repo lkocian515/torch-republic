@@ -73,10 +73,10 @@ export default function BestSellers() {
               Torch Republic
             </p>
             <h1 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, color: '#C9A24A', letterSpacing: '-0.02em', textShadow: '0 2px 40px rgba(0,0,0,0.7)' }}>
-              Best Sellers
+              Popular Blends
             </h1>
             <p className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.4)' }}>
-              The ones people keep coming back for.
+              Customer favorites and trusted classics.
             </p>
             <div className="h-px w-20 mt-6" style={{ background: 'linear-gradient(90deg, transparent, rgba(196,163,90,0.5), transparent)' }} />
           </div>

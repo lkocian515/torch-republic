@@ -172,20 +172,7 @@ export default function FounderProductPage({ data, DATA }) {
           className="relative z-10 object-contain"
           style={{ maxHeight: 'clamp(220px, 36vh, 420px)', maxWidth: '72%', filter: 'drop-shadow(0 0 40px rgba(201,162,74,0.18))' }}
         />
-        {/* Series code badge */}
-        {code && (
-          <div className="absolute top-5 left-5 md:left-10 z-20">
-            <span className="font-mono text-[10px] font-black tracking-[0.35em] uppercase px-3 py-1.5" style={{ background: ac, color: '#0B0B0B' }}>{code}</span>
-          </div>
-        )}
-        {rarity === "FOUNDER'S EDITION" && (
-          <div className="absolute top-5 right-5 md:right-10 z-20">
-            <span className="font-mono text-[9px] font-black tracking-[0.3em] uppercase px-3 py-1.5"
-              style={{ background: 'rgba(196,163,90,0.12)', color: ac, border: `1px solid ${ac}40` }}>
-              Founder's Edition
-            </span>
-          </div>
-        )}
+
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 80, background: 'linear-gradient(to top, #080808, transparent)' }} />
       </section>
 
@@ -384,10 +371,10 @@ export default function FounderProductPage({ data, DATA }) {
              <div className="flex items-center gap-2 mb-4">
                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
                  style={{ background: `${ac}12`, color: ac, border: `1px solid ${ac}30` }}>
-                 ★ Popular Choice
+                 ★ Customer Favorite
                </span>
                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                 Ordered recently by Torchbearers
+                 Loved by Torchbearers
                </span>
              </div>
              {/* Subscribe Toggle — only for Torch Box products */}

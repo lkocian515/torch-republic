@@ -2,11 +2,8 @@ import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
 
 const DATA = {
-  title: 'Adams Blend',
+  title: 'Adams Blend — Founders Series Coffee',
   subline: "Facts don't bend. Neither should you.",
-  code: 'TR-006',
-  seriesNum: 'Founders #06',
-  rarity: "FOUNDER'S EDITION",
   roast: 'Medium-Dark Roast',
   price: '$18.99',
   shopifyHandle: 'adams-blend',
@@ -24,8 +21,8 @@ const DATA = {
   ],
   quote: { text: 'Liberty cannot be preserved without a general knowledge among the people.', author: 'John Adams' },
   completePair: [
-    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast · TR-001' },
-    { to: '/RooseveltBlend', name: 'Roosevelt Blend', roast: 'Dark Roast · TR-005' },
+    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast' },
+    { to: '/RooseveltBlend', name: 'Roosevelt Blend', roast: 'Dark Roast' },
   ],
 };
 

@@ -2,11 +2,8 @@ import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
 
 const DATA = {
-  title: 'Franklin Blend',
+  title: 'Franklin Blend — Founders Series Coffee',
   subline: 'Well done is better than well said.',
-  code: 'TR-002',
-  seriesNum: 'Founders #02',
-  rarity: "FOUNDER'S EDITION",
   roast: 'Medium-Dark Roast',
   price: '$18.99',
   shopifyHandle: 'franklin-blend',
@@ -24,8 +21,8 @@ const DATA = {
   ],
   quote: { text: 'Well done is better than well said.', author: 'Benjamin Franklin' },
   completePair: [
-    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast · TR-001' },
-    { to: '/JeffersonBlend', name: 'Jefferson Blend', roast: 'Medium Roast · TR-003' },
+    { to: '/WashingtonBlend', name: 'Washington Blend', roast: 'Medium Roast' },
+    { to: '/JeffersonBlend', name: 'Jefferson Blend', roast: 'Medium Roast' },
   ],
 };
 
