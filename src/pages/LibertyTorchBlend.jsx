@@ -5,6 +5,7 @@ const DATA = {
   name: 'Liberty Torch Blend',
   subtitle: 'Light the Way with Eternal Freedom',
   shopify_handle: 'liberty-torch-blend',
+  format: 'WHOLE BEAN BOX',
   price: 20.00,
   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/30_fda88503-e869-47ed-8acc-33230f6246c9.png?v=1776038701',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/bvbvhm.png?v=1776038701',

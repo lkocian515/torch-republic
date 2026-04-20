@@ -5,6 +5,7 @@ const DATA = {
   name: "Rosie's Grind",
   subtitle: 'Channel American Grit and Resilience',
   shopify_handle: 'rosies-grind',
+  format: 'WHOLE BEAN BOX',
   price: 20.00,
   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/vhjvhjm.png?v=1776038440',

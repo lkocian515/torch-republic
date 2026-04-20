@@ -110,6 +110,7 @@ export default function FounderProductPage({ data, DATA }) {
     accent:       raw.accent || raw.color,
     heroImage:    raw.heroImage || raw.image,
     images:       raw.images || (raw.image ? [raw.image, raw.image_2].filter(Boolean) : undefined),
+    format:       raw.format || 'WHOLE BEAN BOX',
   };
 
   const seriesName = normalized.seriesNum
@@ -121,7 +122,7 @@ export default function FounderProductPage({ data, DATA }) {
     title, subline, code, seriesNum, rarity, roast, price,
     shopifyHandle, founderStory, tastingNotes,
     histFacts, quote, completePair,
-    accent, heroImage,
+    accent, heroImage, format,
   } = normalized;
 
   const [activeImg, setActiveImg] = useState(0);
@@ -183,14 +184,15 @@ export default function FounderProductPage({ data, DATA }) {
               <h1 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
                 {title}
               </h1>
-              {/* Box format badge */}
-              <div className="flex items-center gap-2 mb-3">
+              {/* Format indicator — crystal clear product format */}
+              <div className="flex items-center gap-2 mb-3 flex-wrap">
                 <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
-                  style={{ background: 'rgba(196,163,90,0.1)', color: '#C9A24A', border: '1px solid rgba(196,163,90,0.35)' }}>
-                  ▣ Premium Coffee Box
+                  style={{ background: 'rgba(196,163,90,0.15)', color: '#C9A24A', border: '1px solid rgba(196,163,90,0.5)', fontWeight: 800 }}>
+                  FORMAT: {format}
                 </span>
-                <span className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                  Whole Bean · Small-Batch Roasted
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase px-2 py-1"
+                  style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  Small-Batch Roasted
                 </span>
               </div>
             </div>
@@ -202,9 +204,13 @@ export default function FounderProductPage({ data, DATA }) {
               <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>(200+ reviews)</span>
             </a>
 
-            {/* 2. Hook */}
+            {/* 2. Hook — format-reinforcing first line */}
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.35)' }}>
-              Delivered in a premium Torch Republic coffee box.
+              {format === 'PODS BOX'
+                ? 'Delivered as single-serve pods in a premium Torch Republic coffee box.'
+                : format === 'GROUND COFFEE BOX'
+                ? 'Delivered as ground coffee in a premium Torch Republic coffee box.'
+                : 'Delivered as whole bean coffee in a premium Torch Republic coffee box.'}
             </p>
             <p className="font-heading mb-4" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
               {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}

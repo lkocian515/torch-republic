@@ -10,6 +10,7 @@ const DATA = {
   roast: 'Medium-Dark Roast',
   price: '$18.99',
   shopifyHandle: 'adams-blend',
+  format: 'WHOLE BEAN BOX',
   accent: '#B87AC8',
   heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/adams_mockup_kitchen.png?v=1775823910',
   founderStory: [

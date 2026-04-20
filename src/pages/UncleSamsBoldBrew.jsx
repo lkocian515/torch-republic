@@ -5,6 +5,7 @@ const DATA = {
   name: "Uncle Sam's Bold Brew",
   subtitle: 'Uncle Sam Wants YOU to Wake Up and Taste Freedom',
   shopify_handle: 'uncle-sams-bold-brew',
+  format: 'WHOLE BEAN BOX',
   price: 20.00,
   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/27.png?v=1776038585',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/nbhjbijk.png?v=1776038585',

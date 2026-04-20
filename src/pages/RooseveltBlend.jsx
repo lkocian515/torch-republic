@@ -10,6 +10,7 @@ const DATA = {
   roast: 'Dark Roast',
   price: '$18.99',
   shopifyHandle: 'roosevelt-blend',
+  format: 'WHOLE BEAN BOX',
   accent: '#7AC87A',
   heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/roosevelt_mockup_wilderness.png?v=1775828726',
   founderStory: [

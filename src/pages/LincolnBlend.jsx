@@ -10,6 +10,7 @@ const DATA = {
   roast: 'Dark Roast',
   price: '$18.99',
   shopifyHandle: 'lincoln-blend-founders-series-coffee',
+  format: 'WHOLE BEAN BOX',
   accent: '#C87070',
   heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
   founderStory: [

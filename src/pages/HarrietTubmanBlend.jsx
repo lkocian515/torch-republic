@@ -8,6 +8,7 @@ const DATA = {
   roast: 'Dark Roast',
   price: 19.99,
   shopifyHandle: 'midnight-railway',
+  format: 'WHOLE BEAN BOX',
   accent: '#D4A0C0',
   // heroImage and images are intentionally omitted — loaded live from DB by handle
   seriesLabel: 'Women of the Republic',

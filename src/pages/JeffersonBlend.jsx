@@ -10,6 +10,7 @@ const DATA = {
   roast: 'Medium Roast',
   price: '$18.99',
   shopifyHandle: 'jefferson-blend',
+  format: 'WHOLE BEAN BOX',
   accent: '#9BB8CC',
   heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/55117f78-5325-4d77-b880-5a92e73fcbb1.png?v=1775823238',
   founderStory: [

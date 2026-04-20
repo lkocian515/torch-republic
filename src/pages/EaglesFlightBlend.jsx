@@ -5,6 +5,7 @@ const DATA = {
   name: "Eagle's Flight Blend",
   subtitle: 'Soar Higher with Bold Strength',
   shopify_handle: 'eagles-flight-blend',
+  format: 'WHOLE BEAN BOX',
   price: 20.00,
   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/hjvhjv.png?v=1776038383',

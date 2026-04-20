@@ -5,6 +5,7 @@ const DATA = {
   name: 'Old Glory House Blend',
   subtitle: 'The Blend That Built America',
   shopify_handle: 'old-glory-house-blend',
+  format: 'WHOLE BEAN BOX',
   price: 18.00,
   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/j9ihuio.png?v=1776038315',
   image_2: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/old-glory-2.png?v=1776038800',
