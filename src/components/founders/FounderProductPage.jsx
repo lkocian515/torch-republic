@@ -183,6 +183,16 @@ export default function FounderProductPage({ data, DATA }) {
               <h1 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
                 {title}
               </h1>
+              {/* Box format badge */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
+                  style={{ background: 'rgba(196,163,90,0.1)', color: '#C9A24A', border: '1px solid rgba(196,163,90,0.35)' }}>
+                  ▣ Premium Coffee Box
+                </span>
+                <span className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                  Whole Bean · Small-Batch Roasted
+                </span>
+              </div>
             </div>
 
             {/* Trust booster — rating under title */}
@@ -193,6 +203,9 @@ export default function FounderProductPage({ data, DATA }) {
             </a>
 
             {/* 2. Hook */}
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.35)' }}>
+              Delivered in a premium Torch Republic coffee box.
+            </p>
             <p className="font-heading mb-4" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.85 }}>
               {subline || 'Bold character. Smooth conviction. Every cup carries a legacy.'}
             </p>
