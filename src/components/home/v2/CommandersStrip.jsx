@@ -115,6 +115,16 @@ export default function CommandersStrip() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(201,162,74,0.12)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.35)' }}>
+                  ● Small Batch
+                </span>
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(201,162,74,0.07)', color: 'rgba(201,162,74,0.65)', border: '1px solid rgba(201,162,74,0.2)' }}>
+                  Collect the Series
+                </span>
+              </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Commanders Series
               </h2>

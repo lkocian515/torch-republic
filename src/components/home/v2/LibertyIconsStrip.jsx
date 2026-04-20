@@ -107,6 +107,16 @@ export default function LibertyIconsStrip() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(155,184,204,0.12)', color: '#9BB8CC', border: '1px solid rgba(155,184,204,0.35)' }}>
+                  ● Small Batch
+                </span>
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(155,184,204,0.07)', color: 'rgba(155,184,204,0.65)', border: '1px solid rgba(155,184,204,0.2)' }}>
+                  Collect the Series
+                </span>
+              </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Liberty Icons
               </h2>
@@ -119,10 +129,10 @@ export default function LibertyIconsStrip() {
               href="https://torch-republic.com/collections/liberty-icons-coffee"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75 flex-shrink-0 pb-0.5"
-              style={{ color: '#9BB8CC', borderBottom: '1px solid rgba(155,184,204,0.35)' }}
+              className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow flex-shrink-0"
+              style={{ background: '#9BB8CC', color: '#080808', fontWeight: 800, padding: '14px 28px' }}
             >
-              Carry the Flame <ArrowRight className="w-3.5 h-3.5" />
+              Explore the Collection <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </motion.div>

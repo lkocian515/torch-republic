@@ -3,7 +3,6 @@ import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import PodsBenefitsStrip from '../components/home/v2/PodsBenefitsStrip';
-import PodsSocialProof from '../components/home/v2/PodsSocialProof';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import BuildYourRoutine from '../components/home/v2/BuildYourRoutine';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
@@ -28,8 +27,6 @@ export default function Home() {
       <FeaturedProductSpotlight />
       {/* 1c. Pod benefits strip */}
       <PodsBenefitsStrip />
-      {/* 1d. Social proof quote */}
-      <PodsSocialProof />
       {/*
         ═══════════════════════════════════════════════════════════
         COLLECTION HIERARCHY — LOCKED. DO NOT REORDER.

@@ -104,11 +104,25 @@ export default function BestSellersStrip() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
             <div>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(201,162,74,0.15)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)' }}>
+                  ● Small Batch
+                </span>
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
+                  Limited Release
+                </span>
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
+                  style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
+                  Collect the Series
+                </span>
+              </div>
               <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Founders Series
               </h2>
               <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
-                Where it all began. Balanced, reliable blends built for your daily ritual — named for the men who built a nation.
+                Where it all began. Six blends. Six founders. Each one retires — forever. Collect before they're gone.
               </p>
             </div>
 
@@ -116,10 +130,10 @@ export default function BestSellersStrip() {
               href="https://torch-republic.com/collections/founders-series"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-px flex-shrink-0"
-              style={{ color: 'rgba(201,162,74,0.6)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}
+              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow flex-shrink-0"
+              style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '14px 28px' }}
             >
-              View Collection <ArrowRight className="w-3 h-3" />
+              Shop the Founders Series <ArrowRight className="w-3 h-3" />
             </a>
           </div>
         </motion.div>

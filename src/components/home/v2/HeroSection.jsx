@@ -87,14 +87,14 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
               style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '18px 40px' }}
             >
-              Shop Coffee →
+              Shop the Founders Series →
             </Link>
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
               style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '18px 32px' }}
             >
-              Join the Torch Box
+              Start Your First Box
             </Link>
           </motion.div>
         </div>
