@@ -60,41 +60,55 @@ export default function HeroSection() {
           />
 
           <motion.p
+             initial={{ opacity: 0, y: 10 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.6, delay: 0.4 }}
+             className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4"
+             style={{
+               color: '#C9A24A',
+               fontWeight: 600,
+               textShadow: '0 1px 8px rgba(0,0,0,0.8)',
+             }}
+           >
+             Premium American Coffee Built on History, Discipline, and Legacy
+           </motion.p>
+
+          <motion.p
              initial={{ opacity: 0, y: 14 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.7, delay: 0.4 }}
+             transition={{ duration: 0.7, delay: 0.5 }}
              className="font-heading mb-10"
              style={{
                fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
                color: '#F0EBE1',
                fontWeight: 400,
                lineHeight: 1.7,
-               maxWidth: '420px',
+               maxWidth: '440px',
                textShadow: '0 1px 12px rgba(0,0,0,0.8)',
              }}
            >
-             Premium small-batch coffee roasted with intention. Built around the legacy of American patriots and icons.
-             </motion.p>
+             Small-batch roasted coffee inspired by American founders, patriots, and icons. Premium quality. No fillers. Built on discipline.
+           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              to="/CoffeeCollection"
+              to="/Shop"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
-              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
+              style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 40px' }}
             >
-              Explore the Collection →
+              Shop Bestsellers →
             </Link>
             <Link
-              to="/TheTorchBox"
+              to="/CoffeeCollection"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
-              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '16px 28px' }}
+              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '16px 32px' }}
             >
-              Join the Torchbearers →
+              Explore Coffee →
             </Link>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
 import WashingtonPodsSpotlight from '../components/home/v2/WashingtonPodsSpotlight';
+import HomeTrustStrip from '../components/home/v2/HomeTrustStrip';
 import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
@@ -19,6 +20,9 @@ export default function Home() {
 
       {/* FIRST PRODUCT — Washington Blend Pods */}
       <WashingtonPodsSpotlight />
+
+      {/* Trust Indicators */}
+      <HomeTrustStrip />
 
       {/* First-Time Customer Guidance */}
       <FirstTimeGuidance />
