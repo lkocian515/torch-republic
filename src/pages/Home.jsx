@@ -8,6 +8,7 @@ import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
 import MugsTumblersSection from '../components/home/v2/MugsTumblersSection';
+import ApparelSection from '../components/home/v2/ApparelSection';
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
 import FinalCTA from '../components/home/v2/FinalCTA';
 import ExitIntentPopup from '../components/home/ExitIntentPopup';
@@ -51,7 +52,10 @@ export default function Home() {
       {/* STEP 4 — Mugs & Tumblers Collection */}
       <MugsTumblersSection />
 
-      {/* STEP 5 — Trust + Convert */}
+      {/* STEP 5 — Apparel Collection */}
+      <ApparelSection />
+
+      {/* STEP 6 — Trust + Convert */}
       <HomeReviewStrip />
       <FinalCTA />
       <ExitIntentPopup />

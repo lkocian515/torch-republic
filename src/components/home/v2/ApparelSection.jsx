@@ -1,113 +1,163 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-// Curated priority handles — best designs shown first
-const PRIORITY_HANDLES = [
-  'continental-army-1776-born-free-patriotic-tee',
-  't-shirt-no-taxation-without-caffeination-vintage-coffee-liberty-tee',
-  'second-amendment-t-shirt-the-second-amendment-1791-rifle-graphic-tee',
-  'live-free-stay-ready-hancock-with-american-flag-shirt',
+// Explicit apparel product array with exact Shopify CDN image URLs
+const APPAREL_PRODUCTS = [
+  {
+    id: 1,
+    name: 'Second Amendment T-Shirt — 1791 Rifle Graphic Tee',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260414094618-1f137e6c-983e-608e-9772-b6fb0fd48d2b.png?v=1776160048',
+  },
+  {
+    id: 2,
+    name: 'Continental Army 1776 — Born Free Patriotic Tee',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260413012811-1f136d80-90c3-672a-8cb0-e2845966f77f.png?v=1776168068',
+  },
+  {
+    id: 3,
+    name: 'Remember the Alamo T-Shirt — Texas Forever Historical Tee',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260414065736-1f137cf3-8369-67e6-a911-0af5099c7f23.png?v=1776159566',
+  },
+  {
+    id: 4,
+    name: 'No Taxation Without Caffeination — Vintage Coffee & Liberty Tee',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/20260413011901-1f136d6c-130a-670c-961f-0e0634670595.png?v=1776168685',
+  },
 ];
 
-function ShirtCard({ product, index }) {
-  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
-  const title = product.title
-    .replace(/^T-Shirt\s*[—–-]\s*/i, '')
-    .replace(/\s*[-–]\s*(Patriotic|Vintage|Graphic|Men's)\s*(T-Shirt|Tee|Shirt)?/gi, '')
-    .trim();
-
-  return (
-    <motion.a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.09 }}
-      className="group flex flex-col"
-      style={{ background: '#0B0B0B', border: '1px solid rgba(201,162,74,0.14)', textDecoration: 'none', transition: 'border-color 0.25s, box-shadow 0.25s' }}
-      onMouseEnter={e => {
-        e.currentTarget.style.borderColor = 'rgba(201,162,74,0.65)';
-        e.currentTarget.style.boxShadow = '0 0 22px 2px rgba(201,162,74,0.13)';
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.borderColor = 'rgba(201,162,74,0.14)';
-        e.currentTarget.style.boxShadow = 'none';
-      }}
-    >
-      <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
-        <img
-          src={product.image_url}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          style={{ opacity: 0.92 }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)' }} />
-      </div>
-      <div className="p-4 flex flex-col gap-1.5">
-        <h3 className="font-serif font-bold leading-snug" style={{ fontSize: '0.9rem', color: '#FFFFFF', lineHeight: 1.3 }}>{title}</h3>
-        <span className="font-mono font-bold text-xs" style={{ color: '#C9A24A' }}>${parseFloat(product.price).toFixed(2)}</span>
-      </div>
-    </motion.a>
-  );
-}
-
 export default function ApparelSection() {
-  const { data: allProducts = [], isLoading } = useQuery({
-    queryKey: ['home-shirts-strip'],
-    queryFn: () => base44.entities.Product.filter({ category: 't-shirts' }, '', 50),
-  });
-
-  const available = allProducts.filter(p => p.image_url && p.in_stock !== false);
-  const byHandle = Object.fromEntries(available.map(p => [p.shopify_handle, p]));
-
-  const priority = PRIORITY_HANDLES.map(h => byHandle[h]).filter(Boolean);
-  const rest = available.filter(p => !PRIORITY_HANDLES.includes(p.shopify_handle));
-  const shirts = [...priority, ...rest].slice(0, 4);
-
-  if (!isLoading && shirts.length === 0) return null;
-
   return (
-    <section className="py-10 md:py-14 px-5 md:px-12" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.04)' }}>
-      <div className="max-w-[1280px] mx-auto">
-
+    <section style={{ backgroundColor: '#0A0A0A', padding: '80px 24px', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-end justify-between mb-8 flex-wrap gap-4"
+          transition={{ duration: 0.65 }}
+          style={{ textAlign: 'center', marginBottom: '64px' }}
         >
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-2" style={{ color: 'rgba(201,162,74,0.35)' }}>Shirts</p>
-            <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 600, color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.01em' }}>
-              Wear the Flame.
-            </h2>
-          </div>
-          <a
-            href="https://torch-republic.com/collections/t-shirts"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-55 pb-0.5 flex-shrink-0"
-            style={{ color: 'rgba(201,162,74,0.6)', borderBottom: '1px solid rgba(201,162,74,0.2)' }}
-          >
-            Shop All Shirts <ArrowRight className="w-3 h-3" />
-          </a>
+          <p style={{ fontSize: '9px', letterSpacing: '0.5em', textTransform: 'uppercase', marginBottom: '16px', color: 'rgba(201,162,74,0.6)' }}>
+            Featured Collection
+          </p>
+          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '12px' }}>
+            Wear the Republic
+          </h2>
+          <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto' }}>
+            Historically inspired designs built for everyday wear.
+          </p>
         </motion.div>
 
-        {isLoading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[...Array(4)].map((_, i) => <div key={i} className="animate-pulse" style={{ background: '#1A1A1A', aspectRatio: '3/4' }} />)}
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-            {shirts.map((p, i) => <ShirtCard key={p.id} product={p} index={i} />)}
-          </div>
-        )}
+        {/* 2x2 Product Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '24px',
+          marginBottom: '56px',
+        }}>
+          {APPAREL_PRODUCTS.map((product, idx) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              style={{
+                background: '#0B0B0B',
+                border: '1px solid rgba(201,162,74,0.14)',
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(201,162,74,0.5)';
+                e.currentTarget.style.boxShadow = '0 0 40px 4px rgba(201,162,74,0.12)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(201,162,74,0.14)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              {/* Image Container */}
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#000' }}>
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block',
+                    opacity: 0.95,
+                    transition: 'transform 0.5s ease',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'scale(1.08)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                  loading="lazy"
+                />
+                {/* Subtle overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.3) 100%)',
+                  pointerEvents: 'none',
+                }} />
+              </div>
+
+              {/* Product Name */}
+              <div style={{ padding: '20px 18px' }}>
+                <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#F0EBE1', lineHeight: 1.4, margin: 0 }}>
+                  {product.name}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          style={{ textAlign: 'center' }}
+        >
+          <Link
+            to="/collections/apparel"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '16px 40px',
+              background: '#C9A24A',
+              color: '#080808',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              fontWeight: 800,
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              transition: 'opacity 0.3s ease',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.opacity = '0.9';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.opacity = '1';
+            }}
+          >
+            Shop Shirts →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
