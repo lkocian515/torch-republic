@@ -85,7 +85,7 @@ export default function ApparelSection() {
           <div>
             <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-2" style={{ color: 'rgba(201,162,74,0.35)' }}>Shirts</p>
             <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 600, color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.01em' }}>
-              Wear the Message.
+              Wear the Flame.
             </h2>
           </div>
           <a

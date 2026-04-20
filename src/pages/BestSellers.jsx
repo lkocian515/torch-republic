@@ -6,7 +6,8 @@ import PullToRefresh from '../components/mobile/PullToRefresh';
 
 const CATEGORY_TABS = [
   { key: 'all', label: 'All' },
-  { key: 't-shirts', label: 'T-Shirts' },
+  { key: 'coffee', label: 'Coffee' },
+  { key: 't-shirts', label: 'Apparel' },
 ];
 
 const SORT_OPTIONS = [
@@ -52,7 +53,7 @@ export default function BestSellers() {
         {/* ── CINEMATIC BANNER ── */}
         <section className="relative w-full overflow-hidden" style={{ height: 'clamp(380px, 55vh, 600px)' }}>
           <img
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=85"
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=85"
             alt="Best Sellers"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ opacity: 0.5 }}
@@ -78,7 +79,7 @@ export default function BestSellers() {
         {/* ── DESCRIPTION ── */}
         <div className="max-w-[720px] mx-auto px-6 py-16 text-center">
           <p style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.5)', lineHeight: 2, fontWeight: 300 }}>
-            Premium products for those who carry the flame. These are the blends and designs our community keeps coming back to — built with the same conviction that drives everything we do.
+            Premium small-batch coffee for those who carry the flame. These are the blends our community keeps coming back to — roasted in small batches, built with conviction, delivered in a premium Torch Republic coffee box.
           </p>
         </div>
 
@@ -132,7 +133,7 @@ export default function BestSellers() {
         <section className="px-6 py-28 text-center" style={{ borderTop: '1px solid rgba(196,163,90,0.07)', backgroundColor: '#060606' }}>
           <blockquote className="font-serif italic max-w-[760px] mx-auto"
             style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, color: '#F0EBE1', lineHeight: 1.25 }}>
-            "Wear what you believe."
+            "Brew what you believe."
           </blockquote>
         </section>
 

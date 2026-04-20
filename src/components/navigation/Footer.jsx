@@ -17,7 +17,7 @@ const FOOTER_LINKS = [
     heading: 'Shop',
     links: [
       { label: 'Best Sellers', href: '/BestSellers' },
-      { label: 'Apparel', href: '/Shop' },
+      { label: 'Torch Apparel', href: '/Shop' },
       { label: 'Bundles', href: '/Bundles' },
       { label: 'On Sale', href: '/OnSale' },
     ]

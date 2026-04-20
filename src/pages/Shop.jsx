@@ -57,7 +57,7 @@ export default function Shop() {
             Shop Torch Republic
           </h1>
           <p className="text-muted-foreground font-mono text-sm">
-            Premium apparel for those who refuse to live passively
+            Premium small-batch coffee and collectible blends — carry the flame
           </p>
         </div>
       </div>

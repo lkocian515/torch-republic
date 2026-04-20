@@ -523,7 +523,7 @@ export default function Mission() {
               Shop Coffee
             </Link>
             <Link
-              to="/Shop"
+              to="/CoffeeCollection"
               className="px-7 py-3 font-mono text-xs tracking-widest uppercase transition-all"
               style={{
                 backgroundColor: 'transparent',
@@ -533,7 +533,7 @@ export default function Mission() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(201,162,74,0.08)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              Shop Apparel
+              Explore Collections
             </Link>
           </motion.div>
 

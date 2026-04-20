@@ -15,10 +15,10 @@ const STEPS = [
   },
   {
     icon: '⚗️',
-    label: 'Bags',
+    label: 'Boxes',
     sub: 'Weekend / Slow Brew',
-    desc: 'Whole or ground. Take your time. Savor the craft.',
-    cta: 'Shop Bags',
+    desc: 'Whole or ground. Take your time. Savor the craft. Each box tells a story.',
+    cta: 'Shop Boxes',
     href: '/CoffeeCollection',
     external: false,
     accent: 'rgba(201,162,74,0.7)',
