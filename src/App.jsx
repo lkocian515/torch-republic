@@ -54,6 +54,7 @@ import EaglesFlightQR from './pages/qr/EaglesFlightQR';
 import LandingPage from './pages/LandingPage';
 import AbigailAdamsBlend from './pages/AbigailAdamsBlend';
 import HarrietTubmanBlend from './pages/HarrietTubmanBlend';
+import WashingtonPodsProduct from './pages/WashingtonPodsProduct';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -129,6 +130,7 @@ const AuthenticatedApp = () => {
       <Route path="/landing" element={<LayoutWrapper currentPageName="LandingPage"><LandingPage /></LayoutWrapper>} />
       <Route path="/AbigailAdamsBlend" element={<LayoutWrapper currentPageName="AbigailAdamsBlend"><AbigailAdamsBlend /></LayoutWrapper>} />
       <Route path="/HarrietTubmanBlend" element={<LayoutWrapper currentPageName="HarrietTubmanBlend"><HarrietTubmanBlend /></LayoutWrapper>} />
+      <Route path="/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
