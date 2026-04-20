@@ -66,13 +66,18 @@ const COLLECTIONS = [
   },
 ];
 
-async function fetchCollectionProducts(filter) {
+async function fetchAllCollections() {
   try {
-    const res = await base44.entities.Product.filter({ collection: filter }, '', 6);
-    return res || [];
+    const results = await Promise.all(
+      COLLECTIONS.map(col =>
+        base44.entities.Product.filter({ collection: col.filter }, '', 4)
+          .catch(() => [])
+      )
+    );
+    return results;
   } catch (error) {
-    console.error(`Error fetching ${filter} products:`, error);
-    return [];
+    console.error('Error fetching collections:', error);
+    return COLLECTIONS.map(() => []);
   }
 }
 
@@ -156,24 +161,17 @@ function CollectionTile({ collection, products, isLoading, index }) {
 }
 
 export default function FeaturedCollectionsGrid() {
-  // Fetch products for all collections in parallel
-  const queries = COLLECTIONS.map(col => ({
-    ...useQuery({
-      queryKey: [`collection-${col.id}`, col.filter],
-      queryFn: () => fetchCollectionProducts(col.filter),
-      staleTime: 15 * 60 * 1000,
-    }),
-    id: col.id,
-  }));
+  const { data: allCollectionProducts = [], isLoading } = useQuery({
+    queryKey: ['all-featured-collections'],
+    queryFn: fetchAllCollections,
+    staleTime: 15 * 60 * 1000,
+  });
 
-  // Extract data from all queries
+  // Map products to collections
   const collectionData = COLLECTIONS.map((col, idx) => ({
     ...col,
-    products: queries[idx]?.data || [],
-    isLoading: queries[idx]?.isLoading || false,
+    products: allCollectionProducts[idx] || [],
   }));
-
-  const isLoading = queries.some(q => q.isLoading);
 
   return (
     <section className="px-6 md:px-12 py-20 md:py-28" style={{ backgroundColor: '#000', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
@@ -197,25 +195,23 @@ export default function FeaturedCollectionsGrid() {
         </motion.div>
 
         {/* Collections Grid — responsive 2-3-4 layout */}
-        {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {[...Array(7)].map((_, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {isLoading ? (
+            [...Array(7)].map((_, i) => (
               <div key={i} className="animate-pulse" style={{ background: '#0B0B0B', height: '320px' }} />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {collectionData.map((col, idx) => (
+            ))
+          ) : (
+            collectionData.map((col, idx) => (
               <CollectionTile
                 key={col.id}
                 collection={col}
                 products={col.products}
-                isLoading={col.isLoading}
+                isLoading={false}
                 index={idx}
               />
-            ))}
-          </div>
-        )}
+            ))
+          )}
+        </div>
 
         {/* Bottom CTA */}
         <motion.div
