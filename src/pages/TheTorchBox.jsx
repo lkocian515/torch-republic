@@ -202,6 +202,10 @@ export default function TheTorchBox() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1' }}>
 
+      {/* Brand Authority Line */}
+      <div className="w-full text-center py-2 px-5" style={{ background: 'rgba(201,162,74,0.02)', borderBottom: '1px solid rgba(201,162,74,0.08)' }}>
+        <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.4)' }}>Torch Republic Coffee Company · Premium Roasted Coffee Subscription</p>
+      </div>
       <FomoBanner />
 
       {/* ── HERO ── */}
@@ -461,13 +465,13 @@ export default function TheTorchBox() {
         </div>
 
         {/* Trust strip below tiers */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-12">
           {TRUST.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex items-center gap-3 p-4" style={{ background: '#0E0E0E', border: '1px solid rgba(201,162,74,0.07)' }}>
-              <Icon className="w-4 h-4 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.5)' }} />
+            <div key={label} className="flex items-center gap-3 p-4" style={{ background: '#0E0E0E', border: '1px solid rgba(201,162,74,0.1)' }}>
+              <Icon className="w-4 h-4 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.6)' }} />
               <div>
                 <p className="font-heading text-[11px] font-semibold" style={{ color: '#F0EBE1' }}>{label}</p>
-                <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>{sub}</p>
+                <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.28)' }}>{sub}</p>
               </div>
             </div>
           ))}
@@ -644,10 +648,15 @@ export default function TheTorchBox() {
             <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
               {TRUST.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-1.5">
-                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.45)' }} />
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>{label}</span>
+                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.55)' }} />
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</span>
                 </div>
               ))}
+            </div>
+            
+            {/* Brand signature */}
+            <div className="mt-8 pt-6 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.35)' }}>Torch Republic Coffee Company</p>
             </div>
           </motion.div>
         </div>

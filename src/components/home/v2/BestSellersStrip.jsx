@@ -70,12 +70,13 @@ function ProductCard({ product, index }) {
 }
 
 export default function BestSellersStrip() {
-  // LOCKED: only fetches 'founders-series'. staleTime prevents silent reorders on cache expiry.
-  const { data: allProducts = [], isLoading } = useQuery({
-    queryKey: ['home-founders-strip'],
-    queryFn: () => base44.entities.Product.filter({ collection: 'founders-series' }, '', 20),
-    staleTime: 5 * 60 * 1000,
-  });
+   // LOCKED: only fetches 'founders-series'. staleTime prevents silent reorders on cache expiry.
+   const { data: allProducts = [], isLoading } = useQuery({
+     queryKey: ['home-founders-strip'],
+     queryFn: () => base44.entities.Product.filter({ collection: 'founders-series' }, '', 20),
+     staleTime: 5 * 60 * 1000,
+     retry: 2,
+   });
 
   // Display in locked canonical order — never auto-reorder
   const ordered = FOUNDERS_DISPLAY_ORDER
@@ -99,7 +100,7 @@ export default function BestSellersStrip() {
         >
           <div className="flex items-center gap-3 mb-4">
             <div style={{ width: 28, height: 1, background: 'rgba(201,162,74,0.6)' }} />
-            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>Collection 01</p>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>Torch Republic · Collection 01 · Founders Series</p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
@@ -173,34 +174,34 @@ export default function BestSellersStrip() {
             <div className="flex-shrink-0 flex items-end gap-[-8px]">
               {display.slice(0, 4).map((p, i) => (
                 <div key={p.id}
-                  className="w-14 h-14 overflow-hidden rounded-sm border"
+                  className="w-16 h-16 overflow-hidden rounded-sm border"
                   style={{
-                    marginLeft: i === 0 ? 0 : '-10px',
+                    marginLeft: i === 0 ? 0 : '-12px',
                     zIndex: display.length - i,
                     position: 'relative',
-                    border: '1px solid rgba(201,162,74,0.3)',
-                    boxShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                    border: '1px solid rgba(201,162,74,0.35)',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.8)',
                     transform: `rotate(${[-2, 1, -1, 2][i]}deg)`,
                   }}>
                   <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" style={{ opacity: 0.9 }} />
                 </div>
               ))}
-              <div className="w-14 h-14 flex items-center justify-center rounded-sm ml-[-10px] relative z-0"
-                style={{ border: '1px dashed rgba(201,162,74,0.3)', background: 'rgba(201,162,74,0.05)' }}>
-                <span className="font-mono text-[10px] font-black" style={{ color: 'rgba(201,162,74,0.5)' }}>+2</span>
+              <div className="w-16 h-16 flex items-center justify-center rounded-sm ml-[-12px] relative z-0"
+                style={{ border: '1px dashed rgba(201,162,74,0.35)', background: 'rgba(201,162,74,0.07)' }}>
+                <span className="font-mono text-[11px] font-black" style={{ color: 'rgba(201,162,74,0.55)' }}>+2</span>
               </div>
             </div>
             {/* Text + CTA */}
             <div className="flex-1 text-center md:text-left">
-              <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,162,74,0.5)' }}>Complete the Set</p>
-              <p className="font-serif font-bold mb-1" style={{ fontSize: '1.1rem', color: '#FFFFFF' }}>Collect All 6 Founders</p>
-              <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>Each blend retires permanently — once gone, it's gone forever.</p>
+              <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,162,74,0.55)' }}>Complete the Set</p>
+              <p className="font-serif font-bold mb-2" style={{ fontSize: '1.15rem', color: '#FFFFFF', letterSpacing: '-0.01em' }}>Collect All 6 Founders</p>
+              <p className="font-heading text-[9.5px] mb-5" style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>Premium sourced. Small-batch roasted. Quality guaranteed. Each blend retires permanently.</p>
               <a
                 href="https://torch-republic.com/collections/founders-series"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
-                style={{ background: '#C9A24A', color: '#080808', padding: '13px 28px' }}
+                style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px', boxShadow: '0 4px 20px rgba(201,162,74,0.25)' }}
               >
                 Build Your Set <ArrowRight className="w-3 h-3" />
               </a>

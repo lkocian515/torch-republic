@@ -138,8 +138,11 @@ export default function FounderProductPage({ data, DATA }) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
 
-      {/* Breadcrumb */}
+      {/* Breadcrumb + Brand */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 pt-5">
+        <div className="flex items-center justify-between mb-4">
+          <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,162,74,0.4)' }}>Torch Republic Coffee Company</span>
+        </div>
         <nav className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]" style={{ letterSpacing: '0.08em' }}>
           <Link to="/" className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.28)' }}>Home</Link>
           <ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(255,255,255,0.18)' }} />
@@ -297,7 +300,7 @@ export default function FounderProductPage({ data, DATA }) {
             <div className="mt-10 p-5" style={{ background: '#0D0D0D', border: `1px solid ${ac}18` }}>
               <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: `${ac}60` }}>Why This Coffee</p>
               <ul className="space-y-2.5">
-                {['Small-batch roasted — never warehouse coffee', 'Premium sourced beans, chosen for character', 'Designed for daily discipline and ritual'].map((item, i) => (
+                {['Small-batch roasted — never warehouse coffee', 'Premium sourced beans, chosen for character', 'Quality guaranteed — love it or we make it right'].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ac }} />
                     <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.65 }}>{item}</span>
@@ -403,7 +406,7 @@ export default function FounderProductPage({ data, DATA }) {
                 {[
                   { icon: '🔥', label: 'Small Batch Roasted' },
                   { icon: '✦', label: 'Premium Sourced Beans' },
-                  { icon: '🏛️', label: 'Collectible Series' },
+                  { icon: '✓', label: 'Quality Guaranteed' },
                   { icon: '📦', label: 'Ships Fresh to Order' },
                 ].map(({ icon, label }) => (
                   <div key={label} className="flex items-center gap-2 px-3 py-2.5"
