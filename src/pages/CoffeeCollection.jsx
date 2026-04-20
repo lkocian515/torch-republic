@@ -159,15 +159,30 @@ export default function CoffeeCollection() {
         <div className="max-w-[1280px] mx-auto">
           <div className="flex items-center gap-3 mb-5">
             <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C4A35A)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>Founders Series</span>
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>Founders · Liberty Icons · Commanders · Women of the Republic</span>
           </div>
           <h1 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 800, lineHeight: 1 }}>
             The Torch Index
           </h1>
           <p className="font-mono text-sm mb-2" style={{ color: 'rgba(196,163,90,0.7)' }}>History in Every Cup. Collect before they're gone.</p>
           <p className="text-xs max-w-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Every product in the Torch Republic catalog has a permanent identity number. Some are CORE — always available. Others retire to the Archive forever.
+            Four active collections. Every blend carries a permanent identity number — some are CORE, others retire to the Archive forever.
           </p>
+          {/* Active collection quick-links */}
+          <div className="flex flex-wrap gap-3 mt-6">
+            {[
+              { label: 'Founders Series', href: '/CoffeeCollection' },
+              { label: 'Liberty Icons', href: '/LibertyIcons' },
+              { label: 'Commanders', href: '/CommandersSeries' },
+              { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
+            ].map(c => (
+              <Link key={c.label} to={c.href}
+                className="font-mono text-[9px] tracking-[0.3em] uppercase px-3 py-1.5 transition-all"
+                style={{ border: '1px solid rgba(196,163,90,0.25)', color: 'rgba(196,163,90,0.65)' }}>
+                {c.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -8,8 +8,9 @@ const FOOTER_LINKS = [
     links: [
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
+      { label: 'Commanders Series', href: '/CommandersSeries' },
+      { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
       { label: 'Torch Box', href: '/TheTorchBox' },
-      { label: 'All Coffee', href: '/CoffeeCollection' },
     ]
   },
   {
