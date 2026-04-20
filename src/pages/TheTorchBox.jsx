@@ -11,6 +11,8 @@ const TIERS = [
     id: 'ember',
     name: 'THE EMBER',
     price: 29,
+    retailValue: 37,
+    boxes: 1,
     tagline: 'Entry into the system.',
     color: '#C87050',
     featured: false,
@@ -22,13 +24,15 @@ const TIERS = [
       'Torchbearer membership card',
       'Educational insert + QR experience',
     ],
-    savings: 'Save ~$8 vs one-time',
+    savings: 'Save $8/mo vs buying individually',
     handle: 'torch-box-ember',
   },
   {
     id: 'beacon',
     name: 'THE BEACON',
     price: 49,
+    retailValue: 67,
+    boxes: 2,
     tagline: 'More coffee. Better value.',
     color: '#C9A24A',
     featured: true,
@@ -41,13 +45,15 @@ const TIERS = [
       'Educational inserts + QR experiences',
       'Early access to new releases',
     ],
-    savings: 'Save ~$18 vs one-time',
+    savings: 'Save $18/mo vs buying individually',
     handle: 'torch-box-beacon',
   },
   {
     id: 'blaze',
     name: 'THE BLAZE',
     price: 69,
+    retailValue: 104,
+    boxes: 3,
     tagline: 'Full rotation. Free shipping.',
     color: '#E8D08A',
     featured: false,
@@ -61,7 +67,7 @@ const TIERS = [
       'Free shipping — every month',
       'First access + archive editions',
     ],
-    savings: 'Save ~$35 vs one-time · Free shipping',
+    savings: 'Save $35/mo + free shipping',
     handle: 'torch-box-blaze',
   },
 ];
@@ -111,6 +117,63 @@ const TRUST = [
   { icon: Shield, label: 'Quality Guaranteed', sub: 'Love it or we make it right' },
 ];
 
+function FomoBanner() {
+  return (
+    <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+      className="flex flex-wrap items-center justify-center gap-6 py-3 px-6"
+      style={{ background: 'rgba(201,162,74,0.05)', borderBottom: '1px solid rgba(201,162,74,0.12)' }}>
+      <div className="flex items-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#ef4444' }} />
+        <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: 'rgba(255,255,255,0.6)' }}>Limited monthly spots available</span>
+      </div>
+      <div className="w-px h-3 hidden md:block" style={{ background: 'rgba(201,162,74,0.2)' }} />
+      <div className="flex items-center gap-2">
+        <Flame className="w-3 h-3 flex-shrink-0" style={{ color: AC }} />
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.45)' }}>Members get exclusive blends never sold publicly</span>
+      </div>
+      <div className="w-px h-3 hidden md:block" style={{ background: 'rgba(201,162,74,0.2)' }} />
+      <div className="flex items-center gap-2">
+        <Star className="w-3 h-3 flex-shrink-0 fill-current" style={{ color: AC }} />
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.45)' }}>200+ Torchbearers already subscribed</span>
+      </div>
+    </motion.div>
+  );
+}
+
+function ValueComparisonTable() {
+  const rows = [
+    { label: '1 Coffee Box', retail: '$37', member: '$29', save: 'Save $8' },
+    { label: '2 Coffee Boxes', retail: '$74', member: '$49', save: 'Save $25' },
+    { label: '3 Coffee Boxes', retail: '$111', member: '$69', save: 'Save $42 + free ship' },
+  ];
+  return (
+    <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+      className="max-w-[680px] mx-auto mt-12"
+      style={{ border: '1px solid rgba(201,162,74,0.2)', background: '#0C0C0C' }}>
+      <div className="px-5 py-3 grid grid-cols-4 gap-2" style={{ borderBottom: '1px solid rgba(201,162,74,0.1)', background: 'rgba(201,162,74,0.04)' }}>
+        {['Item', 'Retail Price', 'Torch Box', 'You Save'].map((h, i) => (
+          <span key={h} className={`font-mono text-[9px] tracking-[0.3em] uppercase ${i === 2 ? '' : i === 3 ? '' : ''}`}
+            style={{ color: i === 2 ? AC : i === 3 ? '#4ade80' : 'rgba(255,255,255,0.3)', textAlign: i > 0 ? 'center' : 'left' }}>{h}</span>
+        ))}
+      </div>
+      {rows.map((row, i) => (
+        <div key={row.label} className="px-5 py-4 grid grid-cols-4 gap-2 items-center"
+          style={{ borderBottom: i < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+          <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)' }}>{row.label}</span>
+          <span className="font-mono text-sm text-center line-through" style={{ color: 'rgba(255,255,255,0.22)' }}>{row.retail}</span>
+          <span className="font-mono font-black text-sm text-center" style={{ color: AC }}>{row.member}</span>
+          <span className="font-mono text-[10px] font-bold text-center" style={{ color: '#4ade80' }}>{row.save}</span>
+        </div>
+      ))}
+      <div className="px-5 py-3 text-center" style={{ background: 'rgba(201,162,74,0.04)', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>
+          Plus exclusive member-only blends never available at retail
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
 function Divider() {
   return (
     <div className="flex items-center gap-4 max-w-[1200px] mx-auto px-6 md:px-12 my-2">
@@ -121,7 +184,7 @@ function Divider() {
   );
 }
 
-function StartBoxCTA({ size = 'md', href = '#tiers' }) {
+function StartBoxCTA({ size = 'md', href = '#tiers', label = 'Claim Your Box Today' }) {
   const pad = size === 'lg' ? '20px 52px' : '16px 36px';
   const text = size === 'lg' ? '13px' : '11px';
   return (
@@ -130,7 +193,7 @@ function StartBoxCTA({ size = 'md', href = '#tiers' }) {
       className="inline-flex items-center justify-center gap-2 font-mono font-black uppercase tracking-[0.28em] transition-all hover:opacity-90 btn-glow"
       style={{ background: AC, color: '#0B0B0B', padding: pad, fontSize: text, boxShadow: '0 4px 32px rgba(201,162,74,0.28)' }}
     >
-      <Flame className="w-3.5 h-3.5" /> Start Your Box
+      <Flame className="w-3.5 h-3.5" /> {label}
     </a>
   );
 }
@@ -138,6 +201,8 @@ function StartBoxCTA({ size = 'md', href = '#tiers' }) {
 export default function TheTorchBox() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1' }}>
+
+      <FomoBanner />
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ minHeight: 'clamp(600px, 88vh, 960px)' }}>
@@ -287,15 +352,33 @@ export default function TheTorchBox() {
 
       <Divider />
 
+      {/* ── VALUE COMPARISON ── */}
+      <section style={{ backgroundColor: '#090909', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20 text-center">
+          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>The Math Is Simple</p>
+            <h2 className="font-serif mb-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
+              Buying individually vs. Torch Box
+            </h2>
+            <p className="font-heading mb-0" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.4)', fontWeight: 300 }}>
+              Members always pay less — plus get exclusive blends you can't buy anywhere else.
+            </p>
+            <ValueComparisonTable />
+          </motion.div>
+        </div>
+      </section>
+
+      <Divider />
+
       {/* ── TIERS ── */}
       <section id="tiers" className="max-w-[1200px] mx-auto px-6 md:px-12 py-28">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Choose Your Level</p>
           <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
-            Three tiers. One mission.
+            Pick your box. Start today.
           </h2>
           <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            Pause or cancel anytime.
+            Pause or cancel anytime · Most members start with Beacon
           </p>
         </motion.div>
 
@@ -331,14 +414,15 @@ export default function TheTorchBox() {
               )}
 
               <div className="p-7 flex flex-col gap-5 flex-1">
-                {/* Name + price */}
+                {/* Name + price + retail comparison */}
                 <div>
                   <h3 className="font-mono font-black tracking-[0.12em] uppercase mb-2" style={{ fontSize: '1rem', color: tier.color }}>{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-1">
+                  <div className="flex items-baseline gap-2 mb-1">
                     <span className="font-mono font-black" style={{ fontSize: '2.4rem', color: '#FFFFFF' }}>${tier.price}</span>
                     <span className="font-mono text-sm" style={{ color: 'rgba(240,235,225,0.3)' }}>/mo</span>
+                    <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.2)' }}>${tier.retailValue}</span>
                   </div>
-                  <p className="font-mono text-[9px]" style={{ color: 'rgba(201,162,74,0.55)' }}>{tier.savings}</p>
+                  <p className="font-mono text-[9px] font-bold" style={{ color: '#4ade80' }}>{tier.savings}</p>
                 </div>
 
                 <p style={{ color: 'rgba(240,235,225,0.5)', fontSize: '0.875rem', fontWeight: 300, lineHeight: 1.6 }}>{tier.tagline}</p>
@@ -365,11 +449,11 @@ export default function TheTorchBox() {
                     : { border: `1px solid ${tier.color}45`, color: tier.color }
                   }
                 >
-                  Start Your Box →
+                  Claim Your Box →
                 </a>
 
                 <p className="text-center font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                  Cancel anytime
+                  Cancel anytime · No commitment
                 </p>
               </div>
             </motion.div>
@@ -494,15 +578,19 @@ export default function TheTorchBox() {
       {/* ── SOCIAL PROOF ── */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Torchbearers</p>
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>Join the Community</p>
           <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: '#F0EBE1', fontWeight: 700 }}>
-            Built for those who live free.
+            Join other Torchbearers<br />
+            <span style={{ color: AC }}>across America.</span>
           </h2>
           <div className="flex items-center justify-center gap-1.5 mt-3">
             {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: AC }} />)}
             <span className="font-mono text-sm font-bold ml-2" style={{ color: AC }}>4.8</span>
             <span className="font-mono text-[10px] ml-1" style={{ color: 'rgba(255,255,255,0.28)' }}>· 200+ verified subscribers</span>
           </div>
+          <p className="font-mono text-[9px] tracking-[0.25em] uppercase mt-3" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            Growing every week — limited spots per month
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -550,7 +638,7 @@ export default function TheTorchBox() {
               Cancel anytime · No commitment required
             </p>
 
-            <StartBoxCTA size="lg" />
+            <StartBoxCTA size="lg" label="Claim Your Box Today" />
 
             {/* Final trust row */}
             <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
