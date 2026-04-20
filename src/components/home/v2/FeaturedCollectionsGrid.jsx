@@ -13,7 +13,8 @@ const COLLECTIONS = [
     name: 'Founders Series',
     descriptor: 'Premium small-batch blends inspired by American patriots',
     link: '/CoffeeCollection',
-    filter: 'founders-series',
+    filterType: 'collection',
+    filterValue: 'founders-series',
     color: '#C9A24A',
   },
   {
@@ -21,7 +22,8 @@ const COLLECTIONS = [
     name: 'Liberty Icons',
     descriptor: 'Historical coffee celebrating American icons',
     link: '/LibertyIcons',
-    filter: 'liberty-icons',
+    filterType: 'collection',
+    filterValue: 'liberty-icons',
     color: '#C9A24A',
   },
   {
@@ -29,7 +31,8 @@ const COLLECTIONS = [
     name: 'Women of the Republic',
     descriptor: 'Honoring the women who shaped America',
     link: '/WomenOfTheRepublic',
-    filter: 'women-of-the-republic',
+    filterType: 'collection',
+    filterValue: 'women-of-the-republic',
     color: '#C9A24A',
   },
   {
@@ -37,7 +40,8 @@ const COLLECTIONS = [
     name: 'Commanders Series',
     descriptor: 'Bold blends honoring military leadership',
     link: '/CommandersSeries',
-    filter: 'commanders-series',
+    filterType: 'collection',
+    filterValue: 'commanders-series',
     color: '#C9A24A',
   },
   {
@@ -45,7 +49,8 @@ const COLLECTIONS = [
     name: 'Coffee Pods',
     descriptor: 'Premium pods for easy brewing',
     link: '/CoffeeCollection',
-    filter: 'pods',
+    filterType: 'category',
+    filterValue: 'coffee',
     color: '#C9A24A',
   },
   {
@@ -53,7 +58,8 @@ const COLLECTIONS = [
     name: 'Mugs & Tumblers',
     descriptor: 'Premium drinkware for your daily ritual',
     link: '/mugs-tumblers',
-    filter: 'mugs-tumblers',
+    filterType: 'category',
+    filterValue: 'mugs-tumblers',
     color: '#C9A24A',
   },
   {
@@ -61,7 +67,8 @@ const COLLECTIONS = [
     name: 'Shirts',
     descriptor: 'Historically themed apparel collection',
     link: '/Shop',
-    filter: 'apparel',
+    filterType: 'category',
+    filterValue: 't-shirts',
     color: '#C9A24A',
   },
 ];
@@ -69,10 +76,14 @@ const COLLECTIONS = [
 async function fetchAllCollections() {
   try {
     const results = await Promise.all(
-      COLLECTIONS.map(col =>
-        base44.entities.Product.filter({ collection: col.filter }, '', 4)
-          .catch(() => [])
-      )
+      COLLECTIONS.map(col => {
+        const query = col.filterType === 'collection'
+          ? { collection: col.filterValue }
+          : { category: col.filterValue };
+        
+        return base44.entities.Product.filter(query, '', 8)
+          .catch(() => []);
+      })
     );
     return results;
   } catch (error) {
@@ -82,7 +93,11 @@ async function fetchAllCollections() {
 }
 
 function CollectionTile({ collection, products, isLoading, index }) {
-  const images = products.slice(0, 4).map(p => p.image_url).filter(Boolean);
+  // Ensure we have valid product images
+  const validImages = products
+    .filter(p => p && p.image_url)
+    .slice(0, 4)
+    .map(p => p.image_url);
 
   return (
     <motion.div
@@ -111,22 +126,23 @@ function CollectionTile({ collection, products, isLoading, index }) {
         <div className="relative overflow-hidden h-64 bg-gradient-to-b from-[#161616] to-[#0A0A0A]">
           {isLoading ? (
             <div className="w-full h-full animate-pulse" />
-          ) : images.length > 0 ? (
+          ) : validImages.length > 0 ? (
             <div className="grid grid-cols-2 gap-0.5 p-2 h-full">
-              {images.map((img, i) => (
+              {validImages.map((img, i) => (
                 <div key={i} className="relative overflow-hidden bg-black group/img">
                   <img
                     src={img}
                     alt={`${collection.name} product ${i + 1}`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                    loading={i > 0 ? 'lazy' : 'eager'}
                     style={{ opacity: 0.85 }}
                   />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center" style={{ color: 'rgba(255,255,255,0.1)' }}>
-              No products
+            <div className="w-full h-full flex items-center justify-center" style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.3)' }}>
+              <span className="font-mono text-[10px]">Collection</span>
             </div>
           )}
 
