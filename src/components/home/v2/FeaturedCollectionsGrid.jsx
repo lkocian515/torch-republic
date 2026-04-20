@@ -154,35 +154,40 @@ function CollectionTile({ collection, products, isLoading, index }) {
     >
       <Link to={collection.link} className="block h-full" style={{ textDecoration: 'none' }}>
         {/* Product preview grid */}
-        <div className="relative overflow-hidden h-64 bg-gradient-to-b from-[#161616] to-[#0A0A0A]">
+        <div className="relative w-full h-64" style={{ background: '#0A0A0A', overflow: 'hidden' }}>
           {isLoading ? (
             <div className="w-full h-full animate-pulse" />
           ) : previewImages.length > 0 ? (
-            <div className="grid grid-cols-2 gap-0.5 p-2 h-full">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2px', padding: '2px', width: '100%', height: '100%' }}>
               {previewImages.map((item, i) => (
-                <div key={i} className="relative overflow-hidden bg-black group/img">
+                <div key={i} style={{ position: 'relative', overflow: 'hidden', background: '#000', width: '100%', height: '100%' }}>
                   <img
                     src={item.url}
                     alt={item.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      opacity: 0.85,
+                      display: 'block',
+                    }}
                     loading={i > 0 ? 'lazy' : 'eager'}
-                    style={{ opacity: 0.85 }}
                     onError={(e) => {
-                      console.warn(`[CollectionTile] Image failed to load: ${item.url}`);
-                      e.currentTarget.style.display = 'none';
+                      console.warn(`[CollectionTile] Image failed to load for ${collection.id}: ${item.url}`);
                     }}
                   />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center" style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.3)' }}>
-              <span className="font-mono text-[10px]">No preview images</span>
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.3)' }}>
+              <span style={{ fontFamily: 'monospace', fontSize: '10px' }}>No preview images</span>
             </div>
           )}
 
-          {/* Overlay gradient */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.9) 100%)' }} />
+          {/* Overlay gradient - positioned absolutely over content */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.9) 100%)', pointerEvents: 'none', zIndex: 1 }} />
         </div>
 
         {/* Text content */}
