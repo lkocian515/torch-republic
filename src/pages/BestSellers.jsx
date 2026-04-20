@@ -7,7 +7,6 @@ import PullToRefresh from '../components/mobile/PullToRefresh';
 const CATEGORY_TABS = [
   { key: 'all', label: 'All' },
   { key: 'coffee', label: 'Coffee' },
-  { key: 't-shirts', label: 'Apparel' },
 ];
 
 const SORT_OPTIONS = [
@@ -30,8 +29,15 @@ export default function BestSellers() {
     queryFn: () => base44.entities.Product.filter({ collection: 'best-sellers' }, '', 500),
   });
 
+  // Only show coffee products and collection-based apparel
+  const currentCategories = ['coffee', 't-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
+  const currentCollections = ['founders-series', 'liberty-icons', 'commanders-series', 'women-of-the-republic'];
+
   const filtered = products.filter(p => {
     if (!p.image_url) return false;
+    const isValidCategory = currentCategories.includes(p.category);
+    const isValidCollection = currentCollections.includes(p.collection) || p.category === 'coffee';
+    if (!isValidCategory || !isValidCollection) return false;
     return category === 'all' || p.category === category;
   });
 

@@ -5,13 +5,16 @@ import ProductGrid from '../components/products/ProductGrid';
 import { Tag } from 'lucide-react';
 
 export default function OnSale() {
+  const currentCollections = ['founders-series', 'liberty-icons', 'commanders-series', 'women-of-the-republic'];
+  const validCategories = ['coffee', 't-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
+
   const { data: products, isLoading } = useQuery({
     queryKey: ['on-sale'],
     queryFn: () => base44.entities.Product.list('', 250),
     initialData: [],
     select: (data) =>
       data
-        .filter(p => p.on_sale)
+        .filter(p => p.on_sale && validCategories.includes(p.category) && (currentCollections.includes(p.collection) || p.category === 'coffee'))
         .sort((a, b) => (a.price || 0) - (b.price || 0)),
   });
 

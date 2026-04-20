@@ -5,10 +5,9 @@ import ProductGrid from '../components/products/ProductGrid';
 import { ArrowRight } from 'lucide-react';
 
 const COLLECTIONS = [
-  { title: 'Top Designs', key: 'top-designs', description: 'Our most coveted pieces' },
-  { title: 'New Drops', key: 'new-drops', description: 'Just released' },
-  { title: 'American Heroes', key: 'american-heroes', collection: 'american-heroes' },
-  { title: 'Freedom Collection', key: 'freedom', collection: 'freedom-isnt-free' },
+  { title: 'Founders Series Apparel', key: 'founders-apparel', collection: 'founders-series' },
+  { title: 'Liberty Icons Apparel', key: 'liberty-apparel', collection: 'liberty-icons' },
+  { title: 'Commanders Series Apparel', key: 'commanders-apparel', collection: 'commanders-series' },
 ];
 
 export default function Apparel() {
@@ -21,22 +20,13 @@ export default function Apparel() {
    const getCollectionProducts = (key, collection) => {
      const apparelCategories = ['t-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
 
-     if (key === 'top-designs') {
-       return allProducts
-         .filter(p => p.featured && apparelCategories.includes(p.category) && p.image_url)
-         .slice(0, 12);
-     }
-     if (key === 'new-drops') {
-       return allProducts
-         .filter(p => apparelCategories.includes(p.category) && p.image_url)
-         .slice(0, 12);
-     }
-     if (collection) {
-       return allProducts
-         .filter(p => p.collection === collection && apparelCategories.includes(p.category) && p.image_url)
-         .slice(0, 12);
-     }
-     return [];
+       // Only show apparel that belongs to current collections
+       if (collection) {
+         return allProducts
+           .filter(p => p.collection === collection && apparelCategories.includes(p.category) && p.image_url)
+           .slice(0, 12);
+       }
+       return [];
    };
 
    // Filter out sections with no products

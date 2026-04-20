@@ -148,18 +148,23 @@ export default function Bundles() {
     initialData: [],
   });
 
+  const currentCollections = ['founders-series', 'liberty-icons', 'commanders-series', 'women-of-the-republic'];
+  const validCategories = ['coffee', 't-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'];
+
   const categories = [
     { key: 'all', label: 'All' },
     { key: 'coffee', label: '☕ Coffee' },
     { key: 'apparel', label: '👕 Apparel' },
-    { key: 'accessories', label: '🎩 Accessories' },
   ];
 
   const shelfProducts = products.filter(p => {
-    if (activeCategory === 'all') return p.image_url;
-    if (activeCategory === 'coffee') return p.category === 'coffee' && p.image_url;
-    if (activeCategory === 'apparel') return ['t-shirts', 'hoodies-sweatshirts', 'tanks'].includes(p.category) && p.image_url;
-    if (activeCategory === 'accessories') return ['hats', 'mugs-tumblers', 'magnets', 'stickers'].includes(p.category) && p.image_url;
+    const isValidCollection = currentCollections.includes(p.collection) || p.category === 'coffee';
+    const isValidCategory = validCategories.includes(p.category);
+    if (!isValidCollection || !isValidCategory || !p.image_url) return false;
+    
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'coffee') return p.category === 'coffee';
+    if (activeCategory === 'apparel') return ['t-shirts', 'hoodies-sweatshirts', 'tanks', 'hats'].includes(p.category);
     return false;
   });
 

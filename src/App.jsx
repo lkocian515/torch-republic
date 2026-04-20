@@ -13,8 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 import Reviews from './pages/Reviews';
-import OutfitBuilder from './pages/OutfitBuilder';
-import StyleAdvisor from './pages/StyleAdvisor';
+
 import Bundles from './pages/Bundles';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
@@ -39,8 +38,7 @@ import TheTorchBox from './pages/TheTorchBox';
 import LibertyIcons from './pages/LibertyIcons';
 import CommandersSeries from './pages/CommandersSeries';
 import WomenOfTheRepublic from './pages/WomenOfTheRepublic';
-import Visionaries from './pages/Visionaries';
-import Patriots from './pages/Patriots';
+
 import WashingtonQR from './pages/qr/WashingtonQR';
 import JeffersonQR from './pages/qr/JeffersonQR';
 import AdamsQR from './pages/qr/AdamsQR';
@@ -114,8 +112,7 @@ const AuthenticatedApp = () => {
       <Route path="/LibertyIcons" element={<LayoutWrapper currentPageName="LibertyIcons"><LibertyIcons /></LayoutWrapper>} />
       <Route path="/CommandersSeries" element={<LayoutWrapper currentPageName="CommandersSeries"><CommandersSeries /></LayoutWrapper>} />
       <Route path="/WomenOfTheRepublic" element={<LayoutWrapper currentPageName="WomenOfTheRepublic"><WomenOfTheRepublic /></LayoutWrapper>} />
-      <Route path="/Visionaries" element={<LayoutWrapper currentPageName="Visionaries"><Visionaries /></LayoutWrapper>} />
-      <Route path="/Patriots" element={<LayoutWrapper currentPageName="Patriots"><Patriots /></LayoutWrapper>} />
+
       <Route path="/qr/washington" element={<LayoutWrapper currentPageName="WashingtonQR"><WashingtonQR /></LayoutWrapper>} />
       <Route path="/qr/jefferson" element={<LayoutWrapper currentPageName="JeffersonQR"><JeffersonQR /></LayoutWrapper>} />
       <Route path="/qr/adams" element={<LayoutWrapper currentPageName="AdamsQR"><AdamsQR /></LayoutWrapper>} />
@@ -128,12 +125,11 @@ const AuthenticatedApp = () => {
       <Route path="/qr/uncle-sam" element={<LayoutWrapper currentPageName="UncleSamQR"><UncleSamQR /></LayoutWrapper>} />
       <Route path="/qr/rosies" element={<LayoutWrapper currentPageName="RosiesQR"><RosiesQR /></LayoutWrapper>} />
       <Route path="/qr/eagles-flight" element={<LayoutWrapper currentPageName="EaglesFlightQR"><EaglesFlightQR /></LayoutWrapper>} />
-      <Route path="/OutfitBuilder" element={<LayoutWrapper currentPageName="OutfitBuilder"><OutfitBuilder /></LayoutWrapper>} />
-      <Route path="/StyleAdvisor" element={<LayoutWrapper currentPageName="StyleAdvisor"><StyleAdvisor /></LayoutWrapper>} />
+
       <Route path="/landing" element={<LayoutWrapper currentPageName="LandingPage"><LandingPage /></LayoutWrapper>} />
       <Route path="/AbigailAdamsBlend" element={<LayoutWrapper currentPageName="AbigailAdamsBlend"><AbigailAdamsBlend /></LayoutWrapper>} />
       <Route path="/HarrietTubmanBlend" element={<LayoutWrapper currentPageName="HarrietTubmanBlend"><HarrietTubmanBlend /></LayoutWrapper>} />
-      <Route path="/collections/women-of-the-republic" element={<LayoutWrapper currentPageName="WomenOfTheRepublic"><WomenOfTheRepublic /></LayoutWrapper>} />
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     </AnimatePresence>
