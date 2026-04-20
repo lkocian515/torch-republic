@@ -60,21 +60,21 @@ export default function HeroSection() {
           />
 
           <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="font-heading mb-10"
-            style={{
-              fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)',
-              color: '#F0EBE1',
-              fontWeight: 400,
-              lineHeight: 1.9,
-              maxWidth: '480px',
-              textShadow: '0 1px 12px rgba(0,0,0,0.8)',
-            }}
-          >
-            Small-batch coffee inspired by the men and women that built a nation.
-          </motion.p>
+             initial={{ opacity: 0, y: 14 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.7, delay: 0.4 }}
+             className="font-heading mb-10"
+             style={{
+               fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
+               color: '#F0EBE1',
+               fontWeight: 400,
+               lineHeight: 1.7,
+               maxWidth: '420px',
+               textShadow: '0 1px 12px rgba(0,0,0,0.8)',
+             }}
+           >
+             Premium coffee from the icons of American history.
+           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -85,16 +85,16 @@ export default function HeroSection() {
             <Link
               to="/CoffeeCollection"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
-              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '18px 40px' }}
+              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
             >
-              Shop the Founders Series →
+              Choose Your Blend →
             </Link>
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-80"
-              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '18px 32px' }}
+              style={{ color: '#F0EBE1', border: '1px solid rgba(240,235,225,0.4)', padding: '16px 28px' }}
             >
-              Start Your First Box
+              Pick Your First Box
             </Link>
           </motion.div>
         </div>

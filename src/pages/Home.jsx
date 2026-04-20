@@ -21,33 +21,27 @@ export default function Home() {
       <HeroTrustBar />
 
       {/*
-        ── SCROLL FLOW: Product → Collection → Subscription ──
-        01 · Best Sellers (Founders Series) — immediate product engagement
-        02 · Featured Product Spotlight — pods upsell
-        03 · Torch Box — subscription conversion
-        04 · Liberty Icons → Commanders → Women of the Republic — deeper collections
-        05 · Reviews → Guarantee → Apparel → Final CTA
-        ──────────────────────────────────────────────────────
+        ── OPTIMIZED CONVERSION FLOW (5-10 second decision path) ──
+        01 · Best Sellers (Founders Series) — choose a coffee
+        02 · Featured Product Spotlight — upsell opportunity
+        03 · Torch Box — subscription option
+        04 · Reviews → Final CTA — social proof + close
+        ────────────────────────────────────────────────────
+        Removed: Liberty Icons, Commanders, Women of the Republic (collections)
+        Apparel, GuaranteeBar (low conversion sections)
       */}
 
-      {/* STEP 1 — Best-selling coffee FIRST */}
+      {/* STEP 1 — Choose Your Blend */}
       <BestSellersStrip />
 
-      {/* STEP 2 — Featured product upsell */}
+      {/* STEP 2 — Premium Product Highlight */}
       <FeaturedProductSpotlight />
 
-      {/* STEP 3 — Subscription conversion */}
+      {/* STEP 3 — Start with Subscription */}
       <TorchBoxSection />
 
-      {/* STEP 4 — Explore more collections */}
-      <LibertyIconsStrip />
-      <CommandersStrip />
-      <WomenOfTheRepublicStrip />
-
-      {/* STEP 5 — Social proof + close */}
+      {/* STEP 4 — Trust + Convert */}
       <HomeReviewStrip />
-      <GuaranteeBar />
-      <ApparelSection />
       <FinalCTA />
       <ExitIntentPopup />
     </div>

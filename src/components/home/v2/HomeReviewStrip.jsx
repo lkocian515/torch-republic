@@ -86,10 +86,10 @@ export default function HomeReviewStrip() {
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <a href="/Reviews" className="font-mono text-[9px] tracking-[0.35em] uppercase transition-opacity hover:opacity-60 pb-0.5"
-            style={{ color: 'rgba(201,162,74,0.45)', borderBottom: '1px solid rgba(201,162,74,0.15)' }}>
-            View All Reviews →
+        <div className="text-center mt-10">
+          <a href="/Reviews" className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all font-black"
+            style={{ background: '#C9A24A', color: '#080808', padding: '14px 28px' }}>
+            Read All Reviews →
           </a>
         </div>
       </div>

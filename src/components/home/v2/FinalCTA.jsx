@@ -26,34 +26,28 @@ export default function FinalCTA() {
         transition={{ duration: 0.85 }}
         className="relative z-10 max-w-[600px] mx-auto"
       >
-        <p className="font-mono text-[10px] tracking-[0.6em] uppercase mb-6" style={{ color: '#C9A24A' }}>
-          Begin the Ritual
-        </p>
-
-        <h2 className="font-serif leading-none mb-5" style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
-          Carry the<br />Flame Daily.
+        <h2 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+          Ready to Begin?
         </h2>
 
-        <div className="h-px w-16 mx-auto mb-8" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A, transparent)' }} />
-
-        <p className="font-heading mb-12" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.75)', fontWeight: 400, lineHeight: 1.95 }}>
-          Every morning is a choice. Make it count.
+        <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
+          Choose your first blend or start with a subscription.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to="/CoffeeCollection"
-            className="inline-flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-85 btn-glow"
-            style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '18px 52px' }}
+            className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
+            style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '15px 36px' }}
           >
-            Shop Now →
+            Choose Your Blend
           </Link>
           <Link
             to="/TheTorchBox"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75"
-            style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)', padding: '18px 36px' }}
+            style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)', padding: '15px 28px' }}
           >
-            Join the Torch Box
+            Pick Your First Box
           </Link>
         </div>
       </motion.div>

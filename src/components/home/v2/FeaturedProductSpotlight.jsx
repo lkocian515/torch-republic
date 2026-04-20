@@ -102,44 +102,22 @@ export default function FeaturedProductSpotlight() {
             className="flex flex-col items-center md:items-start text-center md:text-left w-full"
           >
             {/* Eyebrow */}
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.55)' }}>
-              Torch Republic · Founders Series · Pods
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.55)' }}>
+              Washington Blend · Pods
             </p>
 
             {/* Headline */}
             <h2
-              className="font-serif leading-none mb-3"
-              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)', fontWeight: 800, color: '#C9A24A', letterSpacing: '-0.02em' }}
+              className="font-serif leading-none mb-2"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#C9A24A', letterSpacing: '-0.02em' }}
             >
-              WASHINGTON<br />
-              <span style={{ color: '#FFFFFF' }}>BLEND PODS</span>
+              Start with<br />
+              <span style={{ color: '#FFFFFF' }}>Washington</span>
             </h2>
 
-            {/* Urgency line */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
-              <p className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: '#C9A24A' }}>
-                Limited Launch — First Production Run
-              </p>
-            </div>
-
-            {/* Flavor notes */}
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-5" style={{ color: 'rgba(201,162,74,0.45)' }}>
-              Dark Roast · Cocoa · Smoke · Bold Spice
-            </p>
-
-            {/* Gold rule */}
-            <div className="mb-5 self-center md:self-start" style={{ height: '1px', width: '40px', background: 'rgba(201,162,74,0.4)' }} />
-
-            {/* Body */}
-            <p className="font-heading mb-3" style={{ fontSize: 'clamp(0.9rem, 1.2vw, 1.05rem)', color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.9, maxWidth: '400px' }}>
-              Strength without noise. Built for discipline, not comfort.
-              A bold, full-bodied dark roast inspired by the man who set the standard — now in single-serve pods.
-            </p>
-
-            {/* Micro-conversion text */}
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase mb-6" style={{ color: 'rgba(201,162,74,0.65)', fontWeight: 600 }}>
-              Consistent bold flavor. No guesswork. No compromise.
+            {/* Value line */}
+            <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: '380px' }}>
+              Bold, disciplined dark roast. Premium sourced. Small-batch roasted.
             </p>
 
             {/* Price */}
@@ -147,29 +125,25 @@ export default function FeaturedProductSpotlight() {
               {price}
             </p>
 
-            {/* CTAs — larger on mobile */}
+            {/* CTAs — fast conversion */}
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href={SHOPIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-mono tracking-[0.35em] uppercase transition-all"
-                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '18px 44px', fontSize: '11px', textDecoration: 'none' }}
-                onMouseEnter={e => e.currentTarget.style.background = '#DDB95E'}
-                onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
+                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px', fontSize: '11px', textDecoration: 'none' }}
               >
-                SHOP PODS →
+                Add to Cart
               </a>
               <a
                 href={TORCH_BOX_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-mono tracking-[0.28em] uppercase transition-all"
-                style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)', padding: '18px 32px', fontSize: '11px', textDecoration: 'none' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A24A'; e.currentTarget.style.background = 'rgba(201,162,74,0.07)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,162,74,0.5)'; e.currentTarget.style.background = 'transparent'; }}
+                style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)', padding: '16px 28px', fontSize: '11px', textDecoration: 'none' }}
               >
-                GET YOUR FIRST BOX
+                Subscribe Instead
               </a>
             </div>
           </motion.div>

@@ -103,37 +103,18 @@ export default function BestSellersStrip() {
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>Torch Republic · Collection 01 · Founders Series</p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
-                  style={{ background: 'rgba(201,162,74,0.15)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)' }}>
-                  ● Small Batch
-                </span>
-                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
-                  style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
-                  Collect All Founders
-                </span>
-                <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black"
-                  style={{ background: 'rgba(201,162,74,0.08)', color: 'rgba(201,162,74,0.7)', border: '1px solid rgba(201,162,74,0.2)' }}>
-                  Build Your Set
-                </span>
-              </div>
-              <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+              <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1 font-black mb-3 inline-block"
+                style={{ background: 'rgba(201,162,74,0.15)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)' }}>
+                Collect All 6
+              </span>
+              <h2 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
                 Choose Your Blend
               </h2>
-              <p className="font-heading mb-4" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, maxWidth: 460 }}>
-                Six founders. Six small-batch blends. Each one retires permanently — collect yours before it's gone.
+              <p className="font-heading mb-0" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 400 }}>
+                Six premium coffee blends. Each retires forever.
               </p>
-              {/* Series progress indicator */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1.5">
-                  {[...Array(6)].map((_, i) => (
-                    <div key={i} className="w-6 h-1.5 rounded-sm" style={{ background: i < 4 ? '#C9A24A' : 'rgba(201,162,74,0.18)', transition: 'background 0.2s' }} />
-                  ))}
-                </div>
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(201,162,74,0.55)' }}>6 Founders in the Series</span>
-              </div>
             </div>
 
             <a
@@ -148,23 +129,19 @@ export default function BestSellersStrip() {
           </div>
         </motion.div>
 
-        {/* Gold rule */}
-        <div className="mb-8" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(201,162,74,0.4) 0%, rgba(201,162,74,0.06) 55%, transparent 100%)' }} />
+        {/* Divider */}
+        <div className="mb-6" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(201,162,74,0.4) 0%, rgba(201,162,74,0.06) 55%, transparent 100%)' }} />
 
-        {/* Product Grid — 4 columns */}
+        {/* Product Grid — 4 columns, fast load */}
         {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[...Array(4)].map((_, i) => <div key={i} className="animate-pulse" style={{ background: '#161616', aspectRatio: '1/1' }} />)}
           </div>
         ) : display.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {display.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
           </div>
-        ) : (
-          <p className="font-mono text-sm text-center py-12" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Founders blends loading…
-          </p>
-        )}
+        ) : null}
 
         {/* Stacked boxes visual + CTA */}
         {!isLoading && display.length > 0 && (
