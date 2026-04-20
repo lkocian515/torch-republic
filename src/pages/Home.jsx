@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
+import WashingtonPodsSpotlight from '../components/home/v2/WashingtonPodsSpotlight';
 import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
 import BestSellersStrip from '../components/home/v2/BestSellersStrip';
 import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
@@ -15,6 +16,9 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroSection />
       <HeroTrustBar />
+
+      {/* FIRST PRODUCT — Washington Blend Pods */}
+      <WashingtonPodsSpotlight />
 
       {/* First-Time Customer Guidance */}
       <FirstTimeGuidance />
