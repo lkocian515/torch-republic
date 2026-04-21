@@ -7,11 +7,9 @@ const DATA = {
   accent: '#C9A24A',
   price: '$16.99',
   shopifyHandle: 'washington-blend-coffee-pods',
-  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/washington-pods-hero.jpg',
+  heroImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6bef9712-230c-45c1-911d-f0780d1fafc8.png?v=1776641348',
   images: [
-    'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/washington-pods-hero.jpg',
-    'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/washington-pods-lifestyle.jpg',
-    'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/washington-pods-close.jpg',
+    'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6bef9712-230c-45c1-911d-f0780d1fafc8.png?v=1776641348',
   ],
   hook: 'Strength without noise. Leadership without compromise.',
   heroDescription: 'Washington didn\'t chase comfort — he built discipline. This blend reflects that same standard: bold, steady, and built to endure. Premium dark roast in precision-sealed Keurig-compatible pods.',

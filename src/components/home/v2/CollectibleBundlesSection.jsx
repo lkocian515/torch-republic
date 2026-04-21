@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { Package } from 'lucide-react';
 
 const BUNDLES = [
@@ -152,8 +151,10 @@ export default function CollectibleBundlesSection() {
           transition={{ duration: 0.55 }}
           style={{ textAlign: 'center' }}
         >
-          <Link
-            to="/collections/coffee-bundles"
+          <a
+            href="https://torch-republic.com/collections/coffee-bundles"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -173,7 +174,7 @@ export default function CollectibleBundlesSection() {
             onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
             Shop All Bundles →
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
