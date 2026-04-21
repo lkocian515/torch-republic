@@ -10,6 +10,7 @@ import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotl
 import TorchBoxSection from '../components/home/v2/TorchBoxSection';
 import LibertyIconsBanner from '../components/home/v2/LibertyIconsBanner';
 import MugsTumblersSection from '../components/home/v2/MugsTumblersSection';
+import CollectibleBundlesSection from '../components/home/v2/CollectibleBundlesSection';
 import ApparelSection from '../components/home/v2/ApparelSection';
 import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
 import FinalCTA from '../components/home/v2/FinalCTA';
@@ -57,7 +58,10 @@ export default function Home() {
       {/* STEP 3.5 — Liberty Icons */}
       <LibertyIconsBanner />
 
-      {/* STEP 4 — Mugs & Tumblers Collection */}
+      {/* STEP 4 — Collectible Bundles */}
+      <CollectibleBundlesSection />
+
+      {/* STEP 4b — Mugs & Tumblers Collection */}
       <MugsTumblersSection />
 
       {/* STEP 5 — Apparel Collection */}
