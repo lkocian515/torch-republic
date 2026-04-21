@@ -72,7 +72,7 @@ export default function WashingtonPodsSpotlight() {
               <>
                 <img
                   src={imageUrl}
-                  alt="Washington Blend Pods"
+                  alt="Washington Blend Pods — premium American coffee from Torch Republic"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   style={{ opacity: 0.95 }}
                 />

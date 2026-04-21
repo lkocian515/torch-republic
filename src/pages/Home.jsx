@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/home/v2/HeroSection';
 import HeroTrustBar from '../components/home/v2/HeroTrustBar';
+import HomeSEOSection from '../components/home/v2/HomeSEOSection';
 import WashingtonPodsSpotlight from '../components/home/v2/WashingtonPodsSpotlight';
 import HomeTrustStrip from '../components/home/v2/HomeTrustStrip';
 import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
@@ -20,6 +21,9 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroSection />
       <HeroTrustBar />
+
+      {/* SEO — hidden structural text, H1, keyword copy, internal links */}
+      <HomeSEOSection />
 
       {/* FIRST PRODUCT — Washington Blend Pods */}
       <WashingtonPodsSpotlight />

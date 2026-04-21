@@ -77,7 +77,7 @@ export default function FeaturedProductSpotlight() {
                 </div>
                 <img
                   src={imageUrl}
-                  alt="Washington Blend Pods"
+                  alt="Washington Blend Pods — premium American coffee from Torch Republic"
                   className="w-full block"
                   style={{
                     objectFit: 'contain',

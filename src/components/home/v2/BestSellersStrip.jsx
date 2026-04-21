@@ -51,7 +51,7 @@ function ProductCard({ product, index, badge }) {
       <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
         <img
           src={product.image_url}
-          alt={title}
+          alt={`${title} premium coffee from Torch Republic`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           style={{ opacity: 0.95 }}
         />
@@ -170,7 +170,7 @@ export default function BestSellersStrip() {
                     boxShadow: '0 4px 16px rgba(0,0,0,0.8)',
                     transform: `rotate(${[-2, 1, -1, 2][i]}deg)`,
                   }}>
-                  <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" style={{ opacity: 0.9 }} />
+                  <img src={p.image_url} alt={`${p.title} premium coffee from Torch Republic`} className="w-full h-full object-cover" style={{ opacity: 0.9 }} />
                 </div>
               ))}
               <div className="w-16 h-16 flex items-center justify-center rounded-sm ml-[-12px] relative z-0"

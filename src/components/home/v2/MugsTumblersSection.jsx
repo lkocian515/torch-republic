@@ -82,7 +82,7 @@ export default function MugsTumblersSection() {
               <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1', overflow: 'hidden', background: '#000' }}>
                 <img
                   src={product.imageUrl}
-                  alt={product.name}
+                  alt={`${product.name} from Torch Republic`}
                   style={{
                     width: '100%',
                     height: '100%',
