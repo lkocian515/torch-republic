@@ -17,7 +17,7 @@ const BUNDLES = [
     coffeeNotes: 'Roasted Nuts · Honey · Milk Chocolate',
     roast: 'Golden Medium Roast',
     bobbleheadName: 'Statue of Liberty Bobblehead',
-    bobbleheadImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/IMG_20260405_041048.jpg?v=1776038585',
+    bobbleheadImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/statue-of-liberty-bobblehead-2687882.jpg?v=1771884543',
     historical: 'The Statue of Liberty has stood as America\'s beacon of freedom since 1886 — a gift from France and a promise to the world. This blend honors her enduring light with every smooth, golden sip.',
     shopifyHandle: 'lady-liberty-bundle',
   },

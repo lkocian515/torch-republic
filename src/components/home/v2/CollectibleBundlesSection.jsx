@@ -9,7 +9,7 @@ const BUNDLES = [
     name: 'Lady Liberty Bundle',
     accent: '#B38B4D',
     coffeeImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/29.png?v=1776037980',
-    bobbleheadImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/IMG_20260405_041048.jpg?v=1776038585',
+    bobbleheadImage: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/statue-of-liberty-bobblehead-2687882.jpg?v=1771884543',
     coffeeName: 'Lady Liberty Blend',
     bobbleheadName: 'Statue of Liberty Bobblehead',
     price: 34.99,
