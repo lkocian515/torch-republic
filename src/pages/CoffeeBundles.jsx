@@ -199,7 +199,7 @@ function BundleCard({ bundle, index }) {
             Get the Bundle →
           </a>
           <p style={{ textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: '8px', color: 'rgba(255,255,255,0.2)', marginTop: '8px', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-            Free shipping · Limited stock
+            Small-batch roasted · Quality guaranteed
           </p>
         </div>
       </div>

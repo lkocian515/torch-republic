@@ -10,7 +10,17 @@ const FOOTER_LINKS = [
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Commanders Series', href: '/CommandersSeries' },
+      { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
       { label: 'Torch Box Subscription', href: '/TheTorchBox' },
+    ]
+  },
+  {
+    heading: 'Shop',
+    links: [
+      { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
+      { label: 'Collectible Bundles', href: '/collections/coffee-bundles' },
+      { label: 'Popular Blends', href: '/BestSellers' },
+      { label: 'On Sale', href: '/OnSale' },
     ]
   },
   {
@@ -18,7 +28,6 @@ const FOOTER_LINKS = [
     links: [
       { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
-      { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ]
@@ -62,8 +71,8 @@ export default function Footer() {
 
             {/* Contact */}
             <div className="space-y-2">
-              <a href="mailto:hello@torchrepublic.com" className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                hello@torchrepublic.com
+              <a href="mailto:admin@torchrepublic.com" className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                admin@torchrepublic.com
               </a>
               <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.22)' }}>
                 U.S.-Based · Corpus Christi, TX
@@ -72,7 +81,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 gap-8">
+          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-6">
             {FOOTER_LINKS.map(section => (
               <div key={section.heading}>
                 <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-5" style={{ color: '#C9A24A' }}>

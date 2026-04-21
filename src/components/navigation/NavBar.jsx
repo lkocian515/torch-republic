@@ -5,11 +5,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const NAV_LEFT = [
   { label: 'Shop Coffee', href: '/CoffeeCollection' },
-  { label: 'About', href: '/Mission' },
+  { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
+  { label: 'Bundles', href: '/collections/coffee-bundles' },
 ];
 
 const NAV_RIGHT = [
-  { label: 'Journal', href: '/Journal' },
+  { label: 'Reviews', href: '/Reviews' },
   { label: 'Contact', href: '/Contact' },
 ];
 
@@ -21,16 +22,24 @@ const NAV_GROUPS = [
       { label: 'Founders Series', href: '/CoffeeCollection' },
       { label: 'Liberty Icons', href: '/LibertyIcons' },
       { label: 'Commanders Series', href: '/CommandersSeries' },
+      { label: 'Women of the Republic', href: '/WomenOfTheRepublic' },
       { label: '🔥 Torch Box Subscription', href: '/TheTorchBox' },
+    ],
+  },
+  {
+    category: 'Shop',
+    items: [
+      { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
+      { label: 'Collectible Bundles', href: '/collections/coffee-bundles' },
+      { label: 'Popular Blends', href: '/BestSellers' },
+      { label: 'On Sale', href: '/OnSale' },
     ],
   },
   {
     category: 'Brand',
     items: [
-      { label: 'Home', href: '/' },
       { label: 'Our Story', href: '/Mission' },
       { label: 'Journal', href: '/Journal' },
-      { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'Reviews', href: '/Reviews' },
       { label: 'Contact', href: '/Contact' },
     ],
