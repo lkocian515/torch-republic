@@ -59,7 +59,7 @@ export default function CartCrossSell({ existingHandles = [] }) {
         {suggestions.map((blend, i) => (
           <a
             key={blend.shopifyHandle}
-            href={`https://torch-republic.com/products/${blend.shopifyHandle}`}
+            href={`https://libertees-for-all.myshopify.com/products/${blend.shopifyHandle}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 px-5 py-4 transition-all hover:bg-white/[0.02]"

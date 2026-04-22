@@ -1,6 +1,6 @@
 // Lists all collections from Shopify Admin API to find real handles
 const SHOPIFY_ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.myshopify.com';
+const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 Deno.serve(async (req) => {
   try {
