@@ -105,17 +105,24 @@ const AuthenticatedApp = () => {
       <Route path="/LincolnBlend" element={<LayoutWrapper currentPageName="LincolnBlend"><LincolnBlend /></LayoutWrapper>} />
       <Route path="/products/lincoln-blend" element={<LayoutWrapper currentPageName="LincolnBlend"><LincolnBlend /></LayoutWrapper>} />
       <Route path="/AdamsBlend" element={<LayoutWrapper currentPageName="AdamsBlend"><AdamsBlend /></LayoutWrapper>} />
+      <Route path="/products/adams-blend" element={<LayoutWrapper currentPageName="AdamsBlend"><AdamsBlend /></LayoutWrapper>} />
       <Route path="/RooseveltBlend" element={<LayoutWrapper currentPageName="RooseveltBlend"><RooseveltBlend /></LayoutWrapper>} />
+      <Route path="/products/roosevelt-blend" element={<LayoutWrapper currentPageName="RooseveltBlend"><RooseveltBlend /></LayoutWrapper>} />
       <Route path="/CoffeeCollection" element={<LayoutWrapper currentPageName="CoffeeCollection"><CoffeeCollection /></LayoutWrapper>} />
       <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
       <Route path="/Bundles" element={<LayoutWrapper currentPageName="Bundles"><Bundles /></LayoutWrapper>} />
       <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
       <Route path="/LadyLibertyBlend" element={<LayoutWrapper currentPageName="LadyLibertyBlend"><LadyLibertyBlend /></LayoutWrapper>} />
       <Route path="/EaglesFlightBlend" element={<LayoutWrapper currentPageName="EaglesFlightBlend"><EaglesFlightBlend /></LayoutWrapper>} />
+      <Route path="/products/eagles-flight-blend" element={<LayoutWrapper currentPageName="EaglesFlightBlend"><EaglesFlightBlend /></LayoutWrapper>} />
       <Route path="/UncleSamsBoldBrew" element={<LayoutWrapper currentPageName="UncleSamsBoldBrew"><UncleSamsBoldBrew /></LayoutWrapper>} />
+      <Route path="/products/uncle-sams-bold-brew" element={<LayoutWrapper currentPageName="UncleSamsBoldBrew"><UncleSamsBoldBrew /></LayoutWrapper>} />
       <Route path="/LibertyTorchBlend" element={<LayoutWrapper currentPageName="LibertyTorchBlend"><LibertyTorchBlend /></LayoutWrapper>} />
+      <Route path="/products/liberty-torch-blend" element={<LayoutWrapper currentPageName="LibertyTorchBlend"><LibertyTorchBlend /></LayoutWrapper>} />
       <Route path="/RosiesGrind" element={<LayoutWrapper currentPageName="RosiesGrind"><RosiesGrind /></LayoutWrapper>} />
+      <Route path="/products/rosies-grind" element={<LayoutWrapper currentPageName="RosiesGrind"><RosiesGrind /></LayoutWrapper>} />
       <Route path="/OldGloryHouseBlend" element={<LayoutWrapper currentPageName="OldGloryHouseBlend"><OldGloryHouseBlend /></LayoutWrapper>} />
+      <Route path="/products/old-glory-house-blend" element={<LayoutWrapper currentPageName="OldGloryHouseBlend"><OldGloryHouseBlend /></LayoutWrapper>} />
       <Route path="/LibertyIcons" element={<LayoutWrapper currentPageName="LibertyIcons"><LibertyIcons /></LayoutWrapper>} />
       <Route path="/CommandersSeries" element={<LayoutWrapper currentPageName="CommandersSeries"><CommandersSeries /></LayoutWrapper>} />
       <Route path="/WomenOfTheRepublic" element={<LayoutWrapper currentPageName="WomenOfTheRepublic"><WomenOfTheRepublic /></LayoutWrapper>} />
@@ -137,6 +144,7 @@ const AuthenticatedApp = () => {
       <Route path="/AbigailAdamsBlend" element={<LayoutWrapper currentPageName="AbigailAdamsBlend"><AbigailAdamsBlend /></LayoutWrapper>} />
       <Route path="/HarrietTubmanBlend" element={<LayoutWrapper currentPageName="HarrietTubmanBlend"><HarrietTubmanBlend /></LayoutWrapper>} />
       <Route path="/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
+      <Route path="/products/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
       <Route path="/mugs-tumblers" element={<LayoutWrapper currentPageName="MugsTumblers"><MugsTumblers /></LayoutWrapper>} />
       <Route path="/collections/coffee-bundles" element={<LayoutWrapper currentPageName="CoffeeBundles"><CoffeeBundles /></LayoutWrapper>} />
 
