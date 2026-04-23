@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 import Reviews from './pages/Reviews';
+import GeorgeWashingtonCoffee from './pages/blog/GeorgeWashingtonCoffee';
 
 import Bundles from './pages/Bundles';
 import Cart from './pages/Cart';
@@ -150,6 +151,7 @@ const AuthenticatedApp = () => {
       <Route path="/mugs-tumblers" element={<LayoutWrapper currentPageName="MugsTumblers"><MugsTumblers /></LayoutWrapper>} />
       <Route path="/Apparel" element={<LayoutWrapper currentPageName="Apparel"><Apparel /></LayoutWrapper>} />
       <Route path="/bobbleheads" element={<LayoutWrapper currentPageName="Bobbleheads"><Bobbleheads /></LayoutWrapper>} />
+      <Route path="/george-washington-coffee-history" element={<LayoutWrapper currentPageName="GeorgeWashingtonCoffee"><GeorgeWashingtonCoffee /></LayoutWrapper>} />
       <Route path="/collections/coffee-bundles" element={<LayoutWrapper currentPageName="CoffeeBundles"><CoffeeBundles /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />

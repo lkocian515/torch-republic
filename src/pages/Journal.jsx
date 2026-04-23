@@ -1,9 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
+const ARTICLE_ROUTES = {
+  'george-washington-coffee-history': '/george-washington-coffee-history',
+};
+
 const ARTICLES = [
+  {
+    slug: 'george-washington-coffee-history',
+    date: 'April 2026',
+    category: 'History',
+    title: "George Washington's Coffee: What America's First President Might Have Drunk",
+    excerpt: "Long before the Boston Tea Party made coffee the patriotic drink of choice, Washington was developing a taste for bold, unapologetic brews. Here's what history tells us about the first president's morning ritual.",
+    readTime: '7 min read',
+  },
   {
     slug: 'why-founders-series-exists',
     date: 'March 2026',
@@ -93,7 +105,7 @@ export default function Journal() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="group py-12 cursor-pointer"
+              className="group py-12"
               style={{ borderBottom: '1px solid rgba(200,164,77,0.08)' }}
             >
               {/* Meta */}
@@ -126,12 +138,22 @@ export default function Journal() {
               </p>
 
               {/* Read more */}
-              <div
-                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all group-hover:gap-3"
-                style={{ color: 'rgba(200,164,77,0.6)' }}
-              >
-                Read More <ArrowRight className="w-3 h-3" />
-              </div>
+              {ARTICLE_ROUTES[article.slug] ? (
+                <Link
+                  to={ARTICLE_ROUTES[article.slug]}
+                  className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all group-hover:gap-3"
+                  style={{ color: 'rgba(200,164,77,0.6)' }}
+                >
+                  Read More <ArrowRight className="w-3 h-3" />
+                </Link>
+              ) : (
+                <div
+                  className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
+                  style={{ color: 'rgba(200,164,77,0.3)' }}
+                >
+                  Coming Soon
+                </div>
+              )}
             </motion.article>
           ))}
         </div>
