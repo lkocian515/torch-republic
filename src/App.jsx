@@ -97,6 +97,7 @@ const AuthenticatedApp = () => {
       <Route path="/TheTorchBox" element={<LayoutWrapper currentPageName="TheTorchBox"><TheTorchBox /></LayoutWrapper>} />
       <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
       <Route path="/WashingtonBlend" element={<LayoutWrapper currentPageName="WashingtonBlend"><WashingtonBlend /></LayoutWrapper>} />
+      <Route path="/products/washington-blend" element={<LayoutWrapper currentPageName="WashingtonBlend"><WashingtonBlend /></LayoutWrapper>} />
       <Route path="/JeffersonBlend" element={<LayoutWrapper currentPageName="JeffersonBlend"><JeffersonBlend /></LayoutWrapper>} />
       <Route path="/FranklinBlend" element={<LayoutWrapper currentPageName="FranklinBlend"><FranklinBlend /></LayoutWrapper>} />
       <Route path="/LincolnBlend" element={<LayoutWrapper currentPageName="LincolnBlend"><LincolnBlend /></LayoutWrapper>} />
