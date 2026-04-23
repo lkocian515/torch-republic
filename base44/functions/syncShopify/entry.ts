@@ -202,7 +202,7 @@ Deno.serve(async (req) => {
     if (!collectionOnly) {
       console.log('Fetching all Coffee product_type products via Admin API...');
       const adminToken = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
-      const shopDomain = 'libertees-for-all.myshopify.com';
+      const shopDomain = 'torch-republic.myshopify.com';
       try {
         const coffeeRes = await fetch(`https://${shopDomain}/admin/api/2024-01/products.json?product_type=Coffee&limit=250`, {
           headers: { 'X-Shopify-Access-Token': adminToken, 'Content-Type': 'application/json' }

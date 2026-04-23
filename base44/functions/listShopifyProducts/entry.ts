@@ -1,5 +1,5 @@
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
+const SHOP_DOMAIN = 'torch-republic.com';
 
 Deno.serve(async (req) => {
   const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {

@@ -74,7 +74,7 @@ export default function Cart() {
 
   const buildShopifyCartUrl = () => {
     // Build Shopify cart URL — in production map handles to variant IDs
-    return 'https://libertees-for-all.myshopify.com/cart';
+    return 'https://torch-republic.myshopify.com/cart';
   };
 
   return (

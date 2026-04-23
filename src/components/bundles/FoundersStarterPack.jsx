@@ -50,7 +50,7 @@ function getProductRoute(handle) {
 const RETAIL_PRICE = 60.0; // 3 × $20
 const BUNDLE_PRICE = 50.99;
 const SAVINGS = (RETAIL_PRICE - BUNDLE_PRICE).toFixed(2);
-const SHOPIFY_BUNDLE_URL = 'https://libertees-for-all.myshopify.com/collections/coffee';
+const SHOPIFY_BUNDLE_URL = 'https://torch-republic.com/collections/coffee';
 
 export default function FoundersStarterPack({ compact = false }) {
   const { data: allProducts = [], isLoading } = useQuery({

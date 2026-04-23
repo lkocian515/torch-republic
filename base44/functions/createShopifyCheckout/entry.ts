@@ -1,6 +1,6 @@
 /* global Deno */
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-// The Storefront API token is scoped to this myshopify domain
+// The Storefront API token is scoped to this myshopify domain (custom domain: torch-republic.com)
 const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 async function storefrontQuery(query, variables = {}) {
