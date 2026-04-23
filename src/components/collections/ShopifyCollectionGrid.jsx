@@ -70,7 +70,7 @@ function CoffeeProductCard({ product, index, accentColor = '#C9A24A', internalRo
   }
 
   return (
-    <a href={`https://torch-republic.com/products/${product.handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+    <a href={`https://libertees-for-all.myshopify.com/products/${product.handle}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
       <CardInner />
     </a>
   );

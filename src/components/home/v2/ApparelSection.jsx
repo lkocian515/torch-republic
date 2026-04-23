@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Explicit apparel product array with exact Shopify CDN image URLs
 const APPAREL_PRODUCTS = [
@@ -129,10 +130,8 @@ export default function ApparelSection() {
           transition={{ duration: 0.65 }}
           style={{ textAlign: 'center' }}
         >
-          <a
-            href="https://libertees-for-all.myshopify.com/collections/apparel"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/Apparel"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -157,7 +156,7 @@ export default function ApparelSection() {
             }}
           >
             Shop Shirts →
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

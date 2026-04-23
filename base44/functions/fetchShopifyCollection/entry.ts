@@ -1,6 +1,6 @@
 // Fetches products from a Shopify collection handle using Admin API
 const SHOPIFY_ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.myshopify.com';
+const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 async function getCollectionIdByHandle(handle) {
   const url = `https://${SHOP_DOMAIN}/admin/api/2024-01/custom_collections.json?handle=${handle}&limit=1`;

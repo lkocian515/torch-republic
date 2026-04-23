@@ -57,6 +57,7 @@ import HarrietTubmanBlend from './pages/HarrietTubmanBlend';
 import WashingtonPodsProduct from './pages/WashingtonPodsProduct';
 import MugsTumblers from './pages/MugsTumblers';
 import CoffeeBundles from './pages/CoffeeBundles';
+import Apparel from './pages/Apparel';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -146,6 +147,7 @@ const AuthenticatedApp = () => {
       <Route path="/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
       <Route path="/products/washington-pods" element={<LayoutWrapper currentPageName="WashingtonPodsProduct"><WashingtonPodsProduct /></LayoutWrapper>} />
       <Route path="/mugs-tumblers" element={<LayoutWrapper currentPageName="MugsTumblers"><MugsTumblers /></LayoutWrapper>} />
+      <Route path="/Apparel" element={<LayoutWrapper currentPageName="Apparel"><Apparel /></LayoutWrapper>} />
       <Route path="/collections/coffee-bundles" element={<LayoutWrapper currentPageName="CoffeeBundles"><CoffeeBundles /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />

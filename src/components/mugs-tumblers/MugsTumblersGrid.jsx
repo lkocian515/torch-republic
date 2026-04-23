@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 function ProductCard({ product, index }) {
-  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
+  const url = `https://libertees-for-all.myshopify.com/products/${product.handle || product.shopify_handle}`;
   const title = product.title.replace(/[-–]\s*(Mug|Tumbler|Drinkware)/i, '').trim();
   const price = `$${Number(product.price).toFixed(2)}`;
 
