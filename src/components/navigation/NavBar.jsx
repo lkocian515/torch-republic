@@ -127,7 +127,7 @@ export default function NavBar() {
                 className="hover:text-white transition-colors">
                 <Search className="w-[15px] h-[15px]" />
               </button>
-              <a href="https://torch-republic.myshopify.com/cart"
+              <a href="https://libertees-for-all.myshopify.com/cart"
                 style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">
                 <ShoppingBag className="w-[15px] h-[15px]" />
@@ -142,7 +142,7 @@ export default function NavBar() {
 
           {/* Mobile right icons */}
           <div className="md:hidden flex items-center gap-1 ml-auto">
-            <a href="https://torch-republic.myshopify.com/cart"
+            <a href="https://libertees-for-all.myshopify.com/cart"
               style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <ShoppingBag className="w-[18px] h-[18px]" />
             </a>

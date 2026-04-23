@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
@@ -11,29 +12,26 @@ const FOUNDERS_DISPLAY_ORDER = [
   'washington-blend',
   'franklin-blend',
   'jefferson-blend',
-  'lincoln-blend',
+  'lincoln-blend-founders-series-coffee',
   'roosevelt-blend',
   'adams-blend',
 ];
 
 function ProductCard({ product, index, badge }) {
-  const url = `https://torch-republic.com/products/${product.shopify_handle}`;
+  const url = `/${product.shopify_handle === 'lincoln-blend-founders-series-coffee' ? 'LincolnBlend' : product.shopify_handle === 'washington-blend' ? 'WashingtonBlend' : product.shopify_handle === 'jefferson-blend' ? 'JeffersonBlend' : product.shopify_handle === 'franklin-blend' ? 'FranklinBlend' : product.shopify_handle === 'adams-blend' ? 'AdamsBlend' : product.shopify_handle === 'roosevelt-blend' ? 'RooseveltBlend' : 'CoffeeCollection'}`;
   const title = product.title.replace(/[-–]\s*Founders Series Coffee/i, '').trim();
   const plain = (product.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   const roastMatch = plain.match(/Roast Level[:\s]+([^·|.<\n]+)/i);
   const roast = roastMatch ? roastMatch[1].trim() : '';
 
   return (
-    <motion.a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group flex flex-col"
-      style={{ background: '#0B0B0B', border: '1px solid rgba(201,162,74,0.2)', textDecoration: 'none', transition: 'border-color 0.25s, box-shadow 0.25s' }}
+      style={{ background: '#0B0B0B', border: '1px solid rgba(201,162,74,0.2)', transition: 'border-color 0.25s, box-shadow 0.25s' }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = 'rgba(201,162,74,0.75)';
         e.currentTarget.style.boxShadow = '0 0 32px 4px rgba(201,162,74,0.18)';
@@ -43,35 +41,37 @@ function ProductCard({ product, index, badge }) {
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      {badge && (
-        <div className="absolute top-3 left-3 z-10">
-          <ProductBadge type={badge} />
-        </div>
-      )}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
-        <img
-          src={product.image_url}
-          alt={`${title} premium coffee from Torch Republic`}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          style={{ opacity: 0.95 }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)' }} />
-      </div>
-      <div className="p-5 flex flex-col gap-2">
-        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#FFFFFF', lineHeight: 1.25 }}>{title}</h3>
-        {roast && <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>{roast}</p>}
-        <div className="flex items-center gap-2 mt-0.5">
-          <div className="flex gap-0.5">
-            {[1,2,3,4,5].map(i => (
-              <span key={i} style={{ color: '#C9A24A', fontSize: '10px' }}>★</span>
-            ))}
+      <Link to={url} className="flex flex-col flex-1" style={{ textDecoration: 'none' }}>
+        {badge && (
+          <div className="absolute top-3 left-3 z-10">
+            <ProductBadge type={badge} />
           </div>
-          <span className="font-mono text-[9px] font-bold" style={{ color: '#C9A24A' }}>4.9</span>
-          <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>· Verified</span>
+        )}
+        <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
+          <img
+            src={product.image_url}
+            alt={`${title} premium coffee from Torch Republic`}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            style={{ opacity: 0.95 }}
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)' }} />
         </div>
-        <span className="font-mono font-bold text-sm" style={{ color: '#C9A24A' }}>${parseFloat(product.price).toFixed(2)}</span>
-      </div>
-    </motion.a>
+        <div className="p-5 flex flex-col gap-2">
+          <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#FFFFFF', lineHeight: 1.25 }}>{title}</h3>
+          {roast && <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>{roast}</p>}
+          <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex gap-0.5">
+              {[1,2,3,4,5].map(i => (
+                <span key={i} style={{ color: '#C9A24A', fontSize: '10px' }}>★</span>
+              ))}
+            </div>
+            <span className="font-mono text-[9px] font-bold" style={{ color: '#C9A24A' }}>4.9</span>
+            <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>· Verified</span>
+          </div>
+          <span className="font-mono font-bold text-sm" style={{ color: '#C9A24A' }}>${parseFloat(product.price).toFixed(2)}</span>
+        </div>
+      </Link>
+    </motion.div>
   );
 }
 
@@ -123,15 +123,13 @@ export default function BestSellersStrip() {
               </p>
             </div>
 
-            <a
-              href="https://torch-republic.com/collections/founders-series"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/CoffeeCollection"
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow flex-shrink-0"
               style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '14px 28px' }}
             >
               Explore All Six <ArrowRight className="w-3 h-3" />
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -183,15 +181,13 @@ export default function BestSellersStrip() {
               <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,162,74,0.55)' }}>Complete the Set</p>
               <p className="font-serif font-bold mb-2" style={{ fontSize: '1.15rem', color: '#FFFFFF', letterSpacing: '-0.01em' }}>Collect All 6 Founders</p>
               <p className="font-heading text-[9.5px] mb-5" style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>Premium sourced. Small-batch roasted. Quality guaranteed. Each blend retires permanently.</p>
-              <a
-                href="https://torch-republic.com/collections/founders-series"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/CoffeeCollection"
                 className="inline-flex items-center gap-2 font-mono font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
                 style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px', boxShadow: '0 4px 20px rgba(201,162,74,0.25)' }}
               >
                 Collect the Full Series <ArrowRight className="w-3 h-3" />
-              </a>
+              </Link>
             </div>
           </div>
         )}

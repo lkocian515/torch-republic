@@ -152,7 +152,7 @@ export default function CollectibleBundlesSection() {
           style={{ textAlign: 'center' }}
         >
           <a
-            href="https://torch-republic.com/collections/coffee-bundles"
+            href="https://libertees-for-all.myshopify.com/collections/coffee-bundles"
             target="_blank"
             rel="noopener noreferrer"
             style={{

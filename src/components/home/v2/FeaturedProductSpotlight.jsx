@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import ProductBadge from '../../products/ProductBadge';
 
 const POD_HANDLE = 'washington-blend-coffee-pods';
-const SHOPIFY_URL = `https://torch-republic.com/products/${POD_HANDLE}`;
-const TORCH_BOX_URL = 'https://torch-republic.com/products/the-torch-box';
+const SHOPIFY_URL = '/washington-pods';
+const TORCH_BOX_URL = '/TheTorchBox';
 
 async function fetchPodProduct() {
   const res = await base44.functions.invoke('getSpotlightProduct', { handle: POD_HANDLE });
@@ -124,29 +125,25 @@ export default function FeaturedProductSpotlight() {
 
             {/* CTAs — clear customer journey */}
             <div className="flex flex-col gap-3 w-full sm:w-auto">
-              <a
-                href={SHOPIFY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={SHOPIFY_URL}
                 className="inline-flex items-center justify-center font-mono tracking-[0.35em] uppercase transition-all"
                 style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px', fontSize: '11px', textDecoration: 'none' }}
               >
-                Start Here: Add to Cart
-              </a>
+                Start Here: View Product
+              </Link>
               <div className="flex items-center gap-2 text-center">
                 <div style={{ flex: 1, height: '1px', background: 'rgba(201,162,74,0.2)' }} />
                 <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.35)' }}>Or Subscribe</span>
                 <div style={{ flex: 1, height: '1px', background: 'rgba(201,162,74,0.2)' }} />
               </div>
-              <a
-                href={TORCH_BOX_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={TORCH_BOX_URL}
                 className="inline-flex items-center justify-center font-mono tracking-[0.28em] uppercase transition-all"
                 style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)', padding: '16px 28px', fontSize: '11px', textDecoration: 'none' }}
               >
                 Join Torch Box → Never Miss a Blend
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

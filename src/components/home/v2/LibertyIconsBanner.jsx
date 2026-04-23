@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Flame } from 'lucide-react';
 
 export default function LibertyIconsBanner() {
@@ -114,10 +115,8 @@ export default function LibertyIconsBanner() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <a
-              href="https://torch-republic.com/collections/liberty-icons-series"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/LibertyIcons"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -145,7 +144,7 @@ export default function LibertyIconsBanner() {
               }}
             >
               Explore the Icons →
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import ProductBadge from '../../products/ProductBadge';
 
 const POD_HANDLE = 'washington-blend-coffee-pods';
-const SHOPIFY_URL = `https://torch-republic.com/products/${POD_HANDLE}`;
+const SHOPIFY_URL = '/washington-pods';
 
 async function fetchPodsProduct() {
   const res = await base44.functions.invoke('getSpotlightProduct', { handle: POD_HANDLE });
@@ -39,10 +40,11 @@ export default function WashingtonPodsSpotlight() {
         </div>
 
         {/* Product Card */}
-        <motion.a
-          href={SHOPIFY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={SHOPIFY_URL}
+          style={{ textDecoration: 'none', maxWidth: '360px', display: 'block' }}
+        >
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -51,8 +53,6 @@ export default function WashingtonPodsSpotlight() {
           style={{
             background: '#0B0B0B',
             border: '1px solid rgba(201,162,74,0.2)',
-            textDecoration: 'none',
-            maxWidth: '360px',
             transition: 'border-color 0.25s, box-shadow 0.25s',
           }}
           onMouseEnter={e => {
@@ -112,7 +112,8 @@ export default function WashingtonPodsSpotlight() {
               {price}
             </span>
           </div>
-        </motion.a>
+        </motion.div>
+        </Link>
       </div>
     </section>
   );
