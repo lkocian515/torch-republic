@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const NAV_LEFT = [
   { label: 'Shop Coffee', href: '/CoffeeCollection' },
   { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
+  { label: 'Apparel', href: '/Apparel' },
   { label: 'Bundles', href: '/collections/coffee-bundles' },
 ];
 
@@ -30,6 +31,7 @@ const NAV_GROUPS = [
     category: 'Shop',
     items: [
       { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
+      { label: 'Apparel', href: '/Apparel' },
       { label: 'Collectible Bundles', href: '/collections/coffee-bundles' },
       { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'On Sale', href: '/OnSale' },
