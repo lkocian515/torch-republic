@@ -33,6 +33,7 @@ const NAV_GROUPS = [
       { label: 'Mugs & Tumblers', href: '/mugs-tumblers' },
       { label: 'Apparel', href: '/Apparel' },
       { label: 'Collectible Bundles', href: '/collections/coffee-bundles' },
+      { label: 'Bobbleheads', href: '/bobbleheads' },
       { label: 'Popular Blends', href: '/BestSellers' },
       { label: 'On Sale', href: '/OnSale' },
     ],
