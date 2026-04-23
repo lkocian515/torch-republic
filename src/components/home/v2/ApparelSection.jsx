@@ -130,7 +130,7 @@ export default function ApparelSection() {
           style={{ textAlign: 'center' }}
         >
           <a
-            href="https://torch-republic.com/collections/apparel"
+            href="https://libertees-for-all.myshopify.com/collections/apparel"
             target="_blank"
             rel="noopener noreferrer"
             style={{

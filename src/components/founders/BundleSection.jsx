@@ -20,7 +20,7 @@ const BUNDLES = [
     name: 'Build Your Founders Collection',
     desc: 'Three small-batch roasts. One legendary set.',
     blends: ['Washington Blend', 'Jefferson Blend', 'Lincoln Blend'],
-    handles: ['washington-blend', 'jefferson-blend', 'lincoln-blend'],
+    handles: ['washington-blend', 'jefferson-blend', 'lincoln-blend-founders-series-coffee'],
     retailPrice: 56.97,
     bundlePrice: 49.99,
     badge: 'Best Value',
@@ -31,14 +31,14 @@ const BUNDLES = [
     name: 'Collect All 6 Founders',
     desc: 'Every blend. Every legacy. The full Founders Series.',
     blends: ['Washington', 'Franklin', 'Jefferson', 'Lincoln', 'Roosevelt', 'Adams'],
-    handles: ['washington-blend', 'franklin-blend', 'jefferson-blend', 'lincoln-blend', 'roosevelt-blend', 'adams-blend'],
+    handles: ['washington-blend', 'franklin-blend', 'jefferson-blend', 'lincoln-blend-founders-series-coffee', 'roosevelt-blend', 'adams-blend'],
     retailPrice: 113.94,
     bundlePrice: 94.99,
     badge: 'Best Value',
   },
 ];
 
-const SHOPIFY_COLLECTION_URL = 'https://torch-republic.com/collections/founders-series';
+const SHOPIFY_COLLECTION_URL = 'https://libertees-for-all.myshopify.com/collections/founders-series';
 
 export default function BundleSection({ accent = '#C9A24A' }) {
   const [selected, setSelected] = useState('trio');

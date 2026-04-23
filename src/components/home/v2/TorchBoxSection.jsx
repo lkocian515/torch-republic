@@ -161,18 +161,16 @@ export default function TorchBoxSection() {
                   </div>
                 </div>
 
-                <a
-                   href={`https://torch-republic.com/products/${tier.handle}`}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="py-3.5 text-center font-mono font-black text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-90 mt-1"
+                <Link
+                   to="/TheTorchBox"
+                   className="py-3.5 text-center font-mono font-black text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-90 mt-1 block"
                    style={tier.featured
                      ? { background: tier.color, color: '#0B0B0B' }
                      : { border: `1px solid ${tier.color}40`, color: tier.color }
                    }
                  >
                    Claim Your Box →
-                 </a>
+                 </Link>
               </div>
             </motion.div>
           ))}

@@ -7,7 +7,7 @@ import { base44 } from '@/api/base44Client';
 
 const FOUNDER_HANDLES = [
   'washington-blend',
-  'lincoln-blend',
+  'lincoln-blend-founders-series-coffee',
   'jefferson-blend',
 ];
 
@@ -38,7 +38,7 @@ function extractTastingNote(description) {
 function getProductRoute(handle) {
   const routeMap = {
     'washington-blend': '/WashingtonBlend',
-    'lincoln-blend': '/LincolnBlend',
+    'lincoln-blend-founders-series-coffee': '/LincolnBlend',
     'jefferson-blend': '/JeffersonBlend',
     'franklin-blend': '/FranklinBlend',
     'adams-blend': '/AdamsBlend',
@@ -50,7 +50,7 @@ function getProductRoute(handle) {
 const RETAIL_PRICE = 60.0; // 3 × $20
 const BUNDLE_PRICE = 50.99;
 const SAVINGS = (RETAIL_PRICE - BUNDLE_PRICE).toFixed(2);
-const SHOPIFY_BUNDLE_URL = 'https://torch-republic.com/collections/coffee';
+const SHOPIFY_BUNDLE_URL = 'https://libertees-for-all.myshopify.com/collections/coffee';
 
 export default function FoundersStarterPack({ compact = false }) {
   const { data: allProducts = [], isLoading } = useQuery({
@@ -129,7 +129,6 @@ export default function FoundersStarterPack({ compact = false }) {
                 const roast = extractRoastNote(product.description);
                 const note = extractTastingNote(product.description);
                 const route = getProductRoute(product.shopify_handle);
-                const shopifyUrl = `https://torch-republic.com/products/${product.shopify_handle}`;
 
                 return (
                   <motion.div
@@ -139,12 +138,10 @@ export default function FoundersStarterPack({ compact = false }) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
                   >
-                    <a
-                      href={shopifyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={route}
                       className="group flex flex-col overflow-hidden transition-all"
-                      style={{ background: '#111', border: '1px solid rgba(196,163,90,0.14)', display: 'flex', flexDirection: 'column' }}
+                      style={{ background: '#111', border: '1px solid rgba(196,163,90,0.14)', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}
                       onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,174,87,0.4)'}
                       onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(196,163,90,0.14)'}
                     >
@@ -179,7 +176,7 @@ export default function FoundersStarterPack({ compact = false }) {
                           <p className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.6 }}>{note}</p>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   </motion.div>
                 );
               })
