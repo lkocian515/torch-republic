@@ -36,18 +36,25 @@ export default function CollectionPageTemplate({
       ════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden" style={{ height: 'clamp(420px, 62vh, 720px)' }}>
         {/* Background image */}
+        {/* Dark matte background so no bright bleed-through */}
+        <div className="absolute inset-0" style={{ background: '#0B0B0B' }} />
+
         <img
           src={bannerImage}
           alt={title}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.55 }}
+          style={{ opacity: 0.32 }}
         />
+
+        {/* Cinematic dark overlay */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'rgba(6,6,8,0.52)' }} />
 
         {/* Edge fades */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, #080808 0%, transparent 18%, transparent 60%, #080808 100%)' }} />
+          style={{ background: 'linear-gradient(to bottom, #0B0B0B 0%, transparent 22%, transparent 58%, #0B0B0B 100%)' }} />
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, #080808 0%, transparent 20%, transparent 80%, #080808 100%)' }} />
+          style={{ background: 'linear-gradient(to right, #0B0B0B 0%, transparent 18%, transparent 82%, #0B0B0B 100%)' }} />
 
         {/* Overlay content — centered */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
@@ -70,10 +77,10 @@ export default function CollectionPageTemplate({
               className="font-serif leading-none"
               style={{
                 fontSize: 'clamp(3rem, 7vw, 6rem)',
-                fontWeight: 700,
-                color: accentColor,
+                fontWeight: 800,
+                color: '#FFFFFF',
                 letterSpacing: '-0.02em',
-                textShadow: '0 2px 40px rgba(0,0,0,0.7)',
+                textShadow: '0 4px 60px rgba(0,0,0,0.9)',
               }}
             >
               {title}
@@ -82,14 +89,14 @@ export default function CollectionPageTemplate({
             {/* Subtitle */}
             {subtitle && (
               <p className="font-mono text-xs tracking-[0.25em] uppercase"
-                style={{ color: 'rgba(240,235,225,0.45)', maxWidth: '420px' }}>
+                style={{ color: 'rgba(240,235,225,0.65)', maxWidth: '480px' }}>
                 {subtitle}
               </p>
             )}
 
             {/* Gold rule */}
-            <div className="h-px w-20 mt-2"
-              style={{ background: `linear-gradient(90deg, transparent, ${accentColor}60, transparent)` }} />
+            <div className="h-px w-24 mt-1"
+              style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }} />
           </motion.div>
         </div>
       </section>

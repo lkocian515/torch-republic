@@ -46,13 +46,13 @@ export default function CommandersSeries() {
 
   return (
     <CollectionPageTemplate
-      bannerImage="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1600&q=85"
-      eyebrow="Torch Republic"
+      bannerImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=85"
+      eyebrow="Torch Republic · Collection 03"
       title="Commanders Series"
       subtitle="Leadership under pressure. Built for those who take command."
       description="The Commanders Series honors the men and women who led with conviction — not comfort. Those who studied history, prepared relentlessly, and acted when others hesitated."
       quote="Leadership is not a rank. It's a decision made daily."
-      accentColor="#A8893A"
+      accentColor="#C9A24A"
     >
       {isLoading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
