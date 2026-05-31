@@ -101,7 +101,7 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Mobile right icons - cart and profile only */}
+          {/* Mobile right icons - cart and profile only (no menu) */}
           <div className="md:hidden flex items-center gap-1 ml-auto">
             <Link to="/cart"
               style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
