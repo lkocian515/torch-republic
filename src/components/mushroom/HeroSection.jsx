@@ -127,7 +127,7 @@ function DesktopHero() {
               margin: 0,
             }}
           >
-            Instant Mushroom Coffee
+            Premium Mushroom Coffee
             <br />
             <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
           </motion.h1>
