@@ -22,7 +22,7 @@ export default function MushroomBundle() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-5"
           >
-            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(201,162,74,0.6)' }}>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
               The Full Ritual Set
             </p>
             <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
@@ -39,7 +39,7 @@ export default function MushroomBundle() {
       <section className="px-6 md:px-10 py-16">
         <div className="max-w-[1100px] mx-auto">
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-10"
-            style={{ color: 'rgba(201,162,74,0.5)' }}>
+            style={{ color: 'rgba(230,183,173,0.5)' }}>
             What's Included — All Six Blends
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -51,7 +51,7 @@ export default function MushroomBundle() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 className="flex items-center gap-4 p-5"
-                style={{ background: '#0F0E0E', border: '1px solid rgba(201,162,74,0.1)' }}
+                style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}
               >
                 {p.image && !p.imagePlaceholder ? (
                   <img src={p.image} alt={p.alt} loading="lazy"
@@ -73,8 +73,8 @@ export default function MushroomBundle() {
           </div>
 
           {/* Pricing */}
-          <div className="mt-12 p-8 text-center" style={{ background: '#0F0E0E', border: '1px solid rgba(201,162,74,0.2)' }}>
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.55)' }}>
+          <div className="mt-12 p-8 text-center" style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.2)' }}>
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
               Bundle Price
             </p>
             <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '3rem' }}>$129.99</p>
@@ -87,7 +87,7 @@ export default function MushroomBundle() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ background: '#C9A24A', color: '#080808', padding: '16px 40px' }}
+              style={{ background: '#E6B7AD', color: '#080808', padding: '16px 40px' }}
             >
               Shop the 6-Tube Bundle →
             </a>
@@ -100,7 +100,7 @@ export default function MushroomBundle() {
       </section>
 
       {/* Legal */}
-      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.06)' }}>
+      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <p className="font-mono text-[8px] tracking-[0.15em] max-w-xl mx-auto"
           style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
           Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.

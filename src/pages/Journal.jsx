@@ -1,119 +1,100 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const ARTICLE_ROUTES = {
-  'george-washington-coffee-history': '/george-washington-coffee-history',
-};
-
 const ARTICLES = [
   {
-    slug: 'george-washington-coffee-history',
-    date: 'April 2026',
-    category: 'History',
-    title: "George Washington's Coffee: What America's First President Might Have Drunk",
-    excerpt: "Long before the Boston Tea Party made coffee the patriotic drink of choice, Washington was developing a taste for bold, unapologetic brews. Here's what history tells us about the first president's morning ritual.",
-    readTime: '7 min read',
-  },
-  {
-    slug: 'why-founders-series-exists',
-    date: 'March 2026',
-    category: 'Brand Story',
-    title: 'Why the Founders Series Exists',
-    excerpt: 'Torch Republic didn\'t set out to be a coffee company. But somewhere between the designs and the conviction behind them, it became clear — the brand had more to say. The Founders Series is the result.',
+    slug: null,
+    date: 'May 2026',
+    category: 'Ingredients',
+    title: "What Is Lion's Mane + Chaga Coffee?",
+    excerpt: "Lion's Mane is a mushroom long studied for cognitive support and mental clarity. Chaga is one of the most antioxidant-dense foods on earth. Together, they transform your morning cup into something that works as hard as you do.",
     readTime: '5 min read',
   },
   {
-    slug: 'story-behind-each-blend',
-    date: 'March 2026',
-    category: 'Coffee',
-    title: 'The Story Behind Each Blend',
-    excerpt: 'Washington demanded discipline. Jefferson demanded nuance. Franklin demanded curiosity. Each roast profile was built to match the archetype of its founder — not as a gimmick, but as a philosophy.',
-    readTime: '8 min read',
-  },
-  {
-    slug: 'more-than-merch',
-    date: 'February 2026',
-    category: 'Brand',
-    title: 'More Than Merch: Why Torch Republic Is Evolving',
-    excerpt: 'Patriotic apparel will always be part of the story. But the story is getting bigger. Here\'s what the evolution means — and why coffee is the center of it.',
+    slug: null,
+    date: 'May 2026',
+    category: 'Ritual',
+    title: 'How to Build a Morning Coffee Ritual That Sticks',
+    excerpt: "The best rituals aren't complicated. They're consistent. Here's how to build a simple, intentional morning routine around your daily blend — and why it changes everything about the rest of your day.",
     readTime: '4 min read',
   },
   {
-    slug: 'coffee-conviction-craftsmanship',
-    date: 'February 2026',
-    category: 'Coffee',
-    title: 'Coffee, Conviction, and Craftsmanship',
-    excerpt: 'There\'s a reason the founders started their days early. Discipline, clarity, purpose — and almost certainly, a cup of something strong. We built this brand around that same morning ritual.',
+    slug: null,
+    date: 'May 2026',
+    category: 'Education',
+    title: 'Why Instant Mushroom Coffee Is Not What You Think',
+    excerpt: "\"Instant\" used to mean cheap. Not anymore. Torch Republic instant mushroom coffee is freeze-dried from specialty-grade beans and blended with functional mushroom extracts — no fillers, no shortcuts.",
     readTime: '6 min read',
   },
+  {
+    slug: null,
+    date: 'June 2026',
+    category: 'Blends',
+    title: 'Choosing the Right Blend for Your Routine',
+    excerpt: "Focus in the morning. Calm in the afternoon. Rest at night. Each of our six blends is designed for a specific time, mood, and intention. Here's how to match your blend to your day.",
+    readTime: '7 min read',
+  },
+  {
+    slug: null,
+    date: 'June 2026',
+    category: 'Wellness',
+    title: "Functional Coffee vs. Regular Coffee: What\u2019s the Difference?",
+    excerpt: "Regular coffee gives you a spike. Functional mushroom coffee gives you sustained energy with less crash, more focus, and adaptogenic support built in. The science — explained simply.",
+    readTime: '5 min read',
+  },
 ];
-
-function GrainOverlay() {
-  return (
-    <div
-      className="fixed inset-0 pointer-events-none z-0 opacity-[0.025]"
-      style={{
-        backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
-      }}
-    />
-  );
-}
 
 export default function Journal() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#030303' }}>
-      <GrainOverlay />
 
       {/* Header */}
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-10 pt-20 pb-14">
+      <div className="max-w-[900px] mx-auto px-6 md:px-10 pt-20 pb-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>
+            <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #E6B7AD)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6B7AD' }}>
               Torch Republic
             </span>
           </div>
-          <h1
-            className="font-serif text-white leading-[1.05] mb-5"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 700 }}
-          >
+          <h1 className="font-serif text-white leading-[1.05] mb-5"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 700 }}>
             The Journal
           </h1>
-          <p className="text-sm leading-relaxed max-w-lg" style={{ color: 'rgba(232,223,175,0.5)', fontFamily: 'var(--font-mono)' }}>
-            Stories, philosophies, and the thinking behind the brand. Coffee, conviction, and the American character.
+          <p className="text-sm leading-relaxed max-w-lg font-mono"
+            style={{ color: 'rgba(230,183,173,0.4)', lineHeight: 1.8 }}>
+            Mushroom coffee, daily ritual, and the ingredients behind the blends.
           </p>
         </motion.div>
       </div>
 
       {/* Divider */}
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-10">
-        <div className="h-px w-full mb-14" style={{ background: 'linear-gradient(90deg, rgba(200,164,77,0.3), transparent)' }} />
+      <div className="max-w-[900px] mx-auto px-6 md:px-10">
+        <div className="h-px w-full mb-14"
+          style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.3), transparent)' }} />
       </div>
 
       {/* Articles */}
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-10 pb-28">
+      <div className="max-w-[900px] mx-auto px-6 md:px-10 pb-28">
         <div className="space-y-0">
           {ARTICLES.map((article, i) => (
             <motion.article
-              key={article.slug}
+              key={i}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               className="group py-12"
-              style={{ borderBottom: '1px solid rgba(200,164,77,0.08)' }}
+              style={{ borderBottom: '1px solid rgba(230,183,173,0.07)' }}
             >
-              {/* Meta */}
               <div className="flex items-center gap-5 mb-5">
-                <span
-                  className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-                  style={{ color: '#C8A44D', border: '1px solid rgba(200,164,77,0.25)', background: 'rgba(200,164,77,0.05)' }}
-                >
+                <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
+                  style={{ color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', background: 'rgba(230,183,173,0.04)' }}>
                   {article.category}
                 </span>
                 <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.2)' }}>
@@ -124,38 +105,31 @@ export default function Journal() {
                 </span>
               </div>
 
-              {/* Title */}
-              <h2
-                className="font-serif text-white leading-tight mb-4 group-hover:text-primary transition-colors duration-300"
-                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 600 }}
-              >
+              <h2 className="font-serif text-white leading-tight mb-4 group-hover:text-primary transition-colors duration-300"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 600 }}>
                 {article.title}
               </h2>
 
-              {/* Excerpt */}
-              <p className="text-sm leading-relaxed mb-6 max-w-2xl" style={{ color: 'rgba(232,223,175,0.45)', lineHeight: 1.8 }}>
+              <p className="text-sm leading-relaxed mb-6 max-w-2xl"
+                style={{ color: 'rgba(230,183,173,0.35)', lineHeight: 1.8 }}>
                 {article.excerpt}
               </p>
 
-              {/* Read more */}
-              {ARTICLE_ROUTES[article.slug] ? (
-                <Link
-                  to={ARTICLE_ROUTES[article.slug]}
-                  className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all group-hover:gap-3"
-                  style={{ color: 'rgba(200,164,77,0.6)' }}
-                >
-                  Read More <ArrowRight className="w-3 h-3" />
-                </Link>
-              ) : (
-                <div
-                  className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-                  style={{ color: 'rgba(200,164,77,0.3)' }}
-                >
-                  Coming Soon
-                </div>
-              )}
+              <div className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
+                style={{ color: 'rgba(230,183,173,0.3)' }}>
+                Coming Soon
+              </div>
             </motion.article>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <Link to="/shop"
+            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+            style={{ background: '#E6B7AD', color: '#080808', padding: '14px 32px' }}>
+            Shop the Blends <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
     </div>

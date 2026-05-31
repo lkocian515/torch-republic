@@ -14,9 +14,9 @@ const FOOTER_LINKS = [
     heading: 'Learn',
     links: [
       { label: 'How It Works', href: '/how-it-works' },
-      { label: 'Reviews', href: '/Reviews' },
+      { label: 'The Journal', href: '/Journal' },
       { label: 'FAQ', href: '/faq' },
-      { label: 'Contact', href: '/Contact' },
+      { label: 'Reviews', href: '/Reviews' },
     ]
   },
   {

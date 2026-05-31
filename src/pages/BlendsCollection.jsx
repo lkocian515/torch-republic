@@ -9,9 +9,9 @@ export default function BlendsCollection() {
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
-        style={{ borderBottom: '1px solid rgba(201,162,74,0.08)' }}>
+        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>
+          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             The Collection
           </p>
           <h1 className="font-serif font-bold mb-4"
@@ -37,8 +37,8 @@ export default function BlendsCollection() {
 
       <BlendCompare />
 
-      <section className="px-6 py-16 text-center" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
-        <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>
+      <section className="px-6 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+        <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
           Can't choose just one?
         </p>
         <h2 className="font-serif font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)' }}>
@@ -46,7 +46,7 @@ export default function BlendsCollection() {
         </h2>
         <Link to="/bundle"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-          style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px' }}>
+          style={{ background: '#E6B7AD', color: '#080808', padding: '14px 32px' }}>
           Shop the 6-Tube Bundle →
         </Link>
       </section>
