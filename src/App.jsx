@@ -69,6 +69,12 @@ const AuthenticatedApp = () => {
         <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
         <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
 
+        {/* ── LEGACY PAGES from old pagesConfig ── */}
+        <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
+        <Route path="/Collections" element={<Navigate to="/blends" replace />} />
+        <Route path="/Mission" element={<Navigate to="/" replace />} />
+        <Route path="/Contact" element={<Navigate to="/" replace />} />
+
         {/* ── LEGACY REDIRECTS (all old routes → /shop or /blends) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
         <Route path="/Bundles" element={<Navigate to="/bundle" replace />} />
