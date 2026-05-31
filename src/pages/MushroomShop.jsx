@@ -217,7 +217,7 @@ export default function MushroomShop() {
                   transition={{ delay: i * 0.07 }}
                 >
                   <Link
-                    to={product ? `/blends/${product.slug}` : '/blends'}
+                    to={product ? `/products/${product.slug}` : '/shop'}
                     className="flex items-start gap-4 p-4 transition-all hover:border-opacity-40 group"
                     style={{ background: '#0F0E0D', border: `1px solid ${b.accent}15`, textDecoration: 'none', display: 'flex' }}
                     onMouseEnter={e => e.currentTarget.style.borderColor = `${b.accent}35`}
