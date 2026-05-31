@@ -56,7 +56,6 @@ export default function QualityMission() {
             flexDirection: 'column',
             gap: '12px',
             alignItems: 'center',
-            marginBottom: '32px',
           }}
         >
           <p
@@ -84,56 +83,6 @@ export default function QualityMission() {
             No gimmicks.
           </p>
         </motion.div>
-
-        <div style={{ height: '1px', background: 'rgba(230,183,173,0.12)', margin: '24px 0' }} />
-
-        <motion.h3
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontWeight: 700,
-            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-            color: '#FFFFFF',
-            lineHeight: 1.2,
-            marginBottom: '18px',
-          }}
-        >
-          More Than Coffee
-        </motion.h3>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          viewport={{ once: true }}
-          style={{
-            fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
-            color: 'rgba(200,184,166,0.85)',
-            lineHeight: 1.8,
-            fontWeight: 300,
-            marginBottom: '16px',
-          }}
-        >
-          Torch Republic was built around the belief that small daily rituals create lasting change.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          style={{
-            fontSize: 'clamp(1rem, 1.4vw, 1.1rem)',
-            color: 'rgba(200,184,166,0.85)',
-            lineHeight: 1.8,
-            fontWeight: 300,
-          }}
-        >
-          Each blend represents a different mindset—from focus and discipline to creativity and transformation—helping you approach each day with intention.
-        </motion.p>
       </div>
     </section>
   );

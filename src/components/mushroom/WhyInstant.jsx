@@ -44,6 +44,38 @@ export default function WhyInstant() {
           </p>
         </motion.div>
 
+        <div className="max-w-2xl mx-auto mt-16 mb-20 text-center">
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-serif font-bold mb-6"
+            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}
+          >
+            More Than Coffee
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-heading mb-4"
+            style={{ fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)', lineHeight: 1.8, fontWeight: 300 }}
+          >
+            Torch Republic was built around the belief that small daily rituals create lasting change.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="font-heading"
+            style={{ fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)', lineHeight: 1.8, fontWeight: 300 }}
+          >
+            Each blend represents a different mindset—from focus and discipline to creativity and transformation—helping you approach each day with intention.
+          </motion.p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {CARDS.map((card, i) => (
             <motion.div
