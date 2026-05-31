@@ -94,7 +94,7 @@ function DesktopHero() {
         <div style={{
           position: 'absolute', top: 0, left: 0, right: 0,
           display: 'flex', flexDirection: 'column', alignItems: 'center',
-          textAlign: 'center', padding: '40px 32px 0', zIndex: 2,
+          textAlign: 'center', padding: '28px 32px 0', zIndex: 2,
         }}>
           <motion.p
             initial={{ opacity: 0, y: -6 }}
@@ -106,7 +106,7 @@ function DesktopHero() {
               letterSpacing: '0.55em',
               textTransform: 'uppercase',
               fontFamily: 'var(--font-mono)',
-              marginBottom: '18px',
+              marginBottom: '14px',
             }}
           >
             Torch Republic Coffee Company
