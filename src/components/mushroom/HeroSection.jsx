@@ -57,14 +57,46 @@ export default function MushroomHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.18 }}
-          className="w-full flex items-end justify-center gap-2 sm:gap-3 md:gap-4 my-6"
+          className="w-full my-6 md:flex md:items-end md:justify-center md:gap-4"
           style={{ maxWidth: '960px' }}
         >
+          {/* Mobile: 3-column grid */}
+          <div className="grid grid-cols-3 gap-3 md:hidden w-full">
+            {MUSHROOM_PRODUCTS.map((p, i) => (
+              <Link
+                key={p.id}
+                to={`/products/${p.slug}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.25 + i * 0.07 }}
+                  className="relative flex flex-col items-center"
+                  whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                >
+                  <div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/3 rounded-full blur-xl pointer-events-none"
+                    style={{ background: `${p.accent}30` }}
+                  />
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    loading="eager"
+                    className="w-full object-contain drop-shadow-2xl"
+                    style={{ height: '160px' }}
+                  />
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop: single flex row */}
           {MUSHROOM_PRODUCTS.map((p, i) => (
             <Link
               key={p.id}
               to={`/products/${p.slug}`}
-              className="flex-1 min-w-0 group"
+              className="hidden md:block flex-1 min-w-0 group"
               style={{ textDecoration: 'none' }}
             >
               <motion.div
@@ -74,7 +106,6 @@ export default function MushroomHero() {
                 className="relative flex flex-col items-center"
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
-                {/* Glow behind each tube */}
                 <div
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/3 rounded-full blur-2xl pointer-events-none"
                   style={{ background: `${p.accent}30` }}
@@ -84,7 +115,7 @@ export default function MushroomHero() {
                   alt={p.alt}
                   loading="eager"
                   className="w-full object-contain drop-shadow-2xl"
-                  style={{ maxHeight: 'clamp(160px, 28vw, 340px)' }}
+                  style={{ maxHeight: 'clamp(200px, 28vw, 340px)' }}
                 />
               </motion.div>
             </Link>
