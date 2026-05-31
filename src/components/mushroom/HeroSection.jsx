@@ -1,164 +1,66 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MUSHROOM_PRODUCTS } from '../../lib/mushroomProducts';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 const BG_DESKTOP = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1563af3fd_LIVEFREESTAYREADY3.png';
+const BG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/473eeb1cb_ChatGPTImageMay31202604_33_21PM.png';
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
 function MobileHero() {
   return (
     <div
-      className="md:hidden flex flex-col items-center text-center w-full"
-      style={{
-        backgroundColor: '#050505',
-        maxHeight: '85vh',
-        overflow: 'hidden',
-        paddingBottom: '24px',
-      }}
+      className="md:hidden relative w-full"
+      style={{ backgroundColor: '#050505', margin: 0, padding: 0 }}
     >
-      {/* Brand eyebrow */}
-      <motion.p
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45 }}
+      {/* Full-width hero image — no cropping */}
+      <img
+        src={BG_MOBILE}
+        alt="Torch Republic Coffee Company instant mushroom coffee mobile hero with six Lion's Mane and Chaga blends."
+        fetchpriority="high"
         style={{
-          color: RG_DEEP,
-          fontSize: '0.55rem',
-          letterSpacing: '0.35em',
-          textTransform: 'uppercase',
-          fontFamily: 'var(--font-mono)',
-          paddingTop: '16px',
-          paddingBottom: '8px',
+          width: '100%',
+          height: 'auto',
+          display: 'block',
+          objectFit: 'contain',
+          objectPosition: 'center top',
+          margin: 0,
+          padding: 0,
         }}
-      >
-        Torch Republic Coffee Company
-      </motion.p>
+      />
 
-      {/* Headline */}
-      <motion.h1
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.06 }}
-        className="font-serif font-bold px-5"
+      {/* Transparent clickable overlays for the two CTA buttons in the image.
+          These are positioned over the bottom ~18% of the image where the buttons live.
+          Using percentage-based positioning so they scale with image width. */}
+      <Link
+        to="/shop"
+        aria-label="Shop the Blends"
         style={{
-          fontSize: 'clamp(1.85rem, 7.5vw, 3rem)',
-          color: '#FFFFFF',
-          lineHeight: 1.05,
-          letterSpacing: '-0.02em',
-          marginBottom: '14px',
+          position: 'absolute',
+          bottom: '12.5%',
+          left: '4%',
+          right: '4%',
+          height: '7%',
+          borderRadius: '999px',
+          display: 'block',
+          background: 'transparent',
         }}
-      >
-        Instant Mushroom Coffee
-        <br />
-        <span style={{ color: RG }}>for Focus, Flow &amp; Ritual</span>
-      </motion.h1>
-
-      {/* Product tube lineup */}
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.14 }}
-        style={{ width: '100%', marginBottom: '14px' }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-end',
-            justifyContent: 'center',
-            gap: '4px',
-            padding: '0 8px',
-          }}
-        >
-          {MUSHROOM_PRODUCTS.map((product) => (
-            <Link key={product.id} to={`/blends/${product.slug}`} style={{ display: 'block', flex: '1', maxWidth: '70px' }}>
-              <img
-                src={product.image}
-                alt={product.alt}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
-                  display: 'block',
-                  filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.8))',
-                }}
-              />
-            </Link>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Short subtitle */}
-      <motion.p
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.22 }}
+      />
+      <Link
+        to="/subscription"
+        aria-label="Build Your Monthly Ritual"
         style={{
-          color: '#C8B8A6',
-          fontSize: '0.9rem',
-          lineHeight: 1.6,
-          fontWeight: 300,
-          maxWidth: '88%',
-          marginBottom: '20px',
-          fontFamily: 'var(--font-heading)',
+          position: 'absolute',
+          bottom: '4%',
+          left: '4%',
+          right: '4%',
+          height: '7%',
+          borderRadius: '999px',
+          display: 'block',
+          background: 'transparent',
         }}
-      >
-        Premium instant coffee with Lion's Mane + Chaga. No brewer, no grinder — just scoop, stir, and sip.
-      </motion.p>
-
-      {/* CTA buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.3 }}
-        className="flex flex-col items-center gap-3 w-full"
-        style={{ paddingBottom: '4px' }}
-      >
-        <Link
-          to="/shop"
-          style={{
-            background: RG,
-            color: '#050505',
-            padding: '13px 20px',
-            fontSize: '0.7rem',
-            fontFamily: 'var(--font-mono)',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            fontWeight: 700,
-            borderRadius: '999px',
-            width: '88%',
-            maxWidth: '340px',
-            textAlign: 'center',
-            display: 'block',
-          }}
-        >
-          Shop the Blends
-        </Link>
-        <Link
-          to="/subscription"
-          style={{
-            border: `1px solid ${RG}77`,
-            color: RG_DEEP,
-            padding: '12px 20px',
-            fontSize: '0.7rem',
-            fontFamily: 'var(--font-mono)',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            fontWeight: 700,
-            borderRadius: '999px',
-            background: 'rgba(0,0,0,0.4)',
-            width: '88%',
-            maxWidth: '340px',
-            textAlign: 'center',
-            display: 'block',
-          }}
-        >
-          Build Monthly Ritual
-        </Link>
-      </motion.div>
+      />
     </div>
   );
 }
