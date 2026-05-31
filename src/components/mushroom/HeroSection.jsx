@@ -65,49 +65,87 @@ function MobileHero() {
   );
 }
 
+const TRUST_ITEMS = [
+  { icon: '🍄', label: "Lion's Mane + Chaga" },
+  { icon: '⚡', label: '100% Instant Coffee' },
+  { icon: '☕', label: '27 Servings' },
+  { icon: '✦', label: 'No Coffee Maker Needed' },
+];
+
 // ─── DESKTOP HERO ─────────────────────────────────────────────────────────────
 function DesktopHero() {
   return (
     <div
-      className="hidden md:block relative w-full overflow-hidden"
-      style={{ minHeight: '600px' }}
+      className="hidden md:flex flex-col items-center justify-center relative w-full overflow-hidden"
+      style={{
+        minHeight: '82vh',
+        maxHeight: '900px',
+        background: '#060408',
+      }}
     >
+      {/* Product lineup image — bottom-anchored, no text baked in */}
       <img
         src={BG_DESKTOP}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ objectFit: 'cover', objectPosition: 'center center' }}
+        alt="Six Torch Republic instant mushroom coffee tubes on a dark wooden surface"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '100%',
+          maxWidth: '1600px',
+          height: '75%',
+          objectFit: 'cover',
+          objectPosition: 'center bottom',
+          pointerEvents: 'none',
+          display: 'block',
+        }}
       />
+
+      {/* Top-to-bottom gradient so headline sits on dark, tubes fade in at bottom */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, rgba(6,5,10,0.38) 0%, rgba(6,5,10,0.18) 45%, rgba(6,5,10,0.8) 100%)',
+            'linear-gradient(180deg, #060408 0%, #060408 18%, rgba(6,4,8,0.55) 45%, rgba(6,4,8,0.15) 68%, rgba(6,4,8,0.7) 100%)',
         }}
       />
-      <div className="relative max-w-[1280px] mx-auto px-10 pt-16 pb-20 flex flex-col items-center text-center">
+
+      {/* Content */}
+      <div
+        className="relative flex flex-col items-center text-center"
+        style={{ maxWidth: '1000px', margin: '0 auto', padding: '72px 24px 56px', zIndex: 2 }}
+      >
+        {/* Eyebrow */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-mono tracking-[0.45em] uppercase mb-6"
-          style={{ color: 'rgba(230,183,173,0.75)', fontSize: '0.6rem' }}
+          transition={{ duration: 0.55 }}
+          style={{
+            color: 'rgba(230,183,173,0.72)',
+            fontSize: '0.58rem',
+            letterSpacing: '0.5em',
+            textTransform: 'uppercase',
+            fontFamily: 'var(--font-mono)',
+            marginBottom: '24px',
+          }}
         >
           Torch Republic Coffee Company
         </motion.p>
 
+        {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.08 }}
-          className="font-serif font-bold mb-10"
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="font-serif font-bold"
           style={{
-            fontSize: 'clamp(2.8rem, 6vw, 5.4rem)',
+            fontSize: 'clamp(3.5rem, 6vw, 6.4rem)',
             color: '#FFFFFF',
             letterSpacing: '-0.02em',
-            lineHeight: 1.07,
-            textShadow: '0 2px 40px rgba(0,0,0,0.7)',
+            lineHeight: 1.0,
+            marginBottom: '28px',
+            textShadow: '0 2px 32px rgba(0,0,0,0.6)',
           }}
         >
           Instant Mushroom Coffee
@@ -115,43 +153,97 @@ function DesktopHero() {
           <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
         </motion.h1>
 
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-heading max-w-2xl mb-10"
+          transition={{ duration: 0.65, delay: 0.22 }}
           style={{
-            fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)',
-            color: 'rgba(247,241,232,0.7)',
-            lineHeight: 1.85,
+            fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+            color: '#C8B8A6',
+            lineHeight: 1.7,
             fontWeight: 300,
-            textShadow: '0 1px 12px rgba(0,0,0,0.5)',
+            maxWidth: '700px',
+            marginBottom: '36px',
+            fontFamily: 'var(--font-heading)',
           }}
         >
           Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings,
           clearer routines, and a little everyday magic — without the mess of brewing.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          transition={{ duration: 0.55, delay: 0.36 }}
+          className="flex flex-row items-center gap-4 mb-10"
         >
           <Link
             to="/shop"
-            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 btn-glow"
-            style={{ background: RG, color: '#050505', padding: '14px 36px' }}
+            className="font-mono uppercase tracking-[0.3em] font-bold transition-all hover:opacity-90 btn-glow"
+            style={{
+              background: RG,
+              color: '#050505',
+              fontSize: '0.65rem',
+              padding: '15px 40px',
+              borderRadius: '999px',
+            }}
           >
             Shop the Blends
           </Link>
           <Link
             to="/subscription"
-            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
-            style={{ border: `1px solid ${RG}88`, color: RG_DEEP, padding: '14px 36px', background: 'rgba(0,0,0,0.35)' }}
+            className="font-mono uppercase tracking-[0.3em] font-bold transition-all hover:opacity-80"
+            style={{
+              border: `1px solid ${RG}66`,
+              color: RG_DEEP,
+              fontSize: '0.65rem',
+              padding: '15px 40px',
+              borderRadius: '999px',
+              background: 'rgba(0,0,0,0.4)',
+            }}
           >
             Build Monthly Ritual
           </Link>
+        </motion.div>
+
+        {/* Trust bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex items-center gap-0"
+          style={{
+            border: '1px solid rgba(230,183,173,0.12)',
+            borderRadius: '999px',
+            padding: '10px 4px',
+            background: 'rgba(0,0,0,0.35)',
+          }}
+        >
+          {TRUST_ITEMS.map((item, i) => (
+            <div
+              key={item.label}
+              className="flex items-center gap-2 px-6"
+              style={{
+                borderRight: i < TRUST_ITEMS.length - 1 ? '1px solid rgba(230,183,173,0.15)' : 'none',
+              }}
+            >
+              <span style={{ fontSize: '0.8rem' }}>{item.icon}</span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.58rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(230,183,173,0.65)',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {item.label}
+              </span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </div>
