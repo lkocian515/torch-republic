@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Search, ShoppingBag, User } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 const NAV_LINKS = [
@@ -15,7 +14,6 @@ const NAV_LINKS = [
 ];
 
 export default function NavBar() {
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [search, setSearch] = useState('');
   const { totalItems, setDrawerOpen } = useCart();
@@ -25,11 +23,6 @@ export default function NavBar() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
 
   return (
     <>
@@ -108,9 +101,9 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Mobile right icons */}
+          {/* Mobile right icons - cart and profile only (no menu) */}
           <div className="md:hidden flex items-center gap-1 ml-auto">
-            <button onClick={() => setDrawerOpen(true)}
+            <Link to="/cart"
               style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
               <ShoppingBag className="w-[18px] h-[18px]" />
               {totalItems > 0 && (
@@ -118,105 +111,16 @@ export default function NavBar() {
                   {totalItems}
                 </span>
               )}
-            </button>
-            <button
-              onClick={() => setOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Menu className="w-[20px] h-[20px]" />
-            </button>
+            </Link>
+            <Link to="/Profile"
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <User className="w-[18px] h-[18px]" />
+            </Link>
           </div>
         </div>
       </nav>
 
-      {/* Mobile overlay */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 md:hidden flex flex-col"
-            style={{ zIndex: 200, background: '#040407' }}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 flex-shrink-0"
-              style={{ height: '48px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
-              <Link to="/" onClick={() => setOpen(false)}>
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-                  alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
-              </Link>
-              <button onClick={() => setOpen(false)}
-                style={{ color: 'rgba(255,255,255,0.6)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <X className="w-5 h-5" />
-              </button>
-            </div>
 
-            {/* Shop CTA */}
-            <div className="px-5 py-4 flex-shrink-0">
-              <Link to="/shop" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '11px', background: '#E6B7AD', color: '#000', fontWeight: 700 }}>
-                Shop All Blends
-              </Link>
-            </div>
-
-            {/* Nav links */}
-            <div className="flex-1 overflow-y-auto px-5 pb-4">
-              <div className="mb-2">
-                <p className="font-mono uppercase"
-                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '18px 0 8px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
-                  Navigation
-                </p>
-                {NAV_LINKS.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.04 + i * 0.04, duration: 0.22 }}
-                  >
-                    <Link
-                      to={item.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center justify-between"
-                      style={{
-                        padding: '14px 0',
-                        borderBottom: '1px solid rgba(230,183,173,0.07)',
-                        fontSize: '18px',
-                        color: 'rgba(255,255,255,0.6)',
-                        fontFamily: 'var(--font-heading)',
-                        fontWeight: 400,
-                        transition: 'color 0.2s',
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.color = '#E6B7AD'}
-                      onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
-                    >
-                      <span>{item.label}</span>
-                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '14px' }}>→</span>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom */}
-            <div className="px-5 py-6 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
-              <Link to="/bundle" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '10px', border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
-                Shop the 6-Tube Bundle →
-              </Link>
-              <div className="flex items-center justify-center gap-5 mt-5">
-                <Link to="/Profile" onClick={() => setOpen(false)}
-                  className="flex items-center gap-2"
-                  style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontFamily: 'var(--font-heading)' }}>
-                  <User className="w-3.5 h-3.5" /> Account
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
