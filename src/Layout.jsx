@@ -9,7 +9,9 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-background flex flex-col" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <MobileHeader />
       <div className="sticky top-0 z-50 md:top-0" style={{ top: 'env(safe-area-inset-top)' }}>
-        <TopBar />
+        <div className="hidden md:block">
+          <TopBar />
+        </div>
         <div className="hidden md:block">
           <NavBar />
         </div>
