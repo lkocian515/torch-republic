@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MushroomHero from '../components/mushroom/HeroSection';
 import MushroomTrustBar from '../components/mushroom/TrustBar';
-import QualityTrustBar from '../components/mushroom/QualityTrustBar';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import WhyInstant from '../components/mushroom/WhyInstant';
 import BundleSection from '../components/mushroom/BundleSection';
@@ -55,7 +54,6 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <MushroomHero />
-      <QualityTrustBar />
       <MushroomTrustBar />
       <FeaturedCollection />
       <WhyInstant />
