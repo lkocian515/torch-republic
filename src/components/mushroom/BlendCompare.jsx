@@ -31,7 +31,7 @@ export default function BlendCompare() {
               transition={{ delay: i * 0.07 }}
             >
               <Link
-                to={`/blends/${p.slug}`}
+                to={`/products/${p.slug}`}
                 className="flex items-start gap-5 p-6 group transition-all"
                 style={{
                   background: '#0F0E0E',

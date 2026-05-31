@@ -13,11 +13,11 @@ const FREQUENCIES = [
 const MOCK_SUB = {
   id: 'TRB-00142',
   status: 'active', // active | paused
-  plan: 'Torch Box — Monthly',
+  plan: 'Monthly Mushroom Coffee Subscription',
   nextDelivery: 'May 3, 2026',
   frequency: 'monthly',
-  price: '$34.99 / month',
-  lastBox: 'April 3, 2026',
+  price: '$24.99 / month',
+  lastDelivery: 'April 3, 2026',
 };
 
 export default function SubscriptionManager() {
@@ -104,7 +104,7 @@ export default function SubscriptionManager() {
                   { label: 'Plan', value: sub.plan },
                   { label: 'Price', value: sub.price },
                   { label: 'Next Delivery', value: isPaused ? '—' : sub.nextDelivery },
-                  { label: 'Last Box', value: sub.lastBox },
+                  { label: 'Last Delivery', value: sub.lastDelivery },
                   { label: 'Subscription ID', value: sub.id },
                 ].map(({ label, value }) => (
                   <div key={label} className="p-3" style={{ background: '#111', border: '1px solid rgba(201,162,74,0.07)' }}>

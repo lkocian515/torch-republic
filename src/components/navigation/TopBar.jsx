@@ -12,9 +12,9 @@ export default function TopBar() {
     >
       <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
         style={{ fontSize: '9px', letterSpacing: '0.38em', color: 'rgba(230,183,173,0.85)', textTransform: 'uppercase' }}>
-        Free Shipping Over $150 &nbsp;·&nbsp; Use{' '}
+        Free Shipping Over $75 &nbsp;·&nbsp; Use{' '}
         <span style={{ color: '#E6B7AD', fontWeight: 700 }}>TORCH20</span>
-        {' '}for 20% Off &nbsp;·&nbsp; Join the Legacy
+        {' '}for 20% Off &nbsp;·&nbsp; Focus. Flow. Ritual.
       </p>
     </div>
   );
