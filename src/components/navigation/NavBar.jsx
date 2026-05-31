@@ -62,7 +62,7 @@ export default function NavBar() {
           <div className="flex-shrink-0 md:mx-6">
             <Link to="/" className="flex items-center justify-center">
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
                 alt="Torch Republic Coffee Company"
                 style={{ height: '42px', width: 'auto' }}
               />
@@ -143,7 +143,7 @@ export default function NavBar() {
             <div className="flex items-center justify-between px-5 flex-shrink-0"
               style={{ height: '48px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
               <Link to="/" onClick={() => setOpen(false)}>
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
                   alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
               </Link>
               <button onClick={() => setOpen(false)}
