@@ -101,7 +101,7 @@ function DesktopHero() {
       {/* Content — sits above overlay */}
       <div
         className="relative flex flex-col items-center text-center"
-        style={{ maxWidth: '1000px', margin: '0 auto', padding: '72px 24px 56px', zIndex: 2 }}
+        style={{ maxWidth: '1000px', margin: '0 auto', padding: '36px 24px 0', zIndex: 2, alignSelf: 'flex-start' }}
       >
         {/* Eyebrow */}
         <motion.p
