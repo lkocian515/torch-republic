@@ -30,7 +30,7 @@ export default function MobileHeader() {
           top: 'env(safe-area-inset-top)',
         }}
       >
-        <div className="h-full flex items-center justify-between px-5">
+        <div className="h-full flex items-center justify-between px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
@@ -41,9 +41,9 @@ export default function MobileHeader() {
           </Link>
 
           {/* Right icons */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0">
             <Link to="/cart"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
               <ShoppingBag className="w-[18px] h-[18px]" />
               {totalItems > 0 && (
                 <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
@@ -52,12 +52,12 @@ export default function MobileHeader() {
               )}
             </Link>
             <Link to="/Profile"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <User className="w-[18px] h-[18px]" />
             </Link>
             <button
               onClick={() => setOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Menu className="w-[20px] h-[20px]" />
             </button>
           </div>
@@ -89,19 +89,19 @@ export default function MobileHeader() {
             </div>
 
             {/* Shop CTA */}
-            <div className="px-5 py-4 flex-shrink-0">
+            <div className="px-4 py-3 flex-shrink-0">
               <Link to="/shop" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
+                className="flex items-center justify-center w-full py-3 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
                 style={{ fontSize: '11px', background: '#E6B7AD', color: '#000', fontWeight: 700 }}>
                 Shop All Blends
               </Link>
             </div>
 
             {/* Nav links */}
-            <div className="flex-1 overflow-y-auto px-5 pb-4">
+            <div className="flex-1 overflow-y-auto px-4 pb-3">
               <div className="mb-2">
                 <p className="font-mono uppercase"
-                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '18px 0 8px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '12px 0 6px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
                   Navigation
                 </p>
                 {NAV_LINKS.map((item, i) => (
@@ -116,9 +116,9 @@ export default function MobileHeader() {
                       onClick={() => setOpen(false)}
                       className="flex items-center justify-between"
                       style={{
-                        padding: '14px 0',
+                        padding: '11px 0',
                         borderBottom: '1px solid rgba(230,183,173,0.07)',
-                        fontSize: '18px',
+                        fontSize: '17px',
                         color: 'rgba(255,255,255,0.6)',
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 400,
@@ -128,7 +128,7 @@ export default function MobileHeader() {
                       onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
                     >
                       <span>{item.label}</span>
-                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '14px' }}>→</span>
+                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '13px' }}>→</span>
                     </Link>
                   </motion.div>
                 ))}
@@ -136,13 +136,13 @@ export default function MobileHeader() {
             </div>
 
             {/* Bottom */}
-            <div className="px-5 py-6 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
+            <div className="px-4 py-4 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
               <Link to="/bundle" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
+                className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
                 style={{ fontSize: '10px', border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
                 Shop the 6-Tube Bundle →
               </Link>
-              <div className="flex items-center justify-center gap-5 mt-5">
+              <div className="flex items-center justify-center gap-4 mt-4">
                 <Link to="/Profile" onClick={() => setOpen(false)}
                   className="flex items-center gap-2"
                   style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontFamily: 'var(--font-heading)' }}>
