@@ -35,7 +35,7 @@ const FAQS = [
 
 function FAQItem({ item, isOpen, onToggle }) {
   return (
-    <div style={{ borderBottom: '1px solid rgba(201,162,74,0.1)' }}>
+    <div style={{ borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left transition-colors hover:opacity-80"
@@ -43,7 +43,7 @@ function FAQItem({ item, isOpen, onToggle }) {
         <span className="font-heading font-medium" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.85)' }}>
           {item.q}
         </span>
-        <span className="flex-shrink-0" style={{ color: '#C9A24A' }}>
+        <span className="flex-shrink-0" style={{ color: '#E6B7AD' }}>
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
       </button>
@@ -80,7 +80,7 @@ export default function FAQSection() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>FAQ</p>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>FAQ</p>
           <h2 className="font-serif font-bold"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Common Questions

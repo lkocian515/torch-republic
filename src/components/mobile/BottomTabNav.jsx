@@ -55,7 +55,7 @@ export default function BottomTabNav() {
         <Link
           to="/bundle"
           className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none"
-          style={{ color: '#C9A24A' }}
+          style={{ color: '#E6B7AD' }}
         >
           <Flame className="w-5 h-5" />
           <span className="text-xs font-mono tracking-widest uppercase">Bundle</span>

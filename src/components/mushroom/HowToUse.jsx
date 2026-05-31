@@ -18,7 +18,7 @@ export default function HowToUse() {
           className="mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>How to Use</p>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>How to Use</p>
           <h2 className="font-serif font-bold"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Your Ritual in Seconds
@@ -34,7 +34,7 @@ export default function HowToUse() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
               className="flex flex-col items-center gap-4 p-8"
-              style={{ background: '#111010', border: '1px solid rgba(201,162,74,0.09)' }}
+              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.09)' }}
             >
               <span className="font-mono font-black" style={{ fontSize: '2rem', color: 'rgba(201,162,74,0.25)', letterSpacing: '-0.04em' }}>
                 {step.num}

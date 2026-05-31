@@ -32,7 +32,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#0A0909', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
+    <footer style={{ background: '#080606', borderTop: '1px solid rgba(230,183,173,0.1)' }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 pb-12">
 
         {/* Top */}
@@ -40,13 +40,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase font-bold mb-4" style={{ color: '#C9A24A' }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase font-bold mb-4" style={{ color: '#E6B7AD' }}>
               Torch Republic
             </p>
             <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem', lineHeight: 1.3 }}>
               Torch Republic Coffee Company
             </p>
-            <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(201,162,74,0.4)' }}>
+            <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Instant Mushroom Coffee · Lion's Mane + Chaga
             </p>
             <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-6"
@@ -69,7 +69,7 @@ export default function Footer() {
           <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {FOOTER_LINKS.map(section => (
               <div key={section.heading}>
-                <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-5" style={{ color: '#C9A24A' }}>
+                <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-5" style={{ color: '#E6B7AD' }}>
                   {section.heading}
                 </h3>
                 <ul className="space-y-3">
@@ -98,7 +98,7 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="h-px w-full mb-8"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(201,162,74,0.2), transparent)' }} />
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(230,183,173,0.2), transparent)' }} />
 
         {/* FDA disclaimer */}
         <p className="font-mono text-[8px] tracking-[0.12em] text-center mb-6 max-w-2xl mx-auto"
@@ -109,11 +109,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
             alt="Torch Republic Coffee Company"
-            className="h-7 w-auto opacity-40"
+            className="h-10 w-auto opacity-55"
           />
-          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,162,74,0.3)' }}>
+          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
             Premium Instant Mushroom Coffee
           </p>
           <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>

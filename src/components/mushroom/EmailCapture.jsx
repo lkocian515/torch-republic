@@ -20,7 +20,7 @@ export default function EmailCapture() {
           className="flex flex-col items-center gap-6"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>
             The Ritual List
           </p>
           <h2 className="font-serif font-bold"
@@ -34,8 +34,8 @@ export default function EmailCapture() {
 
           {submitted ? (
             <div className="w-full py-5 px-6 text-center"
-              style={{ border: '1px solid rgba(201,162,74,0.3)', background: 'rgba(201,162,74,0.06)' }}>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A' }}>
+              style={{ border: '1px solid rgba(230,183,173,0.3)', background: 'rgba(230,183,173,0.06)' }}>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#E6B7AD' }}>
                 ✓ You're on the list. Welcome to the ritual.
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function EmailCapture() {
                 className="flex-1 px-4 py-3.5 outline-none font-mono text-xs"
                 style={{
                   background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(201,162,74,0.25)',
+                  border: '1px solid rgba(230,183,173,0.22)',
                   color: 'rgba(255,255,255,0.75)',
                   fontFamily: 'var(--font-mono)',
                 }}
@@ -58,7 +58,7 @@ export default function EmailCapture() {
               <button
                 type="submit"
                 className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 whitespace-nowrap"
-                style={{ background: '#C9A24A', color: '#080808', padding: '14px 24px' }}
+                style={{ background: '#E6B7AD', color: '#050505', padding: '14px 24px' }}
               >
                 Join the List
               </button>

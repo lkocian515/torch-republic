@@ -14,7 +14,7 @@ export default function BlendCompare() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>The Six Blends</p>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>The Six Blends</p>
           <h2 className="font-serif font-bold"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Find Your Ritual
@@ -35,12 +35,12 @@ export default function BlendCompare() {
                 className="flex items-start gap-5 p-6 group transition-all"
                 style={{
                   background: '#0F0E0E',
-                  border: '1px solid rgba(201,162,74,0.1)',
+                  border: '1px solid rgba(230,183,173,0.1)',
                   textDecoration: 'none',
                   transition: 'border-color 0.3s',
                 }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = `${p.accent}45`}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,162,74,0.1)'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'}
               >
                 {/* Color swatch */}
                 <div className="w-1 self-stretch rounded-full flex-shrink-0"

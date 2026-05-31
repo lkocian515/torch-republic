@@ -49,19 +49,19 @@ export default function NavBar() {
             {NAV_LINKS.slice(0, 3).map(item => (
               <Link key={item.label} to={item.href}
                 className="nav-link whitespace-nowrap transition-colors hover:text-white"
-                style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.46)', fontWeight: 500 }}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
+                style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', fontWeight: 500 }}>
+                  {item.label}
+                </Link>
+                ))}
+                </div>
 
-          {/* Center logo */}
+                {/* Center logo */}
           <div className="flex-shrink-0 md:mx-6">
             <Link to="/" className="flex items-center justify-center">
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
                 alt="Torch Republic Coffee Company"
-                style={{ height: '34px', width: 'auto' }}
+                style={{ height: '42px', width: 'auto' }}
               />
             </Link>
           </div>
@@ -75,11 +75,11 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 ml-3 pl-4" style={{ borderLeft: '1px solid rgba(201,162,74,0.12)' }}>
+            <div className="flex items-center gap-3 ml-3 pl-4" style={{ borderLeft: '1px solid rgba(230,183,173,0.12)' }}>
               <Link
                 to="/shop"
                 className="hidden lg:inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-90 btn-glow"
-                style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
+                style={{ background: '#E6B7AD', color: '#050505', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
               >
                 Shop Now
               </Link>
@@ -130,8 +130,8 @@ export default function NavBar() {
             <div className="flex items-center justify-between px-5 flex-shrink-0"
               style={{ height: '48px', borderBottom: '1px solid rgba(201,162,74,0.1)' }}>
               <Link to="/" onClick={() => setOpen(false)}>
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1382de9ae_LighttheTorchWeartheTruth2000x1000px1920x1080px.png"
-                  alt="Torch Republic" style={{ height: '30px', width: 'auto' }} />
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
+                  alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
               </Link>
               <button onClick={() => setOpen(false)}
                 style={{ color: 'rgba(255,255,255,0.6)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -143,7 +143,7 @@ export default function NavBar() {
             <div className="px-5 py-4 flex-shrink-0">
               <Link to="/shop" onClick={() => setOpen(false)}
                 className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '11px', background: '#C9A24A', color: '#000', fontWeight: 700 }}>
+                style={{ fontSize: '11px', background: '#E6B7AD', color: '#000', fontWeight: 700 }}>
                 Shop All Blends
               </Link>
             </div>
@@ -175,7 +175,7 @@ export default function NavBar() {
                         fontWeight: 400,
                         transition: 'color 0.2s',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.color = '#C9A24A'}
+                      onMouseEnter={e => e.currentTarget.style.color = '#E6B7AD'}
                       onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
                     >
                       <span>{item.label}</span>

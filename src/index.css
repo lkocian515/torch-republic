@@ -20,72 +20,72 @@
     --popover: 0 0% 4%;
     --popover-foreground: 43 45% 86%;
 
-    /* Brand gold #C4A35A — muted sophisticated */
-    --primary: 39 47% 55%;
-    --primary-foreground: 0 0% 0%;
+    /* Rose gold primary #E6B7AD */
+    --primary: 7 52% 79%;
+    --primary-foreground: 0 0% 4%;
 
-    /* Deep navy accent */
-    --secondary: 188 53% 12%;
-    --secondary-foreground: 43 45% 86%;
+    /* Deep charcoal secondary */
+    --secondary: 20 8% 10%;
+    --secondary-foreground: 30 30% 92%;
 
     --muted: 0 0% 7%;
-    --muted-foreground: 43 20% 55%;
+    --muted-foreground: 25 15% 55%;
 
-    --accent: 188 53% 12%;
-    --accent-foreground: 43 45% 86%;
+    --accent: 20 8% 10%;
+    --accent-foreground: 30 30% 92%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Gold border #D6B565 */
-    --border: 41 47% 61% / 0.25;
+    /* Rose-gold border */
+    --border: 7 40% 70% / 0.18;
     --input: 0 0% 10%;
-    --ring: 40 50% 54%;
+    --ring: 7 52% 79%;
 
     --radius: 0.25rem;
 
-    --navy: 188 53% 12%;
-    --gold: 39 47% 55%;
-    --gold-dark: 38 54% 39%;
-    --gold-highlight: 40 60% 70%;
-    --gold-cream: 38 60% 92%;
-    --border-gold: 41 47% 61%;
+    --rose-gold: 7 52% 79%;
+    --rose-gold-deep: 7 40% 59%;
+    --champagne: 36 52% 65%;
+    --taupe: 25 15% 58%;
+    --ivory: 30 45% 95%;
+    --border-rose: 7 40% 70%;
 
-    --chart-1: 40 50% 54%;
-    --chart-2: 188 53% 12%;
+    --chart-1: 7 52% 79%;
+    --chart-2: 36 52% 65%;
     --chart-3: 0 0% 60%;
     --chart-4: 0 0% 15%;
-    --chart-5: 43 65% 64%;
+    --chart-5: 25 15% 70%;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 43 45% 86%;
+    --background: 0 0% 2%;
+    --foreground: 30 30% 92%;
 
     --card: 0 0% 4%;
-    --card-foreground: 43 45% 86%;
+    --card-foreground: 30 30% 92%;
 
     --popover: 0 0% 4%;
-    --popover-foreground: 43 45% 86%;
+    --popover-foreground: 30 30% 92%;
 
-    --primary: 39 47% 55%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 7 52% 79%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 188 53% 12%;
-    --secondary-foreground: 43 45% 86%;
+    --secondary: 20 8% 10%;
+    --secondary-foreground: 30 30% 92%;
 
     --muted: 0 0% 7%;
-    --muted-foreground: 43 20% 55%;
+    --muted-foreground: 25 15% 55%;
 
-    --accent: 188 53% 12%;
-    --accent-foreground: 43 45% 86%;
+    --accent: 20 8% 10%;
+    --accent-foreground: 30 30% 92%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 41 47% 61% / 0.25;
+    --border: 7 40% 70% / 0.18;
     --input: 0 0% 10%;
-    --ring: 40 50% 54%;
+    --ring: 7 52% 79%;
   }
 }
 
@@ -107,18 +107,18 @@
   background: linear-gradient(90deg, transparent 0%, #0B3D35 20%, #C4A35A 60%, transparent 100%);
 }
 
-/* Metallic gold gradient */
+/* Metallic rose gold gradient */
 .gradient-gold-metallic {
-  background: linear-gradient(135deg, #C4A35A 0%, #E8D08A 50%, #C4A35A 100%);
+  background: linear-gradient(135deg, #C98F86 0%, #E6B7AD 50%, #C98F86 100%);
 }
 
-/* Shimmer animation for FOUNDER'S EDITION badges */
+/* Shimmer animation */
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
 .badge-shimmer {
-  background: linear-gradient(90deg, #C4A35A 0%, #E8D08A 40%, #C4A35A 60%, #A8893A 100%);
+  background: linear-gradient(90deg, #C98F86 0%, #E6B7AD 40%, #C98F86 60%, #A8726A 100%);
   background-size: 200% auto;
   animation: shimmer 3s linear 1s 1 forwards;
   -webkit-background-clip: text;
@@ -133,8 +133,8 @@
 
 /* Glow pulse for CTA */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(196,163,90,0); }
-  50% { box-shadow: 0 0 20px 4px rgba(196,163,90,0.35); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(230,183,173,0); }
+  50% { box-shadow: 0 0 20px 4px rgba(230,183,173,0.35); }
 }
 .btn-glow:hover {
   animation: glowPulse 1.5s ease-in-out infinite;
@@ -151,7 +151,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #C4A35A;
+  background: #E6B7AD;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;

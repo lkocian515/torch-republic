@@ -30,7 +30,7 @@ export default function BundleSection() {
             {/* Badge */}
             <div className="absolute top-5 left-5">
               <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-3 py-1.5"
-                style={{ background: 'rgba(201,162,74,0.15)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.35)' }}>
+                style={{ background: 'rgba(230,183,173,0.12)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.3)' }}>
                 All Six Blends
               </span>
             </div>
@@ -44,7 +44,7 @@ export default function BundleSection() {
             className="flex flex-col gap-6"
           >
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
-              style={{ color: 'rgba(201,162,74,0.6)' }}>
+              style={{ color: 'rgba(230,183,173,0.65)' }}>
               The Full Ritual Set
             </p>
             <h2 className="font-serif font-bold"
@@ -60,18 +60,18 @@ export default function BundleSection() {
             <div className="flex flex-wrap gap-2">
               {['MoonCap Restore', 'GlowMind', 'SunCap Rise', 'The Oracle', 'DreamCap', 'Mystic Bloom'].map(name => (
                 <span key={name} className="font-mono text-[8px] tracking-[0.2em] uppercase px-2.5 py-1.5"
-                  style={{ background: 'rgba(201,162,74,0.07)', border: '1px solid rgba(201,162,74,0.2)', color: 'rgba(201,162,74,0.7)' }}>
+                  style={{ background: 'rgba(230,183,173,0.07)', border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.7)' }}>
                   {name}
                 </span>
               ))}
             </div>
 
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.3), transparent)' }} />
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.3), transparent)' }} />
 
             <Link
               to="/bundle"
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 w-fit"
-              style={{ background: '#C9A24A', color: '#080808', padding: '14px 32px' }}
+              style={{ background: '#E6B7AD', color: '#050505', padding: '14px 32px' }}
             >
               Shop the 6-Tube Bundle →
             </Link>

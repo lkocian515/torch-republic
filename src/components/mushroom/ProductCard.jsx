@@ -15,7 +15,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
         className="group flex flex-col h-full"
         style={{
           background: 'linear-gradient(160deg, #111010 0%, #0E0D0D 100%)',
-          border: '1px solid rgba(201,162,74,0.12)',
+          border: '1px solid rgba(230,183,173,0.12)',
           textDecoration: 'none',
           transition: 'border-color 0.3s, box-shadow 0.3s',
         }}
@@ -24,7 +24,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
           e.currentTarget.style.boxShadow = `0 8px 40px ${product.accent}18`;
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.borderColor = 'rgba(201,162,74,0.12)';
+          e.currentTarget.style.borderColor = 'rgba(230,183,173,0.12)';
           e.currentTarget.style.boxShadow = 'none';
         }}
       >

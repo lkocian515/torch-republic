@@ -17,7 +17,7 @@ export default function FeaturedCollection() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>
             The Collection
           </p>
           <h2 className="font-serif font-bold mb-4"
@@ -25,7 +25,7 @@ export default function FeaturedCollection() {
             Choose Your Ritual
           </h2>
           <p className="font-heading max-w-lg mx-auto"
-            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            style={{ fontSize: '0.95rem', color: 'rgba(247,241,232,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
             Six instant mushroom coffee blends designed for the way you want your day to feel.
           </p>
         </motion.div>
@@ -42,7 +42,7 @@ export default function FeaturedCollection() {
           <Link
             to="/shop"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
-            style={{ border: '1px solid rgba(201,162,74,0.4)', color: '#C9A24A', padding: '13px 30px' }}
+            style={{ border: '1px solid rgba(230,183,173,0.4)', color: '#E6B7AD', padding: '13px 30px' }}
           >
             View All Blends →
           </Link>

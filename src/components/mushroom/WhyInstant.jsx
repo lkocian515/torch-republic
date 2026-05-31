@@ -30,7 +30,7 @@ export default function WhyInstant() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(201,162,74,0.6)' }}>
+            style={{ color: 'rgba(230,183,173,0.65)' }}>
             Why Instant Mushroom Coffee
           </p>
           <h2 className="font-serif font-bold mb-4"
@@ -53,7 +53,7 @@ export default function WhyInstant() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-start gap-4 p-8"
-              style={{ background: '#111010', border: '1px solid rgba(201,162,74,0.1)' }}
+              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.1)' }}
             >
               <span style={{ fontSize: '1.8rem' }}>{card.icon}</span>
               <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.2rem' }}>{card.title}</h3>
