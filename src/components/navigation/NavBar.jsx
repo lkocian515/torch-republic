@@ -33,7 +33,9 @@ export default function NavBar() {
 
   return (
     <>
+      {/* Desktop navigation */}
       <nav
+        className="hidden md:block"
         style={{
           height: '48px',
           backgroundColor: '#000000',
@@ -45,10 +47,10 @@ export default function NavBar() {
           zIndex: 50,
         }}
       >
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-10 h-full flex items-center justify-between">
 
           {/* Left nav — desktop */}
-          <div className="hidden md:flex items-center gap-7 flex-1">
+          <div className="flex items-center gap-7 flex-1">
             {NAV_LINKS.slice(0, 3).map(item => (  
               <Link key={item.label} to={item.href}
                 className="nav-link whitespace-nowrap transition-colors hover:text-white"
@@ -58,8 +60,8 @@ export default function NavBar() {
                 ))}
                 </div>
 
-                {/* Center logo — desktop only */}
-          <div className="hidden md:flex flex-shrink-0 md:mx-6 items-center justify-center">
+                {/* Center logo — desktop */}
+          <div className="flex-shrink-0 mx-6">
             <Link to="/" className="flex items-center justify-center">
               <img
                 src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
@@ -70,7 +72,7 @@ export default function NavBar() {
           </div>
 
           {/* Right nav — desktop */}
-          <div className="hidden md:flex items-center flex-1 justify-end gap-7">
+          <div className="flex items-center flex-1 justify-end gap-7">
             {NAV_LINKS.slice(3).map(item => (
               <Link key={item.label} to={item.href}
                 className="nav-link whitespace-nowrap transition-colors hover:text-white"
@@ -107,32 +109,46 @@ export default function NavBar() {
               </Link>
             </div>
           </div>
+        </div>
+      </nav>
 
+      {/* Mobile navigation */}
+      <nav
+        className="md:hidden"
+        style={{
+          height: '48px',
+          backgroundColor: '#000000',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderBottom: '1px solid rgba(230,183,173,0.1)',
+          position: 'relative',
+          zIndex: 50,
+        }}
+      >
+        <div className="max-w-[1440px] mx-auto px-5 h-full flex items-center justify-between">
           {/* Mobile header — logo left, icons right */}
-          <div className="md:hidden flex items-center justify-between w-full">
-            <Link to="/" className="flex items-center">
-              <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-                alt="Torch Republic Coffee Company"
-                style={{ height: '36px', width: 'auto' }}
-              />
-            </Link>
-            <div className="flex items-center gap-1">
-              <button onClick={() => setDrawerOpen(true)}
-                style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                <ShoppingBag className="w-[18px] h-[18px]" />
-                {totalItems > 0 && (
-                  <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
-                    {totalItems}
-                  </span>
-                )}
-              </button>
-              <button
-                onClick={() => setOpen(true)}
-                style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Menu className="w-[20px] h-[20px]" />
-              </button>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+              alt="Torch Republic Coffee Company"
+              style={{ height: '36px', width: 'auto' }}
+            />
+          </Link>
+          <div className="flex items-center gap-1">
+            <button onClick={() => setDrawerOpen(true)}
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <ShoppingBag className="w-[18px] h-[18px]" />
+              {totalItems > 0 && (
+                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                  {totalItems}
+                </span>
+              )}
+            </button>
+            <button
+              onClick={() => setOpen(true)}
+              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Menu className="w-[20px] h-[20px]" />
+            </button>
           </div>
         </div>
       </nav>
