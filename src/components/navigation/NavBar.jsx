@@ -1,155 +1,220 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Search, ShoppingBag, User, Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const RG = '#E6B7AD';
 
 const NAV_LINKS = [
-  { label: 'Home', to: '/' },
-  { label: 'Shop', to: '/shop' },
-  { label: 'Blends', to: '/blends' },
-  { label: 'Bundle', to: '/bundle' },
-  { label: 'How It Works', to: '/how-it-works' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'Journal', to: '/Journal' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'The Blends', href: '/blends' },
+  { label: 'Monthly Subscription', href: '/subscription' },
+  { label: 'Bundle', href: '/bundle' },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function NavBar() {
-  const location = useLocation();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [search, setSearch] = useState('');
   const { totalItems, setDrawerOpen } = useCart();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isActive = (path) => location.pathname === path;
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   return (
     <>
-      {/* Desktop Nav */}
-      <nav className="hidden md:block sticky top-0 z-50" style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
-        <div className="flex items-center justify-between px-8" style={{ height: '64px' }}>
-          {/* Logo */}
-          <Link to="/">
-            <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-              alt="Torch Republic"
-              style={{ height: '42px', width: 'auto' }}
-            />
-          </Link>
+      <nav
+        style={{
+          height: '48px',
+          backgroundColor: '#000000',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderBottom: '1px solid rgba(230,183,173,0.1)',
+          transition: 'background-color 0.3s ease, border-color 0.3s ease',
+          position: 'relative',
+          zIndex: 50,
+        }}
+      >
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between">
 
-          {/* Center Nav Links */}
-          <div className="flex items-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`font-mono uppercase tracking-[0.22em] text-xs font-bold transition-colors nav-link ${
-                  isActive(link.to) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
-                }`}
-                style={{ color: isActive(link.to) ? RG : 'rgba(230,183,173,0.65)' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Left nav — desktop */}
+          <div className="hidden md:flex items-center gap-7 flex-1">
+            {NAV_LINKS.slice(0, 3).map(item => (  
+              <Link key={item.label} to={item.href}
+                className="nav-link whitespace-nowrap transition-colors hover:text-white"
+                style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', fontWeight: 500 }}>
+                  {item.label}
+                </Link>
+                ))}
+                </div>
+
+                {/* Center logo */}
+          <div className="flex-shrink-0 md:mx-6">
+            <Link to="/" className="flex items-center justify-center">
+              <img
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+                alt="Torch Republic Coffee Company"
+                style={{ height: '42px', width: 'auto' }}
+              />
+            </Link>
           </div>
 
-          {/* Right Icons */}
-          <div className="flex items-center gap-4">
-            <button style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Search className="w-[18px] h-[18px]" />
-            </button>
-            <Link to="/Profile" style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <User className="w-[18px] h-[18px]" />
-            </Link>
+          {/* Right nav — desktop */}
+          <div className="hidden md:flex items-center flex-1 justify-end gap-7">
+            {NAV_LINKS.slice(3).map(item => (
+              <Link key={item.label} to={item.href}
+                className="nav-link whitespace-nowrap transition-colors hover:text-white"
+                style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.46)', fontWeight: 500 }}>
+                {item.label}
+              </Link>
+            ))}
+            <div className="flex items-center gap-3 ml-3 pl-4" style={{ borderLeft: '1px solid rgba(230,183,173,0.12)' }}>
+              <Link
+                to="/shop"
+                className="hidden lg:inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-90 btn-glow"
+                style={{ background: '#E6B7AD', color: '#050505', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
+              >
+                Shop Now
+              </Link>
+              <button style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                className="hover:text-white transition-colors">
+                <Search className="w-[15px] h-[15px]" />
+              </button>
+              <button onClick={() => setDrawerOpen(true)}
+                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}
+                className="hover:text-white transition-colors">
+                <ShoppingBag className="w-[15px] h-[15px]" />
+                {totalItems > 0 && (
+                  <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+              <Link to="/Profile"
+                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                className="hover:text-white transition-colors">
+                <User className="w-[15px] h-[15px]" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile right icons */}
+          <div className="md:hidden flex items-center gap-1 ml-auto">
             <button onClick={() => setDrawerOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
               <ShoppingBag className="w-[18px] h-[18px]" />
               {totalItems > 0 && (
-                <span style={{ position: 'absolute', top: 6, right: 4, background: RG, color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
                   {totalItems}
                 </span>
               )}
+            </button>
+            <button
+              onClick={() => setOpen(true)}
+              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Menu className="w-[20px] h-[20px]" />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Button */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4"
-        style={{ height: '52px', background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
-        <Link to="/">
-          <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-            alt="Torch Republic"
-            style={{ height: '36px', width: 'auto' }}
-          />
-        </Link>
-        <div className="flex items-center gap-2">
-          <Link to="/shop"
-            className="font-mono uppercase tracking-[0.22em] text-xs font-bold px-3 py-1.5 rounded-full"
-            style={{ background: RG, color: '#050505' }}>
-            Shop
-          </Link>
-          <button onClick={() => setMobileMenuOpen(true)}
-            style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Menu className="w-[20px] h-[20px]" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Overlay */}
+      {/* Mobile overlay */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 z-50 md:hidden"
-              style={{ background: 'rgba(0,0,0,0.7)' }}
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 z-50 md:hidden"
-              style={{ width: '85%', maxWidth: '320px', background: '#0a0a0a', borderLeft: '1px solid rgba(230,183,173,0.1)' }}
-            >
-              <div className="flex items-center justify-between px-6" style={{ height: '52px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
-                <span className="font-mono uppercase tracking-[0.28em] text-xs" style={{ color: RG }}>Menu</span>
-                <button onClick={() => setMobileMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.55)' }}>
-                  <X className="w-[20px] h-[20px]" />
-                </button>
-              </div>
-              <div className="flex flex-col px-6 py-8 gap-4">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`font-mono uppercase tracking-[0.22em] text-sm font-bold py-2 ${
-                      isActive(link.to) ? 'text-primary' : 'text-muted-foreground'
-                    }`}
-                    style={{ color: isActive(link.to) ? RG : 'rgba(230,183,173,0.65)' }}
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 md:hidden flex flex-col"
+            style={{ zIndex: 200, background: '#040407' }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 flex-shrink-0"
+              style={{ height: '48px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
+              <Link to="/" onClick={() => setOpen(false)}>
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+                  alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
+              </Link>
+              <button onClick={() => setOpen(false)}
+                style={{ color: 'rgba(255,255,255,0.6)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Shop CTA */}
+            <div className="px-5 py-4 flex-shrink-0">
+              <Link to="/shop" onClick={() => setOpen(false)}
+                className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
+                style={{ fontSize: '11px', background: '#E6B7AD', color: '#000', fontWeight: 700 }}>
+                Shop All Blends
+              </Link>
+            </div>
+
+            {/* Nav links */}
+            <div className="flex-1 overflow-y-auto px-5 pb-4">
+              <div className="mb-2">
+                <p className="font-mono uppercase"
+                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '18px 0 8px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+                  Navigation
+                </p>
+                {NAV_LINKS.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 + i * 0.04, duration: 0.22 }}
                   >
-                    {link.label}
-                  </Link>
+                    <Link
+                      to={item.href}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-between"
+                      style={{
+                        padding: '14px 0',
+                        borderBottom: '1px solid rgba(230,183,173,0.07)',
+                        fontSize: '18px',
+                        color: 'rgba(255,255,255,0.6)',
+                        fontFamily: 'var(--font-heading)',
+                        fontWeight: 400,
+                        transition: 'color 0.2s',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.color = '#E6B7AD'}
+                      onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+                    >
+                      <span>{item.label}</span>
+                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '14px' }}>→</span>
+                    </Link>
+                  </motion.div>
                 ))}
-                <div className="pt-6 border-t border-border-rose/20">
-                  <Link to="/Profile"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="font-mono uppercase tracking-[0.22em] text-sm font-bold py-2"
-                    style={{ color: 'rgba(230,183,173,0.65)' }}>
-                    Account
-                  </Link>
-                </div>
               </div>
-            </motion.div>
-          </>
+            </div>
+
+            {/* Bottom */}
+            <div className="px-5 py-6 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
+              <Link to="/bundle" onClick={() => setOpen(false)}
+                className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
+                style={{ fontSize: '10px', border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
+                Shop the 6-Tube Bundle →
+              </Link>
+              <div className="flex items-center justify-center gap-5 mt-5">
+                <Link to="/Profile" onClick={() => setOpen(false)}
+                  className="flex items-center gap-2"
+                  style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontFamily: 'var(--font-heading)' }}>
+                  <User className="w-3.5 h-3.5" /> Account
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

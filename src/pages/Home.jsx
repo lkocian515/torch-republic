@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '@/contexts/CartContext';
 import MushroomHero from '../components/mushroom/HeroSection';
 import MushroomTrustBar from '../components/mushroom/TrustBar';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
@@ -10,6 +9,7 @@ import HowToUse from '../components/mushroom/HowToUse';
 import QualityMission from '../components/mushroom/QualityMission';
 import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
+
 const RG = '#E6B7AD';
 
 // Sticky mobile CTA — visible only on mobile, hidden after user enters shop section
