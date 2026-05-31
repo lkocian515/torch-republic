@@ -101,22 +101,8 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Mobile right icons - cart and profile only (no menu) */}
-          <div className="md:hidden flex items-center gap-1 ml-auto">
-            <Link to="/cart"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <ShoppingBag className="w-[18px] h-[18px]" />
-              {totalItems > 0 && (
-                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-            <Link to="/Profile"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <User className="w-[18px] h-[18px]" />
-            </Link>
-          </div>
+          {/* Mobile - hidden, handled by MobileHeader */}
+          <div className="md:hidden" />
         </div>
       </nav>
 
