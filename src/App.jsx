@@ -9,6 +9,9 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
+import { CartProvider } from '@/contexts/CartContext';
+import MiniCartDrawer from './components/cart/MiniCartDrawer';
+import CartToast from './components/cart/CartToast';
 
 // ── Mushroom Coffee Pages ──
 import MushroomShop from './pages/MushroomShop';
@@ -147,12 +150,16 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <NavigationProvider>
-            <AuthenticatedApp />
-          </NavigationProvider>
-        </Router>
-        <Toaster />
+        <CartProvider>
+          <Router>
+            <NavigationProvider>
+              <AuthenticatedApp />
+              <MiniCartDrawer />
+              <CartToast />
+            </NavigationProvider>
+          </Router>
+          <Toaster />
+        </CartProvider>
       </QueryClientProvider>
     </AuthProvider>
   );

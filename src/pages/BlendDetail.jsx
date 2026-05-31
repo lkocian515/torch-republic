@@ -1,19 +1,72 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Minus, Plus, ShieldCheck, Truck, Zap, Lock } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
+import { useCart } from '@/contexts/CartContext';
+
+const TRUST = [
+  { icon: Zap, label: '100% Instant Coffee' },
+  { icon: ShieldCheck, label: 'Lion\'s Mane + Chaga' },
+  { icon: Truck, label: 'Free Shipping $75+' },
+  { icon: Lock, label: 'Secure Checkout' },
+];
+
+const ACCORDIONS = [
+  {
+    title: 'Ingredients & Details',
+    content: 'Premium instant coffee, organic Lion\'s Mane mushroom extract, organic Chaga mushroom extract. Net weight: 1.9 oz / 54g. 27 servings per tube. No artificial colors, flavors, or preservatives.',
+  },
+  {
+    title: 'How to Use',
+    content: 'Add one scoop (approximately 2g) to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. Enjoy immediately. For iced: dissolve in 2–3 oz hot water first, then pour over ice.',
+  },
+  {
+    title: 'Shipping & Returns',
+    content: 'Free standard shipping on orders over $75. Orders ship within 1–3 business days. 30-day satisfaction guarantee — contact us if you\'re not completely satisfied.',
+  },
+];
+
+function Accordion({ title, content }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:text-white"
+        style={{ color: open ? '#F7F1E8' : 'rgba(247,241,232,0.6)', background: 'none', border: 'none' }}
+      >
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase">{title}</span>
+        <span className="font-mono text-lg" style={{ color: '#E6B7AD' }}>{open ? '−' : '+'}</span>
+      </button>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="pb-5"
+        >
+          <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300 }}>
+            {content}
+          </p>
+        </motion.div>
+      )}
+    </div>
+  );
+}
 
 export default function BlendDetail() {
   const { slug } = useParams();
   const product = MUSHROOM_PRODUCTS.find(p => p.slug === slug);
-  const [openFaq, setOpenFaq] = useState(null);
+  const [qty, setQty] = useState(1);
+  const { addItem, setDrawerOpen } = useCart();
 
   if (!product) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-6"
-        style={{ background: '#080808', color: '#F0EBE1' }}>
+        style={{ background: '#080808', color: '#F7F1E8' }}>
         <p className="font-serif text-2xl">Blend not found.</p>
         <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
           style={{ color: '#E6B7AD' }}>← Back to Shop</Link>
@@ -23,8 +76,13 @@ export default function BlendDetail() {
 
   const related = MUSHROOM_PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
 
+  const handleAddToCart = () => {
+    addItem(product, qty);
+    setDrawerOpen(true);
+  };
+
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
 
       {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-8 pb-2">
@@ -34,33 +92,33 @@ export default function BlendDetail() {
           <span>›</span>
           <Link to="/shop" className="hover:text-white transition-colors">Shop</Link>
           <span>›</span>
-          <span style={{ color: `${product.accent}80` }}>{product.name}</span>
+          <Link to="/blends" className="hover:text-white transition-colors">The Blends</Link>
+          <span>›</span>
+          <span style={{ color: '#E6B7AD' }}>{product.name}</span>
         </nav>
       </div>
 
       {/* Product section */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Image */}
+          {/* LEFT: Image */}
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75 }}
-            className="sticky top-24"
+            className="lg:sticky lg:top-24"
           >
             <div className="relative flex items-center justify-center"
-              style={{ background: '#0C0C0C', aspectRatio: '1/1', border: '1px solid rgba(230,183,173,0.1)' }}>
+              style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}>
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}0F 0%, transparent 70%)` }} />
+                style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}12 0%, transparent 70%)` }} />
               {product.imagePlaceholder || !product.image ? (
                 <div className="flex flex-col items-center justify-center gap-4 p-12">
                   <div className="w-24 h-24 rounded-full border-2 border-dashed"
                     style={{ borderColor: `${product.accent}35` }} />
                   <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-                    style={{ color: `${product.accent}50` }}>
-                    Mystic Bloom Blend<br />Product image needed
-                  </p>
+                    style={{ color: `${product.accent}50` }}>Product image coming soon</p>
                 </div>
               ) : (
                 <img
@@ -71,19 +129,35 @@ export default function BlendDetail() {
                 />
               )}
             </div>
+
+            {/* Product specs grid below image on desktop */}
+            <div className="grid grid-cols-2 gap-2 mt-4">
+              {[
+                ["Lion's Mane + Chaga", 'Mushroom Blend'],
+                ['1.9 oz / 54g', 'Net Weight'],
+                ['27 Servings', 'Per Tube'],
+                ['Instant', 'No Brewer Needed'],
+              ].map(([val, label]) => (
+                <div key={label} className="flex flex-col gap-1 p-3"
+                  style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.07)' }}>
+                  <p className="font-serif font-bold text-white text-xs">{val}</p>
+                  <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Details */}
+          {/* RIGHT: Purchase area */}
           <motion.div
             initial={{ opacity: 0, x: 16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, delay: 0.1 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-5"
           >
-            {/* Labels */}
+            {/* Badges */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
-                style={{ background: `${product.accent}15`, color: product.accent, border: `1px solid ${product.accent}30` }}>
+                style={{ background: `${product.accent}18`, color: product.accent, border: `1px solid ${product.accent}30` }}>
                 {product.roast}
               </span>
               <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2.5 py-1"
@@ -94,51 +168,35 @@ export default function BlendDetail() {
 
             {/* Title */}
             <h1 className="font-serif font-bold"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.05 }}>
+              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.05 }}>
               {product.name}
             </h1>
 
             {/* Mood */}
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: `${product.accent}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
               {product.mood}
             </p>
 
-            {/* Specs */}
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                ["Lion's Mane + Chaga", 'Mushroom Blend'],
-                ['1.9 oz / 54g', 'Net Weight'],
-                ['27 Servings', 'Per Tube'],
-                ['Instant', 'No Brewer Needed'],
-              ].map(([val, label]) => (
-                <div key={label} className="flex flex-col gap-1 p-4"
-                  style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}>
-                  <p className="font-serif font-bold text-white text-sm">{val}</p>
-                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</p>
-                </div>
-              ))}
-            </div>
-
             {/* Description */}
             <p className="font-heading leading-relaxed"
-              style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
+              style={{ fontSize: '0.93rem', color: 'rgba(247,241,232,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
               {product.description}
             </p>
 
-            {/* Flavor Notes */}
+            {/* Flavor notes */}
             <div className="flex flex-wrap gap-2">
               {product.flavorNotes.map(note => (
                 <span key={note} className="font-mono text-[8px] tracking-[0.25em] uppercase px-3 py-1.5"
-                  style={{ background: `${product.accent}08`, border: `1px solid ${product.accent}20`, color: `${product.accent}75` }}>
+                  style={{ background: `${product.accent}08`, border: `1px solid ${product.accent}20`, color: `${product.accent}80` }}>
                   {note}
                 </span>
               ))}
             </div>
 
             {/* Price */}
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.25), transparent)' }} />
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
             <div className="flex items-baseline gap-3">
-              <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: product.accent }}>
+              <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: '#E6B7AD' }}>
                 ${product.price.toFixed(2)}
               </span>
               <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
@@ -146,63 +204,99 @@ export default function BlendDetail() {
               </span>
             </div>
 
-            {/* CTA */}
-            <a
-              href={`https://torch-republic.com/products/${product.shopifyHandle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
-              style={{ background: '#E6B7AD', color: '#080808', display: 'block' }}
-            >
-              Add to Cart — ${product.price.toFixed(2)}
-            </a>
-            <a
-              href={`https://torch-republic.com/products/${product.shopifyHandle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-70 py-4"
-              style={{ border: '1px solid rgba(230,183,173,0.4)', color: 'rgba(230,183,173,0.8)', display: 'block' }}
-            >
-              Buy Now →
-            </a>
-
-            {/* How to Use */}
-            <div className="p-5" style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
-                How to Use
+            {/* Qty + Add to Cart */}
+            <div className="flex flex-col gap-3">
+              {/* Qty label */}
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase"
+                style={{ color: 'rgba(230,183,173,0.45)' }}>
+                Stock your ritual — choose one tube or build your full set.
               </p>
-              <ol className="space-y-2">
-                {['Add one serving to your cup.', 'Mix with hot water, milk, or your favorite creamer.', 'Stir, sip, and enjoy your ritual.'].map((step, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="font-mono text-[9px] font-bold flex-shrink-0 mt-0.5" style={{ color: product.accent }}>{i + 1}.</span>
-                    <span className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>{step}</span>
-                  </li>
-                ))}
-              </ol>
-              <p className="font-mono text-[8px] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                Follow the serving instructions on the product packaging.
+
+              {/* Qty selector */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-0"
+                  style={{ border: '1px solid rgba(230,183,173,0.2)' }}>
+                  <button
+                    onClick={() => setQty(q => Math.max(1, q - 1))}
+                    className="flex items-center justify-center transition-colors hover:bg-white/5"
+                    style={{ width: 40, height: 40, color: 'rgba(255,255,255,0.5)', borderRight: '1px solid rgba(230,183,173,0.15)' }}>
+                    <Minus className="w-3 h-3" />
+                  </button>
+                  <span className="font-mono text-sm w-12 text-center"
+                    style={{ color: '#F7F1E8' }}>{qty}</span>
+                  <button
+                    onClick={() => setQty(q => q + 1)}
+                    className="flex items-center justify-center transition-colors hover:bg-white/5"
+                    style={{ width: 40, height: 40, color: 'rgba(255,255,255,0.5)', borderLeft: '1px solid rgba(230,183,173,0.15)' }}>
+                    <Plus className="w-3 h-3" />
+                  </button>
+                </div>
+                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                  ${(product.price * qty).toFixed(2)} total
+                </span>
+              </div>
+
+              {/* Add to Cart */}
+              <button
+                onClick={handleAddToCart}
+                className="w-full font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
+                style={{ background: '#E6B7AD', color: '#080808' }}>
+                Add to Cart
+              </button>
+
+              {/* Buy Now */}
+              <a
+                href={`https://torch-republic.com/products/${product.shopifyHandle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80 py-4"
+                style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', display: 'block' }}>
+                Buy Now →
+              </a>
+
+              {/* Microcopy */}
+              <p className="font-mono text-[8px] tracking-[0.2em] text-center"
+                style={{ color: 'rgba(255,255,255,0.25)' }}>
+                No grinder. No brewer. Just scoop, stir, and sip.
               </p>
             </div>
 
-            {/* Disclaimer */}
+            {/* Trust badges */}
+            <div className="grid grid-cols-2 gap-2">
+              {TRUST.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2 px-3 py-2.5"
+                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.07)' }}>
+                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(230,183,173,0.5)' }} />
+                  <span className="font-mono text-[8px] uppercase tracking-wide" style={{ color: 'rgba(247,241,232,0.35)' }}>{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Accordions */}
+            <div className="mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+              {ACCORDIONS.map(a => <Accordion key={a.title} {...a} />)}
+            </div>
+
+            {/* FDA */}
             <p className="font-mono text-[8px] tracking-[0.1em] leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.2)' }}>
+              style={{ color: 'rgba(255,255,255,0.18)' }}>
               Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQSection />
-
       {/* Related products */}
-      <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+      <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-[1100px] mx-auto">
-          <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-10"
-            style={{ color: 'rgba(230,183,173,0.5)' }}>
-            You Might Also Like
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-2"
+            style={{ color: 'rgba(230,183,173,0.4)' }}>
+            Complete Your Ritual
           </p>
+          <h2 className="font-serif text-white text-center font-bold mb-10"
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>
+            You Might Also Like
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {related.map((p, i) => (
               <MushroomProductCard key={p.id} product={p} index={i} />
@@ -210,6 +304,34 @@ export default function BlendDetail() {
           </div>
         </div>
       </section>
+
+      {/* Mobile sticky bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
+        style={{ background: '#0C0B0A', borderTop: '1px solid rgba(230,183,173,0.15)', padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
+        <div className="flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="font-serif font-bold text-white text-sm truncate">{product.name}</p>
+            <p className="font-mono text-[9px]" style={{ color: '#E6B7AD' }}>${(product.price * qty).toFixed(2)}</p>
+          </div>
+          <div className="flex items-center gap-0" style={{ border: '1px solid rgba(230,183,173,0.2)', flexShrink: 0 }}>
+            <button onClick={() => setQty(q => Math.max(1, q - 1))}
+              className="flex items-center justify-center" style={{ width: 32, height: 32, color: 'rgba(255,255,255,0.5)' }}>
+              <Minus className="w-3 h-3" />
+            </button>
+            <span className="font-mono text-sm w-8 text-center" style={{ color: '#F7F1E8' }}>{qty}</span>
+            <button onClick={() => setQty(q => q + 1)}
+              className="flex items-center justify-center" style={{ width: 32, height: 32, color: 'rgba(255,255,255,0.5)' }}>
+              <Plus className="w-3 h-3" />
+            </button>
+          </div>
+          <button
+            onClick={handleAddToCart}
+            className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 px-5 py-3"
+            style={{ background: '#E6B7AD', color: '#080808', flexShrink: 0 }}>
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

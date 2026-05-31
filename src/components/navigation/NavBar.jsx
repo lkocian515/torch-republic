@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useCart } from '@/contexts/CartContext';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
@@ -16,6 +17,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [search, setSearch] = useState('');
+  const { totalItems, setDrawerOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -87,11 +89,16 @@ export default function NavBar() {
                 className="hover:text-white transition-colors">
                 <Search className="w-[15px] h-[15px]" />
               </button>
-              <a href="https://torch-republic.com/cart"
-                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              <button onClick={() => setDrawerOpen(true)}
+                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}
                 className="hover:text-white transition-colors">
                 <ShoppingBag className="w-[15px] h-[15px]" />
-              </a>
+                {totalItems > 0 && (
+                  <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                    {totalItems}
+                  </span>
+                )}
+              </button>
               <Link to="/Profile"
                 style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">
@@ -102,10 +109,15 @@ export default function NavBar() {
 
           {/* Mobile right icons */}
           <div className="md:hidden flex items-center gap-1 ml-auto">
-            <a href="https://torch-republic.com/cart"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button onClick={() => setDrawerOpen(true)}
+              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
               <ShoppingBag className="w-[18px] h-[18px]" />
-            </a>
+              {totalItems > 0 && (
+                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                  {totalItems}
+                </span>
+              )}
+            </button>
             <button
               onClick={() => setOpen(true)}
               style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
