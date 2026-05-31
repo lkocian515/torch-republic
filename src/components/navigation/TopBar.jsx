@@ -3,7 +3,7 @@ import React from 'react';
 export default function TopBar() {
   return (
     <div
-      className="w-full flex items-center justify-center px-4"
+      className="hidden md:flex w-full items-center justify-center px-4"
       style={{
         height: '30px',
         backgroundColor: '#000000',
