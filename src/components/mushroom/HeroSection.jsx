@@ -21,42 +21,167 @@ const TRUST_ITEMS = [
 ];
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
-// Only shown on screens ≤768px. Uses baked-in image with transparent link overlays.
+// Only shown on screens ≤768px. Uses clean product image with live HTML text (no logo above heading).
 function MobileHero() {
   return (
     <div
       style={{
         display: 'none',
-        position: 'relative',
+        backgroundColor: '#06050A',
         width: '100%',
-        backgroundColor: '#050505',
-        margin: 0,
-        padding: 0,
+        overflow: 'hidden',
       }}
       className="mobile-hero"
     >
-      <img
-        src={MOBILE_BG}
-        alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
-        fetchpriority="high"
-        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
-      />
-      <Link
-        to="/shop"
-        aria-label="Shop the Blends"
-        style={{
-          position: 'absolute', bottom: '12.5%', left: '4%', right: '4%',
-          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
-        }}
-      />
-      <Link
-        to="/subscription"
-        aria-label="Build Your Monthly Ritual"
-        style={{
-          position: 'absolute', bottom: '4%', left: '4%', right: '4%',
-          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
-        }}
-      />
+      {/* Image section — clean product lineup */}
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url(${CLEAN_DESKTOP_BG})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0,
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.62) 100%)',
+          zIndex: 1,
+          pointerEvents: 'none',
+        }} />
+        {/* Live HTML text — headline only (no logo/eyebrow above) */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0,
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          textAlign: 'center', padding: '24px 20px 0', zIndex: 2,
+        }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 700,
+              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+              color: '#FFFFFF',
+              lineHeight: 1.1,
+              textShadow: '0 2px 32px rgba(0,0,0,0.75)',
+              letterSpacing: '-0.01em',
+              margin: 0,
+            }}
+          >
+            Mushroom Coffee
+            <br />
+            <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
+          </motion.h1>
+        </div>
+      </div>
+
+      {/* Below-image section — subtitle + trust bar + CTAs */}
+      <div style={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        textAlign: 'center', padding: '28px 20px 40px',
+        background: '#06050A',
+      }}>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          style={{
+            fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)',
+            color: 'rgba(200,184,166,0.85)',
+            lineHeight: 1.8,
+            fontWeight: 300,
+            maxWidth: '500px',
+            fontFamily: 'var(--font-heading)',
+            marginBottom: '24px',
+          }}
+        >
+          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
+        </motion.p>
+
+        {/* Trust bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{
+            display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(230,183,173,0.12)',
+            borderRadius: '999px',
+            padding: '8px 4px',
+            background: 'rgba(0,0,0,0.3)',
+            marginBottom: '24px',
+            gap: '8px',
+          }}
+        >
+          {TRUST_ITEMS.map((item, i) => (
+            <div key={item.label} style={{
+              display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px',
+            }}>
+              <span style={{ fontSize: '0.75rem' }}>{item.icon}</span>
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.5rem',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'rgba(230,183,173,0.65)',
+                whiteSpace: 'nowrap',
+              }}>
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.5 }}
+          style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}
+        >
+          <Link
+            to="/shop"
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              background: RG, color: '#050505',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+              padding: '13px 28px',
+              borderRadius: '999px',
+              textDecoration: 'none',
+            }}
+          >
+            <ShoppingCart size={14} />
+            Shop the Blends
+          </Link>
+          <Link
+            to="/subscription"
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              border: `1px solid rgba(230,183,173,0.35)`,
+              color: RG_DEEP,
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+              padding: '13px 28px',
+              borderRadius: '999px',
+              background: 'rgba(0,0,0,0.35)',
+              textDecoration: 'none',
+            }}
+          >
+            <Calendar size={14} />
+            Build Monthly Ritual
+          </Link>
+        </motion.div>
+      </div>
     </div>
   );
 }
