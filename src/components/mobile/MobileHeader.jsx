@@ -91,15 +91,8 @@ export default function MobileHeader() {
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 flex-shrink-0"
+            <div className="flex items-center justify-end px-5 flex-shrink-0"
               style={{ height: '52px', borderBottom: `1px solid ${RG_DEEP}29` }}>
-              <Link to="/" onClick={() => setOpen(false)}>
-                <img
-                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-                  alt="Torch Republic Coffee Company"
-                  style={{ height: '42px', width: 'auto' }}
-                />
-              </Link>
               <button
                 onClick={() => setOpen(false)}
                 style={{ color: `${RG}99`, minWidth: '48px', minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
