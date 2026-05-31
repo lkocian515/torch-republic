@@ -137,6 +137,19 @@ const AuthenticatedApp = () => {
         <Route path="/qr/rosies" element={<Navigate to="/blends" replace />} />
         <Route path="/qr/eagles-flight" element={<Navigate to="/blends" replace />} />
 
+        {/* Old lifestyle/category pages */}
+        <Route path="/Bobbleheads" element={<Navigate to="/shop" replace />} />
+        <Route path="/MugsTumblers" element={<Navigate to="/shop" replace />} />
+        <Route path="/Apparel" element={<Navigate to="/shop" replace />} />
+        <Route path="/OutfitBuilder" element={<Navigate to="/shop" replace />} />
+        <Route path="/Patriots" element={<Navigate to="/shop" replace />} />
+        <Route path="/Visionaries" element={<Navigate to="/shop" replace />} />
+        <Route path="/StyleAdvisor" element={<Navigate to="/shop" replace />} />
+        <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
+        <Route path="/OnSale" element={<Navigate to="/shop" replace />} />
+        <Route path="/CoffeeCollection" element={<Navigate to="/shop" replace />} />
+        <Route path="/WomenOfTheRepublic" element={<Navigate to="/shop" replace />} />
+
         {/* Old blog */}
         <Route path="/george-washington-coffee-history" element={<Navigate to="/Journal" replace />} />
 
