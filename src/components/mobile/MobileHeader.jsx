@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
+import { Menu, X, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
+
+const RG = '#E6B7AD';
+const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
@@ -20,45 +23,65 @@ export default function MobileHeader() {
 
   return (
     <>
-      {/* Mobile header bar - visible only on mobile */}
+      {/* Mobile header bar */}
       <div
         className="md:hidden sticky top-0 z-50"
         style={{
-          height: '48px',
+          height: '52px',
           backgroundColor: '#000000',
-          borderBottom: '1px solid rgba(230,183,173,0.1)',
+          borderBottom: `1px solid ${RG_DEEP}29`,
           top: 'env(safe-area-inset-top)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        <div className="h-full flex items-center justify-between px-4">
+        <div className="h-full flex items-center justify-between px-5">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
               alt="Torch Republic Coffee Company"
-              style={{ height: '38px', width: 'auto' }}
+              style={{ height: '42px', width: 'auto' }}
+              loading="eager"
+              fetchpriority="high"
             />
           </Link>
 
           {/* Right icons */}
-          <div className="flex items-center gap-0">
+          <div className="flex items-center gap-1">
             <Link to="/cart"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <ShoppingBag className="w-[18px] h-[18px]" />
+              style={{ color: `${RG}8C`, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <ShoppingBag className="w-[19px] h-[19px]" strokeWidth={1.8} />
               {totalItems > 0 && (
-                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                <span style={{
+                  position: 'absolute',
+                  top: 9,
+                  right: 7,
+                  background: RG,
+                  color: '#050505',
+                  fontSize: '9px',
+                  fontWeight: 900,
+                  width: 16,
+                  height: 16,
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: 'var(--font-mono)',
+                  boxShadow: '0 2px 8px rgba(230,183,173,0.4)',
+                }}>
                   {totalItems}
                 </span>
               )}
             </Link>
             <Link to="/Profile"
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <User className="w-[18px] h-[18px]" />
+              style={{ color: `${RG}8C`, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <User className="w-[19px] h-[19px]" strokeWidth={1.8} />
             </Link>
             <button
               onClick={() => setOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '40px', minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Menu className="w-[20px] h-[20px]" />
+              style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Menu className="w-[21px] h-[21px]" strokeWidth={1.8} />
             </button>
           </div>
         </div>
@@ -71,64 +94,93 @@ export default function MobileHeader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
             className="fixed inset-0 md:hidden flex flex-col"
-            style={{ zIndex: 200, background: '#040407' }}
+            style={{
+              zIndex: 200,
+              background: 'linear-gradient(180deg, #08070A 0%, #040407 100%)',
+            }}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 flex-shrink-0"
-              style={{ height: '48px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
+              style={{ height: '52px', borderBottom: `1px solid ${RG_DEEP}29` }}>
               <Link to="/" onClick={() => setOpen(false)}>
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-                  alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
+                <img
+                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+                  alt="Torch Republic Coffee Company"
+                  style={{ height: '42px', width: 'auto' }}
+                />
               </Link>
-              <button onClick={() => setOpen(false)}
-                style={{ color: 'rgba(255,255,255,0.6)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <X className="w-5 h-5" />
+              <button
+                onClick={() => setOpen(false)}
+                style={{ color: `${RG}99`, minWidth: '48px', minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <X className="w-6 h-6" strokeWidth={1.8} />
               </button>
             </div>
 
             {/* Shop CTA */}
-            <div className="px-4 py-3 flex-shrink-0">
+            <div className="px-5 py-4 flex-shrink-0">
               <Link to="/shop" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-3 font-mono uppercase tracking-[0.25em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '11px', background: '#E6B7AD', color: '#000', fontWeight: 700 }}>
+                className="group relative flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.3em] transition-all hover:opacity-90"
+                style={{
+                  fontSize: '11px',
+                  background: `linear-gradient(135deg, ${RG} 0%, ${RG_DEEP} 100%)`,
+                  color: '#050505',
+                  fontWeight: 800,
+                  borderRadius: '2px',
+                  boxShadow: `0 4px 16px ${RG}40`,
+                }}
+              >
                 Shop All Blends
               </Link>
             </div>
 
             {/* Nav links */}
-            <div className="flex-1 overflow-y-auto px-4 pb-3">
+            <div className="flex-1 overflow-y-auto px-5 pb-4">
               <div className="mb-2">
                 <p className="font-mono uppercase"
-                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '12px 0 6px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+                  style={{
+                    fontSize: '7px',
+                    letterSpacing: '0.6em',
+                    color: `${RG}59`,
+                    padding: '16px 0 10px',
+                    borderTop: `1px solid ${RG_DEEP}1F`,
+                    textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+                  }}>
                   Navigation
                 </p>
                 {NAV_LINKS.map((item, i) => (
                   <motion.div
                     key={item.label}
-                    initial={{ opacity: 0, x: -12 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.04 + i * 0.04, duration: 0.22 }}
+                    transition={{ delay: 0.05 + i * 0.05, duration: 0.25 }}
                   >
                     <Link
                       to={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between"
+                      className="group flex items-center justify-between"
                       style={{
-                        padding: '11px 0',
-                        borderBottom: '1px solid rgba(230,183,173,0.07)',
-                        fontSize: '17px',
-                        color: 'rgba(255,255,255,0.6)',
+                        padding: '14px 0',
+                        borderBottom: `1px solid ${RG_DEEP}14`,
+                        fontSize: '18px',
+                        color: 'rgba(255,255,255,0.7)',
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 400,
-                        transition: 'color 0.2s',
+                        letterSpacing: '0.02em',
+                        transition: 'all 0.25s ease',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.color = '#E6B7AD'}
-                      onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.color = RG;
+                        e.currentTarget.querySelector('span:last-child').style.color = RG;
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
+                        e.currentTarget.querySelector('span:last-child').style.color = `${RG}66`;
+                      }}
                     >
-                      <span>{item.label}</span>
-                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '13px' }}>→</span>
+                      <span style={{ transition: 'transform 0.25s ease' }}>{item.label}</span>
+                      <span style={{ color: `${RG}66`, fontSize: '14px', transition: 'all 0.25s ease' }}>→</span>
                     </Link>
                   </motion.div>
                 ))}
@@ -136,17 +188,34 @@ export default function MobileHeader() {
             </div>
 
             {/* Bottom */}
-            <div className="px-4 py-4 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
+            <div className="px-5 py-5 flex-shrink-0" style={{ borderTop: `1px solid ${RG_DEEP}1F` }}>
               <Link to="/bundle" onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-full py-3.5 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '10px', border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
+                className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.3em] transition-all hover:opacity-90"
+                style={{
+                  fontSize: '10px',
+                  border: `1px solid ${RG}59`,
+                  color: RG,
+                  borderRadius: '2px',
+                  background: `${RG}08`,
+                }}>
                 Shop the 6-Tube Bundle →
               </Link>
-              <div className="flex items-center justify-center gap-4 mt-4">
+              <div className="flex items-center justify-center gap-6 mt-5">
                 <Link to="/Profile" onClick={() => setOpen(false)}
-                  className="flex items-center gap-2"
-                  style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontFamily: 'var(--font-heading)' }}>
-                  <User className="w-3.5 h-3.5" /> Account
+                  className="group flex items-center gap-2.5"
+                  style={{
+                    fontSize: '10px',
+                    letterSpacing: '0.22em',
+                    textTransform: 'uppercase',
+                    color: `${RG}4D`,
+                    fontFamily: 'var(--font-heading)',
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = RG}
+                  onMouseLeave={e => e.currentTarget.style.color = `${RG}4D`}
+                >
+                  <User className="w-4 h-4" strokeWidth={1.8} />
+                  <span>Account</span>
                 </Link>
               </div>
             </div>
