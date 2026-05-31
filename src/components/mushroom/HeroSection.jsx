@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { HERO_IMAGE } from '../../lib/mushroomProducts';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
-const BG_DESKTOP = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1563af3fd_LIVEFREESTAYREADY3.png';
+// Clean product-only lineup image — no baked-in text
+const BG_DESKTOP = HERO_IMAGE;
 const BG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/473eeb1cb_ChatGPTImageMay31202604_33_21PM.png';
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
@@ -80,38 +82,23 @@ function DesktopHero() {
       style={{
         minHeight: '82vh',
         maxHeight: '900px',
-        background: '#060408',
+        backgroundColor: '#050505',
+        backgroundImage: `url(${BG_DESKTOP})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Product lineup image — bottom-anchored, no text baked in */}
-      <img
-        src={BG_DESKTOP}
-        alt="Six Torch Republic instant mushroom coffee tubes on a dark wooden surface"
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '100%',
-          maxWidth: '1600px',
-          height: '75%',
-          objectFit: 'cover',
-          objectPosition: 'center bottom',
-          pointerEvents: 'none',
-          display: 'block',
-        }}
-      />
-
-      {/* Top-to-bottom gradient so headline sits on dark, tubes fade in at bottom */}
+      {/* Dark overlay for text readability — covers any image detail */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'linear-gradient(180deg, #060408 0%, #060408 18%, rgba(6,4,8,0.55) 45%, rgba(6,4,8,0.15) 68%, rgba(6,4,8,0.7) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.42) 50%, rgba(0,0,0,0.68) 100%)',
+          zIndex: 1,
         }}
       />
 
-      {/* Content */}
+      {/* Content — sits above overlay */}
       <div
         className="relative flex flex-col items-center text-center"
         style={{ maxWidth: '1000px', margin: '0 auto', padding: '72px 24px 56px', zIndex: 2 }}
