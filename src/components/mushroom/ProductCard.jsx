@@ -36,7 +36,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       }}
     >
       {/* Clickable image + info area */}
-      <Link to={`/blends/${product.slug}`} className="group flex flex-col flex-1" style={{ textDecoration: 'none' }}>
+      <Link to={`/products/${product.slug}`} className="group flex flex-col flex-1" style={{ textDecoration: 'none' }}>
         {/* Image */}
         <div className="relative overflow-hidden flex items-center justify-center"
           style={{ aspectRatio: '1/1', background: '#0C0C0C' }}>
