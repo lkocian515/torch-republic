@@ -10,7 +10,7 @@ export default function BottomTabNav() {
 
   const tabs = [
     { path: '/', icon: Home, label: 'Home' },
-    { path: '/CoffeeCollection', icon: ShoppingBag, label: 'Coffee' },
+    { path: '/shop', icon: ShoppingBag, label: 'Shop' },
     { path: '/Profile', icon: User, label: 'Account' },
   ];
 
@@ -53,12 +53,12 @@ export default function BottomTabNav() {
           );
         })}
         <Link
-          to="/TheTorchBox"
+          to="/bundle"
           className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-colors relative select-none"
           style={{ color: '#C9A24A' }}
         >
           <Flame className="w-5 h-5" />
-          <span className="text-xs font-mono tracking-widest uppercase">Torch Box</span>
+          <span className="text-xs font-mono tracking-widest uppercase">Bundle</span>
         </Link>
       </div>
     </div>

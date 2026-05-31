@@ -1,76 +1,26 @@
 import React from 'react';
-import HeroSection from '../components/home/v2/HeroSection';
-import HeroTrustBar from '../components/home/v2/HeroTrustBar';
-import HomeSEOSection from '../components/home/v2/HomeSEOSection';
-import WashingtonPodsSpotlight from '../components/home/v2/WashingtonPodsSpotlight';
-import HomeTrustStrip from '../components/home/v2/HomeTrustStrip';
-import FirstTimeGuidance from '../components/home/v2/FirstTimeGuidance';
-import BestSellersStrip from '../components/home/v2/BestSellersStrip';
-import FeaturedProductSpotlight from '../components/home/v2/FeaturedProductSpotlight';
-import TorchBoxSection from '../components/home/v2/TorchBoxSection';
-import LibertyIconsBanner from '../components/home/v2/LibertyIconsBanner';
-import MugsTumblersSection from '../components/home/v2/MugsTumblersSection';
-import CollectibleBundlesSection from '../components/home/v2/CollectibleBundlesSection';
-import ApparelSection from '../components/home/v2/ApparelSection';
-import HomeReviewStrip from '../components/home/v2/HomeReviewStrip';
-import FinalCTA from '../components/home/v2/FinalCTA';
-import ExitIntentPopup from '../components/home/ExitIntentPopup';
+import MushroomHero from '../components/mushroom/HeroSection';
+import MushroomTrustBar from '../components/mushroom/TrustBar';
+import FeaturedCollection from '../components/mushroom/FeaturedCollection';
+import WhyInstant from '../components/mushroom/WhyInstant';
+import BlendCompare from '../components/mushroom/BlendCompare';
+import BundleSection from '../components/mushroom/BundleSection';
+import HowToUse from '../components/mushroom/HowToUse';
+import EmailCapture from '../components/mushroom/EmailCapture';
+import FAQSection from '../components/mushroom/FAQSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
-      {/* 1. Hero */}
-      <HeroSection />
-      <HeroTrustBar />
-
-      {/* SEO — hidden structural text, H1, keyword copy, internal links */}
-      <HomeSEOSection />
-
-      {/* FIRST PRODUCT — Washington Blend Pods */}
-      <WashingtonPodsSpotlight />
-
-      {/* Trust Indicators */}
-      <HomeTrustStrip />
-
-      {/* First-Time Customer Guidance */}
-      <FirstTimeGuidance />
-
-      {/*
-        ── OPTIMIZED CONVERSION FLOW (5-10 second decision path) ──
-        01 · Best Sellers (Founders Series) — choose a coffee (badges for guidance)
-        02 · Featured Product Spotlight — recommended starting product
-        03 · Torch Box — subscription option
-        04 · Reviews → Final CTA — social proof + close
-        ────────────────────────────────────────────────────
-        Removed: Liberty Icons, Commanders, Women of the Republic (collections)
-        Apparel, GuaranteeBar (low conversion sections)
-      */}
-
-      {/* STEP 1 — Choose Your Blend (with guidance badges) */}
-      <BestSellersStrip />
-
-      {/* STEP 2 — Premium Product Highlight */}
-      <FeaturedProductSpotlight />
-
-      {/* STEP 3 — Start with Subscription */}
-      <TorchBoxSection />
-
-      {/* STEP 3.5 — Liberty Icons */}
-      <LibertyIconsBanner />
-
-      {/* STEP 4 — Collectible Bundles */}
-      <CollectibleBundlesSection />
-
-      {/* STEP 4b — Mugs & Tumblers Collection */}
-      <MugsTumblersSection />
-
-      {/* STEP 5 — Apparel Collection */}
-      <ApparelSection />
-
-      {/* STEP 6 — Trust + Convert */}
-      <HomeReviewStrip />
-      <FinalCTA />
-      <ExitIntentPopup />
+    <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
+      <MushroomHero />
+      <MushroomTrustBar />
+      <FeaturedCollection />
+      <WhyInstant />
+      <BlendCompare />
+      <BundleSection />
+      <HowToUse />
+      <EmailCapture />
+      <FAQSection />
     </div>
   );
 }

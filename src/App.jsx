@@ -14,6 +14,12 @@ import ScrollToTop from './components/ScrollToTop';
 
 import Reviews from './pages/Reviews';
 import GeorgeWashingtonCoffee from './pages/blog/GeorgeWashingtonCoffee';
+import MushroomShop from './pages/MushroomShop';
+import MushroomBundle from './pages/MushroomBundle';
+import BlendDetail from './pages/BlendDetail';
+import BlendsCollection from './pages/BlendsCollection';
+import HowItWorks from './pages/HowItWorks';
+import MushroomFAQ from './pages/MushroomFAQ';
 
 import Bundles from './pages/Bundles';
 import Cart from './pages/Cart';
@@ -153,6 +159,14 @@ const AuthenticatedApp = () => {
       <Route path="/bobbleheads" element={<LayoutWrapper currentPageName="Bobbleheads"><Bobbleheads /></LayoutWrapper>} />
       <Route path="/george-washington-coffee-history" element={<LayoutWrapper currentPageName="GeorgeWashingtonCoffee"><GeorgeWashingtonCoffee /></LayoutWrapper>} />
       <Route path="/collections/coffee-bundles" element={<LayoutWrapper currentPageName="CoffeeBundles"><CoffeeBundles /></LayoutWrapper>} />
+
+      {/* ── MUSHROOM COFFEE STORE ── */}
+      <Route path="/shop" element={<LayoutWrapper currentPageName="MushroomShop"><MushroomShop /></LayoutWrapper>} />
+      <Route path="/blends" element={<LayoutWrapper currentPageName="BlendsCollection"><BlendsCollection /></LayoutWrapper>} />
+      <Route path="/blends/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
+      <Route path="/bundle" element={<LayoutWrapper currentPageName="MushroomBundle"><MushroomBundle /></LayoutWrapper>} />
+      <Route path="/how-it-works" element={<LayoutWrapper currentPageName="HowItWorks"><HowItWorks /></LayoutWrapper>} />
+      <Route path="/faq" element={<LayoutWrapper currentPageName="MushroomFAQ"><MushroomFAQ /></LayoutWrapper>} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
