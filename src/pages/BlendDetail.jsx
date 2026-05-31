@@ -246,7 +246,7 @@ export default function BlendDetail() {
 
               {/* Buy Now */}
               <a
-                href={`https://torch-republic.com/products/${product.shopifyHandle}`}
+                href={`https://torchrepublic.com/products/${product.shopifyHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80 py-4"

@@ -185,7 +185,7 @@ export default function SubscriptionManager() {
               {/* Change plan link */}
               <div className="flex items-center gap-2 pt-1">
                 <RefreshCw className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(201,162,74,0.35)' }} />
-                <a href="https://torch-republic.com/account/subscriptions" target="_blank" rel="noopener noreferrer"
+                <a href="https://torchrepublic.com/account/subscriptions" target="_blank" rel="noopener noreferrer"
                   className="font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-60 pb-px"
                   style={{ color: 'rgba(201,162,74,0.5)', borderBottom: '1px solid rgba(201,162,74,0.18)' }}>
                   Change plan or cancel on Shopify →

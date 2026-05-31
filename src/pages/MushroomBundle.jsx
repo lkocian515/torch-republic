@@ -83,7 +83,7 @@ export default function MushroomBundle() {
             </p>
             {/* Placeholder CTA — replace href with Shopify bundle checkout link */}
             <a
-              href="https://torch-republic.com/collections/all"
+              href="https://torchrepublic.com/collections/instant-mushroom-coffee"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"

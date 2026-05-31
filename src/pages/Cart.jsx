@@ -240,7 +240,7 @@ export default function Cart() {
 
                 {/* Checkout CTA */}
                 <a
-                  href="https://torch-republic.com/cart"
+                  href="https://torchrepublic.com/cart"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full font-mono uppercase tracking-[0.3em] transition-all hover:opacity-90"

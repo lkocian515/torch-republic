@@ -4,12 +4,16 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'Is this instant coffee?',
-    a: 'Yes. These are instant mushroom coffee blends. No brewer is required. Simply add one serving to a cup of hot water or milk, stir, and enjoy.',
+    q: 'Is Torch Republic Coffee Company still an apparel brand?',
+    a: 'No. Torch Republic Coffee Company has been rebuilt as a premium instant mushroom coffee brand focused on Lion\'s Mane + Chaga coffee blends. We no longer sell apparel, bobbleheads, collectibles, or patriotic merchandise.',
   },
   {
-    q: "What mushrooms are included?",
-    a: "The current blends feature Lion's Mane + Chaga, incorporated into each instant coffee formula.",
+    q: 'Is this ground coffee or instant coffee?',
+    a: 'These are instant mushroom coffee blends. No coffee maker, grinder, or brewer is required. Simply add one serving to hot water or milk, stir, and enjoy.',
+  },
+  {
+    q: 'What mushrooms are included?',
+    a: 'The blends feature Lion\'s Mane + Chaga, incorporated into each instant coffee formula to support focus, flow, and a smooth daily ritual.',
   },
   {
     q: 'How many servings are in each tube?',
@@ -20,6 +24,10 @@ const FAQS = [
     a: 'These blends are designed to taste like coffee first. The mushroom blend is worked into the formula to complement the coffee flavor, not overpower it.',
   },
   {
+    q: 'Can I subscribe monthly?',
+    a: 'Yes. The Monthly Mushroom Coffee Subscription lets you choose 1–6 tubes per month and select the blends you want delivered each month.',
+  },
+  {
     q: 'Can I drink it daily?',
     a: 'Use as directed on the package. If you are pregnant, nursing, sensitive to caffeine, taking medication, or managing a medical condition, please consult a qualified healthcare professional before use.',
   },
@@ -28,8 +36,8 @@ const FAQS = [
     a: 'Torch Republic products are instant mushroom coffee blends — they are not intended as a medical treatment, supplement, or cure for any condition. Statements have not been evaluated by the FDA.',
   },
   {
-    q: 'How do I make it?',
-    a: 'Add one serving to your cup, mix with hot water, milk, or your favorite creamer, stir, and enjoy. Follow the serving instructions on the product packaging.',
+    q: 'Where can I contact support?',
+    a: 'Email us at admin@torchrepublic.com or use the Contact page on this site. We\'re happy to help with orders, subscriptions, and product questions.',
   },
 ];
 

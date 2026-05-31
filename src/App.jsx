@@ -26,6 +26,8 @@ import Profile from './pages/Profile';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Subscription from './pages/Subscription';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -75,6 +77,8 @@ const AuthenticatedApp = () => {
         <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
         <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
         <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
+        <Route path="/about" element={<LayoutWrapper currentPageName="About"><About /></LayoutWrapper>} />
+        <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
 
         {/* ── LEGACY PAGES from old pagesConfig ── */}
         <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />

@@ -15,17 +15,18 @@ const FOOTER_LINKS = [
     heading: 'Learn',
     links: [
       { label: 'How It Works', href: '/how-it-works' },
-      { label: 'Reviews', href: '/reviews' },
+      { label: 'About', href: '/about' },
       { label: 'FAQ', href: '/faq' },
+      { label: 'Contact', href: '/contact' },
     ]
   },
   {
     heading: 'Legal',
     links: [
-      { label: 'Shipping Policy', external: 'https://torch-republic.com/policies/shipping-policy' },
-      { label: 'Return Policy', external: 'https://torch-republic.com/policies/refund-policy' },
-      { label: 'Privacy Policy', external: 'https://torch-republic.com/policies/privacy-policy' },
-      { label: 'Terms of Service', external: 'https://torch-republic.com/policies/terms-of-service' },
+      { label: 'Shipping Policy', external: 'https://torchrepublic.com/policies/shipping-policy' },
+      { label: 'Return Policy', external: 'https://torchrepublic.com/policies/refund-policy' },
+      { label: 'Privacy Policy', external: 'https://torchrepublic.com/policies/privacy-policy' },
+      { label: 'Terms of Service', external: 'https://torchrepublic.com/policies/terms-of-service' },
     ]
   }
 ];
@@ -54,7 +55,7 @@ export default function Footer() {
               Torch Republic Coffee Company creates premium instant mushroom coffee blends for focus, flow, and daily ritual.
             </p>
             <div className="space-y-2">
-              <a href="mailto:admin@torchrepublic.com"
+              <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"
                 className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white"
                 style={{ color: 'rgba(255,255,255,0.4)' }}>
                 admin@torchrepublic.com
