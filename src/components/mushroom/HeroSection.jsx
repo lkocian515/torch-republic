@@ -11,7 +11,7 @@ const RG_DEEP = '#C98F86';
 const CLEAN_DESKTOP_BG = HERO_IMAGE;
 
 // Mobile hero image (has baked-in text, buttons, trust icons)
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d64d7009a_generated_image.png';
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/927c886dd_generated_image.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
@@ -197,7 +197,7 @@ function DesktopHero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.5 }}
-          style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'center' }}
+          style={{ display: 'flex', gap: '16px', alignItems: 'center' }}
         >
           <Link
             to="/shop"
