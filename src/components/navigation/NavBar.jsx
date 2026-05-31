@@ -35,10 +35,10 @@ export default function NavBar() {
       <nav
         style={{
           height: '48px',
-          backgroundColor: scrolled ? 'rgba(3,3,5,0.98)' : 'rgba(0,0,0,0.52)',
+          backgroundColor: '#000000',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          borderBottom: scrolled ? '1px solid rgba(201,162,74,0.14)' : '1px solid rgba(201,162,74,0.05)',
+          borderBottom: '1px solid rgba(230,183,173,0.1)',
           transition: 'background-color 0.3s ease, border-color 0.3s ease',
           position: 'relative',
           zIndex: 50,
@@ -140,7 +140,7 @@ export default function NavBar() {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 flex-shrink-0"
-              style={{ height: '48px', borderBottom: '1px solid rgba(201,162,74,0.1)' }}>
+              style={{ height: '48px', borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
               <Link to="/" onClick={() => setOpen(false)}>
                 <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png"
                   alt="Torch Republic Coffee Company" style={{ height: '38px', width: 'auto' }} />
@@ -164,7 +164,7 @@ export default function NavBar() {
             <div className="flex-1 overflow-y-auto px-5 pb-4">
               <div className="mb-2">
                 <p className="font-mono uppercase"
-                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(201,162,74,0.28)', padding: '18px 0 8px', borderTop: '1px solid rgba(201,162,74,0.05)' }}>
+                  style={{ fontSize: '8px', letterSpacing: '0.5em', color: 'rgba(230,183,173,0.35)', padding: '18px 0 8px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
                   Navigation
                 </p>
                 {NAV_LINKS.map((item, i) => (
@@ -180,7 +180,7 @@ export default function NavBar() {
                       className="flex items-center justify-between"
                       style={{
                         padding: '14px 0',
-                        borderBottom: '1px solid rgba(201,162,74,0.05)',
+                        borderBottom: '1px solid rgba(230,183,173,0.07)',
                         fontSize: '18px',
                         color: 'rgba(255,255,255,0.6)',
                         fontFamily: 'var(--font-heading)',
@@ -191,7 +191,7 @@ export default function NavBar() {
                       onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
                     >
                       <span>{item.label}</span>
-                      <span style={{ color: 'rgba(201,162,74,0.3)', fontSize: '14px' }}>→</span>
+                      <span style={{ color: 'rgba(230,183,173,0.4)', fontSize: '14px' }}>→</span>
                     </Link>
                   </motion.div>
                 ))}
@@ -202,7 +202,7 @@ export default function NavBar() {
             <div className="px-5 py-6 flex-shrink-0" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
               <Link to="/bundle" onClick={() => setOpen(false)}
                 className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.28em] transition-opacity hover:opacity-80"
-                style={{ fontSize: '10px', border: '1px solid rgba(201,162,74,0.35)', color: 'rgba(201,162,74,0.8)' }}>
+                style={{ fontSize: '10px', border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
                 Shop the 6-Tube Bundle →
               </Link>
               <div className="flex items-center justify-center gap-5 mt-5">
