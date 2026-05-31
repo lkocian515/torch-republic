@@ -84,7 +84,7 @@ export default function MushroomHero() {
                     alt={p.alt}
                     loading="eager"
                     className="w-full object-contain drop-shadow-2xl"
-                    style={{ height: '160px' }}
+                    style={{ height: '200px' }}
                   />
                 </motion.div>
               </Link>
