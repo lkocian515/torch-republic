@@ -11,7 +11,7 @@ const RG_DEEP = '#C98F86';
 const CLEAN_DESKTOP_BG = HERO_IMAGE;
 
 // Mobile hero image (has baked-in text, buttons, trust icons)
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6a37e654a_generated_image.png';
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/efac670cf_ChatGPTImageMay31202604_33_21PM.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
@@ -21,7 +21,7 @@ const TRUST_ITEMS = [
 ];
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
-// Only shown on screens ≤768px. Uses original background with live HTML text overlay.
+// Only shown on screens ≤768px. Uses baked-in image with transparent link overlays.
 function MobileHero() {
   return (
     <div
@@ -35,124 +35,28 @@ function MobileHero() {
       }}
       className="mobile-hero"
     >
-      {/* Background image */}
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        aspectRatio: '9 / 16',
-        backgroundImage: `url(${MOBILE_BG})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-      }}>
-        {/* Gradient overlay for text readability */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.55) 100%)',
-          pointerEvents: 'none',
-        }} />
-
-        {/* Live HTML text overlay */}
-        <div style={{
-          position: 'absolute', top: '8%', left: '6%', right: '6%',
-          display: 'flex', flexDirection: 'column', alignItems: 'center',
-          textAlign: 'center', zIndex: 2,
-        }}>
-          <motion.p
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              color: 'rgba(230,183,173,0.78)',
-              fontSize: '0.52rem',
-              letterSpacing: '0.45em',
-              textTransform: 'uppercase',
-              fontFamily: 'var(--font-mono)',
-              marginBottom: '14px',
-            }}
-          >
-            Torch Republic Coffee Company
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.1 }}
-            style={{
-              fontFamily: 'var(--font-serif)',
-              fontWeight: 700,
-              fontSize: 'clamp(1.8rem, 8vw, 2.8rem)',
-              color: '#FFFFFF',
-              lineHeight: 1.15,
-              textShadow: '0 2px 24px rgba(0,0,0,0.85)',
-              letterSpacing: '-0.01em',
-              margin: 0,
-            }}
-          >
-            Mushroom Coffee
-            <br />
-            <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
-          </motion.h1>
-        </div>
-
-        {/* CTA Buttons */}
-        <div style={{
-          position: 'absolute', bottom: '14%', left: '6%', right: '6%',
-          display: 'flex', flexDirection: 'column', gap: '12px', zIndex: 2,
-        }}>
-          <Link
-            to="/shop"
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-              background: RG, color: '#050505',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.58rem',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              padding: '14px 28px',
-              borderRadius: '999px',
-              textDecoration: 'none',
-              boxShadow: '0 4px 16px rgba(230,183,173,0.25)',
-            }}
-          >
-            <ShoppingCart size={14} />
-            Shop the Blends
-          </Link>
-          <Link
-            to="/subscription"
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-              border: `1px solid rgba(230,183,173,0.35)`,
-              color: RG_DEEP,
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.58rem',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              padding: '14px 28px',
-              borderRadius: '999px',
-              background: 'rgba(0,0,0,0.45)',
-              textDecoration: 'none',
-            }}
-          >
-            <Calendar size={14} />
-            Build Monthly Ritual
-          </Link>
-        </div>
-
-        {/* Trust icons */}
-        <div style={{
-          position: 'absolute', bottom: '4%', left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex', gap: '18px', zIndex: 2,
-        }}>
-          <span style={{ fontSize: '0.75rem', color: 'rgba(230,183,173,0.65)' }}>🍄</span>
-          <span style={{ fontSize: '0.75rem', color: 'rgba(230,183,173,0.65)' }}>⚡</span>
-          <span style={{ fontSize: '0.75rem', color: 'rgba(230,183,173,0.65)' }}>☕</span>
-          <span style={{ fontSize: '0.75rem', color: 'rgba(230,183,173,0.65)' }}>✦</span>
-        </div>
-      </div>
+      <img
+        src={MOBILE_BG}
+        alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
+        fetchpriority="high"
+        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+      />
+      <Link
+        to="/shop"
+        aria-label="Shop the Blends"
+        style={{
+          position: 'absolute', bottom: '12.5%', left: '4%', right: '4%',
+          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
+        }}
+      />
+      <Link
+        to="/subscription"
+        aria-label="Build Your Monthly Ritual"
+        style={{
+          position: 'absolute', bottom: '4%', left: '4%', right: '4%',
+          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
+        }}
+      />
     </div>
   );
 }
