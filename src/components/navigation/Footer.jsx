@@ -108,7 +108,7 @@ export default function Footer() {
         </p>
 
         {/* Bottom bar */}
-        <div className="hidden md:flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
             alt="Torch Republic Coffee Company"
