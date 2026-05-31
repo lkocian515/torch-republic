@@ -25,6 +25,7 @@ import Journal from './pages/Journal';
 import Profile from './pages/Profile';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
+import Subscription from './pages/Subscription';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -69,8 +70,10 @@ const AuthenticatedApp = () => {
         <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
         <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
         <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
+        <Route path="/cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
         <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
         <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
+        <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
 
         {/* ── LEGACY PAGES from old pagesConfig ── */}
         <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
@@ -83,7 +86,8 @@ const AuthenticatedApp = () => {
         <Route path="/Bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/CoffeeBundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/collections/coffee-bundles" element={<Navigate to="/bundle" replace />} />
-        <Route path="/TheTorchBox" element={<Navigate to="/shop" replace />} />
+        <Route path="/TheTorchBox" element={<Navigate to="/subscription" replace />} />
+        <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
         <Route path="/CoffeeCollection" element={<Navigate to="/blends" replace />} />
         <Route path="/Apparel" element={<Navigate to="/shop" replace />} />
         <Route path="/bobbleheads" element={<Navigate to="/shop" replace />} />

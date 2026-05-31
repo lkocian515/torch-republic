@@ -7,6 +7,7 @@ const FOOTER_LINKS = [
     links: [
       { label: 'Shop All Blends', href: '/shop' },
       { label: 'The Six Blends', href: '/blends' },
+      { label: 'Monthly Subscription', href: '/subscription' },
       { label: 'Bundle — All Six', href: '/bundle' },
     ]
   },
@@ -16,7 +17,6 @@ const FOOTER_LINKS = [
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'Reviews', href: '/reviews' },
       { label: 'FAQ', href: '/faq' },
-
     ]
   },
   {
