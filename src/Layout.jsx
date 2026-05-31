@@ -10,7 +10,9 @@ export default function Layout({ children }) {
       <MobileHeader />
       <div className="sticky top-0 z-50 md:top-0" style={{ top: 'env(safe-area-inset-top)' }}>
         <TopBar />
-        <NavBar />
+        <div className="hidden md:block">
+          <NavBar />
+        </div>
       </div>
       <main className="flex-1">
         {children}
