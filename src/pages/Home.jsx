@@ -6,9 +6,7 @@ import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import WhyInstant from '../components/mushroom/WhyInstant';
 import BundleSection from '../components/mushroom/BundleSection';
 import HowToUse from '../components/mushroom/HowToUse';
-import CommunitySection from '../components/mushroom/CommunitySection';
-import TransparencySection from '../components/mushroom/TransparencySection';
-import MissionStatement from '../components/mushroom/MissionStatement';
+import QualityMission from '../components/mushroom/QualityMission';
 import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
 
@@ -59,9 +57,7 @@ export default function Home() {
       <WhyInstant />
       <BundleSection />
       <HowToUse />
-      <CommunitySection />
-      <TransparencySection />
-      <MissionStatement />
+      <QualityMission />
       <EmailCapture />
       <FAQSection />
       <StickyMobileCTA />
