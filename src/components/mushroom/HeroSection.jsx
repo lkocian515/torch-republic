@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { HERO_IMAGE, LOGO_URL } from '../../lib/mushroomProducts';
-import { ShoppingCart, Calendar } from 'lucide-react';
+import { HERO_IMAGE } from '../../lib/mushroomProducts';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
@@ -74,154 +73,105 @@ const TRUST_ITEMS = [
   { icon: '✦', label: 'No Coffee Maker Needed' },
 ];
 
-const TRUST_ICONS = [
-  { svg: '🍄', label: "Lion's Mane\n+ Chaga" },
-  { svg: '☕', label: '100%\nInstant Coffee' },
-  { svg: '✦', label: '27\nServings' },
-  { svg: '🌿', label: 'No Coffee\nMaker Needed' },
-];
-
 // ─── DESKTOP HERO ─────────────────────────────────────────────────────────────
+// Cinematic wide layout: eyebrow → headline over image → subtitle below
+const DESKTOP_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9f4a5277b_LIVEFREESTAYREADY3.png';
+
 function DesktopHero() {
   return (
     <div
-      className="hidden md:flex flex-col items-center justify-start relative w-full overflow-hidden"
-      style={{
-        backgroundColor: '#0a0708',
-        backgroundImage: `url(${BG_DESKTOP})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-      }}
+      className="hidden md:block relative w-full overflow-hidden"
+      style={{ backgroundColor: '#06050A' }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(5,4,6,0.72)', zIndex: 1 }} />
+      {/* ── TOP SECTION: eyebrow + headline over the image ── */}
+      <div className="relative w-full" style={{ position: 'relative' }}>
 
-      {/* Content column — centered, narrow, like the mobile design */}
-      <div
-        className="relative flex flex-col items-center text-center w-full"
-        style={{ maxWidth: '640px', margin: '0 auto', padding: '48px 32px 56px', zIndex: 2 }}
-      >
-        {/* Logo */}
-        <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-6">
-          <img src={LOGO_URL} alt="Torch Republic Coffee Company" style={{ height: '80px', width: 'auto' }} />
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.1 }}
-          className="font-serif font-bold"
+        {/* Background image — full width cinematic */}
+        <div
           style={{
-            fontSize: 'clamp(2.8rem, 5vw, 4.2rem)',
-            color: '#FFFFFF',
-            lineHeight: 1.1,
-            marginBottom: '0',
-            textShadow: '0 2px 24px rgba(0,0,0,0.5)',
+            width: '100%',
+            aspectRatio: '16 / 7',
+            backgroundImage: `url(${DESKTOP_BG})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 30%',
+            backgroundRepeat: 'no-repeat',
+            position: 'relative',
           }}
         >
-          Instant<br />Mushroom Coffee
-          <br />
-          <span style={{ color: RG }}>for Focus, Flow<br />&amp; Daily Ritual</span>
-        </motion.h1>
+          {/* Top fade for text readability */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(6,5,10,0.65) 0%, rgba(6,5,10,0.1) 40%, rgba(6,5,10,0.55) 100%)',
+            pointerEvents: 'none',
+          }} />
 
-        {/* Product image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ width: '100%', margin: '20px 0' }}
-        >
-          <img
-            src={BG_DESKTOP}
-            alt="Six Torch Republic instant mushroom coffee tubes"
-            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }}
-          />
-        </motion.div>
+          {/* Eyebrow + Headline — overlaid on top of the image */}
+          <div
+            className="absolute top-0 left-0 right-0 flex flex-col items-center text-center"
+            style={{ padding: '36px 32px 0' }}
+          >
+            {/* Eyebrow */}
+            <motion.p
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                color: 'rgba(230,183,173,0.75)',
+                fontSize: '0.6rem',
+                letterSpacing: '0.55em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-mono)',
+                marginBottom: '18px',
+              }}
+            >
+              Torch Republic Coffee Company
+            </motion.p>
 
-        {/* Subtitle */}
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              className="font-serif font-bold"
+              style={{
+                fontSize: 'clamp(2.6rem, 5.5vw, 5.2rem)',
+                color: '#FFFFFF',
+                lineHeight: 1.08,
+                textShadow: '0 2px 32px rgba(0,0,0,0.7)',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Instant Mushroom Coffee
+              <br />
+              <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+            </motion.h1>
+          </div>
+        </div>
+      </div>
+
+      {/* ── BOTTOM SECTION: subtitle on dark background ── */}
+      <div
+        className="flex flex-col items-center text-center"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(6,5,10,1) 0%, #06050A 100%)',
+          padding: '36px 24px 52px',
+        }}
+      >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           style={{
-            fontSize: '1rem',
-            color: '#C8B8A6',
-            lineHeight: 1.75,
+            fontSize: 'clamp(1rem, 1.6vw, 1.3rem)',
+            color: 'rgba(200,184,166,0.85)',
+            lineHeight: 2,
             fontWeight: 300,
-            marginBottom: '28px',
+            maxWidth: '680px',
             fontFamily: 'var(--font-heading)',
           }}
         >
-          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines,
-          and a little everyday magic — without the mess of brewing.
+          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
         </motion.p>
-
-        {/* Trust icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex items-start justify-center gap-8 w-full mb-8"
-        >
-          {TRUST_ICONS.map((item) => (
-            <div key={item.label} className="flex flex-col items-center gap-2">
-              <span style={{ fontSize: '1.5rem', color: RG }}>{item.svg}</span>
-              <span style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.6rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'rgba(230,183,173,0.7)',
-                textAlign: 'center',
-                lineHeight: 1.5,
-                whiteSpace: 'pre-line',
-              }}>
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* CTA Buttons — full width stacked */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.5 }}
-          className="flex flex-col gap-3 w-full"
-        >
-          <Link
-            to="/shop"
-            className="flex items-center justify-center gap-3 font-mono uppercase tracking-[0.28em] font-bold transition-all hover:opacity-90 btn-glow w-full"
-            style={{
-              background: RG,
-              color: '#050505',
-              fontSize: '0.72rem',
-              padding: '18px 24px',
-              borderRadius: '999px',
-            }}
-          >
-            <ShoppingCart size={16} />
-            Shop the Blends
-          </Link>
-          <Link
-            to="/subscription"
-            className="flex items-center justify-center gap-3 font-mono uppercase tracking-[0.28em] font-bold transition-all hover:opacity-80 w-full"
-            style={{
-              border: `1px solid rgba(230,183,173,0.35)`,
-              color: RG,
-              fontSize: '0.72rem',
-              padding: '18px 24px',
-              borderRadius: '999px',
-              background: 'rgba(0,0,0,0.3)',
-            }}
-          >
-            <Calendar size={16} />
-            Build Your Monthly Ritual
-          </Link>
-        </motion.div>
       </div>
     </div>
   );
