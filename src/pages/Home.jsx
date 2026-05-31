@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MushroomHero from '../components/mushroom/HeroSection';
 import MushroomTrustBar from '../components/mushroom/TrustBar';
-import TrustBarSection from '../components/mushroom/TrustBarSection';
-import FounderStory from '../components/mushroom/FounderStory';
-import QualitySection from '../components/mushroom/QualitySection';
-import TransparencySection from '../components/mushroom/TransparencySection';
-import ReviewsSection from '../components/mushroom/ReviewsSection';
-import MissionSection from '../components/mushroom/MissionSection';
-import CommunitySection from '../components/mushroom/CommunitySection';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import WhyInstant from '../components/mushroom/WhyInstant';
 import BundleSection from '../components/mushroom/BundleSection';
@@ -58,13 +51,6 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <MushroomHero />
-      <TrustBarSection />
-      <FounderStory />
-      <QualitySection />
-      <TransparencySection />
-      <ReviewsSection />
-      <CommunitySection />
-      <MissionSection />
       <MushroomTrustBar />
       <FeaturedCollection />
       <WhyInstant />
