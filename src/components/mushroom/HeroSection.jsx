@@ -1,83 +1,135 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { HERO_IMAGE } from '@/lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 
 const RG = '#E6B7AD';
 
 export default function MushroomHero() {
   return (
-    <div className="relative w-full overflow-hidden" style={{ background: '#050505' }}>
-      {/* ── Full-width hero image ── */}
-      <img
-        src={HERO_IMAGE}
-        alt="Torch Republic six instant mushroom coffee tubes lineup"
-        className="w-full object-cover object-center block"
-        style={{ maxHeight: '90vh', minHeight: '520px' }}
+    <div
+      className="relative w-full overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #06050A 0%, #0A080F 40%, #060508 100%)',
+        borderBottom: '1px solid rgba(230,183,173,0.08)',
+      }}
+    >
+      {/* Subtle radial glow behind products */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 80% 55% at 50% 65%, rgba(80,40,120,0.18) 0%, transparent 70%)',
+        }}
       />
 
-      {/* ── Dark overlay for text legibility ── */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, rgba(5,5,5,0.18) 0%, rgba(5,5,5,0.55) 55%, rgba(5,5,5,0.92) 100%)' }}
-      />
+      <div className="relative max-w-[1280px] mx-auto px-5 md:px-10 pt-14 pb-10 flex flex-col items-center text-center">
 
-      {/* ── Overlaid text + CTAs ── */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 md:pb-16 px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-5 max-w-3xl text-center"
+          transition={{ duration: 0.6 }}
+          className="font-mono text-[9px] tracking-[0.55em] uppercase mb-5"
+          style={{ color: 'rgba(230,183,173,0.55)', letterSpacing: '0.28em' }}
         >
-          {/* Eyebrow */}
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
-            style={{ color: `${RG}99` }}>
-            Torch Republic Coffee Company
-          </p>
+          Torch Republic Coffee Company
+        </motion.p>
 
-          {/* Headline — overlaid on image */}
-          <h1 className="font-serif font-bold leading-tight"
-            style={{
-              fontSize: 'clamp(2rem, 5.5vw, 4rem)',
-              color: '#FFFFFF',
-              letterSpacing: '-0.01em',
-              lineHeight: 1.1,
-              textShadow: '0 2px 24px rgba(0,0,0,0.55)',
-            }}>
-            Instant Mushroom Coffee<br />
-            <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
-          </h1>
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.08 }}
+          className="font-serif font-bold leading-tight mb-6"
+          style={{
+            fontSize: 'clamp(2.2rem, 5.5vw, 4.2rem)',
+            color: '#FFFFFF',
+            letterSpacing: '-0.01em',
+            lineHeight: 1.12,
+          }}
+        >
+          Instant Mushroom Coffee<br />
+          <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+        </motion.h1>
 
-          {/* Subheadline */}
-          <p className="font-heading max-w-2xl"
-            style={{
-              fontSize: 'clamp(0.85rem, 1.7vw, 1rem)',
-              color: 'rgba(247,241,232,0.72)',
-              lineHeight: 1.9,
-              fontWeight: 300,
-              textShadow: '0 1px 12px rgba(0,0,0,0.6)',
-            }}>
-            Premium instant coffee blended with Lion's Mane + Chaga, crafted for
-            smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        {/* Product row — 6 tubes */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.18 }}
+          className="w-full flex items-end justify-center gap-2 sm:gap-3 md:gap-4 my-6"
+          style={{ maxWidth: '960px' }}
+        >
+          {MUSHROOM_PRODUCTS.map((p, i) => (
             <Link
-              to="/shop"
-              className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 btn-glow"
-              style={{ background: RG, color: '#050505', padding: '14px 36px' }}
+              key={p.id}
+              to={`/products/${p.slug}`}
+              className="flex-1 min-w-0 group"
+              style={{ textDecoration: 'none' }}
             >
-              Shop the Blends
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 + i * 0.07 }}
+                className="relative flex flex-col items-center"
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              >
+                {/* Glow behind each tube */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/3 rounded-full blur-2xl pointer-events-none"
+                  style={{ background: `${p.accent}30` }}
+                />
+                <img
+                  src={p.image}
+                  alt={p.alt}
+                  loading="eager"
+                  className="w-full object-contain drop-shadow-2xl"
+                  style={{ maxHeight: 'clamp(160px, 28vw, 340px)' }}
+                />
+              </motion.div>
             </Link>
-            <Link
-              to="/bundle"
-              className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
-              style={{ border: `1px solid ${RG}88`, color: `${RG}DD`, padding: '14px 36px', background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(8px)' }}
-            >
-              Build Your Bundle
-            </Link>
-          </div>
+          ))}
+        </motion.div>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
+          className="font-heading max-w-2xl mb-8"
+          style={{
+            fontSize: 'clamp(0.88rem, 1.6vw, 1.05rem)',
+            color: 'rgba(247,241,232,0.6)',
+            lineHeight: 2,
+            fontWeight: 300,
+          }}
+        >
+          Premium instant coffee blended with Lion's Mane + Chaga, crafted for
+          smoother mornings, clearer routines, and a little everyday magic — without
+          the mess of brewing.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="flex flex-col sm:flex-row items-center gap-4"
+        >
+          <Link
+            to="/shop"
+            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 btn-glow"
+            style={{ background: RG, color: '#050505', padding: '14px 36px' }}
+          >
+            Shop the Blends
+          </Link>
+          <Link
+            to="/bundle"
+            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
+            style={{ border: `1px solid ${RG}88`, color: `${RG}DD`, padding: '14px 36px', background: 'rgba(0,0,0,0.35)' }}
+          >
+            Build Your Bundle
+          </Link>
         </motion.div>
       </div>
     </div>
