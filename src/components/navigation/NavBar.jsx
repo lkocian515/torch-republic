@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Desktop navigation - hidden on mobile */}
+      {/* Desktop navigation */}
       <nav
         className="hidden md:block"
         style={{
@@ -45,7 +45,6 @@ export default function NavBar() {
           transition: 'background-color 0.3s ease, border-color 0.3s ease',
           position: 'relative',
           zIndex: 50,
-          display: 'none',
         }}
       >
         <div className="max-w-[1440px] mx-auto px-10 h-full flex items-center justify-between">
@@ -113,9 +112,9 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {/* Mobile navigation - visible only on mobile */}
+      {/* Mobile navigation - hidden, using BottomTabNav instead */}
       <nav
-        className="md:hidden block"
+        className="hidden"
         style={{
           height: '48px',
           backgroundColor: '#000000',
