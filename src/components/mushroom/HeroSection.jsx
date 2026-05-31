@@ -11,7 +11,7 @@ const RG_DEEP = '#C98F86';
 const CLEAN_DESKTOP_BG = HERO_IMAGE;
 
 // Mobile hero image (has baked-in text, buttons, trust icons)
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d1362e0aa_generated_image.png';
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/efac670cf_ChatGPTImageMay31202604_33_21PM.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
