@@ -35,18 +35,7 @@ export default function MobileHeader() {
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        <div className="h-full flex items-center justify-between px-5">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
-              alt="Torch Republic Coffee Company"
-              style={{ height: '42px', width: 'auto' }}
-              loading="eager"
-              fetchpriority="high"
-            />
-          </Link>
-
+        <div className="h-full flex items-center justify-end px-5">
           {/* Right icons */}
           <div className="flex items-center gap-1">
             <Link to="/cart"
