@@ -197,7 +197,7 @@ function DesktopHero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.5 }}
-          style={{ display: 'flex', gap: '16px', alignItems: 'center' }}
+          style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'center' }}
         >
           <Link
             to="/shop"
