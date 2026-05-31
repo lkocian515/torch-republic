@@ -44,7 +44,27 @@ export default function WhyInstant() {
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto mt-16 mb-20 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {CARDS.map((card, i) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex flex-col items-start gap-4 p-8"
+              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.1)' }}
+            >
+              <span style={{ fontSize: '1.8rem' }}>{card.icon}</span>
+              <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.2rem' }}>{card.title}</h3>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
+                {card.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="max-w-2xl mx-auto mt-16 text-center">
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,26 +94,6 @@ export default function WhyInstant() {
           >
             Each blend represents a different mindset—from focus and discipline to creativity and transformation—helping you approach each day with intention.
           </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {CARDS.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-start gap-4 p-8"
-              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.1)' }}
-            >
-              <span style={{ fontSize: '1.8rem' }}>{card.icon}</span>
-              <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.2rem' }}>{card.title}</h3>
-              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
-                {card.desc}
-              </p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
