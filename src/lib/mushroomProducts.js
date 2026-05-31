@@ -13,7 +13,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic MoonCap Restore instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'mooncap-restore',
-    accent: '#B8860B',
+    accent: '#C98F86',
     keyBenefits: ['Grounding ritual', 'Dark roast depth', 'Lion\'s Mane + Chaga'],
   },
   {
@@ -29,7 +29,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic GlowMind Clarity Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'glowmind-clarity-blend',
-    accent: '#C9A24A',
+    accent: '#E6B7AD',
     keyBenefits: ['Supports focus', 'Smooth medium roast', 'Lion\'s Mane + Chaga'],
   },
   {
@@ -45,7 +45,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic SunCap Rise instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'suncap-rise',
-    accent: '#D4A853',
+    accent: '#D6B27A',
     keyBenefits: ['Morning ritual', 'Light & uplifting', 'Lion\'s Mane + Chaga'],
   },
   {
@@ -61,7 +61,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic The Oracle Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'the-oracle-blend',
-    accent: '#A0856B',
+    accent: '#C4A8A0',
     keyBenefits: ['Creative ritual', 'Reflective focus', 'Lion\'s Mane + Chaga'],
   },
   {
@@ -77,7 +77,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic DreamCap Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'dreamcap-blend',
-    accent: '#8B7BA8',
+    accent: '#B8A8C8',
     keyBenefits: ['Calm focus', 'Creative flow', 'Lion\'s Mane + Chaga'],
   },
   {
@@ -93,7 +93,7 @@ export const MUSHROOM_PRODUCTS = [
     alt: 'Torch Republic Mystic Bloom Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'mystic-bloom-blend',
-    accent: '#C4A3B8',
+    accent: '#E6B7C8',
     keyBenefits: ['Gentle ritual', 'Self-care moment', 'Lion\'s Mane + Chaga'],
   },
 ];

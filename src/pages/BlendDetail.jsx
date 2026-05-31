@@ -16,7 +16,7 @@ export default function BlendDetail() {
         style={{ background: '#080808', color: '#F0EBE1' }}>
         <p className="font-serif text-2xl">Blend not found.</p>
         <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
-          style={{ color: '#C9A24A' }}>← Back to Shop</Link>
+          style={{ color: '#E6B7AD' }}>← Back to Shop</Link>
       </div>
     );
   }
@@ -50,7 +50,7 @@ export default function BlendDetail() {
             className="sticky top-24"
           >
             <div className="relative flex items-center justify-center"
-              style={{ background: '#0C0C0C', aspectRatio: '1/1', border: '1px solid rgba(201,162,74,0.1)' }}>
+              style={{ background: '#0C0C0C', aspectRatio: '1/1', border: '1px solid rgba(230,183,173,0.1)' }}>
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}0F 0%, transparent 70%)` }} />
               {product.imagePlaceholder || !product.image ? (
@@ -112,7 +112,7 @@ export default function BlendDetail() {
                 ['Instant', 'No Brewer Needed'],
               ].map(([val, label]) => (
                 <div key={label} className="flex flex-col gap-1 p-4"
-                  style={{ background: '#0F0E0E', border: '1px solid rgba(201,162,74,0.1)' }}>
+                  style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}>
                   <p className="font-serif font-bold text-white text-sm">{val}</p>
                   <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</p>
                 </div>
@@ -136,7 +136,7 @@ export default function BlendDetail() {
             </div>
 
             {/* Price */}
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(201,162,74,0.25), transparent)' }} />
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.25), transparent)' }} />
             <div className="flex items-baseline gap-3">
               <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: product.accent }}>
                 ${product.price.toFixed(2)}
@@ -152,7 +152,7 @@ export default function BlendDetail() {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
-              style={{ background: '#C9A24A', color: '#080808', display: 'block' }}
+              style={{ background: '#E6B7AD', color: '#080808', display: 'block' }}
             >
               Add to Cart — ${product.price.toFixed(2)}
             </a>
@@ -161,14 +161,14 @@ export default function BlendDetail() {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-70 py-4"
-              style={{ border: '1px solid rgba(201,162,74,0.4)', color: 'rgba(201,162,74,0.8)', display: 'block' }}
+              style={{ border: '1px solid rgba(230,183,173,0.4)', color: 'rgba(230,183,173,0.8)', display: 'block' }}
             >
               Buy Now →
             </a>
 
             {/* How to Use */}
-            <div className="p-5" style={{ background: '#0F0E0E', border: '1px solid rgba(201,162,74,0.1)' }}>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.55)' }}>
+            <div className="p-5" style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}>
+              <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
                 How to Use
               </p>
               <ol className="space-y-2">
@@ -197,10 +197,10 @@ export default function BlendDetail() {
       <FAQSection />
 
       {/* Related products */}
-      <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
+      <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
         <div className="max-w-[1100px] mx-auto">
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-10"
-            style={{ color: 'rgba(201,162,74,0.5)' }}>
+            style={{ color: 'rgba(230,183,173,0.5)' }}>
             You Might Also Like
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">

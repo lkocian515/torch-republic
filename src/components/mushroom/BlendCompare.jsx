@@ -5,7 +5,7 @@ import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 
 export default function BlendCompare() {
   return (
-    <section className="px-6 md:px-10 py-24" style={{ background: '#0A0909', borderTop: '1px solid rgba(201,162,74,0.07)' }}>
+    <section className="px-6 md:px-10 py-24" style={{ background: '#0A0909', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
       <div className="max-w-[1100px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

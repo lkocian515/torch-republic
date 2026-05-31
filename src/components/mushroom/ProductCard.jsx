@@ -72,7 +72,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
           <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.5)' }}>
             {product.tagline}
           </p>
-          <div className="flex items-center justify-between pt-2" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
+          <div className="flex items-center justify-between pt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
             <span className="font-mono font-bold" style={{ color: product.accent, fontSize: '1rem' }}>
               ${product.price.toFixed(2)}
             </span>
