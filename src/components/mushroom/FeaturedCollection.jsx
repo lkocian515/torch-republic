@@ -6,7 +6,7 @@ import MushroomProductCard from './ProductCard';
 
 export default function FeaturedCollection() {
   return (
-    <section className="px-6 md:px-10 py-24" style={{ background: '#060606' }}>
+    <section className="px-6 md:px-10 py-10 md:py-24" style={{ background: '#060606' }}>
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <motion.div

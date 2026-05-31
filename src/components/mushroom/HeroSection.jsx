@@ -7,71 +7,31 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 const BG_DESKTOP = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1563af3fd_LIVEFREESTAYREADY3.png';
 
-// ─── Shared CTA buttons ───────────────────────────────────────────────────────
-function CTAButtons({ mobile }) {
-  return (
-    <div
-      className={
-        mobile
-          ? 'flex flex-col items-center gap-3 w-full'
-          : 'flex flex-col sm:flex-row items-center gap-4'
-      }
-    >
-      <Link
-        to="/shop"
-        className="font-mono tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 btn-glow text-center"
-        style={{
-          background: RG,
-          color: '#050505',
-          padding: mobile ? '14px 20px' : '14px 36px',
-          fontSize: mobile ? '0.72rem' : '0.625rem',
-          borderRadius: mobile ? '999px' : '0',
-          width: mobile ? '90%' : 'auto',
-          maxWidth: mobile ? '360px' : 'none',
-        }}
-      >
-        Shop the Blends
-      </Link>
-      <Link
-        to="/subscription"
-        className="font-mono tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 text-center"
-        style={{
-          border: `1px solid ${RG}88`,
-          color: `${RG_DEEP}`,
-          padding: mobile ? '13px 20px' : '14px 36px',
-          fontSize: mobile ? '0.72rem' : '0.625rem',
-          borderRadius: mobile ? '999px' : '0',
-          background: 'rgba(0,0,0,0.35)',
-          width: mobile ? '90%' : 'auto',
-          maxWidth: mobile ? '360px' : 'none',
-        }}
-      >
-        Build Your Monthly Ritual
-      </Link>
-    </div>
-  );
-}
-
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
 function MobileHero() {
   return (
     <div
       className="md:hidden flex flex-col items-center text-center w-full"
-      style={{ backgroundColor: '#050505', paddingBottom: '40px' }}
+      style={{
+        backgroundColor: '#050505',
+        maxHeight: '85vh',
+        overflow: 'hidden',
+        paddingBottom: '24px',
+      }}
     >
       {/* Brand eyebrow */}
       <motion.p
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.45 }}
         style={{
           color: RG_DEEP,
-          fontSize: '0.6rem',
-          letterSpacing: '0.38em',
+          fontSize: '0.55rem',
+          letterSpacing: '0.35em',
           textTransform: 'uppercase',
           fontFamily: 'var(--font-mono)',
-          paddingTop: '20px',
-          paddingBottom: '12px',
+          paddingTop: '16px',
+          paddingBottom: '8px',
         }}
       >
         Torch Republic Coffee Company
@@ -79,30 +39,29 @@ function MobileHero() {
 
       {/* Headline */}
       <motion.h1
-        initial={{ opacity: 0, y: 14 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, delay: 0.07 }}
+        transition={{ duration: 0.55, delay: 0.06 }}
         className="font-serif font-bold px-5"
         style={{
-          fontSize: 'clamp(2rem, 8vw, 3.4rem)',
+          fontSize: 'clamp(1.85rem, 7.5vw, 3rem)',
           color: '#FFFFFF',
           lineHeight: 1.05,
           letterSpacing: '-0.02em',
-          marginBottom: '18px',
+          marginBottom: '14px',
         }}
       >
         Instant Mushroom Coffee
         <br />
-        <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+        <span style={{ color: RG }}>for Focus, Flow &amp; Ritual</span>
       </motion.h1>
 
-      {/* Product tube lineup — horizontal scroll if needed, no crop */}
+      {/* Product tube lineup */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.18 }}
-        className="w-full overflow-x-auto"
-        style={{ marginBottom: '20px' }}
+        transition={{ duration: 0.5, delay: 0.14 }}
+        style={{ width: '100%', marginBottom: '14px' }}
       >
         <div
           style={{
@@ -110,23 +69,21 @@ function MobileHero() {
             flexDirection: 'row',
             alignItems: 'flex-end',
             justifyContent: 'center',
-            gap: '6px',
-            padding: '0 12px',
-            minWidth: 'max-content',
-            margin: '0 auto',
+            gap: '4px',
+            padding: '0 8px',
           }}
         >
           {MUSHROOM_PRODUCTS.map((product) => (
-            <Link key={product.id} to={`/blends/${product.slug}`} style={{ display: 'block' }}>
+            <Link key={product.id} to={`/blends/${product.slug}`} style={{ display: 'block', flex: '1', maxWidth: '70px' }}>
               <img
                 src={product.image}
                 alt={product.alt}
                 style={{
-                  width: '80px',
+                  width: '100%',
                   height: 'auto',
                   objectFit: 'contain',
                   display: 'block',
-                  filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.7))',
+                  filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.8))',
                 }}
               />
             </Link>
@@ -134,33 +91,73 @@ function MobileHero() {
         </div>
       </motion.div>
 
-      {/* Subtitle */}
+      {/* Short subtitle */}
       <motion.p
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.28 }}
+        transition={{ duration: 0.5, delay: 0.22 }}
         style={{
           color: '#C8B8A6',
-          fontSize: '1rem',
-          lineHeight: 1.65,
+          fontSize: '0.9rem',
+          lineHeight: 1.6,
           fontWeight: 300,
-          maxWidth: '90%',
-          marginBottom: '24px',
+          maxWidth: '88%',
+          marginBottom: '20px',
           fontFamily: 'var(--font-heading)',
         }}
       >
-        Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings,
-        clearer routines, and a little everyday magic — without the mess of brewing.
+        Premium instant coffee with Lion's Mane + Chaga. No brewer, no grinder — just scoop, stir, and sip.
       </motion.p>
 
       {/* CTA buttons */}
       <motion.div
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.38 }}
+        transition={{ duration: 0.45, delay: 0.3 }}
         className="flex flex-col items-center gap-3 w-full"
+        style={{ paddingBottom: '4px' }}
       >
-        <CTAButtons mobile />
+        <Link
+          to="/shop"
+          style={{
+            background: RG,
+            color: '#050505',
+            padding: '13px 20px',
+            fontSize: '0.7rem',
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            borderRadius: '999px',
+            width: '88%',
+            maxWidth: '340px',
+            textAlign: 'center',
+            display: 'block',
+          }}
+        >
+          Shop the Blends
+        </Link>
+        <Link
+          to="/subscription"
+          style={{
+            border: `1px solid ${RG}77`,
+            color: RG_DEEP,
+            padding: '12px 20px',
+            fontSize: '0.7rem',
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            borderRadius: '999px',
+            background: 'rgba(0,0,0,0.4)',
+            width: '88%',
+            maxWidth: '340px',
+            textAlign: 'center',
+            display: 'block',
+          }}
+        >
+          Build Monthly Ritual
+        </Link>
       </motion.div>
     </div>
   );
@@ -171,9 +168,8 @@ function DesktopHero() {
   return (
     <div
       className="hidden md:block relative w-full overflow-hidden"
-      style={{ minHeight: '580px' }}
+      style={{ minHeight: '600px' }}
     >
-      {/* Cinematic background */}
       <img
         src={BG_DESKTOP}
         alt=""
@@ -181,17 +177,14 @@ function DesktopHero() {
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ objectFit: 'cover', objectPosition: 'center center' }}
       />
-      {/* Overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, rgba(6,5,10,0.38) 0%, rgba(6,5,10,0.18) 45%, rgba(6,5,10,0.78) 100%)',
+            'linear-gradient(180deg, rgba(6,5,10,0.38) 0%, rgba(6,5,10,0.18) 45%, rgba(6,5,10,0.8) 100%)',
         }}
       />
-
-      {/* Content */}
-      <div className="relative max-w-[1280px] mx-auto px-10 pt-14 pb-16 flex flex-col items-center text-center">
+      <div className="relative max-w-[1280px] mx-auto px-10 pt-16 pb-20 flex flex-col items-center text-center">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -241,15 +234,28 @@ function DesktopHero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
-          <CTAButtons mobile={false} />
+          <Link
+            to="/shop"
+            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 btn-glow"
+            style={{ background: RG, color: '#050505', padding: '14px 36px' }}
+          >
+            Shop the Blends
+          </Link>
+          <Link
+            to="/subscription"
+            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
+            style={{ border: `1px solid ${RG}88`, color: RG_DEEP, padding: '14px 36px', background: 'rgba(0,0,0,0.35)' }}
+          >
+            Build Monthly Ritual
+          </Link>
         </motion.div>
       </div>
     </div>
   );
 }
 
-// ─── DEFAULT EXPORT ───────────────────────────────────────────────────────────
 export default function MushroomHero() {
   return (
     <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
