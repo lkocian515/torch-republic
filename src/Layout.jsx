@@ -2,7 +2,6 @@ import React from 'react';
 import TopBar from './components/navigation/TopBar';
 import NavBar from './components/navigation/NavBar';
 import Footer from './components/navigation/Footer';
-import BottomTabNav from './components/mobile/BottomTabNav';
 import MobileHeader from './components/mobile/MobileHeader';
 
 export default function Layout({ children }) {
@@ -13,11 +12,10 @@ export default function Layout({ children }) {
         <TopBar />
         <NavBar />
       </div>
-      <main className="flex-1 md:mb-0 mb-16">
+      <main className="flex-1">
         {children}
       </main>
       <Footer />
-      <BottomTabNav />
     </div>
   );
 }

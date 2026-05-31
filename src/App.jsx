@@ -10,7 +10,6 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from '@/contexts/CartContext';
-import MiniCartDrawer from './components/cart/MiniCartDrawer';
 import CartToast from './components/cart/CartToast';
 
 // ── Mushroom Coffee Pages ──
@@ -178,7 +177,6 @@ function App() {
           <Router>
             <NavigationProvider>
               <AuthenticatedApp />
-              <MiniCartDrawer />
               <CartToast />
             </NavigationProvider>
           </Router>
