@@ -58,8 +58,8 @@ export default function NavBar() {
                 ))}
                 </div>
 
-                {/* Center logo */}
-          <div className="flex-shrink-0 md:mx-6">
+                {/* Center logo — desktop only */}
+          <div className="hidden md:flex flex-shrink-0 md:mx-6 items-center justify-center">
             <Link to="/" className="flex items-center justify-center">
               <img
                 src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
@@ -108,22 +108,31 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Mobile right icons */}
-          <div className="md:hidden flex items-center gap-1 ml-auto">
-            <button onClick={() => setDrawerOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <ShoppingBag className="w-[18px] h-[18px]" />
-              {totalItems > 0 && (
-                <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
-                  {totalItems}
-                </span>
-              )}
-            </button>
-            <button
-              onClick={() => setOpen(true)}
-              style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Menu className="w-[20px] h-[20px]" />
-            </button>
+          {/* Mobile header — logo left, icons right */}
+          <div className="md:hidden flex items-center justify-between w-full">
+            <Link to="/" className="flex items-center">
+              <img
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+                alt="Torch Republic Coffee Company"
+                style={{ height: '36px', width: 'auto' }}
+              />
+            </Link>
+            <div className="flex items-center gap-1">
+              <button onClick={() => setDrawerOpen(true)}
+                style={{ color: 'rgba(255,255,255,0.55)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                <ShoppingBag className="w-[18px] h-[18px]" />
+                {totalItems > 0 && (
+                  <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+              <button
+                onClick={() => setOpen(true)}
+                style={{ color: 'rgba(255,255,255,0.75)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Menu className="w-[20px] h-[20px]" />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
