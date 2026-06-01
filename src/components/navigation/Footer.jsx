@@ -101,11 +101,21 @@ export default function Footer() {
         <div className="h-px w-full mb-8"
           style={{ background: 'linear-gradient(90deg, transparent, rgba(230,183,173,0.2), transparent)' }} />
 
-        {/* FDA disclaimer */}
-        <p className="font-mono text-[8px] tracking-[0.12em] text-center mb-6 max-w-2xl mx-auto"
-          style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
-          Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
+        {/* FDA disclaimer + Copyright (mobile: combined, desktop: separate) */}
+        <div className="mb-8">
+          <p className="font-mono text-[8px] tracking-[0.12em] text-center mb-4 max-w-2xl mx-auto"
+            style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+            Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+          </p>
+          <div className="md:hidden">
+            <p className="text-[10px] font-mono text-center" style={{ color: 'rgba(255,255,255,0.15)' }}>
+              © 2026 Torch Republic Coffee Company
+            </p>
+            <p className="text-[9px] font-mono text-center mt-1" style={{ color: 'rgba(255,255,255,0.12)' }}>
+              Torch Republic Coffee Company is a DBA of LiberTees For All LLC. All rights reserved.
+            </p>
+          </div>
+        </div>
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -117,7 +127,7 @@ export default function Footer() {
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
             Premium Instant Mushroom Coffee
           </p>
-          <div>
+          <div className="hidden md:block">
             <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>
               © 2026 Torch Republic Coffee Company
             </p>
