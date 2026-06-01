@@ -269,6 +269,7 @@ export const MUSHROOM_PRODUCTS = [
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27a34f840_15_013d57a8-073c-4401-820a-97bf531baed5.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a9985a74_16_eceb761f-b7ce-477c-b295-a85f3542e081.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6e766ff49_ChatGPTImageMay31202610_03_21AM.png',
     ],
     alt: 'Torch Republic Mystic Bloom Blend instant mushroom coffee tube',
     price: 24.99,
