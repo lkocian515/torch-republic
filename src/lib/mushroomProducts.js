@@ -193,6 +193,10 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A moody, reflective instant mushroom coffee for creative work, journaling, quiet focus, and intentional routines. The Oracle blends premium instant coffee with Lion\'s Mane + Chaga in a smooth medium roast designed for a grounded, inspired coffee ritual.',
     flavorNotes: ['Moody', 'Complex', 'Warm Spice'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_aeb8cbbe-213e-41f0-b36b-a629c72cf9c6.png?v=1780251557',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a16d2d6f_7_852b77da-d09a-4917-82fa-22c8fb67eca5.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c84f62d12_8_27e81359-c374-4400-8932-11c7003218f6.png',
+    ],
     alt: 'Torch Republic The Oracle Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'the-oracle-blend',
