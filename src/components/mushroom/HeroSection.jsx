@@ -68,7 +68,8 @@ function MobileHero() {
           alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends"
           fetchpriority="high"
           style={{
-            width: '100%',
+            width: '130%',
+            marginLeft: '-15%',
             display: 'block',
             objectFit: 'cover',
           }}
