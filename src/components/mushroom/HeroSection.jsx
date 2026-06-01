@@ -36,14 +36,12 @@ function MobileHero() {
       }}
       className="mobile-hero"
     >
-      <div style={{ width: '100%', overflow: 'hidden' }}>
-        <img
-          src={MOBILE_BG}
-          alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
-          fetchpriority="high"
-          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: 'center 35%', transform: 'scale(1.12)', transformOrigin: 'center 35%' }}
-        />
-      </div>
+      <img
+        src={MOBILE_BG}
+        alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
+        fetchpriority="high"
+        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: 'center top' }}
+      />
       <Link
         to="/shop"
         aria-label="Shop the Blends"
