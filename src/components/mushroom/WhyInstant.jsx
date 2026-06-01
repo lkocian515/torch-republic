@@ -1,100 +1,90 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const CARDS = [
+const RG = '#E6B7AD';
+
+const PILLARS = [
   {
-    icon: '⚡',
-    title: 'Instant',
-    desc: 'Mixes quickly with hot water or your favorite milk. No brewer, no grinder, no waiting.',
+    num: '01',
+    title: 'Instant. Always.',
+    desc: 'No brewer. No grinder. No mess. One scoop into hot water or milk — your ritual begins in seconds, anywhere.',
   },
   {
-    icon: '🍄',
-    title: 'Functional',
-    desc: "Blended with Lion's Mane + Chaga — mushrooms crafted to support your daily coffee ritual.",
+    num: '02',
+    title: 'Functional by Design',
+    desc: "Lion's Mane and Chaga aren't trends — they're backed by centuries of traditional use and modern research for focus, flow, and immune support.",
   },
   {
-    icon: '✦',
-    title: 'Ritual-Ready',
-    desc: 'Designed for focus, creative flow, calm energy, and a more intentional daily routine.',
+    num: '03',
+    title: 'Built for Ritual',
+    desc: 'Each blend is named for a mindset. Choose the energy you want to carry into your day, and drink with intention.',
   },
 ];
 
 export default function WhyInstant() {
   return (
-    <section className="px-6 md:px-10 py-24" style={{ background: '#0A0909' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#0A0909' }}>
       <div className="max-w-[1100px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(230,183,173,0.65)' }}>
-            Why Instant Mushroom Coffee
+          <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
+            style={{ color: 'rgba(230,183,173,0.5)' }}>
+            The Torch Republic Difference
           </p>
-          <h2 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Coffee Without the Complicated Morning
+          <h2 className="font-serif font-bold mb-3"
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            Coffee That Works as Hard as You Do
           </h2>
-          <p className="font-heading max-w-xl mx-auto"
-            style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            No grinder. No coffee maker. No waiting on a pot. Just scoop, stir, sip, and step into
-            your ritual. Each tube is made for people who want coffee that feels intentional, elevated, and easy.
+          <p className="font-heading max-w-md mx-auto"
+            style={{ fontSize: '0.88rem', color: 'rgba(240,235,225,0.42)', lineHeight: 1.85, fontWeight: 300 }}>
+            Premium instant coffee elevated with functional mushrooms — no compromise on taste, no compromise on quality.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {CARDS.map((card, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {PILLARS.map((p, i) => (
             <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={p.num}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-start gap-4 p-8"
-              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.1)' }}
+              className="flex flex-col gap-4 p-7"
+              style={{ background: '#0E0D0D', border: '1px solid rgba(230,183,173,0.09)' }}
             >
-              <span style={{ fontSize: '1.8rem' }}>{card.icon}</span>
-              <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.2rem' }}>{card.title}</h3>
-              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
-                {card.desc}
+              <span className="font-mono font-black" style={{ fontSize: '0.7rem', color: 'rgba(230,183,173,0.25)', letterSpacing: '0.1em' }}>
+                {p.num}
+              </span>
+              <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.15rem', lineHeight: 1.2 }}>{p.title}</h3>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
+                {p.desc}
               </p>
             </motion.div>
           ))}
         </div>
 
-        <div className="max-w-2xl mx-auto mt-16 text-center">
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif font-bold mb-6"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}
-          >
-            More Than Coffee
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-heading mb-4"
-            style={{ fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)', lineHeight: 1.8, fontWeight: 300 }}
-          >
-            Torch Republic was built around the belief that small daily rituals create lasting change.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="font-heading"
-            style={{ fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)', lineHeight: 1.8, fontWeight: 300 }}
-          >
-            Each blend represents a different mindset—from focus and discipline to creativity and transformation—helping you approach each day with intention.
-          </motion.p>
-        </div>
+        {/* Brand philosophy strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="mt-10 p-8 md:p-10 text-center"
+          style={{ background: '#0C0B0B', border: '1px solid rgba(230,183,173,0.08)' }}
+        >
+          <h3 className="font-serif font-bold mb-4"
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#FFFFFF', letterSpacing: '-0.01em' }}>
+            Small daily rituals create lasting change.
+          </h3>
+          <p className="font-heading max-w-2xl mx-auto"
+            style={{ fontSize: '0.9rem', color: 'rgba(200,184,166,0.65)', lineHeight: 1.9, fontWeight: 300 }}>
+            Torch Republic was built on that belief. Each blend represents a different mindset — from focus and discipline to creativity and transformation. Drink with intention. Build your ritual.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

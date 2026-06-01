@@ -4,6 +4,7 @@ import MushroomHero from '../components/mushroom/HeroSection';
 import MushroomTrustBar from '../components/mushroom/TrustBar';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import WhyInstant from '../components/mushroom/WhyInstant';
+import MushroomScience from '../components/mushroom/MushroomScience';
 import BundleSection from '../components/mushroom/BundleSection';
 import HowToUse from '../components/mushroom/HowToUse';
 import QualityMission from '../components/mushroom/QualityMission';
@@ -55,6 +56,7 @@ export default function Home() {
       <MushroomTrustBar />
       <FeaturedCollection />
       <WhyInstant />
+      <MushroomScience />
       <BundleSection />
       <HowToUse />
       <QualityMission />

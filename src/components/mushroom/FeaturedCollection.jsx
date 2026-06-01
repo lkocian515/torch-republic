@@ -6,43 +6,43 @@ import MushroomProductCard from './ProductCard';
 
 export default function FeaturedCollection() {
   return (
-    <section className="px-6 md:px-10 py-10 md:py-24" style={{ background: '#060606' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#060606' }}>
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(230,183,173,0.65)' }}>
+          <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
+            style={{ color: 'rgba(230,183,173,0.5)' }}>
             The Collection
           </p>
-          <h2 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-3"
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Choose Your Ritual
           </h2>
-          <p className="font-heading max-w-lg mx-auto"
-            style={{ fontSize: '0.95rem', color: 'rgba(247,241,232,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Six instant mushroom coffee blends designed for the way you want your day to feel.
+          <p className="font-heading max-w-md mx-auto"
+            style={{ fontSize: '0.88rem', color: 'rgba(247,241,232,0.42)', lineHeight: 1.85, fontWeight: 300 }}>
+            Six instant mushroom coffee blends — each one designed for a different state of mind.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {MUSHROOM_PRODUCTS.map((product, i) => (
             <MushroomProductCard key={product.id} product={product} index={i} />
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <Link
             to="/shop"
-            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80"
-            style={{ border: '1px solid rgba(230,183,173,0.4)', color: '#E6B7AD', padding: '13px 30px' }}
+            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-75"
+            style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)', padding: '12px 28px' }}
           >
             View All Blends →
           </Link>

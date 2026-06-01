@@ -5,16 +5,16 @@ export default function TopBar() {
     <div
       className="w-full flex items-center justify-center px-4"
       style={{
-        height: '30px',
-        backgroundColor: '#000000',
-        borderBottom: '1px solid rgba(230,183,173,0.1)',
+        height: '28px',
+        backgroundColor: '#000',
+        borderBottom: '1px solid rgba(230,183,173,0.07)',
       }}
     >
       <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
-        style={{ fontSize: '9px', letterSpacing: '0.38em', color: 'rgba(230,183,173,0.85)', textTransform: 'uppercase' }}>
-        Free Shipping Over $75 &nbsp;·&nbsp; Use{' '}
+        style={{ fontSize: '8px', letterSpacing: '0.42em', color: 'rgba(230,183,173,0.55)', textTransform: 'uppercase' }}>
+        Free Shipping Over $75 &nbsp;·&nbsp; Code{' '}
         <span style={{ color: '#E6B7AD', fontWeight: 700 }}>TORCH20</span>
-        {' '}for 20% Off &nbsp;·&nbsp; Focus. Flow. Ritual.
+        {' '}— 20% Off &nbsp;·&nbsp; Focus. Flow. Ritual.
       </p>
     </div>
   );

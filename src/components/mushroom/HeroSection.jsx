@@ -35,7 +35,7 @@ function MobileHero() {
       className="mobile-hero"
     >
       {/* Live text heading */}
-      <div style={{ padding: '48px 24px 8px', textAlign: 'center' }}>
+      <div style={{ padding: '36px 20px 6px', textAlign: 'center' }}>
         <p style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '0.55rem',
@@ -79,8 +79,8 @@ function MobileHero() {
 
       {/* CTA buttons */}
       <div style={{
-        display: 'flex', flexDirection: 'column', gap: '12px',
-        padding: '0 20px 36px', background: '#06050A', alignItems: 'center',
+        display: 'flex', flexDirection: 'column', gap: '10px',
+        padding: '0 18px 28px', background: '#06050A', alignItems: 'center',
       }}>
         <Link
           to="/shop"
@@ -134,7 +134,7 @@ function DesktopHero() {
       className="desktop-hero"
     >
       {/* Live text heading */}
-      <div style={{ padding: '56px 32px 40px', textAlign: 'center', background: '#06050A' }}>
+      <div style={{ padding: '44px 32px 32px', textAlign: 'center', background: '#06050A' }}>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -197,7 +197,7 @@ function DesktopHero() {
       {/* Below-image section — subtitle + trust bar + CTAs on solid dark bg */}
       <div style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center',
-        textAlign: 'center', padding: '40px 32px 56px',
+        textAlign: 'center', padding: '32px 32px 48px',
         background: '#06050A',
       }}>
         {/* Subtitle */}

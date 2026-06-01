@@ -79,18 +79,18 @@ export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section className="px-6 md:px-10 py-24" style={{ background: '#070707', borderTop: '1px solid rgba(201,162,74,0.08)' }}>
-      <div className="max-w-[760px] mx-auto">
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#070707', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <div className="max-w-[720px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
-            style={{ color: 'rgba(230,183,173,0.65)' }}>FAQ</p>
+          <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
+            style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Common Questions
           </h2>
         </motion.div>

@@ -34,10 +34,10 @@ const FOOTER_LINKS = [
 export default function Footer() {
   return (
     <footer style={{ background: '#080606', borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 pb-12">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 pt-14 pb-10">
 
         {/* Top */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 mb-10">
 
           {/* Brand */}
           <div className="lg:col-span-2">

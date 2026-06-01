@@ -11,25 +11,25 @@ export default function EmailCapture() {
   };
 
   return (
-    <section className="px-6 py-24" style={{ background: '#0A0909', borderTop: '1px solid rgba(201,162,74,0.08)' }}>
-      <div className="max-w-[560px] mx-auto text-center">
+    <section className="px-5 py-14 md:py-20" style={{ background: '#0A0909', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <div className="max-w-[520px] mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-5"
         >
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
-            style={{ color: 'rgba(230,183,173,0.65)' }}>
+          <p className="font-mono text-[8px] tracking-[0.6em] uppercase"
+            style={{ color: 'rgba(230,183,173,0.5)' }}>
             The Ritual List
           </p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
             Join the Ritual List
           </h2>
           <p className="font-heading"
-            style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Get early access to new blends, bundle drops, launch discounts, and limited-edition coffee rituals.
+            style={{ fontSize: '0.88rem', color: 'rgba(240,235,225,0.42)', lineHeight: 1.85, fontWeight: 300 }}>
+            Early access to new blends, limited drops, and exclusive rituals — delivered to your inbox.
           </p>
 
           {submitted ? (

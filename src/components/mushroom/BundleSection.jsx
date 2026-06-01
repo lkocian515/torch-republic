@@ -5,9 +5,9 @@ import { HERO_IMAGE } from '@/lib/mushroomProducts';
 
 export default function BundleSection() {
   return (
-    <section className="px-6 md:px-10 py-24" style={{ background: '#070707' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#070707' }}>
       <div className="max-w-[1100px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
