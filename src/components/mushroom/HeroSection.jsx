@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HERO_IMAGE } from '../../lib/mushroomProducts';
-import { ShoppingCart, Calendar } from 'lucide-react';
+import { ShoppingCart, Calendar, Sparkles, Zap, Coffee, Star } from 'lucide-react';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
@@ -14,10 +14,10 @@ const CLEAN_DESKTOP_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e
 const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/849523a71_LIVEFREESTAYREADY15x5in.png';
 
 const TRUST_ITEMS = [
-  { icon: '🍄', label: "Lion's Mane + Chaga" },
-  { icon: '⚡', label: '100% Instant Coffee' },
-  { icon: '☕', label: '27 Servings' },
-  { icon: '✦', label: 'No Coffee Maker Needed' },
+  { icon: Sparkles, label: "Lion's Mane + Chaga" },
+  { icon: Zap, label: '100% Instant Coffee' },
+  { icon: Coffee, label: '27 Servings' },
+  { icon: Star, label: 'No Coffee Maker Needed' },
 ];
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
@@ -237,7 +237,7 @@ function DesktopHero() {
               display: 'flex', alignItems: 'center', gap: '10px', padding: '0 28px',
               borderRight: i < TRUST_ITEMS.length - 1 ? '1px solid rgba(230,183,173,0.15)' : 'none',
             }}>
-              <span style={{ fontSize: '1rem' }}>{item.icon}</span>
+              <item.icon size={18} style={{ color: RG, flexShrink: 0 }} />
               <span style={{
                 fontFamily: 'var(--font-serif)',
                 fontSize: '0.9rem',
