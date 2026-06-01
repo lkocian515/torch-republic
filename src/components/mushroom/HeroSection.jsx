@@ -36,6 +36,13 @@ function MobileHero() {
       }}
       className="mobile-hero"
     >
+      {/* Heading image */}
+      <img
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a739d7916_gtgdf.png"
+        alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
+        style={{ width: '100%', display: 'block', objectFit: 'cover' }}
+      />
+
       {/* Wide banner — crop to center on mobile using fixed height + object-position */}
       <div style={{ width: '100%', height: '52vw', minHeight: '200px', maxHeight: '340px', overflow: 'hidden' }}>
         <img
@@ -90,6 +97,13 @@ function DesktopHero() {
       style={{ display: 'none', backgroundColor: '#06050A', width: '100%', overflow: 'hidden' }}
       className="desktop-hero"
     >
+      {/* Heading image above banner */}
+      <img
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a739d7916_gtgdf.png"
+        alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
+        style={{ width: '100%', display: 'block', objectFit: 'cover' }}
+      />
+
       {/* Image section — wide product lineup banner */}
       <div style={{ position: 'relative', width: '100%', aspectRatio: '15 / 5' }}>
 
@@ -111,48 +125,7 @@ function DesktopHero() {
           pointerEvents: 'none',
         }} />
 
-        {/* Live HTML text — eyebrow + headline */}
-        <div style={{
-          position: 'absolute', top: 0, left: 0, right: 0,
-          display: 'flex', flexDirection: 'column', alignItems: 'center',
-          textAlign: 'center', padding: '18px 32px 0', zIndex: 2,
-        }}>
-          <motion.p
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              color: 'rgba(230,183,173,0.78)',
-              fontSize: '0.58rem',
-              letterSpacing: '0.55em',
-              textTransform: 'uppercase',
-              fontFamily: 'var(--font-mono)',
-              marginBottom: '10px',
-            }}
-          >
-            Torch Republic Coffee Company
-          </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.1 }}
-            style={{
-              fontFamily: 'var(--font-serif)',
-              fontWeight: 700,
-              fontSize: 'clamp(2.6rem, 5.5vw, 5.2rem)',
-              color: '#FFFFFF',
-              lineHeight: 1.08,
-              textShadow: '0 2px 32px rgba(0,0,0,0.75)',
-              letterSpacing: '-0.01em',
-              margin: 0,
-            }}
-          >
-            Mushroom Coffee
-            <br />
-            <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
-          </motion.h1>
-        </div>
       </div>
 
       {/* Below-image section — subtitle + trust bar + CTAs on solid dark bg */}
