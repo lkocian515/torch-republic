@@ -108,6 +108,17 @@ function MobileHero() {
           <Calendar size={14} />
           Build Monthly Ritual
         </Link>
+        <p style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: '0.82rem',
+          color: 'rgba(200,184,166,0.75)',
+          lineHeight: 1.65,
+          fontWeight: 300,
+          textAlign: 'center',
+          marginTop: '4px',
+        }}>
+          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
+        </p>
       </div>
     </div>
   );
