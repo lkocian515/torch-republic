@@ -204,6 +204,7 @@ export const MUSHROOM_PRODUCTS = [
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a16d2d6f_7_852b77da-d09a-4917-82fa-22c8fb67eca5.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c84f62d12_8_27e81359-c374-4400-8932-11c7003218f6.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cb4c3793d_ChatGPTImageMay31202611_08_34AM.png',
     ],
     alt: 'Torch Republic The Oracle Blend instant mushroom coffee tube',
     price: 24.99,
