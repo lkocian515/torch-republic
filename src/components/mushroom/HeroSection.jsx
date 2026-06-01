@@ -62,16 +62,17 @@ function MobileHero() {
       </div>
 
       {/* Hero banner image */}
-      <div style={{ width: '100vw', position: 'relative', left: '50%', transform: 'translateX(-50%)', marginTop: '0px' }}>
+      <div style={{ width: '100vw', position: 'relative', left: '50%', transform: 'translateX(-50%)', marginTop: '0px', overflow: 'hidden' }}>
         <img
           src={MOBILE_BG}
           alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends"
           fetchpriority="high"
           style={{
-            width: '150%',
-            marginLeft: '-25%',
+            width: '100vw',
+            height: 'auto',
             display: 'block',
-            objectFit: 'cover',
+            transform: 'scale(1.25)',
+            transformOrigin: 'center center',
           }}
         />
       </div>
