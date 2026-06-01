@@ -132,6 +132,10 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A brighter instant mushroom coffee for fresh starts and morning momentum. SunCap Rise blends premium instant coffee with Lion\'s Mane + Chaga in a light roast profile that feels uplifting, clean, and easy to make.',
     flavorNotes: ['Bright', 'Light', 'Citrus-Warm'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_8feb1175-80d7-4c71-84d6-4ca73883ac6b.png?v=1780251415',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/657f143e2_13_135fd8bf-00d4-48a1-953e-67d5361790db.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c0849500b_14_018ba1fb-f93c-4eaf-9762-5580f17396b3.png',
+    ],
     alt: 'Torch Republic SunCap Rise instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'suncap-rise',
