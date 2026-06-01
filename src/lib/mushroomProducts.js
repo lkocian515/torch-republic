@@ -15,6 +15,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'mooncap-restore',
     accent: '#C98F86',
     keyBenefits: ['Grounding ritual', 'Dark roast depth', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Rich • Earthy • Dark Chocolate',
+      body: 'Full-bodied',
+      finish: 'Smooth, rounded finish with subtle earthy sweetness',
+      bestFor: 'Evening wind-down, reflective moments, cozy rituals',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports cognitive function and mental clarity' },
+        { name: 'Chaga', benefit: 'Rich in antioxidants, supports immune wellness' },
+      ],
+      coffee: {
+        type: '100% Premium Arabica',
+        origin: 'Colombian & Brazilian highlands',
+        roast: 'Dark Roast',
+        caffeine: 'Moderate (50-65mg per serving)',
+      },
+      preparation: '100% Instant Coffee — Freeze-dried for flavor preservation',
+    },
+    originStory: {
+      headline: 'A dark roast for grounded, intentional moments',
+      description: 'MoonCap Restore was crafted for those who appreciate the depth and complexity of a true dark roast. We start with carefully selected Colombian and Brazilian Arabica beans, roasted to achieve rich chocolate and earthy notes without bitterness. The addition of dual-extracted Lion\'s Mane and Chaga creates a cup that feels grounding, cozy, and deeply satisfying.',
+      coffeeOrigin: 'Premium Arabica from Colombian and Brazilian high-altitude farms',
+      roastProfile: 'Extended dark roast development for rich, chocolatey depth',
+      processing: 'Freeze-dried instant process locks in dark roast aromatics',
+      whyCreated: 'For evening rituals, slower mornings, and moments that call for depth over brightness',
+    },
   },
   {
     id: 'glowmind-clarity',
@@ -31,6 +58,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'glowmind-clarity-blend',
     accent: '#E6B7AD',
     keyBenefits: ['Supports focus', 'Smooth medium roast', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Clean • Smooth • Balanced',
+      body: 'Medium',
+      finish: 'Clean, rounded finish with minimal bitterness',
+      bestFor: 'Morning focus, daily rituals, productive afternoons',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports focus and mental clarity' },
+        { name: 'Chaga', benefit: 'Supports balance and daily wellness' },
+      ],
+      coffee: {
+        type: '100% Arabica Coffee',
+        origin: 'Central & South American highlands',
+        roast: 'Medium Roast',
+        caffeine: 'Moderate (50-75mg per serving)',
+      },
+      preparation: '100% Instant Coffee — No brewing equipment needed',
+    },
+    originStory: {
+      headline: 'Crafted for clarity, roasted for smoothness',
+      description: 'GlowMind was created for professionals, creators, and thinkers who need their coffee to support deep work without the jitters. We use a balanced medium roast that highlights the natural sweetness of Arabica beans while providing a clean, distraction-free flavor profile. The Lion\'s Mane and Chaga blend is calibrated to complement—not overwhelm—the coffee experience.',
+      coffeeOrigin: 'Select Arabica beans from Central and South American regions',
+      roastProfile: 'Medium roast for balanced acidity and smooth body',
+      processing: 'Precision freeze-drying preserves delicate flavor notes',
+      whyCreated: 'For deep work sessions, morning planning, and sustained mental clarity throughout the day',
+    },
   },
   {
     id: 'suncap-rise',
@@ -47,6 +101,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'suncap-rise',
     accent: '#D6B27A',
     keyBenefits: ['Morning ritual', 'Light & uplifting', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Bright • Citrus Zest • Light Honey',
+      body: 'Light to Medium',
+      finish: 'Bright, clean finish with subtle citrus notes',
+      bestFor: 'Early mornings, energizing starts, light coffee drinkers',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports cognitive function and nerve growth' },
+        { name: 'Chaga', benefit: 'Antioxidant-rich, supports overall vitality' },
+      ],
+      coffee: {
+        type: '100% High-Altitude Arabica',
+        origin: 'Ethiopian & Colombian light roast beans',
+        roast: 'Light Roast',
+        caffeine: 'Moderate-High (60-80mg per serving)',
+      },
+      preparation: '100% Instant Coffee — Preserves bright origin characteristics',
+    },
+    originStory: {
+      headline: 'A light roast for bright, energizing mornings',
+      description: 'SunCap Rise celebrates the natural brightness of high-altitude Arabica beans. Light roasted to preserve origin characteristics—citrus, honey, and floral notes—this blend is for those who prefer their coffee crisp and uplifting. The functional mushroom extract is carefully balanced to support energy and focus without weighing down the delicate flavor profile.',
+      coffeeOrigin: 'High-altitude Ethiopian and Colombian Arabica',
+      roastProfile: 'Light roast to preserve bright acidity and origin flavors',
+      processing: 'Gentle freeze-drying maintains delicate aromatic compounds',
+      whyCreated: 'For early risers, light coffee lovers, and those who want morning energy without heaviness',
+    },
   },
   {
     id: 'the-oracle',
@@ -63,6 +144,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'the-oracle-blend',
     accent: '#C4A8A0',
     keyBenefits: ['Creative ritual', 'Reflective focus', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Moody • Complex • Warm Spice',
+      body: 'Medium-Full',
+      finish: 'Smooth, contemplative finish with subtle spice notes',
+      bestFor: 'Creative work, studying, planning, journaling',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports creative thinking and cognitive flow' },
+        { name: 'Chaga', benefit: 'Adaptogenic support for balanced energy' },
+      ],
+      coffee: {
+        type: '100% Arabica Coffee',
+        origin: 'Guatemalan & Honduran medium roast',
+        roast: 'Medium Roast',
+        caffeine: 'Moderate (55-70mg per serving)',
+      },
+      preparation: '100% Instant Coffee — Optimized for flavor complexity',
+    },
+    originStory: {
+      headline: 'A contemplative blend for creative minds',
+      description: 'The Oracle was crafted for creators, writers, and thinkers who approach their work as a ritual. The medium roast profile features warm spice notes and a contemplative depth that encourages slowing down and tuning in. Guatemalan and Honduran beans provide the perfect foundation for a cup that\'s both intellectually stimulating and sensorially rich.',
+      coffeeOrigin: 'Guatemalan and Honduran Arabica from volcanic highland soils',
+      roastProfile: 'Medium roast to develop complexity while maintaining clarity',
+      processing: 'Specialized instant process preserves nuanced spice notes',
+      whyCreated: 'For journaling, creative projects, study sessions, and moments requiring intuitive focus',
+    },
   },
   {
     id: 'mystic-bloom',
@@ -79,6 +187,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'mystic-bloom-blend',
     accent: '#E6B7C8',
     keyBenefits: ['Gentle ritual', 'Self-care moment', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Floral • Soft • Delicate Stone Fruit',
+      body: 'Medium, Silky',
+      finish: 'Elegant, lingering floral notes',
+      bestFor: 'Gentle mornings, self-care rituals, afternoon pauses',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports mental clarity and emotional balance' },
+        { name: 'Chaga', benefit: 'Rich in antioxidants, supports overall wellness' },
+      ],
+      coffee: {
+        type: '100% Premium Arabica',
+        origin: 'Ethiopian Yirgacheffe & Colombian',
+        roast: 'Medium Roast',
+        caffeine: 'Moderate (50-65mg per serving)',
+      },
+      preparation: '100% Instant Coffee — Preserves delicate floral aromatics',
+    },
+    originStory: {
+      headline: 'An elegant blend for gentle, intentional moments',
+      description: 'Mystic Bloom celebrates the softer side of coffee. Featuring Ethiopian Yirgacheffe beans known for their floral and stone fruit characteristics, this blend is for those who appreciate subtlety and elegance. The medium roast preserves the delicate origin flavors while the functional mushroom support creates a cup that feels restorative and beautifully atmospheric.',
+      coffeeOrigin: 'Ethiopian Yirgacheffe and Colombian Arabica',
+      roastProfile: 'Medium roast to highlight floral and fruit notes',
+      processing: 'Gentle instant process maintains aromatic complexity',
+      whyCreated: 'For self-care mornings, gentle starts, and moments that call for beauty over intensity',
+    },
   },
   {
     id: 'dreamcap-blend',
@@ -95,6 +230,33 @@ export const MUSHROOM_PRODUCTS = [
     shopifyHandle: 'dreamcap-blend',
     accent: '#B8A8C8',
     keyBenefits: ['Calm focus', 'Creative flow', 'Lion\'s Mane + Chaga'],
+    tasteProfile: {
+      flavorNotes: 'Velvety • Smooth • Dark Cocoa',
+      body: 'Medium-Full, Creamy',
+      finish: 'Long, smooth finish with subtle chocolate notes',
+      bestFor: 'Deep work, creative flow states, immersive projects',
+    },
+    blendComposition: {
+      mushrooms: [
+        { name: "Lion's Mane", benefit: 'Supports sustained focus and cognitive endurance' },
+        { name: 'Chaga', benefit: 'Adaptogenic support for stress management' },
+      ],
+      coffee: {
+        type: '100% Arabica Coffee',
+        origin: 'Brazilian & Guatemalan blend',
+        roast: 'Medium Roast',
+        caffeine: 'Moderate (55-70mg per serving)',
+      },
+      preparation: '100% Instant Coffee — Creamy dissolution for smooth mouthfeel',
+    },
+    originStory: {
+      headline: 'A velvety blend for deep, immersive work',
+      description: 'DreamCap was designed for those extended work sessions where time seems to disappear. The Brazilian and Guatemalan bean blend creates a velvety, cocoa-kissed cup that encourages sustained focus without agitation. The texture is intentionally creamy and smooth, making it a comforting companion for long creative projects or deep study sessions.',
+      coffeeOrigin: 'Brazilian and Guatemalan Arabica for natural chocolate notes',
+      roastProfile: 'Medium roast for smooth body and cocoa undertones',
+      processing: 'Advanced instant technology preserves mouthfeel and texture',
+      whyCreated: 'For flow states, extended creative work, and moments requiring calm, sustained attention',
+    },
   },
 ];
 

@@ -6,6 +6,10 @@ import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import { useCart } from '@/contexts/CartContext';
+import TasteProfileCard from '../components/mushroom/TasteProfileCard';
+import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
+import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
+import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -284,6 +288,21 @@ export default function BlendDetail() {
             </p>
           </motion.div>
         </div>
+      </section>
+
+      {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        {/* Taste Profile */}
+        <TasteProfileCard product={product} />
+
+        {/* Blend Composition */}
+        <BlendCompositionCard product={product} />
+
+        {/* Origin & Craftsmanship */}
+        <OriginCraftsmanshipSection product={product} />
+
+        {/* Comparison */}
+        <MushroomCoffeeComparison productName={product.name} />
       </section>
 
       {/* Related products */}
