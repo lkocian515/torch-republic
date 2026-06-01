@@ -73,11 +73,11 @@ function DesktopHero() {
       {/* Image section — clean product lineup, 16:7 cinematic ratio */}
       <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 7' }}>
 
-        {/* Clean background image — NO baked-in text */}
+        {/* Clean background image — NO baked-in text, zoomed in for better tube visibility */}
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: `url(${CLEAN_DESKTOP_BG})`,
-          backgroundSize: 'cover',
+          backgroundSize: '140%',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           zIndex: 0,
