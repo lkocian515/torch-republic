@@ -10,6 +10,9 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A deeper, moodier instant mushroom coffee made for grounded rituals and slower moments. MoonCap Restore blends premium instant coffee with Lion\'s Mane + Chaga in a rich dark roast profile designed to feel cozy, intentional, and quietly powerful.',
     flavorNotes: ['Rich', 'Earthy', 'Smooth Finish'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/1_555ca46a-31a4-4905-b0a3-21b35fe43b0a.png?v=1780250635',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8629ce5ce_ChatGPTImageMay31202608_02_03AM.png',
+    ],
     alt: 'Torch Republic MoonCap Restore instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'mooncap-restore',
