@@ -21,73 +21,64 @@ const TRUST_ITEMS = [
 ];
 
 // ─── MOBILE HERO ──────────────────────────────────────────────────────────────
-// Only shown on screens ≤768px. Uses baked-in image with transparent link overlays.
 function MobileHero() {
   return (
     <div
       style={{
         display: 'none',
-        position: 'relative',
         width: '100%',
-        backgroundColor: '#050505',
+        backgroundColor: '#06050A',
         margin: 0,
         padding: 0,
         overflow: 'hidden',
       }}
       className="mobile-hero"
     >
-      {/* Heading image */}
-      <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0dc59d3b3_generated_image.png"
-        alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
-        style={{ width: '100%', display: 'block', objectFit: 'cover' }}
-      />
+      {/* Live text heading */}
+      <div style={{ padding: '40px 24px 28px', textAlign: 'center' }}>
+        <p style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.55rem',
+          letterSpacing: '0.45em',
+          textTransform: 'uppercase',
+          color: 'rgba(230,183,173,0.55)',
+          marginBottom: '16px',
+        }}>
+          Torch Republic Coffee Company
+        </p>
+        <h1 style={{
+          fontFamily: 'var(--font-serif)',
+          fontWeight: 700,
+          fontSize: 'clamp(2rem, 7vw, 2.8rem)',
+          color: '#FFFFFF',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+          margin: 0,
+        }}>
+          Premium Mushroom Coffee
+          <br />
+          <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+        </h1>
+      </div>
 
-      {/* Wide banner — crop to center on mobile using fixed height + object-position */}
-      <div style={{ width: '100%', height: '52vw', minHeight: '200px', maxHeight: '340px', overflow: 'hidden' }}>
+      {/* Powder image */}
+      <div style={{ padding: '0 20px 32px' }}>
         <img
-          src={MOBILE_BG}
-          alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
-          fetchpriority="high"
-          style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center center' }}
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ab36a9834_98d7169b-22c9-4a2e-834e-9773486e7a5d.png"
+          alt="Torch Republic premium instant mushroom coffee powder"
+          style={{
+            width: '100%',
+            display: 'block',
+            borderRadius: '16px',
+            objectFit: 'cover',
+          }}
         />
       </div>
-      {/* Subtitle + Trust bar — mobile */}
-      <div style={{ background: '#06050A', padding: '28px 20px 8px', textAlign: 'center' }}>
-        <p style={{
-          fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)',
-          lineHeight: 1.75, fontWeight: 300, fontFamily: 'var(--font-heading)',
-          marginBottom: '28px',
-        }}>
-          Premium coffee blended with <span style={{ color: RG }}>Lion's Mane + Chaga</span>, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
-        </p>
-        <div style={{
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0',
-          border: '1px solid rgba(230,183,173,0.12)', borderRadius: '12px',
-          background: 'rgba(0,0,0,0.3)', marginBottom: '24px', overflow: 'hidden',
-        }}>
-          {TRUST_ITEMS.map((item, i) => (
-            <div key={item.label} style={{
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
-              padding: '16px 8px',
-              borderRight: i % 2 === 0 ? '1px solid rgba(230,183,173,0.12)' : 'none',
-              borderBottom: i < 2 ? '1px solid rgba(230,183,173,0.12)' : 'none',
-            }}>
-              <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.52rem',
-                letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: 'rgba(230,183,173,0.65)', textAlign: 'center', lineHeight: 1.5,
-              }}>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      {/* CTA buttons below image on mobile */}
+      {/* CTA buttons */}
       <div style={{
         display: 'flex', flexDirection: 'column', gap: '12px',
-        padding: '0 20px 28px', background: '#06050A', alignItems: 'center',
+        padding: '0 20px 36px', background: '#06050A', alignItems: 'center',
       }}>
         <Link
           to="/shop"
