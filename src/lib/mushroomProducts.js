@@ -404,6 +404,6 @@ export const MUSHROOM_PRODUCTS = [
   },
 ];
 
-export const HERO_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_May_31_2026_01_37_31_PM.png?v=1780252673';
+export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f2e57ca1e_LIVEFREESTAYREADY15x5in.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;
 export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a720dfdc_ChatGPTImageMay31202606_49_02AM.png';

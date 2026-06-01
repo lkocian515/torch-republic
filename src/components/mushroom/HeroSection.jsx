@@ -10,8 +10,8 @@ const RG_DEEP = '#C98F86';
 // Clean product-only image (no baked-in text)
 const CLEAN_DESKTOP_BG = HERO_IMAGE;
 
-// Mobile hero image (has baked-in text, buttons, trust icons)
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e1788fcf7_ChatGPTImageMay31202605_54_34PM.png';
+// Mobile hero image
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f2e57ca1e_LIVEFREESTAYREADY15x5in.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
@@ -36,28 +36,48 @@ function MobileHero() {
       }}
       className="mobile-hero"
     >
-      <img
-        src={MOBILE_BG}
-        alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
-        fetchpriority="high"
-        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: 'center top' }}
-      />
-      <Link
-        to="/shop"
-        aria-label="Shop the Blends"
-        style={{
-          position: 'absolute', bottom: '12.5%', left: '4%', right: '4%',
-          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
-        }}
-      />
-      <Link
-        to="/subscription"
-        aria-label="Build Your Monthly Ritual"
-        style={{
-          position: 'absolute', bottom: '4%', left: '4%', right: '4%',
-          height: '7%', borderRadius: '999px', display: 'block', background: 'transparent',
-        }}
-      />
+      {/* Wide banner — crop to center on mobile using fixed height + object-position */}
+      <div style={{ width: '100%', height: '52vw', minHeight: '200px', maxHeight: '340px', overflow: 'hidden' }}>
+        <img
+          src={MOBILE_BG}
+          alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
+          fetchpriority="high"
+          style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center center' }}
+        />
+      </div>
+      {/* CTA buttons below image on mobile */}
+      <div style={{
+        display: 'flex', flexDirection: 'column', gap: '12px',
+        padding: '20px 20px 28px', background: '#06050A', alignItems: 'center',
+      }}>
+        <Link
+          to="/shop"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+            background: RG, color: '#050505',
+            fontFamily: 'var(--font-mono)', fontSize: '0.62rem',
+            letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 700,
+            padding: '14px 0', borderRadius: '999px', textDecoration: 'none', width: '100%',
+          }}
+        >
+          <ShoppingCart size={14} />
+          Shop the Blends
+        </Link>
+        <Link
+          to="/subscription"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+            border: '1px solid rgba(230,183,173,0.35)', color: RG_DEEP,
+            fontFamily: 'var(--font-mono)', fontSize: '0.62rem',
+            letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 700,
+            padding: '14px 0', borderRadius: '999px', background: 'rgba(0,0,0,0.35)',
+            textDecoration: 'none', width: '100%',
+          }}
+        >
+          <Calendar size={14} />
+          Build Monthly Ritual
+        </Link>
+      </div>
     </div>
   );
 }
@@ -70,8 +90,8 @@ function DesktopHero() {
       style={{ display: 'none', backgroundColor: '#06050A', width: '100%', overflow: 'hidden' }}
       className="desktop-hero"
     >
-      {/* Image section — clean product lineup, 16:7 cinematic ratio */}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 7' }}>
+      {/* Image section — wide product lineup banner */}
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '15 / 5' }}>
 
         {/* Clean background image — NO baked-in text */}
         <div style={{
