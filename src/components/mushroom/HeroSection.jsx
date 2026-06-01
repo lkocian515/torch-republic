@@ -120,12 +120,42 @@ function DesktopHero() {
       style={{ display: 'none', backgroundColor: '#06050A', width: '100%', overflow: 'hidden' }}
       className="desktop-hero"
     >
-      {/* Heading image above banner */}
-      <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0dc59d3b3_generated_image.png"
-        alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
-        style={{ width: '100%', display: 'block', objectFit: 'cover' }}
-      />
+      {/* Live text heading */}
+      <div style={{ padding: '56px 32px 40px', textAlign: 'center', background: '#06050A' }}>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.55rem',
+            letterSpacing: '0.45em',
+            textTransform: 'uppercase',
+            color: 'rgba(230,183,173,0.55)',
+            marginBottom: '18px',
+          }}
+        >
+          Torch Republic Coffee Company
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 700,
+            fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+            color: '#FFFFFF',
+            lineHeight: 1.12,
+            letterSpacing: '-0.01em',
+            margin: 0,
+          }}
+        >
+          Premium Mushroom Coffee
+          <br />
+          <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+        </motion.h1>
+      </div>
 
       {/* Image section — wide product lineup banner */}
       <div style={{ position: 'relative', width: '100%', aspectRatio: '15 / 5' }}>
