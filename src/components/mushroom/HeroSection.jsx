@@ -234,17 +234,18 @@ function DesktopHero() {
         >
           {TRUST_ITEMS.map((item, i) => (
             <div key={item.label} style={{
-              display: 'flex', alignItems: 'center', gap: '8px', padding: '0 24px',
+              display: 'flex', alignItems: 'center', gap: '10px', padding: '0 28px',
               borderRight: i < TRUST_ITEMS.length - 1 ? '1px solid rgba(230,183,173,0.15)' : 'none',
             }}>
-              <span style={{ fontSize: '0.85rem' }}>{item.icon}</span>
+              <span style={{ fontSize: '1rem' }}>{item.icon}</span>
               <span style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.58rem',
+                fontSize: '0.72rem',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'rgba(230,183,173,0.65)',
+                color: 'rgba(230,183,173,0.85)',
                 whiteSpace: 'nowrap',
+                fontWeight: 600,
               }}>
                 {item.label}
               </span>
