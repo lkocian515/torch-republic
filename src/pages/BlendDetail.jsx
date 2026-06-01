@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Minus, Plus, ShieldCheck, Truck, Zap, Lock } from 'lucide-react';
+import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
@@ -57,6 +57,65 @@ function Accordion({ title, content }) {
           </p>
         </motion.div>
       )}
+    </div>
+  );
+}
+
+function GalleryCarousel({ images, accent, productName }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  return (
+    <div className="mt-6">
+      <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3"
+        style={{ color: 'rgba(230,183,173,0.5)' }}>Gallery</p>
+      <div className="relative" style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${accent}25`, overflow: 'hidden' }}>
+        <motion.img
+          key={currentIndex}
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.35 }}
+          src={images[currentIndex]}
+          alt={`${productName} gallery image ${currentIndex + 1}`}
+          className="w-full h-full object-contain p-6"
+          style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
+        />
+        
+        {/* Navigation arrows */}
+        <button
+          onClick={prev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
+          style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+        >
+          <ChevronLeft className="w-4 h-4" style={{ color: accent }} />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
+          style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+        >
+          <ChevronRight className="w-4 h-4" style={{ color: accent }} />
+        </button>
+
+        {/* Dots indicator */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className="transition-all"
+              style={{
+                width: idx === currentIndex ? 24 : 8,
+                height: 8,
+                borderRadius: 4,
+                background: idx === currentIndex ? accent : `${accent}40`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -150,31 +209,9 @@ export default function BlendDetail() {
               ))}
             </div>
 
-            {/* Gallery images */}
+            {/* Gallery carousel */}
             {product.galleryImages && product.galleryImages.length > 0 && (
-              <div className="mt-6">
-                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3"
-                  style={{ color: 'rgba(230,183,173,0.5)' }}>More Images</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {product.galleryImages.map((img, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="relative overflow-hidden"
-                      style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}
-                    >
-                      <img
-                        src={img}
-                        alt={`${product.name} gallery image ${idx + 1}`}
-                        className="w-full h-full object-contain p-4"
-                        style={{ filter: 'drop-shadow(0 0 30px rgba(0,0,0,0.4))' }}
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              <GalleryCarousel images={product.galleryImages} accent={product.accent} productName={product.name} />
             )}
           </motion.div>
 
