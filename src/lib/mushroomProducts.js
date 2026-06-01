@@ -71,6 +71,10 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A clean, focused instant mushroom coffee for deep work, planning, writing, and everyday clarity. GlowMind pairs premium instant coffee with Lion\'s Mane + Chaga in a smooth medium roast made for mornings when you want your mind to feel switched on without making your routine complicated.',
     flavorNotes: ['Clean', 'Smooth', 'Balanced'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/2_fd698d03-078e-4064-8544-4cd64ae30544.png?v=1780251236',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/797ff361b_111.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ae57d0019_123.png',
+    ],
     alt: 'Torch Republic GlowMind Clarity Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'glowmind-clarity-blend',
