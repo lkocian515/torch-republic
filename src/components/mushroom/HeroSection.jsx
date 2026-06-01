@@ -49,9 +49,9 @@ function MobileHero() {
         <h1 style={{
           fontFamily: 'var(--font-serif)',
           fontWeight: 700,
-          fontSize: 'clamp(2rem, 7vw, 2.8rem)',
+          fontSize: 'clamp(1.5rem, 5.5vw, 2.2rem)',
           color: '#FFFFFF',
-          lineHeight: 1.15,
+          lineHeight: 1.2,
           letterSpacing: '-0.01em',
           margin: 0,
         }}>
@@ -68,8 +68,8 @@ function MobileHero() {
           alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends"
           fetchpriority="high"
           style={{
-            width: '130%',
-            marginLeft: '-15%',
+            width: '150%',
+            marginLeft: '-25%',
             display: 'block',
             objectFit: 'cover',
           }}
