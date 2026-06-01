@@ -40,7 +40,7 @@ function MobileHero() {
         src={MOBILE_BG}
         alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends."
         fetchpriority="high"
-        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: 'center top', transform: 'scale(1.15)', transformOrigin: 'center top' }}
+        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: 'center top' }}
       />
       <Link
         to="/shop"
@@ -73,11 +73,11 @@ function DesktopHero() {
       {/* Image section — clean product lineup, 16:7 cinematic ratio */}
       <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 7' }}>
 
-        {/* Clean background image — NO baked-in text, zoomed in for better tube visibility */}
+        {/* Clean background image — NO baked-in text */}
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: `url(${CLEAN_DESKTOP_BG})`,
-          backgroundSize: '140%',
+          backgroundSize: 'cover',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           zIndex: 0,
