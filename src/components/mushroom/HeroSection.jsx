@@ -35,7 +35,7 @@ function MobileHero() {
       className="mobile-hero"
     >
       {/* Live text heading */}
-      <div style={{ padding: '40px 24px 28px', textAlign: 'center' }}>
+      <div style={{ padding: '48px 24px 32px', textAlign: 'center' }}>
         <p style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '0.55rem',
@@ -49,7 +49,7 @@ function MobileHero() {
         <h1 style={{
           fontFamily: 'var(--font-serif)',
           fontWeight: 700,
-          fontSize: 'clamp(1.5rem, 5.5vw, 2.2rem)',
+          fontSize: 'clamp(1.75rem, 6.5vw, 2.5rem)',
           color: '#FFFFFF',
           lineHeight: 1.2,
           letterSpacing: '-0.01em',
