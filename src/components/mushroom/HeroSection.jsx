@@ -8,10 +8,10 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 // Clean product-only image (no baked-in text)
-const CLEAN_DESKTOP_BG = HERO_IMAGE;
+const CLEAN_DESKTOP_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png';
 
 // Mobile hero image
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f2e57ca1e_LIVEFREESTAYREADY15x5in.png';
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
