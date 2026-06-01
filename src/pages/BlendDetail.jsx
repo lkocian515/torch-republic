@@ -149,6 +149,33 @@ export default function BlendDetail() {
                 </div>
               ))}
             </div>
+
+            {/* Gallery images */}
+            {product.galleryImages && product.galleryImages.length > 0 && (
+              <div className="mt-6">
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3"
+                  style={{ color: 'rgba(230,183,173,0.5)' }}>More Images</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {product.galleryImages.map((img, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="relative overflow-hidden"
+                      style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}
+                    >
+                      <img
+                        src={img}
+                        alt={`${product.name} gallery image ${idx + 1}`}
+                        className="w-full h-full object-contain p-4"
+                        style={{ filter: 'drop-shadow(0 0 30px rgba(0,0,0,0.4))' }}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* RIGHT: Purchase area */}

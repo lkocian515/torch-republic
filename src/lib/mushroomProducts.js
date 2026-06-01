@@ -254,6 +254,10 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A soft, atmospheric instant mushroom coffee for gentle mornings, self-care rituals, and beautifully moody coffee moments. Mystic Bloom blends premium instant coffee with Lion\'s Mane + Chaga in a medium roast profile that feels elegant, smooth, and quietly magical.',
     flavorNotes: ['Floral', 'Soft', 'Elegant'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_049aee9a-8305-4b42-8850-13e7556ee6e8.png?v=1780253758',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27a34f840_15_013d57a8-073c-4401-820a-97bf531baed5.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a9985a74_16_eceb761f-b7ce-477c-b295-a85f3542e081.png',
+    ],
     alt: 'Torch Republic Mystic Bloom Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'mystic-bloom-blend',
