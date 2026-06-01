@@ -239,13 +239,13 @@ function DesktopHero() {
             }}>
               <span style={{ fontSize: '1rem' }}>{item.icon}</span>
               <span style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                color: 'rgba(230,183,173,0.85)',
+                fontFamily: 'var(--font-heading)',
+                fontSize: '0.85rem',
+                letterSpacing: '0.05em',
+                textTransform: 'none',
+                color: '#FFFFFF',
                 whiteSpace: 'nowrap',
-                fontWeight: 600,
+                fontWeight: 500,
               }}>
                 {item.label}
               </span>
