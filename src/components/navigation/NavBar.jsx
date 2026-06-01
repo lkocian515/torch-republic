@@ -40,15 +40,8 @@ export default function NavBar() {
       >
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-full flex items-center justify-between">
 
-          {/* Left logo + nav — desktop */}
+          {/* Left nav — desktop */}
           <div className="hidden md:flex items-center gap-7 flex-1">
-            <Link to="/" className="flex-shrink-0 mr-2">
-              <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/92e84500d_ChatGPTImageMay31202606_49_02AM.png"
-                alt="Torch Republic Coffee Company"
-                style={{ height: '36px', width: 'auto' }}
-              />
-            </Link>
             {NAV_LINKS.slice(0, 3).map(item => (  
               <Link key={item.label} to={item.href}
                 className="nav-link whitespace-nowrap transition-colors hover:text-white"
