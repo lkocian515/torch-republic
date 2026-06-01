@@ -346,8 +346,8 @@ export const MUSHROOM_PRODUCTS = [
     flavorNotes: ['Velvety', 'Smooth', 'Cocoa Hint'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/5_78b53f53-babd-4618-a259-0dd4b97d59e5.png?v=1780251636',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3524ced59_17_2be8d6bd-45e1-4549-9ea4-0aab027261e2.png',
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/aeffcd7d9_18_8a6c94cc-7fe7-45ba-b009-dd9087ce17bd1.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cd39be424_17_2be8d6bd-45e1-4549-9ea4-0aab027261e2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be7f39187_18_8a6c94cc-7fe7-45ba-b009-dd9087ce17bd.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d7af45e40_51b89473-f421-4b41-9b5d-80ee523e436e.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ab36a9834_98d7169b-22c9-4a2e-834e-9773486e7a5d.png',
     ],
