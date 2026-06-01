@@ -57,7 +57,7 @@ function MobileHero() {
         }}>
           Premium Mushroom Coffee
           <br />
-          <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+          <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
         </h1>
       </div>
 
@@ -166,7 +166,7 @@ function DesktopHero() {
         >
           Premium Mushroom Coffee
           <br />
-          <span style={{ color: RG }}>for Focus, Flow &amp; Daily Ritual</span>
+          <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
         </motion.h1>
       </div>
 
