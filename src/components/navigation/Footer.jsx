@@ -108,7 +108,7 @@ export default function Footer() {
         </p>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 text-center">
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
             alt="Torch Republic Coffee Company"
@@ -117,7 +117,7 @@ export default function Footer() {
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
             Premium Instant Mushroom Coffee
           </p>
-          <div className="text-center md:text-right">
+          <div>
             <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>
               © 2026 Torch Republic Coffee Company
             </p>
