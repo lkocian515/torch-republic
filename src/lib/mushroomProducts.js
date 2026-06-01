@@ -319,6 +319,10 @@ export const MUSHROOM_PRODUCTS = [
     description: 'A dreamy, immersive instant mushroom coffee for calm focus and creative flow. DreamCap blends premium instant coffee with Lion\'s Mane + Chaga in a smooth medium roast made for work sessions, cozy mornings, and a more intentional daily cup.',
     flavorNotes: ['Velvety', 'Smooth', 'Cocoa Hint'],
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/5_78b53f53-babd-4618-a259-0dd4b97d59e5.png?v=1780251636',
+    galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3524ced59_17_2be8d6bd-45e1-4549-9ea4-0aab027261e2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/aeffcd7d9_18_8a6c94cc-7fe7-45ba-b009-dd9087ce17bd1.png',
+    ],
     alt: 'Torch Republic DreamCap Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'dreamcap-blend',
