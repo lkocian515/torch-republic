@@ -11,7 +11,7 @@ const RG_DEEP = '#C98F86';
 const CLEAN_DESKTOP_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png';
 
 // Mobile hero image
-const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png';
+const MOBILE_BG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/849523a71_LIVEFREESTAYREADY15x5in.png';
 
 const TRUST_ITEMS = [
   { icon: '🍄', label: "Lion's Mane + Chaga" },
@@ -61,15 +61,15 @@ function MobileHero() {
         </h1>
       </div>
 
-      {/* Powder image */}
-      <div style={{ padding: '0 20px 32px' }}>
+      {/* Hero banner image */}
+      <div style={{ width: '100%', overflow: 'hidden' }}>
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ab36a9834_98d7169b-22c9-4a2e-834e-9773486e7a5d.png"
-          alt="Torch Republic premium instant mushroom coffee powder"
+          src={MOBILE_BG}
+          alt="Torch Republic instant mushroom coffee — six Lion's Mane and Chaga blends"
+          fetchpriority="high"
           style={{
             width: '100%',
             display: 'block',
-            borderRadius: '16px',
             objectFit: 'cover',
           }}
         />
