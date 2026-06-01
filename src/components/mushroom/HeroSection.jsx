@@ -38,7 +38,7 @@ function MobileHero() {
     >
       {/* Heading image */}
       <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a739d7916_gtgdf.png"
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0dc59d3b3_generated_image.png"
         alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
         style={{ width: '100%', display: 'block', objectFit: 'cover' }}
       />
@@ -99,7 +99,7 @@ function DesktopHero() {
     >
       {/* Heading image above banner */}
       <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a739d7916_gtgdf.png"
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0dc59d3b3_generated_image.png"
         alt="Instant Mushroom Coffee for Focus, Flow & Daily Ritual"
         style={{ width: '100%', display: 'block', objectFit: 'cover' }}
       />
