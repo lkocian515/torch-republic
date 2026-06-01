@@ -239,9 +239,9 @@ function DesktopHero() {
             }}>
               <span style={{ fontSize: '1rem' }}>{item.icon}</span>
               <span style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '0.85rem',
-                letterSpacing: '0.05em',
+                fontFamily: 'var(--font-serif)',
+                fontSize: '0.9rem',
+                letterSpacing: '0.02em',
                 textTransform: 'none',
                 color: '#FFFFFF',
                 whiteSpace: 'nowrap',
