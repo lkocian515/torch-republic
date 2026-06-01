@@ -49,7 +49,7 @@ function MobileHero() {
         <h1 style={{
           fontFamily: 'var(--font-serif)',
           fontWeight: 700,
-          fontSize: 'clamp(1.75rem, 6.5vw, 2.5rem)',
+          fontSize: 'clamp(1.4rem, 5vw, 2rem)',
           color: '#FFFFFF',
           lineHeight: 1.2,
           letterSpacing: '-0.01em',
