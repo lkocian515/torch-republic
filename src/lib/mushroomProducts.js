@@ -13,6 +13,7 @@ export const MUSHROOM_PRODUCTS = [
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8629ce5ce_ChatGPTImageMay31202608_02_03AM.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/03cb10197_9.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d3dfa1c71_10.png',
     ],
     alt: 'Torch Republic MoonCap Restore instant mushroom coffee tube',
     price: 24.99,
