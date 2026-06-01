@@ -79,6 +79,7 @@ export const MUSHROOM_PRODUCTS = [
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/797ff361b_111.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ae57d0019_123.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2257f94d6_ChatGPTImageMay31202608_29_52AM.png',
     ],
     alt: 'Torch Republic GlowMind Clarity Blend instant mushroom coffee tube',
     price: 24.99,
