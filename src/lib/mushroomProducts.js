@@ -340,6 +340,7 @@ export const MUSHROOM_PRODUCTS = [
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3524ced59_17_2be8d6bd-45e1-4549-9ea4-0aab027261e2.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/aeffcd7d9_18_8a6c94cc-7fe7-45ba-b009-dd9087ce17bd1.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d7af45e40_51b89473-f421-4b41-9b5d-80ee523e436e.png',
     ],
     alt: 'Torch Republic DreamCap Blend instant mushroom coffee tube',
     price: 24.99,
