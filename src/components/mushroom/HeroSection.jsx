@@ -52,10 +52,42 @@ function MobileHero() {
           style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center center' }}
         />
       </div>
+      {/* Subtitle + Trust bar — mobile */}
+      <div style={{ background: '#06050A', padding: '28px 20px 8px', textAlign: 'center' }}>
+        <p style={{
+          fontSize: '1.05rem', color: 'rgba(200,184,166,0.85)',
+          lineHeight: 1.75, fontWeight: 300, fontFamily: 'var(--font-heading)',
+          marginBottom: '28px',
+        }}>
+          Premium coffee blended with <span style={{ color: RG }}>Lion's Mane + Chaga</span>, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
+        </p>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0',
+          border: '1px solid rgba(230,183,173,0.12)', borderRadius: '12px',
+          background: 'rgba(0,0,0,0.3)', marginBottom: '24px', overflow: 'hidden',
+        }}>
+          {TRUST_ITEMS.map((item, i) => (
+            <div key={item.label} style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
+              padding: '16px 8px',
+              borderRight: i % 2 === 0 ? '1px solid rgba(230,183,173,0.12)' : 'none',
+              borderBottom: i < 2 ? '1px solid rgba(230,183,173,0.12)' : 'none',
+            }}>
+              <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.52rem',
+                letterSpacing: '0.18em', textTransform: 'uppercase',
+                color: 'rgba(230,183,173,0.65)', textAlign: 'center', lineHeight: 1.5,
+              }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* CTA buttons below image on mobile */}
       <div style={{
         display: 'flex', flexDirection: 'column', gap: '12px',
-        padding: '20px 20px 28px', background: '#06050A', alignItems: 'center',
+        padding: '0 20px 28px', background: '#06050A', alignItems: 'center',
       }}>
         <Link
           to="/shop"
