@@ -117,9 +117,14 @@ export default function Footer() {
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
             Premium Instant Mushroom Coffee
           </p>
-          <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>
-            © 2026 Torch Republic™
-          </p>
+          <div className="text-center md:text-right">
+            <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>
+              © 2026 Torch Republic Coffee Company
+            </p>
+            <p className="text-[9px] font-mono mt-1" style={{ color: 'rgba(255,255,255,0.12)' }}>
+              Torch Republic Coffee Company is a DBA of LiberTees For All LLC. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
