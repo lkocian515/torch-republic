@@ -6,7 +6,7 @@ Deno.serve(async (req) => {
 
   const query = `
     {
-      products(first: 50, query: "title:torch OR title:bearer OR title:reserve OR title:instant") {
+      products(first: 250) {
         edges {
           node {
             id
