@@ -14,6 +14,7 @@ import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
 import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
+import ReviewPopup from '../components/mushroom/ReviewPopup';
 
 const RG = '#E6B7AD';
 
@@ -56,6 +57,9 @@ function StickyMobileCTA() {
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+      {/* Review Popup Modal */}
+      <ReviewPopup />
+      
       {/* 1. Hero */}
       <MushroomHero />
       {/* 2. Trust signals */}
