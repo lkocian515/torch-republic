@@ -8,9 +8,11 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
 import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
+import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
 import CartToast from './components/cart/CartToast';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
+import BottomTabs from './components/mobile/BottomTabs';
 
 // ── Mushroom Coffee Pages ──
 import Home from './pages/Home';
@@ -33,9 +35,17 @@ const mainPageKey = 'Home';
 const MainPage = Home;
 
 const LayoutWrapper = ({ children, currentPageName }) => {
-  // Layout is imported from pages.config in the original app structure
-  // For now, just wrap with PageTransition
-  return <PageTransition>{children}</PageTransition>;
+  // Wrap main pages with PullToRefresh for native-like experience
+  const handleRefresh = async () => {
+    // Trigger a page reload or data refresh
+    window.location.reload();
+  };
+
+  return (
+    <PullToRefresh onRefresh={handleRefresh}>
+      <PageTransition>{children}</PageTransition>
+    </PullToRefresh>
+  );
 };
 
 const AuthenticatedApp = () => {
@@ -101,6 +111,7 @@ const AuthenticatedApp = () => {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <BottomTabs />
       </AnimatePresence>
     </>
   );

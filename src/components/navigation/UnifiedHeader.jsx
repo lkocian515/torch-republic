@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingBag, User, Flame } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ShoppingBag, User, Flame, ArrowLeft } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
@@ -19,6 +19,19 @@ const NAV_LINKS = [
 
 export default function UnifiedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Check if we're on a child route (not home)
+  const isChildRoute = location.pathname !== '/' && !location.pathname.startsWith('/shop') && 
+                       !location.pathname.startsWith('/blends') && !location.pathname.startsWith('/bundle') &&
+                       !location.pathname.startsWith('/about') && !location.pathname.startsWith('/Reviews') &&
+                       !location.pathname.startsWith('/faq') && !location.pathname.startsWith('/contact') &&
+                       !location.pathname.startsWith('/Journal') && !location.pathname.startsWith('/Profile');
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -49,19 +62,27 @@ export default function UnifiedHeader() {
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
-            {/* Left: Hamburger (mobile) / Empty (desktop) */}
+            {/* Left: Back button (mobile, child routes) / Hamburger (mobile, home) / Empty (desktop) */}
             <div className="w-10">
-              {/* Mobile hamburger */}
-              <button
-                onClick={() => setMobileMenuOpen(true)}
-                className="md:hidden flex items-center justify-center"
-                style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px' }}>
-                <Menu className="w-6 h-6" strokeWidth={1.5} />
-              </button>
+              {isChildRoute ? (
+                <button
+                  onClick={handleBack}
+                  className="md:hidden flex items-center justify-center"
+                  style={{ color: RG, minWidth: '44px', minHeight: '44px' }}>
+                  <ArrowLeft className="w-5 h-5" strokeWidth={2} />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setMobileMenuOpen(true)}
+                  className="md:hidden flex items-center justify-center"
+                  style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px' }}>
+                  <Menu className="w-6 h-6" strokeWidth={1.5} />
+                </button>
+              )}
             </div>
 
-            {/* Center: Logo */}
-            <Link to="/" className="flex-1 md:flex-none flex items-center justify-center">
+            {/* Center: Logo (hidden on mobile when back button shown) */}
+            <Link to="/" className={`flex-1 md:flex-none flex items-center justify-center ${isChildRoute ? 'hidden md:flex' : ''}`}>
               <img
                 src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
                 alt="Torch Republic Coffee Company"

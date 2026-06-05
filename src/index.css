@@ -226,3 +226,11 @@ button, a, [role="button"], nav {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+/* Touch target minimum size for mobile */
+@media (max-width: 640px) {
+  button, a, [role="button"] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
