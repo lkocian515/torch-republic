@@ -51,7 +51,7 @@ export default function QualityMission() {
             <p
               style={{
                 fontSize: '0.88rem',
-                color: 'rgba(200,184,166,0.6)',
+                color: 'rgba(250,245,235,0.78)',
                 lineHeight: 1.85,
                 fontWeight: 300,
               }}
@@ -70,7 +70,7 @@ export default function QualityMission() {
             {COMMITMENTS.map((c) => (
               <div key={c} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 0', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
                 <span style={{ color: RG, fontSize: '8px', flexShrink: 0 }}>✦</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.6)' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(250,245,235,0.85)' }}>
                   {c}
                 </span>
               </div>

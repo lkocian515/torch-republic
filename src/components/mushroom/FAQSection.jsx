@@ -60,7 +60,7 @@ function FAQItem({ item, isOpen, onToggle }) {
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left transition-colors hover:opacity-80"
       >
-        <span className="font-heading font-medium" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.85)' }}>
+        <span className="font-heading font-medium" style={{ fontSize: '0.95rem', color: 'rgba(250,245,235,0.95)' }}>
           {item.q}
         </span>
         <span className="flex-shrink-0" style={{ color: '#E6B7AD' }}>
@@ -77,7 +77,7 @@ function FAQItem({ item, isOpen, onToggle }) {
             className="overflow-hidden"
           >
             <p className="pb-5 font-heading text-sm leading-relaxed"
-              style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
+              style={{ color: 'rgba(250,245,235,0.75)', fontWeight: 300 }}>
               {item.a}
             </p>
           </motion.div>

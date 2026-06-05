@@ -12,13 +12,13 @@
 
     /* Soft dark charcoal background */
     --background: 0 0% 7%; /* #111111 */
-    --foreground: 36 33% 90%; /* warm ivory/cream */
+    --foreground: 36 33% 95%; /* warm ivory/cream - brighter */
 
     --card: 0 0% 9%;
-    --card-foreground: 36 33% 90%;
+    --card-foreground: 36 33% 95%;
 
     --popover: 0 0% 4%;
-    --popover-foreground: 43 45% 86%;
+    --popover-foreground: 43 45% 90%;
 
     /* Rose gold primary #E6B7AD */
     --primary: 7 52% 79%;
@@ -26,19 +26,19 @@
 
     /* Deep charcoal secondary */
     --secondary: 20 8% 10%;
-    --secondary-foreground: 30 30% 92%;
+    --secondary-foreground: 30 30% 95%;
 
     --muted: 0 0% 7%;
-    --muted-foreground: 25 15% 55%;
+    --muted-foreground: 25 15% 65%; /* brighter muted text */
 
     --accent: 20 8% 10%;
-    --accent-foreground: 30 30% 92%;
+    --accent-foreground: 30 30% 95%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
     /* Rose-gold border */
-    --border: 7 40% 70% / 0.18;
+    --border: 7 40% 70% / 0.22; /* slightly stronger border */
     --input: 0 0% 10%;
     --ring: 7 52% 79%;
 
@@ -60,30 +60,30 @@
 
   .dark {
     --background: 0 0% 7%;
-    --foreground: 36 33% 90%;
+    --foreground: 36 33% 95%;
 
     --card: 0 0% 9%;
-    --card-foreground: 36 33% 90%;
+    --card-foreground: 36 33% 95%;
 
     --popover: 0 0% 4%;
-    --popover-foreground: 30 30% 92%;
+    --popover-foreground: 30 30% 95%;
 
     --primary: 7 52% 79%;
     --primary-foreground: 0 0% 4%;
 
     --secondary: 20 8% 10%;
-    --secondary-foreground: 30 30% 92%;
+    --secondary-foreground: 30 30% 95%;
 
     --muted: 0 0% 7%;
-    --muted-foreground: 25 15% 55%;
+    --muted-foreground: 25 15% 65%;
 
     --accent: 20 8% 10%;
-    --accent-foreground: 30 30% 92%;
+    --accent-foreground: 30 30% 95%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 7 40% 70% / 0.18;
+    --border: 7 40% 70% / 0.22;
     --input: 0 0% 10%;
     --ring: 7 52% 79%;
   }

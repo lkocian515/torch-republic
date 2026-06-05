@@ -41,7 +41,7 @@ export default function WhyInstant() {
             Coffee That Works as Hard as You Do
           </h2>
           <p className="font-heading max-w-md mx-auto"
-            style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.52)', lineHeight: 1.9, fontWeight: 300 }}>
+            style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.75)', lineHeight: 1.9, fontWeight: 300 }}>
             Premium instant coffee elevated with functional mushrooms — no compromise on taste, no compromise on quality.
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export default function WhyInstant() {
                 {p.num}
               </span>
               <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', lineHeight: 1.2, color: '#F5EFE6' }}>{p.title}</h3>
-              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(250,245,235,0.78)', fontWeight: 300 }}>
                 {p.desc}
               </p>
             </motion.div>
@@ -82,7 +82,7 @@ export default function WhyInstant() {
             Small daily rituals create lasting change.
           </h3>
           <p className="font-heading max-w-2xl mx-auto"
-            style={{ fontSize: '0.9rem', color: 'rgba(200,184,166,0.65)', lineHeight: 1.9, fontWeight: 300 }}>
+            style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.75)', lineHeight: 1.9, fontWeight: 300 }}>
             Torch Republic was built on that belief. Each blend represents a different mindset — from focus and discipline to creativity and transformation. Drink with intention. Build your ritual.
           </p>
         </motion.div>

@@ -39,7 +39,7 @@ export default function MushroomScience() {
           <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Why Mushroom Coffee?
           </h2>
-          <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.52)', lineHeight: 1.9, fontWeight: 300, maxWidth: '520px', margin: '0 auto' }}>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.78)', lineHeight: 1.9, fontWeight: 300, maxWidth: '520px', margin: '0 auto' }}>
             Lion's Mane and Chaga have been used in traditional wellness practices for centuries. Each Torch Republic blend pairs them with premium instant coffee for a smooth, functional daily ritual.
           </p>
         </motion.div>
@@ -64,14 +64,14 @@ export default function MushroomScience() {
               <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', marginBottom: '14px', lineHeight: 1.1 }}>
                 {s.name}
               </h3>
-              <p style={{ fontSize: '0.87rem', color: 'rgba(220,210,200,0.65)', lineHeight: 1.85, fontWeight: 300, marginBottom: '20px' }}>
+              <p style={{ fontSize: '0.87rem', color: 'rgba(250,245,235,0.8)', lineHeight: 1.85, fontWeight: 300, marginBottom: '20px' }}>
                 {s.desc}
               </p>
               <div style={{ borderTop: '1px solid rgba(230,183,173,0.08)', paddingTop: '18px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {s.benefits.map(b => (
                   <div key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                     <span style={{ color: RG, fontSize: '9px', marginTop: '3px', flexShrink: 0 }}>✦</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.65)', lineHeight: 1.6 }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(250,245,235,0.85)', lineHeight: 1.6 }}>
                       {b}
                     </span>
                   </div>

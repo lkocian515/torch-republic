@@ -65,13 +65,13 @@ export default function WhatInsideTube() {
 
             {/* Subtitle */}
             <p className="font-heading font-light"
-              style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.62)', lineHeight: 1.7, maxWidth: '480px', textAlign: 'center', margin: '0 auto' }}>
+              style={{ fontSize: '1.05rem', color: 'rgba(250,245,235,0.8)', lineHeight: 1.7, maxWidth: '480px', textAlign: 'center', margin: '0 auto' }}>
               Instant mushroom coffee powder — no machine, no brewing, no complicated routine.
             </p>
 
             {/* Body */}
             <p className="font-heading"
-              style={{ fontSize: '0.9rem', color: 'rgba(245,239,230,0.45)', lineHeight: 1.75, maxWidth: '460px' }}>
+              style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.7)', lineHeight: 1.75, maxWidth: '460px' }}>
               Each Torch Republic blend is an instant coffee powder mix crafted with functional mushrooms and smooth coffee-forward flavor. Just scoop, mix with hot water or milk, and sip.
             </p>
 
@@ -85,7 +85,7 @@ export default function WhatInsideTube() {
             >
               <span style={{ color: '#C4A35A', fontSize: '1rem', lineHeight: 1, marginTop: '2px' }}>✕</span>
               <p className="font-mono text-[10px] leading-relaxed tracking-wide"
-                style={{ color: 'rgba(214,195,160,0.7)' }}>
+                style={{ color: 'rgba(250,245,235,0.85)' }}>
                 <span style={{ color: '#C4A35A', fontWeight: 700 }}>Not ground coffee.</span>{' '}
                 Torch Republic is an instant mushroom coffee powder mix — no grinder, coffee maker, French press, or pods required.
               </p>
@@ -161,7 +161,7 @@ export default function WhatInsideTube() {
                   {step.title}
                 </h3>
                 <p className="font-heading"
-                  style={{ fontSize: '0.85rem', color: 'rgba(245,239,230,0.48)', lineHeight: 1.7 }}>
+                  style={{ fontSize: '0.85rem', color: 'rgba(250,245,235,0.75)', lineHeight: 1.7 }}>
                   {step.desc}
                 </p>
               </div>
