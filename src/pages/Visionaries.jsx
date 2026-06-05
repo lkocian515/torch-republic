@@ -2,8 +2,10 @@ import React from 'react';
 import CollectionPageTemplate from '../components/collections/CollectionPageTemplate';
 import { Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 export default function Visionaries() {
+  useNoIndex();
   return (
     <CollectionPageTemplate
       bannerImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=85"

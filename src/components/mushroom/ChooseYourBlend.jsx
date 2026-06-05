@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const BLENDS = [
-  { need: 'Need focus?', blend: 'GlowMind Clarity', slug: 'glowmind-clarity', roast: 'Medium Roast', benefit: 'Supports clarity and deep work' },
-  { need: 'Need morning energy?', blend: 'SunCap Rise', slug: 'suncap-rise', roast: 'Light Roast', benefit: 'Bright, uplifting, and energizing' },
-  { need: 'Need calm?', blend: 'MoonCap Restore', slug: 'mooncap-restore', roast: 'Dark Roast', benefit: 'Grounding, cozy, and restorative' },
-  { need: 'Need creative flow?', blend: 'The Oracle', slug: 'the-oracle', roast: 'Medium Roast', benefit: 'Reflective, intuitive, and immersive' },
-  { need: 'Need balance?', blend: 'Mystic Bloom', slug: 'mystic-bloom', roast: 'Medium Roast', benefit: 'Soft, floral, and restorative' },
-  { need: 'Need immersive focus?', blend: 'DreamCap', slug: 'dreamcap-blend', roast: 'Medium Roast', benefit: 'Velvety, smooth, and sustained calm' },
+  { need: 'Need focus?', blend: 'GlowMind Clarity', slug: 'glowmind-clarity', roast: 'Medium Roast', benefit: 'Supports focus & mental clarity' },
+  { need: 'Need morning energy?', blend: 'SunCap Rise', slug: 'suncap-rise', roast: 'Light Roast', benefit: 'Supports bright, balanced energy' },
+  { need: 'Need calm evenings?', blend: 'MoonCap Restore', slug: 'mooncap-restore', roast: 'Dark Roast', benefit: 'Supports calm & restoration' },
+  { need: 'Need creative flow?', blend: 'The Oracle', slug: 'the-oracle', roast: 'Medium Roast', benefit: 'Supports insight & creative flow' },
+  { need: 'Need balance?', blend: 'Mystic Bloom', slug: 'mystic-bloom', roast: 'Medium Roast', benefit: 'Supports gentle balance & wellness' },
+  { need: 'Need deep rest?', blend: 'DreamCap', slug: 'dreamcap-blend', roast: 'Medium Roast', benefit: 'Supports calm focus & deep rest' },
 ];
 
 export default function ChooseYourBlend() {
@@ -28,11 +28,11 @@ export default function ChooseYourBlend() {
           </p>
           <h2 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Which Blend Is Right for You?
+            Find Your Ritual
           </h2>
           <p className="font-heading max-w-md mx-auto"
             style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Each blend is crafted for a different goal. Pick the one that fits your morning, your work, or your ritual.
+            Each blend supports a different goal — focus, energy, calm, creativity, or balance. Pick the one that fits your ritual.
           </p>
         </motion.div>
 

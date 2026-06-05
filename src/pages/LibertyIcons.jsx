@@ -5,6 +5,7 @@ import { Flame } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import TorchBoxCollectionBanner from '../components/collections/TorchBoxCollectionBanner';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80';
 
@@ -87,6 +88,7 @@ function ProductCard({ product, index }) {
 }
 
 export default function LibertyIcons() {
+  useNoIndex();
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['liberty-icons-products'],
     queryFn: () => base44.entities.Product.filter({ collection: 'liberty-icons' }, '', 20),

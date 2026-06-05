@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -47,6 +47,12 @@ const ARTICLES = [
 ];
 
 export default function Journal() {
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots'; meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#030303' }}>
 

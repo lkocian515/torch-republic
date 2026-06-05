@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Send, Loader2, Shirt } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const COLLECTIONS = [
   { value: 'liberty-icons', label: 'Liberty Icons' },
@@ -47,6 +48,7 @@ function MessageBubble({ message }) {
 }
 
 export default function OutfitBuilder() {
+  useNoIndex();
   const [conversation, setConversation] = useState(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
+import { useNoIndex } from '@/hooks/useNoIndex';
 import MugsTumblersHero from '../components/mugs-tumblers/MugsTumblersHero';
 import MugsTumblersGrid from '../components/mugs-tumblers/MugsTumblersGrid';
 
@@ -17,6 +18,7 @@ async function fetchMugsTumblers() {
 }
 
 export default function MugsTumblers() {
+  useNoIndex();
   const [activeCategory, setActiveCategory] = useState('all');
 
   const { data: allProducts = [], isLoading } = useQuery({

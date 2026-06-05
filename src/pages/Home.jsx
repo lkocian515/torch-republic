@@ -54,17 +54,29 @@ function StickyMobileCTA() {
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+      {/* 1. Hero */}
       <MushroomHero />
+      {/* 2. Trust icon strip */}
       <MushroomTrustBar />
+      {/* 3. What's Inside the Tube — product education */}
       <WhatInsideTube />
-      <FeaturedCollection />
+      {/* 4. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
+      {/* 5. Product grid */}
+      <FeaturedCollection />
+      {/* 6. How It Works */}
       <HowToUse />
+      {/* 7. Mushroom ingredient education */}
       <MushroomScience />
+      {/* 8. Why Instant */}
       <WhyInstant />
+      {/* 9. Bundle section */}
       <BundleSection />
+      {/* 10. Quality / Mission */}
       <QualityMission />
+      {/* 11. Email capture */}
       <EmailCapture />
+      {/* 12. FAQ */}
       <FAQSection />
       <StickyMobileCTA />
     </div>

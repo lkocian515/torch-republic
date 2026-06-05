@@ -2,6 +2,7 @@ import React from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const AC = '#C9A24A';
 
@@ -69,6 +70,7 @@ function ProductCard({ product, index }) {
 }
 
 export default function Bobbleheads() {
+  useNoIndex();
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['bobbleheads-collection'],
     queryFn: fetchBobbleheads,

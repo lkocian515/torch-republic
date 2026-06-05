@@ -2,8 +2,10 @@ import React from 'react';
 import CollectionPageTemplate from '../components/collections/CollectionPageTemplate';
 import { Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 export default function Patriots() {
+  useNoIndex();
   return (
     <CollectionPageTemplate
       bannerImage="https://images.unsplash.com/photo-1569025591790-f54b6a9f4c2c?w=1600&q=85"

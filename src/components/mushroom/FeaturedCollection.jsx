@@ -20,16 +20,15 @@ export default function FeaturedCollection() {
         >
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Six Blends
+            Six Blends · Instant Mushroom Coffee
           </p>
           <h2 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Choose Your Blend
+            Shop the Collection
           </h2>
           <p className="font-heading max-w-lg mx-auto"
             style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-            Each blend is crafted for a different goal — focus, energy, calm, creativity, balance, or flow. 
-            Pick the one that fits your routine.
+            Six premium instant mushroom coffee blends — each crafted to support a different part of your day, your focus, your calm, or your ritual.
           </p>
         </motion.div>
 

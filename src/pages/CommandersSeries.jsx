@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 import CollectionPageTemplate from '../components/collections/CollectionPageTemplate';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80';
 
@@ -39,6 +40,7 @@ function ProductCard({ product, index }) {
 }
 
 export default function CommandersSeries() {
+  useNoIndex();
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['commanders-series-products'],
     queryFn: () => base44.entities.Product.filter({ collection: 'commanders-series' }, '', 20),

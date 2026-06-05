@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Send, Loader2, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const QUICK_STARTS = [
   { label: '🇺🇸 American Heritage', prompt: 'I love American founding history and want products that reflect that legacy.' },
@@ -45,6 +46,7 @@ function MessageBubble({ message }) {
 }
 
 export default function StyleAdvisor() {
+  useNoIndex();
   const [conversation, setConversation] = useState(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
