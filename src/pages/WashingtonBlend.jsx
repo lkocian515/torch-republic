@@ -1,5 +1,6 @@
 import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const DATA = {
   title: 'Washington Blend — Founders Series Coffee',
@@ -28,5 +29,6 @@ const DATA = {
 };
 
 export default function WashingtonBlend() {
+  useNoIndex();
   return <FounderProductPage data={DATA} />;
 }

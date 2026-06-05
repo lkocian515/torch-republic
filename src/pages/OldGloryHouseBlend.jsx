@@ -1,5 +1,6 @@
 import React from 'react';
 import FounderProductPage from '../components/founders/FounderProductPage';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const DATA = {
   name: 'Old Glory House Blend',
@@ -35,5 +36,6 @@ const DATA = {
 };
 
 export default function OldGloryHouseBlend() {
+  useNoIndex();
   return <FounderProductPage DATA={DATA} />;
 }
