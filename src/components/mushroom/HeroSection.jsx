@@ -162,11 +162,31 @@ export default function MushroomHero() {
       ───────────────────────────────────────────────────────────────── */}
       <div className="hero-mobile" style={{ display:'none', background:'#07080F' }}>
 
+        {/* Product image — FIRST, right under the menu */}
+        <div style={{ position: 'relative', width: '100%', background: '#06070D' }}>
+          <img
+            src={HERO_IMG_MOBILE}
+            alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
+            fetchpriority="high"
+            style={{
+              width: '100%',
+              display: 'block',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+            }}
+          />
+          {/* Fade bottom edge to blend into text block */}
+          <div style={{
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: '48px', zIndex: 1, pointerEvents: 'none',
+            background: 'linear-gradient(0deg, #08090F 0%, transparent 100%)',
+          }} />
+        </div>
+
         {/* ── Text content block ── */}
         <div style={{
-          padding: '44px 24px 32px',
+          padding: '28px 24px 36px',
           textAlign: 'center',
-          background: 'linear-gradient(180deg, #06070D 0%, #08090F 100%)',
+          background: 'linear-gradient(180deg, #08090F 0%, #06070D 100%)',
         }}>
 
           {/* Eyebrow */}
@@ -175,7 +195,7 @@ export default function MushroomHero() {
             style={{
               fontFamily: 'var(--font-mono)', fontSize: '0.52rem', letterSpacing: '0.46em',
               textTransform: 'uppercase', color: 'rgba(230,183,173,0.5)',
-              marginBottom: '16px',
+              marginBottom: '14px',
             }}
           >
             Instant Mushroom Coffee
@@ -188,7 +208,7 @@ export default function MushroomHero() {
               fontFamily: 'var(--font-serif)', fontWeight: 800,
               fontSize: 'clamp(2rem, 9vw, 2.6rem)', color: '#F5EFE6',
               lineHeight: 1.1, letterSpacing: '-0.01em',
-              margin: '0 0 18px',
+              margin: '0 0 16px',
             }}
           >
             For Focus, Calm<br />
@@ -288,25 +308,6 @@ export default function MushroomHero() {
           </motion.p>
         </div>
 
-        {/* Product image — full width below all text/buttons/icons */}
-        <div style={{ position: 'relative', width: '100%', background: '#06070D' }}>
-          {/* Fade top edge to blend into text block */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, height: '40px', zIndex: 1, pointerEvents: 'none',
-            background: 'linear-gradient(180deg, #08090F 0%, transparent 100%)',
-          }} />
-          <img
-            src={HERO_IMG_MOBILE}
-            alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
-            fetchpriority="high"
-            style={{
-              width: '100%',
-              display: 'block',
-              objectFit: 'cover',
-              objectPosition: 'center top',
-            }}
-          />
-        </div>
       </div>
 
       {/* ── TRUST BAR — desktop only ── */}
