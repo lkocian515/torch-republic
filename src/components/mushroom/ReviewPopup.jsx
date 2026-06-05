@@ -13,19 +13,22 @@ export default function ReviewPopup() {
   const [hasClosed, setHasClosed] = useState(false);
 
   // Fetch reviews from database
-  const { data: reviews = [], isLoading } = useQuery({
+  const { data: allReviews = [], isLoading } = useQuery({
     queryKey: ['reviews'],
     queryFn: async () => {
       try {
-        const allReviews = await base44.entities.Review.list();
+        const reviews = await base44.entities.Review.list();
         // Filter for reviews with 4-5 stars only for the popup
-        return allReviews.filter(r => r.rating >= 4);
+        return reviews.filter(r => r.rating >= 4);
       } catch (error) {
         console.error('Error fetching reviews:', error);
         return [];
       }
     },
   });
+
+  // Use only first 15 reviews for popup
+  const reviews = allReviews.slice(0, 15);
 
   // Show popup after 3 seconds on first visit (if there are reviews)
   useEffect(() => {
