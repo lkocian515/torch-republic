@@ -1,12 +1,13 @@
 import React from 'react';
-import { Zap, Coffee, Leaf, Cpu, MapPin } from 'lucide-react';
+import { Zap, Coffee, Leaf, MapPin, ShieldCheck, Star } from 'lucide-react';
 
 const ITEMS = [
-  { icon: Cpu, label: 'Instant Powder Mix' },
-  { icon: Leaf, label: "Lion's Mane + Chaga" },
-  { icon: Coffee, label: 'Coffee-Forward Taste' },
-  { icon: Zap, label: 'No Machine Needed' },
-  { icon: MapPin, label: 'Ships from USA' },
+  { icon: Coffee, label: 'Instant Mushroom Coffee' },
+  { icon: Leaf, label: 'Smooth Coffee Taste' },
+  { icon: Zap, label: 'Functional Mushroom Blends' },
+  { icon: Star, label: 'Daily Wellness Ritual' },
+  { icon: MapPin, label: 'U.S.-Based Brand' },
+  { icon: ShieldCheck, label: '30-Day Satisfaction Guarantee' },
 ];
 
 export default function MushroomTrustBar() {

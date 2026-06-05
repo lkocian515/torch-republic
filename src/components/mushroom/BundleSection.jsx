@@ -56,16 +56,15 @@ export default function BundleSection() {
           >
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
               style={{ color: 'rgba(230,183,173,0.65)' }}>
-              The Full Ritual Set
+              Start Your Ritual
             </p>
             <h2 className="font-serif font-bold"
               style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Try the Full Ritual Set
+              Try the Torch Republic Ritual Set
             </h2>
             <p className="font-heading"
               style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-              Can't choose one? Start with the full six-blend collection and discover your daily favorite.
-              Each tube delivers 27 servings of premium instant mushroom coffee with Lion's Mane + Chaga.
+              Not sure where to start? Begin with our curated ritual set — a premium introduction to Torch Republic's instant mushroom coffee blends for focus, energy, balance, and restoration. Each tube delivers 27 servings with Lion's Mane + Chaga.
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -79,13 +78,22 @@ export default function BundleSection() {
 
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 35%, #C4A35A 75%, transparent 100%)', opacity: 0.6 }} />
 
-            <Link
-              to="/bundle"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 w-fit"
-              style={{ background: '#E6B7AD', color: '#050505', padding: '14px 32px' }}
-            >
-              Shop the 6-Tube Bundle →
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                to="/bundle"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 w-fit"
+                style={{ background: '#E6B7AD', color: '#050505', padding: '14px 32px' }}
+              >
+                Build Your Bundle →
+              </Link>
+              <Link
+                to="/shop"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75 w-fit"
+                style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', padding: '14px 28px' }}
+              >
+                Try the Collection
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -5,11 +5,13 @@ const RG = '#E6B7AD';
 
 export default function QualityMission() {
   const COMMITMENTS = [
-    'Secure Shopify checkout',
-    'Ships from the USA',
+    'Premium instant mushroom coffee powder',
+    'Lion\'s Mane + Chaga in every blend',
     '27 servings per tube',
-    'No coffee maker needed',
-    'Instant powder mix',
+    'No coffee maker, grinder, or pods needed',
+    'Ships from the U.S.',
+    '30-day satisfaction guarantee',
+    'Secure checkout on every order',
     'Customer support available',
   ];
 
@@ -44,7 +46,7 @@ export default function QualityMission() {
                 letterSpacing: '-0.02em',
               }}
             >
-              A Growing Daily Ritual
+              Why Torch Republic
             </h2>
             <p
               style={{
@@ -54,7 +56,7 @@ export default function QualityMission() {
                 fontWeight: 300,
               }}
             >
-              A growing daily ritual for focus, calm, and smooth coffee-forward energy. Premium instant mushroom coffee designed for people who take their mornings seriously.
+              A premium instant mushroom coffee brand built for people who want their daily coffee to feel more intentional. Every blend supports focus, calm, energy, or restoration — without a complicated brew routine.
             </p>
           </motion.div>
 

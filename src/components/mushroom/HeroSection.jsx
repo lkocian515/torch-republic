@@ -69,11 +69,11 @@ export default function MushroomHero() {
             <motion.h1
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily:'var(--font-serif)', fontWeight:800,
-                fontSize:'clamp(2.1rem,3.4vw,3.4rem)', color:'#F5EFE6',
+                fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
-              Instant Mushroom Coffee<br />
-              <span style={{ color: RG }}>for Focus, Calm</span><br />
+              Premium Instant Mushroom Coffee<br />
+              <span style={{ color: RG }}>for Focus, Energy</span><br />
               <span style={{ color: RG }}>&amp; Daily Ritual</span>
             </motion.h1>
 
@@ -83,7 +83,7 @@ export default function MushroomHero() {
                 fontSize:'clamp(0.88rem,1.1vw,1rem)', color:'rgba(210,195,175,0.78)',
                 lineHeight:1.75, marginBottom:'32px', maxWidth:'420px' }}
             >
-              Premium instant coffee blends with functional mushrooms — crafted for smooth coffee-forward taste and everyday wellness.
+              Smooth, functional coffee blends crafted with adaptogenic mushrooms for clarity, balance, and everyday wellness.
             </motion.p>
 
             <motion.div
@@ -105,7 +105,7 @@ export default function MushroomHero() {
                 onMouseLeave={e => e.currentTarget.style.opacity='1'}
               >
                 <ShoppingBag size={13} />
-                Shop Blends
+                Shop Mushroom Coffee
               </Link>
 
               <a
@@ -124,7 +124,7 @@ export default function MushroomHero() {
                 onMouseLeave={e => { e.currentTarget.style.background='rgba(0,0,0,0.4)'; e.currentTarget.style.borderColor='rgba(230,183,173,0.32)'; }}
               >
                 <Sparkles size={13} />
-                Find My Blend
+                Start Your Ritual
               </a>
             </motion.div>
 
@@ -211,13 +211,13 @@ export default function MushroomHero() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.07 }}
             style={{
               fontFamily: 'var(--font-serif)', fontWeight: 800,
-              fontSize: 'clamp(2rem, 9vw, 2.6rem)', color: '#F5EFE6',
+              fontSize: 'clamp(1.9rem, 9vw, 2.6rem)', color: '#F5EFE6',
               lineHeight: 1.1, letterSpacing: '-0.01em',
               margin: '0 0 16px',
             }}
           >
-            For Focus, Calm<br />
-            <span style={{ color: RG }}>&amp; Daily Ritual</span>
+            Premium Instant Mushroom Coffee<br />
+            <span style={{ color: RG }}>for Focus, Energy &amp; Daily Ritual</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -230,7 +230,7 @@ export default function MushroomHero() {
               maxWidth: '320px', margin: '0 auto 32px',
             }}
           >
-            Premium instant coffee blends with functional mushrooms — crafted for clarity, energy, balance, and everyday wellness.
+            Smooth, functional coffee blends crafted with adaptogenic mushrooms for clarity, balance, and everyday wellness.
           </motion.p>
 
           {/* CTA Buttons — side by side */}
@@ -251,7 +251,7 @@ export default function MushroomHero() {
               }}
             >
               <ShoppingBag size={13} />
-              Shop Blends
+              Shop Coffee
             </Link>
 
             <a
@@ -267,7 +267,7 @@ export default function MushroomHero() {
               }}
             >
               <Sparkles size={13} />
-              Find My Blend
+              Start Ritual
             </a>
           </motion.div>
 

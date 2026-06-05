@@ -8,10 +8,10 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Bundles', href: '/bundle' },
+  { label: 'Shop Blends', href: '/shop' },
+  { label: 'The Blends', href: '/blends' },
   { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Ingredients', href: '/blends' },
+  { label: 'Bundle', href: '/bundle' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },

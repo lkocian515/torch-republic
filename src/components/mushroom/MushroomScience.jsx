@@ -8,15 +8,15 @@ const SHROOMS = [
     name: "Lion's Mane",
     latin: 'Hericium erinaceus',
     color: '#C8B8A6',
-    benefits: ['Supports cognitive clarity', 'May stimulate NGF production', 'Associated with memory & focus', 'Used in traditional Eastern medicine for centuries'],
-    desc: "One of the most studied medicinal mushrooms in the world. Lion's Mane contains hericenones and erinacines — bioactive compounds believed to support the brain's natural growth factors.",
+    benefits: ['Supports cognitive clarity', 'Supports focus and mental energy', 'Associated with memory & daily wellness', 'Used in traditional Eastern medicine for centuries'],
+    desc: "One of the most well-known functional mushrooms in the world. Lion's Mane has been used for centuries in traditional wellness practices and is widely studied for its potential to support focus and cognitive clarity.",
   },
   {
     name: 'Chaga',
     latin: 'Inonotus obliquus',
     color: '#A89278',
     benefits: ['Rich in antioxidants', 'Supports immune resilience', 'High in beta-glucans', 'Harvested from birch trees in cold climates'],
-    desc: "Known as the 'King of Mushrooms,' Chaga has been used in Siberian folk medicine for hundreds of years. Its dense beta-glucan content makes it one of nature's most potent antioxidant sources.",
+    desc: "Known as the 'King of Mushrooms,' Chaga has been used in traditional Siberian wellness practices for hundreds of years. It is widely recognized for its rich antioxidant content and is associated with immune and overall daily wellness support.",
   },
 ];
 
@@ -37,10 +37,10 @@ export default function MushroomScience() {
             The Science
           </p>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', marginBottom: '12px' }}>
-            Why These Mushrooms
+            Why Mushroom Coffee?
           </h2>
-          <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.52)', lineHeight: 1.9, fontWeight: 300, maxWidth: '480px', margin: '0 auto' }}>
-            Not all mushrooms are equal. We chose Lion's Mane and Chaga for their centuries of traditional use and growing body of modern research.
+          <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.52)', lineHeight: 1.9, fontWeight: 300, maxWidth: '520px', margin: '0 auto' }}>
+            Lion's Mane and Chaga have been used in traditional wellness practices for centuries. Each Torch Republic blend pairs them with premium instant coffee for a smooth, functional daily ritual.
           </p>
         </motion.div>
 

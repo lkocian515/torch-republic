@@ -12,6 +12,7 @@ import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
 import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
 import WhatInsideTube from '../components/mushroom/WhatInsideTube';
+import FounderSection from '../components/mushroom/FounderSection';
 
 const RG = '#E6B7AD';
 
@@ -56,27 +57,29 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       {/* 1. Hero */}
       <MushroomHero />
-      {/* 2. Trust icon strip */}
+      {/* 2. Trust signals */}
       <MushroomTrustBar />
-      {/* 3. What's Inside the Tube — product education */}
-      <WhatInsideTube />
+      {/* 3. Start Your Ritual — bundle / best-seller offer */}
+      <BundleSection />
       {/* 4. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
-      {/* 5. Product grid */}
+      {/* 5. Featured product grid */}
       <FeaturedCollection />
-      {/* 6. How It Works */}
-      <HowToUse />
-      {/* 7. Mushroom ingredient education */}
+      {/* 6. Why mushroom coffee */}
       <MushroomScience />
-      {/* 8. Why Instant */}
+      {/* 7. Why instant / brand pillars */}
       <WhyInstant />
-      {/* 9. Quality / Trust */}
+      {/* 8. How to use */}
+      <HowToUse />
+      {/* 9. What's Inside the Tube — ingredient transparency */}
+      <WhatInsideTube />
+      {/* 10. Why Torch Republic / trust commitments */}
       <QualityMission />
-      {/* 10. Bundle section */}
-      <BundleSection />
-      {/* 11. Email capture */}
+      {/* 11. Founder story */}
+      <FounderSection />
+      {/* 12. Email capture */}
       <EmailCapture />
-      {/* 12. FAQ */}
+      {/* 13. FAQ */}
       <FAQSection />
       <StickyMobileCTA />
     </div>
