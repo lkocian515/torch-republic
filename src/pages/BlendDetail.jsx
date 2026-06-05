@@ -354,6 +354,9 @@ export default function BlendDetail() {
               {ACCORDIONS.map(a => <Accordion key={a.title} {...a} />)}
             </div>
 
+            {/* Product Reviews Carousel */}
+            <ProductReviewsCarousel productSlug={product.shopify_handle} />
+
             {/* FDA */}
             <p className="font-mono text-[8px] tracking-[0.1em] leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.18)' }}>
@@ -380,9 +383,6 @@ export default function BlendDetail() {
         {/* DreamCap Evening Ritual Section (only for DreamCap) */}
         {product.slug === 'dreamcap-blend' && <DreamCapEveningRitual />}
       </section>
-
-      {/* Product Reviews Carousel */}
-      <ProductReviewsCarousel productSlug={product.shopify_handle} />
 
       {/* Related products */}
       <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
