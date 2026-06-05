@@ -70,9 +70,11 @@ export default function Home() {
       <MushroomTrustBar />
       {/* 3. What's Inside the Tube — ingredient transparency */}
       <WhatInsideTube />
-      {/* 4. Start Your Ritual — bundle / best-seller offer */}
+      {/* 4. What People Are Saying — social proof */}
+      <HomeReviewCarousel />
+      {/* 5. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 5. Find Your Blend — interactive quiz */}
+      {/* 6. Find Your Blend — interactive quiz */}
       <BlendQuiz />
       {/* 7. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
@@ -82,9 +84,7 @@ export default function Home() {
       <IngredientsSection />
       {/* 9. Why mushroom coffee */}
       <MushroomScience />
-      {/* 10. What People Are Saying — social proof */}
-      <HomeReviewCarousel />
-      {/* 11. Why instant / brand pillars */}
+      {/* 10. Why instant / brand pillars */}
       <WhyInstant />
       {/* 12. How to use */}
       <HowToUse />
