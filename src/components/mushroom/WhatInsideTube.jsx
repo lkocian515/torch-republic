@@ -20,7 +20,7 @@ const STEPS = [
   },
 ];
 
-const POWDER_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cff560d69_generated_image.png';
+const POWDER_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e69ff11eb_aaaf5133-b284-4830-af5b-16acf2b3fc8b.png';
 
 export default function WhatInsideTube() {
   return (
