@@ -4,44 +4,48 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'Is this instant coffee or ground coffee?',
-    a: 'It\'s 100% instant coffee powder — not ground coffee, not pods. No coffee maker, grinder, French press, or brewer required. Simply scoop one serving into hot water or milk, stir for 10–15 seconds, and enjoy. It dissolves completely in under 30 seconds.',
+    q: 'What is mushroom coffee?',
+    a: 'Mushroom coffee is a blend of real coffee and functional mushroom extracts. Torch Republic uses premium instant coffee powder combined with Lion\'s Mane and Chaga — two of the most widely used functional mushrooms in traditional wellness. The result is smooth, great-tasting coffee with added daily wellness support.',
+  },
+  {
+    q: 'Is Torch Republic instant or ground coffee?',
+    a: 'It\'s 100% instant coffee powder — not ground coffee, not pods, not capsules. No coffee maker, grinder, or brewer needed. Just add hot water, stir for 10–15 seconds, and enjoy. It dissolves completely in under 30 seconds.',
   },
   {
     q: 'How do I make it?',
     a: 'Scoop one serving (approximately 2g) into your mug. Add 8–12 oz of hot water, oat milk, almond milk, or your preferred creamer. Stir for 10–15 seconds. Optionally add sweetener or ice. That\'s it — no equipment needed.',
   },
   {
-    q: 'What does it taste like?',
-    a: 'These blends are designed to taste like coffee first — smooth, clean, and roast-forward. The mushroom extracts complement the coffee flavor without tasting earthy or medicinal. Each blend has distinct notes: dark cocoa, light citrus, warm spice, or floral sweetness depending on the roast and blend.',
+    q: 'Does it taste like mushrooms?',
+    a: 'No. Torch Republic blends are designed to taste like coffee first — smooth, clean, and roast-forward. The functional mushroom extracts complement the coffee flavor without tasting earthy or medicinal. Each blend has its own character: dark cocoa, light citrus, warm spice, or floral sweetness.',
   },
   {
     q: 'Does it contain caffeine?',
-    a: 'Yes. Each serving contains approximately 50–80mg of caffeine depending on the blend and roast level — comparable to a half-to-full cup of regular coffee. The functional mushroom extracts are caffeine-free.',
+    a: 'Yes. Each serving contains approximately 50–80mg of caffeine depending on the blend — comparable to a half-to-full cup of regular coffee. The functional mushroom extracts themselves are caffeine-free.',
   },
   {
-    q: 'Which blend should I choose?',
-    a: 'GlowMind Clarity is best for focus and deep work. SunCap Rise is ideal for bright, energetic mornings. MoonCap Restore suits calm evenings and restoration. The Oracle supports creative and intuitive thinking. Mystic Bloom is made for gentle balance and daily wellness. DreamCap helps with calm, immersive focus and deep rest.',
+    q: 'Which blend should I start with?',
+    a: 'GlowMind Clarity is best for focus and deep work. SunCap Rise is ideal for bright, energetic mornings. MoonCap Restore suits calm evenings and restoration. The Oracle supports creative and intuitive thinking. Mystic Bloom is crafted for daily balance and wellness. DreamCap is designed for rest and recovery. Not sure? The 6-Blend Bundle is the perfect way to try them all.',
   },
   {
-    q: 'Where do I enter WELCOME10?',
-    a: 'Enter code WELCOME10 in the discount field at the Shopify checkout page after you click "Add to Cart." It applies 10% off your first order.',
+    q: 'What mushrooms are used?',
+    a: 'Every Torch Republic blend contains Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). Lion\'s Mane has been used in traditional wellness practices for centuries and is widely associated with focus and cognitive clarity. Chaga is rich in antioxidants and supports daily immune and overall wellness.',
   },
   {
-    q: 'How long does shipping take?',
-    a: 'We ship from the USA. Standard shipping typically takes 3–7 business days. Orders over $75 ship free. For full details on shipping times, carriers, and return eligibility, visit the Shipping Policy linked in the footer.',
+    q: 'Can I drink it every day?',
+    a: 'Yes — Torch Republic is designed to be your everyday ritual. One serving per day is the standard serving. As always, consult a healthcare professional if you are pregnant, nursing, or managing a medical condition.',
   },
   {
-    q: 'What mushrooms are included?',
-    a: 'Each blend contains Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). Lion\'s Mane is associated with supporting focus and cognitive clarity. Chaga is rich in antioxidants and supports daily wellness. Both are dual-extracted for full-spectrum bioavailability.',
+    q: 'Is this a replacement for regular coffee?',
+    a: 'It can be. Torch Republic blends are designed to stand on their own as a satisfying daily coffee — just with added functional mushroom support. Many customers replace their morning coffee entirely, while others enjoy it as a lighter afternoon option.',
   },
   {
     q: 'How many servings are in each tube?',
-    a: 'Each tube contains 27 servings (1.9 oz / 54g). At one serving per day, each tube lasts about four weeks.',
+    a: 'Each tube contains 27 servings (1.9 oz / 54g). At one serving per day, each tube lasts approximately four weeks.',
   },
   {
-    q: 'Is there a monthly subscription?',
-    a: 'Yes. Our Monthly Mushroom Coffee Subscription lets you choose 1–6 tubes per month and select the blends you want. You can adjust or cancel at any time through your Shopify account.',
+    q: 'Do you offer a satisfaction guarantee?',
+    a: 'Yes. We stand behind our blends with a 30-day satisfaction guarantee. If you\'re not happy with your order, reach out to us at admin@torchrepublic.com and we\'ll make it right. See the Return Policy in the footer for full details.',
   },
   {
     q: 'Are these products FDA approved?',
@@ -100,7 +104,7 @@ export default function FAQSection() {
             style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
           <h2 className="font-serif font-bold"
             style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Common Questions
+            Mushroom Coffee FAQ
           </h2>
         </motion.div>
 

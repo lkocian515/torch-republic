@@ -8,10 +8,10 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
-  { label: 'Shop Blends', href: '/shop' },
-  { label: 'The Blends', href: '/blends' },
-  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Blends', href: '/blends' },
   { label: 'Bundle', href: '/bundle' },
+  { label: 'About', href: '/about' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -112,7 +112,7 @@ export default function MobileHeader() {
                   boxShadow: `0 4px 16px ${RG}40`,
                 }}
               >
-                Shop All Blends
+                Shop Mushroom Coffee
               </Link>
             </div>
 

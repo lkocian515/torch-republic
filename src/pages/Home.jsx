@@ -13,6 +13,7 @@ import FAQSection from '../components/mushroom/FAQSection';
 import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
 import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 import FounderSection from '../components/mushroom/FounderSection';
+import FinalCTA from '../components/mushroom/FinalCTA';
 
 const RG = '#E6B7AD';
 
@@ -81,6 +82,8 @@ export default function Home() {
       <EmailCapture />
       {/* 13. FAQ */}
       <FAQSection />
+      {/* 14. Final CTA */}
+      <FinalCTA />
       <StickyMobileCTA />
     </div>
   );
