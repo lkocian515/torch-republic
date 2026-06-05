@@ -17,8 +17,14 @@ export default function ProductReviewsCarousel({ productSlug }) {
     queryFn: async () => {
       try {
         const reviews = await base44.entities.Review.list();
-        // Filter reviews for this product by product_handle
-        return reviews.filter(r => r.product_handle === productSlug && r.rating >= 4);
+        // Filter reviews for this product - handle different naming conventions
+        // Reviews may have handles like "mooncap-restore-instant-mushroom-coffee" or "mooncap-restore"
+        return reviews.filter(r => {
+          if (r.rating < 4) return false;
+          const reviewHandle = r.product_handle || '';
+          // Match if exact match or if review handle contains the product slug
+          return reviewHandle === productSlug || reviewHandle.includes(productSlug);
+        });
       } catch (error) {
         console.error('Error fetching reviews:', error);
         return [];
