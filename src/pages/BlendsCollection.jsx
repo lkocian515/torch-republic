@@ -2,10 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import BlendCompare from '../components/mushroom/BlendCompare';
 
 export default function BlendsCollection() {
+  useSEO({
+    title: 'Shop Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
+    description: 'Explore premium instant mushroom coffee blends for focus, energy, calm, balance, and rest. No coffee maker needed — just scoop, mix, and sip.',
+  });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"

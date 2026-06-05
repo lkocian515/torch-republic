@@ -70,10 +70,10 @@ export default function Home() {
       <MushroomScience />
       {/* 8. Why Instant */}
       <WhyInstant />
-      {/* 9. Bundle section */}
-      <BundleSection />
-      {/* 10. Quality / Mission */}
+      {/* 9. Quality / Trust */}
       <QualityMission />
+      {/* 10. Bundle section */}
+      <BundleSection />
       {/* 11. Email capture */}
       <EmailCapture />
       {/* 12. FAQ */}

@@ -49,9 +49,17 @@ export default function Footer() {
             <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Instant Mushroom Coffee · Lion's Mane + Chaga
             </p>
-            <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-6"
+            <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-4"
               style={{ color: 'rgba(240,235,225,0.3)', lineHeight: 1.8 }}>
-              Torch Republic Coffee Company creates premium instant mushroom coffee blends for focus, flow, and daily ritual.
+              Premium instant mushroom coffee blends for focus, calm, energy, and daily ritual.
+            </p>
+            <p className="font-mono text-[9px] tracking-[0.18em] mb-4"
+              style={{ color: 'rgba(230,183,173,0.45)' }}>
+              Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span> for 10% off
+            </p>
+            <p className="font-mono text-[9px] tracking-[0.15em] mb-4"
+              style={{ color: 'rgba(255,255,255,0.25)' }}>
+              🔒 Secure Shopify checkout
             </p>
             <div className="space-y-2">
               <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"

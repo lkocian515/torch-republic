@@ -1,24 +1,18 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const AC = '#C9A24A';
 
 export default function GeorgeWashingtonCoffee() {
+  useNoIndex();
   useEffect(() => {
-    document.title = "George Washington's Coffee: What America's First President Might Have Drunk | Torch Republic";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute('content', "Explore the rich history of George Washington's coffee habits and how the first president's love of bold, strong coffee inspired Torch Republic's Washington Blend.");
-    } else {
-      const newMeta = document.createElement('meta');
-      newMeta.name = 'description';
-      newMeta.content = "Explore the rich history of George Washington's coffee habits and how the first president's love of bold, strong coffee inspired Torch Republic's Washington Blend.";
-      document.head.appendChild(newMeta);
-    }
+    document.title = "George Washington's Coffee | Torch Republic";
     return () => {
-      document.title = 'Torch Republic';
+      document.title = 'Torch Republic Coffee Company | Premium Instant Mushroom Coffee';
     };
   }, []);
 
@@ -132,8 +126,8 @@ export default function GeorgeWashingtonCoffee() {
             <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.75 }}>
               Torch Republic's Washington Blend is a direct tribute to this history — dark-roasted, full-bodied, and built for people who start their mornings with conviction. Small-batch roasted, never mass-produced.
             </p>
-            <Link to="/WashingtonBlend" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-70" style={{ color: AC }}>
-              Explore the Washington Blend <ArrowRight className="w-3 h-3" />
+            <Link to="/blends" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-70" style={{ color: AC }}>
+              Explore the Blends <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
@@ -160,8 +154,8 @@ export default function GeorgeWashingtonCoffee() {
             </p>
             <p className="mt-4" style={{ lineHeight: 1.95, color: 'rgba(240,235,225,0.72)', fontSize: '1rem' }}>
               Every Founders Series blend carries a character. Washington's is boldness — uncompromising, dark, and built for the long campaign. You can explore the full{' '}
-              <Link to="/CoffeeCollection" style={{ color: AC, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-                Founders Series Coffee Collection
+              <Link to="/blends" style={{ color: AC, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                mushroom coffee collection
               </Link>{' '}
               to find the blend that matches your own conviction.
             </p>
@@ -178,7 +172,7 @@ export default function GeorgeWashingtonCoffee() {
             Related Products
           </h2>
           <Link
-            to="/WashingtonBlend"
+            to="/blends"
             className="group flex flex-col sm:flex-row gap-6 p-6 transition-all"
             style={{ background: '#0D0D0D', border: '1px solid rgba(201,162,74,0.15)', textDecoration: 'none' }}
             onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,162,74,0.5)'}
@@ -218,15 +212,15 @@ export default function GeorgeWashingtonCoffee() {
             Small-batch roasted. Bold and unapologetic. Built for the kind of morning that changes things.
           </p>
           <Link
-            to="/WashingtonBlend"
+            to="/shop"
             className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase font-black transition-opacity hover:opacity-85"
             style={{ background: AC, color: '#080808', padding: '14px 36px' }}
           >
-            Get the Washington Blend →
+            Shop Mushroom Coffee Blends →
           </Link>
           <div className="mt-5">
-            <Link to="/CoffeeCollection" className="font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60" style={{ color: 'rgba(201,162,74,0.45)' }}>
-              Or explore the full collection →
+            <Link to="/blends" className="font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60" style={{ color: 'rgba(201,162,74,0.45)' }}>
+              Or explore all six blends →
             </Link>
           </div>
         </section>

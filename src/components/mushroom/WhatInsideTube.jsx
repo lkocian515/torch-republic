@@ -27,11 +27,18 @@ export default function WhatInsideTube() {
     <section
       style={{
         backgroundColor: '#0E0E0E',
-        borderTop: '1px solid rgba(26,74,62,0.22)',
-        borderBottom: '1px solid rgba(26,74,62,0.22)',
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(11,45,42,0.4)',
+        borderBottom: '1px solid rgba(11,45,42,0.4)',
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16 md:py-24">
+      {/* Atmospheric teal-navy top glow */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: '340px', zIndex: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(11,45,42,0.28) 0%, rgba(8,16,26,0.16) 55%, transparent 100%)',
+      }} />
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16 md:py-24" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Two-column layout: text left, image right */}
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -104,7 +111,11 @@ export default function WhatInsideTube() {
               className="w-full overflow-hidden"
               style={{
                 aspectRatio: '4/3',
-                border: '1px solid rgba(230,183,173,0.1)',
+                border: '1px solid transparent',
+                backgroundImage: 'linear-gradient(#0E0E0E, #0E0E0E), linear-gradient(135deg, #0B2D2A 0%, #08101A 45%, #C4A35A 100%)',
+                backgroundOrigin: 'border-box',
+                backgroundClip: 'padding-box, border-box',
+                boxShadow: '0 0 40px rgba(11,45,42,0.25), 0 0 80px rgba(8,16,26,0.2)',
               }}
             >
               <img

@@ -5,12 +5,12 @@ const RG = '#E6B7AD';
 
 export default function QualityMission() {
   const COMMITMENTS = [
-    'No exaggerated claims',
-    'Transparent ingredients',
-    'Small-batch crafted',
-    'Honest marketing',
-    'Premium Arabica base',
-    'Made in the USA',
+    'Secure Shopify checkout',
+    'Ships from the USA',
+    '27 servings per tube',
+    'No coffee maker needed',
+    'Instant powder mix',
+    'Customer support available',
   ];
 
   return (
@@ -44,7 +44,7 @@ export default function QualityMission() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Quality You Can Trust
+              A Growing Daily Ritual
             </h2>
             <p
               style={{
@@ -54,7 +54,7 @@ export default function QualityMission() {
                 fontWeight: 300,
               }}
             >
-              Trust is earned. That's why we're committed to transparent ingredients, honest marketing, and a product we're proud to put our name on.
+              A growing daily ritual for focus, calm, and smooth coffee-forward energy. Premium instant mushroom coffee designed for people who take their mornings seriously.
             </p>
           </motion.div>
 

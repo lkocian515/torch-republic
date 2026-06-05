@@ -118,8 +118,19 @@
 }
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #1A4A3E 20%, #0B2040 55%, #C4A35A 85%, transparent 100%);
-  opacity: 0.4;
+  background: linear-gradient(90deg, transparent 0%, #0B2D2A 18%, #08101A 45%, #1A1208 70%, #C4A35A 88%, transparent 100%);
+  opacity: 0.55;
+}
+
+/* Atmospheric teal-navy glow — used as soft section halos */
+.section-glow-teal {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11,45,42,0.35) 0%, rgba(8,16,26,0.18) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Premium gradient border — used on cards/frames */
+.border-gradient-premium {
+  background: linear-gradient(135deg, rgba(11,45,42,0.6) 0%, rgba(8,16,26,0.5) 50%, rgba(196,163,90,0.2) 100%);
 }
 
 /* Shimmer animation */

@@ -2,8 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 export default function Reviews() {
+  useSEO({
+    title: 'Torch Republic Reviews | Instant Mushroom Coffee',
+    description: 'Read early customer feedback on Torch Republic instant mushroom coffee blends for smooth flavor, easy preparation, focus, calm, and daily ritual.',
+  });
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
 

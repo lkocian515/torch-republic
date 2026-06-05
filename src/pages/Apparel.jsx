@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNoIndex } from '@/hooks/useNoIndex';
+
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -76,12 +78,7 @@ const CATEGORIES = [
 ];
 
 export default function Apparel() {
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots'; meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useNoIndex();
   const [activeCategory, setActiveCategory] = useState('all');
 
   const { data: allProducts = [], isLoading } = useQuery({

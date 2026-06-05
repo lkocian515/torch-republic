@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNoIndex } from '@/hooks/useNoIndex';
 
 const ARTICLES = [
   {
@@ -47,12 +48,7 @@ const ARTICLES = [
 ];
 
 export default function Journal() {
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots'; meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useNoIndex();
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#030303' }}>
 
