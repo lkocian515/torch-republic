@@ -8,6 +8,7 @@ const RG   = '#E6B7AD';
 const PROMO_MESSAGES = [
   'One-time: 10% off code WELCOME10',
   'Get 20% off subscriptions — Code SUBSCRIBE20',
+  'FREE SHIPPING on orders over $75',
 ];
 
 const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
