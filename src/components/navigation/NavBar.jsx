@@ -27,10 +27,11 @@ export default function NavBar() {
       <nav
         style={{
           height: '48px',
-          backgroundColor: '#000000',
+          backgroundColor: '#0E0E0E',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           borderBottom: '1px solid rgba(230,183,173,0.1)',
+          borderTop: '1px solid rgba(26,74,62,0.2)',
           transition: 'background-color 0.3s ease, border-color 0.3s ease',
           position: 'relative',
           zIndex: 50,

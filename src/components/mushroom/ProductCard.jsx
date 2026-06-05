@@ -34,7 +34,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.07, duration: 0.55 }}
       className="flex flex-col h-full"
       style={{
-        background: '#1C1C1C',
+        background: '#202020',
         border: '1px solid rgba(230,183,173,0.12)',
         transition: 'border-color 0.3s, box-shadow 0.3s',
       }}
@@ -118,6 +118,11 @@ export default function MushroomProductCard({ product, index = 0 }) {
             Details →
           </Link>
         </div>
+        {/* WELCOME10 nudge */}
+        <p className="font-mono text-[7px] tracking-[0.18em] uppercase mt-1.5"
+          style={{ color: 'rgba(196,163,90,0.5)' }}>
+          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME10</span> for 10% off
+        </p>
       </div>
 
       {/* Add to Cart */}

@@ -11,7 +11,8 @@ export default function EmailCapture() {
   };
 
   return (
-    <section className="px-5 py-14 md:py-20" style={{ background: '#0A0909', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+    <section className="px-5 py-14 md:py-20" style={{ background: '#1A1A1A', position: 'relative' }}>
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[520px] mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -24,7 +25,7 @@ export default function EmailCapture() {
             The Ritual List
           </p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Join the Ritual List
           </h2>
           <p className="font-heading"

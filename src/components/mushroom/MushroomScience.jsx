@@ -22,7 +22,8 @@ const SHROOMS = [
 
 export default function MushroomScience() {
   return (
-    <section style={{ background: '#040404', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+    <section style={{ background: '#131313', position: 'relative' }}>
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1100px] mx-auto px-5 md:px-10 py-14 md:py-20">
 
         <motion.div
@@ -35,10 +36,10 @@ export default function MushroomScience() {
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.6em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.5)', marginBottom: '12px' }}>
             The Science
           </p>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#fff', letterSpacing: '-0.02em', marginBottom: '12px' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Why These Mushrooms
           </h2>
-          <p style={{ fontSize: '0.88rem', color: 'rgba(240,235,225,0.42)', lineHeight: 1.85, fontWeight: 300, maxWidth: '480px', margin: '0 auto' }}>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.52)', lineHeight: 1.9, fontWeight: 300, maxWidth: '480px', margin: '0 auto' }}>
             Not all mushrooms are equal. We chose Lion's Mane and Chaga for their centuries of traditional use and growing body of modern research.
           </p>
         </motion.div>
@@ -52,18 +53,18 @@ export default function MushroomScience() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.55 }}
               style={{
-                background: '#0C0B0B',
-                border: '1px solid rgba(230,183,173,0.1)',
+                background: '#1C1C1C',
+                border: '1px solid rgba(230,183,173,0.12)',
                 padding: '32px',
               }}
             >
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7px', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.4)', marginBottom: '8px' }}>
                 {s.latin}
               </p>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#fff', marginBottom: '14px', lineHeight: 1.1 }}>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', marginBottom: '14px', lineHeight: 1.1 }}>
                 {s.name}
               </h3>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(220,210,200,0.6)', lineHeight: 1.8, fontWeight: 300, marginBottom: '20px' }}>
+              <p style={{ fontSize: '0.87rem', color: 'rgba(220,210,200,0.65)', lineHeight: 1.85, fontWeight: 300, marginBottom: '20px' }}>
                 {s.desc}
               </p>
               <div style={{ borderTop: '1px solid rgba(230,183,173,0.08)', paddingTop: '18px', display: 'flex', flexDirection: 'column', gap: '8px' }}>

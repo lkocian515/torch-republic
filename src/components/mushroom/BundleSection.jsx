@@ -5,7 +5,8 @@ import { HERO_IMAGE } from '@/lib/mushroomProducts';
 
 export default function BundleSection() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#070707' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#131313', position: 'relative' }}>
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1100px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Image */}
@@ -48,7 +49,7 @@ export default function BundleSection() {
               The Full Ritual Set
             </p>
             <h2 className="font-serif font-bold"
-              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Try the Full Ritual Set
             </h2>
             <p className="font-heading"

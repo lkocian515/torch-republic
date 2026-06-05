@@ -57,10 +57,10 @@ export default function Home() {
       <MushroomTrustBar />
       <FeaturedCollection />
       <ChooseYourBlend />
-      <WhyInstant />
-      <MushroomScience />
-      <BundleSection />
       <HowToUse />
+      <MushroomScience />
+      <WhyInstant />
+      <BundleSection />
       <QualityMission />
       <EmailCapture />
       <FAQSection />

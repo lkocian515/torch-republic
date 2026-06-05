@@ -25,12 +25,12 @@ export default function MobileHeader() {
       {/* Mobile announcement bar */}
       <div
         className="md:hidden w-full flex items-center justify-center px-4"
-        style={{ height: '26px', backgroundColor: '#000', borderBottom: '1px solid rgba(230,183,173,0.07)' }}
+        style={{ height: '26px', background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 55%, #1A1208 100%)', borderBottom: '1px solid rgba(196,163,90,0.15)' }}
       >
         <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
-          style={{ fontSize: '7px', letterSpacing: '0.35em', color: 'rgba(230,183,173,0.5)', textTransform: 'uppercase' }}>
+          style={{ fontSize: '7px', letterSpacing: '0.35em', color: 'rgba(214,195,160,0.7)', textTransform: 'uppercase' }}>
           Use code{' '}
-          <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+          <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME10</span>
           {' '}for 10% off your first order
         </p>
       </div>
@@ -40,7 +40,7 @@ export default function MobileHeader() {
         className="md:hidden sticky top-0 z-50"
         style={{
           height: '52px',
-          backgroundColor: '#000000',
+          backgroundColor: '#0E0E0E',
           borderBottom: `1px solid ${RG_DEEP}29`,
           top: 'env(safe-area-inset-top)',
           backdropFilter: 'blur(20px)',
@@ -86,7 +86,7 @@ export default function MobileHeader() {
             className="fixed inset-0 md:hidden flex flex-col"
             style={{
               zIndex: 200,
-              background: 'linear-gradient(180deg, #08070A 0%, #040407 100%)',
+              background: 'linear-gradient(180deg, #0E0E0E 0%, #111111 100%)',
             }}
           >
             {/* Header */}

@@ -103,7 +103,7 @@ export default function FAQSection() {
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Common Questions
           </h2>
         </motion.div>

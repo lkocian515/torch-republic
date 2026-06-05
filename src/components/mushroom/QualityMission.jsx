@@ -17,10 +17,11 @@ export default function QualityMission() {
     <section
       style={{
         padding: 'clamp(56px, 7vw, 80px) clamp(20px, 5vw, 40px)',
-        background: '#080808',
-        borderTop: '1px solid rgba(230,183,173,0.06)',
+        background: '#161616',
+        position: 'relative',
       }}
     >
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div style={{ maxWidth: '860px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'center' }}>
           <motion.div
@@ -37,7 +38,7 @@ export default function QualityMission() {
                 fontFamily: 'var(--font-serif)',
                 fontWeight: 700,
                 fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)',
-                color: '#FFFFFF',
+                color: '#F5EFE6',
                 lineHeight: 1.15,
                 marginBottom: '16px',
                 letterSpacing: '-0.02em',

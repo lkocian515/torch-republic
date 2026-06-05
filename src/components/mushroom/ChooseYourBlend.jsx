@@ -47,8 +47,10 @@ export default function ChooseYourBlend() {
             >
               <Link
                 to={`/products/${slug}`}
-                className="flex items-start gap-4 px-5 py-4 transition-all hover:opacity-80 block"
-                style={{ background: '#222222', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none' }}
+                className="flex items-start gap-4 px-5 py-4 block"
+                style={{ background: '#202020', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none', transition: 'border-color 0.25s, box-shadow 0.25s' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(26,74,62,0.6)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(11,45,42,0.35)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
               >
                 <div className="flex-1 min-w-0">
                   <p className="font-mono text-[8px] tracking-[0.28em] uppercase mb-1"

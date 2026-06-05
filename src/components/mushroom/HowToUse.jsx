@@ -39,13 +39,13 @@ export default function HowToUse() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center gap-3 p-7"
-              style={{ background: '#111010', border: '1px solid rgba(230,183,173,0.08)' }}
+              style={{ background: '#1E1E1E', border: '1px solid rgba(230,183,173,0.11)' }}
             >
               <span className="font-mono font-black" style={{ fontSize: '0.7rem', color: 'rgba(230,183,173,0.22)', letterSpacing: '0.1em' }}>
                 {step.num}
               </span>
-              <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.2rem' }}>{step.label}</h3>
-              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.75, fontWeight: 300 }}>
+              <h3 className="font-serif font-bold" style={{ fontSize: '1.2rem', color: '#F5EFE6' }}>{step.label}</h3>
+              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.58)', lineHeight: 1.8, fontWeight: 300 }}>
                 {step.desc}
               </p>
             </motion.div>
