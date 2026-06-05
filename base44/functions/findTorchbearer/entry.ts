@@ -1,21 +1,57 @@
 Deno.serve(async (req) => {
-  const ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
+  const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
   const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
-  console.log('Admin token preview:', ADMIN_TOKEN?.slice(0, 10));
+  const query = `{
+    products(first: 250) {
+      edges {
+        node {
+          id
+          title
+          handle
+          variants(first: 5) {
+            edges {
+              node {
+                id
+                title
+                sku
+                price { amount }
+                availableForSale
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
 
-  const res = await fetch(`https://${SHOP_DOMAIN}/admin/api/2023-10/products.json?limit=10&status=any`, {
+  const res = await fetch(`https://${SHOP_DOMAIN}/api/2023-10/graphql.json`, {
+    method: 'POST',
     headers: {
-      'X-Shopify-Access-Token': ADMIN_TOKEN,
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
     },
+    body: JSON.stringify({ query }),
   });
 
-  console.log('Status:', res.status);
-  const text = await res.text();
-  console.log('Response preview:', text.slice(0, 500));
+  const data = await res.json();
+  const products = data?.data?.products?.edges?.map(e => e.node) || [];
 
-  let data;
-  try { data = JSON.parse(text); } catch(e) { data = { parseError: e.message, raw: text.slice(0, 200) }; }
+  // Find torchbearer
+  const torchbearer = products.filter(p =>
+    p.title?.toLowerCase().includes('torchbearer') ||
+    p.variants?.edges?.some(v => v.node.sku === 'COF-GND-54G-INT-TUB')
+  ).map(p => ({
+    title: p.title,
+    handle: p.handle,
+    variants: p.variants.edges.map(v => ({
+      numericId: v.node.id.replace('gid://shopify/ProductVariant/', ''),
+      title: v.node.title,
+      sku: v.node.sku,
+      price: v.node.price?.amount,
+      availableForSale: v.node.availableForSale,
+    }))
+  }));
 
-  return Response.json({ status: res.status, data });
+  return Response.json({ totalProducts: products.length, torchbearer });
 });
