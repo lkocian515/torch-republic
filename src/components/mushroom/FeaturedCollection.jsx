@@ -6,9 +6,14 @@ import MushroomProductCard from './ProductCard';
 
 export default function FeaturedCollection() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414', position: 'relative' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414', position: 'relative', overflow: 'hidden' }}>
       {/* Gradient divider top rule */}
       <div className="divider-gradient absolute top-0 left-0 right-0" />
+      {/* Subtle teal atmospheric halo */}
+      <div style={{
+        position: 'absolute', top: 0, left: '15%', right: '15%', height: '200px', zIndex: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(11,45,42,0.16) 0%, transparent 100%)',
+      }} />
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <motion.div
@@ -17,6 +22,7 @@ export default function FeaturedCollection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
+          style={{ position: 'relative', zIndex: 1 }}
         >
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}>
@@ -43,8 +49,10 @@ export default function FeaturedCollection() {
             { need: 'Immersive focus', blend: 'DreamCap', slug: 'dreamcap-blend' },
           ].map(({ need, blend, slug }) => (
             <Link key={slug} to={`/products/${slug}`}
-              className="flex flex-col gap-1 px-4 py-3 transition-all hover:opacity-80"
-              style={{ background: '#1E1E1E', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none' }}>
+              className="flex flex-col gap-1 px-4 py-3"
+              style={{ background: '#1E1E1E', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none', transition: 'border-color 0.25s, box-shadow 0.25s, background 0.25s' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(11,45,42,0.65)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(11,45,42,0.35)'; e.currentTarget.style.background = 'linear-gradient(135deg, rgba(11,45,42,0.14) 0%, #1E1E1E 100%)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.background = '#1E1E1E'; }}>
               <span className="font-mono text-[7.5px] tracking-[0.22em] uppercase" style={{ color: 'rgba(230,183,173,0.45)' }}>Need {need}?</span>
               <span className="font-heading font-medium text-sm" style={{ color: '#F0EBE1' }}>→ {blend}</span>
             </Link>

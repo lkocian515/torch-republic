@@ -33,8 +33,13 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#0D0F0E', borderTop: '3px solid transparent', backgroundImage: 'linear-gradient(#0D0F0E, #0D0F0E), linear-gradient(90deg, #0B2D2A, #08101A 50%, #2A1F0A)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
-      <div className="max-w-[1280px] mx-auto px-5 md:px-10 pt-14 pb-10">
+    <footer style={{ background: '#0D0F0E', position: 'relative', borderTop: '3px solid transparent', backgroundImage: 'linear-gradient(#0D0F0E, #0D0F0E), linear-gradient(90deg, #0B2D2A 0%, #08101A 45%, #1A1208 75%, #C4A35A 100%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box', overflow: 'hidden' }}>
+      {/* Atmospheric footer glow — teal-navy behind logo area */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: '220px', zIndex: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(11,45,42,0.18) 0%, rgba(8,16,26,0.1) 60%, transparent 100%)',
+      }} />
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 pt-14 pb-10" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Top */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 mb-10">

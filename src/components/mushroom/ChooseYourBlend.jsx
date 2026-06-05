@@ -13,9 +13,14 @@ const BLENDS = [
 
 export default function ChooseYourBlend() {
   return (
-    <section id="find-your-ritual" className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#1A1A1A', position: 'relative' }}>
+    <section id="find-your-ritual" className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#1A1A1A', position: 'relative', overflow: 'hidden' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
-      <div className="max-w-[900px] mx-auto">
+      {/* Atmospheric teal-navy halo behind the section heading */}
+      <div style={{
+        position: 'absolute', top: 0, left: '10%', right: '10%', height: '280px', zIndex: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 75% 60% at 50% 0%, rgba(11,45,42,0.22) 0%, rgba(8,16,26,0.12) 60%, transparent 100%)',
+      }} />
+      <div className="max-w-[900px] mx-auto" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +53,9 @@ export default function ChooseYourBlend() {
               <Link
                 to={`/products/${slug}`}
                 className="flex items-start gap-4 px-5 py-4 block"
-                style={{ background: '#202020', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none', transition: 'border-color 0.25s, box-shadow 0.25s' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(26,74,62,0.6)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(11,45,42,0.35)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
+                style={{ background: '#202020', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none', transition: 'border-color 0.3s, box-shadow 0.3s, background 0.3s' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(11,45,42,0.7)'; e.currentTarget.style.boxShadow = '0 4px 28px rgba(11,45,42,0.4), inset 0 0 0 1px rgba(196,163,90,0.08)'; e.currentTarget.style.background = 'linear-gradient(135deg, rgba(11,45,42,0.18) 0%, #202020 100%)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.background = '#202020'; }}
               >
                 <div className="flex-1 min-w-0">
                   <p className="font-mono text-[8px] tracking-[0.28em] uppercase mb-1"

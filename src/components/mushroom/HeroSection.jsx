@@ -38,10 +38,15 @@ export default function MushroomHero() {
         overflow: 'hidden',
         alignItems: 'stretch',
       }}>
-        {/* Subtle ambient glow behind image */}
+        {/* Atmospheric teal-navy-champagne ambient glow */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(30,80,180,0.10) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 55% 90% at 75% 50%, rgba(11,45,42,0.22) 0%, rgba(8,16,26,0.18) 45%, transparent 75%)',
+        }} />
+        {/* Warm champagne glow — top right */}
+        <div style={{
+          position: 'absolute', top: '-20%', right: 0, width: '40%', height: '60%', zIndex: 0, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse 70% 60% at 80% 20%, rgba(196,163,90,0.07) 0%, transparent 70%)',
         }} />
 
         {/* Left text column */}

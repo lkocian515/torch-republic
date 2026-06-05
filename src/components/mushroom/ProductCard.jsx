@@ -39,12 +39,14 @@ export default function MushroomProductCard({ product, index = 0 }) {
         transition: 'border-color 0.3s, box-shadow 0.3s',
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = 'rgba(26,74,62,0.7)';
-        e.currentTarget.style.boxShadow = '0 4px 32px rgba(11,45,42,0.45), 0 0 0 1px rgba(196,163,90,0.12)';
+        e.currentTarget.style.borderColor = 'rgba(11,45,42,0.8)';
+        e.currentTarget.style.boxShadow = '0 8px 40px rgba(11,45,42,0.5), 0 0 0 1px rgba(196,163,90,0.15), inset 0 1px 0 rgba(196,163,90,0.06)';
+        e.currentTarget.style.background = 'linear-gradient(160deg, rgba(11,45,42,0.12) 0%, #202020 40%)';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = 'rgba(230,183,173,0.12)';
         e.currentTarget.style.boxShadow = 'none';
+        e.currentTarget.style.background = '#202020';
       }}
     >
       {/* Clickable image area */}
