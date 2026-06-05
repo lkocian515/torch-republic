@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles } from 'lucide-react';
 
 const RG   = '#E6B7AD';
-const GOLD = '#C4A35A';
 
 export default function FinalCTA() {
   return (
@@ -50,7 +49,7 @@ export default function FinalCTA() {
           <Link
             to="/shop"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.32em] uppercase font-bold transition-all hover:opacity-90"
-            style={{ background: GOLD, color: '#050505', padding: '15px 36px' }}
+            style={{ background: RG, color: '#050505', padding: '15px 36px' }}
           >
             <ShoppingBag size={13} />
             Shop Mushroom Coffee

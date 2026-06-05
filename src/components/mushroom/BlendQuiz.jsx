@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
 
 const QUESTIONS = [
   {
@@ -158,7 +157,7 @@ export default function BlendQuiz() {
             className="bg-[#141414] border rounded-lg p-8 text-center"
             style={{ borderColor: `${RG}30` }}
           >
-            <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: GOLD }} />
+            <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: RG }} />
             
             <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: `${RG}60` }}>
               Your Perfect Blend

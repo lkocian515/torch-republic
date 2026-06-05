@@ -105,7 +105,7 @@
   background: linear-gradient(135deg, #070F1E 0%, #0B3D35 45%, #0D4A3A 100%);
 }
 .gradient-brand-border {
-  background: linear-gradient(90deg, transparent 0%, #0B3D35 20%, #C4A35A 60%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #0B3D35 20%, #E6B7AD 60%, transparent 100%);
 }
 
 /* Metallic rose gold gradient */
@@ -119,7 +119,7 @@
 }
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #0B2D2A 18%, #08101A 45%, #1A1208 70%, #C4A35A 88%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #0B2D2A 18%, #08101A 45%, #1A1208 70%, #E6B7AD 88%, transparent 100%);
   opacity: 0.55;
 }
 
@@ -131,7 +131,7 @@
 
 /* Premium gradient border — used on cards/frames */
 .border-gradient-premium {
-  background: linear-gradient(135deg, rgba(11,45,42,0.6) 0%, rgba(8,16,26,0.5) 50%, rgba(196,163,90,0.2) 100%);
+  background: linear-gradient(135deg, rgba(11,45,42,0.6) 0%, rgba(8,16,26,0.5) 50%, rgba(230,183,173,0.2) 100%);
 }
 
 /* Shimmer animation */
@@ -202,7 +202,7 @@
 
 /* Selection */
 ::selection {
-  background: hsl(49 100% 50% / 0.3);
+  background: hsl(7 52% 79% / 0.3);
   color: hsl(0 0% 95%);
 }
 

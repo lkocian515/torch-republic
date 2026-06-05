@@ -12,10 +12,10 @@ export default function BundleSection() {
         position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
         background: 'radial-gradient(ellipse 90% 70% at 50% 50%, rgba(11,45,42,0.2) 0%, rgba(8,16,26,0.14) 50%, transparent 100%)',
       }} />
-      {/* Champagne warm glow from right */}
+      {/* Warm rose-gold glow from right */}
       <div style={{
         position: 'absolute', top: '-10%', right: '-5%', width: '50%', height: '120%', zIndex: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,163,90,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(230,183,173,0.06) 0%, transparent 70%)',
       }} />
       <div className="max-w-[1100px] mx-auto" style={{ position: 'relative', zIndex: 1 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -77,7 +77,7 @@ export default function BundleSection() {
               ))}
             </div>
 
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 35%, #C4A35A 75%, transparent 100%)', opacity: 0.6 }} />
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 35%, #E6B7AD 75%, transparent 100%)', opacity: 0.6 }} />
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link

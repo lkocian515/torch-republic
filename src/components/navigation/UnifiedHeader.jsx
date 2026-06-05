@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const RG = '#E6B7AD';
-const GOLD = '#D6B87A';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
@@ -29,11 +28,11 @@ export default function UnifiedHeader() {
         style={{ background: '#050505', borderBottom: `1px solid ${RG}20`, willChange: 'transform' }}
       >
         <div className="flex items-center gap-2 max-w-4xl">
-          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GOLD }} />
+          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RG }} />
           <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-center"
             style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase', lineHeight: 1.4 }}>
             Start your ritual with 10% off —{' '}
-            <span style={{ color: GOLD, fontWeight: 700 }}>code WELCOME10</span>
+            <span style={{ color: RG, fontWeight: 700 }}>code WELCOME10</span>
           </p>
         </div>
       </div>

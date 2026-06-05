@@ -21,6 +21,7 @@ const STEPS = [
 ];
 
 const POWDER_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e69ff11eb_aaaf5133-b284-4830-af5b-16acf2b3fc8b.png';
+const RG = '#E6B7AD';
 
 export default function WhatInsideTube() {
   return (
@@ -53,7 +54,7 @@ export default function WhatInsideTube() {
           >
             {/* Label */}
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase"
-              style={{ color: '#C4A35A', textAlign: 'center' }}>
+              style={{ color: RG, textAlign: 'center' }}>
               Product Education
             </p>
 
@@ -79,23 +80,23 @@ export default function WhatInsideTube() {
             <div
               className="flex gap-3 items-start py-3 px-4"
               style={{
-                background: 'rgba(196,163,90,0.07)',
-                border: '1px solid rgba(196,163,90,0.18)',
+                background: 'rgba(230,183,173,0.07)',
+                border: '1px solid rgba(230,183,173,0.18)',
               }}
             >
-              <span style={{ color: '#C4A35A', fontSize: '1rem', lineHeight: 1, marginTop: '2px' }}>✕</span>
+              <span style={{ color: RG, fontSize: '1rem', lineHeight: 1, marginTop: '2px' }}>✕</span>
               <p className="font-mono text-[10px] leading-relaxed tracking-wide"
                 style={{ color: 'rgba(250,245,235,0.85)' }}>
-                <span style={{ color: '#C4A35A', fontWeight: 700 }}>Not ground coffee.</span>{' '}
+                <span style={{ color: RG, fontWeight: 700 }}>Not ground coffee.</span>{' '}
                 Torch Republic is an instant mushroom coffee powder mix — no grinder, coffee maker, French press, or pods required.
               </p>
             </div>
 
             {/* WELCOME10 */}
             <p className="font-mono text-[8.5px] tracking-[0.28em] uppercase"
-              style={{ color: 'rgba(196,163,90,0.5)' }}>
+              style={{ color: 'rgba(230,183,173,0.5)' }}>
               Start your ritual with 10% off —{' '}
-              <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME10</span>
+              <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
             </p>
           </motion.div>
 
@@ -112,7 +113,7 @@ export default function WhatInsideTube() {
               style={{
                 aspectRatio: '4/3',
                 border: '1px solid transparent',
-                backgroundImage: 'linear-gradient(#0E0E0E, #0E0E0E), linear-gradient(135deg, #0B2D2A 0%, #08101A 45%, #C4A35A 100%)',
+                backgroundImage: 'linear-gradient(#0E0E0E, #0E0E0E), linear-gradient(135deg, rgba(11,45,42,0.6) 0%, rgba(8,16,26,0.5) 45%, rgba(230,183,173,0.4) 100%)',
                 backgroundOrigin: 'border-box',
                 backgroundClip: 'padding-box, border-box',
                 boxShadow: '0 0 40px rgba(11,45,42,0.25), 0 0 80px rgba(8,16,26,0.2)',
@@ -140,7 +141,7 @@ export default function WhatInsideTube() {
           <div className="divider-gradient mb-10" />
 
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-8"
-            style={{ color: '#C4A35A' }}>
+            style={{ color: RG }}>
             How to Make It
           </p>
 
@@ -174,7 +175,7 @@ export default function WhatInsideTube() {
               to="/shop"
               className="font-mono text-[9px] tracking-[0.32em] uppercase transition-all hover:opacity-80"
               style={{
-                background: '#E6B7AD',
+                background: RG,
                 color: '#080808',
                 fontWeight: 800,
                 padding: '12px 28px',

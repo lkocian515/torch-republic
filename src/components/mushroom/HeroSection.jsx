@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles, Coffee, Leaf, Zap, X } from 'lucide-react';
 
 const RG   = '#E6B7AD';
-const GOLD = '#C4A35A';
 
 const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
 const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/663b2eb3c_bjkgkugk.png';
@@ -94,11 +93,11 @@ export default function MushroomHero() {
                 to="/shop"
                 style={{
                   display:'inline-flex', alignItems:'center', gap:'8px',
-                  background: GOLD, color:'#040404',
+                  background: RG, color:'#040404',
                   fontFamily:'var(--font-mono)', fontSize:'0.62rem', letterSpacing:'0.22em',
                   textTransform:'uppercase', fontWeight:800,
                   padding:'14px 28px', textDecoration:'none',
-                  border:`1px solid ${GOLD}`, transition:'opacity 0.2s',
+                  border:`1px solid ${RG}`, transition:'opacity 0.2s',
                   whiteSpace:'nowrap',
                 }}
                 onMouseEnter={e => e.currentTarget.style.opacity='0.82'}
@@ -247,11 +246,11 @@ export default function MushroomHero() {
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
                 flex: '1', maxWidth: '160px',
-                background: GOLD, color: '#040404',
+                background: RG, color: '#040404',
                 fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em',
                 textTransform: 'uppercase', fontWeight: 800,
                 padding: '15px 12px', textDecoration: 'none',
-                border: `1px solid ${GOLD}`,
+                border: `1px solid ${RG}`,
               }}
             >
               <ShoppingBag size={13} />
@@ -292,7 +291,7 @@ export default function MushroomHero() {
                 borderRight: i % 2 === 0 ? '1px solid rgba(230,183,173,0.1)' : 'none',
                 borderBottom: i < 2 ? '1px solid rgba(230,183,173,0.1)' : 'none',
               }}>
-                <item.icon size={18} style={{ color: GOLD }} />
+                <item.icon size={18} style={{ color: RG }} />
                 <span style={{
                   fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.15em',
                   textTransform: 'uppercase', color: 'rgba(240,235,225,0.55)',

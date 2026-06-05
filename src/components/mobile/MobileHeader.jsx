@@ -25,12 +25,12 @@ export default function MobileHeader() {
       {/* Mobile announcement bar */}
       <div
         className="md:hidden w-full flex items-center justify-center px-4"
-        style={{ height: '28px', background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 55%, #1A1208 100%)', borderBottom: '1px solid rgba(196,163,90,0.15)' }}
+        style={{ height: '28px', background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 55%, #1A1208 100%)', borderBottom: '1px solid rgba(230,183,173,0.15)' }}
       >
         <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
-          style={{ fontSize: '8px', letterSpacing: '0.4em', color: 'rgba(214,195,160,0.8)', textTransform: 'uppercase' }}>
+          style={{ fontSize: '8px', letterSpacing: '0.4em', color: 'rgba(230,183,173,0.8)', textTransform: 'uppercase' }}>
           Use code{' '}
-          <span style={{ color: '#D6B87A', fontWeight: 700 }}>WELCOME10</span>
+          <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
           {' '}for 10% off · Free Shipping $75+
         </p>
       </div>
