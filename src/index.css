@@ -10,12 +10,12 @@
     --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* True black luxury background */
-    --background: 0 0% 0%;
-    --foreground: 43 45% 86%; /* light gold/cream #E8DFAF */
+    /* Soft dark charcoal background */
+    --background: 0 0% 7%; /* #111111 */
+    --foreground: 36 33% 90%; /* warm ivory/cream */
 
-    --card: 0 0% 4%;
-    --card-foreground: 43 45% 86%;
+    --card: 0 0% 9%;
+    --card-foreground: 36 33% 90%;
 
     --popover: 0 0% 4%;
     --popover-foreground: 43 45% 86%;
@@ -59,11 +59,11 @@
   }
 
   .dark {
-    --background: 0 0% 2%;
-    --foreground: 30 30% 92%;
+    --background: 0 0% 7%;
+    --foreground: 36 33% 90%;
 
-    --card: 0 0% 4%;
-    --card-foreground: 30 30% 92%;
+    --card: 0 0% 9%;
+    --card-foreground: 36 33% 90%;
 
     --popover: 0 0% 4%;
     --popover-foreground: 30 30% 92%;

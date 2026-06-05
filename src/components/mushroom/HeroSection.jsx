@@ -27,7 +27,7 @@ function MobileHero() {
       style={{
         display: 'none',
         width: '100%',
-        backgroundColor: '#06050A',
+        backgroundColor: '#111111',
         margin: 0,
         padding: 0,
         overflow: 'hidden',
@@ -80,7 +80,7 @@ function MobileHero() {
       {/* CTA buttons */}
       <div style={{
         display: 'flex', flexDirection: 'column', gap: '10px',
-        padding: '0 18px 28px', background: '#06050A', alignItems: 'center',
+        padding: '0 18px 28px', background: '#111111', alignItems: 'center',
       }}>
         <Link
           to="/shop"
@@ -212,7 +212,7 @@ function DesktopHero() {
       <div style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         textAlign: 'center', padding: '32px 32px 48px',
-        background: '#06050A',
+        background: '#111111',
       }}>
         {/* Subtitle */}
         <motion.p

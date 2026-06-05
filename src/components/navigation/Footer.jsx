@@ -41,12 +41,11 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase font-bold mb-4" style={{ color: '#E6B7AD' }}>
-              Torch Republic
-            </p>
-            <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem', lineHeight: 1.3 }}>
-              Torch Republic Coffee Company
-            </p>
+            <img
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
+              alt="Torch Republic Coffee Company"
+              style={{ height: '80px', width: 'auto', marginBottom: '16px', opacity: 0.9 }}
+            />
             <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Instant Mushroom Coffee · Lion's Mane + Chaga
             </p>
@@ -120,7 +119,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7acbb9e85_ChatGPTImageMay31202606_49_02AM.png"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
             alt="Torch Republic Coffee Company"
             className="h-10 w-auto opacity-55"
           />
