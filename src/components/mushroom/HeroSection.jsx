@@ -132,8 +132,9 @@ export default function MushroomHero() {
               style={{ fontFamily:'var(--font-mono)', fontSize:'0.55rem', letterSpacing:'0.18em',
                 textTransform:'uppercase', color:'rgba(230,183,173,0.38)' }}
             >
-              Start your ritual with 10% off — code{' '}
+              One-time: 10% off code{' '}
               <span style={{ color: RG, fontWeight:700 }}>WELCOME10</span>
+              {' '}| Subscription: 20% OFF
             </motion.p>
           </div>
         </div>
@@ -311,8 +312,9 @@ export default function MushroomHero() {
               textTransform: 'uppercase', color: 'rgba(230,183,173,0.36)',
             }}
           >
-            Start your ritual with 10% off — code{' '}
+            One-time: 10% off code{' '}
             <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
+            {' '}| Subscription: 20% OFF
           </motion.p>
         </div>
 

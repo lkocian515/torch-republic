@@ -59,7 +59,22 @@ export function getFullBundleUrl() {
 
 // ── Build subscription checkout from blend selection ─────────────────────────
 // blendQty: { [slug]: qty } map from the subscription builder
-export function getSubscriptionCheckoutUrl(blendQty) {
+// This now calls the backend function to apply 20% subscription discount
+export async function getSubscriptionCheckoutUrl(blendQty) {
+  try {
+    const response = await fetch('https://69afc77e4c80e5e88ca6e3ec.base44.app/functions/createSubscriptionCheckout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ blendQty }),
+    });
+    const data = await response.json();
+    if (data.checkoutUrl) {
+      return data.checkoutUrl;
+    }
+  } catch (error) {
+    console.error('Subscription checkout failed, falling back to standard cart:', error);
+  }
+  // Fallback to standard bundle URL if backend fails
   const items = Object.entries(blendQty)
     .filter(([, qty]) => qty > 0)
     .map(([slug, qty]) => ({ slug, qty }));

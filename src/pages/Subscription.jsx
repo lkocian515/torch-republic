@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Plus, Minus, ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Minus, ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
@@ -38,6 +38,8 @@ export default function Subscription() {
   const [step, setStep] = useState(1); // 1=tube count, 2=select blends, 3=review
   const [tubeCount, setTubeCount] = useState(null);
   const [blendQty, setBlendQty] = useState({}); // { slug: qty }
+  const [checkoutUrl, setCheckoutUrl] = useState(null);
+  const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
 
   useEffect(() => {
     document.title = 'Monthly Mushroom Coffee Subscription | Torch Republic';
@@ -63,6 +65,28 @@ export default function Subscription() {
 
   const selectedBlends = MUSHROOM_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
   const monthlyPrice = tubeCount ? tubeCount * 24.99 : 0;
+  const subscriptionDiscountPrice = tubeCount ? tubeCount * 24.99 * 0.8 : 0; // 20% off
+
+  const discountedPrice = monthlyPrice * 0.8; // 20% off
+  const savings = monthlyPrice - discountedPrice;
+
+  const handleCheckout = async () => {
+    if (!canCheckout) return;
+    setIsGeneratingCheckout(true);
+    try {
+      // For now, use the existing subscription checkout URL
+      // The 20% discount will be applied in Shopify via discount code SUBSCRIBE20
+      const url = await getSubscriptionCheckoutUrl(blendQty);
+      setCheckoutUrl(url);
+      // Redirect after a brief delay to show loading state
+      setTimeout(() => {
+        window.location.href = url;
+      }, 500);
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      setIsGeneratingCheckout(false);
+    }
+  };
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -257,13 +281,28 @@ export default function Subscription() {
               </div>
 
               <div className="p-6 mb-6" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.18)' }}>
+                {/* Discount Badge */}
+                <div className="mb-5 p-3" style={{ background: 'rgba(110,189,142,0.08)', border: '1px solid rgba(110,189,142,0.3)', borderRadius: '2px' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Check className="w-4 h-4" style={{ color: '#6EBD8E' }} />
+                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: '#6EBD8E' }}>
+                      Subscription Discount Applied
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-heading text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>20% OFF — Code SUBSCRIBE20</span>
+                    <span className="font-mono text-xs font-bold" style={{ color: '#6EBD8E' }}>Save ${savings.toFixed(2)}</span>
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
                   <div>
                     <p className="font-serif font-bold text-white text-sm mb-1">Monthly Mushroom Coffee Subscription</p>
                     <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{tubeCount} Tube{tubeCount > 1 ? 's' : ''} · Delivered Monthly</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-mono font-bold" style={{ color: RG, fontSize: '1.2rem' }}>${monthlyPrice.toFixed(2)}</p>
+                    <p className="font-mono text-[8px] line-through" style={{ color: 'rgba(230,183,173,0.3)' }}>${monthlyPrice.toFixed(2)}</p>
+                    <p className="font-mono font-bold" style={{ color: '#6EBD8E', fontSize: '1.2rem' }}>${discountedPrice.toFixed(2)}</p>
                     <p className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.4)' }}>/month</p>
                   </div>
                 </div>
@@ -292,13 +331,20 @@ export default function Subscription() {
                   style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.5)' }}>
                   ← Edit Selections
                 </button>
-                <a
-                  href={getSubscriptionCheckoutUrl(blendQty) || SHOPIFY_CART_URL}
+                <button
+                  onClick={handleCheckout}
+                  disabled={!canCheckout || isGeneratingCheckout}
                   className="flex-1 font-mono text-[9px] tracking-[0.35em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90 btn-glow text-center"
-                  style={{ background: RG, color: '#080808', textDecoration: 'none' }}
+                  style={{ 
+                    background: isGeneratingCheckout ? 'rgba(230,183,173,0.5)' : RG, 
+                    color: '#080808', 
+                    textDecoration: 'none',
+                    cursor: isGeneratingCheckout ? 'not-allowed' : 'pointer',
+                    opacity: isGeneratingCheckout ? 0.7 : 1,
+                  }}
                 >
-                  Proceed to Shopify Checkout →
-                </a>
+                  {isGeneratingCheckout ? 'Preparing Your Discount...' : `Proceed to Checkout →`}
+                </button>
               </div>
             </motion.div>
           )}
