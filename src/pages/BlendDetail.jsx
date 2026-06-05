@@ -326,6 +326,14 @@ export default function BlendDetail() {
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
                 No grinder. No brewer. Just scoop, stir, and sip.
               </p>
+
+              {/* Discount reminder */}
+              <p className="font-mono text-[8px] tracking-[0.18em] text-center"
+                style={{ color: 'rgba(230,183,173,0.4)', borderTop: '1px solid rgba(230,183,173,0.07)', paddingTop: '12px' }}>
+                New customers: use code{' '}
+                <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+                {' '}at checkout for 10% off your first order.
+              </p>
             </div>
 
             {/* Trust badges */}

@@ -22,6 +22,19 @@ export default function MobileHeader() {
 
   return (
     <>
+      {/* Mobile announcement bar */}
+      <div
+        className="md:hidden w-full flex items-center justify-center px-4"
+        style={{ height: '26px', backgroundColor: '#000', borderBottom: '1px solid rgba(230,183,173,0.07)' }}
+      >
+        <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
+          style={{ fontSize: '7px', letterSpacing: '0.35em', color: 'rgba(230,183,173,0.5)', textTransform: 'uppercase' }}>
+          Use code{' '}
+          <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+          {' '}for 10% off your first order
+        </p>
+      </div>
+
       {/* Mobile header bar */}
       <div
         className="md:hidden sticky top-0 z-50"

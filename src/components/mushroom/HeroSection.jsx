@@ -120,6 +120,20 @@ function MobileHero() {
         }}>
           Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
         </p>
+        {/* Discount reminder */}
+        <p style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.58rem',
+          letterSpacing: '0.28em',
+          textTransform: 'uppercase',
+          color: 'rgba(230,183,173,0.45)',
+          textAlign: 'center',
+          marginTop: '12px',
+        }}>
+          New customers — code{' '}
+          <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+          {' '}· 10% off your first order
+        </p>
       </div>
     </div>
   );
@@ -299,6 +313,25 @@ function DesktopHero() {
             Build Monthly Ritual
           </Link>
         </motion.div>
+
+        {/* Discount badge */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.6rem',
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color: 'rgba(230,183,173,0.5)',
+            marginTop: '20px',
+          }}
+        >
+          New customers — use code{' '}
+          <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+          {' '}for 10% off your first order
+        </motion.p>
       </div>
     </div>
   );
