@@ -5,12 +5,11 @@ import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
-  { label: 'The Blends', href: '/blends' },
-  { label: 'Monthly Subscription', href: '/subscription' },
-  { label: 'Bundle', href: '/bundle' },
+  { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Ingredients', href: '/blends' },
+  { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export default function NavBar() {
@@ -41,7 +40,7 @@ export default function NavBar() {
 
           {/* Left nav — desktop */}
           <div className="hidden md:flex items-center gap-7 flex-1">
-            {NAV_LINKS.slice(0, 3).map(item => (  
+            {NAV_LINKS.slice(0, 3).map(item => (
               <Link key={item.label} to={item.href}
                 className="nav-link whitespace-nowrap transition-colors hover:text-white"
                 style={{ fontSize: '10.5px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', fontWeight: 500 }}>

@@ -8,11 +8,13 @@ const RG = '#E6B7AD';
 
 export default function MushroomShop() {
   useEffect(() => {
-    document.title = 'Shop Instant Mushroom Coffee | Torch Republic Coffee Company';
+    document.title = 'Shop Mushroom Coffee Blends | Torch Republic Coffee Company';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', 'Shop six premium instant mushroom coffee blends with Lion\'s Mane + Chaga. Focus, calm, energy, creativity — find your blend. Ships from the USA.');
   }, []);
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
 
       {/* ── HERO ── */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"

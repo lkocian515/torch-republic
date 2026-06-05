@@ -4,20 +4,27 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-export default function MushroomProductCard({ product, index = 0 }) {
+// Best-for label per product slug
+const BEST_FOR = {
+  'mooncap-restore':    'Calm evenings & restoration',
+  'glowmind-clarity':   'Deep work & daily focus',
+  'suncap-rise':        'Morning energy & fresh starts',
+  'the-oracle':         'Creative flow & intuition',
+  'mystic-bloom':       'Balance & gentle mornings',
+  'dreamcap-blend':     'Calm focus & immersive work',
+};
 
+export default function MushroomProductCard({ product, index = 0 }) {
   const shopifyUrl = getShopifyCartUrl(product.slug, 1);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (shopifyUrl) {
-      window.location.href = shopifyUrl;
-    } else {
-      // Variant ID not yet connected — send to Shopify cart home
-      window.location.href = 'https://libertees-for-all.myshopify.com/cart';
-    }
+    window.location.href = shopifyUrl || 'https://libertees-for-all.myshopify.com/cart';
   };
+
+  const bestFor = BEST_FOR[product.slug] || product.mood;
+  const tasteNotes = product.flavorNotes?.join(', ') || '';
 
   return (
     <motion.div
@@ -27,7 +34,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.07, duration: 0.55 }}
       className="flex flex-col h-full"
       style={{
-        background: 'linear-gradient(160deg, #111010 0%, #0E0D0D 100%)',
+        background: '#1C1C1C',
         border: '1px solid rgba(230,183,173,0.12)',
         transition: 'border-color 0.3s, box-shadow 0.3s',
       }}
@@ -40,20 +47,11 @@ export default function MushroomProductCard({ product, index = 0 }) {
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      {/* Clickable image + info area */}
-      <Link to={`/products/${product.slug}`} className="group flex flex-col flex-1" style={{ textDecoration: 'none' }}>
-        {/* Image */}
+      {/* Clickable image area */}
+      <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }}>
         <div className="relative overflow-hidden flex items-center justify-center"
-          style={{ aspectRatio: '1/1', background: '#0C0C0C' }}>
-          {product.imagePlaceholder || !product.image ? (
-            <div className="flex flex-col items-center justify-center w-full h-full gap-3 p-8"
-              style={{ color: 'rgba(255,255,255,0.2)' }}>
-              <div className="w-16 h-16 rounded-full border border-dashed"
-                style={{ borderColor: `${product.accent}40` }} />
-              <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-                style={{ color: `${product.accent}50` }}>Image coming soon</p>
-            </div>
-          ) : (
+          style={{ aspectRatio: '1/1', background: '#141414' }}>
+          {product.image ? (
             <img
               src={product.image}
               alt={product.alt}
@@ -61,6 +59,13 @@ export default function MushroomProductCard({ product, index = 0 }) {
               className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
               style={{ padding: '12px' }}
             />
+          ) : (
+            <div className="flex flex-col items-center justify-center w-full h-full gap-3 p-8">
+              <div className="w-16 h-16 rounded-full border border-dashed"
+                style={{ borderColor: `${product.accent}40` }} />
+              <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
+                style={{ color: `${product.accent}50` }}>Coming Soon</p>
+            </div>
           )}
           {/* Roast badge */}
           <div className="absolute top-3 left-3">
@@ -70,33 +75,52 @@ export default function MushroomProductCard({ product, index = 0 }) {
             </span>
           </div>
         </div>
-
-        {/* Info */}
-        <div className="px-5 pt-5 pb-3 flex flex-col flex-1 gap-3">
-          <div>
-            <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.05rem', lineHeight: 1.2 }}>
-              {product.name}
-            </h3>
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: `${product.accent}80` }}>
-              {product.mood}
-            </p>
-          </div>
-          <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.5)' }}>
-            {product.tagline}
-          </p>
-          <div className="flex items-center justify-between pt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
-            <span className="font-mono font-bold" style={{ color: '#E6B7AD', fontSize: '1rem' }}>
-              ${product.price.toFixed(2)}
-            </span>
-            <span className="font-mono text-[9px] tracking-[0.25em] uppercase transition-all"
-              style={{ color: 'rgba(230,183,173,0.55)' }}>
-              View Blend →
-            </span>
-          </div>
-        </div>
       </Link>
 
-      {/* Add to Cart button — outside the Link, goes directly to Shopify */}
+      {/* Info — scan-friendly layout */}
+      <div className="px-5 pt-4 pb-3 flex flex-col gap-2 flex-1">
+        {/* Name */}
+        <Link to={`/products/${product.slug}`} style={{ textDecoration: 'none' }}>
+          <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6', lineHeight: 1.2 }}>
+            {product.name}
+          </h3>
+        </Link>
+
+        {/* Best for */}
+        <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${product.accent}99` }}>
+          Best for: {bestFor}
+        </p>
+
+        {/* Taste notes */}
+        {tasteNotes && (
+          <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.6 }}>
+            Taste: {tasteNotes.toLowerCase()}
+          </p>
+        )}
+
+        {/* Mushrooms */}
+        <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase"
+          style={{ color: 'rgba(230,183,173,0.35)' }}>
+          Lion's Mane + Chaga
+        </p>
+
+        {/* Spacer */}
+        <div className="flex-1" />
+
+        {/* Price row */}
+        <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+          <span className="font-mono font-bold" style={{ color: '#E6B7AD', fontSize: '1.05rem' }}>
+            ${product.price.toFixed(2)}
+          </span>
+          <Link to={`/products/${product.slug}`}
+            className="font-mono text-[8px] tracking-[0.22em] uppercase"
+            style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}>
+            Details →
+          </Link>
+        </div>
+      </div>
+
+      {/* Add to Cart */}
       <div className="px-5 pb-5 pt-0">
         <button
           onClick={handleAddToCart}

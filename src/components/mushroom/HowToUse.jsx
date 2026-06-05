@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const STEPS = [
-  { num: '01', label: 'Scoop', desc: 'Add one serving to your cup.' },
-  { num: '02', label: 'Stir', desc: 'Mix with hot water, milk, or your favorite creamer.' },
-  { num: '03', label: 'Sip', desc: 'Stir, sip, and enjoy your ritual.' },
+  { num: '01', label: 'Scoop', desc: 'Add one serving of instant mushroom coffee powder to your mug.' },
+  { num: '02', label: 'Mix', desc: 'Stir with 8–12 oz of hot water, milk, or your favorite creamer. Dissolves in 15 seconds.' },
+  { num: '03', label: 'Sip', desc: 'Enjoy smooth, coffee-forward taste with functional mushrooms. No machine needed.' },
 ];
 
 export default function HowToUse() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#0D0C0C', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#181818', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
       <div className="max-w-[800px] mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -20,9 +20,13 @@ export default function HowToUse() {
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}>How to Use</p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Your Ritual in Seconds
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            How to Use It
           </h2>
+          <p className="font-heading mt-3 max-w-md mx-auto"
+            style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.8 }}>
+            No coffee maker. No grinder. No cleanup. Just scoop, stir, and sip.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

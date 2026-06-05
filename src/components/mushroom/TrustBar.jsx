@@ -1,18 +1,18 @@
 import React from 'react';
 
 const ITEMS = [
+  { label: 'Instant Powder Mix' },
+  { label: 'Functional Mushrooms' },
+  { label: 'Coffee-Forward Taste' },
+  { label: 'No Brewing Machine Needed' },
   { label: "Lion's Mane + Chaga" },
-  { label: 'Premium Arabica' },
-  { label: '27 Servings Per Tube' },
-  { label: 'No Brewer Needed' },
-  { label: 'Small-Batch Crafted' },
-  { label: 'Made in the USA' },
+  { label: 'Ships from the USA' },
 ];
 
 export default function MushroomTrustBar() {
   return (
     <div className="w-full overflow-hidden"
-      style={{ background: '#050505', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+      style={{ background: '#161616', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
       <div className="flex items-center justify-center flex-wrap gap-0">
         {ITEMS.map(({ label }, i) => (
           <div key={label} className="flex items-center">

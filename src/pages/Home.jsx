@@ -10,6 +10,7 @@ import HowToUse from '../components/mushroom/HowToUse';
 import QualityMission from '../components/mushroom/QualityMission';
 import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
+import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
 
 const RG = '#E6B7AD';
 
@@ -51,10 +52,11 @@ function StickyMobileCTA() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <MushroomHero />
       <MushroomTrustBar />
       <FeaturedCollection />
+      <ChooseYourBlend />
       <WhyInstant />
       <MushroomScience />
       <BundleSection />

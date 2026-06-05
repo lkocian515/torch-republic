@@ -6,7 +6,7 @@ import MushroomProductCard from './ProductCard';
 
 export default function FeaturedCollection() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#060606' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414' }}>
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <motion.div
@@ -18,17 +18,37 @@ export default function FeaturedCollection() {
         >
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}>
-            The Collection
+            Six Blends
           </p>
           <h2 className="font-serif font-bold mb-3"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Choose Your Ritual
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            Choose Your Blend
           </h2>
-          <p className="font-heading max-w-md mx-auto"
-            style={{ fontSize: '0.88rem', color: 'rgba(247,241,232,0.42)', lineHeight: 1.85, fontWeight: 300 }}>
-            Six instant mushroom coffee blends — each one designed for a different state of mind.
+          <p className="font-heading max-w-lg mx-auto"
+            style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
+            Each blend is crafted for a different goal — focus, energy, calm, creativity, balance, or flow. 
+            Pick the one that fits your routine.
           </p>
         </motion.div>
+
+        {/* Blend guide strip */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12 max-w-3xl mx-auto">
+          {[
+            { need: 'Focus', blend: 'GlowMind Clarity', slug: 'glowmind-clarity' },
+            { need: 'Morning energy', blend: 'SunCap Rise', slug: 'suncap-rise' },
+            { need: 'Calm & restoration', blend: 'MoonCap Restore', slug: 'mooncap-restore' },
+            { need: 'Creative flow', blend: 'The Oracle', slug: 'the-oracle' },
+            { need: 'Gentle balance', blend: 'Mystic Bloom', slug: 'mystic-bloom' },
+            { need: 'Immersive focus', blend: 'DreamCap', slug: 'dreamcap-blend' },
+          ].map(({ need, blend, slug }) => (
+            <Link key={slug} to={`/products/${slug}`}
+              className="flex flex-col gap-1 px-4 py-3 transition-all hover:opacity-80"
+              style={{ background: '#1E1E1E', border: '1px solid rgba(230,183,173,0.1)', textDecoration: 'none' }}>
+              <span className="font-mono text-[7.5px] tracking-[0.22em] uppercase" style={{ color: 'rgba(230,183,173,0.45)' }}>Need {need}?</span>
+              <span className="font-heading font-medium text-sm" style={{ color: '#F0EBE1' }}>→ {blend}</span>
+            </Link>
+          ))}
+        </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

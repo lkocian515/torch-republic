@@ -9,10 +9,10 @@ const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
-  { label: 'The Blends', href: '/blends' },
-  { label: 'Monthly Subscription', href: '/subscription' },
-  { label: 'Bundle', href: '/bundle' },
+  { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Ingredients', href: '/blends' },
+  { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];

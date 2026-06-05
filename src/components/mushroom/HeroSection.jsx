@@ -55,9 +55,9 @@ function MobileHero() {
           letterSpacing: '-0.01em',
           margin: 0,
         }}>
-          Premium Mushroom Coffee
+          Instant Mushroom Coffee
           <br />
-          <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
+          <span style={{ color: RG }}>for Focus, Calm &amp; Daily Ritual</span>
         </h1>
       </div>
 
@@ -96,7 +96,7 @@ function MobileHero() {
           Shop the Blends
         </Link>
         <Link
-          to="/subscription"
+          to="/blends"
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
             border: '1px solid rgba(230,183,173,0.35)', color: RG_DEEP,
@@ -106,8 +106,7 @@ function MobileHero() {
             textDecoration: 'none', width: '100%',
           }}
         >
-          <Calendar size={14} />
-          Build Monthly Ritual
+          Find My Blend
         </Link>
         <p style={{
           fontFamily: 'var(--font-heading)',
@@ -118,7 +117,7 @@ function MobileHero() {
           textAlign: 'center',
           marginTop: '4px',
         }}>
-          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
+          Premium instant coffee blends with functional mushrooms — crafted for clarity, energy, balance, and smooth coffee-forward taste. Just scoop, stir, and sip.
         </p>
         {/* Discount reminder */}
         <p style={{
@@ -171,16 +170,16 @@ function DesktopHero() {
           style={{
             fontFamily: 'var(--font-serif)',
             fontWeight: 700,
-            fontSize: 'clamp(2.4rem, 4vw, 4rem)',
-            color: '#FFFFFF',
-            lineHeight: 1.12,
+            fontSize: 'clamp(2.2rem, 4vw, 3.8rem)',
+            color: '#F5EFE6',
+            lineHeight: 1.15,
             letterSpacing: '-0.01em',
             margin: 0,
           }}
         >
-          Premium Mushroom Coffee
+          Instant Mushroom Coffee
           <br />
-          <span style={{ color: RG }}>for Focus, Clarity &amp; Daily Ritual</span>
+          <span style={{ color: RG }}>for Focus, Calm &amp; Daily Ritual</span>
         </motion.h1>
       </div>
 
@@ -229,7 +228,7 @@ function DesktopHero() {
             marginBottom: '36px',
           }}
         >
-          Premium instant coffee blended with Lion's Mane + Chaga, crafted for smoother mornings, clearer routines, and a little everyday magic — without the mess of brewing.
+          Premium instant coffee blends with functional mushrooms — crafted for clarity, energy, balance, and smooth coffee-forward taste. Just scoop, stir, and sip.
         </motion.p>
 
         {/* Trust bar */}
@@ -290,10 +289,10 @@ function DesktopHero() {
             }}
           >
             <ShoppingCart size={15} />
-            Shop the Blends
+            Shop Blends
           </Link>
           <Link
-            to="/subscription"
+            to="/blends"
             style={{
               display: 'flex', alignItems: 'center', gap: '10px',
               border: `1px solid rgba(230,183,173,0.35)`,
@@ -309,8 +308,7 @@ function DesktopHero() {
               textDecoration: 'none',
             }}
           >
-            <Calendar size={15} />
-            Build Monthly Ritual
+            Find My Blend
           </Link>
         </motion.div>
 
