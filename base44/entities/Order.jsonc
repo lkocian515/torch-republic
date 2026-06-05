@@ -1,0 +1,63 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "customer_email": {
+      "type": "string",
+      "description": "Customer email address"
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Customer full name"
+    },
+    "order_id": {
+      "type": "string",
+      "description": "Shopify order ID or internal order ID"
+    },
+    "product_handle": {
+      "type": "string",
+      "description": "Product handle that was purchased"
+    },
+    "product_title": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "order_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the order was placed"
+    },
+    "review_email_sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the review request email was sent"
+    },
+    "review_email_sent_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the review email was sent"
+    }
+  },
+  "required": [
+    "customer_email",
+    "order_date"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
