@@ -13,8 +13,6 @@ import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual'
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 import ProductPageFAQ from '../components/mushroom/ProductPageFAQ';
-import WhatsInsideEveryCup from '../components/mushroom/WhatsInsideEveryCup';
-import TastesLikeCoffee from '../components/mushroom/TastesLikeCoffee';
 import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const TRUST = [
@@ -367,14 +365,8 @@ export default function BlendDetail() {
 
       {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        {/* What's Inside Every Cup — universal specs */}
-        <WhatsInsideEveryCup />
-
         {/* Taste Profile */}
         <TasteProfileCard product={product} />
-
-        {/* Tastes Like Coffee — reassurance section */}
-        <TastesLikeCoffee />
 
         {/* Blend Composition */}
         <BlendCompositionCard product={product} />

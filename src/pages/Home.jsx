@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import MushroomHero from '../components/mushroom/HeroSection';
 import MushroomTrustBar from '../components/mushroom/TrustBar';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
-import WhyInstant from '../components/mushroom/WhyInstant';
-import MushroomScience from '../components/mushroom/MushroomScience';
 import BundleSection from '../components/mushroom/BundleSection';
 import HowToUse from '../components/mushroom/HowToUse';
 import QualityMission from '../components/mushroom/QualityMission';
 import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
-import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
-import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
@@ -74,43 +70,37 @@ export default function Home() {
       <MushroomHero />
       {/* 2. Trust signals */}
       <MushroomTrustBar />
-      {/* 3. What's Inside the Tube — ingredient transparency */}
-      <WhatInsideTube />
-      {/* 4. What People Are Saying — social proof */}
+      {/* 3. What People Are Saying — social proof */}
       <HomeReviewCarousel />
-      {/* 5. Choose Your Ritual — outcome-based blend selector */}
+      {/* 4. Choose Your Ritual — outcome-based blend selector */}
       <ChooseYourRitual />
-      {/* 6. What's Inside Every Cup — transparent specs */}
+      {/* 5. What's Inside Every Cup — transparent specs */}
       <WhatsInsideEveryCup />
-      {/* 7. Tastes Like Coffee — taste reassurance */}
+      {/* 6. Tastes Like Coffee — taste reassurance */}
       <TastesLikeCoffee />
-      {/* 8. Start Your Ritual — bundle / best-seller offer */}
+      {/* 7. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 9. Subscribe & Save 20% — subscription offer */}
+      {/* 8. Subscribe & Save 20% — subscription offer */}
       <SubscribeAndSave />
-      {/* 10. Find Your Blend — interactive quiz */}
+      {/* 9. Find Your Blend — interactive quiz */}
       <BlendQuiz />
-      {/* 11. Featured product grid */}
+      {/* 10. Featured product grid */}
       <FeaturedCollection />
-      {/* 12. Ingredients / functional mushrooms */}
+      {/* 11. Ingredients / functional mushrooms */}
       <IngredientsSection />
-      {/* 13. Why mushroom coffee */}
-      <MushroomScience />
-      {/* 14. Why instant / brand pillars */}
-      <WhyInstant />
-      {/* 15. How to use */}
+      {/* 12. How to use */}
       <HowToUse />
-      {/* 16. Founder Trust — brand story */}
+      {/* 13. Founder Trust — brand story */}
       <FounderTrust />
-      {/* 17. First Cup Guarantee — risk-free trial */}
+      {/* 14. First Cup Guarantee — risk-free trial */}
       <FirstCupGuarantee />
-      {/* 18. Why Torch Republic / trust commitments */}
+      {/* 15. Why Torch Republic / trust commitments */}
       <QualityMission />
-      {/* 19. Email capture */}
+      {/* 16. Email capture */}
       <EmailCapture />
-      {/* 20. FAQ */}
+      {/* 17. FAQ */}
       <FAQSection />
-      {/* 16. Discount reminders */}
+      {/* 18. Discount reminders */}
       <section className="px-6 md:px-10 py-16" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
         <div className="max-w-2xl mx-auto">
           <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
@@ -119,7 +109,7 @@ export default function Home() {
           <DiscountReminders cartSubtotal={0} showAll />
         </div>
       </section>
-      {/* 17. Final CTA */}
+      {/* 19. Final CTA */}
       <FinalCTA />
       <StickyMobileCTA />
     </div>
