@@ -127,26 +127,26 @@ export default function ReviewPopup() {
                 <blockquote
                   className="font-heading mb-2"
                   style={{
-                    fontSize: '0.65rem',
-                    color: 'rgba(240,235,225,0.75)',
-                    lineHeight: 1.45,
+                    fontSize: '0.75rem',
+                    color: 'rgba(240,235,225,0.85)',
+                    lineHeight: 1.5,
                   }}
                 >
-                  "{currentReview.body.length > 120 ? currentReview.body.substring(0, 120) + '...' : currentReview.body}"
+                  "{currentReview.body.length > 140 ? currentReview.body.substring(0, 140) + '...' : currentReview.body}"
                 </blockquote>
 
                 {/* Reviewer info */}
                 <div className="flex items-center justify-between pt-1.5" style={{ borderTop: `1px solid ${RG}15` }}>
                   <p
-                    className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold"
+                    className="font-mono text-[6px] tracking-[0.25em] uppercase font-bold"
                     style={{ color: RG }}
                   >
                     {currentReview.reviewer_name}
                   </p>
                   {currentReview.review_date && (
                     <p
-                      className="font-mono text-[4px] tracking-[0.15em] uppercase"
-                      style={{ color: `${RG}40` }}
+                      className="font-mono text-[5px] tracking-[0.15em] uppercase"
+                      style={{ color: `${RG}50` }}
                     >
                       {new Date(currentReview.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
                     </p>
