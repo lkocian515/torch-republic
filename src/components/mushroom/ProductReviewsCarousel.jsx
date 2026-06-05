@@ -40,6 +40,8 @@ export default function ProductReviewsCarousel({ productSlug }) {
     return null;
   }
 
+  // Calculate average rating
+  const avgRating = allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length;
   const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
   const visibleReviews = allReviews.slice(
     currentIndex,
@@ -79,13 +81,13 @@ export default function ProductReviewsCarousel({ productSlug }) {
           >
             What People Are Saying
           </h2>
-          <div className="flex items-center justify-center gap-1.5 mb-2">
+          <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-current" style={{ color: GOLD }} />
+              <Star key={i} className="w-5 h-5 md:w-6 md:h-6 fill-current" style={{ color: i < Math.round(avgRating) ? GOLD : 'rgba(255,255,255,0.15)' }} />
             ))}
           </div>
           <p className="font-mono text-[7px] md:text-[8px] tracking-[0.2em]" style={{ color: `${RG}50` }}>
-            {allReviews.length} verified review{allReviews.length !== 1 ? 's' : ''}
+            {avgRating.toFixed(1)} out of 5 · {allReviews.length} verified review{allReviews.length !== 1 ? 's' : ''}
           </p>
         </div>
 
