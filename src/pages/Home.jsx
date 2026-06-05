@@ -15,6 +15,7 @@ import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
+import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 
 const RG = '#E6B7AD';
 
@@ -78,15 +79,17 @@ export default function Home() {
       <WhyInstant />
       {/* 9. How to use */}
       <HowToUse />
-      {/* 10. Why Torch Republic / trust commitments */}
+      {/* 10. Customer Reviews / social proof */}
+      <ProductReviewsCarousel productSlug="mooncap-restore" />
+      {/* 11. Why Torch Republic / trust commitments */}
       <QualityMission />
-      {/* 11. Founder story */}
+      {/* 12. Founder story */}
       <FounderSection />
-      {/* 12. Email capture */}
+      {/* 13. Email capture */}
       <EmailCapture />
-      {/* 13. FAQ */}
+      {/* 14. FAQ */}
       <FAQSection />
-      {/* 14. Final CTA */}
+      {/* 15. Final CTA */}
       <FinalCTA />
       <StickyMobileCTA />
     </div>
