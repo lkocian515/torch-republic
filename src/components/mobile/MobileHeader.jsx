@@ -68,8 +68,8 @@ export default function MobileHeader() {
             </Link>
             <button
               onClick={() => setOpen(true)}
-              style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Menu className="w-[21px] h-[21px]" strokeWidth={1.8} />
+              style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: 'none', cursor: 'pointer' }}>
+              <Menu className="w-[24px] h-[24px]" strokeWidth={2} />
             </button>
           </div>
         </div>
