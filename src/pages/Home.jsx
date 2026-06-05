@@ -16,7 +16,6 @@ import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
 import DiscountReminders from '../components/discounts/DiscountReminders';
-import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import BlendQuiz from '../components/mushroom/BlendQuiz';
 import IngredientsSection from '../components/mushroom/IngredientsSection';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
@@ -73,9 +72,7 @@ export default function Home() {
       <WhatInsideTube />
       {/* 4. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 5. What People Are Saying — social proof (moved up for conversion) */}
-      <HomeReviewCarousel />
-      {/* 6. Find Your Blend — interactive quiz */}
+      {/* 5. Find Your Blend — interactive quiz */}
       <BlendQuiz />
       {/* 7. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
@@ -85,13 +82,13 @@ export default function Home() {
       <IngredientsSection />
       {/* 9. Why mushroom coffee */}
       <MushroomScience />
-      {/* 10. Why instant / brand pillars */}
+      {/* 10. What People Are Saying — social proof */}
+      <HomeReviewCarousel />
+      {/* 11. Why instant / brand pillars */}
       <WhyInstant />
-      {/* 10. How to use */}
+      {/* 12. How to use */}
       <HowToUse />
-      {/* 11. Customer Reviews / social proof */}
-      <ProductReviewsCarousel productSlug="mooncap-restore" />
-      {/* 12. Why Torch Republic / trust commitments */}
+      {/* 13. Why Torch Republic / trust commitments */}
       <QualityMission />
       {/* 13. Founder story */}
       <FounderSection />
