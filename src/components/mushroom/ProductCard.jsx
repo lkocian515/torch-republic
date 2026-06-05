@@ -11,7 +11,7 @@ const BEST_FOR = {
   'suncap-rise':        'Morning energy & fresh starts',
   'the-oracle':         'Creative flow & intuition',
   'mystic-bloom':       'Balance & gentle mornings',
-  'dreamcap-blend':     'Calm focus & immersive work',
+  'dreamcap-blend':     'Evening ritual & nighttime creativity',
 };
 
 export default function MushroomProductCard({ product, index = 0 }) {

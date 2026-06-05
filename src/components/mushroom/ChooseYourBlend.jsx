@@ -8,7 +8,7 @@ const BLENDS = [
   { need: 'Need calm evenings?', blend: 'MoonCap Restore', slug: 'mooncap-restore', roast: 'Dark Roast', benefit: 'Supports calm & restoration' },
   { need: 'Need creative flow?', blend: 'The Oracle', slug: 'the-oracle', roast: 'Medium Roast', benefit: 'Supports insight & creative flow' },
   { need: 'Need balance?', blend: 'Mystic Bloom', slug: 'mystic-bloom', roast: 'Medium Roast', benefit: 'Supports gentle balance & wellness' },
-  { need: 'Need deep rest?', blend: 'DreamCap', slug: 'dreamcap-blend', roast: 'Medium Roast', benefit: 'Supports calm focus & deep rest' },
+  { need: 'Need evening ritual?', blend: 'DreamCap', slug: 'dreamcap-blend', roast: 'Medium Roast', benefit: 'Supports nighttime creativity & reflection' },
 ];
 
 export default function ChooseYourBlend() {

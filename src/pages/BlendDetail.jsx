@@ -9,6 +9,7 @@ import TasteProfileCard from '../components/mushroom/TasteProfileCard';
 import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
 import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
 import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
+import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual';
 import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const TRUST = [
@@ -374,6 +375,9 @@ export default function BlendDetail() {
 
         {/* Comparison */}
         <MushroomCoffeeComparison productName={product.name} />
+
+        {/* DreamCap Evening Ritual Section (only for DreamCap) */}
+        {product.slug === 'dreamcap-blend' && <DreamCapEveningRitual />}
       </section>
 
       {/* Related products */}
