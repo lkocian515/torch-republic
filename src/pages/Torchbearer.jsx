@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown, ChevronUp, Flame, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
 const GOLD = '#C4A35A';
 const RG = '#E6B7AD';
-const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
-const TORCHBEARER_VARIANT_ID = '49166825160956';
 
 function getCartUrl(qty = 1) {
-  return `${SHOPIFY_DOMAIN}/cart/${TORCHBEARER_VARIANT_ID}:${qty}`;
+  return getShopifyCartUrl('torchbearer-premium-instant-coffee', qty);
 }
 
 const PRODUCT_IMAGES = [

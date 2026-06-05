@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
@@ -192,8 +193,8 @@ export default function RepublicReserveSection() {
 
               {/* Price + CTA */}
               <div className="flex items-center gap-4">
-                <Link
-                  to="/torchbearer"
+                <a
+                  href={getShopifyCartUrl('torchbearer-premium-instant-coffee', 1)}
                   className="font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-4 transition-all hover:opacity-90"
                   style={{
                     background: GOLD,
@@ -203,8 +204,8 @@ export default function RepublicReserveSection() {
                     letterSpacing: '0.28em',
                   }}
                 >
-                  Shop Torchbearer
-                </Link>
+                  Add To Cart
+                </a>
                 <Link
                   to="/torchbearer"
                   className="font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70"
