@@ -6,7 +6,9 @@ import MushroomProductCard from './ProductCard';
 
 export default function FeaturedCollection() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414', position: 'relative' }}>
+      {/* Gradient divider top rule */}
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <motion.div

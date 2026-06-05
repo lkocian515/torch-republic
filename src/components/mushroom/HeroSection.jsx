@@ -27,7 +27,7 @@ function MobileHero() {
       style={{
         display: 'none',
         width: '100%',
-        backgroundColor: '#111111',
+        backgroundColor: '#0A0F0D',
         margin: 0,
         padding: 0,
         overflow: 'hidden',
@@ -80,7 +80,7 @@ function MobileHero() {
       {/* CTA buttons */}
       <div style={{
         display: 'flex', flexDirection: 'column', gap: '10px',
-        padding: '0 18px 28px', background: '#111111', alignItems: 'center',
+        padding: '0 18px 28px', background: 'linear-gradient(180deg, #0A0F0D 0%, #111111 100%)', alignItems: 'center',
       }}>
         <Link
           to="/shop"
@@ -143,11 +143,11 @@ function MobileHero() {
 function DesktopHero() {
   return (
     <div
-      style={{ display: 'none', backgroundColor: '#06050A', width: '100%', overflow: 'hidden' }}
+      style={{ display: 'none', backgroundColor: '#0A0F0D', width: '100%', overflow: 'hidden' }}
       className="desktop-hero"
     >
       {/* Live text heading */}
-      <div style={{ padding: '44px 32px 32px', textAlign: 'center', background: '#06050A' }}>
+      <div style={{ padding: '44px 32px 32px', textAlign: 'center', background: 'linear-gradient(180deg, #0A0F0D 0%, #0D1117 100%)' }}>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -196,10 +196,10 @@ function DesktopHero() {
           zIndex: 0,
         }} />
 
-        {/* Gradient overlay for text readability */}
+        {/* Gradient overlay — deep teal → midnight navy → dark, for readability + premium tone */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.62) 100%)',
+          background: 'linear-gradient(160deg, rgba(8,32,28,0.72) 0%, rgba(6,10,20,0.45) 50%, rgba(14,10,6,0.75) 100%)',
           zIndex: 1,
           pointerEvents: 'none',
         }} />
@@ -211,7 +211,7 @@ function DesktopHero() {
       <div style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         textAlign: 'center', padding: '32px 32px 48px',
-        background: '#111111',
+        background: 'linear-gradient(180deg, #111111 0%, #111111 100%)',
       }}>
         {/* Subtitle */}
         <motion.p

@@ -39,8 +39,8 @@ export default function MushroomProductCard({ product, index = 0 }) {
         transition: 'border-color 0.3s, box-shadow 0.3s',
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = `${product.accent}55`;
-        e.currentTarget.style.boxShadow = `0 8px 40px ${product.accent}18`;
+        e.currentTarget.style.borderColor = 'rgba(26,74,62,0.7)';
+        e.currentTarget.style.boxShadow = '0 4px 32px rgba(11,45,42,0.45), 0 0 0 1px rgba(196,163,90,0.12)';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = 'rgba(230,183,173,0.12)';

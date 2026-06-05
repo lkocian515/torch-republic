@@ -33,7 +33,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#080606', borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+    <footer style={{ background: '#0D0F0E', borderTop: '3px solid transparent', backgroundImage: 'linear-gradient(#0D0F0E, #0D0F0E), linear-gradient(90deg, #0B2D2A, #08101A 50%, #2A1F0A)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
       <div className="max-w-[1280px] mx-auto px-5 md:px-10 pt-14 pb-10">
 
         {/* Top */}
@@ -96,9 +96,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Divider — teal → navy → champagne gradient line */}
         <div className="h-px w-full mb-8"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(230,183,173,0.2), transparent)' }} />
+          style={{ background: 'linear-gradient(90deg, transparent 0%, #1A4A3E 20%, #0B2040 50%, #C4A35A 80%, transparent 100%)', opacity: 0.45 }} />
 
         {/* FDA disclaimer + Copyright (mobile: combined, desktop: separate) */}
         <div className="mb-8">

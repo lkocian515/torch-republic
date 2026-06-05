@@ -91,7 +91,8 @@ export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#151515', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#151515', position: 'relative' }}>
+      <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[720px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}

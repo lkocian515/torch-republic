@@ -6,14 +6,14 @@ export default function TopBar() {
       className="w-full flex items-center justify-center px-4"
       style={{
         height: '28px',
-        backgroundColor: '#000',
-        borderBottom: '1px solid rgba(230,183,173,0.07)',
+        background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 50%, #1A1208 100%)',
+        borderBottom: '1px solid rgba(214,178,122,0.15)',
       }}
     >
       <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
-        style={{ fontSize: '8px', letterSpacing: '0.42em', color: 'rgba(230,183,173,0.55)', textTransform: 'uppercase' }}>
+        style={{ fontSize: '8px', letterSpacing: '0.42em', color: 'rgba(214,195,160,0.75)', textTransform: 'uppercase' }}>
         New customers: use code{' '}
-        <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span>
+        <span style={{ color: '#D6B87A', fontWeight: 700 }}>WELCOME10</span>
         {' '}for 10% off your first order &nbsp;·&nbsp; Free Shipping Over $75
       </p>
     </div>

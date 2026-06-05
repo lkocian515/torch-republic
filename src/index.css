@@ -112,6 +112,16 @@
   background: linear-gradient(135deg, #C98F86 0%, #E6B7AD 50%, #C98F86 100%);
 }
 
+/* Teal → Navy → Champagne gradient accent — used for dividers, borders, subtle overlays */
+.gradient-teal-navy-champagne {
+  background: linear-gradient(90deg, #0B2D2A 0%, #08101A 50%, #2A1F0A 100%);
+}
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #1A4A3E 20%, #0B2040 55%, #C4A35A 85%, transparent 100%);
+  opacity: 0.4;
+}
+
 /* Shimmer animation */
 @keyframes shimmer {
   0% { background-position: -200% center; }
