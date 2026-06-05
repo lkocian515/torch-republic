@@ -25,8 +25,8 @@ const PRODUCT_IMAGES = [
     alt: 'Torchbearer Premium Instant Coffee — side label detail',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6cbd6bb7b_fsdgfrtre.png',
-    alt: 'Torchbearer Premium Instant Coffee — full product infographic',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2d13fe4d_fsdfesfes.png',
+    alt: 'Torchbearer Premium Instant Coffee — lifestyle shot with mug on rock',
   },
 ];
 
