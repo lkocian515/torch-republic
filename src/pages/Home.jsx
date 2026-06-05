@@ -11,6 +11,7 @@ import QualityMission from '../components/mushroom/QualityMission';
 import EmailCapture from '../components/mushroom/EmailCapture';
 import FAQSection from '../components/mushroom/FAQSection';
 import ChooseYourBlend from '../components/mushroom/ChooseYourBlend';
+import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 
 const RG = '#E6B7AD';
 
@@ -55,6 +56,7 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <MushroomHero />
       <MushroomTrustBar />
+      <WhatInsideTube />
       <FeaturedCollection />
       <ChooseYourBlend />
       <HowToUse />
