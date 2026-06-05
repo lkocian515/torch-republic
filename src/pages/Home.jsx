@@ -17,6 +17,7 @@ import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import BlendQuiz from '../components/mushroom/BlendQuiz';
+import IngredientsSection from '../components/mushroom/IngredientsSection';
 
 const RG = '#E6B7AD';
 
@@ -76,9 +77,11 @@ export default function Home() {
       <ChooseYourBlend />
       {/* 7. Featured product grid */}
       <FeaturedCollection />
-      {/* 8. Why mushroom coffee */}
+      {/* 8. Ingredients / functional mushrooms */}
+      <IngredientsSection />
+      {/* 9. Why mushroom coffee */}
       <MushroomScience />
-      {/* 9. Why instant / brand pillars */}
+      {/* 10. Why instant / brand pillars */}
       <WhyInstant />
       {/* 10. How to use */}
       <HowToUse />
