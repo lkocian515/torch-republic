@@ -19,6 +19,12 @@ import DiscountReminders from '../components/discounts/DiscountReminders';
 import BlendQuiz from '../components/mushroom/BlendQuiz';
 import IngredientsSection from '../components/mushroom/IngredientsSection';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
+import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
+import WhatsInsideEveryCup from '../components/mushroom/WhatsInsideEveryCup';
+import TastesLikeCoffee from '../components/mushroom/TastesLikeCoffee';
+import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
+import FounderTrust from '../components/mushroom/FounderTrust';
+import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 
 const RG = '#E6B7AD';
 
@@ -72,29 +78,37 @@ export default function Home() {
       <WhatInsideTube />
       {/* 4. What People Are Saying — social proof */}
       <HomeReviewCarousel />
-      {/* 5. Start Your Ritual — bundle / best-seller offer */}
+      {/* 5. Choose Your Ritual — outcome-based blend selector */}
+      <ChooseYourRitual />
+      {/* 6. What's Inside Every Cup — transparent specs */}
+      <WhatsInsideEveryCup />
+      {/* 7. Tastes Like Coffee — taste reassurance */}
+      <TastesLikeCoffee />
+      {/* 8. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 6. Find Your Blend — interactive quiz */}
+      {/* 9. Subscribe & Save 20% — subscription offer */}
+      <SubscribeAndSave />
+      {/* 10. Find Your Blend — interactive quiz */}
       <BlendQuiz />
-      {/* 7. Find Your Ritual — blend selector */}
-      <ChooseYourBlend />
-      {/* 7. Featured product grid */}
+      {/* 11. Featured product grid */}
       <FeaturedCollection />
-      {/* 8. Ingredients / functional mushrooms */}
+      {/* 12. Ingredients / functional mushrooms */}
       <IngredientsSection />
-      {/* 9. Why mushroom coffee */}
+      {/* 13. Why mushroom coffee */}
       <MushroomScience />
-      {/* 10. Why instant / brand pillars */}
+      {/* 14. Why instant / brand pillars */}
       <WhyInstant />
-      {/* 12. How to use */}
+      {/* 15. How to use */}
       <HowToUse />
-      {/* 13. Why Torch Republic / trust commitments */}
+      {/* 16. Founder Trust — brand story */}
+      <FounderTrust />
+      {/* 17. First Cup Guarantee — risk-free trial */}
+      <FirstCupGuarantee />
+      {/* 18. Why Torch Republic / trust commitments */}
       <QualityMission />
-      {/* 13. Founder story */}
-      <FounderSection />
-      {/* 14. Email capture */}
+      {/* 19. Email capture */}
       <EmailCapture />
-      {/* 15. FAQ */}
+      {/* 20. FAQ */}
       <FAQSection />
       {/* 16. Discount reminders */}
       <section className="px-6 md:px-10 py-16" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.07)' }}>

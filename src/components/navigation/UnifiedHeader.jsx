@@ -16,10 +16,11 @@ const RG_DEEP = '#C98F86';
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
   { label: 'Blends', href: '/blends' },
-  { label: 'Bundle', href: '/bundle' },
-  { label: 'About', href: '/about' },
+  { label: 'Bundles', href: '/bundle' },
+  { label: 'Subscribe', href: '/subscription' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
