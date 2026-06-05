@@ -10,6 +10,7 @@ import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from '@/contexts/CartContext';
 import CartToast from './components/cart/CartToast';
+import UnifiedHeader from './components/navigation/UnifiedHeader';
 
 // ── Mushroom Coffee Pages ──
 import Home from './pages/Home';
@@ -42,6 +43,7 @@ const AuthenticatedApp = () => {
   return (
     <AnimatePresence mode="wait">
       <ScrollToTop />
+      <UnifiedHeader />
       <Routes location={location} key={location.pathname}>
 
         {/* ── HOME ── */}
