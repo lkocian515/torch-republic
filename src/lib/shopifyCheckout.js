@@ -16,12 +16,12 @@ const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 // ── Per-product Shopify variant IDs ──────────────────────────────────────────
 // Replace each REPLACE_WITH_VARIANT_ID with the real numeric variant ID from Shopify Admin.
 export const SHOPIFY_VARIANT_IDS = {
-  'mooncap-restore':    'REPLACE_WITH_VARIANT_ID',
-  'glowmind-clarity':   'REPLACE_WITH_VARIANT_ID',
-  'suncap-rise':        'REPLACE_WITH_VARIANT_ID',
-  'the-oracle':         'REPLACE_WITH_VARIANT_ID',
-  'mystic-bloom':       'REPLACE_WITH_VARIANT_ID',
-  'dreamcap-blend':     'REPLACE_WITH_VARIANT_ID',
+  'mooncap-restore':  '49148263760124', // Mooncap Restore — Dark Roast
+  'glowmind-clarity': '49148263596284', // GlowMind Clarity — Medium Roast
+  'suncap-rise':      '49148263465212', // Suncap Rise — Light Roast
+  'the-oracle':       '49148263170300', // The Oracle Blend — Medium Roast
+  'mystic-bloom':     '49148263006460', // Mystic Bloom Blend — Medium Roast
+  'dreamcap-blend':   '49148261597436', // DreamCap Blend — Medium Roast
 };
 
 // ── Cart page (no specific product) ──────────────────────────────────────────
@@ -30,7 +30,7 @@ export const SHOPIFY_CART_URL = `${SHOPIFY_DOMAIN}/cart`;
 // ── Build a single-product cart permalink ────────────────────────────────────
 export function getShopifyCartUrl(productSlug, qty = 1) {
   const variantId = SHOPIFY_VARIANT_IDS[productSlug];
-  if (!variantId || variantId === 'REPLACE_WITH_VARIANT_ID') {
+  if (!variantId) {
     return null; // caller handles the null case
   }
   return `${SHOPIFY_DOMAIN}/cart/${variantId}:${qty}`;
@@ -42,7 +42,7 @@ export function getShopifyBundleUrl(items) {
   const parts = items
     .map(({ slug, qty = 1 }) => {
       const variantId = SHOPIFY_VARIANT_IDS[slug];
-      if (!variantId || variantId === 'REPLACE_WITH_VARIANT_ID') return null;
+      if (!variantId) return null;
       return `${variantId}:${qty}`;
     })
     .filter(Boolean);
