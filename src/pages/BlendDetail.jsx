@@ -14,6 +14,7 @@ import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarouse
 import DiscountReminders from '../components/discounts/DiscountReminders';
 import ProductPageFAQ from '../components/mushroom/ProductPageFAQ';
 import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import TorchbearerCrossSell from '../components/reserve/TorchbearerCrossSell';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -359,6 +360,9 @@ export default function BlendDetail() {
               style={{ color: 'rgba(255,255,255,0.18)' }}>
               Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
+
+            {/* Torchbearer Cross-sell */}
+            <TorchbearerCrossSell />
           </motion.div>
         </div>
       </section>

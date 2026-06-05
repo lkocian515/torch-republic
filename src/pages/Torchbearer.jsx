@@ -192,9 +192,16 @@ export default function Torchbearer() {
             {/* Right: Product Info */}
             <FadeIn delay={0.1}>
               <div>
-                <p className="font-mono text-[8px] tracking-[0.45em] uppercase mb-4" style={{ color: `${GOLD}80` }}>
-                  Republic Reserve · Premium Instant Coffee
-                </p>
+                {/* Premium collection badge */}
+                <div
+                  className="inline-flex items-center gap-2 mb-5 px-3 py-1.5"
+                  style={{ background: `${GOLD}0D`, border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
+                >
+                  <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: GOLD }}>
+                    Republic Reserve Collection
+                  </span>
+                </div>
+
                 <h1
                   className="font-serif font-bold mb-2"
                   style={{
@@ -207,11 +214,13 @@ export default function Torchbearer() {
                   TORCHBEARER™
                 </h1>
                 <p
-                  className="font-mono tracking-[0.4em] uppercase mb-6"
+                  className="font-mono tracking-[0.4em] uppercase mb-2"
                   style={{ fontSize: '0.85rem', color: GOLD, fontWeight: 600 }}
                 >
                   Carry The Flame
                 </p>
+                {/* Premium divider */}
+                <div className="mb-6" style={{ height: '1px', background: `linear-gradient(90deg, ${GOLD}50 0%, transparent 60%)`, maxWidth: '220px' }} />
 
                 {/* Stars */}
                 <div className="flex items-center gap-2 mb-6">

@@ -3,236 +3,270 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
+const RG = '#E6B7AD';
 
-const TASTING_NOTES = [
-  { icon: '🌰', label: 'Toasted Almond', desc: 'Warm, smooth nuttiness' },
-  { icon: '🫐', label: 'Berry Brightness', desc: 'Subtle fruit acidity' },
-  { icon: '🍬', label: 'Sweet Toffee', desc: 'Rich, balanced sweetness' },
-];
-
-const HIGHLIGHTS = [
+const FEATURES = [
   'Medium Roast',
   'Single-Origin Papua New Guinea',
-  'Freeze-Dried Instant',
+  'Freeze-Dried Instant Coffee',
   '27 Servings',
-  '100% Arabica',
+  '100% Arabica Coffee',
 ];
 
+// Future Reserve products — framework ready for expansion
+const COMING_SOON = ['Ember Roast', 'Midnight Watch'];
+
 export default function RepublicReserveSection() {
+  const cartUrl = getShopifyCartUrl('torchbearer-premium-instant-coffee', 1);
+
   return (
-    <section
-      className="py-24 px-6 md:px-10 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, #0a0806 0%, #0d0a06 50%, #0a0806 100%)',
-        borderTop: '1px solid rgba(196,163,90,0.15)',
-      }}
-    >
-      {/* Ambient glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
+    <>
+      {/* ── TORCHBEARER FEATURE SECTION ── */}
+      <section
+        className="relative overflow-hidden"
         style={{
-          background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(196,163,90,0.05) 0%, transparent 70%)',
+          background: 'linear-gradient(180deg, #08070500 0%, #0c0a06 15%, #0e0b07 50%, #0c0a06 85%, #08070500 100%)',
+          borderTop: `1px solid ${GOLD}18`,
+          borderBottom: `1px solid ${GOLD}10`,
         }}
-      />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <p
-            className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4"
-            style={{ color: `${GOLD}99` }}
-          >
-            Republic Reserve Collection
-          </p>
-          <h2
-            className="font-serif font-bold mb-4"
-            style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: '#F5EDE0',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.15,
-            }}
-          >
-            For Those Who Simply Want<br className="hidden md:block" /> Exceptional Coffee
-          </h2>
-          <p
-            className="font-heading"
-            style={{
-              fontSize: '0.95rem',
-              color: 'rgba(240,230,210,0.5)',
-              maxWidth: '480px',
-              margin: '0 auto',
-              lineHeight: 1.7,
-            }}
-          >
-            Premium single-origin instant coffee for those who carry the flame.
-          </p>
-        </motion.div>
-
-        {/* Product Card */}
-        <motion.div
-          className="relative rounded-sm overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+      >
+        {/* Cinematic ambient glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(135deg, #100d08 0%, #0d0a05 60%, #130f08 100%)',
-            border: '1px solid rgba(196,163,90,0.2)',
+            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(196,163,90,0.07) 0%, rgba(196,163,90,0.02) 40%, transparent 70%)`,
           }}
-        >
-          {/* Gold top accent line */}
-          <div style={{ height: '2px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 40%, ${RG} 70%, transparent 100%)` }} />
+        />
+        {/* Gold accent line */}
+        <div style={{ height: '2px', background: `linear-gradient(90deg, transparent 0%, ${GOLD}60 25%, ${RG}80 60%, ${GOLD}40 80%, transparent 100%)` }} />
 
-          <div className="grid md:grid-cols-2 gap-0 items-stretch">
-            {/* Image Side */}
+        <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32 relative z-10">
+
+          {/* Section Label */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div
-              className="relative flex items-center justify-center p-8 md:p-12 min-h-[380px]"
+              className="inline-flex items-center gap-3 px-5 py-2 mb-6"
               style={{
-                background: 'linear-gradient(135deg, rgba(196,163,90,0.04) 0%, rgba(0,0,0,0) 60%)',
-                borderRight: '1px solid rgba(196,163,90,0.1)',
+                background: `${GOLD}0E`,
+                border: `1px solid ${GOLD}30`,
+                borderRadius: '2px',
               }}
             >
-              {/* Badge */}
+              <div style={{ width: '20px', height: '1px', background: `${GOLD}60` }} />
+              <span className="font-mono text-[8px] tracking-[0.5em] uppercase" style={{ color: `${GOLD}CC` }}>
+                Republic Reserve Collection
+              </span>
+              <div style={{ width: '20px', height: '1px', background: `${GOLD}60` }} />
+            </div>
+          </motion.div>
+
+          {/* Main Product Layout — cinematic two-column */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+            {/* Left: Product Image */}
+            <motion.div
+              className="relative flex items-center justify-center order-2 md:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Deep glow behind product */}
               <div
-                className="absolute top-6 left-6 font-mono text-[7px] tracking-[0.3em] uppercase px-3 py-1"
+                className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: `${GOLD}18`,
-                  border: `1px solid ${GOLD}40`,
-                  color: GOLD,
+                  background: `radial-gradient(ellipse 70% 70% at 50% 50%, ${GOLD}12 0%, transparent 65%)`,
+                  filter: 'blur(40px)',
+                }}
+              />
+              <img
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6cbd6bb7b_fsdgfrtre.png"
+                alt="Torchbearer™ Premium Instant Coffee"
+                className="relative z-10 w-full max-w-xs md:max-w-sm object-contain"
+                style={{ filter: 'drop-shadow(0 30px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(196,163,90,0.12))' }}
+              />
+            </motion.div>
+
+            {/* Right: Copy + CTA */}
+            <motion.div
+              className="order-1 md:order-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              {/* Prestige badge */}
+              <div
+                className="inline-flex items-center gap-2 mb-6 px-3 py-1.5"
+                style={{
+                  background: `${GOLD}10`,
+                  border: `1px solid ${GOLD}35`,
                   borderRadius: '2px',
                 }}
               >
-                Republic Reserve
+                <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: GOLD }}>
+                  The First Coffee of the Republic Reserve
+                </span>
               </div>
 
-              <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6cbd6bb7b_fsdgfrtre.png"
-                alt="Torchbearer Premium Instant Coffee"
-                className="relative z-10 object-contain w-full max-w-sm"
-                style={{ maxHeight: '340px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.8))' }}
-              />
-            </div>
-
-            {/* Content Side */}
-            <div className="flex flex-col justify-center p-8 md:p-12">
-              {/* Product name */}
-              <p
-                className="font-mono text-[8px] tracking-[0.4em] uppercase mb-3"
-                style={{ color: `${GOLD}80` }}
-              >
-                Premium Instant Coffee
-              </p>
-              <h3
+              <h2
                 className="font-serif font-bold mb-2"
                 style={{
-                  fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
+                  fontSize: 'clamp(2.8rem, 5vw, 4rem)',
                   color: '#F5EDE0',
                   letterSpacing: '0.04em',
-                  lineHeight: 1.1,
+                  lineHeight: 1.0,
                 }}
               >
                 TORCHBEARER™
-              </h3>
+              </h2>
               <p
-                className="font-mono text-[10px] tracking-[0.35em] uppercase mb-6"
-                style={{ color: GOLD }}
+                className="font-mono tracking-[0.45em] uppercase mb-8"
+                style={{ fontSize: '0.78rem', color: GOLD, fontWeight: 600, letterSpacing: '0.38em' }}
               >
                 Carry The Flame
               </p>
 
+              {/* Gold divider */}
+              <div className="mb-8" style={{ height: '1px', background: `linear-gradient(90deg, ${GOLD}50 0%, transparent 70%)` }} />
+
               <p
                 className="font-heading mb-8"
-                style={{
-                  fontSize: '0.9rem',
-                  color: 'rgba(240,230,210,0.65)',
-                  lineHeight: 1.75,
-                  maxWidth: '360px',
-                }}
+                style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.7)', lineHeight: 1.85, maxWidth: '400px' }}
               >
-                Single-origin Arabica from the volcanic highlands of Papua New Guinea. Smooth, balanced, and exceptionally drinkable.
+                Single-origin instant coffee sourced from the volcanic highlands of Papua New Guinea. Crafted for those who pursue purpose, build something meaningful, and move forward every day.
               </p>
 
-              {/* Tasting Notes */}
-              <div className="flex gap-4 mb-8">
-                {TASTING_NOTES.map((note) => (
-                  <div key={note.label} className="flex-1 text-center">
-                    <div className="text-xl mb-1">{note.icon}</div>
-                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: GOLD }}>
-                      {note.label}
-                    </p>
+              {/* Feature points */}
+              <div className="space-y-2 mb-10">
+                {FEATURES.map((f) => (
+                  <div key={f} className="flex items-center gap-3">
+                    <span style={{ color: GOLD, fontSize: '0.6rem' }}>◆</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,230,210,0.65)' }}>
+                      {f}
+                    </span>
                   </div>
                 ))}
               </div>
 
-              {/* Highlights */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {HIGHLIGHTS.map((h) => (
-                  <span
-                    key={h}
-                    className="font-mono text-[7px] tracking-[0.15em] uppercase px-2.5 py-1"
-                    style={{
-                      background: 'rgba(196,163,90,0.07)',
-                      border: '1px solid rgba(196,163,90,0.18)',
-                      color: 'rgba(196,163,90,0.75)',
-                      borderRadius: '2px',
-                    }}
-                  >
-                    {h}
-                  </span>
-                ))}
-              </div>
-
-              {/* Price + CTA */}
-              <div className="flex items-center gap-4">
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href={getShopifyCartUrl('torchbearer-premium-instant-coffee', 1)}
-                  className="font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-4 transition-all hover:opacity-90"
+                  href={cartUrl}
+                  className="text-center font-mono text-[10px] tracking-[0.32em] uppercase px-8 py-4 transition-all hover:opacity-90 btn-glow"
                   style={{
                     background: GOLD,
                     color: '#0A0806',
                     fontWeight: 700,
                     borderRadius: '2px',
-                    letterSpacing: '0.28em',
                   }}
                 >
-                  Add To Cart
+                  Shop Torchbearer
                 </a>
                 <Link
                   to="/torchbearer"
-                  className="font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70"
-                  style={{ color: `${GOLD}70`, textDecoration: 'underline', textUnderlineOffset: '3px' }}
+                  className="text-center font-mono text-[10px] tracking-[0.28em] uppercase px-8 py-4 transition-all hover:opacity-80"
+                  style={{
+                    background: 'transparent',
+                    color: GOLD,
+                    fontWeight: 600,
+                    borderRadius: '2px',
+                    border: `1px solid ${GOLD}40`,
+                  }}
                 >
                   Learn More
                 </Link>
               </div>
-            </div>
+
+              {/* Price hint */}
+              <p className="mt-5 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(196,163,90,0.4)' }}>
+                $24.99 · 54g · 27 servings · Free shipping over $75
+              </p>
+            </motion.div>
           </div>
+        </div>
 
-          {/* Bottom accent */}
-          <div style={{ height: '1px', background: `linear-gradient(90deg, transparent 0%, ${GOLD}30 50%, transparent 100%)` }} />
-        </motion.div>
+        {/* Bottom accent */}
+        <div style={{ height: '1px', background: `linear-gradient(90deg, transparent 0%, ${GOLD}25 50%, transparent 100%)` }} />
+      </section>
 
-        {/* Collection note */}
-        <motion.p
-          className="text-center mt-8 font-mono text-[8px] tracking-[0.3em] uppercase"
-          style={{ color: 'rgba(196,163,90,0.35)' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          Republic Reserve · More releases coming soon
-        </motion.p>
-      </div>
-    </section>
+      {/* ── NOT EVERY JOURNEY REQUIRES MUSHROOMS ── */}
+      <section
+        className="py-20 px-6 md:px-10"
+        style={{ background: 'linear-gradient(180deg, #0a0806 0%, #0c0907 100%)', borderBottom: `1px solid ${GOLD}08` }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <h3
+              className="font-serif font-bold mb-6"
+              style={{
+                fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+                color: '#F5EDE0',
+                letterSpacing: '-0.01em',
+                lineHeight: 1.2,
+              }}
+            >
+              Not Every Journey Requires Mushrooms
+            </h3>
+            <p
+              className="font-heading mb-10"
+              style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.6)', lineHeight: 1.85 }}
+            >
+              For those moments when simplicity is enough, Torchbearer delivers specialty coffee quality without compromise. Crafted from premium Papua New Guinea Arabica beans and freeze-dried to preserve flavor, it represents the pure coffee side of Torch Republic.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/torchbearer"
+                className="font-mono text-[9px] tracking-[0.32em] uppercase px-8 py-3.5 transition-all hover:opacity-80"
+                style={{
+                  background: 'transparent',
+                  color: GOLD,
+                  fontWeight: 600,
+                  borderRadius: '2px',
+                  border: `1px solid ${GOLD}40`,
+                }}
+              >
+                Explore Republic Reserve
+              </Link>
+            </div>
+
+            {/* Coming soon teaser */}
+            <div className="mt-14 pt-10" style={{ borderTop: `1px solid ${GOLD}12` }}>
+              <p className="font-mono text-[7px] tracking-[0.45em] uppercase mb-5" style={{ color: `${GOLD}45` }}>
+                More Releases Coming
+              </p>
+              <div className="flex items-center justify-center gap-6">
+                {COMING_SOON.map((name) => (
+                  <span
+                    key={name}
+                    className="font-mono text-[8px] tracking-[0.25em] uppercase px-3 py-1.5"
+                    style={{
+                      background: `${GOLD}08`,
+                      border: `1px solid ${GOLD}18`,
+                      color: `${GOLD}50`,
+                      borderRadius: '2px',
+                    }}
+                  >
+                    {name} — Coming Soon
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
