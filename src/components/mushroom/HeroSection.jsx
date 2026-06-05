@@ -1,9 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles, Coffee, Leaf, Zap, X } from 'lucide-react';
 
 const RG   = '#E6B7AD';
+
+const PROMO_MESSAGES = [
+  'One-time: 10% off code WELCOME10',
+  'Subscription: 20% OFF — Code SUBSCRIBE20',
+];
 
 const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
 const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/663b2eb3c_bjkgkugk.png';
@@ -16,11 +21,20 @@ const TRUST = [
 ];
 
 export default function MushroomHero() {
+  const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
   const scrollToRitual = (e) => {
     e.preventDefault();
     const el = document.getElementById('find-your-ritual');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  // Rotate promo messages every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPromoIndex(prev => (prev + 1) % PROMO_MESSAGES.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section style={{ background: '#07080F', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -127,15 +141,32 @@ export default function MushroomHero() {
               </a>
             </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.4 }}
-              style={{ fontFamily:'var(--font-mono)', fontSize:'0.55rem', letterSpacing:'0.18em',
-                textTransform:'uppercase', color:'rgba(230,183,173,0.38)' }}
-            >
-              One-time: 10% off code{' '}
-              <span style={{ color: RG, fontWeight:700 }}>WELCOME10</span>
-              {' '}| Subscription: 20% OFF
-            </motion.p>
+            <div style={{ 
+              fontFamily:'var(--font-mono)', fontSize:'0.55rem', letterSpacing:'0.18em',
+              textTransform:'uppercase', color:'rgba(230,183,173,0.38)',
+              height: '20px', overflow: 'hidden',
+            }}>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentPromoIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  style={{ margin: 0 }}
+                >
+                  {PROMO_MESSAGES[currentPromoIndex].split('WELCOME10')[0]}
+                  {PROMO_MESSAGES[currentPromoIndex].includes('WELCOME10') && (
+                    <span style={{ color: RG, fontWeight:700 }}>WELCOME10</span>
+                  )}
+                  {PROMO_MESSAGES[currentPromoIndex].split('WELCOME10')[1] || 
+                   PROMO_MESSAGES[currentPromoIndex].split('SUBSCRIBE20')[0]}
+                  {PROMO_MESSAGES[currentPromoIndex].includes('SUBSCRIBE20') && (
+                    <span style={{ color: RG, fontWeight:700 }}>SUBSCRIBE20</span>
+                  )}
+                </motion.p>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 
@@ -304,18 +335,33 @@ export default function MushroomHero() {
             ))}
           </motion.div>
 
-          {/* Promo line */}
-          <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, delay: 0.44 }}
-            style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', letterSpacing: '0.15em',
-              textTransform: 'uppercase', color: 'rgba(230,183,173,0.36)',
-            }}
-          >
-            One-time: 10% off code{' '}
-            <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
-            {' '}| Subscription: 20% OFF
-          </motion.p>
+          {/* Promo line - rotating carousel */}
+          <div style={{ 
+            fontFamily: 'var(--font-mono)', fontSize: '0.52rem', letterSpacing: '0.15em',
+            textTransform: 'uppercase', color: 'rgba(230,183,173,0.36)',
+            height: '20px', overflow: 'hidden',
+          }}>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentPromoIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ margin: 0 }}
+              >
+                {PROMO_MESSAGES[currentPromoIndex].split('WELCOME10')[0]}
+                {PROMO_MESSAGES[currentPromoIndex].includes('WELCOME10') && (
+                  <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
+                )}
+                {PROMO_MESSAGES[currentPromoIndex].split('WELCOME10')[1] || 
+                 PROMO_MESSAGES[currentPromoIndex].split('SUBSCRIBE20')[0]}
+                {PROMO_MESSAGES[currentPromoIndex].includes('SUBSCRIBE20') && (
+                  <span style={{ color: RG, fontWeight: 700 }}>SUBSCRIBE20</span>
+                )}
+              </motion.p>
+            </AnimatePresence>
+          </div>
         </div>
 
       </div>
