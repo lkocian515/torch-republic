@@ -40,6 +40,15 @@ export default function ReviewPopup() {
     }
   }, [reviews.length, hasClosed, isOpen]);
 
+  // Auto-rotate reviews every 10 seconds
+  useEffect(() => {
+    if (!isOpen) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [isOpen, reviews.length]);
+
   const handleClose = () => {
     setIsOpen(false);
     setHasClosed(true);
