@@ -60,20 +60,20 @@ export default function Home() {
       <MushroomHero />
       {/* 2. Trust signals */}
       <MushroomTrustBar />
-      {/* 3. Start Your Ritual — bundle / best-seller offer */}
-      <BundleSection />
-      {/* 4. Find Your Ritual — blend selector */}
-      <ChooseYourBlend />
-      {/* 5. Featured product grid */}
-      <FeaturedCollection />
-      {/* 6. Why mushroom coffee */}
-      <MushroomScience />
-      {/* 7. Why instant / brand pillars */}
-      <WhyInstant />
-      {/* 8. How to use */}
-      <HowToUse />
-      {/* 9. What's Inside the Tube — ingredient transparency */}
+      {/* 3. What's Inside the Tube — ingredient transparency */}
       <WhatInsideTube />
+      {/* 4. Start Your Ritual — bundle / best-seller offer */}
+      <BundleSection />
+      {/* 5. Find Your Ritual — blend selector */}
+      <ChooseYourBlend />
+      {/* 6. Featured product grid */}
+      <FeaturedCollection />
+      {/* 7. Why mushroom coffee */}
+      <MushroomScience />
+      {/* 8. Why instant / brand pillars */}
+      <WhyInstant />
+      {/* 9. How to use */}
+      <HowToUse />
       {/* 10. Why Torch Republic / trust commitments */}
       <QualityMission />
       {/* 11. Founder story */}
