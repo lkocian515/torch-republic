@@ -41,10 +41,11 @@ const LayoutWrapper = ({ children, currentPageName }) => {
 const AuthenticatedApp = () => {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait">
-      <ScrollToTop />
+    <>
       <UnifiedHeader />
-      <Routes location={location} key={location.pathname}>
+      <AnimatePresence mode="wait">
+        <ScrollToTop key={location.pathname} />
+        <Routes location={location} key={location.pathname}>
 
         {/* ── HOME ── */}
         <Route path="/" element={
@@ -149,7 +150,8 @@ const AuthenticatedApp = () => {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 };
 
