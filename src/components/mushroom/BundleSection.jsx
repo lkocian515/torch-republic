@@ -32,6 +32,7 @@ export default function BundleSection() {
               src={HERO_IMAGE}
               alt="Torch Republic six instant mushroom coffee tubes lineup"
               loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
               style={{ opacity: 0.75 }}
             />

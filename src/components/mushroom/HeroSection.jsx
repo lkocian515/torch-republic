@@ -147,7 +147,9 @@ export default function MushroomHero() {
           <img
             src={HERO_IMG}
             alt="GlowMind Clarity mushroom coffee blend"
-            fetchpriority="high"
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
             style={{
               width:'100%', height:'100%',
               objectFit:'cover', objectPosition:'center center',
@@ -172,7 +174,9 @@ export default function MushroomHero() {
           <img
             src={HERO_IMG_MOBILE}
             alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
-            fetchpriority="high"
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
             style={{
               width: '100%',
               display: 'block',

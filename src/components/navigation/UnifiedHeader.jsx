@@ -23,10 +23,10 @@ export default function UnifiedHeader() {
 
   return (
     <>
-      {/* Announcement Bar */}
+      {/* Announcement Bar - optimized with will-change for smoother animations */}
       <div
         className="w-full flex items-center justify-center px-4 py-2.5"
-        style={{ background: '#050505', borderBottom: `1px solid ${RG}20` }}
+        style={{ background: '#050505', borderBottom: `1px solid ${RG}20`, willChange: 'transform' }}
       >
         <div className="flex items-center gap-2 max-w-4xl">
           <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GOLD }} />

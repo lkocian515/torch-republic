@@ -89,64 +89,15 @@ const AuthenticatedApp = () => {
         <Route path="/Contact" element={<Navigate to="/contact" replace />} />
         <Route path="/landing" element={<Navigate to="/" replace />} />
 
-        {/* Old founder/patriotic blend product routes — all redirect to mushroom coffee */}
-        <Route path="/WashingtonBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/JeffersonBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/FranklinBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/LincolnBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/AdamsBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/RooseveltBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/LadyLibertyBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/EaglesFlightBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/UncleSamsBoldBrew" element={<Navigate to="/blends" replace />} />
-        <Route path="/LibertyTorchBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/RosiesGrind" element={<Navigate to="/blends" replace />} />
-        <Route path="/OldGloryHouseBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/AbigailAdamsBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/HarrietTubmanBlend" element={<Navigate to="/blends" replace />} />
-        <Route path="/washington-pods" element={<Navigate to="/shop" replace />} />
 
-        {/* Old product URL patterns — redirect to mushroom coffee */}
-        <Route path="/products/washington-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/jefferson-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/franklin-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/lincoln-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/adams-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/roosevelt-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/eagles-flight-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/uncle-sams-bold-brew" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/liberty-torch-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/rosies-grind" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/old-glory-house-blend" element={<Navigate to="/blends" replace />} />
-        <Route path="/products/washington-pods" element={<Navigate to="/shop" replace />} />
 
-        {/* Old QR pages — all redirect to mushroom coffee blends */}
-        <Route path="/qr/washington" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/jefferson" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/adams" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/franklin" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/lincoln" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/roosevelt" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/liberty-torch" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/lady-liberty" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/old-glory" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/uncle-sam" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/rosies" element={<Navigate to="/blends" replace />} />
-        <Route path="/qr/eagles-flight" element={<Navigate to="/blends" replace />} />
 
-        {/* Old apparel/collectible pages — all redirect to mushroom coffee shop */}
-        <Route path="/Bobbleheads" element={<Navigate to="/shop" replace />} />
-        <Route path="/MugsTumblers" element={<Navigate to="/shop" replace />} />
-        <Route path="/Apparel" element={<Navigate to="/shop" replace />} />
-        <Route path="/OutfitBuilder" element={<Navigate to="/shop" replace />} />
-        <Route path="/Patriots" element={<Navigate to="/shop" replace />} />
-        <Route path="/Visionaries" element={<Navigate to="/shop" replace />} />
-        <Route path="/StyleAdvisor" element={<Navigate to="/shop" replace />} />
-        <Route path="/OnSale" element={<Navigate to="/shop" replace />} />
-        <Route path="/WomenOfTheRepublic" element={<Navigate to="/shop" replace />} />
 
-        {/* Old blog */}
-        <Route path="/george-washington-coffee-history" element={<Navigate to="/Journal" replace />} />
+
+
+
+
+
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -1,3 +1,4 @@
+/* Fonts preloaded in index.html for faster FCP */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
@@ -181,7 +182,7 @@
   transform: scaleX(1);
 }
 
-/* Custom scrollbar */
+/* Optimized custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -192,8 +193,11 @@
   background: hsl(0 0% 15%);
   border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(49 100% 50%);
+/* Smooth rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Selection */

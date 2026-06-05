@@ -58,6 +58,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
               src={product.image}
               alt={product.alt}
               loading="lazy"
+              decoding="async"
               className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
               style={{ padding: '12px' }}
             />
