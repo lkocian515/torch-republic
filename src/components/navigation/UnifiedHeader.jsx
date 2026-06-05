@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { label: 'Blends', href: '/blends' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'Subscribe', href: '/subscription' },
+  { label: 'Reserve', href: '/torchbearer' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
   { label: 'About', href: '/about' },

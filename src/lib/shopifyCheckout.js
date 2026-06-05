@@ -16,6 +16,8 @@ const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 // ── Per-product Shopify variant IDs ──────────────────────────────────────────
 // Replace each REPLACE_WITH_VARIANT_ID with the real numeric variant ID from Shopify Admin.
 export const SHOPIFY_VARIANT_IDS = {
+  // Republic Reserve
+  'torchbearer-premium-instant-coffee': '49166825160956', // Torchbearer Premium Instant Coffee
   'mooncap-restore':  '49148263760124', // Mooncap Restore — Dark Roast
   'glowmind-clarity': '49148263596284', // GlowMind Clarity — Medium Roast
   'suncap-rise':      '49148263465212', // Suncap Rise — Light Roast

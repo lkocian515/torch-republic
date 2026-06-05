@@ -21,6 +21,7 @@ import TastesLikeCoffee from '../components/mushroom/TastesLikeCoffee';
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import FounderTrust from '../components/mushroom/FounderTrust';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
+import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
 
 const RG = '#E6B7AD';
 
@@ -94,7 +95,9 @@ export default function Home() {
       <FounderTrust />
       {/* 14. First Cup Guarantee — risk-free trial */}
       <FirstCupGuarantee />
-      {/* 15. Why Torch Republic / trust commitments */}
+      {/* 15. Republic Reserve — premium coffee secondary collection */}
+      <RepublicReserveSection />
+      {/* 16. Why Torch Republic / trust commitments */}
       <QualityMission />
       {/* 16. Email capture */}
       <EmailCapture />

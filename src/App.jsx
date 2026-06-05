@@ -30,6 +30,7 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import Subscription from './pages/Subscription';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Torchbearer from './pages/Torchbearer';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -84,6 +85,7 @@ const AuthenticatedApp = () => {
         <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
         <Route path="/about" element={<LayoutWrapper currentPageName="About"><About /></LayoutWrapper>} />
         <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
+        <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
         <Route path="/mission" element={<Navigate to="/about" replace />} />
 
         {/* ── LEGACY REDIRECTS (all old routes → mushroom coffee pages) ── */}
