@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Star, ChevronDown, ChevronUp, Flame } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Star, ChevronDown, ChevronUp, Flame, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 
 const GOLD = '#C4A35A';
@@ -12,6 +12,25 @@ const TORCHBEARER_VARIANT_ID = '49166825160956';
 function getCartUrl(qty = 1) {
   return `${SHOPIFY_DOMAIN}/cart/${TORCHBEARER_VARIANT_ID}:${qty}`;
 }
+
+const PRODUCT_IMAGES = [
+  {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/65fb7d7fa_fsdfesfes.png',
+    alt: 'Torchbearer Premium Instant Coffee — hero shot with mug',
+  },
+  {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/509a1bf2f_dgdfgdr.png',
+    alt: 'Torchbearer Premium Instant Coffee — marble counter lifestyle',
+  },
+  {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c461f63e7_rgdrget.png',
+    alt: 'Torchbearer Premium Instant Coffee — side label detail',
+  },
+  {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6cbd6bb7b_fsdgfrtre.png',
+    alt: 'Torchbearer Premium Instant Coffee — full product infographic',
+  },
+];
 
 const TASTING_NOTES = [
   {
@@ -73,6 +92,7 @@ function FadeIn({ children, delay = 0, className = '' }) {
 export default function Torchbearer() {
   const [qty, setQty] = useState(1);
   const [specsOpen, setSpecsOpen] = useState(false);
+  const [activeImg, setActiveImg] = useState(0);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0a0806' }}>
@@ -99,22 +119,75 @@ export default function Torchbearer() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
-            {/* Left: Image */}
+            {/* Left: Image Gallery */}
             <FadeIn>
-              <div className="relative flex items-center justify-center">
+              <div className="relative">
+                {/* Main image */}
                 <div
-                  className="absolute inset-0 rounded-full pointer-events-none"
+                  className="relative overflow-hidden rounded-sm flex items-center justify-center"
                   style={{
-                    background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${GOLD}12 0%, transparent 70%)`,
-                    filter: 'blur(40px)',
+                    background: '#0d0a05',
+                    border: `1px solid ${GOLD}15`,
+                    minHeight: '420px',
                   }}
-                />
-                <img
-                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6cbd6bb7b_fsdgfrtre.png"
-                  alt="Torchbearer Premium Instant Coffee"
-                  className="w-full max-w-md mx-auto object-contain relative z-10"
-                  style={{ filter: 'drop-shadow(0 30px 80px rgba(0,0,0,0.9))', maxHeight: '520px' }}
-                />
+                >
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${GOLD}08 0%, transparent 70%)` }}
+                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={activeImg}
+                      src={PRODUCT_IMAGES[activeImg].src}
+                      alt={PRODUCT_IMAGES[activeImg].alt}
+                      className="w-full object-contain relative z-10"
+                      style={{ maxHeight: '460px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.85))' }}
+                      initial={{ opacity: 0, scale: 0.97 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </AnimatePresence>
+
+                  {/* Prev / Next arrows */}
+                  <button
+                    onClick={() => setActiveImg((activeImg - 1 + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-sm transition-opacity hover:opacity-70"
+                    style={{ background: 'rgba(0,0,0,0.55)', border: `1px solid ${GOLD}25` }}
+                  >
+                    <ChevronLeft className="w-4 h-4" style={{ color: GOLD }} />
+                  </button>
+                  <button
+                    onClick={() => setActiveImg((activeImg + 1) % PRODUCT_IMAGES.length)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-sm transition-opacity hover:opacity-70"
+                    style={{ background: 'rgba(0,0,0,0.55)', border: `1px solid ${GOLD}25` }}
+                  >
+                    <ChevronRight className="w-4 h-4" style={{ color: GOLD }} />
+                  </button>
+                </div>
+
+                {/* Thumbnail strip */}
+                <div className="flex gap-2 mt-3">
+                  {PRODUCT_IMAGES.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImg(i)}
+                      className="flex-1 overflow-hidden rounded-sm transition-all"
+                      style={{
+                        border: i === activeImg ? `2px solid ${GOLD}` : `1px solid ${GOLD}20`,
+                        background: '#0d0a05',
+                        opacity: i === activeImg ? 1 : 0.55,
+                      }}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full object-cover"
+                        style={{ height: '64px', objectPosition: 'center' }}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             </FadeIn>
 
