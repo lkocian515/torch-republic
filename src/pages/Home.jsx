@@ -73,9 +73,11 @@ export default function Home() {
       <WhatInsideTube />
       {/* 4. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 5. Find Your Blend — interactive quiz */}
+      {/* 5. What People Are Saying — social proof (moved up for conversion) */}
+      <HomeReviewCarousel />
+      {/* 6. Find Your Blend — interactive quiz */}
       <BlendQuiz />
-      {/* 6. Find Your Ritual — blend selector */}
+      {/* 7. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
       {/* 7. Featured product grid */}
       <FeaturedCollection />
@@ -89,8 +91,6 @@ export default function Home() {
       <HowToUse />
       {/* 11. Customer Reviews / social proof */}
       <ProductReviewsCarousel productSlug="mooncap-restore" />
-      {/* 11b. Homepage review carousel - energy & focus testimonials */}
-      <HomeReviewCarousel />
       {/* 12. Why Torch Republic / trust commitments */}
       <QualityMission />
       {/* 13. Founder story */}
