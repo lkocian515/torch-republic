@@ -74,11 +74,11 @@ export default function ReviewPopup() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 z-40 m-4 md:m-6"
-          style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}
+          className="fixed bottom-0 left-0 z-40 m-2 md:m-4 lg:m-6"
+          style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 12px)' }}
         >
           <div
-            className="relative w-full max-w-sm"
+            className="relative w-full max-w-[140px] sm:max-w-[180px] md:max-w-sm"
             style={{
               background: 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)',
               border: `1px solid ${RG}30`,
@@ -89,27 +89,27 @@ export default function ReviewPopup() {
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-2 right-2 z-10 p-1.5 rounded-full transition-all hover:bg-white/10"
+              className="absolute top-1.5 right-1.5 z-10 p-1 rounded-full transition-all hover:bg-white/10"
               style={{ color: `${RG}60` }}
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-3 h-3" />
             </button>
 
             {/* Content */}
-            <div className="p-4">
+            <div className="p-3">
               {/* Header */}
-              <div className="mb-3">
+              <div className="mb-2">
                 <p
-                  className="font-mono text-[6px] tracking-[0.4em] uppercase mb-2"
+                  className="font-mono text-[5px] tracking-[0.4em] uppercase mb-1.5"
                   style={{ color: `${RG}60` }}
                 >
-                  Customer Review
+                  Review
                 </p>
-                <div className="flex items-center gap-1 mb-2">
+                <div className="flex items-center gap-0.5 mb-1.5">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-3 h-3 fill-current"
+                      className="w-2.5 h-2.5 fill-current"
                       style={{ color: i < currentReview.rating ? GOLD : 'rgba(255,255,255,0.15)' }}
                     />
                   ))}
@@ -125,27 +125,27 @@ export default function ReviewPopup() {
                 transition={{ duration: 0.2 }}
               >
                 <blockquote
-                  className="font-heading mb-3"
+                  className="font-heading mb-2"
                   style={{
-                    fontSize: '0.8rem',
+                    fontSize: '0.65rem',
                     color: 'rgba(240,235,225,0.75)',
-                    lineHeight: 1.55,
+                    lineHeight: 1.45,
                   }}
                 >
-                  "{currentReview.body}"
+                  "{currentReview.body.length > 120 ? currentReview.body.substring(0, 120) + '...' : currentReview.body}"
                 </blockquote>
 
                 {/* Reviewer info */}
-                <div className="flex items-center justify-between pt-2" style={{ borderTop: `1px solid ${RG}15` }}>
+                <div className="flex items-center justify-between pt-1.5" style={{ borderTop: `1px solid ${RG}15` }}>
                   <p
-                    className="font-mono text-[6px] tracking-[0.25em] uppercase font-bold"
+                    className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold"
                     style={{ color: RG }}
                   >
                     {currentReview.reviewer_name}
                   </p>
                   {currentReview.review_date && (
                     <p
-                      className="font-mono text-[5px] tracking-[0.15em] uppercase"
+                      className="font-mono text-[4px] tracking-[0.15em] uppercase"
                       style={{ color: `${RG}40` }}
                     >
                       {new Date(currentReview.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
@@ -156,24 +156,24 @@ export default function ReviewPopup() {
 
               {/* Navigation */}
               {reviews.length > 1 && (
-                <div className="flex items-center justify-between mt-3">
+                <div className="flex items-center justify-between mt-2">
                   <button
                     onClick={handlePrev}
-                    className="p-1.5 rounded-full transition-all hover:bg-white/10"
+                    className="p-1 rounded-full transition-all hover:bg-white/10"
                     style={{ color: RG }}
                   >
-                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <ChevronLeft className="w-3 h-3" />
                   </button>
 
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1">
                     {reviews.map((_, idx) => (
                       <div
                         key={idx}
                         className="transition-all"
                         style={{
-                          width: idx === currentIndex ? '14px' : '4px',
-                          height: '4px',
-                          borderRadius: '2px',
+                          width: idx === currentIndex ? '10px' : '3px',
+                          height: '3px',
+                          borderRadius: '1.5px',
                           background: idx === currentIndex ? RG : `rgba(230,183,173,0.2)`,
                         }}
                       />
@@ -182,10 +182,10 @@ export default function ReviewPopup() {
 
                   <button
                     onClick={handleNext}
-                    className="p-1.5 rounded-full transition-all hover:bg-white/10"
+                    className="p-1 rounded-full transition-all hover:bg-white/10"
                     style={{ color: RG }}
                   >
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ChevronRight className="w-3 h-3" />
                   </button>
                 </div>
               )}
