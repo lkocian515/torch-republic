@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingBag, User, Flame, ArrowLeft } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+
+const PROMO_MESSAGES = [
+  'Start your ritual with 10% off — code WELCOME10',
+  'Get 20% off subscriptions — Code SUBSCRIBE20',
+  'FREE SHIPPING on orders over $75',
+];
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
@@ -19,8 +25,17 @@ const NAV_LINKS = [
 
 export default function UnifiedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Rotate promo messages every 4 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentPromoIndex((prev) => (prev + 1) % PROMO_MESSAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Check if we're on a child route (not home)
   const isChildRoute = location.pathname !== '/' && !location.pathname.startsWith('/shop') && 
@@ -35,18 +50,35 @@ export default function UnifiedHeader() {
 
   return (
     <>
-      {/* Announcement Bar - optimized with will-change for smoother animations */}
+      {/* Announcement Bar - rotating promo messages */}
       <div
         className="w-full flex items-center justify-center px-4 py-2.5"
         style={{ background: '#050505', borderBottom: `1px solid ${RG}20`, willChange: 'transform' }}
       >
         <div className="flex items-center gap-2 max-w-4xl">
           <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RG }} />
-          <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-center"
-            style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase', lineHeight: 1.4 }}>
-            Start your ritual with 10% off —{' '}
-            <span style={{ color: RG, fontWeight: 700 }}>code WELCOME10</span>
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentPromoIndex}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.3 }}
+              className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-center"
+              style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase', lineHeight: 1.4 }}
+            >
+              {PROMO_MESSAGES[currentPromoIndex].split(' — ').map((part, i, arr) => (
+                <React.Fragment key={i}>
+                  {i > 0 && ' — '}
+                  {part.includes('code') || part.includes('Code') || part.includes('FREE') ? (
+                    <span style={{ color: RG, fontWeight: 700 }}>{part}</span>
+                  ) : (
+                    part
+                  )}
+                </React.Fragment>
+              ))}
+            </motion.p>
+          </AnimatePresence>
         </div>
       </div>
 
