@@ -25,13 +25,13 @@ export default function UnifiedHeader() {
     <>
       {/* Announcement Bar */}
       <div
-        className="w-full flex items-center justify-center px-4 py-3"
+        className="w-full flex items-center justify-center px-4 py-2.5"
         style={{ background: '#050505', borderBottom: `1px solid ${RG}20` }}
       >
         <div className="flex items-center gap-2 max-w-4xl">
-          <Flame className="w-4 h-4 flex-shrink-0" style={{ color: GOLD }} />
-          <p className="font-mono text-[11px] tracking-[0.3em] whitespace-nowrap overflow-hidden text-ellipsis"
-            style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase' }}>
+          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GOLD }} />
+          <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-center"
+            style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase', lineHeight: 1.4 }}>
             Start your ritual with 10% off —{' '}
             <span style={{ color: GOLD, fontWeight: 700 }}>code WELCOME10</span>
           </p>
