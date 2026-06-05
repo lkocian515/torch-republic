@@ -73,9 +73,12 @@ const AuthenticatedApp = () => {
         <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
         <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
         <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
-        <Route path="/cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
-        <Route path="/Cart" element={<LayoutWrapper currentPageName="Cart"><Cart /></LayoutWrapper>} />
-        <Route path="/OrderConfirmation" element={<LayoutWrapper currentPageName="OrderConfirmation"><OrderConfirmation /></LayoutWrapper>} />
+        {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/Cart" element={<Cart />} />
+        <Route path="/checkout" element={<Cart />} />
+        <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
         <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
         <Route path="/about" element={<LayoutWrapper currentPageName="About"><About /></LayoutWrapper>} />
         <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
