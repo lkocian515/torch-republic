@@ -46,19 +46,19 @@ export default function WhatInsideTube() {
           >
             {/* Label */}
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase"
-              style={{ color: '#C4A35A' }}>
+              style={{ color: '#C4A35A', textAlign: 'center' }}>
               Product Education
             </p>
 
             {/* Title */}
             <h2 className="font-serif font-bold leading-tight"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', textAlign: 'center' }}>
               What's Inside the Tube?
             </h2>
 
             {/* Subtitle */}
             <p className="font-heading font-light"
-              style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.62)', lineHeight: 1.7, maxWidth: '480px' }}>
+              style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.62)', lineHeight: 1.7, maxWidth: '480px', textAlign: 'center', margin: '0 auto' }}>
               Instant mushroom coffee powder — no machine, no brewing, no complicated routine.
             </p>
 

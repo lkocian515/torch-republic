@@ -24,7 +24,7 @@ export default function FeaturedCollection() {
           </p>
           <h2 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Shop the Collection
+            Shop Blends
           </h2>
           <p className="font-heading max-w-lg mx-auto"
             style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>

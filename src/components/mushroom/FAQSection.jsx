@@ -4,48 +4,44 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'What is mushroom coffee?',
-    a: 'Mushroom coffee is instant coffee blended with functional mushroom extracts. Torch Republic blends use Lion\'s Mane + Chaga — two well-known functional mushrooms — worked into a premium instant coffee base. You get the taste and ritual of real coffee with the added benefit of functional mushrooms.',
-  },
-  {
     q: 'Is this instant coffee or ground coffee?',
-    a: 'It\'s 100% instant coffee powder. No coffee maker, grinder, or brewer required. Simply scoop one serving into hot water or milk, stir for 10–15 seconds, and enjoy. It dissolves completely in about 30 seconds.',
+    a: 'It\'s 100% instant coffee powder — not ground coffee, not pods. No coffee maker, grinder, French press, or brewer required. Simply scoop one serving into hot water or milk, stir for 10–15 seconds, and enjoy. It dissolves completely in under 30 seconds.',
   },
   {
-    q: 'What does it taste like?',
-    a: 'These blends are designed to taste like coffee first — smooth, clean, and roast-forward. The mushroom extracts complement the coffee flavor without tasting earthy or medicinal. Each blend has distinct notes: dark cocoa, light citrus, warm spice, or floral sweetness depending on the roast.',
-  },
-  {
-    q: 'What mushrooms are included?',
-    a: 'Each blend contains Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). Lion\'s Mane is known for supporting focus and cognitive clarity. Chaga is rich in antioxidants and supports daily wellness. Both are dual-extracted for full-spectrum bioavailability.',
-  },
-  {
-    q: 'How do I use it?',
+    q: 'How do I make it?',
     a: 'Scoop one serving (approximately 2g) into your mug. Add 8–12 oz of hot water, oat milk, almond milk, or your preferred creamer. Stir for 10–15 seconds. Optionally add sweetener or ice. That\'s it — no equipment needed.',
   },
   {
-    q: 'Which blend is right for me?',
-    a: 'GlowMind is best for focus and deep work. SunCap Rise is ideal for bright, energetic mornings. MoonCap Restore suits calm evenings and restoration. The Oracle supports creative and intuitive thinking. Mystic Bloom is made for gentle self-care mornings. DreamCap helps with calm, immersive focus sessions.',
+    q: 'What does it taste like?',
+    a: 'These blends are designed to taste like coffee first — smooth, clean, and roast-forward. The mushroom extracts complement the coffee flavor without tasting earthy or medicinal. Each blend has distinct notes: dark cocoa, light citrus, warm spice, or floral sweetness depending on the roast and blend.',
+  },
+  {
+    q: 'Does it contain caffeine?',
+    a: 'Yes. Each serving contains approximately 50–80mg of caffeine depending on the blend and roast level — comparable to a half-to-full cup of regular coffee. The functional mushroom extracts are caffeine-free.',
+  },
+  {
+    q: 'Which blend should I choose?',
+    a: 'GlowMind Clarity is best for focus and deep work. SunCap Rise is ideal for bright, energetic mornings. MoonCap Restore suits calm evenings and restoration. The Oracle supports creative and intuitive thinking. Mystic Bloom is made for gentle balance and daily wellness. DreamCap helps with calm, immersive focus and deep rest.',
+  },
+  {
+    q: 'Where do I enter WELCOME10?',
+    a: 'Enter code WELCOME10 in the discount field at the Shopify checkout page after you click "Add to Cart." It applies 10% off your first order.',
+  },
+  {
+    q: 'How long does shipping take?',
+    a: 'We ship from the USA. Standard shipping typically takes 3–7 business days. Orders over $75 ship free. For full details on shipping times, carriers, and return eligibility, visit the Shipping Policy linked in the footer.',
+  },
+  {
+    q: 'What mushrooms are included?',
+    a: 'Each blend contains Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). Lion\'s Mane is associated with supporting focus and cognitive clarity. Chaga is rich in antioxidants and supports daily wellness. Both are dual-extracted for full-spectrum bioavailability.',
   },
   {
     q: 'How many servings are in each tube?',
     a: 'Each tube contains 27 servings (1.9 oz / 54g). At one serving per day, each tube lasts about four weeks.',
   },
   {
-    q: 'Does it contain caffeine?',
-    a: 'Yes. Each serving contains approximately 50–80mg of caffeine depending on the blend and roast level — comparable to a half-to-full cup of regular coffee. The mushroom extracts are caffeine-free.',
-  },
-  {
-    q: 'Do you offer a monthly subscription?',
-    a: 'Yes. The Monthly Mushroom Coffee Subscription lets you choose 1–6 tubes per month and select the blends you want. You can adjust or cancel at any time through your Shopify account.',
-  },
-  {
-    q: 'Is there a first-order discount?',
-    a: 'Yes — new customers can use code WELCOME10 at checkout for 10% off their first order. Enter the code at the Shopify checkout page.',
-  },
-  {
-    q: 'What is your shipping and return policy?',
-    a: 'We ship from the USA. Orders over $75 ship free. For detailed shipping times, return eligibility, and refund information, visit our Shipping and Return Policy pages linked in the footer.',
+    q: 'Is there a monthly subscription?',
+    a: 'Yes. Our Monthly Mushroom Coffee Subscription lets you choose 1–6 tubes per month and select the blends you want. You can adjust or cancel at any time through your Shopify account.',
   },
   {
     q: 'Are these products FDA approved?',

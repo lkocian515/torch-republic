@@ -2,8 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import FAQSection from '../components/mushroom/FAQSection';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 
 export default function MushroomFAQ() {
+  useSEO({
+    title: 'Mushroom Coffee FAQ | Torch Republic Coffee Company',
+    description: 'Answers about Torch Republic mushroom coffee, taste, caffeine, preparation, functional mushrooms, shipping, discounts, and choosing your blend.',
+  });
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
       <section className="px-6 py-24 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>

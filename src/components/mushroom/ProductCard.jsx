@@ -98,9 +98,13 @@ export default function MushroomProductCard({ product, index = 0 }) {
           </p>
         )}
 
-        {/* Mushrooms */}
+        {/* Format + servings */}
         <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase"
-          style={{ color: 'rgba(230,183,173,0.35)' }}>
+          style={{ color: 'rgba(230,183,173,0.38)' }}>
+          Instant Powder Mix · 27 Servings
+        </p>
+        <p className="font-mono text-[7px] tracking-[0.14em] uppercase"
+          style={{ color: 'rgba(230,183,173,0.28)' }}>
           Lion's Mane + Chaga
         </p>
 

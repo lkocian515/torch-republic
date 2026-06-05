@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 
 const RG = '#E6B7AD';
 
 export default function MushroomShop() {
-  useEffect(() => {
-    document.title = 'Shop Mushroom Coffee Blends | Torch Republic Coffee Company';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Shop six premium instant mushroom coffee blends with Lion\'s Mane + Chaga. Focus, calm, energy, creativity — find your blend. Ships from the USA.');
-  }, []);
+  useSEO({
+    title: 'Shop Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
+    description: 'Explore premium instant mushroom coffee blends for focus, energy, calm, balance, and rest. No coffee maker needed — just scoop, mix, and sip.',
+  });
 
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>

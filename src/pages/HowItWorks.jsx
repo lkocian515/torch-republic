@@ -1,10 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 import HowToUse from '../components/mushroom/HowToUse';
 import WhyInstant from '../components/mushroom/WhyInstant';
 
 export default function HowItWorks() {
+  useSEO({
+    title: 'How Instant Mushroom Coffee Works | Torch Republic Coffee Company',
+    description: 'Learn how to make Torch Republic instant mushroom coffee powder. Scoop, mix with hot water or milk, and enjoy a smooth daily coffee ritual.',
+  });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
       <section className="px-6 py-24 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>

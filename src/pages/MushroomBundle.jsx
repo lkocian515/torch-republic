@@ -1,10 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, BUNDLE_IMAGE } from '../lib/mushroomProducts';
 import { getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 export default function MushroomBundle() {
+  useSEO({
+    title: 'Mushroom Coffee Bundles | Torch Republic Coffee Company',
+    description: 'Save on premium instant mushroom coffee bundles and try multiple Torch Republic blends for focus, energy, calm, balance, and daily wellness.',
+  });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
       {/* Hero */}
