@@ -36,6 +36,11 @@
       "type": "string",
       "format": "date-time",
       "description": "When the review email was sent"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes or description for this order"
     }
   },
   "required": [
