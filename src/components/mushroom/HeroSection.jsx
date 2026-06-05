@@ -6,7 +6,8 @@ import { ShoppingBag, Sparkles, Coffee, Leaf, Zap, X } from 'lucide-react';
 const RG   = '#E6B7AD';
 const GOLD = '#C4A35A';
 
-const HERO_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
+const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
+const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d01647fe2_ChatGPTImageJun4202611_28_46PM.png';
 
 const TRUST = [
   { icon: Coffee, label: '100% Instant Coffee' },
@@ -157,110 +158,159 @@ export default function MushroomHero() {
       </div>
 
       {/* ─────────────────────────────────────────────────────────────────
-          MOBILE  — stacked layout (hidden on desktop)
+          MOBILE  — editorial stacked layout (hidden on desktop)
       ───────────────────────────────────────────────────────────────── */}
-      <div className="hero-mobile" style={{ display:'none' /* overridden below */ }}>
+      <div className="hero-mobile" style={{ display:'none', background:'#07080F' }}>
 
-        {/* Text block */}
+        {/* ── Text content block ── */}
         <div style={{
-          padding:'36px 24px 28px',
-          background:'linear-gradient(180deg, #07080F 0%, #09090F 100%)',
+          padding: '44px 24px 32px',
+          textAlign: 'center',
+          background: 'linear-gradient(180deg, #06070D 0%, #08090F 100%)',
         }}>
+
+          {/* Eyebrow */}
           <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
-            style={{ fontFamily:'var(--font-mono)', fontSize:'0.5rem', letterSpacing:'0.44em',
-              textTransform:'uppercase', color:'rgba(230,183,173,0.4)', marginBottom:'14px' }}
+            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+            style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', letterSpacing: '0.46em',
+              textTransform: 'uppercase', color: 'rgba(230,183,173,0.5)',
+              marginBottom: '16px',
+            }}
           >
-            Torch Republic Coffee Company
+            Instant Mushroom Coffee
           </motion.p>
 
+          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.06 }}
-            style={{ fontFamily:'var(--font-serif)', fontWeight:800,
-              fontSize:'clamp(1.7rem,8vw,2.3rem)', color:'#F5EFE6',
-              lineHeight:1.14, letterSpacing:'-0.01em', margin:'0 0 14px' }}
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.07 }}
+            style={{
+              fontFamily: 'var(--font-serif)', fontWeight: 800,
+              fontSize: 'clamp(2rem, 9vw, 2.6rem)', color: '#F5EFE6',
+              lineHeight: 1.1, letterSpacing: '-0.01em',
+              margin: '0 0 18px',
+            }}
           >
-            Instant Mushroom Coffee{' '}
-            <span style={{ color: RG }}>for Focus, Calm &amp; Daily Ritual</span>
+            For Focus, Calm<br />
+            <span style={{ color: RG }}>&amp; Daily Ritual</span>
           </motion.h1>
 
+          {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.45, delay: 0.14 }}
-            style={{ fontFamily:'var(--font-heading)', fontWeight:300,
-              fontSize:'0.9rem', color:'rgba(210,195,175,0.72)', lineHeight:1.72, marginBottom:'28px' }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.45, delay: 0.15 }}
+            style={{
+              fontFamily: 'var(--font-heading)', fontWeight: 300,
+              fontSize: '0.9rem', color: 'rgba(210,195,175,0.7)',
+              lineHeight: 1.75, marginBottom: '32px',
+              maxWidth: '320px', margin: '0 auto 32px',
+            }}
           >
-            Premium instant coffee blends with functional mushrooms — crafted for smooth coffee-forward taste and everyday wellness.
+            Premium instant coffee blends with functional mushrooms — crafted for clarity, energy, balance, and everyday wellness.
           </motion.p>
 
-          {/* Buttons — full width, stacked */}
+          {/* CTA Buttons — side by side */}
           <motion.div
-            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.22 }}
-            style={{ display:'flex', flexDirection:'column', gap:'10px', marginBottom:'20px' }}
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.24 }}
+            style={{ display: 'flex', gap: '10px', marginBottom: '24px', justifyContent: 'center' }}
           >
             <Link
               to="/shop"
               style={{
-                display:'flex', alignItems:'center', justifyContent:'center', gap:'8px',
-                background: GOLD, color:'#040404',
-                fontFamily:'var(--font-mono)', fontSize:'0.65rem', letterSpacing:'0.22em',
-                textTransform:'uppercase', fontWeight:800,
-                padding:'16px 24px', textDecoration:'none',
-                border:`1px solid ${GOLD}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
+                flex: '1', maxWidth: '160px',
+                background: GOLD, color: '#040404',
+                fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em',
+                textTransform: 'uppercase', fontWeight: 800,
+                padding: '15px 12px', textDecoration: 'none',
+                border: `1px solid ${GOLD}`,
               }}
             >
-              <ShoppingBag size={14} />
+              <ShoppingBag size={13} />
               Shop Blends
             </Link>
 
             <a
               href="#find-your-ritual" onClick={scrollToRitual}
               style={{
-                display:'flex', alignItems:'center', justifyContent:'center', gap:'8px',
-                background:'transparent', border:'1px solid rgba(230,183,173,0.38)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
+                flex: '1', maxWidth: '160px',
+                background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(230,183,173,0.35)',
                 color: RG,
-                fontFamily:'var(--font-mono)', fontSize:'0.65rem', letterSpacing:'0.22em',
-                textTransform:'uppercase', fontWeight:700,
-                padding:'16px 24px', textDecoration:'none', cursor:'pointer',
+                fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em',
+                textTransform: 'uppercase', fontWeight: 700,
+                padding: '15px 12px', textDecoration: 'none', cursor: 'pointer',
               }}
             >
-              <Sparkles size={14} />
+              <Sparkles size={13} />
               Find My Blend
             </a>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, delay: 0.32 }}
-            style={{ fontFamily:'var(--font-mono)', fontSize:'0.54rem', letterSpacing:'0.16em',
-              textTransform:'uppercase', color:'rgba(230,183,173,0.38)', textAlign:'center' }}
+          {/* Trust icons — 2×2 grid */}
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.34 }}
+            style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr',
+              gap: '0',
+              maxWidth: '320px', margin: '0 auto 24px',
+              border: '1px solid rgba(230,183,173,0.1)',
+            }}
           >
-            10% off with code <span style={{ color: RG, fontWeight:700 }}>WELCOME10</span>
+            {TRUST.map((item, i) => (
+              <div key={item.label} style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
+                padding: '14px 10px',
+                borderRight: i % 2 === 0 ? '1px solid rgba(230,183,173,0.1)' : 'none',
+                borderBottom: i < 2 ? '1px solid rgba(230,183,173,0.1)' : 'none',
+              }}>
+                <item.icon size={18} style={{ color: GOLD }} />
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.15em',
+                  textTransform: 'uppercase', color: 'rgba(240,235,225,0.55)',
+                  textAlign: 'center', lineHeight: 1.5,
+                }}>
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Promo line */}
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, delay: 0.44 }}
+            style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', letterSpacing: '0.15em',
+              textTransform: 'uppercase', color: 'rgba(230,183,173,0.36)',
+            }}
+          >
+            Start your ritual with 10% off — code{' '}
+            <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
           </motion.p>
         </div>
 
-        {/* Product image — below buttons, full bleed */}
-        <div style={{ position:'relative', width:'100%', background:'#07080F' }}>
+        {/* Product image — full width below all text/buttons/icons */}
+        <div style={{ position: 'relative', width: '100%', background: '#06070D' }}>
+          {/* Fade top edge to blend into text block */}
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, height: '40px', zIndex: 1, pointerEvents: 'none',
+            background: 'linear-gradient(180deg, #08090F 0%, transparent 100%)',
+          }} />
           <img
-            src={HERO_IMG}
-            alt="GlowMind Clarity mushroom coffee blend"
+            src={HERO_IMG_MOBILE}
+            alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
             fetchpriority="high"
             style={{
-              width:'100%',
-              aspectRatio:'4/3',
-              objectFit:'cover',
-              objectPosition:'center center',
-              display:'block',
+              width: '100%',
+              display: 'block',
+              objectFit: 'cover',
+              objectPosition: 'center top',
             }}
           />
-          {/* Fade top edge */}
-          <div style={{
-            position:'absolute', top:0, left:0, right:0, height:'32px', pointerEvents:'none',
-            background:'linear-gradient(180deg, #09090F 0%, transparent 100%)',
-          }} />
         </div>
       </div>
 
-      {/* ── TRUST BAR ── */}
-      <div style={{
+      {/* ── TRUST BAR — desktop only ── */}
+      <div className="trust-bar-desktop" style={{
         background:'#0A0A0A',
         borderTop:'1px solid rgba(230,183,173,0.07)',
         borderBottom:'1px solid rgba(230,183,173,0.07)',
@@ -291,16 +341,17 @@ export default function MushroomHero() {
         </div>
       </div>
 
-      {/* Responsive show/hide + trust grid override */}
+      {/* Responsive show/hide */}
       <style>{`
         @media (min-width: 641px) {
-          .hero-desktop { display: flex !important; }
-          .hero-mobile  { display: none  !important; }
+          .hero-desktop      { display: flex  !important; }
+          .hero-mobile       { display: none  !important; }
+          .trust-bar-desktop { display: block !important; }
         }
         @media (max-width: 640px) {
-          .hero-desktop { display: none  !important; }
-          .hero-mobile  { display: block !important; }
-          .trust-grid   { grid-template-columns: repeat(2,1fr) !important; gap: 0 !important; }
+          .hero-desktop      { display: none  !important; }
+          .hero-mobile       { display: block !important; }
+          .trust-bar-desktop { display: none  !important; }
         }
       `}</style>
     </section>
