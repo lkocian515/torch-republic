@@ -2,16 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
+import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
 export default function MushroomProductCard({ product, index = 0 }) {
-  const { addItem, setDrawerOpen } = useCart();
+
+  const shopifyUrl = getShopifyCartUrl(product.slug, 1);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    addItem(product, 1);
-    setDrawerOpen(true);
+    if (shopifyUrl) {
+      window.location.href = shopifyUrl;
+    } else {
+      // Variant ID not yet connected — send to Shopify cart home
+      window.location.href = 'https://libertees-for-all.myshopify.com/cart';
+    }
   };
 
   return (
@@ -91,7 +96,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
         </div>
       </Link>
 
-      {/* Add to Cart button — outside the Link */}
+      {/* Add to Cart button — outside the Link, goes directly to Shopify */}
       <div className="px-5 pb-5 pt-0">
         <button
           onClick={handleAddToCart}

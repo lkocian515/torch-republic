@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ShoppingBag, User } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
+import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
@@ -16,7 +16,6 @@ const NAV_LINKS = [
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [search, setSearch] = useState('');
-  const { totalItems, setDrawerOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -83,16 +82,11 @@ export default function NavBar() {
                 className="hover:text-white transition-colors">
                 <Search className="w-[15px] h-[15px]" />
               </button>
-              <button onClick={() => setDrawerOpen(true)}
-                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}
+              <a href={SHOPIFY_CART_URL}
+                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', textDecoration: 'none' }}
                 className="hover:text-white transition-colors">
                 <ShoppingBag className="w-[15px] h-[15px]" />
-                {totalItems > 0 && (
-                  <span style={{ position: 'absolute', top: 8, right: 6, background: '#E6B7AD', color: '#080808', fontSize: '8px', fontWeight: 900, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)' }}>
-                    {totalItems}
-                  </span>
-                )}
-              </button>
+              </a>
               <Link to="/Profile"
                 style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">

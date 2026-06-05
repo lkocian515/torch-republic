@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const RG = '#E6B7AD';
 
@@ -285,26 +286,19 @@ export default function Subscription() {
                 </div>
               </div>
 
-              {/* Shopify subscription placeholder note */}
-              <div className="p-4 mb-6 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px dashed rgba(230,183,173,0.2)' }}>
-                <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
-                  Subscription checkout powered by Shopify Selling Plans · {/* Insert subscription selling plan ID here */}
-                  Connect your Shopify subscription app to activate recurring billing
-                </p>
-              </div>
-
               <div className="flex flex-col sm:flex-row gap-3">
                 <button onClick={() => setStep(2)}
                   className="font-mono text-[9px] tracking-[0.3em] uppercase py-3.5 px-6 transition-all hover:opacity-70"
                   style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.5)' }}>
                   ← Edit Selections
                 </button>
-                <button
-                  className="flex-1 font-mono text-[9px] tracking-[0.35em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90 btn-glow"
-                  style={{ background: RG, color: '#080808' }}
-                  onClick={() => alert('Shopify subscription checkout integration coming soon. Connect your Shopify selling plans to activate.')}>
-                  Add Monthly Subscription to Cart
-                </button>
+                <a
+                  href={getSubscriptionCheckoutUrl(blendQty) || SHOPIFY_CART_URL}
+                  className="flex-1 font-mono text-[9px] tracking-[0.35em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90 btn-glow text-center"
+                  style={{ background: RG, color: '#080808', textDecoration: 'none' }}
+                >
+                  Proceed to Shopify Checkout →
+                </a>
               </div>
             </motion.div>
           )}

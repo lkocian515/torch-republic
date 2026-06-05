@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS, BUNDLE_IMAGE } from '../lib/mushroomProducts';
+import { getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 export default function MushroomBundle() {
   return (
@@ -74,27 +75,23 @@ export default function MushroomBundle() {
 
           {/* Pricing */}
           <div className="mt-12 p-8 text-center" style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.2)' }}>
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
-              Bundle Price
-            </p>
-            <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '3rem' }}>$129.99</p>
-            <p className="font-mono text-[9px] tracking-[0.2em] mb-6" style={{ color: 'rgba(255,255,255,0.3)' }}>
-              All six blends · 27 servings each · Lion's Mane + Chaga
-            </p>
-            {/* Placeholder CTA — replace href with Shopify bundle checkout link */}
-            <a
-              href="https://torchrepublic.com/collections/instant-mushroom-coffee"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ background: '#E6B7AD', color: '#080808', padding: '16px 40px' }}
-            >
-              Shop the 6-Tube Bundle →
-            </a>
-            <p className="font-mono text-[8px] tracking-[0.15em] mt-4" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {/* TODO: Replace CTA href above with Shopify bundle product checkout URL */}
-              Checkout via Shopify · Secure payment
-            </p>
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
+            Bundle Price
+          </p>
+          <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '3rem' }}>$129.99</p>
+          <p className="font-mono text-[9px] tracking-[0.2em] mb-6" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            All six blends · 27 servings each · Lion's Mane + Chaga
+          </p>
+          <a
+            href={getFullBundleUrl() || SHOPIFY_CART_URL}
+            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+            style={{ background: '#E6B7AD', color: '#080808', padding: '16px 40px' }}
+          >
+            Shop the 6-Tube Bundle →
+          </a>
+          <p className="font-mono text-[8px] tracking-[0.15em] mt-4" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            Checkout via Shopify · Secure payment
+          </p>
           </div>
         </div>
       </section>

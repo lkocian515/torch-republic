@@ -5,11 +5,11 @@ import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight }
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
-import { useCart } from '@/contexts/CartContext';
 import TasteProfileCard from '../components/mushroom/TasteProfileCard';
 import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
 import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
 import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
+import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -124,7 +124,6 @@ export default function BlendDetail() {
   const { slug } = useParams();
   const product = MUSHROOM_PRODUCTS.find(p => p.slug === slug);
   const [qty, setQty] = useState(1);
-  const { addItem, setDrawerOpen } = useCart();
 
   if (!product) {
     return (
@@ -139,9 +138,11 @@ export default function BlendDetail() {
 
   const related = MUSHROOM_PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
 
+  const shopifyUrl = getShopifyCartUrl(product.slug, qty);
+  const checkoutDest = shopifyUrl || SHOPIFY_CART_URL;
+
   const handleAddToCart = () => {
-    addItem(product, qty);
-    setDrawerOpen(true);
+    window.location.href = checkoutDest;
   };
 
   return (
@@ -314,9 +315,7 @@ export default function BlendDetail() {
 
               {/* Buy Now */}
               <a
-                href={`https://torchrepublic.com/products/${product.shopifyHandle}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={checkoutDest}
                 className="w-full text-center font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80 py-4"
                 style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', display: 'block' }}>
                 Buy Now →

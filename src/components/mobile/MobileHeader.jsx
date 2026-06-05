@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingBag, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useCart } from '@/contexts/CartContext';
+import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
@@ -19,7 +19,6 @@ const NAV_LINKS = [
 
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
-  const { totalItems, setDrawerOpen } = useCart();
 
   return (
     <>
@@ -46,31 +45,10 @@ export default function MobileHeader() {
           </Link>
           {/* Right icons */}
           <div className="flex items-center gap-1">
-            <Link to="/cart"
-              style={{ color: `${RG}8C`, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+            <a href={SHOPIFY_CART_URL}
+              style={{ color: `${RG}8C`, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', textDecoration: 'none' }}>
               <ShoppingBag className="w-[19px] h-[19px]" strokeWidth={1.8} />
-              {totalItems > 0 && (
-                <span style={{
-                  position: 'absolute',
-                  top: 9,
-                  right: 7,
-                  background: RG,
-                  color: '#050505',
-                  fontSize: '9px',
-                  fontWeight: 900,
-                  width: 16,
-                  height: 16,
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-mono)',
-                  boxShadow: '0 2px 8px rgba(230,183,173,0.4)',
-                }}>
-                  {totalItems}
-                </span>
-              )}
-            </Link>
+            </a>
             <Link to="/Profile"
               style={{ color: `${RG}8C`, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <User className="w-[19px] h-[19px]" strokeWidth={1.8} />

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Truck, Lock, Plus, Minus, X, Gift } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const TRUST = [
   { icon: Lock, label: 'SSL Encrypted' },
@@ -238,11 +238,9 @@ export default function Cart() {
                   </p>
                 </div>
 
-                {/* Checkout CTA */}
+                {/* Checkout CTA — goes to Shopify */}
                 <a
-                  href="https://torchrepublic.com/cart"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={SHOPIFY_CART_URL}
                   className="flex items-center justify-center gap-2 w-full font-mono uppercase tracking-[0.3em] transition-all hover:opacity-90"
                   style={{ background: '#E6B7AD', color: '#050505', fontWeight: 900, fontSize: '11px', padding: '16px 24px' }}
                 >
