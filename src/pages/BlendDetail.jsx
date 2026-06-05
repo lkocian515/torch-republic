@@ -10,6 +10,7 @@ import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
 import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
 import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
 import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual';
+import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const TRUST = [
@@ -379,6 +380,9 @@ export default function BlendDetail() {
         {/* DreamCap Evening Ritual Section (only for DreamCap) */}
         {product.slug === 'dreamcap-blend' && <DreamCapEveningRitual />}
       </section>
+
+      {/* Product Reviews Carousel */}
+      <ProductReviewsCarousel productSlug={product.shopify_handle} />
 
       {/* Related products */}
       <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
