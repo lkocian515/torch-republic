@@ -11,7 +11,7 @@ const PROMO_MESSAGES = [
   'FREE SHIPPING on orders over $75',
 ];
 
-const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/427ae26ea_ChatGPTImageJun4202611_14_26PM.png';
+const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/663b2eb3c_bjkgkugk.png';
 const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/663b2eb3c_bjkgkugk.png';
 
 const TRUST = [
