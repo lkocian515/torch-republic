@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
+import ReviewsCarousel from '../components/mushroom/ReviewsCarousel';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
@@ -69,76 +70,9 @@ export default function Reviews() {
         </motion.div>
       </section>
 
-      {/* Reviews Grid */}
+      {/* Reviews Carousel */}
       {reviews.length > 0 && (
-        <section className="py-20 px-6 md:px-12" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {reviews.map((review, idx) => (
-                <motion.div
-                  key={review.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="p-6"
-                  style={{
-                    background: 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)',
-                    border: '1px solid rgba(230,183,173,0.12)',
-                    borderRadius: '6px',
-                  }}
-                >
-                  {/* Stars */}
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-current"
-                        style={{ color: i < review.rating ? '#E6B7AD' : 'rgba(255,255,255,0.15)' }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Review text */}
-                  <blockquote
-                    className="font-heading mb-4"
-                    style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.7 }}
-                  >
-                    "{review.body}"
-                  </blockquote>
-
-                  {/* Reviewer info */}
-                  <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
-                    <div>
-                      <p
-                        className="font-mono text-[8px] tracking-[0.25em] uppercase font-bold"
-                        style={{ color: '#E6B7AD' }}
-                      >
-                        {review.reviewer_name}
-                      </p>
-                      {review.location && (
-                        <p
-                          className="font-heading text-xs"
-                          style={{ color: 'rgba(240,235,225,0.35)' }}
-                        >
-                          {review.location}
-                        </p>
-                      )}
-                    </div>
-                    {review.review_date && (
-                      <p
-                        className="font-mono text-[7px] tracking-[0.18em] uppercase"
-                        style={{ color: 'rgba(230,183,173,0.3)' }}
-                      >
-                        {new Date(review.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ReviewsCarousel reviews={reviews} />
       )}
 
       {/* CTA */}
