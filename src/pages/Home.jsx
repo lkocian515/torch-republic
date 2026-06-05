@@ -16,6 +16,7 @@ import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
+import BlendQuiz from '../components/mushroom/BlendQuiz';
 
 const RG = '#E6B7AD';
 
@@ -69,27 +70,29 @@ export default function Home() {
       <WhatInsideTube />
       {/* 4. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
-      {/* 5. Find Your Ritual — blend selector */}
+      {/* 5. Find Your Blend — interactive quiz */}
+      <BlendQuiz />
+      {/* 6. Find Your Ritual — blend selector */}
       <ChooseYourBlend />
-      {/* 6. Featured product grid */}
+      {/* 7. Featured product grid */}
       <FeaturedCollection />
-      {/* 7. Why mushroom coffee */}
+      {/* 8. Why mushroom coffee */}
       <MushroomScience />
-      {/* 8. Why instant / brand pillars */}
+      {/* 9. Why instant / brand pillars */}
       <WhyInstant />
-      {/* 9. How to use */}
+      {/* 10. How to use */}
       <HowToUse />
-      {/* 10. Customer Reviews / social proof */}
+      {/* 11. Customer Reviews / social proof */}
       <ProductReviewsCarousel productSlug="mooncap-restore" />
-      {/* 11. Why Torch Republic / trust commitments */}
+      {/* 12. Why Torch Republic / trust commitments */}
       <QualityMission />
-      {/* 12. Founder story */}
+      {/* 13. Founder story */}
       <FounderSection />
-      {/* 13. Email capture */}
+      {/* 14. Email capture */}
       <EmailCapture />
-      {/* 14. FAQ */}
+      {/* 15. FAQ */}
       <FAQSection />
-      {/* 15. Final CTA */}
+      {/* 16. Final CTA */}
       <FinalCTA />
       <StickyMobileCTA />
     </div>
