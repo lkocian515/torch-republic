@@ -5,7 +5,7 @@ const RG = '#E6B7AD';
 
 export default function MissionPage() {
   React.useEffect(() => {
-    document.title = 'Our Mission | Torch Republic Coffee Company';
+    document.title = 'Our Mission | Torch Republic Mushroom Coffee';
   }, []);
 
   return (

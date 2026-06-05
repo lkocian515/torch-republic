@@ -10,7 +10,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = 'Contact Torch Republic Coffee Company';
+    document.title = 'Contact Us | Torch Republic Mushroom Coffee';
   }, []);
 
   const handleSubmit = (e) => {

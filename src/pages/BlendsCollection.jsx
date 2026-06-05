@@ -8,8 +8,8 @@ import BlendCompare from '../components/mushroom/BlendCompare';
 
 export default function BlendsCollection() {
   useSEO({
-    title: 'Shop Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: 'Explore premium instant mushroom coffee blends for focus, energy, calm, balance, and rest. No coffee maker needed — just scoop, mix, and sip.',
+    title: 'Our Mushroom Coffee Blends | Torch Republic',
+    description: "Explore all six Torch Republic premium instant mushroom coffee blends. Lion's Mane + Chaga for focus, energy, calm, balance, beauty, and rest. 27 servings per tube.",
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>

@@ -7,8 +7,8 @@ import { getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 export default function MushroomBundle() {
   useSEO({
-    title: 'Mushroom Coffee Bundles | Torch Republic Coffee Company',
-    description: 'Save on premium instant mushroom coffee bundles and try multiple Torch Republic blends for focus, energy, calm, balance, and daily wellness.',
+    title: 'Mushroom Coffee Bundle — All 6 Blends | Torch Republic',
+    description: 'Start your ritual with the Torch Republic mushroom coffee bundle — a curated set of premium instant blends for focus, energy, balance, beauty, and restoration. All six tubes, 27 servings each.',
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>

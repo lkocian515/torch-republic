@@ -32,7 +32,7 @@ const TRUST = [
 
 export default function About() {
   useEffect(() => {
-    document.title = 'About Torch Republic Coffee Company | Instant Mushroom Coffee';
+    document.title = 'About Torch Republic | Premium Instant Mushroom Coffee Brand';
   }, []);
 
   return (

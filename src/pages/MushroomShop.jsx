@@ -9,8 +9,8 @@ const RG = '#E6B7AD';
 
 export default function MushroomShop() {
   useSEO({
-    title: 'Shop Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: 'Explore premium instant mushroom coffee blends for focus, energy, calm, balance, and rest. No coffee maker needed — just scoop, mix, and sip.',
+    title: 'Shop Premium Instant Mushroom Coffee Blends | Torch Republic',
+    description: "Shop Torch Republic premium instant mushroom coffee blends crafted with functional mushrooms like Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail for focus, energy, balance, and daily ritual.",
   });
 
   return (

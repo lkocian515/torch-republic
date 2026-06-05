@@ -6,8 +6,8 @@ import { useSEO } from '@/hooks/useSEO';
 
 export default function Reviews() {
   useSEO({
-    title: 'Torch Republic Reviews | Instant Mushroom Coffee',
-    description: 'Read early customer feedback on Torch Republic instant mushroom coffee blends for smooth flavor, easy preparation, focus, calm, and daily ritual.',
+    title: 'Customer Reviews | Torch Republic Mushroom Coffee',
+    description: 'Read customer reviews and experiences with Torch Republic premium instant mushroom coffee blends for focus, clarity, energy, balance, and daily ritual.',
   });
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#000' }}>

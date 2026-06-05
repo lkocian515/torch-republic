@@ -40,7 +40,7 @@ export default function Subscription() {
   const [blendQty, setBlendQty] = useState({}); // { slug: qty }
 
   useEffect(() => {
-    document.title = 'Monthly Mushroom Coffee Subscription | Torch Republic Coffee Company';
+    document.title = 'Monthly Mushroom Coffee Subscription | Torch Republic';
   }, []);
 
   const totalSelected = Object.values(blendQty).reduce((s, v) => s + v, 0);
