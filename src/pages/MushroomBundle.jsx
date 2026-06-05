@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, BUNDLE_IMAGE } from '../lib/mushroomProducts';
 import { getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import DiscountReminders from '../components/discounts/DiscountReminders';
 
 export default function MushroomBundle() {
   useSEO({
@@ -94,6 +95,11 @@ export default function MushroomBundle() {
           >
             Shop the 6-Tube Bundle →
           </a>
+          {/* Discount reminders */}
+          <div className="mt-6 max-w-md mx-auto">
+            <DiscountReminders cartSubtotal={129.99} showAll />
+          </div>
+          
           <p className="font-mono text-[8px] tracking-[0.15em] mt-4" style={{ color: 'rgba(255,255,255,0.2)' }}>
             Checkout via Shopify · Secure payment
           </p>

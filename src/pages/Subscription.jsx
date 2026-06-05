@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import DiscountReminders from '../components/discounts/DiscountReminders';
 
 const RG = '#E6B7AD';
 
@@ -282,17 +283,9 @@ export default function Subscription() {
 
               <div className="p-6 mb-6" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.18)' }}>
                 {/* Discount Badge */}
-                <div className="mb-5 p-3" style={{ background: 'rgba(110,189,142,0.08)', border: '1px solid rgba(110,189,142,0.3)', borderRadius: '2px' }}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Check className="w-4 h-4" style={{ color: '#6EBD8E' }} />
-                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: '#6EBD8E' }}>
-                      Subscription Discount Applied
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-heading text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>20% OFF — Code SUBSCRIBE20</span>
-                    <span className="font-mono text-xs font-bold" style={{ color: '#6EBD8E' }}>Save ${savings.toFixed(2)}</span>
-                  </div>
+                {/* All discount reminders */}
+                <div className="mb-5">
+                  <DiscountReminders cartSubtotal={monthlyPrice} showAll />
                 </div>
 
                 <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>

@@ -15,6 +15,7 @@ import WhatInsideTube from '../components/mushroom/WhatInsideTube';
 import FounderSection from '../components/mushroom/FounderSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
+import DiscountReminders from '../components/discounts/DiscountReminders';
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import BlendQuiz from '../components/mushroom/BlendQuiz';
 import IngredientsSection from '../components/mushroom/IngredientsSection';
@@ -95,7 +96,16 @@ export default function Home() {
       <EmailCapture />
       {/* 15. FAQ */}
       <FAQSection />
-      {/* 16. Final CTA */}
+      {/* 16. Discount reminders */}
+      <section className="px-6 md:px-10 py-16" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            Special Offers
+          </p>
+          <DiscountReminders cartSubtotal={0} showAll />
+        </div>
+      </section>
+      {/* 17. Final CTA */}
       <FinalCTA />
       <StickyMobileCTA />
     </div>
