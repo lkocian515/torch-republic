@@ -70,20 +70,20 @@ export default function Home() {
       <MushroomHero />
       {/* 2. Trust signals */}
       <MushroomTrustBar />
-      {/* 3. Choose Your Ritual — outcome-based blend selector */}
-      <ChooseYourRitual />
-      {/* 4. What's Inside Every Cup — transparent specs */}
-      <WhatsInsideEveryCup />
-      {/* 5. Tastes Like Coffee — taste reassurance */}
-      <TastesLikeCoffee />
-      {/* 6. Start Your Ritual — bundle / best-seller offer */}
-      <BundleSection />
-      {/* 7. Subscribe & Save 20% — subscription offer */}
-      <SubscribeAndSave />
-      {/* 8. Find Your Blend — interactive quiz */}
-      <BlendQuiz />
-      {/* 9. What People Are Saying — social proof */}
+      {/* 3. What People Are Saying — social proof */}
       <HomeReviewCarousel />
+      {/* 4. Choose Your Ritual — outcome-based blend selector */}
+      <ChooseYourRitual />
+      {/* 5. What's Inside Every Cup — transparent specs */}
+      <WhatsInsideEveryCup />
+      {/* 6. Tastes Like Coffee — taste reassurance */}
+      <TastesLikeCoffee />
+      {/* 7. Start Your Ritual — bundle / best-seller offer */}
+      <BundleSection />
+      {/* 8. Subscribe & Save 20% — subscription offer */}
+      <SubscribeAndSave />
+      {/* 9. Find Your Blend — interactive quiz */}
+      <BlendQuiz />
       {/* 10. Featured product grid */}
       <FeaturedCollection />
       {/* 11. Ingredients / functional mushrooms */}
