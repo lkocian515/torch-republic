@@ -4,12 +4,8 @@ import { motion } from 'framer-motion';
 const RG = '#E6B7AD';
 
 export default function TasteProfileCard({ product }) {
-  const tasteData = product.tasteProfile || {
-    flavorNotes: product.flavorNotes?.join(' • ') || 'Rich • Smooth • Balanced',
-    body: 'Medium',
-    finish: 'Clean, rounded finish with minimal bitterness',
-    bestFor: product.mood || 'Morning focus, daily rituals, productive afternoons',
-  };
+  const tasteDescription = product.tasteDescription || product.flavorNotes?.join(' · ') || 'Smooth coffee · Cocoa · Balanced finish';
+  const bestFor = product.bestFor || product.mood || 'Daily coffee ritual';
 
   return (
     <motion.div
@@ -34,51 +30,54 @@ export default function TasteProfileCard({ product }) {
             What Does It Taste Like?
           </h2>
           <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
-            A specialty coffee experience first, functional mushroom support second.
+            A coffee-forward blend crafted for smooth, enjoyable flavor from first sip to last.
           </p>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Flavor Notes */}
           <div className="space-y-2">
             <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}60` }}>
-              Flavor Notes
+              Taste Notes
             </p>
-            <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
-              {tasteData.flavorNotes}
+            <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.5 }}>
+              {tasteDescription}
             </p>
           </div>
 
-          {/* Body */}
           <div className="space-y-2">
             <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}60` }}>
-              Body
+              Roast
             </p>
             <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
-              {tasteData.body}
+              {product.roast}
             </p>
           </div>
 
-          {/* Finish */}
-          <div className="space-y-2">
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}60` }}>
-              Finish
-            </p>
-            <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
-              {tasteData.finish}
-            </p>
-          </div>
-
-          {/* Best For */}
           <div className="space-y-2">
             <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}60` }}>
               Best For
             </p>
             <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
-              {tasteData.bestFor}
+              {bestFor}
             </p>
           </div>
+
+          <div className="space-y-2">
+            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}60` }}>
+              Mushrooms
+            </p>
+            <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
+              {product.mushrooms || "Lion's Mane + Chaga"}
+            </p>
+          </div>
+        </div>
+
+        {/* Clarity line */}
+        <div className="mt-6 pt-5" style={{ borderTop: `1px solid ${RG}15` }}>
+          <p className="font-mono text-[8px] tracking-[0.18em] uppercase" style={{ color: 'rgba(247,241,232,0.3)' }}>
+            Instant mushroom coffee powder — not ground coffee, not pods, no coffee maker required.
+          </p>
         </div>
       </div>
     </motion.div>

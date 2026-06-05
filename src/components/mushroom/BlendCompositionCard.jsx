@@ -1,26 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coffee, Droplets, Zap, Leaf } from 'lucide-react';
+import { Coffee, Leaf, Zap, Droplets, Clock, Star } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
-const DEFAULT_COMPOSITION = {
-  mushrooms: [
-    { name: "Lion's Mane", benefit: 'Supports focus and mental clarity' },
-    { name: 'Chaga', benefit: 'Supports balance and daily wellness' },
-  ],
-  coffee: {
-    type: '100% Arabica Coffee',
-    origin: 'Premium Central & South American beans',
-    roast: 'Medium Roast',
-    caffeine: 'Moderate (50-75mg per serving)',
+const CARDS = [
+  {
+    icon: Zap,
+    title: 'Instant Powder Mix',
+    text: 'Fine instant mushroom coffee powder designed to dissolve easily in hot water, milk, or your favorite creamer.',
   },
-  preparation: '100% Instant Coffee — No brewing equipment needed',
-};
+  {
+    icon: Leaf,
+    title: 'Functional Mushrooms',
+    text: "Crafted with functional mushrooms such as Lion's Mane and Chaga to support clarity, focus, and daily wellness.",
+  },
+  {
+    icon: Coffee,
+    title: 'Taste Profile',
+    text: 'Smooth coffee-forward flavor with cocoa-like depth, gentle earthiness, and a rounded finish.',
+  },
+  {
+    icon: Droplets,
+    title: 'How to Use',
+    text: 'Scoop, mix, and sip. No grinder, coffee maker, French press, or pods required.',
+  },
+  {
+    icon: Clock,
+    title: 'Daily Ritual',
+    text: 'Created for an easy daily coffee ritual that fits into mornings, work sessions, or quiet moments.',
+  },
+  {
+    icon: Star,
+    title: 'Servings',
+    text: 'Each tube contains 27 servings.',
+  },
+];
 
 export default function BlendCompositionCard({ product }) {
-  const composition = product.blendComposition || DEFAULT_COMPOSITION;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -41,87 +58,36 @@ export default function BlendCompositionCard({ product }) {
             What's Inside
           </p>
           <h2 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.6rem', lineHeight: 1.1 }}>
-            Blend Composition
+            Product Details
           </h2>
           <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
-            Premium coffee craftsmanship meets functional mushroom science.
+            Instant mushroom coffee powder — not ground coffee, not pods, and no coffee maker required.
           </p>
         </div>
 
-        {/* Mushrooms Section */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Leaf className="w-4 h-4" style={{ color: RG }} />
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}70` }}>
-              Functional Mushroom Blend
-            </p>
-          </div>
-          <div className="space-y-3">
-            {composition.mushrooms.map((mushroom, i) => (
-              <div key={mushroom.name} className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full mt-1.5" style={{ background: RG }} />
-                <div>
-                  <p className="font-serif text-white" style={{ fontSize: '1rem', lineHeight: 1.4 }}>
-                    {mushroom.name}
-                  </p>
-                  <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>
-                    {mushroom.benefit}
-                  </p>
-                </div>
+        {/* 6-card grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {CARDS.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex flex-col gap-3 p-5"
+              style={{ background: 'rgba(255,255,255,0.02)', border: `1px solid ${RG}14` }}>
+              <div className="flex items-center gap-2">
+                <Icon className="w-4 h-4 flex-shrink-0" style={{ color: RG }} />
+                <p className="font-mono text-[8px] tracking-[0.28em] uppercase" style={{ color: `${RG}90` }}>
+                  {title}
+                </p>
               </div>
-            ))}
-          </div>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(247,241,232,0.55)', fontWeight: 300 }}>
+                {text}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* Coffee Section */}
-        <div className="mb-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Coffee className="w-4 h-4" style={{ color: RG }} />
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${RG}70` }}>
-              Coffee Base
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Type
-              </p>
-              <p className="font-serif text-white" style={{ fontSize: '0.95rem' }}>
-                {composition.coffee.type}
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Origin
-              </p>
-              <p className="font-serif text-white" style={{ fontSize: '0.95rem' }}>
-                {composition.coffee.origin}
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Roast Level
-              </p>
-              <p className="font-serif text-white" style={{ fontSize: '0.95rem' }}>
-                {composition.coffee.roast}
-              </p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Caffeine Content
-              </p>
-              <p className="font-serif text-white" style={{ fontSize: '0.95rem' }}>
-                {composition.coffee.caffeine}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Preparation */}
-        <div className="flex items-center gap-3 pt-4" style={{ borderTop: `1px solid ${RG}15` }}>
-          <Zap className="w-4 h-4" style={{ color: RG }} />
-          <p className="font-serif text-white" style={{ fontSize: '0.95rem' }}>
-            {composition.preparation}
+        {/* Preparation line */}
+        <div className="flex items-center gap-3 pt-6 mt-2" style={{ borderTop: `1px solid ${RG}12` }}>
+          <Droplets className="w-4 h-4 flex-shrink-0" style={{ color: RG }} />
+          <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>
+            <span style={{ color: 'rgba(247,241,232,0.7)' }}>Preparation:</span> Mix one serving with hot water, milk, or your favorite creamer. Stir until dissolved and enjoy.
           </p>
         </div>
       </div>
