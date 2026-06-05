@@ -19,6 +19,7 @@ import DiscountReminders from '../components/discounts/DiscountReminders';
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import BlendQuiz from '../components/mushroom/BlendQuiz';
 import IngredientsSection from '../components/mushroom/IngredientsSection';
+import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 
 const RG = '#E6B7AD';
 
@@ -88,6 +89,8 @@ export default function Home() {
       <HowToUse />
       {/* 11. Customer Reviews / social proof */}
       <ProductReviewsCarousel productSlug="mooncap-restore" />
+      {/* 11b. Homepage review carousel - energy & focus testimonials */}
+      <HomeReviewCarousel />
       {/* 12. Why Torch Republic / trust commitments */}
       <QualityMission />
       {/* 13. Founder story */}
