@@ -20,6 +20,7 @@ import ReviewPopup from '../components/mushroom/ReviewPopup';
 import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
 import FounderStorySection from '../components/mushroom/FounderStorySection';
 import StaticReviewsSection from '../components/mushroom/StaticReviewsSection';
+import CustomerSpotlight from '../components/mushroom/CustomerSpotlight';
 
 const RG = '#E6B7AD';
 
@@ -86,7 +87,10 @@ export default function Home() {
       {/* 5. Social Proof — static reviews (always visible) */}
       <StaticReviewsSection />
 
-      {/* 5b. DB-driven review carousel (shows if reviews exist) */}
+      {/* 5b. Community spotlight — morning ritual stories */}
+      <CustomerSpotlight />
+
+      {/* 5c. DB-driven review carousel (shows if reviews exist) */}
       <HomeReviewCarousel />
 
       {/* 6. Bundle Offer — primary conversion */}
