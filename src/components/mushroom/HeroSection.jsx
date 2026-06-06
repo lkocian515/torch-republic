@@ -11,8 +11,8 @@ const PROMO_MESSAGES = [
   'FREE SHIPPING on orders over $75',
 ];
 
-const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f3cb85acc_LIVEFREESTAYREADY4.png';
-const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f3cb85acc_LIVEFREESTAYREADY4.png';
+const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
+const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
 
 const TRUST = [
   { icon: Coffee, label: '100% Instant Coffee' },
@@ -212,8 +212,8 @@ export default function MushroomHero() {
             style={{
               width: '100%',
               display: 'block',
-              objectFit: 'cover',
-              objectPosition: 'center top',
+              objectFit: 'contain',
+              objectPosition: 'center center',
             }}
           />
           {/* Fade bottom edge to blend into text block */}
