@@ -14,8 +14,8 @@ const SPECS = [
   {
     icon: Coffee,
     label: 'Caffeine per Serving',
-    value: '~100mg',
-    note: "Equivalent to a standard cup of coffee — smooth, sustained lift without the spike-and-crash cycle.",
+    value: '50–80mg',
+    note: "Roughly half to one full cup of regular coffee — enough for a smooth, focused lift without the spike-and-crash.",
   },
   {
     icon: Droplet,

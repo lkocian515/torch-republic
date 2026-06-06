@@ -5,7 +5,7 @@ import { Coffee, Leaf, Zap, Recycle, Sparkles } from 'lucide-react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: Sparkles,  label: '4.9★ — 500+ Verified Reviews' },
+  { icon: Sparkles,  label: 'Small-Batch · Made for Daily Rituals' },
   { icon: Leaf,      label: "Organic Lion's Mane + Chaga" },
   { icon: Coffee,    label: 'Zero Crash · Zero Jitters' },
   { icon: Recycle,   label: '30-Day First Cup Guarantee' },

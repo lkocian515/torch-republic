@@ -86,8 +86,8 @@ export default function MushroomHero() {
                 fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
-              Premium Instant Mushroom Coffee<br />
-              <span style={{ color: RG }}>for Focus, Energy</span><br />
+              Instant Mushroom Coffee<br />
+              <span style={{ color: RG }}>for Focus, Calm</span><br />
               <span style={{ color: RG }}>&amp; Daily Ritual</span>
             </motion.h1>
 
@@ -97,7 +97,7 @@ export default function MushroomHero() {
                 fontSize:'clamp(0.88rem,1.1vw,1rem)', color:'rgba(210,195,175,0.78)',
                 lineHeight:1.75, marginBottom:'32px', maxWidth:'420px' }}
             >
-              Premium instant mushroom coffee with clinically-studied Lion's Mane + Chaga. Sharper focus, cleaner energy, and zero crash — in seconds, no equipment needed.
+              Premium instant coffee blended with functional mushrooms — Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail. Crafted for clarity, balance, and everyday convenience. No coffee maker needed.
             </motion.p>
 
             <motion.div
@@ -138,7 +138,7 @@ export default function MushroomHero() {
                 onMouseLeave={e => { e.currentTarget.style.background='rgba(0,0,0,0.4)'; e.currentTarget.style.borderColor='rgba(230,183,173,0.32)'; }}
               >
                 <Sparkles size={13} />
-                Start Your Ritual
+                Explore the Blends
               </a>
             </motion.div>
 
@@ -253,8 +253,8 @@ export default function MushroomHero() {
               margin: '0 0 16px',
             }}
           >
-            Premium Instant Mushroom Coffee<br />
-            <span style={{ color: RG }}>for Focus, Energy &amp; Daily Ritual</span>
+            Instant Mushroom Coffee<br />
+            <span style={{ color: RG }}>for Focus, Calm &amp; Daily Ritual</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -267,7 +267,7 @@ export default function MushroomHero() {
               maxWidth: '320px', margin: '0 auto 32px',
             }}
           >
-            Clinically-studied Lion's Mane + Chaga for sharper focus, cleaner energy, and zero crash — ready in seconds.
+            Instant coffee blended with functional mushrooms for clarity, calm, and energy — ready in seconds. No machine, no pods, no waste.
           </motion.p>
 
           {/* CTA Buttons — side by side */}

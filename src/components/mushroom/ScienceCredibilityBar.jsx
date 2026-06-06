@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FlaskConical, ShieldCheck, Leaf, Award, Users } from 'lucide-react';
+import { FlaskConical, ShieldCheck, Leaf, Award, Coffee } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
@@ -21,9 +21,9 @@ const PILLARS = [
     sub: 'Purity + potency verified every batch',
   },
   {
-    icon: Users,
-    headline: '500+ Five-Star Reviews',
-    sub: 'Real customers. Real daily results.',
+    icon: Coffee,
+    headline: 'No Machine Required',
+    sub: 'Just hot water — ready in 30 seconds',
   },
   {
     icon: Award,

@@ -81,7 +81,7 @@ export default function SubscribeAndSave() {
                 marginBottom: '16px',
               }}
             >
-              Never Break Your Streak. Save 20%.
+              Make It a Ritual. Save 20%.
             </h2>
 
             {/* Subheadline */}
@@ -95,7 +95,7 @@ export default function SubscribeAndSave() {
                 marginBottom: '28px',
               }}
             >
-              The people who feel the biggest transformation are the ones who make it a daily ritual. Subscribe and save 20% on every order — automatically delivered so you never run out.
+              Save 20% when you subscribe and keep your favorite blend stocked every 4 weeks. Skip, pause, or cancel anytime — no phone calls, no hassle.
             </p>
 
             {/* Benefits list */}

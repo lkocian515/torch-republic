@@ -42,7 +42,7 @@ export default function FinalCTA() {
 
         <p className="font-heading mb-10 mx-auto"
           style={{ fontSize: '0.92rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300, maxWidth: '460px' }}>
-          Thousands of people have already made the switch. Sharper focus. Cleaner energy. A ritual that feels as good as it performs. Your first cup is 100% guaranteed.
+          Small-batch instant mushroom coffee made for daily rituals. 27 servings per tube, no equipment needed, and a 30-day first cup guarantee. Start with the blend that fits your morning.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -67,7 +67,7 @@ export default function FinalCTA() {
         {/* Trust micro-line */}
         <p className="font-mono mt-8 text-[8px] tracking-[0.2em] uppercase"
           style={{ color: 'rgba(230,183,173,0.3)' }}>
-          30-Day Money-Back Guarantee · Free Shipping Over $75 · 500+ Five-Star Reviews · U.S.-Based Brand
+          30-Day Money-Back Guarantee · Free Shipping Over $75 · Small-Batch · No Machine Needed
         </p>
       </motion.div>
     </section>

@@ -8,20 +8,20 @@ const RG = '#E6B7AD';
 const BENEFITS = [
   {
     icon: Brain,
-    title: 'Clinically-Studied Cognitive Support',
-    description: "Lion's Mane mushroom has been studied in peer-reviewed research for its ability to support NGF (Nerve Growth Factor), enhancing focus, memory, and mental clarity — without stimulants.",
+    title: 'Functional Mushroom Support',
+    description: "Lion's Mane is traditionally associated with focus and mental clarity. Chaga is known for antioxidant support. Each blend delivers a meaningful dose — not a trace — of organic dual-extracted mushrooms.",
     accent: '#E6B7AD',
   },
   {
     icon: Zap,
-    title: 'Energy That Lasts All Day',
-    description: 'No spike. No crash. Dual-extracted Chaga and premium instant coffee deliver smooth, sustained energy so you stay sharp from your first sip through your last meeting.',
+    title: 'Clean Energy, No Crash',
+    description: 'Premium instant coffee paired with adaptogenic mushrooms for smooth, balanced energy throughout your day — without the jitters or afternoon slump of a standard cup.',
     accent: '#D6B27A',
   },
   {
     icon: Leaf,
-    title: 'Real Functional Mushrooms. Real Doses.',
-    description: '500mg of dual-extracted organic mushroom blend per serving — not a "fairy dust" sprinkle. You get a meaningful, effective amount in every cup.',
+    title: 'Transparent Ingredients',
+    description: '500mg of organic dual-extracted mushroom blend per serving — clearly labeled, no proprietary blend hiding. You know exactly what you\'re getting in every cup.',
     accent: '#C98F86',
   },
   {
@@ -32,8 +32,8 @@ const BENEFITS = [
   },
   {
     icon: Clock,
-    title: 'Your Ritual in 30 Seconds',
-    description: 'No machine. No pods. No mess. Add hot water and your wellness ritual is ready — at home, at the office, or wherever life takes you today.',
+    title: 'Ready in 30 Seconds',
+    description: 'No machine. No pods. No mess. Just hot water and 27 servings of your daily ritual in every compact tube. Perfect for home, travel, or the office.',
     accent: '#D6B27A',
   },
   {
@@ -91,7 +91,7 @@ export default function WhyPeopleChoose() {
               marginBottom: '16px',
             }}
           >
-            Why Thousands Are Switching Their Morning Coffee
+            A Better Cup. Every Single Morning.
           </h2>
           <p
             className="font-heading"
@@ -100,7 +100,7 @@ export default function WhyPeopleChoose() {
               fontWeight: 300, lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             }}
           >
-            Most coffee leaves you wired, then wrecked. Torch Republic is different — functional mushrooms + premium coffee, crafted to give you the energy and clarity your day actually demands.
+            Coffee-forward, smooth, and easy to drink — with subtle earthy depth from functional mushrooms. Designed for people who want daily wellness support without giving up the comfort of a real coffee ritual.
           </p>
         </motion.div>
 

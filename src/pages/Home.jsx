@@ -11,6 +11,7 @@ import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
 import WhatsInsideEveryCup from '../components/mushroom/WhatsInsideEveryCup';
+import IngredientTransparency from '../components/mushroom/IngredientTransparency';
 import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
@@ -93,7 +94,10 @@ export default function Home() {
       {/* 7. Ingredient Transparency — what's in the cup */}
       <WhatsInsideEveryCup />
 
-      {/* 8. Featured Products — shop the collection */}
+      {/* 8. Ingredient Transparency */}
+      <IngredientTransparency />
+
+      {/* 9. Featured Products — shop the collection */}
       <FeaturedCollection />
 
       {/* 9. Subscribe & Save — retention offer */}

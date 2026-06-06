@@ -218,15 +218,15 @@ export default function RepublicReserveSection() {
                 lineHeight: 1.2,
               }}
             >
-              Just great coffee. Nothing else.
+              Not Every Journey Requires Mushrooms
             </h3>
             <p
               className="font-heading mb-10"
               style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.6)', lineHeight: 1.85 }}
             >
-              Torchbearer is Torch Republic's pure instant coffee — no mushroom extracts, no added ingredients. Crafted from high-altitude Papua New Guinea Arabica beans and freeze-dried to preserve natural flavor complexity. Smooth, balanced, and ready in seconds with notes of toasted almond, berry, and sweet toffee.
+              For moments when simplicity is enough, Torchbearer delivers specialty instant coffee quality without functional mushrooms. Crafted from premium Papua New Guinea Arabica beans and freeze-dried to preserve flavor, it represents the pure coffee side of Torch Republic.
               <br /><br />
-              No coffee maker needed. Perfect for home, travel, or the office.
+              Smooth and balanced with notes of toasted almond and sweet toffee. No coffee maker needed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
