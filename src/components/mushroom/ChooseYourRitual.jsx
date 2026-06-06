@@ -87,7 +87,7 @@ export default function ChooseYourRitual() {
             className="font-mono text-[9px] tracking-[0.4em] uppercase"
             style={{ color: 'rgba(230,183,173,0.5)', marginBottom: '12px' }}
           >
-            The Torch Republic Collection
+            Mushroom Coffee Blends
           </p>
           <h2
             className="font-serif font-bold"
@@ -112,7 +112,7 @@ export default function ChooseYourRitual() {
               margin: '0 auto',
             }}
           >
-            Five intentional blends, each crafted for a different moment in your day. Choose the one that fits your ritual.
+            Five functional mushroom coffee blends, each crafted for a different part of your day. Focus, energy, calm, balance, or restoration — find the one that fits.
           </p>
         </motion.div>
 
@@ -268,7 +268,7 @@ export default function ChooseYourRitual() {
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
-                Shop {ritual.blend}
+                View Blend →
               </Link>
             </motion.div>
           ))}

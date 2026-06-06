@@ -57,15 +57,15 @@ export default function BundleSection() {
           >
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase"
               style={{ color: 'rgba(230,183,173,0.65)' }}>
-              Start Your Ritual
+              The Six-Blend Bundle
             </p>
             <h2 className="font-serif font-bold"
               style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Try the Torch Republic Ritual Set
+              Try All Six Blends
             </h2>
             <p className="font-heading"
               style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-              Not sure where to start? Begin with our curated ritual set — a premium introduction to Torch Republic's instant mushroom coffee blends for focus, energy, balance, and restoration. Each tube delivers 27 servings with Lion's Mane + Chaga.
+              Not sure where to start? The six-blend bundle is the best introduction to Torch Republic. Try every mushroom coffee blend — focus, energy, calm, balance, restoration, and flow — each with 27 servings and Lion's Mane + Chaga.
             </p>
 
             <div className="flex flex-wrap gap-2">

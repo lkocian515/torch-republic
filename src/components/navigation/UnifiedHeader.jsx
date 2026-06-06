@@ -5,24 +5,22 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const PROMO_MESSAGES = [
-  'Start your ritual with 10% off — code WELCOME10',
-  'Get 20% off subscriptions — Code SUBSCRIBE20',
-  'FREE SHIPPING on orders over $75',
+  'First order 10% off — use code WELCOME10',
+  'Subscribe & Save 20% — use code SUBSCRIBE20',
+  'Free shipping on orders over $75',
 ];
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Blends', href: '/blends' },
+  { label: 'Shop All', href: '/shop' },
+  { label: 'Mushroom Coffee', href: '/blends' },
+  { label: 'Classic Coffee', href: '/torchbearer' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'Subscribe', href: '/subscription' },
-  { label: 'Reserve Collection', href: '/torchbearer' },
-  { label: 'Reviews', href: '/Reviews' },
-  { label: 'FAQ', href: '/faq' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'FAQ', href: '/faq' },
 ];
 
 export default function UnifiedHeader() {
@@ -40,11 +38,8 @@ export default function UnifiedHeader() {
   }, []);
 
   // Check if we're on a child route (not home)
-  const isChildRoute = location.pathname !== '/' && !location.pathname.startsWith('/shop') && 
-                       !location.pathname.startsWith('/blends') && !location.pathname.startsWith('/bundle') &&
-                       !location.pathname.startsWith('/about') && !location.pathname.startsWith('/Reviews') &&
-                       !location.pathname.startsWith('/faq') && !location.pathname.startsWith('/contact') &&
-                       !location.pathname.startsWith('/Journal') && !location.pathname.startsWith('/Profile');
+  const TOP_LEVEL = ['/', '/shop', '/blends', '/bundle', '/subscription', '/torchbearer', '/about', '/faq', '/contact', '/Reviews', '/Journal', '/Profile'];
+  const isChildRoute = !TOP_LEVEL.includes(location.pathname) && !TOP_LEVEL.some(p => p !== '/' && location.pathname.startsWith(p + '/'));
 
   const handleBack = () => {
     navigate(-1);

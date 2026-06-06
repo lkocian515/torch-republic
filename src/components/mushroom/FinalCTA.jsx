@@ -31,18 +31,18 @@ export default function FinalCTA() {
       >
         <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-5"
           style={{ color: 'rgba(230,183,173,0.5)' }}>
-          Begin Your Ritual
+          Torch Republic Coffee Company
         </p>
 
         <h2 className="font-serif font-bold mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-          Premium Instant Mushroom Coffee<br />
-          <span style={{ color: RG }}>for Focus, Energy &amp; Daily Ritual</span>
+          Premium instant coffee and<br />
+          <span style={{ color: RG }}>functional mushroom blends</span>
         </h2>
 
         <p className="font-heading mb-10 mx-auto"
           style={{ fontSize: '0.92rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300, maxWidth: '460px' }}>
-          Smooth, functional coffee blends crafted with adaptogenic mushrooms for clarity, balance, and everyday wellness. 27 servings. No coffee maker needed.
+          Smooth, great-tasting coffee with Lion's Mane and Chaga. Ready in seconds, no equipment needed. 27 servings per tube.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">

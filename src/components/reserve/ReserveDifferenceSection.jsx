@@ -53,7 +53,7 @@ export default function ReserveDifferenceSection() {
           >
             <div style={{ width: '16px', height: '1px', background: `${GOLD}60` }} />
             <span className="font-mono text-[7px] tracking-[0.5em] uppercase" style={{ color: GOLD }}>
-              Republic Reserve
+              Classic Instant Coffee
             </span>
             <div style={{ width: '16px', height: '1px', background: `${GOLD}60` }} />
           </div>
@@ -63,11 +63,11 @@ export default function ReserveDifferenceSection() {
             style={{
               fontSize: 'clamp(1.8rem, 4vw, 3rem)',
               color: '#F5EDE0',
-              letterSpacing: '0.05em',
+              letterSpacing: '-0.01em',
               lineHeight: 1.1,
             }}
           >
-            THE REPUBLIC RESERVE<br />DIFFERENCE
+            Why Instant Coffee<br />Done Right
           </h2>
 
           <div style={{ height: '1px', maxWidth: '160px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${GOLD}50, transparent)` }} />
@@ -151,15 +151,15 @@ export default function ReserveDifferenceSection() {
 
               <h3
                 className="font-serif font-bold mb-3"
-                style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EDE0', letterSpacing: '0.04em', lineHeight: 1.1 }}
+                style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EDE0', letterSpacing: '-0.01em', lineHeight: 1.1 }}
               >
-                TORCHBEARER™
+                Torchbearer™
               </h3>
               <p
                 className="font-mono tracking-[0.3em] uppercase mb-6"
-                style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 600 }}
+                style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 500 }}
               >
-                Carry The Flame
+                Classic Coffee · Single-Origin
               </p>
 
               <p

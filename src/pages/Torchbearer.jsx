@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReserveDifferenceSection from '../components/reserve/ReserveDifferenceSection';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ChevronDown, ChevronUp, Flame, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
 const GOLD = '#C4A35A';
@@ -199,26 +199,26 @@ export default function Torchbearer() {
                   style={{ background: `${GOLD}0D`, border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
                 >
                   <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: GOLD }}>
-                    Republic Reserve Collection
+                    Classic Instant Coffee · Papua New Guinea
                   </span>
                 </div>
 
                 <h1
                   className="font-serif font-bold mb-2"
                   style={{
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                    fontSize: 'clamp(2rem, 4vw, 3.2rem)',
                     color: '#F5EDE0',
-                    letterSpacing: '0.05em',
-                    lineHeight: 1.05,
+                    letterSpacing: '-0.01em',
+                    lineHeight: 1.1,
                   }}
                 >
-                  TORCHBEARER™
+                  Torchbearer™ Classic Coffee
                 </h1>
                 <p
-                  className="font-mono tracking-[0.4em] uppercase mb-2"
-                  style={{ fontSize: '0.85rem', color: GOLD, fontWeight: 600 }}
+                  className="font-mono tracking-[0.3em] uppercase mb-2"
+                  style={{ fontSize: '0.75rem', color: GOLD, fontWeight: 500 }}
                 >
-                  Carry The Flame
+                  Premium Instant Coffee · 27 Servings
                 </p>
                 {/* Premium divider */}
                 <div className="mb-6" style={{ height: '1px', background: `linear-gradient(90deg, ${GOLD}50 0%, transparent 60%)`, maxWidth: '220px' }} />
@@ -343,7 +343,7 @@ export default function Torchbearer() {
               className="font-heading text-center mt-6"
               style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.5)', lineHeight: 1.9 }}
             >
-              Designed for explorers, builders, creators, and those who move forward with purpose — Torchbearer offers specialty coffee quality with the convenience of instant preparation.
+              Torchbearer is the no-frills option for those who want great coffee, quickly. Specialty-quality beans, freeze-dried for maximum convenience. Dissolves in seconds. Works with hot water, hot milk, or cold brew.
             </p>
           </FadeIn>
         </div>
@@ -448,29 +448,26 @@ export default function Torchbearer() {
       <section className="py-20 px-6 md:px-10" style={{ background: '#090704', borderTop: `1px solid ${GOLD}10` }}>
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <div className="flex items-center justify-center mb-6">
-              <Flame className="w-8 h-8" style={{ color: GOLD }} />
-            </div>
             <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: `${GOLD}70` }}>
-              The Story
+              About This Coffee
             </p>
             <h2
               className="font-serif font-bold mb-8"
               style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F5EDE0', letterSpacing: '-0.02em' }}
             >
-              Why Torchbearer?
+              Premium instant coffee, pure and simple.
             </h2>
             <p
               className="font-heading mb-6"
               style={{ fontSize: '1rem', color: 'rgba(240,230,210,0.65)', lineHeight: 1.9 }}
             >
-              The torch has long symbolized courage, guidance, and the pursuit of knowledge.
+              Torchbearer is our classic instant coffee — no mushroom extracts, no added ingredients. Just a premium single-origin Arabica roasted to a smooth medium profile and freeze-dried to preserve natural flavor.
             </p>
             <p
               className="font-heading"
               style={{ fontSize: '1rem', color: 'rgba(240,230,210,0.65)', lineHeight: 1.9 }}
             >
-              Torchbearer was created for those who wake each day determined to move forward, build something meaningful, and carry the flame a little farther.
+              Ready in seconds. No equipment needed. A great cup of coffee, wherever you are.
             </p>
           </FadeIn>
         </div>
@@ -573,7 +570,7 @@ export default function Torchbearer() {
               className="font-heading mb-8"
               style={{ fontSize: '0.9rem', color: 'rgba(230,220,205,0.6)', lineHeight: 1.8 }}
             >
-              The Oracle, The Monk, The Sentinel, and more — functional mushroom coffee blends crafted for focus, clarity, and sustained energy.
+              GlowMind Clarity, SunCap Rise, MoonCap Restore, and more — five functional mushroom coffee blends with Lion's Mane and Chaga, crafted for focus, energy, calm, and daily wellness.
             </p>
             <Link
               to="/blends"

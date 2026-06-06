@@ -61,7 +61,7 @@ export default function RepublicReserveSection() {
             >
               <div style={{ width: '20px', height: '1px', background: `${GOLD}60` }} />
               <span className="font-mono text-[8px] tracking-[0.5em] uppercase" style={{ color: `${GOLD}CC` }}>
-                Republic Reserve Collection
+                Classic Instant Coffee
               </span>
               <div style={{ width: '20px', height: '1px', background: `${GOLD}60` }} />
             </div>
@@ -112,26 +112,26 @@ export default function RepublicReserveSection() {
                 }}
               >
                 <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: GOLD }}>
-                  The First Coffee of the Republic Reserve
+                  Premium Single-Origin · Papua New Guinea
                 </span>
               </div>
 
               <h2
                 className="font-serif font-bold mb-2"
                 style={{
-                  fontSize: 'clamp(2.8rem, 5vw, 4rem)',
+                  fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
                   color: '#F5EDE0',
-                  letterSpacing: '0.04em',
-                  lineHeight: 1.0,
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.1,
                 }}
               >
-                TORCHBEARER™
+                Torchbearer™ Classic Coffee
               </h2>
               <p
-                className="font-mono tracking-[0.45em] uppercase mb-8"
-                style={{ fontSize: '0.78rem', color: GOLD, fontWeight: 600, letterSpacing: '0.38em' }}
+                className="font-mono tracking-[0.3em] uppercase mb-8"
+                style={{ fontSize: '0.72rem', color: GOLD, fontWeight: 500 }}
               >
-                Carry The Flame
+                Premium Instant Coffee · 27 Servings
               </p>
 
               {/* Gold divider */}
@@ -141,7 +141,7 @@ export default function RepublicReserveSection() {
                 className="font-heading mb-8"
                 style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.7)', lineHeight: 1.85, maxWidth: '400px' }}
               >
-                Single-origin instant coffee sourced from the volcanic highlands of Papua New Guinea. Crafted for those who pursue purpose, build something meaningful, and move forward every day.
+                Pure, single-origin instant coffee sourced from the volcanic highlands of Papua New Guinea. 100% Arabica, freeze-dried to preserve flavor. Smooth, clean, and ready in seconds — no coffee maker needed.
               </p>
 
               {/* Feature points */}
@@ -160,7 +160,7 @@ export default function RepublicReserveSection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={cartUrl}
-                  className="text-center font-mono text-[10px] tracking-[0.32em] uppercase px-8 py-4 transition-all hover:opacity-90 btn-glow"
+                  className="text-center font-mono text-[10px] tracking-[0.32em] uppercase px-8 py-4 transition-all hover:opacity-90"
                   style={{
                     background: GOLD,
                     color: '#0A0806',
@@ -168,7 +168,7 @@ export default function RepublicReserveSection() {
                     borderRadius: '2px',
                   }}
                 >
-                  Shop Torchbearer
+                  Shop Classic Coffee
                 </a>
                 <Link
                   to="/torchbearer"
@@ -218,15 +218,15 @@ export default function RepublicReserveSection() {
                 lineHeight: 1.2,
               }}
             >
-              The Pure Coffee Experience
+              Just great coffee. Nothing else.
             </h3>
             <p
               className="font-heading mb-10"
               style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.6)', lineHeight: 1.85 }}
             >
-              Torchbearer was created for those who seek exceptional coffee without compromise. Crafted from high-altitude Papua New Guinea Arabica beans and carefully freeze-dried to preserve their natural complexity, it delivers a smooth, balanced cup with notes of toasted almond, berry brightness, and sweet toffee.
+              Torchbearer is Torch Republic's pure instant coffee — no mushroom extracts, no added ingredients. Crafted from high-altitude Papua New Guinea Arabica beans and freeze-dried to preserve natural flavor complexity. Smooth, balanced, and ready in seconds with notes of toasted almond, berry, and sweet toffee.
               <br /><br />
-              No distractions. No shortcuts. Just remarkable coffee.
+              No coffee maker needed. Perfect for home, travel, or the office.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -240,7 +240,7 @@ export default function RepublicReserveSection() {
                   border: `1px solid ${GOLD}40`,
                 }}
               >
-                Explore Republic Reserve
+                View Classic Coffee
               </Link>
             </div>
 
