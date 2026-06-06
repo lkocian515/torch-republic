@@ -97,8 +97,6 @@ export default function Home() {
       <FirstCupGuarantee />
       {/* 15. Republic Reserve — premium coffee secondary collection */}
       <RepublicReserveSection />
-      {/* 16. Why Torch Republic / trust commitments */}
-      <QualityMission />
       {/* 16. Email capture */}
       <EmailCapture />
       {/* 17. FAQ */}
