@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReserveDifferenceSection from '../components/reserve/ReserveDifferenceSection';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown, ChevronUp, Flame, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -545,6 +546,9 @@ export default function Torchbearer() {
           )}
         </div>
       </section>
+
+      {/* ── Republic Reserve Difference ── */}
+      <ReserveDifferenceSection />
 
       {/* ── Mushroom Coffee Cross-sell ── */}
       <section

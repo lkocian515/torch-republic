@@ -80,9 +80,7 @@ export default function Home() {
       <WhatsInsideEveryCup />
       {/* 6. Tastes Like Coffee — taste reassurance */}
       <TastesLikeCoffee />
-      {/* 7. Instant Convenience — no pods, no machine, no mess */}
-      <InstantConvenienceSection />
-      {/* 8. Start Your Ritual — bundle / best-seller offer */}
+      {/* 7. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
       {/* 8. Subscribe & Save 20% — subscription offer */}
       <SubscribeAndSave />
@@ -94,6 +92,8 @@ export default function Home() {
       <IngredientsSection />
       {/* 12. How to use */}
       <HowToUse />
+      {/* 12b. No Pods. No Machine. No Mess. — convenience pitch */}
+      <InstantConvenienceSection />
       {/* 13. Founder Trust — brand story */}
       <FounderTrust />
       {/* 14. First Cup Guarantee — risk-free trial */}

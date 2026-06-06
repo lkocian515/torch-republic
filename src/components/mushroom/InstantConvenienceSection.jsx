@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Check, X, Droplet } from 'lucide-react';
+import { Droplet, X, Briefcase, MapPin, CheckCircle } from 'lucide-react';
 
-const GOLD = '#C4A35A';
 const RG = '#E6B7AD';
+const GOLD = '#C4A35A';
 
 const BENEFITS = [
   'Ready in seconds',
@@ -14,42 +14,43 @@ const BENEFITS = [
   'No filters or cleanup',
   'Travel friendly',
   'Office friendly',
+  'Dorm friendly',
   'Consistent taste every cup',
 ];
 
-const COMPARE = [
+const COMPARISON = [
   {
     label: 'Traditional Coffee',
+    icon: '☕',
+    negative: true,
     items: [
-      { text: 'Requires equipment', positive: false },
-      { text: 'Requires cleanup', positive: false },
-      { text: 'Not travel friendly', positive: false },
+      { text: 'Requires equipment', check: false },
+      { text: 'Requires cleanup', check: false },
+      { text: 'Not travel friendly', check: false },
     ],
-    accent: 'rgba(255,255,255,0.12)',
-    border: 'rgba(255,255,255,0.06)',
   },
   {
     label: 'Coffee Pods',
+    icon: '💊',
+    negative: true,
     items: [
-      { text: 'Requires a machine', positive: false },
-      { text: 'Single-use waste', positive: false },
-      { text: 'Limited flexibility', positive: false },
+      { text: 'Requires a machine', check: false },
+      { text: 'Creates single-use waste', check: false },
+      { text: 'Limited flexibility', check: false },
     ],
-    accent: 'rgba(255,255,255,0.12)',
-    border: 'rgba(255,255,255,0.06)',
   },
   {
     label: 'Torch Republic',
-    items: [
-      { text: 'Just add hot water', positive: true },
-      { text: 'No machine required', positive: true },
-      { text: 'No cleanup', positive: true },
-      { text: 'Portable anywhere', positive: true },
-      { text: 'Premium coffee + functional mushrooms', positive: true },
-    ],
-    accent: `${GOLD}12`,
-    border: `${GOLD}35`,
+    icon: '🔥',
+    negative: false,
     highlight: true,
+    items: [
+      { text: 'Just add hot water', check: true },
+      { text: 'No machine required', check: true },
+      { text: 'No cleanup', check: true },
+      { text: 'Portable anywhere', check: true },
+      { text: 'Premium coffee + functional mushrooms', check: true },
+    ],
   },
 ];
 
@@ -57,151 +58,189 @@ export default function InstantConvenienceSection() {
   return (
     <section
       style={{
-        background: 'linear-gradient(180deg, #0A0806 0%, #0C0907 100%)',
-        borderTop: `1px solid ${GOLD}12`,
-        borderBottom: `1px solid ${GOLD}08`,
+        background: '#0B0B0B',
+        borderTop: '1px solid rgba(230,183,173,0.08)',
+        borderBottom: '1px solid rgba(230,183,173,0.08)',
+        padding: 'clamp(56px, 7vw, 96px) 24px',
       }}
     >
-      {/* Gold accent line */}
-      <div style={{ height: '1px', background: `linear-gradient(90deg, transparent 0%, ${GOLD}50 30%, ${RG}60 60%, transparent 100%)` }} />
+      <div className="max-w-[1100px] mx-auto">
 
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-20 md:py-28">
-
-        {/* ── HEADER ── */}
+        {/* ── Section Header ── */}
         <motion.div
-          className="text-center mb-16"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
+          className="text-center"
+          style={{ marginBottom: 'clamp(40px, 6vw, 64px)' }}
         >
           <div
-            className="inline-flex items-center gap-3 px-5 py-2 mb-6"
-            style={{ background: `${GOLD}0E`, border: `1px solid ${GOLD}28`, borderRadius: '2px' }}
+            className="inline-flex items-center gap-3 mb-6 px-4 py-2"
+            style={{ background: `${GOLD}0C`, border: `1px solid ${GOLD}25`, borderRadius: '2px' }}
           >
-            <div style={{ width: '16px', height: '1px', background: `${GOLD}60` }} />
-            <span className="font-mono text-[8px] tracking-[0.5em] uppercase" style={{ color: `${GOLD}CC` }}>
-              Why Instant Mushroom Coffee
+            <span className="font-mono text-[7px] tracking-[0.5em] uppercase" style={{ color: GOLD }}>
+              Instant · Simple · Premium
             </span>
-            <div style={{ width: '16px', height: '1px', background: `${GOLD}60` }} />
           </div>
 
           <h2
-            className="font-serif font-bold mb-4"
+            className="font-serif font-bold mb-3"
             style={{
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-              color: '#F5EDE0',
-              letterSpacing: '0.04em',
-              lineHeight: 1.1,
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              color: '#F5EFE6',
+              letterSpacing: '0.06em',
+              lineHeight: 1.0,
             }}
           >
-            NO PODS. NO MACHINE. NO MESS.
+            NO PODS.
           </h2>
-          <p
-            className="font-heading"
+          <h2
+            className="font-serif font-bold mb-3"
             style={{
-              fontSize: '0.95rem',
-              color: 'rgba(240,230,210,0.6)',
-              lineHeight: 1.85,
-              maxWidth: '600px',
-              margin: '0 auto',
-              fontWeight: 300,
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              color: '#F5EFE6',
+              letterSpacing: '0.06em',
+              lineHeight: 1.0,
             }}
           >
-            Whether you're at home, in the office, traveling, or starting your morning routine — Torch Republic delivers premium coffee and functional mushrooms in a simple, convenient format designed for modern life.
+            NO MACHINE.
+          </h2>
+          <h2
+            className="font-serif font-bold mb-6"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              color: RG,
+              letterSpacing: '0.06em',
+              lineHeight: 1.0,
+            }}
+          >
+            NO MESS.
+          </h2>
+
+          <div style={{ height: '1px', maxWidth: '200px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${GOLD}50, transparent)` }} />
+
+          <p
+            className="font-mono tracking-[0.3em] uppercase"
+            style={{ fontSize: '0.65rem', color: `${GOLD}90`, letterSpacing: '0.28em' }}
+          >
+            Premium Coffee. Functional Mushrooms. Nothing Else Required.
           </p>
         </motion.div>
 
-        {/* ── BENEFITS LIST ── */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-16 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          {BENEFITS.map((b, i) => (
-            <motion.div
-              key={b}
-              className="flex items-center gap-3"
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: i * 0.05 }}
-              style={{
-                padding: '10px 16px',
-                background: `${GOLD}06`,
-                border: `1px solid ${GOLD}18`,
-                borderRadius: '2px',
-              }}
-            >
-              <Check size={14} style={{ color: GOLD, flexShrink: 0 }} />
-              <span className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: 'rgba(240,230,210,0.75)' }}>
-                {b}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* ── SPECIALTY CALLOUT BOX ── */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+        {/* ── Two-column: Why Instant + Benefits list ── */}
+        <div
           style={{
-            background: `${GOLD}08`,
-            border: `1px solid ${GOLD}30`,
-            borderRadius: '2px',
-            padding: 'clamp(24px, 3.5vw, 40px)',
-            textAlign: 'center',
-            position: 'relative',
-            overflow: 'hidden',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 'clamp(28px, 5vw, 56px)',
+            marginBottom: 'clamp(40px, 6vw, 64px)',
+            alignItems: 'start',
           }}
         >
+          {/* Left: Label + copy */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.65 }}
+          >
+            <p
+              className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4"
+              style={{ color: 'rgba(230,183,173,0.5)' }}
+            >
+              Why Instant Mushroom Coffee?
+            </p>
+            <p
+              className="font-heading mb-8"
+              style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.7)', fontWeight: 300, lineHeight: 1.85 }}
+            >
+              Whether you're at home, in the office, traveling, camping, or starting your morning routine, Torch Republic delivers premium coffee and functional mushrooms in a simple, convenient format designed for modern life.
+            </p>
+
+            {/* Callout box */}
+            <div
+              style={{
+                background: `${GOLD}08`,
+                border: `1px solid ${GOLD}25`,
+                borderRadius: '2px',
+                padding: 'clamp(18px, 2.5vw, 24px)',
+              }}
+            >
+              <p
+                className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3"
+                style={{ color: GOLD }}
+              >
+                Specialty Coffee. Instant Convenience.
+              </p>
+              <p
+                className="font-heading text-sm"
+                style={{ color: 'rgba(247,241,232,0.65)', fontWeight: 300, lineHeight: 1.75 }}
+              >
+                Torch Republic blends are crafted for people who want exceptional coffee quality without complicated brewing equipment. Simply add hot water and enjoy.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right: Benefits checklist */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            style={{
+              background: 'rgba(255,255,255,0.015)',
+              border: '1px solid rgba(230,183,173,0.1)',
+              borderRadius: '3px',
+              padding: 'clamp(20px, 3vw, 32px)',
+            }}
+          >
+            <div className="space-y-0">
+              {BENEFITS.map((item, i) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  className="flex items-center gap-3 py-3"
+                  style={{ borderBottom: i < BENEFITS.length - 1 ? '1px solid rgba(230,183,173,0.06)' : 'none' }}
+                >
+                  <span style={{ color: RG, fontSize: '0.7rem', flexShrink: 0 }}>✓</span>
+                  <span
+                    className="font-heading text-sm"
+                    style={{ color: 'rgba(247,241,232,0.72)', fontWeight: 300 }}
+                  >
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ── Comparison Table ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <p
+            className="font-mono text-[8px] tracking-[0.4em] uppercase text-center mb-8"
+            style={{ color: 'rgba(230,183,173,0.4)' }}
+          >
+            How It Compares
+          </p>
+
           <div
             style={{
-              position: 'absolute', inset: 0, pointerEvents: 'none',
-              background: `radial-gradient(ellipse 70% 60% at 50% 0%, ${GOLD}08 0%, transparent 70%)`,
-            }}
-          />
-          <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-4" style={{ color: `${GOLD}80` }}>
-            Specialty Coffee · Instant Convenience
-          </p>
-          <p
-            className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', color: '#F5EDE0', lineHeight: 1.2 }}
-          >
-            Exceptional Quality. Zero Equipment.
-          </p>
-          <p
-            className="font-heading"
-            style={{
-              fontSize: '0.93rem',
-              color: 'rgba(240,230,210,0.6)',
-              lineHeight: 1.8,
-              maxWidth: '520px',
-              margin: '0 auto',
-              fontWeight: 300,
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '12px',
             }}
           >
-            Torch Republic blends are crafted for people who want exceptional coffee quality without complicated brewing equipment. Simply add hot water and enjoy.
-          </p>
-        </motion.div>
-
-        {/* ── COMPARISON TABLE ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, delay: 0.1 }}
-        >
-          <p className="font-mono text-[8px] tracking-[0.45em] uppercase text-center mb-8" style={{ color: `${GOLD}55` }}>
-            Compare
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {COMPARE.map((col, i) => (
+            {COMPARISON.map((col, i) => (
               <motion.div
                 key={col.label}
                 initial={{ opacity: 0, y: 12 }}
@@ -209,38 +248,55 @@ export default function InstantConvenienceSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
                 style={{
-                  background: col.accent,
-                  border: `1px solid ${col.border}`,
-                  borderRadius: '2px',
-                  padding: 'clamp(20px, 3vw, 28px)',
+                  background: col.highlight
+                    ? `linear-gradient(135deg, rgba(196,163,90,0.07) 0%, rgba(230,183,173,0.05) 100%)`
+                    : 'rgba(255,255,255,0.012)',
+                  border: col.highlight
+                    ? `1px solid ${GOLD}35`
+                    : '1px solid rgba(230,183,173,0.08)',
+                  borderRadius: '3px',
+                  padding: 'clamp(20px, 2.5vw, 28px)',
                   position: 'relative',
                 }}
               >
                 {col.highlight && (
                   <div
                     style={{
-                      position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                      background: `linear-gradient(90deg, transparent, ${GOLD}80, ${RG}90, transparent)`,
+                      position: 'absolute',
+                      top: 0, left: 0, right: 0,
+                      height: '2px',
+                      background: `linear-gradient(90deg, transparent, ${GOLD}, ${RG}, transparent)`,
                     }}
                   />
                 )}
-                <p
-                  className="font-mono text-[9px] tracking-[0.3em] uppercase mb-5"
-                  style={{ color: col.highlight ? GOLD : 'rgba(255,255,255,0.35)' }}
-                >
-                  {col.label}
-                </p>
-                <div className="space-y-3">
+
+                <div className="flex items-center gap-2 mb-4">
+                  <span style={{ fontSize: '1.1rem' }}>{col.icon}</span>
+                  <h3
+                    className="font-mono text-[8px] tracking-[0.3em] uppercase font-bold"
+                    style={{ color: col.highlight ? GOLD : 'rgba(230,183,173,0.5)' }}
+                  >
+                    {col.label}
+                  </h3>
+                </div>
+
+                <div className="space-y-2.5">
                   {col.items.map((item) => (
                     <div key={item.text} className="flex items-start gap-2.5">
-                      {item.positive
-                        ? <Check size={13} style={{ color: GOLD, flexShrink: 0, marginTop: '2px' }} />
-                        : <X size={13} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0, marginTop: '2px' }} />
-                      }
+                      <span
+                        style={{
+                          fontSize: '0.6rem',
+                          color: item.check ? RG : 'rgba(255,255,255,0.2)',
+                          flexShrink: 0,
+                          marginTop: '2px',
+                        }}
+                      >
+                        {item.check ? '✓' : '✕'}
+                      </span>
                       <span
                         className="font-heading text-sm"
                         style={{
-                          color: item.positive ? 'rgba(240,230,210,0.8)' : 'rgba(240,230,210,0.35)',
+                          color: item.check ? 'rgba(247,241,232,0.75)' : 'rgba(247,241,232,0.38)',
                           fontWeight: 300,
                           lineHeight: 1.5,
                         }}
@@ -255,69 +311,25 @@ export default function InstantConvenienceSection() {
           </div>
         </motion.div>
 
-        {/* ── REPUBLIC RESERVE CALLOUT ── */}
+        {/* ── CTA ── */}
         <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.65, delay: 0.1 }}
-          style={{
-            background: 'rgba(0,0,0,0.4)',
-            border: `1px solid ${GOLD}20`,
-            borderRadius: '2px',
-            padding: 'clamp(24px, 3.5vw, 40px)',
-          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center"
+          style={{ marginTop: 'clamp(36px, 5vw, 56px)' }}
         >
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="flex-1">
-              <div
-                className="inline-flex items-center gap-2 mb-4 px-3 py-1.5"
-                style={{ background: `${GOLD}10`, border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
-              >
-                <Droplet size={11} style={{ color: GOLD }} />
-                <span className="font-mono text-[7px] tracking-[0.4em] uppercase" style={{ color: GOLD }}>
-                  The Republic Reserve Difference
-                </span>
-              </div>
-              <p
-                className="font-serif font-bold mb-3"
-                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)', color: '#F5EDE0', lineHeight: 1.2 }}
-              >
-                Torchbearer™ — Pure Coffee, Effortless
-              </p>
-              <p
-                className="font-heading"
-                style={{
-                  fontSize: '0.9rem',
-                  color: 'rgba(240,230,210,0.55)',
-                  lineHeight: 1.8,
-                  fontWeight: 300,
-                  maxWidth: '480px',
-                }}
-              >
-                For those moments when simplicity is enough. Torchbearer delivers premium Papua New Guinea Arabica coffee in an instant format designed for exceptional flavor, effortless preparation, and everyday ritual.
-              </p>
-            </div>
-            <Link
-              to="/torchbearer"
-              className="flex-shrink-0 font-mono text-[10px] tracking-[0.3em] uppercase px-7 py-3.5 transition-all hover:opacity-80"
-              style={{
-                border: `1px solid ${GOLD}40`,
-                color: GOLD,
-                borderRadius: '2px',
-                fontWeight: 600,
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Explore Torchbearer →
-            </Link>
-          </div>
+          <Link
+            to="/shop"
+            className="inline-block font-mono text-[10px] tracking-[0.32em] uppercase px-10 py-4 transition-all hover:opacity-85 btn-glow"
+            style={{ background: RG, color: '#040404', fontWeight: 700, borderRadius: '2px' }}
+          >
+            Shop Mushroom Coffee
+          </Link>
         </motion.div>
 
       </div>
-
-      <div style={{ height: '1px', background: `linear-gradient(90deg, transparent 0%, ${GOLD}20 50%, transparent 100%)` }} />
     </section>
   );
 }
