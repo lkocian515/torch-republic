@@ -218,13 +218,15 @@ export default function RepublicReserveSection() {
                 lineHeight: 1.2,
               }}
             >
-              Not Every Journey Requires Mushrooms
+              The Pure Coffee Experience
             </h3>
             <p
               className="font-heading mb-10"
               style={{ fontSize: '0.95rem', color: 'rgba(240,230,210,0.6)', lineHeight: 1.85 }}
             >
-              For those moments when simplicity is enough, Torchbearer delivers specialty coffee quality without compromise. Crafted from premium Papua New Guinea Arabica beans and freeze-dried to preserve flavor, it represents the pure coffee side of Torch Republic.
+              Torchbearer was created for those who seek exceptional coffee without compromise. Crafted from high-altitude Papua New Guinea Arabica beans and carefully freeze-dried to preserve their natural complexity, it delivers a smooth, balanced cup with notes of toasted almond, berry brightness, and sweet toffee.
+              <br /><br />
+              No distractions. No shortcuts. Just remarkable coffee.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
