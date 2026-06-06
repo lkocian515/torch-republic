@@ -86,9 +86,9 @@ export default function MushroomHero() {
                 fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
-              The Morning That Changes<br />
-              <span style={{ color: RG }}>How You Think, Feel</span><br />
-              <span style={{ color: RG }}>&amp; Show Up Every Day</span>
+              Premium Instant Mushroom Coffee<br />
+              <span style={{ color: RG }}>for Focus, Energy</span><br />
+              <span style={{ color: RG }}>&amp; Daily Ritual</span>
             </motion.h1>
 
             <motion.p
@@ -253,8 +253,8 @@ export default function MushroomHero() {
               margin: '0 0 16px',
             }}
           >
-            The Morning That Changes<br />
-            <span style={{ color: RG }}>How You Think, Feel &amp; Show Up</span>
+            Premium Instant Mushroom Coffee<br />
+            <span style={{ color: RG }}>for Focus, Energy &amp; Daily Ritual</span>
           </motion.h1>
 
           {/* Subheadline */}
