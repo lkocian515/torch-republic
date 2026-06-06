@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReserveDifferenceSection from '../components/reserve/ReserveDifferenceSection';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,6 +92,11 @@ export default function Torchbearer() {
   const [qty, setQty] = useState(1);
   const [specsOpen, setSpecsOpen] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
+
+  // Torchbearer SEO injected inline — page uses no useSEO hook currently
+  React.useEffect(() => {
+    document.title = 'Torchbearer Reserve Instant Coffee | Torch Republic';
+  }, []);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0a0806' }}>
@@ -199,7 +204,7 @@ export default function Torchbearer() {
                   style={{ background: `${GOLD}0D`, border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
                 >
                   <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: GOLD }}>
-                    Classic Instant Coffee · Papua New Guinea
+                    Torchbearer Reserve · Pure Instant Coffee · No Mushrooms
                   </span>
                 </div>
 
@@ -212,13 +217,13 @@ export default function Torchbearer() {
                     lineHeight: 1.1,
                   }}
                 >
-                  Torchbearer™ Classic Coffee
+                  Torchbearer™ Reserve
                 </h1>
                 <p
                   className="font-mono tracking-[0.3em] uppercase mb-2"
                   style={{ fontSize: '0.75rem', color: GOLD, fontWeight: 500 }}
                 >
-                  Premium Instant Coffee · 27 Servings
+                  Premium Single-Origin Instant Coffee · 27 Servings
                 </p>
                 {/* Premium divider */}
                 <div className="mb-6" style={{ height: '1px', background: `linear-gradient(90deg, ${GOLD}50 0%, transparent 60%)`, maxWidth: '220px' }} />

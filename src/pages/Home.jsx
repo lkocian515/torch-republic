@@ -16,6 +16,9 @@ import RepublicReserveSection from '../components/reserve/RepublicReserveSection
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
+import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
+import FounderStorySection from '../components/mushroom/FounderStorySection';
+import StaticReviewsSection from '../components/mushroom/StaticReviewsSection';
 
 const RG = '#E6B7AD';
 
@@ -57,8 +60,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company — Instant Mushroom Coffee & Classic Coffee',
-    description: "U.S.-based coffee company crafting instant mushroom coffee for focus, energy, and daily ritual. Six functional blends with Lion's Mane + Chaga, plus classic single-origin instant coffee. No coffee maker needed.",
+    title: 'Torch Republic | Premium Instant Mushroom Coffee',
+    description: "Premium instant mushroom coffee crafted for focus, clarity, calm energy, and daily ritual. Functional coffee blends with Lion's Mane, Chaga, and smooth coffee flavor. No coffee maker needed.",
     url: '/',
     type: 'website',
   });
@@ -79,28 +82,37 @@ export default function Home() {
       {/* 4. Why People Choose Torch Republic — benefits */}
       <WhyPeopleChoose />
 
-      {/* 5. Social Proof */}
+      {/* 5. Social Proof — static reviews (always visible) */}
+      <StaticReviewsSection />
+
+      {/* 5b. DB-driven review carousel (shows if reviews exist) */}
       <HomeReviewCarousel />
 
       {/* 6. Bundle Offer — primary conversion */}
       <BundleSection />
 
-      {/* 7. Ingredient Transparency */}
+      {/* 7. What's Inside Each Blend — comparison table */}
+      <BlendComparisonTable />
+
+      {/* 8. Ingredient Transparency — mushroom deep-dive */}
       <IngredientTransparency />
 
-      {/* 8. Subscribe & Save */}
+      {/* 9. Subscribe & Save */}
       <SubscribeAndSave />
 
-      {/* 9. Risk Reversal */}
+      {/* 10. Risk Reversal */}
       <FirstCupGuarantee />
 
-      {/* 10. Classic Coffee — secondary line, after mushroom coffee story is established */}
+      {/* 11. Founder/Brand Story */}
+      <FounderStorySection />
+
+      {/* 12. Classic Coffee — secondary line, after mushroom coffee story is established */}
       <RepublicReserveSection />
 
-      {/* 11. FAQ */}
+      {/* 13. FAQ */}
       <FAQSection />
 
-      {/* 12. Final CTA */}
+      {/* 14. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />

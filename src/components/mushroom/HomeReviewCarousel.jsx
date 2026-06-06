@@ -53,7 +53,7 @@ export default function HomeReviewCarousel() {
     return () => clearInterval(timer);
   }, [autoPlay, displayReviews.length]);
 
-  if (displayReviews.length === 0) return null;
+  if (displayReviews.length === 0) return null; // StaticReviewsSection handles fallback
 
   return (
     <section className="py-20 px-6 md:px-10" style={{ background: '#0b0b0b', borderTop: '1px solid rgba(230,183,173,0.06)' }}>

@@ -9,8 +9,8 @@ const RG = '#E6B7AD';
 
 export default function MushroomShop() {
   useSEO({
-    title: 'Shop Instant Mushroom Coffee Blends',
-    description: "Shop Torch Republic's instant mushroom coffee blends — crafted with functional mushrooms like Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail for focus, calm, energy, and daily ritual. 27 servings per tube. No coffee maker needed.",
+    title: 'Shop Mushroom Coffee Blends | Torch Republic',
+    description: "Explore Torch Republic's premium instant mushroom coffee blends for focus, clarity, calm, and daily wellness rituals. Lion's Mane + Chaga in every cup. No coffee maker needed.",
     url: '/shop',
   });
 

@@ -71,10 +71,10 @@ export default function Footer() {
               ✦ 30-Day Satisfaction Guarantee
             </p>
             <div className="space-y-2">
-              <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"
+              <a href="mailto:hello@torchrepublic.com" rel="noopener noreferrer"
                 className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white"
                 style={{ color: 'rgba(255,255,255,0.4)' }}>
-                admin@torchrepublic.com
+                hello@torchrepublic.com
               </a>
               <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
                 U.S.-Based · Corpus Christi, TX
