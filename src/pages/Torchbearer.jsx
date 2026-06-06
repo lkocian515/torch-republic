@@ -14,20 +14,20 @@ function getCartUrl(qty = 1) {
 
 const PRODUCT_IMAGES = [
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/65fb7d7fa_fsdfesfes.png',
-    alt: 'Torchbearer Premium Instant Coffee — hero shot with mug',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    alt: 'Torchbearer Premium Instant Coffee — product showcase with blends',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/509a1bf2f_dgdfgdr.png',
-    alt: 'Torchbearer Premium Instant Coffee — marble counter lifestyle',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    alt: 'Torchbearer Premium Instant Coffee — premium collection display',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c461f63e7_rgdrget.png',
-    alt: 'Torchbearer Premium Instant Coffee — side label detail',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    alt: 'Torchbearer Premium Instant Coffee — multi-blend showcase',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2d13fe4d_fsdfesfes.png',
-    alt: 'Torchbearer Premium Instant Coffee — lifestyle shot with mug on rock',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    alt: 'Torchbearer Premium Instant Coffee — collection detail',
   },
 ];
 
