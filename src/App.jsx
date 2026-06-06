@@ -12,6 +12,8 @@ import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
 import CartToast from './components/cart/CartToast';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
+import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
+import ExitIntentPopup from './components/home/ExitIntentPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 
 // ── Mushroom Coffee Pages ──
@@ -138,6 +140,8 @@ function App() {
             <NavigationProvider>
               <AuthenticatedApp />
               <CartToast />
+              <EmailCapturePopup />
+              <ExitIntentPopup />
             </NavigationProvider>
           </Router>
           <Toaster />

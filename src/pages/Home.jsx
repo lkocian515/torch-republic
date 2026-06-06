@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 // Core sections — in conversion-optimized order
@@ -56,6 +57,13 @@ function StickyMobileCTA() {
 }
 
 export default function Home() {
+  useSEO({
+    title: 'Premium Instant Mushroom Coffee for Focus, Energy & Daily Ritual',
+    description: "Torch Republic creates premium instant mushroom coffee blends with Lion's Mane + Chaga for focus, clarity, energy, balance, and daily wellness. No coffee maker needed. 27 servings per tube.",
+    url: '/',
+    type: 'website',
+  });
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <ReviewPopup />

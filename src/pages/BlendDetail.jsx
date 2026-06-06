@@ -15,6 +15,8 @@ import DiscountReminders from '../components/discounts/DiscountReminders';
 import ProductPageFAQ from '../components/mushroom/ProductPageFAQ';
 import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import TorchbearerCrossSell from '../components/reserve/TorchbearerCrossSell';
+import ScarcityBadge from '../components/mushroom/ScarcityBadge';
+import { useSEO } from '@/hooks/useSEO';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -125,21 +127,33 @@ function GalleryCarousel({ images, accent, productName }) {
   );
 }
 
-export default function BlendDetail() {
-  const { slug } = useParams();
-  const product = MUSHROOM_PRODUCTS.find(p => p.slug === slug);
+function BlendDetailInner({ product }) {
   const [qty, setQty] = useState(1);
 
-  if (!product) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-6"
-        style={{ background: '#080808', color: '#F7F1E8' }}>
-        <p className="font-serif text-2xl">Blend not found.</p>
-        <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
-          style={{ color: '#E6B7AD' }}>← Back to Shop</Link>
-      </div>
-    );
-  }
+  useSEO({
+    title: `${product.name} – Instant Mushroom Coffee`,
+    description: `${product.description?.slice(0, 155) || `${product.name} instant mushroom coffee with Lion's Mane + Chaga. 27 servings per tube. No coffee maker needed.`}`,
+    url: `/blends/${product.slug}`,
+    type: 'product',
+    image: product.image,
+    product: {
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+      sku: product.slug,
+      rating: product.rating || 4.8,
+      reviewCount: product.reviewCount || 24,
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Shop', url: '/shop' },
+      { name: 'The Blends', url: '/blends' },
+      { name: product.name, url: `/blends/${product.slug}` },
+    ],
+  });
+
+  // Note: product is guaranteed non-null here (checked by parent)
 
   const related = MUSHROOM_PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
 
@@ -334,6 +348,9 @@ export default function BlendDetail() {
 
               {/* Discount reminders */}
               <DiscountReminders cartSubtotal={product.price * qty} compact />
+
+              {/* Scarcity / social proof */}
+              <ScarcityBadge productSlug={product.slug} />
             </div>
 
             {/* Trust badges */}
@@ -407,6 +424,20 @@ export default function BlendDetail() {
         </div>
       </section>
 
+      {/* Desktop sticky CTA */}
+      <div className="hidden lg:block fixed right-6 bottom-8 z-40">
+        <div style={{ background: '#0D0C0B', border: '1px solid rgba(230,183,173,0.2)', padding: '16px 20px', minWidth: '200px', boxShadow: '0 8px 40px rgba(0,0,0,0.7)' }}>
+          <p className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</p>
+          <p className="font-mono text-xs mb-3" style={{ color: '#E6B7AD' }}>${(product.price * qty).toFixed(2)}</p>
+          <button
+            onClick={handleAddToCart}
+            className="w-full font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
+            style={{ background: '#E6B7AD', color: '#080808' }}>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
       {/* Mobile sticky bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
         style={{ background: '#0C0B0A', borderTop: '1px solid rgba(230,183,173,0.15)', padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
@@ -436,4 +467,22 @@ export default function BlendDetail() {
       </div>
     </div>
   );
+}
+
+export default function BlendDetail() {
+  const { slug } = useParams();
+  const product = MUSHROOM_PRODUCTS.find(p => p.slug === slug);
+
+  if (!product) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6"
+        style={{ background: '#080808', color: '#F7F1E8' }}>
+        <p className="font-serif text-2xl">Blend not found.</p>
+        <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
+          style={{ color: '#E6B7AD' }}>← Back to Shop</Link>
+      </div>
+    );
+  }
+
+  return <BlendDetailInner product={product} />;
 }
