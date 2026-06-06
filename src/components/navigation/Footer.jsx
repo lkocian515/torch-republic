@@ -56,7 +56,7 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-4"
               style={{ color: 'rgba(240,235,225,0.3)', lineHeight: 1.8 }}>
-              Premium instant mushroom coffee crafted for focus, clean energy, calm, and daily wellness. Clinically-studied Lion's Mane + Chaga in every cup.
+              Premium instant mushroom coffee crafted for focus, calm, energy, and daily ritual. Functional mushrooms in every cup. No coffee maker required.
             </p>
             <p className="font-mono text-[9px] tracking-[0.18em] mb-3"
               style={{ color: 'rgba(230,183,173,0.45)' }}>
@@ -68,7 +68,7 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[9px] tracking-[0.15em] mb-4"
               style={{ color: 'rgba(255,255,255,0.2)' }}>
-              ⭐ 4.9/5 · 500+ Verified Reviews · 30-Day Guarantee
+              ✦ 30-Day Satisfaction Guarantee
             </p>
             <div className="space-y-2">
               <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"

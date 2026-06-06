@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
@@ -31,9 +32,11 @@ const TRUST = [
 ];
 
 export default function About() {
-  useEffect(() => {
-    document.title = 'About Torch Republic | Premium Instant Mushroom Coffee Brand';
-  }, []);
+  useSEO({
+    title: 'About Torch Republic Coffee Company',
+    description: 'Torch Republic Coffee Company creates premium instant mushroom coffee blends for focus, calm, energy, and daily ritual. Learn about our blends, our ingredients, and our commitment to a better coffee ritual.',
+    url: '/about',
+  });
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>

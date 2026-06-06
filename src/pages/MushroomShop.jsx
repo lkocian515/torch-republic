@@ -10,7 +10,7 @@ const RG = '#E6B7AD';
 export default function MushroomShop() {
   useSEO({
     title: 'Shop Instant Mushroom Coffee Blends',
-    description: "Shop Torch Republic's six premium instant mushroom coffee blends with Lion's Mane + Chaga for focus, energy, balance, and daily wellness. 27 servings per tube. No coffee maker needed.",
+    description: "Shop Torch Republic's instant mushroom coffee blends — crafted with functional mushrooms like Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail for focus, calm, energy, and daily ritual. 27 servings per tube. No coffee maker needed.",
     url: '/shop',
   });
 
@@ -26,20 +26,24 @@ export default function MushroomShop() {
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Shop Instant Mushroom Coffee
+            Instant Mushroom Coffee Blends
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-8"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Six premium instant mushroom coffee blends crafted with Lion's Mane + Chaga for focus, flow, and daily ritual.
+            Coffee-forward instant blends crafted with functional mushrooms for focus, calm, energy, balance, and daily ritual.
           </p>
 
           {/* Trust bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
-            {['100% Instant Coffee', "Lion's Mane + Chaga", '27 Servings Per Tube', 'No Coffee Maker Needed'].map(t => (
+          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mb-6">
+            {['27 Servings Per Tube', 'No Coffee Maker Needed', 'Functional Mushroom Blends', 'Subscribe & Save 20%'].map(t => (
               <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase"
                 style={{ color: 'rgba(230,183,173,0.45)' }}>✦ {t}</span>
             ))}
           </div>
+          <p className="font-heading text-sm max-w-md mx-auto"
+            style={{ color: 'rgba(230,183,173,0.38)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.7 }}>
+            Coffee-forward, smooth, and easy to drink — with subtle earthy depth from functional mushrooms.
+          </p>
         </motion.div>
       </section>
 

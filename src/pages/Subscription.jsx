@@ -42,9 +42,7 @@ export default function Subscription() {
   const [checkoutUrl, setCheckoutUrl] = useState(null);
   const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Monthly Mushroom Coffee Subscription | Torch Republic';
-  }, []);
+  // No useSEO import needed — document.title is sufficient for this builder page
 
   const totalSelected = Object.values(blendQty).reduce((s, v) => s + v, 0);
   const remaining = tubeCount ? tubeCount - totalSelected : 0;

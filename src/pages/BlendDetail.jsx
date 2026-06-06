@@ -142,8 +142,6 @@ function BlendDetailInner({ product }) {
       price: product.price,
       image: product.image,
       sku: product.slug,
-      rating: product.rating || 4.8,
-      reviewCount: product.reviewCount || 24,
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },

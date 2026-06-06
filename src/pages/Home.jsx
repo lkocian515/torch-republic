@@ -61,7 +61,7 @@ function StickyMobileCTA() {
 export default function Home() {
   useSEO({
     title: 'Premium Instant Mushroom Coffee for Focus, Energy & Daily Ritual',
-    description: "Torch Republic creates premium instant mushroom coffee blends with Lion's Mane + Chaga for focus, clarity, energy, balance, and daily wellness. No coffee maker needed. 27 servings per tube.",
+    description: "Torch Republic is a premium instant mushroom coffee brand crafted for focus, calm, energy, and daily ritual. Explore coffee-forward blends with functional mushrooms like Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail.",
     url: '/',
     type: 'website',
   });

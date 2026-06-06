@@ -20,7 +20,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    window.location.href = shopifyUrl || 'https://libertees-for-all.myshopify.com/cart';
+    window.location.href = shopifyUrl || 'https://torchrepublic.com/shop';
   };
 
   const bestFor = BEST_FOR[product.slug] || product.mood;
