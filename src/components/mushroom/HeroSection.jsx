@@ -183,7 +183,7 @@ export default function MushroomHero() {
             decoding="sync"
             style={{
               width:'100%', height:'100%',
-              objectFit:'cover', objectPosition:'center center',
+              objectFit:'cover', objectPosition:'left 30% center',
               display:'block',
             }}
           />
@@ -204,7 +204,7 @@ export default function MushroomHero() {
         <div style={{ position: 'relative', width: '100%', background: '#06070D' }}>
           <img
             src={HERO_IMG_MOBILE}
-            alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
+            alt="Torch Republic Premium Instant Mushroom Coffee Collection"
             fetchPriority="high"
             loading="eager"
             decoding="sync"
@@ -212,7 +212,7 @@ export default function MushroomHero() {
               width: '100%',
               display: 'block',
               objectFit: 'cover',
-              objectPosition: 'center top',
+              objectPosition: 'left 20% top',
             }}
           />
           {/* Fade bottom edge to blend into text block */}
