@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Coffee } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 
@@ -27,9 +28,11 @@ export default function ExitIntentPopup() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    if (!email) return;
+    base44.entities.EmailSubscriber.create({ email, source: 'exit_intent', discount_code: 'WELCOME10' });
+    setSubmitted(true);
   };
 
   return (
