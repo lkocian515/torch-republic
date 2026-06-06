@@ -5,14 +5,11 @@ import { Link } from 'react-router-dom';
 // Core sections — in conversion-optimized order
 import MushroomHero from '../components/mushroom/HeroSection';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
-import ScienceCredibilityBar from '../components/mushroom/ScienceCredibilityBar';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
-import WhatsInsideEveryCup from '../components/mushroom/WhatsInsideEveryCup';
 import IngredientTransparency from '../components/mushroom/IngredientTransparency';
-import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
@@ -60,8 +57,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Premium Instant Mushroom Coffee for Focus, Energy & Daily Ritual',
-    description: "Torch Republic is a premium instant mushroom coffee brand crafted for focus, calm, energy, and daily ritual. Explore coffee-forward blends with functional mushrooms like Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail.",
+    title: 'Torch Republic Coffee Company — Instant Mushroom Coffee & Classic Coffee',
+    description: "U.S.-based coffee company crafting instant mushroom coffee for focus, energy, and daily ritual. Six functional blends with Lion's Mane + Chaga, plus classic single-origin instant coffee. No coffee maker needed.",
     url: '/',
     type: 'website',
   });
@@ -76,43 +73,34 @@ export default function Home() {
       {/* 2. Trust Strip — immediate credibility */}
       <HomeTrustStrip />
 
-      {/* 2b. Science & Credibility pillars */}
-      <ScienceCredibilityBar />
-
-      {/* 3. Find Your Blend — the core USP, front and center */}
+      {/* 3. Find Your Blend — the core USP */}
       <ChooseYourRitual />
 
-      {/* 4. Why People Choose Torch Republic — consolidated benefits */}
+      {/* 4. Why People Choose Torch Republic — benefits */}
       <WhyPeopleChoose />
 
-      {/* 5. Social Proof — reviews */}
+      {/* 5. Social Proof */}
       <HomeReviewCarousel />
 
       {/* 6. Bundle Offer — primary conversion */}
       <BundleSection />
 
-      {/* 7. Ingredient Transparency — what's in the cup */}
-      <WhatsInsideEveryCup />
-
-      {/* 8. Ingredient Transparency */}
+      {/* 7. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 9. Featured Products — shop the collection */}
-      <FeaturedCollection />
-
-      {/* 9. Subscribe & Save — retention offer */}
+      {/* 8. Subscribe & Save */}
       <SubscribeAndSave />
 
-      {/* 10. Risk Reversal — First Cup Guarantee */}
+      {/* 9. Risk Reversal */}
       <FirstCupGuarantee />
 
-      {/* 11. Republic Reserve — premium secondary line */}
+      {/* 10. Classic Coffee — secondary line, after mushroom coffee story is established */}
       <RepublicReserveSection />
 
-      {/* 12. FAQ — handle objections */}
+      {/* 11. FAQ */}
       <FAQSection />
 
-      {/* 13. Final CTA */}
+      {/* 12. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />

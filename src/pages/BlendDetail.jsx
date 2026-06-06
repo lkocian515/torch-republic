@@ -279,6 +279,25 @@ function BlendDetailInner({ product }) {
               ))}
             </div>
 
+            {/* Why This Coffee */}
+            <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                Why This Coffee
+              </p>
+              <ul className="space-y-2">
+                {product.keyBenefits.map(b => (
+                  <li key={b} className="flex items-start gap-2">
+                    <span style={{ color: product.accent, marginTop: '2px', flexShrink: 0, fontSize: '0.6rem' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300 }}>{b}</span>
+                  </li>
+                ))}
+                <li className="flex items-start gap-2">
+                  <span style={{ color: product.accent, marginTop: '2px', flexShrink: 0, fontSize: '0.6rem' }}>◆</span>
+                  <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300 }}>Best for: {product.bestFor}</span>
+                </li>
+              </ul>
+            </div>
+
             {/* Price */}
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
             <div className="flex items-baseline gap-3">
@@ -338,10 +357,22 @@ function BlendDetailInner({ product }) {
                 Buy Now →
               </a>
 
+              {/* Subscribe & Save callout */}
+              <div className="flex items-center justify-between px-3 py-2.5"
+                style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)' }}>
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
+                  Subscribe & Save 20%
+                </span>
+                <Link to="/subscription" className="font-mono text-[8px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
+                  style={{ color: '#E6B7AD' }}>
+                  Learn more →
+                </Link>
+              </div>
+
               {/* Microcopy */}
               <p className="font-mono text-[8px] tracking-[0.2em] text-center"
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
-                No grinder. No brewer. Just scoop, stir, and sip.
+                Ships within 1–3 business days · 30-day satisfaction guarantee
               </p>
 
               {/* Discount reminders */}
