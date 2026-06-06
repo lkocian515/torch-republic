@@ -202,23 +202,24 @@ export default function MushroomHero() {
       <div className="hero-mobile" style={{ display:'none', background:'#07080F' }}>
 
         {/* Product image — FIRST, right under the menu */}
-        <div style={{ position: 'relative', width: '100%', background: '#06070D' }}>
+        <div style={{ position: 'relative', width: '100%', background: '#06070D', aspectRatio: '1 / 1', overflow: 'hidden' }}>
           <img
             src={HERO_IMG_MOBILE}
-            alt="GlowMind Clarity mushroom coffee blend with blue mushroom glow"
+            alt="Torch Republic mushroom coffee collection"
             fetchPriority="high"
             loading="eager"
             decoding="sync"
             style={{
               width: '100%',
+              height: '100%',
               display: 'block',
-              objectFit: 'contain',
+              objectFit: 'cover',
               objectPosition: 'center center',
             }}
           />
           {/* Fade bottom edge to blend into text block */}
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: '48px', zIndex: 1, pointerEvents: 'none',
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: '60px', zIndex: 1, pointerEvents: 'none',
             background: 'linear-gradient(0deg, #08090F 0%, transparent 100%)',
           }} />
         </div>
