@@ -11,8 +11,8 @@ const PROMO_MESSAGES = [
   'FREE SHIPPING on orders over $75',
 ];
 
-const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f1cbbe84f_ChatGPTImageJun5202611_01_27PM.png';
-const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f1cbbe84f_ChatGPTImageJun5202611_01_27PM.png';
+const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0eb45426f_ChatGPTImageJun5202611_07_14PM.png';
+const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0eb45426f_ChatGPTImageJun5202611_07_14PM.png';
 
 const TRUST = [
   { icon: Coffee, label: '100% Instant Coffee' },
