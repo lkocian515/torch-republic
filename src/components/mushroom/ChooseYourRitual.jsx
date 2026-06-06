@@ -87,7 +87,7 @@ export default function ChooseYourRitual() {
             className="font-mono text-[9px] tracking-[0.4em] uppercase"
             style={{ color: 'rgba(230,183,173,0.5)', marginBottom: '12px' }}
           >
-            Choose Your Ritual
+            The Torch Republic Collection
           </p>
           <h2
             className="font-serif font-bold"
@@ -99,7 +99,7 @@ export default function ChooseYourRitual() {
               marginBottom: '16px',
             }}
           >
-            Find Your Perfect Blend
+            Find Your Blend
           </h2>
           <p
             className="font-heading"
@@ -108,11 +108,11 @@ export default function ChooseYourRitual() {
               color: 'rgba(210,195,175,0.7)',
               fontWeight: 300,
               lineHeight: 1.7,
-              maxWidth: '580px',
+              maxWidth: '540px',
               margin: '0 auto',
             }}
           >
-            Each blend is crafted for a specific moment in your day. Choose based on the energy you need, the time you drink, and the ritual you want to create.
+            Five intentional blends, each crafted for a different moment in your day. Choose the one that fits your ritual.
           </p>
         </motion.div>
 
@@ -284,10 +284,19 @@ export default function ChooseYourRitual() {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase"
-            style={{ color: RG, textDecoration: 'none' }}
+            style={{
+              display: 'inline-block',
+              background: RG, color: '#040404',
+              fontFamily: 'var(--font-mono)', fontSize: '0.62rem',
+              letterSpacing: '0.28em', textTransform: 'uppercase',
+              fontWeight: 700, padding: '14px 40px',
+              textDecoration: 'none', borderRadius: '2px',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
+            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
-            View All Blends →
+            Shop the Full Collection
           </Link>
         </motion.div>
       </div>

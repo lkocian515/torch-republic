@@ -1,32 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// Core sections — in conversion-optimized order
 import MushroomHero from '../components/mushroom/HeroSection';
-import MushroomTrustBar from '../components/mushroom/TrustBar';
-import FeaturedCollection from '../components/mushroom/FeaturedCollection';
-import BundleSection from '../components/mushroom/BundleSection';
-import HowToUse from '../components/mushroom/HowToUse';
-import QualityMission from '../components/mushroom/QualityMission';
-import EmailCapture from '../components/mushroom/EmailCapture';
-import FAQSection from '../components/mushroom/FAQSection';
-import FounderSection from '../components/mushroom/FounderSection';
-import FinalCTA from '../components/mushroom/FinalCTA';
-import ReviewPopup from '../components/mushroom/ReviewPopup';
-import DiscountReminders from '../components/discounts/DiscountReminders';
-import BlendQuiz from '../components/mushroom/BlendQuiz';
-import IngredientsSection from '../components/mushroom/IngredientsSection';
-import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
+import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
+import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
+import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
+import BundleSection from '../components/mushroom/BundleSection';
 import WhatsInsideEveryCup from '../components/mushroom/WhatsInsideEveryCup';
-import TastesLikeCoffee from '../components/mushroom/TastesLikeCoffee';
+import FeaturedCollection from '../components/mushroom/FeaturedCollection';
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
-import FounderTrust from '../components/mushroom/FounderTrust';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
-import InstantConvenienceSection from '../components/mushroom/InstantConvenienceSection';
+import FAQSection from '../components/mushroom/FAQSection';
+import FinalCTA from '../components/mushroom/FinalCTA';
+import ReviewPopup from '../components/mushroom/ReviewPopup';
 
 const RG = '#E6B7AD';
 
-// Sticky mobile CTA — visible only on mobile, hidden after user enters shop section
+// Sticky mobile CTA — appears after scrolling past hero
 function StickyMobileCTA() {
   const [pastHero, setPastHero] = useState(false);
 
@@ -65,56 +58,47 @@ function StickyMobileCTA() {
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
-      {/* Review Popup Modal */}
       <ReviewPopup />
-      
-      {/* 1. Hero */}
+
+      {/* 1. Hero — What is Torch Republic? */}
       <MushroomHero />
-      {/* 2. Trust signals */}
-      <MushroomTrustBar />
-      {/* 3. What People Are Saying — social proof */}
-      <HomeReviewCarousel />
-      {/* 4. Choose Your Ritual — outcome-based blend selector */}
+
+      {/* 2. Trust Strip — immediate credibility */}
+      <HomeTrustStrip />
+
+      {/* 3. Find Your Blend — the core USP, front and center */}
       <ChooseYourRitual />
-      {/* 5. What's Inside Every Cup — transparent specs */}
-      <WhatsInsideEveryCup />
-      {/* 6. Tastes Like Coffee — taste reassurance */}
-      <TastesLikeCoffee />
-      {/* 7. Start Your Ritual — bundle / best-seller offer */}
+
+      {/* 4. Why People Choose Torch Republic — consolidated benefits */}
+      <WhyPeopleChoose />
+
+      {/* 5. Social Proof — reviews */}
+      <HomeReviewCarousel />
+
+      {/* 6. Bundle Offer — primary conversion */}
       <BundleSection />
-      {/* 8. Subscribe & Save 20% — subscription offer */}
-      <SubscribeAndSave />
-      {/* 9. Find Your Blend — interactive quiz */}
-      <BlendQuiz />
-      {/* 10. Featured product grid */}
+
+      {/* 7. Ingredient Transparency — what's in the cup */}
+      <WhatsInsideEveryCup />
+
+      {/* 8. Featured Products — shop the collection */}
       <FeaturedCollection />
-      {/* 11. Ingredients / functional mushrooms */}
-      <IngredientsSection />
-      {/* 12. How to use */}
-      <HowToUse />
-      {/* 12b. No Pods. No Machine. No Mess. — convenience pitch */}
-      <InstantConvenienceSection />
-      {/* 13. Founder Trust — brand story */}
-      <FounderTrust />
-      {/* 14. First Cup Guarantee — risk-free trial */}
+
+      {/* 9. Subscribe & Save — retention offer */}
+      <SubscribeAndSave />
+
+      {/* 10. Risk Reversal — First Cup Guarantee */}
       <FirstCupGuarantee />
-      {/* 15. Republic Reserve — premium coffee secondary collection */}
+
+      {/* 11. Republic Reserve — premium secondary line */}
       <RepublicReserveSection />
-      {/* 16. Email capture */}
-      <EmailCapture />
-      {/* 17. FAQ */}
+
+      {/* 12. FAQ — handle objections */}
       <FAQSection />
-      {/* 18. Discount reminders */}
-      <section className="px-6 md:px-10 py-16" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
-        <div className="max-w-2xl mx-auto">
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Special Offers
-          </p>
-          <DiscountReminders cartSubtotal={0} showAll />
-        </div>
-      </section>
-      {/* 19. Final CTA */}
+
+      {/* 13. Final CTA */}
       <FinalCTA />
+
       <StickyMobileCTA />
     </div>
   );
