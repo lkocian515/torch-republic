@@ -22,6 +22,7 @@ import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import FounderTrust from '../components/mushroom/FounderTrust';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
+import InstantConvenienceSection from '../components/mushroom/InstantConvenienceSection';
 
 const RG = '#E6B7AD';
 
@@ -79,7 +80,9 @@ export default function Home() {
       <WhatsInsideEveryCup />
       {/* 6. Tastes Like Coffee — taste reassurance */}
       <TastesLikeCoffee />
-      {/* 7. Start Your Ritual — bundle / best-seller offer */}
+      {/* 7. Instant Convenience — no pods, no machine, no mess */}
+      <InstantConvenienceSection />
+      {/* 8. Start Your Ritual — bundle / best-seller offer */}
       <BundleSection />
       {/* 8. Subscribe & Save 20% — subscription offer */}
       <SubscribeAndSave />
