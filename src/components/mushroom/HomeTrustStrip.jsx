@@ -5,11 +5,11 @@ import { Coffee, Leaf, Zap, Recycle, Sparkles } from 'lucide-react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: Sparkles,  label: 'Small-Batch · Made for Daily Rituals' },
-  { icon: Leaf,      label: "Organic Lion's Mane + Chaga" },
+  { icon: Sparkles,  label: 'Third-Party Lab Tested' },
+  { icon: Leaf,      label: "Organic Dual-Extracted Mushrooms" },
   { icon: Coffee,    label: 'Zero Crash · Zero Jitters' },
   { icon: Recycle,   label: '30-Day First Cup Guarantee' },
-  { icon: Zap,       label: 'U.S.-Based · Ethically Sourced' },
+  { icon: Zap,       label: 'Packaged in the USA' },
 ];
 
 export default function HomeTrustStrip() {

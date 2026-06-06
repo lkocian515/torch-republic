@@ -1,0 +1,112 @@
+import React from 'react';
+import { useSEO } from '@/hooks/useSEO';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Brain, Zap, Leaf, Shield, Coffee, Moon } from 'lucide-react';
+
+const RG = '#E6B7AD';
+const DIM = 'rgba(240,232,220,0.55)';
+
+const BENEFITS = [
+  { icon: Brain, title: "Lion's Mane for Mental Clarity", body: "Lion's Mane mushroom (Hericium erinaceus) has been studied for its potential to support nerve growth factor (NGF) production — the protein that helps maintain and grow neurons. Regular drinkers report cleaner focus and improved recall, especially during creative or deep-work sessions." },
+  { icon: Shield, title: "Chaga for Antioxidant Support", body: "Chaga is one of the most antioxidant-dense foods ever measured — regularly outranking blueberries and acai. Its beta-glucan content supports immune function, and its adaptogenic properties help your body respond to daily stressors without spiking cortisol." },
+  { icon: Zap, title: "Cordyceps for Physical Energy", body: "Cordyceps has been used in traditional Chinese medicine for centuries to increase stamina and reduce fatigue. Modern research suggests it may improve oxygen utilization, making it a favorite among athletes — and anyone who needs sustained energy without stimulants." },
+  { icon: Moon, title: "Reishi for Calm & Recovery", body: "Known as the 'mushroom of immortality' in Eastern traditions, Reishi is a deeply calming adaptogen. It supports healthy cortisol levels, promotes restful sleep, and helps the body return to baseline after stress — making it ideal for evening blends." },
+  { icon: Leaf, title: "Turkey Tail for Gut Health", body: "Turkey Tail is rich in PSK and PSP — polysaccharides that feed beneficial gut bacteria and support a healthy microbiome. Since 70% of your immune system lives in your gut, a thriving microbiome is foundational to overall wellness." },
+  { icon: Coffee, title: "Why Pair Mushrooms with Coffee?", body: "Coffee amplifies alertness while mushrooms smooth and extend it. The result is focused energy without anxiety — no jitters, no crash. The natural bitterness of coffee also masks any earthy mushroom taste, making the ritual delicious and effortless." },
+];
+
+const FAQS = [
+  { q: "Do mushroom coffee blends actually work?", a: "The evidence is promising, not conclusive. Lion's Mane and Cordyceps have the most studied human trial data. Most of our customers report real differences in their focus and energy within 2–3 weeks of daily use. We recommend consistency over single-cup expectations." },
+  { q: "Can I taste the mushrooms?", a: "No. Our blends are designed to taste like premium coffee. The mushrooms are fully masked by the roast character. If you didn't know they were in there, you wouldn't guess." },
+  { q: "How much mushroom is in each serving?", a: "500mg of organic dual-extracted mushroom blend per serving — clearly labeled. No proprietary blends hiding a trace amount behind a big number." },
+  { q: "Is mushroom coffee safe?", a: "For most healthy adults, yes. Functional mushrooms have centuries of use history. We recommend consulting your doctor if you're pregnant, nursing, immunocompromised, or on medication." },
+];
+
+export default function MushroomCoffeeBenefits() {
+  useSEO({
+    title: 'Mushroom Coffee Benefits | Lion\'s Mane, Chaga, Cordyceps & More',
+    description: "Everything you need to know about mushroom coffee benefits — Lion's Mane for focus, Chaga for immunity, Cordyceps for energy, Reishi for calm. Science-backed, honestly explained.",
+    url: '/mushroom-coffee-benefits',
+  });
+
+  return (
+    <div style={{ background: '#100F0D', minHeight: '100vh' }}>
+
+      {/* Hero */}
+      <section style={{ padding: 'clamp(64px, 8vw, 120px) 24px 48px', textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}>
+        <motion.p
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.48em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.45)', marginBottom: '16px' }}
+        >
+          Torch Republic · The Science
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
+          className="font-serif font-bold"
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
+        >
+          Mushroom Coffee Benefits,<br />
+          <span style={{ color: RG }}>Honestly Explained</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.14 }}
+          className="font-heading"
+          style={{ fontSize: '1rem', color: DIM, fontWeight: 300, lineHeight: 1.8, marginBottom: '36px' }}
+        >
+          Functional mushrooms have been used in traditional medicine for thousands of years. Modern research is now catching up. Here's what the science actually says — no hype, no exaggeration.
+        </motion.p>
+        <Link
+          to="/shop"
+          style={{
+            display: 'inline-block', background: RG, color: '#040404',
+            fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.24em',
+            textTransform: 'uppercase', fontWeight: 700, padding: '14px 32px', textDecoration: 'none',
+          }}
+        >
+          Shop Mushroom Coffee
+        </Link>
+      </section>
+
+      {/* Benefits */}
+      <section style={{ maxWidth: '1060px', margin: '0 auto', padding: '48px 24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1px', background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.08)' }}>
+          {BENEFITS.map((b, i) => (
+            <motion.div
+              key={b.title}
+              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}
+              style={{ background: '#100F0D', padding: 'clamp(24px, 3vw, 36px)' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0, background: 'rgba(230,183,173,0.07)', border: '1px solid rgba(230,183,173,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <b.icon size={15} style={{ color: RG }} />
+                </div>
+                <h2 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6', margin: 0, lineHeight: 1.3 }}>{b.title}</h2>
+              </div>
+              <p className="font-heading" style={{ fontSize: '0.87rem', color: DIM, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{b.body}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px clamp(64px, 8vw, 96px)' }}>
+        <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE6', marginBottom: '32px', textAlign: 'center' }}>
+          Common Questions
+        </h2>
+        {FAQS.map(({ q, a }) => (
+          <div key={q} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)', paddingBottom: '24px', marginBottom: '24px' }}>
+            <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#F5EFE6', marginBottom: '10px' }}>{q}</h3>
+            <p className="font-heading" style={{ fontSize: '0.87rem', color: DIM, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{a}</p>
+          </div>
+        ))}
+        <div style={{ textAlign: 'center', marginTop: '32px' }}>
+          <Link to="/shop" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.58rem', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none' }}>
+            Try a Blend — 30-Day Guarantee →
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

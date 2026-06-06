@@ -69,7 +69,7 @@ export default function MushroomHero() {
           flex: '0 0 52%', maxWidth: '52%',
           display: 'flex', alignItems: 'center',
           padding: 'clamp(48px,6vw,96px) clamp(32px,5vw,80px)',
-          background: 'linear-gradient(100deg, #07080F 0%, #07080F 72%, rgba(7,8,15,0) 100%)',
+          background: 'linear-gradient(100deg, #100F0D 0%, #100F0D 72%, rgba(16,15,13,0) 100%)',
         }}>
           <div style={{ maxWidth: '500px' }}>
             <motion.p

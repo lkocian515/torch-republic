@@ -43,6 +43,9 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import MushroomCoffeeBenefits from './pages/MushroomCoffeeBenefits';
+import LionsManeCoffee from './pages/LionsManeCoffee';
+import InstantCoffeeForEnergy from './pages/InstantCoffeeForEnergy';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -111,6 +114,11 @@ const AuthenticatedApp = () => {
         <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />
         <Route path="/privacy-policy" element={<LayoutWrapper currentPageName="PrivacyPolicy"><PrivacyPolicy /></LayoutWrapper>} />
         <Route path="/terms-of-service" element={<LayoutWrapper currentPageName="TermsOfService"><TermsOfService /></LayoutWrapper>} />
+
+        {/* ── SEO CONTENT PAGES ── */}
+        <Route path="/mushroom-coffee-benefits" element={<LayoutWrapper currentPageName="MushroomCoffeeBenefits"><MushroomCoffeeBenefits /></LayoutWrapper>} />
+        <Route path="/lions-mane-coffee" element={<LayoutWrapper currentPageName="LionsManeCoffee"><LionsManeCoffee /></LayoutWrapper>} />
+        <Route path="/instant-coffee-for-energy" element={<LayoutWrapper currentPageName="InstantCoffeeForEnergy"><InstantCoffeeForEnergy /></LayoutWrapper>} />
 
         {/* ── LEGACY REDIRECTS (all old routes → mushroom coffee pages) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />

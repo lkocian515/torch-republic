@@ -13,6 +13,7 @@ import IngredientTransparency from '../components/mushroom/IngredientTransparenc
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
+import TrustSignalsSection from '../components/mushroom/TrustSignalsSection';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
@@ -102,6 +103,9 @@ export default function Home() {
 
       {/* 10. Risk Reversal */}
       <FirstCupGuarantee />
+
+      {/* 10b. Trust signals — lab testing, sourcing, COA, USA, founder */}
+      <TrustSignalsSection />
 
       {/* 11. Founder/Brand Story */}
       <FounderStorySection />

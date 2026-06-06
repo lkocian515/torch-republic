@@ -11,15 +11,15 @@
     --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Soft dark charcoal background */
-    --background: 0 0% 7%; /* #111111 */
-    --foreground: 36 33% 95%; /* warm ivory/cream - brighter */
+    /* Warm matte charcoal — wellness/ritual palette */
+    --background: 24 8% 8%; /* warm dark brown-black #141210 */
+    --foreground: 36 40% 93%; /* warm cream */
 
-    --card: 0 0% 9%;
-    --card-foreground: 36 33% 95%;
+    --card: 24 6% 10%;
+    --card-foreground: 36 40% 93%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 43 45% 90%;
+    --popover: 24 8% 6%;
+    --popover-foreground: 36 38% 90%;
 
     /* Rose gold primary #E6B7AD */
     --primary: 7 52% 79%;
@@ -60,14 +60,14 @@
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 36 33% 95%;
+    --background: 24 8% 8%;
+    --foreground: 36 40% 93%;
 
-    --card: 0 0% 9%;
-    --card-foreground: 36 33% 95%;
+    --card: 24 6% 10%;
+    --card-foreground: 36 40% 93%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 30 30% 95%;
+    --popover: 24 8% 6%;
+    --popover-foreground: 36 38% 90%;
 
     --primary: 7 52% 79%;
     --primary-foreground: 0 0% 4%;
