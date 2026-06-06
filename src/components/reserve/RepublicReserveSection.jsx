@@ -87,7 +87,7 @@ export default function RepublicReserveSection() {
                 }}
               />
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2d13fe4d_fsdfesfes.png"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d0365d75_dgdfgdr.png"
                 alt="Torchbearer™ Premium Instant Coffee"
                 className="relative z-10 w-full max-w-xs md:max-w-sm object-contain"
                 style={{ filter: 'drop-shadow(0 30px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(196,163,90,0.12))' }}

@@ -14,20 +14,20 @@ function getCartUrl(qty = 1) {
 
 const PRODUCT_IMAGES = [
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
-    alt: 'Torchbearer Premium Instant Coffee — product showcase with blends',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/36a57140d_fsdgfrtre.png',
+    alt: 'Torchbearer Premium Instant Coffee — Carry The Flame hero shot',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
-    alt: 'Torchbearer Premium Instant Coffee — premium collection display',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d0365d75_dgdfgdr.png',
+    alt: 'Torchbearer Premium Instant Coffee — marble surface lifestyle',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
-    alt: 'Torchbearer Premium Instant Coffee — multi-blend showcase',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0960b7cd6_fsdfesfes.png',
+    alt: 'Torchbearer Premium Instant Coffee — golden hour product showcase',
   },
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8f6abd374_LIVEFREESTAYREADY_20260606_001446_0000.png',
-    alt: 'Torchbearer Premium Instant Coffee — collection detail',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4c5871c59_rgdrget.png',
+    alt: 'Torchbearer Premium Instant Coffee — brew guide back label',
   },
 ];
 
