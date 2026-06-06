@@ -81,7 +81,7 @@ export default function SubscribeAndSave() {
                 marginBottom: '16px',
               }}
             >
-              Subscribe & Save 20%
+              Never Break Your Streak. Save 20%.
             </h2>
 
             {/* Subheadline */}
@@ -95,7 +95,7 @@ export default function SubscribeAndSave() {
                 marginBottom: '28px',
               }}
             >
-              Your daily mushroom coffee ritual, delivered automatically. Pause, skip, or cancel anytime.
+              The people who feel the biggest transformation are the ones who make it a daily ritual. Subscribe and save 20% on every order — automatically delivered so you never run out.
             </p>
 
             {/* Benefits list */}

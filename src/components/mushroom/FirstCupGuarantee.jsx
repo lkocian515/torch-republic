@@ -68,7 +68,7 @@ export default function FirstCupGuarantee() {
               marginBottom: '16px',
             }}
           >
-            Try Torch Republic Risk-Free
+            You Either Love It or You Don't Pay
           </h2>
 
           {/* Promise */}
@@ -83,7 +83,7 @@ export default function FirstCupGuarantee() {
               margin: '0 auto',
             }}
           >
-            If the taste or ritual isn't for you, contact us within 30 days of your first order and we'll make it right. No hassle. No hard feelings.
+            We're so confident Torch Republic will become the best part of your morning that we back every first order with a 30-day money-back guarantee. If it's not life-changing, contact us and we'll make it right — no hoops, no hassle, no hard feelings.
           </p>
         </motion.div>
 
@@ -110,18 +110,18 @@ export default function FirstCupGuarantee() {
             {[
               {
                 icon: Shield,
-                title: '30-Day Guarantee',
-                description: 'Try your first order risk-free. If it\'s not for you, we\'ll refund or replace it.',
+                title: '30-Day Money-Back',
+                description: 'Try your first order completely risk-free. If it doesn\'t become a staple in your morning, we\'ll refund it — no questions, no delays.',
               },
               {
                 icon: Check,
-                title: 'No Questions Asked',
-                description: 'We trust our customers. If you\'re not happy, we\'ll make it right — period.',
+                title: 'Zero-Hassle Returns',
+                description: 'Email us once. We handle everything. Our 500+ five-star customers are proof that this product works — and that we stand by it.',
               },
               {
                 icon: Award,
-                title: 'Quality Promise',
-                description: 'We stand behind every blend. Premium ingredients, premium experience, guaranteed.',
+                title: 'Premium Quality, Always',
+                description: 'Organic mushrooms. Ethically sourced coffee. Third-party tested for purity. Every tube, every time. You get what\'s on the label.',
               },
             ].map((item, i) => (
               <motion.div

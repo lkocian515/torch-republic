@@ -61,11 +61,11 @@ export default function BundleSection() {
             </p>
             <h2 className="font-serif font-bold"
               style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Try All Six Blends
+              Try All Six. Find the One That Changes Your Day.
             </h2>
             <p className="font-heading"
               style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-              Not sure where to start? The six-blend bundle is the best introduction to Torch Republic. Try every mushroom coffee blend — focus, energy, calm, balance, restoration, and flow — each with 27 servings and Lion's Mane + Chaga.
+              The six-blend bundle is the most popular way to start. One tube for each part of your day — focus, morning energy, evening calm, restoration, balance, and flow. Each with 27 servings of clinically-studied Lion's Mane + Chaga. 162 servings total. One ritual that transforms your relationship with energy, clarity, and wellness.
             </p>
 
             <div className="flex flex-wrap gap-2">

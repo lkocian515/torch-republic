@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Core sections — in conversion-optimized order
 import MushroomHero from '../components/mushroom/HeroSection';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
+import ScienceCredibilityBar from '../components/mushroom/ScienceCredibilityBar';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
@@ -73,6 +74,9 @@ export default function Home() {
 
       {/* 2. Trust Strip — immediate credibility */}
       <HomeTrustStrip />
+
+      {/* 2b. Science & Credibility pillars */}
+      <ScienceCredibilityBar />
 
       {/* 3. Find Your Blend — the core USP, front and center */}
       <ChooseYourRitual />

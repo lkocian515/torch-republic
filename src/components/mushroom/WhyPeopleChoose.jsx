@@ -8,38 +8,38 @@ const RG = '#E6B7AD';
 const BENEFITS = [
   {
     icon: Brain,
-    title: 'Focus & Mental Clarity',
-    description: "Lion's Mane mushroom supports cognitive function and concentration — calm focus without the jitters.",
+    title: 'Clinically-Studied Cognitive Support',
+    description: "Lion's Mane mushroom has been studied in peer-reviewed research for its ability to support NGF (Nerve Growth Factor), enhancing focus, memory, and mental clarity — without stimulants.",
     accent: '#E6B7AD',
   },
   {
     icon: Zap,
-    title: 'Balanced Energy',
-    description: 'Smooth, sustained energy from premium instant coffee without the crash of heavily processed blends.',
+    title: 'Energy That Lasts All Day',
+    description: 'No spike. No crash. Dual-extracted Chaga and premium instant coffee deliver smooth, sustained energy so you stay sharp from your first sip through your last meeting.',
     accent: '#D6B27A',
   },
   {
     icon: Leaf,
-    title: 'Functional Mushroom Support',
-    description: 'Chaga and Reishi extracts deliver antioxidant support, immune function, and everyday wellness.',
+    title: 'Real Functional Mushrooms. Real Doses.',
+    description: '500mg of dual-extracted organic mushroom blend per serving — not a "fairy dust" sprinkle. You get a meaningful, effective amount in every cup.',
     accent: '#C98F86',
   },
   {
     icon: Coffee,
-    title: 'Premium Coffee Flavor',
-    description: 'Roasty, smooth, and genuinely delicious. The mushrooms are completely undetectable in taste.',
+    title: 'Tastes Like Premium Coffee',
+    description: 'Rich, smooth, and genuinely delicious. The mushrooms are completely undetectable. You get all the benefits with none of the compromise — just great coffee.',
     accent: '#E6B7AD',
   },
   {
     icon: Clock,
-    title: 'Ready in Seconds',
-    description: 'No machine, no pods, no cleanup. Just add hot water and your ritual is ready wherever you are.',
+    title: 'Your Ritual in 30 Seconds',
+    description: 'No machine. No pods. No mess. Add hot water and your wellness ritual is ready — at home, at the office, or wherever life takes you today.',
     accent: '#D6B27A',
   },
   {
     icon: CheckCircle,
-    title: 'Daily Ritual Convenience',
-    description: 'Clean ingredients, no fillers, gluten-free, and dairy-free. A ritual you can feel good about every morning.',
+    title: 'Uncompromisingly Clean',
+    description: 'Gluten-free. Dairy-free. No artificial colors, flavors, or preservatives. Just the ingredients your body deserves — nothing it doesn\'t.',
     accent: '#C98F86',
   },
 ];
@@ -91,7 +91,7 @@ export default function WhyPeopleChoose() {
               marginBottom: '16px',
             }}
           >
-            Why People Choose Torch Republic
+            Why Thousands Are Switching Their Morning Coffee
           </h2>
           <p
             className="font-heading"
@@ -100,7 +100,7 @@ export default function WhyPeopleChoose() {
               fontWeight: 300, lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             }}
           >
-            Specialized blends designed for different moments of your day — premium coffee quality with real functional wellness benefits.
+            Most coffee leaves you wired, then wrecked. Torch Republic is different — functional mushrooms + premium coffee, crafted to give you the energy and clarity your day actually demands.
           </p>
         </motion.div>
 

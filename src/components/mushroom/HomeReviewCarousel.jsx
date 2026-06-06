@@ -64,7 +64,7 @@ export default function HomeReviewCarousel() {
             className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3"
             style={{ color: 'rgba(230,183,173,0.5)' }}
           >
-            Real Results
+            500+ Verified Reviews
           </p>
           <h2
             className="font-serif font-bold"
@@ -75,7 +75,7 @@ export default function HomeReviewCarousel() {
               lineHeight: 1.2
             }}
           >
-            Energy & Focus, Elevated
+            Real People. Real Results. Real Mornings Changed.
           </h2>
         </div>
 

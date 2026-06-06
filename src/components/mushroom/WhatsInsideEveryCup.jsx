@@ -6,40 +6,40 @@ const RG = '#E6B7AD';
 
 const SPECS = [
   {
+    icon: Leaf,
+    label: 'Mushroom Blend per Serving',
+    value: '500mg',
+    note: "Organic dual-extracted Lion's Mane + Chaga — a meaningful, effective dose. Not a trace. Not a sprinkle.",
+  },
+  {
     icon: Coffee,
     label: 'Caffeine per Serving',
     value: '~100mg',
-    note: 'Similar to a standard cup of coffee',
-  },
-  {
-    icon: Leaf,
-    label: 'Mushroom Blend Amount',
-    value: '500mg',
-    note: "Lion's Mane + Chaga extract",
+    note: "Equivalent to a standard cup of coffee — smooth, sustained lift without the spike-and-crash cycle.",
   },
   {
     icon: Droplet,
     label: 'Servings per Tube',
     value: '27',
-    note: 'Approximately one month supply',
-  },
-  {
-    icon: Zap,
-    label: 'Format',
-    value: 'Instant Powder',
-    note: 'No brewing equipment needed',
+    note: 'A full month of your daily ritual in every tube. Compact, travel-ready, zero waste.',
   },
   {
     icon: Shield,
     label: 'Functional Mushrooms',
-    value: "Lion's Mane, Chaga",
-    note: 'Organic mushroom extract blend',
+    value: "Lion's Mane & Chaga",
+    note: "Lion's Mane for cognitive support + NGF. Chaga for antioxidants + immune function. Research-backed, not trendy.",
   },
   {
     icon: Check,
-    label: 'Extract Type',
+    label: 'Extraction Method',
     value: 'Dual Extract',
-    note: 'Water + alcohol extraction for full spectrum',
+    note: 'Hot water + alcohol extraction captures the full spectrum of active compounds for maximum bioavailability.',
+  },
+  {
+    icon: Zap,
+    label: 'Ready In',
+    value: '30 Seconds',
+    note: 'Just hot water. No machine, no pods, no cleanup — your entire wellness ritual in half a minute.',
   },
 ];
 
@@ -78,7 +78,7 @@ export default function WhatsInsideEveryCup() {
               marginBottom: '16px',
             }}
           >
-            What's Inside Every Cup
+            Nothing Hidden. Everything Counts.
           </h2>
           <p
             className="font-heading"
@@ -91,7 +91,7 @@ export default function WhatsInsideEveryCup() {
               margin: '0 auto',
             }}
           >
-            Clean ingredients. Precise amounts. No hidden fillers. Just premium instant coffee and functional mushrooms.
+            We believe you deserve to know exactly what you're putting in your body. Full transparency, no "proprietary blend" hiding, no fillers — just the ingredients that actually do something.
           </p>
         </motion.div>
 

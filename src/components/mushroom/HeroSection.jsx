@@ -15,10 +15,10 @@ const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e8
 const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
 
 const TRUST = [
-  { icon: Coffee, label: '100% Instant Coffee' },
-  { icon: Leaf,   label: "Lion's Mane + Chaga" },
-  { icon: Zap,    label: '27 Servings' },
-  { icon: X,      label: 'No Coffee Maker Needed' },
+  { icon: Leaf,   label: "Organic Lion's Mane + Chaga" },
+  { icon: Coffee, label: 'Zero Crash. Zero Jitters.' },
+  { icon: Zap,    label: '27 Servings Per Tube' },
+  { icon: X,      label: 'No Machine. No Pods. No Waste.' },
 ];
 
 export default function MushroomHero() {
@@ -86,9 +86,9 @@ export default function MushroomHero() {
                 fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
-              Premium Instant Mushroom Coffee<br />
-              <span style={{ color: RG }}>for Focus, Energy</span><br />
-              <span style={{ color: RG }}>&amp; Daily Ritual</span>
+              The Morning That Changes<br />
+              <span style={{ color: RG }}>How You Think, Feel</span><br />
+              <span style={{ color: RG }}>&amp; Show Up Every Day</span>
             </motion.h1>
 
             <motion.p
@@ -97,7 +97,7 @@ export default function MushroomHero() {
                 fontSize:'clamp(0.88rem,1.1vw,1rem)', color:'rgba(210,195,175,0.78)',
                 lineHeight:1.75, marginBottom:'32px', maxWidth:'420px' }}
             >
-              Smooth, functional coffee blends crafted with adaptogenic mushrooms for clarity, balance, and everyday wellness.
+              Premium instant mushroom coffee with clinically-studied Lion's Mane + Chaga. Sharper focus, cleaner energy, and zero crash — in seconds, no equipment needed.
             </motion.p>
 
             <motion.div
@@ -253,8 +253,8 @@ export default function MushroomHero() {
               margin: '0 0 16px',
             }}
           >
-            Premium Instant Mushroom Coffee<br />
-            <span style={{ color: RG }}>for Focus, Energy &amp; Daily Ritual</span>
+            The Morning That Changes<br />
+            <span style={{ color: RG }}>How You Think, Feel &amp; Show Up</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -267,7 +267,7 @@ export default function MushroomHero() {
               maxWidth: '320px', margin: '0 auto 32px',
             }}
           >
-            Smooth, functional coffee blends crafted with adaptogenic mushrooms for clarity, balance, and everyday wellness.
+            Clinically-studied Lion's Mane + Chaga for sharper focus, cleaner energy, and zero crash — ready in seconds.
           </motion.p>
 
           {/* CTA Buttons — side by side */}
