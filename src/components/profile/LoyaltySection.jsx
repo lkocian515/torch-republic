@@ -26,16 +26,8 @@ export default function LoyaltySection({ user }) {
     const records = await base44.entities.LoyaltyPoints.filter({ user_id: user.id });
     if (records.length > 0) {
       setRecord(records[0]);
-    } else {
-      // Create a starter record with 50 welcome points
-      const created = await base44.entities.LoyaltyPoints.create({
-        user_id: user.id,
-        points: 50,
-        lifetime_points: 50,
-        redeemed_codes: [],
-      });
-      setRecord(created);
     }
+    // No record yet — show 0-point state; record is created server-side on first order
     setLoading(false);
   };
 
