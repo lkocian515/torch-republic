@@ -34,6 +34,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Torchbearer from './pages/Torchbearer';
 import TrafficReport from './pages/TrafficReport';
+import CoffeeRecipes from './pages/CoffeeRecipes';
 import ShippingPolicy from './pages/ShippingPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -95,6 +96,7 @@ const AuthenticatedApp = () => {
         <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
         <Route path="/mission" element={<Navigate to="/about" replace />} />
         <Route path="/admin/traffic" element={<LayoutWrapper currentPageName="TrafficReport"><TrafficReport /></LayoutWrapper>} />
+        <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
         <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
         <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />
         <Route path="/privacy-policy" element={<LayoutWrapper currentPageName="PrivacyPolicy"><PrivacyPolicy /></LayoutWrapper>} />
