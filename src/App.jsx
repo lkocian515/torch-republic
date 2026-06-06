@@ -31,6 +31,10 @@ import Subscription from './pages/Subscription';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Torchbearer from './pages/Torchbearer';
+import ShippingPolicy from './pages/ShippingPolicy';
+import ReturnPolicy from './pages/ReturnPolicy';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -87,6 +91,10 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
         <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
         <Route path="/mission" element={<Navigate to="/about" replace />} />
+        <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
+        <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />
+        <Route path="/privacy-policy" element={<LayoutWrapper currentPageName="PrivacyPolicy"><PrivacyPolicy /></LayoutWrapper>} />
+        <Route path="/terms-of-service" element={<LayoutWrapper currentPageName="TermsOfService"><TermsOfService /></LayoutWrapper>} />
 
         {/* ── LEGACY REDIRECTS (all old routes → mushroom coffee pages) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />

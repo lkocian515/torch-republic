@@ -23,10 +23,10 @@ const FOOTER_LINKS = [
   {
     heading: 'Legal',
     links: [
-      { label: 'Shipping Policy', external: 'https://torchrepublic.com/policies/shipping-policy' },
-      { label: 'Return Policy', external: 'https://torchrepublic.com/policies/refund-policy' },
-      { label: 'Privacy Policy', external: 'https://torchrepublic.com/policies/privacy-policy' },
-      { label: 'Terms of Service', external: 'https://torchrepublic.com/policies/terms-of-service' },
+      { label: 'Shipping Policy', href: '/shipping-policy' },
+      { label: 'Return Policy', href: '/return-policy' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Service', href: '/terms-of-service' },
     ]
   }
 ];
