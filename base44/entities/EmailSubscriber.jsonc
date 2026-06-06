@@ -17,6 +17,11 @@
     "discount_code": {
       "type": "string",
       "description": "Discount code shown to subscriber"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this subscriber"
     }
   },
   "required": [

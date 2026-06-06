@@ -22,6 +22,11 @@
         "type": "string"
       },
       "description": "List of discount codes already redeemed"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this loyalty record"
     }
   },
   "required": [
