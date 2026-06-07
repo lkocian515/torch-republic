@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import BlendCompare from '../components/mushroom/BlendCompare';
 
+const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
+
 export default function BlendsCollection() {
   useSEO({
-    title: 'All Mushroom Coffee Blends',
-    description: "Explore all six Torch Republic instant mushroom coffee blends. Lion's Mane + Chaga for focus, energy, calm, balance, beauty, and rest. 27 servings per tube. No coffee maker needed.",
+    title: 'All Blends | Mushroom Coffee, Matcha & Classic Coffee',
+    description: "Explore all 12 Torch Republic blends: mushroom coffee with Lion's Mane + Chaga, ceremonial grade matcha, and classic instant coffee. 27 servings per tube. No machine needed.",
     url: '/blends',
   });
   return (
@@ -18,15 +20,15 @@ export default function BlendsCollection() {
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            The Collection
+            The Full Collection
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            The Six Blends
+            All 12 Blends
           </h1>
-          <p className="font-heading max-w-lg mx-auto"
+          <p className="font-heading max-w-2xl mx-auto"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Six instant mushroom coffee blends designed for the way you want your day to feel. Each tube contains 27 servings of premium instant coffee with Lion's Mane + Chaga.
+            Every blend we make. Mushroom coffee with Lion's Mane + Chaga, ceremonial grade matcha, and classic instant coffee. Each tube contains 27 servings of premium instant powder — no machine needed.
           </p>
         </motion.div>
       </section>
@@ -34,7 +36,7 @@ export default function BlendsCollection() {
       <section className="px-6 md:px-10 py-16">
         <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MUSHROOM_PRODUCTS.map((product, i) => (
+            {ALL_PRODUCTS.map((product, i) => (
               <MushroomProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
