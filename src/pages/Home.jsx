@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
 
 // Premium brand sections — in ritual-based order
 import ProductHero from '../components/home/ProductHero';
@@ -12,6 +14,7 @@ import BrandPhilosophy from '../components/home/BrandPhilosophy';
 import ShopByRitual from '../components/home/ShopByRitual';
 import CategoryOverview from '../components/home/CategoryOverview';
 import FlavorDiscovery from '../components/home/FlavorDiscovery';
+import CoffeeOfMonth from '../components/home/CoffeeOfMonth';
 import FounderNote from '../components/home/FounderNote';
 import HowItWorks from '../components/mushroom/HowItWorks';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
@@ -70,6 +73,41 @@ export default function Home() {
     type: 'website',
   });
 
+  // Calculate top-rated blend from reviews
+  const { data: topBlendData } = useQuery({
+    queryKey: ['coffee-of-month'],
+    queryFn: async () => {
+      const reviews = await base44.entities.Review.list();
+      const productReviews = {};
+      
+      reviews.forEach(review => {
+        if (review.product_handle && review.rating >= 4) {
+          const handle = review.product_handle.replace('-instant-mushroom-coffee', '').replace('-instant-coffee', '').replace('-matcha-blend', '');
+          if (!productReviews[handle]) {
+            productReviews[handle] = { total: 0, count: 0 };
+          }
+          productReviews[handle].total += review.rating;
+          productReviews[handle].count += 1;
+        }
+      });
+
+      let topBlend = null;
+      let maxAvg = 0;
+      let topCount = 0;
+
+      Object.entries(productReviews).forEach(([handle, data]) => {
+        const avg = data.total / data.count;
+        if (data.count >= 3 && (avg > maxAvg || (avg === maxAvg && data.count > topCount))) {
+          maxAvg = avg;
+          topBlend = handle;
+          topCount = data.count;
+        }
+      });
+
+      return { topBlend, avgRating: maxAvg, reviewCount: topCount };
+    },
+  });
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <ReviewPopup />
@@ -101,37 +139,46 @@ export default function Home() {
       {/* 9. Flavor Discovery */}
       <FlavorDiscovery />
 
-      {/* 10. Featured Products */}
+      {/* 10. Coffee of the Month */}
+      {topBlendData?.topBlend && (
+        <CoffeeOfMonth
+          topBlend={topBlendData.topBlend}
+          avgRating={topBlendData.avgRating}
+          reviewCount={topBlendData.reviewCount}
+        />
+      )}
+
+      {/* 11. Featured Products */}
       <div id="featured" />
 
-      {/* 10. Why Torch Republic */}
+      {/* 12. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 11. Reviews */}
+      {/* 13. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 12. Bundles */}
+      {/* 14. Bundles */}
       <BundleSection />
 
-      {/* 13. Comparison */}
+      {/* 15. Comparison */}
       <BlendComparisonTable />
 
-      {/* 14. How It Works */}
+      {/* 16. How It Works */}
       <HowItWorks />
 
-      {/* 15. Ingredient Transparency */}
+      {/* 17. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 16. Founder Note */}
+      {/* 18. Founder Note */}
       <FounderNote />
 
-      {/* 17. Guarantee */}
+      {/* 19. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 18. FAQ */}
+      {/* 20. FAQ */}
       <FAQSection />
 
-      {/* 19. Final CTA */}
+      {/* 21. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
