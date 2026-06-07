@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
+import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
 const GOLD = '#C4A35A';
 
@@ -63,6 +64,9 @@ export default function ClassicCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      {/* Reviews */}
+      <CollectionReviewCarousel category="classic-coffee" />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>

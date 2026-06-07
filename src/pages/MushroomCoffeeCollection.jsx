@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Leaf, Sparkles } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
+import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
 const RG = '#E6B7AD';
 
@@ -63,6 +64,9 @@ export default function MushroomCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      {/* Reviews */}
+      <CollectionReviewCarousel category="mushroom-coffee" />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>

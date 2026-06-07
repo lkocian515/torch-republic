@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
+import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
 const MATCHA_GREEN = '#10B981';
 
@@ -63,6 +64,9 @@ export default function MatchaCollection() {
           </div>
         </div>
       </section>
+
+      {/* Reviews */}
+      <CollectionReviewCarousel category="matcha" />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
