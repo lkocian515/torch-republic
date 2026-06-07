@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import PremiumHero from '../components/mushroom/PremiumHero';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
 import CategoryCards from '../components/mushroom/CategoryCards';
+import BestSellersSection from '../components/mushroom/BestSellersSection';
 import MeetTheRituals from '../components/mushroom/MeetTheRituals';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
@@ -82,43 +83,46 @@ export default function Home() {
       <div id="choose-your-ritual" />
       <CategoryCards />
 
-      {/* 4. Best Sellers / Meet the Rituals */}
+      {/* 4. Best Sellers */}
+      <BestSellersSection />
+
+      {/* 5. Meet the Rituals (All Products) */}
       <MeetTheRituals />
 
-      {/* 5. Why Torch Republic */}
+      {/* 6. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 6. Static Reviews */}
+      {/* 7. Static Reviews */}
       <StaticReviewsSection />
 
-      {/* 7. Review Carousel */}
+      {/* 8. Review Carousel */}
       <HomeReviewCarousel />
 
-      {/* 8. Bundles */}
+      {/* 9. Bundles */}
       <BundleSection />
 
-      {/* 9. Comparison Table */}
+      {/* 10. Comparison Table */}
       <BlendComparisonTable />
 
-      {/* 10. Flavor Quiz */}
+      {/* 11. Flavor Quiz */}
       <FlavorQuizBanner />
 
-      {/* 11. How It Works */}
+      {/* 12. How It Works */}
       <HowItWorks />
 
-      {/* 12. Ingredient Transparency */}
+      {/* 13. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 13. Founder Story */}
+      {/* 14. Founder Story */}
       <FounderSection />
 
-      {/* 14. Guarantee */}
+      {/* 15. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 15. FAQ */}
+      {/* 16. FAQ */}
       <FAQSection />
 
-      {/* 16. Final CTA */}
+      {/* 17. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
