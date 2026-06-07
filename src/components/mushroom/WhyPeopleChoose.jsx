@@ -9,37 +9,37 @@ const BENEFITS = [
   {
     icon: Brain,
     title: 'Functional Mushroom Support',
-    description: "Lion's Mane is traditionally associated with focus and mental clarity. Chaga is known for antioxidant support. Each blend delivers a meaningful dose — not a trace — of organic dual-extracted mushrooms.",
+    description: "Lion's Mane is traditionally associated with focus and mental clarity. Chaga is known for antioxidant support. Each mushroom blend delivers a meaningful, purposeful dose.",
     accent: '#E6B7AD',
   },
   {
     icon: Zap,
     title: 'Clean Energy, No Crash',
-    description: 'Premium instant coffee paired with adaptogenic mushrooms for smooth, balanced energy throughout your day — without the jitters or afternoon slump of a standard cup.',
+    description: 'Premium instant coffee paired with adaptogenic mushrooms for smooth, balanced energy throughout your day — without the jitters or afternoon slump.',
     accent: '#D6B27A',
   },
   {
     icon: Leaf,
     title: 'Transparent Ingredients',
-    description: '500mg of organic dual-extracted mushroom blend per serving — clearly labeled, no proprietary blend hiding. You know exactly what you\'re getting in every cup.',
+    description: 'No proprietary blend hiding. You know exactly what goes into every cup. Clean formulas, intentional sourcing, clear labels.',
     accent: '#C98F86',
   },
   {
     icon: Coffee,
-    title: 'Tastes Like Premium Coffee',
-    description: 'Rich, smooth, and genuinely delicious. The mushrooms are completely undetectable. You get all the benefits with none of the compromise — just great coffee.',
+    title: 'Premium Taste',
+    description: 'Rich, smooth, and genuinely delicious. Whether classic coffee, mushroom coffee, or matcha — every blend is crafted to taste as good as it performs.',
     accent: '#E6B7AD',
   },
   {
     icon: Clock,
-    title: 'Ready in 30 Seconds',
-    description: 'No machine. No pods. No mess. Just hot water and 27 servings of your daily ritual in every compact tube. Perfect for home, travel, or the office.',
+    title: 'Ready in Seconds',
+    description: 'No machine. No pods. No mess. Instant powder into hot water, milk, or iced — 27 servings of your daily ritual in every compact tube.',
     accent: '#D6B27A',
   },
   {
     icon: CheckCircle,
-    title: 'Uncompromisingly Clean',
-    description: 'Gluten-free. Dairy-free. No artificial colors, flavors, or preservatives. Just the ingredients your body deserves — nothing it doesn\'t.',
+    title: 'No Machine Needed',
+    description: 'Classic coffees, mushroom blends, and matcha — all instant powder formats. Scoop, stir, and sip anywhere. Home, travel, office, or on the go.',
     accent: '#C98F86',
   },
 ];
@@ -91,7 +91,7 @@ export default function WhyPeopleChoose() {
               marginBottom: '16px',
             }}
           >
-            A Better Cup. Every Single Morning.
+            Crafted for Modern Ritual.
           </h2>
           <p
             className="font-heading"
@@ -100,7 +100,7 @@ export default function WhyPeopleChoose() {
               fontWeight: 300, lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             }}
           >
-            Coffee-forward, smooth, and easy to drink — with subtle earthy depth from functional mushrooms. Designed for people who want daily wellness support without giving up the comfort of a real coffee ritual.
+            Coffee-forward, smooth, and ready in seconds — no machine, no pods, no complicated setup. Designed for people who want premium taste, daily wellness support, and a ritual worth keeping.
           </p>
         </motion.div>
 

@@ -15,10 +15,10 @@ const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e8
 const HERO_IMG_MOBILE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
 
 const TRUST = [
-  { icon: Leaf,   label: "Organic Lion's Mane + Chaga" },
-  { icon: Coffee, label: 'Zero Crash. Zero Jitters.' },
-  { icon: Zap,    label: '27 Servings Per Tube' },
-  { icon: X,      label: 'No Machine. No Pods. No Waste.' },
+  { icon: Zap,    label: 'Ready in Seconds' },
+  { icon: X,      label: 'No Machine Needed' },
+  { icon: Coffee, label: 'Instant Powder' },
+  { icon: Leaf,   label: 'Crafted for Daily Ritual' },
 ];
 
 export default function MushroomHero() {
@@ -86,9 +86,9 @@ export default function MushroomHero() {
                 fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
-              Instant Mushroom Coffee<br />
-              <span style={{ color: RG }}>for Focus, Calm</span><br />
-              <span style={{ color: RG }}>&amp; Daily Ritual</span>
+              Instant Coffee + Matcha<br />
+              <span style={{ color: RG }}>for Clarity, Calm</span><br />
+              <span style={{ color: RG }}>&amp; Clean Energy</span>
             </motion.h1>
 
             <motion.p
@@ -97,7 +97,7 @@ export default function MushroomHero() {
                 fontSize:'clamp(0.88rem,1.1vw,1rem)', color:'rgba(210,195,175,0.78)',
                 lineHeight:1.75, marginBottom:'32px', maxWidth:'420px' }}
             >
-              Premium instant coffee blended with functional mushrooms — Lion's Mane, Chaga, Reishi, Cordyceps, and Turkey Tail. Crafted for clarity, balance, and everyday convenience. No coffee maker needed.
+              Premium instant coffees, functional mushroom blends, and matcha rituals crafted for focus, balance, and everyday self-mastery — ready in seconds. No machine needed.
             </motion.p>
 
             <motion.div
@@ -119,11 +119,11 @@ export default function MushroomHero() {
                 onMouseLeave={e => e.currentTarget.style.opacity='1'}
               >
                 <ShoppingBag size={13} />
-                Shop Mushroom Coffee
+                Shop the Rituals
               </Link>
 
-              <a
-                href="#find-your-ritual" onClick={scrollToRitual}
+              <Link
+                to="/how-it-works"
                 style={{
                   display:'inline-flex', alignItems:'center', gap:'8px',
                   background:'rgba(0,0,0,0.4)', border:'1px solid rgba(230,183,173,0.32)',
@@ -138,8 +138,8 @@ export default function MushroomHero() {
                 onMouseLeave={e => { e.currentTarget.style.background='rgba(0,0,0,0.4)'; e.currentTarget.style.borderColor='rgba(230,183,173,0.32)'; }}
               >
                 <Sparkles size={13} />
-                Explore the Blends
-              </a>
+                How It Works
+              </Link>
             </motion.div>
 
             <div style={{ 
@@ -240,7 +240,7 @@ export default function MushroomHero() {
               marginBottom: '14px',
             }}
           >
-            Instant Mushroom Coffee
+            Torch Republic Coffee Company
           </motion.p>
 
           {/* Headline */}
@@ -253,8 +253,8 @@ export default function MushroomHero() {
               margin: '0 0 16px',
             }}
           >
-            Instant Mushroom Coffee<br />
-            <span style={{ color: RG }}>for Focus, Calm &amp; Daily Ritual</span>
+            Instant Coffee + Matcha<br />
+            <span style={{ color: RG }}>for Clarity, Calm &amp; Clean Energy</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -267,7 +267,7 @@ export default function MushroomHero() {
               maxWidth: '320px', margin: '0 auto 32px',
             }}
           >
-            Instant coffee blended with functional mushrooms for clarity, calm, and energy — ready in seconds. No machine, no pods, no waste.
+            Premium instant coffees, mushroom blends, and matcha for focus, balance, and everyday ritual — ready in seconds. No machine needed.
           </motion.p>
 
           {/* CTA Buttons — side by side */}
@@ -288,11 +288,11 @@ export default function MushroomHero() {
               }}
             >
               <ShoppingBag size={13} />
-              Shop Coffee
+              Shop Rituals
             </Link>
 
-            <a
-              href="#find-your-ritual" onClick={scrollToRitual}
+            <Link
+              to="/how-it-works"
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
                 flex: '1', maxWidth: '160px',
@@ -304,8 +304,8 @@ export default function MushroomHero() {
               }}
             >
               <Sparkles size={13} />
-              Start Ritual
-            </a>
+              How It Works
+            </Link>
           </motion.div>
 
           {/* Trust icons — 2×2 grid */}

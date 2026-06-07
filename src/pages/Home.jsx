@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 // Core sections — in conversion-optimized order
 import MushroomHero from '../components/mushroom/HeroSection';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
+import CategoryCards from '../components/mushroom/CategoryCards';
+import MeetTheRituals from '../components/mushroom/MeetTheRituals';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import MushroomBenefitsSection from '../components/mushroom/MushroomBenefitsSection';
@@ -63,8 +65,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic | Premium Instant Mushroom Coffee',
-    description: "Premium instant mushroom coffee crafted for focus, clarity, calm energy, and daily ritual. Functional coffee blends with Lion's Mane, Chaga, and smooth coffee flavor. No coffee maker needed.",
+    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha Rituals',
+    description: "Premium instant coffee, mushroom coffee, and matcha rituals for clarity, calm, and clean energy. Ready in seconds — no machine needed.",
     url: '/',
     type: 'website',
   });
@@ -79,11 +81,17 @@ export default function Home() {
       {/* 2. Trust Strip — immediate credibility */}
       <HomeTrustStrip />
 
-      {/* 3. Find Your Blend — the core USP */}
+      {/* 3. Category cards — Coffee / Mushroom Coffee / Matcha */}
+      <CategoryCards />
+
+      {/* 4. Find Your Blend — mushroom coffee rituals */}
       <ChooseYourRitual />
 
-      {/* 4. Why People Choose Torch Republic — benefits */}
+      {/* 5. Why People Choose Torch Republic — benefits */}
       <WhyPeopleChoose />
+
+      {/* 5b. Meet the Rituals — full product grid with tabs */}
+      <MeetTheRituals />
 
       {/* 5. Mushroom science — interactive Lion's Mane & Chaga section */}
       <MushroomBenefitsSection />

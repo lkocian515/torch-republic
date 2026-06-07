@@ -5,16 +5,18 @@ const FOOTER_LINKS = [
   {
     heading: 'Shop',
     links: [
-      { label: 'Shop All Blends', href: '/shop' },
-      { label: 'The Six Blends', href: '/blends' },
-      { label: 'Monthly Subscription', href: '/subscription' },
-      { label: 'Bundle — All Six', href: '/bundle' },
+      { label: 'Shop All', href: '/shop' },
+      { label: 'Classic Coffee', href: '/torchbearer' },
+      { label: 'Mushroom Coffee', href: '/blends' },
+      { label: 'Bundles', href: '/bundle' },
+      { label: 'Subscribe & Save', href: '/subscription' },
     ]
   },
   {
     heading: 'Learn',
     links: [
       { label: 'How It Works', href: '/how-it-works' },
+      { label: 'Journal', href: '/journal' },
       { label: 'About', href: '/about' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
@@ -52,11 +54,11 @@ export default function Footer() {
               style={{ height: '80px', width: 'auto', marginBottom: '16px', opacity: 0.9 }}
             />
             <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(230,183,173,0.4)' }}>
-              Instant Mushroom Coffee · Lion's Mane + Chaga
+              Instant Coffee · Mushroom Coffee · Matcha
             </p>
             <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-4"
               style={{ color: 'rgba(240,235,225,0.3)', lineHeight: 1.8 }}>
-              Premium instant mushroom coffee crafted for focus, calm, energy, and daily ritual. Functional mushrooms in every cup. No coffee maker required.
+              Join the ritual. Get product updates, launch offers, and 10% off your first order.
             </p>
             <p className="font-mono text-[9px] tracking-[0.18em] mb-3"
               style={{ color: 'rgba(230,183,173,0.45)' }}>
@@ -141,7 +143,7 @@ export default function Footer() {
             className="h-10 w-auto opacity-55"
           />
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
-            Premium Instant Mushroom Coffee
+            Instant Coffee · Mushroom Coffee · Matcha
           </p>
           <div className="hidden md:block">
             <p className="text-[10px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>

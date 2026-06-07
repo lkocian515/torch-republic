@@ -99,7 +99,7 @@ export default function ChooseYourRitual() {
               marginBottom: '16px',
             }}
           >
-            Every Part of Your Day, Covered
+            Find Your Blend
           </h2>
           <p
             className="font-heading"
@@ -112,7 +112,7 @@ export default function ChooseYourRitual() {
               margin: '0 auto',
             }}
           >
-            Five precision-crafted mushroom coffee blends — each formulated for a specific part of your day. There's a Torch Republic blend for your sharpest focus, your cleanest energy, your deepest calm, and everything in between.
+            Six functional mushroom coffee blends — each crafted for a specific mood, time of day, and intention. Instant powder. Ready in seconds. No machine needed.
           </p>
         </motion.div>
 
