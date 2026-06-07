@@ -1,318 +1,479 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
+import { Brain, Shield, Zap, Clock, TrendingUp, CheckCircle } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
-const Section = ({ title, children }) => (
-  <section className="mb-12">
-    <h2 className="font-serif font-bold mb-5"
-      style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.75rem)', color: '#FFFFFF', letterSpacing: '-0.01em' }}>
-      {title}
-    </h2>
-    {children}
-  </section>
-);
+const SCIENCE_HIGHLIGHTS = [
+  {
+    icon: Brain,
+    title: 'NGF Stimulation',
+    text: 'Only food known to stimulate Nerve Growth Factor production in the central nervous system',
+  },
+  {
+    icon: Shield,
+    title: 'Neuroprotection',
+    text: '2025 systematic review of 26 studies confirms neuroprotective effects across multiple mechanisms',
+  },
+  {
+    icon: Zap,
+    title: 'Cognitive Performance',
+    text: '2023 RCT showed improved Stroop test performance after single acute dose in healthy adults',
+  },
+  {
+    icon: Clock,
+    title: 'Cumulative Benefits',
+    text: 'Human trials show progressive improvement over 16 weeks with washout upon discontinuation',
+  },
+];
 
-const P = ({ children, className = '' }) => (
-  <p className={`font-heading mb-5 ${className}`}
-    style={{ fontSize: '1.02rem', color: 'rgba(240,235,225,0.72)', lineHeight: 1.9, fontWeight: 300 }}>
-    {children}
-  </p>
-);
+const COMPOUND_CLASSES = [
+  {
+    name: 'Erinacines',
+    source: 'Mycelium (root structure)',
+    function: 'Cross blood-brain barrier, stimulate NGF production directly inside CNS',
+    property: 'Lipophilic (fat-soluble)',
+  },
+  {
+    name: 'Hericenones',
+    source: 'Fruiting body',
+    function: 'Protect existing neurons from death induced by oxidative stress and ER stress',
+    property: 'Cytoprotective',
+  },
+];
 
-const H3 = ({ children }) => (
-  <h3 className="font-serif font-bold mb-3 mt-7"
-    style={{ fontSize: '1.15rem', color: '#F5EFE6' }}>
-    {children}
-  </h3>
-);
+const HUMAN_TRIALS = [
+  {
+    year: '2009',
+    study: 'Mori Trial (Foundational)',
+    finding: 'Progressive cognitive score improvements over 16 weeks — scores declined after discontinuation, consistent with stimulus-driven NGF mechanism',
+  },
+  {
+    year: '2020',
+    study: 'Li et al. (Frontiers in Aging Neuroscience)',
+    finding: '49 mild Alzheimer\'s patients over 49 weeks. Lion\'s Mane group showed significantly lower cognitive deterioration AND measurably higher plasma NGF levels',
+  },
+  {
+    year: '2023',
+    study: 'RCT (PMID: 38004235)',
+    finding: 'Healthy young adults showed improved Stroop test performance (processing speed + selective attention) after single acute dose',
+  },
+  {
+    year: '2025',
+    study: 'Frontiers in Nutrition Review',
+    finding: 'Systematic review of 26 studies confirmed neuroprotective effects: NGF stimulation, antioxidant, anti-inflammatory, anti-tumor mechanisms',
+  },
+];
 
-const Bullet = ({ items }) => (
-  <ul className="mb-5 space-y-2" style={{ paddingLeft: '1.25rem' }}>
-    {items.map((item, i) => (
-      <li key={i} className="font-heading text-sm"
-        style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85, fontWeight: 300, listStyleType: 'none', paddingLeft: '1rem', position: 'relative' }}>
-        <span style={{ position: 'absolute', left: 0, color: RG }}>–</span>
-        {item}
-      </li>
-    ))}
-  </ul>
-);
-
-const ResearchCard = ({ label, children }) => (
-  <div className="mb-4 p-5"
-    style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)', borderRadius: '2px' }}>
-    <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: RG }}>{label}</p>
-    <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85, fontWeight: 300 }}>
-      {children}
-    </p>
-  </div>
-);
+const BENEFITS = [
+  'Clearer, less foggy mornings — thoughts assemble more easily',
+  'Sustained focus without the spike — ~40–60 mg caffeine vs. ~95 mg in regular coffee',
+  'Reduced mid-morning jitters — lower caffeine + higher adaptogens significantly reduce cortisol-driven overstimulation',
+  'Improved mood baseline — consistent with Lion's Mane effect on serotonin and BDNF pathways',
+  'Long-term cognitive support — NGF stimulation builds over weeks, not days',
+];
 
 export default function LionsManeMushroomCoffee() {
   useSEO({
-    title: "Lion's Mane Mushroom Coffee: Benefits, Research & Brain Health Guide | Torch Republic",
-    description: "Lion's Mane mushroom coffee stimulates Nerve Growth Factor (NGF) in the brain — backed by 30 years of clinical research. Learn the science, benefits, and how to start your cognitive coffee ritual.",
+    title: 'Lion's Mane Mushroom Coffee: Benefits, Research & Morning Ritual Guide | Torch Republic',
+    description: 'Discover the science behind Lion's Mane mushroom coffee — how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual.',
     url: '/journal/lions-mane-mushroom-coffee',
     type: 'article',
-    article: {
-      author: 'Torch Republic',
-      datePublished: '2026-06-01T08:00:00-05:00',
-      dateModified: '2026-06-07T08:00:00-05:00',
-      section: 'Ingredients',
-      keywords: [
-        "lion's mane mushroom coffee", "lion's mane coffee benefits", "mushroom coffee for focus",
-        "NGF mushroom coffee", "functional mushroom coffee", "lion's mane brain health",
-        "hericium erinaceus coffee", "nootropic coffee", "cognitive mushroom coffee",
-        "lion's mane vs regular coffee", "best mushroom coffee", "lion's mane daily ritual",
-      ],
-    },
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'The Journal', url: '/Journal' },
-      { name: "Lion's Mane Mushroom Coffee", url: '/journal/lions-mane-mushroom-coffee' },
-    ],
-    faq: [
-      {
-        question: "What is Lion's Mane mushroom coffee?",
-        answer: "Lion's Mane mushroom coffee combines premium instant coffee with Lion's Mane (Hericium erinaceus) extract. Lion's Mane contains unique bioactive compounds — hericenones and erinacines — that cross the blood-brain barrier and stimulate Nerve Growth Factor (NGF) production in the brain. Torch Republic blends Lion's Mane with Chaga for a complete cognitive and immune support morning ritual.",
-      },
-      {
-        question: "What does Lion's Mane coffee do for your brain?",
-        answer: "Lion's Mane stimulates Nerve Growth Factor (NGF) and Brain-Derived Neurotrophic Factor (BDNF) — proteins the brain uses to maintain and repair neurons. Clinical trials show progressive improvements in cognitive scores over 16 weeks, including clearer thinking, sustained focus, improved memory formation, and reduced brain fog.",
-      },
-      {
-        question: "How much caffeine is in Lion's Mane mushroom coffee?",
-        answer: "Torch Republic mushroom coffee contains roughly half the caffeine of regular coffee — approximately 40–60 mg per serving versus ~95 mg in standard coffee. This lower caffeine content combined with Lion's Mane and Chaga adaptogens creates a smoother, jitter-free energy experience with fewer crashes.",
-      },
-      {
-        question: "How long does it take for Lion's Mane coffee to work?",
-        answer: "Lion's Mane effects are cumulative rather than immediate. The landmark Mori trial found progressive cognitive improvements over 16 weeks of daily supplementation, with effects declining after stopping — consistent with an NGF stimulus mechanism. Most users report noticeable clarity improvements within 2–4 weeks of consistent daily use.",
-      },
-      {
-        question: "Is Lion's Mane mushroom coffee safe to drink every day?",
-        answer: "Lion's Mane mushroom coffee is generally considered safe for healthy adults and has been consumed in traditional Asian medicine for over 2,000 years. People with mushroom allergies, those on blood-thinning medications, or individuals with kidney conditions should consult a physician before use.",
-      },
-    ],
   });
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
-
       {/* Hero */}
-      <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <div className="max-w-[780px] mx-auto px-6 md:px-10 pt-16 pb-14">
-          <Link to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-10 transition-opacity hover:opacity-60"
-            style={{ color: 'rgba(230,183,173,0.5)' }}>
-            <ArrowLeft className="w-3 h-3" /> The Journal
-          </Link>
+      <section className="px-6 md:px-10 pt-20 pb-14 text-center"
+        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            The Science of Mushroom Coffee
+          </p>
+          <h1 className="font-serif font-bold mb-6"
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            Lion's Mane Mushroom Coffee: Benefits, Research, and Why Your Morning Ritual Just Leveled Up
+          </h1>
+          <p className="font-heading max-w-3xl mx-auto text-lg"
+            style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            What if your morning cup did more than wake you up — what if it actively rebuilt your brain while you drank it? That's not marketing language. That's the science.
+          </p>
+        </motion.div>
+      </section>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
-            <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-                style={{ color: RG, border: '1px solid rgba(230,183,173,0.2)', background: 'rgba(230,183,173,0.04)' }}>
-                Ingredients
-              </span>
-              <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                June 2026
-              </span>
-              <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                12 min read
-              </span>
-            </div>
+      {/* Science Highlights */}
+      <section className="px-6 md:px-10 py-12" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {SCIENCE_HIGHLIGHTS.map((highlight, i) => {
+              const Icon = highlight.icon;
+              return (
+                <motion.div
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-center p-6"
+                >
+                  <div className="inline-flex items-center justify-center mb-4"
+                    style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(230,183,173,0.08)' }}>
+                    <Icon className="w-6 h-6" style={{ color: RG }} />
+                  </div>
+                  <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                    {highlight.title}
+                  </h3>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.7 }}>
+                    {highlight.text}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-            <h1 className="font-serif font-bold leading-[1.05] mb-6"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)', color: '#FFFFFF', letterSpacing: '-0.025em' }}>
-              Lion's Mane Mushroom Coffee: Benefits, Research, and Why Your Morning Ritual Just Leveled Up
-            </h1>
-
-            <p className="font-heading"
-              style={{ fontSize: '1.1rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-              What if your morning cup did more than wake you up — what if it actively rebuilt your brain while you drank it?
+      {/* Main Content */}
+      <article className="px-6 md:px-10 py-16">
+        <div className="max-w-[900px] mx-auto">
+          {/* Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="prose prose-invert prose-lg max-w-none mb-16"
+          >
+            <p className="font-heading text-lg" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              That's not marketing language. That's the science behind Lion's Mane mushroom coffee, and it's why this category has gone from health-food-store obscurity to a $300-million-per-year phenomenon in less than a decade. At Torch Republic, we built our mushroom coffee line around Lion's Mane for one reason: nothing else in the functional food world touches this compound's relationship with the human brain.
+            </p>
+            <p className="font-heading text-lg" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              Here's everything you need to know — the history, the science, the benefits, and how to make it part of your daily ritual.
             </p>
           </motion.div>
-        </div>
-      </div>
 
-      {/* Body */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-[780px] mx-auto px-6 md:px-10 py-16"
-      >
-        <P>
-          That's not marketing language. That's the science behind Lion's Mane mushroom coffee, and it's why this category has gone from health-food-store obscurity to a $300-million-per-year phenomenon in less than a decade. At Torch Republic, we built our mushroom coffee line around Lion's Mane for one reason: nothing else in the functional food world touches this compound's relationship with the human brain.
-        </P>
-        <P>Here's everything you need to know — the history, the science, the benefits, and how to make it part of your daily ritual.</P>
-
-        <Section title="What Is Lion's Mane, Really?">
-          <P>
-            Lion's Mane (<em>Hericium erinaceus</em>) is a culinary and medicinal mushroom native to North America, Europe, and Asia. It's named for its distinctive appearance — long, cascading white tendrils that resemble a lion's mane. It has been used in traditional Asian medicine for over 2,000 years, valued for brain health, digestive function, and nerve regeneration long before Western science had the tools to understand why.
-          </P>
-          <P>
-            What makes it genuinely unique — not just among mushrooms, but among all foods — is that it contains two classes of bioactive compounds found nowhere else in nature: hericenones (from the fruiting body) and erinacines (from the mycelium). These molecules do something remarkable: they stimulate the production of Nerve Growth Factor (NGF) directly inside the central nervous system.
-          </P>
-          <P>
-            This matters because NGF is the protein your brain depends on to maintain and repair neurons. And NGF declines with age — measurably, progressively — and that decline is associated in research with Alzheimer's disease, Parkinson's disease, and the slow-motion memory fade most people attribute simply to "getting older."
-          </P>
-          <div className="my-8 p-6"
-            style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.18)', borderRadius: '2px' }}>
-            <p className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.15rem' }}>
-              Lion's Mane is the only widely consumed food that contains compounds proven to cross the blood-brain barrier and stimulate your brain's own NGF production.
-            </p>
-          </div>
-        </Section>
-
-        <Section title="The Science (The Real Research, Not the Hype)">
-          <P>Let's be specific — because this is where mushroom coffee separates into two camps: brands that make vague wellness claims, and the actual science.</P>
-
-          <H3>The Blood-Brain Barrier Discovery (1990s)</H3>
-          <P>
-            Japanese researchers in the early 1990s isolated erinacines A, B, and C from Lion's Mane mycelium and found that these diterpenoid compounds strongly stimulated NGF synthesis in the astroglial cells surrounding neurons. Subsequent research confirmed that erinacines are lipophilic (fat-soluble) and small enough to cross the blood-brain barrier when consumed orally — meaning that drinking Lion's Mane in your morning coffee genuinely delivers these compounds to your brain tissue.
-          </P>
-
-          <H3>Memory Enhancement (University of Queensland, 2023)</H3>
-          <P>
-            Researchers from The University of Queensland published findings in the Journal of Neurochemistry identifying hericene A as a potent bioactive compound that enhanced memory through ERK1/2 signaling in hippocampal neurons — the precise brain region responsible for forming new memories. This was the first study to document a pro-BDNF (brain-derived neurotrophic factor) signal in Lion's Mane, providing a second neurological pathway beyond NGF.
-          </P>
-
-          <div className="my-8 space-y-3">
-            <ResearchCard label="2009 Mori Trial — Foundational">
-              Participants supplementing with Lion's Mane showed progressive cognitive score improvements over 16 weeks — and those scores declined again after discontinuation, consistent with a stimulus-driven NGF mechanism that reverses when removed.
-            </ResearchCard>
-            <ResearchCard label="2020 Li et al. — Frontiers in Aging Neuroscience">
-              A double-blind, placebo-controlled study of 49 patients with mild Alzheimer's disease over 49 weeks. The Lion's Mane group showed significantly lower cognitive deterioration AND measurably higher plasma NGF levels — direct human evidence that Lion's Mane raises NGF in living human blood.
-            </ResearchCard>
-            <ResearchCard label="2023 RCT — Healthy Young Adults">
-              A randomized controlled trial found that a single dose of Lion's Mane improved performance on the Stroop test (processing speed and selective attention) compared to placebo, with a 28-day trend toward reduced subjective stress.
-            </ResearchCard>
-            <ResearchCard label="2025 Systematic Review (26 Studies)">
-              A systematic review covering 26 human and preclinical studies confirmed neuroprotective effects of Hericium erinaceus, identifying NGF stimulation alongside antioxidant, anti-inflammatory, and anti-tumor mechanisms.
-            </ResearchCard>
-          </div>
-        </Section>
-
-        <Section title="What Does Lion's Mane Coffee Actually Feel Like?">
-          <P>The cognitive effects of Lion's Mane are subtle on day one and cumulative over weeks — unlike caffeine, which is acutely noticeable. Most consistent users report:</P>
-          <Bullet items={[
-            'Clearer, less foggy mornings — the sense that thoughts assemble more easily',
-            'Sustained focus without the spike — because Lion\'s Mane coffee has roughly half the caffeine of regular coffee (~40–60 mg vs. ~95 mg), the energy experience is steadier',
-            'Reduced mid-morning jitters — mushroom coffee\'s lower caffeine and higher adaptogen content significantly reduces cortisol-driven overstimulation',
-            'Improved mood baseline — consistent with Lion\'s Mane\'s effect on serotonin and BDNF pathways',
-          ]} />
-          <P>
-            The effects build. The Mori trial found progressive improvement over 16 weeks, with a washout when supplementation stopped. This isn't a one-cup miracle — it's a ritual.
-          </P>
-        </Section>
-
-        <Section title="Why Lion's Mane + Chaga Is the Right Combination">
-          <P>Torch Republic pairs Lion's Mane with Chaga for a precise reason: they work on entirely different biological systems and create a genuinely complementary stack.</P>
-          <Bullet items={[
-            'Lion\'s Mane operates on the neurological system — NGF, BDNF, cognitive repair, and nerve regeneration',
-            'Chaga operates on the immune and cellular system — it holds the highest ORAC antioxidant value ever recorded for any natural food substance',
-          ]} />
-          <P>A 2004 study showed Chaga extract produced a 40%+ reduction in DNA fragmentation from oxidative stress in human cells.</P>
-          <div className="my-6 p-5"
-            style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '2px' }}>
-            <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '1rem' }}>Together: one mushroom rebuilds the brain; the other defends the body.</p>
-            <p className="font-heading text-sm font-light" style={{ color: 'rgba(240,235,225,0.55)' }}>One cup. One ritual. Both working simultaneously every morning.</p>
-          </div>
-        </Section>
-
-        <Section title="How to Make It (The Torch Republic Way)">
-          <P>Our mushroom coffee blends are designed for zero friction. No coffee maker. No grinder. No equipment ritual.</P>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
-            {[
-              { step: '01', label: 'Scoop', desc: 'One scoop into your cup' },
-              { step: '02', label: 'Pour', desc: '8–10 oz hot water or cold over ice' },
-              { step: '03', label: 'Stir', desc: '10 seconds. Begin.' },
-            ].map(s => (
-              <div key={s.step} className="p-5 text-center"
-                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.4)' }}>{s.step}</p>
-                <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.05rem' }}>{s.label}</p>
-                <p className="font-heading text-xs font-light" style={{ color: 'rgba(240,235,225,0.45)' }}>{s.desc}</p>
+          {/* What Is Lion's Mane */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              What Is Lion's Mane, Really?
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Lion's Mane (<em style={{ color: RG }}>Hericium erinaceus</em>) is a culinary and medicinal mushroom native to North America, Europe, and Asia. It's named for its distinctive appearance — long, cascading white tendrils that resemble a lion's mane. It has been used in traditional Asian medicine for over 2,000 years, valued for brain health, digestive function, and nerve regeneration long before Western science had the tools to understand why.
+              </p>
+              <p>
+                What makes it genuinely unique — not just among mushrooms, but among all foods — is that it contains two classes of bioactive compounds found nowhere else in nature: <strong style={{ color: RG }}>hericenones</strong> (from the fruiting body) and <strong style={{ color: RG }}>erinacines</strong> (from the mycelium). These molecules do something remarkable: they stimulate the production of Nerve Growth Factor (NGF) directly inside the central nervous system.
+              </p>
+              <p>
+                This matters because NGF is the protein your brain depends on to maintain and repair neurons. And NGF declines with age — measurably, progressively — and that decline is associated in research with Alzheimer's disease, Parkinson's disease, and the slow-motion memory fade most people attribute simply to "getting older".
+              </p>
+              <div className="my-8 p-6 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
+                <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85 }}>
+                  <strong style={{ color: RG }}>Lion's Mane is the only widely consumed food that contains compounds proven to cross the blood-brain barrier and stimulate your brain's own NGF production.</strong>
+                </p>
               </div>
-            ))}
-          </div>
-        </Section>
+            </div>
+          </section>
 
-        <Section title="Who Should Drink Mushroom Coffee?">
-          <P>Lion's Mane mushroom coffee is particularly well-suited for:</P>
-          <Bullet items={[
-            'Anyone who wants to reduce caffeine intake without sacrificing the morning ritual',
-            'People experiencing mid-morning crashes or afternoon brain fog after regular coffee',
-            'Those interested in long-term cognitive health — especially anyone with a family history of memory decline',
-            'Anyone who finds regular coffee causes anxiety, jitters, or digestive discomfort',
-            'Entrepreneurs, creatives, and deep-focus workers who need sustained concentration, not a 45-minute spike',
-          ]} />
-          <P style={{ fontSize: '0.88rem', color: 'rgba(240,235,225,0.35)' }}>
-            Note: People with known mushroom allergies, those on blood-thinning medications, and those with kidney disease should consult a physician before adding any mushroom supplement to their routine.
-          </P>
-        </Section>
+          {/* Compound Classes */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Two Complementary Compound Classes
+            </motion.h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {COMPOUND_CLASSES.map((compound, i) => (
+                <motion.div
+                  key={compound.name}
+                  initial={{ opacity: 0, x: i === 0 ? -12 : 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-6 rounded-lg"
+                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+                >
+                  <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                    {compound.name}
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.35)' }}>Source</span>
+                      <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)' }}>{compound.source}</p>
+                    </div>
+                    <div>
+                      <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.35)' }}>Function</span>
+                      <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)' }}>{compound.function}</p>
+                    </div>
+                    <div>
+                      <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.35)' }}>Property</span>
+                      <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)' }}>{compound.property}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
 
-        <Section title="The Bottom Line">
-          <P>
-            Lion's Mane isn't a trend. It's the only food known to actively stimulate your brain's own nerve repair mechanisms while you drink your morning coffee. The science spans three decades, multiple clinical trials, and a peer-reviewed mechanism that's understood to the molecular level.
-          </P>
-          <P>
-            Whether you're protecting what you have, sharpening what's already sharp, or building a morning ritual with actual purpose behind it — this is where you start.
-          </P>
-        </Section>
+          {/* Human Trials */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Human Clinical Evidence
+            </motion.h3>
+            <div className="space-y-4">
+              {HUMAN_TRIALS.map((trial, i) => (
+                <motion.div
+                  key={trial.year}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-5 rounded-lg"
+                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-3 py-1.5 rounded"
+                      style={{ background: 'rgba(230,183,173,0.08)', color: RG }}>
+                      {trial.year}
+                    </span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{trial.study}</span>
+                  </div>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.7 }}>
+                    {trial.finding}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
 
-        {/* Product CTA */}
-        <div className="mt-14 pt-10" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
-            Explore the collection
-          </p>
-          <p className="font-serif font-bold text-white mb-6" style={{ fontSize: '1.4rem' }}>
-            Find Your Blend
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/blends/glowmind-clarity"
-              className="font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-5 transition-opacity hover:opacity-70"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}>
-              GlowMind Clarity
-            </Link>
-            <Link to="/blends/mooncap-restore"
-              className="font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-5 transition-opacity hover:opacity-70"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}>
-              Mooncap Restore
-            </Link>
-            <Link to="/blends/dreamcap"
-              className="font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-5 transition-opacity hover:opacity-70"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}>
-              DreamCap
-            </Link>
-            <Link to="/shop"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-5 transition-opacity hover:opacity-90"
+          {/* What It Feels Like */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              What Does Lion's Mane Coffee Actually Feel Like?
+            </motion.h3>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                The cognitive effects of Lion's Mane are subtle on day one and cumulative over weeks — unlike caffeine, which is acutely noticeable. Most consistent users report:
+              </p>
+              <ul className="space-y-3 my-6">
+                {BENEFITS.map((benefit, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: RG }} />
+                    <span>{benefit}</span>
+                  </motion.li>
+                ))}
+              </ul>
+              <p>
+                The effects build. The Mori trial found progressive improvement over 16 weeks, with a washout when supplementation stopped. This isn't a one-cup miracle — it's a ritual.
+              </p>
+            </div>
+          </section>
+
+          {/* Lion's Mane + Chaga */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Why Lion's Mane + Chaga Is the Right Combination
+            </motion.h3>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Torch Republic pairs Lion's Mane with Chaga for a precise reason: they work on entirely different biological systems and create a genuinely complementary stack.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                <div className="p-6 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
+                  <h4 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                    Lion's Mane
+                  </h4>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>
+                    Operates on the <strong>neurological system</strong> — NGF, BDNF, cognitive repair, and nerve regeneration.
+                  </p>
+                </div>
+                <div className="p-6 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
+                  <h4 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                    Chaga
+                  </h4>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>
+                    Operates on the <strong>immune and cellular system</strong> — holds the highest ORAC antioxidant value ever recorded, with demonstrated anti-inflammatory, immunomodulatory, and cellular-protective effects.
+                  </p>
+                </div>
+              </div>
+              <p className="text-center text-lg" style={{ color: RG }}>
+                Together: one mushroom rebuilds the brain; the other defends the body. One cup. One ritual. Both working simultaneously every morning.
+              </p>
+            </div>
+          </section>
+
+          {/* How to Make It */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              How to Make It (The Torch Republic Way)
+            </motion.h3>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Our mushroom coffee blends are designed for zero friction. No coffee maker. No grinder. No equipment ritual.
+              </p>
+              <div className="flex flex-wrap gap-4 my-8 justify-center">
+                {['Scoop', 'Pour', 'Stir', 'Begin'].map((step, i) => (
+                  <motion.div
+                    key={step}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-4 py-2 rounded"
+                      style={{ background: 'rgba(230,183,173,0.08)', color: RG }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)' }}>{step}</span>
+                    {i < 3 && <span style={{ color: 'rgba(240,235,225,0.2)' }}>→</span>}
+                  </motion.div>
+                ))}
+              </div>
+              <p>
+                The flavor profile depends on the blend you choose. Our Dark Roast blends (Mooncap Restore, Midnight Watch) bring forward the bold, chocolatey depth of the Arabica base. Our Medium Roast options (Glowmind Clarity, Torchbearer) run smooth and slightly sweet, with the earthiness of the mushroom extracts complementing rather than competing with the coffee. None of our blends taste like "mushroom" in any culinary sense — the extract is neutral, and what you taste is premium coffee with an added depth.
+              </p>
+            </div>
+          </section>
+
+          {/* Who Should Drink */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Who Should Drink Mushroom Coffee?
+            </motion.h3>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>Lion's Mane mushroom coffee is particularly well-suited for:</p>
+              <ul className="space-y-3 my-6">
+                {[
+                  'Anyone who wants to reduce caffeine intake without sacrificing the morning ritual',
+                  'People experiencing mid-morning crashes or afternoon brain fog after regular coffee',
+                  'Those interested in long-term cognitive health — especially anyone with a family history of memory decline',
+                  'Anyone who finds regular coffee causes anxiety, jitters, or digestive discomfort',
+                  'Entrepreneurs, creatives, and deep-focus workers who need sustained concentration, not a 45-minute spike',
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span style={{ color: RG }}>•</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+              <div className="p-5 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>
+                <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                  <strong style={{ color: RG }}>Note:</strong> People with known mushroom allergies, those on blood-thinning medications, and those with kidney disease should consult a physician before adding any mushroom supplement to their routine.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Bottom Line */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              The Bottom Line
+            </motion.h3>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Lion's Mane isn't a trend. It's the only food known to actively stimulate your brain's own nerve repair mechanisms while you drink your morning coffee. The science spans three decades, multiple clinical trials, and a peer-reviewed mechanism that's understood to the molecular level.
+              </p>
+              <p>
+                Whether you're protecting what you have, sharpening what's already sharp, or building a morning ritual with actual purpose behind it — this is where you start.
+              </p>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center py-12 px-6 rounded-lg"
+            style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}
+          >
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+              Explore the Collection
+            </p>
+            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFFFF' }}>
+              Torch Republic Mushroom Coffee
+            </h3>
+            <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
+              Each blend is crafted around the Lion's Mane + Chaga combination, in instant format that's ready in seconds — no maker, no fuss, just the ritual.
+            </p>
+            <Link to="/mushroom-coffee"
+              className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
               style={{ background: RG, color: '#080808' }}>
-              Shop All Blends <ArrowRight className="w-3 h-3" />
+              Shop Mushroom Coffee →
             </Link>
-          </div>
+          </motion.div>
         </div>
+      </article>
 
-        {/* Legal */}
-        <div className="mt-16 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-          <p className="font-mono text-[8px] tracking-[0.15em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.18)' }}>
-            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Research citations reflect findings in scientific literature; individual results may vary. Consult a physician before use if you are pregnant, nursing, or managing a medical condition.
-          </p>
-        </div>
-
-        {/* Back */}
-        <div className="mt-10">
-          <Link to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
-            style={{ color: 'rgba(230,183,173,0.4)' }}>
-            <ArrowLeft className="w-3 h-3" /> Back to Journal
-          </Link>
-        </div>
-      </motion.div>
+      {/* Legal */}
+      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <p className="font-mono text-[8px] tracking-[0.15em] max-w-2xl mx-auto"
+          style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+          Scientific caveat: While the NGF mechanism is well-characterized, researchers note that many studies use whole mushroom preparations or isolated extracts in varying doses, making direct translation to commercial instant coffee formats complex. Larger, longer-duration trials are still needed. Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+        </p>
+      </div>
     </div>
   );
 }

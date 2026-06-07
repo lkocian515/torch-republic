@@ -1,403 +1,514 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
+import { Clock, Leaf, Zap, Brain, Droplet, Award } from 'lucide-react';
 
 const RG = '#E6B7AD';
+const MATCHA_GREEN = '#10B981';
 
-const Section = ({ title, children }) => (
-  <section className="mb-12">
-    <h2 className="font-serif font-bold mb-5"
-      style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.75rem)', color: '#FFFFFF', letterSpacing: '-0.01em' }}>
-      {title}
-    </h2>
-    {children}
-  </section>
-);
+const HISTORY_MILESTONES = [
+  { year: '7th–10th Century', event: 'Tang Dynasty China — tea leaves steamed and pressed into bricks' },
+  { year: '1191', event: 'Japanese monk Eisai returns from China with tea seeds and Zen practice' },
+  { year: '16th Century', event: 'Canopy shading begins; tea ceremony (chanoyu) formalized by Sen no Rikyū' },
+  { year: 'Today', event: 'Only ~60 families remain in Uji, Kyoto practicing traditional craft' },
+];
 
-const P = ({ children }) => (
-  <p className="font-heading mb-5"
-    style={{ fontSize: '1.02rem', color: 'rgba(240,235,225,0.72)', lineHeight: 1.9, fontWeight: 300 }}>
-    {children}
-  </p>
-);
+const GRADE_COMPARISON = [
+  { feature: 'Harvest', ceremonial: 'First flush, youngest leaves', culinary: 'Later harvests' },
+  { feature: 'Shading', ceremonial: '20–30 days', culinary: 'Shorter or none' },
+  { feature: 'Grinding', ceremonial: 'Traditional stone mill (30g/hour)', culinary: 'High-speed ball/jet mill' },
+  { feature: 'Color', ceremonial: 'Vivid emerald green', culinary: 'Yellow-green or dull' },
+  { feature: 'Flavor', ceremonial: 'Smooth, sweet, umami', culinary: 'More bitter, robust' },
+  { feature: 'L-theanine', ceremonial: 'Highest concentration', culinary: 'Lower' },
+  { feature: 'Intended use', ceremonial: 'Drinking directly', culinary: 'Lattes, baking, smoothies' },
+];
 
-const H3 = ({ children }) => (
-  <h3 className="font-serif font-bold mb-3 mt-7"
-    style={{ fontSize: '1.15rem', color: '#F5EFE6' }}>
-    {children}
-  </h3>
-);
+const L_THEANINE_BENEFITS = [
+  'Crosses blood-brain barrier, influences neurotransmitter activity directly',
+  'Promotes production of GABA, serotonin, and dopamine — neurotransmitters of calm, focus, and wellbeing',
+  'Stimulates alpha brain waves — the brain state associated with wakeful relaxation, meditation, flow states, and creative work',
+  'Slows and moderates caffeine absorption, extending energy window from 1–1.5 hours to 3–6 hours sustained release',
+];
 
-const Bullet = ({ items }) => (
-  <ul className="mb-5 space-y-2">
-    {items.map((item, i) => (
-      <li key={i} className="font-heading text-sm flex gap-3"
-        style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85, fontWeight: 300 }}>
-        <span style={{ color: RG, flexShrink: 0 }}>–</span>
-        <span>{item}</span>
-      </li>
-    ))}
-  </ul>
-);
+const MATCHA_VS_COFFEE = [
+  { feature: 'Caffeine per serving', coffee: '~95 mg', matcha: '~35–90 mg depending on prep' },
+  { feature: 'Energy feel', coffee: 'Fast, intense spike', matcha: 'Slow-release, smooth 3–6 hours' },
+  { feature: 'Crash risk', coffee: 'Higher', matcha: 'Lower' },
+  { feature: 'L-theanine', coffee: 'None', matcha: '15–40 mg per cup' },
+  { feature: 'Antioxidants', coffee: 'Chlorogenic acids', matcha: 'EGCG catechins, chlorophyll (15x wild blueberries)' },
+  { feature: 'Cortisol impact', coffee: 'Can spike cortisol', matcha: 'Less cortisol response due to L-theanine' },
+  { feature: 'Acidity', coffee: 'High', matcha: 'Low-moderate' },
+  { feature: 'Focus type', coffee: 'Sharp, fast (can include jitters)', matcha: 'Calm, sustained clarity' },
+];
 
-const CompareTable = ({ rows, headers }) => (
-  <div className="my-8 overflow-x-auto">
-    <table className="w-full font-heading text-sm">
-      <thead>
-        <tr>
-          {headers.map((h, i) => (
-            <th key={i} className="font-mono text-[9px] tracking-[0.3em] uppercase text-left py-3 px-4"
-              style={{ color: 'rgba(230,183,173,0.5)', borderBottom: '1px solid rgba(230,183,173,0.15)' }}>
-              {h}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row, i) => (
-          <tr key={i}>
-            {row.map((cell, j) => (
-              <td key={j} className="py-3 px-4 text-sm"
-                style={{
-                  color: j === 0 ? 'rgba(240,235,225,0.8)' : 'rgba(240,235,225,0.5)',
-                  borderBottom: '1px solid rgba(230,183,173,0.06)',
-                  fontWeight: j === 0 ? 500 : 300,
-                }}>
-                {cell}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+const TORCH_MATCHA = [
+  {
+    name: 'The Monk',
+    tagline: 'Focus. Calm. Presence.',
+    description: 'Deep, grounding, present. For the person who wants to begin the day in stillness — the meditative focus of the original Zen tea ceremony, modernized.',
+    mood: 'Meditative focus',
+  },
+  {
+    name: 'The Ascendant',
+    tagline: 'Rise Into Alignment.',
+    description: 'Rising, clarifying, disciplined. For the ambitious morning — when you\'re building something and need the mental clarity to see the next step.',
+    mood: 'Energy + clarity',
+  },
+  {
+    name: 'The Alchemist',
+    tagline: 'Create with Intention.',
+    description: 'Balanced, transformative, creative. For the person who sits at the intersection of art and intellect — where the best ideas live.',
+    mood: 'Balance + creativity',
+  },
+];
 
 export default function InstantCeremonialMatcha() {
   useSEO({
-    title: 'Instant Ceremonial Matcha: L-Theanine Science, History & Daily Ritual Guide | Torch Republic',
-    description: '800 years of Zen tradition. L-theanine for 3–6 hours of calm focus. EGCG antioxidants at 15x wild blueberries. The complete science-backed guide to ceremonial grade matcha and instant preparation.',
+    title: 'Instant Ceremonial Matcha: History, Benefits, L-Theanine Science & Daily Ritual | Torch Republic',
+    description: '800 years of tradition. Modern science. Instant preparation. Everything you need to know about ceremonial grade matcha, L-theanine, and the Torch Republic matcha collection.',
     url: '/journal/instant-ceremonial-matcha',
     type: 'article',
-    article: {
-      author: 'Torch Republic',
-      datePublished: '2026-06-01T08:00:00-05:00',
-      dateModified: '2026-06-07T08:00:00-05:00',
-      section: 'Education',
-      keywords: [
-        "instant ceremonial matcha", "ceremonial grade matcha benefits", "L-theanine matcha",
-        "matcha vs coffee", "best instant matcha", "calm focus matcha",
-        "ceremonial matcha vs culinary matcha", "matcha L-theanine benefits",
-        "instant matcha powder", "adaptogen matcha", "EGCG matcha antioxidants",
-        "matcha for focus and energy",
-      ],
-    },
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'The Journal', url: '/Journal' },
-      { name: 'Instant Ceremonial Matcha', url: '/journal/instant-ceremonial-matcha' },
-    ],
-    faq: [
-      {
-        question: "What is ceremonial grade matcha?",
-        answer: "Ceremonial grade matcha is the highest quality tier of matcha — made from the youngest first-flush spring leaves (ichibancha), shade-grown for 20–30 days before harvest to maximize L-theanine content, then stone-ground at 30 grams per hour on traditional granite mills. It has the highest L-theanine concentration, vivid emerald green color, and smooth umami flavor of any matcha grade.",
-      },
-      {
-        question: "What is L-theanine and what does it do in matcha?",
-        answer: "L-theanine is a non-protein amino acid found almost exclusively in shade-grown green tea. It crosses the blood-brain barrier, promotes GABA, serotonin, and dopamine production, and stimulates alpha brain waves — the state of wakeful relaxation. In matcha, L-theanine slows caffeine absorption, extending energy from coffee's typical 1–1.5 hours to a smooth 3–6 hour window without jitters or crashes.",
-      },
-      {
-        question: "Does instant matcha work as well as traditionally prepared matcha?",
-        answer: "Yes — when made from ceremonial-grade tencha leaves processed correctly. Torch Republic instant matcha uses the same ceremonial-grade source material as traditional preparation. The L-theanine, EGCG catechins, and chlorophyll are inherent in the leaf structure and don't require whisking to become bioavailable. You get identical nutritional benefits in under 30 seconds without a whisk or bowl.",
-      },
-      {
-        question: "How is matcha different from coffee for focus and energy?",
-        answer: "Coffee delivers fast, intense alertness for 1–1.5 hours with a cortisol spike and common crash. Matcha delivers 'calm focus' — sustained clarity over 3–6 hours via L-theanine moderating caffeine absorption, with less cortisol response and no jitter-crash cycle. Coffee suits high-intensity short tasks; matcha suits creative work, deep writing, and sustained concentration.",
-      },
-      {
-        question: "What makes ceremonial matcha different from culinary matcha?",
-        answer: "Ceremonial matcha uses first-flush, youngest leaves with 20–30 days of shading (maximum L-theanine), traditional stone grinding, vivid emerald color, and a smooth sweet umami flavor intended for direct drinking. Culinary matcha uses later harvests, less shading, high-speed milling, and has a more bitter, robust flavor suited for lattes and baking. L-theanine content is significantly higher in ceremonial grade.",
-      },
-    ],
   });
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
-
       {/* Hero */}
-      <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <div className="max-w-[780px] mx-auto px-6 md:px-10 pt-16 pb-14">
-          <Link to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase mb-10 transition-opacity hover:opacity-60"
-            style={{ color: 'rgba(230,183,173,0.5)' }}>
-            <ArrowLeft className="w-3 h-3" /> The Journal
-          </Link>
+      <section className="px-6 md:px-10 pt-20 pb-14 text-center"
+        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            800 Years of Tradition
+          </p>
+          <h1 className="font-serif font-bold mb-6"
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            Instant Ceremonial Matcha: What It Is, Why It Matters, and How to Find Your Ritual
+          </h1>
+          <p className="font-heading max-w-3xl mx-auto text-lg"
+            style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            In 12th-century Japan, matcha was the beverage of Zen monks and samurai nobility. Today, it's the fastest-growing beverage segment in the U.S. — projected to nearly triple in market size by 2033.
+          </p>
+        </motion.div>
+      </section>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
-            <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-                style={{ color: RG, border: '1px solid rgba(230,183,173,0.2)', background: 'rgba(230,183,173,0.04)' }}>
-                Education
-              </span>
-              <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                June 2026
-              </span>
-              <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                13 min read
-              </span>
-            </div>
-
-            <h1 className="font-serif font-bold leading-[1.05] mb-6"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)', color: '#FFFFFF', letterSpacing: '-0.025em' }}>
-              Instant Ceremonial Matcha: What It Is, Why It Matters, and How to Find Your Ritual
-            </h1>
-
-            <p className="font-heading"
-              style={{ fontSize: '1.1rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-              In 12th-century Japan, matcha was the beverage of Zen monks and samurai nobility. Today, it's the fastest-growing beverage segment in the U.S. — and for good reason. Matcha is one of the most nutrient-dense, scientifically validated beverages ever documented.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Body */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-[780px] mx-auto px-6 md:px-10 py-16"
-      >
-        <P>
-          At Torch Republic, our matcha line — The Monk, The Ascendant, The Alchemist — is built on ceremonial-grade matcha combined with adaptogens for a modern ritual that honors 800 years of tradition. Here's everything you need to know about what makes ceremonial matcha different, what the science actually says, and how to make it work for your daily life.
-        </P>
-
-        <Section title="The History: 800 Years of Intentional Drinking">
-          <P>
-            Matcha's story begins in Tang Dynasty China (7th–10th century), where tea leaves were steamed and pressed into bricks for trade, then ground into powder for preparation. The pivotal historical moment came in 1191, when Japanese Buddhist monk Eisai returned from years of study in China, carrying both tea seeds and the Zen practice of consuming powdered green tea as a tool for meditation and mental clarity.
-          </P>
-          <P>
-            Eisai planted his seeds on temple grounds in Kyoto — and Japanese tea culture was born. Within a century, matcha had become more than a beverage. It was a philosophical practice. The tea ceremony (chanoyu), formalized in the 16th century by master Sen no Rikyū, transformed the act of making tea into a meditation on harmony (wa), respect (kei), purity (sei), and tranquility (jaku).
-          </P>
-          <P>
-            The deliberate, precise movements of the tea ceremony were designed to force the mind into presence. Every step — the careful scooping, the precise pouring, the rhythmic whisking — was engineered as a mindfulness practice. This is why matcha still feels different from coffee, and why the Torch Republic matcha line carries names like The Monk and The Alchemist: these are archetypes of the same intentional practice, modernized for today.
-          </P>
-          <div className="my-6 p-5"
-            style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)', borderRadius: '2px' }}>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>Historical note</p>
-            <p className="font-heading text-sm font-light" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.85 }}>
-              Today, only approximately 60 families remain in Uji, Kyoto — the world's most revered matcha region — continuing this centuries-old tradition.
-            </p>
-          </div>
-        </Section>
-
-        <Section title="What Makes Ceremonial Grade Different">
-          <P>The term "ceremonial grade" refers to the highest quality tier of matcha — made from the youngest, most tender leaves of the spring's first harvest (ichibancha), using a cultivation method that no other tea undergoes.</P>
-
-          <H3>1. Shading (20–30 days before harvest)</H3>
-          <P>
-            Tea plants are covered with bamboo frames and cloth, blocking sunlight for three to four weeks before picking. This forces the plant into a stress response: without light, it produces more chlorophyll (creating the vivid emerald green) and dramatically increases L-theanine — the amino acid responsible for calm focus.
-          </P>
-
-          <H3>2. Hand-harvesting the first flush</H3>
-          <P>
-            Only the youngest, topmost leaves — unfurling tips that represent the most concentrated nutrition in the plant — are selected. Second and third harvest leaves, used for culinary-grade matcha, lack the sweetness and L-theanine richness of this first picking.
-          </P>
-
-          <H3>3. Steaming within hours</H3>
-          <P>
-            Leaves are steamed immediately after harvest to halt oxidation, preserving the green color, nutrient density, and delicate aroma.
-          </P>
-
-          <H3>4. Stone grinding (30 grams per hour)</H3>
-          <P>
-            The dried, de-stemmed tencha leaves are ground on traditional granite stone mills at a rate of 30–40 grams per hour. This glacial pace is deliberate: high-speed milling generates heat that degrades volatile flavor compounds and oxidizes chlorophyll. Stone grinding creates the ultra-fine particle size that allows ceremonial matcha to dissolve smoothly and deliver its full nutritional payload.
-          </P>
-
-          <CompareTable
-            headers={['Feature', 'Ceremonial Grade', 'Culinary Grade']}
-            rows={[
-              ['Harvest', 'First flush, youngest leaves', 'Later harvests'],
-              ['Shading', '20–30 days', 'Shorter or none'],
-              ['Grinding', 'Traditional stone mill', 'High-speed ball/jet mill'],
-              ['Color', 'Vivid emerald green', 'Yellow-green or dull'],
-              ['Flavor', 'Smooth, sweet, umami', 'More bitter, robust'],
-              ['L-theanine', 'Highest concentration', 'Lower'],
-              ['Intended use', 'Drinking directly', 'Lattes, baking, smoothies'],
-            ]}
-          />
-        </Section>
-
-        <Section title="L-Theanine: The Magic Compound">
-          <P>
-            L-theanine is the compound that makes matcha physiologically unlike any other caffeinated beverage. It's a non-protein amino acid found almost exclusively in shade-grown green tea — and ceremonial matcha, due to its extended shading, contains the highest concentration of L-theanine in any natural food.
-          </P>
-
-          <P>What L-theanine actually does in the brain:</P>
-          <Bullet items={[
-            'Crosses the blood-brain barrier and influences neurotransmitter activity directly',
-            'Promotes the production of GABA, serotonin, and dopamine — neurotransmitters of calm, focus, and wellbeing',
-            'Stimulates alpha brain waves — the brain state associated with wakeful relaxation, meditation, flow states, and creative work',
-            'Slows and moderates the absorption of caffeine, extending the energy window from coffee\'s typical 1–1.5 hours to a 3–6 hour sustained release',
-          ]} />
-
-          <div className="my-8 p-6"
-            style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.18)', borderRadius: '2px' }}>
-            <p className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.1rem' }}>
-              The result: "calm focus" — alertness without the cortisol spike, jitters, or crash characteristic of high-caffeine beverages.
-            </p>
-            <p className="font-heading text-sm font-light mt-3" style={{ color: 'rgba(240,235,225,0.5)' }}>
-              One gram of matcha contains 6–20 mg of L-theanine. A standard 1.5–2g serving delivers 15–40 mg per cup. Ceremonial grade consistently reaches the higher end.
-            </p>
-          </div>
-        </Section>
-
-        <Section title="The Antioxidant Argument">
-          <P>
-            Matcha's antioxidant profile is genuinely exceptional. ORAC testing shows one gram of ceremonial matcha contains 1,384 ORAC units — approximately <strong style={{ color: '#F5EFE6' }}>15 times the antioxidants in one gram of wild blueberries</strong>.
-          </P>
-          <P>
-            Unlike steeped green tea, where you brew and discard the leaf (absorbing only water-soluble nutrients), matcha powder is consumed whole — meaning every cup delivers the full spectrum of the leaf's compounds: water-soluble and fat-soluble nutrients, antioxidants, amino acids, vitamins, and minerals.
-          </P>
-          <P>
-            The primary antioxidant class is catechins, particularly EGCG (epigallocatechin gallate) — one of the most studied antioxidant compounds in nutritional science, with documented effects on inflammation, cardiovascular health, metabolic function, and potentially cancer cell apoptosis.
-          </P>
-          <div className="my-6 p-5"
-            style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '2px' }}>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>2022 PMC Critical Review</p>
-            <p className="font-heading text-sm font-light" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.85 }}>
-              A critical review published in PMC on the therapeutic potential of matcha concluded it has documented benefits including "enhancing effect on cognitive function, cardio-metabolic health, and anti-tumorogenesis."
-            </p>
-          </div>
-        </Section>
-
-        <Section title="Matcha vs. Coffee: The Honest Comparison">
-          <P>Matcha is not a replacement for coffee. It's a different experience for a different intention.</P>
-          <CompareTable
-            headers={['Feature', 'Coffee', 'Matcha']}
-            rows={[
-              ['Caffeine per serving', '~95 mg', '~35–90 mg depending on prep'],
-              ['Energy feel', 'Fast, intense spike', 'Slow-release, smooth 3–6 hours'],
-              ['Crash risk', 'Higher', 'Lower'],
-              ['L-theanine', 'None', '15–40 mg per cup'],
-              ['Primary antioxidants', 'Chlorogenic acids', 'EGCG catechins, chlorophyll'],
-              ['Cortisol impact', 'Can spike cortisol', 'Less cortisol response'],
-              ['Acidity', 'High', 'Low-moderate'],
-              ['Focus type', 'Sharp, fast (can include jitters)', 'Calm, sustained clarity'],
-            ]}
-          />
-          <Bullet items={[
-            'Choose coffee when: You need immediate, high-intensity alertness before a demanding workout or intense deadline sprint.',
-            'Choose matcha when: You need sustained, calm focus over 4–6 hours — for creative work, deep writing, study sessions, or meditation.',
-            'Choose Torch Republic Matcha when: You want the calm-focus benefits of ceremonial L-theanine and the adaptogenic support of functional mushrooms.',
-          ]} />
-        </Section>
-
-        <Section title="Instant Matcha: Does It Work?">
-          <P>
-            One legitimate question: does instant matcha preserve the benefits of traditional ceremonial preparation? The answer depends on the source material and processing.
-          </P>
-          <P>
-            Torch Republic's instant matcha starts with ceremonial-grade tencha leaves, processed to a fine powder and packaged in airtight conditions to prevent oxidation. The L-theanine, EGCG catechins, and chlorophyll are inherent in the leaf structure — they don't require whisking to become bioavailable. You dissolve them in water exactly as you would with a traditional preparation; the delivery mechanism is different, not the nutritional payload.
-          </P>
-          <P>
-            The practical advantage of instant format: no whisk, no bowl, no equipment. One scoop, 8–10 oz of water, 10 seconds of stirring. A 3–6 hour calm focus window, ready in the time it takes to walk from the kitchen to your desk.
-          </P>
-        </Section>
-
-        <Section title="Finding Your Torch Republic Matcha Ritual">
-          <P>Each of the three Torch Republic matcha blends is calibrated for a specific daily intention:</P>
-          <div className="space-y-4 my-6">
-            {[
-              {
-                name: 'The Monk',
-                sub: 'Dark Roast Matcha Blend',
-                desc: 'Deep, grounding, present. For the person who wants to begin the day in stillness — the meditative focus of the original Zen tea ceremony, modernized.',
-                tags: ['Focus', 'Calm', 'Presence'],
-                slug: '/blends/the-monk',
-              },
-              {
-                name: 'The Ascendant',
-                sub: 'Medium Roast Matcha Blend',
-                desc: 'Rising, clarifying, disciplined. For the ambitious morning — when you\'re building something and need the mental clarity to see the next step.',
-                tags: ['Energy', 'Clarity', 'Discipline'],
-                slug: '/blends/the-ascendant',
-              },
-              {
-                name: 'The Alchemist',
-                sub: 'Light Roast Matcha Blend',
-                desc: 'Balanced, transformative, creative. For the person who sits at the intersection of art and intellect — where the best ideas live.',
-                tags: ['Balance', 'Transform', 'Create'],
-                slug: '/blends/the-alchemist',
-              },
-            ].map(b => (
-              <div key={b.name} className="p-6"
-                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '2px' }}>
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <div>
-                    <p className="font-serif font-bold text-white" style={{ fontSize: '1.1rem' }}>{b.name}</p>
-                    <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>{b.sub}</p>
-                  </div>
-                  <div className="flex gap-2 flex-wrap">
-                    {b.tags.map(t => (
-                      <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase px-2 py-1"
-                        style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)', color: 'rgba(230,183,173,0.6)' }}>
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="font-heading text-sm font-light mb-4" style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.8 }}>{b.desc}</p>
-                <Link to={b.slug}
-                  className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.25em] uppercase transition-opacity hover:opacity-60"
-                  style={{ color: RG }}>
-                  Explore {b.name} <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
+      {/* History Timeline */}
+      <section className="px-6 md:px-10 py-12" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {HISTORY_MILESTONES.map((milestone, i) => (
+              <motion.div
+                key={milestone.year}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-6"
+              >
+                <span className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3 block" style={{ color: MATCHA_GREEN }}>
+                  {milestone.year}
+                </span>
+                <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
+                  {milestone.event}
+                </p>
+              </motion.div>
             ))}
           </div>
-          <P>The ritual is yours. The history, the science, the flavor — all of it ready in seconds.</P>
-        </Section>
+        </div>
+      </section>
 
-        {/* Product CTA */}
-        <div className="mt-14 pt-10" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
-            Start your matcha ritual
-          </p>
-          <p className="font-serif font-bold text-white mb-6" style={{ fontSize: '1.4rem' }}>
-            Explore the Torch Republic Matcha Collection
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/shop"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-6 transition-opacity hover:opacity-90"
-              style={{ background: RG, color: '#080808' }}>
-              Shop Matcha Collection <ArrowRight className="w-3 h-3" />
+      {/* Main Content */}
+      <article className="px-6 md:px-10 py-16">
+        <div className="max-w-[900px] mx-auto">
+          {/* Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="prose prose-invert prose-lg max-w-none mb-16"
+          >
+            <p className="font-heading text-lg" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              At Torch Republic, our matcha line — The Monk, The Ascendant, The Alchemist — is built on ceremonial-grade matcha combined with adaptogens for a modern ritual that honors 800 years of tradition. Here's everything you need to know about what makes ceremonial matcha different, what the science actually says about its benefits, and how to make it work for your daily life.
+            </p>
+          </motion.div>
+
+          {/* History Section */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              The History: 800 Years of Intentional Drinking
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Matcha's story begins not in Japan, but in Tang Dynasty China (7th–10th century), where tea leaves were steamed and pressed into bricks for trade, then ground into powder for preparation. The pivotal historical moment came in 1191, when Japanese Buddhist monk Eisai returned from years of study in China, carrying both tea seeds and the Zen practice of consuming powdered green tea as a tool for meditation and mental clarity.
+              </p>
+              <p>
+                Eisai planted his seeds on temple grounds in Kyoto — and Japanese tea culture was born. Within a century, matcha had become more than a beverage. It was a philosophical practice. The tea ceremony (<em style={{ color: MATCHA_GREEN }}>chanoyu</em>), formalized in the 16th century by master Sen no Rikyū, transformed the act of making tea into a meditation on harmony (<em style={{ color: MATCHA_GREEN }}>wa</em>), respect (<em style={{ color: MATCHA_GREEN }}>kei</em>), purity (<em style={{ color: MATCHA_GREEN }}>sei</em>), and tranquility (<em style={{ color: MATCHA_GREEN }}>jaku</em>).
+              </p>
+              <p>
+                The deliberate, precise movements of the tea ceremony were designed to force the mind into presence. Every step of matcha preparation — the careful scooping, the precise pouring, the rhythmic whisking — was engineered as a mindfulness practice. This is not historical trivia. It's the origin of why matcha still feels different from coffee, and why the Torch Republic matcha line carries names like The Monk and The Alchemist: these are archetypes of the same intentional practice, modernized for 2026.
+              </p>
+              <p>
+                Due to the labor-intensive cultivation and the high regard in which matcha was held, it was originally reserved exclusively for nobility and the Buddhist clergy — a luxury product accessible only to those with power or devotion. Today, only approximately 60 families remain in Uji, Kyoto — the world's most revered matcha region — continuing this centuries-old tradition.
+              </p>
+            </div>
+          </section>
+
+          {/* What Makes Ceremonial Different */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              What Makes Ceremonial Grade Different
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                The term "ceremonial grade" refers to the highest quality tier of matcha — made from the youngest, most tender leaves of the spring's first harvest (<em style={{ color: MATCHA_GREEN }}>ichibancha</em>), using a cultivation method that no other tea undergoes.
+              </p>
+
+              <div className="my-8 space-y-6">
+                {CEREMONIAL_STEPS.map((step, i) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <span className="font-mono text-[8px] tracking-[0.3em] uppercase flex-shrink-0 pt-1"
+                      style={{ color: MATCHA_GREEN }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3 className="font-mono text-[9px] tracking-[0.35em] uppercase mb-2" style={{ color: MATCHA_GREEN }}>
+                        {step.title}
+                      </h3>
+                      <p style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p>
+                Ceremonial grade matcha is ground on traditional granite stone mills at a rate of 30–40 grams per hour. This glacial pace is deliberate: high-speed milling generates heat that degrades the volatile flavor compounds and oxidizes the chlorophyll, producing a duller, more bitter product. Stone grinding creates the ultra-fine particle size that allows ceremonial matcha to dissolve smoothly and deliver its full nutritional payload in every sip.
+              </p>
+            </div>
+          </section>
+
+          {/* Grade Comparison Table */}
+          <section className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Ceremonial vs. Culinary Grade at a Glance
+            </motion.h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${MATCHA_GREEN}40` }}>
+                    <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Feature</th>
+                    <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Ceremonial Grade</th>
+                    <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Culinary Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {GRADE_COMPARISON.map((row, i) => (
+                    <motion.tr
+                      key={row.feature}
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                    >
+                      <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.5)' }}>{row.feature}</td>
+                      <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.7)' }}>{row.ceremonial}</td>
+                      <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.4)' }}>{row.culinary}</td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* L-Theanine Section */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              The L-Theanine Effect: Calm Focus Without the Crash
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                L-theanine is the compound that makes matcha physiologically unlike any other caffeinated beverage. It's a non-protein amino acid found almost exclusively in shade-grown green tea — and ceremonial matcha, due to its extended shading, contains the highest concentration of L-theanine in any natural food.
+              </p>
+
+              <div className="my-8 p-6 rounded-lg" style={{ background: 'rgba(16,185,129,0.06)', border: `1px solid ${MATCHA_GREEN}40` }}>
+                <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85 }}>
+                  <strong style={{ color: MATCHA_GREEN }}>One gram of matcha contains 6–20 mg of L-theanine; a standard 1.5–2 gram serving delivers 15–40 mg per cup.</strong> Ceremonial grade consistently reaches the higher end of this range.
+                </p>
+              </div>
+
+              <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mt-8 mb-4" style={{ color: MATCHA_GREEN }}>
+                What L-theanine actually does in the brain
+              </h3>
+              <ul className="space-y-3 my-6">
+                {L_THEANINE_BENEFITS.map((benefit, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span style={{ color: MATCHA_GREEN }}>•</span>
+                    <span>{benefit}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <p>
+                When L-theanine is combined with caffeine — as it naturally is in matcha — the two compounds create what researchers call a synergistic cognitive effect: better attention, faster reaction time, and improved accuracy compared to either compound alone. The L-theanine doesn't eliminate caffeine's alerting effect; it modulates it, removing the anxiety spike while preserving and extending the focus.
+              </p>
+              <p>
+                The result: matcha provides energy that lasts 3–6 hours with a stable release curve, compared to coffee's 1–1.5-hour peak and subsequent crash. Research from Verywell Health describes matcha's energy as "stable and enduring" while coffee's is "quick and intense" — with matcha showing lower cortisol response and crash risk.
+              </p>
+            </div>
+          </section>
+
+          {/* Antioxidant Profile */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              The Antioxidant Argument
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Matcha's antioxidant profile is genuinely exceptional. ORAC testing shows one gram of ceremonial matcha contains 1,384 ORAC units — approximately 15 times the antioxidants in one gram of wild blueberries.
+              </p>
+              <p>
+                Unlike steeped green tea, where you brew and discard the leaf (absorbing only water-soluble nutrients), matcha powder is consumed whole — meaning every cup delivers the full spectrum of the leaf's compounds: water-soluble and fat-soluble nutrients, antioxidants, amino acids, vitamins, and minerals.
+              </p>
+              <p>
+                The primary antioxidant class is catechins, particularly EGCG (epigallocatechin gallate) — one of the most studied antioxidant compounds in nutritional science, with documented effects on inflammation, cardiovascular health, metabolic function, and potentially cancer cell apoptosis.
+              </p>
+              <p>
+                A 2022 critical review published in PMC on the therapeutic potential of matcha concluded it has documented benefits including "enhancing effect on cognitive function, cardio-metabolic health, and anti-tumorogenesis".
+              </p>
+            </div>
+          </section>
+
+          {/* Matcha vs Coffee */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Matcha vs. Coffee: The Honest Comparison
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Matcha is not a replacement for coffee. It's a different experience for a different intention. The right choice depends on what you're asking your morning beverage to do:
+              </p>
+
+              <div className="my-8 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr style={{ borderBottom: `1px solid ${MATCHA_GREEN}40` }}>
+                      <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Feature</th>
+                      <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: '#C98F86' }}>Coffee</th>
+                      <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Matcha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {MATCHA_VS_COFFEE.map((row, i) => (
+                      <motion.tr
+                        key={row.feature}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 }}
+                        style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                      >
+                        <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.5)' }}>{row.feature}</td>
+                        <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.6)' }}>{row.coffee}</td>
+                        <td className="py-3 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.7)' }}>{row.matcha}</td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                <div className="p-6 rounded-lg" style={{ background: 'rgba(201,143,134,0.06)', border: '1px solid rgba(201,143,134,0.3)' }}>
+                  <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: '#C98F86' }}>
+                    Choose Coffee When
+                  </h3>
+                  <p style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+                    You need immediate, high-intensity alertness — before a demanding physical workout, an early morning meeting, or an intense deadline sprint.
+                  </p>
+                </div>
+                <div className="p-6 rounded-lg" style={{ background: 'rgba(16,185,129,0.06)', border: `1px solid ${MATCHA_GREEN}30` }}>
+                  <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>
+                    Choose Matcha When
+                  </h3>
+                  <p style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+                    You need sustained, calm focus over a 4–6 hour window — for creative work, deep writing, study sessions, meditation, or any state where anxiety or jitter would be counterproductive.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Instant Matcha */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-2xl md:text-3xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Instant Matcha: Does It Work?
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                One legitimate question: does instant matcha preserve the benefits of traditional ceremonial preparation?
+              </p>
+              <p>
+                The answer depends on the source material and processing. Torch Republic's instant matcha starts with ceremonial-grade tencha leaves, processed to a fine powder and packaged in airtight conditions to prevent oxidation. The L-theanine, EGCG catechins, and chlorophyll are inherent in the leaf structure — they don't require whisking to become bioavailable. You dissolve them in water exactly as you would with a traditional preparation; the delivery mechanism is different, not the nutritional payload.
+              </p>
+              <p>
+                The practical advantage of instant format: no whisk, no bowl, no equipment. One scoop, 8–10 oz of water, 10 seconds of stirring. A 3–6 hour calm focus window, ready in the time it takes to walk from the kitchen to your desk.
+              </p>
+            </div>
+          </section>
+
+          {/* Torch Republic Matcha */}
+          <section className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-serif font-bold text-3xl md:text-4xl mb-6"
+              style={{ color: '#FFFFFF' }}
+            >
+              Finding Your Torch Republic Matcha Ritual
+            </motion.h2>
+            <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
+              <p>
+                Each of the three Torch Republic matcha blends is calibrated for a specific daily intention:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                {TORCH_MATCHA.map((blend, i) => (
+                  <motion.div
+                    key={blend.name}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-6 rounded-lg text-center"
+                    style={{ background: 'rgba(16,185,129,0.04)', border: `1px solid ${MATCHA_GREEN}20` }}
+                  >
+                    <h3 className="font-serif font-bold text-xl mb-2" style={{ color: '#FFFFFF' }}>
+                      {blend.name}
+                    </h3>
+                    <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
+                      {blend.tagline}
+                    </p>
+                    <p style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7, fontSize: '0.9rem' }}>{blend.description}</p>
+                    <p className="font-mono text-[7px] tracking-[0.25em] uppercase mt-4" style={{ color: 'rgba(240,235,225,0.4)' }}>
+                      {blend.mood}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-center text-lg" style={{ color: MATCHA_GREEN }}>
+                The ritual is yours. The history, the science, the flavor — all of it ready in seconds.
+              </p>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center py-12 px-6 rounded-lg"
+            style={{ background: `rgba(16,185,129,0.06)`, border: `1px solid ${MATCHA_GREEN}30` }}
+          >
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(16,185,129,0.6)' }}>
+              Explore the Collection
+            </p>
+            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFFFF' }}>
+              Torch Republic Matcha
+            </h3>
+            <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
+              Ceremonial grade, instantly prepared, purposefully blended.
+            </p>
+            <Link to="/matcha"
+              className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
+              style={{ background: MATCHA_GREEN, color: '#080808' }}>
+              Shop Matcha →
             </Link>
-            <Link to="/journal"
-              className="font-mono text-[10px] tracking-[0.25em] uppercase py-3 px-5 transition-opacity hover:opacity-70"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}>
-              Read More Guides
-            </Link>
-          </div>
+          </motion.div>
         </div>
+      </article>
 
-        {/* Legal */}
-        <div className="mt-16 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-          <p className="font-mono text-[8px] tracking-[0.15em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.18)' }}>
-            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Research citations reflect findings in scientific literature; individual results may vary.
-          </p>
-        </div>
-
-        {/* Back */}
-        <div className="mt-10">
-          <Link to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60"
-            style={{ color: 'rgba(230,183,173,0.4)' }}>
-            <ArrowLeft className="w-3 h-3" /> Back to Journal
-          </Link>
-        </div>
-      </motion.div>
+      {/* Legal */}
+      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <p className="font-mono text-[8px] tracking-[0.15em] max-w-2xl mx-auto"
+          style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+          Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+        </p>
+      </div>
     </div>
   );
 }
+
+const CEREMONIAL_STEPS = [
+  {
+    title: 'Shading (20–30 days before harvest)',
+    description: 'Tea plants are covered with bamboo frames and cloth, blocking sunlight for three to four weeks before picking. This forces the plant into a stress response: without light, it produces more chlorophyll (creating the vivid emerald green) and dramatically increases L-theanine — the amino acid responsible for calm focus. Caffeine also increases in response to shading, but at a rate modulated by L-theanine.',
+  },
+  {
+    title: 'Hand-harvesting the first flush',
+    description: 'Only the youngest, topmost leaves — unfurling tips that represent the most concentrated nutrition in the plant — are selected. Second and third harvest leaves, used for culinary-grade matcha, lack the sweetness and L-theanine richness of this first picking.',
+  },
+  {
+    title: 'Steaming within hours',
+    description: 'Leaves are steamed immediately after harvest to halt oxidation, preserving the green color, nutrient density, and delicate aroma.',
+  },
+  {
+    title: 'Stone grinding (30 grams per hour)',
+    description: 'The dried, de-stemmed tencha leaves are ground on traditional granite stone mills at a rate of 30–40 grams per hour. This glacial pace is deliberate: high-speed milling generates heat that degrades the volatile flavor compounds and oxidizes the chlorophyll, producing a duller, more bitter product. Stone grinding creates the ultra-fine particle size that allows ceremonial matcha to dissolve smoothly.',
+  },
+];
