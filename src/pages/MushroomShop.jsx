@@ -36,29 +36,53 @@ export default function MushroomShop() {
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
 
       {/* ── HERO ── */}
-      <section className="px-6 md:px-10 pt-20 pb-14 text-center"
-        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            Torch Republic Coffee Company
-          </p>
-          <h1 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Instant Coffee, Mushroom Coffee &amp; Matcha
-          </h1>
-          <p className="font-heading max-w-xl mx-auto mb-8"
-            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Premium instant blends crafted for focus, calm, energy, and everyday ritual. No machine needed.
-          </p>
+      <section style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        {/* Desktop layout */}
+        <div className="hidden md:block">
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png"
+            alt="Torch Republic Products"
+            className="w-full h-auto object-cover"
+            style={{ aspectRatio: '16/9', maxHeight: '600px' }}
+          />
+        </div>
 
-          {/* Trust bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mb-6">
-            {['No Coffee Maker Needed', 'Instant Powder', 'Functional Adaptogens', 'Subscribe & Save 20%'].map(t => (
-              <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.45)' }}>✦ {t}</span>
-            ))}
-          </div>
-        </motion.div>
+        {/* Mobile layout with text overlay */}
+        <div className="md:hidden px-6 pt-20 pb-14 text-center">
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png"
+            alt="Torch Republic Products"
+            className="w-full h-auto object-cover rounded mb-8"
+            style={{ aspectRatio: '1/1', maxHeight: '350px' }}
+          />
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+              Torch Republic Coffee Company
+            </p>
+            <h1 className="font-serif font-bold mb-4"
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              Instant Coffee, Mushroom Coffee &amp; Matcha
+            </h1>
+            <p className="font-heading max-w-xl mx-auto mb-8"
+              style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+              Premium instant blends crafted for focus, calm, energy, and everyday ritual. No machine needed.
+            </p>
+
+            {/* Trust bar */}
+            <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mb-6">
+              {['No Coffee Maker Needed', 'Instant Powder', 'Functional Adaptogens', 'Subscribe & Save 20%'].map(t => (
+                <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase"
+                  style={{ color: 'rgba(230,183,173,0.45)' }}>✦ {t}</span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── TABS ── */}
