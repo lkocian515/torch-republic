@@ -5,6 +5,9 @@ import { ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
+const EMERALD = '#10B981';
+const TEAL = '#06B6D4';
+const DARK_EMERALD = '#047857';
 
 const FEATURED_POSTS = [
   {
@@ -77,16 +80,16 @@ function FeaturedCard({ post, index }) {
     >
       <Link to={post.slug} className="block group">
         <div
-          className="p-7 md:p-9 transition-all duration-300"
+          className="p-7 md:p-9 transition-all duration-300 hover:border-opacity-60"
           style={{
-            background: isFirst ? 'rgba(230,183,173,0.04)' : 'rgba(255,255,255,0.015)',
-            border: `1px solid ${isFirst ? 'rgba(230,183,173,0.2)' : 'rgba(230,183,173,0.1)'}`,
+            background: isFirst ? `linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.04))` : 'rgba(255,255,255,0.015)',
+            border: `1px solid ${isFirst ? `${EMERALD}40` : `${EMERALD}20`}`,
             borderRadius: '2px',
           }}
         >
           <div className="flex items-center gap-4 mb-5">
             <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-              style={{ color: RG, border: '1px solid rgba(230,183,173,0.2)', background: 'rgba(230,183,173,0.06)' }}>
+              style={{ color: EMERALD, border: `1px solid ${EMERALD}40`, background: `${EMERALD}12` }}>
               {post.category}
             </span>
             <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.2)' }}>
@@ -103,12 +106,12 @@ function FeaturedCard({ post, index }) {
           </h2>
 
           <p className="font-heading text-sm mb-6 max-w-2xl"
-            style={{ color: 'rgba(230,183,173,0.4)', lineHeight: 1.85, fontWeight: 300 }}>
+            style={{ color: `${EMERALD}99`, lineHeight: 1.85, fontWeight: 300 }}>
             {post.excerpt}
           </p>
 
           <div className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-            style={{ color: RG }}>
+            style={{ color: EMERALD }}>
             Read Article <ArrowRight className="w-3 h-3" />
           </div>
         </div>
@@ -126,6 +129,9 @@ export default function Journal() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#030303' }}>
+      {/* Emerald glow backdrop */}
+      <div className="fixed top-0 left-1/3 w-96 h-96 -z-10 opacity-20 blur-3xl"
+        style={{ background: `radial-gradient(ellipse 60% 60%, ${EMERALD}, transparent)` }} />
 
       {/* Header */}
       <div className="max-w-[920px] mx-auto px-6 md:px-10 pt-20 pb-14">
@@ -135,8 +141,8 @@ export default function Journal() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #E6B7AD)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: RG }}>
+            <div className="h-px w-10" style={{ background: `linear-gradient(90deg, transparent, ${EMERALD})` }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: EMERALD }}>
               Torch Republic
             </span>
           </div>
@@ -154,7 +160,7 @@ export default function Journal() {
       {/* Divider */}
       <div className="max-w-[920px] mx-auto px-6 md:px-10">
         <div className="h-px w-full mb-14"
-          style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.3), transparent)' }} />
+          style={{ background: `linear-gradient(90deg, ${EMERALD}, ${TEAL}, transparent)`, opacity: 0.4 }} />
       </div>
 
       {/* Featured label */}
@@ -164,7 +170,7 @@ export default function Journal() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
           className="font-mono text-[9px] tracking-[0.5em] uppercase"
-          style={{ color: 'rgba(230,183,173,0.4)' }}>
+          style={{ color: EMERALD, opacity: 0.6 }}>
           Featured Research
         </motion.p>
       </div>
@@ -180,7 +186,7 @@ export default function Journal() {
 
       {/* Coming Soon label */}
       <div className="max-w-[920px] mx-auto px-6 md:px-10 mb-8">
-        <div className="h-px mb-10" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.15), transparent)' }} />
+        <div className="h-px mb-10" style={{ background: `linear-gradient(90deg, ${EMERALD}, transparent)`, opacity: 0.2 }} />
         <p className="font-mono text-[9px] tracking-[0.5em] uppercase" style={{ color: 'rgba(255,255,255,0.15)' }}>
           Coming Soon
         </p>
@@ -196,11 +202,11 @@ export default function Journal() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.06 + 0.5 }}
               className="py-10"
-              style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}
+              style={{ borderBottom: `1px solid ${EMERALD}15` }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-                  style={{ color: 'rgba(230,183,173,0.35)', border: '1px solid rgba(230,183,173,0.1)', background: 'rgba(230,183,173,0.02)' }}>
+                  style={{ color: `${EMERALD}80`, border: `1px solid ${EMERALD}20`, background: `${EMERALD}08` }}>
                   {article.category}
                 </span>
                 <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.12)' }}>
@@ -214,12 +220,12 @@ export default function Journal() {
               </h2>
 
               <p className="text-sm leading-relaxed mb-4 max-w-2xl font-heading font-light"
-                style={{ color: 'rgba(230,183,173,0.2)', lineHeight: 1.8 }}>
+                style={{ color: `${EMERALD}66`, lineHeight: 1.8 }}>
                 {article.excerpt}
               </p>
 
               <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.2)' }}>
+                style={{ color: `${EMERALD}55` }}>
                 Coming Soon
               </span>
             </motion.article>
@@ -229,8 +235,8 @@ export default function Journal() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <Link to="/shop"
-            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-            style={{ background: RG, color: '#080808', padding: '14px 32px' }}>
+            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:shadow-lg"
+            style={{ background: `linear-gradient(135deg, ${EMERALD}, ${TEAL})`, color: '#080808', padding: '14px 32px' }}>
             Shop the Blends <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
