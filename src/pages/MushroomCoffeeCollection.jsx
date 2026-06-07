@@ -6,6 +6,7 @@ import { ArrowRight, Leaf, Sparkles, Check, Coffee, Brain, Moon, Sun, Zap, Shiel
 import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
+import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
 
 const RG = '#E6B7AD';
 const DEEP_CHARCOAL = '#0A0908';
@@ -195,6 +196,9 @@ export default function MushroomCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      {/* ── COMPARISON CHART ── */}
+      <BlendComparisonChart />
 
       {/* ── COMPARISON TABLE ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>

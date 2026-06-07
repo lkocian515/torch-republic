@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, Navigate } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
+import SubscriptionTracker from '../components/portal/SubscriptionTracker';
 import { 
   Package, 
   Gift, 
@@ -24,6 +25,7 @@ import {
 } from 'lucide-react';
 
 const RG = '#E6B7AD';
+const EMERALD = '#10B981';
 
 const REWARD_TIERS = [
   { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
@@ -368,98 +370,15 @@ export default function CustomerPortal() {
           {/* Subscription Tab */}
           {activeTab === 'subscription' && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              {sub ? (
-                <div className="space-y-6">
-                  {/* Info Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {[
-                      { label: 'Product', value: sub.productTitle },
-                      { label: 'Price', value: sub.price },
-                      { label: 'Next Delivery', value: isPaused ? '—' : (sub.nextDelivery || '—') },
-                      { label: 'Frequency', value: selectedFreq?.label || '—' },
-                      { label: 'Status', value: sub.status?.charAt(0).toUpperCase() + sub.status?.slice(1) },
-                      { label: 'Order Origin', value: sub.orderId || '—' },
-                    ].map(({ label, value }) => (
-                      <div key={label} className="p-4" style={{ background: '#111', border: `1px solid ${RG}09` }}>
-                        <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: `${RG}45` }}>{label}</p>
-                        <p className="font-mono text-sm font-bold" style={{ color: 'rgba(240,235,225,0.8)' }}>{value}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Frequency Selector */}
-                  <div>
-                    <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: `${RG}55` }}>
-                      Delivery Frequency
-                    </p>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                      {FREQUENCIES.map(f => {
-                        const active = selectedFreq?.interval === f.interval && selectedFreq?.intervalCount === f.intervalCount;
-                        return (
-                          <button
-                            key={`${f.interval}-${f.intervalCount}`}
-                            onClick={() => !actionLoading && handleFrequency(f)}
-                            disabled={actionLoading}
-                            className="flex items-center justify-between px-4 py-3 transition-all disabled:opacity-50"
-                            style={{
-                              background: active ? `${RG}12` : 'transparent',
-                              border: active ? `1px solid ${RG}40` : `1px solid ${RG}12`,
-                              color: active ? RG : 'rgba(240,235,225,0.45)',
-                            }}
-                          >
-                            <span className="font-mono text-[9px] tracking-wide">{f.label}</span>
-                            {active && <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" />}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button
-                      onClick={handlePauseResume}
-                      disabled={actionLoading}
-                      className="flex items-center justify-center gap-2 py-3.5 px-6 font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-80 disabled:opacity-50"
-                      style={{
-                        border: `1px solid ${RG}28`,
-                        color: isPaused ? RG : 'rgba(240,235,225,0.55)',
-                        background: isPaused ? `${RG}08` : 'transparent',
-                      }}
-                    >
-                      {actionLoading ? <Loader2 className="w-4 h-4 animate-spin" /> :
-                        isPaused
-                          ? <><Play className="w-4 h-4" /> Resume Deliveries</>
-                          : <><Pause className="w-4 h-4" /> Pause Subscription</>
-                      }
-                    </button>
-
-                    <a
-                      href="https://torchrepublic.com/account/subscriptions"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-3.5 px-6 font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
-                      style={{ border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(240,235,225,0.4)' }}
-                    >
-                      <RefreshCw className="w-4 h-4" /> Full Subscription Portal
-                    </a>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <AlertCircle className="w-8 h-8 mx-auto mb-4" style={{ color: `${RG}40` }} />
-                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: 'rgba(240,235,225,0.35)' }}>
-                    No active subscription found
-                  </p>
-                  <Link
-                    to="/subscription"
-                    className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
-                    style={{ background: RG, color: '#050505', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
-                  >
-                    Start Subscription
-                  </Link>
-                </div>
-              )}
+              <SubscriptionTracker
+                sub={sub}
+                subLoading={subLoading}
+                actionLoading={actionLoading}
+                selectedFreq={selectedFreq}
+                onFrequencyChange={handleFrequency}
+                onPauseResume={handlePauseResume}
+                showToast={showToast}
+              />
             </motion.div>
           )}
 
