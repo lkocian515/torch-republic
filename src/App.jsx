@@ -55,6 +55,7 @@ import LionsManeMushroomCoffee from './pages/blog/LionsManeMushroomCoffee';
 import ChagaMushroomCoffee from './pages/blog/ChagaMushroomCoffee';
 import InstantCeremonialMatcha from './pages/blog/InstantCeremonialMatcha';
 import ResearchHub from './pages/ResearchHub';
+import BlendQuiz from './pages/BlendQuiz';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -123,7 +124,8 @@ const AuthenticatedApp = () => {
         <Route path="/mission" element={<Navigate to="/about" replace />} />
         {/* Traffic Report - admin only, noindex */}
         <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
-<Route path="/research" element={<LayoutWrapper currentPageName="ResearchHub"><ResearchHub /></LayoutWrapper>} />
+        <Route path="/research" element={<LayoutWrapper currentPageName="ResearchHub"><ResearchHub /></LayoutWrapper>} />
+        <Route path="/quiz" element={<LayoutWrapper currentPageName="BlendQuiz"><BlendQuiz /></LayoutWrapper>} />
         <Route path="/faq" element={<LayoutWrapper currentPageName="FAQ"><FAQ /></LayoutWrapper>} />
         <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
         <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />

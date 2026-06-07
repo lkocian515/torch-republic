@@ -21,6 +21,7 @@ const NAV_LINKS = [
   { label: 'Matcha', href: '/matcha' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Find Your Blend', href: '/quiz' },
   { label: 'Recipes', href: '/recipes' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'About', href: '/about' },
@@ -41,7 +42,7 @@ export default function UnifiedHeader() {
     return () => clearInterval(timer);
   }, []);
 
-  const TOP_LEVEL = ['/', '/shop', '/classic-coffee', '/mushroom-coffee', '/matcha', '/bundle', '/how-it-works', '/recipes', '/Reviews', '/faq', '/contact', '/about', '/journal'];
+  const TOP_LEVEL = ['/', '/shop', '/classic-coffee', '/mushroom-coffee', '/matcha', '/bundle', '/how-it-works', '/quiz', '/recipes', '/Reviews', '/faq', '/contact', '/about', '/journal'];
   const isChildRoute = !TOP_LEVEL.includes(location.pathname) && !TOP_LEVEL.some(p => p !== '/' && location.pathname.startsWith(p + '/'));
 
   const handleBack = () => navigate(-1);
