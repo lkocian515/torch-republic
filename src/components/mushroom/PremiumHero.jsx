@@ -70,7 +70,7 @@ export default function PremiumHero() {
                 lineHeight: 1.8,
               }}
             >
-              Instant Coffee, Mushroom Coffee & Matcha. Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
+              Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
             </p>
 
             {/* CTA Buttons */}
@@ -229,7 +229,7 @@ export default function PremiumHero() {
               lineHeight: 1.7,
             }}
           >
-            Instant Coffee, Mushroom Coffee & Matcha. Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
+            Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
           </p>
 
           {/* CTA Buttons */}
