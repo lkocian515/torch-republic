@@ -262,9 +262,9 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Growth + transformation',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/eec55d936_hghjgj.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5f96577a2_bvnvbnvn.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/eec55d936_hghjgj.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5f96577a2_bvnvbnvn.png',
     ],
     alt: 'Torch Republic The Ascendant Matcha Blend',
     price: 24.99,
