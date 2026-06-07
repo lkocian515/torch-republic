@@ -14,7 +14,7 @@ const CATEGORIES = [
     cta: 'Shop Coffee',
     href: '/torchbearer',
     accent: '#C4A35A',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2e60f0546_10.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/55c37c676_dgdfgdr.png',
   },
   {
     icon: Leaf,
