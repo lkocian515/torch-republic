@@ -63,8 +63,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Premium instant coffee, mushroom coffee, and matcha for modern rituals. Classic Arabica, functional blends, and ceremonial grade — ready in seconds, no machine needed.',
+    title: 'Torch Republic | Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Premium instant coffee, mushroom coffee, and matcha for modern rituals. Classic Arabica, functional blends, ceremonial grade — ready in seconds.',
     url: '/',
     type: 'website',
   });
