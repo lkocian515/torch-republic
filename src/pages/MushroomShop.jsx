@@ -17,7 +17,11 @@ const TABS = [
 ];
 
 export default function MushroomShop() {
-  const [tab, setTab] = useState('all');
+  const [tab, setTab] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('category');
+    return cat === 'matcha' ? 'matcha' : cat === 'mushroom' ? 'mushroom' : 'all';
+  });
 
   useSEO({
     title: 'Shop All Blends | Torch Republic Coffee Company',

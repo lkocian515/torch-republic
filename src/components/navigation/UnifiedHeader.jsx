@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
   { label: 'Coffee', href: '/torchbearer' },
   { label: 'Mushroom Coffee', href: '/blends' },
-  { label: 'Matcha', href: '/shop' },
+  { label: 'Matcha', href: '/shop?category=matcha' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Journal', href: '/journal' },
