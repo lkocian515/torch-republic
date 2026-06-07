@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Search } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
@@ -23,6 +24,7 @@ export default function MushroomShop() {
     const cat = params.get('category');
     return cat === 'matcha' ? 'matcha' : cat === 'mushroom' ? 'mushroom' : 'all';
   });
+  const [searchQuery, setSearchQuery] = useState('');
 
   useSEO({
     title: 'Shop All Products | Torch Republic Coffee Company',
@@ -30,8 +32,16 @@ export default function MushroomShop() {
     url: '/shop',
   });
 
-  const products = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : tab === 'classic' ? CLASSIC_COFFEE_PRODUCTS : MUSHROOM_PRODUCTS;
+  const baseProducts = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : tab === 'classic' ? CLASSIC_COFFEE_PRODUCTS : MUSHROOM_PRODUCTS;
   const activeTab = TABS.find(t => t.key === tab);
+  
+  const products = searchQuery
+    ? baseProducts.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.mood.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : baseProducts;
 
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -86,8 +96,41 @@ export default function MushroomShop() {
         </div>
       </section>
 
-      {/* ── TABS ── */}
+      {/* ── SEARCH BAR ── */}
       <section className="px-6 md:px-10 pt-10">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="max-w-xl mx-auto mb-8">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(230,183,173,0.5)' }} />
+              <input
+                type="text"
+                placeholder="Search blends, collections, or moods..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 font-heading text-sm focus:outline-none"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(230,183,173,0.2)',
+                  borderRadius: '4px',
+                  color: '#F0EBE1',
+                }}
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono tracking-[0.2em] uppercase"
+                  style={{ color: 'rgba(230,183,173,0.5)' }}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TABS ── */}
+      <section className="px-6 md:px-10 pt-6">
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-wrap gap-2 mb-10 justify-center">
             {TABS.map(t => (
