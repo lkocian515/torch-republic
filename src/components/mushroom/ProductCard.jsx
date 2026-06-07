@@ -12,6 +12,10 @@ const BEST_FOR = {
   'the-oracle':         'Creative flow & intuition',
   'mystic-bloom':       'Balance & gentle mornings',
   'dreamcap-blend':     'Evening ritual & nighttime creativity',
+  // Matcha
+  'the-monk-matcha-blend':       'Focus, calm & presence',
+  'the-alchemist-matcha-blend':  'Creativity & inspired focus',
+  'the-ascendant-matcha-blend':  'Growth & elevated energy',
 };
 
 export default function MushroomProductCard({ product, index = 0 }) {
@@ -104,12 +108,14 @@ export default function MushroomProductCard({ product, index = 0 }) {
         {/* Format + servings */}
         <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase"
           style={{ color: 'rgba(230,183,173,0.38)' }}>
-          Instant Powder Mix · 27 Servings
+          {product.category === 'matcha' ? 'Instant Matcha · 25 Servings' : 'Instant Powder Mix · 27 Servings'}
         </p>
-        <p className="font-mono text-[7px] tracking-[0.14em] uppercase"
-          style={{ color: 'rgba(230,183,173,0.28)' }}>
-          Lion's Mane + Chaga
-        </p>
+        {product.category !== 'matcha' && (
+          <p className="font-mono text-[7px] tracking-[0.14em] uppercase"
+            style={{ color: 'rgba(230,183,173,0.28)' }}>
+            Lion's Mane + Chaga
+          </p>
+        )}
 
         {/* Spacer */}
         <div className="flex-1" />
