@@ -24,10 +24,10 @@ export const SHOPIFY_VARIANT_IDS = {
   'the-oracle':       '49148263170300', // The Oracle Blend — Medium Roast
   'mystic-bloom':     '49148263006460', // Mystic Bloom Blend — Medium Roast
   'dreamcap-blend':   '49148261597436', // DreamCap Blend — Medium Roast
-  // Matcha
-  'the-monk-matcha-blend': '49148263891196',
-  'the-ascendant-matcha-blend': '49148263956732',
-  'the-alchemist-matcha-blend': '49148264022268',
+  // Matcha - Updated with exact variant IDs from user
+  'the-monk-matcha-blend': '49170574115068',
+  'the-alchemist-matcha-blend': '49170572148988',
+  'the-ascendant-matcha-blend': '49170644402428',
   // Classic Coffee
   'torchbearer-classic-instant-coffee': '49148262940924',
   'ember-rise-classic-instant-coffee': '49148262875388',

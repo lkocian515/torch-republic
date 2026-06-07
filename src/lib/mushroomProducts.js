@@ -245,7 +245,7 @@ export const MATCHA_PRODUCTS = [
   {
     id: 'the-monk',
     name: 'The Monk',
-    slug: 'the-monk',
+    slug: 'the-monk-matcha-blend',
     roast: 'Matcha Blend',
     roastIntensity: 3,
     caffeineLevel: 'medium',
@@ -271,7 +271,7 @@ export const MATCHA_PRODUCTS = [
   {
     id: 'the-ascendant',
     name: 'The Ascendant',
-    slug: 'the-ascendant',
+    slug: 'the-ascendant-matcha-blend',
     roast: 'Matcha Blend',
     roastIntensity: 4,
     caffeineLevel: 'medium',
@@ -297,7 +297,7 @@ export const MATCHA_PRODUCTS = [
   {
     id: 'the-alchemist',
     name: 'The Alchemist',
-    slug: 'the-alchemist',
+    slug: 'the-alchemist-matcha-blend',
     roast: 'Matcha Blend',
     roastIntensity: 4,
     caffeineLevel: 'medium',
