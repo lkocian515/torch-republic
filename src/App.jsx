@@ -60,6 +60,7 @@ import CustomerSpotlight from './pages/CustomerSpotlight';
 import CustomerPortal from './pages/CustomerPortal';
 import Gifts from './pages/Gifts';
 import BlogPost from './pages/BlogPost';
+import BuildYourRitual from './pages/BuildYourRitual';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -135,6 +136,7 @@ const AuthenticatedApp = () => {
         <Route path="/gifts" element={<LayoutWrapper currentPageName="Gifts"><Gifts /></LayoutWrapper>} />
         <Route path="/journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
         <Route path="/journal/:slug" element={<LayoutWrapper currentPageName="BlogPost"><BlogPost /></LayoutWrapper>} />
+        <Route path="/build-your-ritual" element={<LayoutWrapper currentPageName="BuildYourRitual"><BuildYourRitual /></LayoutWrapper>} />
         <Route path="/faq" element={<LayoutWrapper currentPageName="FAQ"><FAQ /></LayoutWrapper>} />
         <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
         <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />

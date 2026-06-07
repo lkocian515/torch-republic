@@ -10,6 +10,7 @@ import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
 import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
 import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
+import FunctionalBenefits from '../components/mushroom/FunctionalBenefits';
 import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual';
 import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
 import DiscountReminders from '../components/discounts/DiscountReminders';
@@ -456,6 +457,9 @@ function BlendDetailInner({ product }) {
 
       {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        {/* Functional Benefits */}
+        <FunctionalBenefits product={product} />
+
         {/* Taste Profile */}
         <TasteProfileCard product={product} />
 

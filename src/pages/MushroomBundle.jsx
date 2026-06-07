@@ -226,18 +226,32 @@ export default function MushroomBundle() {
 
                 {/* CTA */}
                 <div className="p-5 pt-0">
-                  <a
-                    href={bundle.getUrl() || SHOPIFY_CART_URL}
-                    className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-                    style={{ 
-                      background: bundle.badge === 'Best Value' ? '#E6B7AD' : 'transparent',
-                      color: bundle.badge === 'Best Value' ? '#080808' : '#E6B7AD',
-                      border: bundle.badge === 'Best Value' ? 'none' : '1px solid rgba(230,183,173,0.4)',
-                      padding: '12px 20px'
-                    }}
-                  >
-                    {bundle.cta} →
-                  </a>
+                  {bundle.id === 'starter-3pack' ? (
+                    <Link
+                      to="/build-your-ritual"
+                      className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+                      style={{ 
+                        background: '#E6B7AD',
+                        color: '#080808',
+                        padding: '12px 20px'
+                      }}
+                    >
+                      Build Your 3-Pack →
+                    </Link>
+                  ) : (
+                    <a
+                      href={bundle.getUrl() || SHOPIFY_CART_URL}
+                      className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+                      style={{ 
+                        background: bundle.badge === 'Best Value' ? '#E6B7AD' : 'transparent',
+                        color: bundle.badge === 'Best Value' ? '#080808' : '#E6B7AD',
+                        border: bundle.badge === 'Best Value' ? 'none' : '1px solid rgba(230,183,173,0.4)',
+                        padding: '12px 20px'
+                      }}
+                    >
+                      {bundle.cta} →
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
