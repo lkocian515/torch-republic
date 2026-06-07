@@ -5,6 +5,16 @@ import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 export default function Profile() {
   // Add noindex meta tag on mount
@@ -17,7 +27,7 @@ export default function Profile() {
   }, []);
 
   const { user, logout, isLoadingAuth } = useAuth();
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
   if (isLoadingAuth) {
@@ -33,10 +43,10 @@ export default function Profile() {
     setIsDeleting(true);
     try {
       await base44.asServiceRole.entities.User.delete(user.id);
+      setIsDeleteDialogOpen(false);
       logout(true);
     } catch (error) {
       console.error('Delete account error:', error);
-      alert('Failed to delete account. Please try again.');
       setIsDeleting(false);
     }
   };
@@ -126,38 +136,36 @@ export default function Profile() {
           </button>
 
           {/* Delete Account Button */}
-          {showDeleteConfirm ? (
-            <div className="bg-destructive/10 border border-destructive p-4 space-y-3">
-              <p className="text-foreground font-mono text-sm">
-                Are you sure? This action cannot be undone and will permanently delete your account.
-              </p>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setShowDeleteConfirm(false)}
-                  disabled={isDeleting}
-                  className="flex-1 py-2 px-3 border border-border text-foreground font-mono text-xs tracking-widest uppercase hover:bg-card transition-colors select-none disabled:opacity-50"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleDeleteAccount}
-                  disabled={isDeleting}
-                  className="flex-1 py-2 px-3 bg-destructive text-destructive-foreground font-mono text-xs tracking-widest uppercase hover:bg-destructive/90 transition-colors select-none disabled:opacity-50"
-                >
-                  {isDeleting ? 'Deleting...' : 'Delete'}
-                </button>
-              </div>
-            </div>
-          ) : (
-            <button
-              onClick={() => setShowDeleteConfirm(true)}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-destructive text-destructive font-mono text-sm tracking-widest uppercase hover:bg-destructive hover:text-destructive-foreground transition-colors select-none"
-            >
-              <Trash2 className="w-4 h-4" />
-              Delete Account
-            </button>
-          )}
+          <button
+            onClick={() => setIsDeleteDialogOpen(true)}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-destructive text-destructive font-mono text-sm tracking-widest uppercase hover:bg-destructive hover:text-destructive-foreground transition-colors select-none"
+          >
+            <Trash2 className="w-4 h-4" />
+            Delete Account
+          </button>
         </div>
+
+        {/* Delete Account Confirmation Dialog */}
+        <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Delete Account</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your account and all associated data.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleDeleteAccount}
+                disabled={isDeleting}
+                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              >
+                {isDeleting ? 'Deleting...' : 'Delete Account'}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
 
         {/* Info */}
         <div className="mt-12 p-4 bg-muted border border-border/50">

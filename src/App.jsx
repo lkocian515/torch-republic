@@ -3,13 +3,10 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { NavigationProvider } from '@/contexts/NavigationContext'
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
+import React, { Suspense, lazy } from 'react';
 import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
 import PullToRefresh from './components/mobile/PullToRefresh';
@@ -20,56 +17,76 @@ import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 
-// ── Mushroom Coffee Pages ──
-import Home from './pages/Home';
-import MushroomShop from './pages/MushroomShop';
-import ClassicCoffeeCollection from './pages/ClassicCoffeeCollection';
-import MushroomCoffeeCollection from './pages/MushroomCoffeeCollection';
-import MatchaCollection from './pages/MatchaCollection';
-import MushroomBundle from './pages/MushroomBundle';
-import BlendDetail from './pages/BlendDetail';
-import BlendsCollection from './pages/BlendsCollection';
-import HowItWorks from './pages/HowItWorks';
-import MushroomFAQ from './pages/MushroomFAQ';
-import Reviews from './pages/Reviews';
-import Journal from './pages/Journal';
-import Profile from './pages/Profile';
-import LoyaltyPortal from './pages/LoyaltyPortal';
-import Cart from './pages/Cart';
-import OrderConfirmation from './pages/OrderConfirmation';
-import Subscription from './pages/Subscription';
-import OurMission from './pages/OurMission';
-import Contact from './pages/Contact';
-import Torchbearer from './pages/Torchbearer';
-import TrafficReport from './pages/TrafficReport';
-import CoffeeRecipes from './pages/CoffeeRecipes';
-import FAQ from './pages/FAQ';
-import ShippingPolicy from './pages/ShippingPolicy';
-import ReturnPolicy from './pages/ReturnPolicy';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import MushroomCoffeeBenefits from './pages/MushroomCoffeeBenefits';
-import LionsManeCoffee from './pages/LionsManeCoffee';
-import InstantCoffeeForEnergy from './pages/InstantCoffeeForEnergy';
-import LionsManeMushroomCoffee from './pages/blog/LionsManeMushroomCoffee';
-import ChagaMushroomCoffee from './pages/blog/ChagaMushroomCoffee';
-import InstantCeremonialMatcha from './pages/blog/InstantCeremonialMatcha';
-import ResearchHub from './pages/ResearchHub';
-import BlendQuiz from './pages/BlendQuiz';
-import CustomerSpotlight from './pages/CustomerSpotlight';
-import CustomerPortal from './pages/CustomerPortal';
-import Gifts from './pages/Gifts';
-import BlogPost from './pages/BlogPost';
-import BuildYourRitual from './pages/BuildYourRitual';
+// ── Mushroom Coffee Pages (Lazy Loaded) ──
+const Home = lazy(() => import('./pages/Home'));
+const MushroomShop = lazy(() => import('./pages/MushroomShop'));
+const ClassicCoffeeCollection = lazy(() => import('./pages/ClassicCoffeeCollection'));
+const MushroomCoffeeCollection = lazy(() => import('./pages/MushroomCoffeeCollection'));
+const MatchaCollection = lazy(() => import('./pages/MatchaCollection'));
+const MushroomBundle = lazy(() => import('./pages/MushroomBundle'));
+const BlendDetail = lazy(() => import('./pages/BlendDetail'));
+const BlendsCollection = lazy(() => import('./pages/BlendsCollection'));
+const HowItWorks = lazy(() => import('./pages/HowItWorks'));
+const MushroomFAQ = lazy(() => import('./pages/MushroomFAQ'));
+const Reviews = lazy(() => import('./pages/Reviews'));
+const Journal = lazy(() => import('./pages/Journal'));
+const Profile = lazy(() => import('./pages/Profile'));
+const LoyaltyPortal = lazy(() => import('./pages/LoyaltyPortal'));
+const Cart = lazy(() => import('./pages/Cart'));
+const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
+const Subscription = lazy(() => import('./pages/Subscription'));
+const OurMission = lazy(() => import('./pages/OurMission'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Torchbearer = lazy(() => import('./pages/Torchbearer'));
+const TrafficReport = lazy(() => import('./pages/TrafficReport'));
+const CoffeeRecipes = lazy(() => import('./pages/CoffeeRecipes'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
+const ReturnPolicy = lazy(() => import('./pages/ReturnPolicy'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const MushroomCoffeeBenefits = lazy(() => import('./pages/MushroomCoffeeBenefits'));
+const LionsManeCoffee = lazy(() => import('./pages/LionsManeCoffee'));
+const InstantCoffeeForEnergy = lazy(() => import('./pages/InstantCoffeeForEnergy'));
+const LionsManeMushroomCoffee = lazy(() => import('./pages/blog/LionsManeMushroomCoffee'));
+const ChagaMushroomCoffee = lazy(() => import('./pages/blog/ChagaMushroomCoffee'));
+const InstantCeremonialMatcha = lazy(() => import('./pages/blog/InstantCeremonialMatcha'));
+const ResearchHub = lazy(() => import('./pages/ResearchHub'));
+const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
+const CustomerSpotlight = lazy(() => import('./pages/CustomerSpotlight'));
+const CustomerPortal = lazy(() => import('./pages/CustomerPortal'));
+const Gifts = lazy(() => import('./pages/Gifts'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const BuildYourRitual = lazy(() => import('./pages/BuildYourRitual'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 
 const mainPageKey = 'Home';
-const MainPage = Home;
 
-const LayoutWrapper = ({ children, currentPageName }) => {
+// Loading fallback component
+const PageLoader = () => (
+  <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    className="min-h-screen flex items-center justify-center"
+    style={{ background: '#080808' }}
+  >
+    <div className="text-center">
+      <div className="w-10 h-10 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+      <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>Loading...</p>
+    </div>
+  </motion.div>
+);
+
+const LayoutWrapper = ({ children, currentPageName, queryClient }) => {
   // Wrap main pages with PullToRefresh for native-like experience
   const handleRefresh = async () => {
-    // Trigger a page reload or data refresh
-    window.location.reload();
+    // Invalidate all queries to refresh data
+    if (queryClient) {
+      await queryClient.invalidateQueries();
+    }
   };
 
   return (
@@ -79,7 +96,7 @@ const LayoutWrapper = ({ children, currentPageName }) => {
   );
 };
 
-const AuthenticatedApp = () => {
+const AuthenticatedApp = ({ queryClient }) => {
   const location = useLocation();
   return (
     <>
@@ -89,69 +106,71 @@ const AuthenticatedApp = () => {
         <Routes location={location} key={location.pathname}>
 
         {/* ── AUTH ── */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/login" element={<Suspense fallback={<PageLoader />}><Login /></Suspense>} />
+        <Route path="/register" element={<Suspense fallback={<PageLoader />}><Register /></Suspense>} />
+        <Route path="/forgot-password" element={<Suspense fallback={<PageLoader />}><ForgotPassword /></Suspense>} />
+        <Route path="/reset-password" element={<Suspense fallback={<PageLoader />}><ResetPassword /></Suspense>} />
 
         {/* ── HOME ── */}
         <Route path="/" element={
-          <LayoutWrapper currentPageName={mainPageKey}>
-            <MainPage />
-          </LayoutWrapper>
+          <Suspense fallback={<PageLoader />}>
+            <LayoutWrapper currentPageName={mainPageKey} queryClient={queryClient}>
+              <Home />
+            </LayoutWrapper>
+          </Suspense>
         } />
 
         {/* ── MUSHROOM COFFEE STORE ── */}
-        <Route path="/shop" element={<LayoutWrapper currentPageName="MushroomShop"><MushroomShop /></LayoutWrapper>} />
-        <Route path="/classic-coffee" element={<LayoutWrapper currentPageName="ClassicCoffeeCollection"><ClassicCoffeeCollection /></LayoutWrapper>} />
-        <Route path="/mushroom-coffee" element={<LayoutWrapper currentPageName="MushroomCoffeeCollection"><MushroomCoffeeCollection /></LayoutWrapper>} />
-        <Route path="/matcha" element={<LayoutWrapper currentPageName="MatchaCollection"><MatchaCollection /></LayoutWrapper>} />
-        <Route path="/blends" element={<LayoutWrapper currentPageName="BlendsCollection"><BlendsCollection /></LayoutWrapper>} />
-        <Route path="/blends/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
-        <Route path="/products/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
-        <Route path="/bundle" element={<LayoutWrapper currentPageName="MushroomBundle"><MushroomBundle /></LayoutWrapper>} />
-        <Route path="/how-it-works" element={<LayoutWrapper currentPageName="HowItWorks"><HowItWorks /></LayoutWrapper>} />
-        <Route path="/faq" element={<LayoutWrapper currentPageName="MushroomFAQ"><MushroomFAQ /></LayoutWrapper>} />
-        <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
-        <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
-        <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
-        <Route path="/loyalty" element={<LayoutWrapper currentPageName="LoyaltyPortal"><LoyaltyPortal /></LayoutWrapper>} />
+        <Route path="/shop" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomShop" queryClient={queryClient}><MushroomShop /></LayoutWrapper></Suspense>} />
+        <Route path="/classic-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ClassicCoffeeCollection" queryClient={queryClient}><ClassicCoffeeCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeCollection" queryClient={queryClient}><MushroomCoffeeCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/blends" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendsCollection" queryClient={queryClient}><BlendsCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/blends/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
+        <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
+        <Route path="/bundle" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomBundle" queryClient={queryClient}><MushroomBundle /></LayoutWrapper></Suspense>} />
+        <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
+        <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomFAQ" queryClient={queryClient}><MushroomFAQ /></LayoutWrapper></Suspense>} />
+        <Route path="/Reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
+        <Route path="/Journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
+        <Route path="/Profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
+        <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
         {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/checkout" element={<Cart />} />
-        <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
-        <Route path="/mission" element={<LayoutWrapper currentPageName="OurMission"><OurMission /></LayoutWrapper>} />
-        <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
-        <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
+        <Route path="/cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
+        <Route path="/Cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
+        <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
+        <Route path="/OrderConfirmation" element={<Suspense fallback={<PageLoader />}><OrderConfirmation /></Suspense>} />
+        <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><OrderConfirmation /></Suspense>} />
+        <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
+        <Route path="/mission" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
+        <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
+        <Route path="/torchbearer" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Torchbearer" queryClient={queryClient}><Torchbearer /></LayoutWrapper></Suspense>} />
         <Route path="/about" element={<Navigate to="/mission" replace />} />
         {/* Traffic Report - admin only, noindex */}
-        <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
-        <Route path="/research" element={<LayoutWrapper currentPageName="ResearchHub"><ResearchHub /></LayoutWrapper>} />
-        <Route path="/quiz" element={<LayoutWrapper currentPageName="BlendQuiz"><BlendQuiz /></LayoutWrapper>} />
-        <Route path="/spotlight" element={<LayoutWrapper currentPageName="CustomerSpotlight"><CustomerSpotlight /></LayoutWrapper>} />
-        <Route path="/portal" element={<LayoutWrapper currentPageName="CustomerPortal"><CustomerPortal /></LayoutWrapper>} />
-        <Route path="/gifts" element={<LayoutWrapper currentPageName="Gifts"><Gifts /></LayoutWrapper>} />
-        <Route path="/journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
-        <Route path="/journal/:slug" element={<LayoutWrapper currentPageName="BlogPost"><BlogPost /></LayoutWrapper>} />
-        <Route path="/build-your-ritual" element={<LayoutWrapper currentPageName="BuildYourRitual"><BuildYourRitual /></LayoutWrapper>} />
-        <Route path="/faq" element={<LayoutWrapper currentPageName="FAQ"><FAQ /></LayoutWrapper>} />
-        <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
-        <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />
-        <Route path="/privacy-policy" element={<LayoutWrapper currentPageName="PrivacyPolicy"><PrivacyPolicy /></LayoutWrapper>} />
-        <Route path="/terms-of-service" element={<LayoutWrapper currentPageName="TermsOfService"><TermsOfService /></LayoutWrapper>} />
+        <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
+        <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
+        <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
+        <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
+        <Route path="/portal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerPortal" queryClient={queryClient}><CustomerPortal /></LayoutWrapper></Suspense>} />
+        <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
+        <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
+        <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
+        <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
+        <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/terms-of-service" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TermsOfService" queryClient={queryClient}><TermsOfService /></LayoutWrapper></Suspense>} />
 
         {/* ── SEO CONTENT PAGES ── */}
-        <Route path="/mushroom-coffee-benefits" element={<LayoutWrapper currentPageName="MushroomCoffeeBenefits"><MushroomCoffeeBenefits /></LayoutWrapper>} />
-        <Route path="/lions-mane-coffee" element={<LayoutWrapper currentPageName="LionsManeCoffee"><LionsManeCoffee /></LayoutWrapper>} />
-        <Route path="/instant-coffee-for-energy" element={<LayoutWrapper currentPageName="InstantCoffeeForEnergy"><InstantCoffeeForEnergy /></LayoutWrapper>} />
+        <Route path="/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefits" queryClient={queryClient}><MushroomCoffeeBenefits /></LayoutWrapper></Suspense>} />
+        <Route path="/lions-mane-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeCoffee" queryClient={queryClient}><LionsManeCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/instant-coffee-for-energy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeForEnergy" queryClient={queryClient}><InstantCoffeeForEnergy /></LayoutWrapper></Suspense>} />
 
         {/* ── BLOG POSTS ── */}
-        <Route path="/journal/lions-mane-mushroom-coffee" element={<LayoutWrapper currentPageName="LionsManeMushroomCoffee"><LionsManeMushroomCoffee /></LayoutWrapper>} />
-        <Route path="/journal/chaga-mushroom-coffee" element={<LayoutWrapper currentPageName="ChagaMushroomCoffee"><ChagaMushroomCoffee /></LayoutWrapper>} />
-        <Route path="/journal/instant-ceremonial-matcha" element={<LayoutWrapper currentPageName="InstantCeremonialMatcha"><InstantCeremonialMatcha /></LayoutWrapper>} />
+        <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffee" queryClient={queryClient}><ChagaMushroomCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/instant-ceremonial-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCeremonialMatcha" queryClient={queryClient}><InstantCeremonialMatcha /></LayoutWrapper></Suspense>} />
 
         {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
@@ -198,7 +217,7 @@ const AuthenticatedApp = () => {
 
 
 
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
       </Routes>
       <BottomTabs />
       </AnimatePresence>
@@ -213,7 +232,7 @@ function App() {
         <CartProvider>
           <Router>
             <NavigationProvider>
-              <AuthenticatedApp />
+              <AuthenticatedApp queryClient={queryClientInstance} />
               <CartToast />
               <EmailCapturePopup />
               <ExitIntentPopup />

@@ -44,9 +44,15 @@ export default function UnifiedHeader() {
   }, []);
 
   const TOP_LEVEL = ['/', '/shop', '/classic-coffee', '/mushroom-coffee', '/matcha', '/bundle', '/how-it-works', '/quiz', '/recipes', '/Reviews', '/spotlight', '/faq', '/contact', '/about', '/journal'];
-  const isChildRoute = !TOP_LEVEL.includes(location.pathname) && !TOP_LEVEL.some(p => p !== '/' && location.pathname.startsWith(p + '/'));
+  const isChildRoute = !TOP_LEVEL.includes(location.pathname) && location.pathname.split('/').filter(Boolean).length > 1;
 
-  const handleBack = () => navigate(-1);
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <>
@@ -97,11 +103,11 @@ export default function UnifiedHeader() {
             {/* Left: Back button (mobile) / Hamburger (mobile home) */}
             <div className="w-10">
               {isChildRoute ? (
-                <button onClick={handleBack} className="md:hidden flex items-center justify-center" style={{ color: RG, minWidth: '44px', minHeight: '44px' }}>
+                <button onClick={handleBack} className="md:hidden flex items-center justify-center" style={{ color: RG, minWidth: '44px', minHeight: '44px' }} aria-label="Go back">
                   <ArrowLeft className="w-5 h-5" strokeWidth={2} />
                 </button>
               ) : (
-                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center" style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px' }}>
+                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center" style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px' }} aria-label="Open menu">
                   <Menu className="w-6 h-6" strokeWidth={1.5} />
                 </button>
               )}
