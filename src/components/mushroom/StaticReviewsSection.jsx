@@ -13,6 +13,7 @@ const REVIEWS = [
     headline: 'Smooth enough for every morning.',
     body: 'I wanted something functional that still tasted like real coffee. GlowMind became part of my work routine — I just scoop and stir while my computer boots up. It\'s that easy.',
     blend: 'GlowMind Clarity',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cdb889116_9.png',
   },
   {
     name: 'James R.',
@@ -21,6 +22,7 @@ const REVIEWS = [
     headline: 'The easiest wellness habit I\'ve added.',
     body: 'No machine, no mess, just a quick cup that feels more intentional than regular coffee. I\'ve been doing a subscription for three months and I don\'t see myself stopping.',
     blend: 'SunCap Rise',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2e60f0546_10.png',
   },
   {
     name: 'Priya K.',
@@ -29,6 +31,7 @@ const REVIEWS = [
     headline: 'DreamCap is my night coffee.',
     body: 'I like having coffee in the evening when I\'m writing or reading. DreamCap feels cozy and settled without being heavy. Smooth and surprisingly comforting.',
     blend: 'DreamCap Blend',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/390d22377_11.png',
   },
   {
     name: 'Marcus T.',
@@ -37,6 +40,7 @@ const REVIEWS = [
     headline: 'Actually tastes like coffee.',
     body: 'I was skeptical about mushroom coffee but this genuinely just tastes like good instant coffee. No weird aftertaste. The Oracle is my daily blend now.',
     blend: 'The Oracle Blend',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a21cf463_13.png',
   },
   {
     name: 'Emily W.',
@@ -45,6 +49,7 @@ const REVIEWS = [
     headline: 'The ritual matters to me.',
     body: 'There\'s something about having a specific morning blend that makes the day feel more intentional. MoonCap in the evening, SunCap in the morning. Both are really smooth.',
     blend: 'MoonCap Restore',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
   },
   {
     name: 'David L.',
@@ -53,6 +58,7 @@ const REVIEWS = [
     headline: 'Simple, smooth, and it works.',
     body: 'I\'ve tried a lot of instant coffees and this is genuinely one of the better ones. The functional mushroom side is a bonus but the taste is what keeps me coming back.',
     blend: 'Mystic Bloom Blend',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/45e7257d5_12.png',
   },
 ];
 
@@ -102,9 +108,20 @@ export default function StaticReviewsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="p-6 flex flex-col gap-4"
+              className="flex flex-col overflow-hidden"
               style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
             >
+              {/* Product lifestyle image */}
+              {r.image && (
+                <div className="w-full overflow-hidden" style={{ height: 200 }}>
+                  <img
+                    src={r.image}
+                    alt={r.blend}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col gap-4 flex-1">
               {/* Stars */}
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, j) => (
@@ -130,6 +147,7 @@ export default function StaticReviewsSection() {
                 >
                   {r.blend}
                 </span>
+              </div>
               </div>
             </motion.div>
           ))}
