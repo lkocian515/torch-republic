@@ -39,11 +39,12 @@ export default function CollectionsShowcase() {
             >
               <Link to={collection.link} className="group cursor-pointer h-full flex flex-col">
                 {/* Image */}
-                <div className="relative mb-6 overflow-hidden rounded-sm h-96 md:h-[500px]">
+                <div className="relative mb-6 overflow-hidden rounded-sm h-64 sm:h-80 md:h-[500px]">
                   <img
                     src={collection.image}
                     alt={collection.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div
                     className="absolute inset-0 pointer-events-none"
@@ -58,31 +59,31 @@ export default function CollectionsShowcase() {
                 {/* Content */}
                 <div className="flex-1">
                   <p
-                    className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3"
+                    className="font-mono text-[8px] sm:text-[9px] tracking-[0.25em] uppercase mb-3"
                     style={{ color: collection.color }}
                   >
                     Collection
                   </p>
                   <h3
-                    className="font-serif font-bold text-2xl md:text-3xl mb-3 transition-colors duration-300 group-hover:opacity-80"
+                    className="font-serif font-bold text-xl sm:text-2xl md:text-3xl mb-3 transition-colors duration-300 group-hover:opacity-80"
                     style={{ color: '#FFFFFF' }}
                   >
                     {collection.title}
                   </h3>
                   <p
-                    className="font-heading text-sm md:text-base mb-6 leading-relaxed"
+                    className="font-heading text-xs sm:text-sm md:text-base mb-6 leading-relaxed"
                     style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.7 }}
                   >
                     {collection.description}
                   </p>
                   <p
-                    className="font-mono text-[8px] tracking-[0.2em] uppercase mb-6"
+                    className="font-mono text-[7px] sm:text-[8px] tracking-[0.2em] uppercase mb-6"
                     style={{ color: 'rgba(230,183,173,0.5)' }}
                   >
                     {collection.accent}
                   </p>
                   <div
-                    className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all group-hover:opacity-80 py-2 px-4 rounded-sm"
+                    className="inline-flex items-center font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold transition-all group-hover:opacity-80 py-2 px-4 rounded-sm"
                     style={{
                       background: `${collection.color}15`,
                       border: `1px solid ${collection.color}30`,

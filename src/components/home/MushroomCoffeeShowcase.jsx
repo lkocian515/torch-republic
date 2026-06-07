@@ -48,32 +48,32 @@ export default function MushroomCoffeeShowcase() {
                 transition={{ duration: 0.6 }}
                 className={section.order === 'reverse' ? 'md:order-2' : ''}
               >
-                <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3" style={{ color: RG }}>
+                <p className="font-mono text-[8px] sm:text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: RG }}>
                   Mushroom Coffee
                 </p>
-                <h2 className="font-serif font-bold text-3xl md:text-4xl mb-2" style={{ color: '#FFFFFF' }}>
+                <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl mb-2" style={{ color: '#FFFFFF' }}>
                   {section.title}
                 </h2>
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                <p className="font-mono text-[8px] sm:text-[10px] tracking-[0.2em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
                   {section.subtitle}
                 </p>
                 <p
-                  className="font-heading text-base leading-relaxed mb-8"
+                  className="font-heading text-xs sm:text-base leading-relaxed mb-8"
                   style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}
                 >
                   {section.description}
                 </p>
 
                 {/* Blend List */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-2 sm:space-y-3 mb-8">
                   {section.blends.map((blend, j) => (
                     <div
                       key={j}
-                      className="flex items-start gap-3 p-3 rounded-sm transition-all hover:bg-white/5"
+                      className="flex items-start gap-3 p-2 sm:p-3 rounded-sm transition-all hover:bg-white/5"
                       style={{ borderLeft: `2px solid ${RG}` }}
                     >
-                      <span className="text-sm mt-0.5" style={{ color: RG }}>✦</span>
-                      <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.8)' }}>
+                      <span className="text-xs sm:text-sm mt-0.5" style={{ color: RG }}>✦</span>
+                      <p className="font-heading text-xs sm:text-sm" style={{ color: 'rgba(240,235,225,0.8)' }}>
                         {blend}
                       </p>
                     </div>
@@ -82,7 +82,7 @@ export default function MushroomCoffeeShowcase() {
 
                 <Link
                   to={section.link}
-                  className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-3 px-6 rounded-sm"
+                  className="inline-flex items-center font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-80 py-2.5 sm:py-3 px-5 sm:px-6 rounded-sm"
                   style={{
                     background: `${RG}20`,
                     border: `1px solid ${RG}40`,
@@ -104,7 +104,8 @@ export default function MushroomCoffeeShowcase() {
                 <img
                   src={section.image}
                   alt={section.title}
-                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto max-h-64 sm:max-h-80 md:max-h-none object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
                 />
                 <div
                   className="absolute inset-0 pointer-events-none"
