@@ -6,6 +6,7 @@ import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import ProductComparison from '../components/mushroom/ProductComparison';
+import BlendFilters from '../components/mushroom/BlendFilters';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
@@ -26,6 +27,8 @@ export default function MushroomShop() {
     return cat === 'matcha' ? 'matcha' : cat === 'mushroom' ? 'mushroom' : 'all';
   });
   const [searchQuery, setSearchQuery] = useState('');
+  const [roastFilter, setRoastFilter] = useState('all');
+  const [caffeineFilter, setCaffeineFilter] = useState('all');
 
   useSEO({
     title: 'Shop All Products | Torch Republic Coffee Company',
@@ -36,13 +39,31 @@ export default function MushroomShop() {
   const baseProducts = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : tab === 'classic' ? CLASSIC_COFFEE_PRODUCTS : MUSHROOM_PRODUCTS;
   const activeTab = TABS.find(t => t.key === tab);
   
-  const products = searchQuery
-    ? baseProducts.filter(p =>
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.mood.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : baseProducts;
+  const filteredProducts = baseProducts.filter(p => {
+    // Search filter
+    const matchesSearch = !searchQuery || 
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.mood.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    // Roast filter
+    let matchesRoast = true;
+    if (roastFilter !== 'all') {
+      if (roastFilter === 'light') matchesRoast = p.roastIntensity && p.roastIntensity <= 4;
+      if (roastFilter === 'medium') matchesRoast = p.roastIntensity && p.roastIntensity >= 5 && p.roastIntensity <= 6;
+      if (roastFilter === 'dark') matchesRoast = p.roastIntensity && p.roastIntensity >= 7;
+    }
+    
+    // Caffeine filter
+    let matchesCaffeine = true;
+    if (caffeineFilter !== 'all') {
+      matchesCaffeine = p.caffeineLevel === caffeineFilter;
+    }
+    
+    return matchesSearch && matchesRoast && matchesCaffeine;
+  });
+  
+  const products = filteredProducts;
 
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -136,6 +157,14 @@ export default function MushroomShop() {
       {/* ── TABS ── */}
       <section className="px-6 md:px-10 pt-6">
         <div className="max-w-[1280px] mx-auto">
+          <BlendFilters 
+            roastFilter={roastFilter}
+            caffeineFilter={caffeineFilter}
+            onFilterChange={(type, value) => {
+              if (type === 'roast') setRoastFilter(value);
+              if (type === 'caffeine') setCaffeineFilter(value);
+            }}
+          />
           <div className="flex flex-wrap gap-2 mb-10 justify-center">
             {TABS.map(t => (
               <button
