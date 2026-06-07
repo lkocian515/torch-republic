@@ -15,32 +15,12 @@ export default function ProductHero() {
   return (
     <section className="px-6 md:px-10 py-16 md:py-24" style={{ backgroundColor: '#0A0908', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
       <div className="max-w-[1280px] mx-auto">
-        {/* Trust Signals Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12 md:mb-16"
-        >
-          {trustSignals.map((signal, i) => (
-            <div key={i} className="text-center">
-              <p className="text-3xl md:text-4xl mb-2">{signal.icon}</p>
-              <p
-                className="font-mono text-[8px] md:text-[9px] tracking-[0.25em] md:tracking-[0.3em] uppercase leading-tight"
-                style={{ color: 'rgba(230,183,173,0.6)' }}
-              >
-                {signal.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-
         {/* Product Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative mb-12 md:mb-0"
+          className="relative mb-12 md:mb-16"
         >
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png"
@@ -56,6 +36,26 @@ export default function ProductHero() {
               background: 'linear-gradient(135deg, rgba(230,183,173,0.15) 0%, transparent 50%, rgba(16,185,129,0.1) 100%)',
             }}
           />
+        </motion.div>
+
+        {/* Trust Signals Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
+        >
+          {trustSignals.map((signal, i) => (
+            <div key={i} className="text-center">
+              <p className="text-3xl md:text-4xl mb-2">{signal.icon}</p>
+              <p
+                className="font-mono text-[8px] md:text-[9px] tracking-[0.25em] md:tracking-[0.3em] uppercase leading-tight"
+                style={{ color: 'rgba(230,183,173,0.6)' }}
+              >
+                {signal.label}
+              </p>
+            </div>
+          ))}
         </motion.div>
 
         {/* CTA Below Image */}
