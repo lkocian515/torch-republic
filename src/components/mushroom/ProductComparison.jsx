@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 export default function ProductComparison() {
   const showcases = [
     {
-      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c455f8b52_ChatGPTImageJun6202609_41_50PM.png',
-      alt: 'Matcha Collection - The Monk, The Ascendant, The Alchemist',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/106074bc1_ChatGPTImageJun6202609_40_24PM.png',
+      alt: 'Torchbearer Premium Coffee',
     },
     {
-      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5c49d7d93_ChatGPTImageJun6202609_40_38PM.png',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ff2e1875_ChatGPTImageJun6202609_40_38PM.png',
       alt: 'Mushroom Coffee Collection - Ember Rise & Midnight Watch',
     },
     {
-      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c4d7ba86e_ChatGPTImageJun6202609_40_24PM.png',
-      alt: 'Torchbearer Premium Coffee',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e3ce414ad_ChatGPTImageJun6202609_41_50PM.png',
+      alt: 'Matcha Collection - The Monk, The Ascendant, The Alchemist',
     },
   ];
 
