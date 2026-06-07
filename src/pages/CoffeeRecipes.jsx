@@ -1,407 +1,331 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useSEO } from '@/hooks/useSEO';
-import { Clock, Zap, ChevronDown, Coffee, Flame } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
+import { Coffee, Zap, Sun, Clock, Heart, TrendingUp } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
 const RECIPES = [
   {
-    id: 'iced-lion-latte',
-    title: "Iced Lion's Mane Latte",
-    blend: 'Focus Blend',
-    blendSlug: 'focus-blend',
-    time: '3 min',
+    id: 'classic-morning',
+    title: 'The Classic Morning',
+    time: '2 minutes',
     difficulty: 'Easy',
-    tag: 'Iced',
-    tagColor: '#5B9BD5',
-    description: "Silky, cold, and focused. This 3-minute latte uses your Focus Blend over ice with your choice of oat or almond milk for a clean morning ritual.",
-    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80',
-    ingredients: [
-      '1 serving Torch Republic Focus Blend',
-      '2 oz hot water',
-      '8 oz oat milk (or almond milk)',
-      'Ice cubes',
-      '1 tsp maple syrup (optional)',
-    ],
+    icon: Sun,
+    description: 'Start your day with intention. Mix one scoop of your favorite blend with hot water and sip mindfully.',
+    ingredients: ['1 scoop SunCap Rise or GlowMind Clarity', '8oz hot water (175°F)', 'Optional: dash of cinnamon'],
     steps: [
-      'Dissolve 1 serving of Focus Blend in 2 oz of hot water. Stir until fully dissolved.',
-      'Fill a tall glass with ice cubes.',
-      'Pour the dissolved coffee over ice.',
-      'Top with chilled oat milk and stir gently.',
-      'Add maple syrup if you want a touch of sweetness. Enjoy.',
+      'Heat water to 175°F (just below boiling)',
+      'Add one scoop to your favorite mug',
+      'Pour hot water over powder',
+      'Stir gently for 10 seconds',
+      'Take 3 deep breaths before your first sip',
     ],
-    tip: 'Shake your milk with ice in a jar for a frothy finish.',
+    bestWith: ['SunCap Rise', 'GlowMind Clarity'],
+    benefits: ['Quick energy', 'Mental clarity', 'Easy ritual'],
   },
   {
-    id: 'mushroom-protein-shake',
-    title: 'Mushroom Coffee Protein Shake',
-    blend: 'Energy Blend',
-    blendSlug: 'energy-blend',
-    time: '5 min',
+    id: 'creamy-latte',
+    title: 'Creamy Focus Latte',
+    time: '4 minutes',
     difficulty: 'Easy',
-    tag: 'High Protein',
-    tagColor: '#C9A24A',
-    description: "Fuel your workout and your morning. This shake blends mushroom coffee with chocolate protein powder for a drink that tastes like dessert and performs like a pre-workout.",
-    image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&q=80',
-    ingredients: [
-      '1 serving Torch Republic Energy Blend',
-      '1 scoop chocolate protein powder',
-      '1 cup cold almond milk',
-      '1 frozen banana',
-      '1 tbsp almond butter',
-      '3–4 ice cubes',
-    ],
+    icon: Coffee,
+    description: 'Transform your mushroom coffee into a café-worthy latte. Creamy, comforting, and perfect for slow mornings.',
+    ingredients: ['1 scoop MoonCap Restore or DreamCap', '6oz hot water', '4oz steamed oat milk or almond milk', '1 tsp maple syrup (optional)', 'Pinch of vanilla'],
     steps: [
-      'Add all ingredients to a blender.',
-      'Blend on high for 30–45 seconds until smooth.',
-      'Pour into a glass and drink immediately.',
+      'Mix scoop with hot water in mug',
+      'Steam or heat your milk of choice',
+      'Pour milk over coffee mixture',
+      'Add maple syrup and vanilla if desired',
+      'Top with foam if you\'re feeling fancy',
     ],
-    tip: "Add a handful of spinach — you won't taste it, but you'll feel it.",
+    bestWith: ['MoonCap Restore', 'DreamCap Blend'],
+    benefits: ['Comforting ritual', 'Sustained energy', 'Satisfying treat'],
   },
   {
-    id: 'chaga-chai-blend',
-    title: 'Chaga Chai Spice Blend',
-    blend: 'Calm Blend',
-    blendSlug: 'calm-blend',
-    time: '5 min',
+    id: 'iced-energy',
+    title: 'Iced Energy Boost',
+    time: '3 minutes',
     difficulty: 'Easy',
-    tag: 'Warm',
-    tagColor: '#A0796B',
-    description: "Earthy, warming, and spiced. The Calm Blend pairs beautifully with cinnamon and cardamom for an afternoon ritual that slows you down in the best way.",
-    image: 'https://images.unsplash.com/photo-1571658910820-b94a7de4cfda?w=600&q=80',
-    ingredients: [
-      '1 serving Torch Republic Calm Blend',
-      '8 oz hot water or warm oat milk',
-      '¼ tsp cinnamon',
-      '¼ tsp cardamom',
-      'Pinch of black pepper',
-      '1 tsp honey or maple syrup',
-    ],
+    icon: Zap,
+    description: 'Perfect for warm mornings or when you need a refreshing pick-me-up. Cold brew style without the wait.',
+    ingredients: ['1 scoop SunCap Rise', '2oz hot water', '6oz cold water or coconut water', 'Ice cubes', 'Lemon slice (optional)'],
     steps: [
-      'Bring oat milk to a gentle simmer — don\'t boil.',
-      'Dissolve Calm Blend in 2 oz of hot water in your mug.',
-      'Stir in the spices and sweetener.',
-      'Pour in the warm oat milk and stir.',
-      'Top with a dusting of cinnamon and serve.',
+      'Dissolve scoop in 2oz hot water first',
+      'Fill glass with ice',
+      'Add cold water or coconut water',
+      'Pour coffee mixture over ice',
+      'Add lemon slice for extra freshness',
     ],
-    tip: 'Try this as a bedtime ritual in place of chamomile tea.',
+    bestWith: ['SunCap Rise', 'The Monk Matcha'],
+    benefits: ['Refreshing', 'Quick cooling', 'Hydrating'],
   },
   {
-    id: 'double-shot-espresso-style',
-    title: 'Instant Double Shot (Espresso Style)',
-    blend: 'Torchbearer Dark Roast',
-    blendSlug: 'torchbearer',
-    time: '2 min',
+    id: 'protein-power',
+    title: 'Protein Power Blend',
+    time: '3 minutes',
     difficulty: 'Easy',
-    tag: 'Strong',
-    tagColor: '#333',
-    description: "No espresso machine needed. Use 2 servings of the Torchbearer Dark Roast dissolved in just 2 oz of water for a concentrate that hits like a real double shot.",
-    image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&q=80',
-    ingredients: [
-      '2 servings Torchbearer Dark Roast',
-      '2 oz near-boiling water',
-    ],
+    icon: Heart,
+    description: 'Turn your mushroom coffee into a complete morning fuel. Perfect for busy days when you need lasting energy.',
+    ingredients: ['1 scoop GlowMind Clarity or The Oracle', '8oz hot water', '1 scoop collagen peptides or protein powder', '1 tbsp MCT oil or coconut oil (optional)'],
     steps: [
-      'Heat water to just below boiling (about 195°F).',
-      'Add 2 servings of Torchbearer to your cup.',
-      'Pour 2 oz of hot water over the grounds.',
-      'Stir vigorously for 20 seconds until fully dissolved.',
-      'Use as a base for lattes, cortados, or drink as-is.',
+      'Mix mushroom coffee with hot water',
+      'Add collagen or protein powder',
+      'Blend in blender for 20 seconds (or whisk vigorously)',
+      'Add MCT oil if using',
+      'Pour and enjoy immediately',
     ],
-    tip: 'Add a splash of cold milk and 1 oz of sparkling water for a makeshift cortado.',
+    bestWith: ['GlowMind Clarity', 'The Oracle Blend'],
+    benefits: ['Sustained energy', 'Protein boost', 'Keeps you full'],
   },
   {
-    id: 'collagen-glow-latte',
-    title: 'Collagen Glow Latte',
-    blend: 'Balance Blend',
-    blendSlug: 'balance-blend',
-    time: '5 min',
-    difficulty: 'Easy',
-    tag: 'Wellness',
-    tagColor: '#C98F86',
-    description: "Your skin's new morning routine. The Balance Blend with collagen peptides and coconut cream is a ritual that works from the inside out.",
-    image: 'https://images.unsplash.com/photo-1521302200778-33500795e128?w=600&q=80',
-    ingredients: [
-      '1 serving Torch Republic Balance Blend',
-      '1 scoop unflavored collagen peptides',
-      '8 oz hot water or oat milk',
-      '2 tbsp coconut cream',
-      '½ tsp vanilla extract',
-    ],
+    id: 'golden-mushroom',
+    title: 'Golden Mushroom Milk',
+    time: '5 minutes',
+    difficulty: 'Medium',
+    icon: TrendingUp,
+    description: 'An anti-inflammatory powerhouse combining mushroom coffee with golden milk spices. Warming and nourishing.',
+    ingredients: ['1 scoop MoonCap Restore', '8oz oat milk or almond milk', '1/2 tsp turmeric', 'Pinch of black pepper', 'Dash of ginger', '1 tsp honey'],
     steps: [
-      'Heat your liquid of choice to just below boiling.',
-      'Dissolve Balance Blend and collagen in 2 oz hot water first, stir until smooth.',
-      'Add vanilla and coconut cream.',
-      'Pour in the remaining hot liquid and stir well.',
-      'Serve in your favorite mug.',
+      'Heat milk gently in small saucepan',
+      'Add turmeric, ginger, and black pepper',
+      'Whisk in mushroom coffee scoop',
+      'Simmer for 2 minutes (don\'t boil)',
+      'Strain if desired, add honey',
     ],
-    tip: 'Froth the coconut cream separately for a creamy foam topping.',
+    bestWith: ['MoonCap Restore', 'DreamCap Blend'],
+    benefits: ['Anti-inflammatory', 'Calming', 'Immune support'],
   },
   {
-    id: 'cold-brew-style',
-    title: 'Overnight Cold Brew Style',
-    blend: 'Focus Blend',
-    blendSlug: 'focus-blend',
-    time: '5 min + overnight',
+    id: 'smoothie-boost',
+    title: 'Morning Smoothie Boost',
+    time: '5 minutes',
     difficulty: 'Easy',
-    tag: 'Meal Prep',
-    tagColor: '#4A8C6F',
-    description: "Batch prep your mornings. Mix a larger serving in cold water the night before and wake up to a smooth, ready-to-drink mushroom cold brew concentrate.",
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80',
-    ingredients: [
-      '3 servings Torch Republic Focus Blend',
-      '12 oz cold filtered water',
-      'Ice and milk to serve',
-    ],
+    icon: Zap,
+    description: 'Hide your mushroom coffee in a delicious smoothie. All the benefits, none of the coffee taste.',
+    ingredients: ['1 scoop The Oracle or Mystic Bloom', '1 frozen banana', '1 cup spinach', '1 cup almond milk', '1 tbsp almond butter', 'Ice cubes'],
     steps: [
-      'Add 3 servings of Focus Blend to a jar or pitcher.',
-      'Pour 12 oz of cold filtered water over it.',
-      'Stir well, seal, and refrigerate overnight (8–12 hours).',
-      'In the morning, stir again, pour over ice.',
-      'Top with milk or enjoy straight.',
+      'Add all ingredients to blender',
+      'Blend on high for 45 seconds',
+      'Add more ice for thickness if desired',
+      'Pour into glass',
+      'Enjoy your hidden superfood boost',
     ],
-    tip: 'Make a big batch on Sunday and keep it in the fridge all week.',
+    bestWith: ['The Oracle Blend', 'Mystic Bloom'],
+    benefits: ['Nutrient-dense', 'Great taste', 'Full breakfast'],
   },
 ];
 
-const TAGS = ['All', 'Iced', 'High Protein', 'Warm', 'Strong', 'Wellness', 'Meal Prep'];
-
-function RecipeCard({ recipe, onClick }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-      onClick={() => onClick(recipe)}
-      className="cursor-pointer group"
-      style={{ background: '#0D0D0D', border: '1px solid rgba(230,183,173,0.1)' }}
-    >
-      {/* Image */}
-      <div className="relative overflow-hidden h-48">
-        <img
-          src={recipe.image}
-          alt={recipe.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 60%)' }} />
-        <span className="absolute bottom-3 left-3 font-mono text-[9px] tracking-[0.3em] uppercase px-2 py-1"
-          style={{ background: recipe.tagColor + '22', border: `1px solid ${recipe.tagColor}40`, color: recipe.tagColor }}>
-          {recipe.tag}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: RG + '80' }}>
-            {recipe.blend}
-          </span>
-        </div>
-        <h3 className="font-heading font-black uppercase tracking-tight text-base mb-2" style={{ color: '#F0EBE1' }}>
-          {recipe.title}
-        </h3>
-        <p className="font-mono text-[10px] leading-relaxed mb-4" style={{ color: 'rgba(240,235,225,0.45)' }}>
-          {recipe.description}
-        </p>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1.5">
-            <Clock className="w-3 h-3" style={{ color: RG + '60' }} />
-            <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.4)' }}>{recipe.time}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Zap className="w-3 h-3" style={{ color: RG + '60' }} />
-            <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.4)' }}>{recipe.difficulty}</span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function RecipeModal({ recipe, onClose }) {
-  if (!recipe) return null;
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: 'rgba(0,0,0,0.85)' }}
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.96 }}
-        transition={{ duration: 0.25 }}
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-        style={{ background: '#0D0D0D', border: '1px solid rgba(230,183,173,0.15)' }}
-        onClick={e => e.stopPropagation()}
-      >
-        {/* Image */}
-        <div className="relative h-56 overflow-hidden">
-          <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0D0D0D 0%, transparent 60%)' }} />
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center font-mono text-xs"
-            style={{ background: 'rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.6)' }}
-          >
-            ✕
-          </button>
-          <span className="absolute bottom-3 left-4 font-mono text-[9px] tracking-[0.3em] uppercase px-2 py-1"
-            style={{ background: recipe.tagColor + '22', border: `1px solid ${recipe.tagColor}40`, color: recipe.tagColor }}>
-            {recipe.tag}
-          </span>
-        </div>
-
-        <div className="p-6 md:p-8 space-y-6">
-          {/* Header */}
-          <div>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: RG + '70' }}>{recipe.blend}</p>
-            <h2 className="font-heading font-black uppercase tracking-tight text-2xl mb-2" style={{ color: '#F0EBE1' }}>{recipe.title}</h2>
-            <p className="font-mono text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)' }}>{recipe.description}</p>
-            <div className="flex gap-4 mt-3">
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3 h-3" style={{ color: RG + '60' }} />
-                <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.4)' }}>{recipe.time}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Zap className="w-3 h-3" style={{ color: RG + '60' }} />
-                <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.4)' }}>{recipe.difficulty}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Ingredients */}
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: RG + '80' }}>Ingredients</p>
-            <ul className="space-y-2">
-              {recipe.ingredients.map((ing, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: RG + '60' }} />
-                  <span className="font-mono text-[11px]" style={{ color: 'rgba(240,235,225,0.65)' }}>{ing}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Steps */}
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: RG + '80' }}>How to Make It</p>
-            <ol className="space-y-3">
-              {recipe.steps.map((step, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="font-mono text-[10px] font-bold w-5 flex-shrink-0 mt-0.5" style={{ color: RG }}>{i + 1}.</span>
-                  <span className="font-mono text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)' }}>{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          {/* Tip */}
-          {recipe.tip && (
-            <div className="px-4 py-3" style={{ background: RG + '08', border: `1px solid ${RG}20` }}>
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: RG + '80' }}>Pro Tip</p>
-              <p className="font-mono text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)' }}>{recipe.tip}</p>
-            </div>
-          )}
-
-          {/* CTA */}
-          <Link
-            to={`/blends/${recipe.blendSlug}`}
-            className="flex items-center justify-center gap-2 py-3 font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-80"
-            style={{ background: RG + '15', border: `1px solid ${RG}35`, color: RG }}
-            onClick={onClose}
-          >
-            <Coffee className="w-3.5 h-3.5" />
-            Shop {recipe.blend}
-          </Link>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
+const ROUTINE_TIPS = [
+  {
+    icon: Clock,
+    title: 'Timing Matters',
+    text: 'Drink your mushroom coffee 30-60 minutes after waking for optimal cortisol alignment.',
+  },
+  {
+    icon: Heart,
+    title: 'Consistency is Key',
+    text: 'Adaptogens work best with daily use. Make it a non-negotiable part of your morning.',
+  },
+  {
+    icon: Zap,
+    title: 'Stack Your Habits',
+    text: 'Pair your mushroom coffee with meditation, journaling, or movement for amplified benefits.',
+  },
+];
 
 export default function CoffeeRecipes() {
-  const [activeTag, setActiveTag] = useState('All');
-  const [activeRecipe, setActiveRecipe] = useState(null);
-
   useSEO({
-    title: 'Coffee Recipes — Creative Ways to Brew Your Mushroom Blends | Torch Republic',
-    description: "Discover creative mushroom coffee recipes — iced lattes, protein shakes, chai blends, and more. New ways to enjoy your Torch Republic ritual every day.",
+    title: 'Mushroom Coffee Recipes | Morning Ritual Ideas',
+    description: 'Simple recipes to incorporate mushroom coffee into your daily routine. From classic brews to protein lattes, discover new ways to enjoy your morning ritual.',
     url: '/recipes',
-    type: 'website',
   });
 
-  const filtered = activeTag === 'All' ? RECIPES : RECIPES.filter(r => r.tag === activeTag);
-
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
       {/* Hero */}
-      <section className="pt-20 pb-12 px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <Flame className="w-4 h-4" style={{ color: RG }} />
-            <span className="font-mono text-[10px] tracking-[0.45em] uppercase" style={{ color: RG + '80' }}>
-              Torch Republic Kitchen
-            </span>
-          </div>
-          <h1 className="font-heading font-black uppercase tracking-tight text-4xl md:text-5xl mb-4" style={{ color: '#F0EBE1' }}>
-            Coffee Recipes
+      <section className="px-6 md:px-10 pt-20 pb-14 text-center"
+        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            Morning Rituals
+          </p>
+          <h1 className="font-serif font-bold mb-4"
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            How to Enjoy Your Mushroom Coffee
           </h1>
-          <p className="font-mono text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)' }}>
-            Your blends work harder than a standard cup. Here are 6 ways to make them even better — from a 2-minute iced latte to an overnight cold brew you prep on Sunday.
+          <p className="font-heading max-w-2xl mx-auto"
+            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            Six simple recipes to transform your daily cup into something extraordinary. From quick classics to creative blends.
           </p>
         </motion.div>
       </section>
 
-      {/* Divider */}
-      <div className="divider-gradient mx-auto max-w-4xl mb-10" />
-
-      {/* Filter tags */}
-      <section className="px-6 mb-10">
-        <div className="max-w-5xl mx-auto flex flex-wrap gap-2 justify-center">
-          {TAGS.map(tag => (
-            <button
-              key={tag}
-              onClick={() => setActiveTag(tag)}
-              className="font-mono text-[10px] tracking-[0.3em] uppercase px-4 py-2 transition-all"
-              style={{
-                background: activeTag === tag ? RG + '15' : 'transparent',
-                border: activeTag === tag ? `1px solid ${RG}40` : '1px solid rgba(230,183,173,0.12)',
-                color: activeTag === tag ? RG : 'rgba(240,235,225,0.4)',
-              }}
-            >
-              {tag}
-            </button>
-          ))}
+      {/* Routine Tips */}
+      <section className="px-6 md:px-10 py-12" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ROUTINE_TIPS.map((tip, i) => {
+              const Icon = tip.icon;
+              return (
+                <motion.div
+                  key={tip.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-center p-6"
+                >
+                  <div className="inline-flex items-center justify-center mb-4"
+                    style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(230,183,173,0.08)' }}>
+                    <Icon className="w-5 h-5" style={{ color: RG }} />
+                  </div>
+                  <h3 className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                    {tip.title}
+                  </h3>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.7 }}>
+                    {tip.text}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Recipe grid */}
-      <section className="px-6 pb-20">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <AnimatePresence mode="popLayout">
-            {filtered.map(recipe => (
-              <RecipeCard key={recipe.id} recipe={recipe} onClick={setActiveRecipe} />
-            ))}
-          </AnimatePresence>
+      {/* Recipes Grid */}
+      <section className="px-6 md:px-10 py-16">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {RECIPES.map((recipe, i) => {
+              const Icon = recipe.icon;
+              return (
+                <motion.div
+                  key={recipe.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="border border-white/5 rounded-lg p-6 md:p-8 hover:border-rose-gold/20 transition-all"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.01)' }}
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center justify-center"
+                          style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(230,183,173,0.08)' }}>
+                          <Icon className="w-4 h-4" style={{ color: RG }} />
+                        </div>
+                        <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                          {recipe.time} • {recipe.difficulty}
+                        </span>
+                      </div>
+                      <h2 className="font-serif font-bold text-2xl md:text-3xl mb-2" style={{ color: '#FFFFFF' }}>
+                        {recipe.title}
+                      </h2>
+                      <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.7 }}>
+                        {recipe.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Ingredients */}
+                  <div className="mb-6">
+                    <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                      What You Need
+                    </h3>
+                    <ul className="space-y-2">
+                      {recipe.ingredients.map((ing, idx) => (
+                        <li key={idx} className="font-heading text-sm flex items-start gap-2"
+                          style={{ color: 'rgba(240,235,225,0.6)' }}>
+                          <span style={{ color: RG }}>•</span>
+                          {ing}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Steps */}
+                  <div className="mb-6">
+                    <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+                      How to Make It
+                    </h3>
+                    <ol className="space-y-3">
+                      {recipe.steps.map((step, idx) => (
+                        <li key={idx} className="font-heading text-sm flex items-start gap-3"
+                          style={{ color: 'rgba(240,235,225,0.6)' }}>
+                          <span className="font-mono text-[7px] tracking-[0.2em] flex-shrink-0"
+                            style={{ color: RG, minWidth: '20px' }}>
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+
+                  {/* Best With & Benefits */}
+                  <div className="pt-6 border-t border-white/5">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {recipe.bestWith.map((blend) => (
+                        <span key={blend} className="font-mono text-[7px] tracking-[0.25em] uppercase px-3 py-1.5 rounded"
+                          style={{ background: 'rgba(230,183,173,0.08)', color: RG }}>
+                          {blend}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {recipe.benefits.map((benefit) => (
+                        <span key={benefit} className="font-heading text-xs"
+                          style={{ color: 'rgba(240,235,225,0.35)' }}>
+                          ✦ {benefit}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Recipe modal */}
-      <AnimatePresence>
-        {activeRecipe && <RecipeModal recipe={activeRecipe} onClose={() => setActiveRecipe(null)} />}
-      </AnimatePresence>
+      {/* Final CTA */}
+      <section className="px-6 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            Ready to Start Your Ritual?
+          </p>
+          <h2 className="font-serif font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)' }}>
+            Shop All Blends
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/shop"
+              className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
+              style={{ background: RG, color: '#080808' }}>
+              Shop Now →
+            </Link>
+            <Link to="/bundle"
+              className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-3.5 px-8"
+              style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
+              Get the Bundle →
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Legal */}
+      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <p className="font-mono text-[8px] tracking-[0.15em] max-w-xl mx-auto"
+          style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+          Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+        </p>
+      </div>
     </div>
   );
 }
