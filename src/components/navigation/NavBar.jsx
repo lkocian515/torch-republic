@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'The Blends', href: '/blends' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Bundle', href: '/bundle' },
+  { label: 'Journal', href: '/journal' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
 ];

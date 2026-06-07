@@ -19,6 +19,7 @@ const NAV_LINKS = [
   { label: 'Classic Coffee', href: '/torchbearer' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'Subscribe', href: '/subscription' },
+  { label: 'Journal', href: '/journal' },
   { label: 'About', href: '/about' },
   { label: 'FAQ', href: '/faq' },
 ];
@@ -38,7 +39,7 @@ export default function UnifiedHeader() {
   }, []);
 
   // Check if we're on a child route (not home)
-  const TOP_LEVEL = ['/', '/shop', '/blends', '/bundle', '/subscription', '/torchbearer', '/about', '/faq', '/contact', '/Reviews', '/Journal', '/Profile'];
+  const TOP_LEVEL = ['/', '/shop', '/blends', '/bundle', '/subscription', '/torchbearer', '/about', '/faq', '/contact', '/Reviews', '/Journal', '/Profile', '/journal'];
   const isChildRoute = !TOP_LEVEL.includes(location.pathname) && !TOP_LEVEL.some(p => p !== '/' && location.pathname.startsWith(p + '/'));
 
   const handleBack = () => {
