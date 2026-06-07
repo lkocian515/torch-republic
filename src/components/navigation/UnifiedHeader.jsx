@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const PROMO_MESSAGES = [
-  'Instant coffee, mushroom coffee & matcha for modern ritual',
+  'Instant Coffee, Mushroom Coffee & Matcha',
   'First order 10% off — use code WELCOME10',
   'Free shipping on orders over $75',
 ];
