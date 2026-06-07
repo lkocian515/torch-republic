@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
-import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import TasteProfileCard from '../components/mushroom/TasteProfileCard';
@@ -153,7 +153,7 @@ function BlendDetailInner({ product }) {
 
   // Note: product is guaranteed non-null here (checked by parent)
 
-  const related = MUSHROOM_PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
+  const related = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS].filter(p => p.id !== product.id).slice(0, 3);
 
   const shopifyUrl = getShopifyCartUrl(product.slug, qty);
   const checkoutDest = shopifyUrl || SHOPIFY_CART_URL;
@@ -500,7 +500,7 @@ function BlendDetailInner({ product }) {
 
 export default function BlendDetail() {
   const { slug } = useParams();
-  const product = MUSHROOM_PRODUCTS.find(p => p.slug === slug);
+  const product = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS].find(p => p.slug === slug);
 
   if (!product) {
     return (
