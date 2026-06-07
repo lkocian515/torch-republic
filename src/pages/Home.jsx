@@ -26,6 +26,7 @@ import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
+import CustomerTestimonials from '../components/home/CustomerTestimonials';
 
 const RG = '#E6B7AD';
 
@@ -154,31 +155,34 @@ export default function Home() {
       {/* 12. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 13. Reviews */}
+      {/* 13. Customer Testimonials */}
+      <CustomerTestimonials />
+
+      {/* 14. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 14. Bundles */}
+      {/* 15. Bundles */}
       <BundleSection />
 
-      {/* 15. Comparison */}
+      {/* 16. Comparison */}
       <BlendComparisonTable />
 
-      {/* 16. How It Works */}
+      {/* 17. How It Works */}
       <HowItWorks />
 
-      {/* 17. Ingredient Transparency */}
+      {/* 18. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 18. Founder Note */}
+      {/* 19. Founder Note */}
       <FounderNote />
 
-      {/* 19. Guarantee */}
+      {/* 20. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 20. FAQ */}
+      {/* 21. FAQ */}
       <FAQSection />
 
-      {/* 21. Final CTA */}
+      {/* 22. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
