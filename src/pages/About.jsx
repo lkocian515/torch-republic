@@ -213,11 +213,11 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Our Commitment
+          <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            The Daily Ritual of Rising
           </p>
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
-            Built for a Better Coffee Ritual
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            Carry the Morning Flame
           </h2>
           <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
             Torch Republic is coffee for people who are rebuilding their energy, reclaiming their focus, and choosing to rise with intention every day. The torch represents the part of you that refuses to go out.

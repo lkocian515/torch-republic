@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import HowToUse from '../components/mushroom/HowToUse';
 import WhyInstant from '../components/mushroom/WhyInstant';
+import GettingStartedGuide from '../components/mushroom/GettingStartedGuide';
 
 export default function HowItWorks() {
   useSEO({
@@ -29,6 +30,7 @@ export default function HowItWorks() {
       </section>
       <HowToUse />
       <WhyInstant />
+      <GettingStartedGuide />
       <section className="px-6 py-20 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
         <Link to="/shop"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
