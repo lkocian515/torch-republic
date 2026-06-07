@@ -9,31 +9,34 @@ const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
  * canonical URL, and injects JSON-LD structured data.
  *
  * @param {object} opts
- * @param {string} opts.title          - Page <title>
+ * @param {string} opts.title          - Page <title> (brand appended if not already present)
  * @param {string} opts.description    - Meta description (max ~160 chars)
  * @param {string} [opts.image]        - OG image URL (absolute)
- * @param {string} [opts.url]          - Canonical path, e.g. '/blends/glowmind-clarity'
+ * @param {string} [opts.url]          - Canonical path, e.g. '/journal/lions-mane-mushroom-coffee'
  * @param {'website'|'product'|'article'} [opts.type] - OG type
  * @param {object} [opts.product]      - Product schema data { name, description, price, image, sku }
  * @param {object[]} [opts.breadcrumbs] - Array of { name, url } for BreadcrumbList schema
+ * @param {object} [opts.article]      - { author, datePublished, dateModified, section, keywords, tags }
+ * @param {object[]} [opts.faq]        - [{ question, answer }] for FAQPage schema (rich snippets)
  */
-export function useSEO({ title, description, image, url, type = 'website', product, breadcrumbs }) {
+export function useSEO({ title, description, image, url, type = 'website', product, breadcrumbs, article, faq }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Premium Instant Mushroom Coffee`;
+    // Avoid double-branding — only append if not already present
+    const fullTitle = title
+      ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
+      : `${SITE_NAME} | Premium Instant Mushroom Coffee`;
     const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
 
-    // ── title ──
     const prevTitle = document.title;
     document.title = fullTitle;
 
-    // ── helper: set/create meta ──
     const setMeta = (selector, attr, value) => {
       let el = document.querySelector(selector);
       if (!el) {
         el = document.createElement('meta');
-        const [attrName, attrVal] = selector.match(/\[([^=]+)="([^"]+)"\]/)?.slice(1) || [];
-        if (attrName) el.setAttribute(attrName, attrVal);
+        const match = selector.match(/\[([^=]+)="([^"]+)"\]/);
+        if (match) el.setAttribute(match[1], match[2]);
         document.head.appendChild(el);
       }
       el.setAttribute(attr, value);
@@ -47,29 +50,64 @@ export function useSEO({ title, description, image, url, type = 'website', produ
       return el;
     };
 
-    // ── description ──
+    // Core meta
     const descEl = description ? setMeta('meta[name="description"]', 'content', description) : null;
-
-    // ── canonical ──
+    const keywordsEl = article?.keywords?.length ? setMeta('meta[name="keywords"]', 'content', article.keywords.join(', ')) : null;
+    const robotsEl = setMeta('meta[name="robots"]', 'content', 'index, follow');
     const canonEl = setLink('canonical', canonicalUrl);
 
-    // ── Open Graph ──
+    // Open Graph
     setMeta('meta[property="og:title"]', 'content', fullTitle);
     setMeta('meta[property="og:description"]', 'content', description || '');
     setMeta('meta[property="og:url"]', 'content', canonicalUrl);
-    setMeta('meta[property="og:type"]', 'content', type === 'product' ? 'product' : type);
+    setMeta('meta[property="og:type"]', 'content', type === 'article' ? 'article' : type === 'product' ? 'product' : 'website');
     setMeta('meta[property="og:image"]', 'content', ogImage);
     setMeta('meta[property="og:site_name"]', 'content', SITE_NAME);
+    setMeta('meta[property="og:locale"]', 'content', 'en_US');
 
-    // ── Twitter Card ──
+    // OG Article-specific tags
+    const articleMetaEls = [];
+    if (type === 'article' && article) {
+      if (article.datePublished) articleMetaEls.push(setMeta('meta[property="article:published_time"]', 'content', article.datePublished));
+      if (article.dateModified || article.datePublished) articleMetaEls.push(setMeta('meta[property="article:modified_time"]', 'content', article.dateModified || article.datePublished));
+      if (article.section) articleMetaEls.push(setMeta('meta[property="article:section"]', 'content', article.section));
+      if (article.author) articleMetaEls.push(setMeta('meta[property="article:author"]', 'content', article.author));
+    }
+
+    // Twitter Card
     setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'content', fullTitle);
     setMeta('meta[name="twitter:description"]', 'content', description || '');
     setMeta('meta[name="twitter:image"]', 'content', ogImage);
 
-    // ── JSON-LD structured data ──
+    // JSON-LD Structured Data
     const schemas = [];
 
+    // BlogPosting schema for articles
+    if (type === 'article') {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        description: description || '',
+        image: { '@type': 'ImageObject', url: ogImage },
+        author: { '@type': 'Organization', name: article?.author || SITE_NAME, url: BASE_URL },
+        publisher: {
+          '@type': 'Organization',
+          name: SITE_NAME,
+          logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE },
+        },
+        datePublished: article?.datePublished || new Date().toISOString(),
+        dateModified: article?.dateModified || article?.datePublished || new Date().toISOString(),
+        url: canonicalUrl,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+        inLanguage: 'en-US',
+        ...(article?.keywords?.length ? { keywords: article.keywords.join(', ') } : {}),
+        ...(article?.section ? { articleSection: article.section } : {}),
+      });
+    }
+
+    // Product schema
     if (product) {
       schemas.push({
         '@context': 'https://schema.org',
@@ -97,6 +135,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
       });
     }
 
+    // BreadcrumbList schema
     if (breadcrumbs?.length) {
       schemas.push({
         '@context': 'https://schema.org',
@@ -106,6 +145,19 @@ export function useSEO({ title, description, image, url, type = 'website', produ
           position: i + 1,
           name: b.name,
           item: `${BASE_URL}${b.url}`,
+        })),
+      });
+    }
+
+    // FAQPage schema — powers accordion-style rich results in Google Search
+    if (faq?.length) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
         })),
       });
     }
@@ -122,8 +174,10 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     return () => {
       document.title = prevTitle;
       if (descEl) descEl.setAttribute('content', '');
+      if (keywordsEl) keywordsEl.setAttribute('content', '');
+      if (robotsEl) robotsEl.setAttribute('content', '');
       canonEl.setAttribute('href', BASE_URL);
       scriptEls.forEach(el => el.remove());
     };
-  }, [title, description, image, url, type, product, breadcrumbs]);
+  }, [title, description, image, url, type, product, breadcrumbs, article, faq]);
 }

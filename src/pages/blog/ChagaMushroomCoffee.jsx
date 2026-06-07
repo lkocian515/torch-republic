@@ -64,10 +64,49 @@ const OracRow = ({ item, value, width }) => (
 
 export default function ChagaMushroomCoffee() {
   useSEO({
-    title: "What Is Chaga Mushroom? The World's Most Powerful Antioxidant in Your Morning Coffee | Torch Republic",
-    description: "Chaga mushroom holds the highest ORAC antioxidant value ever recorded. Learn the science, history, benefits, and why Torch Republic adds it to every mushroom coffee blend.",
+    title: "Chaga Mushroom Coffee: Benefits, ORAC Antioxidants & Immune Science | Torch Republic",
+    description: "Chaga holds the highest ORAC antioxidant value ever recorded — 15x wild blueberries. Learn the history, bioactive compounds, Memorial Sloan Kettering research, and why it belongs in your morning coffee.",
     url: '/journal/chaga-mushroom-coffee',
     type: 'article',
+    article: {
+      author: 'Torch Republic',
+      datePublished: '2026-06-01T08:00:00-05:00',
+      dateModified: '2026-06-07T08:00:00-05:00',
+      section: 'Ingredients',
+      keywords: [
+        "chaga mushroom coffee", "chaga mushroom benefits", "chaga antioxidants",
+        "functional mushroom coffee", "chaga immune support", "ORAC antioxidants coffee",
+        "what is chaga mushroom", "chaga coffee recipe", "best chaga coffee",
+        "chaga vs regular coffee", "adaptogen coffee", "inonotus obliquus coffee",
+      ],
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'The Journal', url: '/Journal' },
+      { name: 'Chaga Mushroom Coffee', url: '/journal/chaga-mushroom-coffee' },
+    ],
+    faq: [
+      {
+        question: "What is Chaga mushroom and what does it do?",
+        answer: "Chaga (Inonotus obliquus) is a parasitic fungus growing on birch trees in cold northern climates. It holds the highest ORAC antioxidant value ever recorded — over 146,700 units per 100g compared to 9,600 for wild blueberries. Its compounds include beta-glucans, betulinic acid, melanin, and inotodiol, which support immune function, reduce inflammation, and protect cells from oxidative damage.",
+      },
+      {
+        question: "What are the health benefits of Chaga mushroom coffee?",
+        answer: "Chaga mushroom coffee provides antioxidant reinforcement from the world's most potent natural antioxidant source, immune modulation from beta-glucans, anti-inflammatory compounds, prebiotic fiber for gut health, and roughly half the caffeine of regular coffee for better cortisol regulation. A 2004 study showed Chaga extract produced over 40% reduction in DNA fragmentation from oxidative stress.",
+      },
+      {
+        question: "What does Chaga mushroom coffee taste like?",
+        answer: "Chaga has a naturally earthy, slightly vanilla-like flavor with no bitterness. In Torch Republic mushroom coffee blends, Chaga is nearly undetectable — you taste premium specialty-grade coffee, not mushroom.",
+      },
+      {
+        question: "What is ORAC value and why does Chaga have the highest?",
+        answer: "ORAC (Oxygen Radical Absorbance Capacity) measures how effectively a substance neutralizes free radicals. Chaga holds the highest ORAC value ever recorded — over 146,700 units per 100g — because it spends decades slowly absorbing bioactive compounds from birch trees, accumulating an extraordinary concentration of melanin, polyphenols, and triterpenoids.",
+      },
+      {
+        question: "Is Chaga mushroom coffee safe to drink daily?",
+        answer: "Chaga has been consumed as a daily tea in Russia and Scandinavia for centuries and is generally well-tolerated at standard serving sizes. At the amounts used in mushroom coffee blends, no significant adverse effects have been documented. Individuals with kidney conditions or those taking blood-thinning medications should consult a physician before use.",
+      },
+    ],
   });
 
   return (

@@ -54,10 +54,49 @@ const ResearchCard = ({ label, children }) => (
 
 export default function LionsManeMushroomCoffee() {
   useSEO({
-    title: "Lion's Mane Mushroom Coffee: Benefits, Research & Morning Ritual Guide | Torch Republic",
-    description: "Discover the science behind Lion's Mane mushroom coffee — how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual. Shop Torch Republic.",
+    title: "Lion's Mane Mushroom Coffee: Benefits, Research & Brain Health Guide | Torch Republic",
+    description: "Lion's Mane mushroom coffee stimulates Nerve Growth Factor (NGF) in the brain — backed by 30 years of clinical research. Learn the science, benefits, and how to start your cognitive coffee ritual.",
     url: '/journal/lions-mane-mushroom-coffee',
     type: 'article',
+    article: {
+      author: 'Torch Republic',
+      datePublished: '2026-06-01T08:00:00-05:00',
+      dateModified: '2026-06-07T08:00:00-05:00',
+      section: 'Ingredients',
+      keywords: [
+        "lion's mane mushroom coffee", "lion's mane coffee benefits", "mushroom coffee for focus",
+        "NGF mushroom coffee", "functional mushroom coffee", "lion's mane brain health",
+        "hericium erinaceus coffee", "nootropic coffee", "cognitive mushroom coffee",
+        "lion's mane vs regular coffee", "best mushroom coffee", "lion's mane daily ritual",
+      ],
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'The Journal', url: '/Journal' },
+      { name: "Lion's Mane Mushroom Coffee", url: '/journal/lions-mane-mushroom-coffee' },
+    ],
+    faq: [
+      {
+        question: "What is Lion's Mane mushroom coffee?",
+        answer: "Lion's Mane mushroom coffee combines premium instant coffee with Lion's Mane (Hericium erinaceus) extract. Lion's Mane contains unique bioactive compounds — hericenones and erinacines — that cross the blood-brain barrier and stimulate Nerve Growth Factor (NGF) production in the brain. Torch Republic blends Lion's Mane with Chaga for a complete cognitive and immune support morning ritual.",
+      },
+      {
+        question: "What does Lion's Mane coffee do for your brain?",
+        answer: "Lion's Mane stimulates Nerve Growth Factor (NGF) and Brain-Derived Neurotrophic Factor (BDNF) — proteins the brain uses to maintain and repair neurons. Clinical trials show progressive improvements in cognitive scores over 16 weeks, including clearer thinking, sustained focus, improved memory formation, and reduced brain fog.",
+      },
+      {
+        question: "How much caffeine is in Lion's Mane mushroom coffee?",
+        answer: "Torch Republic mushroom coffee contains roughly half the caffeine of regular coffee — approximately 40–60 mg per serving versus ~95 mg in standard coffee. This lower caffeine content combined with Lion's Mane and Chaga adaptogens creates a smoother, jitter-free energy experience with fewer crashes.",
+      },
+      {
+        question: "How long does it take for Lion's Mane coffee to work?",
+        answer: "Lion's Mane effects are cumulative rather than immediate. The landmark Mori trial found progressive cognitive improvements over 16 weeks of daily supplementation, with effects declining after stopping — consistent with an NGF stimulus mechanism. Most users report noticeable clarity improvements within 2–4 weeks of consistent daily use.",
+      },
+      {
+        question: "Is Lion's Mane mushroom coffee safe to drink every day?",
+        answer: "Lion's Mane mushroom coffee is generally considered safe for healthy adults and has been consumed in traditional Asian medicine for over 2,000 years. People with mushroom allergies, those on blood-thinning medications, or individuals with kidney conditions should consult a physician before use.",
+      },
+    ],
   });
 
   return (
