@@ -125,10 +125,10 @@ export default function MushroomProductCard({ product, index = 0 }) {
             Details →
           </Link>
         </div>
-        {/* WELCOME10 nudge */}
+        {/* WELCOME15 nudge */}
         <p className="font-mono text-[7px] tracking-[0.18em] uppercase mt-1.5"
           style={{ color: 'rgba(196,163,90,0.5)' }}>
-          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME10</span> for 10% off
+          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME15</span> for 15% off
         </p>
       </div>
 
@@ -136,7 +136,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       <div className="px-5 pb-5 pt-0">
         <button
           onClick={handleAddToCart}
-          className="w-full flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-3"
+          className="w-full flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-3 min-h-[44px]"
           style={{ background: '#E6B7AD', color: '#080808' }}
         >
           <ShoppingBag className="w-3.5 h-3.5" />

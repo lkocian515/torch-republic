@@ -31,7 +31,7 @@ export default function ExitIntentPopup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-    base44.entities.EmailSubscriber.create({ email, source: 'exit_intent', discount_code: 'WELCOME10' });
+    base44.entities.EmailSubscriber.create({ email, source: 'exit_intent', discount_code: 'WELCOME15' });
     setSubmitted(true);
   };
 
@@ -87,14 +87,14 @@ export default function ExitIntentPopup() {
                     Check your inbox for your discount code.
                   </p>
                   <div style={{ background: `${RG}12`, border: `1px solid ${RG}30`, padding: '12px 20px', display: 'inline-block' }}>
-                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: RG, fontSize: '1rem' }}>WELCOME10</span>
+                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: RG, fontSize: '1rem' }}>WELCOME15</span>
                   </div>
-                  <p className="font-mono text-[8px] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>10% off your first order · applies at checkout</p>
+                  <p className="font-mono text-[8px] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>15% off your first order · applies at checkout</p>
                 </div>
               ) : (
                 <>
                   <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.8rem', lineHeight: 1.1 }}>
-                    Get 10% off<br />
+                    Get 15% off<br />
                     <span style={{ color: RG }}>your first order.</span>
                   </h2>
 
@@ -120,7 +120,7 @@ export default function ExitIntentPopup() {
                     <button type="submit"
                       className="w-full py-4 font-mono font-bold uppercase tracking-[0.3em] transition-opacity hover:opacity-85"
                       style={{ fontSize: '11px', background: RG, color: '#060606' }}>
-                      Claim My 10% Off
+                      Claim My 15% Off
                     </button>
                   </form>
                 </>

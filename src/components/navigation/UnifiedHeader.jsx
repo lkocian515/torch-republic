@@ -6,7 +6,7 @@ import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const PROMO_MESSAGES = [
   'Instant Coffee, Mushroom Coffee & Matcha',
-  'First order 10% off — use code WELCOME10',
+  'First order 15% off — use code WELCOME15',
   'Free shipping on orders over $75',
 ];
 
