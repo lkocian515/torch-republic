@@ -9,29 +9,29 @@ const GOLD = '#C4A35A';
 
 const PRODUCTS = {
   coffee: [
-    { name: 'Torchbearer', type: 'Premium Instant Coffee', benefit: 'Bold, smooth, steady.', href: '/torchbearer', accent: GOLD, live: true },
-    { name: 'Ember Rise', type: 'Premium Instant Coffee', benefit: 'Warm, bright, morning energy.', href: '/shop', accent: GOLD, live: false },
-    { name: 'Midnight Watch', type: 'Premium Instant Coffee', benefit: 'Deep, dark, focused.', href: '/shop', accent: GOLD, live: false },
+    { name: 'Torchbearer', type: 'Instant Coffee · Medium Roast', benefit: 'Bold · Smooth · Intense — the original daily ritual. 100% Arabica + Lion\'s Mane + Chaga.', href: '/torchbearer', accent: GOLD, live: true },
+    { name: 'Ember Rise', type: 'Instant Coffee · Medium Roast', benefit: 'Rich · Smooth · Bold — ignite your momentum. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
+    { name: 'Midnight Watch', type: 'Instant Coffee · Dark Roast', benefit: 'Bold · Deep · Intense — own the night. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
   ],
   mushroom: [
-    { name: 'SunCap Rise', type: 'Mushroom Coffee', benefit: 'Morning energy + clarity.', href: '/blends/suncap-rise', accent: RG, live: true },
-    { name: 'MoonCap Restore', type: 'Mushroom Coffee', benefit: 'Grounding, restoration, and balance.', href: '/blends/mooncap-restore', accent: RG, live: true },
-    { name: 'GlowMind Clarity', type: 'Mushroom Coffee', benefit: 'Focus, flow, and mental clarity.', href: '/blends/glowmind-clarity', accent: RG, live: true },
-    { name: 'DreamCap', type: 'Mushroom Coffee', benefit: 'Evening calm and ritual.', href: '/blends/dreamcap-blend', accent: RG, live: true },
-    { name: 'The Oracle', type: 'Mushroom Coffee', benefit: 'Intuition, focus, and reflection.', href: '/blends/the-oracle', accent: RG, live: true },
-    { name: 'Mystic Bloom', type: 'Mushroom Coffee', benefit: 'Beauty, balance, and glow.', href: '/blends/mystic-bloom', accent: RG, live: true },
+    { name: 'SunCap Rise', type: 'Mushroom Coffee · Light Roast', benefit: 'Morning energy + clarity. Lion\'s Mane + Chaga.', href: '/blends/suncap-rise', accent: RG, live: true },
+    { name: 'GlowMind Clarity', type: 'Mushroom Coffee · Medium Roast', benefit: 'Focus, flow, and mental clarity. Lion\'s Mane + Chaga.', href: '/blends/glowmind-clarity', accent: RG, live: true },
+    { name: 'MoonCap Restore', type: 'Mushroom Coffee · Medium Roast', benefit: 'Grounding, restoration, and calm balance. Lion\'s Mane + Chaga.', href: '/blends/mooncap-restore', accent: RG, live: true },
+    { name: 'The Oracle', type: 'Mushroom Coffee · Medium Roast', benefit: 'Intuition, clarity, and deep focus. Lion\'s Mane + Chaga.', href: '/blends/the-oracle', accent: RG, live: true },
+    { name: 'DreamCap', type: 'Mushroom Coffee', benefit: 'Evening calm, recovery, and ritual. Lion\'s Mane + Chaga.', href: '/blends/dreamcap-blend', accent: RG, live: true },
+    { name: 'Mystic Bloom', type: 'Mushroom Coffee', benefit: 'Beauty, balance, and radiant glow. Lion\'s Mane + Chaga.', href: '/blends/mystic-bloom', accent: RG, live: true },
   ],
   matcha: [
-    { name: 'The Monk', type: 'Instant Matcha', benefit: 'Discipline, calm, and focused ritual.', href: '/shop', accent: EMERALD, live: false },
-    { name: 'The Ascendant', type: 'Instant Matcha', benefit: 'Elevation, energy, and transformation.', href: '/shop', accent: EMERALD, live: false },
-    { name: 'The Alchemist', type: 'Instant Matcha', benefit: 'Creation, clarity, and inspired focus.', href: '/shop', accent: EMERALD, live: false },
+    { name: 'The Monk', type: 'Matcha Blend · 100% Instant Matcha', benefit: 'Focus & clarity, calm & balance — a mindful blend for inner calm and steady focus.', href: '/shop', accent: EMERALD, live: true },
+    { name: 'The Ascendant', type: 'Matcha Blend · 100% Instant Matcha', benefit: 'Energy & endurance, focus & clarity — fuel your climb with ceremonial grade matcha.', href: '/shop', accent: EMERALD, live: true },
+    { name: 'The Alchemist', type: 'Matcha Blend · 100% Instant Matcha', benefit: 'Balance & harmony, antioxidants & detox — elevate your ritual and creative focus.', href: '/shop', accent: EMERALD, live: true },
   ],
 };
 
 const TABS = [
-  { key: 'coffee', label: 'Classic Coffee', color: GOLD },
-  { key: 'mushroom', label: 'Mushroom Coffee', color: RG },
-  { key: 'matcha', label: 'Matcha', color: EMERALD },
+  { key: 'coffee', label: 'Instant Coffee (3)', color: GOLD },
+  { key: 'mushroom', label: 'Mushroom Coffee (6)', color: RG },
+  { key: 'matcha', label: 'Matcha (3)', color: EMERALD },
 ];
 
 function ProductCard({ p, i }) {

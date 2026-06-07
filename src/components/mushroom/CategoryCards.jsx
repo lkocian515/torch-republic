@@ -8,9 +8,9 @@ const RG = '#E6B7AD';
 const CATEGORIES = [
   {
     icon: Coffee,
-    label: 'Classic Instant Coffee',
+    label: 'Instant Coffee',
     type: 'INSTANT COFFEE',
-    desc: 'Premium instant coffee for bold, steady mornings — simple, smooth, and ready whenever you are.',
+    desc: 'Torchbearer · Ember Rise · Midnight Watch — 100% Arabica instant coffee with functional adaptogens. Medium & dark roast. Bold, smooth, and ready in seconds.',
     cta: 'Shop Coffee',
     href: '/torchbearer',
     accent: '#C4A35A',
@@ -18,9 +18,9 @@ const CATEGORIES = [
   },
   {
     icon: Leaf,
-    label: 'Functional Mushroom Coffee',
+    label: 'Mushroom Coffee',
     type: 'MUSHROOM COFFEE',
-    desc: 'Coffee rituals with functional mushrooms for focus, energy, restoration, and clarity.',
+    desc: 'SunCap Rise · GlowMind · MoonCap · The Oracle · DreamCap · Mystic Bloom — six blends with Lion\'s Mane + Chaga for focus, energy, calm, and restoration.',
     cta: 'Shop Mushroom Coffee',
     href: '/blends',
     accent: RG,
@@ -30,7 +30,7 @@ const CATEGORIES = [
     icon: Sparkles,
     label: 'Instant Matcha',
     type: 'INSTANT MATCHA',
-    desc: 'Smooth matcha blends for discipline, calm energy, transformation, and creative focus.',
+    desc: 'The Monk · The Ascendant · The Alchemist — ceremonial grade instant matcha blends for focus, calm, energy, and daily transformation.',
     cta: 'Shop Matcha',
     href: '/shop',
     accent: '#10B981',
