@@ -38,9 +38,9 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Morning energy, fresh starts, momentum',
     mushrooms: 'No',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666faf673_4.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f6fbe0c8d_bjmbjm.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666faf673_4.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f6fbe0c8d_bjmbjm.png',
     ],
     alt: 'Torch Republic Ember Rise Classic Instant Coffee',
     price: 24.99,
@@ -62,9 +62,9 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Late nights, deep focus, quiet routines',
     mushrooms: 'No',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bda7eeacd_fyn.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bda7eeacd_fyn.png',
     ],
     alt: 'Torch Republic Midnight Watch Classic Instant Coffee',
     price: 24.99,
