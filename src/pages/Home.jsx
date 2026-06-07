@@ -30,6 +30,7 @@ import CustomerTestimonials from '../components/home/CustomerTestimonials';
 import MeetTheMushrooms from '../components/home/MeetTheMushrooms';
 import RitualGallery from '../components/home/RitualGallery';
 import CoffeeRecipesSection from '../components/home/CoffeeRecipesSection';
+import BlendQuizTeaser from '../components/home/BlendQuizTeaser';
 
 const RG = '#E6B7AD';
 
@@ -197,10 +198,13 @@ export default function Home() {
       {/* 23. Ritual Gallery */}
       <RitualGallery />
 
-      {/* 24. Coffee Recipes */}
+      {/* 24. Blend Quiz */}
+      <BlendQuizTeaser />
+
+      {/* 25. Coffee Recipes */}
       <CoffeeRecipesSection />
 
-      {/* 25. Final CTA */}
+      {/* 26. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
