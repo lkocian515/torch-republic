@@ -7,6 +7,7 @@ import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import TasteProfileCard from '../components/mushroom/TasteProfileCard';
 import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
+import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
 import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
 import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
 import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual';
@@ -129,6 +130,8 @@ function GalleryCarousel({ images, accent, productName }) {
 
 function BlendDetailInner({ product }) {
   const [qty, setQty] = useState(1);
+  const [isSubscription, setIsSubscription] = useState(false);
+  const subscriptionPrice = product.price * 0.8; // 20% off
 
   useSEO({
     title: `${product.name} – Instant Mushroom Coffee`,
@@ -302,19 +305,54 @@ function BlendDetailInner({ product }) {
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
             <div className="flex items-baseline gap-3">
               <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: '#E6B7AD' }}>
-                ${product.price.toFixed(2)}
+                ${isSubscription ? (product.price * 0.8).toFixed(2) : product.price.toFixed(2)}
               </span>
+              {isSubscription && (
+                <span className="font-mono text-[9px] tracking-[0.2em] line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                  ${product.price.toFixed(2)}
+                </span>
+              )}
               <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
                 per tube · 27 servings
               </span>
             </div>
+            {isSubscription && (
+              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
+                Save ${(product.price * 0.2).toFixed(2)} with subscription
+              </p>
+            )}
 
             {/* Qty + Add to Cart */}
             <div className="flex flex-col gap-3">
+              {/* Subscribe & Save Toggle */}
+              <div className="mb-4 p-4" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)', borderRadius: '2px' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="subscribe-toggle"
+                      checked={isSubscription}
+                      onChange={() => setIsSubscription(!isSubscription)}
+                      className="w-4 h-4 rounded"
+                      style={{ accentColor: '#E6B7AD' }}
+                    />
+                    <label htmlFor="subscribe-toggle" className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ color: '#E6B7AD', cursor: 'pointer' }}>
+                      Subscribe & Save 20%
+                    </label>
+                  </div>
+                  <span className="font-mono text-[8px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
+                    ${(product.price * 0.8).toFixed(2)}
+                  </span>
+                </div>
+                <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.6 }}>
+                  Deliver every 4 weeks. Cancel or pause anytime.
+                </p>
+              </div>
+
               {/* Qty label */}
               <p className="font-mono text-[8px] tracking-[0.3em] uppercase"
                 style={{ color: 'rgba(230,183,173,0.45)' }}>
-                Stock your ritual — choose one tube or build your full set.
+                {isSubscription ? 'Your subscription quantity:' : 'Stock your ritual — choose one tube or build your full set.'}
               </p>
 
               {/* Qty selector */}
@@ -337,7 +375,8 @@ function BlendDetailInner({ product }) {
                   </button>
                 </div>
                 <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                  ${(product.price * qty).toFixed(2)} total
+                  ${((isSubscription ? subscriptionPrice : product.price) * qty).toFixed(2)} total
+                  {isSubscription && <span className="text-green-500 ml-1">(save ${(product.price * 0.2 * qty).toFixed(2)})</span>}
                 </span>
               </div>
 
@@ -346,7 +385,7 @@ function BlendDetailInner({ product }) {
                 onClick={handleAddToCart}
                 className="w-full font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
                 style={{ background: '#E6B7AD', color: '#080808' }}>
-                Add to Cart
+                {isSubscription ? 'Subscribe Now' : 'Add to Cart'}
               </button>
 
               {/* Buy Now */}
@@ -354,25 +393,27 @@ function BlendDetailInner({ product }) {
                 href={checkoutDest}
                 className="w-full text-center font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80 py-4"
                 style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', display: 'block' }}>
-                Buy Now →
+                {isSubscription ? 'Start Subscription →' : 'Buy Now →'}
               </a>
 
-              {/* Subscribe & Save callout */}
-              <div className="flex items-center justify-between px-3 py-2.5"
-                style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)' }}>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
-                  Subscribe & Save 20%
-                </span>
-                <Link to="/subscription" className="font-mono text-[8px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
-                  style={{ color: '#E6B7AD' }}>
-                  Learn more →
-                </Link>
-              </div>
+              {/* Subscription info */}
+              {isSubscription && (
+                <div className="flex items-center justify-between px-3 py-2.5"
+                  style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.2)' }}>
+                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
+                    ✓ Subscription discount applied
+                  </span>
+                  <Link to="/subscription" className="font-mono text-[8px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
+                    style={{ color: 'rgba(16,185,129,0.8)' }}>
+                    Learn more →
+                  </Link>
+                </div>
+              )}
 
               {/* Microcopy */}
               <p className="font-mono text-[8px] tracking-[0.2em] text-center"
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
-                Ships within 1–3 business days · 30-day satisfaction guarantee
+                {isSubscription ? 'Delivers every 4 weeks · Cancel anytime' : 'Ships within 1–3 business days · 30-day satisfaction guarantee'}
               </p>
 
               {/* Discount reminders */}
