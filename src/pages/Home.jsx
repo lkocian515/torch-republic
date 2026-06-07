@@ -27,6 +27,8 @@ import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
 import CustomerTestimonials from '../components/home/CustomerTestimonials';
+import MeetTheMushrooms from '../components/home/MeetTheMushrooms';
+import RitualGallery from '../components/home/RitualGallery';
 
 const RG = '#E6B7AD';
 
@@ -155,34 +157,40 @@ export default function Home() {
       {/* 12. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 13. Customer Testimonials */}
+      {/* 13. Meet the Mushrooms */}
+      <MeetTheMushrooms />
+
+      {/* 14. Customer Testimonials */}
       <CustomerTestimonials />
 
-      {/* 14. Reviews */}
+      {/* 15. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 15. Bundles */}
+      {/* 16. Bundles */}
       <BundleSection />
 
-      {/* 16. Comparison */}
+      {/* 17. Comparison */}
       <BlendComparisonTable />
 
-      {/* 17. How It Works */}
+      {/* 18. How It Works */}
       <HowItWorks />
 
-      {/* 18. Ingredient Transparency */}
+      {/* 19. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 19. Founder Note */}
+      {/* 20. Founder Note */}
       <FounderNote />
 
-      {/* 20. Guarantee */}
+      {/* 21. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 21. FAQ */}
+      {/* 22. FAQ */}
       <FAQSection />
 
-      {/* 22. Final CTA */}
+      {/* 23. Ritual Gallery */}
+      <RitualGallery />
+
+      {/* 24. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
