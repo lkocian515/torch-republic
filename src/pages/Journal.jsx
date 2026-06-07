@@ -106,12 +106,12 @@ function FeaturedCard({ post, index }) {
           </h2>
 
           <p className="font-heading text-sm mb-6 max-w-2xl"
-            style={{ color: `${EMERALD}99`, lineHeight: 1.85, fontWeight: 300 }}>
+            style={{ color: 'rgba(230,183,173,0.4)', lineHeight: 1.85, fontWeight: 300 }}>
             {post.excerpt}
           </p>
 
           <div className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-            style={{ color: EMERALD }}>
+            style={{ color: RG }}>
             Read Article <ArrowRight className="w-3 h-3" />
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function Journal() {
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10" style={{ background: `linear-gradient(90deg, transparent, ${EMERALD})` }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: EMERALD }}>
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: RG }}>
               Torch Republic
             </span>
           </div>
@@ -170,7 +170,7 @@ export default function Journal() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
           className="font-mono text-[9px] tracking-[0.5em] uppercase"
-          style={{ color: EMERALD, opacity: 0.6 }}>
+          style={{ color: 'rgba(255,255,255,0.2)' }}>
           Featured Research
         </motion.p>
       </div>
@@ -220,12 +220,12 @@ export default function Journal() {
               </h2>
 
               <p className="text-sm leading-relaxed mb-4 max-w-2xl font-heading font-light"
-                style={{ color: `${EMERALD}66`, lineHeight: 1.8 }}>
+                style={{ color: 'rgba(230,183,173,0.2)', lineHeight: 1.8 }}>
                 {article.excerpt}
               </p>
 
               <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: `${EMERALD}55` }}>
+                style={{ color: 'rgba(230,183,173,0.2)' }}>
                 Coming Soon
               </span>
             </motion.article>
