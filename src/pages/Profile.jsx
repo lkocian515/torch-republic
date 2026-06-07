@@ -3,6 +3,7 @@ import { useAuth } from '@/lib/AuthContext';
 import { LogOut, Trash2, Gift } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
 import {
@@ -17,14 +18,12 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export default function Profile() {
-  // Add noindex meta tag on mount
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useSEO({
+    title: 'Account Settings',
+    description: 'Manage your Torch Republic account settings, subscription, and loyalty points.',
+    url: '/profile',
+    noindex: true,
+  });
 
   const { user, logout, isLoadingAuth } = useAuth();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);

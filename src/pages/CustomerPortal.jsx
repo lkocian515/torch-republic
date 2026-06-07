@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, Navigate } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
+import { useSEO } from '@/hooks/useSEO';
 import SubscriptionTracker from '../components/portal/SubscriptionTracker';
 import { 
   Package, 
@@ -49,14 +50,12 @@ const FREQUENCIES = [
 ];
 
 export default function CustomerPortal() {
-  // Add noindex meta tag on mount
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useSEO({
+    title: 'Customer Portal',
+    description: 'Manage your Torch Republic subscription and loyalty rewards.',
+    url: '/portal',
+    noindex: true,
+  });
 
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [user, setUser] = useState(null);

@@ -1,56 +1,46 @@
+# Torch Republic Coffee Company - robots.txt
+# Allows crawling of public pages, blocks utility/admin pages
+
 User-agent: *
 Allow: /
-Allow: /shop
-Allow: /blends
-Allow: /bundle
-Allow: /how-it-works
-Allow: /faq
-Allow: /Reviews
-Allow: /Journal
 
-# Block all legacy routes
-Disallow: /Shop
-Disallow: /Apparel
-Disallow: /Bundles
-Disallow: /CoffeeBundles
-Disallow: /TheTorchBox
-Disallow: /CoffeeCollection
-Disallow: /LibertyIcons
-Disallow: /CommandersSeries
-Disallow: /WomenOfTheRepublic
-Disallow: /WashingtonBlend
-Disallow: /JeffersonBlend
-Disallow: /FranklinBlend
-Disallow: /LincolnBlend
-Disallow: /AdamsBlend
-Disallow: /RooseveltBlend
-Disallow: /LadyLibertyBlend
-Disallow: /EaglesFlightBlend
-Disallow: /UncleSamsBoldBrew
-Disallow: /LibertyTorchBlend
-Disallow: /RosiesGrind
-Disallow: /OldGloryHouseBlend
-Disallow: /AbigailAdamsBlend
-Disallow: /HarrietTubmanBlend
-Disallow: /OnSale
-Disallow: /bobbleheads
-Disallow: /mugs-tumblers
-Disallow: /washington-pods
-Disallow: /landing
-Disallow: /qr/
-Disallow: /products/washington-blend
-Disallow: /products/jefferson-blend
-Disallow: /products/franklin-blend
-Disallow: /products/lincoln-blend
-Disallow: /products/adams-blend
-Disallow: /products/roosevelt-blend
-Disallow: /products/eagles-flight-blend
-Disallow: /products/uncle-sams-bold-brew
-Disallow: /products/liberty-torch-blend
-Disallow: /products/rosies-grind
-Disallow: /products/old-glory-house-blend
-Disallow: /products/washington-pods
-Disallow: /george-washington-coffee-history
-Disallow: /collections/coffee-bundles
+# Block utility and admin pages
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /profile
+Disallow: /portal
+Disallow: /traffic-report
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
+Disallow: /subscription
 
-Sitemap: https://torch-republic.com/sitemap.xml
+# Block old discontinued product pages (patriotic/history coffee)
+Disallow: /collections/lady-liberty
+Disallow: /collections/eagles-flight
+Disallow: /collections/old-glory
+Disallow: /collections/rosies-grind
+Disallow: /collections/washington
+Disallow: /collections/franklin
+Disallow: /collections/jefferson
+Disallow: /collections/lincoln
+Disallow: /collections/roosevelt
+Disallow: /collections/adams
+Disallow: /collections/founders-series
+Disallow: /collections/liberty-icons
+Disallow: /collections/commanders
+Disallow: /collections/patriotic-pride
+Disallow: /collections/freedom-isnt-free
+Disallow: /collections/we-the-people
+Disallow: /collections/faith-over-fear
+Disallow: /collections/christ-is-king
+Disallow: /collections/god-family-country
+Disallow: /collections/american-heroes
+Disallow: /products/pods
+
+# Sitemap location
+Sitemap: https://torchrepublic.com/sitemap.xml

@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
 export default function ForgotPassword() {
-  // Add noindex meta tag on mount
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useSEO({
+    title: 'Reset Password',
+    description: 'Reset your Torch Republic Coffee Company account password.',
+    url: '/forgot-password',
+    noindex: true,
+  });
 
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);

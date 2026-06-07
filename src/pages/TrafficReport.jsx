@@ -34,10 +34,15 @@ const StatCard = ({ icon: Icon, label, value, sub }) => (
 
 // @ts-nocheck
 // Admin-only page - not linked in public navigation, noindex
-import { useNoIndex } from '@/hooks/useNoIndex';
+import { useSEO } from '@/hooks/useSEO';
 
 export default function TrafficReport() {
-  useNoIndex(); // Prevent search engine indexing
+  useSEO({
+    title: 'Traffic Report',
+    description: 'Google Analytics traffic sources report.',
+    url: '/traffic-report',
+    noindex: true,
+  });
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

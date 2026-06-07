@@ -16,20 +16,13 @@ const REVIEW_THEMES = [
 ];
 
 export default function Reviews() {
-  // Add noindex meta tag on mount
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
-
   const [activeFilter, setActiveFilter] = useState('all');
 
   useSEO({
-    title: 'Customer Reviews | Torch Republic Mushroom Coffee',
-    description: 'Read customer reviews and experiences with Torch Republic premium instant mushroom coffee blends for focus, clarity, energy, balance, and daily ritual.',
+    title: 'Reviews | Torch Republic Coffee Company',
+    description: 'Read real customer feedback and ritual stories from the Torch Republic Coffee Company community.',
+    url: '/reviews',
+    type: 'website',
   });
 
   const { data: allReviews = [] } = useQuery({

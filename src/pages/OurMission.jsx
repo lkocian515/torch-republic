@@ -29,8 +29,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'Our Mission | Torch Republic Coffee Company | Premium Coffee for Intentional Rituals',
-    description: 'Learn the story and mission behind Torch Republic Coffee Company — coffee for clarity, resilience, and the first ritual of a more intentional day. Premium instant coffee, mushroom coffee, and matcha blends.',
+    title: 'Our Mission | Torch Republic Coffee Company',
+    description: 'Torch Republic exists to turn the daily cup into a ritual for clarity, resilience, discipline, restoration, creativity, and purpose.',
     url: '/mission',
     type: 'website',
   });

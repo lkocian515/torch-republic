@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
@@ -27,14 +28,12 @@ function GoogleIcon() {
 }
 
 export default function Register() {
-  // Add noindex meta tag on mount
-  React.useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
-    return () => document.head.removeChild(meta);
-  }, []);
+  useSEO({
+    title: 'Create Account',
+    description: 'Create your Torch Republic Coffee Company account.',
+    url: '/register',
+    noindex: true,
+  });
 
   const [step, setStep] = useState('form'); // 'form' | 'otp'
   const [email, setEmail] = useState('');

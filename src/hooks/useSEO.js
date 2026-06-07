@@ -14,12 +14,13 @@ const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
  * @param {string} [opts.image]        - OG image URL (absolute)
  * @param {string} [opts.url]          - Canonical path, e.g. '/journal/lions-mane-mushroom-coffee'
  * @param {'website'|'product'|'article'} [opts.type] - OG type
+ * @param {boolean} [opts.noindex]     - If true, sets robots to 'noindex, nofollow' (for utility pages)
  * @param {object} [opts.product]      - Product schema data { name, description, price, image, sku }
  * @param {object[]} [opts.breadcrumbs] - Array of { name, url } for BreadcrumbList schema
  * @param {object} [opts.article]      - { author, datePublished, dateModified, section, keywords, tags }
  * @param {object[]} [opts.faq]        - [{ question, answer }] for FAQPage schema (rich snippets)
  */
-export function useSEO({ title, description, image, url, type = 'website', product, breadcrumbs, article, faq }) {
+export function useSEO({ title, description, image, url, type = 'website', product, breadcrumbs, article, faq, noindex = false }) {
   useEffect(() => {
     // Avoid double-branding — only append if not already present
     const fullTitle = title
@@ -53,7 +54,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     // Core meta
     const descEl = description ? setMeta('meta[name="description"]', 'content', description) : null;
     const keywordsEl = article?.keywords?.length ? setMeta('meta[name="keywords"]', 'content', article.keywords.join(', ')) : null;
-    const robotsEl = setMeta('meta[name="robots"]', 'content', 'index, follow');
+    const robotsEl = setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow');
     const canonEl = setLink('canonical', canonicalUrl);
 
     // Open Graph

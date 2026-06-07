@@ -28,8 +28,8 @@ const TRUST = [
 
 export default function About() {
   useSEO({
-    title: 'About Torch Republic | Coffee for Focus, Energy & Daily Ritual',
-    description: "Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha rituals for people rebuilding their energy, focus, and self-trust. The torch represents the part of you that refuses to go out.",
+    title: 'Our Story | Torch Republic Coffee Company',
+    description: 'Learn the story behind Torch Republic Coffee Company, a premium ritual coffee brand created for clarity, resilience, focus, and intentional living.',
     url: '/about',
   });
 

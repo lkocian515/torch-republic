@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
@@ -75,6 +76,13 @@ const RESULTS = {
 export default function FindYourRitual() {
   const [selected, setSelected] = useState(null);
   const result = selected ? RESULTS[selected] : null;
+
+  useSEO({
+    title: 'Find Your Blend | Torch Republic Coffee Company',
+    description: 'Take the Torch Republic blend quiz to discover the coffee, mushroom coffee, or matcha ritual that fits your focus, energy, calm, or creativity.',
+    url: '/quiz',
+    type: 'website',
+  });
 
   return (
     <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
