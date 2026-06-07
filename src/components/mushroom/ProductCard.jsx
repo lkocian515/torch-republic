@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-// Best-for label per product slug
+// Best-for label per product shopifyHandle
 const BEST_FOR = {
-  'mooncap-restore':    'Calm evenings & restoration',
-  'glowmind-clarity':   'Deep work & daily focus',
-  'suncap-rise':        'Morning energy & fresh starts',
-  'the-oracle':         'Creative flow & intuition',
-  'mystic-bloom':       'Balance & gentle mornings',
-  'dreamcap-blend':     'Evening ritual & nighttime creativity',
+  'torchbearer':          'Bold mornings & deep work',
+  'ember-rise':           'Morning energy & momentum',
+  'midnight-watch':       'Late nights & quiet focus',
+  'suncap-rise':          'Morning energy & fresh starts',
+  'glowmind-clarity-blend': 'Deep work & daily focus',
+  'mooncap-restore':      'Calm evenings & restoration',
+  'dreamcap-blend':       'Evening ritual & nighttime creativity',
+  'the-oracle-blend':     'Creative flow & intuition',
+  'mystic-bloom-blend':   'Balance & gentle mornings',
   // Matcha
   'the-monk-matcha-blend':       'Focus, calm & presence',
   'the-alchemist-matcha-blend':  'Creativity & inspired focus',
@@ -27,7 +30,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
     window.location.href = shopifyUrl || 'https://torchrepublic.com/shop';
   };
 
-  const bestFor = BEST_FOR[product.slug] || product.mood;
+  const bestFor = BEST_FOR[product.shopifyHandle] || product.mood;
   const tasteNotes = product.flavorNotes?.join(', ') || '';
 
   return (

@@ -70,8 +70,8 @@ export function getFullBundleUrl() {
 // One from each category (Classic + Mushroom + Matcha)
 export function getOneFromEachBundleUrl() {
   const items = [
-    { slug: 'torchbearer-premium-instant-coffee', qty: 1 }, // Classic
-    { slug: 'glowmind-clarity', qty: 1 }, // Mushroom
+    { slug: 'torchbearer', qty: 1 }, // Classic
+    { slug: 'glowmind-clarity-blend', qty: 1 }, // Mushroom
     { slug: 'the-monk-matcha-blend', qty: 1 }, // Matcha
   ];
   return getShopifyBundleUrl(items);
@@ -90,9 +90,9 @@ export function getAllMatchaBundleUrl() {
 // All Classic Coffee bundle (3 classic products)
 export function getAllClassicBundleUrl() {
   const items = [
-    { slug: 'torchbearer-classic-instant-coffee', qty: 1 },
-    { slug: 'ember-rise-classic-instant-coffee', qty: 1 },
-    { slug: 'midnight-watch-classic-instant-coffee', qty: 1 },
+    { slug: 'torchbearer', qty: 1 },
+    { slug: 'ember-rise', qty: 1 },
+    { slug: 'midnight-watch', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
 }
