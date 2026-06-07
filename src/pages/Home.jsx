@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 // Core sections — in conversion-optimized order
-import MushroomHero from '../components/mushroom/HeroSection';
+import ResponsiveProductsHero from '../components/mushroom/ResponsiveProductsHero';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
 import CategoryCards from '../components/mushroom/CategoryCards';
 import MeetTheRituals from '../components/mushroom/MeetTheRituals';
@@ -75,8 +75,8 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <ReviewPopup />
 
-      {/* 1. Hero — What is Torch Republic? */}
-      <MushroomHero />
+      {/* 1. Hero — Products showcase */}
+      <ResponsiveProductsHero />
 
       {/* 2. Trust Strip — immediate credibility */}
       <HomeTrustStrip />
