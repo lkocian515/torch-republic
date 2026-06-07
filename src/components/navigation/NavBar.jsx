@@ -4,11 +4,12 @@ import { Search, ShoppingBag, User } from 'lucide-react';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const NAV_LINKS = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'The Blends', href: '/blends' },
+  { label: 'Shop All', href: '/shop' },
+  { label: 'Classic Coffee', href: '/classic-coffee' },
+  { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
+  { label: 'Matcha', href: '/matcha' },
+  { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Bundle', href: '/bundle' },
-  { label: 'Journal', href: '/journal' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
 ];
@@ -77,7 +78,7 @@ export default function NavBar() {
                 className="hidden lg:inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-90 btn-glow"
                 style={{ background: '#E6B7AD', color: '#050505', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
               >
-                Shop Coffee
+                Shop All
               </Link>
               <button style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">

@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 // Core sections — in conversion-optimized order
-import ResponsiveProductsHero from '../components/mushroom/ResponsiveProductsHero';
+import PremiumHero from '../components/mushroom/PremiumHero';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
 import CategoryCards from '../components/mushroom/CategoryCards';
 import MeetTheRituals from '../components/mushroom/MeetTheRituals';
@@ -75,13 +75,14 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <ReviewPopup />
 
-      {/* 1. Hero — Products showcase */}
-      <ResponsiveProductsHero />
+      {/* 1. Hero — Premium instant coffee for every ritual */}
+      <PremiumHero />
 
       {/* 2. Trust Strip — immediate credibility */}
       <HomeTrustStrip />
 
-      {/* 3. Category cards — Coffee / Mushroom Coffee / Matcha */}
+      {/* 3. Choose Your Ritual — three category cards */}
+      <div id="choose-your-ritual" />
       <CategoryCards />
 
       {/* 4. Find Your Blend — mushroom coffee rituals */}

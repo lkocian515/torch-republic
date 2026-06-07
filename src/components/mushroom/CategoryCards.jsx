@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Coffee, Leaf, Sparkles } from 'lucide-react';
@@ -8,11 +8,11 @@ const RG = '#E6B7AD';
 const CATEGORIES = [
   {
     icon: Coffee,
-    label: 'Instant Coffee',
-    type: 'INSTANT COFFEE',
+    label: 'Classic Instant Coffee',
+    type: 'CLASSIC COFFEE',
     desc: 'Torchbearer · Ember Rise · Midnight Watch — 100% Arabica instant coffee with functional adaptogens. Medium & dark roast. Bold, smooth, and ready in seconds.',
-    cta: 'Shop Coffee',
-    href: '/torchbearer',
+    cta: 'Shop Classic Coffee',
+    href: '/classic-coffee',
     accent: '#C4A35A',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/55c37c676_dgdfgdr.png',
   },
@@ -20,27 +20,27 @@ const CATEGORIES = [
     icon: Leaf,
     label: 'Mushroom Coffee',
     type: 'MUSHROOM COFFEE',
-    desc: 'SunCap Rise · GlowMind · MoonCap · The Oracle · DreamCap · Mystic Bloom — six blends with Lion\'s Mane + Chaga for focus, energy, calm, and restoration.',
+    desc: 'GlowMind · SunCap Rise · MoonCap · DreamCap · The Oracle · Mystic Bloom — six blends with Lion\'s Mane + Chaga for focus, clarity, restoration, and daily ritual.',
     cta: 'Shop Mushroom Coffee',
-    href: '/blends',
+    href: '/mushroom-coffee',
     accent: RG,
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cdb889116_9.png',
   },
   {
     icon: Sparkles,
-    label: 'Instant Matcha',
+    label: 'Matcha',
     type: 'INSTANT MATCHA',
-    desc: 'The Monk · The Ascendant · The Alchemist — ceremonial grade instant matcha blends for focus, calm, energy, and daily transformation.',
+    desc: 'The Monk · The Ascendant · The Alchemist — ceremonial grade instant matcha blends for calm energy, focus, presence, and intentional daily rituals.',
     cta: 'Shop Matcha',
-    href: '/shop',
+    href: '/matcha',
     accent: '#10B981',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/d81a10bd-110c-4588-be10-b501874e73a0.png?v=1780827652',
   },
 ];
 
 export default function CategoryCards() {
   return (
-    <section style={{ background: '#080808', padding: 'clamp(56px,7vw,96px) 24px', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+    <section id="choose-your-ritual" style={{ background: '#080808', padding: 'clamp(56px,7vw,96px) 24px', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -49,7 +49,7 @@ export default function CategoryCards() {
           className="text-center mb-12"
         >
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            The Collection
+            Choose Your Ritual
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
             Three Categories. One Daily Ritual.

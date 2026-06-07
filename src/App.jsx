@@ -23,6 +23,9 @@ import BottomTabs from './components/mobile/BottomTabs';
 // ── Mushroom Coffee Pages ──
 import Home from './pages/Home';
 import MushroomShop from './pages/MushroomShop';
+import ClassicCoffeeCollection from './pages/ClassicCoffeeCollection';
+import MushroomCoffeeCollection from './pages/MushroomCoffeeCollection';
+import MatchaCollection from './pages/MatchaCollection';
 import MushroomBundle from './pages/MushroomBundle';
 import BlendDetail from './pages/BlendDetail';
 import BlendsCollection from './pages/BlendsCollection';
@@ -91,6 +94,9 @@ const AuthenticatedApp = () => {
 
         {/* ── MUSHROOM COFFEE STORE ── */}
         <Route path="/shop" element={<LayoutWrapper currentPageName="MushroomShop"><MushroomShop /></LayoutWrapper>} />
+        <Route path="/classic-coffee" element={<LayoutWrapper currentPageName="ClassicCoffeeCollection"><ClassicCoffeeCollection /></LayoutWrapper>} />
+        <Route path="/mushroom-coffee" element={<LayoutWrapper currentPageName="MushroomCoffeeCollection"><MushroomCoffeeCollection /></LayoutWrapper>} />
+        <Route path="/matcha" element={<LayoutWrapper currentPageName="MatchaCollection"><MatchaCollection /></LayoutWrapper>} />
         <Route path="/blends" element={<LayoutWrapper currentPageName="BlendsCollection"><BlendsCollection /></LayoutWrapper>} />
         <Route path="/blends/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
         <Route path="/products/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
