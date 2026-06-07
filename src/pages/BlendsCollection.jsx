@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
-import MushroomProductCard from '../components/mushroom/ProductCard';
+import BrandStoryCard from '../components/blends/BrandStoryCard';
 import BlendCompare from '../components/mushroom/BlendCompare';
 
 const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
@@ -28,16 +28,75 @@ export default function BlendsCollection() {
           </h1>
           <p className="font-heading max-w-2xl mx-auto"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Every blend we make. Mushroom coffee with Lion's Mane + Chaga, ceremonial grade matcha, and classic instant coffee. Each tube contains 27 servings of premium instant powder — no machine needed.
+            Twelve blends. Twelve qualities. Each crafted to support a different path of personal transformation. Choose the ritual that matches who you are becoming.
           </p>
         </motion.div>
       </section>
 
+      {/* Classic Coffee */}
       <section className="px-6 md:px-10 py-16">
         <div className="max-w-[1280px] mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {ALL_PRODUCTS.map((product, i) => (
-              <MushroomProductCard key={product.id} product={product} index={i} />
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#C4A35A' }}>
+              Classic Instant Coffee
+            </p>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#FFFFFF' }}>
+              Coffee for the Rising
+            </h2>
+            <p className="font-heading mt-3" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8, maxWidth: '600px' }}>
+              Three blends inspired by resilience, leadership, and renewal. Crafted for those building something meaningful.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CLASSIC_COFFEE_PRODUCTS.map((product, i) => (
+              <BrandStoryCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mushroom Coffee */}
+      <section className="px-6 md:px-10 py-16" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#E6B7AD' }}>
+              Mushroom Coffee
+            </p>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#FFFFFF' }}>
+              Functional Wellness for the Modern Ritual
+            </h2>
+            <p className="font-heading mt-3" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8, maxWidth: '600px' }}>
+              Inspired by vitality, restoration, clarity, wisdom, and transformation. Six blends for six qualities of a meaningful life.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MUSHROOM_PRODUCTS.map((product, i) => (
+              <BrandStoryCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Matcha */}
+      <section className="px-6 md:px-10 py-16" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#10B981' }}>
+              Ceremonial Matcha
+            </p>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#FFFFFF' }}>
+              Matcha for Mastery
+            </h2>
+            <p className="font-heading mt-3" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8, maxWidth: '600px' }}>
+              Three ceremonial matcha blends inspired by discipline, transformation, and creation. For those who choose mastery over mindlessness.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MATCHA_PRODUCTS.map((product, i) => (
+              <BrandStoryCard key={product.id} product={product} index={i} />
             ))}
           </div>
         </div>
