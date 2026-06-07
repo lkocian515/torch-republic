@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Zap, Coffee, Leaf, Sparkles } from 'lucide-react';
+import { Zap, Coffee, Leaf, Sparkles, Brain } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
@@ -45,7 +45,7 @@ export default function PremiumHero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6" style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '999px' }}>
               <Sparkles className="w-3 h-3" style={{ color: RG }} />
-              <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: RG }}>Premium Instant Rituals</span>
+              <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: RG }}>The Daily Ritual of Rising</span>
             </div>
 
             {/* Headline */}
@@ -58,8 +58,7 @@ export default function PremiumHero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Instant Coffee for<br />
-              <span style={{ color: RG }}>Focus, Calm Energy & Ritual</span>
+              Carry the Morning Flame
             </h1>
 
             {/* Subheadline */}
@@ -71,13 +70,13 @@ export default function PremiumHero() {
                 lineHeight: 1.8,
               }}
             >
-              Premium instant mushroom coffee blends for focus and clarity, classic coffee for bold everyday energy, and matcha for calm mornings — no machine, no pods, no compromise.
+              Premium instant coffee, mushroom coffee, and matcha rituals for people rebuilding their energy, focus, and self-trust one daily cup at a time.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex items-center gap-4 mb-12">
               <Link
-                to="/mushroom-coffee"
+                to="/shop"
                 className="inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90"
                 style={{
                   background: RG,
@@ -86,10 +85,10 @@ export default function PremiumHero() {
                   borderRadius: '4px',
                 }}
               >
-                Shop Mushroom Coffee
+                Find Your Ritual
               </Link>
               <Link
-                to="/classic-coffee"
+                to="/quiz"
                 className="inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-70"
                 style={{
                   background: 'transparent',
@@ -99,33 +98,88 @@ export default function PremiumHero() {
                   borderRadius: '4px',
                 }}
               >
-                Explore Classic Coffee & Matcha
+                Take the Blend Quiz
               </Link>
             </div>
 
             {/* Benefit Icons */}
-            <div className="flex items-center gap-8">
-              {BENEFIT_ICONS.map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: '50%',
-                      background: 'rgba(230,183,173,0.08)',
-                      border: `1px solid ${RG}25`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <item.icon className="w-4 h-4" style={{ color: RG }} />
-                  </div>
-                  <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
-                    {item.label}
-                  </span>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.08)',
+                    border: `1px solid ${RG}25`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Zap className="w-4 h-4" style={{ color: RG }} />
                 </div>
-              ))}
+                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                  Energy
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.08)',
+                    border: `1px solid ${RG}25`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Brain className="w-4 h-4" style={{ color: RG }} />
+                </div>
+                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                  Focus
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.08)',
+                    border: `1px solid ${RG}25`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Sparkles className="w-4 h-4" style={{ color: RG }} />
+                </div>
+                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                  Clarity
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.08)',
+                    border: `1px solid ${RG}25`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Coffee className="w-4 h-4" style={{ color: RG }} />
+                </div>
+                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                  Ritual
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -150,7 +204,7 @@ export default function PremiumHero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4" style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '999px' }}>
             <Sparkles className="w-2.5 h-2.5" style={{ color: RG }} />
-            <span className="font-mono text-[7px] tracking-[0.35em] uppercase" style={{ color: RG }}>Premium Instant Rituals</span>
+            <span className="font-mono text-[7px] tracking-[0.35em] uppercase" style={{ color: RG }}>The Daily Ritual of Rising</span>
           </div>
 
           {/* Headline */}
@@ -163,8 +217,8 @@ export default function PremiumHero() {
               letterSpacing: '-0.02em',
             }}
           >
-            Instant Coffee for<br />
-            <span style={{ color: RG }}>Focus, Calm & Ritual</span>
+            Carry the<br />
+            <span style={{ color: RG }}>Morning Flame</span>
           </h1>
 
           {/* Subheadline */}
@@ -176,13 +230,13 @@ export default function PremiumHero() {
               lineHeight: 1.7,
             }}
           >
-            Mushroom coffee for focus, classic coffee for bold energy, matcha for calm — no machine needed.
+            Premium instant coffee rituals for energy, focus, clarity, and the quiet discipline of becoming yourself again.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3">
             <Link
-              to="/mushroom-coffee"
+              to="/shop"
               className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90"
               style={{
                 background: RG,
@@ -191,10 +245,10 @@ export default function PremiumHero() {
                 borderRadius: '4px',
               }}
             >
-              Shop Mushroom Coffee
+              Find Your Ritual
             </Link>
             <Link
-              to="/classic-coffee"
+              to="/quiz"
               className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-70"
               style={{
                 background: 'transparent',
@@ -204,33 +258,88 @@ export default function PremiumHero() {
                 borderRadius: '4px',
               }}
             >
-              Explore Classic & Matcha
+              Take the Blend Quiz
             </Link>
           </div>
 
           {/* Benefit Icons */}
-          <div className="grid grid-cols-2 gap-4 mt-8">
-            {BENEFIT_ICONS.map((item, i) => (
-              <div key={i} className="flex items-center gap-2.5">
-                <div
-                  style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: '50%',
-                    background: 'rgba(230,183,173,0.08)',
-                    border: `1px solid ${RG}25`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <item.icon className="w-3.5 h-3.5" style={{ color: RG }} />
-                </div>
-                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.55)' }}>
-                  {item.label}
-                </span>
+          <div className="grid grid-cols-2 gap-3 mt-8">
+            <div className="flex items-center gap-2">
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'rgba(230,183,173,0.08)',
+                  border: `1px solid ${RG}25`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Zap className="w-3 h-3" style={{ color: RG }} />
               </div>
-            ))}
+              <span className="font-mono text-[6px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.55)' }}>
+                Energy
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'rgba(230,183,173,0.08)',
+                  border: `1px solid ${RG}25`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Brain className="w-3 h-3" style={{ color: RG }} />
+              </div>
+              <span className="font-mono text-[6px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.55)' }}>
+                Focus
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'rgba(230,183,173,0.08)',
+                  border: `1px solid ${RG}25`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Sparkles className="w-3 h-3" style={{ color: RG }} />
+              </div>
+              <span className="font-mono text-[6px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.55)' }}>
+                Clarity
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'rgba(230,183,173,0.08)',
+                  border: `1px solid ${RG}25`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Coffee className="w-3 h-3" style={{ color: RG }} />
+              </div>
+              <span className="font-mono text-[6px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.55)' }}>
+                Ritual
+              </span>
+            </div>
           </div>
         </motion.div>
       </div>

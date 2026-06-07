@@ -28,8 +28,8 @@ const TRUST = [
 
 export default function About() {
   useSEO({
-    title: 'About Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
-    description: "Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha for modern rituals. Classic Arabica, functional blends with Lion's Mane + Chaga, and ceremonial grade matcha.",
+    title: 'About Torch Republic | Coffee for Focus, Energy & Daily Ritual',
+    description: "Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha rituals for people rebuilding their energy, focus, and self-trust. The torch represents the part of you that refuses to go out.",
     url: '/about',
   });
 
@@ -50,7 +50,7 @@ export default function About() {
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha for modern rituals. Choose Classic Arabica (no mushrooms), Functional Blends with Lion's Mane + Chaga, or Ceremonial Matcha — each designed for a smooth, intentional routine without a grinder, brewer, or complicated morning.
+            Torch Republic Coffee Company exists to transform everyday coffee into a ritual of focus, energy, clarity, and self-leadership. We believe the morning cup is more than a habit — it is a moment to rise, reset, and carry your own light forward.
           </p>
         </motion.div>
       </section>
@@ -89,7 +89,7 @@ export default function About() {
                 </div>
                 <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.15rem' }}>Our Mission</h3>
                 <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                  To transform the daily coffee ritual into a moment of intention — blending premium ingredients with effortless preparation so you can show up as your best self, every single day.
+                  Our mission is to turn everyday coffee into a ritual of clarity, energy, and self-leadership — helping people rise, focus, restore, and carry their own light forward.
                 </p>
               </div>
               
@@ -99,7 +99,7 @@ export default function About() {
                 </div>
                 <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.15rem' }}>Why Torch Republic</h3>
                 <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                  We believe in transparency over hype, quality over quantity, and rituals over routines. Every blend is crafted with purpose, every ingredient is chosen with care, and every cup is an invitation to begin again.
+                  Torch Republic exists to restore meaning to the daily cup — crafting premium instant coffee rituals for focus, energy, calm, and the quiet discipline of becoming yourself again. No pods, no machines, no complicated routine. Just a better cup in seconds.
                 </p>
               </div>
             </motion.div>
@@ -202,6 +202,39 @@ export default function About() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="px-6 md:px-10 py-20 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-2xl mx-auto"
+        >
+          <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            The Daily Ritual of Rising
+          </p>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            Carry the Morning Flame
+          </h2>
+          <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+            Torch Republic is coffee for people who are rebuilding their energy, reclaiming their focus, and choosing to rise with intention every day. The torch represents the part of you that refuses to go out.
+          </p>
+          <Link
+            to="/shop"
+            className="inline-flex items-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+            style={{
+              background: RG,
+              color: '#080808',
+              padding: '14px 36px',
+              borderRadius: '4px',
+            }}
+          >
+            Find Your Ritual →
+          </Link>
+        </motion.div>
       </section>
 
       {/* FDA */}

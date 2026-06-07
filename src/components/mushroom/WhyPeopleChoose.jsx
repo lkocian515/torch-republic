@@ -8,38 +8,38 @@ const RG = '#E6B7AD';
 const BENEFITS = [
   {
     icon: Brain,
-    title: 'Functional Mushroom Support',
-    description: "Lion's Mane is traditionally associated with focus and mental clarity. Chaga is known for antioxidant support. Each mushroom blend delivers a meaningful, purposeful dose.",
+    title: 'Ritual, Not Routine',
+    description: 'Every blend is designed around a daily state: rise, focus, restore, create, ascend. This is coffee for the part of you that refuses to go out.',
     accent: '#E6B7AD',
   },
   {
     icon: Zap,
-    title: 'Clean Energy, No Crash',
-    description: 'Premium instant coffee paired with adaptogenic mushrooms for smooth, balanced energy throughout your day — without the jitters or afternoon slump.',
+    title: 'Energy When You Feel Drained',
+    description: 'Premium instant coffee and functional blends for clean, sustained energy — no crash, no jitters, just the fuel to carry your morning flame forward.',
     accent: '#D6B27A',
   },
   {
     icon: Leaf,
-    title: 'Transparent Ingredients',
-    description: 'No proprietary blend hiding. You know exactly what goes into every cup. Clean formulas, intentional sourcing, clear labels.',
+    title: 'Functional, Not Overcomplicated',
+    description: 'Mushroom coffee and matcha blends crafted for clarity, energy, and daily momentum. No wellness cult vibe. Just real ingredients for real mornings.',
     accent: '#C98F86',
   },
   {
     icon: Coffee,
-    title: 'Premium Taste',
-    description: 'Rich, smooth, and genuinely delicious. Whether classic coffee, mushroom coffee, or matcha — every blend is crafted to taste as good as it performs.',
+    title: 'A Brand with Meaning',
+    description: 'The torch represents self-leadership, resilience, and the light you carry forward. Coffee for people rebuilding their energy and reclaiming their focus.',
     accent: '#E6B7AD',
   },
   {
     icon: Clock,
-    title: 'Ready in Seconds',
-    description: 'No machine. No pods. No mess. Instant powder into hot water, milk, or iced — 27 servings of your daily ritual in every compact tube.',
+    title: 'No Pods. No Machines.',
+    description: 'Instant powder into hot water, milk, or iced — ready in seconds. No plastic waste, no complicated setup, no waiting. Just your ritual, simplified.',
     accent: '#D6B27A',
   },
   {
     icon: CheckCircle,
-    title: 'No Machine Needed',
-    description: 'Classic coffees, mushroom blends, and matcha — all instant powder formats. Scoop, stir, and sip anywhere. Home, travel, office, or on the go.',
+    title: 'Clarity When Life Feels Foggy',
+    description: "Lion's Mane and Chaga blends for focus and mental clarity. Ceremonial matcha for calm energy. Classic coffee for bold, everyday momentum.",
     accent: '#C98F86',
   },
 ];
@@ -100,7 +100,7 @@ export default function WhyPeopleChoose() {
               fontWeight: 300, lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             }}
           >
-            Coffee-forward, smooth, and ready in seconds — no machine, no pods, no complicated setup. Designed for people who want premium taste, daily wellness support, and a ritual worth keeping.
+            Not just caffeine. A ritual. Every blend is designed around a daily state: rise, focus, restore, create, ascend. No pods, no plastic waste, no machine, no waiting — just a better cup in seconds.
           </p>
         </motion.div>
 

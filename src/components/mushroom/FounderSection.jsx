@@ -47,7 +47,7 @@ export default function FounderSection() {
                   fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
                 }}
               >
-                "We built Torch Republic around a simple idea: coffee should feel intentional. Whether you choose classic instant, functional mushroom blends, or matcha — every cup is crafted for your daily ritual."
+                "I created Torch Republic for people who are tired of running on empty. The torch represents the part of us that does not go out — even in difficult seasons, even when life feels uncertain."
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <div
@@ -65,8 +65,8 @@ export default function FounderSection() {
                   <span className="font-serif font-bold" style={{ color: RG, fontSize: '1.2rem' }}>TR</span>
                 </div>
                 <div>
-                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>The Torch Republic Team</p>
-                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Coffee Company</p>
+                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Founder, Torch Republic</p>
+                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Coffee for the Rising</p>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function FounderSection() {
             className="order-1 md:order-2"
           >
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-              Our Story
+              From the Founder
             </p>
             <h2
               className="font-serif font-bold mb-6"
@@ -92,7 +92,7 @@ export default function FounderSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Built for Modern Rituals
+              For the Part of You That Refuses to Go Out
             </h2>
             <p
               className="font-heading mb-4"
@@ -103,7 +103,7 @@ export default function FounderSection() {
                 lineHeight: 1.8,
               }}
             >
-              Torch Republic was founded on a belief: your morning coffee should be easy, intentional, and aligned with how you want your day to feel.
+              Torch Republic was created by a woman who understands what it means to rebuild your life, your focus, and your energy from the inside out. I wanted a coffee brand that felt stronger, deeper, and more intentional than the usual morning caffeine fix.
             </p>
             <p
               className="font-heading mb-6"
@@ -114,7 +114,7 @@ export default function FounderSection() {
                 lineHeight: 1.8,
               }}
             >
-              We offer three paths: <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Classic Instant Coffee</strong> (pure Arabica, no mushrooms), <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Mushroom Coffee</strong> (Lion's Mane + Chaga for focus and calm), and <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Matcha</strong> (ceremonial grade for calm energy). Each is designed for consistency, quality, and ease.
+              To me, the torch represents the part of us that does not go out. Even in difficult seasons, even when life feels uncertain, there is still a light we can return to. Torch Republic is built for that moment: the morning reset, the first decision, the cup that says, "I'm still here. I'm still rising."
             </p>
             <Link
               to="/about"
