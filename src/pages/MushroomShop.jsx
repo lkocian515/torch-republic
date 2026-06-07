@@ -8,7 +8,7 @@ import MushroomProductCard from '../components/mushroom/ProductCard';
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
 
-const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS];
+const ALL_PRODUCTS = [...MATCHA_PRODUCTS, ...MUSHROOM_PRODUCTS];
 
 const TABS = [
   { key: 'all',     label: 'All Products',     count: ALL_PRODUCTS.length,      color: RG },
