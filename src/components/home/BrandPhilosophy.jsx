@@ -7,20 +7,20 @@ const DEEP_CHARCOAL = '#0A0908';
 
 const PILLARS = [
   {
-    title: 'Ignition',
-    desc: 'For the part of you that refuses to go out. The inner fire that drives you forward.',
+    title: 'Clarity',
+    desc: 'Focused thinking without unnecessary noise. The quality of mind that sees through distraction.',
     icon: Sparkles,
     color: '#E6B7AD'
   },
   {
-    title: 'Revolution',
-    desc: 'For those who rebel against empty routines and build something meaningful.',
+    title: 'Discipline',
+    desc: 'Consistency over impulse. The daily choice to show up when it matters most.',
     icon: Shield,
     color: '#D6B27A'
   },
   {
-    title: 'Rebirth',
-    desc: 'For every morning you choose to begin again, stronger than yesterday.',
+    title: 'Transformation',
+    desc: 'Growth unfolding from within. The person you are becoming, one ritual at a time.',
     icon: Coffee,
     color: '#C98F86'
   }
@@ -38,7 +38,7 @@ export default function BrandPhilosophy() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
-            Ignite Your Power. Rewrite Your Story.
+            Who Are You Becoming?
           </p>
           <p className="font-heading max-w-2xl mx-auto" style={{
             fontSize: '1.05rem',
@@ -46,7 +46,7 @@ export default function BrandPhilosophy() {
             fontWeight: 300,
             lineHeight: 1.9
           }}>
-            A movement for people who refuse to dim their light. Torch Republic was created for those who choose intention over autopilot, purpose over distraction, and progress over stagnation.
+            Premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life. Every cup is a ritual. Every ritual is a choice. Every choice shapes who you become.
           </p>
         </motion.div>
 

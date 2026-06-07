@@ -32,7 +32,7 @@ export default function PremiumBrandHero() {
               letterSpacing: '-0.02em',
               lineHeight: 1.1
             }}>
-              Coffee for the Part of You That's Still Rising
+              Who Are You Becoming?
             </h1>
             
             <p className="font-heading mb-10 max-w-xl mx-auto lg:mx-0" style={{
@@ -41,7 +41,7 @@ export default function PremiumBrandHero() {
               fontWeight: 300,
               lineHeight: 1.8
             }}>
-              Premium instant coffee, mushroom coffee, and matcha blends created for clarity, resilience, discipline, restoration, creativity, and intentional daily ritual.
+              Premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life. Every cup is a ritual. Every ritual is a choice. Every choice shapes who you become.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
@@ -54,7 +54,7 @@ export default function PremiumBrandHero() {
                   borderRadius: '4px'
                 }}
               >
-                Shop the Rituals
+                Shop the Collection
               </Link>
               <Link
                 to="/quiz"
@@ -65,7 +65,7 @@ export default function PremiumBrandHero() {
                   borderRadius: '4px'
                 }}
               >
-                Find Your Blend
+                Discover Your Ritual
               </Link>
             </div>
 

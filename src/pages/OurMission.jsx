@@ -48,11 +48,11 @@ export default function OurMission() {
           </p>
           <h1 className="font-serif font-bold mb-5"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Ignite Your Power. Rewrite Your Story.
+            Who Are You Becoming?
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            A movement for people who refuse to dim their light. Built for the modern torchbearers who believe personal rituals, clear thinking, and everyday courage can change history.
+            Premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life. Every cup is a ritual. Every ritual is a choice. Every choice shapes who you become.
           </p>
         </motion.div>
       </section>
@@ -62,22 +62,19 @@ export default function OurMission() {
         <div className="max-w-[860px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              At Torch Republic, we believe the quality of our lives is shaped by the choices we make every day. The habits we practice, the thoughts we nurture, the routines we return to, and the moments we create for ourselves all play a role in determining who we become.
+              To help people cultivate greater clarity, awareness, and well-being through intentional daily rituals.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              In a world that often rewards distraction, speed, and constant consumption, we believe there is value in slowing down long enough to reconnect with what truly matters.
-            </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              That belief guides everything we create.
-            </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              We craft premium coffee, mushroom coffee, and matcha blends inspired by the qualities that support a meaningful life—focus, resilience, discipline, creativity, restoration, intuition, balance, and growth. Every blend is designed with purpose and intended to become part of a ritual that supports both personal well-being and personal development.
+              We create premium coffee, mushroom coffee, and matcha blends inspired by the qualities that support a meaningful life.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Our mission is not simply to provide energy.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Our mission is to help people begin each day with greater purpose, greater presence, and a deeper connection to the person they are becoming.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Because transformation doesn't happen overnight. It happens through the choices we make every day.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               We believe wellness is not about perfection. It is not about chasing every trend or finding a quick fix. True wellness is built through consistency. It grows through the small actions repeated day after day, often unnoticed, until they become the foundation of a better life.
