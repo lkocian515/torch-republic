@@ -10,12 +10,12 @@ const SECTIONS = [
   {
     label: '01 — Our Ritual',
     title: 'Coffee made for modern routines.',
-    body: 'Torch Republic Coffee Company was rebuilt around a simple idea: coffee should feel intentional, easy, and aligned with the way you want your day to feel. We offer three paths: Classic Instant Coffee (pure Arabica), Mushroom Coffee (Lion's Mane + Chaga), and Matcha (ceremonial grade). No brewer, no grinder, no complicated ritual required.',
+    body: "Torch Republic Coffee Company was rebuilt around a simple idea: coffee should feel intentional, easy, and aligned with the way you want your day to feel. We offer three paths: Classic Instant Coffee (pure Arabica), Mushroom Coffee (Lion's Mane + Chaga), and Matcha (ceremonial grade). No brewer, no grinder, no complicated ritual required.",
   },
   {
     label: '02 — Three Categories, One Standard',
     title: 'Classic Coffee. Mushroom Coffee. Matcha.',
-    body: 'Whether you want pure classic instant coffee with no mushrooms, functional mushroom coffee with Lion's Mane + Chaga for focus and clarity, or ceremonial grade matcha for calm energy — each category is designed for consistency, quality, and ease. When coffee is this easy to prepare, you show up for your ritual every single day.',
+    body: "Whether you want pure classic instant coffee with no mushrooms, functional mushroom coffee with Lion's Mane + Chaga for focus and clarity, or ceremonial grade matcha for calm energy — each category is designed for consistency, quality, and ease. When coffee is this easy to prepare, you show up for your ritual every single day.",
   },
   {
     label: '03 — Our Promise',
@@ -25,7 +25,7 @@ const SECTIONS = [
 ];
 
 const TRUST = [
-  { label: 'Three Categories', desc: 'Classic Instant Coffee (no mushrooms), Mushroom Coffee (Lion's Mane + Chaga), and Ceremonial Matcha — clearly labeled.' },
+  { label: 'Three Categories', desc: "Classic Instant Coffee (no mushrooms), Mushroom Coffee (Lion's Mane + Chaga), and Ceremonial Matcha — clearly labeled." },
   { label: 'Clear Product Details', desc: '27 servings for coffee blends, 25 for matcha. Premium ingredients, no hidden additives.' },
   { label: 'Secure Checkout', desc: 'Trusted payment options and a clean, simple checkout flow.' },
   { label: 'Easy Support', desc: 'Questions about your order or subscription? Reach out and we\'ll help.' },
