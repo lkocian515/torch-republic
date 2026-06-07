@@ -11,6 +11,7 @@ import PremiumBrandHero from '../components/home/PremiumBrandHero';
 import BrandPhilosophy from '../components/home/BrandPhilosophy';
 import ShopByRitual from '../components/home/ShopByRitual';
 import CategoryOverview from '../components/home/CategoryOverview';
+import FlavorDiscovery from '../components/home/FlavorDiscovery';
 import FounderNote from '../components/home/FounderNote';
 import HowItWorks from '../components/mushroom/HowItWorks';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
@@ -97,7 +98,10 @@ export default function Home() {
       {/* 8. Category Overview */}
       <CategoryOverview />
 
-      {/* 9. Featured Products */}
+      {/* 9. Flavor Discovery */}
+      <FlavorDiscovery />
+
+      {/* 10. Featured Products */}
       <div id="featured" />
 
       {/* 10. Why Torch Republic */}
