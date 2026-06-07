@@ -46,7 +46,7 @@ export default function BrandPhilosophy() {
             fontWeight: 300,
             lineHeight: 1.9
           }}>
-            Premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life. Every cup is a ritual. Every ritual is a choice. Every choice shapes who you become.
+            Three qualities. One daily practice.
           </p>
         </motion.div>
 

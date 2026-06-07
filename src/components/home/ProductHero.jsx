@@ -38,6 +38,22 @@ export default function ProductHero() {
           />
         </motion.div>
 
+        {/* Brand Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="max-w-3xl mx-auto text-center mb-10"
+        >
+          <p className="font-heading text-sm md:text-base" style={{
+            color: 'rgba(240,235,225,0.65)',
+            fontWeight: 300,
+            lineHeight: 1.9
+          }}>
+            Premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life. Every cup is a ritual. Every ritual is a choice. Every choice shapes who you become.
+          </p>
+        </motion.div>
+
         {/* Trust Signals Bar */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
