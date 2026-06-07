@@ -27,8 +27,8 @@ const INTERVIEWS = [
     icon: Palette,
     blend: 'SunCap — Rise & Focus',
     routine: 'Client Pitch Preparation',
-    quote: 'When I'm preparing for a big pitch, I need creative energy that doesn't make me anxious. SunCap gives me that calm confidence. It's become part of my pre-pitch ritual.',
-    ritual: 'Big presentation day? I wake up early, make my SunCap, and sketch out my deck ideas while the coffee kicks in. Best creative work happens in that first hour.',
+    quote: "When I'm preparing for a big pitch, I need creative energy that doesn't make me anxious. SunCap gives me that calm confidence. It's become part of my pre-pitch ritual.",
+    ritual: "Big presentation day? I wake up early, make my SunCap, and sketch out my deck ideas while the coffee kicks in. Best creative work happens in that first hour.",
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
   },
   {
@@ -40,7 +40,7 @@ const INTERVIEWS = [
     blend: 'GlowMind — Clarity & Flow',
     routine: 'Between-Session Reset',
     quote: "I see 8-10 patients a day, and I need to be fully present for each one. GlowMind helps me reset between sessions without the overstimulation of espresso. It's about sustained focus, not stimulation.",
-    ritual: 'I keep a thermos at my desk. Between sessions, I'll have a small cup to reset my focus. It helps me stay empathetic and sharp throughout the day.',
+    ritual: "I keep a thermos at my desk. Between sessions, I'll have a small cup to reset my focus. It helps me stay empathetic and sharp throughout the day.",
     photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
   },
   {
@@ -51,8 +51,8 @@ const INTERVIEWS = [
     icon: Briefcase,
     blend: 'SunCap + MoonCap',
     routine: 'Full-Day Energy Management',
-    quote: 'Running a company means 14-hour days. I used to burn out by 3pm. Now I use SunCap in the morning for strategy work and MoonCap in the evening to wind down. It's about managing energy, not just consuming caffeine.',
-    ritual: 'SunCap at 6am for morning strategy. MoonCap at 9pm to decompress. This routine helped me build a sustainable pace as a founder.',
+    quote: "Running a company means 14-hour days. I used to burn out by 3pm. Now I use SunCap in the morning for strategy work and MoonCap in the evening to wind down. It's about managing energy, not just consuming caffeine.",
+    ritual: "SunCap at 6am for morning strategy. MoonCap at 9pm to decompress. This routine helped me build a sustainable pace as a founder.",
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
   },
   {
@@ -64,7 +64,7 @@ const INTERVIEWS = [
     blend: 'Classic Coffee',
     routine: 'Morning Pages & Deadlines',
     quote: "As a freelancer, discipline is everything. My morning coffee ritual signals to my brain: it's work time. Classic Coffee gives me the traditional caffeine kick I need for deadline sprints.",
-    ritual: '6am: Make coffee, write 3 pages of stream-of-consciousness journaling. By 7am, I'm ready for client work. The ritual matters as much as the caffeine.',
+    ritual: "6am: Make coffee, write 3 pages of stream-of-consciousness journaling. By 7am, I'm ready for client work. The ritual matters as much as the caffeine.",
     photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
   },
   {
@@ -75,8 +75,8 @@ const INTERVIEWS = [
     icon: Dumbbell,
     blend: 'Classic Coffee',
     routine: 'Pre-Workout Energy',
-    quote: 'I train clients from 5am to 8pm. Classic Coffee before my first session gives me clean energy without stomach issues. I can train hard all day without feeling wired or crashed.',
-    ritual: 'Pre-workout at 4:30am: one scoop of Classic Coffee + water. Clean energy for my own training, then I'm ready to coach others.',
+    quote: "I train clients from 5am to 8pm. Classic Coffee before my first session gives me clean energy without stomach issues. I can train hard all day without feeling wired or crashed.",
+    ritual: "Pre-workout at 4:30am: one scoop of Classic Coffee + water. Clean energy for my own training, then I'm ready to coach others.",
     photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop&crop=face',
   },
 ];
