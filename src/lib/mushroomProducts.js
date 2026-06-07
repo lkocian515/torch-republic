@@ -1,4 +1,31 @@
 // Central product catalog for Torch Republic mushroom coffee
+export const MATCHA_PRODUCTS = [
+  {
+    id: 'the-monk',
+    name: 'The Monk',
+    slug: 'the-monk',
+    roast: 'Matcha Blend',
+    mood: 'Focus · Calm · Presence',
+    tagline: 'A mindful blend for inner calm and steady focus.',
+    description: 'The Monk Matcha Blend is a ceremonial grade instant matcha crafted for inner calm, steady focus, and daily presence. Smooth, earthy, and grounding — made with 100% instant matcha and Lion\'s Mane adaptogens for a ritual that supports your mind as much as your morning.\n\nTaste: smooth, earthy matcha with a clean, naturally sweet finish.\n\nHow to use: Stir one serving into 8–10 oz of hot water, stir well, and enjoy hot or iced.\n\nEach tin contains 25 servings.',
+    flavorNotes: ['Smooth Matcha', 'Earthy', 'Clean Finish'],
+    tasteDescription: 'Smooth, earthy matcha with a clean, naturally sweet finish.',
+    bestFor: 'Focus + calm + presence',
+    mushrooms: "Lion's Mane + Adaptogens",
+    servings: 25,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/d81a10bd-110c-4588-be10-b501874e73a0.png?v=1780827652',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/d81a10bd-110c-4588-be10-b501874e73a0.png?v=1780827652',
+    ],
+    alt: 'Torch Republic The Monk Matcha Blend tin',
+    price: 24.99,
+    shopifyHandle: 'the-monk-matcha-blend',
+    accent: '#10B981',
+    category: 'matcha',
+    keyBenefits: ['Focus & Clarity', 'Calm & Balance', "Lion's Mane + Adaptogens", 'Ceremonial Grade Matcha'],
+  },
+];
+
 export const MUSHROOM_PRODUCTS = [
   {
     id: 'mooncap-restore',

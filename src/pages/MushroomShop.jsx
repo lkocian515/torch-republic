@@ -1,18 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 
 const RG = '#E6B7AD';
+const EMERALD = '#10B981';
+
+const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS];
+
+const TABS = [
+  { key: 'all',     label: 'All Products',     count: ALL_PRODUCTS.length,      color: RG },
+  { key: 'mushroom', label: 'Mushroom Coffee',  count: MUSHROOM_PRODUCTS.length, color: RG },
+  { key: 'matcha',  label: 'Matcha',            count: MATCHA_PRODUCTS.length,   color: EMERALD },
+];
 
 export default function MushroomShop() {
+  const [tab, setTab] = useState('all');
+
   useSEO({
-    title: 'Shop Mushroom Coffee Blends | Torch Republic',
-    description: "Explore Torch Republic's premium instant mushroom coffee blends for focus, clarity, calm, and daily wellness rituals. Lion's Mane + Chaga in every cup. No coffee maker needed.",
+    title: 'Shop All Blends | Torch Republic Coffee Company',
+    description: "Shop instant coffee, mushroom coffee, and matcha blends from Torch Republic. Crafted for focus, clarity, calm, and daily ritual. No machine needed.",
     url: '/shop',
   });
+
+  const products = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : MUSHROOM_PRODUCTS;
+  const activeTab = TABS.find(t => t.key === tab);
 
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -26,39 +40,52 @@ export default function MushroomShop() {
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Instant Mushroom Coffee Blends
+            Instant Coffee, Mushroom Coffee &amp; Matcha
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-8"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Coffee-forward instant blends crafted with functional mushrooms for focus, calm, energy, balance, and daily ritual.
+            Premium instant blends crafted for focus, calm, energy, and everyday ritual. No machine needed.
           </p>
 
           {/* Trust bar */}
           <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mb-6">
-            {['27 Servings Per Tube', 'No Coffee Maker Needed', 'Functional Mushroom Blends', 'Subscribe & Save 20%'].map(t => (
+            {['No Coffee Maker Needed', 'Instant Powder', 'Functional Adaptogens', 'Subscribe & Save 20%'].map(t => (
               <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase"
                 style={{ color: 'rgba(230,183,173,0.45)' }}>✦ {t}</span>
             ))}
           </div>
-          <p className="font-heading text-sm max-w-md mx-auto"
-            style={{ color: 'rgba(230,183,173,0.38)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.7 }}>
-            Coffee-forward, smooth, and easy to drink — with subtle earthy depth from functional mushrooms.
-          </p>
         </motion.div>
       </section>
 
-      {/* ── PRODUCT GRID ── */}
-      <section className="px-6 md:px-10 py-16">
+      {/* ── TABS ── */}
+      <section className="px-6 md:px-10 pt-10">
         <div className="max-w-[1280px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 text-center">
-            <h2 className="font-serif font-bold text-white mb-2" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>Choose Your Ritual</h2>
-            <p className="font-heading" style={{ color: 'rgba(247,241,232,0.4)', fontWeight: 300, fontSize: '0.9rem' }}>
-              Pick one blend, try the full set, or build a monthly subscription around your routine.
-            </p>
-          </motion.div>
+          <div className="flex flex-wrap gap-2 mb-10 justify-center">
+            {TABS.map(t => (
+              <button
+                key={t.key}
+                onClick={() => setTab(t.key)}
+                className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all"
+                style={{
+                  padding: '10px 22px',
+                  border: `1px solid ${tab === t.key ? t.color + '60' : 'rgba(255,255,255,0.1)'}`,
+                  background: tab === t.key ? `${t.color}12` : 'transparent',
+                  color: tab === t.key ? t.color : 'rgba(255,255,255,0.35)',
+                  cursor: 'pointer',
+                }}
+              >
+                {t.label} ({t.count})
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* ── PRODUCT GRID ── */}
+      <section className="px-6 md:px-10 pb-16">
+        <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MUSHROOM_PRODUCTS.map((product, i) => (
+            {products.map((product, i) => (
               <MushroomProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
