@@ -188,53 +188,7 @@ export default function OurMission() {
         </div>
       </section>
 
-      {/* The Six Blends */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <div className="max-w-[860px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>04 — The Collection</p>
-            <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
-              The Full Collection
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {MUSHROOM_PRODUCTS.map((p, i) => (
-              <motion.div
-                key={p.id}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-              >
-                <Link to={`/products/${p.slug}`}
-                  className="flex items-start gap-4 p-4 group"
-                  style={{ background: '#0F0E0D', border: `1px solid ${p.accent}15`, textDecoration: 'none', display: 'flex' }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = `${p.accent}35`}
-                  onMouseLeave={e => e.currentTarget.style.borderColor = `${p.accent}15`}>
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full mt-1.5" style={{ background: p.accent }} />
-                  <div className="flex-1 min-w-0">
-                    <p className="font-serif font-bold text-white text-sm">{p.name}</p>
-                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-0.5" style={{ color: `${p.accent}70` }}>{p.roast} · {p.mood}</p>
-                  </div>
-                  <span className="font-mono text-[9px] group-hover:translate-x-1 transition-transform flex-shrink-0" style={{ color: `${p.accent}50` }}>→</span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-10 flex flex-col sm:flex-row gap-3">
-            <Link to="/shop"
-              className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-8"
-              style={{ background: RG, color: '#080808' }}>
-              Shop All Blends →
-            </Link>
-            <Link to="/bundle"
-              className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-4 px-8"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
-              Shop the Full Ritual Set →
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Trust section */}
       <section className="px-6 md:px-10 py-20">
