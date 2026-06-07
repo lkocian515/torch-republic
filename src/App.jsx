@@ -38,7 +38,7 @@ import LoyaltyPortal from './pages/LoyaltyPortal';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Subscription from './pages/Subscription';
-import About from './pages/About';
+import OurMission from './pages/OurMission';
 import Contact from './pages/Contact';
 import Torchbearer from './pages/Torchbearer';
 import TrafficReport from './pages/TrafficReport';
@@ -119,10 +119,10 @@ const AuthenticatedApp = () => {
         <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
         <Route path="/subscription" element={<LayoutWrapper currentPageName="Subscription"><Subscription /></LayoutWrapper>} />
-        <Route path="/about" element={<LayoutWrapper currentPageName="About"><About /></LayoutWrapper>} />
+        <Route path="/mission" element={<LayoutWrapper currentPageName="OurMission"><OurMission /></LayoutWrapper>} />
         <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
         <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
-        <Route path="/mission" element={<Navigate to="/about" replace />} />
+        <Route path="/about" element={<Navigate to="/mission" replace />} />
         {/* Traffic Report - admin only, noindex */}
         <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
         <Route path="/research" element={<LayoutWrapper currentPageName="ResearchHub"><ResearchHub /></LayoutWrapper>} />
