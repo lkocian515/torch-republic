@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 // Premium brand sections — in ritual-based order
+import ProductHero from '../components/home/ProductHero';
 import PremiumBrandHero from '../components/home/PremiumBrandHero';
 import BrandPhilosophy from '../components/home/BrandPhilosophy';
 import ShopByRitual from '../components/home/ShopByRitual';
@@ -69,49 +70,52 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <ReviewPopup />
 
-      {/* 1. Premium Hero */}
+      {/* 1. Product Hero */}
+      <ProductHero />
+
+      {/* 2. Premium Brand Hero */}
       <PremiumBrandHero />
 
-      {/* 2. Brand Philosophy */}
+      {/* 3. Brand Philosophy */}
       <BrandPhilosophy />
 
-      {/* 3. Shop by Ritual */}
+      {/* 4. Shop by Ritual */}
       <ShopByRitual />
 
-      {/* 4. Category Overview */}
+      {/* 5. Category Overview */}
       <CategoryOverview />
 
-      {/* 5. Featured Products */}
+      {/* 6. Featured Products */}
       <div id="featured" />
 
-      {/* 6. Why Torch Republic */}
+      {/* 7. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 7. Reviews */}
+      {/* 8. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 8. Bundles */}
+      {/* 9. Bundles */}
       <BundleSection />
 
-      {/* 9. Comparison */}
+      {/* 10. Comparison */}
       <BlendComparisonTable />
 
-      {/* 10. How It Works */}
+      {/* 11. How It Works */}
       <HowItWorks />
 
-      {/* 11. Ingredient Transparency */}
+      {/* 12. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 12. Founder Note */}
+      {/* 13. Founder Note */}
       <FounderNote />
 
-      {/* 13. Guarantee */}
+      {/* 14. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 14. FAQ */}
+      {/* 15. FAQ */}
       <FAQSection />
 
-      {/* 15. Final CTA */}
+      {/* 16. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
