@@ -46,6 +46,9 @@ import TermsOfService from './pages/TermsOfService';
 import MushroomCoffeeBenefits from './pages/MushroomCoffeeBenefits';
 import LionsManeCoffee from './pages/LionsManeCoffee';
 import InstantCoffeeForEnergy from './pages/InstantCoffeeForEnergy';
+import LionsManeMushroomCoffee from './pages/blog/LionsManeMushroomCoffee';
+import ChagaMushroomCoffee from './pages/blog/ChagaMushroomCoffee';
+import InstantCeremonialMatcha from './pages/blog/InstantCeremonialMatcha';
 
 const mainPageKey = 'Home';
 const MainPage = Home;
@@ -119,6 +122,11 @@ const AuthenticatedApp = () => {
         <Route path="/mushroom-coffee-benefits" element={<LayoutWrapper currentPageName="MushroomCoffeeBenefits"><MushroomCoffeeBenefits /></LayoutWrapper>} />
         <Route path="/lions-mane-coffee" element={<LayoutWrapper currentPageName="LionsManeCoffee"><LionsManeCoffee /></LayoutWrapper>} />
         <Route path="/instant-coffee-for-energy" element={<LayoutWrapper currentPageName="InstantCoffeeForEnergy"><InstantCoffeeForEnergy /></LayoutWrapper>} />
+
+        {/* ── BLOG POSTS ── */}
+        <Route path="/journal/lions-mane-mushroom-coffee" element={<LayoutWrapper currentPageName="LionsManeMushroomCoffee"><LionsManeMushroomCoffee /></LayoutWrapper>} />
+        <Route path="/journal/chaga-mushroom-coffee" element={<LayoutWrapper currentPageName="ChagaMushroomCoffee"><ChagaMushroomCoffee /></LayoutWrapper>} />
+        <Route path="/journal/instant-ceremonial-matcha" element={<LayoutWrapper currentPageName="InstantCeremonialMatcha"><InstantCeremonialMatcha /></LayoutWrapper>} />
 
         {/* ── LEGACY REDIRECTS (all old routes → mushroom coffee pages) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
