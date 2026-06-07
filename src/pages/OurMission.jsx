@@ -29,9 +29,10 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'Our Story | Torch Republic Coffee Company | Founder-Led Premium Coffee',
-    description: 'Torch Republic was created by Lisa Marie Kocian for people who want their daily rituals to feel clearer, stronger, and more intentional. Premium instant coffee, mushroom coffee, and matcha blends.',
+    title: 'Our Mission | Torch Republic Coffee Company | Premium Coffee for Intentional Rituals',
+    description: 'Learn the story and mission behind Torch Republic Coffee Company — coffee for clarity, resilience, and the first ritual of a more intentional day. Premium instant coffee, mushroom coffee, and matcha blends.',
     url: '/mission',
+    type: 'website',
   });
 
   return (

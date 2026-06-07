@@ -37,7 +37,6 @@ const StatCard = ({ icon: Icon, label, value, sub }) => (
 import { useNoIndex } from '@/hooks/useNoIndex';
 
 export default function TrafficReport() {
-  useNoIndex();
   useNoIndex(); // Prevent search engine indexing
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);

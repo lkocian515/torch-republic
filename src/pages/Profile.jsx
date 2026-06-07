@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 import { LogOut, Trash2, Gift } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -7,6 +7,15 @@ import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
 
 export default function Profile() {
+  // Add noindex meta tag on mount
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
+
   const { user, logout, isLoadingAuth } = useAuth();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -88,7 +97,7 @@ export default function Profile() {
                   Customer Portal
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
-                  Manage subscription & loyalty points
+                  Manage subscription {'&'} loyalty points
                 </p>
               </div>
             </div>

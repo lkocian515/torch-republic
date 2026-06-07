@@ -71,9 +71,15 @@ function StickyMobileCTA() {
 export default function Home() {
   useSEO({
     title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Discover Torch Republic Coffee Company — premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, resilience, focus, restoration, and intentional daily ritual.',
+    description: 'Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, resilience, focus, restoration, and intentional daily ritual. Shop functional mushroom coffee with Lion\'s Mane + Chaga.',
     url: '/',
     type: 'website',
+    product: {
+      name: 'Torch Republic Mushroom Coffee',
+      description: 'Functional mushroom coffee blends with Lion\'s Mane and Chaga for focus, clarity, and daily ritual',
+      price: '24.99',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    },
   });
 
   // Calculate top-rated blend from reviews

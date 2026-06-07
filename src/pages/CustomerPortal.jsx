@@ -49,6 +49,15 @@ const FREQUENCIES = [
 ];
 
 export default function CustomerPortal() {
+  // Add noindex meta tag on mount
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
+
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [user, setUser] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');

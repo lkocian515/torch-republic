@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
@@ -16,6 +16,15 @@ const REVIEW_THEMES = [
 ];
 
 export default function Reviews() {
+  // Add noindex meta tag on mount
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
+
   const [activeFilter, setActiveFilter] = useState('all');
 
   useSEO({
