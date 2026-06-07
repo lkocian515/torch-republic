@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
 
-const ALL_PRODUCTS = [...MATCHA_PRODUCTS, ...MUSHROOM_PRODUCTS];
+const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
 
 const TABS = [
-  { key: 'all',     label: 'All Products',     count: ALL_PRODUCTS.length,      color: RG },
-  { key: 'mushroom', label: 'Mushroom Coffee',  count: MUSHROOM_PRODUCTS.length, color: RG },
-  { key: 'matcha',  label: 'Matcha',            count: MATCHA_PRODUCTS.length,   color: EMERALD },
+  { key: 'all',     label: 'All Products',     count: ALL_PRODUCTS.length,           color: RG },
+  { key: 'mushroom', label: 'Mushroom Coffee',  count: MUSHROOM_PRODUCTS.length,      color: RG },
+  { key: 'matcha',  label: 'Matcha',            count: MATCHA_PRODUCTS.length,        color: EMERALD },
+  { key: 'classic', label: 'Classic Coffee',    count: CLASSIC_COFFEE_PRODUCTS.length, color: '#C98F86' },
 ];
 
 export default function MushroomShop() {
@@ -29,7 +30,7 @@ export default function MushroomShop() {
     url: '/shop',
   });
 
-  const products = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : MUSHROOM_PRODUCTS;
+  const products = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : tab === 'classic' ? CLASSIC_COFFEE_PRODUCTS : MUSHROOM_PRODUCTS;
   const activeTab = TABS.find(t => t.key === tab);
 
   return (

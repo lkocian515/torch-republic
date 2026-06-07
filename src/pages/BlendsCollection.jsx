@@ -50,12 +50,12 @@ export default function BlendsCollection() {
           Can't choose just one?
         </p>
         <h2 className="font-serif font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)' }}>
-          Get All Six in the Bundle
+          Shop the Complete Collection
         </h2>
         <Link to="/bundle"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
           style={{ background: '#E6B7AD', color: '#080808', padding: '14px 32px' }}>
-          Shop the 6-Tube Bundle →
+          Shop All Blends →
         </Link>
       </section>
     </div>
