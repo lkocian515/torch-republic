@@ -55,55 +55,99 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* Our Story — Inspiration & Mission */}
+      {/* Our Mission */}
       <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[860px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: 'rgba(230,183,173,0.5)' }}>Our Mission</p>
+            <h2 className="font-serif font-bold text-white text-center" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.2 }}>
+              To Help People Cultivate Greater Clarity, Awareness, and Well-Being
+            </h2>
+          </motion.div>
+          
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              To help people cultivate greater clarity, awareness, and well-being through intentional daily rituals.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              At Torch Republic, we believe the quality of our lives is shaped by the choices we make every day. The habits we practice, the thoughts we nurture, the routines we return to, and the moments we create for ourselves all play a role in determining who we become.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              In a world that often rewards distraction, speed, and constant consumption, we believe there is value in slowing down long enough to reconnect with what truly matters.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              That belief guides everything we create.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              We craft premium coffee, mushroom coffee, and matcha blends inspired by the qualities that support a meaningful life—focus, resilience, discipline, creativity, restoration, intuition, balance, and growth. Every blend is designed with purpose and intended to become part of a ritual that supports both personal well-being and personal development.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Our mission is not simply to provide energy.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Our mission is to help people begin each day with greater purpose, greater presence, and a deeper connection to the person they are becoming.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              We believe wellness is not about perfection. It is not about chasing every trend or finding a quick fix. True wellness is built through consistency. It grows through the small actions repeated day after day, often unnoticed, until they become the foundation of a better life.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              The torch in our name represents awareness—the inner light that guides us forward, helps us think independently, and reminds us that growth is always possible. It symbolizes the courage to choose intention over autopilot, purpose over distraction, and progress over stagnation.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Everything we create is rooted in a simple idea:
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Transformation doesn't happen overnight.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              It happens through the choices we make every day.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              One cup.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              One ritual.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              One intentional step forward at a time.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Story — Inspiration & Mission */}
+      <section className="px-6 md:px-10 py-20" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.06)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-[860px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: 'rgba(230,183,173,0.5)' }}>Our Story</p>
             <h2 className="font-serif font-bold text-white text-center" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.2 }}>
-              Elevating the Daily Ritual
+              Why Torch Republic Was Born
             </h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-                Torch Republic was born from a simple observation: the way you start your morning sets the tone for everything that follows. We watched people rushing through their mornings with complicated brewing setups, settling for mediocre coffee, or skipping the ritual altogether — and we knew there had to be a better way.
-              </p>
-              <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-                We believed your morning coffee could be more than just caffeine. It could be an intentional moment of clarity, focus, and preparation — a ritual that honors both tradition and the demands of modern life.
-              </p>
-              <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-                Our mission is to elevate the daily ritual. We create premium blends that dissolve instantly, taste exceptional, and transform your morning from rushed to intentional — no grinder, no brewer, no compromise required.
-              </p>
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-                Three paths, one standard: pure Classic Instant Coffee for traditionalists, functional Mushroom Coffee with Lion's Mane and Chaga for cognitive support, and Ceremonial Matcha for calm, sustained energy. Each crafted to help you show up as your best self, every single day.
-              </p>
-            </motion.div>
-            
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-              className="flex flex-col gap-5">
-              <div className="p-6" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)' }}>
-                <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.15)' }}>
-                  <span style={{ color: RG, fontSize: '1.1rem' }}>✦</span>
-                </div>
-                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.15rem' }}>Our Mission</h3>
-                <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                  Our mission is to turn everyday coffee into a ritual of clarity, energy, and self-leadership — helping people rise, focus, restore, and carry their own light forward.
-                </p>
-              </div>
-              
-              <div className="p-6" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)' }}>
-                <div className="w-8 h-8 rounded-full mb-4 flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.15)' }}>
-                  <span style={{ color: RG, fontSize: '1.1rem' }}>⚡</span>
-                </div>
-                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.15rem' }}>Why Torch Republic</h3>
-                <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                  Torch Republic exists to restore meaning to the daily cup — crafting premium instant coffee rituals for focus, energy, calm, and the quiet discipline of becoming yourself again. No pods, no machines, no complicated routine. Just a better cup in seconds.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Torch Republic Coffee Company started with a simple frustration: too many mornings felt rushed, cloudy, and empty. The coffee was forgettable. The energy was jittery. The history and ideas that once inspired you were drowned out by notifications and noise. You wanted a ritual that made you sharper — and reminded you what you stand for.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              So Torch Republic was born.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              We combined high-quality instant coffee with functional mushrooms like Lion's Mane and Chaga to support focus, clarity, and calm, sustained energy you can actually feel in real life — not just read on a label. Then we layered in what we love most: the stories of people who carried the torch before us. Thinkers, writers, builders, and leaders whose decisions still echo through your everyday life.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Every Torch Republic blend is designed as a small act of resistance against empty routines. Our packaging doesn't just show a logo; it gives you names, dates, and ideas worth remembering. Over time, your morning cup becomes a thread that connects your work today to the kind of history you want to help write.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              We are a U.S.-based, independent, founder-led coffee company committed to small-batch quality, transparent sourcing, and products you can actually understand. No hype, no gimmicks, no fake health claims — just smooth, functional coffee that respects your brain, your time, and your values.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              If you feel a responsibility to build something meaningful — a business, a family, a body of work, a better community — you're who we make this for. Torch Republic exists to fuel the modern torchbearers: the people who still believe that personal rituals, clear thinking, and everyday courage can change history.
+            </p>
+            <p className="font-heading text-base leading-relaxed font-serif font-bold" style={{ color: 'rgba(230,183,173,0.8)', fontWeight: 600 }}>
+              Carry the torch.
+            </p>
+          </motion.div>
         </div>
       </section>
 
