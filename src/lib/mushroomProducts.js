@@ -38,9 +38,9 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Morning energy, fresh starts, momentum',
     mushrooms: 'No',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f6fbe0c8d_bjmbjm.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e89eac27a_fyn.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f6fbe0c8d_bjmbjm.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e89eac27a_fyn.png',
     ],
     alt: 'Torch Republic Ember Rise Classic Instant Coffee',
     price: 24.99,
