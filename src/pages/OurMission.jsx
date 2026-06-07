@@ -58,17 +58,7 @@ export default function OurMission() {
       {/* Our Mission */}
       <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-[860px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: 'rgba(230,183,173,0.5)' }}>Our Mission</p>
-            <h2 className="font-serif font-bold text-white text-center" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.2 }}>
-              To Help People Cultivate Greater Clarity, Awareness, and Well-Being
-            </h2>
-          </motion.div>
-          
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              To help people cultivate greater clarity, awareness, and well-being through intentional daily rituals.
-            </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               At Torch Republic, we believe the quality of our lives is shaped by the choices we make every day. The habits we practice, the thoughts we nurture, the routines we return to, and the moments we create for ourselves all play a role in determining who we become.
             </p>
