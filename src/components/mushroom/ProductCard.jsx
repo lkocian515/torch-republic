@@ -19,7 +19,7 @@ const BEST_FOR = {
 };
 
 export default function MushroomProductCard({ product, index = 0 }) {
-  const shopifyUrl = getShopifyCartUrl(product.slug, 1);
+  const shopifyUrl = getShopifyCartUrl(product.shopifyHandle, 1);
 
   const handleAddToCart = (e) => {
     e.preventDefault();

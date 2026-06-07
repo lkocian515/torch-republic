@@ -16,22 +16,21 @@ const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 // ── Per-product Shopify variant IDs ──────────────────────────────────────────
 // Replace each REPLACE_WITH_VARIANT_ID with the real numeric variant ID from Shopify Admin.
 export const SHOPIFY_VARIANT_IDS = {
-  // Republic Reserve
-  'torchbearer-premium-instant-coffee': '49166825160956', // Torchbearer Premium Instant Coffee
-  'mooncap-restore':  '49148263760124', // Mooncap Restore — Dark Roast
-  'glowmind-clarity': '49148263596284', // GlowMind Clarity — Medium Roast
-  'suncap-rise':      '49148263465212', // Suncap Rise — Light Roast
-  'the-oracle':       '49148263170300', // The Oracle Blend — Medium Roast
-  'mystic-bloom':     '49148263006460', // Mystic Bloom Blend — Medium Roast
-  'dreamcap-blend':   '49148261597436', // DreamCap Blend — Medium Roast
-  // Matcha - Updated with exact variant IDs from user
-  'the-monk-matcha-blend': '49170574115068',
-  'the-alchemist-matcha-blend': '49170572148988',
-  'the-ascendant-matcha-blend': '49170644402428',
-  // Classic Coffee - Updated with direct cart links
-  'torchbearer-classic-instant-coffee': '49171204276476', // Product 1 direct cart link
-  'ember-rise-classic-instant-coffee': '49171202375932', // Product 2 direct cart link
-  'midnight-watch-classic-instant-coffee': '49148262809852',
+  // Classic Coffee (3 products)
+  'torchbearer': '49171204276476', // Torchbearer Classic Instant Coffee
+  'ember-rise': '49171202375932', // Ember Rise Classic Instant Coffee
+  'midnight-watch': '49148262809852', // Midnight Watch Classic Instant Coffee
+  // Mushroom Coffee (6 products)
+  'suncap-rise': '49148263465212', // Suncap Rise — Light Roast
+  'glowmind-clarity-blend': '49148263596284', // GlowMind Clarity — Medium Roast
+  'mooncap-restore': '49148263760124', // Mooncap Restore — Dark Roast
+  'dreamcap-blend': '49148261597436', // DreamCap Blend — Medium Roast
+  'the-oracle-blend': '49148263170300', // The Oracle Blend — Medium Roast
+  'mystic-bloom-blend': '49148263006460', // Mystic Bloom Blend — Medium Roast
+  // Matcha (3 products)
+  'the-monk-matcha-blend': '49170574115068', // The Monk Matcha Blend
+  'the-ascendant-matcha-blend': '49170644402428', // The Ascendant Matcha Blend
+  'the-alchemist-matcha-blend': '49170572148988', // The Alchemist Matcha Blend
 };
 
 // ── Cart page (no specific product) ──────────────────────────────────────────
