@@ -13,7 +13,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Calm evenings + restoration',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/1_555ca46a-31a4-4905-b0a3-21b35fe43b0a.png?v=1780250635',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/375860656_2.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8629ce5ce_ChatGPTImageMay31202608_02_03AM.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/03cb10197_9.png',
@@ -39,7 +39,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Focus + mental clarity',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/2_fd698d03-078e-4064-8544-4cd64ae30544.png?v=1780251236',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ded856483_3.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/797ff361b_111.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ae57d0019_123.png',
@@ -65,7 +65,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Morning energy',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_8feb1175-80d7-4c71-84d6-4ca73883ac6b.png?v=1780251415',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666faf673_4.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/657f143e2_13_135fd8bf-00d4-48a1-953e-67d5361790db.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c0849500b_14_018ba1fb-f93c-4eaf-9762-5580f17396b3.png',
@@ -91,7 +91,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Insight + creative flow',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_aeb8cbbe-213e-41f0-b36b-a629c72cf9c6.png?v=1780251557',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c999dc874_5.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a16d2d6f_7_852b77da-d09a-4917-82fa-22c8fb67eca5.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/16c43c626_8_27e81359-c374-4400-8932-11c7003218f61.png',
@@ -117,7 +117,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Balance + harmony',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_049aee9a-8305-4b42-8850-13e7556ee6e8.png?v=1780253758',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/31fadcff8_7.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27a34f840_15_013d57a8-073c-4401-820a-97bf531baed5.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a9985a74_16_eceb761f-b7ce-477c-b295-a85f3542e081.png',
@@ -143,7 +143,7 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Evening ritual + nighttime creativity',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/5_78b53f53-babd-4618-a259-0dd4b97d59e5.png?v=1780251636',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/20350f4bd_6.png',
     galleryImages: [
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cd39be424_17_2be8d6bd-45e1-4549-9ea4-0aab027261e2.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be7f39187_18_8a6c94cc-7fe7-45ba-b009-dd9087ce17bd.png',
