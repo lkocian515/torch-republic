@@ -22,25 +22,24 @@ export default function PremiumHero() {
   return (
     <section style={{ background: '#0A0A0A', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
       {/* Desktop Hero */}
-      <div className="hidden md:block relative" style={{ minHeight: '680px' }}>
+      <div className="hidden md:block relative" style={{ minHeight: '720px' }}>
         {/* Background image with overlay */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.85) 100%)',
-            backgroundImage: 'url(https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png)',
+            background: 'linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.8) 100%)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-8 py-24" style={{ minHeight: '680px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        {/* Content - Stacked layout */}
+        <div className="relative z-10 max-w-7xl mx-auto px-8 py-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="flex flex-col items-center text-center"
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6" style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '999px' }}>
@@ -52,10 +51,11 @@ export default function PremiumHero() {
             <h1
               className="font-serif font-bold mb-6"
               style={{
-                fontSize: 'clamp(2.8rem,5vw,4.2rem)',
+                fontSize: 'clamp(3rem,6vw,5rem)',
                 color: '#F5EFE6',
                 lineHeight: 1.1,
                 letterSpacing: '-0.02em',
+                maxWidth: '900px',
               }}
             >
               Instant Coffee, Mushroom Coffee & Matcha
@@ -102,13 +102,22 @@ export default function PremiumHero() {
               </Link>
             </div>
 
+            {/* Product Image */}
+            <div className="mb-12" style={{ width: '100%', maxWidth: '800px', aspectRatio: '16/9', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
+              <img
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png"
+                alt="Torch Republic Products"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             {/* Benefit Icons */}
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-8">
+              <div className="flex flex-col items-center gap-2">
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     background: 'rgba(230,183,173,0.08)',
                     border: `1px solid ${RG}25`,
@@ -117,17 +126,17 @@ export default function PremiumHero() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Zap className="w-4 h-4" style={{ color: RG }} />
+                  <Zap className="w-5 h-5" style={{ color: RG }} />
                 </div>
-                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
                   Energy
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-2">
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     background: 'rgba(230,183,173,0.08)',
                     border: `1px solid ${RG}25`,
@@ -136,17 +145,17 @@ export default function PremiumHero() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Brain className="w-4 h-4" style={{ color: RG }} />
+                  <Brain className="w-5 h-5" style={{ color: RG }} />
                 </div>
-                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
                   Focus
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-2">
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     background: 'rgba(230,183,173,0.08)',
                     border: `1px solid ${RG}25`,
@@ -155,17 +164,17 @@ export default function PremiumHero() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Sparkles className="w-4 h-4" style={{ color: RG }} />
+                  <Sparkles className="w-5 h-5" style={{ color: RG }} />
                 </div>
-                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
                   Clarity
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-2">
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     background: 'rgba(230,183,173,0.08)',
                     border: `1px solid ${RG}25`,
@@ -174,9 +183,9 @@ export default function PremiumHero() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Coffee className="w-4 h-4" style={{ color: RG }} />
+                  <Coffee className="w-5 h-5" style={{ color: RG }} />
                 </div>
-                <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>
                   Ritual
                 </span>
               </div>
