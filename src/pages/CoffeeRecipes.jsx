@@ -195,6 +195,57 @@ export default function CoffeeRecipes() {
         </div>
       </section>
 
+      {/* Table of Contents */}
+      <section className="px-6 md:px-10 py-12" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="font-serif font-bold mb-2" style={{ fontSize: '1.8rem', color: '#FFFFFF' }}>
+              Table of Contents
+            </h2>
+            <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)' }}>
+              Jump to your favorite recipe
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {RECIPES.map((recipe, idx) => (
+              <motion.a
+                key={recipe.id}
+                href={`#${recipe.id}`}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex items-center gap-3 p-4 rounded-lg transition-all hover:bg-white/5 group"
+                style={{ border: '1px solid rgba(230,183,173,0.08)' }}
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                  style={{ background: 'rgba(230,183,173,0.08)' }}>
+                  <recipe.icon className="w-3.5 h-3.5" style={{ color: RG }} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-heading text-sm font-medium group-hover:text-rose-gold transition-colors"
+                    style={{ color: 'rgba(240,235,225,0.7)' }}>
+                    {recipe.title}
+                  </h3>
+                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase"
+                    style={{ color: 'rgba(230,183,173,0.4)' }}>
+                    {recipe.time} • {recipe.difficulty}
+                  </p>
+                </div>
+                <span className="font-mono text-[8px] tracking-[0.2em]" style={{ color: RG }}>
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Recipes Grid */}
       <section className="px-6 md:px-10 py-16">
         <div className="max-w-[1280px] mx-auto">
@@ -203,12 +254,13 @@ export default function CoffeeRecipes() {
               const Icon = recipe.icon;
               return (
                 <motion.div
+                  id={recipe.id}
                   key={recipe.id}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="border border-white/5 rounded-lg p-6 md:p-8 hover:border-rose-gold/20 transition-all"
+                  className="border border-white/5 rounded-lg p-6 md:p-8 hover:border-rose-gold/20 transition-all scroll-mt-24"
                   style={{ backgroundColor: 'rgba(255,255,255,0.01)' }}
                 >
                   <div className="flex items-start justify-between mb-6">
