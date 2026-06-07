@@ -10,12 +10,12 @@ const SECTIONS = [
   {
     label: '01 — Our Ritual',
     title: 'Coffee made for modern routines.',
-    body: 'Torch Republic Coffee Company was rebuilt around a simple idea: coffee should feel intentional, easy, and aligned with the way you want your day to feel. Each instant mushroom coffee blend is designed to slot naturally into your morning — no brewer, no grinder, no complicated ritual required.',
+    body: 'Torch Republic Coffee Company was rebuilt around a simple idea: coffee should feel intentional, easy, and aligned with the way you want your day to feel. We offer three paths: Classic Instant Coffee (pure Arabica), Mushroom Coffee (Lion's Mane + Chaga), and Matcha (ceremonial grade). No brewer, no grinder, no complicated ritual required.',
   },
   {
-    label: '02 — Why Instant Mushroom Coffee',
-    title: 'Easy to make. Easy to keep consistent.',
-    body: 'Instant mushroom coffee is not a compromise — it is a design choice. When coffee is this easy to prepare, you are far more likely to show up for your ritual every single day. Our blends use premium instant coffee combined with Lion\'s Mane + Chaga for a smooth cup that supports focus, flow, and calm energy.',
+    label: '02 — Three Categories, One Standard',
+    title: 'Classic Coffee. Mushroom Coffee. Matcha.',
+    body: 'Whether you want pure classic instant coffee with no mushrooms, functional mushroom coffee with Lion's Mane + Chaga for focus and clarity, or ceremonial grade matcha for calm energy — each category is designed for consistency, quality, and ease. When coffee is this easy to prepare, you show up for your ritual every single day.',
   },
   {
     label: '03 — Our Promise',
@@ -25,16 +25,16 @@ const SECTIONS = [
 ];
 
 const TRUST = [
-  { label: 'Clear Product Details', desc: 'Instant coffee, Lion\'s Mane + Chaga, 27 servings per tube — no hidden ingredients.' },
+  { label: 'Three Categories', desc: 'Classic Instant Coffee (no mushrooms), Mushroom Coffee (Lion's Mane + Chaga), and Ceremonial Matcha — clearly labeled.' },
+  { label: 'Clear Product Details', desc: '27 servings for coffee blends, 25 for matcha. Premium ingredients, no hidden additives.' },
   { label: 'Secure Checkout', desc: 'Trusted payment options and a clean, simple checkout flow.' },
   { label: 'Easy Support', desc: 'Questions about your order or subscription? Reach out and we\'ll help.' },
-  { label: 'Simple Policies', desc: 'Clear shipping, returns, privacy, and terms — always accessible from the footer.' },
 ];
 
 export default function About() {
   useSEO({
-    title: 'About Torch Republic Coffee Company',
-    description: 'Torch Republic Coffee Company creates premium instant mushroom coffee blends for focus, calm, energy, and daily ritual. Learn about our blends, our ingredients, and our commitment to a better coffee ritual.',
+    title: 'About Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
+    description: "Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha for modern rituals. Classic Arabica, functional blends with Lion's Mane + Chaga, and ceremonial grade matcha.",
     url: '/about',
   });
 
@@ -55,7 +55,7 @@ export default function About() {
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            Torch Republic Coffee Company creates premium instant mushroom coffee blends with Lion's Mane + Chaga for focus, flow, and daily ritual. Each tube is designed for a smooth, health-conscious coffee routine — no grinder, brewer, or complicated morning required.
+            Torch Republic Coffee Company creates premium instant coffee, mushroom coffee, and matcha for modern rituals. Choose Classic Arabica (no mushrooms), Functional Blends with Lion's Mane + Chaga, or Ceremonial Matcha — each designed for a smooth, intentional routine without a grinder, brewer, or complicated morning.
           </p>
         </motion.div>
       </section>
@@ -94,7 +94,7 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>04 — The Collection</p>
             <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
-              The Six Blends
+              The Full Collection
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

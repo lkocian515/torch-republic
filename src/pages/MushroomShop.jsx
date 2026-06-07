@@ -24,8 +24,8 @@ export default function MushroomShop() {
   });
 
   useSEO({
-    title: 'Shop All Blends | Torch Republic Coffee Company',
-    description: "Shop instant coffee, mushroom coffee, and matcha blends from Torch Republic. Crafted for focus, clarity, calm, and daily ritual. No machine needed.",
+    title: 'Shop All Products | Torch Republic Coffee Company',
+    description: "Shop premium instant coffee, mushroom coffee, and matcha from Torch Republic. Classic Arabica, functional blends with Lion's Mane + Chaga, and ceremonial grade matcha. No machine needed.",
     url: '/shop',
   });
 

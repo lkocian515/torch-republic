@@ -8,8 +8,8 @@ import DiscountReminders from '../components/discounts/DiscountReminders';
 
 export default function MushroomBundle() {
   useSEO({
-    title: 'Mushroom Coffee Bundle — All 6 Blends | Torch Republic',
-    description: 'Start your ritual with the Torch Republic mushroom coffee bundle — a curated set of premium instant blends for focus, energy, balance, beauty, and restoration. All six tubes, 27 servings each.',
+    title: 'Mushroom Coffee Bundle — All 6 Blends | Torch Republic Coffee Company',
+    description: "Get all 6 mushroom coffee blends in one bundle from Torch Republic Coffee Company. Premium instant coffee with Lion's Mane + Chaga for focus, energy, calm, and daily ritual. 27 servings per tube.",
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -36,7 +36,7 @@ export default function MushroomBundle() {
               The 6-Blend Bundle
             </h1>
             <p className="font-heading max-w-lg" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.85, fontWeight: 300 }}>
-              Can't choose one? Start with the full six-blend collection and discover your daily favorite. Each tube delivers 27 servings of premium instant mushroom coffee with Lion's Mane + Chaga.
+              Can't choose one blend? Start with the full six-blend mushroom coffee collection. Each tube delivers 27 servings of premium instant coffee with Lion's Mane + Chaga for focus, calm, energy, and restoration.
             </p>
           </motion.div>
         </div>

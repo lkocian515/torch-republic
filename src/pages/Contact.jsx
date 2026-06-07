@@ -10,7 +10,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = 'Contact Us | Torch Republic Mushroom Coffee';
+    document.title = 'Contact Us | Torch Republic Coffee Company';
   }, []);
 
   const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ export default function Contact() {
             Contact Torch Republic Coffee Company
           </h1>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Questions about your order, our instant mushroom coffee blends, or your monthly subscription? Reach out and we'll help.
+            Questions about your order, our instant coffee, mushroom coffee, matcha blends, or your monthly subscription? Reach out and we'll help.
           </p>
         </motion.div>
       </section>

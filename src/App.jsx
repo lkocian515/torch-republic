@@ -149,7 +149,7 @@ const AuthenticatedApp = () => {
         <Route path="/Mission" element={<Navigate to="/about" replace />} />
         <Route path="/Contact" element={<Navigate to="/contact" replace />} />
         <Route path="/landing" element={<Navigate to="/" replace />} />
-        {/* Old patriotic/collectible pages → classic coffee */}
+        {/* Old patriotic/collectible/pod pages → classic coffee */}
         <Route path="/torchbearer" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Founders" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Liberty" element={<Navigate to="/classic-coffee" replace />} />
@@ -158,6 +158,18 @@ const AuthenticatedApp = () => {
         <Route path="/classic-coffee" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/mushroom-coffee" element={<Navigate to="/mushroom-coffee" replace />} />
         <Route path="/matcha" element={<Navigate to="/matcha" replace />} />
+        {/* Old apparel/pod/history pages → home */}
+        <Route path="/patriotic-pride" element={<Navigate to="/" replace />} />
+        <Route path="/freedom-isnt-free" element={<Navigate to="/" replace />} />
+        <Route path="/we-the-people" element={<Navigate to="/" replace />} />
+        <Route path="/faith-over-fear" element={<Navigate to="/" replace />} />
+        <Route path="/christ-is-king" element={<Navigate to="/" replace />} />
+        <Route path="/god-family-country" element={<Navigate to="/" replace />} />
+        <Route path="/american-heroes" element={<Navigate to="/" replace />} />
+        <Route path="/pods" element={<Navigate to="/" replace />} />
+        <Route path="/Pods" element={<Navigate to="/" replace />} />
+        <Route path="/history" element={<Navigate to="/about" replace />} />
+        <Route path="/our-story" element={<Navigate to="/about" replace />} />
 
 
 

@@ -6,8 +6,8 @@ import { useSEO } from '@/hooks/useSEO';
 
 export default function MushroomFAQ() {
   useSEO({
-    title: 'Mushroom Coffee FAQ | Torch Republic Coffee Company',
-    description: 'Answers about Torch Republic mushroom coffee, taste, caffeine, preparation, functional mushrooms, shipping, discounts, and choosing your blend.',
+    title: 'FAQ | Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Answers about Torch Republic instant coffee, mushroom coffee, and matcha. Learn about taste, caffeine, preparation, ingredients, shipping, and choosing your blend.',
   });
   return (
     <div style={{ backgroundColor: '#111111', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -22,7 +22,7 @@ export default function MushroomFAQ() {
           </h1>
           <p className="font-heading max-w-lg mx-auto"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Everything you need to know about Torch Republic instant mushroom coffee.
+            Everything you need to know about Torch Republic instant coffee, mushroom coffee, and matcha.
           </p>
         </motion.div>
       </section>

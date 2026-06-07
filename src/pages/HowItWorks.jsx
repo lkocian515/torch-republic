@@ -7,8 +7,8 @@ import WhyInstant from '../components/mushroom/WhyInstant';
 
 export default function HowItWorks() {
   useSEO({
-    title: 'How Instant Mushroom Coffee Works | Torch Republic Coffee Company',
-    description: 'Learn how to make Torch Republic instant mushroom coffee powder. Scoop, mix with hot water or milk, and enjoy a smooth daily coffee ritual.',
+    title: 'How It Works | Torch Republic Coffee Company',
+    description: 'Learn how to prepare Torch Republic instant coffee, mushroom coffee, and matcha. Scoop, mix with hot or cold water, and enjoy your daily ritual in seconds.',
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
@@ -23,7 +23,7 @@ export default function HowItWorks() {
             Simple. Instant. Intentional.
           </h1>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Premium instant mushroom coffee designed for people who want an elevated ritual without the complexity of brewing.
+            Premium instant coffee, mushroom coffee, and matcha designed for people who want an elevated ritual without the complexity of brewing.
           </p>
         </motion.div>
       </section>

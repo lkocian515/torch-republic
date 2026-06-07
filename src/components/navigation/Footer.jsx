@@ -6,10 +6,10 @@ const FOOTER_LINKS = [
     heading: 'Shop',
     links: [
       { label: 'Shop All', href: '/shop' },
-      { label: 'Classic Coffee', href: '/torchbearer' },
-      { label: 'Mushroom Coffee', href: '/blends' },
+      { label: 'Classic Coffee', href: '/classic-coffee' },
+      { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
+      { label: 'Matcha', href: '/matcha' },
       { label: 'Bundles', href: '/bundle' },
-      { label: 'Subscribe & Save', href: '/subscription' },
     ]
   },
   {
