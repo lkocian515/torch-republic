@@ -16,10 +16,10 @@ const REWARD_TIERS = [
 ];
 
 const EARNING_RULES = [
-  { action: 'Make a purchase', rate: '1 point per $1', icon: ShoppingBag },
-  { action: 'Write a review', rate: '50 points', icon: TrendingUp },
-  { action: 'Refer a friend', rate: '100 points', icon: Gift },
-  { action: 'Birthday bonus', rate: '100 points', icon: Clock },
+  { action: 'Make a purchase', points: '1 pt per $1', icon: ShoppingBag },
+  { action: 'Write a review', points: '50 pts', icon: TrendingUp },
+  { action: 'Refer a friend', points: '100 pts', icon: Gift },
+  { action: 'Birthday bonus', points: '100 pts', icon: Clock },
 ];
 
 function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
@@ -166,7 +166,7 @@ function EarningRule({ rule, index }) {
       </div>
       <div className="flex-1">
         <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{rule.action}</p>
-        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: RG }}>{rule.rate}</p>
+        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: RG }}>{rule.points}</p>
       </div>
     </motion.div>
   );

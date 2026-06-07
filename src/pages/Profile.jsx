@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
-import { LogOut, Trash2 } from 'lucide-react';
+import { LogOut, Trash2, Gift } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { Link } from 'react-router-dom';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
 
@@ -74,6 +75,32 @@ export default function Profile() {
 
         {/* Loyalty Points */}
         {user && <LoyaltySection user={user} />}
+
+        {/* Loyalty Portal Link */}
+        <div className="bg-card border border-border p-6 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
+                <Gift size={18} style={{ color: '#E6B7AD' }} />
+              </div>
+              <div>
+                <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
+                  Loyalty Portal
+                </p>
+                <p className="text-muted-foreground font-mono text-sm">
+                  View full rewards & earning history
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/loyalty"
+              className="font-mono uppercase tracking-[0.2em] text-xs px-4 py-2 transition-all hover:opacity-90"
+              style={{ background: '#E6B7AD', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
+            >
+              Open →
+            </Link>
+          </div>
+        </div>
 
         {/* Subscription */}
         <SubscriptionManager />

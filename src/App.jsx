@@ -29,12 +29,12 @@ import MatchaCollection from './pages/MatchaCollection';
 import MushroomBundle from './pages/MushroomBundle';
 import BlendDetail from './pages/BlendDetail';
 import BlendsCollection from './pages/BlendsCollection';
-import BlendQuiz from './pages/BlendQuiz';
 import HowItWorks from './pages/HowItWorks';
 import MushroomFAQ from './pages/MushroomFAQ';
 import Reviews from './pages/Reviews';
 import Journal from './pages/Journal';
 import Profile from './pages/Profile';
+import LoyaltyPortal from './pages/LoyaltyPortal';
 import Cart from './pages/Cart';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Subscription from './pages/Subscription';
@@ -103,12 +103,12 @@ const AuthenticatedApp = () => {
         <Route path="/blends/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
         <Route path="/products/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
         <Route path="/bundle" element={<LayoutWrapper currentPageName="MushroomBundle"><MushroomBundle /></LayoutWrapper>} />
-        <Route path="/blend-quiz" element={<LayoutWrapper currentPageName="BlendQuiz"><BlendQuiz /></LayoutWrapper>} />
         <Route path="/how-it-works" element={<LayoutWrapper currentPageName="HowItWorks"><HowItWorks /></LayoutWrapper>} />
         <Route path="/faq" element={<LayoutWrapper currentPageName="MushroomFAQ"><MushroomFAQ /></LayoutWrapper>} />
         <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />
         <Route path="/Journal" element={<LayoutWrapper currentPageName="Journal"><Journal /></LayoutWrapper>} />
         <Route path="/Profile" element={<LayoutWrapper currentPageName="Profile"><Profile /></LayoutWrapper>} />
+        <Route path="/loyalty" element={<LayoutWrapper currentPageName="LoyaltyPortal"><LoyaltyPortal /></LayoutWrapper>} />
         {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/Cart" element={<Cart />} />
