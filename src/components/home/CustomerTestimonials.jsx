@@ -1,82 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
-const TESTIMONIALS = [
-  {
-    id: 1,
-    name: 'Sarah M.',
-    location: 'Chicago, IL',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8815056a9_8.png',
-    testimonial: '"MoonCap Restore has become my evening ritual. The flavor is smooth and it genuinely helps me wind down."',
-    blend: 'MoonCap Restore',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Marcus T.',
-    location: 'Austin, TX',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1cde802f2_9.png',
-    testimonial: '"Perfect for my morning work sessions. GlowMind Clarity helps me stay focused without the jitters."',
-    blend: 'GlowMind Clarity',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'James R.',
-    location: 'Denver, CO',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/55f9e1350_10.png',
-    testimonial: '"SunCap Rise is my go-to for early mornings. Clean energy, no crash. Highly recommend."',
-    blend: 'SunCap Rise',
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Emma L.',
-    location: 'Portland, OR',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0a615b4db_11.png',
-    testimonial: '"Mystic Bloom is my favorite. The ritual feels intentional and the blend tastes amazing."',
-    blend: 'Mystic Bloom',
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: 'David K.',
-    location: 'Brooklyn, NY',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2bcbd60ef_12.png',
-    testimonial: '"DreamCap before bed has genuinely improved my sleep quality. Not overstimulating."',
-    blend: 'DreamCap Blend',
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: 'Jessica H.',
-    location: 'San Francisco, CA',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9d0e4d06a_13.png',
-    testimonial: '"The Oracle Blend paired with my morning reflection time is the perfect start to my day."',
-    blend: 'The Oracle',
-    rating: 5,
-  },
+// Community member photos (lifestyle/ritual imagery)
+const COMMUNITY_PHOTOS = [
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8815056a9_8.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1cde802f2_9.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/55f9e1350_10.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0a615b4db_11.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2bcbd60ef_12.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9d0e4d06a_13.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b8c7e3f1_14.png',
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a2d9f5e8_15.png',
 ];
+
+// Product name mapping from handle
+const PRODUCT_NAMES = {
+  'mooncap-restore': 'MoonCap Restore',
+  'glowmind-clarity': 'GlowMind Clarity',
+  'suncap-rise': 'SunCap Rise',
+  'the-oracle': 'The Oracle',
+  'mystic-bloom': 'Mystic Bloom',
+  'dreamcap-blend': 'DreamCap Blend',
+  'the-monk': 'The Monk',
+  'the-alchemist': 'The Alchemist',
+  'the-ascendant': 'The Ascendant',
+};
+
+const getProductName = (handle) => {
+  if (!handle) return 'Torch Republic';
+  const slug = handle.replace('-instant-mushroom-coffee', '').replace('-instant-coffee', '').replace('-matcha-blend', '');
+  return PRODUCT_NAMES[slug] || slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+};
 
 export default function CustomerTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Fetch reviews from database
+  const { data: reviews = [] } = useQuery({
+    queryKey: ['customer-testimonials'],
+    queryFn: async () => {
+      const allReviews = await base44.entities.Review.list();
+      // Filter for high-quality reviews (4+ stars) with meaningful content
+      return allReviews
+        .filter(r => r.rating >= 4 && r.body && r.body.length > 20)
+        .sort((a, b) => new Date(b.review_date) - new Date(a.review_date))
+        .slice(0, 12); // Limit to 12 reviews
+    },
+  });
+
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? Math.max(0, reviews.length - 3) : prev - 1));
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= reviews.length - 3 ? 0 : prev + 1));
   };
 
-  const visibleTestimonials = [
-    TESTIMONIALS[currentIndex],
-    TESTIMONIALS[(currentIndex + 1) % TESTIMONIALS.length],
-    TESTIMONIALS[(currentIndex + 2) % TESTIMONIALS.length],
-  ];
+  const visibleTestimonials = reviews.slice(currentIndex, currentIndex + 3);
 
   return (
     <section className="px-6 md:px-10 py-20" style={{ background: '#080808', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
@@ -101,62 +86,67 @@ export default function CustomerTestimonials() {
 
         {/* Testimonial Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {visibleTestimonials.map((testimonial, idx) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="flex flex-col h-full"
-              style={{
-                background: 'rgba(230,183,173,0.04)',
-                border: `1px solid ${RG}15`,
-                borderRadius: '6px',
-                overflow: 'hidden',
-              }}
-            >
-              {/* Image */}
-              <div className="h-64 overflow-hidden" style={{ background: '#0F0E0D' }}>
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-col flex-1 p-6">
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {Array(testimonial.rating).fill(null).map((_, i) => (
-                    <Star key={i} size={14} style={{ fill: RG, stroke: RG }} />
-                  ))}
+          {visibleTestimonials.map((review, idx) => {
+            const photoIndex = (currentIndex + idx) % COMMUNITY_PHOTOS.length;
+            const productName = getProductName(review.product_handle);
+            
+            return (
+              <motion.div
+                key={review.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col h-full"
+                style={{
+                  background: 'rgba(230,183,173,0.04)',
+                  border: `1px solid ${RG}15`,
+                  borderRadius: '6px',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Community Photo */}
+                <div className="h-64 overflow-hidden" style={{ background: '#0F0E0D' }}>
+                  <img
+                    src={COMMUNITY_PHOTOS[photoIndex]}
+                    alt={`${review.reviewer_name}'s ritual`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
-                {/* Testimonial */}
-                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.7 }}>
-                  {testimonial.testimonial}
-                </p>
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-6">
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {Array(Math.floor(review.rating)).fill(null).map((_, i) => (
+                      <Star key={i} size={14} style={{ fill: RG, stroke: RG }} />
+                    ))}
+                  </div>
 
-                {/* Divider */}
-                <div style={{ height: '1px', background: `${RG}15`, margin: '16px 0' }} />
+                  {/* Testimonial */}
+                  <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.7 }}>
+                    "{review.body}"
+                  </p>
 
-                {/* User Info */}
-                <div>
-                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>
-                    {testimonial.name}
-                  </p>
-                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-2" style={{ color: RG }}>
-                    {testimonial.blend}
-                  </p>
-                  <p className="font-heading text-[9px]" style={{ color: 'rgba(240,235,225,0.4)' }}>
-                    {testimonial.location}
-                  </p>
+                  {/* Divider */}
+                  <div style={{ height: '1px', background: `${RG}15`, margin: '16px 0' }} />
+
+                  {/* User Info */}
+                  <div>
+                    <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>
+                      {review.reviewer_name}
+                    </p>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-2" style={{ color: RG }}>
+                      {productName}
+                    </p>
+                    <p className="font-heading text-[9px]" style={{ color: 'rgba(240,235,225,0.4)' }}>
+                      Verified Customer
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Navigation */}
@@ -176,16 +166,16 @@ export default function CustomerTestimonials() {
 
           {/* Dots */}
           <div className="flex gap-2">
-            {TESTIMONIALS.map((_, idx) => (
+            {Array(Math.ceil(reviews.length / 3)).fill(null).map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => setCurrentIndex(idx)}
+                onClick={() => setCurrentIndex(idx * 3)}
                 className="transition-all"
                 style={{
-                  width: currentIndex === idx ? 28 : 8,
+                  width: currentIndex === idx * 3 ? 28 : 8,
                   height: 8,
                   borderRadius: 4,
-                  background: currentIndex === idx ? RG : `${RG}30`,
+                  background: currentIndex === idx * 3 ? RG : `${RG}30`,
                   border: 'none',
                   cursor: 'pointer',
                 }}
