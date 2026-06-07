@@ -12,7 +12,7 @@ import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
 import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
-import HowItWorksSection from '../components/mushroom/HowItWorks';
+import HowItWorks from '../components/mushroom/HowItWorks';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
@@ -51,7 +51,7 @@ function StickyMobileCTA() {
           boxShadow: '0 4px 24px rgba(0,0,0,0.7)',
         }}
       >
-        Shop Instant Mushroom Coffee
+        Shop Instant Rituals
       </Link>
     </div>
   );
@@ -59,8 +59,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha Rituals',
-    description: "Premium instant coffee, mushroom coffee, and matcha rituals for clarity, calm, and clean energy. Ready in seconds — no machine needed.",
+    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Premium instant coffee, mushroom coffee, and matcha rituals for clarity, calm, and clean energy. Ready in seconds — no machine needed.',
     url: '/',
     type: 'website',
   });
@@ -98,7 +98,7 @@ export default function Home() {
       <BlendComparisonTable />
 
       {/* 10. How It Works */}
-      <HowItWorksSection />
+      <HowItWorks />
 
       {/* 11. Guarantee */}
       <FirstCupGuarantee />

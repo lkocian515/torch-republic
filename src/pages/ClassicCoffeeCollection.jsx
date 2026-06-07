@@ -12,7 +12,7 @@ const GOLD = '#C4A35A';
 export default function ClassicCoffeeCollection() {
   useSEO({
     title: 'Classic Instant Coffee | Torch Republic Coffee Company',
-    description: 'Shop premium classic instant coffee blends from Torch Republic Coffee Company. No coffee maker needed, no pods, just bold coffee ready in seconds.',
+    description: 'Shop premium classic instant coffee blends from Torch Republic Coffee Company. No coffee maker needed, no pods, no mushrooms — just bold coffee ready in seconds.',
     url: '/classic-coffee',
     type: 'website',
   });
@@ -29,9 +29,14 @@ export default function ClassicCoffeeCollection() {
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Classic Instant Coffee
             </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto mb-8" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
               Premium instant coffee for people who want bold flavor, fast preparation, and a daily ritual without the machine.
             </p>
+            <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
+              <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
+                <strong>Note:</strong> These are pure classic coffee blends. They do not contain mushrooms.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

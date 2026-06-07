@@ -155,6 +155,9 @@ const AuthenticatedApp = () => {
         <Route path="/Liberty" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Commanders" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Washington" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/classic-coffee" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/mushroom-coffee" element={<Navigate to="/mushroom-coffee" replace />} />
+        <Route path="/matcha" element={<Navigate to="/matcha" replace />} />
 
 
 

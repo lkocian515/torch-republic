@@ -12,7 +12,7 @@ const MATCHA_GREEN = '#10B981';
 export default function MatchaCollection() {
   useSEO({
     title: 'Instant Matcha Blends | Torch Republic Coffee Company',
-    description: 'Shop instant matcha blends for calm energy, focus, presence, and daily ritual. Discover The Monk, The Ascendant, and The Alchemist.',
+    description: 'Shop instant matcha blends for calm energy, focus, presence, and daily ritual. Discover The Monk, The Ascendant, and The Alchemist from Torch Republic Coffee Company.',
     url: '/matcha',
     type: 'website',
   });
@@ -29,9 +29,14 @@ export default function MatchaCollection() {
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Instant Matcha Blends
             </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto mb-8" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
               Smooth instant matcha blends for calm energy, focus, presence, and intentional daily rituals.
             </p>
+            <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
+              <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
+                <strong>Note:</strong> These are matcha blends, not mushroom coffee.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

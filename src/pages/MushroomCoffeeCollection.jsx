@@ -12,7 +12,7 @@ const RG = '#E6B7AD';
 export default function MushroomCoffeeCollection() {
   useSEO({
     title: 'Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: 'Shop functional instant mushroom coffee blends crafted for focus, clarity, restoration, and daily ritual.',
+    description: 'Shop functional instant mushroom coffee blends crafted for focus, clarity, restoration, and daily ritual. Featuring GlowMind, SunCap Rise, MoonCap Restore, DreamCap, The Oracle, and Mystic Bloom.',
     url: '/mushroom-coffee',
     type: 'website',
   });
@@ -29,9 +29,14 @@ export default function MushroomCoffeeCollection() {
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Mushroom Coffee Blends
             </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto mb-8" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Functional instant coffee blends crafted for focus, clarity, restoration, and daily wellness rituals.
+            <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+              Functional instant coffee blends crafted for focus, clarity, restoration, and intentional wellness rituals.
             </p>
+            <div style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px', padding: '16px' }}>
+              <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
+                <strong>Disclaimer:</strong> Torch Republic mushroom blends are crafted for daily ritual and general wellness support. They are not intended to diagnose, treat, cure, or prevent any disease.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
