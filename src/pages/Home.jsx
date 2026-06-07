@@ -29,6 +29,7 @@ import ReviewPopup from '../components/mushroom/ReviewPopup';
 import CustomerTestimonials from '../components/home/CustomerTestimonials';
 import MeetTheMushrooms from '../components/home/MeetTheMushrooms';
 import RitualGallery from '../components/home/RitualGallery';
+import CoffeeRecipesSection from '../components/home/CoffeeRecipesSection';
 
 const RG = '#E6B7AD';
 
@@ -196,7 +197,10 @@ export default function Home() {
       {/* 23. Ritual Gallery */}
       <RitualGallery />
 
-      {/* 24. Final CTA */}
+      {/* 24. Coffee Recipes */}
+      <CoffeeRecipesSection />
+
+      {/* 25. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
