@@ -7,6 +7,7 @@ import MushroomHero from '../components/mushroom/HeroSection';
 import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
+import MushroomBenefitsSection from '../components/mushroom/MushroomBenefitsSection';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
 import IngredientTransparency from '../components/mushroom/IngredientTransparency';
@@ -84,7 +85,10 @@ export default function Home() {
       {/* 4. Why People Choose Torch Republic — benefits */}
       <WhyPeopleChoose />
 
-      {/* 5. Social Proof — static reviews (always visible) */}
+      {/* 5. Mushroom science — interactive Lion's Mane & Chaga section */}
+      <MushroomBenefitsSection />
+
+      {/* 5b. Social Proof — static reviews (always visible) */}
       <StaticReviewsSection />
 
       {/* 5b. Community spotlight — morning ritual stories */}
