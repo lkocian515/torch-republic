@@ -76,7 +76,7 @@ export default function Profile() {
         {/* Loyalty Points */}
         {user && <LoyaltySection user={user} />}
 
-        {/* Loyalty Portal Link */}
+        {/* Customer Portal Link */}
         <div className="bg-card border border-border p-6 mb-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -85,15 +85,15 @@ export default function Profile() {
               </div>
               <div>
                 <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
-                  Loyalty Portal
+                  Customer Portal
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
-                  View full rewards & earning history
+                  Manage subscription & loyalty points
                 </p>
               </div>
             </div>
             <Link
-              to="/loyalty"
+              to="/portal"
               className="font-mono uppercase tracking-[0.2em] text-xs px-4 py-2 transition-all hover:opacity-90"
               style={{ background: '#E6B7AD', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
             >
