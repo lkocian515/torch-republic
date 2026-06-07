@@ -237,10 +237,9 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Focus + calm + presence',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/457922d17_d81a10bd-110c-4588-be10-b501874e73a0.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2eb9ed53_zssssss.png',
     galleryImages: [
-      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/d81a10bd-110c-4588-be10-b501874e73a0.png?v=1780827652',
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/eec55d936_hghjgj.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2eb9ed53_zssssss.png',
     ],
     alt: 'Torch Republic The Monk Matcha Blend tin',
     price: 24.99,
