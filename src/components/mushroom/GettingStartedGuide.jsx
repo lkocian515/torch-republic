@@ -66,7 +66,7 @@ const DAYS = [
     focus: 'Integration',
     blend: 'Choose Your Path',
     icon: Shield,
-    instruction: 'You've built the foundation. Choose blends based on what your body and mind need today.',
+    instruction: "You've built the foundation. Choose blends based on what your body and mind need today.",
     tip: 'Reflect: Which blend serves you best in the morning? In the evening?',
   },
 ];
