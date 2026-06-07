@@ -51,7 +51,7 @@ export default function OurMission() {
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            Torch Republic was created by Lisa Marie Kocian for people who want their daily rituals to feel clearer, stronger, and more intentional.
+            Torch Republic was created for people who want their daily rituals to feel clearer, stronger, and more intentional.
           </p>
         </motion.div>
       </section>
@@ -150,10 +150,10 @@ export default function OurMission() {
         <div className="max-w-2xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.4rem' }}>
-              Lisa Marie Kocian
+              The Founder
             </p>
             <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: RG }}>
-              Founder, Torch Republic Coffee Company
+              Torch Republic Coffee Company
             </p>
           </motion.div>
         </div>
