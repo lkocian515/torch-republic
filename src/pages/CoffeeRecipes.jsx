@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { Coffee, Zap, Sun, Clock, Heart, TrendingUp } from 'lucide-react';
+import NewsletterSignup from '../components/mushroom/NewsletterSignup';
 
 const RG = '#E6B7AD';
 
@@ -318,6 +319,9 @@ export default function CoffeeRecipes() {
           </div>
         </motion.div>
       </section>
+
+      {/* Newsletter Signup */}
+      <NewsletterSignup />
 
       {/* Legal */}
       <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
