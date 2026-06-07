@@ -81,6 +81,11 @@ export default function Footer() {
               <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
                 U.S.-Based · Corpus Christi, TX
               </p>
+              <div className="flex gap-4 mt-4">
+                <a href="https://instagram.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Instagram</a>
+                <a href="https://tiktok.com/@torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>TikTok</a>
+                <a href="https://facebook.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Facebook</a>
+              </div>
             </div>
           </div>
 

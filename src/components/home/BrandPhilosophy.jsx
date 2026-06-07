@@ -7,20 +7,20 @@ const DEEP_CHARCOAL = '#0A0908';
 
 const PILLARS = [
   {
-    title: 'Clarity',
-    desc: 'For mornings when you want less noise and more presence.',
+    title: 'Ignition',
+    desc: 'For the part of you that refuses to go out. The inner fire that drives you forward.',
     icon: Sparkles,
     color: '#E6B7AD'
   },
   {
-    title: 'Resilience',
-    desc: 'For the part of you that keeps going, rebuilding, and rising.',
+    title: 'Revolution',
+    desc: 'For those who rebel against empty routines and build something meaningful.',
     icon: Shield,
     color: '#D6B27A'
   },
   {
-    title: 'Ritual',
-    desc: 'For turning a daily habit into something that actually means something.',
+    title: 'Rebirth',
+    desc: 'For every morning you choose to begin again, stronger than yesterday.',
     icon: Coffee,
     color: '#C98F86'
   }
@@ -38,7 +38,7 @@ export default function BrandPhilosophy() {
           className="text-center mb-14"
         >
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
-            The First Cup Is the First Decision
+            Ignite Your Power. Rewrite Your Story.
           </p>
           <p className="font-heading max-w-2xl mx-auto" style={{
             fontSize: '1.05rem',
@@ -46,7 +46,7 @@ export default function BrandPhilosophy() {
             fontWeight: 300,
             lineHeight: 1.9
           }}>
-            Your morning cup is often the first choice you make for yourself. Torch Republic was created to make that choice feel clearer, stronger, and more intentional. This is coffee for the days you need focus, the mornings you need to begin again, and the quiet moments when you remember who you are becoming.
+            A movement for people who refuse to dim their light. Torch Republic was created for those who choose intention over autopilot, purpose over distraction, and progress over stagnation.
           </p>
         </motion.div>
 

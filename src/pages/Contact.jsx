@@ -27,14 +27,14 @@ export default function Contact() {
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="max-w-xl mx-auto">
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            Get in Touch
+            Carry the Torch
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Contact Torch Republic Coffee Company
+            We're Here for the Journey
           </h1>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Questions about your order, our instant coffee, mushroom coffee, matcha blends, or your monthly subscription? Reach out and we'll help.
+            Questions about your ritual? Order support? Or just want to connect? We're here to help you carry the torch forward.
           </p>
         </motion.div>
       </section>
@@ -145,6 +145,24 @@ export default function Contact() {
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>Location</p>
                   <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)' }}>Corpus Christi, TX · U.S.-Based</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-5" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}>
+                <div className="w-4 h-4 flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ color: RG }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                    <path d="M2 12h20"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>Follow the Movement</p>
+                  <div className="flex gap-3 mt-2">
+                    <a href="https://instagram.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Instagram</a>
+                    <a href="https://tiktok.com/@torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>TikTok</a>
+                    <a href="https://facebook.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Facebook</a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -44,15 +44,15 @@ export default function OurMission() {
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto">
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            From the Founder
+            Join the Republic
           </p>
           <h1 className="font-serif font-bold mb-5"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Built for the First Decision of the Day
+            Ignite Your Power. Rewrite Your Story.
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            Torch Republic was created for people who want their daily rituals to feel clearer, stronger, and more intentional.
+            A movement for people who refuse to dim their light. Built for the modern torchbearers who believe personal rituals, clear thinking, and everyday courage can change history.
           </p>
         </motion.div>
       </section>
@@ -86,7 +86,7 @@ export default function OurMission() {
               The torch in our name represents awareness—the inner light that guides us forward, helps us think independently, and reminds us that growth is always possible. It symbolizes the courage to choose intention over autopilot, purpose over distraction, and progress over stagnation.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Everything we create is rooted in a simple idea:
+              Everything we create is rooted in a simple idea: You are a torchbearer.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Transformation doesn't happen overnight.

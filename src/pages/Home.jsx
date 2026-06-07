@@ -29,6 +29,7 @@ import ReviewPopup from '../components/mushroom/ReviewPopup';
 import CustomerTestimonials from '../components/home/CustomerTestimonials';
 import MeetTheMushrooms from '../components/home/MeetTheMushrooms';
 import RitualGallery from '../components/home/RitualGallery';
+import EmpowermentHero from '../components/home/EmpowermentHero';
 
 const RG = '#E6B7AD';
 
@@ -70,8 +71,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, resilience, focus, restoration, and intentional daily ritual. Shop functional mushroom coffee with Lion\'s Mane + Chaga.',
+    title: 'Torch Republic | Ignite Your Power. Rewrite Your Story.',
+    description: 'A movement for people who refuse to dim their light. Premium instant coffee, mushroom coffee, and matcha blends for clarity, resilience, and intentional daily ritual. Join the Republic.',
     url: '/',
     type: 'website',
     product: {
@@ -121,7 +122,10 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <ReviewPopup />
 
-      {/* 1. Product Hero */}
+      {/* 1. Empowerment Hero */}
+      <EmpowermentHero />
+
+      {/* 2. Product Hero */}
       <ProductHero />
 
       {/* 2. Collections Showcase */}
