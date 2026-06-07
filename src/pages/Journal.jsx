@@ -106,7 +106,7 @@ function FeaturedCard({ post, index }) {
           </h2>
 
           <p className="font-heading text-sm mb-6 max-w-2xl"
-            style={{ color: 'rgba(230,183,173,0.4)', lineHeight: 1.85, fontWeight: 300 }}>
+            style={{ color: 'rgba(230,183,173,0.65)', lineHeight: 1.85, fontWeight: 300 }}>
             {post.excerpt}
           </p>
 
@@ -151,7 +151,7 @@ export default function Journal() {
             The Journal
           </h1>
           <p className="text-sm leading-relaxed max-w-lg font-heading font-light"
-            style={{ color: 'rgba(230,183,173,0.45)', lineHeight: 1.85 }}>
+            style={{ color: 'rgba(230,183,173,0.65)', lineHeight: 1.85 }}>
             Deep research on functional mushrooms, ceremonial matcha, and the science of the daily ritual.
           </p>
         </motion.div>
@@ -187,7 +187,7 @@ export default function Journal() {
       {/* Coming Soon label */}
       <div className="max-w-[920px] mx-auto px-6 md:px-10 mb-8">
         <div className="h-px mb-10" style={{ background: `linear-gradient(90deg, ${EMERALD}, transparent)`, opacity: 0.2 }} />
-        <p className="font-mono text-[9px] tracking-[0.5em] uppercase" style={{ color: 'rgba(255,255,255,0.15)' }}>
+        <p className="font-mono text-[9px] tracking-[0.5em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
           Coming Soon
         </p>
       </div>
@@ -215,17 +215,17 @@ export default function Journal() {
               </div>
 
               <h2 className="font-serif leading-tight mb-3"
-                style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', fontWeight: 600, color: 'rgba(255,255,255,0.4)' }}>
-                {article.title}
-              </h2>
+                 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
+                 {article.title}
+               </h2>
 
               <p className="text-sm leading-relaxed mb-4 max-w-2xl font-heading font-light"
-                style={{ color: 'rgba(230,183,173,0.2)', lineHeight: 1.8 }}>
+                style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.8 }}>
                 {article.excerpt}
               </p>
 
               <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.2)' }}>
+                style={{ color: 'rgba(230,183,173,0.5)' }}>
                 Coming Soon
               </span>
             </motion.article>
