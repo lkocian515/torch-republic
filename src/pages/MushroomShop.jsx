@@ -186,24 +186,7 @@ export default function MushroomShop() {
         </div>
       </section>
 
-      {/* ── PRODUCT COMPARISON ── */}
-      <section className="px-6 md:px-10 pt-8 pb-12">
-        <div className="max-w-[1280px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="w-full"
-          >
-            <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1ef51d432_hjk.png"
-              alt="Torch Republic Coffee Product Comparison - Classic Coffee, Mushroom Coffee, and Matcha Differences"
-              className="w-full h-auto rounded"
-              style={{ maxWidth: '100%', objectFit: 'contain' }}
-            />
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* ── PRODUCT GRID ── */}
       <section className="px-6 md:px-10 pb-16">
