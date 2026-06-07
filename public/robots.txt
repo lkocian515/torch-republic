@@ -1,46 +1,24 @@
-# Torch Republic Coffee Company - robots.txt
-# Allows crawling of public pages, blocks utility/admin pages
-
 User-agent: *
 Allow: /
 
-# Block utility and admin pages
-Disallow: /login
-Disallow: /register
-Disallow: /forgot-password
-Disallow: /reset-password
-Disallow: /profile
-Disallow: /portal
-Disallow: /traffic-report
-Disallow: /admin
-Disallow: /dashboard
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
-Disallow: /subscription
-
-# Block old discontinued product pages (patriotic/history coffee)
-Disallow: /collections/lady-liberty
-Disallow: /collections/eagles-flight
-Disallow: /collections/old-glory
-Disallow: /collections/rosies-grind
-Disallow: /collections/washington
-Disallow: /collections/franklin
-Disallow: /collections/jefferson
-Disallow: /collections/lincoln
-Disallow: /collections/roosevelt
-Disallow: /collections/adams
-Disallow: /collections/founders-series
-Disallow: /collections/liberty-icons
-Disallow: /collections/commanders
-Disallow: /collections/patriotic-pride
-Disallow: /collections/freedom-isnt-free
-Disallow: /collections/we-the-people
-Disallow: /collections/faith-over-fear
-Disallow: /collections/christ-is-king
-Disallow: /collections/god-family-country
-Disallow: /collections/american-heroes
-Disallow: /products/pods
-
-# Sitemap location
+# Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1
+
+# Block admin/backend paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /functions/
+
+# Allow all public content
+Allow: /shop/
+Allow: /products/
+Allow: /blends/
+Allow: /mushroom-coffee/
+Allow: /matcha/
+Allow: /classic-coffee/
+Allow: /journal/
+Allow: /mission/
+Allow: /faq/

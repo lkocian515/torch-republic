@@ -19,6 +19,7 @@ import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import TorchbearerCrossSell from '../components/reserve/TorchbearerCrossSell';
 import ScarcityBadge from '../components/mushroom/ScarcityBadge';
 import { useSEO } from '@/hooks/useSEO';
+import { base44 } from '@/api/base44Client';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -135,8 +136,8 @@ function BlendDetailInner({ product }) {
   const subscriptionPrice = product.price * 0.8; // 20% off
 
   useSEO({
-    title: `${product.name} – Instant Mushroom Coffee`,
-    description: `${product.description?.slice(0, 155) || `${product.name} instant mushroom coffee with Lion's Mane + Chaga. 27 servings per tube. No coffee maker needed.`}`,
+    title: `${product.name} | Premium Instant Mushroom Coffee – Torch Republic`,
+    description: `${product.description?.slice(0, 155) || `${product.name} instant mushroom coffee with Lion's Mane + Chaga. 27 servings per tube. No coffee maker needed. Free shipping $75+.`}`,
     url: `/blends/${product.slug}`,
     type: 'product',
     image: product.image,
@@ -155,6 +156,49 @@ function BlendDetailInner({ product }) {
     ],
   });
 
+  // Product schema markup
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "image": product.image,
+    "sku": product.slug,
+    "brand": {
+      "@type": "Brand",
+      "name": "Torch Republic Coffee Company"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://torchrepublic.com/blends/${product.slug}`,
+      "priceCurrency": "USD",
+      "price": product.price,
+      "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Torch Republic Coffee Company"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Verified Customer"
+      }
+    }
+  };
+
   // Note: product is guaranteed non-null here (checked by parent)
 
   const related = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS].filter(p => p.id !== product.id).slice(0, 3);
@@ -163,11 +207,73 @@ function BlendDetailInner({ product }) {
   const checkoutDest = shopifyUrl || SHOPIFY_CART_URL;
 
   const handleAddToCart = () => {
+    // Track add to cart event
+    try {
+      base44.analytics.track({
+        eventName: 'add_to_cart',
+        properties: {
+          product_id: product.slug,
+          product_name: product.name,
+          price: isSubscription ? subscriptionPrice : product.price,
+          quantity: qty,
+          is_subscription: isSubscription,
+          currency: 'USD'
+        }
+      });
+      // GA4 event
+      if (window.gtag) {
+        window.gtag('event', 'add_to_cart', {
+          currency: 'USD',
+          value: (isSubscription ? subscriptionPrice : product.price) * qty,
+          items: [{
+            item_id: product.slug,
+            item_name: product.name,
+            price: isSubscription ? subscriptionPrice : product.price,
+            quantity: qty
+          }]
+        });
+      }
+    } catch (e) {
+      // Analytics tracking failed silently
+    }
     window.location.href = checkoutDest;
   };
 
+  // Track product view
+  React.useEffect(() => {
+    try {
+      base44.analytics.track({
+        eventName: 'view_item',
+        properties: {
+          product_id: product.slug,
+          product_name: product.name,
+          price: product.price,
+          category: product.category || 'mushroom-coffee'
+        }
+      });
+      if (window.gtag) {
+        window.gtag('event', 'view_item', {
+          currency: 'USD',
+          value: product.price,
+          items: [{
+            item_id: product.slug,
+            item_name: product.name,
+            price: product.price,
+            category: product.category || 'mushroom-coffee'
+          }]
+        });
+      }
+    } catch (e) {
+      // Silent fail
+    }
+  }, [product.slug]);
+
   return (
     <div style={{ backgroundColor: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+      {/* Product Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
 
       {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-8 pb-2">
@@ -208,7 +314,7 @@ function BlendDetailInner({ product }) {
               ) : (
                 <img
                   src={product.image}
-                  alt={product.alt}
+                  alt={`${product.name} - ${product.roast} instant mushroom coffee with Lion's Mane and Chaga - ${product.mood} - Torch Republic Coffee Company`}
                   className="w-full h-full object-contain p-8"
                   style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
                 />

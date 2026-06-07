@@ -27,6 +27,25 @@ export default function MushroomProductCard({ product, index = 0 }) {
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    
+    // Track add to cart from product card
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'add_to_cart', {
+          currency: 'USD',
+          value: product.price,
+          items: [{
+            item_id: product.shopifyHandle || product.slug,
+            item_name: product.name,
+            price: product.price,
+            quantity: 1
+          }]
+        });
+      }
+    } catch (e) {
+      // Silent fail
+    }
+    
     window.location.href = shopifyUrl || 'https://torchrepublic.com/shop';
   };
 
@@ -63,7 +82,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
           {product.image ? (
             <img
               src={product.image}
-              alt={product.alt}
+              alt={`${product.name} - ${product.roast} instant ${product.category === 'matcha' ? 'matcha' : 'mushroom coffee'} with ${product.flavorNotes?.join(', ') || 'rich flavor'} - Torch Republic`}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"

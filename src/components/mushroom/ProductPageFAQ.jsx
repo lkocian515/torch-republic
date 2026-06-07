@@ -42,6 +42,20 @@ const FAQS = [
 export default function ProductPageFAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
+  // FAQ Schema markup
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section
       style={{
@@ -50,6 +64,9 @@ export default function ProductPageFAQ() {
         padding: 'clamp(48px, 6vw, 80px) 24px',
       }}
     >
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
       <div className="max-w-[800px] mx-auto">
         {/* Header */}
         <motion.div
