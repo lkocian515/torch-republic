@@ -19,17 +19,47 @@ export default function BlendsCollection() {
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            The Full Collection
-          </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            All 12 Blends
+            Fuel the Person You're Becoming
           </h1>
-          <p className="font-heading max-w-2xl mx-auto"
-            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Twelve blends. Twelve qualities. Each crafted to support a different path of personal transformation. Choose the ritual that matches who you are becoming.
+          <p className="font-heading max-w-3xl mx-auto mb-8"
+            style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.85, fontWeight: 300 }}>
+            Torch Republic creates premium coffee, mushroom coffee, and matcha blends inspired by the qualities that shape a meaningful life.
           </p>
+          <p className="font-heading max-w-2xl mx-auto mb-6"
+            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            Not just energy.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {['Clarity', 'Discipline', 'Resilience', 'Wisdom', 'Growth'].map((quality, i) => (
+              <span key={i} className="font-mono text-[8px] tracking-[0.35em] uppercase px-3 py-1.5"
+                style={{ 
+                  background: 'rgba(230,183,173,0.08)', 
+                  color: '#E6B7AD', 
+                  border: '1px solid rgba(230,183,173,0.15)',
+                  borderRadius: '2px'
+                }}>
+                {quality}
+              </span>
+            ))}
+          </div>
+          <p className="font-heading max-w-2xl mx-auto mb-8"
+            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            Because transformation is built through the rituals we practice every day.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/shop"
+              className="inline-flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+              style={{ background: '#E6B7AD', color: '#080808', padding: '14px 32px' }}>
+              Shop the Collection →
+            </Link>
+            <Link to="/quiz"
+              className="inline-flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+              style={{ background: 'transparent', color: '#E6B7AD', padding: '14px 32px', border: '1px solid rgba(230,183,173,0.3)' }}>
+              Discover Your Archetype
+            </Link>
+          </div>
         </motion.div>
       </section>
 
