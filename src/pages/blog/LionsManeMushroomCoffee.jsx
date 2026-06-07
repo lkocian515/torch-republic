@@ -71,14 +71,14 @@ const BENEFITS = [
   'Clearer, less foggy mornings — thoughts assemble more easily',
   'Sustained focus without the spike — ~40–60 mg caffeine vs. ~95 mg in regular coffee',
   'Reduced mid-morning jitters — lower caffeine + higher adaptogens significantly reduce cortisol-driven overstimulation',
-  'Improved mood baseline — consistent with Lion's Mane effect on serotonin and BDNF pathways',
+  'Improved mood baseline — consistent with Lion\'s Mane effect on serotonin and BDNF pathways',
   'Long-term cognitive support — NGF stimulation builds over weeks, not days',
 ];
 
 export default function LionsManeMushroomCoffee() {
   useSEO({
-    title: 'Lion's Mane Mushroom Coffee: Benefits, Research & Morning Ritual Guide | Torch Republic',
-    description: 'Discover the science behind Lion's Mane mushroom coffee — how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual.',
+    title: 'Lion\'s Mane Mushroom Coffee: Benefits, Research & Morning Ritual Guide | Torch Republic',
+    description: 'Discover the science behind Lion\'s Mane mushroom coffee — how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual.',
     url: '/journal/lions-mane-mushroom-coffee',
     type: 'article',
   });
