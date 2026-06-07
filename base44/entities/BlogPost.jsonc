@@ -1,0 +1,68 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Article title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug for the article"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Short summary or teaser text"
+    },
+    "content": {
+      "type": "string",
+      "description": "Full article content (markdown or HTML)"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "science",
+        "habits",
+        "recipes",
+        "wellness",
+        "news"
+      ],
+      "description": "Article category"
+    },
+    "featured_image": {
+      "type": "string",
+      "description": "Featured image URL"
+    },
+    "published": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the post is published"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Publication date"
+    },
+    "read_time": {
+      "type": "number",
+      "description": "Estimated read time in minutes"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Article tags"
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "content",
+    "category"
+  ]
+}

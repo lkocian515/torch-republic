@@ -1,246 +1,119 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
 import { useSEO } from '@/hooks/useSEO';
+import JournalHero from '../components/journal/JournalHero';
+import ArticleCard from '../components/journal/ArticleCard';
+import CategoryFilter from '../components/journal/CategoryFilter';
 
 const RG = '#E6B7AD';
-const EMERALD = '#10B981';
-const TEAL = '#06B6D4';
-const DARK_EMERALD = '#047857';
-
-const FEATURED_POSTS = [
-  {
-    slug: '/journal/lions-mane-mushroom-coffee',
-    date: 'June 2026',
-    category: 'Ingredients',
-    readTime: '12 min read',
-    title: "Lion's Mane Mushroom Coffee: Benefits, Research, and Why Your Morning Ritual Just Leveled Up",
-    excerpt: "Lion's Mane is the only widely consumed food containing compounds proven to cross the blood-brain barrier and stimulate your brain's own NGF production. Here's the science, three decades of research, and how to make it part of your daily ritual.",
-    featured: true,
-  },
-  {
-    slug: '/journal/chaga-mushroom-coffee',
-    date: 'June 2026',
-    category: 'Ingredients',
-    readTime: '11 min read',
-    title: "What Is Chaga Mushroom? The World's Most Powerful Antioxidant — In Your Morning Coffee",
-    excerpt: 'Chaga holds the highest ORAC antioxidant value ever recorded for any natural food substance — 15x wild blueberries. Learn the history, the bioactive compounds, the Memorial Sloan Kettering research, and why Chaga belongs in your morning cup.',
-    featured: true,
-  },
-  {
-    slug: '/journal/instant-ceremonial-matcha',
-    date: 'June 2026',
-    category: 'Education',
-    readTime: '13 min read',
-    title: 'Instant Ceremonial Matcha: What It Is, Why It Matters, and How to Find Your Ritual',
-    excerpt: '800 years of Zen tradition. L-theanine for 3–6 hours of calm focus. EGCG antioxidants at 15x wild blueberries. All of it available in seconds. The complete guide to ceremonial grade matcha and the Torch Republic matcha collection.',
-    featured: true,
-  },
-];
-
-const COMING_SOON = [
-  {
-    date: 'Coming Soon',
-    category: 'Ritual',
-    title: 'How to Build a Morning Coffee Ritual That Sticks',
-    excerpt: "The best rituals aren't complicated. They're consistent. Here's how to build a simple, intentional morning routine around your daily blend — and why it changes everything about the rest of your day.",
-    readTime: '4 min read',
-  },
-  {
-    date: 'Coming Soon',
-    category: 'Education',
-    title: 'Why Instant Mushroom Coffee Is Not What You Think',
-    excerpt: '"Instant" used to mean cheap. Not anymore. Torch Republic instant mushroom coffee is freeze-dried from specialty-grade beans and blended with functional mushroom extracts — no fillers, no shortcuts.',
-    readTime: '6 min read',
-  },
-  {
-    date: 'Coming Soon',
-    category: 'Blends',
-    title: 'Choosing the Right Blend for Your Routine',
-    excerpt: "Focus in the morning. Calm in the afternoon. Rest at night. Each of our six blends is designed for a specific time, mood, and intention. Here's how to match your blend to your day.",
-    readTime: '7 min read',
-  },
-  {
-    date: 'Coming Soon',
-    category: 'Wellness',
-    title: "Functional Coffee vs. Regular Coffee: What's the Difference?",
-    excerpt: "Regular coffee gives you a spike. Functional mushroom coffee gives you sustained energy with less crash, more focus, and adaptogenic support built in. The science — explained simply.",
-    readTime: '5 min read',
-  },
-];
-
-function FeaturedCard({ post, index }) {
-  const isFirst = index === 0;
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 + 0.2 }}
-    >
-      <Link to={post.slug} className="block group">
-        <div
-          className="p-7 md:p-9 transition-all duration-300 hover:border-opacity-60"
-          style={{
-            background: isFirst ? `linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.04))` : 'rgba(255,255,255,0.015)',
-            border: `1px solid ${isFirst ? `${EMERALD}40` : `${EMERALD}20`}`,
-            borderRadius: '2px',
-          }}
-        >
-          <div className="flex items-center gap-4 mb-5">
-            <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-              style={{ color: EMERALD, border: `1px solid ${EMERALD}40`, background: `${EMERALD}12` }}>
-              {post.category}
-            </span>
-            <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {post.date}
-            </span>
-            <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {post.readTime}
-            </span>
-          </div>
-
-          <h2 className="font-serif font-bold leading-tight mb-4 transition-colors duration-300 group-hover:text-primary"
-            style={{ fontSize: isFirst ? 'clamp(1.5rem, 3vw, 2.1rem)' : 'clamp(1.25rem, 2.5vw, 1.7rem)', color: '#FFFFFF', fontWeight: 700 }}>
-            {post.title}
-          </h2>
-
-          <p className="font-heading text-sm mb-6 max-w-2xl"
-            style={{ color: 'rgba(230,183,173,0.65)', lineHeight: 1.85, fontWeight: 300 }}>
-            {post.excerpt}
-          </p>
-
-          <div className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-            style={{ color: RG }}>
-            Read Article <ArrowRight className="w-3 h-3" />
-          </div>
-        </div>
-      </Link>
-    </motion.article>
-  );
-}
 
 export default function Journal() {
+  const [activeCategory, setActiveCategory] = useState('all');
+
   useSEO({
-    title: 'The Journal | Mushroom Coffee Research & Ritual | Torch Republic',
-    description: "Deep-dive research on Lion's Mane, Chaga, ceremonial matcha, and the science of daily functional coffee rituals. The Torch Republic Content Hub.",
+    title: 'Ritual Journal | Torch Republic Coffee Company',
+    description: 'Explore the science behind mushroom coffee, learn about Lion\'s Mane and Chaga benefits, and discover tips for building better morning rituals.',
     url: '/journal',
+    type: 'website',
+  });
+
+  const { data: articles, isLoading } = useQuery({
+    queryKey: ['blog-posts', activeCategory],
+    queryFn: async () => {
+      const query = activeCategory === 'all' ? {} : { category: activeCategory };
+      const posts = await base44.entities.BlogPost.filter(query);
+      return posts.filter(post => post.published).sort((a, b) => 
+        new Date(b.published_date) - new Date(a.published_date)
+      );
+    },
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#030303' }}>
-      {/* Emerald glow backdrop */}
-      <div className="fixed top-0 left-1/3 w-96 h-96 -z-10 opacity-20 blur-3xl"
-        style={{ background: `radial-gradient(ellipse 60% 60%, ${EMERALD}, transparent)` }} />
+    <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
+      <JournalHero />
+      <CategoryFilter activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+      
+      <section id="latest-articles" className="px-6 md:px-10 py-16">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+              Latest Insights
+            </p>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+              {activeCategory === 'all' ? 'Latest Articles' : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Articles`}
+            </h2>
+          </motion.div>
 
-      {/* Header */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10 pt-20 pb-14">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-10" style={{ background: `linear-gradient(90deg, transparent, ${EMERALD})` }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: RG }}>
-              Torch Republic
-            </span>
-          </div>
-          <h1 className="font-serif text-white leading-[1.05] mb-5"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 700 }}>
-            The Journal
-          </h1>
-          <p className="text-sm leading-relaxed max-w-lg font-heading font-light"
-            style={{ color: 'rgba(230,183,173,0.65)', lineHeight: 1.85 }}>
-            Deep research on functional mushrooms, ceremonial matcha, and the science of the daily ritual.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Divider */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10">
-        <div className="h-px w-full mb-14"
-          style={{ background: `linear-gradient(90deg, ${EMERALD}, ${TEAL}, transparent)`, opacity: 0.4 }} />
-      </div>
-
-      {/* Featured label */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10 mb-8">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-          className="font-mono text-[9px] tracking-[0.5em] uppercase"
-          style={{ color: 'rgba(255,255,255,0.2)' }}>
-          Featured Research
-        </motion.p>
-      </div>
-
-      {/* Featured Posts */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10 mb-20">
-        <div className="space-y-5">
-          {FEATURED_POSTS.map((post, i) => (
-            <FeaturedCard key={post.slug} post={post} index={i} />
-          ))}
-        </div>
-      </div>
-
-      {/* Coming Soon label */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10 mb-8">
-        <div className="h-px mb-10" style={{ background: `linear-gradient(90deg, ${EMERALD}, transparent)`, opacity: 0.2 }} />
-        <p className="font-mono text-[9px] tracking-[0.5em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
-          Coming Soon
-        </p>
-      </div>
-
-      {/* Coming Soon Articles */}
-      <div className="max-w-[920px] mx-auto px-6 md:px-10 pb-28">
-        <div className="space-y-0">
-          {COMING_SOON.map((article, i) => (
-            <motion.article
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06 + 0.5 }}
-              className="py-10"
-              style={{ borderBottom: `1px solid ${EMERALD}15` }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <span className="font-mono text-[9px] tracking-[0.4em] uppercase px-2.5 py-1"
-                  style={{ color: `${EMERALD}80`, border: `1px solid ${EMERALD}20`, background: `${EMERALD}08` }}>
-                  {article.category}
-                </span>
-                <span className="font-mono text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.12)' }}>
-                  {article.readTime}
-                </span>
-              </div>
-
-              <h2 className="font-serif leading-tight mb-3"
-                 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
-                 {article.title}
-               </h2>
-
-              <p className="text-sm leading-relaxed mb-4 max-w-2xl font-heading font-light"
-                style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.8 }}>
-                {article.excerpt}
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : articles && articles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.map((article, i) => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20">
+              <p className="font-heading text-lg mb-4" style={{ color: 'rgba(240,235,225,0.5)' }}>
+                No articles found in this category yet.
               </p>
-
-              <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.5)' }}>
-                Coming Soon
-              </span>
-            </motion.article>
-          ))}
+              <p className="font-mono text-sm" style={{ color: `${RG}50` }}>
+                Check back soon for new content!
+              </p>
+            </div>
+          )}
         </div>
+      </section>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <Link to="/shop"
-            className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:shadow-lg"
-            style={{ background: `linear-gradient(135deg, ${EMERALD}, ${TEAL})`, color: '#080808', padding: '14px 32px' }}>
-            Shop the Blends <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+      {/* Newsletter Signup */}
+      <section
+        className="px-6 md:px-10 py-16"
+        style={{
+          background: 'rgba(230,183,173,0.03)',
+          borderTop: '1px solid rgba(230,183,173,0.08)',
+        }}
+      >
+        <div className="max-w-[700px] mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+              Stay Updated
+            </p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6' }}>
+              Join the Ritual
+            </h2>
+            <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
+              Get weekly insights on mushroom coffee science, morning ritual tips, and exclusive offers delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 px-4 py-3 font-heading text-sm bg-transparent border rounded-sm focus:outline-none"
+                style={{ borderColor: `${RG}30`, color: '#F5EFE6' }}
+              />
+              <button
+                className="px-8 py-3 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 rounded-sm"
+                style={{ background: RG, color: '#050505' }}
+              >
+                Subscribe
+              </button>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
