@@ -230,22 +230,34 @@ export default function MushroomShop() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               <Link to="/bundle#starter-3pack"
-                className="p-4 text-center transition-all hover:opacity-90"
+                className="p-4 text-center transition-all hover:opacity-90 relative"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                <div className="absolute top-2 right-2 px-2 py-0.5"
+                  style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
+                  <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">FREE SHIP</p>
+                </div>
                 <p className="font-serif font-bold text-white text-sm mb-1">Starter Ritual 3-Pack</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 3 Blends</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
               </Link>
               <Link to="/bundle#deep-6pack"
-                className="p-4 text-center transition-all hover:opacity-90"
+                className="p-4 text-center transition-all hover:opacity-90 relative"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                <div className="absolute top-2 right-2 px-2 py-0.5"
+                  style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
+                  <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">FREE SHIP</p>
+                </div>
                 <p className="font-serif font-bold text-white text-sm mb-1">Deep Ritual 6-Pack</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 6 Blends</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$129.99</p>
               </Link>
               <Link to="/bundle#complete-12pack"
-                className="p-4 text-center transition-all hover:opacity-90"
+                className="p-4 text-center transition-all hover:opacity-90 relative"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                <div className="absolute top-2 right-2 px-2 py-0.5"
+                  style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
+                  <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">FREE SHIP</p>
+                </div>
                 <p className="font-serif font-bold text-white text-sm mb-1">Complete Collection</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>All 12 Products</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$239.94</p>

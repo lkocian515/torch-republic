@@ -158,18 +158,29 @@ export default function MushroomBundle() {
                   borderRadius: '4px'
                 }}
               >
-                {/* Badge */}
-                {bundle.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1"
+                {/* Badges */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex gap-2">
+                  {bundle.badge && (
+                    <div className="px-4 py-1"
+                      style={{ 
+                        background: bundle.badge === 'Best Value' ? '#E6B7AD' : 'rgba(230,183,173,0.15)',
+                        color: bundle.badge === 'Best Value' ? '#080808' : '#E6B7AD',
+                        border: `1px solid ${bundle.badge === 'Best Value' ? '#E6B7AD' : 'rgba(230,183,173,0.3)'}`,
+                        borderRadius: '2px'
+                      }}>
+                      <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">{bundle.badge}</p>
+                    </div>
+                  )}
+                  <div className="px-4 py-1"
                     style={{ 
-                      background: bundle.badge === 'Best Value' ? '#E6B7AD' : 'rgba(230,183,173,0.15)',
-                      color: bundle.badge === 'Best Value' ? '#080808' : '#E6B7AD',
-                      border: `1px solid ${bundle.badge === 'Best Value' ? '#E6B7AD' : 'rgba(230,183,173,0.3)'}`,
+                      background: 'rgba(16,185,129,0.15)',
+                      color: '#10B981',
+                      border: '1px solid rgba(16,185,129,0.3)',
                       borderRadius: '2px'
                     }}>
-                    <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">{bundle.badge}</p>
+                    <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">FREE SHIPPING</p>
                   </div>
-                )}
+                </div>
 
                 {/* Header */}
                 <div className="p-6 border-b pt-8" style={{ borderColor: 'rgba(230,183,173,0.08)' }}>
@@ -263,7 +274,13 @@ export default function MushroomBundle() {
                 style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.12)' }}
               >
                 <div className="p-5 flex-1">
-                  <h3 className="font-serif font-bold text-white text-sm mb-2">{bundle.name}</h3>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-serif font-bold text-white text-sm">{bundle.name}</h3>
+                    <span className="font-mono text-[6px] tracking-[0.25em] uppercase px-2 py-0.5"
+                      style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
+                      FREE SHIPPING
+                    </span>
+                  </div>
                   <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
                     {bundle.description}
                   </p>
