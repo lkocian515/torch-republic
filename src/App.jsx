@@ -29,6 +29,7 @@ import MatchaCollection from './pages/MatchaCollection';
 import MushroomBundle from './pages/MushroomBundle';
 import BlendDetail from './pages/BlendDetail';
 import BlendsCollection from './pages/BlendsCollection';
+import BlendQuiz from './pages/BlendQuiz';
 import HowItWorks from './pages/HowItWorks';
 import MushroomFAQ from './pages/MushroomFAQ';
 import Reviews from './pages/Reviews';
@@ -102,6 +103,7 @@ const AuthenticatedApp = () => {
         <Route path="/blends/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
         <Route path="/products/:slug" element={<LayoutWrapper currentPageName="BlendDetail"><BlendDetail /></LayoutWrapper>} />
         <Route path="/bundle" element={<LayoutWrapper currentPageName="MushroomBundle"><MushroomBundle /></LayoutWrapper>} />
+        <Route path="/blend-quiz" element={<LayoutWrapper currentPageName="BlendQuiz"><BlendQuiz /></LayoutWrapper>} />
         <Route path="/how-it-works" element={<LayoutWrapper currentPageName="HowItWorks"><HowItWorks /></LayoutWrapper>} />
         <Route path="/faq" element={<LayoutWrapper currentPageName="MushroomFAQ"><MushroomFAQ /></LayoutWrapper>} />
         <Route path="/Reviews" element={<LayoutWrapper currentPageName="Reviews"><Reviews /></LayoutWrapper>} />

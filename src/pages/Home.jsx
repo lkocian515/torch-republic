@@ -12,6 +12,7 @@ import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
 import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
+import FlavorQuizBanner from '../components/mushroom/FlavorQuizBanner';
 import HowItWorks from '../components/mushroom/HowItWorks';
 import IngredientTransparency from '../components/mushroom/IngredientTransparency';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
@@ -99,22 +100,25 @@ export default function Home() {
       {/* 9. Comparison Table */}
       <BlendComparisonTable />
 
-      {/* 10. How It Works */}
+      {/* 10. Flavor Quiz */}
+      <FlavorQuizBanner />
+
+      {/* 11. How It Works */}
       <HowItWorks />
 
-      {/* 11. Ingredient Transparency */}
+      {/* 12. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 12. Founder Story */}
+      {/* 13. Founder Story */}
       <FounderSection />
 
-      {/* 13. Guarantee */}
+      {/* 14. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 14. FAQ */}
+      {/* 15. FAQ */}
       <FAQSection />
 
-      {/* 15. Final CTA */}
+      {/* 16. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
