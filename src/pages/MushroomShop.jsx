@@ -223,57 +223,60 @@ export default function MushroomShop() {
             style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.15)' }}
           >
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
-              Bundle & Save
+              Build Your Ritual Bundle
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link to="/bundle"
+            <p className="font-heading text-center max-w-xl mx-auto mb-6" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
+              Choose your blends. Create your daily ritual. Save when you bundle.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <Link to="/bundle#starter-3pack"
                 className="p-4 text-center transition-all hover:opacity-90"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
-                <p className="font-serif font-bold text-white text-sm mb-1">Full Ritual Set</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>All 6 Mushroom Blends</p>
+                <p className="font-serif font-bold text-white text-sm mb-1">Starter Ritual 3-Pack</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 3 Blends</p>
+                <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
+              </Link>
+              <Link to="/bundle#deep-6pack"
+                className="p-4 text-center transition-all hover:opacity-90"
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                <p className="font-serif font-bold text-white text-sm mb-1">Deep Ritual 6-Pack</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 6 Blends</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$129.99</p>
               </Link>
-              <Link to="/bundle#one-from-each"
+              <Link to="/bundle#complete-12pack"
                 className="p-4 text-center transition-all hover:opacity-90"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
-                <p className="font-serif font-bold text-white text-sm mb-1">One From Each</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Classic + Mushroom + Matcha</p>
-                <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
-              </Link>
-              <Link to="/bundle#all-matcha"
-                className="p-4 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
-                <p className="font-serif font-bold text-white text-sm mb-1">All Matcha</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Ceremonial Blends</p>
-                <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
-              </Link>
-              <Link to="/bundle#all-classic"
-                className="p-4 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
-                <p className="font-serif font-bold text-white text-sm mb-1">All Classic</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Classic Coffees</p>
-                <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
+                <p className="font-serif font-bold text-white text-sm mb-1">Complete Collection</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>All 12 Products</p>
+                <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$239.94</p>
               </Link>
             </div>
-          </motion.div>
-
-          {/* Bottom CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
-          >
-            <Link to="/bundle"
-              className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
-              style={{ background: RG, color: '#080808' }}>
-              Shop the Full Ritual Set →
-            </Link>
-            <Link to="/subscription"
-              className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-3.5 px-8"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
-              Build Monthly Subscription →
-            </Link>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <Link to="/bundle#classic-trio"
+                className="p-3 text-center transition-all hover:opacity-90"
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                <p className="font-serif font-bold text-white text-xs mb-1">Classic Trio</p>
+                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Classic Coffees</p>
+              </Link>
+              <Link to="/bundle#mushroom-collection"
+                className="p-3 text-center transition-all hover:opacity-90"
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                <p className="font-serif font-bold text-white text-xs mb-1">Mushroom Collection</p>
+                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>6 Mushroom Blends</p>
+              </Link>
+              <Link to="/bundle#matcha-ritual"
+                className="p-3 text-center transition-all hover:opacity-90"
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                <p className="font-serif font-bold text-white text-xs mb-1">Matcha Ritual</p>
+                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Matcha Blends</p>
+              </Link>
+              <Link to="/bundle#wellness-bundle"
+                className="p-3 text-center transition-all hover:opacity-90"
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                <p className="font-serif font-bold text-white text-xs mb-1">Wellness Bundle</p>
+                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Mushroom + Matcha</p>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
