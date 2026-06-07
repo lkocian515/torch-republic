@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
-import ProductComparison from '../components/mushroom/ProductComparison';
+
 import BlendFilters from '../components/mushroom/BlendFilters';
 
 const RG = '#E6B7AD';
@@ -151,8 +151,7 @@ export default function MushroomShop() {
         </div>
       </section>
 
-      {/* ── PRODUCT COMPARISON ── */}
-      <ProductComparison />
+
 
       {/* ── TABS ── */}
       <section className="px-6 md:px-10 pt-6">
