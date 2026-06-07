@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import SourcingMap from '../components/mission/SourcingMap';
 
 const RG = '#E6B7AD';
 
@@ -140,6 +141,9 @@ export default function OurMission() {
           </motion.div>
         </div>
       </section>
+
+      {/* Interactive Sourcing Map */}
+      <SourcingMap />
 
       {/* Founder Signature Section */}
       <section className="px-6 md:px-10 py-16" style={{ background: '#080808', borderTop: '1px solid rgba(230,183,173,0.08)' }}>
