@@ -47,7 +47,7 @@ export default function FounderSection() {
                   fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
                 }}
               >
-                "I created Torch Republic for people who are tired of running on empty. The torch represents the part of us that does not go out — even in difficult seasons, even when life feels uncertain."
+                "Torch Republic was created from the belief that coffee can be more than a quick source of energy. It can be a small daily ritual — a moment to pause, reset, and step into the day with more clarity and intention."
               </p>
               <div className="flex items-center gap-3 mt-6">
                 <div
@@ -62,11 +62,11 @@ export default function FounderSection() {
                     justifyContent: 'center',
                   }}
                 >
-                  <span className="font-serif font-bold" style={{ color: RG, fontSize: '1.2rem' }}>TR</span>
+                  <span className="font-serif font-bold" style={{ color: RG, fontSize: '1.2rem' }}>LK</span>
                 </div>
                 <div>
-                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Founder, Torch Republic</p>
-                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Coffee for the Rising</p>
+                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Lisa Kocian</p>
+                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Founder, Torch Republic Coffee Company</p>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function FounderSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              For the Part of You That Refuses to Go Out
+              Coffee for the Rising
             </h2>
             <p
               className="font-heading mb-4"
@@ -103,7 +103,7 @@ export default function FounderSection() {
                 lineHeight: 1.8,
               }}
             >
-              Torch Republic was created by a woman who understands what it means to rebuild your life, your focus, and your energy from the inside out. I wanted a coffee brand that felt stronger, deeper, and more intentional than the usual morning caffeine fix.
+              I wanted to build a coffee company that felt thoughtful, elevated, and purposeful. Something for people who care about what they put into their body, but also care about the feeling behind their morning routine.
             </p>
             <p
               className="font-heading mb-6"
@@ -114,7 +114,7 @@ export default function FounderSection() {
                 lineHeight: 1.8,
               }}
             >
-              To me, the torch represents the part of us that does not go out. Even in difficult seasons, even when life feels uncertain, there is still a light we can return to. Torch Republic is built for that moment: the morning reset, the first decision, the cup that says, "I'm still here. I'm still rising."
+              The torch represents that first spark of the day — the decision to begin again, refocus, and move forward with steady energy. Torch Republic is coffee for the rising: for early mornings, fresh starts, quiet discipline, and the everyday ritual of carrying your own light forward.
             </p>
             <Link
               to="/about"
