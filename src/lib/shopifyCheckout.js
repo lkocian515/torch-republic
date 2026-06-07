@@ -24,6 +24,14 @@ export const SHOPIFY_VARIANT_IDS = {
   'the-oracle':       '49148263170300', // The Oracle Blend — Medium Roast
   'mystic-bloom':     '49148263006460', // Mystic Bloom Blend — Medium Roast
   'dreamcap-blend':   '49148261597436', // DreamCap Blend — Medium Roast
+  // Matcha
+  'the-monk-matcha-blend': '49148263891196',
+  'the-ascendant-matcha-blend': '49148263956732',
+  'the-alchemist-matcha-blend': '49148264022268',
+  // Classic Coffee
+  'torchbearer-classic-instant-coffee': '49148262940924',
+  'ember-rise-classic-instant-coffee': '49148262875388',
+  'midnight-watch-classic-instant-coffee': '49148262809852',
 };
 
 // ── Cart page (no specific product) ──────────────────────────────────────────
@@ -57,6 +65,37 @@ export function getShopifyBundleUrl(items) {
 export function getFullBundleUrl() {
   const allSlugs = Object.keys(SHOPIFY_VARIANT_IDS).map(slug => ({ slug, qty: 1 }));
   return getShopifyBundleUrl(allSlugs);
+}
+
+// ── New Bundle Options ───────────────────────────────────────────────────────
+// One from each category (Classic + Mushroom + Matcha)
+export function getOneFromEachBundleUrl() {
+  const items = [
+    { slug: 'torchbearer-premium-instant-coffee', qty: 1 }, // Classic
+    { slug: 'glowmind-clarity', qty: 1 }, // Mushroom
+    { slug: 'the-monk-matcha-blend', qty: 1 }, // Matcha
+  ];
+  return getShopifyBundleUrl(items);
+}
+
+// All Matcha bundle (3 matcha products)
+export function getAllMatchaBundleUrl() {
+  const items = [
+    { slug: 'the-monk-matcha-blend', qty: 1 },
+    { slug: 'the-ascendant-matcha-blend', qty: 1 },
+    { slug: 'the-alchemist-matcha-blend', qty: 1 },
+  ];
+  return getShopifyBundleUrl(items);
+}
+
+// All Classic Coffee bundle (3 classic products)
+export function getAllClassicBundleUrl() {
+  const items = [
+    { slug: 'torchbearer-classic-instant-coffee', qty: 1 },
+    { slug: 'ember-rise-classic-instant-coffee', qty: 1 },
+    { slug: 'midnight-watch-classic-instant-coffee', qty: 1 },
+  ];
+  return getShopifyBundleUrl(items);
 }
 
 // ── Build subscription checkout from blend selection ─────────────────────────
