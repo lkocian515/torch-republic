@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Matcha', href: '/matcha' },
   { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Recipes', href: '/recipes' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },
 ];
