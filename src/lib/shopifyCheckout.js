@@ -28,9 +28,9 @@ export const SHOPIFY_VARIANT_IDS = {
   'the-monk-matcha-blend': '49170574115068',
   'the-alchemist-matcha-blend': '49170572148988',
   'the-ascendant-matcha-blend': '49170644402428',
-  // Classic Coffee
-  'torchbearer-classic-instant-coffee': '49148262940924',
-  'ember-rise-classic-instant-coffee': '49148262875388',
+  // Classic Coffee - Updated with direct cart links
+  'torchbearer-classic-instant-coffee': '49171204276476', // Product 1 direct cart link
+  'ember-rise-classic-instant-coffee': '49171202375932', // Product 2 direct cart link
   'midnight-watch-classic-instant-coffee': '49148262809852',
 };
 
