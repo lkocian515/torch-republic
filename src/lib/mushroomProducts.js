@@ -286,9 +286,9 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Creativity + inspired focus',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa0a2d6ab_mockup-224.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9c00cda6c_8.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa0a2d6ab_mockup-224.png',
     ],
     alt: 'Torch Republic The Alchemist Matcha Blend',
     price: 24.99,
