@@ -58,7 +58,7 @@ export default function PremiumHero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Carry the Morning Flame
+              Instant Coffee, Mushroom Coffee & Matcha
             </h1>
 
             {/* Subheadline */}
@@ -217,8 +217,7 @@ export default function PremiumHero() {
               letterSpacing: '-0.02em',
             }}
           >
-            Carry the<br />
-            <span style={{ color: RG }}>Morning Flame</span>
+            Instant Coffee, Mushroom Coffee & Matcha
           </h1>
 
           {/* Subheadline */}
