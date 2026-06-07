@@ -326,27 +326,48 @@ function BlendDetailInner({ product }) {
             {/* Qty + Add to Cart */}
             <div className="flex flex-col gap-3">
               {/* Subscribe & Save Toggle */}
-              <div className="mb-4 p-4" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.12)', borderRadius: '2px' }}>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
+              <div className="mb-4 p-5" style={{ background: isSubscription ? 'rgba(230,183,173,0.08)' : 'rgba(230,183,173,0.04)', border: isSubscription ? '2px solid rgba(230,183,173,0.4)' : '1px solid rgba(230,183,173,0.12)', borderRadius: '4px', transition: 'all 0.3s ease' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
                     <input
                       type="checkbox"
                       id="subscribe-toggle"
                       checked={isSubscription}
                       onChange={() => setIsSubscription(!isSubscription)}
-                      className="w-4 h-4 rounded"
+                      className="w-5 h-5 rounded"
                       style={{ accentColor: '#E6B7AD' }}
                     />
-                    <label htmlFor="subscribe-toggle" className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ color: '#E6B7AD', cursor: 'pointer' }}>
-                      Subscribe & Save 20%
+                    <label htmlFor="subscribe-toggle" className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: '#E6B7AD', cursor: 'pointer' }}>
+                      Join the Ritual
                     </label>
                   </div>
-                  <span className="font-mono text-[8px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
-                    ${(product.price * 0.8).toFixed(2)}
-                  </span>
+                  <div className="text-right">
+                    <span className="font-mono text-[9px] tracking-[0.2em] line-through block" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                      ${product.price.toFixed(2)}
+                    </span>
+                    <span className="font-mono text-[10px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
+                      ${(product.price * 0.8).toFixed(2)} /mo
+                    </span>
+                  </div>
                 </div>
-                <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.6 }}>
-                  Deliver every 4 weeks. Cancel or pause anytime.
+                
+                {/* Membership Benefits */}
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  {[
+                    { icon: '🔥', text: '20% off every order' },
+                    { icon: '📦', text: 'Free shipping on all orders' },
+                    { icon: '⚡', text: 'Priority customer support' },
+                    { icon: '🎁', text: 'Exclusive member perks' },
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-2 p-2" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}>
+                      <span className="text-sm">{benefit.icon}</span>
+                      <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.7)' }}>{benefit.text}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <p className="font-mono text-[7px] tracking-[0.2em] text-center" style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.6, borderTop: '1px solid rgba(230,183,173,0.08)', paddingTop: '8px' }}>
+                  Cancel or pause anytime · No commitments
                 </p>
               </div>
 
