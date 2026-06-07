@@ -118,7 +118,7 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<LayoutWrapper currentPageName="Contact"><Contact /></LayoutWrapper>} />
         <Route path="/torchbearer" element={<LayoutWrapper currentPageName="Torchbearer"><Torchbearer /></LayoutWrapper>} />
         <Route path="/mission" element={<Navigate to="/about" replace />} />
-        <Route path="/admin/traffic" element={<LayoutWrapper currentPageName="TrafficReport"><TrafficReport /></LayoutWrapper>} />
+        {/* Traffic Report - admin only, noindex */}
         <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
         <Route path="/faq" element={<LayoutWrapper currentPageName="FAQ"><FAQ /></LayoutWrapper>} />
         <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />

@@ -58,8 +58,8 @@ export default function PremiumHero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Premium Instant Coffee<br />
-              <span style={{ color: RG }}>for Every Ritual</span>
+              Instant Coffee for<br />
+              <span style={{ color: RG }}>Focus, Calm Energy & Ritual</span>
             </h1>
 
             {/* Subheadline */}
@@ -71,13 +71,13 @@ export default function PremiumHero() {
                 lineHeight: 1.8,
               }}
             >
-              Classic coffee, functional mushroom blends, and matcha crafted for focus, calm, energy, and everyday purpose — no coffee maker needed.
+              Premium instant mushroom coffee blends for focus and clarity, classic coffee for bold everyday energy, and matcha for calm mornings — no machine, no pods, no compromise.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex items-center gap-4 mb-12">
               <Link
-                to="/shop"
+                to="/mushroom-coffee"
                 className="inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90"
                 style={{
                   background: RG,
@@ -86,10 +86,10 @@ export default function PremiumHero() {
                   borderRadius: '4px',
                 }}
               >
-                Shop Best Sellers
+                Shop Mushroom Coffee
               </Link>
-              <button
-                onClick={scrollToShop}
+              <Link
+                to="/classic-coffee"
                 className="inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-70"
                 style={{
                   background: 'transparent',
@@ -99,8 +99,8 @@ export default function PremiumHero() {
                   borderRadius: '4px',
                 }}
               >
-                Find Your Blend
-              </button>
+                Explore Classic Coffee & Matcha
+              </Link>
             </div>
 
             {/* Benefit Icons */}
@@ -163,8 +163,8 @@ export default function PremiumHero() {
               letterSpacing: '-0.02em',
             }}
           >
-            Premium Instant Coffee<br />
-            <span style={{ color: RG }}>for Every Ritual</span>
+            Instant Coffee for<br />
+            <span style={{ color: RG }}>Focus, Calm & Ritual</span>
           </h1>
 
           {/* Subheadline */}
@@ -176,13 +176,13 @@ export default function PremiumHero() {
               lineHeight: 1.7,
             }}
           >
-            Classic coffee, functional mushroom blends, and matcha — no coffee maker needed.
+            Mushroom coffee for focus, classic coffee for bold energy, matcha for calm — no machine needed.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3">
             <Link
-              to="/shop"
+              to="/mushroom-coffee"
               className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90"
               style={{
                 background: RG,
@@ -191,10 +191,10 @@ export default function PremiumHero() {
                 borderRadius: '4px',
               }}
             >
-              Shop Best Sellers
+              Shop Mushroom Coffee
             </Link>
-            <button
-              onClick={scrollToShop}
+            <Link
+              to="/classic-coffee"
               className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-70"
               style={{
                 background: 'transparent',
@@ -204,8 +204,8 @@ export default function PremiumHero() {
                 borderRadius: '4px',
               }}
             >
-              Find Your Blend
-            </button>
+              Explore Classic & Matcha
+            </Link>
           </div>
 
           {/* Benefit Icons */}

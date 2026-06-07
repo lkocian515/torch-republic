@@ -5,11 +5,12 @@ import { Coffee, Leaf, Zap, Recycle, Sparkles } from 'lucide-react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: Sparkles,  label: 'Third-Party Lab Tested' },
-  { icon: Leaf,      label: "Organic Dual-Extracted Mushrooms" },
-  { icon: Coffee,    label: 'Zero Crash · Zero Jitters' },
-  { icon: Recycle,   label: '30-Day First Cup Guarantee' },
-  { icon: Zap,       label: 'Packaged in the USA' },
+  { icon: Sparkles,  label: 'Premium Instant Blends' },
+  { icon: Coffee,    label: 'No Machine Needed' },
+  { icon: Recycle,   label: 'No Pods or Plastic Waste' },
+  { icon: Leaf,      label: 'Crafted for Daily Ritual' },
+  { icon: Zap,       label: 'Ships from the U.S.' },
+  { icon: Sparkles,  label: 'Secure Checkout' },
 ];
 
 export default function HomeTrustStrip() {

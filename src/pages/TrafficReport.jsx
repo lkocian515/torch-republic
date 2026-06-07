@@ -32,7 +32,13 @@ const StatCard = ({ icon: Icon, label, value, sub }) => (
   </div>
 );
 
+// @ts-nocheck
+// Admin-only page - not linked in public navigation, noindex
+import { useNoIndex } from '@/hooks/useNoIndex';
+
 export default function TrafficReport() {
+  useNoIndex();
+  useNoIndex(); // Prevent search engine indexing
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

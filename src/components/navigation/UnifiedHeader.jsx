@@ -22,6 +22,8 @@ const NAV_LINKS = [
   { label: 'Bundles', href: '/bundle' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Reviews', href: '/Reviews' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '/faq' },
 ];
 

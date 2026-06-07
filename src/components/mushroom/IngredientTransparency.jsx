@@ -1,38 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Coffee, Droplet, Leaf, Clock, Package, ShieldCheck } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
-const MUSHROOMS = [
+const TRANSPARENCY_ITEMS = [
   {
-    name: "Lion's Mane",
-    latin: 'Hericium erinaceus',
-    association: 'Focus & Mental Clarity',
-    description: 'Traditionally associated with cognitive support and mental clarity. Used in wellness routines for centuries across East Asia.',
+    icon: Coffee,
+    label: '27 Servings Per Tube',
+    desc: 'Each tube contains 1.9 oz / 54g of premium instant coffee. That\'s 27 servings at 2g per cup.',
   },
   {
-    name: 'Chaga',
-    latin: 'Inonotus obliquus',
-    association: 'Antioxidant Support',
-    description: 'Known for its rich antioxidant content and its place in traditional wellness practices as a daily immune-supportive ingredient.',
+    icon: Droplet,
+    label: 'Caffeine Content',
+    desc: 'Approximately 60-80mg per serving (varies by blend). Smooth energy without the crash or jitters.',
   },
   {
-    name: 'Reishi',
-    latin: 'Ganoderma lucidum',
-    association: 'Calm & Balance',
-    description: 'Often called the "mushroom of calm," Reishi is traditionally used to support relaxation and a balanced state of mind.',
+    icon: Leaf,
+    label: 'Mushroom Types',
+    desc: "Lion's Mane (Hericium erinaceus) for focus and cognitive support. Chaga (Inonotus obliquus) for antioxidants and immune support.",
   },
   {
-    name: 'Cordyceps',
-    latin: 'Cordyceps militaris',
-    association: 'Energy & Stamina',
-    description: 'Traditionally used in Himalayan and Tibetan wellness for physical energy and endurance support during active days.',
+    icon: Clock,
+    label: 'Best Time to Drink',
+    desc: 'SunCap Rise for mornings. GlowMind Clarity for deep work. MoonCap Restore for evenings. Choose your ritual.',
   },
   {
-    name: 'Turkey Tail',
-    latin: 'Trametes versicolor',
-    association: 'Immune Wellness',
-    description: 'One of the most widely studied functional mushrooms, Turkey Tail is known for its role in immune-supportive wellness routines.',
+    icon: Package,
+    label: 'Flavor Notes',
+    desc: 'Smooth, rich coffee base with subtle earthy undertones from mushroom extracts. No artificial flavors or preservatives.',
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Third-Party Tested',
+    desc: 'Every batch is tested for purity, potency, and safety. Packaged in the USA with globally sourced ingredients.',
   },
 ];
 
@@ -40,109 +41,107 @@ export default function IngredientTransparency() {
   return (
     <section
       style={{
-        background: '#0E0E0E',
-        borderTop: '1px solid rgba(230,183,173,0.07)',
-        borderBottom: '1px solid rgba(230,183,173,0.07)',
-        padding: 'clamp(48px, 6vw, 80px) 24px',
+        background: '#0A0A0A',
+        padding: 'clamp(60px, 8vw, 100px) 24px',
+        borderTop: '1px solid rgba(230,183,173,0.06)',
+        borderBottom: '1px solid rgba(230,183,173,0.06)',
       }}
     >
-      <div className="max-w-[1000px] mx-auto">
+      <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 52px)' }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
         >
-          <p
-            className="font-mono text-[9px] tracking-[0.4em] uppercase"
-            style={{ color: 'rgba(230,183,173,0.5)', marginBottom: '12px' }}
-          >
-            Inside the Ritual
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            Transparency First
           </p>
           <h2
             className="font-serif font-bold"
             style={{
-              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+              fontSize: 'clamp(1.9rem, 3.8vw, 2.6rem)',
               color: '#F5EFE6',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              marginBottom: '16px',
             }}
           >
-            Five Functional Mushrooms. One Daily Cup.
+            What's In Every Cup
           </h2>
           <p
-            className="font-heading"
+            className="font-heading mt-4 max-w-2xl mx-auto"
             style={{
               fontSize: '0.95rem',
               color: 'rgba(210,195,175,0.65)',
               fontWeight: 300,
-              lineHeight: 1.75,
-              maxWidth: '520px',
-              margin: '0 auto',
+              lineHeight: 1.8,
             }}
           >
-            Each Torch Republic blend is formulated with a specific combination of these five functional mushrooms — selected for their traditional wellness associations and used in meaningful, clearly-labeled doses.
+            We believe in complete transparency. No proprietary blends, no hidden ingredients, no vague claims. Here's exactly what you're getting.
           </p>
         </motion.div>
 
-        {/* Mushroom list */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'rgba(230,183,173,0.07)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
-          {MUSHROOMS.map((m, i) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {TRANSPARENCY_ITEMS.map((item, i) => (
             <motion.div
-              key={m.name}
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
               style={{
-                background: '#0E0E0E',
-                display: 'grid',
-                gridTemplateColumns: '1fr 2fr',
-                gap: 'clamp(16px, 3vw, 40px)',
-                padding: 'clamp(18px, 2.5vw, 26px) clamp(20px, 3vw, 32px)',
-                alignItems: 'start',
+                background: 'rgba(255,255,255,0.015)',
+                border: '1px solid rgba(230,183,173,0.08)',
+                borderRadius: '2px',
+                padding: '24px 20px',
               }}
             >
-              {/* Left: name + association */}
-              <div>
-                <p className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6', marginBottom: '4px', lineHeight: 1.2 }}>
-                  {m.name}
-                </p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: RG, marginBottom: '4px' }}>
-                  {m.association}
-                </p>
-                <p className="font-mono text-[7px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.3)', fontStyle: 'italic' }}>
-                  {m.latin}
-                </p>
+              <div className="flex items-start gap-3 mb-3">
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.08)',
+                    border: `1px solid ${RG}25`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  <item.icon size={16} style={{ color: RG }} />
+                </div>
+                <div>
+                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{item.label}</p>
+                </div>
               </div>
-              {/* Right: description */}
-              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
-                {m.description}
+              <p className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.7 }}>
+                {item.desc}
               </p>
             </motion.div>
           ))}
         </div>
 
         {/* Disclaimer */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="font-mono text-[8px] tracking-[0.12em] text-center"
-          style={{
-            color: 'rgba(230,183,173,0.28)',
-            marginTop: 'clamp(20px, 3vw, 28px)',
-            paddingTop: '16px',
-            borderTop: '1px solid rgba(230,183,173,0.06)',
-            lineHeight: 1.8,
-          }}
+          className="mt-10 text-center"
         >
-          These blends are crafted for everyday wellness rituals and are not intended to diagnose, treat, cure, or prevent any disease. Statements have not been evaluated by the FDA. Consult a healthcare professional if you are pregnant, nursing, or managing a medical condition.
-        </motion.p>
+          <p
+            className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto"
+            style={{
+              color: 'rgba(255,255,255,0.2)',
+              lineHeight: 1.8,
+            }}
+          >
+            <strong style={{ color: 'rgba(255,255,255,0.3)' }}>Note:</strong> Individual results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider before use if pregnant, nursing, or have a medical condition.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

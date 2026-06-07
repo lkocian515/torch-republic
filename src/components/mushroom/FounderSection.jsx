@@ -3,82 +3,135 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
 
 export default function FounderSection() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#141414', position: 'relative', overflow: 'hidden' }}>
-      <div className="divider-gradient absolute top-0 left-0 right-0" />
-      {/* Subtle warm glow */}
-      <div style={{
-        position: 'absolute', top: 0, left: '20%', right: '20%', height: '200px', zIndex: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(196,163,90,0.07) 0%, transparent 100%)',
-      }} />
-
-      <div className="max-w-[820px] mx-auto" style={{ position: 'relative', zIndex: 1 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-          className="text-center"
+    <section
+      style={{
+        background: 'linear-gradient(135deg, #0D0D0D 0%, #0A0A0A 100%)',
+        padding: 'clamp(60px, 8vw, 100px) 24px',
+        borderTop: '1px solid rgba(230,183,173,0.06)',
+        borderBottom: '1px solid rgba(230,183,173,0.06)',
+      }}
+    >
+      <div className="max-w-[1100px] mx-auto">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 'clamp(32px, 5vw, 64px)',
+            alignItems: 'center',
+          }}
         >
-          {/* Eyebrow */}
-          <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-5"
-            style={{ color: 'rgba(230,183,173,0.5)' }}>
-            From the Founder
-          </p>
-
-          {/* Decorative divider */}
-          <div className="mx-auto mb-8" style={{ width: '48px', height: '1px', background: `linear-gradient(90deg, transparent, ${GOLD}60, transparent)` }} />
-
-          {/* Quote */}
-          <blockquote
-            className="font-serif font-bold mb-8 text-center"
-            style={{
-              fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-              color: '#F5EFE6',
-              letterSpacing: '-0.01em',
-              lineHeight: 1.3,
-            }}
+          {/* Left: Founder Image/Quote */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.65 }}
+            className="order-2 md:order-1"
           >
-            "Your daily coffee can be more than a habit —{' '}
-            <span style={{ color: RG }}>it can be a ritual for clarity, energy, and self-mastery.</span>"
-          </blockquote>
+            <div
+              style={{
+                background: 'rgba(230,183,173,0.03)',
+                border: '1px solid rgba(230,183,173,0.1)',
+                borderRadius: '3px',
+                padding: 'clamp(24px, 4vw, 32px)',
+              }}
+            >
+              <p
+                className="font-serif italic text-lg mb-4"
+                style={{
+                  color: 'rgba(245,239,230,0.7)',
+                  lineHeight: 1.8,
+                  fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
+                }}
+              >
+                "We built Torch Republic around a simple idea: coffee should feel intentional. Whether you choose classic instant, functional mushroom blends, or matcha — every cup is crafted for your daily ritual."
+              </p>
+              <div className="flex items-center gap-3 mt-6">
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    background: 'rgba(230,183,173,0.1)',
+                    border: `1px solid ${RG}30`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <span className="font-serif font-bold" style={{ color: RG, fontSize: '1.2rem' }}>TR</span>
+                </div>
+                <div>
+                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>The Torch Republic Team</p>
+                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Coffee Company</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-          {/* Founder copy */}
-          <p className="font-heading mx-auto mb-8"
-            style={{
-              fontSize: '0.95rem',
-              color: 'rgba(240,235,225,0.58)',
-              lineHeight: 1.9,
-              fontWeight: 300,
-              maxWidth: '600px',
-            }}>
-            Founded by Lisa Kocian, Torch Republic was created for people who want their daily coffee to feel more intentional — a small ritual for clarity, energy, and self-mastery. Each blend is crafted to support a different part of your day, your focus, and your wellbeing.
-          </p>
-
-          {/* Attribution */}
-          <div className="flex flex-col items-center gap-1 mb-8">
-            <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: RG }}>
-              Lisa Kocian
-            </span>
-            <span className="font-mono text-[7.5px] tracking-[0.28em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
-              Founder · Torch Republic Coffee Company
-            </span>
-          </div>
-
-          {/* Decorative divider */}
-          <div className="mx-auto mb-8" style={{ width: '48px', height: '1px', background: `linear-gradient(90deg, transparent, ${GOLD}60, transparent)` }} />
-
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
-            style={{ color: 'rgba(230,183,173,0.65)', borderBottom: '1px solid rgba(230,183,173,0.25)', paddingBottom: '2px' }}
+          {/* Right: Story Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="order-1 md:order-2"
           >
-            Our Story →
-          </Link>
-        </motion.div>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+              Our Story
+            </p>
+            <h2
+              className="font-serif font-bold mb-6"
+              style={{
+                fontSize: 'clamp(1.9rem, 3.8vw, 2.6rem)',
+                color: '#F5EFE6',
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Built for Modern Rituals
+            </h2>
+            <p
+              className="font-heading mb-4"
+              style={{
+                fontSize: '0.95rem',
+                color: 'rgba(210,195,175,0.65)',
+                fontWeight: 300,
+                lineHeight: 1.8,
+              }}
+            >
+              Torch Republic was founded on a belief: your morning coffee should be easy, intentional, and aligned with how you want your day to feel.
+            </p>
+            <p
+              className="font-heading mb-6"
+              style={{
+                fontSize: '0.95rem',
+                color: 'rgba(210,195,175,0.65)',
+                fontWeight: 300,
+                lineHeight: 1.8,
+              }}
+            >
+              We offer three paths: <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Classic Instant Coffee</strong> (pure Arabica, no mushrooms), <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Mushroom Coffee</strong> (Lion's Mane + Chaga for focus and calm), and <strong style={{ color: 'rgba(245,239,230,0.8)' }}>Matcha</strong> (ceremonial grade for calm energy). Each is designed for consistency, quality, and ease.
+            </p>
+            <Link
+              to="/about"
+              className="inline-block font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all py-3 px-6"
+              style={{
+                background: 'transparent',
+                color: RG,
+                border: `1px solid ${RG}`,
+                borderRadius: '2px',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = `${RG}10`)}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            >
+              Read Our Full Story →
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
