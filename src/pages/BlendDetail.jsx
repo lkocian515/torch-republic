@@ -475,6 +475,9 @@ function BlendDetailInner({ product }) {
         <ProductPageFAQ />
       </section>
 
+      {/* Subscribe & Save Banner */}
+      <SubscribeAndSave />
+
       {/* Related products */}
       <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-[1100px] mx-auto">
