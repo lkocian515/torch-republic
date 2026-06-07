@@ -42,6 +42,7 @@ import Contact from './pages/Contact';
 import Torchbearer from './pages/Torchbearer';
 import TrafficReport from './pages/TrafficReport';
 import CoffeeRecipes from './pages/CoffeeRecipes';
+import FAQ from './pages/FAQ';
 import ShippingPolicy from './pages/ShippingPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -119,6 +120,7 @@ const AuthenticatedApp = () => {
         <Route path="/mission" element={<Navigate to="/about" replace />} />
         <Route path="/admin/traffic" element={<LayoutWrapper currentPageName="TrafficReport"><TrafficReport /></LayoutWrapper>} />
         <Route path="/recipes" element={<LayoutWrapper currentPageName="CoffeeRecipes"><CoffeeRecipes /></LayoutWrapper>} />
+        <Route path="/faq" element={<LayoutWrapper currentPageName="FAQ"><FAQ /></LayoutWrapper>} />
         <Route path="/shipping-policy" element={<LayoutWrapper currentPageName="ShippingPolicy"><ShippingPolicy /></LayoutWrapper>} />
         <Route path="/return-policy" element={<LayoutWrapper currentPageName="ReturnPolicy"><ReturnPolicy /></LayoutWrapper>} />
         <Route path="/privacy-policy" element={<LayoutWrapper currentPageName="PrivacyPolicy"><PrivacyPolicy /></LayoutWrapper>} />
@@ -134,10 +136,11 @@ const AuthenticatedApp = () => {
         <Route path="/journal/chaga-mushroom-coffee" element={<LayoutWrapper currentPageName="ChagaMushroomCoffee"><ChagaMushroomCoffee /></LayoutWrapper>} />
         <Route path="/journal/instant-ceremonial-matcha" element={<LayoutWrapper currentPageName="InstantCeremonialMatcha"><InstantCeremonialMatcha /></LayoutWrapper>} />
 
-        {/* ── LEGACY REDIRECTS (all old routes → mushroom coffee pages) ── */}
+        {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
         <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
         <Route path="/Collections" element={<Navigate to="/blends" replace />} />
+        <Route path="/blends" element={<Navigate to="/mushroom-coffee" replace />} />
         <Route path="/Bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/CoffeeBundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/collections/coffee-bundles" element={<Navigate to="/bundle" replace />} />
@@ -146,6 +149,12 @@ const AuthenticatedApp = () => {
         <Route path="/Mission" element={<Navigate to="/about" replace />} />
         <Route path="/Contact" element={<Navigate to="/contact" replace />} />
         <Route path="/landing" element={<Navigate to="/" replace />} />
+        {/* Old patriotic/collectible pages → classic coffee */}
+        <Route path="/torchbearer" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/Founders" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/Liberty" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/Commanders" element={<Navigate to="/classic-coffee" replace />} />
+        <Route path="/Washington" element={<Navigate to="/classic-coffee" replace />} />
 
 
 

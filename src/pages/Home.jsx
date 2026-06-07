@@ -9,21 +9,15 @@ import CategoryCards from '../components/mushroom/CategoryCards';
 import MeetTheRituals from '../components/mushroom/MeetTheRituals';
 import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
-import MushroomBenefitsSection from '../components/mushroom/MushroomBenefitsSection';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
-import IngredientTransparency from '../components/mushroom/IngredientTransparency';
-import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
+import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
+import HowItWorksSection from '../components/mushroom/HowItWorks';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
-import RepublicReserveSection from '../components/reserve/RepublicReserveSection';
-import TrustSignalsSection from '../components/mushroom/TrustSignalsSection';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
-import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
-import FounderStorySection from '../components/mushroom/FounderStorySection';
 import StaticReviewsSection from '../components/mushroom/StaticReviewsSection';
-import CustomerSpotlight from '../components/mushroom/CustomerSpotlight';
 
 const RG = '#E6B7AD';
 
@@ -75,65 +69,44 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
       <ReviewPopup />
 
-      {/* 1. Hero — Premium instant coffee for every ritual */}
+      {/* 1. Hero */}
       <PremiumHero />
 
-      {/* 2. Trust Strip — immediate credibility */}
+      {/* 2. Trust Strip */}
       <HomeTrustStrip />
 
-      {/* 3. Choose Your Ritual — three category cards */}
+      {/* 3. Category Cards */}
       <div id="choose-your-ritual" />
       <CategoryCards />
 
-      {/* 4. Find Your Blend — mushroom coffee rituals */}
-      <ChooseYourRitual />
-
-      {/* 5. Why People Choose Torch Republic — benefits */}
-      <WhyPeopleChoose />
-
-      {/* 5b. Meet the Rituals — full product grid with tabs */}
+      {/* 4. Best Sellers / Meet the Rituals */}
       <MeetTheRituals />
 
-      {/* 5. Mushroom science — interactive Lion's Mane & Chaga section */}
-      <MushroomBenefitsSection />
+      {/* 5. Why Torch Republic */}
+      <WhyPeopleChoose />
 
-      {/* 5b. Social Proof — static reviews (always visible) */}
+      {/* 6. Static Reviews */}
       <StaticReviewsSection />
 
-      {/* 5b. Community spotlight — morning ritual stories */}
-      <CustomerSpotlight />
-
-      {/* 5c. DB-driven review carousel (shows if reviews exist) */}
+      {/* 7. Review Carousel */}
       <HomeReviewCarousel />
 
-      {/* 6. Bundle Offer — primary conversion */}
+      {/* 8. Bundles */}
       <BundleSection />
 
-      {/* 7. What's Inside Each Blend — comparison table */}
+      {/* 9. Comparison Table */}
       <BlendComparisonTable />
 
-      {/* 8. Ingredient Transparency — mushroom deep-dive */}
-      <IngredientTransparency />
+      {/* 10. How It Works */}
+      <HowItWorksSection />
 
-      {/* 9. Subscribe & Save */}
-      <SubscribeAndSave />
-
-      {/* 10. Risk Reversal */}
+      {/* 11. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 10b. Trust signals — lab testing, sourcing, COA, USA, founder */}
-      <TrustSignalsSection />
-
-      {/* 11. Founder/Brand Story */}
-      <FounderStorySection />
-
-      {/* 12. Classic Coffee — secondary line, after mushroom coffee story is established */}
-      <RepublicReserveSection />
-
-      {/* 13. FAQ */}
+      {/* 12. FAQ */}
       <FAQSection />
 
-      {/* 14. Final CTA */}
+      {/* 13. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />

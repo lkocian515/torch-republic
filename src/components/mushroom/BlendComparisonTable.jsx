@@ -1,150 +1,134 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
+import { Coffee, Leaf, Sparkles } from 'lucide-react';
 
 const RG = '#E6B7AD';
+const GOLD = '#C4A35A';
+const GREEN = '#10B981';
 
-const BLEND_META = {
-  'mooncap-restore':  { purpose: 'Calm evenings & restoration', caffeine: 'Moderate', bestTime: 'Evening or slow mornings' },
-  'glowmind-clarity': { purpose: 'Focus + mental clarity',      caffeine: 'Moderate', bestTime: 'Morning work sessions' },
-  'suncap-rise':      { purpose: 'Morning energy & fresh starts', caffeine: 'Moderate', bestTime: 'First thing in the morning' },
-  'the-oracle':       { purpose: 'Creative flow & insight',     caffeine: 'Moderate', bestTime: 'Morning or afternoon creative sessions' },
-  'mystic-bloom':     { purpose: 'Balance & gentle energy',     caffeine: 'Moderate', bestTime: 'Gentle mornings or self-care routines' },
-  'dreamcap-blend':   { purpose: 'Evening ritual & late-night creativity', caffeine: 'Moderate', bestTime: 'Evening wind-down or night work' },
-};
+const CATEGORIES = [
+  {
+    name: 'Classic Coffee',
+    icon: Coffee,
+    accent: GOLD,
+    bestFor: 'Pure coffee ritual, convenience, everyday use',
+    flavor: 'Bold, smooth premium instant coffee',
+    mushrooms: 'No',
+    caffeine: 'Coffee',
+  },
+  {
+    name: 'Mushroom Coffee',
+    icon: Leaf,
+    accent: RG,
+    bestFor: 'Focus, clarity, restoration, wellness rituals',
+    flavor: 'Coffee with functional mushrooms',
+    mushrooms: 'Yes (Lion\'s Mane + Chaga)',
+    caffeine: 'Coffee',
+  },
+  {
+    name: 'Matcha',
+    icon: Sparkles,
+    accent: GREEN,
+    bestFor: 'Calm energy, focus, presence, afternoons',
+    flavor: 'Smooth green tea matcha',
+    mushrooms: 'No',
+    caffeine: 'Matcha / Green Tea',
+  },
+];
 
 export default function BlendComparisonTable() {
-  const [expanded, setExpanded] = useState(null);
-
   return (
-    <section
-      style={{
-        background: '#090909',
-        borderTop: '1px solid rgba(230,183,173,0.07)',
-        borderBottom: '1px solid rgba(230,183,173,0.07)',
-        padding: 'clamp(56px, 7vw, 96px) 24px',
-      }}
-    >
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
+    <section style={{ background: '#0A0A0A', padding: 'clamp(60px,8vw,100px) 24px', borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-12"
         >
-          <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Know What You're Drinking
+          <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
+            Category Guide
           </p>
-          <h2
-            className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-          >
-            What's Inside Each Blend
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            Not Sure Where to Start?
           </h2>
-          <p
-            className="font-heading mx-auto"
-            style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.8, maxWidth: '520px' }}
-          >
-            Every blend starts with premium instant coffee and functional mushrooms. Here's what makes each one different.
+          <p className="font-heading text-sm max-w-xl mx-auto" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
+            Compare our three categories to find your perfect ritual.
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="flex flex-col gap-3">
-          {MUSHROOM_PRODUCTS.map((p, i) => {
-            const meta = BLEND_META[p.id] || {};
-            const isOpen = expanded === p.id;
-
-            return (
-              <motion.div
-                key={p.id}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                style={{
-                  background: isOpen ? `${p.accent}07` : '#0F0E0D',
-                  border: `1px solid ${isOpen ? p.accent + '35' : p.accent + '14'}`,
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                {/* Row header — always visible */}
-                <button
-                  onClick={() => setExpanded(isOpen ? null : p.id)}
-                  className="w-full text-left px-5 py-4 flex items-center gap-4"
-                >
-                  <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.accent }} />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline gap-3 flex-wrap">
-                      <span className="font-serif font-bold text-white text-sm">{p.name}</span>
-                      <span className="font-mono text-[7.5px] tracking-[0.2em] uppercase" style={{ color: `${p.accent}80` }}>{p.roast}</span>
+        {/* Desktop Table */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full" style={{ borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: `1px solid ${RG}25` }}>
+                <th className="text-left py-4 px-4 font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(245,239,230,0.5)' }}>Category</th>
+                {CATEGORIES.map((cat) => (
+                  <th key={cat.name} className="text-center py-4 px-4" style={{ minWidth: '200px' }}>
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <cat.icon size={18} style={{ color: cat.accent }} />
+                      <span className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.1rem' }}>{cat.name}</span>
                     </div>
-                    <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase mt-0.5" style={{ color: 'rgba(247,241,232,0.38)' }}>
-                      {meta.purpose}
-                    </p>
-                  </div>
-                  <span className="font-mono text-xs flex-shrink-0 transition-transform duration-200" style={{ color: p.accent, transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span>
-                </button>
-
-                {/* Expanded detail */}
-                {isOpen && (
-                  <div
-                    className="px-5 pb-5 pt-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
-                    style={{ borderTop: `1px solid ${p.accent}12` }}
-                  >
-                    {[
-                      { label: 'Purpose',           value: meta.purpose },
-                      { label: 'Functional Mushrooms', value: p.mushrooms },
-                      { label: 'Coffee Type',        value: 'Premium Instant Arabica' },
-                      { label: 'Roast Level',         value: p.roast },
-                      { label: 'Best Time to Drink', value: meta.bestTime },
-                      { label: 'Flavor Notes',       value: p.flavorNotes?.join(', ') },
-                      { label: 'Servings Per Tube',  value: `${p.servings} servings` },
-                      { label: 'Prep Method',        value: 'Scoop, stir, sip — no equipment needed' },
-                    ].map(row => (
-                      <div key={row.label}>
-                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1" style={{ color: `${p.accent}60` }}>{row.label}</p>
-                        <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.75)', fontWeight: 300 }}>{row.value}</p>
-                      </div>
-                    ))}
-                    <div className="sm:col-span-2 md:col-span-3 mt-2">
-                      <Link
-                        to={`/products/${p.slug}`}
-                        className="inline-block font-mono text-[8px] tracking-[0.28em] uppercase py-2.5 px-5 transition-opacity hover:opacity-80"
-                        style={{ background: p.accent, color: '#0A0806', fontWeight: 700 }}
-                      >
-                        View {p.name} →
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { label: 'Best For', key: 'bestFor' },
+                { label: 'Flavor Direction', key: 'flavor' },
+                { label: 'Contains Mushrooms?', key: 'mushrooms' },
+                { label: 'Caffeine Type', key: 'caffeine' },
+              ].map((row, i) => (
+                <tr key={row.label} style={{ borderBottom: i < 3 ? `1px solid ${RG}15` : 'none' }}>
+                  <td className="py-4 px-4 font-heading text-sm" style={{ color: 'rgba(245,239,230,0.7)' }}>{row.label}</td>
+                  {CATEGORIES.map((cat) => (
+                    <td key={cat.name} className="text-center py-4 px-4 font-heading text-sm" style={{ color: '#F5EFE6' }}>
+                      {cat[row.key]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-center mt-10"
-        >
-          <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.35)' }}>
-            All blends · $24.99 per tube · 27 servings · No coffee maker needed
-          </p>
-          <Link
-            to="/shop"
-            className="inline-block font-mono text-[9px] tracking-[0.35em] uppercase font-bold py-3.5 px-8 transition-opacity hover:opacity-90"
-            style={{ background: RG, color: '#080808' }}
-          >
-            Shop All Blends →
-          </Link>
-        </motion.div>
+        {/* Mobile Cards */}
+        <div className="md:hidden space-y-4">
+          {CATEGORIES.map((cat, i) => (
+            <motion.div
+              key={cat.name}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              style={{ border: `1px solid ${cat.accent}25`, background: 'rgba(255,255,255,0.02)', borderRadius: '8px', padding: '20px' }}
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <cat.icon size={20} style={{ color: cat.accent }} />
+                <h3 className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.2rem' }}>{cat.name}</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Best For</p>
+                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.bestFor}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Flavor</p>
+                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.flavor}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Mushrooms</p>
+                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.mushrooms}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Caffeine</p>
+                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.caffeine}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
