@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Premium brand sections — in ritual-based order
 import ProductHero from '../components/home/ProductHero';
 import CollectionsShowcase from '../components/home/CollectionsShowcase';
+import MushroomCoffeeShowcase from '../components/home/MushroomCoffeeShowcase';
 import PremiumBrandHero from '../components/home/PremiumBrandHero';
 import BrandPhilosophy from '../components/home/BrandPhilosophy';
 import ShopByRitual from '../components/home/ShopByRitual';
@@ -77,49 +78,52 @@ export default function Home() {
       {/* 2. Collections Showcase */}
       <CollectionsShowcase />
 
-      {/* 3. Premium Brand Hero */}
+      {/* 3. Mushroom Coffee Showcase */}
+      <MushroomCoffeeShowcase />
+
+      {/* 4. Premium Brand Hero */}
       <PremiumBrandHero />
 
-      {/* 4. Brand Philosophy */}
+      {/* 5. Brand Philosophy */}
       <BrandPhilosophy />
 
-      {/* 5. Shop by Ritual */}
+      {/* 6. Shop by Ritual */}
       <ShopByRitual />
 
-      {/* 6. Category Overview */}
+      {/* 7. Category Overview */}
       <CategoryOverview />
 
-      {/* 7. Featured Products */}
+      {/* 8. Featured Products */}
       <div id="featured" />
 
-      {/* 8. Why Torch Republic */}
+      {/* 9. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 9. Reviews */}
+      {/* 10. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 10. Bundles */}
+      {/* 11. Bundles */}
       <BundleSection />
 
-      {/* 11. Comparison */}
+      {/* 12. Comparison */}
       <BlendComparisonTable />
 
-      {/* 12. How It Works */}
+      {/* 13. How It Works */}
       <HowItWorks />
 
-      {/* 13. Ingredient Transparency */}
+      {/* 14. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 14. Founder Note */}
+      {/* 15. Founder Note */}
       <FounderNote />
 
-      {/* 15. Guarantee */}
+      {/* 16. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 16. FAQ */}
+      {/* 17. FAQ */}
       <FAQSection />
 
-      {/* 17. Final CTA */}
+      {/* 18. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
