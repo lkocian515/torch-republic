@@ -70,7 +70,7 @@ export default function PremiumHero() {
                 lineHeight: 1.8,
               }}
             >
-              Premium instant coffee, mushroom coffee, and matcha rituals for people rebuilding their energy, focus, and self-trust one daily cup at a time.
+              Instant Coffee, Mushroom Coffee & Matcha. Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
             </p>
 
             {/* CTA Buttons */}
@@ -230,7 +230,7 @@ export default function PremiumHero() {
               lineHeight: 1.7,
             }}
           >
-            Premium instant coffee rituals for energy, focus, clarity, and the quiet discipline of becoming yourself again.
+            Instant Coffee, Mushroom Coffee & Matcha. Premium instant blends crafted for focus, calm energy, and everyday ritual. No machine needed.
           </p>
 
           {/* CTA Buttons */}
