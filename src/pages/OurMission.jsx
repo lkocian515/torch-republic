@@ -28,8 +28,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'Our Mission | Torch Republic Coffee Company',
-    description: 'To help people cultivate greater clarity, awareness, and well-being through intentional daily rituals. Torch Republic creates premium coffee, mushroom coffee, and matcha for modern torchbearers.',
+    title: 'Our Story | Torch Republic Coffee Company | Founder-Led Premium Coffee',
+    description: 'Torch Republic was created by Lisa Marie Kocian for people who want their daily rituals to feel clearer, stronger, and more intentional. Premium instant coffee, mushroom coffee, and matcha blends.',
     url: '/mission',
   });
 
@@ -42,15 +42,15 @@ export default function OurMission() {
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto">
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            Our Mission
+            From the Founder
           </p>
           <h1 className="font-serif font-bold mb-5"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Cultivating Clarity Through Daily Ritual
+            Built for the First Decision of the Day
           </h1>
           <p className="font-heading"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            To help people cultivate greater clarity, awareness, and well-being through intentional daily rituals. The torch represents the inner light that guides us forward.
+            Torch Republic was created by Lisa Marie Kocian for people who want their daily rituals to feel clearer, stronger, and more intentional.
           </p>
         </motion.div>
       </section>
@@ -136,6 +136,20 @@ export default function OurMission() {
             </p>
             <p className="font-heading text-base leading-relaxed font-serif font-bold" style={{ color: 'rgba(230,183,173,0.8)', fontWeight: 600 }}>
               Carry the torch.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Founder Signature Section */}
+      <section className="px-6 md:px-10 py-16" style={{ background: '#080808', borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.4rem' }}>
+              Lisa Marie Kocian
+            </p>
+            <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: RG }}>
+              Founder, Torch Republic Coffee Company
             </p>
           </motion.div>
         </div>

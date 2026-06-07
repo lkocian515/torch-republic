@@ -2,26 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
-// Core sections — in conversion-optimized order
-import PremiumHero from '../components/mushroom/PremiumHero';
-import HomeTrustStrip from '../components/mushroom/HomeTrustStrip';
-import CategoryCards from '../components/mushroom/CategoryCards';
-import BestSellersSection from '../components/mushroom/BestSellersSection';
-import MeetTheRituals from '../components/mushroom/MeetTheRituals';
-import ChooseYourRitual from '../components/mushroom/ChooseYourRitual';
+// Premium brand sections — in ritual-based order
+import PremiumBrandHero from '../components/home/PremiumBrandHero';
+import BrandPhilosophy from '../components/home/BrandPhilosophy';
+import ShopByRitual from '../components/home/ShopByRitual';
+import CategoryOverview from '../components/home/CategoryOverview';
+import FounderNote from '../components/home/FounderNote';
+import HowItWorks from '../components/mushroom/HowItWorks';
 import WhyPeopleChoose from '../components/mushroom/WhyPeopleChoose';
 import HomeReviewCarousel from '../components/mushroom/HomeReviewCarousel';
 import BundleSection from '../components/mushroom/BundleSection';
 import BlendComparisonTable from '../components/mushroom/BlendComparisonTable';
-import FlavorQuizBanner from '../components/mushroom/FlavorQuizBanner';
-import HowItWorks from '../components/mushroom/HowItWorks';
 import IngredientTransparency from '../components/mushroom/IngredientTransparency';
 import FirstCupGuarantee from '../components/mushroom/FirstCupGuarantee';
-import FounderSection from '../components/mushroom/FounderSection';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import ReviewPopup from '../components/mushroom/ReviewPopup';
-import StaticReviewsSection from '../components/mushroom/StaticReviewsSection';
 
 const RG = '#E6B7AD';
 
@@ -44,7 +40,7 @@ function StickyMobileCTA() {
     >
       <Link
         to="/shop"
-        className="pointer-events-auto font-mono uppercase tracking-[0.28em] text-center transition-all hover:opacity-90"
+        className="pointer-events-auto font-mono uppercase tracking-[0.3em] text-center transition-all hover:opacity-90"
         style={{
           background: RG,
           color: '#050505',
@@ -55,7 +51,7 @@ function StickyMobileCTA() {
           boxShadow: '0 4px 24px rgba(0,0,0,0.7)',
         }}
       >
-        Shop Instant Rituals
+        Shop the Rituals
       </Link>
     </div>
   );
@@ -63,66 +59,59 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic | Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Premium instant coffee, mushroom coffee, and matcha for modern rituals. Classic Arabica, functional blends, ceremonial grade — ready in seconds.',
+    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Discover Torch Republic Coffee Company — premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, resilience, focus, restoration, and intentional daily ritual.',
     url: '/',
     type: 'website',
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
       <ReviewPopup />
 
-      {/* 1. Hero */}
-      <PremiumHero />
+      {/* 1. Premium Hero */}
+      <PremiumBrandHero />
 
-      {/* 2. Trust Strip */}
-      <HomeTrustStrip />
+      {/* 2. Brand Philosophy */}
+      <BrandPhilosophy />
 
-      {/* 3. Category Cards */}
-      <div id="choose-your-ritual" />
-      <CategoryCards />
+      {/* 3. Shop by Ritual */}
+      <ShopByRitual />
 
-      {/* 4. Best Sellers */}
-      <BestSellersSection />
+      {/* 4. Category Overview */}
+      <CategoryOverview />
 
-      {/* 5. Meet the Rituals (All Products) */}
-      <MeetTheRituals />
+      {/* 5. Featured Products */}
+      <div id="featured" />
 
       {/* 6. Why Torch Republic */}
       <WhyPeopleChoose />
 
-      {/* 7. Static Reviews */}
-      <StaticReviewsSection />
-
-      {/* 8. Review Carousel */}
+      {/* 7. Reviews */}
       <HomeReviewCarousel />
 
-      {/* 9. Bundles */}
+      {/* 8. Bundles */}
       <BundleSection />
 
-      {/* 10. Comparison Table */}
+      {/* 9. Comparison */}
       <BlendComparisonTable />
 
-      {/* 11. Flavor Quiz */}
-      <FlavorQuizBanner />
-
-      {/* 12. How It Works */}
+      {/* 10. How It Works */}
       <HowItWorks />
 
-      {/* 13. Ingredient Transparency */}
+      {/* 11. Ingredient Transparency */}
       <IngredientTransparency />
 
-      {/* 14. Founder Story */}
-      <FounderSection />
+      {/* 12. Founder Note */}
+      <FounderNote />
 
-      {/* 15. Guarantee */}
+      {/* 13. Guarantee */}
       <FirstCupGuarantee />
 
-      {/* 16. FAQ */}
+      {/* 14. FAQ */}
       <FAQSection />
 
-      {/* 17. Final CTA */}
+      {/* 15. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />
