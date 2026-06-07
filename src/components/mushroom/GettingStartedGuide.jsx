@@ -49,7 +49,7 @@ const DAYS = [
     blend: 'Classic Coffee or SunCap',
     icon: Coffee,
     instruction: 'Try your second cup in the early afternoon if needed. Classic for pure energy, SunCap for focus.',
-    tip: 'Avoid caffeine after 2pm if you're sensitive to sleep disruption.',
+    tip: "Avoid caffeine after 2pm if you're sensitive to sleep disruption.",
   },
   {
     day: 6,
