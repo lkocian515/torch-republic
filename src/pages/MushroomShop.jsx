@@ -213,7 +213,7 @@ export default function MushroomShop() {
               Choose your blends. Create your daily ritual. Save when you bundle.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-              <Link to="/bundle#starter-3pack"
+              <Link to="/build-your-ritual"
                 className="p-4 text-center transition-all hover:opacity-90 relative"
                 style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
                 <div className="absolute top-2 right-2 px-2 py-0.5"
@@ -224,20 +224,20 @@ export default function MushroomShop() {
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 3 Blends</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$74.97</p>
               </Link>
-              <Link to="/bundle#deep-6pack"
+              <a href={getShopifyBundleUrl(MUSH_PROD.map(p => ({ slug: p.shopifyHandle, qty: 1 }))) || SHOPIFY_CART_URL}
                 className="p-4 text-center transition-all hover:opacity-90 relative"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                style={{ background: '#141312', border: '2px solid rgba(230,183,173,0.4)', display: 'block' }}>
                 <div className="absolute top-2 right-2 px-2 py-0.5"
                   style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
-                  <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">FREE SHIP</p>
+                  <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">BEST VALUE</p>
                 </div>
                 <p className="font-serif font-bold text-white text-sm mb-1">Deep Ritual 6-Pack</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Choose Any 6 Blends</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>All 6 Mushroom Blends</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$129.99</p>
-              </Link>
-              <Link to="/bundle#complete-12pack"
+              </a>
+              <a href={getFullBundleUrl() || SHOPIFY_CART_URL}
                 className="p-4 text-center transition-all hover:opacity-90 relative"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)' }}>
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.2)', display: 'block' }}>
                 <div className="absolute top-2 right-2 px-2 py-0.5"
                   style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
                   <p className="font-mono text-[5px] tracking-[0.25em] uppercase font-bold">FREE SHIP</p>
@@ -245,33 +245,33 @@ export default function MushroomShop() {
                 <p className="font-serif font-bold text-white text-sm mb-1">Complete Collection</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>All 12 Products</p>
                 <p className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#E6B7AD' }}>$239.94</p>
-              </Link>
+              </a>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <Link to="/bundle#classic-trio"
+              <a href={getAllClassicBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-white text-xs mb-1">Classic Trio</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Classic Coffees</p>
-              </Link>
-              <Link to="/bundle#mushroom-collection"
+              </a>
+              <a href={getShopifyBundleUrl(MUSH_PROD.map(p => ({ slug: p.shopifyHandle, qty: 1 }))) || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-white text-xs mb-1">Mushroom Collection</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>6 Mushroom Blends</p>
-              </Link>
-              <Link to="/bundle#matcha-ritual"
+              </a>
+              <a href={getAllMatchaBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-white text-xs mb-1">Matcha Ritual</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>3 Matcha Blends</p>
-              </Link>
-              <Link to="/bundle#wellness-bundle"
+              </a>
+              <a href={getFullBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)' }}>
-                <p className="font-serif font-bold text-white text-xs mb-1">Wellness Bundle</p>
-                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Mushroom + Matcha</p>
-              </Link>
+                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
+                <p className="font-serif font-bold text-white text-xs mb-1">Complete Collection</p>
+                <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>All 12 Products</p>
+              </a>
             </div>
           </motion.div>
         </div>
