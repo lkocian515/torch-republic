@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Check, X, ShoppingBag, ArrowRight, Sparkles } from 'lucide-react';
 import { ALL_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
+import { getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
@@ -42,14 +43,12 @@ export default function BuildYourRitual() {
 
   const handleAddToCart = () => {
     if (selectedProducts.length === 3) {
-      // Redirect to checkout with bundle
-      const handles = selectedProducts.map(id => {
+      const items = selectedProducts.map(id => {
         const product = ALL_PRODUCTS.find(p => p.id === id);
-        return product?.shopifyHandle;
-      }).filter(Boolean);
-      
-      // For now, redirect to shop with a note
-      navigate('/bundle', { state: { selectedProducts } });
+        return { slug: product?.shopifyHandle || product?.slug, qty: 1 };
+      }).filter(item => item.slug);
+      const url = getShopifyBundleUrl(items) || SHOPIFY_CART_URL;
+      window.location.href = url;
     }
   };
 
@@ -76,7 +75,7 @@ export default function BuildYourRitual() {
               Build Your Ritual Bundle
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-              Mix & Match Any 3 Blends
+              Mix &amp; Match Any 3 Blends
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
               Choose your three favorite blends and save when you bundle. From mushroom coffee to ceremonial matcha — create your perfect ritual.

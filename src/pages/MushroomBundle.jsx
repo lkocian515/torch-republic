@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, ALL_PRODUCTS, BUNDLE_IMAGE } from '../lib/mushroomProducts';
-import { getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { getFullBundleUrl, getAllClassicBundleUrl, getAllMatchaBundleUrl, getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
 // All 12 products
@@ -22,31 +22,31 @@ const BUNDLE_OPTIONS = [
     subtitle: 'Discover',
     description: 'Choose any 3 blends',
     price: 74.97,
-    products: ALL_12_PRODUCTS.slice(0, 3), // Show first 3 as preview
+    products: ALL_12_PRODUCTS.slice(0, 3),
     cta: 'Build Your 3-Pack',
-    getUrl: getFullBundleUrl, // Would need custom builder
+    getUrl: null, // uses Link to /build-your-ritual
     badge: 'Most Popular',
   },
   {
     id: 'deep-6pack',
     name: 'Deep Ritual 6-Pack',
     subtitle: 'Commit',
-    description: 'Choose any 6 blends',
+    description: 'All 6 mushroom blends',
     price: 129.99,
-    products: MUSHROOM_PRODUCTS, // Show mushroom 6 as preview
-    cta: 'Build Your 6-Pack',
-    getUrl: getFullBundleUrl,
+    products: MUSHROOM_PRODUCTS,
+    cta: 'Shop 6-Pack',
+    getUrl: () => getShopifyBundleUrl(MUSHROOM_PRODUCTS.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
     badge: 'Best Value',
   },
   {
     id: 'complete-12pack',
     name: 'Complete Torch Republic Collection',
     subtitle: 'The Full Experience',
-    description: 'All 12 products — Classic, Mushroom & Matcha',
+    description: 'All 12 products — Classic, Mushroom &amp; Matcha',
     price: 239.94,
-    products: ALL_12_PRODUCTS.slice(0, 6), // Show first 6 as preview
+    products: ALL_12_PRODUCTS.slice(0, 6),
     cta: 'Shop the Complete Collection',
-    getUrl: () => null, // Would need full 12-product bundle URL
+    getUrl: getFullBundleUrl,
     badge: 'Complete Ritual',
   },
 ];
@@ -59,7 +59,7 @@ const CATEGORY_BUNDLES = [
     price: 74.97,
     products: CLASSIC_ONLY_BUNDLE,
     cta: 'Shop Classic Trio',
-    getUrl: () => null,
+    getUrl: getAllClassicBundleUrl,
   },
   {
     id: 'mushroom-collection',
@@ -68,7 +68,7 @@ const CATEGORY_BUNDLES = [
     price: 129.99,
     products: MUSHROOM_ONLY_BUNDLE,
     cta: 'Shop Mushroom Collection',
-    getUrl: getFullBundleUrl,
+    getUrl: () => getShopifyBundleUrl(MUSHROOM_ONLY_BUNDLE.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
   },
   {
     id: 'matcha-ritual',
@@ -77,16 +77,16 @@ const CATEGORY_BUNDLES = [
     price: 74.97,
     products: MATCHA_ONLY_BUNDLE,
     cta: 'Shop Matcha Trio',
-    getUrl: () => null,
+    getUrl: getAllMatchaBundleUrl,
   },
   {
     id: 'wellness-bundle',
     name: 'Full Wellness Ritual Bundle',
     description: 'All mushroom + matcha blends (9 total)',
     price: 179.94,
-    products: WELLNESS_BUNDLE.slice(0, 6), // Show preview
+    products: WELLNESS_BUNDLE.slice(0, 6),
     cta: 'Shop Wellness Bundle',
-    getUrl: () => null,
+    getUrl: () => getShopifyBundleUrl(WELLNESS_BUNDLE.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
   },
 ];
 
@@ -349,7 +349,7 @@ export default function MushroomBundle() {
             style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.2)' }}
           >
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.55)' }}>
-              Subscribe & Save
+              Subscribe &amp; Save
             </p>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
               Get 20% off every order when you subscribe. Cancel anytime. Never run out of your daily ritual.
