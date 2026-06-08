@@ -172,16 +172,16 @@ export default function Contact() {
               <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>Policies &amp; Info</p>
               <div className="flex flex-col gap-2">
                 {[
-                  { label: 'Shipping Policy', href: 'https://torchrepublic.com/policies/shipping-policy' },
-                  { label: 'Return Policy', href: 'https://torchrepublic.com/policies/refund-policy' },
-                  { label: 'Privacy Policy', href: 'https://torchrepublic.com/policies/privacy-policy' },
-                  { label: 'Terms of Service', href: 'https://torchrepublic.com/policies/terms-of-service' },
+                  { label: 'Shipping Policy', href: '/shipping-policy' },
+                  { label: 'Return Policy', href: '/return-policy' },
+                  { label: 'Privacy Policy', href: '/privacy-policy' },
+                  { label: 'Terms of Service', href: '/terms-of-service' },
                 ].map(l => (
-                  <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                  <Link key={l.label} to={l.href}
                     className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-white"
                     style={{ color: 'rgba(255,255,255,0.32)' }}>
                     {l.label} →
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
