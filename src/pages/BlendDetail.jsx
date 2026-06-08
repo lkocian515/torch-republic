@@ -20,6 +20,7 @@ import TorchbearerCrossSell from '../components/reserve/TorchbearerCrossSell';
 import ScarcityBadge from '../components/mushroom/ScarcityBadge';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
+import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock';
 
 const TRUST = [
   { icon: Zap, label: '100% Instant Coffee' },
@@ -561,6 +562,9 @@ function BlendDetailInner({ product }) {
                 </div>
               ))}
             </div>
+
+            {/* Ritual Membership Benefits Block */}
+            <RitualMembershipBlock />
 
             {/* Accordions */}
             <div className="mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
