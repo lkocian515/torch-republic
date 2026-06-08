@@ -116,25 +116,37 @@ export default function OurMission() {
           
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Torch Republic Coffee Company started with a simple frustration: too many mornings felt rushed, cloudy, and empty. The coffee was forgettable. The energy was jittery. The history and ideas that once inspired you were drowned out by notifications and noise. You wanted a ritual that made you sharper — and reminded you what you stand for.
+              Life feels better when we begin each day with intention.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              So Torch Republic was born.
+              In a world that moves faster every year, it's easy to rush through our mornings on autopilot. We wanted to create something that encouraged people to slow down, take a breath, and start the day feeling focused, energized, and ready for what lies ahead.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              We combined high-quality instant coffee with functional mushrooms like Lion's Mane and Chaga to support focus, clarity, and calm, sustained energy you can actually feel in real life — not just read on a label. Then we layered in what we love most: the stories of people who carried the torch before us. Thinkers, writers, builders, and leaders whose decisions still echo through your everyday life.
+              That's why we created Torch Republic Coffee Company.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Every Torch Republic blend is designed as a small act of resistance against empty routines. Our packaging doesn't just show a logo; it gives you names, dates, and ideas worth remembering. Over time, your morning cup becomes a thread that connects your work today to the kind of history you want to help write.
+              We craft premium coffee, mushroom coffee, and matcha blends designed to support clarity, focus, balance, and well-being. But beyond what's in the cup, we're inspired by something even more important: the qualities that help people live meaningful and fulfilling lives.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              We are a U.S.-based, independent, founder-led coffee company committed to small-batch quality, transparent sourcing, and products you can actually understand. No hype, no gimmicks, no fake health claims — just smooth, functional coffee that respects your brain, your time, and your values.
+              Discipline. Resilience. Creativity. Growth. Wisdom. Purpose.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              If you feel a responsibility to build something meaningful — a business, a family, a body of work, a better community — you're who we make this for. Torch Republic exists to fuel the modern torchbearers: the people who still believe that personal rituals, clear thinking, and everyday courage can change history.
+              Every blend in our collection is named after one of these qualities or archetypes—from The Monk and The Alchemist to Torchbearer and The Ascendant. They serve as simple reminders of the person we're all working to become.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Torch Republic is for people who are building healthy habits, pursuing their goals, caring for their families, growing their businesses, strengthening their minds, and creating lives they're proud of.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              We believe wellness isn't about perfection. It's about showing up each day, making small positive choices, and continuing to move forward.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Our mission is to create products that support those daily rituals and bring together a community of people committed to living with greater intention, optimism, and purpose.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Because every day is a new opportunity to learn, grow, and become a little better than we were yesterday.
             </p>
             <p className="font-heading text-base leading-relaxed font-serif font-bold" style={{ color: 'rgba(230,183,173,0.8)', fontWeight: 600 }}>
-              Carry the torch.
+              Fuel the Person You're Becoming.
             </p>
           </motion.div>
         </div>
