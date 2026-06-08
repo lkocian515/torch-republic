@@ -34,11 +34,7 @@
   ],
   "rls": {
     "create": {
-      "user_condition": {
-        "id": {
-          "$exists": true
-        }
-      }
+      "data.user_id": "{{user.id}}"
     },
     "read": {
       "$or": [
