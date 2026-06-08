@@ -1,24 +1,43 @@
 User-agent: *
 Allow: /
 
+# Block low-value, admin, and internal tool paths
+Disallow: /admin
+Disallow: /portal
+Disallow: /loyalty
+Disallow: /profile
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
+Disallow: /OrderConfirmation
+Disallow: /traffic-report
+Disallow: /build-your-ritual
+Disallow: /spotlight
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+
+# Block legacy/redirect-only paths (no unique content)
+Disallow: /Shop
+Disallow: /BestSellers
+Disallow: /Collections
+Disallow: /Bundles
+Disallow: /Cart
+Disallow: /Journal
+Disallow: /Profile
+Disallow: /Reviews
+Disallow: /Pods
+Disallow: /pods
+Disallow: /Founders
+Disallow: /Liberty
+Disallow: /Commanders
+Disallow: /Washington
+Disallow: /Mission
+Disallow: /Contact
+Disallow: /TheTorchBox
+Disallow: /Subscription
+Disallow: /landing
+
 # Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
-
-# Crawl-delay (optional)
-Crawl-delay: 1
-
-# Block admin/backend paths
-Disallow: /admin/
-Disallow: /api/
-Disallow: /functions/
-
-# Allow all public content
-Allow: /shop/
-Allow: /products/
-Allow: /blends/
-Allow: /mushroom-coffee/
-Allow: /matcha/
-Allow: /classic-coffee/
-Allow: /journal/
-Allow: /mission/
-Allow: /faq/

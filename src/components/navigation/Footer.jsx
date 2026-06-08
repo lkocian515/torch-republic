@@ -15,10 +15,21 @@ const FOOTER_LINKS = [
   {
     heading: 'Learn',
     links: [
+      { label: 'Why Mushroom Coffee', href: '/mushroom-coffee-benefits' },
+      { label: "Lion's Mane Coffee", href: '/lions-mane-coffee' },
       { label: 'How It Works', href: '/how-it-works' },
+      { label: 'Research Hub', href: '/research' },
       { label: 'Journal', href: '/journal' },
-      { label: 'About', href: '/about' },
       { label: 'FAQ', href: '/faq' },
+    ]
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'Our Mission', href: '/mission' },
+      { label: 'Reviews', href: '/reviews' },
+      { label: 'Blend Quiz', href: '/quiz' },
+      { label: 'Coffee Recipes', href: '/recipes' },
       { label: 'Contact', href: '/contact' },
     ]
   },
@@ -90,7 +101,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {FOOTER_LINKS.map(section => (
               <div key={section.heading}>
                 <h3 className="font-mono text-[9px] tracking-[0.4em] uppercase mb-5" style={{ color: '#E6B7AD' }}>
