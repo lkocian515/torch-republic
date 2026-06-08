@@ -131,9 +131,11 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/bundle" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomBundle" queryClient={queryClient}><MushroomBundle /></LayoutWrapper></Suspense>} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomFAQ" queryClient={queryClient}><MushroomFAQ /></LayoutWrapper></Suspense>} />
-        <Route path="/Reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
-        <Route path="/Journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
-        <Route path="/Profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
+        <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
+        <Route path="/Reviews" element={<Navigate to="/reviews" replace />} />
+        <Route path="/Journal" element={<Navigate to="/journal" replace />} />
+        <Route path="/profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
+        <Route path="/Profile" element={<Navigate to="/profile" replace />} />
         <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
         {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
@@ -156,7 +158,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
         <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
-        <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
         <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
         <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
         <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
@@ -175,26 +176,19 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
         <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
-        <Route path="/Collections" element={<Navigate to="/blends" replace />} />
-        <Route path="/blends" element={<Navigate to="/mushroom-coffee" replace />} />
+        <Route path="/Collections" element={<Navigate to="/shop" replace />} />
         <Route path="/Bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/CoffeeBundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/collections/coffee-bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/TheTorchBox" element={<Navigate to="/subscription" replace />} />
         <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
-        <Route path="/Mission" element={<Navigate to="/about" replace />} />
+        <Route path="/Mission" element={<Navigate to="/mission" replace />} />
         <Route path="/Contact" element={<Navigate to="/contact" replace />} />
         <Route path="/landing" element={<Navigate to="/" replace />} />
-        {/* Old patriotic/collectible/pod pages → classic coffee */}
-        <Route path="/torchbearer" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Founders" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Liberty" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Commanders" element={<Navigate to="/classic-coffee" replace />} />
         <Route path="/Washington" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/classic-coffee" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/mushroom-coffee" element={<Navigate to="/mushroom-coffee" replace />} />
-        <Route path="/matcha" element={<Navigate to="/matcha" replace />} />
-        {/* Old apparel/pod/history pages → home */}
         <Route path="/patriotic-pride" element={<Navigate to="/" replace />} />
         <Route path="/freedom-isnt-free" element={<Navigate to="/" replace />} />
         <Route path="/we-the-people" element={<Navigate to="/" replace />} />
@@ -204,8 +198,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/american-heroes" element={<Navigate to="/" replace />} />
         <Route path="/pods" element={<Navigate to="/" replace />} />
         <Route path="/Pods" element={<Navigate to="/" replace />} />
-        <Route path="/history" element={<Navigate to="/about" replace />} />
-        <Route path="/our-story" element={<Navigate to="/about" replace />} />
+        <Route path="/history" element={<Navigate to="/mission" replace />} />
+        <Route path="/our-story" element={<Navigate to="/mission" replace />} />
 
 
 

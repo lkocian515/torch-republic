@@ -8,7 +8,7 @@ const RG = '#E6B7AD';
 const TABS = [
   { path: '/', icon: Home, label: 'Home' },
   { path: '/shop', icon: ShoppingBag, label: 'Shop' },
-  { path: '/Profile', icon: User, label: 'Profile' },
+  { path: '/profile', icon: User, label: 'Profile' },
 ];
 
 export default function BottomTabs() {

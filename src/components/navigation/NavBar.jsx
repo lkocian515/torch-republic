@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: 'Find Your Blend', href: '/quiz' },
   { label: 'Journal', href: '/journal' },
   { label: 'Recipes', href: '/recipes' },
-  { label: 'Reviews', href: '/Reviews' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'FAQ', href: '/faq' },
 ];
 
@@ -92,7 +92,7 @@ export default function NavBar() {
                 className="hover:text-white transition-colors">
                 <ShoppingBag className="w-[15px] h-[15px]" />
               </a>
-              <Link to="/Profile"
+              <Link to="/profile"
                 style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 className="hover:text-white transition-colors">
                 <User className="w-[15px] h-[15px]" />
