@@ -130,9 +130,7 @@ export default function OurMission() {
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Discipline. Resilience. Creativity. Growth. Wisdom. Purpose.
             </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Every blend in our collection is named after one of these qualities or archetypes—from The Monk and The Alchemist to Torchbearer and The Ascendant. They serve as simple reminders of the person we're all working to become.
-            </p>
+
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Torch Republic is for people who are building healthy habits, pursuing their goals, caring for their families, growing their businesses, strengthening their minds, and creating lives they're proud of.
             </p>
