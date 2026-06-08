@@ -45,9 +45,18 @@ export default function BuildYourRitual() {
     if (selectedProducts.length === 3) {
       const items = selectedProducts.map(id => {
         const product = ALL_PRODUCTS.find(p => p.id === id);
-        return { slug: product?.shopifyHandle || product?.slug, qty: 1 };
-      }).filter(item => item.slug);
-      const url = getShopifyBundleUrl(items) || SHOPIFY_CART_URL;
+        const handle = product?.shopifyHandle;
+        console.log('[Bundle] Selected:', product?.name, '| shopifyHandle:', handle);
+        return handle ? { slug: handle, qty: 1 } : null;
+      }).filter(Boolean);
+
+      const url = getShopifyBundleUrl(items);
+      console.log('[Bundle] Cart URL:', url);
+
+      if (!url) {
+        alert('Could not build cart URL. Please try again or contact support.');
+        return;
+      }
       window.location.href = url;
     }
   };

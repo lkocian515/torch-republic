@@ -35,7 +35,7 @@ const BUNDLE_OPTIONS = [
     price: 129.99,
     products: MUSHROOM_PRODUCTS,
     cta: 'Shop 6-Pack',
-    getUrl: () => getShopifyBundleUrl(MUSHROOM_PRODUCTS.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
+    getUrl: () => getShopifyBundleUrl(MUSHROOM_PRODUCTS.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
     badge: 'Best Value',
   },
   {
@@ -68,7 +68,7 @@ const CATEGORY_BUNDLES = [
     price: 129.99,
     products: MUSHROOM_ONLY_BUNDLE,
     cta: 'Shop Mushroom Collection',
-    getUrl: () => getShopifyBundleUrl(MUSHROOM_ONLY_BUNDLE.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
+    getUrl: () => getShopifyBundleUrl(MUSHROOM_ONLY_BUNDLE.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
   },
   {
     id: 'matcha-ritual',
@@ -86,7 +86,7 @@ const CATEGORY_BUNDLES = [
     price: 179.94,
     products: WELLNESS_BUNDLE.slice(0, 6),
     cta: 'Shop Wellness Bundle',
-    getUrl: () => getShopifyBundleUrl(WELLNESS_BUNDLE.map(p => ({ slug: p.shopifyHandle || p.slug, qty: 1 }))),
+    getUrl: () => getShopifyBundleUrl(WELLNESS_BUNDLE.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
   },
 ];
 
@@ -230,17 +230,17 @@ export default function MushroomBundle() {
                     <Link
                       to="/build-your-ritual"
                       className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-                      style={{ 
-                        background: '#E6B7AD',
-                        color: '#080808',
-                        padding: '12px 20px'
-                      }}
+                      style={{ background: '#E6B7AD', color: '#080808', padding: '12px 20px' }}
                     >
                       Build Your 3-Pack →
                     </Link>
                   ) : (
                     <a
-                      href={bundle.getUrl() || SHOPIFY_CART_URL}
+                      href={(() => {
+                        const url = bundle.getUrl();
+                        console.log('[Bundle CTA]', bundle.name, '| URL:', url);
+                        return url || SHOPIFY_CART_URL;
+                      })()}
                       className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
                       style={{ 
                         background: bundle.badge === 'Best Value' ? '#E6B7AD' : 'transparent',
@@ -325,7 +325,11 @@ export default function MushroomBundle() {
                 </div>
                 <div className="p-4 pt-0">
                   <a
-                    href={bundle.getUrl() || SHOPIFY_CART_URL}
+                    href={(() => {
+                      const url = bundle.getUrl();
+                      console.log('[Category Bundle CTA]', bundle.name, '| URL:', url);
+                      return url || SHOPIFY_CART_URL;
+                    })()}
                     className="block w-full text-center font-mono text-[7px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90"
                     style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)', padding: '10px 16px' }}
                   >

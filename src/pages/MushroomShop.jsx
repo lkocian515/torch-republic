@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { getShopifyBundleUrl, getAllClassicBundleUrl, getAllMatchaBundleUrl, getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { MUSHROOM_PRODUCTS as MUSH_PROD } from '@/lib/mushroomProducts';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
