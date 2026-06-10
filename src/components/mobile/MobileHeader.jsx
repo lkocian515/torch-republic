@@ -11,6 +11,8 @@ const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
   { label: 'Blends', href: '/blends' },
   { label: 'Bundle', href: '/bundle' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Recipes', href: '/recipes' },
   { label: 'About', href: '/about' },
   { label: 'Reviews', href: '/Reviews' },
   { label: 'FAQ', href: '/faq' },

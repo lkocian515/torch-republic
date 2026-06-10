@@ -28,6 +28,8 @@ const FOOTER_LINKS = [
     links: [
       { label: 'About', href: '/mission' },
       { label: 'How It Works', href: '/how-it-works' },
+      { label: 'Journal', href: '/journal' },
+      { label: 'Recipes', href: '/recipes' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
     ]
