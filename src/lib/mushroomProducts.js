@@ -123,11 +123,11 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Awareness, focus, mental clarity',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
-   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fb2d4e833_13.png',
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/13_6eb77a60-ce97-4a86-86d5-47d33528e2a3.png?v=1781102333',
    galleryImages: [
-     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fb2d4e833_13.png',
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/13_6eb77a60-ce97-4a86-86d5-47d33528e2a3.png?v=1781102333',
    ],
-   alt: 'Torch Republic GlowMind Clarity instant mushroom coffee tube',
+   alt: 'Torch Republic GlowMind Clarity instant mushroom coffee lifestyle image',
    price: 24.99,
    shopifyHandle: 'glowmind-clarity-blend',
    accent: '#4A9EE6',
@@ -153,7 +153,7 @@ export const MUSHROOM_PRODUCTS = [
    galleryImages: [
      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/nm_hnj_hjvb.png?v=1781103576',
    ],
-   alt: 'Torch Republic MoonCap Restore instant mushroom coffee tube',
+   alt: 'Torch Republic MoonCap Restore instant mushroom coffee lifestyle image',
    price: 24.99,
    shopifyHandle: 'mooncap-restore',
    accent: '#E8697A',
