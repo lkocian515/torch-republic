@@ -181,7 +181,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/lions-mane-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeCoffee" queryClient={queryClient}><LionsManeCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/instant-coffee-for-energy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeForEnergy" queryClient={queryClient}><InstantCoffeeForEnergy /></LayoutWrapper></Suspense>} />
         <Route path="/local" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LocalSEO" queryClient={queryClient}><LocalSEO /></LayoutWrapper></Suspense>} />
-        <Route path="/local" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LocalSEO" queryClient={queryClient}><LocalSEO /></LayoutWrapper></Suspense>} />
 
         {/* ── BLOG POSTS ── */}
         <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />

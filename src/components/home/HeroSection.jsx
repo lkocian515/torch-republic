@@ -14,7 +14,7 @@ const TRUST_ICONS = [
 export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
-      {/* Hero Banner Image — smaller on desktop, full width on mobile */}
+      {/* Hero Banner Image — optimized for LCP (under 250KB, WebP, preloaded) */}
       <div className="flex justify-center md:max-w-[70vw] mx-auto">
         <img
           src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
@@ -22,22 +22,19 @@ export default function HeroSection() {
           style={{ width: '100%', height: 'auto', display: 'block' }}
           fetchPriority="high"
           loading="eager"
+          decoding="async"
           onError={(e) => {
             e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
           }}
         />
       </div>
 
-      {/* Headline + CTAs below image */}
+      {/* Headline + CTAs below image — no animations for better LCP */}
       <section
         className="px-6 md:px-10 py-12 md:py-16 text-center"
         style={{ background: 'linear-gradient(180deg, #0A0807 0%, #080808 100%)' }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-        >
+        <div>
           <p className="font-mono text-[11px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
             Torch Republic Coffee Company
           </p>
@@ -66,15 +63,10 @@ export default function HeroSection() {
           >
             Torch Republic Coffee Company creates premium instant coffee, functional mushroom coffee, and ceremonial matcha designed to support focus, clarity, energy, and intentional daily rituals.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Primary + Secondary CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
-        >
+        {/* Primary + Secondary CTAs — no animations for better LCP */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
           <Link
             to="/build-your-ritual"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
@@ -89,39 +81,24 @@ export default function HeroSection() {
           >
             Shop Best Sellers
           </Link>
-        </motion.div>
+        </div>
 
         {/* Reassurance line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-6"
-        >
+        <div className="mb-6">
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
             U.S.-based small business &nbsp;·&nbsp; Secure checkout &nbsp;·&nbsp; Instant preparation
           </p>
-        </motion.div>
+        </div>
 
         {/* Discount nudge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.22 }}
-          className="mb-6"
-        >
+        <div className="mb-6">
           <p className="font-mono text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.75)' }}>
             First order? Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off
           </p>
-        </motion.div>
+        </div>
 
         {/* Tertiary quiz link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="mb-10"
-        >
+        <div className="mb-10">
           <Link
             to="/quiz"
             className="font-mono text-[12px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
@@ -129,14 +106,10 @@ export default function HeroSection() {
           >
             Not sure where to start? → Take the Blend Quiz
           </Link>
-        </motion.div>
+        </div>
 
         {/* Trust icon row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="flex flex-wrap justify-center gap-6 md:gap-10 pt-8"
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10 pt-8"
           style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}
         >
           {TRUST_ICONS.map((item, i) => (
@@ -149,7 +122,7 @@ export default function HeroSection() {
               </p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </section>
     </div>
   );

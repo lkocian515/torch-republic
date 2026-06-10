@@ -33,6 +33,16 @@ const OLD_URL_REDIRECTS = {
   '/collections/american-heroes': '/shop',
   '/collections/founders': '/shop',
   
+  // Old patriotic product URLs → specific coffee products
+  '/products/4th-of-july': '/shop',
+  '/products/jesus-saves': '/shop',
+  '/products/american-flag': '/shop',
+  '/freedom': '/shop',
+  '/products/liberty': '/classic-coffee',
+  '/products/commanders': '/classic-coffee',
+  '/products/washington': '/classic-coffee',
+  '/products/founders': '/classic-coffee',
+  
   // Old product pages → /shop
   '/products/': '/shop',
   
@@ -106,34 +116,30 @@ export default function PageNotFound({}) {
                     
                     <div className="space-y-4">
                         <h2 className="text-2xl font-serif font-bold" style={{ color: '#F7F1E8', letterSpacing: '-0.02em' }}>
-                            Page Not Found
+                            That Ritual Has Moved
                         </h2>
                         <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.5)', lineHeight: 1.7, maxWidth: '480px', margin: '0 auto' }}>
-                            The page you're looking for doesn't exist or has been moved. You may have followed an outdated link from search engines.
+                            You've discovered a page from our past. Torch Republic has evolved into premium instant coffee, mushroom coffee, and ceremonial matcha for intentional daily rituals.
                         </p>
                     </div>
                     
-                    {/* Helpful links */}
+                    {/* Shop CTAs */}
                     <div className="pt-6 pb-4">
                         <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.4)' }}>
-                            Continue Your Journey
+                            Shop Your Ritual
                         </p>
-                        <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
-                            <a href="/shop" className="p-4 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
-                                <p className="font-serif font-bold text-white text-sm mb-1">Shop All Products</p>
-                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>12 Premium Blends</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+                            <a href="/mushroom-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                                <p className="font-serif font-bold text-white text-base mb-1">Mushroom Coffee</p>
+                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Lion's Mane + Chaga</p>
                             </a>
-                            <a href="/bundle" className="p-4 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
-                                <p className="font-serif font-bold text-white text-sm mb-1">Build Your Bundle</p>
-                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Save 20%</p>
+                            <a href="/matcha" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                                <p className="font-serif font-bold text-white text-base mb-1">Ceremonial Matcha</p>
+                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Premium Japanese</p>
                             </a>
-                            <a href="/mission" className="p-4 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
-                                <p className="font-serif font-bold text-white text-sm mb-1">Our Mission</p>
-                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Brand Story</p>
-                            </a>
-                            <a href="/contact" className="p-4 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
-                                <p className="font-serif font-bold text-white text-sm mb-1">Contact Us</p>
-                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Support</p>
+                            <a href="/classic-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                                <p className="font-serif font-bold text-white text-base mb-1">Instant Coffee</p>
+                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Premium Classic</p>
                             </a>
                         </div>
                     </div>
