@@ -16,9 +16,10 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Leadership, purpose, everyday ritual',
     mushrooms: 'No',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/189444468_14.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/25286b949_15.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/189444468_14.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/25286b949_15.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f737c7913_jbbjkvbjkhbjk.png',
     ],
     alt: 'Torch Republic Torchbearer Classic Instant Coffee',
     price: 24.99,
