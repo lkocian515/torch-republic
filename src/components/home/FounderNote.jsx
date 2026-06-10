@@ -35,8 +35,18 @@ export default function FounderNote() {
           {/* Signature */}
           <div className="pt-8" style={{ borderTop: `1px solid ${RG}20` }}>
             <p
-              className="font-serif italic mb-1"
-              style={{ fontSize: '2rem', color: RG, letterSpacing: '0.02em', fontWeight: 400 }}
+              style={{
+                fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
+                fontSize: '1.6rem',
+                color: RG,
+                opacity: 0.75,
+                letterSpacing: '0.01em',
+                fontWeight: 600,
+                lineHeight: 1.2,
+                transform: 'rotate(-1.5deg)',
+                display: 'inline-block',
+                marginBottom: '4px',
+              }}
             >
               Lisa Marie Kocian
             </p>
