@@ -92,8 +92,8 @@ const CATEGORY_BUNDLES = [
 
 export default function MushroomBundle() {
   useSEO({
-    title: 'Coffee Bundles | Torch Republic Coffee Co.',
-    description: 'Bundle and save on premium instant coffee, mushroom coffee, and ceremonial matcha. Starter 3-Pack, Deep 6-Pack, or Complete 12-Product Collection. Free shipping included.',
+    title: 'Ritual Coffee Bundles | Torch Republic Coffee Company',
+    description: 'Build your Torch Republic ritual with curated bundles of instant coffee, mushroom coffee, and matcha for different moments of your day. Free shipping on all bundles.',
     url: '/bundle',
   });
   return (

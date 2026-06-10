@@ -49,7 +49,7 @@ export default function HeroSection() {
             }}
           >
             Build Your<br />
-            <span style={{ color: RG }}>Morning Ritual</span>
+            <span style={{ color: RG }}>Daily Ritual</span>
           </h1>
           <p
             className="font-heading mx-auto mb-8"
@@ -58,10 +58,10 @@ export default function HeroSection() {
               color: 'rgba(210,195,175,0.75)',
               fontWeight: 400,
               lineHeight: 1.85,
-              maxWidth: '520px',
+              maxWidth: '540px',
             }}
           >
-            Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, focus, calm energy, and intentional daily rituals.
+            Premium instant coffee, mushroom coffee, and matcha crafted for morning energy, focus, calm clarity, and intentional daily routines.
           </p>
         </motion.div>
 
@@ -73,18 +73,18 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
         >
           <Link
-            to="/shop"
+            to="/build-your-ritual"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
           >
-            Shop Best Sellers →
+            Build Your Ritual Bundle →
           </Link>
           <Link
-            to="/build-your-ritual"
+            to="/shop"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
           >
-            Build Your Ritual Bundle
+            Shop Individual Blends
           </Link>
         </motion.div>
 

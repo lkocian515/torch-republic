@@ -8,6 +8,7 @@ import BundleSection from '../components/home/BundleSection';
 import ShopByCategory from '../components/home/ShopByCategory';
 import BlendComparisonSection from '../components/home/BlendComparisonSection';
 import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
+import ComparisonTable from '../components/home/ComparisonTable';
 import IngredientClarity from '../components/home/IngredientClarity';
 import FounderNote from '../components/home/FounderNote';
 import ReviewsSection from '../components/home/ReviewsSection';
@@ -77,6 +78,9 @@ export default function Home() {
 
       {/* 5. Why Torch Republic */}
       <WhyTorchRepublic />
+
+      {/* 5b. How Torch Republic Compares */}
+      <ComparisonTable />
 
       {/* 6. Ingredient Transparency */}
       <IngredientClarity />

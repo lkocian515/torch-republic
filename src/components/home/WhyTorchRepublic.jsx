@@ -3,25 +3,25 @@ import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
 
-const BENEFITS = [
+const CARDS = [
   {
-    title: 'Instant Convenience',
-    body: 'No machines, no pods, no complicated routine. Just add hot water, stir, and begin your day. Ready in seconds.',
+    title: 'Instant Daily Ritual',
+    body: 'No machine, pods, grinder, or complicated routine. Just add water or milk, stir, and begin. Ready in seconds, every morning.',
     icon: '⚡',
   },
   {
-    title: 'No Machine Needed',
-    body: 'Torch Republic products are designed to work without any equipment — just a cup and hot water. That\'s the entire ritual.',
+    title: 'Coffee, Mushroom Coffee & Matcha',
+    body: 'A complete ritual collection for different moments of your day — morning energy, focused work, calm reset, and smooth matcha clarity.',
     icon: '☕',
   },
   {
-    title: 'Built for Daily Rituals',
-    body: 'Every blend is crafted with a specific intention — morning clarity, afternoon focus, or a calm evening reset.',
+    title: 'Ingredient Transparency',
+    body: 'Each product page clearly explains what is inside, how much caffeine it contains, how to prepare it, and what kind of ritual it is best for.',
     icon: '🌿',
   },
   {
-    title: 'Coffee, Mushroom Coffee & Matcha',
-    body: 'One brand, three distinct product families. Classic instant coffee, functional mushroom coffee, and ceremonial matcha — each clearly labeled.',
+    title: 'Founder-Led Small Business',
+    body: 'Torch Republic is a U.S.-based small business created to make daily coffee feel more intentional, grounded, and supportive.',
     icon: '🕯️',
   },
 ];
@@ -38,35 +38,33 @@ export default function WhyTorchRepublic() {
           className="text-center mb-12"
         >
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Why Torch Republic
+            Why Torch Republic?
           </p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Made for the Way You Actually Live
           </h2>
+          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.9 }}>
+            Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
+          </p>
         </motion.div>
 
-        {/* Guarantee / Shipping strip */}
-        <div className="flex flex-wrap justify-center gap-6 mb-10">
+        {/* Guarantee strip */}
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
           {[
-            { label: '30-Day Money-Back Guarantee', sub: 'If it\'s not right, we\'ll make it right.' },
+            { label: '30-Day Satisfaction Guarantee', sub: 'Not right? We make it right.' },
             { label: 'Free Shipping Over $75', sub: 'Ships in 1–3 business days.' },
             { label: 'Subscribe & Save 20%', sub: 'Cancel or pause anytime.' },
-            { label: '27 Servings Per Tube', sub: 'No machine. No pods. Just add water.' },
+            { label: 'U.S.-Based Small Business', sub: 'Corpus Christi, TX.' },
           ].map(item => (
             <div key={item.label} className="text-center">
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>{item.label}</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: RG }}>{item.label}</p>
               <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 400 }}>{item.sub}</p>
             </div>
           ))}
         </div>
 
-        {/* Brand philosophy quote */}
-        <p className="font-heading text-center max-w-2xl mx-auto mb-10" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.9 }}>
-          Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
-        </p>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {BENEFITS.map((b, i) => (
+          {CARDS.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 16 }}

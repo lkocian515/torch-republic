@@ -32,10 +32,13 @@ export default function FounderNote() {
               Torch Republic was created to make daily coffee feel more intentional, grounded, and supportive of the person you are becoming.
             </p>
             <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-              This brand is built around simple daily rituals — coffee, mushroom coffee, and matcha blends designed for clarity, focus, calm energy, and a more mindful start to the day.
+              I wanted to build a brand that made everyday energy feel less rushed and more purposeful — a simple ritual you can return to each morning.
+            </p>
+            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+              Torch Republic brings together premium instant coffee, mushroom coffee, and matcha so you can choose the blend that fits your day: clarity, focus, calm energy, or a steady morning reset.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-              Torch Republic is not about chasing trends. It is about creating a better daily ritual: one cup, one choice, one morning at a time.
+              This is not about chasing trends. It is about creating a better daily ritual, one cup at a time.
             </p>
           </div>
 

@@ -7,6 +7,7 @@ import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
+import MushroomTransparencyTable from '../components/mushroom/MushroomTransparencyTable';
 
 const RG = '#E6B7AD';
 const DEEP_CHARCOAL = '#0A0908';
@@ -274,6 +275,9 @@ export default function MushroomCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      {/* ── MUSHROOM TRANSPARENCY TABLE ── */}
+      <MushroomTransparencyTable />
 
       {/* ── TRUST STACK ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>
