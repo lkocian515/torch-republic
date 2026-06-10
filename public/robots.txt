@@ -1,16 +1,68 @@
+# Torch Republic Coffee Company - Robots.txt
+# Last Updated: June 10, 2026
+
+# Allow all major search engines
 User-agent: *
 Allow: /
-Disallow: /cart
-Disallow: /checkout
-Disallow: /login
-Disallow: /register
-Disallow: /profile
-Disallow: /reset-password
-Disallow: /forgot-password
-Disallow: /customer-portal
-Disallow: /order-confirmation
-Disallow: /traffic-report
-Disallow: /admin
-Disallow: /account
 
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow old apparel/patriotic URLs (redirected but don't index)
+Disallow: /collections/t-shirts
+Disallow: /collections/hoodies-sweatshirts
+Disallow: /collections/tanks
+Disallow: /collections/hats
+Disallow: /collections/magnets
+Disallow: /collections/stickers
+Disallow: /collections/jewelry
+Disallow: /collections/mugs-tumblers
+Disallow: /collections/candles
+Disallow: /collections/flags
+Disallow: /collections/bobbleheads
+Disallow: /collections/accessories
+Disallow: /collections/home-decor
+Disallow: /collections/liberty-icons
+Disallow: /collections/commanders-series
+Disallow: /collections/women-of-the-republic
+Disallow: /collections/liberty-flame
+Disallow: /collections/patriotic-pride
+Disallow: /collections/freedom-isnt-free
+Disallow: /collections/we-the-people
+Disallow: /collections/faith-over-fear
+Disallow: /collections/christ-is-king
+Disallow: /collections/god-family-country
+Disallow: /collections/american-heroes
+Disallow: /collections/founders
+
+# Disallow admin/checkout paths
+Disallow: /traffic-report
+Disallow: /portal
+Disallow: /cart/*
+Disallow: /checkout/*
+
+# Disallow old Shopify URLs
+Disallow: /products/
+Disallow: /collections/
+Disallow: /pages/
+Disallow: /blogs/
+
+# Allow specific product pages (handled by Base44)
+Allow: /products/torchbearer
+Allow: /products/ember-rise
+Allow: /products/midnight-watch
+Allow: /products/suncap-rise
+Allow: /products/glowmind-clarity
+Allow: /products/mooncap-restore
+Allow: /products/dreamcap-blend
+Allow: /products/the-oracle-blend
+Allow: /products/mystic-bloom-blend
+Allow: /products/the-monk-matcha-blend
+Allow: /products/the-ascendant-matcha-blend
+Allow: /products/the-alchemist-matcha-blend
+
+# Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml
+
+# Host
+Host: https://torchrepublic.com
