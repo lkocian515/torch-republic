@@ -103,7 +103,12 @@ function GalleryCarousel({ images, accent, productName }) {
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.35 }}
-          src={`${images[currentIndex]}${images[currentIndex].includes('?') ? '&' : '?'}v=${Date.now()}`}
+          src={(() => {
+            const imgUrl = images[currentIndex];
+            // Add cache-busting to force refresh of updated Shopify images
+            const separator = imgUrl.includes('?') ? '&' : '?';
+            return `${imgUrl}${separator}cb=${Date.now()}`;
+          })()}
           alt={`${productName} gallery image ${currentIndex + 1}`}
           className="w-full h-full object-contain p-6"
           style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
@@ -324,7 +329,11 @@ function BlendDetailInner({ product }) {
                 </div>
               ) : (
                 <img
-                  src={product.image}
+                  src={(() => {
+                    // Add cache-busting to force refresh of updated Shopify images with new logo
+                    const separator = product.image.includes('?') ? '&' : '?';
+                    return `${product.image}${separator}cb=${Date.now()}`;
+                  })()}
                   alt={product.alt || `${product.name} - ${product.roast} ${product.category === 'matcha' ? 'ceremonial matcha' : product.category === 'classic-coffee' ? 'premium instant coffee' : 'instant mushroom coffee'} - Torch Republic Coffee Company`}
                   className="w-full h-full object-contain p-8"
                   style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
