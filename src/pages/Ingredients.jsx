@@ -20,7 +20,7 @@ const INGREDIENTS = [
     scientific: 'Inonotus obliquus',
     icon: Shield,
     benefits: ['Antioxidant support', 'Immune function', 'Anti-inflammatory', 'Overall wellness'],
-    description: 'Chaga is a powerful adaptogenic mushroom that grows on birch trees in cold climates. It's one of the richest natural sources of antioxidants, particularly superoxide dismutase (SOD), which helps protect cells from oxidative stress.',
+    description: 'Chaga is a powerful adaptogenic mushroom that grows on birch trees in cold climates. It is one of the richest natural sources of antioxidants, particularly superoxide dismutase (SOD), which helps protect cells from oxidative stress.',
     uses: ['Daily wellness support', 'Immune health', 'Antioxidant intake', 'Stress management'],
   },
   {

@@ -28,13 +28,15 @@ export default function CartToast() {
               {toast}
             </p>
             <div className="flex items-center gap-2 w-full">
-              <Link
-                to="/cart"
-                onClick={() => clearToast()}
+              <button
+                onClick={() => {
+                  clearToast();
+                  window.location.href = '/cart';
+                }}
                 className="flex-1 font-mono text-[8.5px] md:text-[9px] tracking-[0.2em] md:tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:opacity-90 min-h-[38px]"
-                style={{ background: '#E6B7AD', color: '#080808', fontWeight: 700, textDecoration: 'none' }}>
+                style={{ background: '#E6B7AD', color: '#080808', fontWeight: 700, textDecoration: 'none', border: 'none', cursor: 'pointer' }}>
                 View Cart
-              </Link>
+              </button>
               <Link to="/shop"
                 onClick={() => clearToast()}
                 className="flex-1 font-mono text-[8.5px] md:text-[9px] tracking-[0.2em] md:tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:border-rose-gold min-h-[38px]"
