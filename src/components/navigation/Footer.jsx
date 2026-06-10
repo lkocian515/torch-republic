@@ -1,5 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { base44 } from '@/api/base44Client';
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || status === 'loading') return;
+    
+    setStatus('loading');
+    try {
+      await base44.entities.EmailSubscriber.create({ email, source: 'footer' });
+      setStatus('success');
+      setEmail('');
+    } catch (error) {
+      console.error('Subscription failed:', error);
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="mt-4 p-3" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '3px' }}>
+        <p className="font-heading text-xs" style={{ color: '#10B981' }}>
+          ✓ Welcome! Check your inbox for 10% off.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="your@email.com"
+        required
+        disabled={status === 'loading'}
+        className="w-full px-3 py-2.5 font-heading text-sm bg-transparent border rounded-sm focus:outline-none"
+        style={{ borderColor: 'rgba(230,183,173,0.25)', color: '#F5EFE6' }}
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="w-full py-2.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
+        style={{ background: '#E6B7AD', color: '#0A0A0A' }}
+      >
+        {status === 'loading' ? 'Joining...' : 'Subscribe for 10% Off'}
+      </button>
+    </form>
+  );
+}
 
 const FOOTER_LINKS = [
   {
@@ -76,6 +130,9 @@ export default function Footer() {
               style={{ color: 'rgba(230,183,173,0.45)' }}>
               Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME15</span> for 15% off your first order
             </p>
+            
+            {/* Newsletter Form */}
+            <NewsletterForm />
             <p className="font-mono text-[9px] tracking-[0.15em] mb-2"
               style={{ color: 'rgba(255,255,255,0.25)' }}>
               🔒 256-bit SSL · Secure Shopify Checkout
