@@ -1,11 +1,33 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 const CartContext = createContext(null);
 
+// localStorage key
+const CART_STORAGE_KEY = 'torch-republic-cart';
+
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+  // Initialize from localStorage
+  const [items, setItems] = useState(() => {
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem(CART_STORAGE_KEY) : null;
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [toast, setToast] = useState(null);
+
+  // Persist to localStorage whenever items change
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      }
+    } catch {
+      // localStorage unavailable
+    }
+  }, [items]);
 
   const addItem = useCallback((product, qty = 1) => {
     setItems(prev => {

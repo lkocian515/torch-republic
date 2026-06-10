@@ -57,15 +57,15 @@ export default function Cart() {
         <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
           You haven't added anything yet.
         </p>
-        <Link to="/build-your-ritual"
+        <Link to="/shop"
           className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-10 py-4 transition-all hover:opacity-90"
           style={{ background: RG, color: '#080808' }}>
-          Build My Ritual Bundle →
+          Browse Individual Blends →
         </Link>
-        <Link to="/shop"
+        <Link to="/build-your-ritual"
           className="font-mono text-[9px] tracking-[0.25em] uppercase mt-4 py-3 px-8 transition-all hover:opacity-70 block"
           style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.6)' }}>
-          Browse Individual Blends
+          Build My Ritual Bundle
         </Link>
         <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
           Use code <strong>WELCOME15</strong> at checkout for 15% off your first order
