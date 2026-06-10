@@ -38,8 +38,8 @@ import { useSEO } from '@/hooks/useSEO';
 
 export default function TrafficReport() {
   useSEO({
-    title: 'Traffic Report',
-    description: 'Google Analytics traffic sources report.',
+    title: 'Traffic Report | Admin',
+    description: 'Internal analytics dashboard.',
     url: '/traffic-report',
     noindex: true,
   });

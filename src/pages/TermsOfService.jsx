@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
 
 export default function TermsOfService() {
-  useEffect(() => {
-    document.title = 'Terms of Service | Torch Republic Coffee Company';
-  }, []);
+  useSEO({
+    title: 'Terms of Service | Torch Republic Coffee Company',
+    description: 'Review the terms and conditions for using the Torch Republic Coffee Company website and purchasing our products. Includes policies on product use, pricing, payments, and health disclaimers.',
+    url: '/terms-of-service',
+  });
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh', padding: 'clamp(48px, 8vw, 96px) 24px' }}>

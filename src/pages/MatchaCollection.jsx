@@ -68,7 +68,7 @@ export default function MatchaCollection() {
 
   useSEO({
     title: 'Ceremonial Matcha | Smooth Focus & Daily Rituals | Torch Republic',
-    description: 'Shop ceremonial matcha blends crafted for smooth focus, mindful energy, and elevated daily rituals. Instant preparation. No whisk needed. Premium grade.',
+    description: 'Shop three ceremonial matcha blends—The Monk, The Ascendant, and The Alchemist. Premium grade matcha for calm focus and mindful energy. Instant preparation, no whisk needed.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [

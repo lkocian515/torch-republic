@@ -93,7 +93,7 @@ const CATEGORY_BUNDLES = [
 export default function MushroomBundle() {
   useSEO({
     title: 'Ritual Coffee Bundles | Torch Republic Coffee Company',
-    description: 'Build your Torch Republic ritual with curated bundles of instant coffee, mushroom coffee, and matcha for different moments of your day. Free shipping on all bundles.',
+    description: 'Build your ritual bundle and save. Choose any 3 blends from 12 products—classic coffee, mushroom coffee, and ceremonial matcha. Free shipping on all bundles. 30-day guarantee.',
     url: '/bundle',
   });
   return (

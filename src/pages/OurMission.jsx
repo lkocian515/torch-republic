@@ -30,7 +30,7 @@ const TRUST = [
 export default function OurMission() {
   useSEO({
     title: 'About Torch Republic | Founder Story & Brand Mission',
-    description: 'Learn the story behind Torch Republic Coffee Company — a founder-led U.S. small business creating premium instant coffee, mushroom coffee, and matcha for intentional daily rituals.',
+    description: 'Learn the story behind Torch Republic Coffee Company - a U.S. small business creating premium instant coffee, functional mushroom coffee with Lions Mane and Chaga, and ceremonial matcha for intentional daily rituals.',
     url: '/mission',
     type: 'website',
   });

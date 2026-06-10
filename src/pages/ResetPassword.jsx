@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 
+
 const RG = '#E6B7AD';
 
 export default function ResetPassword() {

@@ -26,7 +26,7 @@ const FOOTER_LINKS = [
   {
     heading: 'Learn',
     links: [
-      { label: 'About', href: '/about' },
+      { label: 'About', href: '/mission' },
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },

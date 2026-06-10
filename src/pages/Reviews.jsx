@@ -20,7 +20,7 @@ export default function Reviews() {
 
   useSEO({
     title: 'Torch Republic Reviews | Customer Rituals & Blend Feedback',
-    description: 'Read Torch Republic customer reviews for instant coffee, mushroom coffee, matcha, bundles, taste, convenience, and daily ritual.',
+    description: 'Read real customer reviews of Torch Republic instant coffee, mushroom coffee blends, and ceremonial matcha. See what customers say about taste, convenience, energy, focus, and daily ritual.',
     url: '/reviews',
     type: 'website',
   });

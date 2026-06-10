@@ -67,7 +67,7 @@ export default function ClassicCoffeeCollection() {
 
   useSEO({
     title: 'Premium Instant Coffee | No Machine Needed | Torch Republic',
-    description: 'Shop premium instant coffee blends crafted for smooth daily rituals, travel, work, and simple morning energy. No pods or machine needed. 27 servings per tube.',
+    description: 'Shop three premium instant coffee blends—Torchbearer, Ember Rise, and Midnight Watch. Pure Arabica coffee with no mushrooms. 27 servings per tube. No machine needed.',
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [

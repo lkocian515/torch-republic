@@ -20,7 +20,7 @@ const NAV_LINKS = [
   { label: 'Matcha', href: '/matcha' },
   { label: 'Classic Coffee', href: '/classic-coffee' },
   { label: 'Reviews', href: '/reviews' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '/mission' },
 ];
 
 export default function UnifiedHeader() {

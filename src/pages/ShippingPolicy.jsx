@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
+import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
 
 export default function ShippingPolicy() {
-  useEffect(() => {
-    document.title = 'Shipping Policy | Torch Republic Coffee Company';
-  }, []);
+  useSEO({
+    title: 'Shipping Policy | Torch Republic Coffee Company',
+    description: 'Find information on Torch Republic order processing times, domestic (U.S.) and international shipping rates, free shipping eligibility, order tracking, and address accuracy.',
+    url: '/shipping-policy',
+  });
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh', padding: 'clamp(48px, 8vw, 96px) 24px' }}>

@@ -175,7 +175,7 @@ function EarningRule({ rule, index }) {
 export default function LoyaltyPortal() {
   useSEO({
     title: 'Loyalty Rewards | Torch Republic Coffee Co.',
-    description: 'Track your Torch Republic loyalty points and unlock rewards.',
+    description: 'Track your Torch Republic loyalty points and unlock exclusive discounts.',
     url: '/loyalty',
     noindex: true,
   });

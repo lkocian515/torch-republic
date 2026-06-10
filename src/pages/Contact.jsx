@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
@@ -9,9 +10,11 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', order: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Contact Us | Torch Republic Coffee Company';
-  }, []);
+  useSEO({
+    title: 'Contact Us | Torch Republic Coffee Company',
+    description: 'Questions about your order, subscription, or which blend is right for you? Contact Torch Republic Coffee Company. U.S.-based support. We respond within 1-2 business days.',
+    url: '/contact',
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();

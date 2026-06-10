@@ -96,7 +96,7 @@ export default function Torchbearer() {
 
   useSEO({
     title: 'Torchbearer Instant Coffee | Torch Republic Reserve Collection',
-    description: 'Torchbearer is a smooth premium instant coffee for a simple morning ritual. No machine needed — just add water, stir, and begin.',
+    description: 'Torchbearer Reserve is a premium single-origin instant coffee from Papua New Guinea. Medium roast with notes of toasted almond, berry brightness, and sweet toffee. 27 servings. No machine needed.',
     url: '/torchbearer',
     type: 'product',
     product: {

@@ -9,7 +9,7 @@ import GettingStartedGuide from '../components/mushroom/GettingStartedGuide';
 export default function HowItWorks() {
   useSEO({
     title: 'How It Works | Torch Republic Coffee Company',
-    description: 'Learn how to prepare Torch Republic instant coffee, mushroom coffee, and matcha. Scoop, mix with hot or cold water, and enjoy your daily ritual in seconds.',
+    description: 'Learn how to prepare Torch Republic instant coffee, mushroom coffee, and ceremonial matcha. Scoop, mix with hot or cold water, stir, and enjoy your daily ritual in seconds. No machine needed.',
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>

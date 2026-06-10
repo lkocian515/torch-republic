@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export default function Profile() {
+  // noindex - customer account page
   useSEO({
     title: 'Account Settings',
     description: 'Manage your Torch Republic account settings, subscription, and loyalty points.',
