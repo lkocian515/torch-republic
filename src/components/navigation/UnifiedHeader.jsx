@@ -14,19 +14,13 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/' },
   { label: 'Shop All', href: '/shop' },
   { label: 'Classic Coffee', href: '/classic-coffee' },
   { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
   { label: 'Matcha', href: '/matcha' },
+  { label: 'Build Your Ritual', href: '/build-your-ritual' },
   { label: 'Bundles', href: '/bundle' },
-  { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Find Your Blend', href: '/quiz' },
-  { label: 'Recipes', href: '/recipes' },
-  { label: 'Reviews', href: '/reviews' },
-  { label: 'Spotlight', href: '/spotlight' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '/faq' },
 ];
 
