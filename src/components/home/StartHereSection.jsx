@@ -21,6 +21,7 @@ const BEST_SELLERS = [
 export default function StartHereSection() {
   const { addItem } = useCart();
   const [products, setProducts] = useState({});
+  const [loading, setLoading] = useState(true);
 
   // Fetch Shopify products on mount
   useEffect(() => {
@@ -42,6 +43,8 @@ export default function StartHereSection() {
         }
       } catch (error) {
         console.error('Failed to fetch Shopify products:', error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchProducts();
@@ -115,16 +118,23 @@ export default function StartHereSection() {
               {/* Product Image */}
               <Link to={`/products/${product.slug}`} className="group block">
                 <div className="relative overflow-hidden flex items-center justify-center" style={{ aspectRatio: '1/1', background: '#141414' }}>
-                  <img
-                    src={products[product.slug]?.image || FALLBACK_IMAGE}
-                    alt={product.label}
-                    loading="lazy"
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    style={{ padding: '12px' }}
-                    onError={(e) => {
-                      e.target.src = FALLBACK_IMAGE;
-                    }}
-                  />
+                  {loading ? (
+                    <div className="w-full h-full flex items-center justify-center" style={{ background: '#1A1A1A' }}>
+                      <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
+                    </div>
+                  ) : (
+                    <img
+                      src={products[product.slug]?.image || FALLBACK_IMAGE}
+                      alt={`${product.label} - Torch Republic`}
+                      loading="eager"
+                      fetchpriority={i < 2 ? "high" : undefined}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      style={{ padding: '12px' }}
+                      onError={(e) => {
+                        e.target.src = FALLBACK_IMAGE;
+                      }}
+                    />
+                  )}
                   {/* Review Stars */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
                     <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />

@@ -4,10 +4,18 @@ import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
 export default function Cart() {
+  // noindex - cart page
+  useSEO({
+    title: 'Your Cart',
+    description: 'Review your Torch Republic cart and proceed to checkout.',
+    url: '/cart',
+    noindex: true,
+  });
   const { items, updateQty, removeItem, subtotal, totalItems } = useCart();
 
   // Build the Shopify checkout URL with all current cart items

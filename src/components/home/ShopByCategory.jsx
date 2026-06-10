@@ -41,6 +41,7 @@ const CATEGORIES = [
 
 export default function ShopByCategory() {
   const [collectionImages, setCollectionImages] = useState({});
+  const [loading, setLoading] = useState(true);
 
   // Fetch collection images from Shopify on mount
   useEffect(() => {
@@ -56,6 +57,8 @@ export default function ShopByCategory() {
         }
       } catch (error) {
         console.error('Failed to fetch collection images:', error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchImages();
@@ -104,18 +107,22 @@ export default function ShopByCategory() {
               <div className="p-8 flex-1 flex flex-col">
                 {cat.productImage && (
                   <div className="mb-6 flex items-center justify-center" style={{ height: '200px' }}>
-                    <img 
-                      src={cat.productImage} 
-                      alt={cat.label} 
-                      className="max-h-full max-w-full object-contain" 
-                      loading="lazy"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
+                    {loading ? (
+                      <div className="w-16 h-16 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <img 
+                        src={cat.productImage} 
+                        alt={`${cat.label} collection by Torch Republic`}
+                        className="max-h-full max-w-full object-contain" 
+                        loading="eager"
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    )}
                   </div>
                 )}
-                {categoryImage ? (
+                {categoryImage && !loading ? (
                   <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
-                    <img src={categoryImage} alt={cat.label} className="max-h-full max-w-full object-contain" loading="lazy" onError={(e) => { e.target.style.display = 'none'; }} />
+                    <img src={categoryImage} alt={`${cat.label} by Torch Republic`} className="max-h-full max-w-full object-contain" loading="lazy" onError={(e) => { e.target.style.display = 'none'; }} />
                   </div>
                 ) : null}
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
