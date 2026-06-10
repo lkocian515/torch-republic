@@ -64,7 +64,7 @@ export default function HeroSection() {
               maxWidth: '560px',
             }}
           >
-            Crafted to support focus, clarity, and intentional living.
+            Torch Republic Coffee Company creates premium instant coffee, functional mushroom coffee, and ceremonial matcha designed to support focus, clarity, energy, and intentional daily rituals.
           </p>
         </motion.div>
 

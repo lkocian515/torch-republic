@@ -18,6 +18,11 @@ import ReviewsSection from '../components/home/ReviewsSection';
 import TorchbearersRewardsSection from '../components/home/TorchbearersRewardsSection';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
+import GEOOptimizationSection from '../components/home/GEOOptimizationSection';
+
+// Schema components
+import LocalBusinessSchema from '../components/seo/LocalBusinessSchema';
+import OrganizationSchema from '../components/seo/OrganizationSchema';
 
 const RG = '#E6B7AD';
 
@@ -59,21 +64,28 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Shop premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles designed for clarity, focus, and simple daily energy. No machine needed.',
+    title: 'Torch Republic | Premium Instant Coffee & Mushroom Coffee',
+    description: 'Premium instant coffee, mushroom coffee, and ceremonial matcha crafted for focus, clarity, and daily rituals. No machine required.',
     url: '/',
     type: 'website',
     faq: [
       { question: 'What is mushroom coffee?', answer: 'Mushroom coffee combines premium instant coffee with functional mushrooms like Lion\'s Mane and Chaga. Torch Republic blends create an easy daily ritual for focus, clarity, and intention without compromising coffee taste.' },
-      { question: 'Does mushroom coffee taste like regular coffee?', answer: 'Yes, it tastes primarily like coffee. Torch Republic blends are coffee-forward with smooth, rich flavor. The mushrooms add subtle earthiness but don\'t overpower the coffee taste.' },
-      { question: 'Do I need a coffee machine?', answer: 'No. All Torch Republic products are instant format — just add hot water, stir, and enjoy. No machine, pods, or complicated prep needed.' },
-      { question: 'How many servings are in each tube?', answer: 'Mushroom coffee and classic coffee tubes contain 27 servings. Matcha tins contain 25 servings. Each serving is designed for one cup.' },
+      { question: 'What is Lion\'s Mane coffee?', answer: 'Lion\'s Mane coffee is mushroom coffee featuring Lion\'s Mane mushroom, known for supporting cognitive function, focus, and mental clarity. Torch Republic blends Lion\'s Mane with premium instant coffee for a functional morning ritual.' },
+      { question: 'Does mushroom coffee taste like mushrooms?', answer: 'No, mushroom coffee tastes like coffee. Torch Republic blends are coffee-forward with smooth, rich flavor. The mushrooms add subtle earthiness but don\'t overpower the coffee taste.' },
+      { question: 'What is ceremonial matcha?', answer: 'Ceremonial matcha is the highest grade of matcha green tea, made from finely ground whole tea leaves. It has a smooth, umami-rich flavor and is traditionally whisked with hot water for a meditative ritual.' },
       { question: 'What makes Torch Republic different?', answer: 'Torch Republic combines premium instant coffee with functional mushrooms in a convenient, no-machine format. Our blends are designed for intentional daily rituals with coffee-forward taste and wellness-focused ingredients.' },
+      { question: 'Who should drink mushroom coffee?', answer: 'Mushroom coffee is ideal for anyone seeking focus, clarity, and sustained energy without jitters. It\'s perfect for professionals, students, entrepreneurs, and wellness-conscious individuals who want a functional coffee alternative.' },
+      { question: 'What are functional mushrooms?', answer: 'Functional mushrooms are adaptogenic mushrooms like Lion\'s Mane, Chaga, and Cordyceps that support cognitive function, immunity, energy, and overall wellness when consumed regularly.' },
+      { question: 'What is instant coffee made from?', answer: 'Instant coffee is made from brewed coffee that has been freeze-dried or spray-dried into soluble granules. Torch Republic uses premium freeze-dried instant coffee to preserve flavor and aroma.' },
+      { question: 'How much caffeine is in Torch Republic coffee?', answer: 'Each serving of Torch Republic instant coffee contains approximately 60-80mg of caffeine, similar to a standard cup of coffee. Mushroom blends may have slightly less due to mushroom content.' },
     ],
   });
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
+      {/* Schema Markup for SEO */}
+      <LocalBusinessSchema />
+      <OrganizationSchema />
 
       {/* 1. Hero */}
       <HeroSection />
@@ -98,6 +110,9 @@ export default function Home() {
 
       {/* 5b. Trust Section */}
       <TrustSection />
+
+      {/* 5c. GEO Optimization — AI-readable content */}
+      <GEOOptimizationSection />
 
       {/* 6. How Torch Republic Compares */}
       <ComparisonTable />

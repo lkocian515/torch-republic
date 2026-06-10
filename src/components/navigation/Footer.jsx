@@ -80,7 +80,7 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[9px] tracking-[0.15em] mb-4"
               style={{ color: 'rgba(255,255,255,0.2)' }}>
-              ✦ 30-Day Satisfaction Guarantee
+              ✦ 30-Day Satisfaction Guarantee · Free Shipping on Orders $50+
             </p>
             <div className="space-y-2">
               <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"
@@ -89,12 +89,17 @@ export default function Footer() {
                 admin@torchrepublic.com
               </a>
               <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
-                U.S.-Based · Corpus Christi, TX
+                📍 Corpus Christi, Texas · U.S.A.
+              </p>
+              <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                🕐 Mon-Fri: 9AM-6PM CST
               </p>
               <div className="flex gap-4 mt-4">
-                <a href="https://instagram.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Instagram</a>
-                <a href="https://tiktok.com/@torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>TikTok</a>
-                <a href="https://facebook.com/torchrepublic" target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Facebook</a>
+                <a href="https://instagram.com/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Instagram</a>
+                <a href="https://tiktok.com/@torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>TikTok</a>
+                <a href="https://facebook.com/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Facebook</a>
+                <a href="https://pinterest.com/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Pinterest" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Pinterest</a>
+                <a href="https://linkedin.com/company/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>LinkedIn</a>
               </div>
             </div>
           </div>
