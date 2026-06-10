@@ -1,42 +1,12 @@
 /**
- * Product Image Helper Functions
- * 
- * Extracts image URLs from product objects with comprehensive fallback chain.
- * Includes cache-busting to ensure fresh images are loaded when Shopify images are updated.
- * 
- * CACHE-BUSTING: All Shopify CDN URLs include version parameter.
- * To refresh all images after Shopify updates, increment the IMAGE_CACHE_VERSION below.
- */
-
-// Image cache version - increment this when Shopify product images are updated (format: v=YYYYMMDDNN)
-// This forces browsers to fetch fresh images instead of using cached versions
-const IMAGE_CACHE_VERSION = 'v=' + new Date().toISOString().slice(0, 10).replace(/-/g, '');
-
-// Add cache-busting parameter to Shopify CDN URLs
-function addCacheBuster(url) {
-  if (!url || typeof url !== 'string') return url;
-  // Don't add cache buster to non-Shopify URLs or already cached URLs
-  if (!url.includes('cdn.shopify.com') || url.includes('v=')) return url;
-  // Add cache version
-  if (url.includes('?')) {
-    return `${url}&${IMAGE_CACHE_VERSION}`;
-  }
-  return `${url}?${IMAGE_CACHE_VERSION}`;
-}
-
-/**
  * Extract image URL from product object with comprehensive fallback chain
  * Checks all likely Shopify/Base44 image fields in priority order
  * Never returns undefined/null - always provides a valid image URL
- * 
- * @param {Object} product - Product object from Shopify or local catalog
- * @param {string} fallbackImage - Fallback image URL (optional)
- * @returns {string} Image URL with cache-busting
  */
-export function getProductImage(product, fallbackImage = `https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?${IMAGE_CACHE_VERSION}`) {
+export function getProductImage(product, fallbackImage = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333') {
   if (!product) return fallbackImage;
 
-  // DEBUG: Log product image data to console (remove in production)
+  // DEBUG: Log product image data to console
   console.log("🔍 SHOP PRODUCT IMAGE DEBUG", {
     title: product?.title || product?.name,
     handle: product?.shopifyHandle || product?.handle,
@@ -49,6 +19,8 @@ export function getProductImage(product, fallbackImage = `https://cdn.shopify.co
     featured_image: product?.featured_image,
     images_array: product?.images,
     media: product?.media,
+    fallbackImage: product?.fallbackImage,
+    shopifyImage: product?.shopifyImage,
   });
 
   const imageUrl =
@@ -75,12 +47,10 @@ export function getProductImage(product, fallbackImage = `https://cdn.shopify.co
     // Last resort - static placeholder
     fallbackImage;
 
-  // Add cache-busting and ensure we never return undefined/null/empty string
-  const finalUrl = addCacheBuster(imageUrl) || fallbackImage;
-  
-  console.log("✅ FINAL IMAGE URL:", finalUrl);
-  
-  return finalUrl;
+  console.log("✅ FINAL IMAGE URL:", imageUrl);
+
+  // Ensure we never return undefined/null/empty string
+  return imageUrl || fallbackImage;
 }
 
 /**

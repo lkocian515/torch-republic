@@ -92,11 +92,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
         <div className="relative overflow-hidden flex items-center justify-center product-image-wrap"
           style={{ aspectRatio: '1/1', background: '#141414' }}>
           <img
-            src={(() => {
-              // Add cache-busting to force refresh of updated Shopify images with new logo
-              const separator = imageUrl.includes('?') ? '&' : '?';
-              return `${imageUrl}${separator}cb=${Date.now()}`;
-            })()}
+            src={imageUrl}
             alt={imageAlt}
             width="400"
             height="400"

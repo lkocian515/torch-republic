@@ -5,9 +5,6 @@ import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 
-// Cache-busting version for Shopify images
-const IMAGE_CACHE_VERSION = 'v=1781102333';
-
 const CATEGORIES = [
   {
     label: 'Classic Instant Coffee',
@@ -16,7 +13,7 @@ const CATEGORIES = [
     accent: '#C4A35A',
     body: 'Smooth, premium instant coffee for simple daily energy. No machines, no pods. Rich flavor in seconds.',
     detail: 'Medium & Dark Roasts · 27 Servings · No Mushrooms',
-    productImage: `https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/classic-instant-coffee-collection.png?${IMAGE_CACHE_VERSION}`,
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db12468c8_jbbjkvbjkhbjk.png',
     shopifyHandle: 'classic-coffee',
   },
   {
@@ -26,7 +23,7 @@ const CATEGORIES = [
     accent: '#10B981',
     body: "Coffee-forward blends with functional mushrooms to support clarity, focus, and calm energy. Tastes like coffee, not mushrooms.",
     detail: "Lion's Mane + Chaga · Coffee-Forward · 27 Servings",
-    productImage: `https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/mushroom-coffee-collection.png?${IMAGE_CACHE_VERSION}`,
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a812eb06_bgyvyj.png',
     featured: true,
     shopifyHandle: 'mushroom-coffee',
   },
@@ -37,7 +34,7 @@ const CATEGORIES = [
     accent: '#6EE7B7',
     body: 'Ceremonial-style matcha for smooth focus, presence, and daily ritual. Calm energy, no jitters, no coffee.',
     detail: 'Ceremonial Grade · Instant Powder · 25 Servings · No Coffee',
-    productImage: `https://cdn.shopify.com/s/files/1/0620/7140/6844/collections/ceremonial-matcha-collection.png?${IMAGE_CACHE_VERSION}`,
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/215a14bcb_bhjbkjjk.png',
     shopifyHandle: 'matcha',
   },
 ];

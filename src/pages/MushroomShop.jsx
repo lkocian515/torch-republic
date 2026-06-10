@@ -147,36 +147,34 @@ export default function MushroomShop() {
           <h1>Shop Torch Republic Coffee Company</h1>
           <p>Explore premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles made for simple daily preparation. No pods, no machine, no complicated routine — just an intentional daily ritual.</p>
         </div>
-        {/* Desktop layout - Shopify CDN with cache-busting */}
+        {/* Desktop layout */}
         <div className="hidden md:block">
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-shop-banner.jpg?v=1781102333"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-cover"
             style={{ aspectRatio: '16/9', maxHeight: '600px' }}
             onError={(e) => {
-              console.warn('⚠️ Shop banner failed, using fallback');
-              e.target.src = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
+              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
             }}
           />
         </div>
 
-        {/* Mobile layout with text overlay - Shopify CDN with cache-busting */}
+        {/* Mobile layout with text overlay */}
         <div className="md:hidden px-6 pt-20 pb-14 text-center">
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-shop-banner.jpg?v=1781102333"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-contain rounded mb-8"
             style={{ maxHeight: '400px' }}
             onError={(e) => {
-              console.warn('⚠️ Shop banner failed, using fallback');
-              e.target.src = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
+              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
             }}
           />
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>

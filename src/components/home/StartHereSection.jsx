@@ -81,12 +81,7 @@ export default function StartHereSection() {
               <Link to={`/products/${product.slug}`} className="group block">
                 <div className="relative overflow-hidden flex items-center justify-center product-image-wrap" style={{ aspectRatio: '1/1', background: '#141414' }}>
                   <img
-                    src={(() => {
-                      // Add cache-busting to force refresh of updated Shopify images with new logo
-                      const imgUrl = product.imageUrl || FALLBACK_PRODUCT_IMAGE;
-                      const separator = imgUrl.includes('?') ? '&' : '?';
-                      return `${imgUrl}${separator}cb=${Date.now()}`;
-                    })()}
+                    src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
                     alt={product.alt}
                     loading={i < 2 ? "eager" : "lazy"}
                     fetchpriority={i < 2 ? "high" : undefined}
