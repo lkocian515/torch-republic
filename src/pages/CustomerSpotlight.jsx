@@ -83,9 +83,10 @@ const INTERVIEWS = [
 
 export default function CustomerSpotlight() {
   useSEO({
-    title: 'Customer Spotlight | Real Routines from Torch Republic Users',
-    description: 'See how professionals, creators, and entrepreneurs incorporate Torch Republic mushroom coffee into their daily routines for focus, energy, and sustainable performance.',
+    title: 'Customer Spotlight | Torch Republic Coffee Company',
+    description: 'See how people incorporate Torch Republic into their daily rituals for focus, energy, and intentional mornings.',
     url: '/spotlight',
+    noindex: true,
   });
 
   return (

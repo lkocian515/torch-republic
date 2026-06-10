@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
@@ -42,7 +43,11 @@ export default function Subscription() {
   const [checkoutUrl, setCheckoutUrl] = useState(null);
   const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
 
-  // No useSEO import needed — document.title is sufficient for this builder page
+  useSEO({
+    title: 'Subscribe & Save | Torch Republic Coffee Company',
+    description: 'Subscribe to your favorite Torch Republic coffee, mushroom coffee, or matcha ritual and save on repeat deliveries. Build your monthly blend selection.',
+    url: '/subscription',
+  });
 
   const totalSelected = Object.values(blendQty).reduce((s, v) => s + v, 0);
   const remaining = tubeCount ? tubeCount - totalSelected : 0;

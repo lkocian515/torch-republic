@@ -54,7 +54,7 @@ const FAQ_DATA = [
 export default function FAQ() {
   useSEO({
     title: 'FAQ | Torch Republic Coffee Company',
-    description: 'Find answers about Torch Republic instant coffee, mushroom coffee, matcha, serving size, preparation, shipping, and product categories.',
+    description: 'Get answers about Torch Republic instant coffee, mushroom coffee, matcha, servings, caffeine, preparation, subscriptions, shipping, and returns.',
     url: '/faq',
     type: 'website',
   });

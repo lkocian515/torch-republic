@@ -29,8 +29,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'Our Mission | Torch Republic Coffee Co.',
-    description: 'Torch Republic Coffee Co. was built to make your daily coffee feel intentional. Learn about our brand, our founder, and why conscious instant coffee matters.',
+    title: 'About Torch Republic | Founder Story & Brand Mission',
+    description: 'Learn the story behind Torch Republic Coffee Company — a founder-led U.S. small business creating premium instant coffee, mushroom coffee, and matcha for intentional daily rituals.',
     url: '/mission',
     type: 'website',
   });

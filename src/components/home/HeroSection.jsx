@@ -88,11 +88,23 @@ export default function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* Tertiary quiz link */}
+        {/* Reassurance line */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-6"
+        >
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.35)' }}>
+            U.S.-based small business &nbsp;·&nbsp; Secure checkout &nbsp;·&nbsp; Instant preparation
+          </p>
+        </motion.div>
+
+        {/* Tertiary quiz link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="mb-10"
         >
           <Link

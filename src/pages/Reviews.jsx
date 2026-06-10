@@ -19,8 +19,8 @@ export default function Reviews() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   useSEO({
-    title: 'Reviews | Torch Republic Coffee Company',
-    description: 'Read real customer feedback and ritual stories from the Torch Republic Coffee Company community.',
+    title: 'Torch Republic Reviews | Customer Rituals & Blend Feedback',
+    description: 'Read Torch Republic customer reviews for instant coffee, mushroom coffee, matcha, bundles, taste, convenience, and daily ritual.',
     url: '/reviews',
     type: 'website',
   });

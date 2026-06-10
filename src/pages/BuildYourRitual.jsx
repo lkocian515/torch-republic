@@ -14,8 +14,8 @@ export default function BuildYourRitual() {
   const navigate = useNavigate();
 
   useSEO({
-    title: 'Build Your Ritual Bundle | Torch Republic Coffee Co.',
-    description: 'Mix and match any 3 blends from our premium instant coffee, mushroom coffee, and matcha collection. Build your perfect daily ritual and save.',
+    title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
+    description: 'Create your Torch Republic ritual with curated coffee, mushroom coffee, and matcha bundles designed for morning energy, focus, calm clarity, and daily intention.',
     url: '/build-your-ritual',
   });
 

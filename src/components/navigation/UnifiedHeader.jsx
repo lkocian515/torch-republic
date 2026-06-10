@@ -14,14 +14,13 @@ const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
 const NAV_LINKS = [
-  { label: 'Shop All', href: '/shop' },
-  { label: 'Classic Coffee', href: '/classic-coffee' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Build Your Ritual', href: '/build-your-ritual' },
   { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
   { label: 'Matcha', href: '/matcha' },
-  { label: 'Build Your Ritual', href: '/build-your-ritual' },
-  { label: 'Bundles', href: '/bundle' },
+  { label: 'Classic Coffee', href: '/classic-coffee' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'About', href: '/about' },
-  { label: 'FAQ', href: '/faq' },
 ];
 
 export default function UnifiedHeader() {
