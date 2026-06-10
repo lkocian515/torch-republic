@@ -29,7 +29,7 @@ const COLS = [
 
 function Cell({ value, highlight }) {
   const color = value === CHECK
-    ? highlight ? '#080808' : '#10B981'
+    ? '#10B981'
     : value === PARTIAL
     ? 'rgba(230,183,173,0.6)'
     : 'rgba(255,255,255,0.2)';
