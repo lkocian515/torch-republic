@@ -61,13 +61,13 @@ export default function BundleSection() {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Start With a Ritual Bundle
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             The Best Way to Begin
           </h2>
-          <p className="font-heading mx-auto mb-10" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85, maxWidth: '580px' }}>
+          <p className="font-heading mx-auto mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
             Not sure where to begin? Start with a curated ritual bundle and experience the full Torch Republic lineup — coffee, mushroom coffee, and matcha designed for different moments of your day.
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ export default function BundleSection() {
               {/* Tag badge */}
               {bundle.tag && (
                 <div className="px-3 py-1.5" style={{ background: bundle.featured ? '#10B981' : `rgba(230,183,173,0.1)`, borderBottom: bundle.featured ? 'none' : '1px solid rgba(230,183,173,0.1)' }}>
-                  <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: bundle.featured ? '#080808' : RG }}>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold text-center" style={{ color: bundle.featured ? '#080808' : RG }}>
                     {bundle.tag}
                   </p>
                 </div>
@@ -103,20 +103,20 @@ export default function BundleSection() {
                 </h3>
 
                 {/* Description */}
-                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
+                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
                   {bundle.description}
                 </p>
 
                 {/* Includes */}
-                <p className="font-mono text-[7px] tracking-[0.18em] uppercase mb-1" style={{ color: `${bundle.accent}80` }}>
+                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-1" style={{ color: `${bundle.accent}90` }}>
                   Includes
                 </p>
-                <p className="font-heading text-xs mb-3" style={{ color: `${bundle.accent}CC`, fontWeight: 400, lineHeight: 1.5 }}>
+                <p className="font-heading text-sm mb-3" style={{ color: `${bundle.accent}CC`, fontWeight: 400, lineHeight: 1.5 }}>
                   {bundle.includes}
                 </p>
 
                 {/* Servings */}
-                <p className="font-mono text-[7px] tracking-[0.18em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.35)' }}>
+                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.5)' }}>
                   ✦ {bundle.servings}
                 </p>
 
@@ -125,14 +125,14 @@ export default function BundleSection() {
                   <span className="font-serif font-bold" style={{ fontSize: '1.25rem', color: RG }}>
                     {bundle.price}
                   </span>
-                  <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.35)' }}>
+                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
                     Free Ship
                   </span>
                 </div>
 
                 <Link
                   to={bundle.href}
-                  className="block text-center font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-3"
+                  className="block text-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-80 py-3.5"
                   style={{
                     background: bundle.featured ? '#10B981' : 'transparent',
                     color: bundle.featured ? '#080808' : RG,

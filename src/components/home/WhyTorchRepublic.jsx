@@ -37,7 +37,7 @@ export default function WhyTorchRepublic() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Why Torch Republic
           </p>
           <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
@@ -54,8 +54,8 @@ export default function WhyTorchRepublic() {
             { label: '27 Servings Per Tube', sub: 'No machine. No pods. Just add water.' },
           ].map(item => (
             <div key={item.label} className="text-center">
-              <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: '#E6B7AD' }}>{item.label}</p>
-              <p className="font-heading text-[11px] mt-0.5" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300 }}>{item.sub}</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>{item.label}</p>
+              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 400 }}>{item.sub}</p>
             </div>
           ))}
         </div>
@@ -78,7 +78,7 @@ export default function WhyTorchRepublic() {
             >
               <span className="text-3xl">{b.icon}</span>
               <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.05rem' }}>{b.title}</h3>
-              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
+              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
                 {b.body}
               </p>
             </motion.div>

@@ -33,13 +33,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65 }}
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
+          <p className="font-mono text-[11px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
             Torch Republic Coffee Company
           </p>
           <h1
             className="font-serif font-bold mb-4 mx-auto"
             style={{
-              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
               color: '#F5EFE6',
               letterSpacing: '-0.02em',
               lineHeight: 1.1,
@@ -52,9 +52,9 @@ export default function HeroSection() {
           <p
             className="font-heading mx-auto mb-8"
             style={{
-              fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)',
-              color: 'rgba(210,195,175,0.65)',
-              fontWeight: 300,
+              fontSize: 'clamp(1rem, 1.5vw, 1.05rem)',
+              color: 'rgba(210,195,175,0.75)',
+              fontWeight: 400,
               lineHeight: 1.85,
               maxWidth: '520px',
             }}
@@ -72,14 +72,14 @@ export default function HeroSection() {
         >
           <Link
             to="/build-your-ritual"
-            className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+            className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
           >
             Build Your Ritual Bundle →
           </Link>
           <Link
             to="/shop"
-            className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75"
+            className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
           >
             Shop Individual Blends
@@ -95,7 +95,7 @@ export default function HeroSection() {
         >
           <Link
             to="/quiz"
-            className="font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-80"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
             style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}
           >
             Not sure where to start? → Take the Blend Quiz
@@ -112,10 +112,10 @@ export default function HeroSection() {
         >
           {TRUST_ICONS.map((item, i) => (
             <div key={i} className="text-center">
-              <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-semibold" style={{ color: RG }}>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase font-semibold" style={{ color: RG }}>
                 {item.label}
               </p>
-              <p className="font-heading text-[10px] mt-0.5" style={{ color: 'rgba(210,195,175,0.4)', fontWeight: 300 }}>
+              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(210,195,175,0.5)', fontWeight: 400 }}>
                 {item.sub}
               </p>
             </div>

@@ -47,7 +47,7 @@ export default function ShopByCategory() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Or Shop by Category
           </p>
           <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
@@ -79,15 +79,15 @@ export default function ShopByCategory() {
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {cat.label}
                 </h3>
-                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.8 }}>
                   {cat.body}
                 </p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-6" style={{ color: `${cat.accent}70` }}>
+                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-6" style={{ color: `${cat.accent}90` }}>
                   {cat.detail}
                 </p>
                 <Link
                   to={cat.route}
-                  className="block text-center font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-3"
+                  className="block text-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-80 py-3.5"
                   style={{
                     background: cat.featured ? '#10B981' : 'transparent',
                     color: cat.featured ? '#080808' : RG,

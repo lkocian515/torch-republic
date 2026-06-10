@@ -56,7 +56,7 @@ function FAQItem({ item, isOpen, onToggle }) {
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left transition-colors hover:opacity-80"
       >
-        <span className="font-heading font-medium" style={{ fontSize: '0.95rem', color: 'rgba(250,245,235,0.95)' }}>
+        <span className="font-heading font-medium" style={{ fontSize: '1rem', color: 'rgba(250,245,235,0.95)' }}>
           {item.q}
         </span>
         <span className="flex-shrink-0" style={{ color: '#E6B7AD' }}>
@@ -72,7 +72,7 @@ function FAQItem({ item, isOpen, onToggle }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="pb-5 font-heading text-sm leading-relaxed" style={{ color: 'rgba(250,245,235,0.75)', fontWeight: 300 }}>
+            <p className="pb-5 font-heading text-sm leading-relaxed" style={{ color: 'rgba(250,245,235,0.8)', fontWeight: 400 }}>
               {item.a}
             </p>
           </motion.div>
@@ -95,7 +95,7 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
           <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Common Questions
           </h2>
