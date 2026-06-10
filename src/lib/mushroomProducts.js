@@ -111,7 +111,7 @@ export const MUSHROOM_PRODUCTS = [
   {
    id: 'glowmind-clarity',
    name: 'GlowMind Clarity',
-   slug: 'glowmind-clarity',
+   slug: 'glowmind-clarity-blend',
    roast: 'Medium Roast',
    roastIntensity: 6,
    caffeineLevel: 'medium',
