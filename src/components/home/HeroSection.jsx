@@ -54,8 +54,8 @@ export default function HeroSection() {
           <p
             className="font-heading mx-auto mb-8"
             style={{
-              fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)',
-              color: 'rgba(210,195,175,0.75)',
+              fontSize: 'clamp(1.05rem, 1.7vw, 1.15rem)',
+              color: 'rgba(245,239,230,0.85)',
               fontWeight: 400,
               lineHeight: 1.85,
               maxWidth: '560px',
@@ -95,7 +95,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-6"
         >
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.35)' }}>
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
             U.S.-based small business &nbsp;·&nbsp; Secure checkout &nbsp;·&nbsp; Instant preparation
           </p>
         </motion.div>
@@ -107,7 +107,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.22 }}
           className="mb-6"
         >
-          <p className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.75)' }}>
             First order? Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off
           </p>
         </motion.div>
@@ -121,8 +121,8 @@ export default function HeroSection() {
         >
           <Link
             to="/quiz"
-            className="font-mono text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
-            style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}
+            className="font-mono text-[12px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
+            style={{ color: 'rgba(230,183,173,0.7)', textDecoration: 'none' }}
           >
             Not sure where to start? → Take the Blend Quiz
           </Link>

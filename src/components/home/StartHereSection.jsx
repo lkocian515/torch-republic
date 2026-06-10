@@ -52,7 +52,7 @@ export default function StartHereSection() {
           </h2>
           <p
             className="font-heading mx-auto"
-            style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '560px' }}
+            style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.85, maxWidth: '560px' }}
           >
             The blends our customers return to again and again.
           </p>

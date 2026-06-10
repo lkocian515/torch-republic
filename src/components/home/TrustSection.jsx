@@ -51,7 +51,7 @@ export default function TrustSection() {
               <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
                 {item.label}
               </p>
-              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 400 }}>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400 }}>
                 {item.sub}
               </p>
             </motion.div>
@@ -69,7 +69,7 @@ export default function TrustSection() {
           <p className="font-serif font-bold text-lg mb-3" style={{ color: '#F5EFE6' }}>
             A Note from the Founder
           </p>
-          <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.8, fontStyle: 'italic' }}>
+          <p className="font-heading text-base mb-4" style={{ color: 'rgba(245,239,230,0.9)', fontWeight: 400, lineHeight: 1.8, fontStyle: 'italic' }}>
             "Torch Republic was created to make daily coffee feel more intentional — less rushed, less generic, and more aligned with the person you're becoming. Every blend is crafted for clarity, focus, and the rituals that matter most."
           </p>
           <div className="flex items-center justify-center gap-3">
@@ -78,7 +78,7 @@ export default function TrustSection() {
             </div>
             <div>
               <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>Torch Republic</p>
-              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)' }}>Corpus Christi, TX</p>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.75)' }}>Corpus Christi, TX</p>
             </div>
           </div>
         </motion.div>

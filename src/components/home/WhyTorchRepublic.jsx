@@ -43,7 +43,7 @@ export default function WhyTorchRepublic() {
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Made for a Better Daily Ritual
           </h2>
-          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.9 }}>
+          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.9 }}>
             Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
           </p>
         </motion.div>
@@ -76,7 +76,7 @@ export default function WhyTorchRepublic() {
             >
               <span className="text-3xl">{b.icon}</span>
               <h3 className="font-serif font-bold text-white" style={{ fontSize: '1.05rem' }}>{b.title}</h3>
-              <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
+              <p className="font-heading text-base" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.75 }}>
                 {b.body}
               </p>
             </motion.div>

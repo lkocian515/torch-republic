@@ -75,7 +75,7 @@ export default function BundleSection() {
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Choose Your Bundle
           </h2>
-          <p className="font-heading mx-auto mb-4" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
+          <p className="font-heading mx-auto mb-4" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
             Curated bundles designed for different moments of your day. Save when you bundle.
           </p>
         </motion.div>
@@ -116,15 +116,15 @@ export default function BundleSection() {
                 </p>
 
                 {/* Description */}
-                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
+                <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.75 }}>
                   {bundle.description}
                 </p>
 
                 {/* Includes */}
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-1" style={{ color: `${bundle.accent}90` }}>
+                <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-1" style={{ color: `${bundle.accent}FF` }}>
                   Includes
                 </p>
-                <p className="font-heading text-sm mb-3" style={{ color: `${bundle.accent}CC`, fontWeight: 400, lineHeight: 1.5 }}>
+                <p className="font-heading text-base mb-3" style={{ color: `${bundle.accent}EE`, fontWeight: 400, lineHeight: 1.5 }}>
                   {bundle.includes}
                 </p>
 

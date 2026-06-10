@@ -79,15 +79,15 @@ export default function ShopByCategory() {
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {cat.label}
                 </h3>
-                <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.8 }}>
+                <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.8 }}>
                   {cat.body}
                 </p>
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-6" style={{ color: `${cat.accent}90` }}>
+                <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-6" style={{ color: `${cat.accent}FF` }}>
                   {cat.detail}
                 </p>
                 <Link
                   to={cat.route}
-                  className="block text-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-80 py-3.5"
+                  className="block text-center font-mono text-[12px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-80 py-3.5"
                   style={{
                     background: cat.featured ? '#10B981' : 'transparent',
                     color: cat.featured ? '#080808' : RG,
