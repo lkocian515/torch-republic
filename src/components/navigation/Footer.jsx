@@ -64,7 +64,7 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[9px] tracking-[0.18em] mb-3"
               style={{ color: 'rgba(230,183,173,0.45)' }}>
-              Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME10</span> for 10% off your first order
+              Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME15</span> for 15% off your first order
             </p>
             <p className="font-mono text-[9px] tracking-[0.15em] mb-2"
               style={{ color: 'rgba(255,255,255,0.25)' }}>

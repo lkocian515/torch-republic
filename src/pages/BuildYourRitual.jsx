@@ -51,7 +51,7 @@ export default function BuildYourRitual() {
       }).filter(Boolean);
 
       const baseUrl = getShopifyBundleUrl(items);
-      const url = baseUrl ? `${baseUrl}?discount=welcome10` : null;
+      const url = baseUrl ? `${baseUrl}?discount=welcome15` : null;
       console.log('[Bundle] Cart URL:', url);
 
       if (!url) {
@@ -103,10 +103,10 @@ export default function BuildYourRitual() {
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
                   </div>
                   <a
-                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome10"
+                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome15"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome10';
+                      window.location.href = 'https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome15';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
@@ -426,7 +426,7 @@ export default function BuildYourRitual() {
                 return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
               }).filter(Boolean);
               const baseUrl = getShopifyBundleUrl(items);
-              const url = baseUrl ? `${baseUrl}?discount=welcome10` : null;
+              const url = baseUrl ? `${baseUrl}?discount=welcome15` : null;
               if (url) window.location.href = url;
             }}
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"

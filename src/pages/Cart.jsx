@@ -18,8 +18,8 @@ export default function Cart() {
       .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }));
     if (mapped.length === 0) return null;
     const baseUrl = getShopifyBundleUrl(mapped);
-    // Append welcome10 discount for first-time customers
-    return baseUrl ? `${baseUrl}?discount=welcome10` : null;
+    // Append welcome15 discount for first-time customers
+    return baseUrl ? `${baseUrl}?discount=welcome15` : null;
   }, [items]);
 
   if (items.length === 0) {
@@ -41,7 +41,7 @@ export default function Cart() {
           Browse Individual Blends
         </Link>
         <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
-          Use code <strong>WELCOME10</strong> at checkout for 10% off your first order
+          Use code <strong>WELCOME15</strong> at checkout for 15% off your first order
         </p>
       </div>
     );
@@ -136,7 +136,7 @@ export default function Cart() {
 
               {/* Discount nudge */}
               <p className="font-mono text-[8px] tracking-[0.15em] text-center mb-4 p-3" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.12)', color: 'rgba(230,183,173,0.6)', lineHeight: 1.7 }}>
-                First order? Use <strong style={{ color: RG }}>WELCOME10</strong> at checkout for 10% off
+                First order? Use <strong style={{ color: RG }}>WELCOME15</strong> at checkout for 15% off
               </p>
 
               {!checkoutUrl ? (

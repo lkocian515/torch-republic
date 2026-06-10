@@ -100,6 +100,18 @@ export default function HeroSection() {
           </p>
         </motion.div>
 
+        {/* Discount nudge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.22 }}
+          className="mb-6"
+        >
+          <p className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            First order? Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off
+          </p>
+        </motion.div>
+
         {/* Tertiary quiz link */}
         <motion.div
           initial={{ opacity: 0 }}
