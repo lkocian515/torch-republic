@@ -55,6 +55,9 @@ const InstantCeremonialMatcha = lazy(() => import('./pages/blog/InstantCeremonia
 const LocalSEO = lazy(() => import('./pages/LocalSEO'));
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
+const Ingredients = lazy(() => import('./pages/Ingredients'));
+const WhyMushroomCoffee = lazy(() => import('./pages/WhyMushroomCoffee'));
+const WhyMatcha = lazy(() => import('./pages/WhyMatcha'));
 const CustomerSpotlight = lazy(() => import('./pages/CustomerSpotlight'));
 const CustomerPortal = lazy(() => import('./pages/CustomerPortal'));
 const Gifts = lazy(() => import('./pages/Gifts'));
@@ -181,6 +184,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/lions-mane-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeCoffee" queryClient={queryClient}><LionsManeCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/instant-coffee-for-energy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeForEnergy" queryClient={queryClient}><InstantCoffeeForEnergy /></LayoutWrapper></Suspense>} />
         <Route path="/local" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LocalSEO" queryClient={queryClient}><LocalSEO /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Ingredients" queryClient={queryClient}><Ingredients /></LayoutWrapper></Suspense>} />
+        <Route path="/why-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMushroomCoffee" queryClient={queryClient}><WhyMushroomCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/why-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMatcha" queryClient={queryClient}><WhyMatcha /></LayoutWrapper></Suspense>} />
 
         {/* ── BLOG POSTS ── */}
         <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />
