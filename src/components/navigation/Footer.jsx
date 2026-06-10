@@ -49,9 +49,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png"
               alt="Torch Republic Coffee Company"
-              style={{ height: '80px', width: 'auto', marginBottom: '16px', opacity: 0.9 }}
+              style={{ height: '88px', width: 'auto', marginBottom: '16px', opacity: 0.9 }}
             />
             <p className="font-mono text-[9px] tracking-[0.2em] mb-5" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Instant Coffee · Mushroom Coffee · Matcha
@@ -98,21 +98,22 @@ export default function Footer() {
                 </h3>
                 <ul className="space-y-3">
                   {section.links.map(link => (
-                    <li key={link.label}>
-                      {link.external ? (
-                        <a href={link.external} target="_blank" rel="noopener noreferrer"
-                          className="text-[11px] font-mono transition-colors hover:text-white"
-                          style={{ color: 'rgba(255,255,255,0.32)' }}>
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Link to={link.href}
-                          className="text-[11px] font-mono transition-colors hover:text-white"
-                          style={{ color: 'rgba(255,255,255,0.32)' }}>
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
+                   <li key={link.label} className="flex items-center gap-2">
+                     <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd8a91df2_torch_republic_icon_transparent_1024px.png" alt="" aria-hidden="true" style={{ width: '10px', height: '10px', opacity: 0.35, flexShrink: 0 }} />
+                     {link.external ? (
+                       <a href={link.external} target="_blank" rel="noopener noreferrer"
+                         className="text-[11px] font-mono transition-colors hover:text-white"
+                         style={{ color: 'rgba(255,255,255,0.32)' }}>
+                         {link.label}
+                       </a>
+                     ) : (
+                       <Link to={link.href}
+                         className="text-[11px] font-mono transition-colors hover:text-white"
+                         style={{ color: 'rgba(255,255,255,0.32)' }}>
+                         {link.label}
+                       </Link>
+                     )}
+                   </li>
                   ))}
                 </ul>
               </div>
@@ -143,9 +144,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png"
             alt="Torch Republic Coffee Company"
-            className="h-10 w-auto opacity-55"
+            className="h-12 w-auto opacity-55"
           />
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
             Instant Coffee · Mushroom Coffee · Matcha

@@ -115,7 +115,7 @@ export default function UnifiedHeader() {
 
             {/* Center: Logo */}
             <Link to="/" className={`flex-1 md:flex-none flex items-center justify-center ${isChildRoute ? 'hidden md:flex' : ''}`}>
-              <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png" alt="Torch Republic Coffee Company" style={{ height: '40px', width: 'auto' }} />
+              <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" style={{ height: '44px', width: 'auto' }} />
             </Link>
 
             {/* Right: Cart + Desktop Nav */}
@@ -150,7 +150,8 @@ export default function UnifiedHeader() {
                 <div className="space-y-3">
                   {NAV_LINKS.map((link, i) => (
                     <motion.div key={link.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
-                      <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className="block py-3 font-heading text-lg transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.8)' }}>
+                      <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 py-3 font-heading text-lg transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.8)' }}>
+                        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd8a91df2_torch_republic_icon_transparent_1024px.png" alt="" aria-hidden="true" style={{ width: '14px', height: '14px', opacity: 0.4, flexShrink: 0 }} />
                         {link.label}
                       </Link>
                     </motion.div>
