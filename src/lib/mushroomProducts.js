@@ -123,9 +123,9 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Awareness, focus, mental clarity',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
-   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e286bffc_9.png',
+   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fb2d4e833_13.png',
    galleryImages: [
-     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e286bffc_9.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fb2d4e833_13.png',
    ],
    alt: 'Torch Republic GlowMind Clarity instant mushroom coffee tube',
    price: 24.99,
