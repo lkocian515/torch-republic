@@ -373,18 +373,17 @@ export async function mergeWithShopifyData(localProducts) {
         };
       }
       
-      // Merge Shopify image and pricing
+      // Keep local images (don't override with Shopify) and use Shopify pricing
       return {
         ...local,
-        // Use Shopify featured image as primary
-        image: shopify.featuredImage || local.image,
-        // Use all Shopify images for gallery
-        galleryImages: shopify.images.length > 0 ? shopify.images : local.galleryImages,
-        // Use Shopify pricing
+        // Keep local images - they're verified to work
+        image: local.image,
+        galleryImages: local.galleryImages,
+        // Use Shopify pricing if available, otherwise keep local
         price: shopify.price || local.price,
         compareAtPrice: shopify.compareAtPrice,
-        // Use Shopify availability
-        availableForSale: shopify.availableForSale,
+        // Use Shopify availability if available
+        availableForSale: shopify.availableForSale !== undefined ? shopify.availableForSale : true,
         // Keep local metadata
         shopifyData: shopify,
       };
