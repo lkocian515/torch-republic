@@ -16,7 +16,7 @@ export default function HeroSection() {
     <div style={{ background: '#080808' }}>
       {/* Hero Banner Image — full width, natural height, no cropping */}
       <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/42734023d_825b7542-f15b-40dc-9460-fde30e083274.png"
+        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6acb79309_ChatGPTImageJun10202602_18_46AM.png"
         alt="Fuel Your Ritual. Elevate Your Life. — Torch Republic Coffee Co. Premium instant coffee, mushroom coffee and matcha."
         style={{ width: '100%', height: 'auto', display: 'block' }}
       />
