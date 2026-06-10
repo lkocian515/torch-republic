@@ -556,6 +556,28 @@ function BlendDetailInner({ product }) {
               ))}
             </div>
 
+            {/* Torchbearers Rewards Banner */}
+            <div className="my-5 p-4" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.12)' }}>
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E6B7AD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] tracking-[0.22em] uppercase font-bold" style={{ color: '#E6B7AD' }}>
+                    Torchbearers Rewards
+                  </p>
+                  <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.6)' }}>
+                    Earn points on this purchase
+                  </p>
+                </div>
+              </div>
+              <p className="font-mono text-[7.5px] tracking-[0.15em] text-center" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.6 }}>
+                Join Torchbearers Rewards and earn points for every ritual. <a href="/torchbearers-rewards" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Learn more →</a>
+              </p>
+            </div>
+
             {/* Ritual Membership Benefits Block */}
             <RitualMembershipBlock />
 
