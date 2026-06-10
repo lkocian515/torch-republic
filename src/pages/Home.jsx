@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
-// Core homepage sections — ritual-based order
+// Homepage sections
 import HeroSection from '../components/home/HeroSection';
-import ThreeCategories from '../components/home/ThreeCategories';
-import StarterBundleSection from '../components/home/StarterBundleSection';
+import BundleSection from '../components/home/BundleSection';
+import ShopByCategory from '../components/home/ShopByCategory';
+import BlendComparisonSection from '../components/home/BlendComparisonSection';
 import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
 import IngredientClarity from '../components/home/IngredientClarity';
 import FounderNote from '../components/home/FounderNote';
@@ -53,16 +54,10 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Co. | Conscious Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Torch Republic Coffee Co. creates premium instant coffee, mushroom coffee, and matcha blends for clarity, calm energy, and intentional daily rituals. Shop coffee-forward blends made for modern wellness.',
+    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, focus, calm energy, and intentional daily rituals. No machine needed.',
     url: '/',
     type: 'website',
-    product: {
-      name: 'Torch Republic Coffee Co. — Conscious Instant Coffee, Mushroom Coffee & Matcha',
-      description: 'Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, calm energy, and intentional daily rituals. No pods. No machines. Instant preparation.',
-      price: '24.99',
-      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png',
-    },
   });
 
   return (
@@ -71,28 +66,31 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Three Category Cards */}
-      <ThreeCategories />
+      {/* 2. Start With a Ritual Bundle — primary conversion section */}
+      <BundleSection />
 
-      {/* 3. Starter Bundle */}
-      <StarterBundleSection />
+      {/* 3. Shop by Category */}
+      <ShopByCategory />
 
-      {/* 4. Why Torch Republic */}
+      {/* 4. Compare the Blends */}
+      <BlendComparisonSection />
+
+      {/* 5. Why Torch Republic */}
       <WhyTorchRepublic />
 
-      {/* 5. Ingredient Transparency */}
+      {/* 6. Ingredient Transparency */}
       <IngredientClarity />
 
-      {/* 6. Founder Note */}
+      {/* 7. Founder Note */}
       <FounderNote />
 
-      {/* 7. Reviews */}
+      {/* 8. Reviews */}
       <ReviewsSection />
 
-      {/* 8. FAQ */}
+      {/* 9. FAQ */}
       <FAQSection />
 
-      {/* 9. Final CTA */}
+      {/* 10. Final CTA */}
       <FinalCTA />
 
       <StickyMobileCTA />

@@ -11,8 +11,8 @@ const GOLD = '#C4A35A';
 
 export default function ClassicCoffeeCollection() {
   useSEO({
-    title: 'Premium Instant Coffee | Torch Republic Coffee Co.',
-    description: 'Shop premium classic instant coffee blends from Torch Republic Coffee Co. Coffee-forward, smooth flavor, no machines, no pods. Just add hot water and begin.',
+    title: 'Premium Instant Coffee | Torch Republic Reserve Collection',
+    description: 'Shop smooth premium instant coffee blends from Torch Republic\'s Reserve Collection. No machine needed. Rich flavor. 27 servings per tube.',
     url: '/classic-coffee',
     type: 'website',
   });

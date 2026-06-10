@@ -42,8 +42,8 @@ export default function MushroomCoffeeCollection() {
   const [openFaq, setOpenFaq] = useState(null);
 
   useSEO({
-    title: 'Instant Mushroom Coffee | Torch Republic Coffee Co.',
-    description: "Shop Torch Republic mushroom coffee blends — premium instant coffee with Lion's Mane and Chaga crafted for focus, clarity, calm energy, and intentional daily rituals. No machines. No pods.",
+    title: 'Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
+    description: "Explore Torch Republic's instant mushroom coffee blends crafted to support focus, clarity, calm energy, and daily ritual. Lion's Mane + Chaga. No machine needed.",
     url: '/mushroom-coffee',
     type: 'website',
   });

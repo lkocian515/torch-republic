@@ -6,22 +6,22 @@ const RG = '#E6B7AD';
 const BENEFITS = [
   {
     title: 'Instant Convenience',
-    body: 'No machines, no pods, no complicated routine. Just add hot water, stir, and begin your day.',
+    body: 'No machines, no pods, no complicated routine. Just add hot water, stir, and begin your day. Ready in seconds.',
     icon: '⚡',
   },
   {
-    title: 'Coffee-Forward Flavor',
-    body: 'Crafted to taste like coffee first, with wellness benefits that support your daily rhythm naturally.',
+    title: 'No Machine Needed',
+    body: 'Torch Republic products are designed to work without any equipment — just a cup and hot water. That\'s the entire ritual.',
     icon: '☕',
   },
   {
-    title: 'Functional Ingredients',
-    body: 'Mushroom coffee and matcha blends designed around clarity, focus, calm energy, and restoration.',
+    title: 'Built for Daily Rituals',
+    body: 'Every blend is crafted with a specific intention — morning clarity, afternoon focus, or a calm evening reset.',
     icon: '🌿',
   },
   {
-    title: 'Intentional Daily Ritual',
-    body: 'A better cup for people who want their morning routine to feel grounded, clear, and purposeful.',
+    title: 'Coffee, Mushroom Coffee & Matcha',
+    body: 'One brand, three distinct product families. Classic instant coffee, functional mushroom coffee, and ceremonial matcha — each clearly labeled.',
     icon: '🕯️',
   },
 ];
@@ -59,6 +59,11 @@ export default function WhyTorchRepublic() {
             </div>
           ))}
         </div>
+
+        {/* Brand philosophy quote */}
+        <p className="font-heading text-center max-w-2xl mx-auto mb-10" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.9 }}>
+          Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {BENEFITS.map((b, i) => (

@@ -11,8 +11,8 @@ const MATCHA_GREEN = '#10B981';
 
 export default function MatchaCollection() {
   useSEO({
-    title: 'Ceremonial Matcha | Torch Republic Coffee Co.',
-    description: 'Shop ceremonial matcha blends from Torch Republic Coffee Co. Smooth, calm energy, instant preparation, no whisk needed. Crafted for mindful daily rituals.',
+    title: 'Ceremonial Matcha Blends | Torch Republic Coffee Company',
+    description: 'Discover premium matcha blends designed for smooth focus, presence, and intentional daily energy rituals. Instant preparation. No whisk needed.',
     url: '/matcha',
     type: 'website',
   });

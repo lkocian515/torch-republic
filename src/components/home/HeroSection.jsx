@@ -4,81 +4,121 @@ import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
 
-const trustPills = [
-  'No machine needed',
-  '27 servings per tube',
-  'Mix any 3 blends & save',
-  '30-day guarantee',
+const TRUST_ICONS = [
+  { label: 'Instant Rituals', sub: 'Coffee · Mushroom · Matcha' },
+  { label: '25–27 Servings', sub: 'Per Tube' },
+  { label: 'No Machine Needed', sub: 'Just Add Hot Water' },
+  { label: '30-Day Guarantee', sub: 'If Not Right, We Make It Right' },
 ];
 
 export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
-      {/* Hero Banner Image — full width, natural height, no cropping */}
+      {/* Hero Banner Image — full width, natural height */}
       <img
         src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6acb79309_ChatGPTImageJun10202602_18_46AM.png"
-        alt="Fuel Your Ritual. Elevate Your Life. — Torch Republic Coffee Co. Premium instant coffee, mushroom coffee and matcha."
+        alt="Torch Republic Coffee Company — Premium instant coffee, mushroom coffee and matcha for clarity, focus, and intentional daily rituals."
         style={{ width: '100%', height: 'auto', display: 'block' }}
+        fetchPriority="high"
+        loading="eager"
       />
 
-      {/* CTAs + Trust pills below image */}
+      {/* Headline + CTAs below image */}
       <section
-        className="px-6 md:px-10 py-10 md:py-14 text-center"
+        className="px-6 md:px-10 py-12 md:py-16 text-center"
         style={{ background: 'linear-gradient(180deg, #0A0807 0%, #080808 100%)' }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.65 }}
+        >
+          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
+            Torch Republic Coffee Company
+          </p>
+          <h1
+            className="font-serif font-bold mb-4 mx-auto"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              color: '#F5EFE6',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+              maxWidth: '680px',
+            }}
+          >
+            Build Your<br />
+            <span style={{ color: RG }}>Morning Ritual</span>
+          </h1>
+          <p
+            className="font-heading mx-auto mb-8"
+            style={{
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)',
+              color: 'rgba(210,195,175,0.65)',
+              fontWeight: 300,
+              lineHeight: 1.85,
+              maxWidth: '520px',
+            }}
+          >
+            Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, focus, calm energy, and intentional daily rituals.
+          </p>
+        </motion.div>
+
+        {/* Primary + Secondary CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
         >
           <Link
             to="/build-your-ritual"
             className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-            style={{ background: RG, color: '#080808', padding: '16px 40px', display: 'inline-block' }}
+            style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
           >
             Build Your Ritual Bundle →
           </Link>
           <Link
             to="/shop"
             className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75"
-            style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block' }}
+            style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
           >
             Shop Individual Blends
           </Link>
         </motion.div>
 
-        {/* Tertiary quiz path */}
+        {/* Tertiary quiz link */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mb-8 text-center"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-10"
         >
           <Link
             to="/quiz"
             className="font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-80"
-            style={{ color: 'rgba(230,183,173,0.5)', textDecoration: 'none' }}
+            style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}
           >
             Not sure where to start? → Take the Blend Quiz
           </Link>
         </motion.div>
 
-        {/* Trust pills */}
+        {/* Trust icon row */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3"
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="flex flex-wrap justify-center gap-6 md:gap-10 pt-8"
+          style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}
         >
-          {trustPills.map((pill, i) => (
-            <span
-              key={i}
-              className="font-mono text-[7.5px] tracking-[0.2em] uppercase"
-              style={{ color: 'rgba(230,183,173,0.4)' }}
-            >
-              ✦ {pill}
-            </span>
+          {TRUST_ICONS.map((item, i) => (
+            <div key={i} className="text-center">
+              <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-semibold" style={{ color: RG }}>
+                {item.label}
+              </p>
+              <p className="font-heading text-[10px] mt-0.5" style={{ color: 'rgba(210,195,175,0.4)', fontWeight: 300 }}>
+                {item.sub}
+              </p>
+            </div>
           ))}
         </motion.div>
       </section>
