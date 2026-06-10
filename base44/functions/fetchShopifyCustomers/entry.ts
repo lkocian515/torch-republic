@@ -13,8 +13,14 @@ Deno.serve(async (req) => {
         const SHOPIFY_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
         const SHOPIFY_STORE = 'torch-republic-coffee-company.myshopify.com';
         
-        // Fetch all customers from Shopify
-        const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/customers.json?limit=250`, {
+        console.log('Store:', SHOPIFY_STORE);
+        console.log('Token prefix:', SHOPIFY_TOKEN?.substring(0, 10));
+        
+        // Fetch all customers from Shopify using latest stable API
+        const url = `https://${SHOPIFY_STORE}/admin/api/2024-10/customers.json?limit=250`;
+        console.log('Request URL:', url);
+        
+        const response = await fetch(url, {
             headers: {
                 'X-Shopify-Access-Token': SHOPIFY_TOKEN,
                 'Content-Type': 'application/json',
@@ -27,6 +33,9 @@ Deno.serve(async (req) => {
 
         const data = await response.json();
         const customers = data.customers || [];
+
+        console.log('Shopify customers fetched:', customers.length);
+        console.log('First customer:', customers[0]);
 
         // Segment customers
         const segmented = {
