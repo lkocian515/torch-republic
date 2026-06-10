@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
-import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft } from 'lucide-react';
+import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
@@ -151,6 +151,19 @@ export default function Cart() {
               <div className="flex items-center justify-between mb-6">
                 <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.5)' }}>Shipping</span>
                 <span className="font-mono text-[10px]" style={{ color: '#10B981' }}>Calculated at checkout</span>
+              </div>
+
+              {/* Torchbearers Rewards nudge */}
+              <div className="mb-4 p-3" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.12)' }}>
+                <div className="flex items-center gap-2 mb-2">
+                  <Flame className="w-3 h-3" style={{ color: RG }} />
+                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>
+                    Torchbearers Rewards
+                  </p>
+                </div>
+                <p className="font-mono text-[7.5px] tracking-[0.12em] text-center" style={{ color: 'rgba(245,239,230,0.6)', lineHeight: 1.6 }}>
+                  Earn points on this order! Join Torchbearers Rewards at checkout.
+                </p>
               </div>
 
               {/* Discount nudge */}

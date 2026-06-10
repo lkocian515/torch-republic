@@ -32,6 +32,7 @@ const Reviews = lazy(() => import('./pages/Reviews'));
 const Journal = lazy(() => import('./pages/Journal'));
 const Profile = lazy(() => import('./pages/Profile'));
 const LoyaltyPortal = lazy(() => import('./pages/LoyaltyPortal'));
+const TorchbearersRewards = lazy(() => import('./pages/TorchbearersRewards'));
 const Cart = lazy(() => import('./pages/Cart'));
 const CartRedirect = lazy(() => import('./components/cart/CartRedirect'));
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
@@ -151,6 +152,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Profile" element={<Navigate to="/profile" replace />} />
         <Route path="/shop/bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
+        <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
         {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
         <Route path="/Cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />

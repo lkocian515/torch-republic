@@ -15,10 +15,18 @@ const FOOTER_LINKS = [
     ]
   },
   {
+    heading: 'Community',
+    links: [
+      { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
+      { label: 'Reviews', href: '/reviews' },
+      { label: 'Journal', href: '/journal' },
+      { label: 'Refer a Friend', href: '/portal' },
+    ]
+  },
+  {
     heading: 'Learn',
     links: [
       { label: 'About', href: '/about' },
-      { label: 'Reviews', href: '/reviews' },
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
