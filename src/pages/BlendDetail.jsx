@@ -92,11 +92,6 @@ function GalleryCarousel({ images, accent, productName }) {
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % images.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  
-  // Cache-busting for gallery images
-  const currentImageUrl = images[currentIndex] 
-    ? `${images[currentIndex]}${images[currentIndex].includes('?') ? '&' : '?'}v=${Date.now()}`
-    : '';
 
   return (
     <div className="mt-6">
@@ -108,7 +103,7 @@ function GalleryCarousel({ images, accent, productName }) {
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.35 }}
-          src={currentImageUrl}
+          src={`${images[currentIndex]}${images[currentIndex].includes('?') ? '&' : '?'}v=${Date.now()}`}
           alt={`${productName} gallery image ${currentIndex + 1}`}
           className="w-full h-full object-contain p-6"
           style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
@@ -841,22 +836,13 @@ export default function BlendDetail() {
           
           if (shopifyProduct) {
             console.log('✅ Found Shopify match for', localProduct.name, ':', shopifyProduct.handle);
-            // Merge Shopify data with local product - Shopify is CANONICAL for images
-            const shopifyImageUrl = shopifyProduct.featuredImage?.url || shopifyProduct.images?.[0];
-            const shopifyGalleryImages = shopifyProduct.images?.length > 0 ? shopifyProduct.images : [];
-            
+            // Merge Shopify data with local product
             setProduct({
               ...localProduct,
-              // ALWAYS use Shopify images (canonical source)
-              image: shopifyImageUrl || localProduct.image,
-              galleryImages: shopifyGalleryImages,
+              image: shopifyProduct.featuredImage || shopifyProduct.images?.[0] || localProduct.image,
+              galleryImages: shopifyProduct.images?.length > 0 ? shopifyProduct.images : localProduct.galleryImages,
               price: shopifyProduct.price || localProduct.price,
               inStock: shopifyProduct.availableForSale,
-              // Store Shopify image metadata for gallery
-              shopifyImageData: {
-                featured: shopifyProduct.featuredImage,
-                all: shopifyProduct.images,
-              },
             });
           } else {
             console.warn('⚠️ No Shopify match for', localProduct.name, '- using local data. Searched for:', localProduct.shopifyHandle, localProduct.slug, localProduct.id);

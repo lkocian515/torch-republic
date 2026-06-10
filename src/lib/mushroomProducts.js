@@ -1,6 +1,4 @@
 // Central product catalog for Torch Republic — three categories: Classic Coffee, Mushroom Coffee, Matcha
-// IMPORTANT: All product images are pulled live from Shopify - NO hardcoded image URLs
-// Shopify product media is the CANONICAL source for all imagery sitewide
 
 export const CLASSIC_COFFEE_PRODUCTS = [
   {
@@ -18,7 +16,10 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Leadership, purpose, everyday ritual',
     mushrooms: 'No',
     servings: 27,
-    // NO image/galleryImages - pulled from Shopify live
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15_9efec3d4-7d73-4fd6-a4df-aba0f6cad920.png?v=1781102331',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15_9efec3d4-7d73-4fd6-a4df-aba0f6cad920.png?v=1781102331',
+    ],
     alt: 'Torch Republic Torchbearer Classic Instant Coffee',
     price: 24.99,
     shopifyHandle: 'torchbearer',
@@ -41,6 +42,10 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Renewal, rebuilding, fresh starts',
     mushrooms: "Cordyceps + Reishi",
     servings: 27,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png?v=1781102333',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png?v=1781102333',
+    ],
     alt: 'Torch Republic Ember Rise Classic Instant Coffee',
     price: 24.99,
     shopifyHandle: 'ember-rise',
@@ -63,6 +68,10 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Resilience, endurance, deep focus',
     mushrooms: 'No',
     servings: 27,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/14_3a9ab2f8-627d-4d27-a636-29a0900700bb.png?v=1781102333',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/14_3a9ab2f8-627d-4d27-a636-29a0900700bb.png?v=1781102333',
+    ],
     alt: 'Torch Republic Midnight Watch Classic Instant Coffee',
     price: 24.99,
     shopifyHandle: 'midnight-watch',
@@ -88,6 +97,10 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Vitality, morning energy, fresh starts',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
+    ],
     alt: 'Torch Republic SunCap Rise instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'suncap-rise',
@@ -110,6 +123,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Awareness, focus, mental clarity',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333',
+   ],
    alt: 'Torch Republic GlowMind Clarity instant mushroom coffee lifestyle image',
    price: 24.99,
    shopifyHandle: 'glowmind-clarity-blend',
@@ -132,6 +149,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Recovery, restoration, calm evenings',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/12_8e7ecdb4-a0bc-459a-bea5-96fea5263fa2.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/12_8e7ecdb4-a0bc-459a-bea5-96fea5263fa2.png?v=1781102333',
+   ],
    alt: 'Torch Republic MoonCap Restore instant mushroom coffee lifestyle image',
    price: 24.99,
    shopifyHandle: 'mooncap-restore',
@@ -154,6 +175,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Restoration, deep rest, subconscious renewal',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_8c807391-10cd-46e4-9a59-151cae236e29.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_8c807391-10cd-46e4-9a59-151cae236e29.png?v=1781102333',
+   ],
    alt: 'Torch Republic DreamCap Blend instant mushroom coffee tube',
    price: 24.99,
    shopifyHandle: 'dreamcap-blend',
@@ -176,6 +201,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Wisdom, intuition, inner knowing',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/10_43ce9b58-361d-4539-9624-443920a03747.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/10_43ce9b58-361d-4539-9624-443920a03747.png?v=1781102333',
+   ],
    alt: 'Torch Republic The Oracle Blend instant mushroom coffee tube',
    price: 24.99,
    shopifyHandle: 'the-oracle-blend',
@@ -198,6 +227,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Transformation, growth, becoming',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/9_0263ab93-e776-4566-9051-fa3a5f9a2092.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/9_0263ab93-e776-4566-9051-fa3a5f9a2092.png?v=1781102333',
+   ],
    alt: 'Torch Republic Mystic Bloom Blend instant mushroom coffee tube',
     price: 24.99,
     shopifyHandle: 'mystic-bloom-blend',
@@ -223,6 +256,10 @@ export const MATCHA_PRODUCTS = [
    bestFor: 'Discipline, focus, calm presence',
    mushrooms: 'None — 100% Ceremonial Grade Matcha',
    servings: 25,
+   image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/18_8e5aeb4b-6266-48e5-a725-639e74310697.png?v=1781102333',
+   galleryImages: [
+     'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/18_8e5aeb4b-6266-48e5-a725-639e74310697.png?v=1781102333',
+   ],
    alt: 'Torch Republic The Monk Matcha Blend tin',
    price: 24.99,
    shopifyHandle: 'the-monk-matcha-blend',
@@ -245,6 +282,10 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Growth, evolution, becoming',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ggfgfdgfdgdf.png?v=1781109729',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ggfgfdgfdgdf.png?v=1781109729',
+    ],
     alt: 'Torch Republic The Ascendant Matcha Blend',
     price: 24.99,
     shopifyHandle: 'the-ascendant-matcha-blend',
@@ -267,6 +308,10 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Creation, creativity, inspired work',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/tretreter.png?v=1781109630',
+    galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/tretreter.png?v=1781109630',
+    ],
     alt: 'Torch Republic The Alchemist Matcha Blend',
     price: 24.99,
     shopifyHandle: 'the-alchemist-matcha-blend',
@@ -283,25 +328,25 @@ export const ALL_PRODUCTS = [
   ...MATCHA_PRODUCTS,
 ];
 
-export const HERO_IMAGE = null; // Will use Shopify collection/hero image
-export const BUNDLE_IMAGE = null; // Will use Shopify bundle image
-export const LOGO_URL = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-logo.png?v=1781102333'; // Use Shopify-hosted logo
+export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
+export const BUNDLE_IMAGE = HERO_IMAGE;
+export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
 
-// Collection images - will use Shopify collection images
-export const MUSHROOM_COLLECTION_IMAGE = null;
-export const CLASSIC_COLLECTION_IMAGE = null;
-export const MATCHA_COLLECTION_IMAGE = null;
+// Collection showcase images - will be replaced by Shopify collection images
+export const MUSHROOM_COLLECTION_IMAGE = null; // Will use Shopify collection image
+export const CLASSIC_COLLECTION_IMAGE = null; // Will use Shopify collection image
+export const MATCHA_COLLECTION_IMAGE = null; // Will use Shopify collection image
 
 /**
- * Merge local product catalog with Shopify media data
- * Shopify is the CANONICAL source for all product imagery
- * Images update automatically when changed in Shopify
+ * Merge local product catalog with Shopify image and pricing data
+ * This ensures images always come from Shopify and update automatically
  */
-export async function mergeWithShopifyMedia(localProducts) {
+export async function mergeWithShopifyData(localProducts) {
   try {
     const { base44 } = await import('@/api/base44Client');
-    const response = await base44.functions.invoke('fetchShopifyProductMedia', {});
+    const response = await base44.functions.invoke('fetchShopifyProducts', {});
     const shopifyProducts = response.data?.products || [];
+    const shopifyCollections = response.data?.collections || [];
     
     // Create a map of shopify products by handle for quick lookup
     const shopifyMap = new Map();
@@ -309,97 +354,54 @@ export async function mergeWithShopifyMedia(localProducts) {
       shopifyMap.set(p.handle, p);
     });
     
-    // Merge each local product with Shopify media data
+    // Merge each local product with Shopify data
     const merged = localProducts.map(local => {
       const shopify = shopifyMap.get(local.shopifyHandle);
       
       if (!shopify) {
-        console.warn(`⚠️ No Shopify match for ${local.name} (${local.shopifyHandle})`);
+        // No Shopify match - use local data (will show placeholder)
         return {
           ...local,
-          image: null,
-          galleryImages: [],
+          shopifyImage: null,
           shopifyPrice: local.price,
           shopifyAvailable: true,
-          _missingShopify: true,
         };
       }
       
-      // Use Shopify images as canonical source
-      const featuredImage = shopify.featuredImage?.url || shopify.images?.[0] || null;
-      const galleryImages = shopify.images?.map(img => img.url || img) || [];
-      
+      // Keep local images (don't override with Shopify) and use Shopify pricing
       return {
         ...local,
-        // CANONICAL: Shopify images
-        image: featuredImage,
-        galleryImages: galleryImages,
-        imageAlt: shopify.featuredImage?.alt || local.alt,
-        // Use Shopify pricing
+        // Keep local images - they're verified to work
+        image: local.image,
+        galleryImages: local.galleryImages,
+        // Use Shopify pricing if available, otherwise keep local
         price: shopify.price || local.price,
         compareAtPrice: shopify.compareAtPrice,
-        // Use Shopify availability
+        // Use Shopify availability if available
         availableForSale: shopify.availableForSale !== undefined ? shopify.availableForSale : true,
-        // Store full Shopify data for variant images etc
+        // Keep local metadata
         shopifyData: shopify,
       };
     });
     
     return {
       products: merged,
-      timestamp: response.data?.timestamp,
+      collections: shopifyCollections,
     };
   } catch (error) {
-    console.error('❌ Failed to merge with Shopify media:', error);
-    // Return local data as fallback (without images)
+    console.error('Failed to merge with Shopify data:', error);
+    // Return local data as fallback
     return {
-      products: localProducts.map(p => ({
-        ...p,
-        image: null,
-        galleryImages: [],
-        _shopifyError: true,
-      })),
-      timestamp: new Date().toISOString(),
+      products: localProducts,
+      collections: [],
     };
   }
 }
 
 /**
- * Get a single product with Shopify media by slug
+ * Get collection image from Shopify
  */
-export async function getProductWithMedia(slug) {
-  const localProducts = [...CLASSIC_COFFEE_PRODUCTS, ...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS];
-  const localProduct = localProducts.find(p => p.slug === slug);
-  
-  if (!localProduct) {
-    return null;
-  }
-  
-  try {
-    const { base44 } = await import('@/api/base44Client');
-    const response = await base44.functions.invoke('fetchShopifyProductMedia', {});
-    const shopifyProducts = response.data?.products || [];
-    
-    const shopify = shopifyProducts.find(p => 
-      p.handle === localProduct.shopifyHandle ||
-      p.handle === localProduct.slug
-    );
-    
-    if (shopify) {
-      return {
-        ...localProduct,
-        image: shopify.featuredImage?.url || shopify.images?.[0]?.url || null,
-        galleryImages: shopify.images?.map(img => img.url || img) || [],
-        imageAlt: shopify.featuredImage?.alt || localProduct.alt,
-        price: shopify.price || localProduct.price,
-        availableForSale: shopify.availableForSale !== undefined ? shopify.availableForSale : true,
-        shopifyData: shopify,
-      };
-    }
-    
-    return localProduct;
-  } catch (error) {
-    console.error('Failed to fetch product media:', error);
-    return localProduct;
-  }
+export function getCollectionImage(handle, collections) {
+  const collection = collections.find(c => c.handle === handle);
+  return collection?.image || null;
 }

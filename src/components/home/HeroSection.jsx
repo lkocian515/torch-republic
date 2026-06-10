@@ -15,18 +15,16 @@ export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
       {/* Hero Banner Image — optimized for LCP (under 250KB, WebP, preloaded) */}
-      {/* Uses Shopify CDN with cache-busting for fresh images */}
       <div className="flex justify-center md:max-w-[70vw] mx-auto">
         <img
-          src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg?v=1781102333"
+          src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
           alt="Torch Republic Coffee Company — Torchbearer premium instant coffee, GlowMind Clarity mushroom coffee, and The Monk ceremonial matcha. Fuel your ritual, elevate your life."
           style={{ width: '100%', height: 'auto', display: 'block' }}
           fetchPriority="high"
           loading="eager"
           decoding="async"
           onError={(e) => {
-            // Fallback to placeholder if hero image unavailable
-            e.target.src = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
+            e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
           }}
         />
       </div>
