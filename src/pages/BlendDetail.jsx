@@ -22,12 +22,26 @@ import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock';
 
-const TRUST = [
-  { icon: Zap, label: '100% Instant Coffee' },
-  { icon: ShieldCheck, label: 'Lion\'s Mane + Chaga' },
-  { icon: Truck, label: 'Free Shipping $75+' },
-  { icon: Lock, label: 'Secure Checkout' },
-];
+const TRUST_BY_CATEGORY = {
+  'mushroom-coffee': [
+    { icon: Zap, label: 'Instant — No Machine Needed' },
+    { icon: ShieldCheck, label: "Lion's Mane + Chaga" },
+    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Lock, label: 'Secure Checkout' },
+  ],
+  'classic-coffee': [
+    { icon: Zap, label: 'Instant — No Machine Needed' },
+    { icon: ShieldCheck, label: '100% Premium Arabica' },
+    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Lock, label: 'Secure Checkout' },
+  ],
+  matcha: [
+    { icon: Zap, label: 'Instant — Just Add Water' },
+    { icon: ShieldCheck, label: 'Ceremonial Grade Matcha' },
+    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Lock, label: 'Secure Checkout' },
+  ],
+};
 
 const ACCORDIONS = [
   {
@@ -136,10 +150,22 @@ function BlendDetailInner({ product }) {
   const [isSubscription, setIsSubscription] = useState(false);
   const subscriptionPrice = product.price * 0.8; // 20% off
 
+  const categoryLabel = product.category === 'matcha'
+    ? 'Ceremonial Matcha'
+    : product.category === 'classic-coffee'
+    ? 'Premium Instant Coffee'
+    : 'Instant Mushroom Coffee';
+
+  const seoDesc = product.category === 'matcha'
+    ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Ceremonial grade matcha for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
+    : product.category === 'classic-coffee'
+    ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Premium instant coffee for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
+    : `${product.name} — ${product.tasteDescription} ${product.servings} servings. Instant mushroom coffee with Lion's Mane + Chaga for ${product.bestFor}. Torch Republic Coffee Company.`;
+
   useSEO({
-    title: `${product.name} | Premium Instant Mushroom Coffee – Torch Republic`,
-    description: `${product.description?.slice(0, 155) || `${product.name} instant mushroom coffee with Lion's Mane + Chaga. 27 servings per tube. No coffee maker needed. Free shipping $75+.`}`,
-    url: `/blends/${product.slug}`,
+    title: `${product.name} | ${categoryLabel} – Torch Republic Coffee Company`,
+    description: seoDesc.slice(0, 160),
+    url: `/products/${product.slug}`,
     type: 'product',
     image: product.image,
     product: {
@@ -315,7 +341,7 @@ function BlendDetailInner({ product }) {
               ) : (
                 <img
                   src={product.image}
-                  alt={`${product.name} - ${product.roast} instant mushroom coffee with Lion's Mane and Chaga - ${product.mood} - Torch Republic Coffee Company`}
+                  alt={product.alt || `${product.name} - ${product.roast} ${product.category === 'matcha' ? 'ceremonial matcha' : product.category === 'classic-coffee' ? 'premium instant coffee' : 'instant mushroom coffee'} - Torch Republic Coffee Company`}
                   className="w-full h-full object-contain p-8"
                   style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
                 />
@@ -324,12 +350,12 @@ function BlendDetailInner({ product }) {
 
             {/* Product specs grid below image on desktop */}
             <div className="grid grid-cols-2 gap-2 mt-4">
-              {[
-                ["Lion's Mane + Chaga", 'Mushroom Blend'],
-                ['1.9 oz / 54g', 'Net Weight'],
-                ['27 Servings', 'Per Tube'],
-                ['Instant', 'No Brewer Needed'],
-              ].map(([val, label]) => (
+              {(product.category === 'matcha'
+                ? [['100% Ceremonial Matcha', 'Grade'], ['25 Servings', 'Per Tin'], ['Instant', 'Just Add Water'], ['No Machine', 'Needed']]
+                : product.category === 'classic-coffee'
+                ? [['Premium Arabica', 'Instant Coffee'], ['27 Servings', 'Per Tube'], ['1.9 oz / 54g', 'Net Weight'], ['No Machine', 'Needed']]
+                : [["Lion's Mane + Chaga", 'Mushroom Blend'], ['27 Servings', 'Per Tube'], ['1.9 oz / 54g', 'Net Weight'], ['Instant', 'No Brewer Needed']]
+              ).map(([val, label]) => (
                 <div key={label} className="flex flex-col gap-1 p-3"
                   style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.07)' }}>
                   <p className="font-serif font-bold text-white text-xs">{val}</p>
@@ -357,9 +383,9 @@ function BlendDetailInner({ product }) {
                 style={{ background: `${product.accent}18`, color: product.accent, border: `1px solid ${product.accent}30` }}>
                 {product.roast}
               </span>
-              <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2.5 py-1"
+                      <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2.5 py-1"
                 style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                Instant Mushroom Coffee
+                {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Premium Instant Coffee' : 'Instant Mushroom Coffee'}
               </span>
             </div>
 
@@ -421,7 +447,7 @@ function BlendDetailInner({ product }) {
                 </span>
               )}
               <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                per tube · 27 servings
+                per {product.category === 'matcha' ? 'tin' : 'tube'} · {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
               </span>
             </div>
             {isSubscription && (
@@ -554,7 +580,7 @@ function BlendDetailInner({ product }) {
 
             {/* Trust badges */}
             <div className="grid grid-cols-2 gap-2">
-              {TRUST.map(({ icon: Icon, label }) => (
+              {(TRUST_BY_CATEGORY[product.category] || TRUST_BY_CATEGORY['mushroom-coffee']).map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2 px-3 py-2.5"
                   style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.07)' }}>
                   <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(230,183,173,0.5)' }} />
@@ -615,30 +641,24 @@ function BlendDetailInner({ product }) {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>Premium Instant Coffee</strong> — specialty Arabica base, clean roast
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>500mg Organic Lion's Mane</strong> — dual-extracted for full potency
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>500mg Organic Chaga</strong> — antioxidant-rich, beta-glucan support
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>27 servings · 1.9 oz / 54g</strong> — no artificial flavors, no fillers
-                    </span>
-                  </div>
+                  {[
+                    { label: 'Premium Instant Coffee', detail: 'Specialty Arabica base, clean roast — no artificial flavors' },
+                    { label: "Organic Lion's Mane (Hericium erinaceus)", detail: '[Dosage per serving — supplier verification in progress]' },
+                    { label: 'Organic Chaga (Inonotus obliquus)', detail: '[Dosage per serving — supplier verification in progress]' },
+                    { label: 'Extract Type', detail: '[Fruiting body, mycelium, or blend — add exact extract type here]' },
+                    { label: 'Caffeine', detail: '[Add exact mg per serving — estimated 50–80mg]' },
+                    { label: '27 Servings · 1.9 oz / 54g', detail: 'No artificial colors, flavors, or preservatives' },
+                  ].map(({ label, detail }) => (
+                    <div key={label} className="flex items-start gap-2">
+                      <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px', flexShrink: 0 }}>◆</span>
+                      <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                        <strong style={{ color: '#F7F1E8' }}>{label}</strong> — {detail}
+                      </span>
+                    </div>
+                  ))}
+                  <p className="font-mono text-[7px] tracking-[0.15em] mt-3" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.7 }}>
+                    These statements have not been evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.
+                  </p>
                 </div>
               )}
             </div>

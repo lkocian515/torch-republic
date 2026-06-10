@@ -135,7 +135,7 @@ export default function Footer() {
               © 2026 Torch Republic Coffee Company
             </p>
             <p className="text-[9px] font-mono text-center mt-1" style={{ color: 'rgba(255,255,255,0.12)' }}>
-              Torch Republic Coffee Company is a DBA of LiberTees For All LLC. All rights reserved.
+              Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. All rights reserved.
             </p>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function Footer() {
               © 2026 Torch Republic Coffee Company
             </p>
             <p className="text-[9px] font-mono mt-1" style={{ color: 'rgba(255,255,255,0.12)' }}>
-              Torch Republic Coffee Company is a DBA of LiberTees For All LLC. All rights reserved.
+              Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. All rights reserved.
             </p>
           </div>
         </div>

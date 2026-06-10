@@ -4,6 +4,13 @@ import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
 
+const TRUST_DETAILS = [
+  { label: 'U.S.-Based Small Business', sub: 'Corpus Christi, TX' },
+  { label: 'Customer Support', sub: 'admin@torchrepublic.com' },
+  { label: 'Secure Checkout', sub: '256-bit SSL · Shopify Payments' },
+  { label: '30-Day Guarantee', sub: 'Not satisfied? We make it right.' },
+];
+
 export default function FounderNote() {
   return (
     <section className="px-6 md:px-10 py-20 relative" style={{ background: '#080808' }}>
@@ -22,13 +29,13 @@ export default function FounderNote() {
           {/* Message */}
           <div className="mb-8">
             <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-              Torch Republic began with a simple belief: your morning ritual should help you feel more clear, present, and ready for the day ahead.
+              Torch Republic was created to make daily coffee feel more intentional, grounded, and supportive of the person you are becoming.
             </p>
             <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-              I wanted to create a coffee brand that felt more intentional than the usual caffeine fix — something that supported focus, calm energy, and the small daily choices that help us become who we are meant to be.
+              This brand is built around simple daily rituals — coffee, mushroom coffee, and matcha blends designed for clarity, focus, calm energy, and a more mindful start to the day.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-              Torch Republic is for the people rebuilding, rising, creating, working, healing, leading, and choosing to begin again — one ritual at a time.
+              Torch Republic is not about chasing trends. It is about creating a better daily ritual: one cup, one choice, one morning at a time.
             </p>
           </div>
 
@@ -55,8 +62,30 @@ export default function FounderNote() {
             </p>
           </div>
 
+          {/* Trust details grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8" style={{ borderTop: `1px solid rgba(230,183,173,0.08)` }}>
+            {TRUST_DETAILS.map((item, i) => (
+              <div key={i}>
+                <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
+                  {item.label}
+                </p>
+                <p className="font-heading text-[11px]" style={{ color: 'rgba(210,195,175,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+                  {item.sub}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* DBA statement */}
+          <p className="font-mono text-[8px] tracking-[0.12em] mt-6" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+            Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. ·{' '}
+            <Link to="/shipping-policy" style={{ color: 'rgba(230,183,173,0.4)', textDecoration: 'none' }}>Shipping</Link>{' '}
+            ·{' '}
+            <Link to="/return-policy" style={{ color: 'rgba(230,183,173,0.4)', textDecoration: 'none' }}>Returns</Link>
+          </p>
+
           {/* CTA */}
-          <div className="mt-10">
+          <div className="mt-8">
             <Link
               to="/mission"
               className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
