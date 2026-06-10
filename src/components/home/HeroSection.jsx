@@ -14,14 +14,16 @@ const TRUST_ICONS = [
 export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
-      {/* Hero Banner Image — full width, natural height */}
-      <img
-        src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6acb79309_ChatGPTImageJun10202602_18_46AM.png"
-        alt="Torch Republic Coffee Company — Premium instant coffee, mushroom coffee and matcha for clarity, focus, and intentional daily rituals."
-        style={{ width: '100%', height: 'auto', display: 'block' }}
-        fetchPriority="high"
-        loading="eager"
-      />
+      {/* Hero Banner Image — smaller on desktop, full width on mobile */}
+      <div className="flex justify-center md:max-w-[70vw] mx-auto">
+        <img
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6acb79309_ChatGPTImageJun10202602_18_46AM.png"
+          alt="Torch Republic Coffee Company — Premium instant coffee, mushroom coffee and matcha for clarity, focus, and intentional daily rituals."
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+          fetchPriority="high"
+          loading="eager"
+        />
+      </div>
 
       {/* Headline + CTAs below image */}
       <section
