@@ -1,0 +1,92 @@
+{
+  "name": "Customer",
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "string",
+      "description": "Shopify customer ID"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Customer first name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Customer last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email address"
+    },
+    "accepts_email_marketing": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether customer accepts email marketing"
+    },
+    "total_spent": {
+      "type": "number",
+      "default": 0,
+      "description": "Total amount spent by customer"
+    },
+    "total_orders": {
+      "type": "number",
+      "default": 0,
+      "description": "Total number of orders placed"
+    },
+    "city": {
+      "type": "string",
+      "description": "Customer city"
+    },
+    "state": {
+      "type": "string",
+      "description": "Customer state/province"
+    },
+    "country": {
+      "type": "string",
+      "description": "Customer country"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Customer phone number"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Customer tags"
+    },
+    "segment": {
+      "type": "string",
+      "enum": [
+        "previousPurchasers",
+        "emailSubscribers",
+        "abandonedCart"
+      ],
+      "description": "Customer segment for email campaigns"
+    }
+  },
+  "required": [
+    "customer_id",
+    "email"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
