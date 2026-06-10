@@ -12,7 +12,7 @@ const GOLD = '#C4A35A';
 export default function ClassicCoffeeCollection() {
   useSEO({
     title: 'Premium Instant Coffee | Torch Republic Reserve Collection',
-    description: 'Shop smooth premium instant coffee blends from Torch Republic\'s Reserve Collection. No machine needed. Rich flavor. 27 servings per tube.',
+    description: "Shop smooth premium instant coffee from Torch Republic's Reserve Collection. No machine needed — just add water, stir, and begin your ritual.",
     url: '/classic-coffee',
     type: 'website',
   });
@@ -30,7 +30,7 @@ export default function ClassicCoffeeCollection() {
               Premium Instant Coffee
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Three premium coffee-forward instant blends for smooth energy, rich flavor, and everyday convenience. No machines, no pods — just hot water and a great cup.
+              Not every ritual needs mushrooms. The Torch Republic Reserve Collection is premium instant coffee for customers who want a smooth, simple daily cup — no machine needed.
             </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>

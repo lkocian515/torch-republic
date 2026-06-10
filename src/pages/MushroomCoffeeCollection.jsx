@@ -44,7 +44,7 @@ export default function MushroomCoffeeCollection() {
 
   useSEO({
     title: 'Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: "Explore Torch Republic's instant mushroom coffee blends crafted to support focus, clarity, calm energy, and daily ritual. Lion's Mane + Chaga. No machine needed.",
+    description: "Explore instant mushroom coffee blends crafted for focus, clarity, calm energy, and simple daily ritual. No machine needed.",
     url: '/mushroom-coffee',
     type: 'website',
   });
@@ -364,13 +364,13 @@ export default function MushroomCoffeeCollection() {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>08 — The Torch</p>
             <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-              Coffee for the Part of You That's Still Rising
+              Built for a Better Daily Ritual
             </h2>
             <p className="font-heading mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-              Torch Republic was created for people who want their daily habits to mean something. The morning cup is often the first decision of the day. We believe that decision can be clearer, calmer, and more intentional.
+              Torch Republic was created to make daily coffee feel more intentional, grounded, and supportive. The morning cup is often the first decision of the day — and it can be a clearer, calmer one.
             </p>
             <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-              This is not coffee built around hustle. It is coffee built around return — returning to yourself, your focus, your purpose, and the version of you you are becoming.
+              Premium instant coffee with functional mushrooms, designed for focus, calm energy, and a simple daily ritual you can actually return to.
             </p>
             <Link to="/about" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70" style={{ color: RG, borderBottom: `1px solid ${RG}` }}>
               Our Story →

@@ -6,20 +6,24 @@ const RG = '#E6B7AD';
 
 const BUNDLES = [
   {
-    name: 'Morning Clarity Bundle',
-    description: 'Start every morning with intention. Three blends chosen for clean energy, focus, and a ritual that sets your tone for the day.',
-    includes: 'SunCap Rise + GlowMind Clarity + Torchbearer',
+    name: 'Morning Ritual Bundle',
+    bestFor: 'Classic morning energy and smooth daily routine',
+    description: 'Three blends chosen for clean energy, a smooth start, and a ritual that sets your tone for the day.',
+    includes: 'Torchbearer + Ember Rise + one focus blend',
     servings: '3 tubes · ~81 servings total',
+    perServing: '~$0.93 per serving',
     price: '$74.97',
     accent: '#D6B27A',
-    tag: 'Best for New Customers',
+    tag: 'Great for First-Timers',
     href: '/build-your-ritual',
   },
   {
-    name: 'Calm Focus Bundle',
-    description: 'For the long day. Blends chosen for calm, sustained energy, deep focus, and a smooth wind-down ritual.',
-    includes: 'GlowMind Clarity + MoonCap Restore + The Monk Matcha',
-    servings: '3 tubes · ~79 servings total',
+    name: 'Focus & Clarity Bundle',
+    bestFor: 'Work, creativity, mental clarity, and steady energy',
+    description: 'Blends chosen for sustained focus, calm energy, and deep work rituals throughout your day.',
+    includes: 'GlowMind Clarity + The Oracle + Torchbearer',
+    servings: '3 tubes · ~81 servings total',
+    perServing: '~$0.93 per serving',
     price: '$74.97',
     accent: '#10B981',
     tag: 'Most Popular',
@@ -27,23 +31,27 @@ const BUNDLES = [
     href: '/build-your-ritual',
   },
   {
-    name: 'Full Ritual Bundle',
-    description: 'Experience the complete Torch Republic lineup. Coffee, mushroom coffee, and matcha — morning to evening, beautifully designed.',
-    includes: 'Choose any 6 blends from all three categories',
-    servings: '6 tubes · ~156 servings total',
-    price: '$129.99',
-    accent: '#E6B7AD',
-    tag: 'Best Value',
+    name: 'Calm Energy Bundle',
+    bestFor: 'Slower mornings, reset rituals, and smoother energy',
+    description: 'Designed for afternoons, wind-down rituals, and customers who want calmer, smoother energy.',
+    includes: 'MoonCap Restore + DreamCap + The Monk Matcha',
+    servings: '3 tubes · ~79 servings total',
+    perServing: '~$0.95 per serving',
+    price: '$74.97',
+    accent: '#8B9ED4',
+    tag: 'Best for Evenings',
     href: '/build-your-ritual',
   },
   {
-    name: 'Coffee + Matcha Starter',
-    description: 'The perfect introduction. Premium instant coffee meets ceremonial matcha — two rituals, one beautiful bundle.',
-    includes: 'Torchbearer + Ember Rise + The Monk Matcha',
-    servings: '3 tubes · ~79 servings total',
-    price: '$74.97',
-    accent: '#8BC45A',
-    tag: 'Coffee-Forward',
+    name: 'Full Torch Ritual Bundle',
+    bestFor: 'The complete coffee, mushroom coffee, and matcha experience',
+    description: 'Experience the full Torch Republic lineup — classic coffee, mushroom coffee, and matcha in one ritual-ready bundle.',
+    includes: 'Choose any 6 blends from all three categories',
+    servings: '6 tubes · ~156 servings total',
+    perServing: '~$0.83 per serving',
+    price: '$129.99',
+    accent: '#E6B7AD',
+    tag: 'Best Value',
     href: '/build-your-ritual',
   },
 ];
@@ -68,7 +76,7 @@ export default function BundleSection() {
             The Best Way to Begin
           </h2>
           <p className="font-heading mx-auto mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
-            Not sure where to begin? Start with a curated ritual bundle and experience the full Torch Republic lineup — coffee, mushroom coffee, and matcha designed for different moments of your day.
+            Not sure where to begin? Start with a curated Torch Republic bundle and experience coffee, mushroom coffee, and matcha designed for different moments of your day.
           </p>
         </motion.div>
 
@@ -98,9 +106,14 @@ export default function BundleSection() {
 
               <div className="p-6 flex flex-col flex-1">
                 {/* Name */}
-                <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.1rem', lineHeight: 1.2 }}>
+                <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.1rem', lineHeight: 1.2 }}>
                   {bundle.name}
                 </h3>
+
+                {/* Best for */}
+                <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-3" style={{ color: `${bundle.accent}80` }}>
+                  Best for: {bundle.bestFor}
+                </p>
 
                 {/* Description */}
                 <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
@@ -115,9 +128,12 @@ export default function BundleSection() {
                   {bundle.includes}
                 </p>
 
-                {/* Servings */}
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                {/* Servings + per serving */}
+                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>
                   ✦ {bundle.servings}
+                </p>
+                <p className="font-mono text-[9px] tracking-[0.12em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.35)' }}>
+                  {bundle.perServing}
                 </p>
 
                 {/* Price + CTA */}

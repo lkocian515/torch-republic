@@ -12,7 +12,7 @@ const MATCHA_GREEN = '#10B981';
 export default function MatchaCollection() {
   useSEO({
     title: 'Ceremonial Matcha Blends | Torch Republic Coffee Company',
-    description: 'Discover premium matcha blends designed for smooth focus, presence, and intentional daily energy rituals. Instant preparation. No whisk needed.',
+    description: 'Discover premium matcha blends designed for smooth focus, daily presence, and intentional energy rituals. No whisk or machine needed.',
     url: '/matcha',
     type: 'website',
   });

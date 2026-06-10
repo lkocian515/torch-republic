@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReserveDifferenceSection from '../components/reserve/ReserveDifferenceSection';
+import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -93,10 +94,18 @@ export default function Torchbearer() {
   const [specsOpen, setSpecsOpen] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  // Torchbearer SEO injected inline — page uses no useSEO hook currently
-  React.useEffect(() => {
-    document.title = 'Torchbearer Reserve Instant Coffee | Torch Republic';
-  }, []);
+  useSEO({
+    title: 'Torchbearer Instant Coffee | Torch Republic Reserve Collection',
+    description: 'Torchbearer is a smooth premium instant coffee for a simple morning ritual. No machine needed — just add water, stir, and begin.',
+    url: '/torchbearer',
+    type: 'product',
+    product: {
+      name: 'Torchbearer™ Reserve',
+      description: 'Single-origin Papua New Guinea instant coffee. Medium roast. 27 servings per tube. No machine needed.',
+      price: 24.99,
+      sku: 'torchbearer-premium-instant-coffee',
+    },
+  });
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0a0806' }}>

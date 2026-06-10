@@ -6,8 +6,9 @@ import { useSEO } from '@/hooks/useSEO';
 
 export default function MushroomFAQ() {
   useSEO({
-    title: 'FAQ | Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Answers about Torch Republic instant coffee, mushroom coffee, and matcha. Learn about taste, caffeine, preparation, ingredients, shipping, and choosing your blend.',
+    title: 'FAQ | Torch Republic Coffee Company',
+    description: 'Get answers about Torch Republic instant coffee, mushroom coffee, matcha, servings, caffeine, preparation, subscriptions, shipping, and returns.',
+    url: '/faq',
   });
 
   const faqSchema = {

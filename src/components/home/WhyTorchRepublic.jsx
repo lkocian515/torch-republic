@@ -5,19 +5,19 @@ const RG = '#E6B7AD';
 
 const CARDS = [
   {
-    title: 'Instant Daily Ritual',
-    body: 'No machine, pods, grinder, or complicated routine. Just add water or milk, stir, and begin. Ready in seconds, every morning.',
+    title: 'Ingredient Clarity',
+    body: 'Every blend page clearly explains what is inside, how much caffeine it contains, and what kind of ritual it is best for.',
+    icon: '🌿',
+  },
+  {
+    title: 'Instant Convenience',
+    body: 'No machine, pods, grinder, or complicated routine. Just add water or milk, stir, and begin.',
     icon: '⚡',
   },
   {
     title: 'Coffee, Mushroom Coffee & Matcha',
-    body: 'A complete ritual collection for different moments of your day — morning energy, focused work, calm reset, and smooth matcha clarity.',
+    body: 'A complete ritual collection for different moments of your day — classic morning coffee, focused mushroom coffee, calming blends, and smooth matcha clarity.',
     icon: '☕',
-  },
-  {
-    title: 'Ingredient Transparency',
-    body: 'Each product page clearly explains what is inside, how much caffeine it contains, how to prepare it, and what kind of ritual it is best for.',
-    icon: '🌿',
   },
   {
     title: 'Founder-Led Small Business',
@@ -41,7 +41,7 @@ export default function WhyTorchRepublic() {
             Why Torch Republic?
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Made for the Way You Actually Live
+            Made for a Better Daily Ritual
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.97rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.9 }}>
             Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
