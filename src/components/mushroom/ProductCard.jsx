@@ -78,21 +78,36 @@ export default function MushroomProductCard({ product, index = 0 }) {
           style={{ aspectRatio: '1/1', background: '#141414' }}>
           {product.image ? (
             <img
-              src={product.image}
+              src={`${product.image}${product.image.includes('?') ? '&' : '?'}v=${Date.now()}`}
               alt={`${product.name} - ${product.roast} instant ${product.category === 'matcha' ? 'matcha' : 'mushroom coffee'} with ${product.flavorNotes?.join(', ') || 'rich flavor'} - Torch Republic`}
               loading="lazy"
               decoding="async"
+              crossOrigin="anonymous"
               className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
               style={{ padding: '12px' }}
+              onError={(e) => {
+                console.error('Image failed to load:', product.image);
+                e.target.style.display = 'none';
+                const placeholder = e.target.parentElement.querySelector('.image-error-placeholder');
+                if (placeholder) {
+                  placeholder.style.display = 'flex';
+                  placeholder.querySelector('p').textContent = 'Image unavailable';
+                }
+              }}
+              onLoad={(e) => {
+                const placeholder = e.target.parentElement.querySelector('.image-error-placeholder');
+                if (placeholder) placeholder.style.display = 'none';
+              }}
             />
-          ) : (
-            <div className="flex flex-col items-center justify-center w-full h-full gap-3 p-8">
-              <div className="w-16 h-16 rounded-full border border-dashed"
-                style={{ borderColor: `${product.accent}40` }} />
-              <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-                style={{ color: `${product.accent}50` }}>Coming Soon</p>
-            </div>
-          )}
+          ) : null}
+          {/* Error placeholder - shown if image fails to load */}
+          <div className="image-error-placeholder flex-col items-center justify-center w-full h-full gap-3 p-8 absolute inset-0"
+            style={{ background: '#141414', display: product.image ? 'none' : 'flex' }}>
+            <div className="w-16 h-16 rounded-full border border-dashed"
+              style={{ borderColor: `${product.accent}40` }} />
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
+              style={{ color: `${product.accent}50` }}>Loading image...</p>
+          </div>
           {/* Roast badge */}
           <div className="absolute top-3 left-3">
             <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2 py-1"

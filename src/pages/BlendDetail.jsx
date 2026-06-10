@@ -102,10 +102,15 @@ function GalleryCarousel({ images, accent, productName }) {
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.35 }}
-          src={images[currentIndex]}
+          src={`${images[currentIndex]}${images[currentIndex].includes('?') ? '&' : '?'}v=${Date.now()}`}
           alt={`${productName} gallery image ${currentIndex + 1}`}
           className="w-full h-full object-contain p-6"
           style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
+          crossOrigin="anonymous"
+          onError={(e) => {
+            console.error('Gallery image failed to load:', images[currentIndex]);
+            e.target.style.opacity = '0.5';
+          }}
         />
         
         {/* Navigation arrows */}
@@ -311,8 +316,21 @@ function BlendDetailInner({ product }) {
                   alt={product.alt || `${product.name} - ${product.roast} ${product.category === 'matcha' ? 'ceremonial matcha' : product.category === 'classic-coffee' ? 'premium instant coffee' : 'instant mushroom coffee'} - Torch Republic Coffee Company`}
                   className="w-full h-full object-contain p-8"
                   style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    const placeholder = e.target.parentElement.querySelector('.product-image-error');
+                    if (placeholder) placeholder.style.display = 'flex';
+                  }}
                 />
               )}
+              {/* Error placeholder */}
+              <div className="product-image-error hidden flex-col items-center justify-center gap-4 p-12 absolute inset-0"
+                style={{ background: '#0C0C0C', display: (!product.image || product.imagePlaceholder) ? 'flex' : 'none' }}>
+                <div className="w-24 h-24 rounded-full border-2 border-dashed"
+                  style={{ borderColor: `${product.accent}35` }} />
+                <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
+                  style={{ color: `${product.accent}50` }}>Image loading...</p>
+              </div>
             </div>
 
             {/* Product specs grid below image on desktop */}
