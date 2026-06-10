@@ -12,11 +12,14 @@ export default function Cart() {
 
   // Build the Shopify checkout URL with all current cart items
   const checkoutUrl = useMemo(() => {
-    if (items.length === 0) return SHOPIFY_CART_URL;
+    if (items.length === 0) return null;
     const mapped = items
       .filter(i => SHOPIFY_VARIANT_IDS[i.shopifyHandle || i.id])
       .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }));
-    return mapped.length > 0 ? getShopifyBundleUrl(mapped) : SHOPIFY_CART_URL;
+    if (mapped.length === 0) return null;
+    const baseUrl = getShopifyBundleUrl(mapped);
+    // Append welcome10 discount for first-time customers
+    return baseUrl ? `${baseUrl}?discount=welcome10` : null;
   }, [items]);
 
   if (items.length === 0) {
@@ -136,18 +139,41 @@ export default function Cart() {
                 First order? Use <strong style={{ color: RG }}>WELCOME10</strong> at checkout for 10% off
               </p>
 
-              <a
-                href={checkoutUrl}
-                className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
-                style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
-              >
-                <Lock className="w-3.5 h-3.5" />
-                Secure Checkout →
-              </a>
+              {!checkoutUrl ? (
+                <button
+                  disabled
+                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 mb-3 opacity-50 cursor-not-allowed"
+                  style={{ background: 'rgba(230,183,173,0.3)', color: 'rgba(255,255,255,0.3)' }}
+                >
+                  <Lock className="w-3.5 h-3.5" />
+                  Your cart is empty
+                </button>
+              ) : (
+                <a
+                  href={checkoutUrl}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = checkoutUrl;
+                  }}
+                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                  style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
+                >
+                  <Lock className="w-3.5 h-3.5" />
+                  Secure Checkout →
+                </a>
+              )}
 
               <p className="font-mono text-[7px] tracking-[0.15em] text-center mb-4" style={{ color: 'rgba(230,183,173,0.45)', lineHeight: 1.8 }}>
-                Secure Checkout • Ships from the U.S. • Easy Returns • Subscribe &amp; Save Available
+                Secure checkout powered by Shopify
               </p>
+
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Secure Checkout</span>
+                <span style={{ color: 'rgba(230,183,173,0.2)' }}>•</span>
+                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Ships from the U.S.</span>
+                <span style={{ color: 'rgba(230,183,173,0.2)' }}>•</span>
+                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Easy Returns</span>
+              </div>
 
               <Link to="/build-your-ritual"
                 className="w-full block text-center font-mono text-[9px] tracking-[0.25em] uppercase py-3 transition-all hover:opacity-70"

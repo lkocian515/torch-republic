@@ -13,7 +13,7 @@
 
 // Use the canonical customer domain for all cart/checkout links.
 // torchrepublic.com must be set as the custom domain in Shopify Admin → Domains.
-const SHOPIFY_DOMAIN = 'https://torchrepublic.com';
+const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 
 // ── Per-product Shopify variant IDs ──────────────────────────────────────────
 // Replace each REPLACE_WITH_VARIANT_ID with the real numeric variant ID from Shopify Admin.

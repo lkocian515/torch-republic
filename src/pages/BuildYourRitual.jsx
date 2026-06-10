@@ -50,7 +50,8 @@ export default function BuildYourRitual() {
         return handle ? { slug: handle, qty: 1 } : null;
       }).filter(Boolean);
 
-      const url = getShopifyBundleUrl(items);
+      const baseUrl = getShopifyBundleUrl(items);
+      const url = baseUrl ? `${baseUrl}?discount=welcome10` : null;
       console.log('[Bundle] Cart URL:', url);
 
       if (!url) {
@@ -102,7 +103,11 @@ export default function BuildYourRitual() {
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
                   </div>
                   <a
-                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1"
+                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome10"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = 'https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome10';
+                    }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
                   >
@@ -405,13 +410,30 @@ export default function BuildYourRitual() {
       {/* Sticky mobile checkout CTA when bundle is complete */}
       {selectedProducts.length === 3 && (
         <div className="md:hidden fixed bottom-16 left-0 right-0 z-30 flex justify-center px-6" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-          <button
-            onClick={handleAddToCart}
+          <a
+            href={(() => {
+              const items = selectedProducts.map(id => {
+                const product = ALL_PRODUCTS.find(p => p.id === id);
+                return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
+              }).filter(Boolean);
+              const baseUrl = getShopifyBundleUrl(items);
+              return baseUrl ? `${baseUrl}?discount=welcome10` : '#';
+            })()}
+            onClick={(e) => {
+              e.preventDefault();
+              const items = selectedProducts.map(id => {
+                const product = ALL_PRODUCTS.find(p => p.id === id);
+                return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
+              }).filter(Boolean);
+              const baseUrl = getShopifyBundleUrl(items);
+              const url = baseUrl ? `${baseUrl}?discount=welcome10` : null;
+              if (url) window.location.href = url;
+            }}
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
-            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)' }}
+            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)', textDecoration: 'none', display: 'block' }}
           >
             Add Bundle to Cart — ${bundlePrice}
-          </button>
+          </a>
         </div>
       )}
 
