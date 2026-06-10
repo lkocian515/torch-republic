@@ -25,8 +25,8 @@ const FAQS = [
 
 export default function MushroomCoffeeBenefits() {
   useSEO({
-    title: 'Mushroom Coffee Benefits | Lion\'s Mane, Chaga, Cordyceps & More',
-    description: "Everything you need to know about mushroom coffee benefits — Lion's Mane for focus, Chaga for immunity, Cordyceps for energy, Reishi for calm. Science-backed, honestly explained.",
+    title: "Mushroom Coffee Benefits | Lion's Mane & Chaga | Torch Republic Coffee Co.",
+    description: "What does mushroom coffee actually do? Learn how Lion's Mane and Chaga support focus, clarity, and calm energy in Torch Republic instant coffee blends. Science explained simply.",
     url: '/mushroom-coffee-benefits',
   });
 

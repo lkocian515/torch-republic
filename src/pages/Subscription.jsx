@@ -95,7 +95,7 @@ export default function Subscription() {
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            Torch Republic Coffee Company
+            Torch Republic Coffee Co.
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>

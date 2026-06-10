@@ -174,10 +174,10 @@ function EarningRule({ rule, index }) {
 
 export default function LoyaltyPortal() {
   useSEO({
-    title: 'Loyalty Rewards | Torch Republic',
-    description: 'Track your Torch Republic loyalty points, unlock rewards, and save on premium instant coffee, mushroom coffee, and matcha.',
+    title: 'Loyalty Rewards | Torch Republic Coffee Co.',
+    description: 'Track your Torch Republic loyalty points and unlock rewards.',
     url: '/loyalty',
-    type: 'website',
+    noindex: true,
   });
 
   const [isAuthenticated, setIsAuthenticated] = useState(null);

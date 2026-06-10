@@ -23,8 +23,8 @@ const PRODUCTS = [
 
 export default function LionsManeCoffee() {
   useSEO({
-    title: "Lion's Mane Coffee | Focus & Clarity | Torch Republic",
-    description: "Lion's Mane mushroom coffee for focus, mental clarity, and cognitive support. 500mg dual-extracted per serving. No jitters. No crash. Tastes like premium coffee.",
+    title: "Lion's Mane Mushroom Coffee | Torch Republic Coffee Co.",
+    description: "Instant mushroom coffee with Lion's Mane for focus, mental clarity, and calm energy. Coffee-forward taste, no machines needed. Shop Torch Republic mushroom coffee blends.",
     url: '/lions-mane-coffee',
   });
 

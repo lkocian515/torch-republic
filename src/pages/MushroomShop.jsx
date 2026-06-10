@@ -33,8 +33,8 @@ export default function MushroomShop() {
   const [caffeineFilter, setCaffeineFilter] = useState('all');
 
   useSEO({
-    title: 'Shop All Products | Torch Republic Coffee Company',
-    description: "Shop premium instant coffee, mushroom coffee, and matcha from Torch Republic. Classic Arabica, functional blends with Lion's Mane + Chaga, and ceremonial grade matcha. No machine needed.",
+    title: 'Shop All Blends | Torch Republic Coffee Co.',
+    description: "Shop all premium instant coffee, mushroom coffee, and matcha blends from Torch Republic Coffee Co. No pods, no machines. Just add hot water and begin your ritual.",
     url: '/shop',
   });
 

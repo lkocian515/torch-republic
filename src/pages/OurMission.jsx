@@ -29,8 +29,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'Our Mission | Torch Republic Coffee Company',
-    description: 'Torch Republic exists to turn the daily cup into a ritual for clarity, resilience, discipline, restoration, creativity, and purpose.',
+    title: 'Our Mission | Torch Republic Coffee Co.',
+    description: 'Torch Republic Coffee Co. was built to make your daily coffee feel intentional. Learn about our brand, our founder, and why conscious instant coffee matters.',
     url: '/mission',
     type: 'website',
   });

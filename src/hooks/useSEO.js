@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const BASE_URL = 'https://torchrepublic.com';
-const SITE_NAME = 'Torch Republic Coffee Company';
+const SITE_NAME = 'Torch Republic Coffee Co.';
 const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
 
 /**
@@ -25,7 +25,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     // Avoid double-branding — only append if not already present
     const fullTitle = title
       ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
-      : `${SITE_NAME} | Premium Instant Mushroom Coffee`;
+      : `${SITE_NAME} | Conscious Instant Coffee, Mushroom Coffee & Matcha`;
     const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
 

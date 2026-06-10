@@ -20,8 +20,8 @@ const STEPS = [
 
 export default function InstantCoffeeForEnergy() {
   useSEO({
-    title: 'Best Instant Coffee for Energy | Clean, No-Crash | Torch Republic',
-    description: 'The best instant coffee for sustained energy — without the crash. Functional mushroom blends with Cordyceps and Lion\'s Mane for clean focus and calm alertness. Ready in 30 seconds.',
+    title: 'Instant Coffee for Clean Energy | No Crash | Torch Republic Coffee Co.',
+    description: 'Premium instant coffee and mushroom coffee blends for clean, sustained energy without the crash. No machines, no pods. Just add hot water and begin. Shop Torch Republic Coffee Co.',
     url: '/instant-coffee-for-energy',
   });
 
