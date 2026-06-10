@@ -10,8 +10,14 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
         }
 
-        // Fetch all existing EmailCampaign records
-        const existingRecords = await base44.entities.EmailCampaign.list();
+        // Fetch all customers from Customer entity
+        const customers = await base44.entities.Customer.list();
+        
+        console.log('=== SEGMENTATION START ===');
+        console.log('Total customers fetched:', customers.length);
+        if (customers.length > 0) {
+            console.log('First customer structure:', JSON.stringify(customers[0], null, 2));
+        }
         
         // Segment customers based on their purchase history
         const segments = {
@@ -23,27 +29,35 @@ Deno.serve(async (req) => {
         // Group by unique email
         const emailMap = new Map();
         
-        console.log('Total records:', existingRecords.length);
-        console.log('First record:', JSON.stringify(existingRecords[0]));
-        
-        existingRecords.forEach(record => {
-            const email = record?.data?.recipient_email;
+        customers.forEach(customer => {
+            // Customer entity returns flat data (not wrapped in .data)
+            const email = customer?.email;
             if (!email || !email.includes('@')) return;
             
             // Skip if already processed
             if (emailMap.has(email)) return;
             
+            const name = (customer.first_name || customer.last_name) 
+                ? `${customer.first_name || ''} ${customer.last_name || ''}`.trim()
+                : '';
+            
             const customerData = {
                 email: email,
-                name: record.data.customer_name || '',
-                totalSpent: record.data.revenue || 0,
-                ordersCount: record.data.converted ? 1 : 0,
+                name: name,
+                first_name: customer.first_name || '',
+                last_name: customer.last_name || '',
+                total_spent: customer.total_spent || 0,
+                total_orders: customer.total_orders || 0,
+                accepts_email_marketing: customer.accepts_email_marketing || false,
+                customer_id: customer.customer_id || '',
             };
 
-            // Segment based on purchase history
-            if (customerData.ordersCount > 0 || customerData.totalSpent > 0) {
+            console.log('Processing customer:', email, 'orders:', customerData.total_orders, 'spent:', customerData.total_spent, 'marketing:', customerData.accepts_email_marketing);
+
+            // Segment based on purchase history and marketing consent
+            if (customerData.total_orders > 0 || customerData.total_spent > 0) {
                 segments.previousPurchasers.push(customerData);
-            } else if (record.data.segment === 'emailSubscribers') {
+            } else if (customerData.accepts_email_marketing) {
                 segments.emailSubscribers.push(customerData);
             } else {
                 segments.abandonedCart.push(customerData);
@@ -70,7 +84,7 @@ Deno.serve(async (req) => {
         return Response.json({
             success: true,
             data: result,
-            message: `Successfully segmented ${emailMap.size} customers`,
+            message: `Successfully segmented ${emailMap.size} customers from Customer entity`,
         });
     } catch (error) {
         return Response.json({ 
