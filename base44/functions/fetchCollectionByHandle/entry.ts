@@ -42,7 +42,7 @@ Deno.serve(async (req) => {
       }
     }`;
 
-    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-04/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ Deno.serve(async (req) => {
         }
       }`;
 
-      const tagRes = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+      const tagRes = await fetch(`https://${SHOP_DOMAIN}/api/2024-04/graphql.json`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -805,35 +805,46 @@ export default function BlendDetail() {
         const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
         const localProduct = localProducts.find(p => p.slug === slug);
         
-        if (!localProduct) return;
+        if (!localProduct) {
+          console.error('Product not found in local catalog:', slug);
+          setLoading(false);
+          return;
+        }
 
-        // Fetch Shopify data for this product
-        const response = await base44.functions.invoke('fetchCollectionByHandle', {
-          handle: localProduct.category === 'matcha' ? 'matcha' : localProduct.category === 'classic-coffee' ? 'classic-coffee' : 'mushroom-coffee',
-        });
+        // Fetch ALL Shopify products to ensure we find the match
+        const response = await base44.functions.invoke('fetchShopifyProducts', {});
         
         if (response.data?.products) {
+          // Try multiple matching strategies
           const shopifyProduct = response.data.products.find(p => 
-            p.handle === localProduct.shopifyHandle || p.handle === localProduct.handle
+            p.handle === localProduct.shopifyHandle ||  // Primary: match by shopifyHandle
+            p.handle === localProduct.slug ||           // Fallback: match by slug
+            p.handle === localProduct.id                // Last resort: match by id
           );
           
           if (shopifyProduct) {
+            console.log('✅ Found Shopify match for', localProduct.name, ':', shopifyProduct.handle);
             // Merge Shopify data with local product
             setProduct({
               ...localProduct,
-              image: shopifyProduct.image_url || localProduct.image,
-              galleryImages: shopifyProduct.image_url ? [shopifyProduct.image_url, ...(localProduct.galleryImages || [])] : localProduct.galleryImages,
+              image: shopifyProduct.featuredImage || shopifyProduct.images?.[0] || localProduct.image,
+              galleryImages: shopifyProduct.images?.length > 0 ? shopifyProduct.images : localProduct.galleryImages,
               price: shopifyProduct.price || localProduct.price,
-              inStock: shopifyProduct.in_stock,
+              inStock: shopifyProduct.availableForSale,
             });
           } else {
+            console.warn('⚠️ No Shopify match for', localProduct.name, '- using local data. Searched for:', localProduct.shopifyHandle, localProduct.slug, localProduct.id);
             setProduct(localProduct);
           }
         } else {
+          console.warn('⚠️ No Shopify products returned - using local data');
           setProduct(localProduct);
         }
       } catch (error) {
-        console.error('Failed to fetch product from Shopify:', error);
+        console.error('❌ Failed to fetch product from Shopify:', error);
+        // Fallback to local product
+        const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
+        setProduct(localProducts.find(p => p.slug === slug));
       } finally {
         setLoading(false);
       }

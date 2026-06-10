@@ -58,7 +58,7 @@ Deno.serve(async (req) => {
       }
     }`;
 
-    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,10 +68,13 @@ Deno.serve(async (req) => {
     });
 
     if (!res.ok) {
-      throw new Error(`Shopify API returned ${res.status}`);
+      const errorText = await res.text();
+      console.error('❌ Shopify API error:', res.status, errorText);
+      throw new Error(`Shopify API returned ${res.status}: ${errorText}`);
     }
 
     const data = await res.json();
+    console.log('✅ Shopify API response received');
     
     // Transform products into a simpler format
     const products = data?.data?.products?.edges?.map(e => {
@@ -105,6 +108,7 @@ Deno.serve(async (req) => {
       };
     }) || [];
 
+    console.log(`✅ Returning ${products.length} products and ${collections.length} collections`);
     return Response.json({
       products,
       collections,
@@ -113,7 +117,7 @@ Deno.serve(async (req) => {
     });
 
   } catch (error) {
-    console.error('fetchShopifyProducts error:', error);
+    console.error('❌ fetchShopifyProducts error:', error);
     return Response.json({ 
       error: error.message,
       products: [],
