@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
-import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
+import { useCart } from '@/contexts/CartContext';
 
 // Best-for label per product shopifyHandle
 const BEST_FOR = {
@@ -22,31 +22,28 @@ const BEST_FOR = {
 };
 
 export default function MushroomProductCard({ product, index = 0 }) {
-  const shopifyUrl = getShopifyCartUrl(product.shopifyHandle, 1);
+  const { addItem } = useCart();
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    // Track add to cart from product card
+    addItem({
+      id: product.id || product.slug,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+      servings: product.servings,
+      shopifyHandle: product.shopifyHandle,
+    });
     try {
       if (window.gtag) {
         window.gtag('event', 'add_to_cart', {
-          currency: 'USD',
-          value: product.price,
-          items: [{
-            item_id: product.shopifyHandle || product.slug,
-            item_name: product.name,
-            price: product.price,
-            quantity: 1
-          }]
+          currency: 'USD', value: product.price,
+          items: [{ item_id: product.shopifyHandle, item_name: product.name, price: product.price, quantity: 1 }]
         });
       }
-    } catch (e) {
-      // Silent fail
-    }
-    
-    window.location.href = shopifyUrl || 'https://torchrepublic.com/shop';
+    } catch (_) {}
   };
 
   const bestFor = BEST_FOR[product.shopifyHandle] || product.mood;
@@ -156,7 +153,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
         {/* WELCOME15 nudge */}
         <p className="font-mono text-[7px] tracking-[0.18em] uppercase mt-1.5"
           style={{ color: 'rgba(196,163,90,0.5)' }}>
-          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME15</span> for 15% off
+          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME15</span> for 15% off at checkout
         </p>
       </div>
 

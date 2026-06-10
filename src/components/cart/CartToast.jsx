@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { CheckCircle } from 'lucide-react';
-import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 export default function CartToast() {
   const { toast } = useCart();
@@ -30,12 +29,12 @@ export default function CartToast() {
               {toast}
             </p>
             <div className="flex items-center gap-3 w-full">
-              <a
-                href={SHOPIFY_CART_URL}
+              <Link
+                to="/cart"
                 className="flex-1 font-mono text-[9px] tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:opacity-90"
                 style={{ background: '#E6B7AD', color: '#080808', fontWeight: 700, textDecoration: 'none' }}>
                 View Cart
-              </a>
+              </Link>
               <Link to="/shop"
                 className="flex-1 font-mono text-[9px] tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:border-rose-gold"
                 style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.6)' }}>

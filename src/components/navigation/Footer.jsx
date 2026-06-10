@@ -9,6 +9,7 @@ const FOOTER_LINKS = [
       { label: 'Classic Coffee', href: '/classic-coffee' },
       { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
       { label: 'Matcha', href: '/matcha' },
+      { label: 'Build Your Ritual', href: '/build-your-ritual' },
       { label: 'Bundles', href: '/bundle' },
     ]
   },
@@ -17,6 +18,7 @@ const FOOTER_LINKS = [
     links: [
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'Journal', href: '/journal' },
+      { label: 'Reviews', href: '/reviews' },
       { label: 'About', href: '/about' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },

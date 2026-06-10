@@ -1,12 +1,166 @@
-import { useEffect } from 'react';
-import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useCart } from '@/contexts/CartContext';
+import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft } from 'lucide-react';
 
-// /cart is no longer a local page — all cart actions go directly to Shopify.
-// If anyone navigates here manually, redirect them immediately.
+const RG = '#E6B7AD';
+
 export default function Cart() {
-  useEffect(() => {
-    window.location.replace(SHOPIFY_CART_URL);
-  }, []);
+  const { items, updateQty, removeItem, subtotal, totalItems } = useCart();
 
-  return null;
+  // Build the Shopify checkout URL with all current cart items
+  const checkoutUrl = useMemo(() => {
+    if (items.length === 0) return SHOPIFY_CART_URL;
+    const mapped = items
+      .filter(i => SHOPIFY_VARIANT_IDS[i.shopifyHandle || i.id])
+      .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }));
+    return mapped.length > 0 ? getShopifyBundleUrl(mapped) : SHOPIFY_CART_URL;
+  }, [items]);
+
+  if (items.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center" style={{ background: '#080808', color: '#F0EBE1' }}>
+        <ShoppingBag className="w-12 h-12 mb-6" style={{ color: 'rgba(230,183,173,0.3)' }} />
+        <h1 className="font-serif font-bold text-2xl mb-3" style={{ color: '#F5EFE6' }}>Your Ritual Awaits</h1>
+        <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
+          You haven't added anything yet.
+        </p>
+        <Link to="/shop"
+          className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-10 py-4 transition-all hover:opacity-90"
+          style={{ background: RG, color: '#080808' }}>
+          Shop Now
+        </Link>
+        <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
+          Use code <strong>WELCOME10</strong> at checkout for 10% off your first order
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen" style={{ background: '#080808', color: '#F0EBE1' }}>
+      <div className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
+
+        {/* Header */}
+        <div className="flex items-center justify-between mb-10">
+          <h1 className="font-serif font-bold text-2xl" style={{ color: '#F5EFE6' }}>
+            Your Cart <span className="font-mono text-base font-normal" style={{ color: 'rgba(230,183,173,0.5)' }}>({totalItems})</span>
+          </h1>
+          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            Continue Shopping
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Items */}
+          <div className="lg:col-span-2 space-y-4">
+            {items.map(item => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                className="flex items-center gap-4 p-4"
+                style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}
+              >
+                {item.image && (
+                  <img src={item.image} alt={item.name} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#141414', padding: '4px' }} />
+                )}
+                <div className="flex-1 min-w-0">
+                  <p className="font-serif font-bold text-sm mb-0.5 truncate" style={{ color: '#F5EFE6' }}>{item.name}</p>
+                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                    {item.category === 'matcha' ? 'Ceremonial Matcha' : item.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
+                    {' · '}{item.servings || (item.category === 'matcha' ? 25 : 27)} servings
+                  </p>
+                  <div className="flex items-center gap-3">
+                    {/* Qty controls */}
+                    <div className="flex items-center gap-2" style={{ border: '1px solid rgba(230,183,173,0.15)' }}>
+                      <button
+                        onClick={() => item.qty <= 1 ? removeItem(item.id) : updateQty(item.id, -1)}
+                        className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
+                        style={{ color: 'rgba(230,183,173,0.6)' }}
+                        aria-label="Decrease quantity"
+                      >
+                        <Minus className="w-3 h-3" />
+                      </button>
+                      <span className="font-mono text-xs w-5 text-center" style={{ color: '#F5EFE6' }}>{item.qty}</span>
+                      <button
+                        onClick={() => updateQty(item.id, 1)}
+                        className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
+                        style={{ color: 'rgba(230,183,173,0.6)' }}
+                        aria-label="Increase quantity"
+                      >
+                        <Plus className="w-3 h-3" />
+                      </button>
+                    </div>
+                    <span className="font-mono font-bold text-sm" style={{ color: RG }}>${(item.price * item.qty).toFixed(2)}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => removeItem(item.id)}
+                  className="w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all hover:opacity-70"
+                  style={{ color: 'rgba(230,183,173,0.35)' }}
+                  aria-label="Remove item"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Summary */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 p-6" style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.15)' }}>
+              <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>Order Summary</p>
+
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.5)' }}>Subtotal</span>
+                <span className="font-mono font-bold" style={{ color: '#F5EFE6' }}>${subtotal.toFixed(2)}</span>
+              </div>
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.5)' }}>Shipping</span>
+                <span className="font-mono text-[10px]" style={{ color: '#10B981' }}>Calculated at checkout</span>
+              </div>
+
+              {/* Discount nudge */}
+              <p className="font-mono text-[8px] tracking-[0.15em] text-center mb-4 p-3" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.12)', color: 'rgba(230,183,173,0.6)', lineHeight: 1.7 }}>
+                First order? Use <strong style={{ color: RG }}>WELCOME10</strong> at checkout for 10% off
+              </p>
+
+              <a
+                href={checkoutUrl}
+                className="w-full flex items-center justify-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
+              >
+                <Lock className="w-3.5 h-3.5" />
+                Secure Checkout
+              </a>
+
+              <Link to="/shop"
+                className="w-full block text-center font-mono text-[9px] tracking-[0.25em] uppercase py-3 transition-all hover:opacity-70"
+                style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.55)' }}>
+                Continue Shopping
+              </Link>
+
+              {/* Trust signals */}
+              <div className="mt-6 space-y-2">
+                {[
+                  '🔒 Secure Shopify Checkout',
+                  '🚚 Free shipping on orders $75+',
+                  '✦ 30-Day satisfaction guarantee',
+                  '🇺🇸 U.S.-based independent brand',
+                ].map((line, i) => (
+                  <p key={i} className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>{line}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
