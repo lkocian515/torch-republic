@@ -332,7 +332,77 @@ export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5
 export const BUNDLE_IMAGE = HERO_IMAGE;
 export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
 
-// Collection showcase images
-export const MUSHROOM_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png';
-export const CLASSIC_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/418e48b93_jbbjkvbjkhbjk.png';
-export const MATCHA_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d45c1a86_bhjbkjjk.png';
+// Collection showcase images - will be replaced by Shopify collection images
+export const MUSHROOM_COLLECTION_IMAGE = null; // Will use Shopify collection image
+export const CLASSIC_COLLECTION_IMAGE = null; // Will use Shopify collection image
+export const MATCHA_COLLECTION_IMAGE = null; // Will use Shopify collection image
+
+/**
+ * Merge local product catalog with Shopify image and pricing data
+ * This ensures images always come from Shopify and update automatically
+ */
+export async function mergeWithShopifyData(localProducts) {
+  try {
+    const { base44 } = await import('@/api/base44Client');
+    const response = await base44.functions.invoke('fetchShopifyProducts', {});
+    const shopifyProducts = response.data?.products || [];
+    const shopifyCollections = response.data?.collections || [];
+    
+    // Create a map of shopify products by handle for quick lookup
+    const shopifyMap = new Map();
+    shopifyProducts.forEach(p => {
+      shopifyMap.set(p.handle, p);
+    });
+    
+    // Merge each local product with Shopify data
+    const merged = localProducts.map(local => {
+      const shopify = shopifyMap.get(local.shopifyHandle);
+      
+      if (!shopify) {
+        // No Shopify match - use local data (will show placeholder)
+        return {
+          ...local,
+          shopifyImage: null,
+          shopifyPrice: local.price,
+          shopifyAvailable: true,
+        };
+      }
+      
+      // Merge Shopify image and pricing
+      return {
+        ...local,
+        // Use Shopify featured image as primary
+        image: shopify.featuredImage || local.image,
+        // Use all Shopify images for gallery
+        galleryImages: shopify.images.length > 0 ? shopify.images : local.galleryImages,
+        // Use Shopify pricing
+        price: shopify.price || local.price,
+        compareAtPrice: shopify.compareAtPrice,
+        // Use Shopify availability
+        availableForSale: shopify.availableForSale,
+        // Keep local metadata
+        shopifyData: shopify,
+      };
+    });
+    
+    return {
+      products: merged,
+      collections: shopifyCollections,
+    };
+  } catch (error) {
+    console.error('Failed to merge with Shopify data:', error);
+    // Return local data as fallback
+    return {
+      products: localProducts,
+      collections: [],
+    };
+  }
+}
+
+/**
+ * Get collection image from Shopify
+ */
+export function getCollectionImage(handle, collections) {
+  const collection = collections.find(c => c.handle === handle);
+  return collection?.image || null;
+}

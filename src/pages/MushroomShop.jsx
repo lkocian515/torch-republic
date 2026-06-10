@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getShopifyBundleUrl, getAllClassicBundleUrl, getAllMatchaBundleUrl, getFullBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
-import { MUSHROOM_PRODUCTS as MUSH_PROD } from '@/lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS as MUSH_PROD, mergeWithShopifyData } from '@/lib/mushroomProducts';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
-
+import { base44 } from '@/api/base44Client';
 import BlendFilters from '../components/mushroom/BlendFilters';
 
 const RG = '#E6B7AD';
@@ -31,6 +31,23 @@ export default function MushroomShop() {
   const [searchQuery, setSearchQuery] = useState('');
   const [roastFilter, setRoastFilter] = useState('all');
   const [caffeineFilter, setCaffeineFilter] = useState('all');
+  const [allProducts, setAllProducts] = useState(ALL_PRODUCTS);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch all products from Shopify on mount
+  useEffect(() => {
+    async function fetchShopifyData() {
+      try {
+        const { products } = await mergeWithShopifyData(ALL_PRODUCTS);
+        setAllProducts(products);
+      } catch (error) {
+        console.error('Failed to fetch Shopify data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchShopifyData();
+  }, []);
 
   useSEO({
     title: 'Shop All Blends | Torch Republic Coffee Company',
@@ -38,7 +55,7 @@ export default function MushroomShop() {
     url: '/shop',
   });
 
-  const baseProducts = tab === 'all' ? ALL_PRODUCTS : tab === 'matcha' ? MATCHA_PRODUCTS : tab === 'classic' ? CLASSIC_COFFEE_PRODUCTS : MUSHROOM_PRODUCTS;
+  const baseProducts = tab === 'all' ? allProducts : tab === 'matcha' ? allProducts.filter(p => p.category === 'matcha') : tab === 'classic' ? allProducts.filter(p => p.category === 'classic-coffee') : allProducts.filter(p => p.category === 'mushroom-coffee');
   const activeTab = TABS.find(t => t.key === tab);
   
   const filteredProducts = baseProducts.filter(p => {
@@ -78,10 +95,13 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png"
+            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
             alt="Torch Republic Products"
             className="w-full h-auto object-cover"
             style={{ aspectRatio: '16/9', maxHeight: '600px' }}
+            onError={(e) => {
+              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
+            }}
           />
         </div>
 
@@ -91,10 +111,13 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png"
+            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
             alt="Torch Republic Products"
             className="w-full h-auto object-cover rounded mb-8"
             style={{ aspectRatio: '1/1', maxHeight: '350px' }}
+            onError={(e) => {
+              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
+            }}
           />
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>

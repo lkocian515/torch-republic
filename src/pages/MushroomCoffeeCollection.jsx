@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, Leaf, Brain, Moon, Sun, Shield, Truck, Star, Check } from 'lucide-react';
-import { MUSHROOM_PRODUCTS, MUSHROOM_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, mergeWithShopifyData, getCollectionImage } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
@@ -41,6 +41,28 @@ const FAQS = [
 
 export default function MushroomCoffeeCollection() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [products, setProducts] = useState(MUSHROOM_PRODUCTS);
+  const [collectionImage, setCollectionImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const { products: mergedProducts, collections } = await mergeWithShopifyData(MUSHROOM_PRODUCTS);
+        setProducts(mergedProducts);
+        // Get mushroom collection image from Shopify
+        const mushroomCollection = getCollectionImage('mushroom-coffee', collections);
+        if (mushroomCollection) {
+          setCollectionImage(mushroomCollection);
+        }
+      } catch (error) {
+        console.error('Failed to load Shopify data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
 
   useSEO({
     title: 'Instant Mushroom Coffee | Functional Coffee Blends | Torch Republic',
@@ -103,12 +125,16 @@ export default function MushroomCoffeeCollection() {
           {/* Collection Showcase */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="mt-16">
             <img 
-              src={MUSHROOM_COLLECTION_IMAGE} 
+              src={collectionImage || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png'} 
               alt="Torch Republic Mushroom Coffee Collection - MoonCap Restore, GlowMind Clarity, SunCap Rise" 
               loading="lazy"
               decoding="async"
               className="w-full rounded-lg shadow-lg"
               style={{ border: `1px solid ${RG}20` }}
+              onError={(e) => {
+                // Fallback to placeholder if Shopify image fails
+                e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png';
+              }}
             />
           </motion.div>
           </div>
@@ -160,11 +186,25 @@ export default function MushroomCoffeeCollection() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MUSHROOM_PRODUCTS.map((product, i) => (
+            {products.map((product, i) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
                 <Link to={`/products/${product.slug}`} className="block group" style={{ background: '#0F0E0D', border: `1px solid ${product.accent}20`, borderRadius: '6px', overflow: 'hidden', textDecoration: 'none' }}>
                   <div className="aspect-[4/5] relative overflow-hidden" style={{ background: '#141312' }}>
-                    <img src={product.image} alt={product.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img 
+                      src={product.image} 
+                      alt={product.alt} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        // Show placeholder if image fails
+                        e.target.style.display = 'none';
+                        const placeholder = e.target.parentElement.querySelector('.image-placeholder');
+                        if (placeholder) placeholder.style.display = 'flex';
+                      }}
+                    />
+                    <div className="image-placeholder hidden flex-col items-center justify-center w-full h-full" style={{ background: '#141312' }}>
+                      <div className="w-16 h-16 rounded-full border border-dashed" style={{ borderColor: `${product.accent}40` }} />
+                      <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center" style={{ color: `${product.accent}50` }}>Image unavailable</p>
+                    </div>
                   </div>
                   <div className="p-5">
                     <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.2rem' }}>{product.name}</h3>

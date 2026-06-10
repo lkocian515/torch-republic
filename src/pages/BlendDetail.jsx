@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -795,7 +795,63 @@ function BlendDetailInner({ product }) {
 
 export default function BlendDetail() {
   const { slug } = useParams();
-  const product = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS].find(p => p.slug === slug);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch product with Shopify images on mount
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
+        const localProduct = localProducts.find(p => p.slug === slug);
+        
+        if (!localProduct) return;
+
+        // Fetch Shopify data for this product
+        const response = await base44.functions.invoke('fetchCollectionByHandle', {
+          handle: localProduct.category === 'matcha' ? 'matcha' : localProduct.category === 'classic-coffee' ? 'classic-coffee' : 'mushroom-coffee',
+        });
+        
+        if (response.data?.products) {
+          const shopifyProduct = response.data.products.find(p => 
+            p.handle === localProduct.shopifyHandle || p.handle === localProduct.handle
+          );
+          
+          if (shopifyProduct) {
+            // Merge Shopify data with local product
+            setProduct({
+              ...localProduct,
+              image: shopifyProduct.image_url || localProduct.image,
+              galleryImages: shopifyProduct.image_url ? [shopifyProduct.image_url, ...(localProduct.galleryImages || [])] : localProduct.galleryImages,
+              price: shopifyProduct.price || localProduct.price,
+              inStock: shopifyProduct.in_stock,
+            });
+          } else {
+            setProduct(localProduct);
+          }
+        } else {
+          setProduct(localProduct);
+        }
+      } catch (error) {
+        console.error('Failed to fetch product from Shopify:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchProduct();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
+        <div className="text-center">
+          <div className="w-10 h-10 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!product) {
     return (

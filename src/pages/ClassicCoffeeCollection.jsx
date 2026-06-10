@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,6 +6,7 @@ import { ArrowRight, Coffee, Zap, Sparkles } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS, CLASSIC_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
+import { base44 } from '@/api/base44Client';
 
 const GOLD = '#C4A35A';
 
@@ -19,6 +20,51 @@ const FAQS = [
 ];
 
 export default function ClassicCoffeeCollection() {
+  const [products, setProducts] = useState(CLASSIC_COFFEE_PRODUCTS);
+  const [collectionImage, setCollectionImage] = useState(CLASSIC_COLLECTION_IMAGE);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch Shopify products with live images on mount
+  useEffect(() => {
+    async function fetchShopifyData() {
+      try {
+        setLoading(true);
+        const response = await base44.functions.invoke('fetchCollectionByHandle', {
+          handle: 'classic-coffee',
+        });
+        
+        if (response.data?.products) {
+          // Merge Shopify images with local product data
+          const merged = CLASSIC_COFFEE_PRODUCTS.map(local => {
+            const shopify = response.data.products.find(p => 
+              p.handle === local.shopifyHandle || p.handle === local.handle
+            );
+            return shopify ? {
+              ...local,
+              image: shopify.image_url || local.image,
+              galleryImages: shopify.image_url ? [shopify.image_url] : local.galleryImages,
+              price: shopify.price || local.price,
+              inStock: shopify.in_stock,
+            } : local;
+          });
+          
+          setProducts(merged);
+          
+          // Use first product image as collection image if available
+          if (response.data.products[0]?.image_url) {
+            setCollectionImage(response.data.products[0].image_url);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch Shopify data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchShopifyData();
+  }, []);
+
   useSEO({
     title: 'Premium Instant Coffee | No Machine Needed | Torch Republic',
     description: 'Shop premium instant coffee blends crafted for smooth daily rituals, travel, work, and simple morning energy. No pods or machine needed. 27 servings per tube.',
@@ -68,12 +114,15 @@ export default function ClassicCoffeeCollection() {
       <section style={{ padding: '40px 24px', background: '#0A0A0A', borderBottom: `1px solid ${GOLD}15` }}>
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto">
           <img 
-            src={CLASSIC_COLLECTION_IMAGE} 
+            src={collectionImage} 
             alt="Torch Republic Classic Instant Coffee Collection - Torchbearer, Ember Rise, Midnight Watch" 
             loading="lazy"
             decoding="async"
             className="w-full rounded-lg shadow-lg"
             style={{ border: `1px solid ${GOLD}20` }}
+            onError={(e) => {
+              e.target.src = CLASSIC_COLLECTION_IMAGE;
+            }}
           />
         </motion.div>
       </section>
@@ -108,7 +157,7 @@ export default function ClassicCoffeeCollection() {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CLASSIC_COFFEE_PRODUCTS.map((product, i) => (
+            {products.map((product, i) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.5 }}>
                 <MushroomProductCard product={product} />
               </motion.div>
