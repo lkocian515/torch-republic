@@ -30,7 +30,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
         >
           <Link
             to="/build-your-ritual"
@@ -44,7 +44,23 @@ export default function HeroSection() {
             className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block' }}
           >
-            Shop All Blends
+            Shop Individual Blends
+          </Link>
+        </motion.div>
+
+        {/* Tertiary quiz path */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-8 text-center"
+        >
+          <Link
+            to="/quiz"
+            className="font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-80"
+            style={{ color: 'rgba(230,183,173,0.5)', textDecoration: 'none' }}
+          >
+            Not sure where to start? → Take the Blend Quiz
           </Link>
         </motion.div>
 
