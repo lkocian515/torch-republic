@@ -233,8 +233,9 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Transformation, growth, becoming',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
-   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3bf2fbb_mockup-127.png',
+   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be57a846c_9.png',
    galleryImages: [
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be57a846c_9.png',
      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3bf2fbb_mockup-127.png',
      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2eda6a1db_2.png',
      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5ea96b637_9.png',
