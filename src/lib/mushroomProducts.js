@@ -287,9 +287,9 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Growth, evolution, becoming',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9d9b77cd4_ChatGPTImageJun7202608_11_42AM.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b9d9ccce2_ggfgfdgfdgdf.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9d9b77cd4_ChatGPTImageJun7202608_11_42AM.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b9d9ccce2_ggfgfdgfdgdf.png',
     ],
     alt: 'Torch Republic The Ascendant Matcha Blend',
     price: 24.99,
@@ -313,9 +313,9 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Creation, creativity, inspired work',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c41662d4a_dsdxd.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b3f5dff98_tretreter.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c41662d4a_dsdxd.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b3f5dff98_tretreter.png',
     ],
     alt: 'Torch Republic The Alchemist Matcha Blend',
     price: 24.99,
