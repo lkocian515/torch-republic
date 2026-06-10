@@ -2,19 +2,35 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Leaf, Zap, Shield } from 'lucide-react';
 import { MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
 const MATCHA_GREEN = '#10B981';
 
+// FAQ data for schema
+const FAQS = [
+  { q: 'What is ceremonial matcha?', a: 'Ceremonial matcha is the highest grade of matcha powder, made from shade-grown tea leaves that are stone-ground into a fine powder. It has a smooth, naturally sweet flavor and vibrant green color.' },
+  { q: 'How is matcha different from coffee?', a: 'Matcha provides calm, focused energy through L-theanine and caffeine working together. Unlike coffee quick spike, matcha offers steady energy without jitters or crash.' },
+  { q: 'How do I prepare Torch Republic matcha?', a: 'Add one serving to hot or cold water/milk, stir or shake until dissolved, and enjoy. No whisk needed—our instant format dissolves easily.' },
+  { q: 'Does matcha have caffeine?', a: 'Yes, ceremonial matcha contains caffeine (typically 30–70mg per serving). The L-theanine in matcha creates a calmer, more focused energy compared to coffee.' },
+  { q: 'How many servings are in each tin?', a: 'Each tin contains 25 servings of ceremonial grade matcha powder.' },
+  { q: 'Can I drink matcha daily?', a: 'Yes, matcha is designed for daily ritual use. Many people enjoy it as a morning or afternoon alternative to coffee.' },
+];
+
 export default function MatchaCollection() {
   useSEO({
-    title: 'Ceremonial Matcha Blends | Torch Republic Coffee Company',
-    description: 'Discover premium matcha blends designed for smooth focus, daily presence, and intentional energy rituals. No whisk or machine needed.',
-    url: '/matcha',
+    title: 'Ceremonial Matcha | Smooth Focus & Daily Rituals | Torch Republic',
+    description: 'Shop ceremonial matcha blends crafted for smooth focus, mindful energy, and elevated daily rituals. Instant preparation. No whisk needed. Premium grade.',
+    url: '/shop/matcha',
     type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Shop', url: '/shop' },
+      { name: 'Ceremonial Matcha', url: '/shop/matcha' },
+    ],
+    faq: FAQS,
   });
 
   return (
@@ -27,7 +43,7 @@ export default function MatchaCollection() {
               Torch Republic Coffee Co. — Ceremonial Matcha
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Ceremonial Matcha
+              Ceremonial Matcha<br />for Smooth Focus & Daily Rituals
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
               Three smooth ceremonial matcha blends for calm focus, mindful energy, and a grounded daily reset. Instant preparation. No whisk needed.
@@ -37,6 +53,14 @@ export default function MatchaCollection() {
                 <strong>Note:</strong> These are matcha blends, not mushroom coffee.
               </p>
             </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#050505', padding: '14px 36px', borderRadius: '4px' }}>
+                Shop Matcha
+              </Link>
+              <Link to="/quiz" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-75" style={{ border: `1px solid ${MATCHA_GREEN}`, color: MATCHA_GREEN, padding: '14px 36px', borderRadius: '4px' }}>
+                Find Your Ritual
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -44,8 +68,14 @@ export default function MatchaCollection() {
       {/* Benefits */}
       <section style={{ background: '#0A0A0A', padding: '20px 24px', borderBottom: `1px solid ${MATCHA_GREEN}15` }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[{ label: 'Instant Matcha', icon: Sparkles }, { label: 'Calm Energy', icon: Sparkles }, { label: 'No Whisk', icon: Sparkles }, { label: '25 Servings', icon: Sparkles }].map((item, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {[
+              { label: 'Ceremonial Grade', icon: Sparkles },
+              { label: 'Calm Energy', icon: Leaf },
+              { label: 'No Whisk', icon: Zap },
+              { label: '25 Servings', icon: Sparkles },
+              { label: 'L-Theanine', icon: Shield },
+            ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-2">
                 <div style={{ width: 40, height: 40, borderRadius: '50%', background: `${MATCHA_GREEN}15`, border: `1px solid ${MATCHA_GREEN}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <item.icon size={16} style={{ color: MATCHA_GREEN }} />
@@ -57,9 +87,48 @@ export default function MatchaCollection() {
         </div>
       </section>
 
+      {/* Why Matcha */}
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#080808' }}>
+        <div className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>Why Matcha</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>
+              The Calm Energy Alternative
+            </h2>
+            <p className="font-heading text-sm" style={{ color: 'rgba(210,195,175,0.55)', lineHeight: 1.8 }}>
+              Matcha offers a different kind of energy—calm, focused, and sustained. The L-theanine in ceremonial matcha works with caffeine to create alert relaxation without jitters or crash.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { title: 'Calm Focus', desc: 'L-theanine promotes alpha brain waves for relaxed alertness. Perfect for deep work or mindful mornings.' },
+              { title: 'Sustained Energy', desc: 'No spike, no crash. Matcha energy builds gradually and lasts 4–6 hours.' },
+              { title: 'Antioxidants', desc: 'Rich in catechins, especially EGCG. One cup of matcha equals approximately 10 cups of green tea in antioxidant content.' },
+            ].map((card, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="p-5" style={{ background: '#0F0E0D', border: `1px solid ${MATCHA_GREEN}20`, borderRadius: '6px' }}>
+                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.1rem' }}>{card.title}</h3>
+                <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.5)', lineHeight: 1.7 }}>{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Products */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-6xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>The Collection</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>
+              Choose Your Matcha Ritual
+            </h2>
+            <p className="font-heading text-sm" style={{ color: 'rgba(210,195,175,0.55)' }}>
+              Three ceremonial matcha blends. Each crafted for a different intention.
+            </p>
+          </motion.div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {MATCHA_PRODUCTS.map((product, i) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.5 }}>
@@ -72,6 +141,28 @@ export default function MatchaCollection() {
 
       {/* Reviews */}
       <CollectionReviewCarousel category="matcha" />
+
+      {/* FAQ Section */}
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#0A0A0A' }}>
+        <div className="max-w-3xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>FAQ</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+          
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                className="p-5" style={{ background: '#0F0E0D', border: `1px solid ${MATCHA_GREEN}15`, borderRadius: '6px' }}>
+                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.05rem' }}>{faq.q}</h3>
+                <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>{faq.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Leaf, Sparkles, Check, Coffee, Brain, Moon, Sun, Zap, Shield, Truck, Star, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, Coffee, Zap, Sparkles, Leaf, Brain, Moon, Sun, Shield, Truck, Star, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
@@ -28,7 +28,7 @@ const INGREDIENTS = [
   { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient coffee base — no maker needed', blends: 'All blends' },
 ];
 
-// FAQ data
+// FAQ data for schema
 const FAQS = [
   { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium instant coffee with functional mushrooms traditionally used in wellness routines. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
   { q: 'Does it taste like mushrooms?', a: 'It tastes primarily like coffee, with a smooth and lightly earthy profile depending on the blend. The coffee flavor is dominant.' },
@@ -43,10 +43,16 @@ export default function MushroomCoffeeCollection() {
   const [openFaq, setOpenFaq] = useState(null);
 
   useSEO({
-    title: 'Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: "Explore instant mushroom coffee blends crafted for focus, clarity, calm energy, and simple daily ritual. No machine needed.",
-    url: '/mushroom-coffee',
+    title: 'Instant Mushroom Coffee | Functional Coffee Blends | Torch Republic',
+    description: "Shop premium instant mushroom coffee blends designed for focus, clarity, calm energy, and intentional daily rituals. No machine needed. Lion's Mane + Chaga.",
+    url: '/shop/instant-mushroom-coffee',
     type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Shop', url: '/shop' },
+      { name: 'Instant Mushroom Coffee', url: '/shop/instant-mushroom-coffee' },
+    ],
+    faq: FAQS,
   });
 
   return (
@@ -201,53 +207,11 @@ export default function MushroomCoffeeCollection() {
       {/* ── COMPARISON CHART ── */}
       <BlendComparisonChart />
 
-      {/* ── COMPARISON TABLE ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>04 — The Difference</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-              Why Torch Republic Instead of Regular Coffee or Capsules?
-            </h2>
-          </motion.div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full" style={{ borderCollapse: 'collapse' }}>
-              <thead>
-                <tr>
-                  <th className="text-left p-4" style={{ background: '#0F0E0D', borderBottom: `2px solid ${RG}`, color: RG, fontSize: '0.85rem' }}></th>
-                  <th className="text-center p-4" style={{ background: `${RG}15`, borderBottom: `2px solid ${RG}`, color: '#FFFFFF', fontSize: '0.9rem' }}>Torch Republic</th>
-                  <th className="text-center p-4" style={{ background: '#0F0E0D', borderBottom: `1px solid ${RG}35`, color: 'rgba(240,235,225,0.5)', fontSize: '0.85rem' }}>Regular Coffee</th>
-                  <th className="text-center p-4" style={{ background: '#0F0E0D', borderBottom: `1px solid ${RG}35`, color: 'rgba(240,235,225,0.5)', fontSize: '0.85rem' }}>Mushroom Capsules</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: 'Daily ritual experience', torch: 'Coffee + mushrooms in one ritual', regular: 'Coffee only', capsules: 'Supplement only' },
-                  { feature: 'Functional mushroom blend', torch: 'Yes — Lion\'s Mane + Chaga', regular: 'No', capsules: 'Yes' },
-                  { feature: 'Premium coffee taste', torch: 'Yes — smooth instant', regular: 'Yes', capsules: 'No' },
-                  { feature: 'Instant convenience', torch: 'Scoop, stir, sip', regular: 'Brew required', capsules: 'Swallow with water' },
-                  { feature: 'No coffee maker needed', torch: 'Yes', regular: 'No', capsules: 'Yes' },
-                  { feature: 'Built for intention', torch: 'Clarity, resilience, purpose', regular: 'Caffeine', capsules: 'Supplementation' },
-                ].map((row, i) => (
-                  <tr key={i}>
-                    <td className="p-4" style={{ background: i % 2 === 0 ? '#0F0E0D' : '#141312', borderBottom: `1px solid ${RG}15`, color: 'rgba(240,235,225,0.7)', fontSize: '0.85rem' }}>{row.feature}</td>
-                    <td className="text-center p-4" style={{ background: i % 2 === 0 ? `${RG}08` : `${RG}05`, borderBottom: `1px solid ${RG}15`, color: '#FFFFFF', fontSize: '0.85rem', fontWeight: 500 }}>{row.torch}</td>
-                    <td className="text-center p-4" style={{ background: i % 2 === 0 ? '#0F0E0D' : '#141312', borderBottom: `1px solid ${RG}15`, color: 'rgba(240,235,225,0.5)', fontSize: '0.85rem' }}>{row.regular}</td>
-                    <td className="text-center p-4" style={{ background: i % 2 === 0 ? '#0F0E0D' : '#141312', borderBottom: `1px solid ${RG}15`, color: 'rgba(240,235,225,0.5)', fontSize: '0.85rem' }}>{row.capsules}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* ── INGREDIENT TRANSPARENCY ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>05 — Transparency</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>04 — Transparency</p>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
               What's Inside Each Cup?
             </h2>
@@ -279,111 +243,11 @@ export default function MushroomCoffeeCollection() {
       {/* ── MUSHROOM TRANSPARENCY TABLE ── */}
       <MushroomTransparencyTable />
 
-      {/* ── TRUST STACK ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>06 — Trust</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-              Made to Be an Easy Daily Ritual
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {[
-              { label: '27 Servings Per Tube', icon: Check },
-              { label: 'Premium Instant Format', icon: Coffee },
-              { label: 'Functional Mushroom Blends', icon: Leaf },
-              { label: 'No Coffee Maker Required', icon: Zap },
-              { label: 'Small Daily Ritual', icon: Sparkles },
-              { label: 'Secure Checkout', icon: Shield },
-              { label: 'Fast Shipping', icon: Truck },
-              { label: '30-Day Guarantee', icon: Star },
-            ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="flex flex-col items-center text-center gap-3 p-5" style={{ background: '#0F0E0D', border: `1px solid ${RG}15`, borderRadius: '6px' }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: `${RG}15`, border: `1px solid ${RG}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <item.icon size={18} style={{ color: RG }} />
-                </div>
-                <p className="font-heading text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.65)' }}>{item.label}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Guarantee Block */}
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="p-8 text-center" style={{ background: `${RG}08`, border: `1px solid ${RG}25`, borderRadius: '6px' }}>
-            <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.4rem' }}>30-Day Ritual Guarantee</h3>
-            <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
-              Try Torch Republic as part of your daily ritual. If it is not the right fit, contact us within 30 days and we'll make it right.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── REVIEWS / SOCIAL PROOF ── */}
-      <CollectionReviewCarousel category="mushroom-coffee" />
-
-      {/* ── BUNDLE SECTION ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>07 — Build Your Ritual</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-              Choose Your Path
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { title: 'Try One Blend', desc: 'Best for first-time customers', cta: 'Shop Single Blends', link: '/shop', color: RG },
-              { title: 'Morning Ritual Duo', desc: 'SunCap Rise + GlowMind Clarity', cta: 'Shop Duo', link: '/bundle', color: '#D6B27A' },
-              { title: 'Complete Ritual Set', desc: 'All 6 mushroom blends · Best value', cta: 'Shop Full Set', link: '/bundle', badge: 'Best Value', color: '#C98F86' },
-            ].map((option, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-8 text-center relative" style={{ background: '#0F0E0D', border: `1px solid ${option.color}30`, borderRadius: '6px' }}>
-                {option.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1" style={{ background: option.color, color: '#080808', borderRadius: '2px' }}>
-                    <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">{option.badge}</p>
-                  </div>
-                )}
-                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.3rem' }}>{option.title}</h3>
-                <p className="font-heading text-sm mb-6" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>{option.desc}</p>
-                <Link to={option.link} className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80" style={{ color: option.color }}>
-                  {option.cta} →
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOUNDER MESSAGE ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>08 — The Torch</p>
-            <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-              Built for a Better Daily Ritual
-            </h2>
-            <p className="font-heading mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-              Torch Republic was created to make daily coffee feel more intentional, grounded, and supportive. The morning cup is often the first decision of the day — and it can be a clearer, calmer one.
-            </p>
-            <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-              Premium instant coffee with functional mushrooms, designed for focus, calm energy, and a simple daily ritual you can actually return to.
-            </p>
-            <Link to="/about" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70" style={{ color: RG, borderBottom: `1px solid ${RG}` }}>
-              Our Story →
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── FAQ SECTION ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
+      <section className="px-6 md:px-10 py-20" style={{ background: '#080808', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>09 — Questions</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>05 — Questions</p>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
               Frequently Asked Questions
             </h2>
@@ -395,7 +259,7 @@ export default function MushroomCoffeeCollection() {
                 className="p-5" style={{ background: '#0F0E0D', border: `1px solid ${RG}15`, borderRadius: '6px' }}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                   <span className="font-serif font-bold text-white" style={{ fontSize: '1.05rem' }}>{faq.q}</span>
-                  {openFaq === i ? <ChevronUp size={18} style={{ color: RG }} /> : <ChevronDown size={18} style={{ color: RG }} />}
+                  <span className="font-mono text-lg" style={{ color: RG }}>{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-4 pt-4" style={{ borderTop: `1px solid ${RG}15` }}>
@@ -407,6 +271,9 @@ export default function MushroomCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      {/* ── REVIEWS ── */}
+      <CollectionReviewCarousel category="mushroom-coffee" />
 
       {/* ── FINAL CTA ── */}
       <section className="px-6 md:px-10 py-20 text-center" style={{ background: '#080808', borderTop: `1px solid ${RG}15` }}>
@@ -422,13 +289,6 @@ export default function MushroomCoffeeCollection() {
           </Link>
         </motion.div>
       </section>
-
-      {/* ── FDA DISCLAIMER FOOTER ── */}
-      <div className="px-6 py-8 text-center" style={{ borderTop: `1px solid ${RG}15` }}>
-        <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.25)', lineHeight: 1.8 }}>
-          These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
-      </div>
     </div>
   );
 }

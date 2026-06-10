@@ -56,10 +56,17 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Premium instant coffee, mushroom coffee, and matcha blends crafted for clarity, focus, calm energy, and intentional daily rituals. No machine needed.',
+    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Discover premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles designed for clarity, focus, and intentional daily energy. No machine needed. Shop coffee-forward blends made for modern wellness.',
     url: '/',
     type: 'website',
+    faq: [
+      { question: 'What is mushroom coffee?', answer: 'Mushroom coffee combines premium instant coffee with functional mushrooms like Lion\'s Mane and Chaga. Torch Republic blends create an easy daily ritual for focus, clarity, and intention without compromising coffee taste.' },
+      { question: 'Does mushroom coffee taste like regular coffee?', answer: 'Yes, it tastes primarily like coffee. Torch Republic blends are coffee-forward with smooth, rich flavor. The mushrooms add subtle earthiness but don\'t overpower the coffee taste.' },
+      { question: 'Do I need a coffee machine?', answer: 'No. All Torch Republic products are instant format — just add hot water, stir, and enjoy. No machine, pods, or complicated prep needed.' },
+      { question: 'How many servings are in each tube?', answer: 'Mushroom coffee and classic coffee tubes contain 27 servings. Matcha tins contain 25 servings. Each serving is designed for one cup.' },
+      { question: 'What makes Torch Republic different?', answer: 'Torch Republic combines premium instant coffee with functional mushrooms in a convenient, no-machine format. Our blends are designed for intentional daily rituals with coffee-forward taste and wellness-focused ingredients.' },
+    ],
   });
 
   return (

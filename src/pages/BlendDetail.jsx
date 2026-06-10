@@ -162,8 +162,18 @@ function BlendDetailInner({ product }) {
     ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Premium instant coffee for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
     : `${product.name} — ${product.tasteDescription} ${product.servings} servings. Instant mushroom coffee with Lion's Mane + Chaga for ${product.bestFor}. Torch Republic Coffee Company.`;
 
+  // Build FAQ schema for product page
+  const productFAQs = [
+    { question: `What does ${product.name} taste like?`, answer: product.tasteDescription },
+    { question: 'How do I prepare this blend?', answer: 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.' },
+    { question: 'Is this product instant?', answer: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
+    { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains natural caffeine for smooth, sustained energy.' : 'Yes, all blends contain caffeine from the premium instant coffee base.' },
+    { question: 'How many servings are included?', answer: `${product.servings || (product.category === 'matcha' ? 25 : 27)} servings per ${product.category === 'matcha' ? 'tin' : 'tube'}.` },
+    { question: 'Can I drink it daily?', answer: 'Yes, Torch Republic blends are designed for daily ritual use. Follow product directions and consult a healthcare professional if pregnant, nursing, or managing a medical condition.' },
+  ];
+
   useSEO({
-    title: `${product.name} | ${categoryLabel} – Torch Republic Coffee Company`,
+    title: `${product.name} | ${categoryLabel} | Torch Republic Coffee Company`,
     description: seoDesc.slice(0, 160),
     url: `/products/${product.slug}`,
     type: 'product',
@@ -173,58 +183,18 @@ function BlendDetailInner({ product }) {
       description: product.description,
       price: product.price,
       image: product.image,
-      sku: product.slug,
+      sku: product.shopifyHandle || product.slug,
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Shop', url: '/shop' },
-      { name: 'The Blends', url: '/blends' },
-      { name: product.name, url: `/blends/${product.slug}` },
+      { name: categoryLabel, url: product.category === 'matcha' ? '/shop/matcha' : product.category === 'classic-coffee' ? '/shop/instant-coffee' : '/shop/instant-mushroom-coffee' },
+      { name: product.name, url: `/products/${product.slug}` },
     ],
+    faq: productFAQs,
   });
 
-  // Product schema markup
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": product.name,
-    "description": product.description,
-    "image": product.image,
-    "sku": product.slug,
-    "brand": {
-      "@type": "Brand",
-      "name": "Torch Republic Coffee Co."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": `https://torchrepublic.com/blends/${product.slug}`,
-      "priceCurrency": "USD",
-      "price": product.price,
-      "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-      "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Organization",
-        "name": "Torch Republic Coffee Co."
-      }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127"
-    },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Verified Customer"
-      }
-    }
-  };
+  // Remove hardcoded schema - useSEO hook handles it with real review data
 
   // Note: product is guaranteed non-null here (checked by parent)
 
@@ -299,11 +269,6 @@ function BlendDetailInner({ product }) {
 
   return (
     <div style={{ backgroundColor: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
-      {/* Product Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify(productSchema)}
-      </script>
-
       {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-8 pb-2">
         <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase"

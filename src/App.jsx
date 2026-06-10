@@ -130,6 +130,11 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         {/* ── MUSHROOM COFFEE STORE ── */}
         <Route path="/shop" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomShop" queryClient={queryClient}><MushroomShop /></LayoutWrapper></Suspense>} />
+        {/* SEO Category Pages */}
+        <Route path="/shop/instant-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeCollection" queryClient={queryClient}><MushroomCoffeeCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/shop/instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ClassicCoffeeCollection" queryClient={queryClient}><ClassicCoffeeCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/shop/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
+        {/* Legacy routes for backward compatibility */}
         <Route path="/classic-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ClassicCoffeeCollection" queryClient={queryClient}><ClassicCoffeeCollection /></LayoutWrapper></Suspense>} />
         <Route path="/mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeCollection" queryClient={queryClient}><MushroomCoffeeCollection /></LayoutWrapper></Suspense>} />
         <Route path="/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
@@ -144,6 +149,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Journal" element={<Navigate to="/journal" replace />} />
         <Route path="/profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
         <Route path="/Profile" element={<Navigate to="/profile" replace />} />
+        <Route path="/shop/bundles" element={<Navigate to="/bundle" replace />} />
         <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
         {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />

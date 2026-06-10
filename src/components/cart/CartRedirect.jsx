@@ -11,9 +11,19 @@ import { useParams } from 'react-router-dom';
  * And redirects to:
  * - https://libertees-for-all.myshopify.com/cart/49148263596284:1
  * - https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:2
+ * 
+ * NOINDEX: This is a utility redirect, not a public page
  */
 export default function CartRedirect() {
   const { cartPermalink } = useParams();
+
+  // Prevent search engines from indexing this utility page
+  useEffect(() => {
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, nofollow');
+    return () => {
+      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'index, follow');
+    };
+  }, []);
 
   useEffect(() => {
     if (!cartPermalink) {
