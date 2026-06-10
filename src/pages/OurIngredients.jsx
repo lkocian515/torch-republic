@@ -127,7 +127,7 @@ export default function OurIngredients() {
                 <strong>Our mushroom coffee</strong> blends feature organic Lion's Mane and Chaga mushrooms, known for their cognitive support and adaptogenic properties. These functional mushrooms are combined with premium Arabica coffee to create a smooth, focused energy experience.
               </p>
               <p className="font-heading text-base leading-relaxed mb-4">
-                <strong>Our ceremonial matcha</strong> is stone-ground from shade-grown Japanese green tea leaves, rich in L-theanine for calm, sustained energy. It's the perfect alternative to coffee for those seeking clarity without caffeine jitters.
+                <strong>Our ceremonial matcha</strong> is stone-ground from shade-grown Japanese green tea leaves, rich in L-theanine for calm, sustained energy. It is the perfect alternative to coffee for those seeking clarity without caffeine jitters.
               </p>
               <p className="font-heading text-base leading-relaxed">
                 <strong>Our classic instant coffee</strong> is made from 100% premium Arabica beans, freeze-dried to preserve flavor and aroma. No additives, no fillers—just pure, bold coffee ready in seconds.
@@ -268,7 +268,7 @@ export default function OurIngredients() {
               </p>
               <p className="font-heading text-base leading-relaxed" 
                 style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-                Our matcha is ceremonial grade, the highest quality available. It's shade-grown for 3-4 weeks before harvest, increasing chlorophyll and L-theanine content. The leaves are stone-ground into an ultra-fine powder that dissolves completely in water, creating a smooth, frothy drink without grittiness.
+                Our matcha is ceremonial grade, the highest quality available. It is shade-grown for 3-4 weeks before harvest, increasing chlorophyll and L-theanine content. The leaves are stone-ground into an ultra-fine powder that dissolves completely in water, creating a smooth, frothy drink without grittiness.
               </p>
               <p className="font-heading text-base leading-relaxed" 
                 style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
