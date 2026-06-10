@@ -227,9 +227,9 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Transformation, growth, becoming',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0add2624f_2.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bc9077195_9.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0add2624f_2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bc9077195_9.png',
     ],
     alt: 'Torch Republic Mystic Bloom Blend instant mushroom coffee tube',
     price: 24.99,
