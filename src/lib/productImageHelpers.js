@@ -9,16 +9,17 @@
  */
 
 // Image cache version - increment this when Shopify product images are updated (format: v=YYYYMMDDNN)
-const IMAGE_CACHE_VERSION = 'v=1781102333';
+// This forces browsers to fetch fresh images instead of using cached versions
+const IMAGE_CACHE_VERSION = 'v=' + new Date().toISOString().slice(0, 10).replace(/-/g, '');
 
 // Add cache-busting parameter to Shopify CDN URLs
 function addCacheBuster(url) {
   if (!url || typeof url !== 'string') return url;
-  // Don't add cache buster to non-Shopify URLs
-  if (!url.includes('cdn.shopify.com')) return url;
-  // Add cache version if not already present
+  // Don't add cache buster to non-Shopify URLs or already cached URLs
+  if (!url.includes('cdn.shopify.com') || url.includes('v=')) return url;
+  // Add cache version
   if (url.includes('?')) {
-    return url.includes('v=') ? url : `${url}&${IMAGE_CACHE_VERSION}`;
+    return `${url}&${IMAGE_CACHE_VERSION}`;
   }
   return `${url}?${IMAGE_CACHE_VERSION}`;
 }
