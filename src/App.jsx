@@ -33,6 +33,7 @@ const Journal = lazy(() => import('./pages/Journal'));
 const Profile = lazy(() => import('./pages/Profile'));
 const LoyaltyPortal = lazy(() => import('./pages/LoyaltyPortal'));
 const Cart = lazy(() => import('./pages/Cart'));
+const CartRedirect = lazy(() => import('./components/cart/CartRedirect'));
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
 const Subscription = lazy(() => import('./pages/Subscription'));
 const OurMission = lazy(() => import('./pages/OurMission'));
@@ -117,6 +118,13 @@ const AuthenticatedApp = ({ queryClient }) => {
             <LayoutWrapper currentPageName={mainPageKey} queryClient={queryClient}>
               <Home />
             </LayoutWrapper>
+          </Suspense>
+        } />
+
+        {/* ── CART REDIRECT PROTECTION — catches /cart/:variant and redirects to Shopify ── */}
+        <Route path="/cart/:cartPermalink" element={
+          <Suspense fallback={<PageLoader />}>
+            <CartRedirect />
           </Suspense>
         } />
 
