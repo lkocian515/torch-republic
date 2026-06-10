@@ -34,10 +34,13 @@ export default function FounderNote() {
 
           {/* Signature */}
           <div className="pt-8" style={{ borderTop: `1px solid ${RG}20` }}>
-            <p className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.2rem' }}>
+            <p
+              className="font-serif italic mb-1"
+              style={{ fontSize: '2rem', color: RG, letterSpacing: '0.02em', fontWeight: 400 }}
+            >
               Lisa Marie Kocian
             </p>
-            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: RG }}>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
               Founder, Torch Republic Coffee Company
             </p>
           </div>
