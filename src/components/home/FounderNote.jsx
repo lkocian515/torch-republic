@@ -37,7 +37,7 @@ export default function FounderNote() {
             <p
               style={{
                 fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
-                fontSize: '1.6rem',
+                fontSize: '1.1rem',
                 color: RG,
                 opacity: 0.75,
                 letterSpacing: '0.01em',
