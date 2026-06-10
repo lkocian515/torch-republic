@@ -9,9 +9,11 @@ export function CartProvider({ children }) {
 
   const addItem = useCallback((product, qty = 1) => {
     setItems(prev => {
-      const existing = prev.find(i => i.id === product.id);
+      // Use shopifyHandle as primary key if available, fallback to id
+      const key = product.shopifyHandle || product.id;
+      const existing = prev.find(i => (i.shopifyHandle || i.id) === key);
       if (existing) {
-        return prev.map(i => i.id === product.id ? { ...i, qty: i.qty + qty } : i);
+        return prev.map(i => (i.shopifyHandle || i.id) === key ? { ...i, qty: i.qty + qty } : i);
       }
       return [...prev, { ...product, qty }];
     });

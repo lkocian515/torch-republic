@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
@@ -151,6 +152,7 @@ function GalleryCarousel({ images, accent, productName }) {
 }
 
 function BlendDetailInner({ product }) {
+  const { addItem } = useCart();
   const [qty, setQty] = useState(1);
   const [isSubscription, setIsSubscription] = useState(false);
   const subscriptionPrice = product.price * 0.8; // 20% off
@@ -240,7 +242,17 @@ function BlendDetailInner({ product }) {
     } catch (e) {
       // Analytics tracking failed silently
     }
-    window.location.href = checkoutDest;
+    // Add to local cart instead of redirecting to Shopify
+    addItem({
+      id: product.id || product.slug,
+      name: product.name,
+      price: isSubscription ? subscriptionPrice : product.price,
+      image: product.image,
+      category: product.category,
+      servings: product.servings,
+      shopifyHandle: product.shopifyHandle,
+      isSubscription: isSubscription,
+    }, qty);
   };
 
   // Track product view
