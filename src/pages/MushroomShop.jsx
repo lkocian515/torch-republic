@@ -95,7 +95,7 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-cover"
             style={{ aspectRatio: '16/9', maxHeight: '600px' }}
@@ -111,7 +111,7 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-cover rounded mb-8"
             style={{ aspectRatio: '1/1', maxHeight: '350px' }}
