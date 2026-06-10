@@ -28,7 +28,7 @@ export function getProductImage(product) {
   return imageUrl || FALLBACK_PRODUCT_IMAGE;
 }
 
-// All verified homepage featured products with Shopify CDN URLs
+// All verified homepage featured products with real lifestyle images
 export const HOMEPAGE_FEATURED_PRODUCTS = [
   // Mushroom Coffee - Top Sellers
   {
@@ -40,7 +40,7 @@ export const HOMEPAGE_FEATURED_PRODUCTS = [
     accent: '#10B981',
     price: 29.99,
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/glowmind-clarity-instant-mushroom-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/266124d5a_4.png',
     alt: 'GlowMind Clarity instant mushroom coffee by Torch Republic',
   },
   {
@@ -52,7 +52,7 @@ export const HOMEPAGE_FEATURED_PRODUCTS = [
     accent: '#8B9ED4',
     price: 29.99,
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mooncap-restore-dark-roast-mushroom-coffee-torch-republic.png?v=1781103576',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a07f631f5_5.png',
     alt: 'MoonCap Restore dark roast mushroom coffee by Torch Republic',
   },
   // Classic Coffee
@@ -65,7 +65,7 @@ export const HOMEPAGE_FEATURED_PRODUCTS = [
     accent: '#D6B27A',
     price: 29.99,
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torchbearer-premium-instant-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2be7102cc_15.png',
     alt: 'Torchbearer premium instant coffee by Torch Republic',
   },
   // Matcha
@@ -78,7 +78,7 @@ export const HOMEPAGE_FEATURED_PRODUCTS = [
     accent: '#6EE7B7',
     price: 29.99,
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-monk-ceremonial-matcha-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ed4b0c26d_18.png',
     alt: 'The Monk ceremonial matcha by Torch Republic',
   },
 ];
