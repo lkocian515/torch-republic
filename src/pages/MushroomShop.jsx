@@ -50,9 +50,10 @@ export default function MushroomShop() {
   }, []);
 
   useSEO({
-    title: 'Shop All Blends | Torch Republic Coffee Company',
-    description: 'Shop all premium instant coffee, mushroom coffee, and matcha blends from Torch Republic Coffee Company. No machine needed. No pods. Just add water and begin your ritual.',
+    title: 'Shop Torch Republic | Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Shop premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles designed for clarity, focus, and simple daily rituals.',
     url: '/shop',
+    noindex: false,
   });
 
   const baseProducts = tab === 'all' ? allProducts : tab === 'matcha' ? allProducts.filter(p => p.category === 'matcha') : tab === 'classic' ? allProducts.filter(p => p.category === 'classic-coffee') : allProducts.filter(p => p.category === 'mushroom-coffee');
@@ -89,6 +90,10 @@ export default function MushroomShop() {
 
       {/* ── HERO ── */}
       <section style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        <div className="sr-only">
+          <h1>Shop Torch Republic Coffee Company</h1>
+          <p>Explore premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles made for simple daily preparation. No pods, no machine, no complicated routine — just an intentional daily ritual.</p>
+        </div>
         {/* Desktop layout */}
         <div className="hidden md:block">
           <motion.img
@@ -178,8 +183,16 @@ export default function MushroomShop() {
 
 
 
-      {/* ── TABS ── */}
+      {/* ── CATEGORY FILTERS — Visible Links for Crawlers ── */}
       <section className="px-6 md:px-10 pt-6">
+        <div className="sr-only">
+          <nav aria-label="Product categories">
+            <Link to="/shop/instant-mushroom-coffee">Instant Mushroom Coffee</Link>
+            <Link to="/shop/instant-coffee">Classic Instant Coffee</Link>
+            <Link to="/shop/matcha">Ceremonial Matcha</Link>
+            <Link to="/build-your-ritual">Build Your Ritual Bundle</Link>
+          </nav>
+        </div>
         <div className="max-w-[1280px] mx-auto">
           <BlendFilters 
             roastFilter={roastFilter}
