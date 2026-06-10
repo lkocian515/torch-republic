@@ -9,7 +9,6 @@ import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import { base44 } from '@/api/base44Client';
 import BlendFilters from '../components/mushroom/BlendFilters';
-import { useState } from 'react';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
