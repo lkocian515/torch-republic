@@ -51,13 +51,21 @@ export default function BuildYourRitual() {
       }).filter(Boolean);
 
       const baseUrl = getShopifyBundleUrl(items);
-      const url = baseUrl ? `${baseUrl}?discount=welcome15` : null;
-      console.log('[Bundle] Cart URL:', url);
-
-      if (!url) {
-        alert('Could not build cart URL. Please try again or contact support.');
+      if (!baseUrl) {
+        console.error('[Bundle] Failed to build Shopify bundle URL');
+        alert('Could not build cart URL. Please contact support.');
         return;
       }
+      const url = `${baseUrl}?discount=welcome15`;
+      
+      // Safety check: ensure URL uses correct Shopify domain
+      if (!url.includes('libertees-for-all.myshopify.com')) {
+        console.error('[Bundle] Invalid Shopify domain in URL:', url);
+        alert('Checkout configuration error. Please contact support.');
+        return;
+      }
+      
+      console.log('[Bundle] Cart URL:', url);
       window.location.href = url;
     }
   };
@@ -103,10 +111,10 @@ export default function BuildYourRitual() {
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
                   </div>
                   <a
-                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome15"
+                    href="https://libertees-for-all.myshopify.com/cart/49171204276476:1,49148263596284:1,49170574115068:1?discount=welcome15"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1?discount=welcome15';
+                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49171204276476:1,49148263596284:1,49170574115068:1?discount=welcome15';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
@@ -417,7 +425,7 @@ export default function BuildYourRitual() {
                 return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
               }).filter(Boolean);
               const baseUrl = getShopifyBundleUrl(items);
-              return baseUrl ? `${baseUrl}?discount=welcome10` : '#';
+              return baseUrl ? `${baseUrl}?discount=welcome15` : '#';
             })()}
             onClick={(e) => {
               e.preventDefault();
@@ -427,7 +435,12 @@ export default function BuildYourRitual() {
               }).filter(Boolean);
               const baseUrl = getShopifyBundleUrl(items);
               const url = baseUrl ? `${baseUrl}?discount=welcome15` : null;
-              if (url) window.location.href = url;
+              if (url && url.includes('libertees-for-all.myshopify.com')) {
+                window.location.href = url;
+              } else {
+                console.error('[Mobile CTA] Invalid checkout URL:', url);
+                alert('Unable to proceed to checkout. Please contact support.');
+              }
             }}
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
             style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)', textDecoration: 'none', display: 'block' }}

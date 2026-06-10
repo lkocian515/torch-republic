@@ -12,14 +12,33 @@ export default function Cart() {
 
   // Build the Shopify checkout URL with all current cart items
   const checkoutUrl = useMemo(() => {
-    if (items.length === 0) return null;
+    if (items.length === 0) {
+      console.error('[Cart] Empty cart - no checkout URL');
+      return null;
+    }
     const mapped = items
-      .filter(i => SHOPIFY_VARIANT_IDS[i.shopifyHandle || i.id])
+      .filter(i => {
+        const handle = i.shopifyHandle || i.id;
+        const hasVariant = !!SHOPIFY_VARIANT_IDS[handle];
+        if (!hasVariant) {
+          console.error('[Cart] Missing variant ID for:', i.name, '| handle:', handle);
+        }
+        return hasVariant;
+      })
       .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }));
-    if (mapped.length === 0) return null;
+    if (mapped.length === 0) {
+      console.error('[Cart] No valid Shopify variants mapped');
+      return null;
+    }
     const baseUrl = getShopifyBundleUrl(mapped);
+    if (!baseUrl) {
+      console.error('[Cart] Failed to build Shopify bundle URL');
+      return null;
+    }
     // Append welcome15 discount for first-time customers
-    return baseUrl ? `${baseUrl}?discount=welcome15` : null;
+    const fullUrl = `${baseUrl}?discount=welcome15`;
+    console.log('[Cart] Checkout URL:', fullUrl);
+    return fullUrl;
   }, [items]);
 
   if (items.length === 0) {
@@ -153,6 +172,11 @@ export default function Cart() {
                   href={checkoutUrl}
                   onClick={(e) => {
                     e.preventDefault();
+                    if (!checkoutUrl || !checkoutUrl.includes('libertees-for-all.myshopify.com')) {
+                      console.error('[Cart] Invalid checkout URL:', checkoutUrl);
+                      alert('Unable to proceed to checkout. Please contact support.');
+                      return;
+                    }
                     window.location.href = checkoutUrl;
                   }}
                   className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
