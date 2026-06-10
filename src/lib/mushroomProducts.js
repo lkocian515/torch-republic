@@ -70,9 +70,10 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Resilience, endurance, deep focus',
     mushrooms: 'No',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/843826320_3.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f38e65ac2_14.png',
     galleryImages: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/843826320_3.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f38e65ac2_14.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2b52c75ff_jbbjkvbjkhbjk.png',
     ],
     alt: 'Torch Republic Midnight Watch Classic Instant Coffee',
     price: 24.99,
