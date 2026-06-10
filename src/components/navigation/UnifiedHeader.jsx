@@ -19,6 +19,8 @@ const NAV_LINKS = [
   { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
   { label: 'Matcha', href: '/matcha' },
   { label: 'Classic Coffee', href: '/classic-coffee' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Recipes', href: '/recipes' },
   { label: 'Reviews', href: '/reviews' },
   { label: 'About', href: '/mission' },
 ];
