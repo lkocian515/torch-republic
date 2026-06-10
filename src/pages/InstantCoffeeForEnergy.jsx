@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Zap, Clock, Coffee, CheckCircle } from 'lucide-react';
+import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
 
 const RG = '#E6B7AD';
 const DIM = 'rgba(240,232,220,0.55)';
@@ -51,6 +52,26 @@ export default function InstantCoffeeForEnergy() {
         >
           Not all instant coffee is created equal. Torch Republic blends specialty-grade coffee with Cordyceps and Lion's Mane for energy that rises smoothly, peaks with focus, and tapers without a crash.
         </motion.p>
+        
+        {/* Product showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex gap-4 justify-center mb-8 flex-wrap"
+        >
+          {CLASSIC_COFFEE_PRODUCTS.slice(0, 3).map((product) => (
+            <div key={product.id} className="relative" style={{ width: '140px', height: '140px' }}>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-contain"
+                style={{ filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.5))' }}
+              />
+            </div>
+          ))}
+        </motion.div>
+        
         <Link to="/shop" style={{ display: 'inline-block', background: RG, color: '#040404', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', fontWeight: 700, padding: '14px 36px', textDecoration: 'none' }}>
           Shop Energy Blends
         </Link>

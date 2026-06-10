@@ -13,6 +13,7 @@ const CATEGORIES = [
     body: 'Smooth, premium instant coffee for simple daily energy. No machines, no pods. Rich flavor in seconds.',
     detail: 'Medium & Dark Roasts · 27 Servings · No Mushrooms',
     emoji: '☕',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png?v=1781102333',
   },
   {
     label: 'Mushroom Coffee',
@@ -23,6 +24,7 @@ const CATEGORIES = [
     detail: "Lion's Mane + Chaga · Coffee-Forward · 27 Servings",
     emoji: '🍄',
     featured: true,
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cd698018e_11.png',
   },
   {
     label: 'Ceremonial Matcha',
@@ -32,6 +34,7 @@ const CATEGORIES = [
     body: 'Ceremonial-style matcha for smooth focus, presence, and daily ritual. Calm energy, no jitters, no coffee.',
     detail: 'Ceremonial Grade · Instant Powder · 25 Servings · No Coffee',
     emoji: '🍵',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2eb9ed53_zssssss.png',
   },
 ];
 
@@ -75,6 +78,11 @@ export default function ShopByCategory() {
                 </div>
               )}
               <div className="p-8 flex-1 flex flex-col">
+                {cat.image && (
+                  <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
+                    <img src={cat.image} alt={cat.label} className="max-h-full max-w-full object-contain" />
+                  </div>
+                )}
                 <span className="text-3xl mb-5 block">{cat.emoji}</span>
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {cat.label}
