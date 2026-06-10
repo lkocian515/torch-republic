@@ -48,6 +48,11 @@
     "country_code": {
       "type": "string",
       "description": "Customer country code"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this customer"
     }
   },
   "required": [
