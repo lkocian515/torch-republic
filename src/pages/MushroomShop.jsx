@@ -113,8 +113,8 @@ export default function MushroomShop() {
             transition={{ duration: 0.8 }}
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
             alt="Torch Republic Products"
-            className="w-full h-auto object-cover rounded mb-8"
-            style={{ aspectRatio: '1/1', maxHeight: '350px' }}
+            className="w-full h-auto object-contain rounded mb-8"
+            style={{ maxHeight: '400px' }}
             onError={(e) => {
               e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
             }}
