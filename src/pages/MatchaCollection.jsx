@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Leaf, Zap, Shield } from 'lucide-react';
-import { MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { MATCHA_PRODUCTS, MATCHA_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
@@ -63,6 +63,20 @@ export default function MatchaCollection() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Collection Showcase */}
+      <section style={{ padding: '40px 24px', background: '#0A0A0A', borderBottom: `1px solid ${MATCHA_GREEN}15` }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto">
+          <img 
+            src={MATCHA_COLLECTION_IMAGE} 
+            alt="Torch Republic Matcha Collection - The Monk, The Ascendant, The Alchemist" 
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-lg shadow-lg"
+            style={{ border: `1px solid ${MATCHA_GREEN}20` }}
+          />
+        </motion.div>
       </section>
 
       {/* Benefits */}

@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, Leaf, Brain, Moon, Sun, Shield, Truck, Star, Check } from 'lucide-react';
-import { MUSHROOM_PRODUCTS } from '@/lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, MUSHROOM_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
@@ -99,8 +99,20 @@ export default function MushroomCoffeeCollection() {
               ))}
             </div>
           </motion.div>
-        </div>
-      </section>
+
+          {/* Collection Showcase */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="mt-16">
+            <img 
+              src={MUSHROOM_COLLECTION_IMAGE} 
+              alt="Torch Republic Mushroom Coffee Collection - MoonCap Restore, GlowMind Clarity, SunCap Rise" 
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-lg shadow-lg"
+              style={{ border: `1px solid ${RG}20` }}
+            />
+          </motion.div>
+          </div>
+          </section>
 
       {/* ── WHY MUSHROOM COFFEE ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>

@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles } from 'lucide-react';
-import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
+import { CLASSIC_COFFEE_PRODUCTS, CLASSIC_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 
@@ -62,6 +62,20 @@ export default function ClassicCoffeeCollection() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Collection Showcase */}
+      <section style={{ padding: '40px 24px', background: '#0A0A0A', borderBottom: `1px solid ${GOLD}15` }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto">
+          <img 
+            src={CLASSIC_COLLECTION_IMAGE} 
+            alt="Torch Republic Classic Instant Coffee Collection - Torchbearer, Ember Rise, Midnight Watch" 
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-lg shadow-lg"
+            style={{ border: `1px solid ${GOLD}20` }}
+          />
+        </motion.div>
       </section>
 
       {/* Benefits */}

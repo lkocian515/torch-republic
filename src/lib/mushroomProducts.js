@@ -331,3 +331,8 @@ export const ALL_PRODUCTS = [
 export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;
 export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
+
+// Collection showcase images
+export const MUSHROOM_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png';
+export const CLASSIC_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/418e48b93_jbbjkvbjkhbjk.png';
+export const MATCHA_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d45c1a86_bhjbkjjk.png';
