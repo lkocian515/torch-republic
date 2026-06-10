@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
+
+// Fallback placeholder image
+const FALLBACK_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
 
 // Best-for label per product shopifyHandle
 const BEST_FOR = {
@@ -24,6 +28,11 @@ const BEST_FOR = {
 export default function MushroomProductCard({ product, index = 0 }) {
   const { addItem } = useCart();
 
+  // Get reliable image URL with comprehensive fallback chain
+  const imageUrl = getProductImage(product, FALLBACK_IMAGE);
+  const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
+  const loadingProps = getImageLoadingProps(index, false);
+
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -31,7 +40,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       id: product.id || product.slug,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: imageUrl,
       category: product.category,
       servings: product.servings,
       shopifyHandle: product.shopifyHandle,
@@ -52,6 +61,8 @@ export default function MushroomProductCard({ product, index = 0 }) {
 
   const bestFor = BEST_FOR[product.shopifyHandle] || product.mood;
   const tasteNotes = product.flavorNotes?.join(', ') || '';
+
+  // Remove the duplicate review stars from image area - they're now in the wrapper
 
   return (
     <motion.div
@@ -78,39 +89,26 @@ export default function MushroomProductCard({ product, index = 0 }) {
     >
       {/* Clickable image area */}
       <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
-        <div className="relative overflow-hidden flex items-center justify-center"
+        <div className="relative overflow-hidden flex items-center justify-center product-image-wrap"
           style={{ aspectRatio: '1/1', background: '#141414' }}>
-          {product.image ? (
-            <img
-              src={`${product.image}${product.image.includes('?') ? '&' : '?'}v=${Date.now()}`}
-              alt={`${product.name} - ${product.roast} instant ${product.category === 'matcha' ? 'matcha' : 'mushroom coffee'} with ${product.flavorNotes?.join(', ') || 'rich flavor'} - Torch Republic`}
-              loading="lazy"
-              decoding="async"
-              crossOrigin="anonymous"
-              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-              style={{ padding: '12px' }}
-              onError={(e) => {
-                console.error('Image failed to load:', product.image);
-                e.target.style.display = 'none';
-                const placeholder = e.target.parentElement.querySelector('.image-error-placeholder');
-                if (placeholder) {
-                  placeholder.style.display = 'flex';
-                  placeholder.querySelector('p').textContent = 'Image unavailable';
-                }
-              }}
-              onLoad={(e) => {
-                const placeholder = e.target.parentElement.querySelector('.image-error-placeholder');
-                if (placeholder) placeholder.style.display = 'none';
-              }}
-            />
-          ) : null}
-          {/* Error placeholder - shown if image fails to load */}
-          <div className="image-error-placeholder flex-col items-center justify-center w-full h-full gap-3 p-8 absolute inset-0"
-            style={{ background: '#141414', display: product.image ? 'none' : 'flex' }}>
-            <div className="w-16 h-16 rounded-full border border-dashed"
-              style={{ borderColor: `${product.accent}40` }} />
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-              style={{ color: `${product.accent}50` }}>Loading image...</p>
+          <img
+            src={imageUrl}
+            alt={imageAlt}
+            width="400"
+            height="400"
+            {...loadingProps}
+            crossOrigin="anonymous"
+            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+            style={{ padding: '12px' }}
+            onError={(e) => {
+              console.warn(`⚠️ Image failed for ${product.name}:`, imageUrl);
+              e.currentTarget.src = FALLBACK_IMAGE;
+            }}
+          />
+          {/* Review Stars */}
+          <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
+            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+            <span className="font-mono text-[8px] tracking-[0.15em] text-white">4.9</span>
           </div>
           {/* Roast badge */}
           <div className="absolute top-3 left-3">

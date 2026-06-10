@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
@@ -9,7 +9,6 @@ const RG = '#E6B7AD';
 
 export default function StartHereSection() {
   const { addItem } = useCart();
-  const [loading, setLoading] = useState(true);
 
   // Use static featured products with verified image URLs for fast, reliable homepage loading
   const BEST_SELLERS = HOMEPAGE_FEATURED_PRODUCTS;
@@ -80,27 +79,21 @@ export default function StartHereSection() {
             >
               {/* Product Image */}
               <Link to={`/products/${product.slug}`} className="group block">
-                <div className="relative overflow-hidden flex items-center justify-center" style={{ aspectRatio: '1/1', background: '#141414' }}>
-                  {loading ? (
-                    <div className="w-full h-full flex items-center justify-center" style={{ background: '#1A1A1A' }}>
-                      <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  ) : (
-                    <img
-                      src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
-                      alt={product.alt}
-                      loading="eager"
-                      fetchpriority={i < 2 ? "high" : undefined}
-                      width="400"
-                      height="400"
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                      style={{ padding: '12px' }}
-                      onError={(e) => {
-                        console.warn(`⚠️ Image failed for ${product.label}:`, product.imageUrl);
-                        e.target.src = FALLBACK_PRODUCT_IMAGE;
-                      }}
-                    />
-                  )}
+                <div className="relative overflow-hidden flex items-center justify-center product-image-wrap" style={{ aspectRatio: '1/1', background: '#141414' }}>
+                  <img
+                    src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
+                    alt={product.alt}
+                    loading={i < 2 ? "eager" : "lazy"}
+                    fetchpriority={i < 2 ? "high" : undefined}
+                    width="400"
+                    height="400"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    style={{ padding: '12px' }}
+                    onError={(e) => {
+                      console.warn(`⚠️ Image failed for ${product.label}:`, product.imageUrl);
+                      e.currentTarget.src = FALLBACK_PRODUCT_IMAGE;
+                    }}
+                  />
                   {/* Review Stars */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
                     <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
