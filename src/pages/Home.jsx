@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Homepage sections
 import HeroSection from '../components/home/HeroSection';
+import HomeTrustRow from '../components/home/HomeTrustRow';
 import BundleSection from '../components/home/BundleSection';
 import ShopByCategory from '../components/home/ShopByCategory';
 import BlendComparisonSection from '../components/home/BlendComparisonSection';
@@ -47,7 +48,7 @@ function StickyMobileCTA() {
           boxShadow: '0 4px 24px rgba(0,0,0,0.7)',
         }}
       >
-        Build Your Bundle →
+        Build My Ritual Bundle →
       </Link>
     </div>
   );
@@ -66,6 +67,9 @@ export default function Home() {
 
       {/* 1. Hero */}
       <HeroSection />
+
+      {/* 1b. Trust Row */}
+      <HomeTrustRow />
 
       {/* 2. Start With a Ritual Bundle — primary conversion section */}
       <BundleSection />

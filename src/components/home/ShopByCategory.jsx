@@ -48,7 +48,7 @@ export default function ShopByCategory() {
           className="text-center mb-12"
         >
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Or Shop by Category
+            Or Browse by Category
           </p>
           <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Three Rituals. One Brand.

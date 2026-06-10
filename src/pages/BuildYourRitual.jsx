@@ -63,6 +63,75 @@ export default function BuildYourRitual() {
 
   return (
     <div className="min-h-screen" style={{ background: '#080808', color: '#F0EBE1' }}>
+
+      {/* Best Starter Bundle — featured at top */}
+      <section className="px-6 md:px-10 pt-16 pb-0">
+        <div className="max-w-[900px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            className="relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, rgba(230,183,173,0.07) 0%, rgba(230,183,173,0.02) 100%)', border: `1px solid ${RG}35` }}
+          >
+            <div className="px-6 py-2" style={{ background: RG }}>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: '#080808' }}>
+                ✦ Best Starter Bundle — Most Popular First Order
+              </p>
+            </div>
+            <div className="p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div>
+                  <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+                    The Starter Ritual Bundle
+                  </h2>
+                  <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.75)', fontWeight: 400, lineHeight: 1.8 }}>
+                    The easiest way to experience Torch Republic — one blend for clarity, one for daily energy, and one for calm ritual.
+                  </p>
+                  <div className="space-y-1 mb-5">
+                    {['GlowMind Clarity — Focus & Deep Work', 'Torchbearer — Bold Classic Energy', 'The Monk Matcha — Calm Presence'].map((item, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span style={{ color: RG }}>✦</span>
+                        <span className="font-mono text-[10px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.8)' }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-baseline gap-4 mb-5">
+                    <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>$74.97</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$74.97 separately</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
+                  </div>
+                  <a
+                    href="https://torchrepublic.myshopify.com/cart/47177396412715:1,47177380388139:1,47177399427371:1"
+                    className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
+                    style={{ background: RG, color: '#080808' }}
+                  >
+                    Start My Ritual →
+                  </a>
+                </div>
+                <div className="hidden md:flex flex-col gap-3">
+                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>3 Blends · ~79 Servings Total</p>
+                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>~$0.95 per serving</p>
+                  </div>
+                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>No Machine Needed</p>
+                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Instant powder — stir, sip, begin.</p>
+                  </div>
+                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>30-Day Guarantee</p>
+                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>If it's not right, we make it right.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-center mt-5 mb-2" style={{ color: 'rgba(230,183,173,0.35)' }}>
+            — or customize your own below —
+          </p>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ minHeight: '350px' }}>
         <div className="absolute inset-0" style={{ background: '#0B0B0B' }} />
@@ -332,6 +401,19 @@ export default function BuildYourRitual() {
           </div>
         </div>
       </section>
+
+      {/* Sticky mobile checkout CTA when bundle is complete */}
+      {selectedProducts.length === 3 && (
+        <div className="md:hidden fixed bottom-16 left-0 right-0 z-30 flex justify-center px-6" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          <button
+            onClick={handleAddToCart}
+            className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
+            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)' }}
+          >
+            Add Bundle to Cart — ${bundlePrice}
+          </button>
+        </div>
+      )}
 
       {/* Trust Bar */}
       <section className="px-6 md:px-10 py-12" style={{ borderTop: `1px solid ${RG}10` }}>

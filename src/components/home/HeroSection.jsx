@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const RG = '#E6B7AD';
 
 const TRUST_ICONS = [
-  { label: 'Instant Rituals', sub: 'Coffee · Mushroom · Matcha' },
+  { label: 'Instant Rituals', sub: 'Coffee + Mushroom Coffee + Matcha' },
   { label: '25–27 Servings', sub: 'Per Tube' },
   { label: 'No Machine Needed', sub: 'Just Add Hot Water' },
   { label: '30-Day Guarantee', sub: 'If Not Right, We Make It Right' },
@@ -41,27 +41,27 @@ export default function HeroSection() {
           <h1
             className="font-serif font-bold mb-4 mx-auto"
             style={{
-              fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
+              fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
               color: '#F5EFE6',
               letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              maxWidth: '680px',
+              lineHeight: 1.15,
+              maxWidth: '720px',
             }}
           >
-            Build Your<br />
-            <span style={{ color: RG }}>Daily Ritual</span>
+            Coffee, Mushroom Coffee & Matcha<br />
+            <span style={{ color: RG }}>for a Clearer Morning Ritual</span>
           </h1>
           <p
             className="font-heading mx-auto mb-8"
             style={{
-              fontSize: 'clamp(1rem, 1.5vw, 1.05rem)',
+              fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)',
               color: 'rgba(210,195,175,0.75)',
               fontWeight: 400,
               lineHeight: 1.85,
-              maxWidth: '540px',
+              maxWidth: '560px',
             }}
           >
-            Premium instant coffee, mushroom coffee, and matcha crafted for morning energy, focus, calm clarity, and intentional daily routines.
+            Premium instant blends made for focus, calm energy, and intentional daily routines — no machine, no pods, no complicated prep.
           </p>
         </motion.div>
 
@@ -77,14 +77,14 @@ export default function HeroSection() {
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
           >
-            Build Your Ritual Bundle →
+            Build My Ritual Bundle →
           </Link>
           <Link
             to="/shop"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
           >
-            Shop Individual Blends
+            Shop Best Sellers
           </Link>
         </motion.div>
 

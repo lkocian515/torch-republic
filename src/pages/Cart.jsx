@@ -27,10 +27,15 @@ export default function Cart() {
         <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
           You haven't added anything yet.
         </p>
-        <Link to="/shop"
+        <Link to="/build-your-ritual"
           className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-10 py-4 transition-all hover:opacity-90"
           style={{ background: RG, color: '#080808' }}>
-          Shop Now
+          Build My Ritual Bundle →
+        </Link>
+        <Link to="/shop"
+          className="font-mono text-[9px] tracking-[0.25em] uppercase mt-4 py-3 px-8 transition-all hover:opacity-70 block"
+          style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.6)' }}>
+          Browse Individual Blends
         </Link>
         <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
           Use code <strong>WELCOME10</strong> at checkout for 10% off your first order
@@ -46,9 +51,9 @@ export default function Cart() {
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
           <h1 className="font-serif font-bold text-2xl" style={{ color: '#F5EFE6' }}>
-            Your Cart <span className="font-mono text-base font-normal" style={{ color: 'rgba(230,183,173,0.5)' }}>({totalItems})</span>
+            Your Ritual Is Ready <span className="font-mono text-base font-normal" style={{ color: 'rgba(230,183,173,0.5)' }}>({totalItems})</span>
           </h1>
-          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(230,183,173,0.6)' }}>
+          <Link to="/build-your-ritual" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(230,183,173,0.6)' }}>
             <ArrowLeft className="w-3.5 h-3.5" />
             Continue Shopping
           </Link>
@@ -133,26 +138,30 @@ export default function Cart() {
 
               <a
                 href={checkoutUrl}
-                className="w-full flex items-center justify-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                 style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
               >
                 <Lock className="w-3.5 h-3.5" />
-                Secure Checkout
+                Secure Checkout →
               </a>
 
-              <Link to="/shop"
+              <p className="font-mono text-[7px] tracking-[0.15em] text-center mb-4" style={{ color: 'rgba(230,183,173,0.45)', lineHeight: 1.8 }}>
+                Secure Checkout • Ships from the U.S. • Easy Returns • Subscribe &amp; Save Available
+              </p>
+
+              <Link to="/build-your-ritual"
                 className="w-full block text-center font-mono text-[9px] tracking-[0.25em] uppercase py-3 transition-all hover:opacity-70"
                 style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.55)' }}>
-                Continue Shopping
+                ← Continue Shopping
               </Link>
 
               {/* Trust signals */}
-              <div className="mt-6 space-y-2">
+              <div className="mt-5 space-y-2">
                 {[
                   '🔒 Secure Shopify Checkout',
                   '🚚 Free shipping on orders $75+',
                   '✦ 30-Day satisfaction guarantee',
-                  '🇺🇸 U.S.-based independent brand',
+                  '🇺🇸 U.S.-based small business',
                 ].map((line, i) => (
                   <p key={i} className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>{line}</p>
                 ))}

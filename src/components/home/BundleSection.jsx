@@ -73,10 +73,13 @@ export default function BundleSection() {
             Start With a Ritual Bundle
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            The Best Way to Begin
+            The Easiest First Purchase
           </h2>
-          <p className="font-heading mx-auto mb-10" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
-            Not sure where to begin? Start with a curated Torch Republic bundle and experience coffee, mushroom coffee, and matcha designed for different moments of your day.
+          <p className="font-heading mx-auto mb-4" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.65)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
+            Skip the guesswork. Curated bundles of 3 blends — coffee, mushroom coffee, and matcha — designed for different moments of your day.
+          </p>
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-10" style={{ color: 'rgba(230,183,173,0.4)' }}>
+            3 blends · ~81 servings · ~$0.93/serving · Free shipping
           </p>
         </motion.div>
 
