@@ -149,9 +149,9 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Recovery, restoration, calm evenings',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
-   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd538a000_15.png',
+   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9f68c0162_nmhnjhjvb.png',
    galleryImages: [
-     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd538a000_15.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9f68c0162_nmhnjhjvb.png',
    ],
    alt: 'Torch Republic MoonCap Restore instant mushroom coffee tube',
    price: 24.99,
