@@ -48,8 +48,8 @@ export default function HeroSection() {
               maxWidth: '720px',
             }}
           >
-            Coffee, Mushroom Coffee & Matcha<br />
-            <span style={{ color: RG }}>for a Clearer Morning Ritual</span>
+            Premium Instant Coffee, Mushroom Coffee & Matcha<br />
+            <span style={{ color: RG }}>for Your Daily Ritual</span>
           </h1>
           <p
             className="font-heading mx-auto mb-8"
@@ -61,7 +61,7 @@ export default function HeroSection() {
               maxWidth: '560px',
             }}
           >
-            Premium instant blends made for focus, calm energy, and intentional daily routines — no machine, no pods, no complicated prep.
+            Crafted to support focus, clarity, and intentional living.
           </p>
         </motion.div>
 

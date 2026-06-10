@@ -3,12 +3,11 @@ import React from 'react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: '⚡', text: 'Premium instant blends' },
-  { icon: '🚫', text: 'No pods or machine needed' },
-  { icon: '🌿', text: 'Clear, honest ingredients' },
-  { icon: '🔒', text: 'Secure checkout' },
-  { icon: '⭐', text: 'Real customer reviews' },
-  { icon: '🇺🇸', text: 'U.S.-based small business' },
+  { icon: '🔒', text: 'Secure Checkout' },
+  { icon: '🌿', text: 'Premium Ingredients' },
+  { icon: '☕', text: 'Made for Daily Rituals' },
+  { icon: '📦', text: 'Fast U.S. Shipping' },
+  { icon: '⭐', text: '5-Star Experience' },
 ];
 
 export default function HomeTrustRow() {

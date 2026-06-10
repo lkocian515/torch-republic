@@ -1,90 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Truck, RotateCcw } from 'lucide-react';
+import { Shield, Leaf, Award, Truck, Star, User } from 'lucide-react';
 
-const TRUST_CARDS = [
-  {
-    icon: ShieldCheck,
-    title: 'Secure Checkout',
-    bullets: ['256-bit SSL encryption', 'Card details never stored', 'Bank-level security'],
-  },
-  {
-    icon: Truck,
-    title: 'Fast U.S. Shipping',
-    bullets: ['Ships in 1–3 business days', 'Tracking number by email', 'U.S.-based fulfillment'],
-  },
-  {
-    icon: RotateCcw,
-    title: '30-Day Returns',
-    bullets: ['Full refund or exchange', 'No questions asked', 'Just reach out & we handle it'],
-  },
-  {
-    icon: Award,
-    title: 'Quality Guarantee',
-    bullets: ['Every item inspected before ship', 'Premium heavyweight materials', 'We make it right, period'],
-  },
+const RG = '#E6B7AD';
+
+const TRUST_ITEMS = [
+  { icon: Shield, label: 'Secure Checkout', sub: 'SSL encrypted & protected' },
+  { icon: Leaf, label: 'Premium Ingredients', sub: 'Sourced with intention' },
+  { icon: Award, label: 'Satisfaction Guarantee', sub: '30-day guarantee' },
+  { icon: Truck, label: 'Fast Shipping', sub: '1-3 business days' },
+  { icon: Star, label: '5-Star Reviews', sub: 'Verified customers' },
+  { icon: User, label: 'Founder-Led', sub: 'Small business, big care' },
 ];
 
 export default function TrustSection() {
   return (
-    <section className="py-14 px-6 bg-card/40 border-t border-border">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-6 md:px-10 py-16 md:py-20" style={{ background: '#0D0C0B' }}>
+      <div className="max-w-[1280px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-primary font-mono text-xs tracking-[0.4em] uppercase mb-2">Our Promise to You</p>
-          <h2 className="text-2xl sm:text-3xl font-heading font-black uppercase tracking-tight">
-            Shop With Total Confidence
-          </h2>
-          <p className="text-muted-foreground text-sm mt-3 max-w-xl mx-auto">
-            We're not just another store. We're patriots serving patriots — and we take that seriously.
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            Why Customers Trust Torch Republic
           </p>
-        </div>
+          <h2
+            className="font-serif font-bold"
+            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+          >
+            Built on Trust & Quality
+          </h2>
+        </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {TRUST_CARDS.map(({ icon: Icon, title, bullets }, i) => (
+        {/* Trust Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-12">
+          {TRUST_ITEMS.map((item, i) => (
             <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 20 }}
+              key={item.label}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="p-6 flex flex-col gap-4"
-              style={{ border: '1px solid rgba(200,164,77,0.15)', backgroundColor: 'rgba(255,255,255,0.02)' }}
+              transition={{ delay: i * 0.06, duration: 0.5 }}
+              className="flex flex-col items-center text-center p-4"
+              style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(200,164,77,0.1)', border: '1px solid rgba(200,164,77,0.3)' }}>
-                  <Icon className="w-5 h-5" style={{ color: '#C8A44D' }} />
-                </div>
-                <h3 className="font-heading font-bold text-sm uppercase tracking-wide text-white">{title}</h3>
-              </div>
-              <ul className="space-y-1.5">
-                {bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2">
-                    <span className="text-xs mt-0.5" style={{ color: '#C8A44D' }}>✓</span>
-                    <span className="text-gray-400 text-xs">{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <item.icon className="w-6 h-6 mb-3" style={{ color: RG }} />
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
+                {item.label}
+              </p>
+              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 400 }}>
+                {item.sub}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Payment badges row */}
-        <div className="text-center">
-          <p className="text-muted-foreground text-xs font-mono tracking-widest uppercase mb-4">Accepted Payment Methods</p>
-          <div className="flex items-center justify-center flex-wrap gap-3">
-            {['VISA', 'MASTERCARD', 'AMEX', 'PAYPAL', 'APPLE PAY', 'GOOGLE PAY'].map((method) => (
-              <div key={method} className="px-4 py-2 border border-border bg-card text-xs font-mono font-bold tracking-wider text-muted-foreground">
-                {method}
-              </div>
-            ))}
-          </div>
-          <p className="text-muted-foreground text-xs mt-4 flex items-center justify-center gap-2">
-            <ShieldCheck className="w-4 h-4" style={{ color: '#C8A44D' }} />
-            All transactions are secured and encrypted. We never store your card details.
+        {/* Founder Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto text-center"
+          style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', padding: '32px', borderRadius: '4px' }}
+        >
+          <p className="font-serif font-bold text-lg mb-3" style={{ color: '#F5EFE6' }}>
+            A Note from the Founder
           </p>
-        </div>
+          <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 400, lineHeight: 1.8, fontStyle: 'italic' }}>
+            "Torch Republic was created to make daily coffee feel more intentional — less rushed, less generic, and more aligned with the person you're becoming. Every blend is crafted for clarity, focus, and the rituals that matter most."
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-10 h-10 rounded-full" style={{ background: RG, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span className="font-serif font-bold text-xs" style={{ color: '#080808' }}>TR</span>
+            </div>
+            <div>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>Torch Republic</p>
+              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)' }}>Corpus Christi, TX</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

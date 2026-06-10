@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 // Homepage sections
 import HeroSection from '../components/home/HeroSection';
 import HomeTrustRow from '../components/home/HomeTrustRow';
+import StartHereSection from '../components/home/StartHereSection';
 import BundleSection from '../components/home/BundleSection';
 import ShopByCategory from '../components/home/ShopByCategory';
 import BlendComparisonSection from '../components/home/BlendComparisonSection';
 import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
+import TrustSection from '../components/home/TrustSection';
 import ComparisonTable from '../components/home/ComparisonTable';
 import IngredientClarity from '../components/home/IngredientClarity';
 import FounderNote from '../components/home/FounderNote';
@@ -78,7 +80,10 @@ export default function Home() {
       {/* 1b. Trust Row */}
       <HomeTrustRow />
 
-      {/* 2. Start With a Ritual Bundle — primary conversion section */}
+      {/* 2. Best Sellers — Start Here */}
+      <StartHereSection />
+
+      {/* 3. Build Your Ritual Bundle — primary conversion section */}
       <BundleSection />
 
       {/* 3. Shop by Category */}
@@ -90,7 +95,10 @@ export default function Home() {
       {/* 5. Why Torch Republic */}
       <WhyTorchRepublic />
 
-      {/* 5b. How Torch Republic Compares */}
+      {/* 5b. Trust Section */}
+      <TrustSection />
+
+      {/* 6. How Torch Republic Compares */}
       <ComparisonTable />
 
       {/* 6. Ingredient Transparency */}
