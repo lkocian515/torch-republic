@@ -42,8 +42,8 @@ export default function MushroomCoffeeCollection() {
   const [openFaq, setOpenFaq] = useState(null);
 
   useSEO({
-    title: 'Premium Mushroom Coffee | Functional Instant Coffee | Torch Republic',
-    description: 'Shop Torch Republic Mushroom Coffee — premium instant coffee blended with functional mushrooms for focus, clarity, energy, and intentional daily rituals.',
+    title: 'Instant Mushroom Coffee | Torch Republic Coffee Co.',
+    description: "Shop Torch Republic mushroom coffee blends — premium instant coffee with Lion's Mane and Chaga crafted for focus, clarity, calm energy, and intentional daily rituals. No machines. No pods.",
     url: '/mushroom-coffee',
     type: 'website',
   });
@@ -55,13 +55,13 @@ export default function MushroomCoffeeCollection() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
-              Functional Wellness for the Modern Ritual
+              Torch Republic Coffee Co. — Mushroom Coffee
             </p>
             <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Six Blends. Six Qualities.
+              Instant Mushroom Coffee<br />Made for Clarity
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Inspired by vitality, restoration, clarity, wisdom, and transformation. Every blend is a daily reminder of who you are becoming.
+              Six premium instant coffee blends with Lion's Mane and Chaga — crafted for focus, calm energy, and intentional daily rituals. Coffee-forward. No machines. No pods.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#080808', borderRadius: '4px' }}>

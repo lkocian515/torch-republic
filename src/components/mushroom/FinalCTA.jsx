@@ -36,13 +36,13 @@ export default function FinalCTA() {
 
         <h2 className="font-serif font-bold mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-          Your best mornings<br />
-          <span style={{ color: RG }}>start here.</span>
+          Start With One<br />
+          <span style={{ color: RG }}>Better Ritual</span>
         </h2>
 
         <p className="font-heading mb-10 mx-auto"
           style={{ fontSize: '0.92rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300, maxWidth: '460px' }}>
-          Small-batch instant mushroom coffee made for daily rituals. 27 servings per tube, no equipment needed, and a 30-day first cup guarantee. Start with the blend that fits your morning.
+          Choose your blend and create a clearer, calmer daily coffee routine. No machines, no pods, no complicated routine — just add hot water and begin.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -52,15 +52,15 @@ export default function FinalCTA() {
             style={{ background: RG, color: '#050505', padding: '15px 36px' }}
           >
             <ShoppingBag size={13} />
-            Shop Mushroom Coffee
+            Shop Best Sellers
           </Link>
           <Link
-            to="/bundle"
+            to="/build-your-ritual"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: `1px solid rgba(230,183,173,0.35)`, color: RG, padding: '15px 28px' }}
           >
             <Sparkles size={13} />
-            Try the Bundle
+            Build Your Ritual Bundle
           </Link>
         </div>
 

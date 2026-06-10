@@ -1,158 +1,117 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
+import React from 'react';
 import { motion } from 'framer-motion';
-import MadeInUSABanner from './MadeInUSABanner';
-import { ShieldCheck, Truck, Star, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const TRUST_SIGNALS = [
-  { icon: ShieldCheck, text: 'Secure Checkout' },
-  { icon: Truck, text: 'Ships from USA' },
-  { icon: Star, text: '5-Star Rated' },
+const RG = '#E6B7AD';
+
+const trustPills = [
+  'No coffee maker needed',
+  '27 servings per tube',
+  'Subscribe & Save 20%',
+  '30-day guarantee',
 ];
 
 export default function HeroSection() {
-  const containerRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    });
-  };
-
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[92vh] flex items-center overflow-hidden bg-background"
+    <section
+      className="relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #0A0807 0%, #080808 100%)', minHeight: '90vh', display: 'flex', alignItems: 'center' }}
     >
-      {/* Spotlight */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(700px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, hsl(49 100% 50% / 0.05), transparent 60%)`,
-        }}
-      />
+      {/* Subtle warm glow */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 30%, rgba(230,183,173,0.07) 0%, transparent 70%)',
+      }} />
 
-      {/* Background image */}
-      <div className="absolute inset-0">
+      {/* Hero image — full bleed behind text */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/56cf651fe_ggrtgtrgrt.png"
-          alt="Torch Republic Hero"
-          className="w-full h-full object-contain"
-          style={{ objectPosition: 'center -22%', backgroundColor: '#000', filter: 'brightness(1.12) contrast(1.08)' }}
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png"
+          alt="Torch Republic Coffee Co. — Conscious instant coffee, mushroom coffee, and matcha"
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.22 }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 55%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 25%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,7,6,0.55) 0%, #080808 85%)' }} />
       </div>
 
-      {/* Centered outer container */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 py-24">
-        {/* 2-column hero grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left column: text content */}
-          <div className="max-w-[550px]">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 mb-5"
-            >
-              <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-              <span className="font-mono tracking-[0.2em] sm:tracking-[0.35em] uppercase whitespace-nowrap" style={{ color: '#C8A44D', fontSize: '10px' }}>Faith · Freedom · Truth</span>
-              <div className="h-px w-6 sm:w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, #0E2A2F)' }} />
-            </motion.div>
+      <div className="relative z-10 w-full px-6 md:px-10 py-24 md:py-32">
+        <div className="max-w-[900px] mx-auto text-center">
+          {/* Eyebrow */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-mono text-[9px] tracking-[0.6em] uppercase mb-6"
+            style={{ color: 'rgba(230,183,173,0.6)' }}
+          >
+            Torch Republic Coffee Co.
+          </motion.p>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="text-2xl sm:text-4xl md:text-5xl font-heading font-black leading-[1.1] tracking-tight text-white mb-5"
-            >
-              Premium Patriot Gear<br /><span style={{ color: '#D4AF5A' }}>Built for the Bold.</span>
-            </motion.h1>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.1 }}
+            className="font-serif font-bold mb-6"
+            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.2rem)', color: '#FFFFFF', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+          >
+            Conscious Coffee for<br />
+            <span style={{ color: RG }}>Clearer Daily Rituals</span>
+          </motion.h1>
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed"
-            >
-              Rugged apparel, accessories, and collectibles for patriots, believers, and freedom-lovers. Designed to last.
-            </motion.p>
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="font-heading mb-10 mx-auto"
+            style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.85, maxWidth: '620px' }}
+          >
+            Premium instant coffee, mushroom coffee, and matcha crafted for calm energy, daily clarity, and intentional mornings.
+          </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col gap-3 mb-8"
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          >
+            <Link
+              to="/shop"
+              className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
+              style={{ background: RG, color: '#080808', padding: '16px 40px', display: 'inline-block' }}
             >
-              <Link
-                to={createPageUrl('BestSellers')}
-                className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200"
-                style={{ background: '#C4A35A', color: '#000', boxShadow: '0 4px 30px rgba(196,163,90,0.3)' }}
+              Shop Best Sellers
+            </Link>
+            <Link
+              to="/build-your-ritual"
+              className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75"
+              style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block' }}
+            >
+              Build Your Ritual Bundle
+            </Link>
+          </motion.div>
+
+          {/* Trust pills */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap justify-center gap-3"
+          >
+            {trustPills.map((pill, i) => (
+              <span
+                key={i}
+                className="font-mono text-[7.5px] tracking-[0.2em] uppercase"
+                style={{ color: 'rgba(230,183,173,0.4)' }}
               >
-                Shop Bestsellers
-              </Link>
-            </motion.div>
-
-            {/* Made in USA Banner */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
-              className="md:hidden"
-            >
-              <MadeInUSABanner />
-            </motion.div>
-          </div>
-
-          {/* Right column: spacer for image (handled by background) */}
-          <div className="hidden md:block" />
+                ✦ {pill}
+              </span>
+            ))}
+          </motion.div>
         </div>
       </div>
-
-      {/* Shirt text overlay */}
-      <div
-        className="absolute hidden md:flex flex-col items-center justify-center pointer-events-none"
-        style={{
-          right: '14%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          opacity: 0.55,
-          mixBlendMode: 'overlay',
-        }}
-      >
-        <span
-          className="block font-heading font-black uppercase tracking-[0.35em] text-white"
-          style={{ fontSize: '13px', letterSpacing: '0.5em', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
-        >
-          GOD · FAMILY · COUNTRY
-        </span>
-      </div>
-
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
-          <ChevronDown className="w-5 h-5" style={{ color: 'rgba(200,164,77,0.5)' }} />
-        </motion.div>
-      </motion.div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background to-transparent" />
-    </div>
+    </section>
   );
 }

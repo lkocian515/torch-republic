@@ -4,52 +4,48 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'What is mushroom coffee?',
-    a: 'Mushroom coffee is a blend of real coffee and functional mushroom extracts. Torch Republic uses premium instant coffee powder combined with Lion\'s Mane and Chaga — two of the most widely used functional mushrooms in traditional wellness. The result is smooth, great-tasting coffee with added daily wellness support.',
+    q: 'What is Torch Republic Coffee Co.?',
+    a: 'Torch Republic Coffee Co. is a conscious instant coffee brand offering premium instant coffee, mushroom coffee, and matcha for clarity, calm energy, and intentional daily rituals.',
   },
   {
-    q: 'Is Torch Republic instant or ground coffee?',
-    a: 'It\'s 100% instant coffee powder — not ground coffee, not pods, not capsules. No coffee maker, grinder, or brewer needed. Just add hot water, stir for 10–15 seconds, and enjoy. It dissolves completely in under 30 seconds.',
+    q: 'Is this coffee instant?',
+    a: 'Yes. Our coffee products are designed for instant preparation. Just add hot water, stir for 10–15 seconds, and enjoy. No brewer, grinder, pods, or machines needed.',
   },
   {
-    q: 'How do I make it?',
-    a: 'Scoop one serving (approximately 2g) into your mug. Add 8–12 oz of hot water, oat milk, almond milk, or your preferred creamer. Stir for 10–15 seconds. Optionally add sweetener or ice. That\'s it — no equipment needed.',
+    q: 'Do I need a coffee maker?',
+    a: 'No. Torch Republic products are made for simple preparation without machines or pods. Add hot water, stir, and begin — that\'s the entire process.',
   },
   {
-    q: 'Does it taste like mushrooms?',
-    a: 'No. Torch Republic blends are designed to taste like coffee first — smooth, clean, and roast-forward. The functional mushroom extracts complement the coffee flavor without tasting earthy or medicinal. Each blend has its own character: dark cocoa, light citrus, warm spice, or floral sweetness.',
+    q: 'Does every blend contain mushrooms?',
+    a: 'No. We offer three categories: classic instant coffee, mushroom coffee, and matcha. Only the mushroom coffee blends contain functional mushrooms. Classic and matcha blends are mushroom-free.',
   },
   {
-    q: 'Does it contain caffeine?',
-    a: 'Yes. Each serving contains approximately 50–80mg of caffeine depending on the blend — comparable to a half-to-full cup of regular coffee. The functional mushroom extracts themselves are caffeine-free.',
-  },
-  {
-    q: 'Which blend should I start with?',
-    a: 'GlowMind Clarity is best for focus and deep work. SunCap Rise is ideal for bright, energetic mornings. MoonCap Restore suits calm evenings and restoration. The Oracle supports creative and intuitive thinking. Mystic Bloom is crafted for daily balance and wellness. DreamCap is designed for rest and recovery. Not sure? The 6-Blend Bundle is the perfect way to try them all.',
+    q: 'What does mushroom coffee taste like?',
+    a: 'Our mushroom coffee is designed to be coffee-forward, smooth, and easy to drink. The goal is a familiar coffee experience with added functional ingredients — not an earthy or medicinal taste.',
   },
   {
     q: 'What mushrooms are used?',
-    a: 'Every Torch Republic blend contains Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). Lion\'s Mane has been used in traditional wellness practices for centuries and is widely associated with focus and cognitive clarity. Chaga is rich in antioxidants and supports daily immune and overall wellness.',
+    a: "Every mushroom coffee blend contains Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). These are two of the most widely used functional mushrooms in traditional wellness, crafted to support focus, clarity, and daily energy.",
   },
   {
-    q: 'Can I drink it every day?',
-    a: 'Yes — Torch Republic is designed to be your everyday ritual. One serving per day is the standard serving. As always, consult a healthcare professional if you are pregnant, nursing, or managing a medical condition.',
-  },
-  {
-    q: 'Is this a replacement for regular coffee?',
-    a: 'It can be. Torch Republic blends are designed to stand on their own as a satisfying daily coffee — just with added functional mushroom support. Many customers replace their morning coffee entirely, while others enjoy it as a lighter afternoon option.',
+    q: 'How much caffeine is in each serving?',
+    a: "Mushroom coffee blends contain approximately 50–80mg of caffeine per serving. Classic instant coffee blends contain approximately 80–100mg. Matcha blends contain approximately 25–40mg — offering calm, sustained energy without a sharp spike.",
   },
   {
     q: 'How many servings are in each tube?',
-    a: 'Each tube contains 27 servings (1.9 oz / 54g). At one serving per day, each tube lasts approximately four weeks.',
+    a: 'Mushroom coffee and classic coffee tubes contain 27 servings. Matcha tubes contain 25 servings. At one serving per day, each tube lasts approximately four weeks.',
   },
   {
-    q: 'Do you offer a satisfaction guarantee?',
-    a: 'Yes. We stand behind our blends with a 30-day satisfaction guarantee. If you\'re not happy with your order, reach out to us at admin@torchrepublic.com and we\'ll make it right. See the Return Policy in the footer for full details.',
+    q: 'Do you offer subscriptions?',
+    a: 'Yes. Customers can use Subscribe & Save to receive their favorite blends regularly and save 20% on every order. You can cancel, pause, or change your blends anytime.',
+  },
+  {
+    q: 'What is your satisfaction guarantee?',
+    a: "We stand behind every blend with a 30-day satisfaction guarantee. If you're not happy with your order, contact us at admin@torchrepublic.com and we'll make it right.",
   },
   {
     q: 'Are these products FDA approved?',
-    a: 'Torch Republic products are instant mushroom coffee blends and are not intended to diagnose, treat, cure, or prevent any disease. Statements on this site have not been evaluated by the FDA. Consult a healthcare professional before use if you are pregnant, nursing, or managing a medical condition.',
+    a: 'These statements have not been evaluated by the FDA. Torch Republic products are not intended to diagnose, treat, cure, or prevent any disease. Consult a healthcare professional before use if you are pregnant, nursing, or managing a medical condition.',
   },
 ];
 
@@ -104,7 +100,7 @@ export default function FAQSection() {
             style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
           <h2 className="font-serif font-bold"
             style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Mushroom Coffee FAQ
+            Common Questions
           </h2>
         </motion.div>
 

@@ -11,8 +11,8 @@ const GOLD = '#C4A35A';
 
 export default function ClassicCoffeeCollection() {
   useSEO({
-    title: 'Classic Instant Coffee | Torch Republic Coffee Company',
-    description: 'Shop premium classic instant coffee blends from Torch Republic Coffee Company. No coffee maker needed, no pods, no mushrooms — just bold coffee ready in seconds.',
+    title: 'Premium Instant Coffee | Torch Republic Coffee Co.',
+    description: 'Shop premium classic instant coffee blends from Torch Republic Coffee Co. Coffee-forward, smooth flavor, no machines, no pods. Just add hot water and begin.',
     url: '/classic-coffee',
     type: 'website',
   });
@@ -24,13 +24,13 @@ export default function ClassicCoffeeCollection() {
         <div className="max-w-5xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: GOLD }}>
-              Coffee for the Rising
+              Torch Republic Coffee Co. — Classic Instant Coffee
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Three Blends. One Standard.
+              Premium Instant Coffee
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Three blends inspired by resilience, leadership, and renewal. Crafted for those building something meaningful.
+              Three premium coffee-forward instant blends for smooth energy, rich flavor, and everyday convenience. No machines, no pods — just hot water and a great cup.
             </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
@@ -77,8 +77,8 @@ export default function ClassicCoffeeCollection() {
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Who Are You Becoming?</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Some days call for leadership. Some for renewal. Others for resilience. The question isn't which coffee you drink. The question is: who are you becoming today?</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Simple. Premium. Instant.</h2>
+            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Premium instant coffee crafted for smooth energy, rich flavor, and a daily ritual that fits real life. No machine required — just add water and begin.</p>
             <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#050505', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Products <ArrowRight className="w-4 h-4" />
             </Link>

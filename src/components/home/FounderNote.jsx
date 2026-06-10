@@ -15,7 +15,7 @@ export default function FounderNote() {
         >
           {/* Section Label */}
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-6" style={{ color: RG }}>
-            Why Torch Republic Exists
+            A Note From the Founder
           </p>
 
           {/* Founder Message */}
@@ -25,28 +25,28 @@ export default function FounderNote() {
               fontWeight: 300,
               lineHeight: 1.9
             }}>
-              Torch Republic was created from a simple belief: The most important transformations in life rarely happen all at once.
+              Torch Republic began with a simple belief: your daily coffee should help you feel clearer, more grounded, and more connected to the life you are building.
             </p>
             <p className="font-heading text-base leading-relaxed mb-5" style={{
               color: 'rgba(240,235,225,0.65)',
               fontWeight: 300,
               lineHeight: 1.9
             }}>
-              They happen through small decisions repeated consistently over time. A morning walk. A difficult conversation. A promise kept. A new beginning. A quiet moment before the world demands your attention.
+              I wanted to create something more intentional than another rushed cup of caffeine. Something simple, beautiful, and practical enough to become part of real life.
             </p>
             <p className="font-heading text-base leading-relaxed mb-5" style={{
               color: 'rgba(240,235,225,0.65)',
               fontWeight: 300,
               lineHeight: 1.9
             }}>
-              We believe coffee can be more than a source of energy. It can become a daily ritual that reconnects you with your intentions, your values, and the person you are working to become.
+              Torch Republic Coffee Co. is for people who care about how they start their day — people who want energy without chaos, focus without force, and a small ritual that brings them back to themselves.
             </p>
-            <p className="font-heading text-base leading-relaxed mb-5" style={{
+            <p className="font-heading text-base leading-relaxed" style={{
               color: 'rgba(240,235,225,0.65)',
               fontWeight: 300,
               lineHeight: 1.9
             }}>
-              Every Torch Republic blend is inspired by a different quality of human growth—from discipline and resilience to creativity, restoration, wisdom, and purpose. Because transformation isn't built in a single moment. It's built one day at a time.
+              This is coffee for the ritual-minded.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function FounderNote() {
           {/* CTA */}
           <div className="mt-10 text-center">
             <Link
-              to="/about"
+              to="/mission"
               className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
               style={{ color: RG, borderBottom: `1px solid ${RG}` }}
             >

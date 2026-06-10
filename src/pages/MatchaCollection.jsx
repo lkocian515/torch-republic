@@ -11,8 +11,8 @@ const MATCHA_GREEN = '#10B981';
 
 export default function MatchaCollection() {
   useSEO({
-    title: 'Instant Matcha Blends | Torch Republic Coffee Company',
-    description: 'Shop instant matcha blends for calm energy, focus, presence, and daily ritual. Discover The Monk, The Ascendant, and The Alchemist from Torch Republic Coffee Company.',
+    title: 'Ceremonial Matcha | Torch Republic Coffee Co.',
+    description: 'Shop ceremonial matcha blends from Torch Republic Coffee Co. Smooth, calm energy, instant preparation, no whisk needed. Crafted for mindful daily rituals.',
     url: '/matcha',
     type: 'website',
   });
@@ -24,13 +24,13 @@ export default function MatchaCollection() {
         <div className="max-w-5xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
-              Matcha for Mastery
+              Torch Republic Coffee Co. — Ceremonial Matcha
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Three Ceremonial Blends
+              Ceremonial Matcha
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Three ceremonial matcha blends inspired by discipline, transformation, and creation. For those who choose mastery.
+              Three smooth ceremonial matcha blends for calm focus, mindful energy, and a grounded daily reset. Instant preparation. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
@@ -77,8 +77,8 @@ export default function MatchaCollection() {
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Choose Your Practice</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Discipline over impulse. Growth over stagnation. Creation over consumption. One ritual. One cup. One day at a time.</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Calm Energy. Clear Focus.</h2>
+            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Ceremonial matcha designed for smooth, steady energy without the spike. An intentional daily ritual you can look forward to.</p>
             <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#050505', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Matcha <ArrowRight className="w-4 h-4" />
             </Link>
