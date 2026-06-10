@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Flame, ArrowLeft } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+
 
 const PROMO_MESSAGES = [
   'Instant Coffee, Mushroom Coffee & Matcha',
@@ -121,9 +121,9 @@ export default function UnifiedHeader() {
                   </Link>
                 ))}
               </nav>
-              <a href={SHOPIFY_CART_URL} style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+              <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
