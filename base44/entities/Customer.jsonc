@@ -31,40 +31,26 @@
     "total_orders": {
       "type": "number",
       "default": 0,
-      "description": "Total number of orders placed"
-    },
-    "city": {
-      "type": "string",
-      "description": "Customer city"
-    },
-    "state": {
-      "type": "string",
-      "description": "Customer state/province"
-    },
-    "country": {
-      "type": "string",
-      "description": "Customer country"
+      "description": "Number of orders placed"
     },
     "phone": {
       "type": "string",
       "description": "Customer phone number"
     },
-    "tags": {
+    "city": {
       "type": "string",
-      "description": "Customer tags"
+      "description": "Customer city"
     },
-    "segment": {
+    "province_code": {
       "type": "string",
-      "enum": [
-        "previousPurchasers",
-        "emailSubscribers",
-        "abandonedCart"
-      ],
-      "description": "Customer segment for email campaigns"
+      "description": "Customer state/province code"
+    },
+    "country_code": {
+      "type": "string",
+      "description": "Customer country code"
     }
   },
   "required": [
-    "customer_id",
     "email"
   ],
   "rls": {
