@@ -3,63 +3,26 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { base44 } from '@/api/base44Client';
-import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
+import { HOMEPAGE_FEATURED_PRODUCTS, FALLBACK_PRODUCT_IMAGE } from '@/lib/homepageFeaturedProducts';
 
 const RG = '#E6B7AD';
-// Fallback image - Torch Republic branded placeholder
-const FALLBACK_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
-
-// Best sellers for homepage - matched by Shopify handle
-const BEST_SELLERS = [
-  { slug: 'glowmind-clarity-blend', label: 'GlowMind Clarity Blend', bestFor: 'Deep work & daily focus', accent: '#10B981' },
-  { slug: 'mooncap-restore', label: 'MoonCap Restore', bestFor: 'Calm evenings & restoration', accent: '#8B9ED4' },
-  { slug: 'torchbearer', label: 'Torchbearer', bestFor: 'Bold mornings & deep work', accent: '#D6B27A' },
-  { slug: 'the-monk-matcha-blend', label: 'The Monk Matcha', bestFor: 'Focus, calm & presence', accent: '#6EE7B7' },
-];
 
 export default function StartHereSection() {
   const { addItem } = useCart();
-  const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // Fetch Shopify products on mount
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await base44.functions.invoke('fetchShopifyProducts', {});
-        if (response.data?.products) {
-          const productMap = {};
-          response.data.products.forEach(p => {
-            // Use featuredImage URL or first image from gallery, fallback to branded placeholder
-            const image = p.featuredImage || (p.images && p.images[0]) || FALLBACK_IMAGE;
-            productMap[p.handle] = {
-              image: image,
-              price: p.price || 29.99,
-              category: p.productType || 'mushroom-coffee',
-            };
-          });
-          setProducts(productMap);
-        }
-      } catch (error) {
-        console.error('Failed to fetch Shopify products:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
+  // Use static featured products with verified image URLs for fast, reliable homepage loading
+  const BEST_SELLERS = HOMEPAGE_FEATURED_PRODUCTS;
 
   const handleAddToCart = (product, e) => {
     e.preventDefault();
     e.stopPropagation();
-    const shopifyProduct = products[product.slug] || {};
     addItem({
       id: product.slug,
       name: product.label,
-      price: shopifyProduct.price || 29.99,
-      image: shopifyProduct.image || FALLBACK_IMAGE,
-      category: shopifyProduct.category || product.category || 'mushroom-coffee',
+      price: 29.99,
+      image: product.imageUrl || FALLBACK_PRODUCT_IMAGE,
+      category: product.category || 'mushroom-coffee',
       shopifyHandle: product.slug,
     });
   };
@@ -124,14 +87,17 @@ export default function StartHereSection() {
                     </div>
                   ) : (
                     <img
-                      src={products[product.slug]?.image || FALLBACK_IMAGE}
-                      alt={`${product.label} - Torch Republic`}
+                      src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
+                      alt={product.alt}
                       loading="eager"
                       fetchpriority={i < 2 ? "high" : undefined}
+                      width="400"
+                      height="400"
                       className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       style={{ padding: '12px' }}
                       onError={(e) => {
-                        e.target.src = FALLBACK_IMAGE;
+                        console.warn(`⚠️ Image failed for ${product.label}:`, product.imageUrl);
+                        e.target.src = FALLBACK_PRODUCT_IMAGE;
                       }}
                     />
                   )}
@@ -159,7 +125,7 @@ export default function StartHereSection() {
                 {/* Price */}
                 <div className="flex items-center justify-between pt-3" style={{ borderTop: `1px solid ${product.accent}20` }}>
                   <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>
-                    ${products[product.slug]?.price?.toFixed(2) || '29.99'}
+                    $29.99
                   </span>
                 </div>
 

@@ -1,10 +1,10 @@
 const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torch-republic.com';
+const SHOP_DOMAIN = 'torchrepublic.com'; // Primary domain (hyphenated redirects here)
 
 Deno.serve(async (req) => {
   try {
     // Query all products with full image data from Storefront API
-    const query = `{
+    const query = `query {
       products(first: 250) {
         edges {
           node {
@@ -58,7 +58,7 @@ Deno.serve(async (req) => {
       }
     }`;
 
-    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql.json`, {
+    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

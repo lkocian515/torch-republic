@@ -54,9 +54,10 @@ export default function ShopByCategory() {
             images[collection.handle] = collection.image;
           });
           setCollectionImages(images);
+          console.log(`✅ Loaded ${Object.keys(images).length} collection images:`, Object.keys(images));
         }
       } catch (error) {
-        console.error('Failed to fetch collection images:', error);
+        console.error('❌ Failed to fetch collection images:', error);
       } finally {
         setLoading(false);
       }
@@ -112,17 +113,33 @@ export default function ShopByCategory() {
                     ) : (
                       <img 
                         src={cat.productImage} 
-                        alt={`${cat.label} collection by Torch Republic`}
+                        alt={`${cat.label} by Torch Republic`}
                         className="max-h-full max-w-full object-contain" 
                         loading="eager"
-                        onError={(e) => { e.target.style.display = 'none'; }}
+                        width="200"
+                        height="200"
+                        onError={(e) => { 
+                          console.warn(`⚠️ Category image failed: ${cat.label}`);
+                          e.target.style.display = 'none'; 
+                        }}
                       />
                     )}
                   </div>
                 )}
                 {categoryImage && !loading ? (
                   <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
-                    <img src={categoryImage} alt={`${cat.label} by Torch Republic`} className="max-h-full max-w-full object-contain" loading="lazy" onError={(e) => { e.target.style.display = 'none'; }} />
+                    <img 
+                      src={categoryImage} 
+                      alt={`${cat.label} collection by Torch Republic`}
+                      className="max-h-full max-w-full object-contain" 
+                      loading="lazy"
+                      width="160"
+                      height="120"
+                      onError={(e) => { 
+                        console.warn(`⚠️ Collection image failed: ${cat.label}`);
+                        e.target.style.display = 'none'; 
+                      }} 
+                    />
                   </div>
                 ) : null}
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
