@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const RG = '#E6B7AD';
 
 const trustPills = [
-  'No coffee maker needed',
+  'No machine needed',
   '27 servings per tube',
-  'Subscribe & Save 20%',
+  'Mix any 3 blends & save',
   '30-day guarantee',
 ];
 
@@ -78,18 +78,18 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <Link
-              to="/shop"
+              to="/build-your-ritual"
               className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
               style={{ background: RG, color: '#080808', padding: '16px 40px', display: 'inline-block' }}
             >
-              Shop Best Sellers
+              Build Your Ritual Bundle →
             </Link>
             <Link
-              to="/build-your-ritual"
+              to="/shop"
               className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75"
               style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block' }}
             >
-              Build Your Ritual Bundle
+              Shop All Blends
             </Link>
           </motion.div>
 

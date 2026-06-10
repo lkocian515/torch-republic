@@ -33,7 +33,7 @@ function StickyMobileCTA() {
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <Link
-        to="/shop"
+        to="/build-your-ritual"
         className="pointer-events-auto font-mono uppercase tracking-[0.3em] text-center transition-all hover:opacity-90"
         style={{
           background: RG,
@@ -45,7 +45,7 @@ function StickyMobileCTA() {
           boxShadow: '0 4px 24px rgba(0,0,0,0.7)',
         }}
       >
-        Shop Best Sellers
+        Build Your Bundle →
       </Link>
     </div>
   );

@@ -31,36 +31,36 @@ export default function FinalCTA() {
       >
         <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-5"
           style={{ color: 'rgba(230,183,173,0.5)' }}>
-          Torch Republic Coffee Company
+          Torch Republic Coffee Co.
         </p>
 
         <h2 className="font-serif font-bold mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-          Start With One<br />
-          <span style={{ color: RG }}>Better Ritual</span>
+          Premium Instant Coffee<br />
+          <span style={{ color: RG }}>For a Clearer Daily Ritual</span>
         </h2>
 
         <p className="font-heading mb-10 mx-auto"
           style={{ fontSize: '0.92rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300, maxWidth: '460px' }}>
-          Choose your blend and create a clearer, calmer daily coffee routine. No machines, no pods, no complicated routine — just add hot water and begin.
+          No pods. No machines. No chaotic energy. Pick any 3 blends, build your bundle, and start a ritual that actually feels good.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <Link
-            to="/shop"
+            to="/build-your-ritual"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.32em] uppercase font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#050505', padding: '15px 36px' }}
           >
-            <ShoppingBag size={13} />
-            Shop Best Sellers
+            <Sparkles size={13} />
+            Build Your Ritual Bundle →
           </Link>
           <Link
-            to="/build-your-ritual"
+            to="/shop"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: `1px solid rgba(230,183,173,0.35)`, color: RG, padding: '15px 28px' }}
           >
-            <Sparkles size={13} />
-            Build Your Ritual Bundle
+            <ShoppingBag size={13} />
+            Browse All Blends
           </Link>
         </div>
 

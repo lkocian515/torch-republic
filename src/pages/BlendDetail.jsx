@@ -167,7 +167,7 @@ function BlendDetailInner({ product }) {
     "sku": product.slug,
     "brand": {
       "@type": "Brand",
-      "name": "Torch Republic Coffee Company"
+      "name": "Torch Republic Coffee Co."
     },
     "offers": {
       "@type": "Offer",
@@ -178,7 +178,7 @@ function BlendDetailInner({ product }) {
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",
-        "name": "Torch Republic Coffee Company"
+        "name": "Torch Republic Coffee Co."
       }
     },
     "aggregateRating": {
@@ -565,6 +565,95 @@ function BlendDetailInner({ product }) {
 
             {/* Ritual Membership Benefits Block */}
             <RitualMembershipBlock />
+
+            {/* Ingredient Transparency */}
+            <div className="p-5" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(16,185,129,0.7)' }}>
+                What's Inside Every Tube
+              </p>
+              {product.category === 'matcha' ? (
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>100% Ceremonial Grade Matcha</strong> — whisked-quality, instant format
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>25 servings per tin</strong> — no fillers, no artificial flavors
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>Natural L-Theanine</strong> — calm focus without the jitter
+                    </span>
+                  </div>
+                </div>
+              ) : product.category === 'classic-coffee' ? (
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>Premium Arabica Instant Coffee</strong> — spray-dried, specialty grade
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>27 servings per tube</strong> — no artificial colors or preservatives
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>No pods, no machine</strong> — just add 8–10 oz hot water
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>Premium Instant Coffee</strong> — specialty Arabica base, clean roast
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>500mg Organic Lion's Mane</strong> — dual-extracted for full potency
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>500mg Organic Chaga</strong> — antioxidant-rich, beta-glucan support
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
+                      <strong style={{ color: '#F7F1E8' }}>27 servings · 1.9 oz / 54g</strong> — no artificial flavors, no fillers
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Guarantee + Shipping strip */}
+            <div className="grid grid-cols-2 gap-2">
+              <div className="p-3 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: '#E6B7AD' }}>30-Day Guarantee</p>
+                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>Not satisfied? Full refund, no questions asked.</p>
+              </div>
+              <div className="p-3 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: '#E6B7AD' }}>Free Shipping</p>
+                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>On orders over $75. Ships in 1–3 business days.</p>
+              </div>
+            </div>
 
             {/* Accordions */}
             <div className="mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>

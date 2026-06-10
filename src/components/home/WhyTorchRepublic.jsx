@@ -45,6 +45,21 @@ export default function WhyTorchRepublic() {
           </h2>
         </motion.div>
 
+        {/* Guarantee / Shipping strip */}
+        <div className="flex flex-wrap justify-center gap-6 mb-10">
+          {[
+            { label: '30-Day Money-Back Guarantee', sub: 'If it\'s not right, we\'ll make it right.' },
+            { label: 'Free Shipping Over $75', sub: 'Ships in 1–3 business days.' },
+            { label: 'Subscribe & Save 20%', sub: 'Cancel or pause anytime.' },
+            { label: '27 Servings Per Tube', sub: 'No machine. No pods. Just add water.' },
+          ].map(item => (
+            <div key={item.label} className="text-center">
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: '#E6B7AD' }}>{item.label}</p>
+              <p className="font-heading text-[11px] mt-0.5" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300 }}>{item.sub}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {BENEFITS.map((b, i) => (
             <motion.div

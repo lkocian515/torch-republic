@@ -27,10 +27,13 @@ export default function StarterBundleSection() {
             Start Here
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Not Sure Where to Start?
+            Build Your Ritual Bundle
           </h2>
-          <p className="font-heading mb-10 mx-auto" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.85, maxWidth: '580px' }}>
-            Build a simple daily ritual with our starter bundles. Choose your favorite instant coffee, mushroom coffee, or matcha blends and save with Subscribe &amp; Save.
+          <p className="font-heading mb-3 mx-auto" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.85, maxWidth: '580px' }}>
+            Pick any 3 blends — classic coffee, mushroom coffee, or matcha — and get them as a discounted bundle. Try different rituals, find your favorite, reorder monthly.
+          </p>
+          <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-10 mx-auto" style={{ color: RG, maxWidth: '480px' }}>
+            ◆ $74.97 value · Bundle pricing applied at checkout · Subscribe & Save an additional 20%
           </p>
 
           {/* Perks grid */}
