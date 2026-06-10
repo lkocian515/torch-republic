@@ -43,8 +43,9 @@ export const CLASSIC_COFFEE_PRODUCTS = [
     bestFor: 'Renewal, rebuilding, fresh starts',
     mushrooms: "Cordyceps + Reishi",
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a057ce644_mockup-227.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2167e14dd_17.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2167e14dd_17.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a057ce644_mockup-227.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ef905786_17.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2b52c75ff_jbbjkvbjkhbjk.png',
