@@ -59,8 +59,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
-    description: 'Discover premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles designed for clarity, focus, and intentional daily energy. No machine needed. Shop coffee-forward blends made for modern wellness.',
+    title: 'Torch Republic Coffee Company | Instant Coffee, Mushroom Coffee & Matcha',
+    description: 'Shop premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles designed for clarity, focus, and simple daily energy. No machine needed.',
     url: '/',
     type: 'website',
     faq: [

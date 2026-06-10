@@ -8,7 +8,7 @@ const RG = '#E6B7AD';
 const CATEGORIES = [
   {
     label: 'Classic Instant Coffee',
-    route: '/classic-coffee',
+    route: '/shop/instant-coffee',
     cta: 'Shop Instant Coffee',
     accent: '#C4A35A',
     body: 'Smooth, premium instant coffee for simple daily energy. No machines, no pods. Rich flavor in seconds.',
@@ -18,7 +18,7 @@ const CATEGORIES = [
   },
   {
     label: 'Mushroom Coffee',
-    route: '/mushroom-coffee',
+    route: '/shop/instant-mushroom-coffee',
     cta: 'Shop Mushroom Coffee',
     accent: '#10B981',
     body: "Coffee-forward blends with functional mushrooms to support clarity, focus, and calm energy. Tastes like coffee, not mushrooms.",
@@ -29,7 +29,7 @@ const CATEGORIES = [
   },
   {
     label: 'Ceremonial Matcha',
-    route: '/matcha',
+    route: '/shop/matcha',
     cta: 'Shop Matcha',
     accent: '#6EE7B7',
     body: 'Ceremonial-style matcha for smooth focus, presence, and daily ritual. Calm energy, no jitters, no coffee.',
