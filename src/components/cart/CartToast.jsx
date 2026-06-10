@@ -14,10 +14,10 @@ export default function CartToast() {
           initial={{ opacity: 0, y: 20, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 16, scale: 0.96 }}
-          className="fixed bottom-24 md:bottom-6 left-1/2 z-[200] flex flex-col items-center"
-          style={{ transform: 'translateX(-50%)', minWidth: 300 }}
+          className="fixed bottom-24 md:bottom-6 z-[200] w-[calc(100vw-24px)] max-w-[340px]"
+          style={{ left: '50%', transform: 'translateX(-50%)' }}
         >
-          <div className="flex flex-col items-center gap-3 px-6 py-4 w-full"
+          <div className="flex flex-col items-center gap-3 px-5 py-4 w-full"
             style={{ background: '#13110F', border: '1px solid rgba(230,183,173,0.3)', boxShadow: '0 8px 40px rgba(0,0,0,0.6)' }}>
             <div className="flex items-center gap-2.5">
               <CheckCircle className="w-4 h-4" style={{ color: '#E6B7AD' }} />
