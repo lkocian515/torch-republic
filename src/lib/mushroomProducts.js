@@ -202,9 +202,10 @@ export const MUSHROOM_PRODUCTS = [
    bestFor: 'Wisdom, intuition, inner knowing',
    mushrooms: "Lion's Mane + Chaga",
    servings: 27,
-   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/aafe59dfa_16.png',
+   image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0cbe0f62a_10.png',
    galleryImages: [
-     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/aafe59dfa_16.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0cbe0f62a_10.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/243a8b910_1.png',
    ],
    alt: 'Torch Republic The Oracle Blend instant mushroom coffee tube',
    price: 24.99,
