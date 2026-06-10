@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { base44 } from '@/api/base44Client';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 
 const RG = '#E6B7AD';
+// Fallback image - Torch Republic branded placeholder
+const FALLBACK_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
 
-// Best sellers for homepage
+// Best sellers for homepage - matched by Shopify handle
 const BEST_SELLERS = [
   { slug: 'glowmind-clarity-blend', label: 'GlowMind Clarity Blend', bestFor: 'Deep work & daily focus', accent: '#10B981' },
   { slug: 'mooncap-restore', label: 'MoonCap Restore', bestFor: 'Calm evenings & restoration', accent: '#8B9ED4' },
@@ -17,16 +20,43 @@ const BEST_SELLERS = [
 
 export default function StartHereSection() {
   const { addItem } = useCart();
+  const [products, setProducts] = useState({});
+
+  // Fetch Shopify products on mount
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await base44.functions.invoke('fetchShopifyProducts', {});
+        if (response.data?.products) {
+          const productMap = {};
+          response.data.products.forEach(p => {
+            // Use featuredImage URL or first image from gallery, fallback to branded placeholder
+            const image = p.featuredImage || (p.images && p.images[0]) || FALLBACK_IMAGE;
+            productMap[p.handle] = {
+              image: image,
+              price: p.price || 29.99,
+              category: p.productType || 'mushroom-coffee',
+            };
+          });
+          setProducts(productMap);
+        }
+      } catch (error) {
+        console.error('Failed to fetch Shopify products:', error);
+      }
+    }
+    fetchProducts();
+  }, []);
 
   const handleAddToCart = (product, e) => {
     e.preventDefault();
     e.stopPropagation();
+    const shopifyProduct = products[product.slug] || {};
     addItem({
       id: product.slug,
       name: product.label,
-      price: 29.99,
-      image: product.image,
-      category: product.category || 'mushroom-coffee',
+      price: shopifyProduct.price || 29.99,
+      image: shopifyProduct.image || FALLBACK_IMAGE,
+      category: shopifyProduct.category || product.category || 'mushroom-coffee',
       shopifyHandle: product.slug,
     });
   };
@@ -86,11 +116,14 @@ export default function StartHereSection() {
               <Link to={`/products/${product.slug}`} className="group block">
                 <div className="relative overflow-hidden flex items-center justify-center" style={{ aspectRatio: '1/1', background: '#141414' }}>
                   <img
-                    src={`/product-images/${product.slug}.png`}
+                    src={products[product.slug]?.image || FALLBACK_IMAGE}
                     alt={product.label}
                     loading="lazy"
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                     style={{ padding: '12px' }}
+                    onError={(e) => {
+                      e.target.src = FALLBACK_IMAGE;
+                    }}
                   />
                   {/* Review Stars */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
@@ -116,7 +149,7 @@ export default function StartHereSection() {
                 {/* Price */}
                 <div className="flex items-center justify-between pt-3" style={{ borderTop: `1px solid ${product.accent}20` }}>
                   <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>
-                    $29.99
+                    ${products[product.slug]?.price?.toFixed(2) || '29.99'}
                   </span>
                 </div>
 
