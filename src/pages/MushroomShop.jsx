@@ -9,9 +9,63 @@ import { useSEO } from '@/hooks/useSEO';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import { base44 } from '@/api/base44Client';
 import BlendFilters from '../components/mushroom/BlendFilters';
+import { useState } from 'react';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
+
+function NewsletterSignup() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || status === 'loading') return;
+    
+    setStatus('loading');
+    try {
+      await base44.entities.EmailSubscriber.create({ email, source: 'shop_page' });
+      setStatus('success');
+      setEmail('');
+    } catch (error) {
+      console.error('Subscription failed:', error);
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="p-6" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '4px' }}>
+        <p className="font-heading text-sm" style={{ color: '#10B981' }}>
+          ✓ Welcome to the Republic. Check your inbox for your 10% off code.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="your@email.com"
+        required
+        disabled={status === 'loading'}
+        className="flex-1 px-4 py-3 font-heading text-sm bg-transparent border rounded-sm focus:outline-none"
+        style={{ borderColor: `${RG}30`, color: '#F5EFE6' }}
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="px-8 py-3 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
+        style={{ background: RG, color: '#050505' }}
+      >
+        {status === 'loading' ? 'Joining...' : 'Subscribe'}
+      </button>
+    </form>
+  );
+}
 
 const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
 
@@ -309,6 +363,28 @@ export default function MushroomShop() {
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>All 12 Products</p>
               </a>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── NEWSLETTER SIGNUP ── */}
+      <section className="px-6 md:px-10 py-16" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[700px] mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+              Stay Connected
+            </p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6' }}>
+              Get Updates, Special Offers & New Product Announcements
+            </h2>
+            <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
+              Join the Torch Republic community. Be the first to know about new blends, limited releases, and exclusive member offers.
+            </p>
+            <NewsletterSignup />
           </motion.div>
         </div>
       </section>
