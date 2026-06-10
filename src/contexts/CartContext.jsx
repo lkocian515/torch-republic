@@ -16,7 +16,12 @@ export function CartProvider({ children }) {
       return [...prev, { ...product, qty }];
     });
     setToast(product.name);
-    setTimeout(() => setToast(null), 3000);
+    // Auto-dismiss after 4 seconds
+    setTimeout(() => setToast(null), 4000);
+  }, []);
+
+  const clearToast = useCallback(() => {
+    setToast(null);
   }, []);
 
   const updateQty = useCallback((id, delta) => {

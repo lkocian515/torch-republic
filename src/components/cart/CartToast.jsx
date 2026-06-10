@@ -5,7 +5,7 @@ import { useCart } from '@/contexts/CartContext';
 import { CheckCircle } from 'lucide-react';
 
 export default function CartToast() {
-  const { toast } = useCart();
+  const { toast, clearToast } = useCart();
 
   return (
     <AnimatePresence>
@@ -30,11 +30,13 @@ export default function CartToast() {
             <div className="flex items-center gap-2 w-full">
               <Link
                 to="/cart"
+                onClick={() => clearToast()}
                 className="flex-1 font-mono text-[8.5px] md:text-[9px] tracking-[0.2em] md:tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:opacity-90 min-h-[38px]"
                 style={{ background: '#E6B7AD', color: '#080808', fontWeight: 700, textDecoration: 'none' }}>
                 View Cart
               </Link>
               <Link to="/shop"
+                onClick={() => clearToast()}
                 className="flex-1 font-mono text-[8.5px] md:text-[9px] tracking-[0.2em] md:tracking-[0.25em] uppercase py-2.5 text-center transition-all hover:border-rose-gold min-h-[38px]"
                 style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.6)' }}>
                 Keep Shopping

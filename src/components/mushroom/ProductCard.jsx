@@ -46,6 +46,10 @@ export default function MushroomProductCard({ product, index = 0 }) {
     } catch (_) {}
   };
 
+  const handleLinkClick = (e) => {
+    e.stopPropagation();
+  };
+
   const bestFor = BEST_FOR[product.shopifyHandle] || product.mood;
   const tasteNotes = product.flavorNotes?.join(', ') || '';
 
@@ -73,7 +77,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       }}
     >
       {/* Clickable image area */}
-      <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }}>
+      <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
         <div className="relative overflow-hidden flex items-center justify-center"
           style={{ aspectRatio: '1/1', background: '#141414' }}>
           {product.image ? (
@@ -121,7 +125,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
       {/* Info — scan-friendly layout */}
       <div className="px-5 pt-4 pb-3 flex flex-col gap-2 flex-1">
         {/* Name */}
-        <Link to={`/products/${product.slug}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/products/${product.slug}`} style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
           <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6', lineHeight: 1.2 }}>
             {product.name}
           </h3>
@@ -160,6 +164,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
             ${product.price.toFixed(2)}
           </span>
           <Link to={`/products/${product.slug}`}
+            onClick={handleLinkClick}
             className="font-mono text-[8px] tracking-[0.22em] uppercase"
             style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}>
             Details →
