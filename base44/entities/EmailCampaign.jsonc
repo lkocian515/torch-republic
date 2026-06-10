@@ -1,0 +1,113 @@
+{
+  "name": "EmailCampaign",
+  "type": "object",
+  "properties": {
+    "recipient_email": {
+      "type": "string",
+      "description": "Email address of the recipient"
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Customer's first name"
+    },
+    "segment": {
+      "type": "string",
+      "enum": [
+        "previousPurchasers",
+        "emailSubscribers",
+        "abandonedCart"
+      ],
+      "description": "Customer segment"
+    },
+    "campaign_name": {
+      "type": "string",
+      "description": "Name of the email campaign"
+    },
+    "email_number": {
+      "type": "number",
+      "description": "Which email in the sequence (1, 2, or 3)"
+    },
+    "sent_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the email was sent"
+    },
+    "opened": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the email was opened"
+    },
+    "opened_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the email was opened"
+    },
+    "clicked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether a link was clicked"
+    },
+    "clicked_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When a link was clicked"
+    },
+    "converted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the recipient made a purchase"
+    },
+    "order_id": {
+      "type": "string",
+      "description": "Shopify order ID if converted"
+    },
+    "revenue": {
+      "type": "number",
+      "description": "Revenue generated from this email"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "sent",
+        "delivered",
+        "bounced",
+        "failed"
+      ],
+      "default": "sent",
+      "description": "Email delivery status"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this email"
+    }
+  },
+  "required": [
+    "recipient_email",
+    "campaign_name",
+    "email_number",
+    "sent_date"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

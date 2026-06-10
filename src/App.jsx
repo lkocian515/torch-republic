@@ -68,6 +68,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const EmailCampaignDashboard = lazy(() => import('./pages/EmailCampaignDashboard'));
 
 const mainPageKey = 'Home';
 
@@ -165,6 +166,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         
         {/* ── ADMIN / NOINDEX ── */}
         <Route path="/traffic-report" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TrafficReport" queryClient={queryClient}><TrafficReport /></LayoutWrapper></Suspense>} />
+        <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></Suspense>} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />

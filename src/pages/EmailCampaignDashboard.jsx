@@ -1,0 +1,400 @@
+import React, { useState, useEffect } from 'react';
+import { base44 } from '@/api/base44Client';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
+import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+function StatCard({ title, value, icon: IconComponent, color, subtext }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-6"
+            style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}
+        >
+            <div className="flex items-center justify-between mb-4">
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                    {title}
+                </p>
+                <IconComponent className="w-5 h-5" style={{ color }} />
+            </div>
+            <p className="font-serif font-bold text-3xl mb-2" style={{ color: '#F5EFE6' }}>
+                {value}
+            </p>
+            {subtext && (
+                <p className="font-heading text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                    {subtext}
+                </p>
+            )}
+        </motion.div>
+    );
+}
+
+function SegmentCard({ segment, count, onSend }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="p-5"
+            style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}
+        >
+            <div className="flex items-center justify-between mb-3">
+                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                    {segment}
+                </h3>
+                <div className="flex items-center gap-2 px-3 py-1" style={{ background: 'rgba(230,183,173,0.1)', borderRadius: '4px' }}>
+                    <Users className="w-3.5 h-3.5" style={{ color: '#E6B7AD' }} />
+                    <span className="font-mono text-sm font-bold" style={{ color: '#E6B7AD' }}>{count}</span>
+                </div>
+            </div>
+            <p className="font-heading text-xs mb-4" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {segment === 'Previous Purchasers' && 'Customers who have placed orders'}
+                {segment === 'Email Subscribers' && 'Subscribed but haven\'t purchased'}
+                {segment === 'Abandoned Cart' && 'Added to cart but didn\'t complete'}
+            </p>
+            <button
+                onClick={() => onSend(segment)}
+                className="w-full flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
+                style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px' }}
+            >
+                <Send className="w-3.5 h-3.5" />
+                Send Email #1
+            </button>
+        </motion.div>
+    );
+}
+
+function MetricsTable({ metrics }) {
+    if (!metrics || !metrics.segments) return null;
+
+    return (
+        <div className="overflow-x-auto">
+            <table className="w-full" style={{ borderCollapse: 'collapse' }}>
+                <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(230,183,173,0.1)' }}>
+                        <th className="text-left py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Segment</th>
+                        <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Sent</th>
+                        <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Open Rate</th>
+                        <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Click Rate</th>
+                        <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.entries(metrics.segments).map(([key, data]) => (
+                        <tr key={key} style={{ borderBottom: '1px solid rgba(230,183,173,0.05)' }}>
+                            <td className="py-3 px-4 font-heading text-sm" style={{ color: '#F5EFE6' }}>
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                            </td>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                                {data.sent || 0}
+                            </td>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.openRate > 40 ? '#10B981' : 'rgba(255,255,255,0.7)' }}>
+                                {data.openRate || 0}%
+                            </td>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.clickRate > 20 ? '#10B981' : 'rgba(255,255,255,0.7)' }}>
+                                {data.clickRate || 0}%
+                            </td>
+                            <td className="text-right py-3 px-4 font-mono text-sm font-bold" style={{ color: '#E6B7AD' }}>
+                                ${data.revenue || 0}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default function EmailCampaignDashboard() {
+    const queryClient = useQueryClient();
+    const [selectedSegment, setSelectedSegment] = useState(null);
+    const [sendStatus, setSendStatus] = useState('idle');
+
+    // Fetch customer data
+    const { data: customers, isLoading: loadingCustomers } = useQuery({
+        queryKey: ['shopifyCustomers'],
+        queryFn: async () => {
+            const response = await base44.functions.invoke('fetchShopifyCustomers', {});
+            return response.data;
+        },
+        enabled: false,
+    });
+
+    // Fetch campaign metrics
+    const { data: metrics, isLoading: loadingMetrics } = useQuery({
+        queryKey: ['campaignMetrics'],
+        queryFn: async () => {
+            const response = await base44.functions.invoke('getCampaignMetrics', {});
+            return response.data;
+        },
+        refetchInterval: 30000, // Refresh every 30 seconds
+    });
+
+    // Send email mutation
+    const sendEmailMutation = useMutation({
+        mutationFn: async (segment) => {
+            const response = await base44.functions.invoke('sendBatchRelaunchEmails', {
+                segment,
+                emailNumber: 1,
+            });
+            return response.data;
+        },
+        onSuccess: () => {
+            setSendStatus('success');
+            queryClient.invalidateQueries(['campaignMetrics']);
+            setTimeout(() => setSendStatus('idle'), 3000);
+        },
+        onError: (error) => {
+            setSendStatus('error');
+            console.error('Send failed:', error);
+        },
+    });
+
+    const handleSendEmail = (segment) => {
+        if (confirm(`Send Relaunch Email #1 to ${segment}? This will email all customers in this segment.`)) {
+            setSelectedSegment(segment);
+            sendEmailMutation.mutate(segment);
+        }
+    };
+
+    return (
+        <div className="min-h-screen" style={{ background: '#080808', padding: '40px 20px' }}>
+            <div className="max-w-[1400px] mx-auto">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-10"
+                >
+                    <div className="flex items-center gap-3 mb-4">
+                        <Mail className="w-6 h-6" style={{ color: '#E6B7AD' }} />
+                        <h1 className="font-serif font-bold text-3xl" style={{ color: '#F5EFE6' }}>
+                            Torch Republic Relaunch Campaign
+                        </h1>
+                    </div>
+                    <p className="font-heading text-base" style={{ color: 'rgba(245,239,230,0.7)' }}>
+                        Customer re-engagement email campaign · WELCOME15 discount code
+                    </p>
+                </motion.div>
+
+                {/* Stats Overview */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                    <StatCard
+                        title="Total Customers"
+                        value={customers?.data?.totalCustomers || 0}
+                        icon={Users}
+                        color="#E6B7AD"
+                        subtext="Across all segments"
+                    />
+                    <StatCard
+                        title="Emails Sent"
+                        value={metrics?.totalSent || 0}
+                        icon={Send}
+                        color="#10B981"
+                        subtext="Campaign total"
+                    />
+                    <StatCard
+                        title="Open Rate"
+                        value={`${metrics?.overallOpenRate || 0}%`}
+                        icon={TrendingUp}
+                        color="#6366F1"
+                        subtext={`Industry avg: 21%`}
+                    />
+                    <StatCard
+                        title="Revenue Generated"
+                        value={`$${metrics?.totalRevenue || 0}`}
+                        icon={DollarSign}
+                        color="#E6B7AD"
+                        subtext="Total attributed revenue"
+                    />
+                </div>
+
+                {/* Customer Segments */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="mb-10"
+                >
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                        Customer Segments
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {customers?.data?.segments && Object.entries(customers.data.segments).map(([key, segment]) => (
+                            <SegmentCard
+                                key={key}
+                                segment={key.replace(/([A-Z])/g, ' $1').trim()}
+                                count={segment.length}
+                                onSend={handleSendEmail}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Campaign Timeline */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="mb-10"
+                >
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                        Email Sequence
+                    </h2>
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '8px' }}>
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(16,185,129,0.1)' }}>
+                                <CheckCircle className="w-6 h-6" style={{ color: '#10B981' }} />
+                            </div>
+                            <div className="flex-1">
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                    Email #1: Relaunch Announcement
+                                </h3>
+                                <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                    Welcome back message · Founder note · WELCOME15 offer
+                                </p>
+                            </div>
+                            <div className="text-right">
+                                <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
+                                    Sent Immediately
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
+                                <Clock className="w-6 h-6" style={{ color: '#E6B7AD' }} />
+                            </div>
+                            <div className="flex-1">
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                    Email #2: Best Sellers
+                                </h3>
+                                <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                    Product highlights · Customer reviews · Social proof
+                                </p>
+                            </div>
+                            <div className="text-right">
+                                <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                                    +3 Days
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
+                                <Clock className="w-6 h-6" style={{ color: '#E6B7AD' }} />
+                            </div>
+                            <div className="flex-1">
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                    Email #3: Last Chance
+                                </h3>
+                                <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                    Urgency · Discount expiration reminder
+                                </p>
+                            </div>
+                            <div className="text-right">
+                                <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                                    +7 Days
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Performance Metrics */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                        Campaign Performance
+                    </h2>
+                    <div className="p-6" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
+                        {loadingMetrics ? (
+                            <div className="flex items-center justify-center py-12">
+                                <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
+                            </div>
+                        ) : metrics ? (
+                            <MetricsTable metrics={metrics} />
+                        ) : (
+                            <p className="font-heading text-center py-12" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                No campaign data yet. Send emails to start tracking performance.
+                            </p>
+                        )}
+                    </div>
+                </motion.div>
+
+                {/* Send Status */}
+                {sendStatus === 'success' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="fixed bottom-6 right-6 p-5"
+                        style={{ background: '#10B981', borderRadius: '8px', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}
+                    >
+                        <div className="flex items-center gap-3">
+                            <CheckCircle className="w-5 h-5 text-white" />
+                            <p className="font-mono text-sm text-white font-bold">
+                                Emails sent successfully!
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+
+                {sendStatus === 'error' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="fixed bottom-6 right-6 p-5"
+                        style={{ background: '#EF4444', borderRadius: '8px', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}
+                    >
+                        <div className="flex items-center gap-3">
+                            <AlertCircle className="w-5 h-5 text-white" />
+                            <p className="font-mono text-sm text-white font-bold">
+                                Failed to send emails. Check console for details.
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+
+                {/* Quick Actions */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="mt-10 p-6"
+                    style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}
+                >
+                    <h3 className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>
+                        Quick Actions
+                    </h3>
+                    <div className="flex flex-wrap gap-3">
+                        <button
+                            onClick={() => queryClient.invalidateQueries(['shopifyCustomers'])}
+                            className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
+                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
+                        >
+                            Refresh Customer Data
+                        </button>
+                        <button
+                            onClick={() => queryClient.invalidateQueries(['campaignMetrics'])}
+                            className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
+                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
+                        >
+                            Refresh Metrics
+                        </button>
+                        <Link
+                            to="/shop"
+                            className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
+                            style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px' }}
+                        >
+                            View Shop →
+                        </Link>
+                    </div>
+                </motion.div>
+            </div>
+        </div>
+    );
+}
