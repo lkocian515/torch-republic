@@ -19,42 +19,17 @@ export default function FounderNote() {
             From the Founder
           </p>
 
-          {/* Two-column layout: photo + text */}
-          <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-start mb-8">
-
-            {/* Founder photo placeholder */}
-            <div
-              className="flex-shrink-0 mx-auto md:mx-0"
-              style={{
-                width: '160px',
-                height: '200px',
-                background: 'linear-gradient(160deg, #1A1714 0%, #141210 100%)',
-                border: `1px solid ${RG}20`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                gap: '8px',
-              }}
-            >
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', border: `1px solid ${RG}30`, background: 'rgba(230,183,173,0.06)' }} />
-              <p className="font-mono text-[6.5px] tracking-[0.2em] uppercase text-center" style={{ color: 'rgba(230,183,173,0.3)', padding: '0 12px' }}>
-                Founder Photo
-              </p>
-            </div>
-
-            {/* Message */}
-            <div className="flex-1">
-              <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-                Torch Republic began with a simple belief: your morning ritual should help you feel more clear, present, and ready for the day ahead.
-              </p>
-              <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-                I wanted to create a coffee brand that felt more intentional than the usual caffeine fix — something that supported focus, calm energy, and the small daily choices that help us become who we are meant to be.
-              </p>
-              <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
-                Torch Republic is for the people rebuilding, rising, creating, working, healing, leading, and choosing to begin again — one ritual at a time.
-              </p>
-            </div>
+          {/* Message */}
+          <div className="mb-8">
+            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+              Torch Republic began with a simple belief: your morning ritual should help you feel more clear, present, and ready for the day ahead.
+            </p>
+            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+              I wanted to create a coffee brand that felt more intentional than the usual caffeine fix — something that supported focus, calm energy, and the small daily choices that help us become who we are meant to be.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+              Torch Republic is for the people rebuilding, rising, creating, working, healing, leading, and choosing to begin again — one ritual at a time.
+            </p>
           </div>
 
           {/* Signature */}

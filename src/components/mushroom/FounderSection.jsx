@@ -49,25 +49,9 @@ export default function FounderSection() {
               >
                 "Torch Republic was created from the belief that coffee can be more than a quick source of energy. It can be a small daily ritual — a moment to pause, reset, and step into the day with more clarity and intention."
               </p>
-              <div className="flex items-center gap-3 mt-6">
-                <div
-                  style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: '50%',
-                    background: 'rgba(230,183,173,0.1)',
-                    border: `1px solid ${RG}30`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <span className="font-serif font-bold" style={{ color: RG, fontSize: '1.2rem' }}>LK</span>
-                </div>
-                <div>
-                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Lisa Kocian</p>
-                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Founder, Torch Republic Coffee Company</p>
-                </div>
+              <div className="mt-6">
+                <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Lisa Kocian</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Founder, Torch Republic Coffee Company</p>
               </div>
             </div>
           </motion.div>

@@ -87,29 +87,7 @@ export default function FounderSection() {
               </p>
             </motion.div>
 
-            {/* Right: Founder Image */}
-            <motion.div
-              {...fadeUp(0.2)}
-              className="flex-shrink-0 flex flex-col items-center md:items-start"
-            >
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  width: '80px',
-                  height: '80px',
-                  borderRadius: '4px',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,162,74,0.2)',
-                }}
-              >
-                <img
-                  src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bcb486ec5_ghgyugf.png"
-                  alt="Torch Republic Founder"
-                  className="w-full h-full object-cover block"
-                  style={{ filter: 'grayscale(100%) contrast(0.88) brightness(0.95)' }}
-                />
-              </div>
-              <p className="font-serif italic text-base mt-3 text-center" style={{ color: '#C9A24A', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.04em', fontFamily: "'Cormorant Garamond', serif" }}>Lisa M. Kocian</p>
-            </motion.div>
+
 
           </div>
         </div>
