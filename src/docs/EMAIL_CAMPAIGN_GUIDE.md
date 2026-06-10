@@ -2,9 +2,28 @@
 
 ## Campaign Overview
 
+### 1. Relaunch Campaign (NEW CUSTOMERS & RE-ENGAGEMENT)
+
 **Campaign Name:** Torch Republic Relaunch  
 **Objective:** Reintroduce the brand and drive previous customers back to torchrepublic.com  
 **Discount Code:** WELCOME15 (15% off first order)
+
+### 2. Lifecycle Campaigns (AUTOMATED)
+
+**Win-Back Campaign**
+- Targets: Customers inactive for 60+ days
+- Offer: WELCOME20 (20% off)
+- Sent: Automatically via daily automation
+
+**New Customer Onboarding**
+- Targets: New customers (7 days after welcome email)
+- Content: Ritual tips, recipes, usage guidance
+- Sent: Day 7 automatically
+
+**VIP Rewards Program**
+- Targets: Customers with 2+ orders
+- Offer: Exclusive 25% discount + VIP perks
+- Sent: Automatically when customer reaches 2 orders
 
 ---
 
@@ -12,40 +31,61 @@
 
 ### 1. Backend Functions
 
-#### `fetchShopifyCustomers`
+#### Relaunch Campaign Functions
+
+**`fetchShopifyCustomers`**
 - Imports all customer emails from Shopify
-- Segments customers into:
-  - **Previous Purchasers** (orders_count > 0)
-  - **Email Subscribers** (accepts_marketing, no orders)
-  - **Abandoned Cart** (opted in, no purchase)
+- Segments customers into Previous Purchasers, Email Subscribers, Abandoned Cart
 - Returns customer count and segment breakdown
 
-#### `sendRelaunchEmail`
+**`sendRelaunchEmail`**
 - Sends individual emails using Base44 SendEmail integration
 - Logs each send to EmailCampaign entity
 - Supports personalization with customer name
 
-#### `sendBatchRelaunchEmails`
+**`sendBatchRelaunchEmails`**
 - Sends Email #1 to entire customer segments
 - Processes customers in batches
 - Returns success/failure counts
 
-#### `sendEmail2Followup`
+**`sendEmail2Followup`**
 - Automated follow-up sent 3 days after Email #1
 - Features best-selling products and reviews
-- Only sends to customers who received Email #1
 
-#### `sendEmail3LastChance`
+**`sendEmail3LastChance`**
 - Final urgency email sent 7 days after Email #1
 - Reminds customers WELCOME15 is expiring
-- Creates sense of urgency
 
-#### `getCampaignMetrics`
+#### Lifecycle Campaign Functions
+
+**`segmentCustomerLifecycle`**
+- Analyzes all Shopify customers
+- Automatically segments into: VIP, Win-Back, New Customer
+- Creates EmailCampaign records for each segment
+
+**`sendWinBackEmail`**
+- Targets customers inactive for 60+ days
+- Sends WELCOME20 (20% off) incentive
+- Runs daily via automation
+
+**`sendNewCustomerOnboarding`**
+- Sends day 7 onboarding email to new customers
+- Includes ritual tips, recipes, and usage guidance
+- Runs daily via automation
+
+**`sendVIPEmail`**
+- Sends VIP rewards invitation to customers with 2+ orders
+- Exclusive 25% discount + VIP perks
+- Runs daily via automation
+
+#### Analytics & Tracking
+
+**`getCampaignMetrics`**
 - Real-time campaign analytics
 - Tracks: open rate, click rate, conversion rate, revenue
 - Breaks down by email number and customer segment
 
-#### `trackEmail`
+**`trackEmail`**
 - Tracks email opens via invisible pixel
 - Tracks link clicks via redirect
 - Updates EmailCampaign records automatically
