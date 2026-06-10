@@ -17,8 +17,8 @@ export default function HeroSection() {
       {/* Hero Banner Image — smaller on desktop, full width on mobile */}
       <div className="flex justify-center md:max-w-[70vw] mx-auto">
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6acb79309_ChatGPTImageJun10202602_18_46AM.png"
-          alt="Torch Republic Coffee Company — Premium instant coffee, mushroom coffee and matcha for clarity, focus, and intentional daily rituals."
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png"
+          alt="Torch Republic Coffee Company — Torchbearer premium instant coffee, GlowMind Clarity mushroom coffee, and The Monk ceremonial matcha. Fuel your ritual, elevate your life."
           style={{ width: '100%', height: 'auto', display: 'block' }}
           fetchPriority="high"
           loading="eager"
