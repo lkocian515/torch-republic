@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 
@@ -13,7 +14,7 @@ const CATEGORIES = [
     body: 'Smooth, premium instant coffee for simple daily energy. No machines, no pods. Rich flavor in seconds.',
     detail: 'Medium & Dark Roasts · 27 Servings · No Mushrooms',
     emoji: '☕',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png?v=1781102333',
+    shopifyHandle: 'classic-coffee',
   },
   {
     label: 'Mushroom Coffee',
@@ -24,7 +25,7 @@ const CATEGORIES = [
     detail: "Lion's Mane + Chaga · Coffee-Forward · 27 Servings",
     emoji: '🍄',
     featured: true,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cd698018e_11.png',
+    shopifyHandle: 'mushroom-coffee',
   },
   {
     label: 'Ceremonial Matcha',
@@ -34,11 +35,32 @@ const CATEGORIES = [
     body: 'Ceremonial-style matcha for smooth focus, presence, and daily ritual. Calm energy, no jitters, no coffee.',
     detail: 'Ceremonial Grade · Instant Powder · 25 Servings · No Coffee',
     emoji: '🍵',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2eb9ed53_zssssss.png',
+    shopifyHandle: 'matcha',
   },
 ];
 
 export default function ShopByCategory() {
+  const [collectionImages, setCollectionImages] = useState({});
+
+  // Fetch collection images from Shopify on mount
+  useEffect(() => {
+    async function fetchImages() {
+      try {
+        const response = await base44.functions.invoke('fetchShopifyProducts', {});
+        if (response.data?.collections) {
+          const images = {};
+          response.data.collections.forEach(collection => {
+            images[collection.handle] = collection.image;
+          });
+          setCollectionImages(images);
+        }
+      } catch (error) {
+        console.error('Failed to fetch collection images:', error);
+      }
+    }
+    fetchImages();
+  }, []);
+
   return (
     <section className="px-6 md:px-10 py-16 md:py-24 relative" style={{ background: '#0A0807' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
@@ -59,8 +81,10 @@ export default function ShopByCategory() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {CATEGORIES.map((cat, i) => (
-            <motion.div
+          {CATEGORIES.map((cat, i) => {
+            const categoryImage = collectionImages[cat.shopifyHandle];
+            return (
+              <motion.div
               key={cat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -78,9 +102,13 @@ export default function ShopByCategory() {
                 </div>
               )}
               <div className="p-8 flex-1 flex flex-col">
-                {cat.image && (
+                {categoryImage ? (
                   <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
-                    <img src={cat.image} alt={cat.label} className="max-h-full max-w-full object-contain" />
+                    <img src={categoryImage} alt={cat.label} className="max-h-full max-w-full object-contain" loading="lazy" onError={(e) => { e.target.style.display = 'none'; }} />
+                  </div>
+                ) : (
+                  <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
+                    <span className="text-3xl">{cat.emoji}</span>
                   </div>
                 )}
                 <span className="text-3xl mb-5 block">{cat.emoji}</span>
@@ -105,8 +133,9 @@ export default function ShopByCategory() {
                   {cat.cta} →
                 </Link>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
