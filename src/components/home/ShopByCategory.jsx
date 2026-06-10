@@ -13,7 +13,7 @@ const CATEGORIES = [
     accent: '#C4A35A',
     body: 'Smooth, premium instant coffee for simple daily energy. No machines, no pods. Rich flavor in seconds.',
     detail: 'Medium & Dark Roasts · 27 Servings · No Mushrooms',
-    emoji: '☕',
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db12468c8_jbbjkvbjkhbjk.png',
     shopifyHandle: 'classic-coffee',
   },
   {
@@ -23,7 +23,7 @@ const CATEGORIES = [
     accent: '#10B981',
     body: "Coffee-forward blends with functional mushrooms to support clarity, focus, and calm energy. Tastes like coffee, not mushrooms.",
     detail: "Lion's Mane + Chaga · Coffee-Forward · 27 Servings",
-    emoji: '🍄',
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a812eb06_bgyvyj.png',
     featured: true,
     shopifyHandle: 'mushroom-coffee',
   },
@@ -34,7 +34,7 @@ const CATEGORIES = [
     accent: '#6EE7B7',
     body: 'Ceremonial-style matcha for smooth focus, presence, and daily ritual. Calm energy, no jitters, no coffee.',
     detail: 'Ceremonial Grade · Instant Powder · 25 Servings · No Coffee',
-    emoji: '🍵',
+    productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/215a14bcb_bhjbkjjk.png',
     shopifyHandle: 'matcha',
   },
 ];
@@ -102,16 +102,22 @@ export default function ShopByCategory() {
                 </div>
               )}
               <div className="p-8 flex-1 flex flex-col">
+                {cat.productImage && (
+                  <div className="mb-6 flex items-center justify-center" style={{ height: '200px' }}>
+                    <img 
+                      src={cat.productImage} 
+                      alt={cat.label} 
+                      className="max-h-full max-w-full object-contain" 
+                      loading="lazy"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  </div>
+                )}
                 {categoryImage ? (
                   <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
                     <img src={categoryImage} alt={cat.label} className="max-h-full max-w-full object-contain" loading="lazy" onError={(e) => { e.target.style.display = 'none'; }} />
                   </div>
-                ) : (
-                  <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
-                    <span className="text-3xl">{cat.emoji}</span>
-                  </div>
-                )}
-                <span className="text-3xl mb-5 block">{cat.emoji}</span>
+                ) : null}
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {cat.label}
                 </h3>
