@@ -97,9 +97,10 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Vitality, morning energy, fresh starts',
     mushrooms: "Lion's Mane + Chaga",
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27450a485_2.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6fcbe1ae8_11.png',
     galleryImages: [
-     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/27450a485_2.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6fcbe1ae8_11.png',
+     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f430657ad_3.png',
     ],
     alt: 'Torch Republic SunCap Rise instant mushroom coffee tube',
     price: 24.99,
