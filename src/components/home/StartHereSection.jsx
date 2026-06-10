@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { HOMEPAGE_FEATURED_PRODUCTS, FALLBACK_PRODUCT_IMAGE } from '@/lib/homepageFeaturedProducts';
+import { HOMEPAGE_FEATURED_PRODUCTS, FALLBACK_PRODUCT_IMAGE, getProductImage } from '@/lib/homepageFeaturedProducts';
 
 const RG = '#E6B7AD';
 
@@ -16,11 +16,12 @@ export default function StartHereSection() {
   const handleAddToCart = (product, e) => {
     e.preventDefault();
     e.stopPropagation();
+    const imageUrl = getProductImage(product);
     addItem({
       id: product.slug,
       name: product.label,
       price: 29.99,
-      image: product.imageUrl || FALLBACK_PRODUCT_IMAGE,
+      image: imageUrl,
       category: product.category || 'mushroom-coffee',
       shopifyHandle: product.slug,
     });
@@ -81,7 +82,7 @@ export default function StartHereSection() {
               <Link to={`/products/${product.slug}`} className="group block">
                 <div className="relative overflow-hidden flex items-center justify-center product-image-wrap" style={{ aspectRatio: '1/1', background: '#141414' }}>
                   <img
-                    src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
+                    src={getProductImage(product)}
                     alt={product.alt}
                     loading={i < 2 ? "eager" : "lazy"}
                     fetchpriority={i < 2 ? "high" : undefined}
@@ -90,7 +91,7 @@ export default function StartHereSection() {
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                     style={{ padding: '12px' }}
                     onError={(e) => {
-                      console.warn(`⚠️ Image failed for ${product.label}:`, product.imageUrl);
+                      console.warn(`⚠️ Image failed for ${product.label}:`, getProductImage(product));
                       e.currentTarget.src = FALLBACK_PRODUCT_IMAGE;
                     }}
                   />

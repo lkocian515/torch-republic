@@ -5,8 +5,17 @@ import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
 
-// Fallback placeholder image
+// Fallback placeholder image - Shopify CDN with cache-busting
 const FALLBACK_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
+
+// Cache-busting helper - forces browser to fetch fresh image from Shopify
+function addCacheBust(url) {
+  if (!url) return FALLBACK_IMAGE;
+  const separator = url.includes('?') ? '&' : '?';
+  // Use daily cache bust to ensure fresh images while allowing some caching
+  const cacheKey = `v=${Date.now()}`;
+  return `${url}${separator}${cacheKey}`;
+}
 
 // Best-for label per product shopifyHandle
 const BEST_FOR = {
@@ -28,8 +37,8 @@ const BEST_FOR = {
 export default function MushroomProductCard({ product, index = 0 }) {
   const { addItem } = useCart();
 
-  // Get reliable image URL with comprehensive fallback chain
-  const imageUrl = getProductImage(product, FALLBACK_IMAGE);
+  // Get image URL from Shopify (with cache-busting)
+  const imageUrl = addCacheBust(getProductImage(product, FALLBACK_IMAGE));
   const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
   const loadingProps = getImageLoadingProps(index, false);
 
@@ -102,7 +111,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
             style={{ padding: '12px' }}
             onError={(e) => {
               console.warn(`⚠️ Image failed for ${product.name}:`, imageUrl);
-              e.currentTarget.src = FALLBACK_IMAGE;
+              e.currentTarget.src = addCacheBust(FALLBACK_IMAGE);
             }}
           />
           {/* Review Stars */}
