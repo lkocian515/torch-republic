@@ -26,50 +26,64 @@ const RESULTS = {
     title: 'You Need Energy',
     products: ['SunCap Rise', 'Ember Rise'],
     desc: 'Start with a blend designed for morning momentum and fresh starts.',
-    link: '/products/suncap-rise',
-    compareLink: '/shop'
+    link: '/products/suncap-rise-instant-mushroom-coffee',
+    compareLink: '/shop',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise.png',
+    accent: '#D6B27A',
   },
   focus: {
     title: 'You Need Focus',
     products: ['GlowMind Clarity', 'The Ascendant'],
     desc: 'Choose a blend crafted for deep work, clarity, and mental presence.',
-    link: '/products/glowmind-clarity',
-    compareLink: '/shop'
+    link: '/products/glowmind-clarity-instant-mushroom-coffee',
+    compareLink: '/shop',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/glowmind-clarity.png',
+    accent: '#E6B7AD',
   },
   calm: {
     title: 'You Need Calm',
     products: ['MoonCap Restore', 'DreamCap'],
     desc: 'Reach for a blend that supports grounding and restoration.',
-    link: '/products/mooncap-restore',
-    compareLink: '/shop'
+    link: '/products/mooncap-restore-instant-mushroom-coffee',
+    compareLink: '/shop',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mooncap-restore.png',
+    accent: '#C98F86',
   },
   creativity: {
     title: 'You Need Creativity',
     products: ['The Alchemist', 'Mystic Bloom'],
     desc: 'Select a blend designed for inspired focus and creative flow.',
-    link: '/products/the-alchemist',
-    compareLink: '/shop'
+    link: '/products/the-alchemist-matcha-blend',
+    compareLink: '/shop',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png',
+    accent: '#6CBD5A',
   },
   discipline: {
     title: 'You Need Discipline',
     products: ['The Monk'],
     desc: 'Commit to a ceremonial matcha ritual for calm, steady focus.',
-    link: '/products/the-monk',
-    compareLink: '/matcha'
+    link: '/products/the-monk-matcha-blend',
+    compareLink: '/matcha',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-monk.png',
+    accent: '#6CBD5A',
   },
   reflection: {
     title: 'You Need Reflection',
     products: ['The Oracle', 'Midnight Watch'],
     desc: 'Honor your intuition with a blend for journaling and inner clarity.',
-    link: '/products/the-oracle',
-    compareLink: '/shop'
+    link: '/products/the-oracle-instant-mushroom-coffee',
+    compareLink: '/shop',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-oracle.png',
+    accent: '#C4A8A0',
   },
   simple: {
     title: 'You Want Simple Coffee',
     products: ['Torchbearer'],
     desc: 'Pure premium instant coffee — no mushrooms, no complication.',
-    link: '/products/torchbearer',
-    compareLink: '/classic-coffee'
+    link: '/products/torchbearer-instant-coffee',
+    compareLink: '/classic-coffee',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torchbearer.png',
+    accent: '#C4A35A',
   }
 };
 
@@ -163,53 +177,62 @@ export default function FindYourRitual() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-8 text-center"
-            style={{
-              background: '#0F0E0D',
-              border: `1px solid ${RG}25`,
-              borderRadius: '6px'
-            }}
+            style={{ borderRadius: '6px', overflow: 'hidden', border: `1px solid ${result.accent}30` }}
           >
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: RG }}>
-              Your Match
-            </p>
-            <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.6rem' }}>
-              {result.title}
-            </h3>
-            <p className="font-heading text-sm mb-6" style={{
-              color: 'rgba(240,235,225,0.55)',
-              fontWeight: 300,
-              lineHeight: 1.7
-            }}>
-              {result.desc}
-            </p>
-            <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-8" style={{
-              color: 'rgba(240,235,225,0.5)'
-            }}>
-              Recommended: {result.products.join(' · ')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to={result.link}
-                className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
-                style={{ background: RG, color: '#080808', borderRadius: '4px' }}
-              >
-                Start This Ritual
-              </Link>
-              <Link
-                to={result.compareLink}
-                className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-70 py-3.5 px-8"
-                style={{ border: `1px solid ${RG}`, color: RG, borderRadius: '4px' }}
-              >
-                Compare All Blends
-              </Link>
-              <button
-                onClick={() => setSelected(null)}
-                className="inline-flex items-center justify-center font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-70 py-3.5 px-6"
-                style={{ color: 'rgba(240,235,225,0.5)' }}
-              >
-                Start Over
-              </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {/* Image panel */}
+              <div className="flex items-center justify-center p-8 sm:p-12"
+                style={{ background: `linear-gradient(135deg, ${result.accent}12 0%, #0C0C0C 100%)`, minHeight: '260px' }}>
+                <img
+                  src={result.image}
+                  alt={result.products[0]}
+                  className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
+                  style={{ filter: 'drop-shadow(0 0 32px rgba(0,0,0,0.6))' }}
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+
+              {/* Text panel */}
+              <div className="p-8 flex flex-col justify-center text-center sm:text-left"
+                style={{ background: '#0F0E0D' }}>
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: result.accent }}>
+                  Your Match
+                </p>
+                <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.5rem' }}>
+                  {result.title}
+                </h3>
+                <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.7 }}>
+                  {result.desc}
+                </p>
+                <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-6" style={{ color: 'rgba(240,235,225,0.4)' }}>
+                  Recommended: {result.products.join(' · ')}
+                </p>
+                <div className="flex flex-col gap-3">
+                  <Link
+                    to={result.link}
+                    className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
+                    style={{ background: result.accent, color: '#080808', borderRadius: '4px' }}
+                  >
+                    Start This Ritual
+                  </Link>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      to={result.compareLink}
+                      className="flex-1 inline-flex items-center justify-center font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-70 py-3 px-6"
+                      style={{ border: `1px solid ${result.accent}50`, color: result.accent, borderRadius: '4px' }}
+                    >
+                      Compare All Blends
+                    </Link>
+                    <button
+                      onClick={() => setSelected(null)}
+                      className="inline-flex items-center justify-center font-mono text-[8px] tracking-[0.25em] uppercase transition-all hover:opacity-70 py-3 px-6"
+                      style={{ color: 'rgba(240,235,225,0.4)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '4px' }}
+                    >
+                      Start Over
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
