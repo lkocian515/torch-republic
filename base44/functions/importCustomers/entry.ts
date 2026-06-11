@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
             ),
         };
 
-        // Import into Customer entity
+        // Import into Customer entity (only fields that exist in the schema)
         const customerRecords = customers.map(c => ({
             customer_id: c.id.toString(),
             first_name: c.first_name || '',
@@ -47,12 +47,9 @@ Deno.serve(async (req) => {
             total_spent: parseFloat(c.total_spent) || 0,
             total_orders: c.orders_count || 0,
             city: c.default_address?.city || '',
-            state: c.default_address?.province || '',
-            country: c.default_address?.country || '',
+            province_code: c.default_address?.province_code || '',
+            country_code: c.default_address?.country_code || '',
             phone: c.phone || '',
-            tags: c.tags || '',
-            segment: c.orders_count > 0 ? 'previousPurchasers' : 
-                     c.accepts_marketing ? 'emailSubscribers' : 'abandonedCart'
         }));
 
         // Bulk create customers

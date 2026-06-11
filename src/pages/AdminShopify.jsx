@@ -7,7 +7,98 @@ import { useMutation } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
+// Categorize a product by type/lifecycle based on its fields
+function categorizeProduct(p) {
+  const status = p.status || p.published_status || (p.published_at ? 'active' : 'draft');
+  const hasVariants = p.variants && p.variants.length > 0;
+  const totalInventory = hasVariants ? p.variants.reduce((sum, v) => sum + (v.inventory_quantity || 0), 0) : (p.inventory_quantity || 0);
+  const tags = (p.tags || '').toLowerCase();
+  const title = (p.title || '').toLowerCase();
+
+  let lifecycle = 'Active';
+  let lifecycleColor = '#10B981';
+  if (status === 'draft' || status === 'unpublished') { lifecycle = 'Draft'; lifecycleColor = '#F59E0B'; }
+  else if (status === 'archived') { lifecycle = 'Archived'; lifecycleColor = '#6B7280'; }
+  else if (totalInventory === 0 && hasVariants) { lifecycle = 'Out of Stock'; lifecycleColor = '#EF4444'; }
+  else if (totalInventory > 0 && totalInventory <= 5) { lifecycle = 'Low Stock'; lifecycleColor = '#F59E0B'; }
+
+  let type = 'Other';
+  let typeColor = 'rgba(230,183,173,0.5)';
+  if (title.includes('mushroom') || tags.includes('mushroom')) { type = 'Mushroom Coffee'; typeColor = '#C8A96E'; }
+  else if (title.includes('matcha') || tags.includes('matcha')) { type = 'Matcha'; typeColor = '#6CBD5A'; }
+  else if (title.includes('coffee') || title.includes('roast') || tags.includes('coffee')) { type = 'Classic Coffee'; typeColor = '#D67A5A'; }
+  else if (title.includes('bundle') || tags.includes('bundle')) { type = 'Bundle'; typeColor = '#818CF8'; }
+  else if (title.includes('subscription') || tags.includes('subscription')) { type = 'Subscription'; typeColor = '#E6B7AD'; }
+  else if (p.product_type) { type = p.product_type; }
+
+  return { lifecycle, lifecycleColor, type, typeColor, totalInventory, status };
+}
+
+function ProductCategoryTable({ products }) {
+  if (!Array.isArray(products) || products.length === 0) return null;
+
+  const typeCounts = {};
+  const lifecycleCounts = {};
+  products.forEach(p => {
+    const { lifecycle, type } = categorizeProduct(p);
+    typeCounts[type] = (typeCounts[type] || 0) + 1;
+    lifecycleCounts[lifecycle] = (lifecycleCounts[lifecycle] || 0) + 1;
+  });
+
+  return (
+    <div className="mt-3 space-y-3">
+      {/* Summary badges */}
+      <div className="flex flex-wrap gap-2 px-1">
+        {Object.entries(lifecycleCounts).map(([label, count]) => {
+          const { lifecycleColor } = categorizeProduct({ status: label === 'Active' ? 'active' : label === 'Draft' ? 'draft' : 'archived', title: '', tags: '' });
+          const colorMap = { 'Active': '#10B981', 'Draft': '#F59E0B', 'Archived': '#6B7280', 'Out of Stock': '#EF4444', 'Low Stock': '#F59E0B' };
+          const c = colorMap[label] || RG;
+          return (
+            <span key={label} className="font-mono text-[8px] tracking-[0.15em] uppercase px-2.5 py-1" style={{ background: `${c}15`, border: `1px solid ${c}30`, color: c, borderRadius: '3px' }}>
+              {label}: {count}
+            </span>
+          );
+        })}
+      </div>
+
+      {/* Product rows */}
+      <div style={{ border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+        <div className="grid gap-0" style={{ gridTemplateColumns: '1fr auto auto auto' }}>
+          {/* Header */}
+          <div className="px-3 py-2 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.4)', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>Product</div>
+          <div className="px-3 py-2 font-mono text-[7px] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(230,183,173,0.4)', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>Type</div>
+          <div className="px-3 py-2 font-mono text-[7px] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(230,183,173,0.4)', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>Status</div>
+          <div className="px-3 py-2 font-mono text-[7px] tracking-[0.3em] uppercase text-right" style={{ color: 'rgba(230,183,173,0.4)', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>Stock</div>
+
+          {/* Rows */}
+          {products.map((p, i) => {
+            const { lifecycle, lifecycleColor, type, typeColor, totalInventory } = categorizeProduct(p);
+            return (
+              <React.Fragment key={p.id || i}>
+                <div className="px-3 py-2.5 font-heading text-xs truncate" style={{ color: '#F5EFE6', borderBottom: i < products.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none', maxWidth: '200px' }}>
+                  {p.title}
+                </div>
+                <div className="px-3 py-2.5 text-center" style={{ borderBottom: i < products.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+                  <span className="font-mono text-[7px] tracking-[0.1em] uppercase px-2 py-0.5" style={{ background: `${typeColor}15`, color: typeColor, borderRadius: '2px', whiteSpace: 'nowrap' }}>{type}</span>
+                </div>
+                <div className="px-3 py-2.5 text-center" style={{ borderBottom: i < products.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+                  <span className="font-mono text-[7px] tracking-[0.1em] uppercase px-2 py-0.5" style={{ background: `${lifecycleColor}15`, color: lifecycleColor, borderRadius: '2px', whiteSpace: 'nowrap' }}>{lifecycle}</span>
+                </div>
+                <div className="px-3 py-2.5 font-mono text-[9px] text-right" style={{ color: totalInventory === 0 ? '#EF4444' : 'rgba(240,230,215,0.6)', borderBottom: i < products.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+                  {totalInventory}
+                </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ResultPanel({ title, data, loading, expanded, onToggle }) {
+  const isProductList = Array.isArray(data) && data.length > 0 && data[0]?.variants !== undefined;
+
   if (loading) return (
     <div className="p-4 mt-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}>
       <div className="flex items-center gap-2">
@@ -33,9 +124,13 @@ function ResultPanel({ title, data, loading, expanded, onToggle }) {
       </button>
       {expanded && (
         <div className="px-4 pb-4">
-          <pre className="font-mono text-[8px] overflow-auto max-h-[400px] p-3" style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '4px', color: 'rgba(240,230,215,0.7)', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
-            {JSON.stringify(data, null, 2)}
-          </pre>
+          {isProductList ? (
+            <ProductCategoryTable products={data} />
+          ) : (
+            <pre className="font-mono text-[8px] overflow-auto max-h-[400px] p-3" style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '4px', color: 'rgba(240,230,215,0.7)', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+              {JSON.stringify(data, null, 2)}
+            </pre>
+          )}
         </div>
       )}
     </div>

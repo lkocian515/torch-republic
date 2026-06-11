@@ -111,14 +111,23 @@ export default function EmailCampaignDashboard() {
     const [selectedSegment, setSelectedSegment] = useState(null);
     const [sendStatus, setSendStatus] = useState('idle');
 
-    // Fetch customer data
-    const { data: customers, isLoading: loadingCustomers } = useQuery({
-        queryKey: ['shopifyCustomers'],
+    // Fetch customer counts from the Customer entity (what's actually in the DB)
+    const { data: customers, isLoading: loadingCustomers, refetch: refetchCustomers } = useQuery({
+        queryKey: ['customerCounts'],
         queryFn: async () => {
-            const response = await base44.functions.invoke('fetchShopifyCustomers', {});
-            return response.data;
+            const all = await base44.entities.Customer.list();
+            const segments = {
+                previousPurchasers: all.filter(c => c.total_orders > 0),
+                emailSubscribers: all.filter(c => c.accepts_email_marketing && c.total_orders === 0),
+                abandonedCart: all.filter(c => !c.accepts_email_marketing && c.total_orders === 0),
+            };
+            return {
+                data: {
+                    totalCustomers: all.length,
+                    segments,
+                }
+            };
         },
-        enabled: false,
     });
 
     // Fetch campaign metrics
@@ -143,16 +152,16 @@ export default function EmailCampaignDashboard() {
         },
     });
 
-    // Import customers from Shopify
+    // Import customers from Shopify — calls importCustomers which saves to DB
     const importCustomersMutation = useMutation({
         mutationFn: async () => {
-            const response = await base44.functions.invoke('fetchShopifyCustomers', {});
+            const response = await base44.functions.invoke('importCustomers', {});
             return response.data;
         },
         onSuccess: (data) => {
-            queryClient.invalidateQueries(['shopifyCustomers']);
+            queryClient.invalidateQueries(['customerCounts']);
             queryClient.invalidateQueries(['campaignMetrics']);
-            alert(`Import complete! ${data?.data?.totalCustomers || 0} customers loaded.`);
+            alert(`Import complete! ${data?.data?.totalCustomers || 0} customers saved to database.`);
         },
     });
 
@@ -406,7 +415,7 @@ export default function EmailCampaignDashboard() {
                             {importCustomersMutation.isPending ? 'Importing...' : 'Import from Shopify'}
                         </button>
                         <button
-                            onClick={() => queryClient.invalidateQueries(['shopifyCustomers'])}
+                            onClick={() => queryClient.invalidateQueries(['customerCounts'])}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
                             style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
                         >
