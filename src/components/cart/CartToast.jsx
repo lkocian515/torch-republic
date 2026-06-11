@@ -37,7 +37,9 @@ export default function CartToast() {
             </p>
             <div className="flex items-center gap-2 w-full">
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
                   clearToast();
                   window.location.href = '/cart';
                 }}
