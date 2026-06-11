@@ -103,13 +103,11 @@ function GalleryCarousel({ images, accent, productName }) {
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.35 }}
-          src={`${images[currentIndex]}${images[currentIndex].includes('?') ? '&' : '?'}v=${Date.now()}`}
+          src={images[currentIndex]}
           alt={`${productName} gallery image ${currentIndex + 1}`}
           className="w-full h-full object-contain p-6"
           style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
-          crossOrigin="anonymous"
           onError={(e) => {
-            console.error('Gallery image failed to load:', images[currentIndex]);
             e.target.style.opacity = '0.5';
           }}
         />
