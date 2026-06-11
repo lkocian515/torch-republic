@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Flame, ArrowLeft } from 'lucide-react';
+import { Menu, X, ShoppingBag, Flame, ArrowLeft, Shield } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAuth } from '@/lib/AuthContext';
 
 
 const PROMO_MESSAGES = [
@@ -30,6 +31,8 @@ export default function UnifiedHeader() {
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -122,6 +125,11 @@ export default function UnifiedHeader() {
                   </Link>
                 ))}
               </nav>
+              {isAdmin && (
+                <Link to="/admin/shopify" title="Admin Panel" style={{ color: 'rgba(230,183,173,0.5)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+                  <Shield className="w-4 h-4" strokeWidth={1.8} />
+                </Link>
+              )}
               <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
               </Link>

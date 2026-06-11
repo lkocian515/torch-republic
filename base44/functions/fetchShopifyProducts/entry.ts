@@ -13,7 +13,6 @@ Deno.serve(async (req) => {
             handle
             productType
             description
-            status
             featuredImage {
               url
               altText
@@ -88,7 +87,6 @@ Deno.serve(async (req) => {
         handle: node.handle,
         productType: node.productType,
         description: node.description,
-        status: node.status,
         featuredImage: node.featuredImage?.url,
         images: images,
         price: parseFloat(variant?.price?.amount || '0'),
