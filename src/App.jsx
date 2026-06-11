@@ -168,6 +168,13 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── ADMIN / NOINDEX ── */}
         <Route path="/traffic-report" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TrafficReport" queryClient={queryClient}><TrafficReport /></LayoutWrapper></Suspense>} />
         <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></Suspense>} />
+        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
+        <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
+        <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
+        <Route path="/MushroomShop" element={<Navigate to="/shop" replace />} />
+        <Route path="/mushroomshop" element={<Navigate to="/shop" replace />} />
+        <Route path="/BuildYourRitual" element={<Navigate to="/build-your-ritual" replace />} />
         <Route path="/emailcampaigndashboard" element={<Navigate to="/email-campaign" replace />} />
         <Route path="/EmailCampaignDashboard" element={<Navigate to="/email-campaign" replace />} />
         <Route path="/CustomerPortal" element={<Navigate to="/portal" replace />} />
