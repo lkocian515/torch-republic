@@ -66,7 +66,15 @@ function SegmentCard({ segment, count, onSend }) {
 }
 
 function MetricsTable({ metrics }) {
-    if (!metrics || !metrics.segments) return null;
+    const segments = metrics?.bySegment;
+
+    if (!segments || Object.values(segments).every(s => s.sent === 0)) {
+        return (
+            <p className="font-heading text-center py-12" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                No campaign data yet. Send emails to start tracking performance.
+            </p>
+        );
+    }
 
     return (
         <div className="overflow-x-auto">
@@ -77,11 +85,12 @@ function MetricsTable({ metrics }) {
                         <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Sent</th>
                         <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Open Rate</th>
                         <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Click Rate</th>
+                        <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Conv. Rate</th>
                         <th className="text-right py-3 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Revenue</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(metrics.segments).map(([key, data]) => (
+                    {Object.entries(segments).map(([key, data]) => (
                         <tr key={key} style={{ borderBottom: '1px solid rgba(230,183,173,0.05)' }}>
                             <td className="py-3 px-4 font-heading text-sm" style={{ color: '#F5EFE6' }}>
                                 {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -94,6 +103,9 @@ function MetricsTable({ metrics }) {
                             </td>
                             <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.clickRate > 20 ? '#10B981' : 'rgba(255,255,255,0.7)' }}>
                                 {data.clickRate || 0}%
+                            </td>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                                {data.conversionRate || 0}%
                             </td>
                             <td className="text-right py-3 px-4 font-mono text-sm font-bold" style={{ color: '#E6B7AD' }}>
                                 ${data.revenue || 0}
@@ -213,7 +225,7 @@ export default function EmailCampaignDashboard() {
                 </motion.div>
 
                 {/* Stats Overview */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
                     <StatCard
                         title="Total Customers"
                         value={customers?.data?.totalCustomers || 0}
@@ -233,7 +245,21 @@ export default function EmailCampaignDashboard() {
                         value={`${metrics?.overallOpenRate || 0}%`}
                         icon={TrendingUp}
                         color="#6366F1"
-                        subtext={`Industry avg: 21%`}
+                        subtext="Industry avg: 21%"
+                    />
+                    <StatCard
+                        title="Click Rate"
+                        value={`${metrics?.overallClickRate || 0}%`}
+                        icon={Activity}
+                        color="#F59E0B"
+                        subtext="Industry avg: 2.5%"
+                    />
+                    <StatCard
+                        title="Conversion Rate"
+                        value={`${metrics?.overallConversionRate || 0}%`}
+                        icon={ShoppingCart}
+                        color="#10B981"
+                        subtext="Purchases from emails"
                     />
                     <StatCard
                         title="Revenue Generated"
@@ -350,12 +376,8 @@ export default function EmailCampaignDashboard() {
                             <div className="flex items-center justify-center py-12">
                                 <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
                             </div>
-                        ) : metrics ? (
-                            <MetricsTable metrics={metrics} />
                         ) : (
-                            <p className="font-heading text-center py-12" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                                No campaign data yet. Send emails to start tracking performance.
-                            </p>
+                            <MetricsTable metrics={metrics} />
                         )}
                     </div>
                 </motion.div>
@@ -415,7 +437,7 @@ export default function EmailCampaignDashboard() {
                             {importCustomersMutation.isPending ? 'Importing...' : 'Import from Shopify'}
                         </button>
                         <button
-                            onClick={() => queryClient.invalidateQueries(['customerCounts'])}
+                            onClick={() => queryClient.invalidateQueries(['shopifyCustomers'])}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
                             style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
                         >
