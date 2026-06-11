@@ -150,7 +150,8 @@ export default function AdminShopify() {
         {/* Header */}
         <div className="mb-10">
           <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.4)' }}>
-            Admin · Shopify Integration
+            <Link to="/admin/shopify" style={{ color: 'rgba(230,183,173,0.4)', textDecoration: 'none' }} className="hover:opacity-70 transition-opacity">Admin</Link>
+            {' · Shopify Integration'}
           </p>
           <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Admin Panel
