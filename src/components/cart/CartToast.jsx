@@ -2,9 +2,11 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartToast() {
   const { toast, clearToast } = useCart();
+  const navigate = useNavigate();
 
   return (
     <AnimatePresence>
@@ -41,7 +43,7 @@ export default function CartToast() {
                   e.preventDefault();
                   e.stopPropagation();
                   clearToast();
-                  window.location.href = '/cart';
+                  navigate('/cart');
                 }}
                 className="flex-1 font-mono text-[8px] md:text-[10px] tracking-[0.22em] uppercase font-bold py-2.5 md:py-3 text-center transition-all hover:opacity-90 active:scale-[0.98] min-h-[40px]"
                 style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>
@@ -52,7 +54,7 @@ export default function CartToast() {
                   e.preventDefault();
                   e.stopPropagation();
                   clearToast();
-                  window.location.href = '/shop';
+                  navigate('/shop');
                 }}
                 className="flex-1 font-mono text-[8px] md:text-[10px] tracking-[0.22em] uppercase font-bold py-2.5 md:py-3 text-center transition-all hover:border-rose-gold active:scale-[0.98] min-h-[40px]"
                 style={{ border: '1px solid rgba(230,183,173,0.25)', color: 'rgba(230,183,173,0.7)', background: 'transparent', borderRadius: '4px', cursor: 'pointer' }}>
