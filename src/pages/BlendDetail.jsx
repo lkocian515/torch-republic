@@ -23,6 +23,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock';
 import ProductTestimonialFeed from '../components/mushroom/ProductTestimonialFeed';
+import IngredientResearch from '../components/mushroom/IngredientResearch';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -717,6 +718,9 @@ function BlendDetailInner({ product }) {
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
         {/* Functional Benefits */}
         <FunctionalBenefits product={product} />
+
+        {/* Ingredient Research — clinical studies */}
+        <IngredientResearch product={product} />
 
         {/* Taste Profile */}
         <TasteProfileCard product={product} />
