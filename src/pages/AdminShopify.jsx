@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
+import { Package, Image, Tag, RefreshCw, CheckCircle, AlertCircle, ChevronDown, ChevronUp, Users, Mail, BarChart2, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Package, Image, Tag, RefreshCw, CheckCircle, AlertCircle, ChevronDown, ChevronUp, Users, Mail, BarChart2 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
+import { useMutation } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
@@ -71,6 +72,15 @@ export default function AdminShopify() {
   useSEO({ title: 'Shopify Admin Tools', description: 'Admin tools for Shopify integration.', url: '/admin/shopify', noindex: true });
 
   const [states, setStates] = useState({});
+  const [importResult, setImportResult] = useState(null);
+
+  const importCustomersMutation = useMutation({
+    mutationFn: async () => {
+      const res = await base44.functions.invoke('fetchShopifyCustomers', {});
+      return res.data;
+    },
+    onSuccess: (data) => setImportResult(data),
+  });
 
   const run = async (key, fn) => {
     setStates(s => ({ ...s, [key]: { loading: true, result: null, error: null } }));
@@ -131,14 +141,6 @@ export default function AdminShopify() {
       color: '#4A9EE6',
       fn: () => base44.functions.invoke('getActiveShopifyProducts', {}),
     },
-    {
-      key: 'importCustomers',
-      icon: Users,
-      title: 'Import Customers from Shopify',
-      description: 'Sync Shopify customer data (emails, order history, marketing consent) into the app database.',
-      color: '#818CF8',
-      fn: () => base44.functions.invoke('fetchShopifyCustomers', {}),
-    },
   ];
 
   return (
@@ -151,12 +153,69 @@ export default function AdminShopify() {
             Admin · Shopify Integration
           </p>
           <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Shopify Product Tools
+            Admin Panel
           </h1>
           <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
-            Fetch product details, verify variant IDs, and inspect images directly from the Shopify store.
+            Manage Shopify data, import customers, and run campaigns.
           </p>
         </div>
+
+        {/* Admin Quick Nav */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+          <div className="p-5" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Users size={16} style={{ color: RG }} />
+              <h3 className="font-serif font-bold text-white">Customer Import</h3>
+            </div>
+            <p className="font-heading text-xs mb-4" style={{ color: 'rgba(240,230,215,0.45)' }}>
+              Pull customer data from Shopify into the app for email campaigns.
+            </p>
+            <button
+              onClick={() => importCustomersMutation.mutate()}
+              disabled={importCustomersMutation.isPending}
+              className="w-full font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-2.5 flex items-center justify-center gap-2 transition-all hover:opacity-90"
+              style={{ background: importCustomersMutation.isPending ? 'rgba(230,183,173,0.3)' : RG, color: '#080808', borderRadius: '4px', cursor: importCustomersMutation.isPending ? 'not-allowed' : 'pointer' }}
+            >
+              {importCustomersMutation.isPending ? <><RefreshCw size={11} className="animate-spin" /> Importing...</> : <><Download size={11} /> Import from Shopify</>}
+            </button>
+            {importResult && (
+              <p className="font-mono text-[9px] mt-2 text-center" style={{ color: '#10B981' }}>
+                ✓ {importResult?.data?.totalCustomers || 'Done'} customers loaded
+              </p>
+            )}
+          </div>
+
+          <Link to="/email-campaign" className="block p-5 transition-all hover:opacity-80" style={{ background: '#0F0E0D', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '6px', textDecoration: 'none' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Mail size={16} style={{ color: '#818CF8' }} />
+              <h3 className="font-serif font-bold text-white">Email Campaigns</h3>
+            </div>
+            <p className="font-heading text-xs mb-4" style={{ color: 'rgba(240,230,215,0.45)' }}>
+              Send relaunch and re-engagement email sequences to customer segments.
+            </p>
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: '#818CF8' }}>
+              Open Dashboard →
+            </span>
+          </Link>
+
+          <Link to="/traffic-report" className="block p-5 transition-all hover:opacity-80" style={{ background: '#0F0E0D', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '6px', textDecoration: 'none' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <BarChart2 size={16} style={{ color: '#10B981' }} />
+              <h3 className="font-serif font-bold text-white">Traffic Report</h3>
+            </div>
+            <p className="font-heading text-xs mb-4" style={{ color: 'rgba(240,230,215,0.45)' }}>
+              View Google Analytics traffic sources, sessions, and top product pages.
+            </p>
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: '#10B981' }}>
+              View Report →
+            </span>
+          </Link>
+        </div>
+
+        {/* Divider */}
+        <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.3)' }}>
+          Shopify Product Tools
+        </p>
 
         {/* Tools grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -172,24 +231,6 @@ export default function AdminShopify() {
               onRun={() => run(tool.key, tool.fn)}
             />
           ))}
-        </div>
-
-        {/* Quick links to other admin areas */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link to="/email-campaign" className="flex items-center gap-3 p-4 hover:opacity-80 transition-opacity" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px', textDecoration: 'none' }}>
-            <Mail size={16} style={{ color: RG }} />
-            <div>
-              <p className="font-serif font-bold text-sm text-white">Email Campaigns</p>
-              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)' }}>Manage customer lifecycle emails</p>
-            </div>
-          </Link>
-          <Link to="/traffic-report" className="flex items-center gap-3 p-4 hover:opacity-80 transition-opacity" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px', textDecoration: 'none' }}>
-            <BarChart2 size={16} style={{ color: RG }} />
-            <div>
-              <p className="font-serif font-bold text-sm text-white">Traffic Report</p>
-              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)' }}>View Google Analytics data</p>
-            </div>
-          </Link>
         </div>
 
         {/* Error display */}
