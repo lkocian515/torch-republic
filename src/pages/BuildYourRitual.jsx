@@ -1,44 +1,46 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { Check, X, ShoppingBag, ArrowRight, Sparkles } from 'lucide-react';
-import { ALL_PRODUCTS } from '../lib/mushroomProducts';
+import { Check, X, ShoppingBag, Sparkles } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-import { getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
 import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
+const BUNDLE_PRICE = 74.97;
+
+// Core 12 products with their Shopify handles
+const CORE_PRODUCT_HANDLES = [
+  // Mushroom Coffee (6)
+  'glowmind-clarity-instant-mushroom-coffee',
+  'mooncap-restore-instant-mushroom-coffee',
+  'dreamcap-instant-mushroom-coffee',
+  'suncap-rise-instant-mushroom-coffee',
+  'the-oracle-instant-mushroom-coffee',
+  'mystic-bloom-instant-mushroom-coffee',
+  // Classic Coffee (3)
+  'torchbearer-instant-coffee',
+  'ember-rise-instant-coffee',
+  'midnight-watch-instant-coffee',
+  // Matcha (3)
+  'the-monk-matcha-blend',
+  'the-ascendant-matcha-blend',
+  'the-alchemist-matcha-blend',
+];
+
+// Category mapping
+const PRODUCT_CATEGORIES = {
+  'Mushroom Coffee': ['suncap-rise-instant-mushroom-coffee', 'glowmind-clarity-instant-mushroom-coffee', 'mooncap-restore-instant-mushroom-coffee', 'dreamcap-instant-mushroom-coffee', 'the-oracle-instant-mushroom-coffee', 'mystic-bloom-instant-mushroom-coffee'],
+  'Classic Coffee': ['torchbearer-instant-coffee', 'ember-rise-instant-coffee', 'midnight-watch-instant-coffee'],
+  'Matcha': ['the-monk-matcha-blend', 'the-ascendant-matcha-blend', 'the-alchemist-matcha-blend'],
+};
 
 export default function BuildYourRitual() {
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState(ALL_PRODUCTS);
+  const [shopifyProducts, setShopifyProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-
-  // Fetch products from Shopify on mount
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await base44.functions.invoke('fetchShopifyProducts', {});
-        if (response.data?.products) {
-          const shopifyProducts = response.data.products;
-          // Merge local catalog with Shopify data
-          const merged = ALL_PRODUCTS.map(local => {
-            const shopify = shopifyProducts.find(p => p.handle === local.shopifyHandle);
-            return shopify ? { ...local, price: shopify.price || local.price, availableForSale: shopify.availableForSale !== undefined ? shopify.availableForSale : true } : local;
-          });
-          setAllProducts(merged);
-        }
-      } catch (error) {
-        console.error('Failed to fetch products:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
+  const [error, setError] = useState(null);
 
   useSEO({
     title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
@@ -46,73 +48,150 @@ export default function BuildYourRitual() {
     url: '/build-your-ritual',
   });
 
+  // Fetch live product data from Shopify on mount
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const response = await base44.functions.invoke('fetchShopifyProducts', {});
+        
+        if (!response.data?.products) {
+          throw new Error('No products returned from Shopify');
+        }
+
+        const allProducts = response.data.products;
+        
+        // Filter to only our core 12 products
+        const coreProducts = allProducts.filter(p => 
+          CORE_PRODUCT_HANDLES.includes(p.handle)
+        );
+
+        // Map to our internal format
+        const mappedProducts = coreProducts.map(p => {
+          // Determine category based on handle
+          let category = 'mushroom-coffee';
+          if (p.handle.includes('matcha')) category = 'matcha';
+          else if (p.handle.includes('instant-coffee') && !p.handle.includes('mushroom')) category = 'classic-coffee';
+
+          // Get accent color based on category
+          const accentColors = {
+            'mushroom-coffee': '#4A9EE6',
+            'classic-coffee': '#C4A35A',
+            'matcha': '#6CBD5A',
+          };
+
+          return {
+            id: p.handle,
+            shopifyHandle: p.handle,
+            name: p.title.replace(/(Instant Coffee|Instant Mushroom Coffee|Matcha Blend|Matcha)/g, '').trim(),
+            title: p.title,
+            price: p.price || 24.99,
+            compareAtPrice: p.compareAtPrice,
+            image: p.images?.[0]?.src || p.image,
+            category: category,
+            accent: accentColors[category] || '#E6B7AD',
+            available: p.availableForSale !== false,
+            inventory: p.quantityAvailable || 0,
+            shopifyData: p,
+          };
+        });
+
+        setShopifyProducts(mappedProducts);
+      } catch (err) {
+        console.error('Failed to fetch products:', err);
+        setError('Unable to load products. Please refresh the page.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, []);
+
   const totalPrice = useMemo(() => {
     return selectedProducts.reduce((sum, productId) => {
-      const product = allProducts.find(p => p.id === productId);
+      const product = shopifyProducts.find(p => p.id === productId);
       return sum + (product?.price || 0);
     }, 0);
-  }, [selectedProducts, allProducts]);
+  }, [selectedProducts, shopifyProducts]);
 
-  const bundlePrice = 74.97;
-  const savings = totalPrice - bundlePrice;
+  const savings = totalPrice - BUNDLE_PRICE;
 
   const toggleProduct = (productId) => {
     setSelectedProducts(prev => {
-      // If already selected, remove one instance (allows removing duplicates)
       const index = prev.indexOf(productId);
       if (index !== -1) {
         const newArray = [...prev];
         newArray.splice(index, 1);
         return newArray;
       }
-      // Allow adding even if already at 3 (will show warning)
       return [...prev, productId];
     });
   };
 
   const filteredProducts = useMemo(() => {
-    if (activeCategory === 'All') return allProducts;
-    const categoryMap = {
-      'Mushroom Coffee': 'mushroom-coffee',
-      'Matcha': 'matcha',
-      'Classic Coffee': 'classic-coffee',
-    };
-    return allProducts.filter(p => p.category === categoryMap[activeCategory]);
-  }, [allProducts, activeCategory]);
+    if (activeCategory === 'All') return shopifyProducts;
+    const categoryHandles = PRODUCT_CATEGORIES[activeCategory] || [];
+    return shopifyProducts.filter(p => categoryHandles.includes(p.shopifyHandle));
+  }, [shopifyProducts, activeCategory]);
 
   const handleAddToCart = () => {
-    if (selectedProducts.length === 3) {
-      const items = selectedProducts.map(id => {
-        const product = allProducts.find(p => p.id === id);
-        const handle = product?.shopifyHandle;
-        console.log('[Bundle] Selected:', product?.name, '| shopifyHandle:', handle);
-        return handle ? { slug: handle, qty: 1 } : null;
-      }).filter(Boolean);
+    if (selectedProducts.length !== 3) return;
 
-      const baseUrl = getShopifyBundleUrl(items);
-      if (!baseUrl) {
-        console.error('[Bundle] Failed to build Shopify bundle URL');
-        alert('Could not build cart URL. Please contact support.');
-        return;
-      }
-      const url = `${baseUrl}?discount=welcome15`;
-      
-      // Safety check: ensure URL uses correct Shopify domain
-      if (!url.includes('libertees-for-all.myshopify.com')) {
-        console.error('[Bundle] Invalid Shopify domain in URL:', url);
-        alert('Checkout configuration error. Please contact support.');
-        return;
-      }
-      
-      console.log('[Bundle] Cart URL:', url);
-      window.location.href = url;
+    const items = selectedProducts.map(id => {
+      const product = shopifyProducts.find(p => p.id === id);
+      return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
+    }).filter(Boolean);
+
+    if (items.length !== 3) {
+      console.error('[Bundle] Not all products have valid Shopify handles');
+      alert('Some products are unavailable. Please try again.');
+      return;
     }
+
+    const baseUrl = getShopifyBundleUrl(items);
+    if (!baseUrl) {
+      console.error('[Bundle] Failed to build Shopify bundle URL');
+      alert('Could not build cart URL. Please contact support.');
+      return;
+    }
+
+    const url = `${baseUrl}?discount=welcome15`;
+    
+    if (!url.includes('libertees-for-all.myshopify.com')) {
+      console.error('[Bundle] Invalid Shopify domain in URL:', url);
+      alert('Checkout configuration error. Please contact support.');
+      return;
+    }
+
+    console.log('[Bundle] Cart URL:', url);
+    window.location.href = url;
   };
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808', color: '#F0EBE1' }}>
+        <div className="text-center">
+          <p className="font-serif text-xl mb-4" style={{ color: RG }}>Unable to Load Products</p>
+          <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.5)' }}>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="font-mono text-[9px] tracking-[0.3em] uppercase px-6 py-3"
+            style={{ background: RG, color: '#080808' }}
+          >
+            Refresh Page
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen" style={{ background: '#080808', color: '#F0EBE1' }}>
 
-      {/* Best Starter Bundle — featured at top */}
+      {/* Best Starter Bundle */}
       <section className="px-6 md:px-10 pt-16 pb-0">
         <div className="max-w-[900px] mx-auto">
           <motion.div
@@ -120,7 +199,7 @@ export default function BuildYourRitual() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             className="relative overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, rgba(230,183,173,0.07) 0%, rgba(230,183,173,0.02) 100%)', border: `1px solid ${RG}35` }}
+            style={{ background: `linear-gradient(135deg, rgba(230,183,173,0.07) 0%, rgba(230,183,173,0.02) 100%)`, border: `1px solid ${RG}35` }}
           >
             <div className="px-6 py-2" style={{ background: RG }}>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: '#080808' }}>
@@ -145,15 +224,15 @@ export default function BuildYourRitual() {
                     ))}
                   </div>
                   <div className="flex items-baseline gap-4 mb-5">
-                    <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>$74.97</span>
+                    <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>${BUNDLE_PRICE}</span>
                     <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$74.97 separately</span>
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
                   </div>
                   <a
-                    href="https://libertees-for-all.myshopify.com/cart/49171204276476:1,49148263596284:1,49170574115068:1?discount=welcome15"
+                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=welcome15"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49171204276476:1,49148263596284:1,49170574115068:1?discount=welcome15';
+                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=welcome15';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
@@ -205,7 +284,7 @@ export default function BuildYourRitual() {
               Build Your Ritual Bundle
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-              Mix &amp; Match Any 3 Blends
+              Mix & Match Any 3 Blends
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
               Choose your three favorite blends and save when you bundle. From mushroom coffee to ceremonial matcha — create your perfect ritual.
@@ -217,12 +296,12 @@ export default function BuildYourRitual() {
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: RG }}>${bundlePrice}</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: RG }}>${BUNDLE_PRICE}</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Bundle Price</p>
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save ${Math.max(0, (24.99 * 3 - bundlePrice).toFixed(2))}</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save ${Math.max(0, (24.99 * 3 - BUNDLE_PRICE).toFixed(2))}</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Max Savings</p>
               </div>
             </div>
@@ -277,6 +356,11 @@ export default function BuildYourRitual() {
                   <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
                   <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: `${RG}50` }}>Loading products...</p>
                 </div>
+              ) : shopifyProducts.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="font-heading mb-4" style={{ color: 'rgba(240,235,225,0.5)' }}>No products available</p>
+                  <p className="font-mono text-[8px] tracking-[0.2em]" style={{ color: `${RG}50` }}>Please check back soon</p>
+                </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {filteredProducts.map((product, i) => {
@@ -312,7 +396,7 @@ export default function BuildYourRitual() {
                                 <div className="flex items-center gap-1" style={{ color: RG }}>
                                   <Check size={14} />
                                   <span className="font-mono text-[7px] tracking-[0.2em] uppercase">
-                                    {countInBundle > 1 ? `x${countInBundle}` : 'Selected'}
+                                    {countInBundle > 1 ? `×${countInBundle}` : 'Selected'}
                                   </span>
                                 </div>
                               ) : (
@@ -358,7 +442,7 @@ export default function BuildYourRitual() {
                     <div className="space-y-3 mb-6">
                       <AnimatePresence>
                         {Array.from(new Set(selectedProducts)).map((productId) => {
-                          const product = allProducts.find(p => p.id === productId);
+                          const product = shopifyProducts.find(p => p.id === productId);
                           if (!product) return null;
                           const countInBundle = selectedProducts.filter(id => id === productId).length;
                           return (
@@ -430,7 +514,7 @@ export default function BuildYourRitual() {
                           Bundle Price
                         </span>
                         <span className="font-serif font-bold text-lg" style={{ color: RG }}>
-                          ${bundlePrice}
+                          ${BUNDLE_PRICE}
                         </span>
                       </div>
                       {savings > 0 && (
@@ -455,7 +539,7 @@ export default function BuildYourRitual() {
                           color: selectedProducts.length === 3 ? '#050505' : 'rgba(255,255,255,0.3)',
                         }}
                       >
-                        {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — ${bundlePrice}`}
+                        {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — $${BUNDLE_PRICE}`}
                       </button>
 
                       <p className="font-mono text-[7px] tracking-[0.25em] uppercase text-center mt-4" style={{ color: `${RG}40` }}>
@@ -470,38 +554,16 @@ export default function BuildYourRitual() {
         </div>
       </section>
 
-      {/* Sticky mobile checkout CTA when bundle is complete */}
+      {/* Sticky mobile checkout CTA */}
       {selectedProducts.length === 3 && (
         <div className="md:hidden fixed bottom-16 left-0 right-0 z-30 flex justify-center px-6" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-          <a
-            href={(() => {
-              const items = selectedProducts.map(id => {
-                const product = allProducts.find(p => p.id === id);
-                return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
-              }).filter(Boolean);
-              const baseUrl = getShopifyBundleUrl(items);
-              return baseUrl ? `${baseUrl}?discount=welcome15` : '#';
-            })()}
-            onClick={(e) => {
-              e.preventDefault();
-              const items = selectedProducts.map(id => {
-                const product = allProducts.find(p => p.id === id);
-                return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
-              }).filter(Boolean);
-              const baseUrl = getShopifyBundleUrl(items);
-              const url = baseUrl ? `${baseUrl}?discount=welcome15` : null;
-              if (url && url.includes('libertees-for-all.myshopify.com')) {
-                window.location.href = url;
-              } else {
-                console.error('[Mobile CTA] Invalid checkout URL:', url);
-                alert('Unable to proceed to checkout. Please contact support.');
-              }
-            }}
+          <button
+            onClick={handleAddToCart}
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
-            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)', textDecoration: 'none', display: 'block' }}
+            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)' }}
           >
-            Add Bundle to Cart — ${bundlePrice}
-          </a>
+            Add Bundle to Cart — ${BUNDLE_PRICE}
+          </button>
         </div>
       )}
 

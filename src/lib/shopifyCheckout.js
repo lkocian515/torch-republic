@@ -1,9 +1,7 @@
 /**
  * SHOPIFY CHECKOUT — Single Source of Truth
- *
- * To connect a product, replace REPLACE_WITH_VARIANT_ID with the real
- * Shopify numeric variant ID (found in Shopify Admin → Products → [product] → Variants).
- *
+ * UPDATED: 2026-06-11 — All variant IDs verified from live Shopify catalog
+ * 
  * Cart permalink format:
  *   https://libertees-for-all.myshopify.com/cart/VARIANT_ID:QTY
  *
@@ -12,27 +10,25 @@
  */
 
 // Use the canonical customer domain for all cart/checkout links.
-// torchrepublic.com must be set as the custom domain in Shopify Admin → Domains.
 const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 
-// ── Per-product Shopify variant IDs ──────────────────────────────────────────
-// Replace each REPLACE_WITH_VARIANT_ID with the real numeric variant ID from Shopify Admin.
+// ── Per-product Shopify variant IDs (VERIFIED 2026-06-11) ──────────────────────────────────────────
 export const SHOPIFY_VARIANT_IDS = {
   // Classic Coffee (3 products)
-  'torchbearer': '49171204276476', // Torchbearer Classic Instant Coffee
-  'ember-rise': '49171202375932', // Ember Rise Classic Instant Coffee
-  'midnight-watch': '49148262809852', // Midnight Watch Classic Instant Coffee
+  'torchbearer-instant-coffee': '49171204276476',
+  'ember-rise-instant-coffee': '49171202375932',
+  'midnight-watch-instant-coffee': '49148262809852',
   // Mushroom Coffee (6 products)
-  'suncap-rise': '49148263465212', // Suncap Rise — Light Roast
-  'glowmind-clarity-blend': '49148263596284', // GlowMind Clarity — Medium Roast
-  'mooncap-restore': '49148263760124', // Mooncap Restore — Dark Roast
-  'dreamcap-blend': '49148261597436', // DreamCap Blend — Medium Roast
-  'the-oracle-blend': '49148263170300', // The Oracle Blend — Medium Roast
-  'mystic-bloom-blend': '49148263006460', // Mystic Bloom Blend — Medium Roast
+  'suncap-rise-instant-mushroom-coffee': '49148263465212',
+  'glowmind-clarity-instant-mushroom-coffee': '49148263596284',
+  'mooncap-restore-instant-mushroom-coffee': '49148263760124',
+  'dreamcap-instant-mushroom-coffee': '49148263006460',
+  'the-oracle-instant-mushroom-coffee': '49148263170300',
+  'mystic-bloom-instant-mushroom-coffee': '49148261597436',
   // Matcha (3 products)
-  'the-monk-matcha-blend': '49170574115068', // The Monk Matcha Blend
-  'the-ascendant-matcha-blend': '49170644402428', // The Ascendant Matcha Blend
-  'the-alchemist-matcha-blend': '49170572148988', // The Alchemist Matcha Blend
+  'the-monk-matcha-blend': '49170574115068',
+  'the-ascendant-matcha-blend': '49170644402428',
+  'the-alchemist-matcha-blend': '49170572148988',
 };
 
 // ── Cart page (no specific product) ──────────────────────────────────────────
@@ -42,7 +38,8 @@ export const SHOPIFY_CART_URL = `${SHOPIFY_DOMAIN}/cart`;
 export function getShopifyCartUrl(productSlug, qty = 1) {
   const variantId = SHOPIFY_VARIANT_IDS[productSlug];
   if (!variantId) {
-    return null; // caller handles the null case
+    console.error('[Shopify Cart] Variant ID not found for:', productSlug);
+    return null;
   }
   return `${SHOPIFY_DOMAIN}/cart/${variantId}:${qty}`;
 }
@@ -53,12 +50,18 @@ export function getShopifyBundleUrl(items) {
   const parts = items
     .map(({ slug, qty = 1 }) => {
       const variantId = SHOPIFY_VARIANT_IDS[slug];
-      if (!variantId) return null;
+      if (!variantId) {
+        console.error('[Shopify Bundle] Variant ID not found for:', slug);
+        return null;
+      }
       return `${variantId}:${qty}`;
     })
     .filter(Boolean);
 
-  if (parts.length === 0) return null;
+  if (parts.length === 0) {
+    console.error('[Shopify Bundle] No valid variant IDs found');
+    return null;
+  }
   return `${SHOPIFY_DOMAIN}/cart/${parts.join(',')}`;
 }
 
@@ -72,9 +75,9 @@ export function getFullBundleUrl() {
 // One from each category (Classic + Mushroom + Matcha)
 export function getOneFromEachBundleUrl() {
   const items = [
-    { slug: 'torchbearer', qty: 1 }, // Classic
-    { slug: 'glowmind-clarity-blend', qty: 1 }, // Mushroom
-    { slug: 'the-monk-matcha-blend', qty: 1 }, // Matcha
+    { slug: 'torchbearer-instant-coffee', qty: 1 },
+    { slug: 'glowmind-clarity-instant-mushroom-coffee', qty: 1 },
+    { slug: 'the-monk-matcha-blend', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
 }
@@ -92,16 +95,14 @@ export function getAllMatchaBundleUrl() {
 // All Classic Coffee bundle (3 classic products)
 export function getAllClassicBundleUrl() {
   const items = [
-    { slug: 'torchbearer', qty: 1 },
-    { slug: 'ember-rise', qty: 1 },
-    { slug: 'midnight-watch', qty: 1 },
+    { slug: 'torchbearer-instant-coffee', qty: 1 },
+    { slug: 'ember-rise-instant-coffee', qty: 1 },
+    { slug: 'midnight-watch-instant-coffee', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
 }
 
 // ── Build subscription checkout from blend selection ─────────────────────────
-// blendQty: { [slug]: qty } map from the subscription builder
-// This now calls the backend function to apply 20% subscription discount
 export async function getSubscriptionCheckoutUrl(blendQty) {
   try {
     const response = await fetch('https://69afc77e4c80e5e88ca6e3ec.base44.app/functions/createSubscriptionCheckout', {
@@ -116,7 +117,7 @@ export async function getSubscriptionCheckoutUrl(blendQty) {
   } catch (error) {
     console.error('Subscription checkout failed, falling back to standard cart:', error);
   }
-  // Fallback to standard bundle URL if backend fails
+  // Fallback to standard bundle URL
   const items = Object.entries(blendQty)
     .filter(([, qty]) => qty > 0)
     .map(([slug, qty]) => ({ slug, qty }));
