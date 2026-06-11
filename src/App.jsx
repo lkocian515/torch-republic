@@ -70,6 +70,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const EmailCampaignDashboard = lazy(() => import('./pages/EmailCampaignDashboard'));
 const AdminShopify = lazy(() => import('./pages/AdminShopify'));
+const KeywordAnalysis = lazy(() => import('./pages/KeywordAnalysis'));
 
 const mainPageKey = 'Home';
 
@@ -169,6 +170,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/traffic-report" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TrafficReport" queryClient={queryClient}><TrafficReport /></LayoutWrapper></Suspense>} />
         <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></Suspense>} />
         <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
+        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></Suspense>} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
         <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
