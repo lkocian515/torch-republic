@@ -30,13 +30,7 @@
     "reviewer_name"
   ],
   "rls": {
-    "create": {
-      "user_condition": {
-        "id": {
-          "$exists": true
-        }
-      }
-    },
+    "create": {},
     "read": {},
     "update": {
       "$or": [
