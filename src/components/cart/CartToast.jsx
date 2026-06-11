@@ -38,7 +38,9 @@ export default function CartToast() {
                 View Cart
               </button>
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
                   clearToast();
                   window.location.href = '/shop';
                 }}
