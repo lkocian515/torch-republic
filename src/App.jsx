@@ -169,6 +169,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></Suspense>} />
         <Route path="/emailcampaigndashboard" element={<Navigate to="/email-campaign" replace />} />
         <Route path="/EmailCampaignDashboard" element={<Navigate to="/email-campaign" replace />} />
+        <Route path="/CustomerPortal" element={<Navigate to="/portal" replace />} />
+        <Route path="/customerportal" element={<Navigate to="/portal" replace />} />
+        <Route path="/LoyaltyPortal" element={<Navigate to="/loyalty" replace />} />
+        <Route path="/loyaltyportal" element={<Navigate to="/loyalty" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity } from 'lucide-react';
+import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function StatCard({ title, value, icon: IconComponent, color, subtext }) {
@@ -129,6 +129,19 @@ export default function EmailCampaignDashboard() {
             return response.data;
         },
         refetchInterval: 30000, // Refresh every 30 seconds
+    });
+
+    // Import customers from Shopify
+    const importCustomersMutation = useMutation({
+        mutationFn: async () => {
+            const response = await base44.functions.invoke('fetchShopifyCustomers', {});
+            return response.data;
+        },
+        onSuccess: (data) => {
+            queryClient.invalidateQueries(['shopifyCustomers']);
+            queryClient.invalidateQueries(['campaignMetrics']);
+            alert(`Import complete! ${data?.data?.totalCustomers || 0} customers loaded.`);
+        },
     });
 
     // Send email mutation
@@ -371,6 +384,15 @@ export default function EmailCampaignDashboard() {
                         Quick Actions
                     </h3>
                     <div className="flex flex-wrap gap-3">
+                        <button
+                            onClick={() => importCustomersMutation.mutate()}
+                            disabled={importCustomersMutation.isPending}
+                            className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90 flex items-center gap-2"
+                            style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px', opacity: importCustomersMutation.isPending ? 0.6 : 1 }}
+                        >
+                            <Download className="w-3.5 h-3.5" />
+                            {importCustomersMutation.isPending ? 'Importing...' : 'Import from Shopify'}
+                        </button>
                         <button
                             onClick={() => queryClient.invalidateQueries(['shopifyCustomers'])}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
