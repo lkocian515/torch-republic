@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity, Download } from 'lucide-react';
+import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity, Download, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function StatCard({ title, value, icon: IconComponent, color, subtext }) {
@@ -129,6 +129,18 @@ export default function EmailCampaignDashboard() {
             return response.data;
         },
         refetchInterval: 30000, // Refresh every 30 seconds
+    });
+
+    // Verify Shopify variant IDs
+    const [variantResults, setVariantResults] = React.useState(null);
+    const verifyVariantsMutation = useMutation({
+        mutationFn: async () => {
+            const response = await base44.functions.invoke('getActualVariantIds', {});
+            return response.data;
+        },
+        onSuccess: (data) => {
+            setVariantResults(data);
+        },
     });
 
     // Import customers from Shopify
@@ -407,6 +419,15 @@ export default function EmailCampaignDashboard() {
                         >
                             Refresh Metrics
                         </button>
+                        <button
+                            onClick={() => verifyVariantsMutation.mutate()}
+                            disabled={verifyVariantsMutation.isPending}
+                            className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90 flex items-center gap-2"
+                            style={{ background: 'rgba(99,102,241,0.15)', color: '#818CF8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: '4px' }}
+                        >
+                            <ShieldCheck className="w-3.5 h-3.5" />
+                            {verifyVariantsMutation.isPending ? 'Verifying...' : 'Verify Shopify Variant IDs'}
+                        </button>
                         <Link
                             to="/shop"
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
@@ -416,6 +437,27 @@ export default function EmailCampaignDashboard() {
                         </Link>
                     </div>
                 </motion.div>
+
+                {/* Variant ID Verification Results */}
+                {variantResults && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-6 p-6"
+                        style={{ background: '#141312', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '8px' }}
+                    >
+                        <div className="flex items-center gap-2 mb-4">
+                            <ShieldCheck className="w-5 h-5" style={{ color: '#818CF8' }} />
+                            <h3 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>
+                                Shopify Variant ID Verification
+                            </h3>
+                        </div>
+                        <pre className="font-mono text-[9px] leading-relaxed overflow-auto max-h-64 p-4"
+                            style={{ background: '#0A0908', color: 'rgba(230,183,173,0.8)', borderRadius: '4px', whiteSpace: 'pre-wrap' }}>
+                            {JSON.stringify(variantResults, null, 2)}
+                        </pre>
+                    </motion.div>
+                )}
             </div>
         </div>
     );

@@ -69,6 +69,7 @@ const Register = lazy(() => import('./pages/Register'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const EmailCampaignDashboard = lazy(() => import('./pages/EmailCampaignDashboard'));
+const AdminShopify = lazy(() => import('./pages/AdminShopify'));
 
 const mainPageKey = 'Home';
 
