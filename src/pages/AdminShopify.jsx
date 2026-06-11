@@ -7,8 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
-function ResultPanel({ title, data, loading }) {
-  const [expanded, setExpanded] = useState(false);
+function ResultPanel({ title, data, loading, expanded, onToggle }) {
   if (loading) return (
     <div className="p-4 mt-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}>
       <div className="flex items-center gap-2">
@@ -21,7 +20,7 @@ function ResultPanel({ title, data, loading }) {
   return (
     <div className="mt-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px', overflow: 'hidden' }}>
       <button
-        onClick={() => setExpanded(!expanded)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition-colors"
       >
         <div className="flex items-center gap-2">
@@ -44,6 +43,7 @@ function ResultPanel({ title, data, loading }) {
 }
 
 function ToolCard({ icon: Icon, title, description, onRun, loading, result, color = RG }) {
+  const [expanded, setExpanded] = useState(false);
   return (
     <div className="p-5" style={{ background: '#0F0E0D', border: `1px solid ${color}20`, borderRadius: '6px' }}>
       <div className="flex items-start gap-3 mb-3">
@@ -63,7 +63,7 @@ function ToolCard({ icon: Icon, title, description, onRun, loading, result, colo
       >
         {loading ? <><RefreshCw size={11} className="animate-spin" /> Running...</> : 'Run'}
       </button>
-      <ResultPanel title={title} data={result} loading={loading} />
+      <ResultPanel title={title} data={result} loading={loading} expanded={expanded} onToggle={() => setExpanded(e => !e)} />
     </div>
   );
 }
