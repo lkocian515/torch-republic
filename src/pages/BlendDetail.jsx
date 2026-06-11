@@ -22,6 +22,7 @@ import ScarcityBadge from '../components/mushroom/ScarcityBadge';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock';
+import ProductTestimonialFeed from '../components/mushroom/ProductTestimonialFeed';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -698,7 +699,7 @@ function BlendDetailInner({ product }) {
             </div>
 
             {/* Product Reviews Carousel */}
-            <ProductReviewsCarousel productSlug={product.shopify_handle} />
+            <ProductReviewsCarousel productSlug={product.shopifyHandle} />
 
             {/* FDA */}
             <p className="font-mono text-[8px] tracking-[0.1em] leading-relaxed"
@@ -738,6 +739,15 @@ function BlendDetailInner({ product }) {
 
       {/* Subscribe & Save Banner */}
       <SubscribeAndSave />
+
+      {/* Customer Testimonial Feed */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
+        <ProductTestimonialFeed
+          productHandle={product.shopifyHandle}
+          productName={product.name}
+          accent={product.accent}
+        />
+      </section>
 
       {/* Related products */}
       <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
