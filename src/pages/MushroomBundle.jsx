@@ -21,7 +21,9 @@ const BUNDLE_OPTIONS = [
     name: 'Starter Ritual 3-Pack',
     subtitle: 'Discover',
     description: 'Choose any 3 blends',
-    price: 74.97,
+    price: 49.99,
+    compareAtPrice: 74.97,
+    savings: 24.98,
     products: ALL_12_PRODUCTS.slice(0, 3),
     cta: 'Build Your 3-Pack',
     getUrl: null, // uses Link to /build-your-ritual
@@ -32,7 +34,9 @@ const BUNDLE_OPTIONS = [
     name: 'Deep Ritual 6-Pack',
     subtitle: 'Commit',
     description: 'All 6 mushroom blends',
-    price: 129.99,
+    price: 119.99,
+    compareAtPrice: 149.94,
+    savings: 29.95,
     products: MUSHROOM_PRODUCTS,
     cta: 'Shop 6-Pack',
     getUrl: () => getShopifyBundleUrl(MUSHROOM_PRODUCTS.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
@@ -42,8 +46,10 @@ const BUNDLE_OPTIONS = [
     id: 'complete-12pack',
     name: 'Complete Torch Republic Collection',
     subtitle: 'The Full Experience',
-    description: 'All 12 products — Classic, Mushroom &amp; Matcha',
-    price: 239.94,
+    description: 'All 12 products — Classic, Mushroom & Matcha',
+    price: 219.99,
+    compareAtPrice: 299.88,
+    savings: 79.89,
     products: ALL_12_PRODUCTS.slice(0, 6),
     cta: 'Shop the Complete Collection',
     getUrl: getFullBundleUrl,
@@ -56,7 +62,9 @@ const CATEGORY_BUNDLES = [
     id: 'classic-trio',
     name: 'Classic Instant Coffee Trio',
     description: 'All 3 classic blends',
-    price: 74.97,
+    price: 49.99,
+    compareAtPrice: 74.97,
+    savings: 24.98,
     products: CLASSIC_ONLY_BUNDLE,
     cta: 'Shop Classic Trio',
     getUrl: getAllClassicBundleUrl,
@@ -65,7 +73,9 @@ const CATEGORY_BUNDLES = [
     id: 'mushroom-collection',
     name: 'Mushroom Coffee Collection',
     description: 'All 6 mushroom blends',
-    price: 129.99,
+    price: 119.99,
+    compareAtPrice: 149.94,
+    savings: 29.95,
     products: MUSHROOM_ONLY_BUNDLE,
     cta: 'Shop Mushroom Collection',
     getUrl: () => getShopifyBundleUrl(MUSHROOM_ONLY_BUNDLE.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
@@ -74,7 +84,9 @@ const CATEGORY_BUNDLES = [
     id: 'matcha-ritual',
     name: 'Matcha Ritual Trio',
     description: 'All 3 ceremonial matcha blends',
-    price: 74.97,
+    price: 49.99,
+    compareAtPrice: 74.97,
+    savings: 24.98,
     products: MATCHA_ONLY_BUNDLE,
     cta: 'Shop Matcha Trio',
     getUrl: getAllMatchaBundleUrl,
@@ -83,7 +95,9 @@ const CATEGORY_BUNDLES = [
     id: 'wellness-bundle',
     name: 'Full Wellness Ritual Bundle',
     description: 'All mushroom + matcha blends (9 total)',
-    price: 179.94,
+    price: 159.99,
+    compareAtPrice: 224.91,
+    savings: 64.92,
     products: WELLNESS_BUNDLE.slice(0, 6),
     cta: 'Shop Wellness Bundle',
     getUrl: () => getShopifyBundleUrl(WELLNESS_BUNDLE.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
@@ -192,7 +206,17 @@ export default function MushroomBundle() {
                   <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
                     {bundle.description}
                   </p>
-                  <p className="font-serif font-bold" style={{ fontSize: '2.25rem', color: '#E6B7AD' }}>${bundle.price}</p>
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <p className="font-serif font-bold" style={{ fontSize: '2.25rem', color: '#E6B7AD' }}>${bundle.price}</p>
+                    {bundle.compareAtPrice && (
+                      <span className="font-mono text-[9px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>${bundle.compareAtPrice}</span>
+                    )}
+                  </div>
+                  {bundle.savings && (
+                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: '#10B981' }}>
+                      You save ${bundle.savings.toFixed(2)}
+                    </p>
+                  )}
                 </div>
 
                 {/* Products Preview */}
@@ -299,7 +323,15 @@ export default function MushroomBundle() {
                   <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
                     {bundle.description}
                   </p>
-                  <p className="font-serif font-bold mb-3" style={{ fontSize: '1.5rem', color: '#E6B7AD' }}>${bundle.price}</p>
+                  <div className="flex items-baseline gap-2 flex-wrap mb-1">
+                    <p className="font-serif font-bold" style={{ fontSize: '1.5rem', color: '#E6B7AD' }}>${bundle.price}</p>
+                    {bundle.compareAtPrice && (
+                      <span className="font-mono text-[8px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>${bundle.compareAtPrice}</span>
+                    )}
+                  </div>
+                  {bundle.savings && (
+                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: '#10B981' }}>Save ${bundle.savings.toFixed(2)}</p>
+                  )}
                   <div className="space-y-2">
                     {bundle.products.slice(0, 3).map((p) => (
                       <div key={p.id} className="flex items-center gap-2">

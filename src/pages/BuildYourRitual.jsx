@@ -7,7 +7,10 @@ import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
-const BUNDLE_PRICE = 74.97;
+// 3-pack bundle price — always cheaper than 3 individual items ($24.99 each = $74.97)
+const BUNDLE_PRICE = 49.99;
+const INDIVIDUAL_PRICE = 24.99; // per product from Shopify
+const BUNDLE_SIZE = 3;
 
 // Core 12 products with their Shopify handles
 const CORE_PRODUCT_HANDLES = [
@@ -110,14 +113,17 @@ export default function BuildYourRitual() {
     fetchProducts();
   }, []);
 
+  // Sum of individual prices for selected products (from Shopify live data)
   const totalPrice = useMemo(() => {
     return selectedProducts.reduce((sum, productId) => {
       const product = shopifyProducts.find(p => p.id === productId);
-      return sum + (product?.price || 0);
+      return sum + (product?.price || INDIVIDUAL_PRICE);
     }, 0);
   }, [selectedProducts, shopifyProducts]);
 
-  const savings = totalPrice - BUNDLE_PRICE;
+  // Bundle is always capped at BUNDLE_PRICE — never exceeds individual total
+  const bundleTotal = Math.min(BUNDLE_PRICE, totalPrice);
+  const savings = selectedProducts.length === BUNDLE_SIZE ? totalPrice - bundleTotal : 0;
 
   const toggleProduct = (productId) => {
     setSelectedProducts(prev => {
@@ -158,7 +164,8 @@ export default function BuildYourRitual() {
       return;
     }
 
-    const url = `${baseUrl}?discount=welcome15`;
+    // Apply RITUAL3 discount code to enforce bundle pricing at checkout
+    const url = `${baseUrl}?discount=RITUAL3`;
     
     if (!url.includes('libertees-for-all.myshopify.com')) {
       console.error('[Bundle] Invalid Shopify domain in URL:', url);
@@ -166,7 +173,7 @@ export default function BuildYourRitual() {
       return;
     }
 
-    console.log('[Bundle] Cart URL:', url);
+    console.log('[Bundle] Bundle cart URL:', url, '| Bundle total: $' + bundleTotal.toFixed(2));
     window.location.href = url;
   };
 
@@ -225,14 +232,14 @@ export default function BuildYourRitual() {
                   </div>
                   <div className="flex items-baseline gap-4 mb-5">
                     <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>${BUNDLE_PRICE}</span>
-                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$74.97 separately</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Bundle & Save</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>${(INDIVIDUAL_PRICE * BUNDLE_SIZE).toFixed(2)} separately</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save ${(INDIVIDUAL_PRICE * BUNDLE_SIZE - BUNDLE_PRICE).toFixed(2)}</span>
                   </div>
                   <a
-                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=welcome15"
+                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=RITUAL3"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=welcome15';
+                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=RITUAL3';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
@@ -301,8 +308,8 @@ export default function BuildYourRitual() {
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save ${Math.max(0, (24.99 * 3 - BUNDLE_PRICE).toFixed(2))}</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Max Savings</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save ${(INDIVIDUAL_PRICE * BUNDLE_SIZE - BUNDLE_PRICE).toFixed(2)}</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>vs. Buying Separately</p>
               </div>
             </div>
           </motion.div>
@@ -486,47 +493,37 @@ export default function BuildYourRitual() {
                         You have {selectedProducts.length} items. Please remove {selectedProducts.length - 3} to continue.
                       </p>
                     ) : (
-                      <div className="mb-6">
-                        <div className="flex items-center gap-2 mb-2" style={{ color: EMERALD }}>
+                      <div className="mb-4 p-3" style={{ background: `${EMERALD}10`, border: `1px solid ${EMERALD}30` }}>
+                        <div className="flex items-center gap-2 mb-1" style={{ color: EMERALD }}>
                           <Sparkles size={14} />
-                          <span className="font-mono text-[8px] tracking-[0.25em] uppercase">Bundle discount applied</span>
+                          <span className="font-mono text-[8px] tracking-[0.25em] uppercase font-bold">Bundle Savings Applied</span>
                         </div>
-                        {savings > 0 && (
-                          <p className="font-mono text-[8px] tracking-[0.2em] text-right" style={{ color: EMERALD }}>
-                            You're saving ${savings.toFixed(2)}
-                          </p>
-                        )}
+                        <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: EMERALD }}>
+                          You saved ${savings.toFixed(2)} with this ritual bundle.
+                        </p>
                       </div>
                     )}
 
                     {/* Pricing */}
                     <div className="pt-4 border-t" style={{ borderColor: `${RG}20` }}>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}50` }}>
-                          Regular Price
-                        </span>
-                        <span className="font-mono text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>
-                          ${totalPrice.toFixed(2)}
-                        </span>
-                      </div>
+                      {selectedProducts.length === 3 && (
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}40` }}>
+                            Original Price
+                          </span>
+                          <span className="font-mono text-sm line-through" style={{ color: 'rgba(240,235,225,0.35)' }}>
+                            ${totalPrice.toFixed(2)}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex items-center justify-between mb-4">
                         <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: EMERALD }}>
                           Bundle Price
                         </span>
                         <span className="font-serif font-bold text-lg" style={{ color: RG }}>
-                          ${BUNDLE_PRICE}
+                          ${selectedProducts.length === 3 ? bundleTotal.toFixed(2) : BUNDLE_PRICE}
                         </span>
                       </div>
-                      {savings > 0 && (
-                        <div className="flex items-center justify-between mb-4 p-2" style={{ background: `${EMERALD}10`, border: `1px solid ${EMERALD}30` }}>
-                          <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: EMERALD }}>
-                            Total Savings
-                          </span>
-                          <span className="font-mono text-sm font-bold" style={{ color: EMERALD }}>
-                            ${savings.toFixed(2)}
-                          </span>
-                        </div>
-                      )}
 
                       <button
                         onClick={handleAddToCart}
@@ -539,7 +536,7 @@ export default function BuildYourRitual() {
                           color: selectedProducts.length === 3 ? '#050505' : 'rgba(255,255,255,0.3)',
                         }}
                       >
-                        {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — $${BUNDLE_PRICE}`}
+                        {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — $${bundleTotal.toFixed(2)}`}
                       </button>
 
                       <p className="font-mono text-[7px] tracking-[0.25em] uppercase text-center mt-4" style={{ color: `${RG}40` }}>
@@ -562,7 +559,7 @@ export default function BuildYourRitual() {
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
             style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)' }}
           >
-            Add Bundle to Cart — ${BUNDLE_PRICE}
+            Add Bundle to Cart — ${bundleTotal.toFixed(2)}
           </button>
         </div>
       )}
