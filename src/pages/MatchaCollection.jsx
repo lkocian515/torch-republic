@@ -7,6 +7,9 @@ import { MATCHA_PRODUCTS, MATCHA_COLLECTION_IMAGE } from '@/lib/mushroomProducts
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import { base44 } from '@/api/base44Client';
+import CategorySEO from '@/components/seo/CategorySEO';
+import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
+import FAQSchema from '@/components/seo/FAQSchema';
 
 const MATCHA_GREEN = '#10B981';
 
@@ -81,6 +84,11 @@ export default function MatchaCollection() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+      {/* SEO Components */}
+      <GlobalSEOHead page={{ url: '/shop/matcha', type: 'product.group' }} />
+      <CategorySEO category="matcha" products={products} />
+      <FAQSchema faqs={FAQS} />
+
       {/* Hero */}
       <section style={{ background: '#080808', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${MATCHA_GREEN}25` }}>
         <div className="max-w-5xl mx-auto text-center">

@@ -7,6 +7,9 @@ import { CLASSIC_COFFEE_PRODUCTS, CLASSIC_COLLECTION_IMAGE } from '@/lib/mushroo
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import { base44 } from '@/api/base44Client';
+import CategorySEO from '@/components/seo/CategorySEO';
+import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
+import FAQSchema from '@/components/seo/FAQSchema';
 
 const GOLD = '#C4A35A';
 
@@ -80,6 +83,11 @@ export default function ClassicCoffeeCollection() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#111111' }}>
+      {/* SEO Components */}
+      <GlobalSEOHead page={{ url: '/shop/instant-coffee', type: 'product.group' }} />
+      <CategorySEO category="instant-coffee" products={products} />
+      <FAQSchema faqs={FAQS} />
+
       {/* Hero */}
       <section style={{ background: '#080808', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${GOLD}25` }}>
         <div className="max-w-5xl mx-auto text-center">

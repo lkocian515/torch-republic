@@ -8,6 +8,9 @@ import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
 import MushroomTransparencyTable from '../components/mushroom/MushroomTransparencyTable';
+import CategorySEO from '@/components/seo/CategorySEO';
+import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
+import FAQSchema from '@/components/seo/FAQSchema';
 
 const RG = '#E6B7AD';
 const DEEP_CHARCOAL = '#0A0908';
@@ -79,6 +82,11 @@ export default function MushroomCoffeeCollection() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
+      {/* SEO Components */}
+      <GlobalSEOHead page={{ url: '/shop/instant-mushroom-coffee', type: 'product.group' }} />
+      <CategorySEO category="instant-mushroom-coffee" products={products} />
+      <FAQSchema faqs={FAQS} />
+
       {/* ── HERO SECTION ── */}
       <section className="relative px-6 md:px-10 pt-20 pb-16" style={{ background: '#080808', borderBottom: `1px solid ${RG}25` }}>
         <div className="max-w-6xl mx-auto">
