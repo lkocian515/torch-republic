@@ -1,17 +1,44 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, X, ShoppingBag, ArrowRight, Sparkles } from 'lucide-react';
 import { ALL_PRODUCTS } from '../lib/mushroomProducts';
 import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
 
 export default function BuildYourRitual() {
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState(ALL_PRODUCTS);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  // Fetch products from Shopify on mount
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await base44.functions.invoke('fetchShopifyProducts', {});
+        if (response.data?.products) {
+          const shopifyProducts = response.data.products;
+          // Merge local catalog with Shopify data
+          const merged = ALL_PRODUCTS.map(local => {
+            const shopify = shopifyProducts.find(p => p.handle === local.shopifyHandle);
+            return shopify ? { ...local, price: shopify.price || local.price, availableForSale: shopify.availableForSale !== undefined ? shopify.availableForSale : true } : local;
+          });
+          setAllProducts(merged);
+        }
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProducts();
+  }, []);
 
   useSEO({
     title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
@@ -21,30 +48,42 @@ export default function BuildYourRitual() {
 
   const totalPrice = useMemo(() => {
     return selectedProducts.reduce((sum, productId) => {
-      const product = ALL_PRODUCTS.find(p => p.id === productId);
+      const product = allProducts.find(p => p.id === productId);
       return sum + (product?.price || 0);
     }, 0);
-  }, [selectedProducts]);
+  }, [selectedProducts, allProducts]);
 
   const bundlePrice = 74.97;
   const savings = totalPrice - bundlePrice;
 
   const toggleProduct = (productId) => {
     setSelectedProducts(prev => {
-      if (prev.includes(productId)) {
-        return prev.filter(id => id !== productId);
+      // If already selected, remove one instance (allows removing duplicates)
+      const index = prev.indexOf(productId);
+      if (index !== -1) {
+        const newArray = [...prev];
+        newArray.splice(index, 1);
+        return newArray;
       }
-      if (prev.length >= 3) {
-        return [...prev.slice(1), productId]; // Replace oldest with new
-      }
+      // Allow adding even if already at 3 (will show warning)
       return [...prev, productId];
     });
   };
 
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === 'All') return allProducts;
+    const categoryMap = {
+      'Mushroom Coffee': 'mushroom-coffee',
+      'Matcha': 'matcha',
+      'Classic Coffee': 'classic-coffee',
+    };
+    return allProducts.filter(p => p.category === categoryMap[activeCategory]);
+  }, [allProducts, activeCategory]);
+
   const handleAddToCart = () => {
     if (selectedProducts.length === 3) {
       const items = selectedProducts.map(id => {
-        const product = ALL_PRODUCTS.find(p => p.id === id);
+        const product = allProducts.find(p => p.id === id);
         const handle = product?.shopifyHandle;
         console.log('[Bundle] Selected:', product?.name, '| shopifyHandle:', handle);
         return handle ? { slug: handle, qty: 1 } : null;
@@ -216,14 +255,15 @@ export default function BuildYourRitual() {
 
               {/* Category Tabs */}
               <div className="flex flex-wrap gap-2 mb-6">
-                {['All', 'Mushroom Coffee', 'Matcha', 'Classic Coffee'].map((cat, i) => (
+                {['All', 'Mushroom Coffee', 'Matcha', 'Classic Coffee'].map((cat) => (
                   <button
                     key={cat}
-                    className={`px-4 py-2 rounded-sm font-mono text-[8px] tracking-[0.25em] uppercase transition-all ${i === 0 ? 'scale-105' : 'hover:scale-105'}`}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-4 py-2 rounded-sm font-mono text-[8px] tracking-[0.25em] uppercase transition-all ${activeCategory === cat ? 'scale-105' : 'hover:scale-105'}`}
                     style={{
-                      background: i === 0 ? `${RG}15` : 'transparent',
-                      border: `1px solid ${i === 0 ? RG : `${RG}20`}`,
-                      color: i === 0 ? RG : `${RG}50`,
+                      background: activeCategory === cat ? `${RG}15` : 'transparent',
+                      border: `1px solid ${activeCategory === cat ? RG : `${RG}20`}`,
+                      color: activeCategory === cat ? RG : `${RG}50`,
                     }}
                   >
                     {cat}
@@ -232,50 +272,60 @@ export default function BuildYourRitual() {
               </div>
 
               {/* Product Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {ALL_PRODUCTS.map((product, i) => {
-                  const isSelected = selectedProducts.includes(product.id);
-                  return (
-                    <motion.div
-                      key={product.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.02 }}
-                      onClick={() => toggleProduct(product.id)}
-                      className={`cursor-pointer rounded-sm overflow-hidden transition-all ${isSelected ? 'ring-2 ring-rose-gold' : 'hover:ring-1 hover:ring-rose-gold/30'}`}
-                      style={{
-                        background: isSelected ? 'rgba(230,183,173,0.08)' : '#0F0E0E',
-                        border: `1px solid ${isSelected ? RG : `${product.accent}20`}`,
-                      }}
-                    >
-                      <div className="flex items-start gap-4 p-4">
-                        <div className="w-20 h-20 flex-shrink-0" style={{ background: '#0C0C0C' }}>
-                          <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</h3>
-                          <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: product.accent }}>
-                            {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <span className="font-serif font-bold" style={{ fontSize: '1.1rem', color: product.accent }}>
-                              ${product.price}
-                            </span>
-                            {isSelected ? (
-                              <div className="flex items-center gap-1" style={{ color: RG }}>
-                                <Check size={14} />
-                                <span className="font-mono text-[7px] tracking-[0.2em] uppercase">Selected</span>
-                              </div>
-                            ) : (
-                              <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: `${RG}30` }} />
-                            )}
+              {loading ? (
+                <div className="text-center py-12">
+                  <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                  <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: `${RG}50` }}>Loading products...</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {filteredProducts.map((product, i) => {
+                    const isSelected = selectedProducts.includes(product.id);
+                    const countInBundle = selectedProducts.filter(id => id === product.id).length;
+                    return (
+                      <motion.div
+                        key={product.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.02 }}
+                        onClick={() => toggleProduct(product.id)}
+                        className={`cursor-pointer rounded-sm overflow-hidden transition-all ${isSelected ? 'ring-2 ring-rose-gold' : 'hover:ring-1 hover:ring-rose-gold/30'}`}
+                        style={{
+                          background: isSelected ? 'rgba(230,183,173,0.08)' : '#0F0E0E',
+                          border: `1px solid ${isSelected ? RG : `${product.accent}20`}`,
+                        }}
+                      >
+                        <div className="flex items-start gap-4 p-4">
+                          <div className="w-20 h-20 flex-shrink-0" style={{ background: '#0C0C0C' }}>
+                            <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</h3>
+                            <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: product.accent }}>
+                              {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
+                            </p>
+                            <div className="flex items-center justify-between">
+                              <span className="font-serif font-bold" style={{ fontSize: '1.1rem', color: product.accent }}>
+                                ${product.price}
+                              </span>
+                              {isSelected ? (
+                                <div className="flex items-center gap-1" style={{ color: RG }}>
+                                  <Check size={14} />
+                                  <span className="font-mono text-[7px] tracking-[0.2em] uppercase">
+                                    {countInBundle > 1 ? `x${countInBundle}` : 'Selected'}
+                                  </span>
+                                </div>
+                              ) : (
+                                <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: `${RG}30` }} />
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Bundle Summary */}
@@ -307,9 +357,10 @@ export default function BuildYourRitual() {
                   <>
                     <div className="space-y-3 mb-6">
                       <AnimatePresence>
-                        {selectedProducts.map((productId, i) => {
-                          const product = ALL_PRODUCTS.find(p => p.id === productId);
+                        {Array.from(new Set(selectedProducts)).map((productId) => {
+                          const product = allProducts.find(p => p.id === productId);
                           if (!product) return null;
+                          const countInBundle = selectedProducts.filter(id => id === productId).length;
                           return (
                             <motion.div
                               key={productId}
@@ -325,7 +376,7 @@ export default function BuildYourRitual() {
                                 <div>
                                   <p className="font-serif font-bold text-white text-xs">{product.name}</p>
                                   <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: product.accent }}>
-                                    ${product.price}
+                                    ${product.price} {countInBundle > 1 && <span style={{ color: RG }}>×{countInBundle}</span>}
                                   </p>
                                 </div>
                               </div>
@@ -345,6 +396,10 @@ export default function BuildYourRitual() {
                     {selectedProducts.length < 3 ? (
                       <p className="font-mono text-[8px] tracking-[0.25em] uppercase text-center mb-4" style={{ color: `${RG}50` }}>
                         Select {3 - selectedProducts.length} more blend{3 - selectedProducts.length > 1 ? 's' : ''}
+                      </p>
+                    ) : selectedProducts.length > 3 ? (
+                      <p className="font-mono text-[8px] tracking-[0.25em] uppercase text-center mb-4" style={{ color: '#E67A5A' }}>
+                        You have {selectedProducts.length} items. Please remove {selectedProducts.length - 3} to continue.
                       </p>
                     ) : (
                       <div className="mb-6">
@@ -400,7 +455,7 @@ export default function BuildYourRitual() {
                           color: selectedProducts.length === 3 ? '#050505' : 'rgba(255,255,255,0.3)',
                         }}
                       >
-                        Add Bundle to Cart — ${bundlePrice}
+                        {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — ${bundlePrice}`}
                       </button>
 
                       <p className="font-mono text-[7px] tracking-[0.25em] uppercase text-center mt-4" style={{ color: `${RG}40` }}>
@@ -421,7 +476,7 @@ export default function BuildYourRitual() {
           <a
             href={(() => {
               const items = selectedProducts.map(id => {
-                const product = ALL_PRODUCTS.find(p => p.id === id);
+                const product = allProducts.find(p => p.id === id);
                 return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
               }).filter(Boolean);
               const baseUrl = getShopifyBundleUrl(items);
@@ -430,7 +485,7 @@ export default function BuildYourRitual() {
             onClick={(e) => {
               e.preventDefault();
               const items = selectedProducts.map(id => {
-                const product = ALL_PRODUCTS.find(p => p.id === id);
+                const product = allProducts.find(p => p.id === id);
                 return product?.shopifyHandle ? { slug: product.shopifyHandle, qty: 1 } : null;
               }).filter(Boolean);
               const baseUrl = getShopifyBundleUrl(items);
