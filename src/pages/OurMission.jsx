@@ -49,11 +49,11 @@ export default function OurMission() {
           </p>
           <h1 className="font-serif font-bold mb-5"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Premium Daily Rituals Without the Pod
+            Coffee for Better Rituals
           </h1>
           <p className="font-heading mb-8"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-            Instant coffee, mushroom coffee, and matcha blends created for clarity, convenience, and intentional living — no machine needed.
+            Torch Republic Coffee Company creates instant coffee, mushroom coffee, and matcha for people who want their daily cup to feel more intentional, convenient, and supportive.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link

@@ -19,6 +19,7 @@ import TorchbearersRewardsSection from '../components/home/TorchbearersRewardsSe
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
 import GEOOptimizationSection from '../components/home/GEOOptimizationSection';
+import BuiltForRituals from '../components/home/BuiltForRituals';
 
 // Schema components
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema';
@@ -92,6 +93,9 @@ export default function Home() {
 
       {/* 1b. Trust Row */}
       <HomeTrustRow />
+
+      {/* 1c. Built for Better Daily Rituals */}
+      <BuiltForRituals />
 
       {/* 2. Best Sellers — Start Here */}
       <StartHereSection />

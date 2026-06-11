@@ -90,10 +90,10 @@ export default function ReviewsSection() {
           className="text-center mb-12"
         >
           <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Customer Reviews
+            Torchbearer Reviews
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Loved by Ritual-Minded Coffee Drinkers
+            What Early Torchbearers Are Saying
           </h2>
           <div className="flex items-center justify-center gap-2 mt-4">
             <div className="flex gap-0.5">

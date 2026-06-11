@@ -5,24 +5,24 @@ const RG = '#E6B7AD';
 
 const CARDS = [
   {
-    title: 'Ingredient Clarity',
-    body: 'Every blend page clearly explains what is inside, how much caffeine it contains, and what kind of ritual it is best for.',
-    icon: '🌿',
-  },
-  {
     title: 'Instant Convenience',
-    body: 'No machine, pods, grinder, or complicated routine. Just add water or milk, stir, and begin.',
+    body: 'No pods, machines, or long brew times. Stir one scoop into hot water and your ritual is ready in seconds — at home, at work, or anywhere you go.',
     icon: '⚡',
   },
   {
-    title: 'Coffee, Mushroom Coffee & Matcha',
-    body: 'A complete ritual collection for different moments of your day — classic morning coffee, focused mushroom coffee, calming blends, and smooth matcha clarity.',
-    icon: '☕',
+    title: 'Ritual-Based Wellness',
+    body: 'Coffee, mushroom coffee, and matcha designed around daily intention — each blend crafted to support a different part of your day, from morning momentum to calm evenings.',
+    icon: '🌿',
   },
   {
-    title: 'Founder-Led Small Business',
-    body: 'Torch Republic is a U.S.-based small business created to make daily coffee feel more intentional, grounded, and supportive.',
+    title: 'Founder-Led',
+    body: 'Built by a real person, not a faceless wellness company. Torch Republic was created from a genuine search for better daily ritual — and every product reflects that.',
     icon: '🕯️',
+  },
+  {
+    title: 'Transparency First',
+    body: 'Clear ingredients, clear preparation, clear purpose. We believe you should know exactly what is in your cup and why it is there.',
+    icon: '🔍',
   },
 ];
 
@@ -41,10 +41,10 @@ export default function WhyTorchRepublic() {
             Why Torch Republic?
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Made for a Better Daily Ritual
+            Why Torch Republic Is Different
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.9 }}>
-            Torch Republic was created for people who want their daily energy ritual to feel more intentional — less rushed, less generic, and more aligned with the person they are becoming.
+            Torch Republic was created for people who want the convenience of instant coffee without sacrificing intention, quality, or wellness.
           </p>
         </motion.div>
 

@@ -4,44 +4,56 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'Is Torch Republic instant coffee?',
-    a: 'Yes. Our blends are designed to be simple daily rituals — just add hot water or milk, stir, and enjoy. No brewer, grinder, pods, or machines needed.',
+    q: 'What is instant mushroom coffee?',
+    a: "Instant mushroom coffee combines premium instant coffee with functional mushroom extracts — such as Lion's Mane and Chaga — into a single convenient powder. You simply stir one scoop into hot water and your ritual is ready. No machine, no pods, no complicated prep.",
   },
   {
-    q: 'Do all Torch Republic products contain mushrooms?',
-    a: 'No. Torch Republic includes classic instant coffee, mushroom coffee, and matcha. Each product page clearly explains what is inside. Only the mushroom coffee blends contain functional mushrooms.',
+    q: 'Does Torch Republic use coffee pods?',
+    a: 'No. Torch Republic was specifically designed as a pod-free alternative. All blends come in reusable tubes as instant powder — just add hot water and stir. No machine required, no single-use plastic capsules.',
+  },
+  {
+    q: 'How do I prepare it?',
+    a: 'Add one scoop (included) to 8–10oz of hot water or your preferred milk. Stir for 10–15 seconds. Enjoy. That is it. You can also prepare it with cold water over ice.',
   },
   {
     q: 'How many servings are in each tube?',
-    a: 'Most blends contain approximately 25–27 servings depending on the product. Classic coffee and mushroom coffee tubes contain 27 servings. Matcha tubes contain 25 servings.',
+    a: 'Classic coffee and mushroom coffee tubes contain approximately 27 servings. Matcha tubes contain approximately 25 servings.',
+  },
+  {
+    q: 'When should I drink mushroom coffee?',
+    a: "Mushroom coffee is a great morning ritual for focus and clarity — or a midday pick-up without the late-afternoon crash. Our lighter blends like SunCap Rise work well in the morning; restoration blends like MoonCap Restore suit calmer evening moments. Choose based on your intention for the day.",
+  },
+  {
+    q: 'What is the difference between classic coffee, mushroom coffee, and matcha?',
+    a: "Classic instant coffee is bold, clean, and caffeine-forward — no mushrooms, no additives. Mushroom coffee combines instant coffee with Lion's Mane and Chaga to support focus and daily wellness alongside the caffeine. Matcha is a separate category entirely — ceremonial grade matcha with calm, sustained energy and no coffee whatsoever.",
+  },
+  {
+    q: 'Are the blends sweetened?',
+    a: 'No. Torch Republic blends are unsweetened. You can sweeten to your preference with honey, sugar, or a milk of your choice. This keeps the ingredient list clean and the ritual personal.',
+  },
+  {
+    q: 'Do these replace regular coffee?',
+    a: 'For many Torchbearers, yes — they switch from pod coffee or drip machines entirely. Our instant blends are designed to deliver a satisfying, premium coffee experience without the equipment. Whether you replace or complement your existing ritual is up to you.',
+  },
+  {
+    q: 'Is this a subscription?',
+    a: 'Subscriptions are optional. You can purchase once or choose Subscribe & Save at checkout for 20% off every order. Subscriptions are flexible — cancel, pause, or change blends anytime.',
+  },
+  {
+    q: 'How long does shipping take?',
+    a: 'Most orders ship within 1–2 business days and arrive within 3–7 business days depending on your location. You will receive a tracking confirmation by email.',
+  },
+  {
+    q: 'What mushrooms are in the mushroom coffee blends?',
+    a: "Every mushroom coffee blend contains Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). These are two widely used functional mushrooms included to support focus, clarity, and daily wellness as part of your ritual.",
   },
   {
     q: 'Do I need a coffee machine?',
-    a: 'No. Torch Republic products are instant and do not require a coffee maker, pod machine, or grinder. Simply add one scoop to hot water, stir for 10–15 seconds, and your ritual is ready.',
-  },
-  {
-    q: 'What should I start with?',
-    a: 'If you are new to Torch Republic, we recommend starting with a ritual bundle so you can experience different blends for different parts of your day — morning energy, afternoon focus, or an evening wind-down.',
-  },
-  {
-    q: 'What does mushroom coffee taste like?',
-    a: 'Our mushroom coffee is designed to be coffee-forward, smooth, and familiar. The mushroom extracts support function without drastically changing the flavor. It tastes like a good, smooth cup of coffee.',
-  },
-  {
-    q: 'What mushrooms are used in the mushroom coffee blends?',
-    a: "Every mushroom coffee blend contains Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) — two widely used functional mushrooms crafted to support focus, clarity, and daily energy.",
-  },
-  {
-    q: 'How much caffeine is in each serving?',
-    a: 'Mushroom coffee blends contain approximately 50–80mg per serving. Classic instant coffee contains approximately 80–100mg. Matcha blends contain approximately 25–40mg for calm, sustained energy.',
-  },
-  {
-    q: 'Do you offer subscriptions?',
-    a: 'Yes. Choose Subscribe & Save at checkout to receive your favorite blends regularly and save 20% on every order. You can cancel, pause, or change your blends anytime.',
+    a: 'No. Torch Republic products are instant and do not require a coffee maker, pod machine, espresso machine, or grinder. Just hot water and a scoop.',
   },
   {
     q: 'What is your satisfaction guarantee?',
-    a: "We stand behind every blend with a 30-day satisfaction guarantee. If you're not happy with your order, contact us at admin@torchrepublic.com and we'll make it right.",
+    a: "We want your first Torch Republic ritual to feel easy, enjoyable, and worth coming back to. If something is not right with your order, contact us at admin@torchrepublic.com and we will make it right.",
   },
   {
     q: 'Are these products FDA approved?',
