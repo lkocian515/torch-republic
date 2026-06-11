@@ -1,116 +1,66 @@
-const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'torchrepublic.com'; // Primary domain (hyphenated redirects here)
+const SHOPIFY_ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
+const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
-Deno.serve(async (req) => {
+Deno.serve(async (_req) => {
   try {
-    // Query all products with full image data from Storefront API
-    const query = `query {
-      products(first: 250) {
-        edges {
-          node {
-            id
-            title
-            handle
-            productType
-            description
-            featuredImage {
-              url
-              altText
-            }
-            images(first: 10) {
-              edges {
-                node {
-                  url
-                  altText
-                }
-              }
-            }
-            variants(first: 1) {
-              edges {
-                node {
-                  price {
-                    amount
-                    currencyCode
-                  }
-                  compareAtPrice {
-                    amount
-                  }
-                  availableForSale
-                }
-              }
-            }
-          }
-        }
+    // Fetch all products using Admin REST API
+    const res = await fetch(
+      `https://${SHOP_DOMAIN}/admin/api/2024-10/products.json?limit=250`,
+      {
+        headers: {
+          'X-Shopify-Access-Token': SHOPIFY_ADMIN_TOKEN,
+        },
       }
-      collections(first: 50) {
-        edges {
-          node {
-            id
-            title
-            handle
-            image {
-              url
-              altText
-            }
-          }
-        }
-      }
-    }`;
-
-    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql.json`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
-      },
-      body: JSON.stringify({ query }),
-    });
+    );
 
     if (!res.ok) {
-      const errorText = await res.text();
-      console.error('❌ Shopify API error:', res.status, errorText);
-      throw new Error(`Shopify API returned ${res.status}: ${errorText}`);
+      throw new Error(`Shopify API returned ${res.status}`);
     }
 
     const data = await res.json();
-    console.log('✅ Shopify API response received');
-    
-    // Transform products into a simpler format
-    const products = data?.data?.products?.edges?.map(e => {
-      const node = e.node;
-      const images = node.images?.edges?.map(img => img.node.url) || [];
-      const variant = node.variants?.edges?.[0]?.node;
-      
-      return {
-        id: node.id,
-        title: node.title,
-        handle: node.handle,
-        productType: node.productType,
-        description: node.description,
-        featuredImage: node.featuredImage?.url,
-        images: images,
-        price: parseFloat(variant?.price?.amount || '0'),
-        compareAtPrice: variant?.compareAtPrice ? parseFloat(variant.compareAtPrice.amount) : null,
-        availableForSale: variant?.availableForSale ?? true,
-      };
-    }) || [];
+    const products = data.products || [];
 
-    // Transform collections
-    const collections = data?.data?.collections?.edges?.map(e => {
-      const node = e.node;
-      return {
-        id: node.id,
-        title: node.title,
-        handle: node.handle,
-        image: node.image?.url,
-      };
-    }) || [];
+    // Transform products
+    const transformedProducts = products.map(p => ({
+      id: p.id.toString(),
+      title: p.title,
+      handle: p.handle,
+      productType: p.product_type,
+      description: p.body_html,
+      status: p.status,
+      featuredImage: p.images?.[0]?.src || null,
+      images: p.images?.map(img => img.src) || [],
+      price: parseFloat(p.variants?.[0]?.price || '0'),
+      compareAtPrice: p.variants?.[0]?.compare_at_price ? parseFloat(p.variants[0].compare_at_price) : null,
+      availableForSale: p.variants?.[0]?.available ?? true,
+    }));
 
-    console.log(`✅ Returning ${products.length} products and ${collections.length} collections`);
+    // Fetch collections
+    const collectionsRes = await fetch(
+      `https://${SHOP_DOMAIN}/admin/api/2024-10/collections.json?limit=50`,
+      {
+        headers: {
+          'X-Shopify-Access-Token': SHOPIFY_ADMIN_TOKEN,
+        },
+      }
+    );
+
+    let collections = [];
+    if (collectionsRes.ok) {
+      const collectionsData = await collectionsRes.json();
+      collections = collectionsData.collections?.map(c => ({
+        id: c.id.toString(),
+        title: c.title,
+        handle: c.handle,
+        image: c.image?.src || null,
+      })) || [];
+    }
+
+    console.log(`✅ Returning ${transformedProducts.length} products and ${collections.length} collections`);
     return Response.json({
-      products,
+      products: transformedProducts,
       collections,
-      totalProducts: products.length,
+      totalProducts: transformedProducts.length,
       totalCollections: collections.length,
     });
 
