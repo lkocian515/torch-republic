@@ -17,6 +17,7 @@ export default function EmailCapturePopup() {
 
   useEffect(() => {
     if (localStorage.getItem('email_capture_shown')) return;
+    if (window.location.pathname.startsWith('/admin') || window.location.pathname.startsWith('/email-campaign') || window.location.pathname.startsWith('/traffic-report')) return;
     const timer = setTimeout(() => {
       setVisible(true);
       localStorage.setItem('email_capture_shown', '1');
