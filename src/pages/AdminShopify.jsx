@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Package, Image, Tag, RefreshCw, CheckCircle, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Package, Image, Tag, RefreshCw, CheckCircle, AlertCircle, ChevronDown, ChevronUp, Users, Mail, BarChart2 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
@@ -130,6 +131,14 @@ export default function AdminShopify() {
       color: '#4A9EE6',
       fn: () => base44.functions.invoke('getActiveShopifyProducts', {}),
     },
+    {
+      key: 'importCustomers',
+      icon: Users,
+      title: 'Import Customers from Shopify',
+      description: 'Sync Shopify customer data (emails, order history, marketing consent) into the app database.',
+      color: '#818CF8',
+      fn: () => base44.functions.invoke('fetchShopifyCustomers', {}),
+    },
   ];
 
   return (
@@ -163,6 +172,24 @@ export default function AdminShopify() {
               onRun={() => run(tool.key, tool.fn)}
             />
           ))}
+        </div>
+
+        {/* Quick links to other admin areas */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Link to="/email-campaign" className="flex items-center gap-3 p-4 hover:opacity-80 transition-opacity" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px', textDecoration: 'none' }}>
+            <Mail size={16} style={{ color: RG }} />
+            <div>
+              <p className="font-serif font-bold text-sm text-white">Email Campaigns</p>
+              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)' }}>Manage customer lifecycle emails</p>
+            </div>
+          </Link>
+          <Link to="/traffic-report" className="flex items-center gap-3 p-4 hover:opacity-80 transition-opacity" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px', textDecoration: 'none' }}>
+            <BarChart2 size={16} style={{ color: RG }} />
+            <div>
+              <p className="font-serif font-bold text-sm text-white">Traffic Report</p>
+              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)' }}>View Google Analytics data</p>
+            </div>
+          </Link>
         </div>
 
         {/* Error display */}
