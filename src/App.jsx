@@ -16,6 +16,7 @@ import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
 import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
+import ReviewPopup from './components/mushroom/ReviewPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
@@ -258,6 +259,7 @@ function App() {
             <NavigationProvider>
               <AuthenticatedApp queryClient={queryClientInstance} />
               <CartToast />
+              <ReviewPopup />
               <EmailCapturePopup />
               <ExitIntentPopup />
             </NavigationProvider>
