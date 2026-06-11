@@ -133,15 +133,15 @@ export default function MushroomCoffeeCollection() {
           {/* Collection Showcase */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="mt-16">
             <img 
-              src={collectionImage || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png'} 
-              alt="Torch Republic Mushroom Coffee Collection - MoonCap Restore, GlowMind Clarity, SunCap Rise" 
+              src={collectionImage || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cef6afa41_18.png'} 
+              alt="Torch Republic mushroom coffee collection featuring six instant mushroom coffee blends" 
               loading="lazy"
               decoding="async"
               className="w-full rounded-lg shadow-lg"
               style={{ border: `1px solid ${RG}20` }}
               onError={(e) => {
                 // Fallback to placeholder if Shopify image fails
-                e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18ffa7871_bgyvyj.png';
+                e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cef6afa41_18.png';
               }}
             />
           </motion.div>

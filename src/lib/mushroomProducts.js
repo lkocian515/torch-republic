@@ -98,11 +98,13 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Vitality, morning energy, fresh starts',
     mushrooms: 'Lions Mane + Chaga',
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/254831192_13.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/254831192_13.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1c72390db_5.png',
       'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
     ],
-    alt: 'Torch Republic SunCap Rise instant mushroom coffee tube',
+    alt: 'Torch Republic SunCap Rise mushroom coffee lifestyle image with mountain morning ritual',
     price: 24.99,
     shopifyHandle: 'suncap-rise-instant-mushroom-coffee',
     accent: '#D6B27A',
@@ -124,11 +126,13 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Awareness, focus, mental clarity',
     mushrooms: 'Lions Mane + Chaga',
     servings: 27,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/90936d2ba_15.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/90936d2ba_15.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c59c369a7_6.png',
       'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333',
     ],
-    alt: 'Torch Republic GlowMind Clarity instant mushroom coffee lifestyle image',
+    alt: 'Torch Republic GlowMind Clarity Blend mushroom coffee with morning intention journal',
     price: 24.99,
     shopifyHandle: 'glowmind-clarity-instant-mushroom-coffee',
     accent: '#4A9EE6',
@@ -257,11 +261,13 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Discipline, focus, calm presence',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/18_8e5aeb4b-6266-48e5-a725-639e74310697.png?v=1781102333',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/28dd949f5_12.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/28dd949f5_12.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/41f6d3ab6_7.png',
       'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/18_8e5aeb4b-6266-48e5-a725-639e74310697.png?v=1781102333',
     ],
-    alt: 'Torch Republic The Monk Matcha Blend tin',
+    alt: 'Torch Republic The Monk ceremonial matcha blend with prepared matcha latte',
     price: 24.99,
     shopifyHandle: 'the-monk-matcha-blend',
     accent: '#6CBD5A',
@@ -283,11 +289,12 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Growth, evolution, becoming',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ggfgfdgfdgdf.png?v=1781109729',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18eb6d3c7_14.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18eb6d3c7_14.png',
       'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ggfgfdgfdgdf.png?v=1781109729',
     ],
-    alt: 'Torch Republic The Ascendant Matcha Blend',
+    alt: 'Torch Republic The Ascendant matcha blend with warm matcha latte',
     price: 24.99,
     shopifyHandle: 'the-ascendant-matcha-blend',
     accent: '#8BC45A',
@@ -309,11 +316,12 @@ export const MATCHA_PRODUCTS = [
     bestFor: 'Creation, creativity, inspired work',
     mushrooms: 'None — 100% Ceremonial Grade Matcha',
     servings: 25,
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/tretreter.png?v=1781109630',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png',
     galleryImages: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png',
       'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/tretreter.png?v=1781109630',
     ],
-    alt: 'Torch Republic The Alchemist Matcha Blend',
+    alt: 'Torch Republic The Alchemist matcha blend with matcha powder and whisk',
     price: 24.99,
     shopifyHandle: 'the-alchemist-matcha-blend',
     accent: '#C4A85A',
@@ -333,7 +341,7 @@ export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5
 export const BUNDLE_IMAGE = HERO_IMAGE;
 export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
 
-export const MUSHROOM_COLLECTION_IMAGE = null;
+export const MUSHROOM_COLLECTION_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cef6afa41_18.png';
 export const CLASSIC_COLLECTION_IMAGE = null;
 export const MATCHA_COLLECTION_IMAGE = null;
 
