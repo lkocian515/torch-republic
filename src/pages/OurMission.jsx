@@ -29,10 +29,11 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'About Torch Republic | Founder Story & Brand Mission',
-    description: 'Learn the story behind Torch Republic Coffee Company - a U.S. small business creating premium instant coffee, functional mushroom coffee with Lions Mane and Chaga, and ceremonial matcha for intentional daily rituals.',
+    title: 'About Torch Republic | Coffee Without the Pod',
+    description: 'Learn why Torch Republic was created: premium instant coffee, mushroom coffee, and matcha blends designed for convenient daily rituals without pods or machines.',
     url: '/mission',
     type: 'website',
+    keywords: 'coffee without pods, instant coffee no machine, mushroom coffee, premium instant coffee, matcha ritual, pod coffee alternative',
   });
 
   return (
@@ -48,12 +49,28 @@ export default function OurMission() {
           </p>
           <h1 className="font-serif font-bold mb-5"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            From the Founder
+            Premium Daily Rituals Without the Pod
           </h1>
-          <p className="font-heading"
-            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
-            Torch Republic was created to make daily coffee feel more intentional, grounded, and supportive — a simple ritual you can return to each morning.
+          <p className="font-heading mb-8"
+            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
+            Instant coffee, mushroom coffee, and matcha blends created for clarity, convenience, and intentional living — no machine needed.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/shop"
+              className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90"
+              style={{ background: RG, color: '#080808', padding: '13px 28px', borderRadius: '4px' }}
+            >
+              Shop Best Sellers
+            </Link>
+            <Link
+              to="/build-your-ritual"
+              className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80"
+              style={{ border: `1px solid ${RG}50`, color: RG, padding: '13px 28px', borderRadius: '4px' }}
+            >
+              Build Your Ritual
+            </Link>
+          </div>
         </motion.div>
       </section>
 
@@ -150,6 +167,58 @@ export default function OurMission() {
         </div>
       </section>
 
+      {/* Why I Wanted Coffee Without the Pod */}
+      <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-[860px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: 'rgba(230,183,173,0.5)' }}>Founder's Story</p>
+            <h2 className="font-serif font-bold text-white text-center" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.2 }}>
+              Why I Wanted Coffee Without the Pod
+            </h2>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-5">
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              I used to love pod coffee for the same reason so many people do: it was fast, easy, and convenient.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              But over time, I started researching microplastics, plastic waste, and the materials we use every day without thinking about them. I found myself questioning whether my daily coffee ritual still felt aligned with the way I wanted to live.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              For a while, it actually turned me off coffee.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              What I wanted was simple: the convenience of pod coffee without the pod. No machine. No plastic capsule. No complicated brewing process. Just premium instant coffee, mushroom coffee, and matcha blends that felt easy, intentional, and better suited to a modern wellness ritual.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              That search became Torch Republic.
+            </p>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
+              Today, every blend is made for people who want their daily cup to feel simple, elevated, and more mindful — without giving up convenience.
+            </p>
+
+            {/* Feature row */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-6">
+              {[
+                { icon: '🚫', label: 'No Pods' },
+                { icon: '⚡', label: 'No Machine Needed' },
+                { icon: '⏱', label: 'Ready in Seconds' },
+                { icon: '☕', label: 'Coffee, Mushroom Coffee & Matcha' },
+                { icon: '🌿', label: 'Built for Daily Rituals' },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center gap-2 p-4 text-center"
+                  style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}>
+                  <span style={{ fontSize: '1.4rem' }}>{item.icon}</span>
+                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.5 }}>
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Interactive Sourcing Map */}
       <SourcingMap />
 
@@ -236,18 +305,22 @@ export default function OurMission() {
           <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
             Torch Republic is coffee for people who are rebuilding their energy, reclaiming their focus, and choosing to rise with intention every day. The torch represents the part of you that refuses to go out.
           </p>
-          <Link
-            to="/shop"
-            className="inline-flex items-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-            style={{
-              background: RG,
-              color: '#080808',
-              padding: '14px 36px',
-              borderRadius: '4px',
-            }}
-          >
-            Find Your Ritual →
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/shop"
+              className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90"
+              style={{ background: RG, color: '#080808', padding: '14px 32px', borderRadius: '4px' }}
+            >
+              Shop Best Sellers
+            </Link>
+            <Link
+              to="/build-your-ritual"
+              className="inline-flex items-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80"
+              style={{ border: `1px solid ${RG}50`, color: RG, padding: '14px 32px', borderRadius: '4px' }}
+            >
+              Build Your Ritual
+            </Link>
+          </div>
         </motion.div>
       </section>
 
