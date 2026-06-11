@@ -130,7 +130,7 @@ export default function UnifiedHeader() {
                   <Shield className="w-4 h-4" strokeWidth={1.8} />
                 </Link>
               )}
-              <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+              <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} aria-label="Cart">
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
               </Link>
             </div>
@@ -161,10 +161,16 @@ export default function UnifiedHeader() {
                   ))}
                 </div>
               </nav>
-              <div className="px-5 py-6" style={{ borderTop: `1px solid ${RG}20` }}>
+              <div className="px-5 py-6 space-y-3" style={{ borderTop: `1px solid ${RG}20` }}>
                 <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className="block text-center py-3 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90" style={{ background: RG, color: '#0A0A0A', borderRadius: '2px' }}>
                   Shop Now
                 </Link>
+                {isAdmin && (
+                  <Link to="/admin/shopify" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 py-3 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80" style={{ border: `1px solid rgba(230,183,173,0.3)`, color: 'rgba(230,183,173,0.7)', borderRadius: '2px' }}>
+                    <Shield className="w-3.5 h-3.5" strokeWidth={1.8} />
+                    Admin Panel
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
