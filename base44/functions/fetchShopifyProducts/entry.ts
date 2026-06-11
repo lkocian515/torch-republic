@@ -57,7 +57,7 @@ Deno.serve(async (req) => {
       }
     }`;
 
-    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql`, {
+    const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
