@@ -736,7 +736,7 @@ function BlendDetailInner({ product }) {
         <OriginCraftsmanshipSection product={product} />
 
         {/* Comparison */}
-        <MushroomCoffeeComparison productName={product.name} />
+        <MushroomCoffeeComparison productName={product.name} product={product} />
 
         {/* DreamCap Evening Ritual Section (only for DreamCap) */}
         {product.slug === 'dreamcap-blend' && <DreamCapEveningRitual />}
