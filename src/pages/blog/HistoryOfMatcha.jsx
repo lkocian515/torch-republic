@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Leaf, Coffee, MapPin, Book, Heart, Clock } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 
@@ -319,6 +320,11 @@ export default function HistoryOfMatcha() {
               </div>
             </motion.div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="The History of Matcha: From Ancient China to Modern Wellness Rituals" url="/journal/history-of-matcha" />
+          </div>
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(108,190,90,0.06)', border: '1px solid rgba(108,190,90,0.15)' }}>

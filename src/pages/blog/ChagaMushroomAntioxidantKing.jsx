@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, Heart, Clock, Droplet, Leaf, Moon } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 const CHAGA_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/36e4293d0_Chaga1.png';
@@ -296,6 +297,11 @@ export default function ChagaMushroomAntioxidantKing() {
               </div>
             </motion.div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="Chaga Mushroom: The Antioxidant King Behind Evening Restoration" url="/journal/chaga-mushroom-antioxidant-king" />
+          </div>
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(201,143,134,0.06)', border: '1px solid rgba(201,143,134,0.15)' }}>

@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Brain, Zap, Shield, Microscope, Leaf, Clock } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 const LIONSMANE_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg';
@@ -291,6 +292,11 @@ export default function ScienceOfLionsMane() {
               </div>
             </motion.div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="The Science of Lion's Mane: Research-Backed Benefits for Brain & Body" url="/journal/science-of-lions-mane" />
+          </div>
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(107,127,215,0.06)', border: '1px solid rgba(107,127,215,0.15)' }}>
