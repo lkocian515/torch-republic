@@ -97,14 +97,24 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* Tertiary quiz link */}
+        {/* Quiz CTA Button */}
         <div className="mb-10">
+          <p className="font-heading text-sm mb-3" style={{ color: 'rgba(245,239,230,0.75)', fontWeight: 400 }}>
+            Not sure where to start?
+          </p>
           <Link
             to="/quiz"
-            className="font-mono text-[12px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
-            style={{ color: 'rgba(230,183,173,0.7)', textDecoration: 'none' }}
+            className="inline-block font-mono text-[10px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-90"
+            style={{
+              background: 'rgba(230,183,173,0.15)',
+              color: RG,
+              border: `1px solid ${RG}40`,
+              padding: '12px 28px',
+              textDecoration: 'none',
+              borderRadius: '2px',
+            }}
           >
-            Not sure where to start? → Take the Blend Quiz
+            ✨ Take the Blend Quiz
           </Link>
         </div>
 
