@@ -1,63 +1,85 @@
 # Torch Republic Robots.txt
-# Last Updated: 2026-06-12
+# Blocks all admin, internal, dashboard, and private pages from search engine crawlers
 
-# Allow all public content
 User-agent: *
+
+# Allow public customer-facing pages only
 Allow: /
 Allow: /shop
+Allow: /shop/*
 Allow: /blends
 Allow: /bundle
+Allow: /build-your-ritual
 Allow: /mission
 Allow: /contact
 Allow: /reviews
 Allow: /faq
-Allow: /journal
 Allow: /how-it-works
 Allow: /ingredients
 Allow: /why-mushroom-coffee
 Allow: /why-matcha
 Allow: /research
 Allow: /quiz
-Allow: /build-your-ritual
 Allow: /recipes
-Allow: /shop/instant-mushroom-coffee
-Allow: /shop/instant-coffee
-Allow: /shop/matcha
+Allow: /journal
+Allow: /journal/*
+Allow: /shipping-policy
+Allow: /return-policy
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /spotlight
+Allow: /gifts
+Allow: /torchbearer
+Allow: /subscription
+Allow: /torchbearers-rewards
+Allow: /mushroom-coffee-benefits
+Allow: /lions-mane-coffee
+Allow: /instant-coffee-for-energy
 
-# Block all private, admin, and utility pages
+# Block ALL admin, internal, dashboard, account, and utility pages
 Disallow: /admin
-Disallow: /admin/
-Disallow: /admin/blog
-Disallow: /admin/keywords
-Disallow: /admin/shopify
-Disallow: /TrafficReport
+Disallow: /admin/*
+Disallow: /Admin
+Disallow: /Dashboard
+Disallow: /SEO
+Disallow: /seo
+Disallow: /SearchQueryAnalysis
+Disallow: /search-query-analysis
 Disallow: /traffic-report
+Disallow: /TrafficReport
+Disallow: /email-campaign
+Disallow: /email-campaign/*
+Disallow: /EmailCampaignDashboard
+Disallow: /emailcampaigndashboard
+Disallow: /local
+Disallow: /LocalSEO
 Disallow: /command
-Disallow: /command/
-Disallow: /command/admin
-Disallow: /command/quiz
-Disallow: /command/timer
-Disallow: /command/protocols
+Disallow: /command/*
 Disallow: /profile
+Disallow: /Profile
+Disallow: /portal
+Disallow: /Portal
+Disallow: /CustomerPortal
+Disallow: /customerportal
+Disallow: /loyalty
+Disallow: /Loyalty
+Disallow: /LoyaltyPortal
+Disallow: /loyaltyportal
 Disallow: /login
 Disallow: /register
-Disallow: /reset-password
 Disallow: /forgot-password
-Disallow: /order-confirmation
-Disallow: /customer-portal
-Disallow: /portal
-Disallow: /email-campaign-dashboard
-Disallow: /email-campaign
-Disallow: /subscription
-Disallow: /loyalty
-Disallow: /torchbearers-rewards
+Disallow: /reset-password
 Disallow: /cart
 Disallow: /checkout
-Disallow: /account
-Disallow: /_next
+Disallow: /order-confirmation
+Disallow: /OrderConfirmation
+Disallow: /subscription
+Disallow: /Subscription
+Disallow: /_*
 Disallow: /api
 Disallow: /*?*
 Disallow: /*.json$
+Disallow: /*.csv$
 
-# Sitemap
+# Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml

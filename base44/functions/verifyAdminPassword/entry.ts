@@ -24,7 +24,7 @@ Deno.serve(async (req) => {
     
     if (!adminPassword) {
       return Response.json({ 
-        error: 'Admin password not configured. Please set TORCH_COMMAND_PASSWORD secret in dashboard.' 
+        error: 'Admin password not configured. Please contact your administrator to set the TORCH_COMMAND_PASSWORD secret.' 
       }, { status: 500 });
     }
     
