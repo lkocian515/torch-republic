@@ -98,11 +98,11 @@ export const MUSHROOM_PRODUCTS = [
     bestFor: 'Vitality, morning energy, fresh starts',
     mushrooms: 'Lions Mane + Chaga',
     servings: 27,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/254831192_13.png',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
     galleryImages: [
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/254831192_13.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1c72390db_5.png',
-      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
     ],
     alt: 'Torch Republic SunCap Rise mushroom coffee lifestyle image with mountain morning ritual',
     price: 22.99,
