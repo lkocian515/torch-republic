@@ -162,7 +162,7 @@ export default function BlogPostPage() {
                 </div>
               )}
               <div className="flex items-center gap-4 ml-auto">
-                <ShareButtons title={post.title} url={`/journal/${post.slug}`} compact />
+                <ShareButtons title={post.title} url={`/journal/${post.slug}`} image={post.featured_image} compact />
                 <button className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80" style={{ color: `${RG}50` }}>
                   <Bookmark size={14} /> Save
                 </button>
@@ -222,7 +222,7 @@ export default function BlogPostPage() {
 
             {/* Share at bottom */}
             <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-              <ShareButtons title={post.title} url={`/journal/${post.slug}`} />
+              <ShareButtons title={post.title} url={`/journal/${post.slug}`} image={post.featured_image} />
             </div>
 
             {/* CTA */}

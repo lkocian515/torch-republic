@@ -4,10 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const RG = '#E6B7AD';
 
-export default function ShareButtons({ title, url, compact = false }) {
+export default function ShareButtons({ title, url, image, compact = false }) {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const fullUrl = url ? `${window.location.origin}${url}` : window.location.href;
+  const imageUrl = image || '';
   const text = `${title} — ${fullUrl}`;
 
   const handleCopy = () => {
@@ -59,7 +60,7 @@ export default function ShareButtons({ title, url, compact = false }) {
             Facebook
           </button>
           <button
-            onClick={() => window.open(`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(fullUrl)}&description=${encodeURIComponent(title)}`, '_blank')}
+            onClick={() => window.open(`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(fullUrl)}&description=${encodeURIComponent(title)}&media=${encodeURIComponent(imageUrl)}`, '_blank')}
             className="font-mono text-[7px] tracking-[0.2em] uppercase px-3 py-2 transition-all hover:opacity-80"
             style={{ background: 'rgba(230,0,35,0.1)', color: '#E60023', border: '1px solid rgba(230,0,35,0.25)', borderRadius: '3px' }}
           >
