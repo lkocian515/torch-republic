@@ -25,7 +25,7 @@ function NewsletterForm() {
     return (
       <div className="mt-4 p-3" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '3px' }}>
         <p className="font-heading text-xs" style={{ color: '#10B981' }}>
-          ✓ Welcome! Check your inbox for 10% off.
+          ✓ Welcome! Check your inbox for 15% off.
         </p>
       </div>
     );
@@ -49,7 +49,7 @@ function NewsletterForm() {
         className="w-full py-2.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
         style={{ background: '#E6B7AD', color: '#0A0A0A' }}
       >
-        {status === 'loading' ? 'Joining...' : 'Subscribe for 10% Off'}
+        {status === 'loading' ? 'Joining...' : 'Subscribe for 15% Off'}
       </button>
     </form>
   );
@@ -124,7 +124,7 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-4"
               style={{ color: 'rgba(240,235,225,0.3)', lineHeight: 1.8 }}>
-              Join the ritual. Get product updates, launch offers, and 10% off your first order.
+              Join the ritual. Get product updates, launch offers, and 15% off your first order.
             </p>
             <p className="font-mono text-[9px] tracking-[0.18em] mb-3"
               style={{ color: 'rgba(230,183,173,0.45)' }}>
