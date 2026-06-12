@@ -106,6 +106,7 @@ export default function MushroomShop() {
     title: 'Shop Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
     description: "Explore Torch Republic's premium instant coffee, mushroom coffee blends, and ceremonial matcha. Easy hot or iced drinks for your daily ritual.",
     url: '/shop',
+    type: 'website',
     noindex: false,
   });
 

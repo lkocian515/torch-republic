@@ -90,7 +90,6 @@ Disallow: /KeywordAnalysis
 Disallow: /ClassicCoffeeCollection
 Disallow: /MushroomCoffeeCollection
 Disallow: /MatchaCollection
-Disallow: /BlendsCollection
 
 # Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
