@@ -252,33 +252,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-antioxidant-king" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomAntioxidantKing" queryClient={queryClient}><ChagaMushroomAntioxidantKing /></LayoutWrapper></Suspense>} />
 
-        {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
-        <Route path="/Shop" element={<Navigate to="/shop" replace />} />
-        <Route path="/BestSellers" element={<Navigate to="/shop" replace />} />
-        <Route path="/Collections" element={<Navigate to="/shop" replace />} />
-        <Route path="/Bundles" element={<Navigate to="/bundle" replace />} />
-        <Route path="/CoffeeBundles" element={<Navigate to="/bundle" replace />} />
-        <Route path="/collections/coffee-bundles" element={<Navigate to="/bundle" replace />} />
-        <Route path="/TheTorchBox" element={<Navigate to="/subscription" replace />} />
-        <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
-        <Route path="/Mission" element={<Navigate to="/mission" replace />} />
-        <Route path="/Contact" element={<Navigate to="/contact" replace />} />
-        <Route path="/landing" element={<Navigate to="/" replace />} />
-        <Route path="/Founders" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/Liberty" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/Commanders" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/Washington" element={<Navigate to="/classic-coffee" replace />} />
-        <Route path="/patriotic-pride" element={<Navigate to="/" replace />} />
-        <Route path="/freedom-isnt-free" element={<Navigate to="/" replace />} />
-        <Route path="/we-the-people" element={<Navigate to="/" replace />} />
-        <Route path="/faith-over-fear" element={<Navigate to="/" replace />} />
-        <Route path="/christ-is-king" element={<Navigate to="/" replace />} />
-        <Route path="/god-family-country" element={<Navigate to="/" replace />} />
-        <Route path="/american-heroes" element={<Navigate to="/" replace />} />
-        <Route path="/pods" element={<Navigate to="/" replace />} />
-        <Route path="/Pods" element={<Navigate to="/" replace />} />
-        <Route path="/history" element={<Navigate to="/mission" replace />} />
-        <Route path="/our-story" element={<Navigate to="/mission" replace />} />
+        {/* ── LEGACY REDIRECTS (old brand → new brand) — REMOVED FOR SEO CLEANUP ── */}
+        {/* Old apparel/patriotic routes permanently removed - not part of current coffee/matcha brand */}
+        {/* Founders Series, LiberTees, patriotic apparel, old coffee collections all redirect to homepage */}
 
         {/* ── TORCH COMMAND (INTERNAL) — Redirect to homepage (no public access) ── */}
         <Route path="/command" element={<Navigate to="/" replace />} />

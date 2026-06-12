@@ -1,58 +1,63 @@
-# Torch Republic Coffee Company - Robots.txt
-# Allow all public pages, block private/admin pages
+# Torch Republic Robots.txt
+# Last Updated: 2026-06-12
 
+# Allow all public content
 User-agent: *
-
-# Allow public pages
 Allow: /
 Allow: /shop
-Allow: /shop/*
-Allow: /products/*
 Allow: /blends
 Allow: /bundle
-Allow: /build-your-ritual
 Allow: /mission
 Allow: /contact
+Allow: /reviews
 Allow: /faq
-Allow: /recipes
-Allow: /research
-Allow: /quiz
-Allow: /spotlight
-Allow: /portal
-Allow: /gifts
 Allow: /journal
-Allow: /journal/*
+Allow: /how-it-works
 Allow: /ingredients
 Allow: /why-mushroom-coffee
 Allow: /why-matcha
-Allow: /mushroom-coffee-benefits
-Allow: /lions-mane-coffee
-Allow: /instant-coffee-for-energy
-Allow: /subscription
-Allow: /loyalty
-Allow: /torchbearers-rewards
-Allow: /shipping-policy
-Allow: /return-policy
-Allow: /privacy-policy
-Allow: /terms-of-service
+Allow: /research
+Allow: /quiz
+Allow: /build-your-ritual
+Allow: /recipes
+Allow: /shop/instant-mushroom-coffee
+Allow: /shop/instant-coffee
+Allow: /shop/matcha
 
-# Block private, admin, and utility pages
-Disallow: /login
-Disallow: /register
-Disallow: /forgot-password
-Disallow: /reset-password
-Disallow: /profile
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
-Disallow: /traffic-report
-Disallow: /email-campaign
+# Block all private, admin, and utility pages
 Disallow: /admin
-Disallow: /command
-Disallow: /local
-Disallow: /KeywordAnalysis
+Disallow: /admin/
+Disallow: /admin/blog
 Disallow: /admin/keywords
 Disallow: /admin/shopify
+Disallow: /TrafficReport
+Disallow: /traffic-report
+Disallow: /command
+Disallow: /command/
+Disallow: /command/admin
+Disallow: /command/quiz
+Disallow: /command/timer
+Disallow: /command/protocols
+Disallow: /profile
+Disallow: /login
+Disallow: /register
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /order-confirmation
+Disallow: /customer-portal
+Disallow: /portal
+Disallow: /email-campaign-dashboard
+Disallow: /email-campaign
+Disallow: /subscription
+Disallow: /loyalty
+Disallow: /torchbearers-rewards
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /_next
+Disallow: /api
+Disallow: /*?*
+Disallow: /*.json$
 
-# Sitemap location
+# Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml

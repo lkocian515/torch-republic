@@ -14,7 +14,7 @@ function formatTime(secs) {
 }
 
 export default function FlowTimer() {
-  useSEO({ title: 'Flow State Timer · Torch Command', description: '90-minute deep work timer.', url: '/command/timer', noindex: true });
+  useSEO({ title: 'Flow State Timer', description: '90-minute deep work timer for focused sessions.', url: '/command/timer', noindex: true });
   const [secondsLeft, setSecondsLeft] = useState(TOTAL);
   const [running, setRunning] = useState(false);
   const [completed, setCompleted] = useState(false);

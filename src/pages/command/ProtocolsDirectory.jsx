@@ -24,7 +24,7 @@ const BLEND_COLORS = {
 };
 
 export default function ProtocolsDirectory() {
-  useSEO({ title: 'Performance Protocols · Torch Command', description: 'Evidence-based optimization routines.', url: '/command/protocols', noindex: true });
+  useSEO({ title: 'Performance Protocols', description: 'Evidence-based mental and physical optimization routines.', url: '/command/protocols', noindex: true });
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
 

@@ -77,7 +77,7 @@ function computeResult(weights) {
 }
 
 export default function CognitiveQuiz() {
-  useSEO({ title: 'Cognitive Profile Quiz · Torch Command', description: 'Internal cognitive assessment tool.', url: '/command/quiz', noindex: true });
+  useSEO({ title: 'Cognitive Profile Quiz', description: 'Discover your optimal Torch Republic blend.', url: '/command/quiz', noindex: true });
   const [step, setStep] = useState(0); // 0=intro, 1-4=questions, 5=email, 6=results
   const [weights, setWeights] = useState({ Focus: 0, Recovery: 0 });
   const [email, setEmail] = useState('');

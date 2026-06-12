@@ -21,7 +21,7 @@ const BLEND_COLORS = {
 };
 
 export default function ProtocolDetail() {
-  useSEO({ title: 'Performance Protocol · Torch Command', description: 'Detailed optimization protocol.', url: `/command/protocols/${slug}`, noindex: true });
+  useSEO({ title: `${protocol?.title || 'Protocol'} | Torch Command`, description: protocol?.tagline || 'Performance protocol guide.', url: `/command/protocols/${slug}`, noindex: true });
   const { slug } = useParams();
 
   const { data: protocols = [], isLoading } = useQuery({
