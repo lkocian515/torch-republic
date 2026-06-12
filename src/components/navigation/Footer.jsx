@@ -12,7 +12,12 @@ function NewsletterForm() {
     
     setStatus('loading');
     try {
+      // Save to local database
       await base44.entities.EmailSubscriber.create({ email, source: 'footer' });
+      
+      // Send to HubSpot
+      await base44.functions.invoke('addToHubSpot', { email });
+      
       setStatus('success');
       setEmail('');
     } catch (error) {
