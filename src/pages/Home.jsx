@@ -8,6 +8,7 @@ import HomeTrustRow from '../components/home/HomeTrustRow';
 import StartHereSection from '../components/home/StartHereSection';
 import BundleSection from '../components/home/BundleSection';
 import ShopByCategory from '../components/home/ShopByCategory';
+import QuizTeaser from '../components/home/QuizTeaser';
 import BlendComparisonSection from '../components/home/BlendComparisonSection';
 import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
 import TrustSection from '../components/home/TrustSection';
@@ -106,6 +107,9 @@ export default function Home() {
 
       {/* 3. Shop by Category */}
       <ShopByCategory />
+
+      {/* 3b. Quiz Teaser — high-engagement element */}
+      <QuizTeaser />
 
       {/* 4. Compare the Blends */}
       <BlendComparisonSection />
