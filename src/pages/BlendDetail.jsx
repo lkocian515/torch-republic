@@ -26,6 +26,7 @@ import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock'
 import ProductTestimonialFeed from '../components/mushroom/ProductTestimonialFeed';
 import IngredientResearch from '../components/mushroom/IngredientResearch';
 import IngredientSpotlight from '../components/mushroom/IngredientSpotlight';
+import IngredientsAndBenefits from '../components/mushroom/IngredientsAndBenefits';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -721,6 +722,9 @@ function BlendDetailInner({ product }) {
 
       {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        {/* Ingredients & Benefits */}
+        <IngredientsAndBenefits product={product} />
+
         {/* Functional Benefits */}
         <FunctionalBenefits product={product} />
 
