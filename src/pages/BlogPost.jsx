@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
@@ -51,14 +52,25 @@ export default function BlogPostPage() {
     },
   });
 
+  // For social media crawlers that don't execute JS, we also use Helmet
+  const ogImage = post?.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
+
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
-        <div className="text-center">
-          <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: RG }}>Loading...</p>
+      <>
+        <Helmet>
+          <title>Loading... | Torch Republic</title>
+          <meta property="og:title" content="Loading..." />
+          <meta property="og:description" content="Loading article..." />
+          <meta property="og:image" content="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png" />
+        </Helmet>
+        <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
+          <div className="text-center">
+            <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+            <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: RG }}>Loading...</p>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -87,7 +99,28 @@ export default function BlogPostPage() {
   const categoryColor = CATEGORY_COLORS[post.category] || RG;
 
   return (
-    <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
+    <>
+      <Helmet>
+        <title>{post.title} | Torch Republic</title>
+        <meta name="description" content={post.excerpt || post.title} />
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt || post.title} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://torchrepublic.com/journal/${slug}`} />
+        <meta property="article:published_time" content={post.published_date} />
+        <meta property="article:author" content={post.author || 'Torch Republic'} />
+        <meta property="article:section" content={post.category} />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt || post.title} />
+        <meta name="twitter:image" content={ogImage} />
+      </Helmet>
+      <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
       {/* Back Link */}
       <div className="px-6 md:px-10 py-6" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <Link
@@ -251,5 +284,6 @@ export default function BlogPostPage() {
         </div>
       </article>
     </div>
+    </>
   );
 }
