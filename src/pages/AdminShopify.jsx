@@ -139,6 +139,12 @@ function ResultPanel({ title, data, loading, expanded, onToggle }) {
 
 function ToolCard({ icon: Icon, title, description, onRun, loading, result, color = RG }) {
   const [expanded, setExpanded] = useState(false);
+
+  // Auto-expand when result arrives
+  React.useEffect(() => {
+    if (result) setExpanded(true);
+  }, [result]);
+
   return (
     <div className="p-5" style={{ background: '#0F0E0D', border: `1px solid ${color}20`, borderRadius: '6px' }}>
       <div className="flex items-start gap-3 mb-3">
