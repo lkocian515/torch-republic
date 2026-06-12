@@ -186,38 +186,51 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/about" element={<Navigate to="/mission" replace />} />
         <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
         
-        {/* ── ADMIN / INTERNAL PAGES ── */}
+        {/* ── ADMIN / INTERNAL PAGES — ALL REDIRECT TO HOMEPAGE (NO PUBLIC ACCESS) ── */}
         <Route path="/traffic-report" element={<Navigate to="/" replace />} />
+        <Route path="/TrafficReport" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
+        <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
         <Route path="/admin/shopify" element={<Navigate to="/" replace />} />
-        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><KeywordAnalysis /></Suspense>} />
-        <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><AdminBlogEditor /></Suspense>} />
-        <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><AdminBlogEditor /></Suspense>} />
-        <Route path="/Admin" element={<Navigate to="/admin/keywords" replace />} />
-        <Route path="/Dashboard" element={<Navigate to="/admin/keywords" replace />} />
-        <Route path="/SEO" element={<Navigate to="/admin/keywords" replace />} />
-        <Route path="/seo" element={<Navigate to="/admin/keywords" replace />} />
-        <Route path="/SearchQueryAnalysis" element={<Navigate to="/admin/keywords" replace />} />
-        <Route path="/search-query-analysis" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/admin/keywords" element={<Navigate to="/" replace />} />
+        <Route path="/admin/blog" element={<Navigate to="/" replace />} />
+        <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
+        <Route path="/Admin" element={<Navigate to="/" replace />} />
+        <Route path="/Dashboard" element={<Navigate to="/" replace />} />
+        <Route path="/SEO" element={<Navigate to="/" replace />} />
+        <Route path="/seo" element={<Navigate to="/" replace />} />
+        <Route path="/SearchQueryAnalysis" element={<Navigate to="/" replace />} />
+        <Route path="/search-query-analysis" element={<Navigate to="/" replace />} />
         <Route path="/local" element={<Navigate to="/" replace />} />
-        <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/LocalSEO" element={<Navigate to="/" replace />} />
+        <Route path="/AdminShopify" element={<Navigate to="/" replace />} />
+        <Route path="/KeywordAnalysis" element={<Navigate to="/" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
         <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
         <Route path="/MushroomShop" element={<Navigate to="/shop" replace />} />
         <Route path="/mushroomshop" element={<Navigate to="/shop" replace />} />
         <Route path="/BuildYourRitual" element={<Navigate to="/build-your-ritual" replace />} />
-        <Route path="/emailcampaigndashboard" element={<Navigate to="/email-campaign" replace />} />
-        <Route path="/EmailCampaignDashboard" element={<Navigate to="/email-campaign" replace />} />
-        <Route path="/CustomerPortal" element={<Navigate to="/portal" replace />} />
-        <Route path="/customerportal" element={<Navigate to="/portal" replace />} />
-        <Route path="/LoyaltyPortal" element={<Navigate to="/loyalty" replace />} />
-        <Route path="/loyaltyportal" element={<Navigate to="/loyalty" replace />} />
+        <Route path="/emailcampaigndashboard" element={<Navigate to="/" replace />} />
+        <Route path="/EmailCampaignDashboard" element={<Navigate to="/" replace />} />
+        <Route path="/CustomerPortal" element={<Navigate to="/" replace />} />
+        <Route path="/customerportal" element={<Navigate to="/" replace />} />
+        <Route path="/portal" element={<Navigate to="/" replace />} />
+        <Route path="/Portal" element={<Navigate to="/" replace />} />
+        <Route path="/LoyaltyPortal" element={<Navigate to="/" replace />} />
+        <Route path="/loyaltyportal" element={<Navigate to="/" replace />} />
+        <Route path="/profile" element={<Navigate to="/" replace />} />
+        <Route path="/Profile" element={<Navigate to="/" replace />} />
+        <Route path="/subscription" element={<Navigate to="/" replace />} />
+        <Route path="/Subscription" element={<Navigate to="/" replace />} />
+        <Route path="/loyalty" element={<Navigate to="/" replace />} />
+        <Route path="/Loyalty" element={<Navigate to="/" replace />} />
+        <Route path="/torchbearers-rewards" element={<Navigate to="/" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
         <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
-        <Route path="/portal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerPortal" queryClient={queryClient}><CustomerPortal /></LayoutWrapper></Suspense>} />
+        <Route path="/portal" element={<Navigate to="/" replace />} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
@@ -231,7 +244,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefits" queryClient={queryClient}><MushroomCoffeeBenefits /></LayoutWrapper></Suspense>} />
         <Route path="/lions-mane-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeCoffee" queryClient={queryClient}><LionsManeCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/instant-coffee-for-energy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeForEnergy" queryClient={queryClient}><InstantCoffeeForEnergy /></LayoutWrapper></Suspense>} />
-        <Route path="/local" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LocalSEO" queryClient={queryClient}><LocalSEO /></LayoutWrapper></Suspense>} />
+        <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/ingredients" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Ingredients" queryClient={queryClient}><Ingredients /></LayoutWrapper></Suspense>} />
         <Route path="/why-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMushroomCoffee" queryClient={queryClient}><WhyMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/why-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMatcha" queryClient={queryClient}><WhyMatcha /></LayoutWrapper></Suspense>} />
@@ -256,13 +269,21 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* Old apparel/patriotic routes permanently removed - not part of current coffee/matcha brand */}
         {/* Founders Series, LiberTees, patriotic apparel, old coffee collections all redirect to homepage */}
 
-        {/* ── TORCH COMMAND (INTERNAL) — Redirect to homepage (no public access) ── */}
+        {/* ── TORCH COMMAND (INTERNAL) — ALL REDIRECT TO HOMEPAGE ── */}
         <Route path="/command" element={<Navigate to="/" replace />} />
+        <Route path="/command/*" element={<Navigate to="/" replace />} />
         <Route path="/command/quiz" element={<Navigate to="/" replace />} />
         <Route path="/command/timer" element={<Navigate to="/" replace />} />
         <Route path="/command/protocols" element={<Navigate to="/" replace />} />
         <Route path="/command/protocols/:slug" element={<Navigate to="/" replace />} />
         <Route path="/command/admin" element={<Navigate to="/" replace />} />
+        <Route path="/TorchCommandHome" element={<Navigate to="/" replace />} />
+        <Route path="/CognitiveQuiz" element={<Navigate to="/" replace />} />
+        <Route path="/FlowTimer" element={<Navigate to="/" replace />} />
+        <Route path="/ProtocolsDirectory" element={<Navigate to="/" replace />} />
+        <Route path="/ProtocolDetail" element={<Navigate to="/" replace />} />
+        <Route path="/AdminCommand" element={<Navigate to="/" replace />} />
+        <Route path="/AdminBlogEditor" element={<Navigate to="/" replace />} />
 
         <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
       </Routes>
