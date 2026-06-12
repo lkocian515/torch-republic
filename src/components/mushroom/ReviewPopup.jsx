@@ -24,14 +24,24 @@ export default function ReviewPopup() {
   // Use only first 15 reviews for popup
   const reviews = allReviews.slice(0, 15);
 
-  // Show popup after 3 seconds on first visit (if there are reviews)
+  // Show popup after 3 seconds on first visit, then cycle: 8 seconds open, 5 seconds closed
   useEffect(() => {
-    if (reviews.length > 0 && !hasClosed && !isOpen) {
-      const timer = setTimeout(() => {
+    if (reviews.length === 0 || hasClosed) return;
+    
+    const timer = setTimeout(() => {
+      if (!isOpen) {
         setIsOpen(true);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
+        // Keep open for 8 seconds, then close for 5 seconds
+        setTimeout(() => {
+          setIsOpen(false);
+          setTimeout(() => {
+            if (!hasClosed) setIsOpen(true);
+          }, 5000);
+        }, 8000);
+      }
+    }, 3000);
+    
+    return () => clearTimeout(timer);
   }, [reviews.length, hasClosed, isOpen]);
 
   // Auto-rotate reviews every 10 seconds
