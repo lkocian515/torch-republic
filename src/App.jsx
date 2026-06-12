@@ -81,7 +81,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const EmailCampaignDashboard = lazy(() => import('./pages/EmailCampaignDashboard'));
 const AdminShopify = lazy(() => import('./pages/AdminShopify'));
-const KeywordAnalysis = lazy(() => import('./pages/KeywordAnalysis'));
+const KeywordAnalysis = lazy(() => import('./pages/KeywordAnalysis.jsx'));
 
 // ── Torch Command ──
 const TorchCommandHome = lazy(() => import('./pages/command/TorchCommandHome.jsx'));
@@ -185,11 +185,11 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/about" element={<Navigate to="/mission" replace />} />
         <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
         
-        {/* ── ADMIN / INTERNAL PAGES — Redirect to homepage (no public access) ── */}
+        {/* ── ADMIN / INTERNAL PAGES ── */}
         <Route path="/traffic-report" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/admin/shopify" element={<Navigate to="/" replace />} />
-        <Route path="/admin/keywords" element={<Navigate to="/" replace />} />
+        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><KeywordAnalysis /></Suspense>} />
         <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
