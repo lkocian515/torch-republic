@@ -1,12 +1,19 @@
 User-agent: *
 Allow: /
 
-# Admin and internal pages - do not index
+# Admin and internal pages - do not index or crawl
 Disallow: /admin/
 Disallow: /traffic-report
 Disallow: /email-campaign
 Disallow: /command/
 Disallow: /local
+Disallow: /AdminShopify
+Disallow: /BlendDetail
+Disallow: /MushroomShop
+Disallow: /BuildYourRitual
+Disallow: /EmailCampaignDashboard
+Disallow: /CustomerPortal
+Disallow: /LoyaltyPortal
 
 # Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
