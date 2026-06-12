@@ -60,6 +60,7 @@ const MatchaBenefitsGuide = lazy(() => import('./pages/blog/MatchaBenefitsGuide'
 const CoffeeAndFocusGuide = lazy(() => import('./pages/blog/CoffeeAndFocusGuide'));
 const MorningRitualGuide = lazy(() => import('./pages/blog/MorningRitualGuide'));
 const AdaptogensGuide = lazy(() => import('./pages/blog/AdaptogensGuide'));
+const HistoryOfMushroomCoffee = lazy(() => import('./pages/blog/HistoryOfMushroomCoffee'));
 const LocalSEO = lazy(() => import('./pages/LocalSEO'));
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
@@ -233,6 +234,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/coffee-and-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeAndFocusGuide" queryClient={queryClient}><CoffeeAndFocusGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/morning-ritual-for-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MorningRitualGuide" queryClient={queryClient}><MorningRitualGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/adaptogens-guide" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdaptogensGuide" queryClient={queryClient}><AdaptogensGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/history-of-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMushroomCoffee" queryClient={queryClient}><HistoryOfMushroomCoffee /></LayoutWrapper></Suspense>} />
 
         {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
