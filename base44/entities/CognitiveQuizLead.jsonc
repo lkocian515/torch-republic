@@ -21,6 +21,11 @@
     "result_profile": {
       "type": "string",
       "description": "Cognitive profile label"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this quiz lead"
     }
   },
   "required": [
