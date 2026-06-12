@@ -11,9 +11,9 @@ const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MA
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
-// 3-pack bundle price — always cheaper than 3 individual items ($24.99 each = $74.97)
-const BUNDLE_PRICE = 54.99;
-const INDIVIDUAL_PRICE = 19.99; // lowest individual price (Classic Coffee) — ensures bundle always saves
+// Fixed bundle price — always $49.99 regardless of products selected
+const BUNDLE_PRICE = 49.99;
+const INDIVIDUAL_PRICE = 19.99; // lowest individual price (Classic Coffee)
 const BUNDLE_SIZE = 3;
 
 // Core 12 products with their Shopify handles
@@ -117,7 +117,7 @@ export default function BuildYourRitual() {
     fetchProducts();
   }, []);
 
-  // Sum of individual prices for selected products (from Shopify live data)
+  // Sum of individual prices for selected products (for "regular value" display only)
   const totalPrice = useMemo(() => {
     return selectedProducts.reduce((sum, productId) => {
       const product = shopifyProducts.find(p => p.id === productId);
@@ -125,9 +125,9 @@ export default function BuildYourRitual() {
     }, 0);
   }, [selectedProducts, shopifyProducts]);
 
-  // Bundle is always capped at BUNDLE_PRICE — never exceeds individual total
-  const bundleTotal = Math.min(BUNDLE_PRICE, totalPrice);
-  const savings = selectedProducts.length === BUNDLE_SIZE ? totalPrice - bundleTotal : 0;
+  // Bundle price is always fixed at $49.99 — never varies by product selection
+  const bundleTotal = BUNDLE_PRICE;
+  const savings = selectedProducts.length === BUNDLE_SIZE ? Math.max(0, totalPrice - BUNDLE_PRICE) : 0;
 
   const toggleProduct = (productId) => {
     setSelectedProducts(prev => {
@@ -168,8 +168,8 @@ export default function BuildYourRitual() {
       return;
     }
 
-    // Apply RITUAL3 discount code to enforce bundle pricing at checkout
-    const url = `${baseUrl}?discount=RITUAL3`;
+    // Apply BUNDLE3PACK discount code to enforce fixed $49.99 bundle price at checkout
+    const url = `${baseUrl}?discount=BUNDLE3PACK`;
     
     if (!url.includes('libertees-for-all.myshopify.com')) {
       console.error('[Bundle] Invalid Shopify domain in URL:', url);
@@ -236,14 +236,14 @@ export default function BuildYourRitual() {
                   </div>
                   <div className="flex items-baseline gap-4 mb-5">
                     <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>${BUNDLE_PRICE}</span>
-                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>${(INDIVIDUAL_PRICE * BUNDLE_SIZE).toFixed(2)} separately</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save ${(INDIVIDUAL_PRICE * BUNDLE_SIZE - BUNDLE_PRICE).toFixed(2)}</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$67.97 separately</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $17.98</span>
                   </div>
                   <a
-                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=RITUAL3"
+                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=RITUAL3';
+                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
@@ -312,7 +312,7 @@ export default function BuildYourRitual() {
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save ${(INDIVIDUAL_PRICE * BUNDLE_SIZE - BUNDLE_PRICE).toFixed(2)}</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save $17.98+</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>vs. Buying Separately</p>
               </div>
             </div>
