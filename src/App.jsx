@@ -190,6 +190,12 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/admin/shopify" element={<Navigate to="/" replace />} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><KeywordAnalysis /></Suspense>} />
+        <Route path="/Admin" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/Dashboard" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/SEO" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/seo" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/SearchQueryAnalysis" element={<Navigate to="/admin/keywords" replace />} />
+        <Route path="/search-query-analysis" element={<Navigate to="/admin/keywords" replace />} />
         <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
