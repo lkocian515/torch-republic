@@ -8,7 +8,127 @@ import ShareButtons from '../../components/social/ShareButtons';
 const RG = '#E6B7AD';
 const LIONSMANE_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg';
 
+const ARTICLE_CONTENT = {
+  introduction: `Lion's Mane mushroom (Hericium erinaceus) stands out in the fungal kingdom. Its distinctive appearance—cascading white spines resembling a lion's mane—hints at something extraordinary. For centuries, this mushroom has been valued in traditional Asian medicine for supporting digestive health, cognitive function, and overall vitality. Today, modern science is uncovering the mechanisms behind these traditional uses.
+
+Over 100 peer-reviewed studies now document Lion's Mane effects on the brain and nervous system. Research suggests this mushroom may support cognitive function, nerve regeneration, mood, and immune health through unique bioactive compounds.`,
+
+  sections: [
+    {
+      title: "The Unique Chemistry of Lion's Mane",
+      content: `What makes Lion's Mane so special? The answer lies in its extraordinary chemical composition. This mushroom contains two groups of potent bioactive compounds: hericenones and erinacines.
+
+**Hericenones** are aromatic compounds found in the fruiting body (the visible mushroom). **Erinacines** are cyathane diterpenoids concentrated in the mycelium (the root-like structure). Both groups have demonstrated remarkable abilities to cross the blood-brain barrier—a protective shield that keeps most substances out of the brain.
+
+Once inside the brain, these compounds stimulate the production of Nerve Growth Factor (NGF), a protein essential for the growth, maintenance, and survival of neurons. Think of NGF as fertilizer for your brain cells—it helps them grow stronger, form new connections, and repair damage.
+
+But that's not all. Lion's Mane also contains:
+- **Beta-glucans**: Polysaccharides that modulate immune function
+- **Antioxidants**: Compounds that combat oxidative stress and inflammation
+- **Amino acids**: Building blocks for neurotransmitters and proteins
+- **Minerals**: Including zinc, iron, and selenium for overall brain health`
+    },
+    {
+      title: "Nerve Growth Factor: The Brain's Fertilizer",
+      content: `To understand why Lion's Mane has captured scientists' attention, we need to understand Nerve Growth Factor (NGF).
+
+Discovered in the 1950s by Nobel Prize-winning neurobiologist Rita Levi-Montalcini, NGF is a protein that plays a crucial role in the development and maintenance of the nervous system. It's particularly important for cholinergic neurons—the brain cells responsible for learning, memory, and cognitive flexibility.
+
+Here's the problem: NGF levels naturally decline with age. This decline is associated with age-related cognitive impairment and neurodegenerative conditions. Low NGF levels have been observed in patients with Alzheimer's disease, Parkinson's disease, and other neurological disorders.
+
+This is where Lion's Mane becomes fascinating. Multiple studies have shown that compounds in Lion's Mane can:
+
+1. **Stimulate NGF synthesis**: Erinacines and hericenones trigger brain cells to produce more NGF
+2. **Enhance neurite outgrowth**: NGF promotes the growth of neurites—tiny projections that allow neurons to communicate
+3. **Protect existing neurons**: NGF helps prevent neuron death and maintains healthy brain function
+
+In laboratory studies, Lion's Mane extract increased NGF production by up to 230%. In animal studies, mice given Lion's Mane showed improved memory, faster nerve regeneration after injury, and better performance on cognitive tasks.`
+    },
+    {
+      title: "Clinical Evidence: What Human Studies Show",
+      content: `While laboratory and animal studies are promising, human clinical trials provide the most compelling evidence. Here's what the research shows:
+
+**Cognitive Function in Older Adults (2009)**
+A landmark double-blind, placebo-controlled study published in Phytotherapy Research examined 30 Japanese men and women aged 50-80 with mild cognitive impairment. Participants took 3 grams of Lion's Mane powder daily for 16 weeks.
+
+Results: The Lion's Mane group showed significant improvements in cognitive function tests compared to placebo. Benefits began appearing at week 8 and continued throughout the study. When participants stopped taking Lion's Mane, scores gradually declined—suggesting ongoing supplementation may be necessary for sustained benefits.
+
+**Memory and Concentration (2020)**
+A study of healthy adults found that 4 weeks of Lion's Mane supplementation improved visual-spatial memory, short-term memory, and concentration. Participants also reported better focus during complex tasks.
+
+**Mood and Mental Well-being (2010)**
+Research involving 30 menopausal women found that Lion's Mane reduced symptoms of anxiety and depression while improving sleep quality. Participants took Lion's Mane cookies daily for 4 weeks, showing improvements in multiple psychological measures.
+
+**Nerve Regeneration (2013)**
+A clinical trial examined Lion's Mane's effects on peripheral nerve recovery. Patients with peripheral nerve injury who took Lion's Mane showed faster recovery times and better functional outcomes compared to controls.
+
+**Important Note**: While these studies are encouraging, larger trials are needed to confirm optimal dosages, long-term effects, and benefits for specific conditions.`
+    },
+    {
+      title: "How Lion's Mane Supports Brain Health",
+      content: `Lion's Mane appears to support brain health through multiple mechanisms:
+
+**1. Neurogenesis**
+Emerging research suggests Lion's Mane may promote neurogenesis—the birth of new brain cells. This occurs primarily in the hippocampus, the brain's memory and learning center. Enhanced neurogenesis is associated with better memory formation and cognitive resilience.
+
+**2. Myelin Repair**
+Myelin is the protective sheath surrounding nerve fibers, essential for rapid signal transmission. Lion's Mane has been shown to accelerate myelin repair after injury, potentially improving nerve conduction speed and cognitive processing.
+
+**3. Reduced Inflammation**
+Chronic brain inflammation contributes to cognitive decline and neurodegenerative diseases. Lion's Mane contains powerful anti-inflammatory compounds that may protect brain tissue from inflammatory damage.
+
+**4. Antioxidant Protection**
+Oxidative stress damages brain cells and accelerates aging. Lion's Mane's antioxidant compounds neutralize free radicals, reducing oxidative damage and supporting long-term brain health.
+
+**5. Gut-Brain Axis Support**
+Emerging research highlights the gut-brain connection. Lion's Mane has been shown to support gut health by protecting the gastric mucosa and promoting beneficial gut bacteria. A healthy gut microbiome positively influences brain function through the gut-brain axis.`
+    },
+    {
+      title: "Traditional Uses Meet Modern Science",
+      content: `Lion's Mane has been used in Traditional Chinese Medicine (TCM) and Japanese Kampo medicine for over 2,000 years. Ancient practitioners prescribed it for:
+
+- Strengthening the spleen and improving digestion
+- Nourishing the gut and reducing inflammation
+- Enhancing mental clarity and focus
+- Supporting overall vitality and longevity
+
+Modern science is now validating these traditional uses. Research confirms Lion's Mane's gastroprotective effects, showing it can help prevent and heal gastric ulcers. Studies also support its cognitive-enhancing and neuroprotective properties.
+
+This convergence of ancient wisdom and modern research makes Lion's Mane one of the most compelling functional mushrooms available today.`
+    },
+    {
+      title: "Incorporating Lion's Mane Into Your Routine",
+      content: `Based on clinical studies, effective dosages typically range from 500-3,000 mg of Lion's Mane extract daily. Here are some practical tips:
+
+**Timing**: Many people prefer taking Lion's Mane in the morning or early afternoon to support focus and cognitive performance throughout the day. Some also use it in the evening for its potential neuroregenerative benefits during sleep.
+
+**Consistency**: Benefits accumulate over time. Most studies show noticeable improvements after 4-8 weeks of consistent use. Think of Lion's Mane as a long-term investment in brain health.
+
+**Quality Matters**: Look for products that specify:
+- Fruiting body extract (not just mycelium)
+- Standardized beta-glucan content
+- Third-party testing for purity and potency
+- Organic certification when possible
+
+**Forms**: Lion's Mane is available as capsules, powders, tinctures, and functional beverages. Choose the form that fits your lifestyle best.
+
+**Synergy**: Lion's Mane pairs well with other cognitive-supportive nutrients like omega-3 fatty acids, B vitamins, and other adaptogens.`
+    },
+    {
+      title: "The Bottom Line",
+      content: `Lion's Mane mushroom represents a remarkable convergence of traditional medicine and modern neuroscience. With over 100 studies documenting its effects on brain health, nerve regeneration, cognitive function, and overall wellness, it's earned its place as one of the most researched functional mushrooms.
+
+While more large-scale human trials are needed, the existing evidence is compelling. Lion's Mane appears to support brain health through multiple pathways: stimulating NGF production, promoting neurogenesis, reducing inflammation, providing antioxidant protection, and supporting the gut-brain axis.
+
+Whether you're looking to enhance cognitive performance, support long-term brain health, or simply optimize your daily mental clarity, Lion's Mane offers a natural, well-tolerated option backed by both ancient wisdom and cutting-edge science.
+
+At Torch Republic, we've incorporated Lion's Mane into our GlowMind blend because we believe in the power of evidence-based functional ingredients. Our morning ritual isn't just about caffeine—it's about nurturing your brain, supporting your focus, and setting yourself up for a day of clarity and purpose.`
+    }
+  ]
+};
+
 export default function ScienceOfLionsMane() {
+
   useSEO({
     title: 'The Science of Lion\'s Mane: Research-Backed Benefits for Brain & Body',
     description: 'Explore the scientific research behind Lion\'s Mane mushroom. Learn about cognitive benefits, nerve growth factor (NGF), and clinical studies supporting this powerful functional mushroom.',
