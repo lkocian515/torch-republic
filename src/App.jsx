@@ -90,6 +90,7 @@ const FlowTimer = lazy(() => import('./pages/command/FlowTimer.jsx'));
 const ProtocolsDirectory = lazy(() => import('./pages/command/ProtocolsDirectory.jsx'));
 const ProtocolDetail = lazy(() => import('./pages/command/ProtocolDetail.jsx'));
 const AdminCommand = lazy(() => import('./pages/command/AdminCommand.jsx'));
+const AdminBlogEditor = lazy(() => import('./pages/AdminBlogEditor.jsx'));
 
 const mainPageKey = 'Home';
 
@@ -190,6 +191,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/admin/shopify" element={<Navigate to="/" replace />} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><KeywordAnalysis /></Suspense>} />
+        <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><AdminBlogEditor /></Suspense>} />
+        <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><AdminBlogEditor /></Suspense>} />
         <Route path="/Admin" element={<Navigate to="/admin/keywords" replace />} />
         <Route path="/Dashboard" element={<Navigate to="/admin/keywords" replace />} />
         <Route path="/SEO" element={<Navigate to="/admin/keywords" replace />} />
