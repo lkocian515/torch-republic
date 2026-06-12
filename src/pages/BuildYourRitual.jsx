@@ -4,6 +4,10 @@ import { Check, X, ShoppingBag, Sparkles } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
 import { base44 } from '@/api/base44Client';
+import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+
+const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
+  .reduce((acc, p) => { acc[p.shopifyHandle] = p.image; return acc; }, {});
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
@@ -92,7 +96,7 @@ export default function BuildYourRitual() {
             title: p.title,
             price: p.price || 24.99,
             compareAtPrice: p.compareAtPrice,
-            image: p.images?.[0]?.src || p.image,
+            image: p.images?.[0]?.src || p.image || LOCAL_IMAGE_MAP[p.handle],
             category: category,
             accent: accentColors[category] || '#E6B7AD',
             available: p.availableForSale !== false,
