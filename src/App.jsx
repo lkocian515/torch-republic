@@ -79,6 +79,14 @@ const EmailCampaignDashboard = lazy(() => import('./pages/EmailCampaignDashboard
 const AdminShopify = lazy(() => import('./pages/AdminShopify'));
 const KeywordAnalysis = lazy(() => import('./pages/KeywordAnalysis'));
 
+// ── Torch Command ──
+const TorchCommandHome = lazy(() => import('./pages/command/TorchCommandHome.jsx'));
+const CognitiveQuiz = lazy(() => import('./pages/command/CognitiveQuiz.jsx'));
+const FlowTimer = lazy(() => import('./pages/command/FlowTimer.jsx'));
+const ProtocolsDirectory = lazy(() => import('./pages/command/ProtocolsDirectory.jsx'));
+const ProtocolDetail = lazy(() => import('./pages/command/ProtocolDetail.jsx'));
+const AdminCommand = lazy(() => import('./pages/command/AdminCommand.jsx'));
+
 const mainPageKey = 'Home';
 
 // Loading fallback component
@@ -252,6 +260,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Pods" element={<Navigate to="/" replace />} />
         <Route path="/history" element={<Navigate to="/mission" replace />} />
         <Route path="/our-story" element={<Navigate to="/mission" replace />} />
+
+        {/* ── TORCH COMMAND ── */}
+        <Route path="/command" element={<Suspense fallback={<PageLoader />}><TorchCommandHome /></Suspense>} />
+        <Route path="/command/quiz" element={<Suspense fallback={<PageLoader />}><CognitiveQuiz /></Suspense>} />
+        <Route path="/command/timer" element={<Suspense fallback={<PageLoader />}><FlowTimer /></Suspense>} />
+        <Route path="/command/protocols" element={<Suspense fallback={<PageLoader />}><ProtocolsDirectory /></Suspense>} />
+        <Route path="/command/protocols/:slug" element={<Suspense fallback={<PageLoader />}><ProtocolDetail /></Suspense>} />
+        <Route path="/command/admin" element={<Suspense fallback={<PageLoader />}><AdminCommand /></Suspense>} />
 
         <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
       </Routes>
