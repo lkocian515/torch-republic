@@ -19,12 +19,12 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const { password } = body;
     
-    // Get password from environment variable (set in dashboard)
+    // Get password from secret (set in dashboard secrets)
     const adminPassword = Deno.env.get('TORCH_COMMAND_PASSWORD');
     
     if (!adminPassword) {
       return Response.json({ 
-        error: 'Admin password not configured. Please set TORCH_COMMAND_PASSWORD environment variable in dashboard.' 
+        error: 'Admin password not configured. Please set TORCH_COMMAND_PASSWORD secret in dashboard.' 
       }, { status: 500 });
     }
     

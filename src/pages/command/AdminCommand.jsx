@@ -7,7 +7,6 @@ import { Plus, Trash2, Edit2, Check, X } from 'lucide-react';
 
 const GOLD = '#D4AF37';
 const BG = '#0A0A0A';
-const PASSWORD = 'torchcommand2025';
 
 const STATUSES = ['todo', 'in_progress', 'done'];
 const STATUS_LABELS = { todo: 'To Do', in_progress: 'In Progress', done: 'Done' };
@@ -277,12 +276,25 @@ export default function AdminCommand() {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState('');
   const [pwError, setPwError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('Leads');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (pw === PASSWORD) { setAuthed(true); setPwError(''); }
-    else { setPwError('Incorrect password.'); }
+    setLoading(true);
+    setPwError('');
+    try {
+      const res = await base44.functions.invoke('verifyAdminPassword', { password: pw });
+      if (res.data?.success) {
+        setAuthed(true);
+      } else {
+        setPwError(res.data?.error || 'Incorrect password.');
+      }
+    } catch (err) {
+      setPwError(err.message || 'Authentication failed.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!authed) {
@@ -299,8 +311,8 @@ export default function AdminCommand() {
               className="w-full px-5 py-4 bg-transparent font-mono text-center focus:outline-none"
               style={{ border: `1px solid rgba(212,175,55,0.35)`, color: '#F0EBE1' }} />
             {pwError && <p className="font-mono text-[9px]" style={{ color: '#FF6B6B' }}>{pwError}</p>}
-            <button type="submit" className="font-mono text-[10px] tracking-[0.4em] uppercase font-bold py-4 transition-all hover:opacity-90" style={{ background: GOLD, color: '#0A0A0A' }}>
-              Enter →
+            <button type="submit" disabled={loading} className="font-mono text-[10px] tracking-[0.4em] uppercase font-bold py-4 transition-all hover:opacity-90 disabled:opacity-50" style={{ background: GOLD, color: '#0A0A0A' }}>
+              {loading ? 'Verifying...' : 'Enter →'}
             </button>
           </form>
         </motion.div>
