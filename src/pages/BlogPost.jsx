@@ -72,12 +72,12 @@ export default function BlogPostPage() {
   useSEO({
     title: post ? `${post.title} | Torch Republic` : 'Loading...',
     description: post?.excerpt || 'Read more on the Torch Republic Ritual Journal',
-    image: post?.featured_image,
+    image: post?.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png',
     url: `/journal/${slug}`,
     type: 'article',
     article: {
       author: post?.author || 'Torch Republic',
-      datePublished: post?.published_date,
+      datePublished: post?.published_date || new Date().toISOString(),
       section: post?.category ? `${post.category.charAt(0).toUpperCase() + post.category.slice(1)}` : 'Journal',
       keywords: post?.tags || [],
     },
