@@ -22,12 +22,43 @@ export default function BlogPostPage() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Set meta tags immediately for social media crawlers
   useEffect(() => {
-    const fetchPost = async () => {
+    const setMetaTag = (property, content, isProperty = true) => {
+      let el = document.querySelector(`meta[${isProperty ? 'property' : 'name'}="${property}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(isProperty ? 'property' : 'name', property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    const fetchPostAndSetMeta = async () => {
       try {
         const posts = await base44.entities.BlogPost.filter({ slug });
         if (posts.length > 0 && posts[0].published) {
-          setPost(posts[0]);
+          const postData = posts[0];
+          setPost(postData);
+          
+          // Set meta tags immediately
+          const ogImage = postData.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
+          const fullUrl = `https://torchrepublic.com/journal/${slug}`;
+          
+          setMetaTag('og:title', postData.title);
+          setMetaTag('og:description', postData.excerpt || postData.title);
+          setMetaTag('og:image', ogImage);
+          setMetaTag('og:image:width', '1200');
+          setMetaTag('og:image:height', '630');
+          setMetaTag('og:type', 'article');
+          setMetaTag('og:url', fullUrl);
+          setMetaTag('article:published_time', postData.published_date);
+          setMetaTag('article:author', postData.author || 'Torch Republic');
+          setMetaTag('article:section', postData.category);
+          setMetaTag('twitter:title', postData.title, false);
+          setMetaTag('twitter:description', postData.excerpt || postData.title, false);
+          setMetaTag('twitter:image', ogImage, false);
+          setMetaTag('twitter:card', 'summary_large_image', false);
         }
       } catch (error) {
         console.error('Error fetching post:', error);
@@ -35,7 +66,7 @@ export default function BlogPostPage() {
         setLoading(false);
       }
     };
-    fetchPost();
+    fetchPostAndSetMeta();
   }, [slug]);
 
   useSEO({
