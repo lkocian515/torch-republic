@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check } from 'lucide-react';
-import { MUSHROOM_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
@@ -67,7 +67,8 @@ export default function Subscription() {
     setBlendQty({});
   };
 
-  const selectedBlends = MUSHROOM_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
+  const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS];
+  const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
   const monthlyPrice = tubeCount ? tubeCount * 24.99 : 0;
   const subscriptionDiscountPrice = tubeCount ? tubeCount * 24.99 * 0.8 : 0; // 20% off
 
@@ -104,11 +105,11 @@ export default function Subscription() {
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Monthly Mushroom Coffee Subscription
+            Subscribe &amp; Save 20%
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-8"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Build your monthly ritual. Choose 1–6 instant mushroom coffee tubes and select the blends you want delivered each month.
+            Build your monthly ritual. Choose 1–6 tubes from any blend — mushroom coffee, classic coffee, or ceremonial matcha — and get 20% off every delivery.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#builder"
@@ -132,7 +133,7 @@ export default function Subscription() {
             Build Your Monthly Ritual
           </h2>
           <p className="font-heading" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.9, fontSize: '0.95rem' }}>
-            Create a monthly instant mushroom coffee subscription around the way you actually drink coffee. Choose 1–6 tubes, select your blends, and keep your favorite rituals stocked without starting from scratch every month.
+            Choose 1–6 tubes from any category — mushroom coffee, classic coffee, or ceremonial matcha. Mix and match to build the subscription that fits your daily ritual. Save 20% on every order.
           </p>
         </div>
       </section>
@@ -221,39 +222,43 @@ export default function Subscription() {
                 </span>
               </div>
 
-              <div className="space-y-3">
-                {MUSHROOM_PRODUCTS.map(p => {
-                  const qty = blendQty[p.slug] || 0;
-                  return (
-                    <div key={p.id} className="flex items-center gap-4 p-4 transition-all"
-                      style={{ background: qty > 0 ? `${p.accent}0A` : '#0E0C0B', border: `1px solid ${qty > 0 ? p.accent + '30' : 'rgba(230,183,173,0.1)'}` }}>
-                      <img src={p.image} alt={p.name} className="w-14 h-14 object-contain flex-shrink-0" style={{ background: '#0C0C0C', padding: '4px' }} />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-serif font-bold text-white text-sm">{p.name}</p>
-                        <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${p.accent}70` }}>{p.roast}</p>
-                        <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.3)', fontWeight: 300 }}>{p.mood}</p>
-                      </div>
-                      <div className="flex items-center gap-2 flex-shrink-0">
-                        <button
-                          onClick={() => adjustBlend(p.slug, -1)}
-                          disabled={qty === 0}
-                          className="w-8 h-8 flex items-center justify-center transition-all"
-                          style={{ border: '1px solid rgba(230,183,173,0.2)', color: qty === 0 ? 'rgba(255,255,255,0.15)' : 'rgba(230,183,173,0.7)', cursor: qty === 0 ? 'not-allowed' : 'pointer' }}>
-                          <Minus className="w-3.5 h-3.5" />
-                        </button>
-                        <span className="font-mono font-bold w-6 text-center" style={{ color: qty > 0 ? RG : 'rgba(255,255,255,0.3)', fontSize: '0.95rem' }}>{qty}</span>
-                        <button
-                          onClick={() => adjustBlend(p.slug, 1)}
-                          disabled={totalSelected >= tubeCount}
-                          className="w-8 h-8 flex items-center justify-center transition-all"
-                          style={{ border: `1px solid ${totalSelected >= tubeCount ? 'rgba(230,183,173,0.1)' : 'rgba(230,183,173,0.3)'}`, color: totalSelected >= tubeCount ? 'rgba(255,255,255,0.15)' : RG, cursor: totalSelected >= tubeCount ? 'not-allowed' : 'pointer' }}>
-                          <Plus className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              {[
+                { label: 'Mushroom Coffee', products: MUSHROOM_PRODUCTS },
+                { label: 'Classic Coffee', products: CLASSIC_COFFEE_PRODUCTS },
+                { label: 'Ceremonial Matcha', products: MATCHA_PRODUCTS },
+              ].map(group => (
+                <div key={group.label} className="mb-6">
+                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>{group.label}</p>
+                  <div className="space-y-3">
+                    {group.products.map(p => {
+                      const qty = blendQty[p.slug] || 0;
+                      return (
+                        <div key={p.id} className="flex items-center gap-4 p-4 transition-all"
+                          style={{ background: qty > 0 ? `${p.accent}0A` : '#0E0C0B', border: `1px solid ${qty > 0 ? p.accent + '30' : 'rgba(230,183,173,0.1)'}` }}>
+                          <img src={p.image} alt={p.name} className="w-14 h-14 object-contain flex-shrink-0" style={{ background: '#0C0C0C', padding: '4px' }} />
+                          <div className="flex-1 min-w-0">
+                            <p className="font-serif font-bold text-white text-sm">{p.name}</p>
+                            <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${p.accent}70` }}>{p.roast}</p>
+                          </div>
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <button onClick={() => adjustBlend(p.slug, -1)} disabled={qty === 0}
+                              className="w-8 h-8 flex items-center justify-center transition-all"
+                              style={{ border: '1px solid rgba(230,183,173,0.2)', color: qty === 0 ? 'rgba(255,255,255,0.15)' : 'rgba(230,183,173,0.7)', cursor: qty === 0 ? 'not-allowed' : 'pointer' }}>
+                              <Minus className="w-3.5 h-3.5" />
+                            </button>
+                            <span className="font-mono font-bold w-6 text-center" style={{ color: qty > 0 ? RG : 'rgba(255,255,255,0.3)', fontSize: '0.95rem' }}>{qty}</span>
+                            <button onClick={() => adjustBlend(p.slug, 1)} disabled={totalSelected >= tubeCount}
+                              className="w-8 h-8 flex items-center justify-center transition-all"
+                              style={{ border: `1px solid ${totalSelected >= tubeCount ? 'rgba(230,183,173,0.1)' : 'rgba(230,183,173,0.3)'}`, color: totalSelected >= tubeCount ? 'rgba(255,255,255,0.15)' : RG, cursor: totalSelected >= tubeCount ? 'not-allowed' : 'pointer' }}>
+                              <Plus className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
 
               <div className="flex flex-col sm:flex-row gap-3 mt-8">
                 <button onClick={() => setStep(1)}
@@ -293,7 +298,7 @@ export default function Subscription() {
 
                 <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
                   <div>
-                    <p className="font-serif font-bold text-white text-sm mb-1">Monthly Mushroom Coffee Subscription</p>
+                    <p className="font-serif font-bold text-white text-sm mb-1">Monthly Coffee Subscription</p>
                     <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{tubeCount} Tube{tubeCount > 1 ? 's' : ''} · Delivered Monthly</p>
                   </div>
                   <div className="text-right">
@@ -316,7 +321,7 @@ export default function Subscription() {
 
                 <div className="mt-5 pt-5 flex flex-wrap gap-3 text-[8px] font-mono uppercase tracking-wide" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
                   <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Monthly Delivery</span>
-                  <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Lion's Mane + Chaga</span>
+                  <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Free Shipping</span>
                   <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>{tubeCount * 27} Total Servings</span>
                 </div>
               </div>
