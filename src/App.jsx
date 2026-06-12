@@ -54,6 +54,12 @@ const InstantCoffeeForEnergy = lazy(() => import('./pages/InstantCoffeeForEnergy
 const LionsManeMushroomCoffee = lazy(() => import('./pages/blog/LionsManeMushroomCoffee'));
 const ChagaMushroomCoffee = lazy(() => import('./pages/blog/ChagaMushroomCoffee'));
 const InstantCeremonialMatcha = lazy(() => import('./pages/blog/InstantCeremonialMatcha'));
+const MushroomCoffeeBenefitsGuide = lazy(() => import('./pages/blog/MushroomCoffeeBenefitsGuide'));
+const BestInstantCoffee = lazy(() => import('./pages/blog/BestInstantCoffee'));
+const MatchaBenefitsGuide = lazy(() => import('./pages/blog/MatchaBenefitsGuide'));
+const CoffeeAndFocusGuide = lazy(() => import('./pages/blog/CoffeeAndFocusGuide'));
+const MorningRitualGuide = lazy(() => import('./pages/blog/MorningRitualGuide'));
+const AdaptogensGuide = lazy(() => import('./pages/blog/AdaptogensGuide'));
 const LocalSEO = lazy(() => import('./pages/LocalSEO'));
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
@@ -212,6 +218,12 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffee" queryClient={queryClient}><ChagaMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/journal/instant-ceremonial-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCeremonialMatcha" queryClient={queryClient}><InstantCeremonialMatcha /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefitsGuide" queryClient={queryClient}><MushroomCoffeeBenefitsGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/best-instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BestInstantCoffee" queryClient={queryClient}><BestInstantCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/matcha-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaBenefitsGuide" queryClient={queryClient}><MatchaBenefitsGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/coffee-and-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeAndFocusGuide" queryClient={queryClient}><CoffeeAndFocusGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/morning-ritual-for-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MorningRitualGuide" queryClient={queryClient}><MorningRitualGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/adaptogens-guide" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdaptogensGuide" queryClient={queryClient}><AdaptogensGuide /></LayoutWrapper></Suspense>} />
 
         {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
