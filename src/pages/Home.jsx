@@ -15,6 +15,7 @@ import ComparisonTable from '../components/home/ComparisonTable';
 import IngredientClarity from '../components/home/IngredientClarity';
 import FounderNote from '../components/home/FounderNote';
 import ReviewsSection from '../components/home/ReviewsSection';
+import SubscribeAndSaveSection from '../components/home/SubscribeAndSaveSection';
 import TorchbearersRewardsSection from '../components/home/TorchbearersRewardsSection';
 import FAQSection from '../components/mushroom/FAQSection';
 import FinalCTA from '../components/mushroom/FinalCTA';
@@ -129,6 +130,9 @@ export default function Home() {
 
       {/* 8. Reviews */}
       <ReviewsSection />
+
+      {/* Subscribe & Save CTA */}
+      <SubscribeAndSaveSection />
 
       {/* Torchbearers Rewards */}
       <TorchbearersRewardsSection />
