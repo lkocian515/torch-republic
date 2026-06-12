@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
+import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+
+// Build a quick handle→image lookup from local product catalog
+const PRODUCT_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
+  .reduce((acc, p) => { if (p.shopifyHandle && p.image) acc[p.shopifyHandle] = p.image; return acc; }, {});
 
 const RG = '#E6B7AD';
 
@@ -57,63 +62,63 @@ const RESULTS = {
     title: 'Your Ritual: Raw Energy',
     products: ['SunCap Rise', 'Ember Rise'],
     desc: 'Start with a blend designed for morning momentum, bold energy, and fresh starts. No crash, just sustained drive.',
-    link: '/products/suncap-rise-instant-mushroom-coffee',
+    link: '/blends/suncap-rise-instant-mushroom-coffee',
     compareLink: '/shop',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise.png',
+    imageHandle: 'suncap-rise-instant-mushroom-coffee',
     accent: '#D6B27A',
   },
   focus: {
     title: 'Your Ritual: Deep Focus',
     products: ['GlowMind Clarity', 'The Ascendant'],
     desc: "Lion's Mane and Chaga dial in clarity and presence. Built for deep work, flow states, and mental sharpness.",
-    link: '/products/glowmind-clarity-instant-mushroom-coffee',
+    link: '/blends/glowmind-clarity-instant-mushroom-coffee',
     compareLink: '/shop',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/glowmind-clarity.png',
+    imageHandle: 'glowmind-clarity-instant-mushroom-coffee',
     accent: '#E6B7AD',
   },
   calm: {
     title: 'Your Ritual: Calm Presence',
     products: ['MoonCap Restore', 'DreamCap'],
     desc: 'Grounding, restorative blends for those who need to slow down without switching off. Recovery starts here.',
-    link: '/products/mooncap-restore-instant-mushroom-coffee',
+    link: '/blends/mooncap-restore-instant-mushroom-coffee',
     compareLink: '/shop',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mooncap-restore.png',
+    imageHandle: 'mooncap-restore-instant-mushroom-coffee',
     accent: '#C98F86',
   },
   creativity: {
     title: 'Your Ritual: Creative Flow',
     products: ['The Alchemist', 'Mystic Bloom'],
     desc: 'Unlock inspired focus and creative energy. These blends support open thinking and artistic presence.',
-    link: '/products/the-alchemist-matcha-blend',
-    compareLink: '/shop',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png',
+    link: '/blends/the-alchemist-matcha-blend',
+    compareLink: '/shop/matcha',
+    imageHandle: 'the-alchemist-matcha-blend',
     accent: '#6CBD5A',
   },
   discipline: {
     title: 'Your Ritual: Disciplined Clarity',
     products: ['The Monk', 'GlowMind Clarity'],
     desc: 'Commit to a ceremonial matcha or mushroom ritual for calm, unwavering focus. Built for operators, not reactors.',
-    link: '/products/the-monk-matcha-blend',
-    compareLink: '/matcha',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-monk.png',
+    link: '/blends/the-monk-matcha-blend',
+    compareLink: '/shop/matcha',
+    imageHandle: 'the-monk-matcha-blend',
     accent: '#6CBD5A',
   },
   reflection: {
     title: 'Your Ritual: Inner Clarity',
     products: ['The Oracle', 'Midnight Watch'],
     desc: 'Honor your intuition with a blend for journaling, stillness, and inner clarity. The best ideas come in quiet.',
-    link: '/products/the-oracle-instant-mushroom-coffee',
+    link: '/blends/the-oracle-instant-mushroom-coffee',
     compareLink: '/shop',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-oracle.png',
+    imageHandle: 'the-oracle-instant-mushroom-coffee',
     accent: '#C4A8A0',
   },
   simple: {
     title: 'Your Ritual: Pure Coffee',
     products: ['Torchbearer', 'Ember Rise'],
     desc: 'Premium instant coffee — bold, clean, no complication. The foundation of a great morning.',
-    link: '/products/torchbearer-instant-coffee',
-    compareLink: '/classic-coffee',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torchbearer.png',
+    link: '/blends/torchbearer-instant-coffee',
+    compareLink: '/shop/instant-coffee',
+    imageHandle: 'torchbearer-instant-coffee',
     accent: '#C4A35A',
   },
 };
@@ -246,13 +251,18 @@ export default function FindYourRitual() {
               <div className="grid grid-cols-1 sm:grid-cols-2">
                 <div className="flex items-center justify-center p-8 sm:p-12"
                   style={{ background: `linear-gradient(135deg, ${result.accent}12 0%, #0C0C0C 100%)`, minHeight: '260px' }}>
-                  <img
-                    src={result.image}
-                    alt={result.products[0]}
-                    className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
-                    style={{ filter: 'drop-shadow(0 0 32px rgba(0,0,0,0.6))' }}
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                  />
+                  {PRODUCT_IMAGE_MAP[result.imageHandle] ? (
+                    <img
+                      src={PRODUCT_IMAGE_MAP[result.imageHandle]}
+                      alt={result.products[0]}
+                      className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
+                      style={{ filter: 'drop-shadow(0 0 32px rgba(0,0,0,0.6))' }}
+                    />
+                  ) : (
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center" style={{ background: `${result.accent}10`, borderRadius: '8px' }}>
+                      <p className="font-mono text-[8px] tracking-[0.2em] uppercase text-center" style={{ color: result.accent }}>{result.products[0]}</p>
+                    </div>
+                  )}
                 </div>
                 <div className="p-8 flex flex-col justify-center text-center sm:text-left" style={{ background: '#0F0E0D' }}>
                   <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: result.accent }}>
