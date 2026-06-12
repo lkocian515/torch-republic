@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Send, Users, Mail, TrendingUp, DollarSign, ShoppingCart, Clock, CheckCircle, AlertCircle, Activity, Download, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 
 function StatCard({ title, value, icon: IconComponent, color, subtext }) {
     return (
@@ -119,6 +120,7 @@ function MetricsTable({ metrics }) {
 }
 
 export default function EmailCampaignDashboard() {
+    useSEO({ title: 'Email Campaign Dashboard | Admin', description: 'Internal email campaign management.', url: '/email-campaign', noindex: true });
     const queryClient = useQueryClient();
     const [selectedSegment, setSelectedSegment] = useState(null);
     const [sendStatus, setSendStatus] = useState('idle');

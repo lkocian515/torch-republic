@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { TrendingUp, Search, MousePointerClick, Eye, Target, RefreshCw, AlertCircle } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
@@ -62,6 +63,7 @@ function KeywordTable({ rows, title, columns }) {
 }
 
 export default function KeywordAnalysis() {
+  useSEO({ title: 'Keyword Analysis | Admin', description: 'Internal SEO keyword analysis dashboard.', url: '/admin/keywords', noindex: true });
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
