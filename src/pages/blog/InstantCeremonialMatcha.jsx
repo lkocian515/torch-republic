@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { Clock, Leaf, Zap, Brain, Droplet, Award } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 const MATCHA_GREEN = '#10B981';
@@ -456,6 +457,11 @@ export default function InstantCeremonialMatcha() {
               </p>
             </div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="Instant Ceremonial Matcha: History, Benefits, L-Theanine Science & Daily Ritual" url="/journal/instant-ceremonial-matcha" />
+          </div>
 
           {/* CTA */}
           <motion.div

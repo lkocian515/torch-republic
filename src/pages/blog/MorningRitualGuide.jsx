@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { Sun, Coffee, Brain, Zap, CheckCircle, Clock } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 
@@ -124,6 +125,11 @@ export default function MorningRitualGuide() {
               ))}
             </div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="The Science-Backed Morning Ritual for Focus and Energy (2025 Guide)" url="/journal/morning-ritual-for-focus" />
+          </div>
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>

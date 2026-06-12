@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { Brain, Zap, Shield, Heart, Leaf, CheckCircle } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 const MATCHA_GREEN = '#6CBD5A';
@@ -164,6 +165,11 @@ export default function MatchaBenefitsGuide() {
               ))}
             </div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="Matcha Benefits: The Complete Guide to Ceremonial Grade Matcha (2025)" url="/journal/matcha-benefits" />
+          </div>
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(108,189,90,0.05)', border: `1px solid ${MATCHA_GREEN}30` }}>

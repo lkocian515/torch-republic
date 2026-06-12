@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { Brain, Shield, Zap, Clock, TrendingUp, CheckCircle } from 'lucide-react';
+import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 
@@ -440,6 +441,11 @@ export default function LionsManeMushroomCoffee() {
               </p>
             </div>
           </section>
+
+          {/* Share */}
+          <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <ShareButtons title="Lion's Mane Mushroom Coffee: Benefits, Research, and Why Your Morning Ritual Just Leveled Up" url="/journal/lions-mane-mushroom-coffee" />
+          </div>
 
           {/* CTA */}
           <motion.div
