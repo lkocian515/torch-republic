@@ -63,6 +63,7 @@ const AdaptogensGuide = lazy(() => import('./pages/blog/AdaptogensGuide'));
 const HistoryOfMushroomCoffee = lazy(() => import('./pages/blog/HistoryOfMushroomCoffee'));
 const LocalSEO = lazy(() => import('./pages/LocalSEO'));
 const HistoryOfMatcha = lazy(() => import('./pages/blog/HistoryOfMatcha'));
+const ScienceOfLionsMane = lazy(() => import('./pages/blog/ScienceOfLionsMane'));
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
 const Ingredients = lazy(() => import('./pages/Ingredients'));
@@ -238,6 +239,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/history-of-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMushroomCoffee" queryClient={queryClient}><HistoryOfMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
         <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
 
         {/* ── LEGACY REDIRECTS (old brand → new brand) ── */}
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
