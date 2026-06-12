@@ -29,8 +29,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'About Torch Republic | Texas Mushroom Coffee Brand Built for Rituals',
-    description: 'Torch Republic is a Texas-based instant coffee company making mushroom coffee, ceremonial matcha, and premium Arabica blends for intentional daily rituals — no pods, no machine, no compromise.',
+    title: 'About Torch Republic Coffee Company | Founder-Led Coffee Rituals',
+    description: 'Torch Republic is a founder-led coffee company creating premium instant coffee, mushroom coffee, and matcha for intentional daily rituals.',
     url: '/mission',
     type: 'website',
   });

@@ -69,8 +69,8 @@ export default function ClassicCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Premium Instant Coffee | No Pod, No Machine | Torch Republic',
-    description: 'Pure Arabica instant coffee blends for bold mornings and simple daily rituals. No pods, no machine, no mess — just premium coffee ready in seconds. 27 servings per tube. Ships from Texas.',
+    title: 'Premium Instant Coffee | Torch Republic Reserve Collection',
+    description: "Discover premium instant coffee from Torch Republic's Reserve Collection. Smooth, convenient, and made for hot or iced daily coffee rituals.",
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [

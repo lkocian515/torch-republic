@@ -70,8 +70,8 @@ export default function MatchaCollection() {
   }, []);
 
   useSEO({
-    title: 'Ceremonial Matcha for Calm Focus & Deep Work | Torch Republic',
-    description: 'Instant ceremonial matcha with L-theanine for calm, sustained energy and deep work focus — no jitters, no crash. No whisk needed. The Monk, The Ascendant, and The Alchemist. 25 servings.',
+    title: 'Ceremonial Matcha Powder | Torch Republic Matcha Collection',
+    description: 'Shop ceremonial matcha powder for smooth hot or iced matcha rituals. Whisk, stir, or blend into your favorite matcha latte.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [

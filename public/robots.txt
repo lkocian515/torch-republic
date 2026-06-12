@@ -1,105 +1,62 @@
-# Torch Republic Coffee Co. - Robots.txt
-# Generated: 2026-06-12
-# Purpose: Control search engine crawling to index only public-facing coffee/matcha content
-
-# Allow all search engines to crawl public content
 User-agent: *
-
-# ALLOW: Public SEO Pages
 Allow: /
 Allow: /shop
 Allow: /shop/instant-mushroom-coffee
 Allow: /shop/instant-coffee
 Allow: /shop/matcha
 Allow: /blends
-Allow: /blends/
-Allow: /products/
-Allow: /journal
-Allow: /journal/
+Allow: /bundle
+Allow: /build-your-ritual
 Allow: /mission
-Allow: /about
 Allow: /contact
 Allow: /faq
-Allow: /reviews
+Allow: /recipes
+Allow: /research
+Allow: /quiz
+Allow: /spotlight
+Allow: /portal
+Allow: /gifts
+Allow: /journal
+Allow: /journal/*
 Allow: /ingredients
 Allow: /why-mushroom-coffee
 Allow: /why-matcha
-Allow: /recipes
-Allow: /build-your-ritual
-Allow: /bundle
-Allow: /how-it-works
-Allow: /torchbearer
-Allow: /gifts
-Allow: /spotlight
-Allow: /quiz
 Allow: /mushroom-coffee-benefits
 Allow: /lions-mane-coffee
 Allow: /instant-coffee-for-energy
-
-# ALLOW: Policy Pages
 Allow: /shipping-policy
 Allow: /return-policy
 Allow: /privacy-policy
 Allow: /terms-of-service
 
-# ALLOW: Blog Posts (Educational Content)
-Allow: /journal/lions-mane-mushroom-coffee
-Allow: /journal/chaga-mushroom-coffee
-Allow: /journal/instant-ceremonial-matcha
-Allow: /journal/mushroom-coffee-benefits
-Allow: /journal/best-instant-coffee
-Allow: /journal/matcha-benefits
-Allow: /journal/coffee-and-focus
-Allow: /journal/morning-ritual-for-focus
-Allow: /journal/adaptogens-guide
-Allow: /journal/history-of-mushroom-coffee
-Allow: /journal/history-of-matcha
-Allow: /journal/science-of-lions-mane
-Allow: /journal/chaga-mushroom-antioxidant-king
-
-# BLOCK: Customer Account Pages (noindex already applied)
+# Disallow private, admin, and utility pages
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /profile
-Disallow: /portal
-Disallow: /customerportal
 Disallow: /loyalty
 Disallow: /torchbearers-rewards
 Disallow: /subscription
 Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
-
-# BLOCK: Internal Business Tools (noindex already applied)
 Disallow: /traffic-report
-Disallow: /research
-Disallow: /local
 Disallow: /email-campaign
-Disallow: /admin/shopify
-Disallow: /admin/keywords
-
-# BLOCK: Admin Command Pages (noindex already applied)
+Disallow: /admin
 Disallow: /command
-Disallow: /command/quiz
-Disallow: /command/timer
-Disallow: /command/protocols
-Disallow: /command/protocols/
-Disallow: /command/admin
-
-# BLOCK: Legacy Apparel Routes (redirected to homepage)
-Disallow: /patriotic-pride
-Disallow: /freedom-isnt-free
-Disallow: /we-the-people
-Disallow: /faith-over-fear
-Disallow: /christ-is-king
-Disallow: /god-family-country
-Disallow: /american-heroes
-Disallow: /pods
-Disallow: /Pods
-
-# BLOCK: Duplicate/Legacy Routes
+Disallow: /local
+Disallow: /BlendDetail
+Disallow: /blenddetail
+Disallow: /MushroomShop
+Disallow: /mushroomshop
+Disallow: /BuildYourRitual
+Disallow: /emailcampaigndashboard
+Disallow: /EmailCampaignDashboard
+Disallow: /CustomerPortal
+Disallow: /customerportal
+Disallow: /LoyaltyPortal
+Disallow: /loyaltyportal
 Disallow: /Shop
 Disallow: /BestSellers
 Disallow: /Collections
@@ -114,27 +71,29 @@ Disallow: /Founders
 Disallow: /Liberty
 Disallow: /Commanders
 Disallow: /Washington
+Disallow: /patriotic-pride
+Disallow: /freedom-isnt-free
+Disallow: /we-the-people
+Disallow: /faith-over-fear
+Disallow: /christ-is-king
+Disallow: /god-family-country
+Disallow: /american-heroes
+Disallow: /pods
+Disallow: /Pods
 Disallow: /history
 Disallow: /our-story
-Disallow: /BlendDetail
-Disallow: /blenddetail
-Disallow: /MushroomShop
-Disallow: /mushroomshop
-Disallow: /BuildYourRitual
-Disallow: /emailcampaigndashboard
-Disallow: /EmailCampaignDashboard
-Disallow: /CustomerPortal
-Disallow: /customerportal
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
+Disallow: /About
+Disallow: /AdminShopify
+Disallow: /admin/shopify
+Disallow: /admin/keywords
+Disallow: /KeywordAnalysis
+Disallow: /ClassicCoffeeCollection
+Disallow: /MushroomCoffeeCollection
+Disallow: /MatchaCollection
+Disallow: /BlendsCollection
 
-# BLOCK: Admin-only paths
-Disallow: /admin
-Disallow: /wp-admin
-Disallow: /cgi-bin
-
-# Sitemap location
+# Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
 
-# Crawl delay (optional - polite crawling)
+# Crawl delay for polite crawling
 Crawl-delay: 1

@@ -103,8 +103,8 @@ export default function MushroomShop() {
   }, []);
 
   useSEO({
-    title: 'Shop Torch Republic | Lion\'s Mane Coffee, Instant Coffee & Matcha',
-    description: "Shop instant mushroom coffee with Lion's Mane & Chaga, premium Arabica instant coffee, and ceremonial matcha. Built for focus, deep work, calm energy, and daily rituals. No machine needed.",
+    title: 'Shop Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
+    description: "Explore Torch Republic's premium instant coffee, mushroom coffee blends, and ceremonial matcha. Easy hot or iced drinks for your daily ritual.",
     url: '/shop',
     noindex: false,
   });
