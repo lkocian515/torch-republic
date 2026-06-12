@@ -4,6 +4,7 @@ import { LogOut, Trash2, Gift } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
+import useNoIndex from '@/hooks/useNoIndex';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
 import {

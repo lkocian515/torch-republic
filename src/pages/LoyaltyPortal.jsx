@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Gift, TrendingUp, ShoppingBag, Clock, ChevronRight, Lock, CheckCircle } from 'lucide-react';
+import useNoIndex from '@/hooks/useNoIndex';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
@@ -173,6 +174,7 @@ function EarningRule({ rule, index }) {
 }
 
 export default function LoyaltyPortal() {
+  useNoIndex();
   useSEO({
     title: 'Loyalty Rewards | Torch Republic Coffee Co.',
     description: 'Track your Torch Republic loyalty points and unlock exclusive discounts.',

@@ -1,22 +1,113 @@
-User-agent: *
-Allow: /
+# Torch Republic - Robots.txt
+# Last Updated: 2026-06-12
 
-# Admin and internal pages - do not index or crawl
-Disallow: /admin/
+# Allow all search engines to crawl public pages
+User-agent: *
+
+# ALLOW: Public-facing customer pages
+Allow: /
+Allow: /shop
+Allow: /shop/*
+Allow: /classic-coffee
+Allow: /mushroom-coffee
+Allow: /matcha
+Allow: /blends
+Allow: /bundle
+Allow: /how-it-works
+Allow: /reviews
+Allow: /mission
+Allow: /contact
+Allow: /torchbearer
+Allow: /faq
+Allow: /recipes
+Allow: /quiz
+Allow: /spotlight
+Allow: /gifts
+Allow: /ingredients
+Allow: /why-mushroom-coffee
+Allow: /why-matcha
+Allow: /mushroom-coffee-benefits
+Allow: /lions-mane-coffee
+Allow: /instant-coffee-for-energy
+Allow: /journal
+Allow: /journal/*
+Allow: /build-your-ritual
+Allow: /shipping-policy
+Allow: /return-policy
+Allow: /privacy-policy
+Allow: /terms-of-service
+
+# BLOCK: Authentication pages (noindex)
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+
+# BLOCK: Customer account pages (noindex)
+Disallow: /profile
+Disallow: /portal
+Disallow: /loyalty
+Disallow: /torchbearers-rewards
+Disallow: /subscription
+Disallow: /order-confirmation
+Disallow: /cart
+Disallow: /checkout
+
+# BLOCK: Admin & internal tools (noindex + auth required)
+Disallow: /admin
+Disallow: /admin/*
 Disallow: /traffic-report
 Disallow: /email-campaign
-Disallow: /command/
+Disallow: /admin/shopify
+Disallow: /admin/keywords
 Disallow: /local
+Disallow: /research
+Disallow: /command
+Disallow: /command/*
+Disallow: /keyword-analysis
+Disallow: /local-seo
+
+# BLOCK: Legacy routes and duplicates
+Disallow: /Shop
+Disallow: /BestSellers
+Disallow: /Collections
+Disallow: /Bundles
+Disallow: /CoffeeBundles
+Disallow: /TheTorchBox
+Disallow: /Subscription
+Disallow: /Mission
+Disallow: /Contact
+Disallow: /landing
+Disallow: /Founders
+Disallow: /Liberty
+Disallow: /Commanders
+Disallow: /Washington
+Disallow: /patriotic-pride
+Disallow: /freedom-isnt-free
+Disallow: /we-the-people
+Disallow: /faith-over-fear
+Disallow: /christ-is-king
+Disallow: /god-family-country
+Disallow: /american-heroes
+Disallow: /pods
+Disallow: /Pods
+Disallow: /history
+Disallow: /our-story
 Disallow: /AdminShopify
 Disallow: /BlendDetail
+Disallow: /blenddetail
 Disallow: /MushroomShop
+Disallow: /mushroomshop
 Disallow: /BuildYourRitual
+Disallow: /emailcampaigndashboard
 Disallow: /EmailCampaignDashboard
 Disallow: /CustomerPortal
+Disallow: /customerportal
 Disallow: /LoyaltyPortal
+Disallow: /loyaltyportal
 
-# Sitemap
+# Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml
 
-# Crawl-delay for politeness
+# Crawl-delay (optional, for polite crawling)
 Crawl-delay: 1

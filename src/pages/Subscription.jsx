@@ -4,6 +4,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
+import useNoIndex from '@/hooks/useNoIndex';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
@@ -43,6 +44,7 @@ export default function Subscription() {
   const [checkoutUrl, setCheckoutUrl] = useState(null);
   const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
 
+  useNoIndex();
   useSEO({
     title: 'Subscribe & Save | Torch Republic Coffee Company',
     description: 'Subscribe to your favorite Torch Republic coffee, mushroom coffee, or matcha ritual and save on repeat deliveries. Build your monthly blend selection.',

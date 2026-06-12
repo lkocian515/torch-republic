@@ -1,19 +1,35 @@
 import { useEffect } from 'react';
 
 /**
- * Injects a noindex, nofollow meta tag while the component is mounted.
- * Use on legacy pages that should not be crawled or indexed.
+ * useNoIndex - Adds noindex, nofollow meta robots tag to prevent search engine indexing
+ * 
+ * Use this hook on pages that should NOT appear in search results:
+ * - Authentication pages (login, register, forgot password, reset password)
+ * - Customer account pages (profile, portal, loyalty, subscription)
+ * - Admin pages (dashboards, analytics, internal tools)
+ * - Order confirmation and cart pages
+ * 
+ * @param {boolean} follow - Whether to allow link following (default: false)
  */
-export function useNoIndex() {
+export default function useNoIndex(follow = false) {
   useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex, nofollow';
-    document.head.appendChild(meta);
+    // Create or update meta robots tag
+    let metaTag = document.querySelector('meta[name="robots"]');
+    
+    if (!metaTag) {
+      metaTag = document.createElement('meta');
+      metaTag.setAttribute('name', 'robots');
+      document.head.appendChild(metaTag);
+    }
+    
+    const content = follow ? 'noindex, follow' : 'noindex, nofollow';
+    metaTag.setAttribute('content', content);
+    
+    // Cleanup on unmount
     return () => {
-      if (document.head.contains(meta)) {
-        document.head.removeChild(meta);
+      if (metaTag && metaTag.parentNode) {
+        metaTag.parentNode.removeChild(metaTag);
       }
     };
-  }, []);
+  }, [follow]);
 }

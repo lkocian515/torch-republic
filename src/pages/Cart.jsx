@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
+import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
 
 export default function Cart() {
-  // noindex - cart page
+  useNoIndex();
   useSEO({
     title: 'Your Cart',
     description: 'Review your Torch Republic cart and proceed to checkout.',

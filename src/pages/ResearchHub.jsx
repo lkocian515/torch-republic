@@ -84,10 +84,10 @@ const SCIENCE_HIGHLIGHTS = [
 
 export default function ResearchHub() {
   useSEO({
-    title: 'Mushroom Coffee & Matcha Research | Science-Backed Benefits',
-    description: 'Deep research on Lion\'s Mane NGF stimulation, Chaga antioxidants, and ceremonial matcha L-theanine. Clinical studies, historical context, and the science behind functional beverages.',
+    title: 'Research Hub | Internal',
+    description: 'Internal research and science documentation.',
     url: '/research',
-    type: 'article',
+    noindex: true,
   });
 
   return (

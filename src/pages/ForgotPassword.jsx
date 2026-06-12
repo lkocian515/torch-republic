@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
+import useNoIndex from '@/hooks/useNoIndex';
 
 
 const RG = '#E6B7AD';
 
 export default function ForgotPassword() {
+  useNoIndex();
   useSEO({
     title: 'Reset Password',
     description: 'Reset your Torch Republic Coffee Company account password.',
