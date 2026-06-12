@@ -1,0 +1,29 @@
+{
+  "name": "CognitiveQuizLead",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Captured email address"
+    },
+    "answers": {
+      "type": "object",
+      "description": "Quiz answers as JSON"
+    },
+    "result_blend": {
+      "type": "string",
+      "enum": [
+        "GlowMind",
+        "MoonCap"
+      ],
+      "description": "Recommended blend"
+    },
+    "result_profile": {
+      "type": "string",
+      "description": "Cognitive profile label"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

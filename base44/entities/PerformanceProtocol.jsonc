@@ -1,0 +1,62 @@
+{
+  "name": "PerformanceProtocol",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Protocol title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "focus",
+        "sleep",
+        "energy",
+        "recovery",
+        "mindset"
+      ],
+      "description": "Protocol category"
+    },
+    "tagline": {
+      "type": "string",
+      "description": "Short tagline"
+    },
+    "duration": {
+      "type": "string",
+      "description": "e.g. 90 minutes"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Step-by-step instructions"
+    },
+    "recommended_blend": {
+      "type": "string",
+      "enum": [
+        "GlowMind",
+        "MoonCap",
+        "Both"
+      ],
+      "description": "Torch Republic blend recommendation"
+    },
+    "blend_rationale": {
+      "type": "string",
+      "description": "Why this blend pairs with the protocol"
+    },
+    "published": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "category"
+  ]
+}

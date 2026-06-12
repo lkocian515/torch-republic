@@ -1,0 +1,45 @@
+{
+  "name": "SEOTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "todo",
+        "in_progress",
+        "done"
+      ],
+      "default": "todo"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "SEO",
+        "Content",
+        "Social",
+        "Email",
+        "Paid",
+        "Technical"
+      ],
+      "default": "SEO"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}
