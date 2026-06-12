@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star } from 'lucide-react';
+import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 
@@ -301,6 +301,54 @@ export default function FindYourRitual() {
                       >
                         Start Over
                       </button>
+                    </div>
+
+                    {/* Share Row */}
+                    <div className="pt-4" style={{ borderTop: `1px solid ${result.accent}20` }}>
+                      <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-3" style={{ color: 'rgba(240,235,225,0.3)' }}>
+                        Share your result
+                      </p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => {
+                            const text = `I just took the @TorchRepublic blend quiz and got "${result.title}" ✨ Find yours at torchrepubliccoffee.com/quiz`;
+                            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+                          }}
+                          className="flex-1 font-mono text-[7px] tracking-[0.2em] uppercase py-2.5 transition-all hover:opacity-80"
+                          style={{ background: 'rgba(29,161,242,0.12)', color: '#1DA1F2', border: '1px solid rgba(29,161,242,0.25)', borderRadius: '4px' }}
+                        >
+                          𝕏 Twitter
+                        </button>
+                        <button
+                          onClick={() => {
+                            const url = `https://torchrepubliccoffee.com/quiz`;
+                            const text = `I got "${result.title}" on the Torch Republic ritual quiz!`;
+                            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
+                          }}
+                          className="flex-1 font-mono text-[7px] tracking-[0.2em] uppercase py-2.5 transition-all hover:opacity-80"
+                          style={{ background: 'rgba(24,119,242,0.12)', color: '#1877F2', border: '1px solid rgba(24,119,242,0.25)', borderRadius: '4px' }}
+                        >
+                          Facebook
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (navigator.share) {
+                              navigator.share({
+                                title: result.title,
+                                text: `I got "${result.title}" on the Torch Republic ritual quiz! Find yours:`,
+                                url: `${window.location.origin}/quiz`,
+                              });
+                            } else {
+                              navigator.clipboard.writeText(`${window.location.origin}/quiz`);
+                              alert('Quiz link copied to clipboard!');
+                            }
+                          }}
+                          className="flex items-center justify-center gap-1 flex-1 font-mono text-[7px] tracking-[0.2em] uppercase py-2.5 transition-all hover:opacity-80"
+                          style={{ background: 'rgba(230,183,173,0.1)', color: RG, border: `1px solid ${RG}30`, borderRadius: '4px' }}
+                        >
+                          <Share2 size={10} /> Copy Link
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
