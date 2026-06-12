@@ -12,8 +12,8 @@ const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MA
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
 // 3-pack bundle price — always cheaper than 3 individual items ($24.99 each = $74.97)
-const BUNDLE_PRICE = 49.99;
-const INDIVIDUAL_PRICE = 24.99; // per product from Shopify
+const BUNDLE_PRICE = 59.99;
+const INDIVIDUAL_PRICE = 22.99; // per product from Shopify
 const BUNDLE_SIZE = 3;
 
 // Core 12 products with their Shopify handles
