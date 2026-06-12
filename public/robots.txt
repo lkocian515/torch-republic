@@ -1,73 +1,105 @@
-# Torch Republic - Robots.txt
-# Last Updated: 2026-06-12
+# Torch Republic Coffee Co. - Robots.txt
+# Generated: 2026-06-12
+# Purpose: Control search engine crawling to index only public-facing coffee/matcha content
 
-# Allow all search engines to crawl public pages
+# Allow all search engines to crawl public content
 User-agent: *
 
-# ALLOW: Public-facing customer pages
+# ALLOW: Public SEO Pages
 Allow: /
 Allow: /shop
-Allow: /shop/*
-Allow: /classic-coffee
-Allow: /mushroom-coffee
-Allow: /matcha
+Allow: /shop/instant-mushroom-coffee
+Allow: /shop/instant-coffee
+Allow: /shop/matcha
 Allow: /blends
-Allow: /bundle
-Allow: /how-it-works
-Allow: /reviews
+Allow: /blends/
+Allow: /products/
+Allow: /journal
+Allow: /journal/
 Allow: /mission
+Allow: /about
 Allow: /contact
-Allow: /torchbearer
 Allow: /faq
-Allow: /recipes
-Allow: /quiz
-Allow: /spotlight
-Allow: /gifts
+Allow: /reviews
 Allow: /ingredients
 Allow: /why-mushroom-coffee
 Allow: /why-matcha
+Allow: /recipes
+Allow: /build-your-ritual
+Allow: /bundle
+Allow: /how-it-works
+Allow: /torchbearer
+Allow: /gifts
+Allow: /spotlight
+Allow: /quiz
 Allow: /mushroom-coffee-benefits
 Allow: /lions-mane-coffee
 Allow: /instant-coffee-for-energy
-Allow: /journal
-Allow: /journal/*
-Allow: /build-your-ritual
+
+# ALLOW: Policy Pages
 Allow: /shipping-policy
 Allow: /return-policy
 Allow: /privacy-policy
 Allow: /terms-of-service
 
-# BLOCK: Authentication pages (noindex)
+# ALLOW: Blog Posts (Educational Content)
+Allow: /journal/lions-mane-mushroom-coffee
+Allow: /journal/chaga-mushroom-coffee
+Allow: /journal/instant-ceremonial-matcha
+Allow: /journal/mushroom-coffee-benefits
+Allow: /journal/best-instant-coffee
+Allow: /journal/matcha-benefits
+Allow: /journal/coffee-and-focus
+Allow: /journal/morning-ritual-for-focus
+Allow: /journal/adaptogens-guide
+Allow: /journal/history-of-mushroom-coffee
+Allow: /journal/history-of-matcha
+Allow: /journal/science-of-lions-mane
+Allow: /journal/chaga-mushroom-antioxidant-king
+
+# BLOCK: Customer Account Pages (noindex already applied)
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-
-# BLOCK: Customer account pages (noindex)
 Disallow: /profile
 Disallow: /portal
+Disallow: /customerportal
 Disallow: /loyalty
 Disallow: /torchbearers-rewards
 Disallow: /subscription
-Disallow: /order-confirmation
 Disallow: /cart
 Disallow: /checkout
+Disallow: /order-confirmation
 
-# BLOCK: Admin & internal tools (noindex + auth required)
-Disallow: /admin
-Disallow: /admin/*
+# BLOCK: Internal Business Tools (noindex already applied)
 Disallow: /traffic-report
+Disallow: /research
+Disallow: /local
 Disallow: /email-campaign
 Disallow: /admin/shopify
 Disallow: /admin/keywords
-Disallow: /local
-Disallow: /research
-Disallow: /command
-Disallow: /command/*
-Disallow: /keyword-analysis
-Disallow: /local-seo
 
-# BLOCK: Legacy routes and duplicates
+# BLOCK: Admin Command Pages (noindex already applied)
+Disallow: /command
+Disallow: /command/quiz
+Disallow: /command/timer
+Disallow: /command/protocols
+Disallow: /command/protocols/
+Disallow: /command/admin
+
+# BLOCK: Legacy Apparel Routes (redirected to homepage)
+Disallow: /patriotic-pride
+Disallow: /freedom-isnt-free
+Disallow: /we-the-people
+Disallow: /faith-over-fear
+Disallow: /christ-is-king
+Disallow: /god-family-country
+Disallow: /american-heroes
+Disallow: /pods
+Disallow: /Pods
+
+# BLOCK: Duplicate/Legacy Routes
 Disallow: /Shop
 Disallow: /BestSellers
 Disallow: /Collections
@@ -82,18 +114,8 @@ Disallow: /Founders
 Disallow: /Liberty
 Disallow: /Commanders
 Disallow: /Washington
-Disallow: /patriotic-pride
-Disallow: /freedom-isnt-free
-Disallow: /we-the-people
-Disallow: /faith-over-fear
-Disallow: /christ-is-king
-Disallow: /god-family-country
-Disallow: /american-heroes
-Disallow: /pods
-Disallow: /Pods
 Disallow: /history
 Disallow: /our-story
-Disallow: /AdminShopify
 Disallow: /BlendDetail
 Disallow: /blenddetail
 Disallow: /MushroomShop
@@ -106,8 +128,13 @@ Disallow: /customerportal
 Disallow: /LoyaltyPortal
 Disallow: /loyaltyportal
 
+# BLOCK: Admin-only paths
+Disallow: /admin
+Disallow: /wp-admin
+Disallow: /cgi-bin
+
 # Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml
 
-# Crawl-delay (optional, for polite crawling)
+# Crawl delay (optional - polite crawling)
 Crawl-delay: 1

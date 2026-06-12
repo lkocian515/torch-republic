@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
   <!-- 
-    Torch Republic Sitemap
-    Generated: 2026-06-12
-    Contains ONLY public-facing, indexable pages
-    Customer account pages and admin routes are EXCLUDED
+  Torch Republic Coffee Co. - XML Sitemap
+  Generated: 2026-06-12
+  Purpose: Index ONLY public-facing coffee, mushroom coffee, matcha, and educational content
+  Excluded: Customer accounts, admin pages, internal tools, legacy apparel
   -->
 
-  <!-- HOMEPAGE -->
+  <!-- === HOMEPAGE === -->
   <url>
     <loc>https://torchrepublic.com/</loc>
     <lastmod>2026-06-12</lastmod>
@@ -16,7 +19,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- SHOP & COLLECTIONS -->
+  <!-- === SHOP & COLLECTIONS === -->
   <url>
     <loc>https://torchrepublic.com/shop</loc>
     <lastmod>2026-06-12</lastmod>
@@ -42,141 +45,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://torchrepublic.com/classic-coffee</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/mushroom-coffee</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/matcha</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://torchrepublic.com/blends</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://torchrepublic.com/bundle</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- PRODUCT PAGES (dynamic - example structure) -->
-  <url>
-    <loc>https://torchrepublic.com/blends/glowmind-clarity</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/blends/mooncap-restore</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/blends/torchbearer</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/blends/midnight-watch</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- INFORMATIONAL PAGES -->
-  <url>
-    <loc>https://torchrepublic.com/how-it-works</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/reviews</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/mission</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/contact</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/torchbearer</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/faq</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/recipes</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/quiz</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/spotlight</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/gifts</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/ingredients</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/why-mushroom-coffee</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/why-matcha</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- === SEO CONTENT PAGES === -->
   <url>
     <loc>https://torchrepublic.com/mushroom-coffee-benefits</loc>
     <lastmod>2026-06-12</lastmod>
@@ -195,12 +76,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://torchrepublic.com/ingredients</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/why-mushroom-coffee</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/why-matcha</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 
-  <!-- JOURNAL / BLOG -->
+  <!-- === JOURNAL & BLOG POSTS === -->
   <url>
     <loc>https://torchrepublic.com/journal</loc>
     <lastmod>2026-06-12</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
@@ -282,15 +181,75 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- BUILD YOUR RITUAL -->
+  <!-- === COMPANY & INFO PAGES === -->
+  <url>
+    <loc>https://torchrepublic.com/mission</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/contact</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/faq</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/reviews</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/how-it-works</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/torchbearer</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/gifts</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/spotlight</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/quiz</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/recipes</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://torchrepublic.com/build-your-ritual</loc>
     <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 
-  <!-- POLICIES -->
+  <!-- === POLICY PAGES === -->
   <url>
     <loc>https://torchrepublic.com/shipping-policy</loc>
     <lastmod>2026-06-12</lastmod>
