@@ -11,6 +11,7 @@ export default function ScienceOfLionsMane() {
   useSEO({
     title: 'The Science of Lion\'s Mane: Research-Backed Benefits for Brain & Body',
     description: 'Explore the scientific research behind Lion\'s Mane mushroom. Learn about cognitive benefits, nerve growth factor (NGF), and clinical studies supporting this powerful functional mushroom.',
+    image: LIONSMANE_IMAGE,
     url: '/journal/science-of-lions-mane',
     type: 'article',
     article: {

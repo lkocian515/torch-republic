@@ -10,6 +10,7 @@ export default function HistoryOfMushroomCoffee() {
   useSEO({
     title: 'The History of Mushroom Coffee: Ancient Origins to Modern Wellness',
     description: 'Discover the fascinating history of mushroom coffee, from ancient medicinal mushroom traditions and Finnish wartime coffee substitutes to today\'s functional wellness movement.',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/90936d2ba_15.png',
     url: '/journal/history-of-mushroom-coffee',
     type: 'article',
     article: {

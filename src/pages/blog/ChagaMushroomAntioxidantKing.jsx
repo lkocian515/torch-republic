@@ -11,6 +11,7 @@ export default function ChagaMushroomAntioxidantKing() {
   useSEO({
     title: 'Chaga Mushroom: The Antioxidant King Behind Evening Restoration',
     description: 'Discover Chaga mushroom, nature\'s most potent antioxidant. Learn about its immune-supporting properties, traditional uses, and role in evening wellness rituals.',
+    image: CHAGA_IMAGE,
     url: '/journal/chaga-mushroom-antioxidant-king',
     type: 'article',
     article: {

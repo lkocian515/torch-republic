@@ -40,8 +40,15 @@ export default function BlogPostPage() {
   useSEO({
     title: post ? `${post.title} | Torch Republic` : 'Loading...',
     description: post?.excerpt || 'Read more on the Torch Republic Ritual Journal',
+    image: post?.featured_image,
     url: `/journal/${slug}`,
     type: 'article',
+    article: {
+      author: post?.author || 'Torch Republic',
+      datePublished: post?.published_date,
+      section: post?.category ? `${post.category.charAt(0).toUpperCase() + post.category.slice(1)}` : 'Journal',
+      keywords: post?.tags || [],
+    },
   });
 
   if (loading) {
