@@ -70,8 +70,8 @@ export default function MatchaCollection() {
   }, []);
 
   useSEO({
-    title: 'Ceremonial Matcha | Smooth Focus & Daily Rituals | Torch Republic',
-    description: 'Shop three ceremonial matcha blends—The Monk, The Ascendant, and The Alchemist. Premium grade matcha for calm focus and mindful energy. Instant preparation, no whisk needed.',
+    title: 'Ceremonial Matcha for Calm Focus & Deep Work | Torch Republic',
+    description: 'Instant ceremonial matcha with L-theanine for calm, sustained energy and deep work focus — no jitters, no crash. No whisk needed. The Monk, The Ascendant, and The Alchemist. 25 servings.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [

@@ -68,8 +68,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Instant Mushroom Coffee | Functional Coffee Blends | Torch Republic',
-    description: "Shop six premium instant mushroom coffee blends with Lion's Mane and Chaga for focus, clarity, calm energy, and intentional daily rituals. No machine needed—just add hot water and stir.",
+    title: "Lion's Mane Mushroom Coffee for Focus & Deep Work | Torch Republic",
+    description: "Six instant mushroom coffee blends with Lion's Mane and Chaga — crafted for mental clarity, deep work focus, and calm morning energy. No machine needed. Cheaper than MUD\\WTR & Four Sigmatic.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [

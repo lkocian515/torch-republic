@@ -29,11 +29,10 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'About Torch Republic | Coffee Without the Pod',
-    description: 'Learn why Torch Republic was created: premium instant coffee, mushroom coffee, and matcha blends designed for convenient daily rituals without pods or machines.',
+    title: 'About Torch Republic | Texas Mushroom Coffee Brand Built for Rituals',
+    description: 'Torch Republic is a Texas-based instant coffee company making mushroom coffee, ceremonial matcha, and premium Arabica blends for intentional daily rituals — no pods, no machine, no compromise.',
     url: '/mission',
     type: 'website',
-    keywords: 'coffee without pods, instant coffee no machine, mushroom coffee, premium instant coffee, matcha ritual, pod coffee alternative',
   });
 
   return (

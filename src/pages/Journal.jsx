@@ -13,8 +13,8 @@ export default function Journal() {
   const [activeCategory, setActiveCategory] = useState('all');
 
   useSEO({
-    title: 'Ritual Journal | Torch Republic Coffee Company',
-    description: 'Explore the science behind mushroom coffee, learn about Lion\'s Mane and Chaga benefits, and discover tips for building better morning rituals.',
+    title: 'Ritual Journal | Mushroom Coffee Science, Morning Routines & Focus Tips',
+    description: "Science, rituals, and deep work guides from Torch Republic. Learn about Lion's Mane benefits, how to structure a morning routine for focus, evening wind-down rituals, and adaptogens.",
     url: '/journal',
     type: 'website',
   });

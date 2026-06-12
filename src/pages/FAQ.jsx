@@ -53,10 +53,11 @@ const FAQ_DATA = [
 
 export default function FAQ() {
   useSEO({
-    title: 'FAQ | Torch Republic Coffee Company',
-    description: 'Frequently asked questions about Torch Republic instant coffee, mushroom coffee blends, ceremonial matcha, caffeine content, preparation methods, subscriptions, shipping, and 30-day returns.',
+    title: 'FAQ | Mushroom Coffee, Instant Coffee & Matcha Questions Answered',
+    description: "Everything you need to know about Torch Republic's mushroom coffee, instant coffee, and ceremonial matcha — ingredients, caffeine, how to prepare, subscriptions, shipping, and our 30-day guarantee.",
     url: '/faq',
     type: 'website',
+    faq: FAQ_DATA.map(f => ({ question: f.question, answer: f.answer })),
   });
 
   return (

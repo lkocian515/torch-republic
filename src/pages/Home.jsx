@@ -66,8 +66,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    title: 'Torch Republic | Premium Instant Coffee & Mushroom Coffee',
-    description: 'Premium instant coffee, mushroom coffee, and ceremonial matcha crafted for focus, clarity, and daily rituals. No machine required.',
+    title: 'Torch Republic | Instant Coffee for Focus, Clarity & Daily Rituals',
+    description: "Premium instant coffee, Lion's Mane mushroom coffee, and ceremonial matcha for deep work, morning rituals, and calm energy. No machine needed. Texas-made. Ships nationwide.",
     url: '/',
     type: 'website',
     faq: [
