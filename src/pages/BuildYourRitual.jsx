@@ -11,8 +11,8 @@ const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MA
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
-// Fixed bundle price — always $49.99 regardless of products selected
-const BUNDLE_PRICE = 49.99;
+// Fixed bundle price — always $59.99 regardless of products selected
+const BUNDLE_PRICE = 59.99;
 const INDIVIDUAL_PRICE = 19.99; // lowest individual price (Classic Coffee)
 const BUNDLE_SIZE = 3;
 
@@ -236,8 +236,8 @@ export default function BuildYourRitual() {
                   </div>
                   <div className="flex items-baseline gap-4 mb-5">
                     <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>${BUNDLE_PRICE}</span>
-                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$67.97 separately</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $17.98</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$74.97 separately</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $14.98</span>
                   </div>
                   <a
                     href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK"
@@ -312,7 +312,7 @@ export default function BuildYourRitual() {
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save $17.98+</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save $14.98+</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>vs. Buying Separately</p>
               </div>
             </div>
