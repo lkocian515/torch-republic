@@ -69,10 +69,10 @@ export default function Subscription() {
 
   const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS];
   const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
-  const monthlyPrice = tubeCount ? tubeCount * 24.99 : 0;
-  const subscriptionDiscountPrice = tubeCount ? tubeCount * 24.99 * 0.8 : 0; // 20% off
-
-  const discountedPrice = monthlyPrice * 0.8; // 20% off
+  // Blended average price for display (~$22.99 mushroom, $19.99 classic, $24.99 matcha)
+  const AVG_PRICE = 22.99;
+  const monthlyPrice = tubeCount ? tubeCount * AVG_PRICE : 0;
+  const discountedPrice = monthlyPrice * 0.85; // 15% off
   const savings = monthlyPrice - discountedPrice;
 
   const handleCheckout = async () => {
@@ -80,7 +80,7 @@ export default function Subscription() {
     setIsGeneratingCheckout(true);
     try {
       // For now, use the existing subscription checkout URL
-      // The 20% discount will be applied in Shopify via discount code SUBSCRIBE20
+      // The 15% discount will be applied in Shopify via discount code SUBSCRIBE15
       const url = await getSubscriptionCheckoutUrl(blendQty);
       setCheckoutUrl(url);
       // Redirect after a brief delay to show loading state
@@ -105,11 +105,11 @@ export default function Subscription() {
           </p>
           <h1 className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Subscribe &amp; Save 20%
+            Subscribe &amp; Save 15%
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-8"
             style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Build your monthly ritual. Choose 1–6 tubes from any blend — mushroom coffee, classic coffee, or ceremonial matcha — and get 20% off every delivery.
+            Build your monthly ritual. Choose 1–6 tubes from any blend — mushroom coffee, classic coffee, or ceremonial matcha — and get 15% off every delivery.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#builder"
@@ -133,7 +133,7 @@ export default function Subscription() {
             Build Your Monthly Ritual
           </h2>
           <p className="font-heading" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.9, fontSize: '0.95rem' }}>
-            Choose 1–6 tubes from any category — mushroom coffee, classic coffee, or ceremonial matcha. Mix and match to build the subscription that fits your daily ritual. Save 20% on every order.
+            Choose 1–6 tubes from any category — mushroom coffee, classic coffee, or ceremonial matcha. Mix and match to build the subscription that fits your daily ritual. Save 15% on every order.
           </p>
         </div>
       </section>
@@ -193,7 +193,7 @@ export default function Subscription() {
                       {n === 1 ? 'Tube' : 'Tubes'} / Month
                     </span>
                     <span className="font-mono text-[9px]" style={{ color: tubeCount === n ? RG : 'rgba(255,255,255,0.25)' }}>
-                      ${(n * 24.99).toFixed(2)}/mo
+                     from ${(n * 19.99).toFixed(2)}/mo
                     </span>
                   </button>
                 ))}
