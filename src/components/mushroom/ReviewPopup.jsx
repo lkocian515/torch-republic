@@ -83,10 +83,10 @@ export default function ReviewPopup() {
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-1.5 right-1.5 z-10 p-1 rounded-full transition-all hover:bg-white/10"
+              className="absolute top-2 right-2 z-10 p-1.5 rounded-full transition-all hover:bg-white/10"
               style={{ color: `${RG}60` }}
             >
-              <X className="w-3 h-3" />
+              <X className="w-4 h-4" />
             </button>
 
             {/* Content */}
