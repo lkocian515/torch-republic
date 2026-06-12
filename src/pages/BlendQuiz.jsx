@@ -57,12 +57,13 @@ const QUESTIONS = [
   },
 ];
 
+// slug values must match the `slug` field in mushroomProducts.js
 const RESULTS = {
   energy: {
     title: 'Your Ritual: Raw Energy',
     products: ['SunCap Rise', 'Ember Rise'],
     desc: 'Start with a blend designed for morning momentum, bold energy, and fresh starts. No crash, just sustained drive.',
-    link: '/blends/suncap-rise-instant-mushroom-coffee',
+    link: '/blends/suncap-rise',
     compareLink: '/shop',
     imageHandle: 'suncap-rise-instant-mushroom-coffee',
     accent: '#D6B27A',
@@ -71,7 +72,7 @@ const RESULTS = {
     title: 'Your Ritual: Deep Focus',
     products: ['GlowMind Clarity', 'The Ascendant'],
     desc: "Lion's Mane and Chaga dial in clarity and presence. Built for deep work, flow states, and mental sharpness.",
-    link: '/blends/glowmind-clarity-instant-mushroom-coffee',
+    link: '/blends/glowmind-clarity-blend',
     compareLink: '/shop',
     imageHandle: 'glowmind-clarity-instant-mushroom-coffee',
     accent: '#E6B7AD',
@@ -80,7 +81,7 @@ const RESULTS = {
     title: 'Your Ritual: Calm Presence',
     products: ['MoonCap Restore', 'DreamCap'],
     desc: 'Grounding, restorative blends for those who need to slow down without switching off. Recovery starts here.',
-    link: '/blends/mooncap-restore-instant-mushroom-coffee',
+    link: '/blends/mooncap-restore',
     compareLink: '/shop',
     imageHandle: 'mooncap-restore-instant-mushroom-coffee',
     accent: '#C98F86',
@@ -107,7 +108,7 @@ const RESULTS = {
     title: 'Your Ritual: Inner Clarity',
     products: ['The Oracle', 'Midnight Watch'],
     desc: 'Honor your intuition with a blend for journaling, stillness, and inner clarity. The best ideas come in quiet.',
-    link: '/blends/the-oracle-instant-mushroom-coffee',
+    link: '/blends/the-oracle',
     compareLink: '/shop',
     imageHandle: 'the-oracle-instant-mushroom-coffee',
     accent: '#C4A8A0',
@@ -116,7 +117,7 @@ const RESULTS = {
     title: 'Your Ritual: Pure Coffee',
     products: ['Torchbearer', 'Ember Rise'],
     desc: 'Premium instant coffee — bold, clean, no complication. The foundation of a great morning.',
-    link: '/blends/torchbearer-instant-coffee',
+    link: '/blends/torchbearer',
     compareLink: '/shop/instant-coffee',
     imageHandle: 'torchbearer-instant-coffee',
     accent: '#C4A35A',
