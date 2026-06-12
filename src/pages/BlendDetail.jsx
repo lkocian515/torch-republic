@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
+import ShareButtons from '../components/social/ShareButtons';
 import { useCart } from '@/contexts/CartContext';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import FAQSection from '../components/mushroom/FAQSection';
@@ -397,6 +398,9 @@ function BlendDetailInner({ product }) {
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
               {product.mood}
             </p>
+
+            {/* Share */}
+            <ShareButtons title={`${product.name} — Torch Republic Coffee`} url={`/blends/${product.slug}`} />
 
             {/* Description */}
             <p className="font-heading leading-relaxed"

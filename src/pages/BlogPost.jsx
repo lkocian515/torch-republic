@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowLeft, Calendar, Clock, User, Share2, Bookmark } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Bookmark } from 'lucide-react';
+import ShareButtons from '../components/social/ShareButtons';
 
 const RG = '#E6B7AD';
 
@@ -154,9 +155,7 @@ export default function BlogPostPage() {
                 </div>
               )}
               <div className="flex items-center gap-4 ml-auto">
-                <button className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80" style={{ color: `${RG}50` }}>
-                  <Share2 size={14} /> Share
-                </button>
+                <ShareButtons title={post.title} url={`/journal/${post.slug}`} compact />
                 <button className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80" style={{ color: `${RG}50` }}>
                   <Bookmark size={14} /> Save
                 </button>
@@ -214,9 +213,14 @@ export default function BlogPostPage() {
               </div>
             )}
 
+            {/* Share at bottom */}
+            <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+              <ShareButtons title={post.title} url={`/journal/${post.slug}`} />
+            </div>
+
             {/* CTA */}
             <div
-              className="mt-12 p-8 rounded-sm text-center"
+              className="mt-8 p-8 rounded-sm text-center"
               style={{
                 background: 'rgba(230,183,173,0.05)',
                 border: `1px solid ${RG}20`,
