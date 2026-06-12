@@ -1,9 +1,13 @@
+# Torch Republic Coffee Company - Robots.txt
+# Allow all public pages, block private/admin pages
+
 User-agent: *
+
+# Allow public pages
 Allow: /
 Allow: /shop
-Allow: /shop/instant-mushroom-coffee
-Allow: /shop/instant-coffee
-Allow: /shop/matcha
+Allow: /shop/*
+Allow: /products/*
 Allow: /blends
 Allow: /bundle
 Allow: /build-your-ritual
@@ -24,20 +28,20 @@ Allow: /why-matcha
 Allow: /mushroom-coffee-benefits
 Allow: /lions-mane-coffee
 Allow: /instant-coffee-for-energy
+Allow: /subscription
+Allow: /loyalty
+Allow: /torchbearers-rewards
 Allow: /shipping-policy
 Allow: /return-policy
 Allow: /privacy-policy
 Allow: /terms-of-service
 
-# Disallow private, admin, and utility pages
+# Block private, admin, and utility pages
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /profile
-Disallow: /loyalty
-Disallow: /torchbearers-rewards
-Disallow: /subscription
 Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
@@ -46,53 +50,9 @@ Disallow: /email-campaign
 Disallow: /admin
 Disallow: /command
 Disallow: /local
-Disallow: /BlendDetail
-Disallow: /blenddetail
-Disallow: /MushroomShop
-Disallow: /mushroomshop
-Disallow: /BuildYourRitual
-Disallow: /emailcampaigndashboard
-Disallow: /EmailCampaignDashboard
-Disallow: /CustomerPortal
-Disallow: /customerportal
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
-Disallow: /Shop
-Disallow: /BestSellers
-Disallow: /Collections
-Disallow: /Bundles
-Disallow: /CoffeeBundles
-Disallow: /TheTorchBox
-Disallow: /Subscription
-Disallow: /Mission
-Disallow: /Contact
-Disallow: /landing
-Disallow: /Founders
-Disallow: /Liberty
-Disallow: /Commanders
-Disallow: /Washington
-Disallow: /patriotic-pride
-Disallow: /freedom-isnt-free
-Disallow: /we-the-people
-Disallow: /faith-over-fear
-Disallow: /christ-is-king
-Disallow: /god-family-country
-Disallow: /american-heroes
-Disallow: /pods
-Disallow: /Pods
-Disallow: /history
-Disallow: /our-story
-Disallow: /About
-Disallow: /AdminShopify
-Disallow: /admin/shopify
-Disallow: /admin/keywords
 Disallow: /KeywordAnalysis
-Disallow: /ClassicCoffeeCollection
-Disallow: /MushroomCoffeeCollection
-Disallow: /MatchaCollection
+Disallow: /admin/keywords
+Disallow: /admin/shopify
 
-# Sitemap
+# Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml
-
-# Crawl delay for polite crawling
-Crawl-delay: 1
