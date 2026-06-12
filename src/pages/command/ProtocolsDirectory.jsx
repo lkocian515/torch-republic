@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { Search } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
 const GOLD = '#D4AF37';
 const BG = '#0A0A0A';
@@ -23,6 +24,7 @@ const BLEND_COLORS = {
 };
 
 export default function ProtocolsDirectory() {
+  useSEO({ title: 'Performance Protocols · Torch Command', description: 'Evidence-based optimization routines.', url: '/command/protocols', noindex: true });
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
 

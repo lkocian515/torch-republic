@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 
 const GOLD = '#D4AF37';
 const BG = '#0A0A0A';
@@ -13,6 +14,7 @@ function formatTime(secs) {
 }
 
 export default function FlowTimer() {
+  useSEO({ title: 'Flow State Timer · Torch Command', description: '90-minute deep work timer.', url: '/command/timer', noindex: true });
   const [secondsLeft, setSecondsLeft] = useState(TOTAL);
   const [running, setRunning] = useState(false);
   const [completed, setCompleted] = useState(false);

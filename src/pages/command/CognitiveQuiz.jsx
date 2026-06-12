@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
+import { useSEO } from '@/hooks/useSEO';
 
 const GOLD = '#D4AF37';
 const BG = '#0A0A0A';
@@ -76,6 +77,7 @@ function computeResult(weights) {
 }
 
 export default function CognitiveQuiz() {
+  useSEO({ title: 'Cognitive Profile Quiz · Torch Command', description: 'Internal cognitive assessment tool.', url: '/command/quiz', noindex: true });
   const [step, setStep] = useState(0); // 0=intro, 1-4=questions, 5=email, 6=results
   const [weights, setWeights] = useState({ Focus: 0, Recovery: 0 });
   const [email, setEmail] = useState('');

@@ -12,6 +12,7 @@ export default function LocalSEO() {
     description: 'U.S.-based premium instant coffee, mushroom coffee, and ceremonial matcha. Located in Corpus Christi, Texas. Fast shipping nationwide.',
     url: '/local',
     type: 'website',
+    noindex: true, // Internal page - not for public indexing
   });
 
   return (

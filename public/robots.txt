@@ -1,82 +1,15 @@
-# Torch Republic Robots.txt
-# Last Updated: June 2026
-
 User-agent: *
 Allow: /
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+# Admin and internal pages - do not index
+Disallow: /admin/
+Disallow: /traffic-report
+Disallow: /email-campaign
+Disallow: /command/
+Disallow: /local
 
-# Sitemap location
+# Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
 
-# Block admin and utility paths
-Disallow: /admin/
-Disallow: /api/
-Disallow: /functions/
-Disallow: /entities/
-Disallow: /components/
-Disallow: /lib/
-Disallow: /hooks/
-Disallow: /contexts/
-Disallow: /utils/
-Disallow: /docs/
-
-# Allow all product and content pages
-Allow: /shop
-Allow: /products/
-Allow: /blends/
-Allow: /bundle
-Allow: /build-your-ritual
-Allow: /mission
-Allow: /journal/
-Allow: /journal/
-Allow: /reviews
-Allow: /faq
-Allow: /contact
-Allow: /ingredients
-Allow: /why-mushroom-coffee
-Allow: /why-matcha
-Allow: /mushroom-coffee-benefits
-Allow: /lions-mane-coffee
-Allow: /instant-coffee-for-energy
-Allow: /recipes
-Allow: /research
-Allow: /quiz
-Allow: /gifts
-Allow: /subscription
-Allow: /torchbearers-rewards
-Allow: /how-it-works
-
-# Block duplicate content paths
-Disallow: /*?*sort=
-Disallow: /*?*filter=
-Disallow: /*?*price=
-Disallow: /*?*category=
-
-# Allow image crawling for Google Images
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.svg$
-
-# Block cart and checkout from indexing
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
-Disallow: /profile
-
-# Mobile-first indexing support
-User-agent: Googlebot-Mobile
-Allow: /
+# Crawl-delay for politeness
 Crawl-delay: 1
-
-# Google Image Bot
-User-agent: Googlebot-Image
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.svg$
-Crawl-delay: 2

@@ -33,6 +33,7 @@ export default function UnifiedHeader() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAdmin = user?.role === 'admin';
+  // Admin panel link hidden from public navigation - accessible only via direct URL for security
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -125,11 +126,7 @@ export default function UnifiedHeader() {
                   </Link>
                 ))}
               </nav>
-              {isAdmin && (
-                <Link to="/admin/shopify" title="Admin Panel" style={{ color: 'rgba(230,183,173,0.5)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
-                  <Shield className="w-4 h-4" strokeWidth={1.8} />
-                </Link>
-              )}
+              {/* Admin panel removed from public header navigation for security */}
               <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} aria-label="Cart">
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
               </Link>
@@ -165,12 +162,7 @@ export default function UnifiedHeader() {
                 <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className="block text-center py-3 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90" style={{ background: RG, color: '#0A0A0A', borderRadius: '2px' }}>
                   Shop Now
                 </Link>
-                {isAdmin && (
-                  <Link to="/admin/shopify" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 py-3 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80" style={{ border: `1px solid rgba(230,183,173,0.3)`, color: 'rgba(230,183,173,0.7)', borderRadius: '2px' }}>
-                    <Shield className="w-3.5 h-3.5" strokeWidth={1.8} />
-                    Admin Panel
-                  </Link>
-                )}
+                {/* Admin panel removed from mobile menu for security */}
               </div>
             </div>
           </motion.div>

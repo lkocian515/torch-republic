@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
+import { useSEO } from '@/hooks/useSEO';
 import { ArrowLeft } from 'lucide-react';
 
 const GOLD = '#D4AF37';
@@ -20,6 +21,7 @@ const BLEND_COLORS = {
 };
 
 export default function ProtocolDetail() {
+  useSEO({ title: 'Performance Protocol · Torch Command', description: 'Detailed optimization protocol.', url: `/command/protocols/${slug}`, noindex: true });
   const { slug } = useParams();
 
   const { data: protocols = [], isLoading } = useQuery({

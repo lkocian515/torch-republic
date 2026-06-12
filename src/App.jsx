@@ -181,11 +181,12 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/about" element={<Navigate to="/mission" replace />} />
         <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
         
-        {/* ── ADMIN / NOINDEX ── */}
+        {/* ── ADMIN / NOINDEX PAGES — Protected from public access ── */}
         <Route path="/traffic-report" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TrafficReport" queryClient={queryClient}><TrafficReport /></LayoutWrapper></Suspense>} />
         <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></Suspense>} />
         <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></Suspense>} />
+        <Route path="/local" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LocalSEO" queryClient={queryClient}><LocalSEO /></LayoutWrapper></Suspense>} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
         <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
@@ -261,7 +262,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/history" element={<Navigate to="/mission" replace />} />
         <Route path="/our-story" element={<Navigate to="/mission" replace />} />
 
-        {/* ── TORCH COMMAND ── */}
+        {/* ── TORCH COMMAND (INTERNAL) ── */}
         <Route path="/command" element={<Suspense fallback={<PageLoader />}><TorchCommandHome /></Suspense>} />
         <Route path="/command/quiz" element={<Suspense fallback={<PageLoader />}><CognitiveQuiz /></Suspense>} />
         <Route path="/command/timer" element={<Suspense fallback={<PageLoader />}><FlowTimer /></Suspense>} />

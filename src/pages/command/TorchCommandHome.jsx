@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 
 const GOLD = '#D4AF37';
 
@@ -32,6 +33,12 @@ const FEATURES = [
 ];
 
 export default function TorchCommandHome() {
+  useSEO({
+    title: 'Torch Command · Internal Performance Hub',
+    description: 'Internal performance and productivity tools.',
+    url: '/command',
+    noindex: true,
+  });
   return (
     <div style={{ minHeight: '100vh', background: '#0A0A0A', color: '#F0EBE1' }} className="flex flex-col">
       {/* Nav */}

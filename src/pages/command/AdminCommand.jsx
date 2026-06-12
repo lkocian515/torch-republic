@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
+import { useSEO } from '@/hooks/useSEO';
 import { Plus, Trash2, Edit2, Check, X } from 'lucide-react';
 
 const GOLD = '#D4AF37';
@@ -272,6 +273,7 @@ function KanbanBoard() {
 const TABS = ['Leads', 'Protocols', 'Board'];
 
 export default function AdminCommand() {
+  useSEO({ title: 'Torch Command Admin', description: 'Internal admin panel.', url: '/command/admin', noindex: true });
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState('');
   const [pwError, setPwError] = useState('');
