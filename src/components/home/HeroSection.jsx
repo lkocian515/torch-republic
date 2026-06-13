@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Hero Banner Image — optimized for LCP (under 250KB, WebP, preloaded) */}
       <div className="flex justify-center max-w-[85vw] md:max-w-[70vw] mx-auto">
         <img
-           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cdbee73d9_FGFGFDG.png"
+           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c012b6467_NKLMKPMPL.png"
            alt="Torch Republic Coffee Company — Torchbearer premium instant coffee, GlowMind Clarity mushroom coffee, and The Monk ceremonial matcha. Fuel your ritual, elevate your life."
           style={{ width: '100%', height: 'auto', display: 'block' }}
           fetchPriority="high"
