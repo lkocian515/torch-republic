@@ -14,15 +14,37 @@ const PROMO_MESSAGES = [
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
+// Desktop nav - primary revenue links only
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
-  { label: 'Build Your Ritual', href: '/build-your-ritual' },
+  { label: 'Subscribe & Save', href: '/subscription' },
+  { label: 'Bundle & Gift', href: '/build-your-ritual' },
+  { label: 'Reviews', href: '/reviews' },
+];
+
+// "Learn" dropdown items
+const LEARN_LINKS = [
+  { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
+  { label: 'Matcha', href: '/matcha' },
+  { label: 'Why Mushroom Coffee', href: '/why-mushroom-coffee' },
+  { label: 'Ingredients', href: '/ingredients' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Recipes', href: '/recipes' },
+  { label: 'Research Hub', href: '/research' },
+  { label: 'Our Mission', href: '/mission' },
+];
+
+// Mobile full menu
+const MOBILE_NAV_LINKS = [
+  { label: 'Shop', href: '/shop' },
+  { label: 'Subscribe & Save 20%', href: '/subscription' },
+  { label: 'Bundle & Gift', href: '/build-your-ritual' },
   { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
   { label: 'Matcha', href: '/matcha' },
   { label: 'Classic Coffee', href: '/classic-coffee' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'Journal', href: '/journal' },
   { label: 'Recipes', href: '/recipes' },
-  { label: 'Reviews', href: '/reviews' },
   { label: 'About', href: '/mission' },
 ];
 
@@ -121,10 +143,28 @@ export default function UnifiedHeader() {
             <div className="w-10 md:w-auto flex items-center justify-end gap-4">
               <nav className="hidden md:flex items-center gap-6">
                 {NAV_LINKS.map((link) => (
-                  <Link key={link.href} to={link.href} className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)' }}>
+                  <Link key={link.href} to={link.href}
+                    className="font-heading text-sm transition-colors hover:opacity-70"
+                    style={{ color: link.href === '/subscription' ? RG : 'rgba(240,235,225,0.7)', fontWeight: link.href === '/subscription' ? 600 : 400 }}>
                     {link.label}
                   </Link>
                 ))}
+                {/* Learn dropdown */}
+                <div className="relative group">
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    Learn
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                  </button>
+                  <div className="absolute top-full right-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                      {LEARN_LINKS.map(link => (
+                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </nav>
               {/* Admin panel removed from public header navigation for security */}
               <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} aria-label="Cart">
@@ -148,9 +188,10 @@ export default function UnifiedHeader() {
               </div>
               <nav className="flex-1 overflow-y-auto px-5 py-6">
                 <div className="space-y-3">
-                  {NAV_LINKS.map((link, i) => (
+                  {MOBILE_NAV_LINKS.map((link, i) => (
                     <motion.div key={link.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
-                      <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 py-3 font-heading text-lg transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.8)' }}>
+                      <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 py-3 font-heading text-lg transition-colors hover:opacity-70"
+                        style={{ color: link.href === '/subscription' ? RG : 'rgba(240,235,225,0.8)', fontWeight: link.href === '/subscription' ? 600 : 400 }}>
                         <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd8a91df2_torch_republic_icon_transparent_1024px.png" alt="" aria-hidden="true" style={{ width: '14px', height: '14px', opacity: 0.4, flexShrink: 0 }} />
                         {link.label}
                       </Link>

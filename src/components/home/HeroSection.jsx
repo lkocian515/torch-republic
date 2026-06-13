@@ -74,18 +74,18 @@ export default function HeroSection() {
         {/* Primary + Secondary CTAs — no animations for better LCP */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
           <Link
-            to="/build-your-ritual"
+            to="/quiz"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
           >
-            Build My Ritual Bundle →
+            Find Your Blend →
           </Link>
           <Link
-            to="/shop"
+            to="/subscription"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-75"
             style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
           >
-            Shop Best Sellers
+            Subscribe &amp; Save 20%
           </Link>
         </div>
 

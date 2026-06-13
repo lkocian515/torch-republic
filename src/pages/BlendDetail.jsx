@@ -59,8 +59,16 @@ const ACCORDIONS = [
     content: 'Add one scoop (approximately 2g) to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. Enjoy immediately. For iced: dissolve in 2–3 oz hot water first, then pour over ice.',
   },
   {
+    title: 'Why Our Mushrooms',
+    content: 'We source organic Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) — two of the most studied functional mushrooms in wellness traditions. Lion\'s Mane has been used for centuries in Eastern practices for cognitive support. Chaga, called the "King of Mushrooms," is prized for daily resilience. Every Torch Republic blend pairs these with premium instant coffee for a ritual built on intention, not just caffeine.',
+  },
+  {
+    title: 'Why Instant Coffee',
+    content: 'Instant coffee gets a bad reputation — but freeze-dried specialty coffee preserves the same flavor compounds as fresh brew. No pod waste, no machine, no cleanup. A daily ritual should lower barriers, not add them. Torch Republic uses premium-grade instant so your morning stays simple without sacrificing taste.',
+  },
+  {
     title: 'Shipping & Returns',
-    content: 'Free standard shipping on orders over $75. Orders ship within 1–3 business days. 30-day satisfaction guarantee — contact us if you\'re not completely satisfied.',
+    content: 'Ships fast from Texas within 1–3 business days. Free standard shipping on orders over $75. 30-day satisfaction guarantee — if you\'re not happy, reach out and we\'ll make it right.',
   },
 ];
 
@@ -467,12 +475,33 @@ function BlendDetailInner({ product }) {
               <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
                 per {product.category === 'matcha' ? 'tin' : 'tube'} · {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
               </span>
+              <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                ≈ ${isSubscription ? ((product.price * 0.8) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2) : (product.price / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)}/cup
+              </span>
             </div>
             {isSubscription && (
               <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
                 Save ${(product.price * 0.2).toFixed(2)} with subscription
               </p>
             )}
+
+            {/* Top 3 benefits + reassurance — right before the button */}
+            <div className="flex flex-col gap-2">
+              {(product.category === 'matcha'
+                ? ['Calm, focused energy without jitters', 'Natural L-Theanine from whole-leaf matcha', 'Ready in 30 seconds — just add hot water']
+                : product.category === 'classic-coffee'
+                ? ['Premium single-origin taste, no machine needed', 'Smooth, clean flavor — no artificial additives', 'Ready in 30 seconds — just add hot water']
+                : ['Jitter-free focus with Lion\'s Mane + Chaga', 'Gut-friendly — no artificial flavors or fillers', 'Ready in 30 seconds — just add hot water']
+              ).map((b, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <span className="text-[10px]" style={{ color: '#10B981', flexShrink: 0 }}>✓</span>
+                  <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>{b}</span>
+                </div>
+              ))}
+              <p className="font-mono text-[8px] tracking-[0.15em] mt-1" style={{ color: 'rgba(230,183,173,0.6)' }}>
+                Ships fast from Texas · Love it or we'll make it right — 30-day guarantee
+              </p>
+            </div>
 
             {/* Qty + Add to Cart */}
             <div className="flex flex-col gap-3">

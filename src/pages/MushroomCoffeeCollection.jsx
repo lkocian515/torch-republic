@@ -180,6 +180,18 @@ export default function MushroomCoffeeCollection() {
         </div>
       </section>
 
+      {/* ── SUBSCRIBER SAVINGS BANNER ── */}
+      <div className="px-6 md:px-10 py-4" style={{ background: 'rgba(230,183,173,0.06)', borderTop: `1px solid ${RG}20`, borderBottom: `1px solid ${RG}20` }}>
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="font-heading text-sm text-center sm:text-left" style={{ color: 'rgba(240,235,225,0.75)' }}>
+            <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20%</span> and never run out of coffee — delivered on your schedule, pause or cancel anytime.
+          </p>
+          <Link to="/subscription" className="flex-shrink-0 font-mono text-[9px] tracking-[0.25em] uppercase font-bold px-5 py-2.5 transition-all hover:opacity-90 whitespace-nowrap" style={{ background: RG, color: '#080808', borderRadius: '2px' }}>
+            Subscribe &amp; Save →
+          </Link>
+        </div>
+      </div>
+
       {/* ── PRODUCT COLLECTION ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: '#080808' }}>
         <div className="max-w-6xl mx-auto">
