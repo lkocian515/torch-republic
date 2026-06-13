@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Brain, Zap, Leaf, Shield, Coffee, Moon } from 'lucide-react';
+import RecommendedRitualBlock from '../components/content/RecommendedRitualBlock';
 
 const RG = '#E6B7AD';
 const DIM = 'rgba(240,232,220,0.55)';
@@ -88,6 +89,15 @@ export default function MushroomCoffeeBenefits() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* Recommended Ritual */}
+      <section style={{ maxWidth: '860px', margin: '0 auto', padding: '0 24px 24px' }}>
+        <RecommendedRitualBlock
+          productName="GlowMind Clarity Blend"
+          productSlug="glowmind-clarity-blend"
+          tagline="Lion's Mane + Chaga in every cup. The simplest way to make these functional mushrooms a daily habit — subscribe and save 20%."
+        />
       </section>
 
       {/* FAQ */}

@@ -27,6 +27,7 @@ import ProductTestimonialFeed from '../components/mushroom/ProductTestimonialFee
 import IngredientResearch from '../components/mushroom/IngredientResearch';
 import IngredientSpotlight from '../components/mushroom/IngredientSpotlight';
 import IngredientsAndBenefits from '../components/mushroom/IngredientsAndBenefits';
+import LearnMorePanel from '../components/content/LearnMorePanel';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -758,6 +759,22 @@ function BlendDetailInner({ product }) {
             <div className="mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
               {ACCORDIONS.map(a => <Accordion key={a.title} {...a} />)}
             </div>
+
+            {/* Subscription micro-copy */}
+            <p className="font-heading text-xs text-center" style={{ color: 'rgba(247,241,232,0.35)', lineHeight: 1.7 }}>
+              Want the best deal?{' '}
+              <Link to="/subscription" style={{ color: '#E6B7AD', textDecoration: 'none' }}>
+                Learn how our subscription saves you 20% →
+              </Link>
+            </p>
+
+            {/* "Want to go deeper?" — learn more panel */}
+            {product.category === 'mushroom-coffee' && (
+              <LearnMorePanel category="mushroom-coffee" />
+            )}
+            {product.category === 'matcha' && (
+              <LearnMorePanel category="matcha" />
+            )}
 
             {/* Product Reviews Carousel */}
             <ProductReviewsCarousel productSlug={product.shopifyHandle} />

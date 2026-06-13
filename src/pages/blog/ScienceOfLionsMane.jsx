@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Brain, Zap, Shield, Microscope, Leaf, Clock } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
+import RecommendedRitualBlock from '../../components/content/RecommendedRitualBlock';
 
 const RG = '#E6B7AD';
 const LIONSMANE_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg';
@@ -412,6 +413,14 @@ export default function ScienceOfLionsMane() {
               </div>
             </motion.div>
           </section>
+
+          {/* Recommended Ritual */}
+          <RecommendedRitualBlock
+            productName="GlowMind Clarity Blend"
+            productSlug="glowmind-clarity-blend"
+            tagline="Lion's Mane + Chaga mushroom coffee — the same functional ingredients studied in the research above, in an instant cup you'll actually want to drink every morning."
+            accentColor="#6B7FD7"
+          />
 
           {/* Share */}
           <div className="my-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>

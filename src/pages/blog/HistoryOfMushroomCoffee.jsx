@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Coffee, Leaf, Brain, Shield, Zap, Moon } from 'lucide-react';
+import RecommendedRitualBlock from '../../components/content/RecommendedRitualBlock';
 
 const RG = '#E6B7AD';
 
@@ -213,6 +214,13 @@ export default function HistoryOfMushroomCoffee() {
               </div>
             </motion.div>
           </section>
+
+          {/* Recommended Ritual */}
+          <RecommendedRitualBlock
+            productName="GlowMind Clarity Blend"
+            productSlug="glowmind-clarity-blend"
+            tagline="Centuries of mushroom wisdom, in an instant cup. Lion's Mane + Chaga — ready in 30 seconds. Subscribe and save 20%."
+          />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>

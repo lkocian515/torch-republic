@@ -109,11 +109,11 @@ export default function Subscription() {
           </p>
           <h1 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            How Our Subscriptions Work
+            Save 20% and Never Run Out of Coffee
           </h1>
           <p className="font-heading max-w-lg mx-auto mb-8"
             style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontWeight: 400 }}>
-            More focus, less hassle. Save 20% on every bag and never run out of coffee again.
+            Lock in your ritual, skip the reorder stress. Cancel or pause anytime — no calls, no forms.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#builder"
