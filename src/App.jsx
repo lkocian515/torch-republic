@@ -190,7 +190,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/TrafficReport" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
-        <Route path="/admin/shopify" element={<Navigate to="/" replace />} />
+        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></Suspense>} />
         <Route path="/admin/blog" element={<Navigate to="/" replace />} />
         <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
@@ -202,7 +202,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/search-query-analysis" element={<Navigate to="/" replace />} />
         <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/LocalSEO" element={<Navigate to="/" replace />} />
-        <Route path="/AdminShopify" element={<Navigate to="/" replace />} />
+        <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/KeywordAnalysis" element={<Navigate to="/admin/keywords" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
         <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
