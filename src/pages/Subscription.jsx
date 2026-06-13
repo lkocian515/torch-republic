@@ -109,7 +109,7 @@ export default function Subscription() {
           </p>
           <h1 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            How Torch Subscriptions Work
+            How Our Subscriptions Work
           </h1>
           <p className="font-heading max-w-lg mx-auto mb-8"
             style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontWeight: 400 }}>
