@@ -163,7 +163,6 @@ export default function Footer() {
                 <a href="https://tiktok.com/@torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>TikTok</a>
                 <a href="https://facebook.com/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Facebook</a>
                 <a href="https://pinterest.com/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Pinterest" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>Pinterest</a>
-                <a href="https://linkedin.com/company/torchrepublic" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.32)' }}>LinkedIn</a>
               </div>
             </div>
           </div>
