@@ -29,6 +29,7 @@ export default function EmailCapturePopup() {
     e.preventDefault();
     if (!email) return;
     base44.entities.EmailSubscriber.create({ email, source: 'timed_popup', discount_code: 'WELCOME15' });
+    base44.functions.invoke('sendWelcomeEmail', { email, discount_code: 'WELCOME15' });
     setSubmitted(true);
   };
 

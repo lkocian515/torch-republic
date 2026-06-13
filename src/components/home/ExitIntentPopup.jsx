@@ -33,6 +33,7 @@ export default function ExitIntentPopup() {
     e.preventDefault();
     if (!email) return;
     base44.entities.EmailSubscriber.create({ email, source: 'exit_intent', discount_code: 'WELCOME15' });
+    base44.functions.invoke('sendWelcomeEmail', { email, discount_code: 'WELCOME15' });
     setSubmitted(true);
   };
 
