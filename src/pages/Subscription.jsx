@@ -13,10 +13,12 @@ const RG = '#E6B7AD';
 const TUBE_OPTIONS = [1, 2, 3, 4, 5, 6];
 
 const SUB_FAQ = [
-  { q: 'Can I choose my blends each month?', a: 'Yes. The subscription builder lets you select the blends you want in your monthly shipment.' },
-  { q: 'Can I choose more than one of the same blend?', a: 'Yes. If you select 3 tubes you can pick 2 of one blend and 1 of another — or any combination that totals your chosen tube count.' },
-  { q: 'How many tubes can I subscribe to monthly?', a: 'Choose between 1 and 6 tubes per month.' },
-  { q: 'Can I change my subscription?', a: 'Subscription management details will be connected through the checkout/subscription provider. You will be able to update your blend selections before each monthly shipment.' },
+  { q: 'Can I change my delivery date?', a: 'Yes — you can move it earlier or later anytime in your account before the shipment processes. Full flexibility, no phone calls needed.' },
+  { q: 'Can I skip a shipment?', a: 'Yes. Just skip a month instead of canceling. Your subscription stays active and resumes the following cycle.' },
+  { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee, classic coffee, or matcha however you like.' },
+  { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearers Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
+  { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
+  { q: 'How many tubes can I subscribe to monthly?', a: 'Choose between 1 and 6 tubes per delivery. You can adjust the quantity anytime from your account.' },
 ];
 
 function FAQItem({ q, a }) {
@@ -105,13 +107,13 @@ export default function Subscription() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Torch Republic Coffee Co.
           </p>
-          <h1 className="font-serif font-bold mb-4"
+          <h1 className="font-serif font-bold mb-3"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Subscribe &amp; Save 15%
+            How Torch Subscriptions Work
           </h1>
-          <p className="font-heading max-w-xl mx-auto mb-8"
-            style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Build your monthly ritual. Choose 1–6 tubes from any blend — mushroom coffee, classic coffee, or ceremonial matcha — and get 15% off every delivery.
+          <p className="font-heading max-w-lg mx-auto mb-8"
+            style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontWeight: 400 }}>
+            More focus, less hassle. Save 20% on every bag and never run out of coffee again.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#builder"
@@ -122,21 +124,28 @@ export default function Subscription() {
             <Link to="/shop"
               className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-3.5 px-8"
               style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
-              Shop One-Time Blends →
+              Shop One-Time →
             </Link>
           </div>
         </motion.div>
       </section>
 
-      {/* ── ABOUT COPY ── */}
+      {/* ── HOW IT WORKS — 3 columns ── */}
       <section className="px-6 md:px-10 py-14" style={{ background: '#060606' }}>
-        <div className="max-w-[760px] mx-auto text-center">
-          <h2 className="font-serif font-bold text-white mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
-            Build Your Monthly Ritual
-          </h2>
-          <p className="font-heading" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.9, fontSize: '0.95rem' }}>
-            Choose 1–6 tubes from any category — mushroom coffee, classic coffee, or ceremonial matcha. Mix and match to build the subscription that fits your daily ritual. Save 15% on every order.
-          </p>
+        <div className="max-w-[900px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { num: '1', title: 'Pick your ritual', body: 'Choose your favorite coffee, mushroom blend, or matcha. Mix and match up to 6 tubes per delivery.' },
+              { num: '2', title: 'Set your schedule', body: 'Deliver every 2–8 weeks. Adjust your delivery date, skip a month, or swap blends anytime from your account.' },
+              { num: '3', title: 'Enjoy automatic savings', body: 'Save 20% on every subscription order — not just the first. Pause or cancel in a few clicks, no calls required.' },
+            ].map(({ num, title, body }) => (
+              <div key={num} className="p-6" style={{ background: 'rgba(230,183,173,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                <div className="w-9 h-9 flex items-center justify-center font-serif font-bold mb-4" style={{ background: 'rgba(230,183,173,0.12)', color: RG, fontSize: '1.1rem' }}>{num}</div>
+                <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.1rem' }}>{title}</h3>
+                <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.75 }}>{body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

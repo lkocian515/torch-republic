@@ -184,7 +184,7 @@ export default function MushroomCoffeeCollection() {
       <div className="px-6 md:px-10 py-4" style={{ background: 'rgba(230,183,173,0.06)', borderTop: `1px solid ${RG}20`, borderBottom: `1px solid ${RG}20` }}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-heading text-sm text-center sm:text-left" style={{ color: 'rgba(240,235,225,0.75)' }}>
-            <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20%</span> and never run out of coffee — delivered on your schedule, pause or cancel anytime.
+            <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20% and never run out of focus fuel.</span> All blends available as subscriptions — build a daily ritual that supports your brain, not just your caffeine habit.
           </p>
           <Link to="/subscription" className="flex-shrink-0 font-mono text-[9px] tracking-[0.25em] uppercase font-bold px-5 py-2.5 transition-all hover:opacity-90 whitespace-nowrap" style={{ background: RG, color: '#080808', borderRadius: '2px' }}>
             Subscribe &amp; Save →
@@ -201,7 +201,7 @@ export default function MushroomCoffeeCollection() {
               Choose Your Ritual
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
-              Six purpose-built blends. Each crafted with premium instant coffee, Lion's Mane, and Chaga for a different kind of morning.
+              Six purpose-built blends crafted with premium instant coffee, Lion's Mane, and Chaga for a different kind of morning. All available as subscriptions — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
 

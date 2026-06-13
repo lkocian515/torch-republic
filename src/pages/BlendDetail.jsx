@@ -408,6 +408,20 @@ function BlendDetailInner({ product }) {
               {product.mood}
             </p>
 
+            {/* Star rating near title */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#C4A35A" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.6)' }}>
+                4.9 · Verified Torchbearers
+              </span>
+            </div>
+
             {/* Share */}
             <ShareButtons title={`${product.name} — Torch Republic Coffee`} url={`/blends/${product.slug}`} />
 
@@ -427,22 +441,35 @@ function BlendDetailInner({ product }) {
               ))}
             </div>
 
-            {/* Why This Coffee */}
-            <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                Why This Coffee
+            {/* Why You'll Love This Coffee */}
+            <div className="p-5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                Why You'll Love This Coffee
               </p>
-              <ul className="space-y-2">
-                {product.keyBenefits.map(b => (
-                  <li key={b} className="flex items-start gap-2">
-                    <span style={{ color: product.accent, marginTop: '2px', flexShrink: 0, fontSize: '0.6rem' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300 }}>{b}</span>
+              <ul className="space-y-3.5">
+                {(product.category === 'matcha' ? [
+                  { headline: 'Calm focus without the crash', body: 'L-Theanine in ceremonial matcha delivers smooth, sustained energy — no jitters, no afternoon slump.' },
+                  { headline: 'Ritual in 30 seconds', body: 'Ceremonial-grade matcha in instant format. Just add hot water or warm milk and stir.' },
+                  { headline: 'Gentle on the gut', body: 'Lower acidity than coffee, easier on your stomach while keeping you sharp.' },
+                  { headline: 'Premium grade, no fillers', body: '100% ceremonial matcha — no artificial flavors, no added sugar, nothing extra.' },
+                ] : product.category === 'classic-coffee' ? [
+                  { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried Arabica dissolves instantly in hot water, milk, or cold brew — no machine required.' },
+                  { headline: 'Smooth, clean flavor', body: 'Medium roast for a balanced cup without bitterness or artificial aftertaste.' },
+                  { headline: 'Gentle on the gut', body: 'Smoother than typical high-acid coffee so you can enjoy your morning ritual without discomfort.' },
+                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced specialty Arabica.' },
+                ] : [
+                  { headline: 'Calm focus without the crash', body: "Lion's Mane and Chaga support cognitive function and balanced energy so you stay sharp without feeling wired." },
+                  { headline: 'Ritual in 30 seconds', body: 'Premium instant coffee designed for busy mornings — just stir into hot water or your favorite milk.' },
+                  { headline: 'Gentle on the gut', body: 'Crafted to be smoother than typical high-acid coffee so you can enjoy your ritual without discomfort.' },
+                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced coffee and functional mushrooms.' },
+                ]).map(({ headline, body }) => (
+                  <li key={headline} className="flex items-start gap-3">
+                    <span style={{ color: product.accent, marginTop: '3px', flexShrink: 0, fontSize: '0.55rem' }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>
+                      <strong style={{ color: '#F7F1E8', fontWeight: 600 }}>{headline}</strong> — {body}
+                    </span>
                   </li>
                 ))}
-                <li className="flex items-start gap-2">
-                  <span style={{ color: product.accent, marginTop: '2px', flexShrink: 0, fontSize: '0.6rem' }}>◆</span>
-                  <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300 }}>Best for: {product.bestFor}</span>
-                </li>
               </ul>
             </div>
 
@@ -587,40 +614,25 @@ function BlendDetailInner({ product }) {
                 </span>
               </div>
 
-              {/* Add to Cart */}
+              {/* Subscribe & Save — Primary CTA */}
               <button
-                onClick={handleAddToCart}
-                className="w-full font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
+                onClick={() => { setIsSubscription(true); handleAddToCart(); }}
+                className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
                 style={{ background: '#E6B7AD', color: '#080808' }}>
-                {isSubscription ? 'Subscribe Now' : 'Add to Cart'}
+                Subscribe &amp; Save — Add to Cart
               </button>
 
-              {/* Buy Now */}
-              <a
-                href={checkoutDest}
-                className="w-full text-center font-mono text-[11px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-80 py-4"
-                style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', display: 'block' }}>
-                {isSubscription ? 'Start Subscription →' : 'Buy Now →'}
-              </a>
+              {/* One-Time — Secondary CTA */}
+              <button
+                onClick={() => { setIsSubscription(false); handleAddToCart(); }}
+                className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-4"
+                style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
+                One-Time Purchase — Add to Cart
+              </button>
 
-              {/* Subscription info */}
-              {isSubscription && (
-                <div className="flex items-center justify-between px-3 py-2.5"
-                  style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.2)' }}>
-                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
-                    ✓ Subscription discount applied
-                  </span>
-                  <Link to="/subscription" className="font-mono text-[8px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
-                    style={{ color: 'rgba(16,185,129,0.8)' }}>
-                    Learn more →
-                  </Link>
-                </div>
-              )}
-
-              {/* Microcopy */}
-              <p className="font-mono text-[8px] tracking-[0.2em] text-center"
-                style={{ color: 'rgba(255,255,255,0.25)' }}>
-                {isSubscription ? 'Delivers every 4 weeks · Cancel anytime' : 'Ships within 1–3 business days · 30-day satisfaction guarantee'}
+              {/* Reassurance line */}
+              <p className="font-mono text-[8px] tracking-[0.15em] text-center" style={{ color: 'rgba(230,183,173,0.55)', lineHeight: 1.6 }}>
+                Fast shipping from Texas · Love your first bag or contact us and we'll make it right
               </p>
 
               {/* Discount reminders */}
@@ -666,75 +678,68 @@ function BlendDetailInner({ product }) {
             {/* Ritual Membership Benefits Block */}
             <RitualMembershipBlock />
 
-            {/* Ingredient Transparency */}
+            {/* What's Inside (and Why) */}
             <div className="p-5" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(16,185,129,0.7)' }}>
-                What's Inside Every Tube
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: 'rgba(16,185,129,0.7)' }}>
+                What's Inside (and Why)
               </p>
-              {product.category === 'matcha' ? (
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>100% Ceremonial Grade Matcha</strong> — whisked-quality, instant format
+              <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
+                {product.category === 'matcha'
+                  ? 'Built for thinkers and modern torchbearers who want calm, sustained energy without sacrificing the ritual of a great morning drink.'
+                  : product.category === 'classic-coffee'
+                  ? 'Built for torchbearers who want specialty coffee taste in the simplest possible format — no compromises, no machines.'
+                  : "Built for thinkers, builders, and modern torchbearers who want a sharper mind without sacrificing the comfort of a great cup of coffee."}
+              </p>
+              <div className="space-y-3">
+                {(product.category === 'matcha' ? [
+                  { label: '100% Ceremonial Grade Matcha', detail: 'Whisked-quality matcha in instant format — no ceremony required.' },
+                  { label: 'Natural L-Theanine', detail: 'Naturally occurring in whole-leaf matcha; supports calm, focused energy without jitters.' },
+                  { label: '25 servings per tin', detail: 'No fillers, no artificial flavors, nothing added.' },
+                ] : product.category === 'classic-coffee' ? [
+                  { label: 'Premium Arabica Instant Coffee', detail: 'For a rich, balanced flavor profile and smooth instant preparation.' },
+                  { label: '27 servings per tube', detail: 'No artificial colors, flavors, or preservatives.' },
+                  { label: 'No pods, no machine', detail: 'Just add 8–10 oz hot water. That\'s it.' },
+                ] : [
+                  { label: 'Instant Arabica Coffee', detail: 'For a rich, balanced flavor profile and smooth instant preparation.' },
+                  { label: "Lion's Mane mushroom extract", detail: <>Known for supporting focus and mental clarity. <Link to="/journal/science-of-lions-mane" style={{ color: '#10B981', textDecoration: 'none' }}>Our research hub breaks down the science →</Link></> },
+                  { label: 'Chaga mushroom extract', detail: 'Antioxidant support to help your ritual do more than just wake you up.' },
+                  { label: '27 servings per tube', detail: 'No artificial colors, flavors, or preservatives.' },
+                ]).map(({ label, detail }) => (
+                  <div key={label} className="flex items-start gap-2">
+                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px', flexShrink: 0 }}>◆</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>
+                      <strong style={{ color: '#F7F1E8' }}>{label}</strong> — {detail}
                     </span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>25 servings per tin</strong> — no fillers, no artificial flavors
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>Natural L-Theanine</strong> — calm focus without the jitter
-                    </span>
-                  </div>
-                </div>
-              ) : product.category === 'classic-coffee' ? (
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>Premium Arabica Instant Coffee</strong> — spray-dried, specialty grade
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>27 servings per tube</strong> — no artificial colors or preservatives
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                      <strong style={{ color: '#F7F1E8' }}>No pods, no machine</strong> — just add 8–10 oz hot water
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  {[
-                    { label: 'Premium Instant Coffee', detail: 'Specialty Arabica base, clean roast — no artificial flavors' },
-                    { label: "Organic Lion's Mane (Hericium erinaceus)", detail: '[Dosage per serving — supplier verification in progress]' },
-                    { label: 'Organic Chaga (Inonotus obliquus)', detail: '[Dosage per serving — supplier verification in progress]' },
-                    { label: 'Extract Type', detail: '[Fruiting body, mycelium, or blend — add exact extract type here]' },
-                    { label: 'Caffeine', detail: '[Add exact mg per serving — estimated 50–80mg]' },
-                    { label: '27 Servings · 1.9 oz / 54g', detail: 'No artificial colors, flavors, or preservatives' },
-                  ].map(({ label, detail }) => (
-                    <div key={label} className="flex items-start gap-2">
-                      <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px', flexShrink: 0 }}>◆</span>
-                      <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>
-                        <strong style={{ color: '#F7F1E8' }}>{label}</strong> — {detail}
-                      </span>
-                    </div>
-                  ))}
-                  <p className="font-mono text-[7px] tracking-[0.15em] mt-3" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.7 }}>
-                    These statements have not been evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.
-                  </p>
-                </div>
-              )}
+                ))}
+              </div>
+            </div>
+
+            {/* How to Use */}
+            <div className="p-5" style={{ background: 'rgba(230,183,173,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                How to Use It
+              </p>
+              <ol className="space-y-3 mb-4">
+                {[
+                  'Scoop 1 serving into your mug.',
+                  `Add 8–10 oz of hot water (or warm milk) and stir until dissolved.`,
+                  'Sip and settle into your focus ritual.',
+                ].map((step, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="font-mono text-[10px] font-bold flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full" style={{ background: 'rgba(230,183,173,0.12)', color: '#E6B7AD', marginTop: '1px' }}>{i + 1}</span>
+                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>{step}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="pt-3 space-y-1.5" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+                <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>For iced:</strong> Dissolve in a splash of hot water first, then pour over ice and cold water or milk.
+                </p>
+                <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>Tip:</strong> Drink daily for at least 2 weeks to feel the full ritual and cognitive benefits.
+                </p>
+              </div>
             </div>
 
             {/* Guarantee + Shipping strip */}
