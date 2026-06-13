@@ -117,9 +117,23 @@ export async function getSubscriptionCheckoutUrl(blendQty) {
   } catch (error) {
     console.error('Subscription checkout failed, falling back to standard cart:', error);
   }
-  // Fallback to standard bundle URL
+  // Fallback: map product slugs → shopify handles, then build bundle URL
+  const SLUG_TO_HANDLE = {
+    'suncap-rise': 'suncap-rise-instant-mushroom-coffee',
+    'glowmind-clarity-blend': 'glowmind-clarity-instant-mushroom-coffee',
+    'mooncap-restore': 'mooncap-restore-instant-mushroom-coffee',
+    'dreamcap-blend': 'dreamcap-instant-mushroom-coffee',
+    'the-oracle': 'the-oracle-instant-mushroom-coffee',
+    'mystic-bloom': 'mystic-bloom-instant-mushroom-coffee',
+    'torchbearer': 'torchbearer-instant-coffee',
+    'ember-rise': 'ember-rise-instant-coffee',
+    'midnight-watch': 'midnight-watch-instant-coffee',
+    'the-monk-matcha-blend': 'the-monk-matcha-blend',
+    'the-ascendant-matcha-blend': 'the-ascendant-matcha-blend',
+    'the-alchemist-matcha-blend': 'the-alchemist-matcha-blend',
+  };
   const items = Object.entries(blendQty)
     .filter(([, qty]) => qty > 0)
-    .map(([slug, qty]) => ({ slug, qty }));
+    .map(([slug, qty]) => ({ slug: SLUG_TO_HANDLE[slug] || slug, qty }));
   return getShopifyBundleUrl(items);
 }
