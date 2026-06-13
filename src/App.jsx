@@ -175,9 +175,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
         <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
-        {/* /cart and /order-confirmation redirect externally — no layout wrapper needed */}
-        <Route path="/cart" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
-        <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><Cart /></Suspense>} />
+        <Route path="/cart" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
+        <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><OrderConfirmation /></Suspense>} />
         <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
@@ -218,13 +217,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Portal" element={<Navigate to="/" replace />} />
         <Route path="/LoyaltyPortal" element={<Navigate to="/" replace />} />
         <Route path="/loyaltyportal" element={<Navigate to="/" replace />} />
-        <Route path="/profile" element={<Navigate to="/" replace />} />
-        <Route path="/Profile" element={<Navigate to="/" replace />} />
-        <Route path="/subscription" element={<Navigate to="/" replace />} />
-        <Route path="/Subscription" element={<Navigate to="/" replace />} />
-        <Route path="/loyalty" element={<Navigate to="/" replace />} />
-        <Route path="/Loyalty" element={<Navigate to="/" replace />} />
-        <Route path="/torchbearers-rewards" element={<Navigate to="/" replace />} />
+        <Route path="/Profile" element={<Navigate to="/profile" replace />} />
+        <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
+        <Route path="/Loyalty" element={<Navigate to="/loyalty" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
