@@ -54,7 +54,7 @@ function NewsletterForm() {
         className="w-full py-2.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
         style={{ background: '#E6B7AD', color: '#0A0A0A' }}
       >
-        {status === 'loading' ? 'Joining...' : 'Subscribe for 15% Off'}
+        {status === 'loading' ? 'Joining...' : 'Join & Get 15% Off My First Order'}
       </button>
     </form>
   );
