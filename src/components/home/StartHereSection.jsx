@@ -43,7 +43,7 @@ export default function StartHereSection() {
             className="font-serif font-bold mb-4"
             style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
           >
-            Our Most Loved Rituals
+            Our Most Loved Blends
           </h2>
           <p
             className="font-heading mx-auto"
