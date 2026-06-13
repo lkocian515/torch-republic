@@ -438,6 +438,21 @@ function BlendDetailInner({ product }) {
               </ul>
             </div>
 
+            {/* Functional promise — visible right before purchase */}
+            <div className="px-4 py-3 flex items-center gap-3"
+              style={{ background: 'rgba(230,183,173,0.05)', borderLeft: '2px solid rgba(230,183,173,0.4)' }}>
+              <span style={{ fontSize: '1.1rem' }}>
+                {product.category === 'matcha' ? '🍵' : product.category === 'classic-coffee' ? '☕' : '⚡'}
+              </span>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.6 }}>
+                {product.category === 'matcha'
+                  ? 'Calm, focused energy in 30 seconds — just whisk with hot water.'
+                  : product.category === 'classic-coffee'
+                  ? 'Premium single-origin taste in 30 seconds — no machine, no pods.'
+                  : `Clean, jitter-free focus in 30 seconds — Lion's Mane + Chaga, just add hot water.`}
+              </p>
+            </div>
+
             {/* Price */}
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
             <div className="flex items-baseline gap-3">
@@ -473,15 +488,20 @@ function BlendDetailInner({ product }) {
                       className="w-5 h-5 rounded"
                       style={{ accentColor: '#E6B7AD' }}
                     />
-                    <label htmlFor="subscribe-toggle" className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ color: '#E6B7AD', cursor: 'pointer' }}>
-                      Join the Ritual
+                    <label htmlFor="subscribe-toggle" className="cursor-pointer">
+                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold block" style={{ color: '#E6B7AD' }}>
+                        Subscribe &amp; Save 20%
+                      </span>
+                      <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                        Pause or cancel anytime in 2 clicks
+                      </span>
                     </label>
                   </div>
                   <div className="text-right">
                     <span className="font-mono text-[9px] tracking-[0.2em] line-through block" style={{ color: 'rgba(255,255,255,0.25)' }}>
                       ${product.price.toFixed(2)}
                     </span>
-                    <span className="font-mono text-[10px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
+                    <span className="font-mono text-[11px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
                       ${(product.price * 0.8).toFixed(2)} /mo
                     </span>
                   </div>

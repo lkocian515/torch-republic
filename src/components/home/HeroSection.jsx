@@ -48,21 +48,27 @@ export default function HeroSection() {
               maxWidth: '720px',
             }}
           >
-            Premium Instant Coffee, Mushroom Coffee & Matcha<br />
-            <span style={{ color: RG }}>for Your Daily Ritual</span>
+            Better Mornings in 30 Seconds.<br />
+            <span style={{ color: RG }}>No Machine Required.</span>
           </h1>
           <p
-            className="font-heading mx-auto mb-8"
+            className="font-heading mx-auto mb-6"
             style={{
               fontSize: 'clamp(1.05rem, 1.7vw, 1.15rem)',
               color: 'rgba(245,239,230,0.85)',
               fontWeight: 400,
               lineHeight: 1.85,
-              maxWidth: '560px',
+              maxWidth: '540px',
             }}
           >
-            Torch Republic Coffee Company creates premium instant coffee, functional mushroom coffee, and ceremonial matcha designed to support focus, clarity, energy, and intentional daily rituals.
+            Instant coffee, functional mushroom coffee with Lion's Mane &amp; Chaga, and ceremonial matcha — just add hot water.
           </p>
+          {/* Subscribe nudge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8"
+            style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '2px' }}>
+            <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: RG }}>Subscribe &amp; Save 20%</span>
+            <span className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.5)' }}>· Cancel anytime</span>
+          </div>
         </div>
 
         {/* Primary + Secondary CTAs — no animations for better LCP */}

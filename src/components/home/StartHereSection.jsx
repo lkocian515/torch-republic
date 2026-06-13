@@ -116,10 +116,13 @@ export default function StartHereSection() {
                 </p>
 
                 {/* Price */}
-                <div className="flex items-center justify-between pt-3" style={{ borderTop: `1px solid ${product.accent}20` }}>
-                  <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>
-                    $29.99
-                  </span>
+                <div className="flex flex-col gap-0.5 pt-3" style={{ borderTop: `1px solid ${product.accent}20` }}>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>$29.99</span>
+                    <span className="font-mono text-[8px] line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>$37.49</span>
+                    <span className="font-mono text-[7.5px] tracking-[0.15em] uppercase px-1.5 py-0.5" style={{ background: 'rgba(230,183,173,0.1)', color: RG }}>Sub &amp; Save 20%</span>
+                  </div>
+                  <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.3)' }}>≈ $1.11/cup · 27 servings</p>
                 </div>
 
                 {/* Add to Cart */}
