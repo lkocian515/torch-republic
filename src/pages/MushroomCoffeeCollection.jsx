@@ -157,7 +157,7 @@ export default function MushroomCoffeeCollection() {
               Why Add Mushrooms to Your Coffee?
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.9 }}>
-              Regular coffee gives you energy. Mushroom coffee is designed to make that energy feel more intentional. Torch Republic blends premium instant coffee with functional mushrooms traditionally used to support focus, balance, and daily resilience.
+              Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy — less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane and Chaga, traditionally chosen to support focus, balance, and calm clarity.
             </p>
           </motion.div>
 
