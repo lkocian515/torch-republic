@@ -44,10 +44,8 @@ export default function Cart() {
       console.error('[Cart] Failed to build Shopify bundle URL');
       return null;
     }
-    // Append welcome15 discount for first-time customers
-    const fullUrl = `${baseUrl}?discount=welcome15`;
-    console.log('[Cart] Checkout URL:', fullUrl);
-    return fullUrl;
+    console.log('[Cart] Checkout URL:', baseUrl);
+    return baseUrl;
   }, [items]);
 
   if (items.length === 0) {
@@ -69,7 +67,7 @@ export default function Cart() {
           Build My Ritual Bundle
         </Link>
         <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
-          Use code <strong>WELCOME15</strong> at checkout for 15% off your first order
+          Have a discount code? Enter it at checkout.
         </p>
       </div>
     );
@@ -177,7 +175,7 @@ export default function Cart() {
 
               {/* Discount nudge */}
               <p className="font-mono text-[8px] tracking-[0.15em] text-center mb-4 p-3" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.12)', color: 'rgba(230,183,173,0.6)', lineHeight: 1.7 }}>
-                First order? Use <strong style={{ color: RG }}>WELCOME15</strong> at checkout for 15% off
+                Have a discount code? Enter it at checkout.
               </p>
 
               {!checkoutUrl ? (

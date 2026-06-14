@@ -168,10 +168,10 @@ export default function MushroomProductCard({ product, index = 0 }) {
             Details →
           </Link>
         </div>
-        {/* WELCOME15 nudge */}
+        {/* Subscribe nudge */}
         <p className="font-mono text-[7px] tracking-[0.18em] uppercase mt-1.5"
           style={{ color: 'rgba(196,163,90,0.5)' }}>
-          First order? Use <span style={{ color: '#C4A35A', fontWeight: 700 }}>WELCOME15</span> for 15% off at checkout
+          Subscribe &amp; Save 20% — only ${(product.price * 0.8).toFixed(2)}/mo
         </p>
       </div>
 

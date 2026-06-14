@@ -161,16 +161,13 @@ export default function BuildYourRitual() {
       return;
     }
 
-    const baseUrl = getShopifyBundleUrl(items);
-    if (!baseUrl) {
+    const url = getShopifyBundleUrl(items);
+    if (!url) {
       console.error('[Bundle] Failed to build Shopify bundle URL');
       alert('Could not build cart URL. Please contact support.');
       return;
     }
 
-    // Apply BUNDLE3PACK discount code to enforce fixed $49.99 bundle price at checkout
-    const url = `${baseUrl}?discount=BUNDLE3PACK`;
-    
     if (!url.includes('libertees-for-all.myshopify.com')) {
       console.error('[Bundle] Invalid Shopify domain in URL:', url);
       alert('Checkout configuration error. Please contact support.');
@@ -243,10 +240,10 @@ export default function BuildYourRitual() {
                     Save up to $14.98 depending on your selections
                   </p>
                   <a
-                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK"
+                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK';
+                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1';
                     }}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
