@@ -79,7 +79,7 @@ const FOOTER_LINKS = [
       { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
       { label: 'Reviews', href: '/reviews' },
       { label: 'Journal', href: '/journal' },
-      { label: 'Refer a Friend', href: '/portal' },
+      { label: 'Refer a Friend', href: '/torchbearers-rewards' },
     ]
   },
   {

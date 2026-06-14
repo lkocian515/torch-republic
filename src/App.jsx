@@ -18,6 +18,8 @@ import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
 import ReviewPopup from './components/mushroom/ReviewPopup';
 import BottomTabs from './components/mobile/BottomTabs';
+import AdminGuard from './components/seo/AdminGuard';
+import NoIndex from './components/seo/NoIndex';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
 const Home = lazy(() => import('./pages/Home'));
@@ -139,11 +141,11 @@ const AuthenticatedApp = ({ queryClient }) => {
         <ScrollToTop key={location.pathname} />
         <Routes location={location} key={location.pathname}>
 
-        {/* ── AUTH ── */}
-        <Route path="/login" element={<Suspense fallback={<PageLoader />}><Login /></Suspense>} />
-        <Route path="/register" element={<Suspense fallback={<PageLoader />}><Register /></Suspense>} />
-        <Route path="/forgot-password" element={<Suspense fallback={<PageLoader />}><ForgotPassword /></Suspense>} />
-        <Route path="/reset-password" element={<Suspense fallback={<PageLoader />}><ResetPassword /></Suspense>} />
+        {/* ── AUTH — noindex: login/account pages must not appear in search ── */}
+        <Route path="/login" element={<Suspense fallback={<PageLoader />}><NoIndex /><Login /></Suspense>} />
+        <Route path="/register" element={<Suspense fallback={<PageLoader />}><NoIndex /><Register /></Suspense>} />
+        <Route path="/forgot-password" element={<Suspense fallback={<PageLoader />}><NoIndex /><ForgotPassword /></Suspense>} />
+        <Route path="/reset-password" element={<Suspense fallback={<PageLoader />}><NoIndex /><ResetPassword /></Suspense>} />
 
         {/* ── HOME ── */}
         <Route path="/" element={
@@ -177,12 +179,12 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/bundle" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomBundle" queryClient={queryClient}><MushroomBundle /></LayoutWrapper></Suspense>} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
-        <Route path="/profile" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
-        <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
+        <Route path="/profile" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
+        <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
-        <Route path="/cart" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
-        <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
-        <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><OrderConfirmation /></Suspense>} />
+        <Route path="/cart" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
+        <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
+        <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><OrderConfirmation /></Suspense>} />
         <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
@@ -195,9 +197,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/TrafficReport" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
-        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
-        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></Suspense>} />
-        <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><TrafficGrowthCenter /></Suspense>} />
+        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><AdminGuard><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
         <Route path="/admin/blog" element={<Navigate to="/" replace />} />
         <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
         <Route path="/Admin" element={<Navigate to="/" replace />} />
@@ -231,7 +233,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
         <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
-        <Route path="/portal" element={<Navigate to="/" replace />} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
@@ -261,7 +262,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/morning-ritual-for-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MorningRitualGuide" queryClient={queryClient}><MorningRitualGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/adaptogens-guide" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdaptogensGuide" queryClient={queryClient}><AdaptogensGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/history-of-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMushroomCoffee" queryClient={queryClient}><HistoryOfMushroomCoffee /></LayoutWrapper></Suspense>} />
-        <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
         <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
         <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-antioxidant-king" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomAntioxidantKing" queryClient={queryClient}><ChagaMushroomAntioxidantKing /></LayoutWrapper></Suspense>} />

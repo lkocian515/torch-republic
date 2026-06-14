@@ -7,8 +7,34 @@ import { useSEO } from '@/hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, User, Bookmark, ArrowRight } from 'lucide-react';
 import ShareButtons from '../components/social/ShareButtons';
 
-// Related articles map by slug
+// Related articles map by slug — covers all 5 priority articles + existing content
 const RELATED_BY_SLUG = {
+  // ── 5 PRIORITY ARTICLES ──
+  'mushroom-coffee-vs-regular-coffee': [
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+    { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
+    { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane' },
+  ],
+  'does-mushroom-coffee-make-you-less-jittery': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'Matcha vs. Coffee: Energy, Focus, Taste', slug: 'matcha-vs-coffee' },
+    { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
+  ],
+  'what-does-mushroom-coffee-taste-like': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+    { title: 'The History of Mushroom Coffee', slug: 'history-of-mushroom-coffee' },
+  ],
+  'why-coffee-drinkers-are-switching-away-from-pods': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'What Makes Premium Instant Coffee Different?', slug: 'what-makes-premium-instant-coffee-different' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+  ],
+  'matcha-vs-coffee': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'The History of Matcha', slug: 'history-of-matcha' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+  ],
   'mushroom-coffee-vs-regular-coffee': [
     { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
     { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
@@ -89,6 +115,10 @@ const RELATED_PRODUCTS_BY_SLUG = {
   'chaga-mushroom-antioxidant-king': [
     { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
     { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+  ],
+  'what-makes-premium-instant-coffee-different': [
+    { name: 'Torchbearer Classic Coffee', path: '/products/torchbearer-instant-coffee' },
+    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
   ],
 };
 
