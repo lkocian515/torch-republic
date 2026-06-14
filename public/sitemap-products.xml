@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Mushroom Coffee Products -->
+  <url>
+    <loc>https://torchrepublic.com/products/suncap-rise</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png</image:loc>
+      <image:title>SunCap Rise Instant Mushroom Coffee — Lion's Mane and Chaga Blend</image:title>
+      <image:caption>Torch Republic SunCap Rise instant mushroom coffee with Lion's Mane and Chaga for morning vitality</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/glowmind-clarity-blend</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/90936d2ba_15.png</image:loc>
+      <image:title>GlowMind Clarity Instant Mushroom Coffee — Lion's Mane and Chaga Focus Blend</image:title>
+      <image:caption>Torch Republic GlowMind Clarity mushroom coffee blend for focused thinking and intentional rituals</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/mooncap-restore</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/12_8e7ecdb4-a0bc-459a-bea5-96fea5263fa2.png</image:loc>
+      <image:title>MoonCap Restore Instant Mushroom Coffee — Evening Ritual Blend</image:title>
+      <image:caption>Torch Republic MoonCap Restore dark roast mushroom coffee for recovery and evening ritual</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/dreamcap-blend</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_8c807391-10cd-46e4-9a59-151cae236e29.png</image:loc>
+      <image:title>DreamCap Blend Instant Mushroom Coffee — Restoration Ritual</image:title>
+      <image:caption>Torch Republic DreamCap Blend mushroom coffee tube for deep restoration</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/the-oracle</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/10_43ce9b58-361d-4539-9624-443920a03747.png</image:loc>
+      <image:title>The Oracle Blend Instant Mushroom Coffee — Intuition and Wisdom</image:title>
+      <image:caption>Torch Republic The Oracle instant mushroom coffee for wisdom and inner knowing</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/mystic-bloom</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a8ad9afd0_2.png</image:loc>
+      <image:title>Mystic Bloom Blend Instant Mushroom Coffee — Transformation Ritual</image:title>
+      <image:caption>Torch Republic Mystic Bloom mushroom coffee blend for transformation and growth</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Classic Coffee Products -->
+  <url>
+    <loc>https://torchrepublic.com/products/torchbearer</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15_9efec3d4-7d73-4fd6-a4df-aba0f6cad920.png</image:loc>
+      <image:title>Torchbearer Premium Instant Coffee — Bold Medium Roast Without a Machine</image:title>
+      <image:caption>Torch Republic Torchbearer premium instant coffee for bold mornings and daily ritual</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/ember-rise</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png</image:loc>
+      <image:title>Ember Rise Premium Instant Coffee — Dark Roast for Renewal</image:title>
+      <image:caption>Torch Republic Ember Rise dark roast instant coffee for renewal and fresh starts</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/midnight-watch</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://cdn.shopify.com/s/files/1/0620/7140/6844/files/14_3a9ab2f8-627d-4d27-a636-29a0900700bb.png</image:loc>
+      <image:title>Midnight Watch Premium Instant Coffee — Dark Roast for Endurance</image:title>
+      <image:caption>Torch Republic Midnight Watch bold dark roast instant coffee for resilience and endurance</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Matcha Products -->
+  <url>
+    <loc>https://torchrepublic.com/products/the-monk-matcha-blend</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/28dd949f5_12.png</image:loc>
+      <image:title>The Monk Ceremonial Matcha Blend — Premium Instant Matcha for Focus</image:title>
+      <image:caption>Torch Republic The Monk ceremonial matcha blend for discipline and focused rituals</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/the-ascendant-matcha-blend</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18eb6d3c7_14.png</image:loc>
+      <image:title>The Ascendant Ceremonial Matcha Blend — Premium Matcha for Growth</image:title>
+      <image:caption>Torch Republic The Ascendant ceremonial matcha for evolution and elevated energy</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://torchrepublic.com/products/the-alchemist-matcha-blend</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png</image:loc>
+      <image:title>The Alchemist Ceremonial Matcha Blend — Premium Matcha for Creativity</image:title>
+      <image:caption>Torch Republic The Alchemist matcha blend for creativity and inspired focus</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

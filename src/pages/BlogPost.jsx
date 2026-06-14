@@ -4,8 +4,93 @@ import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowLeft, Calendar, Clock, User, Bookmark } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Bookmark, ArrowRight } from 'lucide-react';
 import ShareButtons from '../components/social/ShareButtons';
+
+// Related articles map by slug
+const RELATED_BY_SLUG = {
+  'mushroom-coffee-vs-regular-coffee': [
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+    { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
+    { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane' },
+  ],
+  'does-mushroom-coffee-make-you-less-jittery': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'Matcha vs. Coffee: Energy, Focus, Taste', slug: 'matcha-vs-coffee' },
+    { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
+  ],
+  'what-does-mushroom-coffee-taste-like': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+    { title: 'The History of Mushroom Coffee', slug: 'history-of-mushroom-coffee' },
+  ],
+  'why-coffee-drinkers-are-switching-away-from-pods': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'What Makes Premium Instant Coffee Different?', slug: 'what-makes-premium-instant-coffee-different' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+  ],
+  'matcha-vs-coffee': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'The History of Matcha', slug: 'history-of-matcha' },
+    { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery' },
+  ],
+  'science-of-lions-mane': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'Chaga Mushroom: The Antioxidant King', slug: 'chaga-mushroom-antioxidant-king' },
+    { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like' },
+  ],
+  'history-of-matcha': [
+    { title: 'Matcha vs. Coffee', slug: 'matcha-vs-coffee' },
+    { title: 'Instant Ceremonial Matcha', slug: 'instant-ceremonial-matcha' },
+    { title: 'Matcha Benefits Guide', slug: 'matcha-benefits' },
+  ],
+  'history-of-mushroom-coffee': [
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane' },
+    { title: 'Chaga Mushroom: The Antioxidant King', slug: 'chaga-mushroom-antioxidant-king' },
+  ],
+  'chaga-mushroom-antioxidant-king': [
+    { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane' },
+    { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee' },
+    { title: 'The History of Mushroom Coffee', slug: 'history-of-mushroom-coffee' },
+  ],
+};
+
+// Related product links by content category
+const RELATED_PRODUCTS_BY_SLUG = {
+  'mushroom-coffee-vs-regular-coffee': [
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
+  ],
+  'does-mushroom-coffee-make-you-less-jittery': [
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Take the Blend Quiz', path: '/quiz' },
+  ],
+  'what-does-mushroom-coffee-taste-like': [
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'GlowMind Clarity Blend', path: '/products/glowmind-clarity-blend' },
+  ],
+  'why-coffee-drinkers-are-switching-away-from-pods': [
+    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+  ],
+  'matcha-vs-coffee': [
+    { name: 'Shop Ceremonial Matcha', path: '/shop/matcha' },
+    { name: 'The Monk Matcha Blend', path: '/products/the-monk-matcha-blend' },
+  ],
+  'science-of-lions-mane': [
+    { name: 'GlowMind Clarity Blend', path: '/products/glowmind-clarity-blend' },
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+  ],
+  'history-of-matcha': [
+    { name: 'Shop Ceremonial Matcha', path: '/shop/matcha' },
+    { name: 'The Monk Matcha Blend', path: '/products/the-monk-matcha-blend' },
+  ],
+  'chaga-mushroom-antioxidant-king': [
+    { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+  ],
+};
 
 const RG = '#E6B7AD';
 
@@ -69,6 +154,13 @@ export default function BlogPostPage() {
     fetchPostAndSetMeta();
   }, [slug]);
 
+  // Parse FAQ JSON for structured data injection
+  const faqItems = (() => {
+    if (!post?.tags) return null;
+    // FAQ data embedded in newer DB posts via faq_json tag (stored separately, not shown raw)
+    return null; // FAQPage schema is handled below via Helmet for DB posts
+  })();
+
   useSEO({
     title: post ? `${post.title} | Torch Republic` : 'Loading...',
     description: post?.excerpt || 'Read more on the Torch Republic Ritual Journal',
@@ -78,9 +170,15 @@ export default function BlogPostPage() {
     article: {
       author: post?.author || 'Torch Republic',
       datePublished: post?.published_date || new Date().toISOString(),
+      dateModified: post?.updated_date || post?.published_date || new Date().toISOString(),
       section: post?.category ? `${post.category.charAt(0).toUpperCase() + post.category.slice(1)}` : 'Journal',
       keywords: post?.tags || [],
     },
+    breadcrumbs: post ? [
+      { name: 'Home', url: '/' },
+      { name: 'Journal', url: '/journal' },
+      { name: post.title, url: `/journal/${slug}` },
+    ] : undefined,
   });
 
   // For social media crawlers that don't execute JS, we also use Helmet
@@ -284,33 +382,62 @@ export default function BlogPostPage() {
               </div>
             )}
 
+            {/* Related Articles */}
+            {RELATED_BY_SLUG[post.slug] && (
+              <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+                <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                  Related Reading
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {RELATED_BY_SLUG[post.slug].map((r, i) => (
+                    <Link key={i} to={`/journal/${r.slug}`}
+                      className="p-4 block transition-all hover:opacity-75"
+                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
+                      <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 500, lineHeight: 1.4 }}>{r.title}</p>
+                      <div className="flex items-center gap-1 mt-2">
+                        <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Read</span>
+                        <ArrowRight className="w-3 h-3" style={{ color: 'rgba(230,183,173,0.5)' }} />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Share at bottom */}
-            <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
+            <div className="mt-10 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
               <ShareButtons title={post.title} url={`/journal/${post.slug}`} image={post.featured_image} />
             </div>
 
-            {/* CTA */}
-            <div
-              className="mt-8 p-8 rounded-sm text-center"
-              style={{
-                background: 'rgba(230,183,173,0.05)',
-                border: `1px solid ${RG}20`,
-              }}
-            >
-              <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>
-                Ready to Start Your Ritual?
-              </p>
-              <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                Explore our collection of mushroom coffee and matcha blends.
-              </p>
-              <Link
-                to="/shop"
-                className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8 rounded-sm"
-                style={{ background: RG, color: '#050505' }}
-              >
-                Shop Blends →
-              </Link>
-            </div>
+            {/* Related Products CTA */}
+            {RELATED_PRODUCTS_BY_SLUG[post.slug] ? (
+              <div className="mt-8 p-6" style={{ background: 'rgba(230,183,173,0.04)', border: `1px solid ${RG}18` }}>
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>Explore the Products</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {RELATED_PRODUCTS_BY_SLUG[post.slug].map((prod, i) => (
+                    <Link key={i} to={prod.path}
+                      className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 text-center transition-all hover:opacity-80"
+                      style={i === 0
+                        ? { background: RG, color: '#050505' }
+                        : { border: `1px solid ${RG}40`, color: RG }}>
+                      {prod.name} →
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="mt-8 p-8 text-center" style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20` }}>
+                <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>Ready to Start Your Ritual?</p>
+                <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
+                  Explore our collection of mushroom coffee and matcha blends.
+                </p>
+                <Link to="/shop"
+                  className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
+                  style={{ background: RG, color: '#050505' }}>
+                  Shop Blends →
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </article>

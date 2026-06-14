@@ -23,7 +23,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha" />
     <meta name="twitter:description" content="Discover premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles for clarity, focus, and intentional daily energy. No machine needed." />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" title="Sitemap Index" href="/sitemap.xml" />
+    <!-- Sub-sitemaps -->
+    <link rel="sitemap" type="application/xml" title="Pages" href="/sitemap-pages.xml" />
+    <link rel="sitemap" type="application/xml" title="Products" href="/sitemap-products.xml" />
+    <link rel="sitemap" type="application/xml" title="Blog" href="/sitemap-blog.xml" />
     <meta name="robots" content="index, follow" />
     <meta property="og:image" content="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png" />
     <meta property="og:image:width" content="1200" />
@@ -51,16 +55,26 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Torch Republic Coffee Co.",
+      "name": "Torch Republic Coffee Company",
+      "legalName": "LiberTees For All LLC",
+      "alternateName": "Torch Republic",
       "url": "https://torchrepublic.com",
-      "description": "Torch Republic Coffee Co. creates premium instant coffee, mushroom coffee, and matcha blends for clarity, calm energy, and intentional daily rituals.",
-      "email": "admin@torchrepublic.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Torch Republic Coffee Company creates premium instant coffee, functional mushroom coffee with Lion's Mane and Chaga, and ceremonial matcha blends for clarity, calm energy, and intentional daily rituals. No machine needed.",
+      "email": "hello@torchrepublic.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Corpus Christi",
         "addressRegion": "TX",
         "addressCountry": "US"
       },
+      "foundingDate": "2023",
+      "knowsAbout": ["mushroom coffee", "instant coffee", "ceremonial matcha", "functional mushrooms", "Lion's Mane", "Chaga"],
       "sameAs": []
     }
     </script>
@@ -68,8 +82,16 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Torch Republic Coffee Co.",
-      "url": "https://torchrepublic.com"
+      "name": "Torch Republic Coffee Company",
+      "url": "https://torchrepublic.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://torchrepublic.com/shop?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
   </head>

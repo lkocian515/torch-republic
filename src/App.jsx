@@ -91,6 +91,8 @@ const ProtocolsDirectory = lazy(() => import('./pages/command/ProtocolsDirectory
 const ProtocolDetail = lazy(() => import('./pages/command/ProtocolDetail.jsx'));
 const AdminCommand = lazy(() => import('./pages/command/AdminCommand.jsx'));
 const AdminBlogEditor = lazy(() => import('./pages/AdminBlogEditor.jsx'));
+const TrafficGrowthCenter = lazy(() => import('./pages/TrafficGrowthCenter.jsx'));
+const JournalHub = lazy(() => import('./pages/JournalHub.jsx'));
 const MushroomCoffeeVsRegularCoffee = lazy(() => import('./pages/blog/MushroomCoffeeVsRegularCoffee.jsx'));
 const CeremonialMatchaVsCulinary = lazy(() => import('./pages/blog/CeremonialMatchaVsCulinary.jsx'));
 const PremiumInstantCoffeeDifference = lazy(() => import('./pages/blog/PremiumInstantCoffeeDifference.jsx'));
@@ -195,6 +197,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
         <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></Suspense>} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></Suspense>} />
+        <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><TrafficGrowthCenter /></Suspense>} />
         <Route path="/admin/blog" element={<Navigate to="/" replace />} />
         <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
         <Route path="/Admin" element={<Navigate to="/" replace />} />
@@ -230,7 +233,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
         <Route path="/portal" element={<Navigate to="/" replace />} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
-        <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><Journal /></LayoutWrapper></Suspense>} />
+        <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
         <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
         <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />

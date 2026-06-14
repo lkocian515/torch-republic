@@ -1,32 +1,70 @@
 User-agent: *
 Allow: /
 
-# Block admin and internal pages
+# Allow all product, collection, blog, and content pages
+Allow: /shop
+Allow: /shop/
+Allow: /products/
+Allow: /blends/
+Allow: /journal/
+Allow: /reviews
+Allow: /mission
+Allow: /about
+Allow: /faq
+Allow: /ingredients
+Allow: /research
+Allow: /recipes
+Allow: /quiz
+Allow: /gifts
+Allow: /bundle
+Allow: /subscription
+Allow: /how-it-works
+Allow: /build-your-ritual
+Allow: /torchbearer
+Allow: /contact
+Allow: /shipping-policy
+Allow: /return-policy
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /why-mushroom-coffee
+Allow: /why-matcha
+Allow: /mushroom-coffee-benefits
+Allow: /lions-mane-coffee
+Allow: /instant-coffee-for-energy
+Allow: /spotlight
+
+# Disallow admin, internal, checkout, cart, auth, and utility routes
 Disallow: /admin/
-Disallow: /traffic-report
-Disallow: /TrafficReport
-Disallow: /email-campaign
-Disallow: /email-campaign-dashboard
-Disallow: /EmailCampaignDashboard
-Disallow: /emailcampaigndashboard
-Disallow: /command/
-Disallow: /CustomerPortal
-Disallow: /customerportal
-Disallow: /portal
+Disallow: /admin/traffic
+Disallow: /admin/keywords
+Disallow: /admin/shopify
+Disallow: /admin/blog
+Disallow: /admin
+Disallow: /cart
+Disallow: /checkout
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /order-confirmation
 Disallow: /profile
+Disallow: /portal
+Disallow: /loyalty
+Disallow: /loyalty-portal
+Disallow: /order-confirmation
+Disallow: /customer-portal
+Disallow: /torchbearers-rewards
+Disallow: /traffic-report
+Disallow: /email-campaign
+Disallow: /email-campaign-dashboard
+Disallow: /command/
+Disallow: /local
+Disallow: /KeywordAnalysis
+Disallow: /keyword-analysis
+Disallow: /search-query-analysis
+Disallow: /SearchQueryAnalysis
 
-# Block old apparel/patriotic brand pages (no longer relevant)
-Disallow: /founders-series
-Disallow: /libertees
-Disallow: /patriotic
-Disallow: /apparel
-Disallow: /collectibles
-Disallow: /coffee-pods
-Disallow: /pods
+# Block query parameters that create duplicate content
+Disallow: /*?*
 
+# Sitemap location
 Sitemap: https://torchrepublic.com/sitemap.xml

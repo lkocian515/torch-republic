@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://torchrepublic.com/</loc>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cc8b4d715_ChatGPTImageJun14202606_04_21AM.png</image:loc>
+      <image:title>Torch Republic Coffee Company — Premium Instant Coffee, Mushroom Coffee and Matcha</image:title>
+      <image:caption>Torch Republic instant coffee, mushroom coffee, and ceremonial matcha rituals — just add hot water, no machine needed</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png</image:loc>
+      <image:title>Torch Republic Coffee Company Logo</image:title>
+      <image:caption>Torch Republic Coffee Company official logo</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://torchrepublic.com/shop/instant-mushroom-coffee</loc>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cef6afa41_18.png</image:loc>
+      <image:title>Instant Mushroom Coffee Collection — Torch Republic</image:title>
+      <image:caption>Torch Republic instant mushroom coffee collection featuring Lion's Mane and Chaga blends</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://torchrepublic.com/journal/science-of-lions-mane</loc>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg</image:loc>
+      <image:title>Lion's Mane Mushroom — Scientific Research and Brain Health Benefits</image:title>
+      <image:caption>Lion's Mane mushroom (Hericium erinaceus) research showing cognitive and neurological benefits</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
