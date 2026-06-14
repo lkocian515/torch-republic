@@ -15,7 +15,7 @@ export default function SubscribeToggle({ accent = '#C9A24A', price = '$18.99', 
   const isSubscribe = mode === 'subscribe';
 
   const raw = parseFloat(String(price).replace(/[^0-9.]/g, '')) || 18.99;
-  const subPrice = (raw * 0.85).toFixed(2);
+  const subPrice = (raw * 0.80).toFixed(2);
   const origPrice = raw.toFixed(2);
 
   const handleMode = (m) => {
@@ -112,7 +112,7 @@ export default function SubscribeToggle({ accent = '#C9A24A', price = '$18.99', 
               {/* Bullets */}
               <div className="space-y-1.5 mb-3">
                 {[
-                  'Save 15% on every bag',
+                  'Save 20% on every order',
                   'Early access to limited & exclusive roasts',
                   'Free shipping on subscription orders',
                 ].map((item) => (

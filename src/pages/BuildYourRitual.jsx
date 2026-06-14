@@ -13,7 +13,7 @@ const RG = '#E6B7AD';
 const EMERALD = '#10B981';
 // Fixed bundle price — always $59.99 regardless of products selected
 const BUNDLE_PRICE = 59.99;
-const INDIVIDUAL_PRICE = 19.99; // lowest individual price (Classic Coffee)
+const INDIVIDUAL_PRICE = 22.99; // default fallback price
 const BUNDLE_SIZE = 3;
 
 // Core 12 products with their Shopify handles
@@ -234,11 +234,14 @@ export default function BuildYourRitual() {
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-baseline gap-4 mb-5">
-                    <span className="font-serif font-bold" style={{ fontSize: '1.5rem', color: RG }}>${BUNDLE_PRICE}</span>
-                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$74.97 separately</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $14.98</span>
+                  <div className="flex flex-wrap items-baseline gap-3 mb-2">
+                    <span className="font-serif font-bold" style={{ fontSize: '1.6rem', color: RG }}>${BUNDLE_PRICE}</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$67.97 separately</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $7.98</span>
                   </div>
+                  <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                    Save up to $14.98 depending on your selections
+                  </p>
                   <a
                     href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1?discount=BUNDLE3PACK"
                     onClick={(e) => {
@@ -254,7 +257,7 @@ export default function BuildYourRitual() {
                 <div className="hidden md:flex flex-col gap-3">
                   <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>3 Blends · ~79 Servings Total</p>
-                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>~$0.95 per serving</p>
+                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Only ~$0.76 per serving</p>
                   </div>
                   <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>No Machine Needed</p>
@@ -295,10 +298,10 @@ export default function BuildYourRitual() {
               Build Your Ritual Bundle
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-              Mix & Match Any 3 Blends
+              Build Your Ritual
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
-              Choose your three favorite blends and save when you bundle. From mushroom coffee to ceremonial matcha — create your perfect ritual.
+              Choose any 3 products and save. Mix and match from our complete collection of premium instant coffee, functional mushroom coffee, and ceremonial matcha.
             </p>
             <div className="flex items-center justify-center gap-6">
               <div className="text-center">
@@ -312,7 +315,7 @@ export default function BuildYourRitual() {
               </div>
               <div className="w-px h-10" style={{ background: `${RG}30` }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save $14.98+</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save up to $14.98</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>vs. Buying Separately</p>
               </div>
             </div>
@@ -511,23 +514,43 @@ export default function BuildYourRitual() {
                     {/* Pricing */}
                     <div className="pt-4 border-t" style={{ borderColor: `${RG}20` }}>
                       {selectedProducts.length === 3 && (
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}40` }}>
-                            Original Price
+                        <>
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}40` }}>
+                              Bundle Value
+                            </span>
+                            <span className="font-mono text-sm line-through" style={{ color: 'rgba(240,235,225,0.35)' }}>
+                              ${totalPrice.toFixed(2)}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: EMERALD }}>
+                              Your Price
+                            </span>
+                            <span className="font-serif font-bold text-lg" style={{ color: RG }}>
+                              ${bundleTotal.toFixed(2)}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between mb-3 pb-3" style={{ borderBottom: `1px solid ${RG}15` }}>
+                            <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: EMERALD }}>
+                              You Save
+                            </span>
+                            <span className="font-mono text-sm font-bold" style={{ color: EMERALD }}>
+                              ${savings.toFixed(2)}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      {selectedProducts.length !== 3 && (
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: EMERALD }}>
+                            Bundle Price
                           </span>
-                          <span className="font-mono text-sm line-through" style={{ color: 'rgba(240,235,225,0.35)' }}>
-                            ${totalPrice.toFixed(2)}
+                          <span className="font-serif font-bold text-lg" style={{ color: RG }}>
+                            ${BUNDLE_PRICE}
                           </span>
                         </div>
                       )}
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: EMERALD }}>
-                          Bundle Price
-                        </span>
-                        <span className="font-serif font-bold text-lg" style={{ color: RG }}>
-                          ${selectedProducts.length === 3 ? bundleTotal.toFixed(2) : BUNDLE_PRICE}
-                        </span>
-                      </div>
 
                       <button
                         onClick={handleAddToCart}

@@ -18,14 +18,14 @@ const WELLNESS_BUNDLE = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS]; // 9 product
 const BUNDLE_OPTIONS = [
   {
     id: 'starter-3pack',
-    name: 'Starter Ritual 3-Pack',
-    subtitle: 'Discover',
-    description: 'Choose any 3 blends',
+    name: 'Build Your Ritual',
+    subtitle: 'Most Popular',
+    description: 'Choose any 3 products — mix & match',
     price: 59.99,
-    compareAtPrice: 74.97,
-    savings: 14.98,
+    compareAtPrice: null, // dynamic — shown on /build-your-ritual
+    savings: null,
     products: ALL_12_PRODUCTS.slice(0, 3),
-    cta: 'Build Your 3-Pack',
+    cta: 'Choose Any 3 Products',
     getUrl: null, // uses Link to /build-your-ritual
     badge: 'Most Popular',
   },
@@ -35,7 +35,7 @@ const BUNDLE_OPTIONS = [
     subtitle: 'Commit',
     description: 'All 6 mushroom blends',
     price: 109.99,
-    compareAtPrice: 137.94,
+    compareAtPrice: 137.94, // 6 × $22.99
     savings: 27.95,
     products: MUSHROOM_PRODUCTS,
     cta: 'Shop 6-Pack',
@@ -48,8 +48,8 @@ const BUNDLE_OPTIONS = [
     subtitle: 'The Full Experience',
     description: 'All 12 products — Classic, Mushroom & Matcha',
     price: 219.99,
-    compareAtPrice: 299.88,
-    savings: 79.89,
+    compareAtPrice: 267.88, // 3×$19.99 + 6×$22.99 + 3×$24.99
+    savings: 47.89,
     products: ALL_12_PRODUCTS.slice(0, 6),
     cta: 'Shop the Complete Collection',
     getUrl: getFullBundleUrl,
@@ -63,7 +63,7 @@ const CATEGORY_BUNDLES = [
     name: 'Classic Instant Coffee Trio',
     description: 'All 3 classic blends',
     price: 59.99,
-    compareAtPrice: 59.97,
+    compareAtPrice: 59.97, // 3 × $19.99
     savings: 0,
     products: CLASSIC_ONLY_BUNDLE,
     cta: 'Shop Classic Trio',
@@ -74,7 +74,7 @@ const CATEGORY_BUNDLES = [
     name: 'Mushroom Coffee Collection',
     description: 'All 6 mushroom blends',
     price: 109.99,
-    compareAtPrice: 137.94,
+    compareAtPrice: 137.94, // 6 × $22.99
     savings: 27.95,
     products: MUSHROOM_ONLY_BUNDLE,
     cta: 'Shop Mushroom Collection',
@@ -85,7 +85,7 @@ const CATEGORY_BUNDLES = [
     name: 'Matcha Ritual Trio',
     description: 'All 3 ceremonial matcha blends',
     price: 59.99,
-    compareAtPrice: 74.97,
+    compareAtPrice: 74.97, // 3 × $24.99
     savings: 14.98,
     products: MATCHA_ONLY_BUNDLE,
     cta: 'Shop Matcha Trio',
@@ -96,8 +96,8 @@ const CATEGORY_BUNDLES = [
     name: 'Full Wellness Ritual Bundle',
     description: 'All mushroom + matcha blends (9 total)',
     price: 159.99,
-    compareAtPrice: 224.91,
-    savings: 64.92,
+    compareAtPrice: 212.88, // 6×$22.99 + 3×$24.99
+    savings: 52.89,
     products: WELLNESS_BUNDLE.slice(0, 6),
     cta: 'Shop Wellness Bundle',
     getUrl: () => getShopifyBundleUrl(WELLNESS_BUNDLE.map(p => ({ slug: p.shopifyHandle, qty: 1 }))),
@@ -132,11 +132,32 @@ export default function MushroomBundle() {
               Build Your Ritual Bundle
             </p>
             <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-              Choose Your Blends. Create Your Ritual.
+              Build Your Ritual
             </h1>
             <p className="font-heading max-w-2xl" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.85, fontWeight: 300 }}>
-              Choose your blends. Create your daily ritual. Save when you bundle. From the Starter 3-Pack to the Complete 12-Product Collection.
+              Choose any 3 products and save. Mix and match from our complete collection of premium instant coffee, functional mushroom coffee, and ceremonial matcha.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-8 mt-4">
+              <div className="text-center">
+                <p className="font-serif font-bold text-2xl" style={{ color: '#E6B7AD' }}>$19.99</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Republic Reserve</p>
+              </div>
+              <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.2)' }} />
+              <div className="text-center">
+                <p className="font-serif font-bold text-2xl" style={{ color: '#E6B7AD' }}>$22.99</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Mushroom Coffee</p>
+              </div>
+              <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.2)' }} />
+              <div className="text-center">
+                <p className="font-serif font-bold text-2xl" style={{ color: '#E6B7AD' }}>$24.99</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Ceremonial Matcha</p>
+              </div>
+              <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.2)' }} />
+              <div className="text-center">
+                <p className="font-serif font-bold text-2xl" style={{ color: '#10B981' }}>$59.99</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Any 3 Products</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

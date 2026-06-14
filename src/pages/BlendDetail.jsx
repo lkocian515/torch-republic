@@ -491,7 +491,7 @@ function BlendDetailInner({ product }) {
 
             {/* Price */}
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
-            <div className="flex items-baseline gap-3">
+            <div className="flex items-baseline gap-3 flex-wrap">
               <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: '#E6B7AD' }}>
                 ${isSubscription ? (product.price * 0.8).toFixed(2) : product.price.toFixed(2)}
               </span>
@@ -500,12 +500,27 @@ function BlendDetailInner({ product }) {
                   ${product.price.toFixed(2)}
                 </span>
               )}
-              <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                per {product.category === 'matcha' ? 'tin' : 'tube'} · {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
-              </span>
-              <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-                ≈ ${isSubscription ? ((product.price * 0.8) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2) : (product.price / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)}/cup
-              </span>
+            </div>
+            {/* Cost-per-serving callout */}
+            <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                  {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
+                </span>
+                <span style={{ color: 'rgba(230,183,173,0.2)' }}>·</span>
+                <span className="font-mono text-[9px] font-bold" style={{ color: '#E6B7AD' }}>
+                  Only ${(isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27)) < 1
+                    ? ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
+                    : ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
+                  } per {product.category === 'matcha' ? 'serving' : 'cup'}
+                </span>
+              </div>
+              {!isSubscription && (
+                <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}>
+                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(16,185,129,0.7)' }}>Subscribe &amp; Save:</span>
+                  <span className="font-mono text-[9px] font-bold" style={{ color: '#10B981' }}>${(product.price * 0.8).toFixed(2)}</span>
+                </div>
+              )}
             </div>
             {isSubscription && (
               <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
