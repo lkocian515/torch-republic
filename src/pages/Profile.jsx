@@ -43,9 +43,15 @@ export default function Profile() {
     if (!user?.id) return;
     setIsDeleting(true);
     try {
-      await base44.asServiceRole.entities.User.delete(user.id);
+      // Use base44.auth.deleteUser if available (App Store / Play Store compliance)
+      // Falls back to entity delete for platforms where deleteUser isn't yet exposed
+      if (typeof base44.auth.deleteUser === 'function') {
+        await base44.auth.deleteUser();
+      } else {
+        await base44.asServiceRole.entities.User.delete(user.id);
+      }
       setIsDeleteDialogOpen(false);
-      logout(true);
+      logout('/');
     } catch (error) {
       console.error('Delete account error:', error);
       setIsDeleting(false);
@@ -172,7 +178,7 @@ export default function Profile() {
           </button>
         </div>
 
-        {/* Delete Account Confirmation Dialog */}
+        {/* Delete Account Confirmation Dialog — App Store / Google Play required */}
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
           <AlertDialogContent style={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', maxWidth: '420px' }}>
             <AlertDialogHeader>

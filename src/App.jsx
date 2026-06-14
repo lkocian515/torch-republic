@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'r
 import { AnimatePresence, motion } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
 import PullToRefresh from './components/mobile/PullToRefresh';
@@ -328,6 +328,20 @@ const AuthenticatedApp = ({ queryClient }) => {
 };
 
 function App() {
+  // Sync Tailwind dark class with OS-level prefers-color-scheme
+  useEffect(() => {
+    const root = document.documentElement;
+    const apply = (dark) => {
+      if (dark) root.classList.add('dark');
+      else root.classList.remove('dark');
+    };
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    apply(mq.matches);
+    const handler = (e) => apply(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>

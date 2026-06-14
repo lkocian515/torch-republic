@@ -49,6 +49,7 @@ export function CartProvider({ children }) {
     setToast(null);
   }, []);
 
+  // Optimistic update: apply immediately to local state (already persisted via useEffect)
   const updateQty = useCallback((id, delta) => {
     setItems(prev =>
       prev.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)
@@ -56,7 +57,16 @@ export function CartProvider({ children }) {
   }, []);
 
   const removeItem = useCallback((id) => {
+    // Optimistic remove: update state immediately, no async wait
     setItems(prev => prev.filter(i => i.id !== id));
+  }, []);
+
+  const setQty = useCallback((id, qty) => {
+    if (qty < 1) {
+      setItems(prev => prev.filter(i => i.id !== id));
+    } else {
+      setItems(prev => prev.map(i => i.id === id ? { ...i, qty } : i));
+    }
   }, []);
 
   const clearCart = useCallback(() => setItems([]), []);
@@ -66,7 +76,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider value={{
-      items, addItem, updateQty, removeItem, clearCart,
+      items, addItem, updateQty, setQty, removeItem, clearCart,
       totalItems, subtotal, drawerOpen, setDrawerOpen, toast, clearToast
     }}>
       {children}

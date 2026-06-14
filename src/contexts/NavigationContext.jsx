@@ -1,38 +1,80 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const NavigationContext = createContext();
 
+// Tabs and their root paths — order matters for prefix matching (most specific first)
+const TABS = [
+  { key: '/profile', root: '/profile' },
+  { key: '/shop',    root: '/shop' },
+  { key: '/',        root: '/' },
+];
+
+function getTabKey(pathname) {
+  for (const tab of TABS) {
+    if (pathname === tab.root || pathname.startsWith(tab.root + '/')) {
+      return tab.key;
+    }
+  }
+  return '/';
+}
+
 export function NavigationProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [lastTabs, setLastTabs] = useState({
-    '/': [],
-    '/BestSellers': [],
-    '/Profile': [],
+
+  // Per-tab history stacks: { '/': ['/'], '/shop': ['/shop'], '/profile': ['/profile'] }
+  const [tabStacks, setTabStacks] = useState({
+    '/':        ['/'],
+    '/shop':    ['/shop'],
+    '/profile': ['/profile'],
   });
 
-  useEffect(() => {
-    const currentTab = Object.keys(lastTabs).find(
-      (tab) => location.pathname === tab || location.pathname.startsWith(tab)
-    ) || '/';
+  // Track active tab
+  const [activeTab, setActiveTab] = useState(() => getTabKey(location.pathname));
+  const prevPathnameRef = useRef(location.pathname);
 
-    setLastTabs((prev) => ({
-      ...prev,
-      [currentTab]: [location.pathname],
-    }));
+  useEffect(() => {
+    const pathname = location.pathname;
+    if (pathname === prevPathnameRef.current) return;
+    prevPathnameRef.current = pathname;
+
+    const tab = getTabKey(pathname);
+    setActiveTab(tab);
+
+    setTabStacks(prev => {
+      const stack = prev[tab] || [];
+      // Avoid duplicate consecutive entries
+      if (stack[stack.length - 1] === pathname) return prev;
+      return { ...prev, [tab]: [...stack, pathname] };
+    });
   }, [location.pathname]);
 
+  // Navigate to a tab root; if already on that tab, reset its stack to root
+  const navigateToTab = (tabKey) => {
+    const tab = TABS.find(t => t.key === tabKey);
+    if (!tab) return;
+
+    if (activeTab === tabKey) {
+      // Already on this tab — reset to root
+      setTabStacks(prev => ({ ...prev, [tabKey]: [tab.root] }));
+      navigate(tab.root, { replace: true });
+    } else {
+      // Switch to tab — restore last position in that tab's stack
+      const stack = tabStacks[tabKey];
+      const destination = (stack && stack.length > 0) ? stack[stack.length - 1] : tab.root;
+      navigate(destination);
+    }
+  };
+
+  // Legacy support
   const resetTabStack = (tabPath) => {
-    setLastTabs((prev) => ({
-      ...prev,
-      [tabPath]: [],
-    }));
+    setTabStacks(prev => ({ ...prev, [tabPath]: [tabPath] }));
     navigate(tabPath);
   };
 
   return (
-    <NavigationContext.Provider value={{ resetTabStack, lastTabs }}>
+    <NavigationContext.Provider value={{ navigateToTab, resetTabStack, tabStacks, activeTab }}>
       {children}
     </NavigationContext.Provider>
   );
