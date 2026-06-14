@@ -174,21 +174,49 @@ export default function Profile() {
 
         {/* Delete Account Confirmation Dialog */}
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-          <AlertDialogContent>
+          <AlertDialogContent style={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', maxWidth: '420px' }}>
             <AlertDialogHeader>
-              <AlertDialogTitle>Delete Account</AlertDialogTitle>
-              <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your account and all associated data.
+              <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm" style={{ color: '#F5EFE6' }}>
+                Permanently Delete Account
+              </AlertDialogTitle>
+              <AlertDialogDescription asChild>
+                <div className="space-y-3 mt-2">
+                  <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                    This action is <strong style={{ color: '#F5EFE6' }}>permanent and cannot be undone.</strong> Deleting your account will:
+                  </p>
+                  <ul className="space-y-1.5 pl-1">
+                    {[
+                      'Permanently erase your account and login credentials',
+                      'Delete all loyalty points and Torchbearer rewards',
+                      'Remove your order history and saved preferences',
+                      'Cancel any active subscriptions (you may need to cancel directly in Shopify)',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.55)' }}>
+                        <span className="mt-0.5 flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#E6B7AD', marginTop: '6px' }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="font-mono text-xs tracking-wide" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                    If you just want a break, you can simply sign out instead.
+                  </p>
+                </div>
               </AlertDialogDescription>
             </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogFooter className="flex-col-reverse sm:flex-row gap-2 mt-4">
+              <AlertDialogCancel
+                className="font-mono text-xs tracking-widest uppercase"
+                style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px' }}
+              >
+                Keep My Account
+              </AlertDialogCancel>
               <AlertDialogAction
                 onClick={handleDeleteAccount}
                 disabled={isDeleting}
-                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                className="font-mono text-xs tracking-widest uppercase"
+                style={{ background: 'hsl(var(--destructive))', color: '#fff', minHeight: '44px', opacity: isDeleting ? 0.6 : 1 }}
               >
-                {isDeleting ? 'Deleting...' : 'Delete Account'}
+                {isDeleting ? 'Deleting...' : 'Yes, Delete Permanently'}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

@@ -136,7 +136,7 @@ export default function UnifiedHeader() {
 
             {/* Center: Logo */}
             <Link to="/" className={`flex-1 md:flex-none flex items-center justify-center ${isChildRoute ? 'hidden md:flex' : ''}`}>
-              <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" style={{ height: '64px', width: 'auto' }} />
+              <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" className="sm:h-16" style={{ height: '48px', width: 'auto' }} />
             </Link>
 
             {/* Right: Cart + Desktop Nav */}
