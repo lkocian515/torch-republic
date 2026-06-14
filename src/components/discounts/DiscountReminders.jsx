@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Gift, Truck, Percent } from 'lucide-react';
+import { Percent, Gift } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
@@ -9,8 +9,8 @@ const DISCOUNTS = [
     id: 'welcome',
     icon: Percent,
     title: 'First Order Discount',
-    code: 'WELCOME15',
-    description: '15% off your first one-time order',
+    code: 'WELCOME10',
+    description: '10% off your first one-time order',
     color: '#E6B7AD',
     bgColor: 'rgba(230,183,173,0.08)',
     borderColor: 'rgba(230,183,173,0.3)',
@@ -25,45 +25,25 @@ const DISCOUNTS = [
     bgColor: 'rgba(110,189,142,0.08)',
     borderColor: 'rgba(110,189,142,0.3)',
   },
-  {
-    id: 'shipping',
-    icon: Truck,
-    title: 'Free Shipping',
-    code: null,
-    description: 'On orders over $75',
-    threshold: 75,
-    color: '#D6B27A',
-    bgColor: 'rgba(214,178,122,0.08)',
-    borderColor: 'rgba(214,178,122,0.3)',
-  },
 ];
 
 export default function DiscountReminders({ cartSubtotal = 0, showAll = false, compact = false }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-rotate through discounts every 5 seconds
   useEffect(() => {
-    if (showAll) return; // Don't rotate if showing all
+    if (showAll) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % DISCOUNTS.length);
     }, 5000);
     return () => clearInterval(timer);
   }, [showAll]);
 
-  // Calculate if free shipping is achieved
-  const freeShippingProgress = Math.min((cartSubtotal / 75) * 100, 100);
-  const freeShippingUnlocked = cartSubtotal >= 75;
-
   if (compact) {
-    // Compact rotating banner version
     const discount = DISCOUNTS[activeIndex];
     return (
       <div
         className="w-full py-2 px-4"
-        style={{
-          background: discount.bgColor,
-          border: `1px solid ${discount.borderColor}`,
-        }}
+        style={{ background: discount.bgColor, border: `1px solid ${discount.borderColor}` }}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -78,9 +58,7 @@ export default function DiscountReminders({ cartSubtotal = 0, showAll = false, c
             <span className="font-mono text-[8px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>
               {discount.description}
               {discount.code && (
-                <>
-                  {' '}— Code <span style={{ color: discount.color, fontWeight: 700 }}>{discount.code}</span>
-                </>
+                <> — Code <span style={{ color: discount.color, fontWeight: 700 }}>{discount.code}</span></>
               )}
             </span>
           </motion.div>
@@ -96,11 +74,7 @@ export default function DiscountReminders({ cartSubtotal = 0, showAll = false, c
           <div
             key={discount.id}
             className="p-4"
-            style={{
-              background: discount.bgColor,
-              border: `1px solid ${discount.borderColor}`,
-              borderRadius: '2px',
-            }}
+            style={{ background: discount.bgColor, border: `1px solid ${discount.borderColor}`, borderRadius: '2px' }}
           >
             <div className="flex items-start gap-3">
               <discount.icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: discount.color }} />
@@ -118,22 +92,6 @@ export default function DiscountReminders({ cartSubtotal = 0, showAll = false, c
                 <p className="font-heading text-xs" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}>
                   {discount.description}
                 </p>
-                {discount.id === 'shipping' && (
-                  <>
-                    <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
-                      <div
-                        className="h-full rounded-full transition-all"
-                        style={{
-                          width: `${freeShippingProgress}%`,
-                          background: freeShippingUnlocked ? '#6EBD8E' : discount.color,
-                        }}
-                      />
-                    </div>
-                    <p className="font-mono text-[7px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                      {freeShippingUnlocked ? '✓ Free shipping unlocked!' : `Add $${(75 - cartSubtotal).toFixed(2)} more to unlock`}
-                    </p>
-                  </>
-                )}
               </div>
             </div>
           </div>
@@ -144,16 +102,8 @@ export default function DiscountReminders({ cartSubtotal = 0, showAll = false, c
 
   // Default: single rotating card
   const discount = DISCOUNTS[activeIndex];
-
   return (
-    <div
-      className="p-4"
-      style={{
-        background: discount.bgColor,
-        border: `1px solid ${discount.borderColor}`,
-        borderRadius: '2px',
-      }}
-    >
+    <div className="p-4" style={{ background: discount.bgColor, border: `1px solid ${discount.borderColor}`, borderRadius: '2px' }}>
       <AnimatePresence mode="wait">
         <motion.div
           key={activeIndex}
@@ -178,22 +128,6 @@ export default function DiscountReminders({ cartSubtotal = 0, showAll = false, c
             <p className="font-heading text-xs" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}>
               {discount.description}
             </p>
-            {discount.id === 'shipping' && (
-              <>
-                <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
-                  <div
-                    className="h-full rounded-full transition-all"
-                    style={{
-                      width: `${freeShippingProgress}%`,
-                      background: freeShippingUnlocked ? '#6EBD8E' : discount.color,
-                    }}
-                  />
-                </div>
-                <p className="font-mono text-[7px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  {freeShippingUnlocked ? '✓ Free shipping unlocked!' : `Add $${(75 - cartSubtotal).toFixed(2)} more to unlock`}
-                </p>
-              </>
-            )}
           </div>
         </motion.div>
       </AnimatePresence>

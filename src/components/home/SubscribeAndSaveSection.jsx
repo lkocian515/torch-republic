@@ -7,7 +7,7 @@ const RG = '#E6B7AD';
 
 const PERKS = [
   { icon: Percent, label: '20% Off Every Order', desc: 'Save automatically on each delivery.' },
-  { icon: Package, label: 'Free Shipping', desc: 'Every shipment, no minimum required.' },
+  { icon: Package, label: 'Flexible Delivery', desc: 'Set your schedule — every 2–8 weeks.' },
   { icon: RefreshCw, label: 'Cancel Anytime', desc: 'No commitments. Pause or cancel easily.' },
   { icon: HeartHandshake, label: 'Priority Support', desc: 'Members get first-access service.' },
 ];
@@ -36,7 +36,7 @@ export default function SubscribeAndSaveSection() {
             </h2>
             <p className="font-heading mb-8"
               style={{ fontSize: '1rem', color: 'rgba(245,239,230,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
-              Coffee is a daily ritual — your supply should be automatic. Subscribe and save 20% on every order, with free shipping and zero commitment.
+              Coffee is a daily ritual — your supply should be automatic. Subscribe and save 20% on every order, with zero commitment.
             </p>
             <Link
               to="/subscription"

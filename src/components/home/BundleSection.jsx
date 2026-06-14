@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
 
+// All preset bundles are exactly $49.99 — any 3 tubes.
 const BUNDLES = [
   {
     name: 'Morning Ritual Bundle',
@@ -36,22 +37,22 @@ const BUNDLES = [
     description: 'Designed for afternoons, wind-down rituals, and customers who want calmer, smoother energy.',
     includes: 'MoonCap Restore + DreamCap + The Monk Matcha',
     servings: '3 tubes · ~79 servings total',
-    perServing: '~$0.62 per serving',
+    perServing: '~$0.63 per serving',
     price: '$49.99',
     accent: '#8B9ED4',
     tag: 'Best for Evenings',
     href: '/build-your-ritual',
   },
   {
-    name: 'Calm Energy Bundle',
-    bestFor: 'Slower mornings, reset rituals, and smoother energy',
-    description: 'Designed for afternoons, wind-down rituals, and customers who want calmer, smoother energy.',
-    includes: 'MoonCap Restore + DreamCap + The Monk Matcha',
-    servings: '3 tubes · ~79 servings total',
-    perServing: '~$0.63 per serving',
+    name: 'Build Your Own Bundle',
+    bestFor: 'Mix any three products from the full collection',
+    description: 'Choose any three products from classic coffee, mushroom coffee, and matcha. Every combination is exactly $49.99.',
+    includes: 'Any 3 blends from 12 products',
+    servings: '3 tubes · up to ~81 servings',
+    perServing: '~$0.62 per serving',
     price: '$49.99',
-    accent: '#8B9ED4',
-    tag: 'Best for Evenings',
+    accent: '#E6B7AD',
+    tag: 'Fully Custom',
     href: '/build-your-ritual',
   },
 ];
@@ -76,7 +77,7 @@ export default function BundleSection() {
             Choose Your Bundle
           </h2>
           <p className="font-heading mx-auto mb-4" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
-            Curated bundles designed for different moments of your day. Save when you bundle.
+            Curated bundles designed for different moments of your day. Any 3 blends — always $49.99.
           </p>
         </motion.div>
 
@@ -95,7 +96,6 @@ export default function BundleSection() {
                 border: bundle.featured ? '1px solid rgba(16,185,129,0.3)' : '1px solid rgba(230,183,173,0.1)',
               }}
             >
-              {/* Tag badge */}
               {bundle.tag && (
                 <div className="px-3 py-1.5" style={{ background: bundle.featured ? '#10B981' : `rgba(230,183,173,0.1)`, borderBottom: bundle.featured ? 'none' : '1px solid rgba(230,183,173,0.1)' }}>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold text-center" style={{ color: bundle.featured ? '#080808' : RG }}>
@@ -105,22 +105,16 @@ export default function BundleSection() {
               )}
 
               <div className="p-6 flex flex-col flex-1">
-                {/* Name */}
                 <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.1rem', lineHeight: 1.2 }}>
                   {bundle.name}
                 </h3>
-
-                {/* Best for */}
                 <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-3" style={{ color: `${bundle.accent}80` }}>
                   Best for: {bundle.bestFor}
                 </p>
-
-                {/* Description */}
                 <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.75 }}>
                   {bundle.description}
                 </p>
 
-                {/* Includes */}
                 <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-1" style={{ color: `${bundle.accent}FF` }}>
                   Includes
                 </p>
@@ -128,7 +122,6 @@ export default function BundleSection() {
                   {bundle.includes}
                 </p>
 
-                {/* Servings + per serving */}
                 <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>
                   ✦ {bundle.servings}
                 </p>
@@ -136,13 +129,12 @@ export default function BundleSection() {
                   {bundle.perServing}
                 </p>
 
-                {/* Price + CTA */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-serif font-bold" style={{ fontSize: '1.25rem', color: RG }}>
                     {bundle.price}
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                    Free Ship
+                  <span className="font-mono text-[9px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                    Shipping at checkout
                   </span>
                 </div>
 
@@ -162,7 +154,7 @@ export default function BundleSection() {
           ))}
         </div>
 
-        {/* Or custom build */}
+        {/* Custom build link */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

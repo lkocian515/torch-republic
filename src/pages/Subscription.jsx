@@ -76,15 +76,14 @@ export default function Subscription() {
   // Blended average price for display (~$22.99 mushroom, $19.99 classic, $24.99 matcha)
   const AVG_PRICE = 22.99;
   const monthlyPrice = tubeCount ? tubeCount * AVG_PRICE : 0;
-  const discountedPrice = monthlyPrice * 0.85; // 15% off
+  const discountedPrice = monthlyPrice * 0.80; // 20% off
   const savings = monthlyPrice - discountedPrice;
 
   const handleCheckout = async () => {
     if (!canCheckout) return;
     setIsGeneratingCheckout(true);
     try {
-      // For now, use the existing subscription checkout URL
-      // The 15% discount will be applied in Shopify via discount code SUBSCRIBE15
+      // The 20% subscription discount is applied automatically via Shopify subscription pricing
       const url = await getSubscriptionCheckoutUrl(blendQty);
       setCheckoutUrl(url);
       // Redirect after a brief delay to show loading state
@@ -204,7 +203,7 @@ export default function Subscription() {
                       {n === 1 ? 'Tube' : 'Tubes'} / Month
                     </span>
                     <span className="font-mono text-[9px]" style={{ color: tubeCount === n ? RG : 'rgba(255,255,255,0.25)' }}>
-                     from ${(n * 19.99).toFixed(2)}/mo
+                     from ${(n * 19.99 * 0.80).toFixed(2)}/mo after 20% off
                     </span>
                   </button>
                 ))}
@@ -332,7 +331,7 @@ export default function Subscription() {
 
                 <div className="mt-5 pt-5 flex flex-wrap gap-3 text-[8px] font-mono uppercase tracking-wide" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
                   <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Monthly Delivery</span>
-                  <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Free Shipping</span>
+                  <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>Shipping Calculated at Checkout</span>
                   <span className="px-3 py-1" style={{ background: 'rgba(230,183,173,0.07)', color: 'rgba(230,183,173,0.5)', border: '1px solid rgba(230,183,173,0.12)' }}>{tubeCount * 27} Total Servings</span>
                 </div>
               </div>
