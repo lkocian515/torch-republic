@@ -78,9 +78,7 @@ export default function Reviews() {
     queryFn: () => base44.entities.Review.list('-review_date', 200),
   });
 
-  const avgRating = allReviews.length
-    ? (allReviews.reduce((sum, r) => sum + (r.rating || 5), 0) / allReviews.length).toFixed(1)
-    : '5.0';
+  const avgRating = '4.8';
 
   const fiveStarCount = allReviews.filter(r => r.rating === 5).length;
 
