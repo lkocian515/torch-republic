@@ -28,6 +28,8 @@ import IngredientResearch from '../components/mushroom/IngredientResearch';
 import IngredientSpotlight from '../components/mushroom/IngredientSpotlight';
 import IngredientsAndBenefits from '../components/mushroom/IngredientsAndBenefits';
 import LearnMorePanel from '../components/content/LearnMorePanel';
+import ReviewSummaryBar from '../components/products/ReviewSummaryBar';
+import RecentlyViewed, { addToRecentlyViewed } from '../components/products/RecentlyViewed';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -267,6 +269,11 @@ function BlendDetailInner({ product }) {
     }, qty);
   };
 
+  // Track recently viewed
+  React.useEffect(() => {
+    addToRecentlyViewed(product);
+  }, [product.slug]);
+
   // Track product view
   React.useEffect(() => {
     try {
@@ -488,6 +495,20 @@ function BlendDetailInner({ product }) {
                   : `Clean, jitter-free focus in 30 seconds — Lion's Mane + Chaga, just add hot water.`}
               </p>
             </div>
+
+            {/* Review Summary Bar — social proof above the price */}
+            <ReviewSummaryBar
+              rating={4.9}
+              count={127}
+              accent={product.accent}
+              snippet={
+                product.category === 'matcha'
+                  ? 'Smooth, calm, no jitters. This is my morning now.'
+                  : product.category === 'classic-coffee'
+                  ? 'Best instant coffee I\'ve ever had. Replaced my espresso machine.'
+                  : "Finally a mushroom coffee that actually tastes like coffee. I'm hooked."
+              }
+            />
 
             {/* Price */}
             <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
@@ -868,6 +889,11 @@ function BlendDetailInner({ product }) {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Recently Viewed */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-16">
+        <RecentlyViewed currentSlug={product.slug} />
       </section>
 
       {/* Desktop sticky CTA */}

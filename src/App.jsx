@@ -91,6 +91,9 @@ const ProtocolsDirectory = lazy(() => import('./pages/command/ProtocolsDirectory
 const ProtocolDetail = lazy(() => import('./pages/command/ProtocolDetail.jsx'));
 const AdminCommand = lazy(() => import('./pages/command/AdminCommand.jsx'));
 const AdminBlogEditor = lazy(() => import('./pages/AdminBlogEditor.jsx'));
+const MushroomCoffeeVsRegularCoffee = lazy(() => import('./pages/blog/MushroomCoffeeVsRegularCoffee.jsx'));
+const CeremonialMatchaVsCulinary = lazy(() => import('./pages/blog/CeremonialMatchaVsCulinary.jsx'));
+const PremiumInstantCoffeeDifference = lazy(() => import('./pages/blog/PremiumInstantCoffeeDifference.jsx'));
 
 const mainPageKey = 'Home';
 
@@ -259,10 +262,42 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
         <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-antioxidant-king" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomAntioxidantKing" queryClient={queryClient}><ChagaMushroomAntioxidantKing /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/mushroom-coffee-vs-regular-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeVsRegularCoffee" queryClient={queryClient}><MushroomCoffeeVsRegularCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaVsCulinary" queryClient={queryClient}><CeremonialMatchaVsCulinary /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/what-makes-premium-instant-coffee-different" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PremiumInstantCoffeeDifference" queryClient={queryClient}><PremiumInstantCoffeeDifference /></LayoutWrapper></Suspense>} />
 
-        {/* ── LEGACY REDIRECTS (old brand → new brand) — REMOVED FOR SEO CLEANUP ── */}
-        {/* Old apparel/patriotic routes permanently removed - not part of current coffee/matcha brand */}
-        {/* Founders Series, LiberTees, patriotic apparel, old coffee collections all redirect to homepage */}
+        {/* ── LEGACY REDIRECTS — old brand pages → current wellness brand ── */}
+        {/* Coffee pods, patriotic apparel, collectibles, historical figure blends all → /shop */}
+        <Route path="/coffee-pods" element={<Navigate to="/shop" replace />} />
+        <Route path="/pods" element={<Navigate to="/shop" replace />} />
+        <Route path="/pod" element={<Navigate to="/shop" replace />} />
+        <Route path="/founders-series" element={<Navigate to="/shop" replace />} />
+        <Route path="/founders" element={<Navigate to="/shop" replace />} />
+        <Route path="/libertees" element={<Navigate to="/shop" replace />} />
+        <Route path="/apparel" element={<Navigate to="/shop" replace />} />
+        <Route path="/collectibles" element={<Navigate to="/shop" replace />} />
+        <Route path="/patriotic" element={<Navigate to="/shop" replace />} />
+        <Route path="/patriotic-coffee" element={<Navigate to="/shop" replace />} />
+        <Route path="/lincoln" element={<Navigate to="/shop" replace />} />
+        <Route path="/washington" element={<Navigate to="/shop" replace />} />
+        <Route path="/jefferson" element={<Navigate to="/shop" replace />} />
+        <Route path="/reagan" element={<Navigate to="/shop" replace />} />
+        <Route path="/historical" element={<Navigate to="/shop" replace />} />
+        <Route path="/liberty" element={<Navigate to="/shop" replace />} />
+        <Route path="/freedom" element={<Navigate to="/shop" replace />} />
+        <Route path="/american-heroes" element={<Navigate to="/shop" replace />} />
+        <Route path="/christ-is-king" element={<Navigate to="/shop" replace />} />
+        <Route path="/god-family-country" element={<Navigate to="/shop" replace />} />
+        <Route path="/faith-over-fear" element={<Navigate to="/shop" replace />} />
+        <Route path="/we-the-people" element={<Navigate to="/shop" replace />} />
+        <Route path="/freedom-isnt-free" element={<Navigate to="/shop" replace />} />
+        <Route path="/t-shirts" element={<Navigate to="/shop" replace />} />
+        <Route path="/hoodies" element={<Navigate to="/shop" replace />} />
+        <Route path="/hats" element={<Navigate to="/shop" replace />} />
+        <Route path="/mugs" element={<Navigate to="/shop" replace />} />
+        <Route path="/stickers" element={<Navigate to="/shop" replace />} />
+        <Route path="/flags" element={<Navigate to="/shop" replace />} />
+        <Route path="/bobbleheads" element={<Navigate to="/shop" replace />} />
 
         {/* ── TORCH COMMAND (INTERNAL) — ALL REDIRECT TO HOMEPAGE ── */}
         <Route path="/command" element={<Navigate to="/" replace />} />

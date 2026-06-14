@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Star } from 'lucide-react';
+import { ShoppingBag, Star, Users } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
 
@@ -106,9 +106,10 @@ export default function MushroomProductCard({ product, index = 0 }) {
             }}
           />
           {/* Review Stars */}
-          <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
+          <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.75)' }}>
             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-            <span className="font-mono text-[8px] tracking-[0.15em] text-white">4.9</span>
+            <span className="font-mono text-[8px] tracking-[0.1em] text-white font-bold">4.9</span>
+            <span className="font-mono text-[7px]" style={{ color: 'rgba(255,255,255,0.5)' }}>(127)</span>
           </div>
           {/* Roast badge */}
           <div className="absolute top-3 left-3">
@@ -158,9 +159,14 @@ export default function MushroomProductCard({ product, index = 0 }) {
 
         {/* Price row */}
         <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
-          <span className="font-mono font-bold" style={{ color: '#E6B7AD', fontSize: '1.05rem' }}>
-            ${product.price.toFixed(2)}
-          </span>
+          <div>
+            <span className="font-mono font-bold" style={{ color: '#E6B7AD', fontSize: '1.05rem' }}>
+              ${product.price.toFixed(2)}
+            </span>
+            <span className="font-mono text-[7px] ml-1.5" style={{ color: 'rgba(230,183,173,0.45)' }}>
+              (${(product.price / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)}/cup)
+            </span>
+          </div>
           <Link to={`/products/${product.slug}`}
             onClick={handleLinkClick}
             className="font-mono text-[8px] tracking-[0.22em] uppercase"

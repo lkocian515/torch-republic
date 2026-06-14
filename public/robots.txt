@@ -1,85 +1,32 @@
-# Torch Republic Robots.txt
-# Blocks all admin, internal, dashboard, and private pages from search engine crawlers
-
 User-agent: *
-
-# Allow public customer-facing pages only
 Allow: /
-Allow: /shop
-Allow: /shop/*
-Allow: /blends
-Allow: /bundle
-Allow: /build-your-ritual
-Allow: /mission
-Allow: /contact
-Allow: /reviews
-Allow: /faq
-Allow: /how-it-works
-Allow: /ingredients
-Allow: /why-mushroom-coffee
-Allow: /why-matcha
-Allow: /research
-Allow: /quiz
-Allow: /recipes
-Allow: /journal
-Allow: /journal/*
-Allow: /shipping-policy
-Allow: /return-policy
-Allow: /privacy-policy
-Allow: /terms-of-service
-Allow: /spotlight
-Allow: /gifts
-Allow: /torchbearer
-Allow: /subscription
-Allow: /torchbearers-rewards
-Allow: /mushroom-coffee-benefits
-Allow: /lions-mane-coffee
-Allow: /instant-coffee-for-energy
 
-# Block ALL admin, internal, dashboard, account, and utility pages
-Disallow: /admin
-Disallow: /admin/*
-Disallow: /Admin
-Disallow: /Dashboard
-Disallow: /SEO
-Disallow: /seo
-Disallow: /SearchQueryAnalysis
-Disallow: /search-query-analysis
+# Block admin and internal pages
+Disallow: /admin/
 Disallow: /traffic-report
 Disallow: /TrafficReport
 Disallow: /email-campaign
-Disallow: /email-campaign/*
+Disallow: /email-campaign-dashboard
 Disallow: /EmailCampaignDashboard
 Disallow: /emailcampaigndashboard
-Disallow: /local
-Disallow: /LocalSEO
-Disallow: /command
-Disallow: /command/*
-Disallow: /profile
-Disallow: /Profile
-Disallow: /portal
-Disallow: /Portal
+Disallow: /command/
 Disallow: /CustomerPortal
 Disallow: /customerportal
-Disallow: /loyalty
-Disallow: /Loyalty
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
+Disallow: /portal
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /cart
-Disallow: /checkout
 Disallow: /order-confirmation
-Disallow: /OrderConfirmation
-Disallow: /subscription
-Disallow: /Subscription
-Disallow: /_*
-Disallow: /api
-Disallow: /*?*
-Disallow: /*.json$
-Disallow: /*.csv$
+Disallow: /profile
 
-# Sitemap location
+# Block old apparel/patriotic brand pages (no longer relevant)
+Disallow: /founders-series
+Disallow: /libertees
+Disallow: /patriotic
+Disallow: /apparel
+Disallow: /collectibles
+Disallow: /coffee-pods
+Disallow: /pods
+
 Sitemap: https://torchrepublic.com/sitemap.xml

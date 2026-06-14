@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
@@ -30,9 +31,53 @@ export default function Journal() {
     },
   });
 
+  const FEATURED_GUIDES = [
+    { to: '/journal/mushroom-coffee-vs-regular-coffee', label: 'Mushroom Coffee vs Regular Coffee', cat: 'Mushroom Coffee', accent: '#E6B7AD' },
+    { to: '/journal/ceremonial-matcha-vs-culinary', label: 'Ceremonial Matcha vs Culinary Matcha', cat: 'Matcha', accent: '#6CBD5A' },
+    { to: '/journal/what-makes-premium-instant-coffee-different', label: 'What Makes Premium Instant Coffee Different?', cat: 'Instant Coffee', accent: '#C4A35A' },
+    { to: '/journal/lions-mane-mushroom-coffee', label: "What Is Lion's Mane Coffee?", cat: 'Mushroom Coffee', accent: '#E6B7AD' },
+    { to: '/journal/science-of-lions-mane', label: "The Science of Lion's Mane", cat: 'Research', accent: '#4A9EE6' },
+    { to: '/journal/matcha-benefits', label: 'Matcha Benefits: What the Research Shows', cat: 'Matcha', accent: '#6CBD5A' },
+    { to: '/journal/morning-ritual-for-focus', label: 'How to Build a Better Morning Ritual', cat: 'Wellness', accent: '#D6B27A' },
+    { to: '/journal/adaptogens-guide', label: 'Adaptogens: A Practical Guide', cat: 'Wellness', accent: '#D6B27A' },
+  ];
+
   return (
     <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
       <JournalHero />
+
+      {/* Featured Guides — hardcoded SEO articles */}
+      <section className="px-6 md:px-10 py-12" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+        <div className="max-w-[1400px] mx-auto">
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.45)' }}>
+            Featured Guides
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {FEATURED_GUIDES.map((guide, i) => (
+              <motion.div
+                key={guide.to}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+              >
+              <Link
+                to={guide.to}
+                className="block p-4 transition-all hover:opacity-90"
+                style={{ background: '#141414', border: `1px solid ${guide.accent}18`, textDecoration: 'none' }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = `${guide.accent}40`}
+                onMouseLeave={e => e.currentTarget.style.borderColor = `${guide.accent}18`}
+              >
+                <span className="font-mono text-[7px] tracking-[0.3em] uppercase block mb-2" style={{ color: `${guide.accent}80` }}>{guide.cat}</span>
+                <p className="font-serif font-bold text-white text-sm leading-snug">{guide.label}</p>
+                <span className="font-mono text-[7px] mt-2 block" style={{ color: `${guide.accent}60` }}>Read →</span>
+              </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CategoryFilter activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
       
       <section id="latest-articles" className="px-6 md:px-10 py-16">
