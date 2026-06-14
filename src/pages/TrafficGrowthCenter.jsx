@@ -97,6 +97,13 @@ export default function TrafficGrowthCenter() {
     staleTime: 1000 * 60 * 15,
   });
 
+  const { data: gaData, isLoading: gaLoading, refetch: refetchGA } = useQuery({
+    queryKey: ['ga-analytics', dateRange],
+    queryFn: () => base44.functions.invoke('getGoogleAnalytics', { days: parseInt(dateRange) }),
+    retry: false,
+    staleTime: 1000 * 60 * 15,
+  });
+
   const { data: reviewsData } = useQuery({
     queryKey: ['reviews-count'],
     queryFn: () => base44.entities.Review.list('-created_date', 200),
@@ -136,6 +143,18 @@ export default function TrafficGrowthCenter() {
     .filter(k => k.position >= 4 && k.position <= 20 && k.impressions > 50)
     .sort((a, b) => b.impressions - a.impressions)
     .slice(0, 10);
+
+  // GA4 data
+  const gaOverview = gaData?.data?.overview || null;
+  const gaConnected = gaData?.data?.connected === true;
+  const gaChannels = gaData?.data?.channels || [];
+  const gaTopPages = gaData?.data?.topPages || [];
+
+  const fmtSeconds = (s) => {
+    const m = Math.floor(s / 60);
+    const sec = Math.round(s % 60);
+    return `${m}m ${sec}s`;
+  };
 
   const reviewCount = reviewsData?.length || 0;
   const avgRating = reviewsData?.length
@@ -203,9 +222,9 @@ export default function TrafficGrowthCenter() {
             />
             <ConnectionStatus
               name="Google Analytics 4"
-              status="disconnected"
+              status={gaConnected ? 'connected' : 'partial'}
               actionUrl="https://analytics.google.com"
-              actionLabel="Connect GA4"
+              actionLabel="Open GA4"
             />
             <ConnectionStatus
               name="Google Merchant Center"
@@ -231,6 +250,84 @@ export default function TrafficGrowthCenter() {
             <StatCard label="Avg Position" value={gscConnected && avgPosition ? `#${avgPosition}` : '—'} icon={Search} connected={gscConnected} />
             <StatCard label="Click-Through Rate" value={gscConnected && avgCTR ? avgCTR : '—'} icon={TrendingUp} connected={gscConnected} />
           </div>
+        </section>
+
+        {/* ── Google Analytics 4 Overview ── */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <SectionHeader title="Google Analytics 4" sub={gaConnected ? `Last ${dateRange} days — Property 525961514` : 'Fetching GA4 data...'} />
+            <button onClick={() => refetchGA()} className="flex items-center gap-1.5 font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-1.5 transition-all hover:opacity-80"
+              style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.5)' }}>
+              <RefreshCw className={`w-3 h-3 ${gaLoading ? 'animate-spin' : ''}`} /> Refresh
+            </button>
+          </div>
+          {gaLoading ? (
+            <div className="flex items-center gap-3 py-8" style={{ color: 'rgba(230,183,173,0.4)' }}>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase">Loading GA4 data...</span>
+            </div>
+          ) : gaConnected && gaOverview ? (
+            <>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+                <StatCard label="Sessions" value={gaOverview.sessions.toLocaleString()} icon={BarChart2} color="#6CBD5A" />
+                <StatCard label="Active Users" value={gaOverview.activeUsers.toLocaleString()} icon={Eye} color={RG} />
+                <StatCard label="Page Views" value={gaOverview.pageViews.toLocaleString()} icon={Globe} color={GOLD} />
+                <StatCard label="New Users" value={gaOverview.newUsers.toLocaleString()} icon={TrendingUp} color={RG} />
+                <StatCard label="Bounce Rate" value={`${(gaOverview.bounceRate * 100).toFixed(1)}%`} icon={ArrowDown} color={gaOverview.bounceRate > 0.6 ? '#E8697A' : '#6CBD5A'} />
+                <StatCard label="Avg Session" value={fmtSeconds(gaOverview.avgSessionDuration)} icon={RefreshCw} color={GOLD} />
+              </div>
+
+              {/* Traffic by Channel */}
+              {gaChannels.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>Traffic by Channel</p>
+                    <div className="space-y-2">
+                      {gaChannels.map((ch, i) => {
+                        const totalSessions = gaChannels.reduce((s, c) => s + c.sessions, 0);
+                        const pct = totalSessions > 0 ? Math.round((ch.sessions / totalSessions) * 100) : 0;
+                        return (
+                          <div key={i} className="flex items-center gap-3">
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="font-heading text-xs" style={{ color: '#F5EFE6' }}>{ch.channel}</span>
+                                <span className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.6)' }}>{ch.sessions.toLocaleString()} sessions</span>
+                              </div>
+                              <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                                <div className="h-full rounded-full" style={{ width: `${pct}%`, background: i === 0 ? RG : i === 1 ? GOLD : 'rgba(230,183,173,0.35)' }} />
+                              </div>
+                            </div>
+                            <span className="font-mono text-[8px] w-8 text-right" style={{ color: 'rgba(230,183,173,0.5)' }}>{pct}%</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Top Pages */}
+                  {gaTopPages.length > 0 && (
+                    <div>
+                      <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>Top Pages by Views</p>
+                      <div className="space-y-1.5">
+                        {gaTopPages.slice(0, 8).map((pg, i) => (
+                          <div key={i} className="flex items-center justify-between py-1.5 px-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.06)' }}>
+                            <span className="font-mono text-[8px] truncate" style={{ color: i < 3 ? RG : 'rgba(240,235,225,0.5)', maxWidth: '70%' }}>{pg.path}</span>
+                            <span className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.5)' }}>{pg.pageViews.toLocaleString()}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="p-6 text-center" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)' }}>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                {gaData?.data?.error || 'Unable to load GA4 data'}
+              </p>
+            </div>
+          )}
         </section>
 
         {/* ── Keyword Opportunities ── */}
@@ -320,7 +417,7 @@ export default function TrafficGrowthCenter() {
               { label: 'Twitter Card Tags', status: 'pass', detail: 'twitter:card, title, description, image set on all pages' },
               { label: 'Meta Descriptions', status: 'pass', detail: 'Unique descriptions set on all indexed pages via useSEO' },
               { label: 'noindex on admin routes', status: 'pass', detail: '/admin/*, /traffic-report, /email-campaign-dashboard redirect to / or blocked in robots.txt' },
-              { label: 'Google Analytics — GA4 ID', status: 'warn', detail: 'GA4 tag present but uses placeholder G-XXXXXXXXXX — replace with real ID (see Owner Actions)' },
+              { label: 'Google Analytics 4', status: 'pass', detail: `GA4 connected via API — Property 525961514 (Torch Republic Coffee Company). Live data visible in Traffic Growth Center.` },
               { label: 'IndexNow', status: 'todo', detail: 'Not yet implemented — requires IndexNow API key (see Owner Actions)' },
               { label: 'Core Web Vitals Baseline', status: 'todo', detail: 'Run PageSpeed Insights after deployment for current LCP/INP/CLS scores' },
               { label: 'Google Merchant Center Feed', status: 'todo', detail: 'Shopify native feed recommended — see Owner Actions' },
@@ -343,15 +440,7 @@ export default function TrafficGrowthCenter() {
           <SectionHeader title="Owner Actions Required" sub="Items that require manual steps outside this app" />
           <div className="space-y-4">
             {[
-              {
-                priority: 'HIGH',
-                title: 'Replace Google Analytics placeholder',
-                steps: [
-                  'Go to analytics.google.com → Admin → Data Streams → get your Measurement ID (format: G-XXXXXXXXXX)',
-                  'In Base44 dashboard, open index.html and replace both instances of G-XXXXXXXXXX with your real GA4 Measurement ID',
-                ],
-                color: '#E8697A',
-              },
+
               {
                 priority: 'HIGH',
                 title: 'Submit sitemap to Google Search Console',
