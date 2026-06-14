@@ -15,14 +15,16 @@ export default function ReviewPopup() {
   const { data: allReviews = [], isLoading } = useQuery({
     queryKey: ['reviews'],
     queryFn: async () => {
-      const reviews = await base44.entities.Review.list();
-      // Filter for reviews with 4-5 stars only for the popup
+      const reviews = await base44.entities.Review.list('-review_date', 200);
       return reviews.filter(r => r.rating >= 4);
     },
   });
 
-  // Use only first 15 reviews for popup
-  const reviews = allReviews.slice(0, 15);
+  // Shuffle and pick 15 unique reviews for popup
+  const reviews = React.useMemo(() => {
+    const shuffled = [...allReviews].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 15);
+  }, [allReviews.length]);
 
   // Show popup after 3 seconds on first visit, then cycle: 8 seconds open, 5 seconds closed
   useEffect(() => {
