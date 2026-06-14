@@ -1,142 +1,33 @@
 User-agent: *
+Allow: /
 
-# ── PUBLIC PAGES — all crawlable ──
-Allow: /$
-Allow: /shop
-Allow: /shop/
-Allow: /shop/instant-mushroom-coffee
-Allow: /shop/instant-coffee
-Allow: /shop/matcha
-Allow: /mushroom-coffee
-Allow: /classic-coffee
-Allow: /matcha
-Allow: /blends
-Allow: /blends/
-Allow: /products/
-Allow: /bundle
-Allow: /how-it-works
-Allow: /reviews
-Allow: /journal
-Allow: /journal/
-Allow: /mission
-Allow: /about
-Allow: /contact
-Allow: /faq
-Allow: /recipes
-Allow: /research
-Allow: /quiz
-Allow: /ingredients
-Allow: /why-mushroom-coffee
-Allow: /why-matcha
-Allow: /mushroom-coffee-benefits
-Allow: /lions-mane-coffee
-Allow: /instant-coffee-for-energy
-Allow: /subscription
-Allow: /torchbearers-rewards
-Allow: /build-your-ritual
-Allow: /gifts
-Allow: /spotlight
-Allow: /shipping-policy
-Allow: /return-policy
-Allow: /privacy-policy
-Allow: /terms-of-service
-Allow: /torchbearer
-
-# ── ADMIN AND INTERNAL TOOLS — block all crawlers ──
+# Block internal/admin pages from crawlers
 Disallow: /admin/
-Disallow: /admin
-Disallow: /admin/traffic
-Disallow: /admin/keywords
-Disallow: /admin/shopify
-Disallow: /admin/blog
-Disallow: /traffic-report
-Disallow: /TrafficReport
-Disallow: /email-campaign
-Disallow: /email-campaign-dashboard
-Disallow: /EmailCampaignDashboard
-Disallow: /emailcampaigndashboard
-Disallow: /command/
-Disallow: /command
-Disallow: /TorchCommandHome
-Disallow: /CognitiveQuiz
-Disallow: /FlowTimer
-Disallow: /ProtocolsDirectory
-Disallow: /ProtocolDetail
-Disallow: /AdminCommand
-Disallow: /AdminBlogEditor
-Disallow: /AdminShopify
-Disallow: /KeywordAnalysis
-Disallow: /SearchQueryAnalysis
-Disallow: /search-query-analysis
-Disallow: /local
-Disallow: /LocalSEO
-Disallow: /SEO
-Disallow: /seo
-Disallow: /Dashboard
-Disallow: /Admin
-Disallow: /TrafficGrowthCenter
-
-# ── CUSTOMER ACCOUNT & UTILITY — noindex via meta but also block crawlers ──
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
+Disallow: /admin/*
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /profile
 Disallow: /loyalty
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
+Disallow: /subscription
+
+# Block legacy redirect paths
+Disallow: /traffic-report
+Disallow: /email-campaign
+Disallow: /email-campaign-dashboard
+Disallow: /command/
+Disallow: /command/*
+
+# Block low-value utility paths
 Disallow: /portal
-Disallow: /Portal
-Disallow: /CustomerPortal
 Disallow: /customerportal
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
-Disallow: /Profile
-Disallow: /Subscription
 
-# ── LEGACY PATRIOTIC / APPAREL (obsolete brand) ──
-Disallow: /founders-series
-Disallow: /founders
-Disallow: /libertees
-Disallow: /apparel
-Disallow: /collectibles
-Disallow: /patriotic
-Disallow: /patriotic-coffee
-Disallow: /lincoln
-Disallow: /washington
-Disallow: /jefferson
-Disallow: /reagan
-Disallow: /historical
-Disallow: /liberty
-Disallow: /freedom
-Disallow: /american-heroes
-Disallow: /christ-is-king
-Disallow: /god-family-country
-Disallow: /faith-over-fear
-Disallow: /we-the-people
-Disallow: /freedom-isnt-free
-Disallow: /t-shirts
-Disallow: /hoodies
-Disallow: /hats
-Disallow: /mugs
-Disallow: /stickers
-Disallow: /flags
-Disallow: /bobbleheads
-Disallow: /coffee-pods
-Disallow: /pods
-Disallow: /pod
-
-# ── QUERY PARAM DUPLICATES — block filter/search variants ──
-Disallow: /*?*sort=
-Disallow: /*?*filter=
-Disallow: /*?*page=
-Disallow: /*?*q=
-Disallow: /*?*ref=
-Disallow: /*?*utm_
-
-# ── CRAWL RATE ──
-Crawl-delay: 1
-
-# ── SITEMAP ──
+# Sitemaps
 Sitemap: https://torchrepublic.com/sitemap.xml
+Sitemap: https://torchrepublic.com/sitemap-pages.xml
+Sitemap: https://torchrepublic.com/sitemap-products.xml
+Sitemap: https://torchrepublic.com/sitemap-blog.xml

@@ -68,8 +68,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Instant Mushroom Coffee Blends | Torch Republic Coffee Company',
-    description: "Shop smooth instant mushroom coffee blends with roasted coffee flavor and earthy notes. No machine required — just stir and sip.",
+    title: "Best Instant Mushroom Coffee with Lion's Mane & Chaga | Torch Republic",
+    description: "Buy premium instant mushroom coffee with Lion's Mane and Chaga. 6 blends for focus, calm energy, and daily rituals. No coffee maker needed. 27 servings per tube.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [
@@ -95,10 +95,10 @@ export default function MushroomCoffeeCollection() {
               Torch Republic Coffee Co. — Mushroom Coffee
             </p>
             <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Instant Mushroom Coffee<br />Made for Clarity
+              Instant Mushroom Coffee<br />with Lion's Mane & Chaga
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Six premium instant coffee blends with Lion's Mane and Chaga — crafted for focus, calm energy, and intentional daily rituals. Coffee-forward. No machines. No pods.
+              Six premium instant mushroom coffee blends — Lion's Mane for focus, Chaga for resilience, premium Arabica for taste. Coffee-forward. No machine, no pods, no compromise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#080808', borderRadius: '4px' }}>

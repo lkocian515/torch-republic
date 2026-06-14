@@ -69,8 +69,8 @@ export default function ClassicCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Premium Instant Coffee | Torch Republic Reserve Collection',
-    description: "Discover premium instant coffee from Torch Republic's Reserve Collection. Smooth, convenient, and made for hot or iced daily coffee rituals.",
+    title: 'Premium Instant Coffee | Smooth, No-Machine Coffee — Torch Republic',
+    description: "Shop premium instant coffee — 100% Arabica, no coffee maker needed. Smooth hot or iced coffee ready in seconds. 27 servings per tube. Free from mushrooms.",
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [
@@ -96,10 +96,10 @@ export default function ClassicCoffeeCollection() {
               Torch Republic Coffee Co. — Classic Instant Coffee
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Premium Instant Coffee<br />for Simple, Elevated Mornings
+              Best Premium Instant Coffee<br />No Machine, No Pods, No Compromise
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Not every ritual needs mushrooms. The Torch Republic Reserve Collection is premium instant coffee for customers who want a smooth, simple daily cup — no machine needed.
+              100% Arabica instant coffee for smooth, rich flavor in seconds — hot or iced. Three blends, 27 servings each. No coffee maker, no pods, no mushrooms. Just great coffee.
             </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>

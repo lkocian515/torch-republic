@@ -70,8 +70,8 @@ export default function MatchaCollection() {
   }, []);
 
   useSEO({
-    title: 'Ceremonial Matcha Powder | Torch Republic Matcha Collection',
-    description: 'Shop ceremonial matcha powder for smooth hot or iced matcha rituals. Whisk, stir, or blend into your favorite matcha latte.',
+    title: 'Ceremonial Matcha Powder | Instant Matcha Latte with L-Theanine — Torch Republic',
+    description: "Buy ceremonial grade matcha powder for calm focus and smooth energy. L-theanine + caffeine without jitters. No whisk needed — instant matcha latte in seconds.",
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [
@@ -97,10 +97,10 @@ export default function MatchaCollection() {
               Torch Republic Coffee Co. — Ceremonial Matcha
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Ceremonial Matcha<br />for Smooth Focus & Daily Rituals
+              Ceremonial Matcha Powder<br />for Calm Focus & Instant Matcha Lattes
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Three smooth ceremonial matcha blends for calm focus, mindful energy, and a grounded daily reset. Instant preparation. No whisk needed.
+              Three ceremonial grade matcha blends with L-theanine for calm, jitter-free energy and deep focus. Dissolves instantly — hot or iced. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
