@@ -9,10 +9,12 @@ import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/l
 const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
   .reduce((acc, p) => { acc[p.shopifyHandle] = p.image; return acc; }, {});
 
+import { BUNDLE_PRICE_3, getPriceByCategory } from '@/lib/pricingConfig';
+
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';
-// Fixed bundle price — always $59.99 regardless of products selected
-const BUNDLE_PRICE = 59.99;
+// Fixed bundle price — always $49.99 regardless of products selected
+const BUNDLE_PRICE = BUNDLE_PRICE_3;
 const INDIVIDUAL_PRICE = 22.99; // default fallback price
 const BUNDLE_SIZE = 3;
 
@@ -51,7 +53,7 @@ export default function BuildYourRitual() {
 
   useSEO({
     title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
-    description: 'Build your custom 3-blend bundle and save. Mix and match from 12 products - classic coffee, mushroom coffee with Lions Mane and Chaga, and ceremonial matcha. Free shipping. 30-day guarantee.',
+    description: 'Build your custom 3-blend bundle and save. Mix and match from 12 products — classic coffee, mushroom coffee with Lions Mane and Chaga, and ceremonial matcha. Any 3 blends for $49.99. 30-day guarantee.',
     url: '/build-your-ritual',
   });
 
@@ -232,12 +234,12 @@ export default function BuildYourRitual() {
                     ))}
                   </div>
                   <div className="flex flex-wrap items-baseline gap-3 mb-2">
-                    <span className="font-serif font-bold" style={{ fontSize: '1.6rem', color: RG }}>${BUNDLE_PRICE}</span>
+                    <span className="font-serif font-bold" style={{ fontSize: '1.6rem', color: RG }}>${BUNDLE_PRICE.toFixed(2)}</span>
                     <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$67.97 separately</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $7.98</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $17.98</span>
                   </div>
                   <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                    Save up to $14.98 depending on your selections
+                    Bundle pricing cannot be combined with additional product discounts.
                   </p>
                   <a
                     href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1"
@@ -261,8 +263,8 @@ export default function BuildYourRitual() {
                     <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Instant powder — stir, sip, begin.</p>
                   </div>
                   <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>30-Day Guarantee</p>
-                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>If it's not right, we make it right.</p>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>Shipping Calculated at Checkout</p>
+                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Rates calculated at Shopify checkout.</p>
                   </div>
                 </div>
               </div>
@@ -564,7 +566,7 @@ export default function BuildYourRitual() {
                       </button>
 
                       <p className="font-mono text-[7px] tracking-[0.25em] uppercase text-center mt-4" style={{ color: `${RG}40` }}>
-                        ✦ Free shipping · 30-day guarantee
+                        ✦ Bundle pricing cannot be combined with other discounts
                       </p>
                     </div>
                   </>
@@ -593,9 +595,9 @@ export default function BuildYourRitual() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
-              'Free Shipping on Bundles',
+              'Shipping Calculated at Checkout',
               '30-Day Satisfaction Guarantee',
-              'Cancel Subscription Anytime',
+              'No Machine Needed',
               'Premium Functional Ingredients',
             ].map((item, i) => (
               <span key={i} className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}50` }}>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { HOMEPAGE_FEATURED_PRODUCTS, FALLBACK_PRODUCT_IMAGE } from '@/lib/homepageFeaturedProducts';
+import { getPriceByCategory, getSubscriptionPriceByCategory } from '@/lib/pricingConfig';
 
 const RG = '#E6B7AD';
 
@@ -19,7 +20,7 @@ export default function StartHereSection() {
     addItem({
       id: product.slug,
       name: product.label,
-      price: 29.99,
+      price: getPriceByCategory(product.category),
       image: product.imageUrl || FALLBACK_PRODUCT_IMAGE,
       category: product.category || 'mushroom-coffee',
       shopifyHandle: product.slug,
@@ -118,11 +119,10 @@ export default function StartHereSection() {
                 {/* Price */}
                 <div className="flex flex-col gap-0.5 pt-3" style={{ borderTop: `1px solid ${product.accent}20` }}>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>$29.99</span>
-                    <span className="font-mono text-[8px] line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>$37.49</span>
-                    <span className="font-mono text-[7.5px] tracking-[0.15em] uppercase px-1.5 py-0.5" style={{ background: 'rgba(230,183,173,0.1)', color: RG }}>Sub &amp; Save 20%</span>
+                    <span className="font-mono font-bold" style={{ color: RG, fontSize: '1.05rem' }}>${getPriceByCategory(product.category).toFixed(2)}</span>
+                    <span className="font-mono text-[7.5px] tracking-[0.15em] uppercase px-1.5 py-0.5" style={{ background: 'rgba(230,183,173,0.1)', color: RG }}>or ${getSubscriptionPriceByCategory(product.category).toFixed(2)} with Sub &amp; Save</span>
                   </div>
-                  <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.3)' }}>≈ $1.11/cup · 27 servings</p>
+                  <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Shipping calculated at checkout</p>
                 </div>
 
                 {/* Add to Cart */}
