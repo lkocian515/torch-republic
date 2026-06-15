@@ -103,6 +103,11 @@ const FAQPage = lazy(() => import('./pages/FAQPage.jsx'));
 const IngredientPage = lazy(() => import('./pages/IngredientPage.jsx'));
 const ComparisonPage = lazy(() => import('./pages/ComparisonPage.jsx'));
 const AuthorPage = lazy(() => import('./pages/AuthorPage.jsx'));
+const ComparisonCenter = lazy(() => import('./pages/ComparisonCenter.jsx'));
+const RyzeVsTorchRepublic = lazy(() => import('./pages/compare/RyzeVsTorchRepublic.jsx'));
+const FourSigmaticVsTorchRepublic = lazy(() => import('./pages/compare/FourSigmaticVsTorchRepublic.jsx'));
+const MudwtrVsTorchRepublic = lazy(() => import('./pages/compare/MudwtrVsTorchRepublic.jsx'));
+const EverydayDoseVsTorchRepublic = lazy(() => import('./pages/compare/EverydayDoseVsTorchRepublic.jsx'));
 const FounderStory = lazy(() => import('./pages/FounderStory.jsx'));
 const MorningRitualCollection = lazy(() => import('./pages/MorningRitualCollection.jsx'));
 const FocusCoffeeCollection = lazy(() => import('./pages/FocusCoffeeCollection.jsx'));
@@ -285,7 +290,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── INGREDIENT DEEP DIVES ── */}
         <Route path="/ingredients/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="IngredientPage" queryClient={queryClient}><IngredientPage /></LayoutWrapper></Suspense>} />
 
-        {/* ── COMPARISON GUIDES ── */}
+        {/* ── COMPARISON CENTER ── */}
+        <Route path="/compare" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonCenter" queryClient={queryClient}><ComparisonCenter /></LayoutWrapper></Suspense>} />
+        {/* Dedicated rich competitor pages */}
+        <Route path="/compare/ryze-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RyzeVsTorchRepublic" queryClient={queryClient}><RyzeVsTorchRepublic /></LayoutWrapper></Suspense>} />
+        <Route path="/compare/four-sigmatic-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FourSigmaticVsTorchRepublic" queryClient={queryClient}><FourSigmaticVsTorchRepublic /></LayoutWrapper></Suspense>} />
+        <Route path="/compare/mudwtr-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MudwtrVsTorchRepublic" queryClient={queryClient}><MudwtrVsTorchRepublic /></LayoutWrapper></Suspense>} />
+        <Route path="/compare/everyday-dose-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EverydayDoseVsTorchRepublic" queryClient={queryClient}><EverydayDoseVsTorchRepublic /></LayoutWrapper></Suspense>} />
+        {/* Fallback generic comparison page for remaining slugs */}
         <Route path="/compare/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonPage" queryClient={queryClient}><ComparisonPage /></LayoutWrapper></Suspense>} />
 
         {/* ── AUTHOR / TEAM PAGE (E-E-A-T) ── */}
