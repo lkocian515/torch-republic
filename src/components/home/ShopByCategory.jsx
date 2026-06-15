@@ -80,7 +80,7 @@ export default function ShopByCategory() {
             Choose Your Ritual
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            What Are You Optimizing For?
+            Explore Our Collections
           </h2>
           <p className="font-heading mx-auto" style={{ fontSize: '1rem', color: 'rgba(245,239,230,0.6)', fontWeight: 300, lineHeight: 1.8, maxWidth: '480px' }}>
             Pick the ritual that fits your mornings — or build a custom bundle.
