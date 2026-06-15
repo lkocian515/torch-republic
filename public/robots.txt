@@ -1,30 +1,47 @@
 User-agent: *
 Allow: /
 
-# Block internal/admin pages from crawlers
+# Block all admin, internal tools, account and utility pages
 Disallow: /admin/
-Disallow: /admin/*
+Disallow: /admin/shopify
+Disallow: /admin/keywords
+Disallow: /admin/traffic
+Disallow: /admin/blog
+Disallow: /command/
+Disallow: /command
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /profile
-Disallow: /loyalty
 Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
-Disallow: /subscription
-
-# Block legacy redirect paths
-Disallow: /traffic-report
+Disallow: /profile
+Disallow: /loyalty
+Disallow: /portal
 Disallow: /email-campaign
 Disallow: /email-campaign-dashboard
-Disallow: /command/
-Disallow: /command/*
+Disallow: /traffic-report
+Disallow: /TrafficReport
+Disallow: /KeywordAnalysis
+Disallow: /SearchQueryAnalysis
+Disallow: /EmailCampaignDashboard
+Disallow: /CustomerPortal
+Disallow: /LoyaltyPortal
+Disallow: /AdminShopify
+Disallow: /local
+Disallow: /LocalSEO
+Disallow: /SEO
+Disallow: /seo
+Disallow: /Admin
+Disallow: /Dashboard
 
-# Block low-value utility paths
-Disallow: /portal
-Disallow: /customerportal
+# Block query/filter params that create duplicate content
+Disallow: /*?q=
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?ref=
+Disallow: /*?utm_
 
 # Sitemaps
 Sitemap: https://torchrepublic.com/sitemap.xml

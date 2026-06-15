@@ -29,8 +29,8 @@ const TRUST = [
 
 export default function OurMission() {
   useSEO({
-    title: 'About Torch Republic Coffee Company | Founder-Led Coffee Rituals',
-    description: 'Torch Republic is a founder-led coffee company creating premium instant coffee, mushroom coffee, and matcha for intentional daily rituals.',
+    title: 'Our Story: Convenience Without the Pod | Torch Republic',
+    description: "Learn how the search for pod-level convenience without plastic capsules inspired Torch Republic's instant coffee, mushroom coffee, and matcha collection.",
     url: '/mission',
     type: 'website',
   });

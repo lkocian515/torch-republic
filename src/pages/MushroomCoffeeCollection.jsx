@@ -68,8 +68,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: "Best Instant Mushroom Coffee with Lion's Mane & Chaga | Torch Republic",
-    description: "Buy premium instant mushroom coffee with Lion's Mane and Chaga. 6 blends for focus, calm energy, and daily rituals. No coffee maker needed. 27 servings per tube.",
+    title: "Instant Mushroom Coffee with Lion's Mane + Chaga | Torch Republic",
+    description: "Explore six coffee-forward instant mushroom blends made with Lion's Mane and Chaga. Easy to prepare, approximately 27 servings, and no machine required.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [

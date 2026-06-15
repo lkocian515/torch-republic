@@ -17,8 +17,8 @@ export default function JournalHub() {
   const [activeCluster, setActiveCluster] = useState('all');
 
   useSEO({
-    title: 'Journal | Mushroom Coffee, Matcha & Instant Coffee Education | Torch Republic',
-    description: "100+ research-backed guides on mushroom coffee, ceremonial matcha, instant coffee, Lion's Mane, focus rituals, and morning routines from Torch Republic.",
+    title: 'Coffee, Mushroom and Matcha Guides | Torch Republic Journal',
+    description: 'Explore practical guides to instant coffee, mushroom coffee, Lion\'s Mane, Chaga, matcha, ingredients, and easy daily rituals.',
     url: '/journal',
     breadcrumbs: [
       { name: 'Home', url: '/' },

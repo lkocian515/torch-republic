@@ -69,8 +69,8 @@ export default function ClassicCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Premium Instant Coffee | Smooth, No-Machine Coffee — Torch Republic',
-    description: "Shop premium instant coffee — 100% Arabica, no coffee maker needed. Smooth hot or iced coffee ready in seconds. 27 servings per tube. Free from mushrooms.",
+    title: 'Premium Freeze-Dried Instant Coffee | Torch Republic',
+    description: 'Discover smooth premium instant coffee made for busy mornings, travel, and everyday rituals. Add water, stir, and enjoy — no coffee machine needed.',
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [

@@ -70,8 +70,8 @@ export default function MatchaCollection() {
   }, []);
 
   useSEO({
-    title: 'Ceremonial Matcha Powder | Instant Matcha Latte with L-Theanine — Torch Republic',
-    description: "Buy ceremonial grade matcha powder for calm focus and smooth energy. L-theanine + caffeine without jitters. No whisk needed — instant matcha latte in seconds.",
+    title: 'Premium Matcha Blends for Daily Rituals | Torch Republic',
+    description: 'Shop smooth premium matcha blends made for calm energy and simple preparation at home or on the go.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [

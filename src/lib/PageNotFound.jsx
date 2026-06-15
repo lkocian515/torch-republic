@@ -1,4 +1,5 @@
 import { useLocation, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
@@ -63,6 +64,18 @@ const OLD_URL_REDIRECTS = {
 export default function PageNotFound({}) {
     const location = useLocation();
     const pageName = location.pathname.substring(1);
+
+    // Ensure 404 pages are never indexed
+    useEffect(() => {
+        let el = document.querySelector('meta[name="robots"]');
+        if (!el) {
+            el = document.createElement('meta');
+            el.setAttribute('name', 'robots');
+            document.head.appendChild(el);
+        }
+        el.setAttribute('content', 'noindex, nofollow');
+        return () => { if (el) el.setAttribute('content', 'index, follow'); };
+    }, []);
     
     // React Hooks must be called unconditionally - call before any early returns
     const { data: authData, isFetched } = useQuery({
@@ -129,15 +142,15 @@ export default function PageNotFound({}) {
                             Shop Your Ritual
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
-                            <a href="/mushroom-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                            <a href="/shop/instant-mushroom-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                                 <p className="font-serif font-bold text-white text-base mb-1">Mushroom Coffee</p>
                                 <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Lion's Mane + Chaga</p>
                             </a>
-                            <a href="/matcha" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                            <a href="/shop/matcha" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                                 <p className="font-serif font-bold text-white text-base mb-1">Ceremonial Matcha</p>
-                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Premium Japanese</p>
+                                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Premium Grade</p>
                             </a>
-                            <a href="/classic-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                            <a href="/shop/instant-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                                 <p className="font-serif font-bold text-white text-base mb-1">Instant Coffee</p>
                                 <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>Premium Classic</p>
                             </a>

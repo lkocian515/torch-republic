@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const BASE_URL = 'https://torchrepublic.com';
-const SITE_NAME = 'Torch Republic Coffee Co.';
+const SITE_NAME = 'Torch Republic';
 const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
 
 /**
@@ -25,7 +25,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     // Avoid double-branding — only append if not already present
     const fullTitle = title
       ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
-      : `${SITE_NAME} | Instant Coffee, Mushroom Coffee & Matcha`;
+      : `Instant Coffee, Mushroom Coffee & Matcha | ${SITE_NAME}`;
     const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
 
@@ -127,14 +127,16 @@ export function useSEO({ title, description, image, url, type = 'website', produ
           priceValidUntil: new Date(new Date().getFullYear() + 1, 11, 31).toISOString().split('T')[0],
           seller: { '@type': 'Organization', name: SITE_NAME },
         },
-        // Always inject aggregateRating for rich snippets — use product-specific or site default
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: product.rating || 4.9,
-          reviewCount: product.reviewCount || 127,
-          bestRating: 5,
-          worstRating: 1,
-        },
+        // Only inject aggregateRating when real data is provided
+        ...(product.rating && product.reviewCount ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: product.rating,
+            reviewCount: product.reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        } : {}),
       });
     }
 
