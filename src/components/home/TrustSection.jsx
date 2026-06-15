@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Shield, Leaf, Award, Truck, Star, User } from 'lucide-react';
 
 const RG = '#E6B7AD';
@@ -18,12 +17,7 @@ export default function TrustSection() {
     <section className="px-6 md:px-10 py-16 md:py-20" style={{ background: '#0D0C0B' }}>
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
+        <div className="text-center mb-10">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Why Customers Trust Torch Republic
           </p>
@@ -33,17 +27,13 @@ export default function TrustSection() {
           >
             Built on Trust & Quality
           </h2>
-        </motion.div>
+        </div>
 
         {/* Trust Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-12">
           {TRUST_ITEMS.map((item, i) => (
-            <motion.div
+            <div
               key={item.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}
               className="flex flex-col items-center text-center p-4"
               style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}
             >
@@ -54,15 +44,12 @@ export default function TrustSection() {
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400 }}>
                 {item.sub}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Founder Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div
           className="max-w-2xl mx-auto text-center"
           style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', padding: '32px', borderRadius: '4px' }}
         >
@@ -81,7 +68,7 @@ export default function TrustSection() {
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.75)' }}>Corpus Christi, TX</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

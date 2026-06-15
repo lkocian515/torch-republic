@@ -1,6 +1,34 @@
-/* Fonts preloaded in index.html for faster FCP */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Fonts loaded via index.html preload for performance — do not duplicate here */
+
+/* Font fallback metrics — reduce CLS from font swap */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: local('Georgia');
+  size-adjust: 103%;
+  ascent-override: 92%;
+  descent-override: 22%;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: local('Arial');
+  size-adjust: 100%;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: local('Courier New');
+  size-adjust: 95%;
+}
 
 @tailwind base;
 @tailwind components;
@@ -221,6 +249,16 @@
 html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
+}
+
+/* Respect reduced motion — disable transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Safe areas for notched devices */

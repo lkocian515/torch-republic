@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://torchrepublic.com/" />
-    <link rel="preconnect" href="https://media.base44.com" />
+    <link rel="preconnect" href="https://media.base44.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://torchrepublic.com" />
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <title>Instant Coffee, Mushroom Coffee & Matcha | Torch Republic</title>
     <meta name="theme-color" content="#0A0A0A" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
-    <meta name="description" content="Shop premium instant coffee, Lion's Mane and Chaga mushroom coffee, and matcha blends made for simple daily rituals. No machine needed. Free shipping $75+." />
+    <!-- Preload only critical LCP hero image for mobile -->
+    <link rel="preload" as="image" href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fce811268_ChatGPTImageJun15202608_56_36AM.png" fetchpriority="high" />
+    <!-- Critical fonts only — Inter (body) and one serif weight loaded async to avoid render-block -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap&font-display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+    <meta name="description" content="Torch Republic creates premium instant coffee, mushroom coffee and ceremonial matcha for convenient, pod-free daily wellness rituals. Free shipping $75+." />
     <meta name="keywords" content="instant mushroom coffee, mushroom coffee, lion's mane coffee, chaga coffee, functional coffee, ceremonial matcha, instant matcha latte, premium instant coffee, no machine coffee, coffee ritual, focus coffee, calm energy, best instant coffee, buy mushroom coffee" />
     <meta property="og:title" content="Instant Coffee, Mushroom Coffee & Matcha | Torch Republic" />
     <meta property="og:description" content="Buy premium instant mushroom coffee with Lion's Mane and Chaga, classic instant coffee, and ceremonial matcha. No machine needed. 27 servings per tube." />
@@ -33,15 +38,26 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:image" content="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png" />
-    <!-- Google Analytics GA4 — Property 525961514 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QZ4ECWB15"></script>
+    <!-- Google Analytics GA4 — deferred to avoid render-blocking -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-5QZ4ECWB15', {
-        send_page_view: true
-      });
+      gtag('config', 'G-5QZ4ECWB15', { send_page_view: true });
+    </script>
+    <script>
+      // Load GA4 after page is interactive to reduce TBT
+      function loadGA() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5QZ4ECWB15';
+        document.head.appendChild(s);
+      }
+      if (document.readyState === 'complete') {
+        loadGA();
+      } else {
+        window.addEventListener('load', loadGA, { passive: true, once: true });
+      }
     </script>
     <script type="application/ld+json">
     {

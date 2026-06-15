@@ -71,8 +71,10 @@ export default function ReviewsSection() {
 
   const reviews = dbReviews.length >= 4 ? dbReviews.slice(0, 6) : FALLBACK_REVIEWS;
 
-  // Auto-advance
+  // Auto-advance — skip if user prefers reduced motion
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) return;
     const timer = setInterval(() => {
       setCurrentIdx(prev => (prev + 1) % reviews.length);
     }, 5000);

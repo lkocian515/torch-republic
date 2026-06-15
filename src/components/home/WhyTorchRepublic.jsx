@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, X } from 'lucide-react';
 
@@ -67,12 +66,7 @@ export default function WhyTorchRepublic() {
       <div className="max-w-[1280px] mx-auto">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+        <div className="text-center mb-14">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Why Choose Torch Republic?
           </p>
@@ -82,17 +76,13 @@ export default function WhyTorchRepublic() {
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.7)', fontWeight: 400, lineHeight: 1.9 }}>
             Torch Republic was built for people who want the convenience of instant coffee without sacrificing quality, wellness, or intention.
           </p>
-        </motion.div>
+        </div>
 
         {/* 8-pillar grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {PILLARS.map((b, i) => (
-            <motion.div
+            <div
               key={b.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}
               className="p-6 flex flex-col gap-3"
               style={{ background: '#111', border: '1px solid rgba(230,183,173,0.08)' }}
             >
@@ -101,17 +91,12 @@ export default function WhyTorchRepublic() {
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
                 {b.body}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Comparison table */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.45)' }}>
             How We Compare
           </p>
@@ -143,7 +128,7 @@ export default function WhyTorchRepublic() {
               </tbody>
             </table>
           </div>
-        </motion.div>
+        </div>
 
         {/* Trust strip */}
         <div className="flex flex-wrap justify-center gap-8">

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { base44 } from '@/api/base44Client';
 
 const RG = '#E6B7AD';
 
@@ -40,30 +39,6 @@ const CATEGORIES = [
 ];
 
 export default function ShopByCategory() {
-  const [collectionImages, setCollectionImages] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  // Fetch collection images from Shopify on mount
-  useEffect(() => {
-    async function fetchImages() {
-      try {
-        const response = await base44.functions.invoke('fetchShopifyProducts', {});
-        if (response.data?.collections) {
-          const images = {};
-          response.data.collections.forEach(collection => {
-            images[collection.handle] = collection.image;
-          });
-          setCollectionImages(images);
-          console.log(`✅ Loaded ${Object.keys(images).length} collection images:`, Object.keys(images));
-        }
-      } catch (error) {
-        console.error('❌ Failed to fetch collection images:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchImages();
-  }, []);
 
   return (
     <section className="px-6 md:px-10 py-16 md:py-24 relative" style={{ background: '#0A0807' }}>
@@ -89,7 +64,6 @@ export default function ShopByCategory() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {CATEGORIES.map((cat, i) => {
-            const categoryImage = collectionImages[cat.shopifyHandle];
             return (
               <motion.div
               key={cat.label}
@@ -110,41 +84,18 @@ export default function ShopByCategory() {
               )}
               <div className="p-8 flex-1 flex flex-col">
                 {cat.productImage && (
-                  <div className="mb-6 flex items-center justify-center" style={{ height: '200px' }}>
-                    {loading ? (
-                      <div className="w-16 h-16 border-2 border-rose-gold border-t-transparent rounded-full animate-spin" />
-                    ) : (
-                      <img 
-                        src={cat.productImage} 
-                        alt={`${cat.label} by Torch Republic`}
-                        className="max-h-full max-w-full object-contain" 
-                        loading="eager"
-                        width="200"
-                        height="200"
-                        onError={(e) => { 
-                          console.warn(`⚠️ Category image failed: ${cat.label}`);
-                          e.target.style.display = 'none'; 
-                        }}
-                      />
-                    )}
-                  </div>
-                )}
-                {categoryImage && !loading ? (
-                  <div className="mb-5 flex items-center justify-center" style={{ height: '120px' }}>
+                  <div className="mb-6 flex items-center justify-center" style={{ height: '200px', width: '200px', margin: '0 auto 1.5rem' }}>
                     <img 
-                      src={categoryImage} 
-                      alt={`${cat.label} collection by Torch Republic`}
-                      className="max-h-full max-w-full object-contain" 
+                      src={cat.productImage} 
+                      alt={`${cat.label} by Torch Republic`}
+                      className="max-h-full max-w-full object-contain"
                       loading="lazy"
-                      width="160"
-                      height="120"
-                      onError={(e) => { 
-                        console.warn(`⚠️ Collection image failed: ${cat.label}`);
-                        e.target.style.display = 'none'; 
-                      }} 
+                      decoding="async"
+                      width="200"
+                      height="200"
                     />
                   </div>
-                ) : null}
+                )}
                 <h3 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {cat.label}
                 </h3>

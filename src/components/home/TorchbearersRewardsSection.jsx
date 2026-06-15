@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Flame, Sparkles, Crown, ChevronRight } from 'lucide-react';
 
@@ -16,12 +15,7 @@ export default function TorchbearersRewardsSection() {
     <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: '#0F0E0D' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Flame className="w-5 h-5" style={{ color: RG }} />
             <p className="font-mono text-[11px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
@@ -44,19 +38,15 @@ export default function TorchbearersRewardsSection() {
             Learn More
             <ChevronRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </div>
 
         {/* Tier Preview */}
         <div className="grid md:grid-cols-3 gap-4">
           {TIERS.map((tier, i) => {
             const Icon = tier.icon;
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="p-6 text-center"
                 style={{
                   background: `rgba(${tier.color === '#C98F86' ? '201,143,134' : tier.color === '#E6B7AD' ? '230,183,173' : '212,175,55'},0.06)`,
@@ -73,7 +63,7 @@ export default function TorchbearersRewardsSection() {
                 <p className="font-mono text-[8px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
                   {tier.desc}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

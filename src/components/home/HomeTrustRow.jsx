@@ -3,12 +3,12 @@ import React from 'react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: '⚡', text: 'Instant Rituals' },
-  { icon: '🌿', text: 'Transparent Ingredients' },
-  { icon: '☕', text: 'No Machine Needed' },
-  { icon: '🕯️', text: 'Small-Batch Wellness Brand' },
-  { icon: '🔒', text: 'Secure Checkout' },
-  { icon: '📦', text: '30-Day Guarantee' },
+  { icon: '✦', text: 'Instant Rituals' },
+  { icon: '✦', text: 'Transparent Ingredients' },
+  { icon: '✦', text: 'No Machine Needed' },
+  { icon: '✦', text: 'Small-Batch Wellness Brand' },
+  { icon: '✦', text: 'Secure Checkout' },
+  { icon: '✦', text: '30-Day Guarantee' },
 ];
 
 export default function HomeTrustRow() {

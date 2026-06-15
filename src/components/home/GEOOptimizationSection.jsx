@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
 
@@ -46,12 +45,7 @@ export default function GEOOptimizationSection() {
       <div className="max-w-[1200px] mx-auto">
         
         {/* What Is Torch Republic — AI-readable content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 
             className="font-serif font-bold text-3xl md:text-4xl mb-6"
             style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
@@ -63,15 +57,10 @@ export default function GEOOptimizationSection() {
               <p key={idx}>{paragraph}</p>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Key Benefits — structured for AI extraction */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h3 
             className="font-serif font-bold text-2xl md:text-3xl mb-8"
             style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
@@ -101,14 +90,10 @@ export default function GEOOptimizationSection() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Who Should Use — semantic list for AI */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div>
           <h3 
             className="font-serif font-bold text-2xl md:text-3xl mb-6"
             style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
@@ -127,7 +112,7 @@ export default function GEOOptimizationSection() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
       </div>
     </section>

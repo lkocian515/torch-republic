@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Percent, Package, HeartHandshake } from 'lucide-react';
 
@@ -20,12 +19,7 @@ export default function SubscribeAndSaveSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
           {/* Left: Copy */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: `${RG}55` }}>
               Subscribe &amp; Save
             </p>
@@ -48,16 +42,10 @@ export default function SubscribeAndSaveSection() {
             <p className="font-mono text-[8px] tracking-[0.2em] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>
               Cancel or pause anytime · No commitments
             </p>
-          </motion.div>
+          </div>
 
           {/* Right: Perks grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid grid-cols-2 gap-3"
-          >
+          <div className="grid grid-cols-2 gap-3">
             {PERKS.map((perk, i) => {
               const Icon = perk.icon;
               return (
@@ -73,7 +61,7 @@ export default function SubscribeAndSaveSection() {
                 </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

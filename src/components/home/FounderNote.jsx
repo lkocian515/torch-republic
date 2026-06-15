@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
 
@@ -16,11 +15,7 @@ export default function FounderNote() {
     <section className="px-6 md:px-10 py-20 relative" style={{ background: '#080808' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div>
           {/* Section Label */}
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-10" style={{ color: RG }}>
             From the Founder
@@ -94,7 +89,7 @@ export default function FounderNote() {
               Read Our Story →
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

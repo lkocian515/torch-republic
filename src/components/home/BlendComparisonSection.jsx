@@ -203,11 +203,8 @@ export default function BlendComparisonSection() {
             </thead>
             <tbody>
               {filtered.map((blend, i) => (
-                <motion.tr
+                <tr
                   key={blend.name}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: i * 0.03 }}
                   style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}
                 >
                   <td className="py-4 pr-4">
@@ -235,20 +232,17 @@ export default function BlendComparisonSection() {
                   <td className="py-4 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, maxWidth: '180px' }}>
                     {blend.keyIngredient}
                   </td>
-                </motion.tr>
+                </tr>
               ))}
             </tbody>
           </table>
         </div>
 
         {/* Cards — mobile */}
-        <div className="md:hidden space-y-3">
+          <div className="md:hidden space-y-3">
           {filtered.map((blend, i) => (
-            <motion.div
+            <div
               key={blend.name}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.04 }}
               className="p-5"
               style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)' }}
             >
@@ -272,7 +266,7 @@ export default function BlendComparisonSection() {
               <Link to={`/products/${blend.slug}`} className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: RG, textDecoration: 'none' }}>
                 View Blend →
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 

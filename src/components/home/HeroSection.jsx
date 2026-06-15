@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
@@ -14,18 +13,17 @@ const TRUST_ICONS = [
 export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
-      {/* Hero Banner Image — LCP critical, eager loaded */}
-      <div className="w-full">
+      {/* Hero Banner Image — LCP critical: eager, high priority, explicit aspect ratio to prevent CLS */}
+      <div style={{ aspectRatio: '16/9', width: '100%', background: '#080808', overflow: 'hidden' }}>
         <img
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fce811268_ChatGPTImageJun15202608_56_36AM.png"
           alt="Torch Republic — Torchbearer, The Monk Matcha, and SunCap Rise mushroom coffee canisters on a forest stump"
-          style={{ width: '100%', height: 'auto', display: 'block' }}
+          width="1200"
+          height="675"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           fetchPriority="high"
           loading="eager"
-          decoding="async"
-          onError={(e) => {
-            e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
-          }}
+          decoding="sync"
         />
       </div>
 

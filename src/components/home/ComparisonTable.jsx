@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
 const CHECK = '✓';
@@ -52,12 +51,7 @@ export default function ComparisonTable() {
     <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: '#0D0C0B' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1100px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
+        <div className="text-center mb-10">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             How Torch Republic Compares
           </p>
@@ -67,14 +61,9 @@ export default function ComparisonTable() {
           <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.85 }}>
             Torch Republic is one of the few brands offering classic coffee, mushroom coffee, and matcha in a single ritual collection — all instant, no machine required.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="overflow-x-auto"
-        >
+        <div className="overflow-x-auto">
           <table className="w-full min-w-[600px]" style={{ borderCollapse: 'collapse' }}>
             <thead>
               <tr>
@@ -112,7 +101,7 @@ export default function ComparisonTable() {
               ))}
             </tbody>
           </table>
-        </motion.div>
+        </div>
 
         <p className="font-mono text-[8px] tracking-[0.12em] mt-6 text-center" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
           ✓ = Yes · ◐ = Varies by brand · — = Generally no. This is a general comparison and individual brands may differ.

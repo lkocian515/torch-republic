@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Zap, Leaf, Coffee, Flame } from 'lucide-react';
 
 const RG = '#E6B7AD';
@@ -16,12 +15,7 @@ export default function BuiltForRituals() {
     <section className="px-6 md:px-10 py-16 md:py-20 relative" style={{ background: '#0A0908' }}>
       <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1100px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left — text */}
           <div>
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${RG}70` }}>
@@ -45,12 +39,8 @@ export default function BuiltForRituals() {
           {/* Right — pillar cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {PILLARS.map((p, i) => (
-              <motion.div
+              <div
                 key={p.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
                 className="p-5 flex flex-col gap-3"
                 style={{ background: '#111', border: `1px solid rgba(230,183,173,0.09)`, borderRadius: '4px' }}
               >
@@ -63,10 +53,10 @@ export default function BuiltForRituals() {
                     {p.sub}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles } from 'lucide-react';
 
@@ -22,13 +21,7 @@ export default function FinalCTA() {
         background: 'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(196,163,90,0.07) 0%, transparent 75%)',
       }} />
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto' }}
-      >
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto' }}>
         <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-5"
           style={{ color: 'rgba(230,183,173,0.5)' }}>
           Torch Republic Coffee Co.
@@ -69,7 +62,7 @@ export default function FinalCTA() {
           style={{ color: 'rgba(230,183,173,0.3)' }}>
           30-Day Money-Back Guarantee · Free Shipping Over $75 · Small-Batch · No Machine Needed
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 }
