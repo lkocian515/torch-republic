@@ -203,6 +203,11 @@ export default function UnifiedHeader() {
                   </div>
                 </div>
 
+                {/* Subscribe & Save — standalone nav link */}
+                <Link to="/subscription" className="font-heading text-sm font-semibold transition-colors hover:opacity-70" style={{ color: RG }}>
+                  Subscribe &amp; Save 20%
+                </Link>
+
                 {/* About dropdown */}
                 <div className="relative group">
                   <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
