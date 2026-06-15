@@ -37,33 +37,24 @@ const ABOUT_LINKS = [
   { label: 'Reviews', href: '/reviews' },
 ];
 
-// Mobile full menu — shop-first hierarchy
+// Mobile full menu — simplified, shop-first
 const MOBILE_NAV_SECTIONS = [
   {
     heading: 'Shop',
     links: [
-      { label: 'Instant Coffee', href: '/shop/instant-coffee' },
+      { label: 'Shop All', href: '/shop' },
       { label: 'Mushroom Coffee', href: '/shop/instant-mushroom-coffee' },
+      { label: 'Instant Coffee', href: '/shop/instant-coffee' },
       { label: 'Matcha', href: '/shop/matcha' },
       { label: 'Bundles', href: '/build-your-ritual' },
-      { label: 'Gifts', href: '/gifts' },
-    ],
-  },
-  {
-    heading: 'Learn',
-    links: [
-      { label: 'Why Mushroom Coffee', href: '/why-mushroom-coffee' },
-      { label: 'Why Matcha', href: '/why-matcha' },
-      { label: 'Research Hub', href: '/research' },
-      { label: 'Journal', href: '/journal' },
     ],
   },
   {
     heading: 'About',
     links: [
       { label: 'Our Mission', href: '/mission' },
-      { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
       { label: 'Reviews', href: '/reviews' },
+      { label: 'Journal', href: '/journal' },
       { label: 'Contact', href: '/contact' },
     ],
   },

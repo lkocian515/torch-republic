@@ -6,23 +6,6 @@
 export function getProductImage(product, fallbackImage = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333') {
   if (!product) return fallbackImage;
 
-  // DEBUG: Log product image data to console
-  console.log("🔍 SHOP PRODUCT IMAGE DEBUG", {
-    title: product?.title || product?.name,
-    handle: product?.shopifyHandle || product?.handle,
-    image_direct: product?.image,
-    image_src: product?.image?.src,
-    image_url: product?.image?.url,
-    imageUrl: product?.imageUrl,
-    image_url_underscore: product?.image_url,
-    featuredImage: product?.featuredImage,
-    featured_image: product?.featured_image,
-    images_array: product?.images,
-    media: product?.media,
-    fallbackImage: product?.fallbackImage,
-    shopifyImage: product?.shopifyImage,
-  });
-
   const imageUrl =
     // DIRECT STRING FIELD - Most important for local catalog
     (typeof product?.image === 'string' ? product.image : null) ||
@@ -46,8 +29,6 @@ export function getProductImage(product, fallbackImage = 'https://cdn.shopify.co
     product?.shopifyImage ||
     // Last resort - static placeholder
     fallbackImage;
-
-  console.log("✅ FINAL IMAGE URL:", imageUrl);
 
   // Ensure we never return undefined/null/empty string
   return imageUrl || fallbackImage;
