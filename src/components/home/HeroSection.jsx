@@ -48,80 +48,49 @@ export default function HeroSection() {
               maxWidth: '720px',
             }}
           >
-            Better Mornings in 30 Seconds.<br />
-            <span style={{ color: RG }}>No Machine Required.</span>
+            Instant &amp; Mushroom Coffee<br />
+            <span style={{ color: RG }}>for Intentional Mornings.</span>
           </h1>
           <p
-            className="font-heading mx-auto mb-6"
+            className="font-heading mx-auto mb-8"
             style={{
               fontSize: 'clamp(1.05rem, 1.7vw, 1.15rem)',
-              color: 'rgba(245,239,230,0.85)',
+              color: 'rgba(245,239,230,0.75)',
               fontWeight: 400,
               lineHeight: 1.85,
-              maxWidth: '540px',
+              maxWidth: '500px',
             }}
           >
-            Instant coffee, functional mushroom coffee with Lion's Mane &amp; Chaga, and ceremonial matcha — just add hot water.
+            Focus, calm energy, and daily ritual — in 30 seconds. No machine, no pods. Just add hot water.
           </p>
-          {/* Subscribe nudge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8"
-            style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '2px' }}>
-            <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: RG }}>Subscribe &amp; Save 20%</span>
-            <span className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.5)' }}>· Cancel anytime</span>
-          </div>
         </div>
 
-        {/* Primary + Secondary CTAs — no animations for better LCP */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+        {/* Primary + Secondary CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-5">
+          <Link
+            to="/shop"
+            className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
+            style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '200px', textAlign: 'center' }}
+          >
+            Shop Coffee →
+          </Link>
           <Link
             to="/quiz"
-            className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90"
-            style={{ background: RG, color: '#080808', padding: '16px 44px', display: 'inline-block', minWidth: '240px', textAlign: 'center' }}
-          >
-            Find Your Blend →
-          </Link>
-          <Link
-            to="/subscription"
             className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-75"
-            style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '220px', textAlign: 'center' }}
+            style={{ border: '1px solid rgba(230,183,173,0.4)', color: RG, padding: '16px 32px', display: 'inline-block', minWidth: '200px', textAlign: 'center' }}
           >
-            Subscribe &amp; Save 20%
+            Take the Ritual Quiz
           </Link>
         </div>
 
-        {/* Reassurance line */}
-        <div className="mb-6">
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            U.S.-based small business &nbsp;·&nbsp; Secure checkout &nbsp;·&nbsp; Instant preparation
-          </p>
-        </div>
-
-        {/* Discount nudge */}
-        <div className="mb-6">
+        {/* Reassurance + discount nudge */}
+        <div className="mb-10 space-y-2">
           <p className="font-mono text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.75)' }}>
             First order? Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off
           </p>
-        </div>
-
-        {/* Quiz CTA Button */}
-        <div className="mb-10">
-          <p className="font-heading text-sm mb-3" style={{ color: 'rgba(245,239,230,0.75)', fontWeight: 400 }}>
-            Not sure where to start?
+          <p className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
+            Free shipping $75+ &nbsp;·&nbsp; 30-day guarantee &nbsp;·&nbsp; Secure checkout
           </p>
-          <Link
-            to="/quiz"
-            className="inline-block font-mono text-[10px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-90"
-            style={{
-              background: 'rgba(230,183,173,0.15)',
-              color: RG,
-              border: `1px solid ${RG}40`,
-              padding: '12px 28px',
-              textDecoration: 'none',
-              borderRadius: '2px',
-            }}
-          >
-            ✨ Take the Blend Quiz
-          </Link>
         </div>
 
         {/* Trust icon row */}

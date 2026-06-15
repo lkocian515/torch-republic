@@ -38,7 +38,7 @@ export default function StartHereSection() {
           className="text-center mb-12"
         >
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Start Here
+            Best Sellers
           </p>
           <h2
             className="font-serif font-bold mb-4"
@@ -47,11 +47,17 @@ export default function StartHereSection() {
             Our Most Loved Blends
           </h2>
           <p
-            className="font-heading mx-auto"
-            style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.85, maxWidth: '560px' }}
+            className="font-heading mx-auto mb-3"
+            style={{ fontSize: '1rem', color: 'rgba(245,239,230,0.6)', fontWeight: 300, lineHeight: 1.8, maxWidth: '520px' }}
           >
-            The blends our customers return to again and again.
+            Trusted by high-performers for focus, clarity, and calm energy.
           </p>
+          <div className="flex items-center justify-center gap-1.5">
+            {[1,2,3,4,5].map(s => (
+              <svg key={s} width="14" height="14" viewBox="0 0 20 20" fill="#F59E0B"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+            <span className="font-mono text-[9px] tracking-[0.15em] ml-2" style={{ color: 'rgba(230,183,173,0.6)' }}>4.9 · 200+ reviews</span>
+          </div>
         </motion.div>
 
         {/* Product Grid */}

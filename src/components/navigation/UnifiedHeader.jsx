@@ -14,38 +14,59 @@ const PROMO_MESSAGES = [
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
 
-// Desktop nav - primary revenue links only
-const NAV_LINKS = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Subscribe & Save', href: '/subscription' },
-  { label: 'Bundle & Gift', href: '/build-your-ritual' },
-  { label: 'Reviews', href: '/reviews' },
+// Desktop nav — Shop dropdown + Learn dropdown + About
+const SHOP_LINKS = [
+  { label: 'Instant Coffee', href: '/shop/instant-coffee', sub: 'Premium single-serve' },
+  { label: 'Mushroom Coffee', href: '/shop/instant-mushroom-coffee', sub: "Lion's Mane + Chaga" },
+  { label: 'Matcha', href: '/shop/matcha', sub: 'Ceremonial grade' },
+  { label: 'Bundles', href: '/build-your-ritual', sub: 'Mix & save 15%' },
+  { label: 'Gifts', href: '/gifts', sub: 'For coffee lovers' },
 ];
 
-// "Learn" dropdown items
 const LEARN_LINKS = [
-  { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
-  { label: 'Matcha', href: '/matcha' },
   { label: 'Why Mushroom Coffee', href: '/why-mushroom-coffee' },
-  { label: 'Ingredients', href: '/ingredients' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'Recipes', href: '/recipes' },
+  { label: 'Why Matcha', href: '/why-matcha' },
   { label: 'Research Hub', href: '/research' },
-  { label: 'Our Mission', href: '/mission' },
+  { label: 'Journal', href: '/journal' },
 ];
 
-// Mobile full menu
-const MOBILE_NAV_LINKS = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Subscribe & Save 20%', href: '/subscription' },
-  { label: 'Bundle & Gift', href: '/build-your-ritual' },
-  { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
-  { label: 'Matcha', href: '/matcha' },
-  { label: 'Classic Coffee', href: '/classic-coffee' },
+const ABOUT_LINKS = [
+  { label: 'Our Mission', href: '/mission' },
+  { label: 'Our Ingredients', href: '/ingredients' },
+  { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
   { label: 'Reviews', href: '/reviews' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'Recipes', href: '/recipes' },
-  { label: 'About', href: '/mission' },
+];
+
+// Mobile full menu — shop-first hierarchy
+const MOBILE_NAV_SECTIONS = [
+  {
+    heading: 'Shop',
+    links: [
+      { label: 'Instant Coffee', href: '/shop/instant-coffee' },
+      { label: 'Mushroom Coffee', href: '/shop/instant-mushroom-coffee' },
+      { label: 'Matcha', href: '/shop/matcha' },
+      { label: 'Bundles', href: '/build-your-ritual' },
+      { label: 'Gifts', href: '/gifts' },
+    ],
+  },
+  {
+    heading: 'Learn',
+    links: [
+      { label: 'Why Mushroom Coffee', href: '/why-mushroom-coffee' },
+      { label: 'Why Matcha', href: '/why-matcha' },
+      { label: 'Research Hub', href: '/research' },
+      { label: 'Journal', href: '/journal' },
+    ],
+  },
+  {
+    heading: 'About',
+    links: [
+      { label: 'Our Mission', href: '/mission' },
+      { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
+      { label: 'Reviews', href: '/reviews' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
 ];
 
 export default function UnifiedHeader() {
@@ -142,22 +163,55 @@ export default function UnifiedHeader() {
             {/* Right: Cart + Desktop Nav */}
             <div className="w-10 md:w-auto flex items-center justify-end gap-4">
               <nav className="hidden md:flex items-center gap-6">
-                {NAV_LINKS.map((link) => (
-                  <Link key={link.href} to={link.href}
-                    className="font-heading text-sm transition-colors hover:opacity-70"
-                    style={{ color: link.href === '/subscription' ? RG : 'rgba(240,235,225,0.7)', fontWeight: link.href === '/subscription' ? 600 : 400 }}>
-                    {link.label}
-                  </Link>
-                ))}
+                {/* Shop dropdown */}
+                <div className="relative group">
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: '#F5EFE6', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+                    Shop
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                  </button>
+                  <div className="absolute top-full left-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div className="py-2 min-w-[220px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                      {SHOP_LINKS.map(link => (
+                        <Link key={link.href} to={link.href} className="flex flex-col px-4 py-3 transition-all hover:opacity-70" style={{ textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                          <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.9)' }}>{link.label}</span>
+                          <span className="font-mono text-[9px] tracking-[0.15em] mt-0.5" style={{ color: 'rgba(230,183,173,0.45)' }}>{link.sub}</span>
+                        </Link>
+                      ))}
+                      <div className="px-4 pt-3 pb-2">
+                        <Link to="/subscription" className="block text-center py-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ background: RG, color: '#080808' }}>
+                          Subscribe &amp; Save 20% →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Learn dropdown */}
                 <div className="relative group">
-                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
                     Learn
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                  </button>
+                  <div className="absolute top-full left-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                      {LEARN_LINKS.map(link => (
+                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* About dropdown */}
+                <div className="relative group">
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    About
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
                   <div className="absolute top-full right-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
                     <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
-                      {LEARN_LINKS.map(link => (
+                      {ABOUT_LINKS.map(link => (
                         <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
                           {link.label}
                         </Link>
@@ -187,23 +241,34 @@ export default function UnifiedHeader() {
                 </button>
               </div>
               <nav className="flex-1 overflow-y-auto px-5 py-6">
-                <div className="space-y-3">
-                  {MOBILE_NAV_LINKS.map((link, i) => (
-                    <motion.div key={link.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
-                      <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 py-3 font-heading text-lg transition-colors hover:opacity-70"
-                        style={{ color: link.href === '/subscription' ? RG : 'rgba(240,235,225,0.8)', fontWeight: link.href === '/subscription' ? 600 : 400 }}>
-                        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd8a91df2_torch_republic_icon_transparent_1024px.png" alt="" aria-hidden="true" style={{ width: '14px', height: '14px', opacity: 0.4, flexShrink: 0 }} />
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
+                {MOBILE_NAV_SECTIONS.map((section, si) => (
+                  <div key={section.heading} className="mb-6">
+                    <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>{section.heading}</p>
+                    <div className="space-y-1">
+                      {section.links.map((link, i) => (
+                        <motion.div key={link.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: (si * 4 + i) * 0.04 }}>
+                          <Link to={link.href} onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-3 py-3 font-heading text-base transition-colors hover:opacity-70"
+                            style={{ color: 'rgba(240,235,225,0.85)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                            <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/dd8a91df2_torch_republic_icon_transparent_1024px.png" alt="" aria-hidden="true" style={{ width: '12px', height: '12px', opacity: 0.35, flexShrink: 0 }} />
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </nav>
               <div className="px-5 py-6 space-y-3" style={{ borderTop: `1px solid ${RG}20` }}>
                 <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className="block text-center py-3 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90" style={{ background: RG, color: '#0A0A0A', borderRadius: '2px' }}>
-                  Shop Now
+                  Shop Coffee →
                 </Link>
-                {/* Admin panel removed from mobile menu for security */}
+                <Link to="/subscription" onClick={() => setMobileMenuOpen(false)} className="block text-center py-2.5 font-mono text-xs tracking-[0.25em] uppercase font-bold transition-all hover:opacity-80" style={{ border: `1px solid ${RG}40`, color: RG, borderRadius: '2px' }}>
+                  Subscribe &amp; Save 20%
+                </Link>
+                <Link to="/quiz" onClick={() => setMobileMenuOpen(false)} className="block text-center py-2.5 font-mono text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(240,235,225,0.5)' }}>
+                  ✨ Take the Blend Quiz
+                </Link>
               </div>
             </div>
           </motion.div>

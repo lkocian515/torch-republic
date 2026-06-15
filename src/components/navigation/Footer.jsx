@@ -64,37 +64,33 @@ const FOOTER_LINKS = [
   {
     heading: 'Shop',
     links: [
-      { label: 'Shop All', href: '/shop' },
-      { label: 'Classic Coffee', href: '/classic-coffee' },
-      { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
-      { label: 'Matcha', href: '/matcha' },
-      { label: 'Build Your Ritual', href: '/build-your-ritual' },
-      { label: 'Bundles', href: '/bundle' },
-      { label: 'Subscribe & Save', href: '/subscription' },
-    ]
-  },
-  {
-    heading: 'Community',
-    links: [
-      { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
-      { label: 'Reviews', href: '/reviews' },
-      { label: 'Journal', href: '/journal' },
-      { label: 'Refer a Friend', href: '/torchbearers-rewards' },
+      { label: 'Instant Coffee', href: '/shop/instant-coffee' },
+      { label: 'Mushroom Coffee', href: '/shop/instant-mushroom-coffee' },
+      { label: 'Matcha', href: '/shop/matcha' },
+      { label: 'Bundles', href: '/build-your-ritual' },
+      { label: 'Gifts', href: '/gifts' },
+      { label: 'Subscribe & Save 20%', href: '/subscription' },
     ]
   },
   {
     heading: 'Learn',
     links: [
-      { label: 'About', href: '/mission' },
-      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'Why Mushroom Coffee', href: '/why-mushroom-coffee' },
+      { label: 'Why Matcha', href: '/why-matcha' },
+      { label: 'Research Hub', href: '/research' },
       { label: 'Journal', href: '/journal' },
       { label: 'Ingredients', href: '/ingredients' },
-      { label: "Lion's Mane Coffee", href: '/lions-mane-coffee' },
-      { label: 'Mushroom Benefits', href: '/mushroom-coffee-benefits' },
       { label: 'FAQ', href: '/faq' },
-      { label: 'Founder Story', href: '/founder-story' },
       { label: 'Compare Brands', href: '/compare' },
-      { label: 'Recipes', href: '/recipes' },
+    ]
+  },
+  {
+    heading: 'About',
+    links: [
+      { label: 'Our Mission', href: '/mission' },
+      { label: 'Founder Story', href: '/founder-story' },
+      { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
+      { label: 'Reviews', href: '/reviews' },
       { label: 'Contact', href: '/contact' },
     ]
   },
@@ -202,6 +198,28 @@ export default function Footer() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Reassurance bar */}
+        <div className="flex flex-wrap justify-center gap-6 mb-8 py-5" style={{ borderTop: '1px solid rgba(230,183,173,0.08)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+          {[
+            { icon: '🚀', label: 'Fast U.S. Shipping', sub: 'Most orders ship in 1–2 days', href: '/shipping-policy' },
+            { icon: '✅', label: '30-Day Guarantee', sub: 'If it\'s not right, we make it right', href: '/return-policy' },
+            { icon: '🔒', label: 'Secure Checkout', sub: '256-bit SSL via Shopify', href: null },
+            { icon: '⭐', label: '4.9 / 5 Rating', sub: 'From 200+ verified customers', href: '/reviews' },
+          ].map(item => (
+            <div key={item.label} className="flex items-center gap-3 text-left">
+              <span style={{ fontSize: '1.1rem' }}>{item.icon}</span>
+              <div>
+                {item.href ? (
+                  <a href={item.href} className="font-mono text-[10px] tracking-[0.15em] uppercase transition-colors hover:opacity-70 block" style={{ color: 'rgba(230,183,173,0.7)', textDecoration: 'none' }}>{item.label}</a>
+                ) : (
+                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: 'rgba(230,183,173,0.7)' }}>{item.label}</p>
+                )}
+                <p className="font-mono text-[8px] mt-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>{item.sub}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Divider — teal → navy → champagne gradient line */}
