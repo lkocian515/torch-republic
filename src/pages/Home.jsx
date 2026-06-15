@@ -68,6 +68,7 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
+    isHomePage: true,
     title: 'Torch Republic Coffee Company | Premium Instant Coffee, Mushroom Coffee & Matcha',
     description: 'Shop premium instant coffee, mushroom coffee blends, and ceremonial matcha from Torch Republic. No pods, no machine — just simple daily coffee rituals.',
     url: '/',

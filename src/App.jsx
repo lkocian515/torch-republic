@@ -103,6 +103,11 @@ const FAQPage = lazy(() => import('./pages/FAQPage.jsx'));
 const IngredientPage = lazy(() => import('./pages/IngredientPage.jsx'));
 const ComparisonPage = lazy(() => import('./pages/ComparisonPage.jsx'));
 const AuthorPage = lazy(() => import('./pages/AuthorPage.jsx'));
+const LionsManeMushroomCoffeePage = lazy(() => import('./pages/seo/LionsManeMushroomCoffeePage.jsx'));
+const ChagaMushroomCoffeePage = lazy(() => import('./pages/seo/ChagaMushroomCoffeePage.jsx'));
+const ReishiMushroomCoffeePage = lazy(() => import('./pages/seo/ReishiMushroomCoffeePage.jsx'));
+const CeremonialMatchaPage = lazy(() => import('./pages/seo/CeremonialMatchaPage.jsx'));
+const FreezeDriedInstantCoffeePage = lazy(() => import('./pages/seo/FreezeDriedInstantCoffeePage.jsx'));
 const ComparisonCenter = lazy(() => import('./pages/ComparisonCenter.jsx'));
 const RyzeVsTorchRepublic = lazy(() => import('./pages/compare/RyzeVsTorchRepublic.jsx'));
 const FourSigmaticVsTorchRepublic = lazy(() => import('./pages/compare/FourSigmaticVsTorchRepublic.jsx'));
@@ -287,6 +292,12 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQIndex" queryClient={queryClient}><FAQIndex /></LayoutWrapper></Suspense>} />
         <Route path="/faq/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQPage" queryClient={queryClient}><FAQPage /></LayoutWrapper></Suspense>} />
 
+        {/* ── INGREDIENT EDUCATIONAL PAGES (SEO) ── */}
+        <Route path="/ingredients/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffeePage" queryClient={queryClient}><LionsManeMushroomCoffeePage /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffeePage" queryClient={queryClient}><ChagaMushroomCoffeePage /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients/reishi-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReishiMushroomCoffeePage" queryClient={queryClient}><ReishiMushroomCoffeePage /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients/ceremonial-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaPage" queryClient={queryClient}><CeremonialMatchaPage /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients/freeze-dried-instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FreezeDriedInstantCoffeePage" queryClient={queryClient}><FreezeDriedInstantCoffeePage /></LayoutWrapper></Suspense>} />
         {/* ── INGREDIENT DEEP DIVES ── */}
         <Route path="/ingredients/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="IngredientPage" queryClient={queryClient}><IngredientPage /></LayoutWrapper></Suspense>} />
 

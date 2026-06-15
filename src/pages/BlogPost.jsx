@@ -369,7 +369,7 @@ export default function BlogPostPage() {
             <div className="max-w-[900px] mx-auto overflow-hidden rounded-sm">
               <img
                 src={post.featured_image}
-                alt={post.title}
+                alt={`${post.title} — Torch Republic Coffee Company`}
                 className="w-full h-auto object-cover"
                 style={{ maxHeight: '500px' }}
               />

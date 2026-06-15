@@ -29,6 +29,12 @@ export default function MushroomCoffeeBenefits() {
     title: "Mushroom Coffee Benefits | Lion's Mane & Chaga | Torch Republic Coffee Co.",
     description: "What does mushroom coffee actually do? Learn how Lion's Mane and Chaga support focus, clarity, and calm energy in Torch Republic instant coffee blends. Science explained simply.",
     url: '/mushroom-coffee-benefits',
+    faq: FAQS.map(f => ({ question: f.q, answer: f.a })),
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Learn', url: '/journal' },
+      { name: 'Mushroom Coffee Benefits', url: '/mushroom-coffee-benefits' },
+    ],
   });
 
   return (

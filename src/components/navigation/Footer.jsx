@@ -89,9 +89,11 @@ const FOOTER_LINKS = [
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'Journal', href: '/journal' },
       { label: 'Ingredients', href: '/ingredients' },
+      { label: "Lion's Mane Coffee", href: '/lions-mane-coffee' },
+      { label: 'Mushroom Benefits', href: '/mushroom-coffee-benefits' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Founder Story', href: '/founder-story' },
-      { label: 'Comparisons', href: '/compare/mushroom-coffee-vs-regular-coffee-comparison' },
+      { label: 'Compare Brands', href: '/compare' },
       { label: 'Recipes', href: '/recipes' },
       { label: 'Contact', href: '/contact' },
     ]
