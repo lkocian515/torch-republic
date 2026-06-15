@@ -98,6 +98,15 @@ const JournalHub = lazy(() => import('./pages/JournalHub.jsx'));
 const MushroomCoffeeVsRegularCoffee = lazy(() => import('./pages/blog/MushroomCoffeeVsRegularCoffee.jsx'));
 const CeremonialMatchaVsCulinary = lazy(() => import('./pages/blog/CeremonialMatchaVsCulinary.jsx'));
 const PremiumInstantCoffeeDifference = lazy(() => import('./pages/blog/PremiumInstantCoffeeDifference.jsx'));
+const FAQIndex = lazy(() => import('./pages/FAQIndex.jsx'));
+const FAQPage = lazy(() => import('./pages/FAQPage.jsx'));
+const IngredientPage = lazy(() => import('./pages/IngredientPage.jsx'));
+const ComparisonPage = lazy(() => import('./pages/ComparisonPage.jsx'));
+const AuthorPage = lazy(() => import('./pages/AuthorPage.jsx'));
+const FounderStory = lazy(() => import('./pages/FounderStory.jsx'));
+const MorningRitualCollection = lazy(() => import('./pages/MorningRitualCollection.jsx'));
+const FocusCoffeeCollection = lazy(() => import('./pages/FocusCoffeeCollection.jsx'));
+const TravelCoffeeCollection = lazy(() => import('./pages/TravelCoffeeCollection.jsx'));
 
 const mainPageKey = 'Home';
 
@@ -268,6 +277,28 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* mushroom-coffee-vs-regular-coffee now served from DB via /journal/:slug */}
         <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaVsCulinary" queryClient={queryClient}><CeremonialMatchaVsCulinary /></LayoutWrapper></Suspense>} />
         <Route path="/journal/what-makes-premium-instant-coffee-different" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PremiumInstantCoffeeDifference" queryClient={queryClient}><PremiumInstantCoffeeDifference /></LayoutWrapper></Suspense>} />
+
+        {/* ── FAQ LIBRARY ── */}
+        <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQIndex" queryClient={queryClient}><FAQIndex /></LayoutWrapper></Suspense>} />
+        <Route path="/faq/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQPage" queryClient={queryClient}><FAQPage /></LayoutWrapper></Suspense>} />
+
+        {/* ── INGREDIENT DEEP DIVES ── */}
+        <Route path="/ingredients/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="IngredientPage" queryClient={queryClient}><IngredientPage /></LayoutWrapper></Suspense>} />
+
+        {/* ── COMPARISON GUIDES ── */}
+        <Route path="/compare/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonPage" queryClient={queryClient}><ComparisonPage /></LayoutWrapper></Suspense>} />
+
+        {/* ── AUTHOR / TEAM PAGE (E-E-A-T) ── */}
+        <Route path="/about/torch-republic-team" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AuthorPage" queryClient={queryClient}><AuthorPage /></LayoutWrapper></Suspense>} />
+
+        {/* ── FOUNDER STORY ── */}
+        <Route path="/founder-story" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FounderStory" queryClient={queryClient}><FounderStory /></LayoutWrapper></Suspense>} />
+        <Route path="/why-i-walked-away-from-coffee-pods" element={<Navigate to="/founder-story" replace />} />
+
+        {/* ── KEYWORD COLLECTION PAGES ── */}
+        <Route path="/shop/morning-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MorningRitualCollection" queryClient={queryClient}><MorningRitualCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/shop/focus-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FocusCoffeeCollection" queryClient={queryClient}><FocusCoffeeCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/shop/travel-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TravelCoffeeCollection" queryClient={queryClient}><TravelCoffeeCollection /></LayoutWrapper></Suspense>} />
 
         {/* ── LEGACY REDIRECTS — old brand pages → current wellness brand ── */}
         {/* Coffee pods, patriotic apparel, collectibles, historical figure blends all → /shop */}

@@ -1,108 +1,24 @@
 /**
- * Journal Topic Hub — organized cluster navigation for Torch Republic content
- * Serves as the primary internal linking hub for all educational content
+ * Journal Hub — comprehensive topic cluster navigation
+ * Shows all 100 blog topics organized by cluster with internal linking.
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight, BookOpen, HelpCircle, Leaf } from 'lucide-react';
+import { ALL_BLOG_TOPICS, TOPIC_CLUSTERS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
+import GEOOptimization from '@/components/seo/GEOOptimization';
 
 const RG = '#E6B7AD';
-
-const CLUSTERS = [
-  {
-    id: 'mushroom-coffee',
-    title: 'Mushroom Coffee',
-    description: 'Research, comparisons, flavor, and ingredient transparency for functional mushroom coffee.',
-    color: '#6CBD5A',
-    articles: [
-      { title: 'Mushroom Coffee vs. Regular Coffee', slug: 'mushroom-coffee-vs-regular-coffee', excerpt: 'Compare by caffeine, taste, and research without exaggerated claims.' },
-      { title: 'Does Mushroom Coffee Make You Less Jittery?', slug: 'does-mushroom-coffee-make-you-less-jittery', excerpt: 'What the evidence actually says about caffeine and jitter reduction.' },
-      { title: 'What Does Mushroom Coffee Actually Taste Like?', slug: 'what-does-mushroom-coffee-taste-like', excerpt: 'An honest flavor guide — earthy, coffee-forward, and not savory.' },
-      { title: 'The History of Mushroom Coffee', slug: 'history-of-mushroom-coffee', excerpt: 'From ancient traditions to modern wellness rituals.' },
-      { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane', excerpt: 'Research-backed benefits for brain and body.' },
-      { title: 'Chaga Mushroom: The Antioxidant King', slug: 'chaga-mushroom-antioxidant-king', excerpt: 'Behind evening restoration.' },
-    ],
-    products: [
-      { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
-      { name: 'SunCap Rise', path: '/products/suncap-rise' },
-    ],
-  },
-  {
-    id: 'matcha',
-    title: 'Matcha',
-    description: 'Ceremonial grade matcha: history, preparation, caffeine, L-theanine, and daily rituals.',
-    color: '#8BC45A',
-    articles: [
-      { title: 'Matcha vs. Coffee: Energy, Focus, Taste, and Caffeine Compared', slug: 'matcha-vs-coffee', excerpt: 'Research-based context instead of hype.' },
-      { title: 'The History of Matcha', slug: 'history-of-matcha', excerpt: 'From ancient China to modern wellness rituals.' },
-      { title: 'Instant Ceremonial Matcha', slug: 'instant-ceremonial-matcha', excerpt: 'What ceremonial grade means and why it matters.' },
-      { title: 'Matcha Benefits Guide', slug: 'matcha-benefits', excerpt: 'A guide to L-theanine, catechins, and honest research.' },
-    ],
-    products: [
-      { name: 'Shop Matcha', path: '/shop/matcha' },
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
-    ],
-  },
-  {
-    id: 'pod-free',
-    title: 'Pod-Free Coffee',
-    description: 'Why more coffee drinkers are choosing premium instant over single-use pods.',
-    color: '#C4A35A',
-    articles: [
-      { title: 'Why Coffee Drinkers Are Switching Away From Pods', slug: 'why-coffee-drinkers-are-switching-away-from-pods', excerpt: 'Packaging, convenience, cost, and pod-free alternatives.' },
-      { title: 'What Makes Premium Instant Coffee Different?', slug: 'what-makes-premium-instant-coffee-different', excerpt: 'Freeze-dried quality, flavor, and preparation.' },
-      { title: 'Best Instant Coffee Guide', slug: 'best-instant-coffee', excerpt: 'How to evaluate quality in a tube or jar.' },
-      { title: 'Instant Coffee for Energy', path: '/instant-coffee-for-energy', external: true },
-    ],
-    products: [
-      { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
-      { name: 'Torchbearer', path: '/products/torchbearer' },
-      { name: 'Build Your Ritual', path: '/build-your-ritual' },
-    ],
-  },
-  {
-    id: 'rituals',
-    title: 'Coffee Rituals',
-    description: 'Morning habits, focus routines, and intentional preparation for a better daily ritual.',
-    color: '#E6B7AD',
-    articles: [
-      { title: 'Building Better Morning Habits', slug: 'building-better-morning-habits', excerpt: 'A guide to intentional daily rituals.' },
-      { title: 'Coffee and Focus: A Research Guide', slug: 'coffee-and-focus', excerpt: 'What caffeine and alertness science actually shows.' },
-      { title: 'Morning Ritual for Focus', slug: 'morning-ritual-for-focus', excerpt: 'Structured morning habits for intentional productivity.' },
-    ],
-    products: [
-      { name: 'Take the Blend Quiz', path: '/quiz' },
-      { name: 'Build Your Ritual', path: '/build-your-ritual' },
-      { name: 'How It Works', path: '/how-it-works' },
-    ],
-  },
-  {
-    id: 'ingredients',
-    title: 'Ingredients & Research',
-    description: 'Transparent, source-cited deep dives on adaptogens, mushrooms, caffeine, and L-theanine.',
-    color: '#B88FA8',
-    articles: [
-      { title: 'The Science of Lion\'s Mane', slug: 'science-of-lions-mane', excerpt: 'NGF, cognitive studies, and honest limitations.' },
-      { title: 'Chaga Mushroom: Antioxidant King', slug: 'chaga-mushroom-antioxidant-king', excerpt: 'Beta-glucans, antioxidant properties, and research.' },
-      { title: 'Adaptogens Guide', slug: 'adaptogens-guide', excerpt: 'What adaptogens are — and what they are not.' },
-      { title: 'Mushroom Coffee Benefits Guide', slug: 'mushroom-coffee-benefits', excerpt: 'Research-backed ingredient overview with honest caveats.' },
-    ],
-    products: [
-      { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Research Hub', path: '/research' },
-      { name: 'Why Mushroom Coffee', path: '/why-mushroom-coffee' },
-    ],
-  },
-];
+const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'matcha', 'wellness-rituals', 'focus-productivity', 'morning-routines', 'ingredients'];
 
 export default function JournalHub() {
+  const [activeCluster, setActiveCluster] = useState('all');
+
   useSEO({
-    title: 'Journal | Torch Republic Coffee & Matcha Education',
-    description: 'Explore research-backed guides on mushroom coffee, ceremonial matcha, premium instant coffee, pod-free alternatives, and intentional coffee rituals.',
+    title: 'Journal | Mushroom Coffee, Matcha & Instant Coffee Education | Torch Republic',
+    description: "100+ research-backed guides on mushroom coffee, ceremonial matcha, instant coffee, Lion's Mane, focus rituals, and morning routines from Torch Republic.",
     url: '/journal',
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -110,8 +26,21 @@ export default function JournalHub() {
     ],
   });
 
+  const clusters = CLUSTER_ORDER.map(key => ({
+    key,
+    ...TOPIC_CLUSTERS[key],
+    topics: ALL_BLOG_TOPICS.filter(t => t.cluster === key),
+    published: ALL_BLOG_TOPICS.filter(t => t.cluster === key && t.exists),
+  }));
+
+  const filteredTopics = activeCluster === 'all'
+    ? ALL_BLOG_TOPICS.filter(t => t.exists)
+    : ALL_BLOG_TOPICS.filter(t => t.cluster === activeCluster && t.exists);
+
   return (
     <div className="min-h-screen" style={{ background: '#080808' }}>
+      <GEOOptimization page="journal" />
+
       {/* Hero */}
       <section className="px-6 md:px-12 py-16 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -122,88 +51,235 @@ export default function JournalHub() {
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             The Journal
           </h1>
-          <p className="font-heading max-w-xl mx-auto"
+          <p className="font-heading max-w-xl mx-auto mb-6"
             style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.85, fontWeight: 300 }}>
-            Research-backed guides on mushroom coffee, ceremonial matcha, premium instant coffee, and intentional daily rituals. No guaranteed health claims — just honest education.
+            Research-backed guides on mushroom coffee, ceremonial matcha, instant coffee, and intentional daily rituals. No guaranteed health claims — just honest education.
           </p>
+          {/* Quick nav */}
+          <div className="flex flex-wrap justify-center gap-3 mt-4">
+            <Link to="/faq" className="inline-flex items-center gap-2 font-mono text-[8px] tracking-[0.25em] uppercase px-4 py-2 transition-all hover:opacity-80"
+              style={{ border: `1px solid ${RG}30`, color: RG }}>
+              <HelpCircle size={11} /> FAQ Library
+            </Link>
+            <Link to="/ingredients" className="inline-flex items-center gap-2 font-mono text-[8px] tracking-[0.25em] uppercase px-4 py-2 transition-all hover:opacity-80"
+              style={{ border: `1px solid rgba(230,183,173,0.2)`, color: 'rgba(230,183,173,0.6)' }}>
+              <Leaf size={11} /> Ingredient Guides
+            </Link>
+          </div>
         </motion.div>
       </section>
 
-      {/* Topic Clusters */}
-      <section className="px-6 md:px-12 py-14 max-w-6xl mx-auto">
-        <div className="space-y-16">
-          {CLUSTERS.map((cluster, ci) => (
-            <motion.div key={cluster.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ delay: ci * 0.05, duration: 0.5 }}>
-              {/* Cluster Header */}
-              <div className="flex items-center gap-4 mb-6 pb-4" style={{ borderBottom: `1px solid ${cluster.color}25` }}>
-                <div className="w-1 h-8 rounded" style={{ background: cluster.color }} />
-                <div>
-                  <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>{cluster.title}</h2>
-                  <p className="font-heading text-sm mt-0.5" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>{cluster.description}</p>
-                </div>
-              </div>
+      {/* Cluster Tabs */}
+      <div className="px-6 md:px-12 py-4 sticky top-0 z-20" style={{ background: 'rgba(8,8,8,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-6xl mx-auto flex flex-wrap gap-2">
+          <button onClick={() => setActiveCluster('all')}
+            className="px-4 py-2 font-mono text-[7px] tracking-[0.25em] uppercase transition-all"
+            style={{ background: activeCluster === 'all' ? `${RG}15` : 'transparent', border: `1px solid ${activeCluster === 'all' ? RG : `${RG}20`}`, color: activeCluster === 'all' ? RG : `${RG}40` }}>
+            All
+          </button>
+          {clusters.map(c => (
+            <button key={c.key} onClick={() => setActiveCluster(c.key)}
+              className="px-4 py-2 font-mono text-[7px] tracking-[0.25em] uppercase transition-all"
+              style={{ background: activeCluster === c.key ? `${c.color}15` : 'transparent', border: `1px solid ${activeCluster === c.key ? c.color : `${c.color}20`}`, color: activeCluster === c.key ? c.color : `${c.color}40` }}>
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                {/* Articles */}
-                <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {cluster.articles.map((article, ai) => {
-                    if (article.external) {
-                      return (
-                        <Link key={ai} to={article.path}
-                          className="p-4 block transition-opacity hover:opacity-75"
-                          style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}>
-                          <div className="flex items-center gap-2 mb-1">
-                            <BookOpen className="w-3 h-3" style={{ color: cluster.color }} />
+      {/* Article Grid */}
+      <section className="px-6 md:px-12 py-12">
+        <div className="max-w-6xl mx-auto">
+          {activeCluster === 'all' ? (
+            // Show clusters with articles
+            <div className="space-y-16">
+              {clusters.filter(c => c.published.length > 0).map((cluster, ci) => (
+                <motion.div key={cluster.key}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: ci * 0.04 }}>
+                  <div className="flex items-center justify-between gap-4 mb-6 pb-3" style={{ borderBottom: `1px solid ${cluster.color}20` }}>
+                    <div className="flex items-center gap-3">
+                      <div className="w-1 h-7 rounded" style={{ background: cluster.color }} />
+                      <div>
+                        <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>{cluster.label}</h2>
+                        <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>
+                          {cluster.published.length} articles published · {cluster.topics.length - cluster.published.length} coming soon
+                        </p>
+                      </div>
+                    </div>
+                    <button onClick={() => setActiveCluster(cluster.key)}
+                      className="font-mono text-[7px] tracking-[0.25em] uppercase hidden sm:flex items-center gap-1 hover:opacity-75 transition-opacity"
+                      style={{ color: cluster.color }}>
+                      View all <ArrowRight size={9} />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {/* Published articles */}
+                    <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {cluster.published.slice(0, 6).map((article, ai) => (
+                        <Link key={ai} to={`/journal/${article.slug}`}
+                          className="p-4 block transition-all group"
+                          style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                          onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
+                          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                          <div className="flex items-center gap-2 mb-2">
+                            <BookOpen size={11} style={{ color: cluster.color }} />
                             <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>Article</p>
                           </div>
-                          <p className="font-heading text-sm font-medium" style={{ color: '#F5EFE6' }}>{article.title}</p>
+                          <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
+                          <div className="flex items-center gap-1 mt-2">
+                            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>Read</span>
+                            <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
+                          </div>
                         </Link>
-                      );
-                    }
-                    return (
-                      <Link key={ai} to={`/journal/${article.slug}`}
-                        className="p-4 block transition-all hover:border-opacity-30 group"
-                        style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
-                        onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
-                        onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                        <div className="flex items-center gap-2 mb-2">
-                          <BookOpen className="w-3 h-3" style={{ color: cluster.color }} />
-                          <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>Article</p>
-                        </div>
-                        <p className="font-heading text-sm font-medium mb-1" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
-                        {article.excerpt && (
-                          <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300, lineHeight: 1.6 }}>{article.excerpt}</p>
-                        )}
-                        <div className="flex items-center gap-1 mt-3">
-                          <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}80` }}>Read</span>
-                          <ArrowRight className="w-3 h-3" style={{ color: `${cluster.color}80` }} />
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
+                      ))}
+                    </div>
 
-                {/* Related Products */}
-                <div className="p-5" style={{ background: `${cluster.color}08`, border: `1px solid ${cluster.color}20` }}>
-                  <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-4" style={{ color: cluster.color }}>Related Products</p>
-                  <div className="space-y-2">
-                    {cluster.products.map((prod, pi) => (
-                      <Link key={pi} to={prod.path}
-                        className="flex items-center justify-between py-2 px-3 transition-opacity hover:opacity-75"
-                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                        <span className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 400 }}>{prod.name}</span>
-                        <ArrowRight className="w-3 h-3" style={{ color: cluster.color }} />
-                      </Link>
-                    ))}
+                    {/* Sidebar */}
+                    <div className="space-y-3">
+                      {/* Related Products */}
+                      <div className="p-4" style={{ background: `${cluster.color}08`, border: `1px solid ${cluster.color}20` }}>
+                        <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-3" style={{ color: cluster.color }}>Products</p>
+                        <div className="space-y-1.5">
+                          {cluster.products?.slice(0, 3).map((prod, pi) => (
+                            <Link key={pi} to={prod.path}
+                              className="flex items-center justify-between py-1.5 px-2 transition-opacity hover:opacity-75"
+                              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                              <span className="font-heading text-xs" style={{ color: '#F5EFE6', fontWeight: 400 }}>{prod.name}</span>
+                              <ArrowRight size={10} style={{ color: cluster.color }} />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Related FAQs */}
+                      <div className="p-4" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}>
+                        <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>Questions</p>
+                        <div className="space-y-2">
+                          {FAQ_PAGES.filter(f => f.cluster === cluster.key).slice(0, 3).map((faq, fi) => (
+                            <Link key={fi} to={`/faq/${faq.slug}`}
+                              className="flex items-start gap-2 hover:opacity-75 transition-opacity py-1">
+                              <HelpCircle size={11} className="flex-shrink-0 mt-0.5" style={{ color: `${cluster.color}50` }} />
+                              <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.55)', lineHeight: 1.3 }}>{faq.question}</p>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link to="/faq" className="font-mono text-[7px] tracking-[0.2em] uppercase mt-2 block" style={{ color: 'rgba(230,183,173,0.35)' }}>
+                          All FAQs →
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            // Show filtered cluster
+            <div>
+              {(() => {
+                const cluster = clusters.find(c => c.key === activeCluster);
+                if (!cluster) return null;
+                return (
+                  <div>
+                    <div className="flex items-center gap-3 mb-8 pb-4" style={{ borderBottom: `1px solid ${cluster.color}20` }}>
+                      <div className="w-1 h-8 rounded" style={{ background: cluster.color }} />
+                      <div>
+                        <h2 className="font-serif font-bold text-2xl" style={{ color: '#F5EFE6' }}>{cluster.label}</h2>
+                        <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>
+                          {cluster.published.length} published · {cluster.topics.length - cluster.published.length} planned
+                        </p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {cluster.published.map((article, i) => (
+                        <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
+                          <Link to={`/journal/${article.slug}`}
+                            className="p-4 block transition-all h-full"
+                            style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                            onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
+                            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                            <div className="flex items-center gap-2 mb-2">
+                              <BookOpen size={11} style={{ color: cluster.color }} />
+                              <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>Article</p>
+                            </div>
+                            <p className="font-heading text-sm font-medium mb-3" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
+                            <div className="flex items-center gap-1">
+                              <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>Read</span>
+                              <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
+                            </div>
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Coming soon */}
+                    {cluster.topics.filter(t => !t.exists).length > 0 && (
+                      <div className="mt-10">
+                        <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(255,255,255,0.2)' }}>Coming Soon</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                          {cluster.topics.filter(t => !t.exists).map((t, i) => (
+                            <div key={i} className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px dashed rgba(255,255,255,0.06)' }}>
+                              <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.25)' }}>{t.title}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Ingredient Guides Block */}
+      <section className="px-6 md:px-12 py-12" style={{ background: '#060606', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <Leaf size={18} style={{ color: RG }} />
+              <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>Ingredient Guides</h2>
+            </div>
+            <Link to="/ingredients" className="font-mono text-[7px] tracking-[0.25em] uppercase flex items-center gap-1 hover:opacity-75 transition-opacity" style={{ color: RG }}>
+              All Ingredients <ArrowRight size={9} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {INGREDIENT_PAGES.map((ing, i) => (
+              <Link key={i} to={`/ingredients/${ing.slug}`}
+                className="p-4 text-center block transition-all"
+                style={{ background: '#0F0E0D', border: `1px solid ${ing.color}20` }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = `${ing.color}50`}
+                onMouseLeave={e => e.currentTarget.style.borderColor = `${ing.color}20`}>
+                <p className="font-serif font-bold text-sm mb-1" style={{ color: ing.color }}>{ing.name}</p>
+                <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>{ing.category}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Guides Block */}
+      <section className="px-6 md:px-12 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.04)' }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif font-bold text-xl mb-6" style={{ color: '#F5EFE6' }}>Comparison Guides</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {COMPARISON_PAGES.map((comp, i) => (
+              <Link key={i} to={`/compare/${comp.slug}`}
+                className="p-4 block transition-all"
+                style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = `${RG}30`}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: `${RG}50` }}>vs. {comp.competitor}</p>
+                <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{comp.title}</p>
+                <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}60` }}>Read Guide →</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -214,13 +290,11 @@ export default function JournalHub() {
           Ready to start your ritual?
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/quiz"
-            className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
+          <Link to="/quiz" className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
             style={{ background: RG, color: '#080808' }}>
             Take the Blend Quiz →
           </Link>
-          <Link to="/shop"
-            className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
+          <Link to="/shop" className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
             style={{ border: `1px solid ${RG}40`, color: RG }}>
             Shop All Blends
           </Link>

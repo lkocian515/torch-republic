@@ -1,217 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- PUBLIC PAGES ONLY — admin, account, cart, checkout, and legacy pages are excluded -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
-  <url>
-    <loc>https://torchrepublic.com/</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <!-- ── CORE PAGES ── -->
+  <url><loc>https://torchrepublic.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://torchrepublic.com/shop</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/shop/instant-mushroom-coffee</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://torchrepublic.com/shop/instant-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/shop/matcha</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/build-your-ritual</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/bundle</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/blends</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/quiz</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/reviews</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/mission</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/contact</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/torchbearer</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/torchbearers-rewards</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://torchrepublic.com/gifts</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/spotlight</loc><changefreq>monthly</changefreq><priority>0.55</priority></url>
 
-  <!-- Shop / Collections -->
-  <url>
-    <loc>https://torchrepublic.com/shop</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/shop/instant-mushroom-coffee</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/shop/instant-coffee</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/shop/matcha</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/blends</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/bundle</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/build-your-ritual</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- ── SEO CONTENT PAGES ── -->
+  <url><loc>https://torchrepublic.com/mushroom-coffee-benefits</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/lions-mane-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/instant-coffee-for-energy</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/why-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/why-matcha</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/research</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/recipes</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
 
-  <!-- Journal / Content Hub -->
-  <url>
-    <loc>https://torchrepublic.com/journal</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+  <!-- ── INGREDIENT DEEP DIVES ── -->
+  <url><loc>https://torchrepublic.com/ingredients/lions-mane</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients/chaga</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients/cordyceps</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients/reishi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients/l-theanine</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/ingredients/arabica-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- SEO Landing Pages -->
-  <url>
-    <loc>https://torchrepublic.com/mushroom-coffee-benefits</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/lions-mane-coffee</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/instant-coffee-for-energy</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/why-mushroom-coffee</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/why-matcha</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/ingredients</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
+  <!-- ── FAQ LIBRARY ── -->
+  <url><loc>https://torchrepublic.com/faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/what-is-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/faq/does-mushroom-coffee-taste-like-mushrooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/how-much-caffeine-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/is-mushroom-coffee-safe</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/how-to-make-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/mushroom-coffee-vs-regular-coffee-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/best-mushroom-blend-for-beginners</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/can-you-drink-mushroom-coffee-every-day</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/lions-mane-benefits-faq</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/faq/chaga-benefits-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/what-is-instant-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/is-instant-coffee-real-coffee-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/freeze-dried-vs-spray-dried-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/how-much-caffeine-instant-coffee</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/instant-coffee-vs-pods-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/what-is-ceremonial-matcha</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/faq/ceremonial-vs-culinary-matcha-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/how-much-caffeine-matcha</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/matcha-vs-coffee-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/does-matcha-have-health-benefits</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/no-machine-coffee-options-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/adaptogens-explained-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/subscription-faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/faq/torchbearers-rewards-faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/faq/bundle-deal-faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/faq/mushroom-coffee-pregnancy-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/mushroom-coffee-side-effects-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/what-is-l-theanine-faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/can-i-drink-coffee-in-afternoon</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/faq/instant-coffee-before-workout</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/arabica-vs-robusta-faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://torchrepublic.com/faq/how-to-make-matcha-latte</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/whats-in-each-torch-republic-blend</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/faq/shipping-faq</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://torchrepublic.com/faq/return-policy-faq</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
 
-  <!-- Brand / Info -->
-  <url>
-    <loc>https://torchrepublic.com/mission</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/how-it-works</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/reviews</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/faq</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/contact</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/recipes</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/research</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/quiz</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/torchbearers-rewards</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/subscription</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/gifts</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/spotlight</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/torchbearer</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- ── KEYWORD COLLECTION PAGES ── -->
+  <url><loc>https://torchrepublic.com/shop/morning-ritual</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/shop/focus-coffee</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/shop/travel-coffee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Legal -->
-  <url>
-    <loc>https://torchrepublic.com/shipping-policy</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/return-policy</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/privacy-policy</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/terms-of-service</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <!-- ── FOUNDER STORY ── -->
+  <url><loc>https://torchrepublic.com/founder-story</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
-  <!-- NOTE: The following are intentionally EXCLUDED from this sitemap:
-    - /cart, /checkout, /order-confirmation (transactional/utility)
-    - /login, /register, /forgot-password, /reset-password (auth)
-    - /profile, /loyalty, /portal (account)
-    - /admin/*, /command/*, all internal tools (admin)
-    - All legacy patriotic/apparel routes (redirect to /shop)
-  -->
+  <!-- ── COMPARISON GUIDES ── -->
+  <url><loc>https://torchrepublic.com/compare/ryze-vs-torch-republic</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/compare/torch-republic-vs-four-sigmatic</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/compare/mushroom-coffee-vs-regular-coffee-comparison</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/compare/instant-coffee-vs-pods-comparison</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/compare/matcha-vs-coffee-detailed</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://torchrepublic.com/compare/ceremonial-vs-culinary-matcha</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/compare/mushroom-coffee-vs-energy-drinks</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ── AUTHOR / E-E-A-T ── -->
+  <url><loc>https://torchrepublic.com/about/torch-republic-team</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+
+  <!-- ── POLICY PAGES ── -->
+  <url><loc>https://torchrepublic.com/shipping-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://torchrepublic.com/return-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://torchrepublic.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://torchrepublic.com/terms-of-service</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://torchrepublic.com/faq</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>

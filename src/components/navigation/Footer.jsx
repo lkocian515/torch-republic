@@ -88,8 +88,11 @@ const FOOTER_LINKS = [
       { label: 'About', href: '/mission' },
       { label: 'How It Works', href: '/how-it-works' },
       { label: 'Journal', href: '/journal' },
-      { label: 'Recipes', href: '/recipes' },
+      { label: 'Ingredients', href: '/ingredients' },
       { label: 'FAQ', href: '/faq' },
+      { label: 'Founder Story', href: '/founder-story' },
+      { label: 'Comparisons', href: '/compare/mushroom-coffee-vs-regular-coffee-comparison' },
+      { label: 'Recipes', href: '/recipes' },
       { label: 'Contact', href: '/contact' },
     ]
   },

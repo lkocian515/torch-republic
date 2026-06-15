@@ -2,7 +2,8 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Leaf, Zap, Brain, Shield, Coffee } from 'lucide-react';
+import { CheckCircle, Leaf, Zap, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
+import { INGREDIENT_PAGES } from '@/lib/seoContent';
 
 const RG = '#E6B7AD';
 
@@ -310,6 +311,31 @@ export default function Ingredients() {
             Shop All Products →
           </Link>
         </motion.div>
+      </section>
+
+      {/* Deep Dive Ingredient Pages */}
+      <section className="px-6 md:px-10 py-14" style={{ borderTop: '1px solid rgba(230,183,173,0.06)', background: '#0A0908' }}>
+        <div className="max-w-[1100px] mx-auto">
+          <h2 className="font-serif font-bold mb-6 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
+            Ingredient Deep Dives
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {INGREDIENT_PAGES.map((ing, i) => (
+              <Link key={i} to={`/ingredients/${ing.slug}`}
+                className="p-4 text-center block transition-all group"
+                style={{ background: '#0F0E0D', border: `1px solid ${ing.color}20` }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = `${ing.color}50`}
+                onMouseLeave={e => e.currentTarget.style.borderColor = `${ing.color}20`}>
+                <p className="font-serif font-bold text-sm mb-1" style={{ color: ing.color }}>{ing.name}</p>
+                <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.25)' }}>{ing.category}</p>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${ing.color}60` }}>Deep Dive</span>
+                  <ArrowRight size={8} style={{ color: `${ing.color}60` }} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* FDA */}

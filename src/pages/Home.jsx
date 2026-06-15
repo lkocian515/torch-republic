@@ -26,6 +26,7 @@ import BuiltForRituals from '../components/home/BuiltForRituals';
 // Schema components
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
+import GEOOptimization from '../components/seo/GEOOptimization';
 
 const RG = '#E6B7AD';
 
@@ -89,6 +90,7 @@ export default function Home() {
       {/* Schema Markup for SEO */}
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <GEOOptimization page="home" />
 
       {/* 1. Hero */}
       <HeroSection />
