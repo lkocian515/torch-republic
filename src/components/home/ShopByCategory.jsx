@@ -51,7 +51,7 @@ export default function ShopByCategory() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
+          <p className="font-mono text-[12px] tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
             Choose Your Ritual
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
@@ -79,7 +79,7 @@ export default function ShopByCategory() {
             >
               {cat.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1" style={{ background: '#10B981', color: '#080808' }}>
-                  <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">Most Popular</p>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold">Most Popular</p>
                 </div>
               )}
               <div className="p-8 flex-1 flex flex-col">
@@ -102,7 +102,7 @@ export default function ShopByCategory() {
                 <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.8 }}>
                   {cat.body}
                 </p>
-                <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-6" style={{ color: `${cat.accent}FF` }}>
+                <p className="font-mono text-[12px] tracking-[0.1em] uppercase mb-6" style={{ color: `${cat.accent}FF` }}>
                   {cat.detail}
                 </p>
                 <Link

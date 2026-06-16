@@ -27,7 +27,7 @@ export default function HomeTrustRow() {
             <div key={i} className="flex items-center gap-1.5">
               <span style={{ fontSize: '0.75rem' }}>{item.icon}</span>
               <span
-                className="font-mono text-[8px] tracking-[0.18em] uppercase"
+                className="font-mono text-[11px] tracking-[0.12em] uppercase"
                 style={{ color: 'rgba(230,183,173,0.85)' }}
               >
                 {item.text}

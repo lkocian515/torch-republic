@@ -38,10 +38,10 @@ export default function TrustSection() {
               style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}
             >
               <item.icon className="w-6 h-6 mb-3" style={{ color: RG }} />
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
+              <p className="font-mono text-[11px] tracking-[0.12em] uppercase font-semibold mb-1" style={{ color: RG }}>
                 {item.label}
               </p>
-              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400 }}>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.95)', fontWeight: 400 }}>
                 {item.sub}
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function TrustSection() {
               <span className="font-serif font-bold text-xs" style={{ color: '#080808' }}>TR</span>
             </div>
             <div>
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>Torch Republic</p>
+              <p className="font-mono text-[11px] tracking-[0.12em] uppercase font-bold" style={{ color: RG }}>Torch Republic</p>
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.92)' }}>Corpus Christi, TX</p>
             </div>
           </div>

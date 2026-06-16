@@ -103,7 +103,7 @@ export default function ComparisonTable() {
           </table>
         </div>
 
-        <p className="font-mono text-[8px] tracking-[0.12em] mt-6 text-center" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
+        <p className="font-mono text-[10px] tracking-[0.08em] mt-6 text-center" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
           ✓ = Yes · ◐ = Varies by brand · — = Generally no. This is a general comparison and individual brands may differ.
         </p>
       </div>

@@ -32,7 +32,7 @@ export default function HeroSection() {
         className="px-5 md:px-10 pt-8 pb-10 md:py-16 text-center"
         style={{ background: 'linear-gradient(180deg, #0A0807 0%, #080808 100%)' }}
       >
-        <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.8)' }}>
+        <p className="font-mono text-[11px] tracking-[0.25em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.8)' }}>
           Torch Republic Coffee Company
         </p>
         <h1
@@ -79,7 +79,7 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        <p className="font-mono text-[9px] tracking-[0.18em] uppercase mb-10" style={{ color: 'rgba(230,183,173,0.75)' }}>
+        <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-10" style={{ color: 'rgba(230,183,173,0.75)' }}>
           Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off &nbsp;·&nbsp; Free shipping $75+ &nbsp;·&nbsp; 30-day guarantee
         </p>
 
@@ -89,10 +89,10 @@ export default function HeroSection() {
         >
           {TRUST_ICONS.map((item, i) => (
             <div key={i} className="text-center">
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-semibold" style={{ color: RG }}>
+              <p className="font-mono text-[11px] tracking-[0.15em] uppercase font-semibold" style={{ color: RG }}>
                 {item.label}
               </p>
-              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(210,195,175,0.8)', fontWeight: 400 }}>
+              <p className="font-heading text-sm mt-0.5" style={{ color: 'rgba(210,195,175,0.8)', fontWeight: 400 }}>
                 {item.sub}
               </p>
             </div>

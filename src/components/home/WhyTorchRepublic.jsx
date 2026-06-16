@@ -97,16 +97,16 @@ export default function WhyTorchRepublic() {
 
         {/* Comparison table */}
         <div className="mb-12">
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: RG }}>
+          <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-center mb-6" style={{ color: RG }}>
             How We Compare
           </p>
           <div className="overflow-x-auto">
             <table className="w-full" style={{ borderCollapse: 'collapse', maxWidth: 680, margin: '0 auto' }}>
               <thead>
                 <tr>
-                  <th className="text-left pb-3 font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.7)', width: '55%' }}></th>
-                  <th className="pb-3 font-mono text-[8px] tracking-[0.3em] uppercase text-center" style={{ color: RG }}>Torch Republic</th>
-                  <th className="pb-3 font-mono text-[8px] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(255,255,255,0.7)' }}>Generic Instant</th>
+                  <th className="text-left pb-3 font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.7)', width: '55%' }}></th>
+                  <th className="pb-3 font-mono text-[11px] tracking-[0.2em] uppercase text-center" style={{ color: RG }}>Torch Republic</th>
+                  <th className="pb-3 font-mono text-[11px] tracking-[0.2em] uppercase text-center" style={{ color: 'rgba(255,255,255,0.7)' }}>Generic Instant</th>
                 </tr>
               </thead>
               <tbody>
@@ -140,7 +140,7 @@ export default function WhyTorchRepublic() {
           ].map(item => (
             <div key={item.label} className="text-center">
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: RG }}>{item.label}</p>
-              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400 }}>{item.sub}</p>
+              <p className="font-heading text-sm mt-0.5" style={{ color: 'rgba(240,235,225,0.9)', fontWeight: 400 }}>{item.sub}</p>
             </div>
           ))}
         </div>

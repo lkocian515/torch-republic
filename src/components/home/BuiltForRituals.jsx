@@ -49,7 +49,7 @@ export default function BuiltForRituals() {
                   <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
                     {p.label}
                   </p>
-                  <p className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400 }}>
+                  <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.95)', fontWeight: 400 }}>
                     {p.sub}
                   </p>
                 </div>

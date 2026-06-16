@@ -64,7 +64,7 @@ export default function FounderNote() {
                 <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
                   {item.label}
                 </p>
-                <p className="font-heading text-[11px]" style={{ color: 'rgba(210,195,175,0.85)', fontWeight: 400, lineHeight: 1.6 }}>
+                <p className="font-heading text-xs" style={{ color: 'rgba(210,195,175,0.95)', fontWeight: 400, lineHeight: 1.6 }}>
                   {item.sub}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export default function FounderNote() {
           </div>
 
           {/* DBA statement */}
-          <p className="font-mono text-[8px] tracking-[0.12em] mt-6" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>
+          <p className="font-mono text-[10px] tracking-[0.08em] mt-6" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>
             Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. ·{' '}
             <Link to="/shipping-policy" style={{ color: 'rgba(230,183,173,0.8)', textDecoration: 'none' }}>Shipping</Link>{' '}
             ·{' '}
