@@ -20,6 +20,7 @@ import ReviewPopup from './components/mushroom/ReviewPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import NoIndex from './components/seo/NoIndex';
+import GoneRedirect from './components/seo/GoneRedirect';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
 const Home = lazy(() => import('./pages/Home'));
@@ -216,9 +217,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/TrafficReport" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign" element={<Navigate to="/" replace />} />
         <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
-        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><AdminGuard><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></AdminGuard></Suspense>} />
-        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
-        <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
+        <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
         <Route path="/admin/blog" element={<Navigate to="/" replace />} />
         <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
         <Route path="/Admin" element={<Navigate to="/" replace />} />
@@ -256,10 +257,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
         <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
-        <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/terms-of-service" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TermsOfService" queryClient={queryClient}><TermsOfService /></LayoutWrapper></Suspense>} />
+        <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/terms-of-service" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="TermsOfService" queryClient={queryClient}><TermsOfService /></LayoutWrapper></Suspense>} />
 
         {/* ── SEO CONTENT PAGES ── */}
         <Route path="/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefits" queryClient={queryClient}><MushroomCoffeeBenefits /></LayoutWrapper></Suspense>} />
@@ -323,38 +324,60 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/shop/focus-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FocusCoffeeCollection" queryClient={queryClient}><FocusCoffeeCollection /></LayoutWrapper></Suspense>} />
         <Route path="/shop/travel-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TravelCoffeeCollection" queryClient={queryClient}><TravelCoffeeCollection /></LayoutWrapper></Suspense>} />
 
-        {/* ── LEGACY REDIRECTS — old brand pages → current wellness brand ── */}
-        {/* Coffee pods, patriotic apparel, collectibles, historical figure blends all → /shop */}
-        <Route path="/coffee-pods" element={<Navigate to="/shop" replace />} />
-        <Route path="/pods" element={<Navigate to="/shop" replace />} />
-        <Route path="/pod" element={<Navigate to="/shop" replace />} />
-        <Route path="/founders-series" element={<Navigate to="/shop" replace />} />
-        <Route path="/founders" element={<Navigate to="/shop" replace />} />
-        <Route path="/libertees" element={<Navigate to="/shop" replace />} />
-        <Route path="/apparel" element={<Navigate to="/shop" replace />} />
-        <Route path="/collectibles" element={<Navigate to="/shop" replace />} />
-        <Route path="/patriotic" element={<Navigate to="/shop" replace />} />
-        <Route path="/patriotic-coffee" element={<Navigate to="/shop" replace />} />
-        <Route path="/lincoln" element={<Navigate to="/shop" replace />} />
-        <Route path="/washington" element={<Navigate to="/shop" replace />} />
-        <Route path="/jefferson" element={<Navigate to="/shop" replace />} />
-        <Route path="/reagan" element={<Navigate to="/shop" replace />} />
-        <Route path="/historical" element={<Navigate to="/shop" replace />} />
-        <Route path="/liberty" element={<Navigate to="/shop" replace />} />
-        <Route path="/freedom" element={<Navigate to="/shop" replace />} />
-        <Route path="/american-heroes" element={<Navigate to="/shop" replace />} />
-        <Route path="/christ-is-king" element={<Navigate to="/shop" replace />} />
-        <Route path="/god-family-country" element={<Navigate to="/shop" replace />} />
-        <Route path="/faith-over-fear" element={<Navigate to="/shop" replace />} />
-        <Route path="/we-the-people" element={<Navigate to="/shop" replace />} />
-        <Route path="/freedom-isnt-free" element={<Navigate to="/shop" replace />} />
-        <Route path="/t-shirts" element={<Navigate to="/shop" replace />} />
-        <Route path="/hoodies" element={<Navigate to="/shop" replace />} />
-        <Route path="/hats" element={<Navigate to="/shop" replace />} />
-        <Route path="/mugs" element={<Navigate to="/shop" replace />} />
-        <Route path="/stickers" element={<Navigate to="/shop" replace />} />
-        <Route path="/flags" element={<Navigate to="/shop" replace />} />
-        <Route path="/bobbleheads" element={<Navigate to="/shop" replace />} />
+        {/* ── LEGACY REDIRECTS (301) — coffee/matcha adjacent old URLs → relevant current pages ── */}
+        {/* Coffee pods had SEO value — send to instant coffee collection */}
+        <Route path="/coffee-pods" element={<Navigate to="/shop/instant-coffee" replace />} />
+        <Route path="/pods" element={<Navigate to="/shop/instant-coffee" replace />} />
+        <Route path="/pod" element={<Navigate to="/shop/instant-coffee" replace />} />
+        {/* Patriotic coffee blends → mushroom coffee collection (closest product match) */}
+        <Route path="/patriotic-coffee" element={<Navigate to="/shop/instant-mushroom-coffee" replace />} />
+        {/* Founders series had some SEO equity → mushroom coffee (brand story angle) */}
+        <Route path="/founders-series" element={<Navigate to="/shop/instant-mushroom-coffee" replace />} />
+        <Route path="/founders" element={<Navigate to="/shop/instant-mushroom-coffee" replace />} />
+
+        {/* ── 410 GONE — discontinued apparel, jewelry, collectibles ── */}
+        {/* These pages no longer exist; 410 tells Google to drop them from index cleanly */}
+        <Route path="/libertees" element={<GoneRedirect />} />
+        <Route path="/apparel" element={<GoneRedirect />} />
+        <Route path="/collectibles" element={<GoneRedirect />} />
+        <Route path="/patriotic" element={<GoneRedirect />} />
+        <Route path="/lincoln" element={<GoneRedirect />} />
+        <Route path="/washington" element={<GoneRedirect />} />
+        <Route path="/jefferson" element={<GoneRedirect />} />
+        <Route path="/reagan" element={<GoneRedirect />} />
+        <Route path="/historical" element={<GoneRedirect />} />
+        <Route path="/liberty" element={<GoneRedirect />} />
+        <Route path="/freedom" element={<GoneRedirect />} />
+        <Route path="/american-heroes" element={<GoneRedirect />} />
+        <Route path="/christ-is-king" element={<GoneRedirect />} />
+        <Route path="/god-family-country" element={<GoneRedirect />} />
+        <Route path="/faith-over-fear" element={<GoneRedirect />} />
+        <Route path="/we-the-people" element={<GoneRedirect />} />
+        <Route path="/freedom-isnt-free" element={<GoneRedirect />} />
+        <Route path="/t-shirts" element={<GoneRedirect />} />
+        <Route path="/hoodies" element={<GoneRedirect />} />
+        <Route path="/hats" element={<GoneRedirect />} />
+        <Route path="/mugs" element={<GoneRedirect />} />
+        <Route path="/stickers" element={<GoneRedirect />} />
+        <Route path="/flags" element={<GoneRedirect />} />
+        <Route path="/bobbleheads" element={<GoneRedirect />} />
+        {/* Jewelry — explicitly discontinued category */}
+        <Route path="/jewelry" element={<GoneRedirect />} />
+        <Route path="/necklaces" element={<GoneRedirect />} />
+        <Route path="/bracelets" element={<GoneRedirect />} />
+        <Route path="/rings" element={<GoneRedirect />} />
+        <Route path="/collections/jewelry" element={<GoneRedirect />} />
+        <Route path="/collections/apparel" element={<GoneRedirect />} />
+        <Route path="/collections/t-shirts" element={<GoneRedirect />} />
+        <Route path="/collections/hoodies-sweatshirts" element={<GoneRedirect />} />
+        <Route path="/collections/hats" element={<GoneRedirect />} />
+        <Route path="/collections/tanks" element={<GoneRedirect />} />
+        <Route path="/collections/magnets" element={<GoneRedirect />} />
+        <Route path="/collections/stickers" element={<GoneRedirect />} />
+        <Route path="/collections/flags" element={<GoneRedirect />} />
+        <Route path="/collections/bobbleheads" element={<GoneRedirect />} />
+        <Route path="/collections/candles" element={<GoneRedirect />} />
+        <Route path="/collections/home-decor" element={<GoneRedirect />} />
 
         {/* ── TORCH COMMAND (INTERNAL) — ALL REDIRECT TO HOMEPAGE ── */}
         <Route path="/command" element={<Navigate to="/" replace />} />
