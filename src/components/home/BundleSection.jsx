@@ -70,13 +70,13 @@ export default function BundleSection() {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
             Build Your Ritual
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             Choose Your Bundle
           </h2>
-          <p className="font-heading mx-auto mb-4" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
+          <p className="font-heading mx-auto mb-4" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.95)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
             Curated bundles designed for different moments of your day. Any 3 blends — always $49.99.
           </p>
         </motion.div>
@@ -108,10 +108,10 @@ export default function BundleSection() {
                 <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.1rem', lineHeight: 1.2 }}>
                   {bundle.name}
                 </h3>
-                <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-3" style={{ color: `${bundle.accent}80` }}>
+                <p className="font-mono text-[11px] tracking-[0.12em] uppercase mb-3" style={{ color: bundle.accent }}>
                   Best for: {bundle.bestFor}
                 </p>
-                <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.75 }}>
+                <p className="font-heading text-base mb-4 flex-1" style={{ color: 'rgba(245,239,230,0.95)', fontWeight: 400, lineHeight: 1.75 }}>
                   {bundle.description}
                 </p>
 
@@ -122,10 +122,10 @@ export default function BundleSection() {
                   {bundle.includes}
                 </p>
 
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                <p className="font-mono text-[11px] tracking-[0.12em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.95)' }}>
                   ✦ {bundle.servings}
                 </p>
-                <p className="font-mono text-[9px] tracking-[0.12em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.35)' }}>
+                <p className="font-mono text-[11px] tracking-[0.1em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.85)' }}>
                   {bundle.perServing}
                 </p>
 
@@ -133,7 +133,7 @@ export default function BundleSection() {
                   <span className="font-serif font-bold" style={{ fontSize: '1.25rem', color: RG }}>
                     {bundle.price}
                   </span>
-                  <span className="font-mono text-[9px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                  <span className="font-mono text-[11px] tracking-[0.08em]" style={{ color: 'rgba(230,183,173,0.85)' }}>
                     Shipping at checkout
                   </span>
                 </div>
@@ -161,12 +161,12 @@ export default function BundleSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300 }}>
+          <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400 }}>
             Want to mix your own blends?
           </p>
           <Link
             to="/build-your-ritual"
-            className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-70"
             style={{ color: RG, borderBottom: `1px solid ${RG}40`, paddingBottom: '2px' }}
           >
             Build a Custom Bundle →
