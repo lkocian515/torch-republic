@@ -91,7 +91,7 @@ export default function ReviewsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
             Torchbearer Reviews
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
@@ -101,7 +101,7 @@ export default function ReviewsSection() {
             <div className="flex gap-0.5">
               {[1,2,3,4,5].map(n => <Star key={n} className="w-4 h-4" fill={RG} stroke={RG} />)}
             </div>
-            <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.9)' }}>
               4.9 / 5 average rating
             </span>
           </div>
@@ -127,7 +127,7 @@ export default function ReviewsSection() {
               <div>
                 <p className="font-serif font-bold text-white text-sm">{reviews[currentIdx]?.reviewer_name}</p>
                 {reviews[currentIdx]?.location && (
-                  <p className="font-mono text-[7.5px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(230,183,173,0.45)' }}>
+                  <p className="font-mono text-[7.5px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(230,183,173,0.85)' }}>
                     {reviews[currentIdx].location}
                   </p>
                 )}

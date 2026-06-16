@@ -28,7 +28,7 @@ export default function HomeTrustRow() {
               <span style={{ fontSize: '0.75rem' }}>{item.icon}</span>
               <span
                 className="font-mono text-[8px] tracking-[0.18em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.5)' }}
+                style={{ color: 'rgba(230,183,173,0.85)' }}
               >
                 {item.text}
               </span>

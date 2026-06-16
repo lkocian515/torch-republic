@@ -18,13 +18,13 @@ export default function BuiltForRituals() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left — text */}
           <div>
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${RG}70` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
               Our Purpose
             </p>
             <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.7rem, 3.5vw, 2.5rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
               Built for Better Daily Rituals
             </h2>
-            <p className="font-heading mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+            <p className="font-heading mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.9)', fontWeight: 400, lineHeight: 1.9 }}>
               Torch Republic was created for people who want the convenience of instant coffee without sacrificing intention, quality, or wellness. Our blends are designed to support focused mornings, calmer routines, and a more meaningful daily ritual — no pods, no machines, no complicated prep.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -49,7 +49,7 @@ export default function BuiltForRituals() {
                   <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
                     {p.label}
                   </p>
-                  <p className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
+                  <p className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400 }}>
                     {p.sub}
                   </p>
                 </div>

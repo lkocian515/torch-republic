@@ -67,13 +67,13 @@ export default function WhyTorchRepublic() {
 
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
             Why Choose Torch Republic?
           </p>
           <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             A Better Daily Ritual
           </h2>
-          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.7)', fontWeight: 400, lineHeight: 1.9 }}>
+          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.92)', fontWeight: 400, lineHeight: 1.9 }}>
             Torch Republic was built for people who want the convenience of instant coffee without sacrificing quality, wellness, or intention.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function WhyTorchRepublic() {
             >
               <span className="text-2xl">{b.icon}</span>
               <h3 className="font-serif font-bold text-white" style={{ fontSize: '1rem' }}>{b.title}</h3>
-              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.7)', fontWeight: 400, lineHeight: 1.75 }}>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.92)', fontWeight: 400, lineHeight: 1.75 }}>
                 {b.body}
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function WhyTorchRepublic() {
 
         {/* Comparison table */}
         <div className="mb-12">
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.45)' }}>
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.9)' }}>
             How We Compare
           </p>
           <div className="overflow-x-auto">
@@ -112,7 +112,7 @@ export default function WhyTorchRepublic() {
               <tbody>
                 {COMPARISON_ROWS.map((row, i) => (
                   <tr key={row.feature} style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td className="py-2.5 font-heading text-sm" style={{ color: 'rgba(245,239,230,0.65)', fontWeight: 300 }}>{row.feature}</td>
+                    <td className="py-2.5 font-heading text-sm" style={{ color: 'rgba(245,239,230,0.92)', fontWeight: 400 }}>{row.feature}</td>
                     <td className="py-2.5 text-center">
                       {row.tr
                         ? <Check className="w-4 h-4 mx-auto" style={{ color: '#10B981' }} />
@@ -140,7 +140,7 @@ export default function WhyTorchRepublic() {
           ].map(item => (
             <div key={item.label} className="text-center">
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: RG }}>{item.label}</p>
-              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 400 }}>{item.sub}</p>
+              <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.8)', fontWeight: 400 }}>{item.sub}</p>
             </div>
           ))}
         </div>

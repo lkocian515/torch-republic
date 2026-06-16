@@ -52,13 +52,13 @@ export default function ComparisonTable() {
       <div className="divider-gradient absolute top-0 left-0 right-0" />
       <div className="max-w-[1100px] mx-auto">
         <div className="text-center mb-10">
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
             How Torch Republic Compares
           </p>
           <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
             The Complete Ritual Brand
           </h2>
-          <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.85 }}>
+          <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.9)', fontWeight: 400, lineHeight: 1.85 }}>
             Torch Republic is one of the few brands offering classic coffee, mushroom coffee, and matcha in a single ritual collection — all instant, no machine required.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function ComparisonTable() {
                     className="p-3 text-left"
                     style={{
                       background: col.highlight ? `rgba(230,183,173,0.12)` : '#111',
-                      color: col.highlight ? RG : 'rgba(240,235,225,0.5)',
+                      color: col.highlight ? RG : 'rgba(240,235,225,0.85)',
                       fontSize: col.highlight ? '0.85rem' : '0.78rem',
                       fontFamily: 'var(--font-mono)',
                       textTransform: 'uppercase',
@@ -90,7 +90,7 @@ export default function ComparisonTable() {
             <tbody>
               {ROWS.map((row, i) => (
                 <tr key={i} style={{ background: i % 2 === 0 ? '#0F0E0D' : '#111' }}>
-                  <td className="p-3" style={{ color: 'rgba(240,235,225,0.75)', fontSize: '0.83rem', borderBottom: '1px solid rgba(230,183,173,0.07)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
+                  <td className="p-3" style={{ color: 'rgba(240,235,225,0.95)', fontSize: '0.83rem', borderBottom: '1px solid rgba(230,183,173,0.07)', fontFamily: 'var(--font-heading)', fontWeight: 400 }}>
                     {row.feature}
                   </td>
                   <Cell value={row.torch}   highlight />
@@ -103,7 +103,7 @@ export default function ComparisonTable() {
           </table>
         </div>
 
-        <p className="font-mono text-[8px] tracking-[0.12em] mt-6 text-center" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+        <p className="font-mono text-[8px] tracking-[0.12em] mt-6 text-center" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
           ✓ = Yes · ◐ = Varies by brand · — = Generally no. This is a general comparison and individual brands may differ.
         </p>
       </div>

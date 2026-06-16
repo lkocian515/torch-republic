@@ -18,7 +18,7 @@ export default function TrustSection() {
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
             Why Customers Trust Torch Republic
           </p>
           <h2
@@ -65,7 +65,7 @@ export default function TrustSection() {
             </div>
             <div>
               <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>Torch Republic</p>
-              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.75)' }}>Corpus Christi, TX</p>
+              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.92)' }}>Corpus Christi, TX</p>
             </div>
           </div>
         </div>

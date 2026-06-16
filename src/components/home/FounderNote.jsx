@@ -23,13 +23,13 @@ export default function FounderNote() {
 
           {/* Message */}
           <div className="mb-8">
-            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.92)', fontWeight: 400, lineHeight: 1.9 }}>
               I created Torch Republic because I wanted coffee to feel better — simpler, cleaner, and more intentional.
             </p>
-            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+            <p className="font-heading text-base leading-relaxed mb-5" style={{ color: 'rgba(240,235,225,0.92)', fontWeight: 400, lineHeight: 1.9 }}>
               I used to love the convenience of pod coffee, but the more I learned, the more I wanted another option. Torch Republic was born from that search: instant coffee, mushroom coffee, and matcha made for people who want their daily cup to support the life they are building.
             </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
+            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.92)', fontWeight: 400, lineHeight: 1.9 }}>
               This is not about chasing trends. It is about creating a better daily ritual — one intentional cup at a time.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function FounderNote() {
             >
               Lisa Marie Kocian
             </p>
-            <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.85)' }}>
               Founder, Torch Republic Coffee Company
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function FounderNote() {
                 <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold mb-1" style={{ color: RG }}>
                   {item.label}
                 </p>
-                <p className="font-heading text-[11px]" style={{ color: 'rgba(210,195,175,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+                <p className="font-heading text-[11px]" style={{ color: 'rgba(210,195,175,0.85)', fontWeight: 400, lineHeight: 1.6 }}>
                   {item.sub}
                 </p>
               </div>
@@ -72,11 +72,11 @@ export default function FounderNote() {
           </div>
 
           {/* DBA statement */}
-          <p className="font-mono text-[8px] tracking-[0.12em] mt-6" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
+          <p className="font-mono text-[8px] tracking-[0.12em] mt-6" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>
             Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. ·{' '}
-            <Link to="/shipping-policy" style={{ color: 'rgba(230,183,173,0.4)', textDecoration: 'none' }}>Shipping</Link>{' '}
+            <Link to="/shipping-policy" style={{ color: 'rgba(230,183,173,0.8)', textDecoration: 'none' }}>Shipping</Link>{' '}
             ·{' '}
-            <Link to="/return-policy" style={{ color: 'rgba(230,183,173,0.4)', textDecoration: 'none' }}>Returns</Link>
+            <Link to="/return-policy" style={{ color: 'rgba(230,183,173,0.8)', textDecoration: 'none' }}>Returns</Link>
           </p>
 
           {/* CTA */}
