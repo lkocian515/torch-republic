@@ -91,7 +91,7 @@ export default function ReviewsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.9)' }}>
+          <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: RG }}>
             Torchbearer Reviews
           </p>
           <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
@@ -121,7 +121,7 @@ export default function ReviewsSection() {
             >
               <StarRating rating={reviews[currentIdx]?.rating || 5} />
               <p className="font-heading text-base mt-5 mb-5"
-                style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 300, lineHeight: 1.85, fontStyle: 'italic' }}>
+                style={{ color: 'rgba(240,235,225,0.95)', fontWeight: 400, lineHeight: 1.85, fontStyle: 'italic' }}>
                 "{reviews[currentIdx]?.body}"
               </p>
               <div>
