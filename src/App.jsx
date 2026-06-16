@@ -21,6 +21,7 @@ import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import NoIndex from './components/seo/NoIndex';
 import GoneRedirect from './components/seo/GoneRedirect';
+import useAnalytics from './hooks/useAnalytics';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
 const Home = lazy(() => import('./pages/Home'));
@@ -154,6 +155,8 @@ const LayoutWrapper = ({ children, currentPageName, queryClient }) => {
 
 const AuthenticatedApp = ({ queryClient }) => {
   const location = useLocation();
+  // SPA analytics — fires exactly one page_view per route change
+  useAnalytics();
   return (
     <>
       <UnifiedHeader />

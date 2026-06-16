@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { trackHeroCTAClick, trackViewPromotion } from '@/lib/analytics';
 
 const RG = '#E6B7AD';
 
@@ -75,6 +76,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-5">
           <Link
             to="/shop"
+            onClick={() => trackHeroCTAClick('Shop Coffee & Matcha')}
             className="font-mono text-[12px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 w-full sm:w-auto"
             style={{ background: RG, color: '#080808', padding: '16px 48px', display: 'inline-block', textAlign: 'center' }}
           >
@@ -82,6 +84,7 @@ export default function HeroSection() {
           </Link>
           <Link
             to="/quiz"
+            onClick={() => { trackHeroCTAClick('Find My Ritual'); }}
             className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-75 w-full sm:w-auto"
             style={{ border: '1px solid rgba(230,183,173,0.35)', color: RG, padding: '16px 32px', display: 'inline-block', textAlign: 'center' }}
           >

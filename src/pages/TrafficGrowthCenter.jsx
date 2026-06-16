@@ -6,8 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import {
   TrendingUp, Search, MousePointer, Eye, BarChart2, Globe, Mail, Share2,
   FileText, ShoppingBag, AlertCircle, CheckCircle, Loader2, ExternalLink,
-  ArrowUp, ArrowDown, Minus, RefreshCw, BookOpen, Map
+  ArrowUp, ArrowDown, Minus, RefreshCw, BookOpen, Map, Link2
 } from 'lucide-react';
+import UTMLinkBuilder from '@/components/admin/UTMLinkBuilder';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
@@ -537,6 +538,12 @@ export default function TrafficGrowthCenter() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* ── UTM Link Builder ── */}
+        <section>
+          <SectionHeader title="UTM Link Builder" sub="Build tagged campaign URLs for social, email, QR codes, and ads" />
+          <UTMLinkBuilder />
         </section>
 
         {/* ── Internal Links Quick Guide ── */}

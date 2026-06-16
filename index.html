@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <title>Instant Coffee, Mushroom Coffee & Matcha | Torch Republic</title>
+    <title>Torch Republic | Premium Instant Coffee, Mushroom Coffee &amp; Matcha</title>
     <meta name="theme-color" content="#0A0A0A" />
     <!-- Preload only critical LCP hero image for mobile -->
     <link rel="preload" as="image" href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fce811268_ChatGPTImageJun15202608_56_36AM.png" fetchpriority="high" />
@@ -38,12 +38,21 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:image" content="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png" />
-    <!-- Google Analytics GA4 — deferred to avoid render-blocking -->
+    <!-- Google Analytics GA4 — Measurement ID: G-5QZ4ECWB15
+         send_page_view: false — SPA page views are fired manually by useAnalytics()
+         hook in App.jsx. This prevents the duplicate: GA4 auto page_view + manual page_view.
+         ONE authoritative source: lib/analytics.js → hooks/useAnalytics.js
+    -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-5QZ4ECWB15', { send_page_view: true });
+      // send_page_view: false — manually fired per route change by useAnalytics hook
+      gtag('config', 'G-5QZ4ECWB15', {
+        send_page_view: false,
+        allow_google_signals: true,
+        allow_ad_personalization_signals: true
+      });
     </script>
     <script>
       // Load GA4 after page is interactive to reduce TBT
@@ -64,8 +73,7 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Torch Republic Coffee Company",
-      "legalName": "LiberTees For All Apparel LLC",
-      "alternateName": "Torch Republic",
+      "alternateName": "Torch Republic Coffee Co.",
       "url": "https://torchrepublic.com",
       "logo": {
         "@type": "ImageObject",

@@ -1,52 +1,100 @@
 User-agent: *
 Allow: /
 
-# Block all admin and internal tool pages
+# Public content — allow all crawlers
+Allow: /shop
+Allow: /shop/
+Allow: /journal
+Allow: /journal/
+Allow: /ingredients
+Allow: /ingredients/
+Allow: /compare
+Allow: /compare/
+Allow: /faq
+Allow: /faq/
+Allow: /blends
+Allow: /blends/
+Allow: /products/
+Allow: /how-it-works
+Allow: /mission
+Allow: /reviews
+Allow: /recipes
+Allow: /research
+Allow: /quiz
+Allow: /build-your-ritual
+Allow: /subscription
+Allow: /why-mushroom-coffee
+Allow: /why-matcha
+Allow: /mushroom-coffee-benefits
+Allow: /lions-mane-coffee
+Allow: /instant-coffee-for-energy
+Allow: /torchbearers-rewards
+Allow: /spotlight
+Allow: /gifts
+Allow: /founder-story
+Allow: /contact
+Allow: /about/
+Allow: /sitemap.xml
+Allow: /sitemap-pages.xml
+Allow: /sitemap-products.xml
+Allow: /sitemap-blog.xml
+
+# Admin and internal pages — disallow crawling
+# NOTE: These pages also have <meta name="robots" content="noindex,nofollow">
+# Robots.txt disallow only prevents crawling; noindex handles deindexing.
+# Do NOT add noindex pages here until deindexing is confirmed via GSC.
 Disallow: /admin/
-Disallow: /admin
+Disallow: /command/
 Disallow: /traffic-report
 Disallow: /TrafficReport
 Disallow: /email-campaign
 Disallow: /email-campaign-dashboard
 Disallow: /EmailCampaignDashboard
 Disallow: /emailcampaigndashboard
-Disallow: /KeywordAnalysis
+Disallow: /admin/shopify
+Disallow: /admin/keywords
+Disallow: /admin/traffic
+Disallow: /admin/blog
 Disallow: /local
 Disallow: /LocalSEO
-Disallow: /command
-Disallow: /command/
+Disallow: /SEO
+Disallow: /seo
+Disallow: /SearchQueryAnalysis
+Disallow: /search-query-analysis
+Disallow: /KeywordAnalysis
+Disallow: /AdminShopify
+Disallow: /AdminBlogEditor
+Disallow: /AdminCommand
 Disallow: /TorchCommandHome
 Disallow: /CognitiveQuiz
 Disallow: /FlowTimer
 Disallow: /ProtocolsDirectory
 Disallow: /ProtocolDetail
-Disallow: /AdminCommand
-Disallow: /AdminBlogEditor
-Disallow: /CustomerPortal
-Disallow: /customerportal
-Disallow: /portal
-Disallow: /Portal
+Disallow: /Dashboard
+Disallow: /Admin
+
+# Account and transaction pages — disallow crawling
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
 Disallow: /profile
 Disallow: /Profile
 Disallow: /loyalty
 Disallow: /LoyaltyPortal
 Disallow: /loyaltyportal
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
+Disallow: /portal
+Disallow: /Portal
+Disallow: /CustomerPortal
+Disallow: /customerportal
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /SEO
-Disallow: /seo
-Disallow: /SearchQueryAnalysis
-Disallow: /search-query-analysis
-Disallow: /Dashboard
-Disallow: /Admin
+Disallow: /subscription
+Disallow: /Subscription
 
-# Sitemaps
+# Legacy apparel/jewelry pages — now 410 Gone, let GSC process via noindex before blocking
+# (Do not add here until deindex confirmed)
+
+# Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
-Sitemap: https://torchrepublic.com/sitemap-pages.xml
-Sitemap: https://torchrepublic.com/sitemap-blog.xml
-Sitemap: https://torchrepublic.com/sitemap-products.xml

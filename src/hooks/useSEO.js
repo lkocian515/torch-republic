@@ -25,7 +25,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     // Avoid double-branding — only append if not already present
     const fullTitle = title
       ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
-      : `Instant Coffee, Mushroom Coffee & Matcha | ${SITE_NAME}`;
+      : `${SITE_NAME} | Premium Instant Coffee, Mushroom Coffee & Matcha`;
     const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
 
