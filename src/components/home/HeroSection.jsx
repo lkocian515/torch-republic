@@ -18,13 +18,13 @@ export default function HeroSection() {
   return (
     <div style={{ background: '#080808' }}>
       {/* Hero Banner Image — LCP critical: eager, high priority, explicit aspect ratio to prevent CLS */}
-      <div style={{ aspectRatio: '1024/536', width: '100%', background: '#080808', overflow: 'hidden' }}>
+      <div style={{ aspectRatio: '1024/596', width: '100%', background: '#080808', overflow: 'hidden' }}>
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/75e3d1729_ChatGPTImageJun19202605_39_27AM.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c36248a54_ChatGPTImageJun19202605_44_33AM.png"
           alt="Torch Republic — Torchbearer, The Monk Matcha, and SunCap Rise canisters — Powered by Nature"
           width="1024"
-          height="536"
-          style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+          height="596"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           fetchPriority="high"
           loading="eager"
           decoding="sync"
