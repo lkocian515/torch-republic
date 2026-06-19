@@ -82,7 +82,7 @@ export default function Cart() {
           <h1 className="font-serif font-bold text-2xl" style={{ color: '#F5EFE6' }}>
             Your Ritual Is Ready <span className="font-mono text-base font-normal" style={{ color: 'rgba(230,183,173,0.5)' }}>({totalItems})</span>
           </h1>
-          <Link to="/build-your-ritual" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(230,183,173,0.6)' }}>
+          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(230,183,173,0.6)' }}>
             <ArrowLeft className="w-3.5 h-3.5" />
             Continue Shopping
           </Link>
@@ -190,15 +190,8 @@ export default function Cart() {
               ) : (
                 <a
                   href={checkoutUrl}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (!checkoutUrl || !checkoutUrl.includes('libertees-for-all.myshopify.com')) {
-                      console.error('[Cart] Invalid checkout URL:', checkoutUrl);
-                      alert('Unable to proceed to checkout. Please contact support.');
-                      return;
-                    }
-                    window.location.href = checkoutUrl;
-                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                   style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
                 >
@@ -219,7 +212,7 @@ export default function Cart() {
                 <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Easy Returns</span>
               </div>
 
-              <Link to="/build-your-ritual"
+              <Link to="/shop"
                 className="w-full block text-center font-mono text-[9px] tracking-[0.25em] uppercase py-3 transition-all hover:opacity-70"
                 style={{ border: '1px solid rgba(230,183,173,0.2)', color: 'rgba(230,183,173,0.55)' }}>
                 ← Continue Shopping
