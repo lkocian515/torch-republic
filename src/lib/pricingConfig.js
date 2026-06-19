@@ -45,15 +45,14 @@ export const SUBSCRIPTION_PRICES = {
 };
 
 // ── Welcome discount ─────────────────────────────────────────────────────────
-// WELCOME10 = 10% off eligible one-time individual products only.
-// Never auto-applied. Never stacks with subscription or bundles.
-export const WELCOME_DISCOUNT_CODE = 'WELCOME10';
-export const WELCOME_DISCOUNT = 0.10;
+// Update values in lib/siteConfig.js — this file mirrors them for price calculations.
+export const WELCOME_DISCOUNT_CODE = 'WELCOME15';
+export const WELCOME_DISCOUNT = 0.15;
 
 export const WELCOME_PRICES = {
-  'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),   // $17.99
-  'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)), // $20.69
-  'matcha': parseFloat((PRICES['matcha'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),                   // $22.49
+  'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
+  'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
+  'matcha': parseFloat((PRICES['matcha'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
 };
 
 /**

@@ -1,4 +1,5 @@
 import React from 'react';
+import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 export default function TopBar() {
   return (
@@ -13,8 +14,8 @@ export default function TopBar() {
       <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
         style={{ fontSize: '8px', letterSpacing: '0.42em', color: 'rgba(214,195,160,0.75)', textTransform: 'uppercase' }}>
         New customers: use code{' '}
-        <span style={{ color: '#D6B87A', fontWeight: 700 }}>WELCOME10</span>
-        {' '}for 10% off your first order &nbsp;·&nbsp; Free Shipping Over $75
+        <span style={{ color: '#D6B87A', fontWeight: 700 }}>{WELCOME_DISCOUNT_CODE}</span>
+        {' '}for {WELCOME_DISCOUNT_PERCENT}% off your first order &nbsp;·&nbsp; Free Shipping Over {FREE_SHIPPING_THRESHOLD_DISPLAY}
       </p>
     </div>
   );

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
+import {
+  WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT,
+  FREE_SHIPPING_THRESHOLD_DISPLAY, GUARANTEE_DAYS, GUARANTEE_DESCRIPTION,
+  SHIP_NOTE, SUPPORT_EMAIL, SUBSCRIBE_SAVE_PERCENT,
+} from '@/lib/siteConfig';
 
 function NewsletterForm() {
   const [email, setEmail] = useState('');
@@ -30,7 +35,7 @@ function NewsletterForm() {
     return (
       <div className="mt-4 p-3" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '3px' }}>
         <p className="font-heading text-xs" style={{ color: '#10B981' }}>
-          ✓ Welcome! Check your inbox for 15% off.
+          ✓ Welcome! Check your inbox for {WELCOME_DISCOUNT_PERCENT}% off.
         </p>
       </div>
     );
@@ -54,7 +59,7 @@ function NewsletterForm() {
         className="w-full py-2.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
         style={{ background: '#E6B7AD', color: '#0A0A0A' }}
       >
-        {status === 'loading' ? 'Joining...' : 'Join & Get 15% Off My First Order'}
+        {status === 'loading' ? 'Joining...' : `Join & Get ${WELCOME_DISCOUNT_PERCENT}% Off My First Order`}
       </button>
     </form>
   );
@@ -69,7 +74,7 @@ const FOOTER_LINKS = [
       { label: 'Matcha', href: '/shop/matcha' },
       { label: 'Bundles', href: '/build-your-ritual' },
       { label: 'Gifts', href: '/gifts' },
-      { label: 'Subscribe & Save 20%', href: '/subscription' },
+      { label: `Subscribe & Save ${SUBSCRIBE_SAVE_PERCENT}%`, href: '/subscription' },
     ]
   },
   {
@@ -130,11 +135,11 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[10px] leading-relaxed max-w-xs mb-4"
               style={{ color: 'rgba(240,235,225,0.3)', lineHeight: 1.8 }}>
-              Join the ritual. Get product updates, launch offers, and 15% off your first order.
+              Join the ritual. Get product updates, launch offers, and {WELCOME_DISCOUNT_PERCENT}% off your first order.
             </p>
             <p className="font-mono text-[9px] tracking-[0.18em] mb-3"
               style={{ color: 'rgba(230,183,173,0.45)' }}>
-              Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>WELCOME15</span> for 15% off your first order
+              Use code <span style={{ color: '#E6B7AD', fontWeight: 700 }}>{WELCOME_DISCOUNT_CODE}</span> for {WELCOME_DISCOUNT_PERCENT}% off your first order
             </p>
             
             {/* Newsletter Form */}
@@ -145,13 +150,13 @@ export default function Footer() {
             </p>
             <p className="font-mono text-[9px] tracking-[0.15em] mb-4"
               style={{ color: 'rgba(255,255,255,0.2)' }}>
-              ✦ 30-Day Satisfaction Guarantee · Free Shipping on Orders $50+
+              ✦ {GUARANTEE_DAYS}-Day Satisfaction Guarantee · Free Shipping on Orders {FREE_SHIPPING_THRESHOLD_DISPLAY}
             </p>
             <div className="space-y-2">
-              <a href="mailto:admin@torchrepublic.com" rel="noopener noreferrer"
+              <a                 href={`mailto:${SUPPORT_EMAIL}`} rel="noopener noreferrer"
                 className="block font-mono text-[10px] tracking-[0.15em] transition-colors hover:text-white"
                 style={{ color: 'rgba(255,255,255,0.4)' }}>
-                admin@torchrepublic.com
+                {SUPPORT_EMAIL}
               </a>
               <p className="font-mono text-[9px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
                 📍 Corpus Christi, Texas · U.S.A.
@@ -203,8 +208,8 @@ export default function Footer() {
         {/* Reassurance bar */}
         <div className="flex flex-wrap justify-center gap-6 mb-8 py-5" style={{ borderTop: '1px solid rgba(230,183,173,0.08)', borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
           {[
-            { icon: '🚀', label: 'Fast U.S. Shipping', sub: 'Most orders ship in 1–2 days', href: '/shipping-policy' },
-            { icon: '✅', label: '30-Day Guarantee', sub: 'If it\'s not right, we make it right', href: '/return-policy' },
+            { icon: '🚀', label: 'Fast U.S. Shipping', sub: SHIP_NOTE, href: '/shipping-policy' },
+            { icon: '✅', label: `${GUARANTEE_DAYS}-Day Guarantee`, sub: GUARANTEE_DESCRIPTION, href: '/return-policy' },
             { icon: '🔒', label: 'Secure Checkout', sub: '256-bit SSL via Shopify', href: null },
             { icon: '⭐', label: '4.9 / 5 Rating', sub: 'From 200+ verified customers', href: '/reviews' },
           ].map(item => (

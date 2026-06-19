@@ -1,18 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { trackHeroCTAClick, trackViewPromotion } from '@/lib/analytics';
+import { TRUST_PILLS, WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 
 const RG = '#E6B7AD';
-
-// Compact trust bar items — shown immediately below hero
-const TRUST_PILLS = [
-  'No Pods',
-  'No Machine',
-  '25–27 Servings Per Tube',
-  'Subscribe & Save 20%',
-  'Free Shipping $75+',
-  '30-Day Guarantee',
-];
 
 export default function HeroSection() {
   return (
@@ -89,7 +80,7 @@ export default function HeroSection() {
         </div>
 
         <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-0" style={{ color: 'rgba(230,183,173,0.85)' }}>
-          Use <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span> for 15% off your first order
+          Use <span style={{ color: RG, fontWeight: 700 }}>{WELCOME_DISCOUNT_CODE}</span> for {WELCOME_DISCOUNT_PERCENT}% off your first order
         </p>
       </section>
 

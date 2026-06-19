@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 
 const RG = '#E6B7AD';
 
@@ -28,8 +29,8 @@ export default function EmailCapturePopup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-    base44.entities.EmailSubscriber.create({ email, source: 'timed_popup', discount_code: 'WELCOME15' });
-    base44.functions.invoke('sendWelcomeEmail', { email, discount_code: 'WELCOME15' });
+    base44.entities.EmailSubscriber.create({ email, source: 'timed_popup', discount_code: WELCOME_DISCOUNT_CODE });
+    base44.functions.invoke('sendWelcomeEmail', { email, discount_code: WELCOME_DISCOUNT_CODE });
     setSubmitted(true);
   };
 
@@ -76,7 +77,7 @@ export default function EmailCapturePopup() {
                     Your code is on the way.
                   </p>
                   <div style={{ background: `${RG}12`, border: `1px solid ${RG}30`, padding: '10px 16px', display: 'inline-block' }}>
-                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: RG }}>WELCOME15</span>
+                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: RG }}>{WELCOME_DISCOUNT_CODE}</span>
                   </div>
                 </>
               ) : (
@@ -85,7 +86,7 @@ export default function EmailCapturePopup() {
                     First Time Customer
                   </p>
                   <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.5rem', lineHeight: 1.15 }}>
-                    15% off your<br />
+                    {WELCOME_DISCOUNT_PERCENT}% off your<br />
                     <span style={{ color: RG }}>first order.</span>
                   </h3>
                   <p className="font-mono text-[10px] mb-6" style={{ color: 'rgba(255,255,255,0.3)', lineHeight: 1.8 }}>
@@ -110,7 +111,7 @@ export default function EmailCapturePopup() {
                     <button type="submit"
                       className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
                       style={{ fontSize: '10px', background: RG, color: '#060606' }}>
-                      Get 15% Off →
+                      Get {WELCOME_DISCOUNT_PERCENT}% Off →
                     </button>
                   </form>
                 </>
