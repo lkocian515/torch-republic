@@ -160,7 +160,8 @@ export default function UnifiedHeader() {
                     Shop
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
-                  <div className="absolute top-full left-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                  <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div style={{ height: '8px' }} />
                     <div className="py-2 min-w-[220px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                       {SHOP_LINKS.map(link => (
                         <Link key={link.href} to={link.href} className="flex flex-col px-4 py-3 transition-all hover:opacity-70" style={{ textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
@@ -183,7 +184,8 @@ export default function UnifiedHeader() {
                     Learn
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
-                  <div className="absolute top-full left-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                  <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div style={{ height: '8px' }} />
                     <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                       {LEARN_LINKS.map(link => (
                         <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
@@ -205,7 +207,8 @@ export default function UnifiedHeader() {
                     About
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
-                  <div className="absolute top-full right-0 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                  <div className="absolute top-full right-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+                    <div style={{ height: '8px' }} />
                     <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
                       {ABOUT_LINKS.map(link => (
                         <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>

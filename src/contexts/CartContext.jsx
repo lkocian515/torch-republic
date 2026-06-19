@@ -41,8 +41,6 @@ export function CartProvider({ children }) {
     });
     setToast(product.name);
     setDrawerOpen(true);
-    // Auto-dismiss toast after 4 seconds
-    setTimeout(() => setToast(null), 4000);
   }, []);
 
   const clearToast = useCallback(() => {
