@@ -13,9 +13,8 @@ export default function TopBar() {
     >
       <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
         style={{ fontSize: '8px', letterSpacing: '0.42em', color: 'rgba(214,195,160,0.75)', textTransform: 'uppercase' }}>
-        New customers: use code{' '}
+        {WELCOME_DISCOUNT_PERCENT}% OFF YOUR FIRST ORDER &nbsp;·&nbsp; CODE{' '}
         <span style={{ color: '#D6B87A', fontWeight: 700 }}>{WELCOME_DISCOUNT_CODE}</span>
-        {' '}for {WELCOME_DISCOUNT_PERCENT}% off your first order &nbsp;·&nbsp; Free Shipping Over {FREE_SHIPPING_THRESHOLD_DISPLAY}
       </p>
     </div>
   );

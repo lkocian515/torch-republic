@@ -24,14 +24,14 @@ export default function HeroSection() {
 
       {/* Above-fold CTA section */}
       <section
-        className="px-5 md:px-10 pt-8 pb-10 md:py-14 text-center"
+        className="px-5 md:px-10 pt-8 pb-16 sm:pb-10 md:py-14 text-center"
         style={{ background: 'linear-gradient(180deg, #0A0807 0%, #080808 100%)' }}
       >
         <p className="font-mono text-[11px] tracking-[0.25em] uppercase mb-3" style={{ color: RG }}>
           Premium Instant Rituals
         </p>
 
-        {/* H1 — descriptive, real-text headline for shoppers and Google */}
+        {/* H1 — conversion-focused headline */}
         <h1
           className="font-serif font-bold mb-4 mx-auto"
           style={{
@@ -42,8 +42,8 @@ export default function HeroSection() {
             maxWidth: '700px',
           }}
         >
-          Powered by Nature.{' '}
-          <span style={{ color: RG }}>Ready in Seconds.</span>
+          Your Daily Ritual,{' '}
+          <span style={{ color: RG }}>Simplified.</span>
         </h1>
 
         <p
@@ -53,27 +53,27 @@ export default function HeroSection() {
             color: 'rgba(245,239,230,0.9)',
             fontWeight: 400,
             lineHeight: 1.75,
-            maxWidth: '460px',
+            maxWidth: '420px',
           }}
         >
-          Premium instant coffee, functional mushroom blends and ceremonial matcha. No pods. No machine. No complicated brewing.
+          Premium instant coffee, mushroom coffee, and ceremonial matcha—ready in seconds. No pods. No machine.
         </p>
 
-        {/* Single strong primary CTA */}
+        {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-5">
           <Link
             to="/shop"
             onClick={() => trackHeroCTAClick('Shop Best Sellers')}
             className="font-mono text-[12px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 w-full sm:w-auto"
-            style={{ background: RG, color: '#080808', padding: '16px 48px', display: 'inline-block', textAlign: 'center' }}
+            style={{ background: RG, color: '#080808', padding: '16px 48px', display: 'inline-block', textAlign: 'center', minHeight: '52px', lineHeight: '20px' }}
           >
             Shop Best Sellers →
           </Link>
           <Link
-            to="/quiz"
-            onClick={() => { trackHeroCTAClick('Find Your Ritual'); }}
+            to="/build-your-ritual"
+            onClick={() => trackHeroCTAClick('Find Your Ritual')}
             className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-75 w-full sm:w-auto"
-            style={{ border: '1px solid rgba(230,183,173,0.35)', color: RG, padding: '16px 32px', display: 'inline-block', textAlign: 'center' }}
+            style={{ border: '1px solid rgba(230,183,173,0.35)', color: RG, padding: '16px 32px', display: 'inline-block', textAlign: 'center', minHeight: '52px', lineHeight: '20px' }}
           >
             Find Your Ritual
           </Link>
