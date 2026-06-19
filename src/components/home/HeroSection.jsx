@@ -20,7 +20,7 @@ export default function HeroSection() {
       {/* Hero Banner Image — LCP critical: eager, high priority, explicit aspect ratio to prevent CLS */}
       <div style={{ aspectRatio: '1024/596', width: '100%', background: '#080808', overflow: 'hidden' }}>
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c36248a54_ChatGPTImageJun19202605_44_33AM.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a1fe91c67_ChatGPTImageJun19202605_49_32AM.png"
           alt="Torch Republic — Torchbearer, The Monk Matcha, and SunCap Rise canisters — Powered by Nature"
           width="1024"
           height="596"
