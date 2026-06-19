@@ -6,6 +6,14 @@ import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/li
 import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
+import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
+import CartRecommendations from '@/components/cart/CartRecommendations';
+import CartBundleUpsell from '@/components/cart/CartBundleUpsell';
+import CartTrustBlock from '@/components/cart/CartTrustBlock';
+import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
+import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
+import CartSubscriptionPromo from '@/components/cart/CartSubscriptionPromo';
+import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
 
 const RG = '#E6B7AD';
 
@@ -88,6 +96,10 @@ export default function Cart() {
           </Link>
         </div>
 
+        {/* First-time customer welcome + Free shipping progress */}
+        <CartFirstTimeOffer />
+        <CartFreeShippingBar subtotal={subtotal} />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
           <div className="lg:col-span-2 space-y-4">
@@ -144,6 +156,9 @@ export default function Cart() {
                 </button>
               </motion.div>
             ))}
+
+            {/* Smart product recommendations */}
+            <CartRecommendations cartItems={items} />
           </div>
 
           {/* Summary */}
@@ -155,10 +170,19 @@ export default function Cart() {
                 <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.5)' }}>Subtotal</span>
                 <span className="font-mono font-bold" style={{ color: '#F5EFE6' }}>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.5)' }}>Shipping</span>
                 <span className="font-mono text-[10px]" style={{ color: '#10B981' }}>Calculated at checkout</span>
               </div>
+
+              {/* Delivery estimate */}
+              <CartDeliveryEstimate />
+
+              {/* Bundle upsell */}
+              <CartBundleUpsell cartItems={items} subtotal={subtotal} />
+
+              {/* Subscription promotion */}
+              <CartSubscriptionPromo subtotal={subtotal} />
 
               {/* Torchbearers Rewards nudge */}
               <div className="mb-4 p-3" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.12)' }}>
@@ -172,11 +196,6 @@ export default function Cart() {
                   Earn points on this order! Join Torchbearers Rewards at checkout.
                 </p>
               </div>
-
-              {/* Discount nudge */}
-              <p className="font-mono text-[8px] tracking-[0.15em] text-center mb-4 p-3" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.12)', color: 'rgba(230,183,173,0.6)', lineHeight: 1.7 }}>
-                Have a discount code? Enter it at checkout.
-              </p>
 
               {!checkoutUrl ? (
                 <button
@@ -218,21 +237,18 @@ export default function Cart() {
                 ← Continue Shopping
               </Link>
 
-              {/* Trust signals */}
-              <div className="mt-5 space-y-2">
-                {[
-                  '🔒 Secure Shopify Checkout',
-                  '🚚 Free shipping on orders $75+',
-                  '✦ 30-Day satisfaction guarantee',
-                  '🇺🇸 U.S.-based small business',
-                ].map((line, i) => (
-                  <p key={i} className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>{line}</p>
-                ))}
-              </div>
+              {/* Trust confidence block */}
+              <CartTrustBlock />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile sticky checkout bar */}
+      <CartStickyCheckout subtotal={subtotal} checkoutUrl={checkoutUrl} totalItems={totalItems} />
+
+      {/* Mobile bottom spacing for sticky bar */}
+      <div className="lg:hidden h-20" />
     </div>
   );
 }
