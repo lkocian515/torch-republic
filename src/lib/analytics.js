@@ -15,6 +15,19 @@
  * ─────────────────────────────────────────────────────────────────
  */
 
+import {
+  matomoTrackPageView, matomoTrackAddToCart, matomoTrackRemoveFromCart, matomoTrackViewCart,
+  matomoTrackBeginCheckout, matomoTrackPurchase, matomoTrackViewItem, matomoTrackViewItemList,
+  matomoTrackSelectItem, matomoTrackViewPromotion, matomoTrackSelectPromotion, matomoTrackSearch,
+  matomoTrackSignUp, matomoTrackLogin, matomoTrackGenerateLead,
+  matomoTrackHeroCTAClick, matomoTrackCollectionCTAClick, matomoTrackShopAllClick,
+  matomoTrackQuizStart, matomoTrackQuizComplete, matomoTrackQuizRecommendationClick,
+  matomoTrackBundleBuilderStart, matomoTrackBundleItemAdded, matomoTrackBundleComplete,
+  matomoTrackSubscribeOptionSelected, matomoTrackOneTimePurchaseSelected,
+  matomoTrackReviewsViewed, matomoTrackIngredientsViewed, matomoTrackShippingInformationViewed,
+  matomoTrackFAQOpened, matomoTrackOutboundSocialClick, matomoTrackCheckoutHandoff,
+} from '@/lib/matomo';
+
 const GA4_ID = 'G-5QZ4ECWB15';
 const BRAND = 'Torch Republic';
 const CURRENCY = 'USD';
@@ -104,6 +117,8 @@ export const trackPageView = ({ path, search, title, referrer } = {}) => {
     page_referrer: referrer || document.referrer || '',
   });
   debug(`page_view: ${normalizedPath}`);
+  // Mirror to Matomo
+  matomoTrackPageView({ path, search, title });
 };
 
 // ─────────────────────────────────────────────────────────────────
@@ -136,6 +151,7 @@ export const trackViewItemList = (items, { listId, listName } = {}) => {
     item_list_name: listName || 'Product List',
     items,
   });
+  matomoTrackViewItemList(items, { listName });
 };
 
 export const trackSelectItem = (item, { listId, listName } = {}) => {
@@ -144,6 +160,7 @@ export const trackSelectItem = (item, { listId, listName } = {}) => {
     item_list_name: listName || 'Product List',
     items: [item],
   });
+  matomoTrackSelectItem(item, { listName });
 };
 
 export const trackViewItem = (item) => {
@@ -152,6 +169,7 @@ export const trackViewItem = (item) => {
     value: item.price * item.quantity,
     items: [item],
   });
+  matomoTrackViewItem(item);
 };
 
 export const trackAddToCart = (item, { coupon } = {}) => {
@@ -161,6 +179,7 @@ export const trackAddToCart = (item, { coupon } = {}) => {
     value: item.price * item.quantity,
     items: [itemWithCoupon],
   });
+  matomoTrackAddToCart(item);
 };
 
 export const trackRemoveFromCart = (item) => {
@@ -169,6 +188,7 @@ export const trackRemoveFromCart = (item) => {
     value: item.price * item.quantity,
     items: [item],
   });
+  matomoTrackRemoveFromCart(item);
 };
 
 export const trackViewCart = (items, value) => {
@@ -177,6 +197,7 @@ export const trackViewCart = (items, value) => {
     value: parseFloat(value) || 0,
     items,
   });
+  matomoTrackViewCart(items, value);
 };
 
 export const trackBeginCheckout = (items, value, coupon) => {
@@ -186,6 +207,7 @@ export const trackBeginCheckout = (items, value, coupon) => {
     items,
     ...(coupon ? { coupon } : {}),
   });
+  matomoTrackBeginCheckout(items, value);
 };
 
 export const trackAddShippingInfo = (items, value, shippingTier) => {
@@ -226,49 +248,56 @@ export const trackPurchase = ({ transactionId, value, tax, shipping, coupon, ite
     items: items || [],
   });
   markPurchaseTracked(transactionId);
+  matomoTrackPurchase({ transactionId, value, tax, shipping, items });
 };
 
 export const trackViewPromotion = (promotionId, promotionName, items = []) => {
   send('view_promotion', { promotion_id: promotionId, promotion_name: promotionName, items });
+  matomoTrackViewPromotion(promotionId, promotionName);
 };
 
 export const trackSelectPromotion = (promotionId, promotionName, items = []) => {
   send('select_promotion', { promotion_id: promotionId, promotion_name: promotionName, items });
+  matomoTrackSelectPromotion(promotionId, promotionName);
 };
 
 export const trackSearch = (searchTerm) => {
   send('search', { search_term: searchTerm });
+  matomoTrackSearch(searchTerm);
 };
 
 export const trackSignUp = (method = 'email') => {
   send('sign_up', { method });
+  matomoTrackSignUp(method);
 };
 
 export const trackLogin = (method = 'email') => {
   send('login', { method });
+  matomoTrackLogin(method);
 };
 
 export const trackGenerateLead = (source = 'newsletter') => {
   send('generate_lead', { source });
+  matomoTrackGenerateLead(source);
 };
 
 // ─────────────────────────────────────────────────────────────────
 //  CUSTOM TORCH REPUBLIC EVENTS
 // ─────────────────────────────────────────────────────────────────
-export const trackHeroCTAClick = (label) => send('hero_cta_click', { cta_label: label });
-export const trackCollectionCTAClick = (collection) => send('collection_cta_click', { collection_name: collection });
-export const trackShopAllClick = (source) => send('shop_all_click', { source });
-export const trackQuizStart = () => send('quiz_start');
-export const trackQuizComplete = (result) => send('quiz_complete', { recommended_blend: result });
-export const trackQuizRecommendationClick = (blend) => send('quiz_recommendation_click', { blend_name: blend });
-export const trackBundleBuilderStart = () => send('bundle_builder_start');
-export const trackBundleItemAdded = (itemName) => send('bundle_item_added', { item_name: itemName });
-export const trackBundleComplete = (itemCount, value) => send('bundle_complete', { item_count: itemCount, value });
-export const trackSubscribeOptionSelected = () => send('subscribe_option_selected');
-export const trackOneTimePurchaseSelected = () => send('one_time_purchase_selected');
-export const trackReviewsViewed = () => send('reviews_viewed');
-export const trackIngredientsViewed = () => send('ingredients_viewed');
-export const trackShippingInformationViewed = () => send('shipping_information_viewed');
-export const trackFAQOpened = (question) => send('faq_opened', { question });
-export const trackOutboundSocialClick = (platform, url) => send('outbound_social_click', { platform, url });
-export const trackCheckoutHandoff = (cartValue, itemCount) => send('checkout_handoff', { cart_value: cartValue, item_count: itemCount });
+export const trackHeroCTAClick = (label) => { send('hero_cta_click', { cta_label: label }); matomoTrackHeroCTAClick(label); };
+export const trackCollectionCTAClick = (collection) => { send('collection_cta_click', { collection_name: collection }); matomoTrackCollectionCTAClick(collection); };
+export const trackShopAllClick = (source) => { send('shop_all_click', { source }); matomoTrackShopAllClick(source); };
+export const trackQuizStart = () => { send('quiz_start'); matomoTrackQuizStart(); };
+export const trackQuizComplete = (result) => { send('quiz_complete', { recommended_blend: result }); matomoTrackQuizComplete(result); };
+export const trackQuizRecommendationClick = (blend) => { send('quiz_recommendation_click', { blend_name: blend }); matomoTrackQuizRecommendationClick(blend); };
+export const trackBundleBuilderStart = () => { send('bundle_builder_start'); matomoTrackBundleBuilderStart(); };
+export const trackBundleItemAdded = (itemName) => { send('bundle_item_added', { item_name: itemName }); matomoTrackBundleItemAdded(itemName); };
+export const trackBundleComplete = (itemCount, value) => { send('bundle_complete', { item_count: itemCount, value }); matomoTrackBundleComplete(itemCount, value); };
+export const trackSubscribeOptionSelected = () => { send('subscribe_option_selected'); matomoTrackSubscribeOptionSelected(); };
+export const trackOneTimePurchaseSelected = () => { send('one_time_purchase_selected'); matomoTrackOneTimePurchaseSelected(); };
+export const trackReviewsViewed = () => { send('reviews_viewed'); matomoTrackReviewsViewed(); };
+export const trackIngredientsViewed = () => { send('ingredients_viewed'); matomoTrackIngredientsViewed(); };
+export const trackShippingInformationViewed = () => { send('shipping_information_viewed'); matomoTrackShippingInformationViewed(); };
+export const trackFAQOpened = (question) => { send('faq_opened', { question }); matomoTrackFAQOpened(question); };
+export const trackOutboundSocialClick = (platform, url) => { send('outbound_social_click', { platform, url }); matomoTrackOutboundSocialClick(platform, url); };
+export const trackCheckoutHandoff = (cartValue, itemCount) => { send('checkout_handoff', { cart_value: cartValue, item_count: itemCount }); matomoTrackCheckoutHandoff(cartValue, itemCount); };
