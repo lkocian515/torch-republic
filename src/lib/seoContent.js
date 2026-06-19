@@ -86,6 +86,16 @@ export const TOPIC_CLUSTERS = {
       { name: 'Build Your Ritual', path: '/build-your-ritual' },
     ],
   },
+  'recipes': {
+    label: 'Recipes',
+    color: '#C98F86',
+    pillarUrl: '/recipes',
+    products: [
+      { name: 'All Recipes', path: '/recipes' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
+    ],
+  },
 };
 
 // ─── 100 BLOG TOPICS ────────────────────────────────────────────────────────
@@ -204,6 +214,14 @@ export const ALL_BLOG_TOPICS = [
   { slug: 'beta-glucans-guide', title: 'Beta-Glucans in Mushrooms: What They Are and Why They Matter', cluster: 'ingredients', exists: false },
   { slug: 'egcg-matcha-guide', title: 'EGCG in Matcha: The Antioxidant That Sets Matcha Apart', cluster: 'ingredients', exists: false },
   { slug: 'freeze-drying-process', title: 'How Freeze-Drying Works: Preserving Coffee Flavor and Quality', cluster: 'ingredients', exists: false },
+
+  // ── RECIPES (6) ──
+  { slug: 'classic-morning-recipe', title: 'The Classic Morning: A 2-Minute Mushroom Coffee Ritual', cluster: 'recipes', exists: true },
+  { slug: 'creamy-focus-latte-recipe', title: 'Creamy Focus Latte: Café-Worthy Mushroom Coffee at Home', cluster: 'recipes', exists: true },
+  { slug: 'iced-energy-boost-recipe', title: 'Iced Energy Boost: A Refreshing Cold Mushroom Coffee', cluster: 'recipes', exists: true },
+  { slug: 'protein-power-blend-recipe', title: 'Protein Power Blend: Mushroom Coffee as Morning Fuel', cluster: 'recipes', exists: true },
+  { slug: 'golden-mushroom-milk-recipe', title: 'Golden Mushroom Milk: Anti-Inflammatory Turmeric Latte', cluster: 'recipes', exists: true },
+  { slug: 'morning-smoothie-boost-recipe', title: 'Morning Smoothie Boost: Hide Your Mushroom Coffee in a Smoothie', cluster: 'recipes', exists: true },
 ];
 
 // ─── INGREDIENT PAGES ────────────────────────────────────────────────────────

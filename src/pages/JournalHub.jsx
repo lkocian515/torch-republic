@@ -6,12 +6,22 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowRight, BookOpen, HelpCircle, Leaf } from 'lucide-react';
+import { ArrowRight, BookOpen, Coffee, HelpCircle, Leaf } from 'lucide-react';
 import { ALL_BLOG_TOPICS, TOPIC_CLUSTERS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
 import GEOOptimization from '@/components/seo/GEOOptimization';
 
 const RG = '#E6B7AD';
-const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'matcha', 'wellness-rituals', 'focus-productivity', 'morning-routines', 'ingredients'];
+const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'matcha', 'recipes', 'wellness-rituals', 'focus-productivity', 'morning-routines', 'ingredients'];
+
+// Maps recipe topic slugs (from seoContent.js) to recipe IDs on the /recipes page
+const RECIPE_SLUG_TO_ID = {
+  'classic-morning-recipe': 'classic-morning',
+  'creamy-focus-latte-recipe': 'creamy-latte',
+  'iced-energy-boost-recipe': 'iced-energy',
+  'protein-power-blend-recipe': 'protein-power',
+  'golden-mushroom-milk-recipe': 'golden-mushroom',
+  'morning-smoothie-boost-recipe': 'smoothie-boost',
+};
 
 export default function JournalHub() {
   const [activeCluster, setActiveCluster] = useState('all');
@@ -64,6 +74,10 @@ export default function JournalHub() {
             <Link to="/ingredients" className="inline-flex items-center gap-2 font-mono text-[8px] tracking-[0.25em] uppercase px-4 py-2 transition-all hover:opacity-80"
               style={{ border: `1px solid rgba(230,183,173,0.2)`, color: 'rgba(230,183,173,0.6)' }}>
               <Leaf size={11} /> Ingredient Guides
+            </Link>
+            <Link to="/recipes" className="inline-flex items-center gap-2 font-mono text-[8px] tracking-[0.25em] uppercase px-4 py-2 transition-all hover:opacity-80"
+              style={{ border: `1px solid rgba(230,183,173,0.2)`, color: 'rgba(230,183,173,0.6)' }}>
+              <Coffee size={11} /> Coffee Recipes
             </Link>
           </div>
         </motion.div>
@@ -119,23 +133,27 @@ export default function JournalHub() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     {/* Published articles */}
                     <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {cluster.published.slice(0, 6).map((article, ai) => (
-                        <Link key={ai} to={`/journal/${article.slug}`}
-                          className="p-4 block transition-all group"
-                          style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
-                          onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
-                          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                          <div className="flex items-center gap-2 mb-2">
-                            <BookOpen size={11} style={{ color: cluster.color }} />
-                            <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>Article</p>
-                          </div>
-                          <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
-                          <div className="flex items-center gap-1 mt-2">
-                            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>Read</span>
-                            <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
-                          </div>
-                        </Link>
-                      ))}
+                      {cluster.published.slice(0, 6).map((article, ai) => {
+                        const isRecipe = cluster.key === 'recipes';
+                        const recipeHref = isRecipe ? `/recipes#${RECIPE_SLUG_TO_ID[article.slug] || ''}` : `/journal/${article.slug}`;
+                        return (
+                          <Link key={ai} to={recipeHref}
+                            className="p-4 block transition-all group"
+                            style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                            onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
+                            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                            <div className="flex items-center gap-2 mb-2">
+                              {isRecipe ? <Coffee size={11} style={{ color: cluster.color }} /> : <BookOpen size={11} style={{ color: cluster.color }} />}
+                              <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>{isRecipe ? 'Recipe' : 'Article'}</p>
+                            </div>
+                            <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
+                            <div className="flex items-center gap-1 mt-2">
+                              <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>{isRecipe ? 'View' : 'Read'}</span>
+                              <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
 
                     {/* Sidebar */}
@@ -194,25 +212,29 @@ export default function JournalHub() {
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                      {cluster.published.map((article, i) => (
-                        <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
-                          <Link to={`/journal/${article.slug}`}
-                            className="p-4 block transition-all h-full"
-                            style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
-                            onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
-                            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                            <div className="flex items-center gap-2 mb-2">
-                              <BookOpen size={11} style={{ color: cluster.color }} />
-                              <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>Article</p>
-                            </div>
-                            <p className="font-heading text-sm font-medium mb-3" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
-                            <div className="flex items-center gap-1">
-                              <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>Read</span>
-                              <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
-                            </div>
-                          </Link>
-                        </motion.div>
-                      ))}
+                      {cluster.published.map((article, i) => {
+                        const isRecipe = cluster.key === 'recipes';
+                        const recipeHref = isRecipe ? `/recipes#${RECIPE_SLUG_TO_ID[article.slug] || ''}` : `/journal/${article.slug}`;
+                        return (
+                          <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
+                            <Link to={recipeHref}
+                              className="p-4 block transition-all h-full"
+                              style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                              onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster.color}35`}
+                              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                              <div className="flex items-center gap-2 mb-2">
+                                {isRecipe ? <Coffee size={11} style={{ color: cluster.color }} /> : <BookOpen size={11} style={{ color: cluster.color }} />}
+                                <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>{isRecipe ? 'Recipe' : 'Article'}</p>
+                              </div>
+                              <p className="font-heading text-sm font-medium mb-3" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
+                              <div className="flex items-center gap-1">
+                                <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster.color}70` }}>{isRecipe ? 'View' : 'Read'}</span>
+                                <ArrowRight size={9} style={{ color: `${cluster.color}70` }} />
+                              </div>
+                            </Link>
+                          </motion.div>
+                        );
+                      })}
                     </div>
 
                     {/* Coming soon */}
