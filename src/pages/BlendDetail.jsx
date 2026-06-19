@@ -128,38 +128,42 @@ function GalleryCarousel({ images, accent, productName }) {
           }}
         />
         
-        {/* Navigation arrows */}
-        <button
-          onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
-          style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
-        >
-          <ChevronLeft className="w-4 h-4" style={{ color: accent }} />
-        </button>
-        <button
-          onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
-          style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
-        >
-          <ChevronRight className="w-4 h-4" style={{ color: accent }} />
-        </button>
-
-        {/* Dots indicator */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
-          {images.map((_, idx) => (
+        {/* Navigation arrows — only when multiple images exist */}
+        {images.length > 1 && (
+          <>
             <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className="transition-all"
-              style={{
-                width: idx === currentIndex ? 24 : 8,
-                height: 8,
-                borderRadius: 4,
-                background: idx === currentIndex ? accent : `${accent}40`,
-              }}
-            />
-          ))}
-        </div>
+              onClick={prev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
+              style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+            >
+              <ChevronLeft className="w-4 h-4" style={{ color: accent }} />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
+              style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+            >
+              <ChevronRight className="w-4 h-4" style={{ color: accent }} />
+            </button>
+
+            {/* Dots indicator */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className="transition-all"
+                  style={{
+                    width: idx === currentIndex ? 24 : 8,
+                    height: 8,
+                    borderRadius: 4,
+                    background: idx === currentIndex ? accent : `${accent}40`,
+                  }}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
