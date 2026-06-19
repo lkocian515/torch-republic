@@ -5,7 +5,7 @@
  * measurement ID) — they only identify WHERE to send hits, not any private
  * credential. Set them here once and they're used by lib/matomo.js + index.html.
  *
- * Update MATOMO_URL and MATOMO_SITE_ID to match your self-hosted Matomo instance.
+ * Update MATOMO_URL and MATOMO_SITE_ID to match your Matomo Cloud instance.
  */
-export const MATOMO_URL = 'https://analytics.torchrepublic.com'; // no trailing slash
+export const MATOMO_URL = 'https://torchrepublic.matomo.cloud'; // no trailing slash
 export const MATOMO_SITE_ID = '1';
