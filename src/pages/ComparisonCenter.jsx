@@ -51,9 +51,8 @@ const COMPARISONS = [
     slug: 'instant-coffee-vs-pods-comparison',
     competitor: 'Coffee Pods',
     headline: 'Instant Coffee vs. K-Cups',
-    tagline: 'Cost, waste, and quality — the pod machine case falls apart.',
-    badge: 'Torch Republic Wins',
-    badgeColor: '#10B981',
+    tagline: 'Cost, waste, and convenience — instant coffee vs. K-Cups compared.',
+    badge: null,
   },
 ];
 

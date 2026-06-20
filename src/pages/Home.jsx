@@ -12,7 +12,9 @@ import QuizTeaser from '../components/home/QuizTeaser';
 import BlendComparisonSection from '../components/home/BlendComparisonSection';
 import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
 import TrustSection from '../components/home/TrustSection';
-import ComparisonTable from '../components/home/ComparisonTable';
+import WhyTorchRepublicExists from '../components/home/WhyTorchRepublicExists';
+import PremiumComparisonTable from '../components/home/PremiumComparisonTable';
+import PNGCoffeeCallout from '../components/home/PNGCoffeeCallout';
 import IngredientClarity from '../components/home/IngredientClarity';
 import FounderNote from '../components/home/FounderNote';
 import ReviewsSection from '../components/home/ReviewsSection';
@@ -126,8 +128,14 @@ export default function Home() {
       {/* 5c. GEO Optimization — AI-readable content */}
       <GEOOptimizationSection />
 
-      {/* 6. How Torch Republic Compares */}
-      <ComparisonTable />
+      {/* 6. Why Torch Republic Exists */}
+      <WhyTorchRepublicExists />
+
+      {/* 6b. Premium Comparison Table */}
+      <PremiumComparisonTable />
+
+      {/* 6c. PNG Coffee Callout */}
+      <PNGCoffeeCallout />
 
       {/* 6. Ingredient Transparency */}
       <IngredientClarity />
