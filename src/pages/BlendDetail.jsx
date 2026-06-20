@@ -30,19 +30,24 @@ import IngredientsAndBenefits from '../components/mushroom/IngredientsAndBenefit
 import LearnMorePanel from '../components/content/LearnMorePanel';
 import ReviewSummaryBar from '../components/products/ReviewSummaryBar';
 import RecentlyViewed, { addToRecentlyViewed } from '../components/products/RecentlyViewed';
+import CoffeeOriginSection from '../components/coffee/CoffeeOriginSection';
+import FlavorExperienceSection from '../components/coffee/FlavorExperienceSection';
+import WhyFreezeDriedSection from '../components/coffee/WhyFreezeDriedSection';
+import WhyInstantRitualSection from '../components/coffee/WhyInstantRitualSection';
+import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
-    { icon: Zap, label: 'Instant — No Machine Needed' },
+    { icon: Zap, label: 'Single-Origin PNG Arabica' },
     { icon: ShieldCheck, label: "Lion's Mane + Chaga" },
     { icon: Truck, label: 'Free Shipping $75+' },
-    { icon: Lock, label: 'Secure Checkout' },
+    { icon: Lock, label: '27 Servings — No Machine' },
   ],
   'classic-coffee': [
-    { icon: Zap, label: 'Instant — No Machine Needed' },
-    { icon: ShieldCheck, label: '100% Premium Arabica' },
+    { icon: Zap, label: 'Single-Origin PNG Arabica' },
+    { icon: ShieldCheck, label: 'Freeze-Dried Premium Instant' },
     { icon: Truck, label: 'Free Shipping $75+' },
-    { icon: Lock, label: 'Secure Checkout' },
+    { icon: Lock, label: '27 Servings — No Machine' },
   ],
   matcha: [
     { icon: Zap, label: 'Instant — Just Add Water' },
@@ -67,7 +72,7 @@ const ACCORDIONS = [
   },
   {
     title: 'Why Instant Coffee',
-    content: 'Instant coffee gets a bad reputation — but freeze-dried specialty coffee preserves the same flavor compounds as fresh brew. No pod waste, no machine, no cleanup. A daily ritual should lower barriers, not add them. Torch Republic uses premium-grade instant so your morning stays simple without sacrificing taste.',
+    content: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea — 100% Arabica, grown in rich volcanic soil. It is brewed first as specialty coffee, then freeze-dried to preserve the natural flavor compounds, aroma, and freshness. The result highlights notes of dark chocolate, toasted almond, and sweet toffee with a smooth, aromatic finish. No pod waste, no machine, no cleanup. A daily ritual should lower barriers, not add them.',
   },
   {
     title: 'Shipping & Returns',
@@ -373,8 +378,8 @@ function BlendDetailInner({ product }) {
               {(product.category === 'matcha'
                 ? [['100% Ceremonial Matcha', 'Grade'], ['25 Servings', 'Per Tin'], ['Instant', 'Just Add Water'], ['No Machine', 'Needed']]
                 : product.category === 'classic-coffee'
-                ? [['Premium Arabica', 'Instant Coffee'], ['27 Servings', 'Per Tube'], ['1.9 oz / 54g', 'Net Weight'], ['No Machine', 'Needed']]
-                : [["Lion's Mane + Chaga", 'Mushroom Blend'], ['27 Servings', 'Per Tube'], ['1.9 oz / 54g', 'Net Weight'], ['Instant', 'No Brewer Needed']]
+                ? [['Single-Origin PNG', 'Highland Arabica'], ['27 Servings', 'Per Tube'], ['Freeze-Dried', 'Premium Instant'], ['No Machine', 'Needed']]
+                : [['Single-Origin PNG', 'Highland Arabica'], ["Lion's Mane + Chaga", 'Mushroom Blend'], ['27 Servings', 'Per Tube'], ['Freeze-Dried', 'No Brewer Needed']]
               ).map(([val, label]) => (
                 <div key={label} className="flex flex-col gap-1 p-3"
                   style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.07)' }}>
@@ -465,15 +470,15 @@ function BlendDetailInner({ product }) {
                   { headline: 'Gentle on the gut', body: 'Lower acidity than coffee, easier on your stomach while keeping you sharp.' },
                   { headline: 'Premium grade, no fillers', body: '100% ceremonial matcha — no artificial flavors, no added sugar, nothing extra.' },
                 ] : product.category === 'classic-coffee' ? [
+                  { headline: 'Single-origin Papua New Guinea', body: 'Highland-grown 100% Arabica from rich volcanic soil — dark chocolate, toasted almond, and sweet toffee notes in every cup.' },
                   { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried Arabica dissolves instantly in hot water, milk, or cold brew — no machine required.' },
-                  { headline: 'Smooth, clean flavor', body: 'Medium roast for a balanced cup without bitterness or artificial aftertaste.' },
-                  { headline: 'Gentle on the gut', body: 'Smoother than typical high-acid coffee so you can enjoy your morning ritual without discomfort.' },
-                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced specialty Arabica.' },
+                  { headline: 'Smooth, clean flavor', body: 'Balanced acidity and a smooth, aromatic finish — no bitterness or artificial aftertaste.' },
+                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced single-origin specialty Arabica.' },
                 ] : [
+                  { headline: 'Single-origin Papua New Guinea', body: 'Highland-grown 100% Arabica from rich volcanic soil — dark chocolate and toasted almond notes paired with functional mushrooms.' },
                   { headline: 'Calm focus without the crash', body: "Lion's Mane and Chaga support cognitive function and balanced energy so you stay sharp without feeling wired." },
-                  { headline: 'Ritual in 30 seconds', body: 'Premium instant coffee designed for busy mornings — just stir into hot water or your favorite milk.' },
-                  { headline: 'Gentle on the gut', body: 'Crafted to be smoother than typical high-acid coffee so you can enjoy your ritual without discomfort.' },
-                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced coffee and functional mushrooms.' },
+                  { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried instant coffee designed for busy mornings — just stir into hot water or your favorite milk.' },
+                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just single-origin coffee and functional mushrooms.' },
                 ]).map(({ headline, body }) => (
                   <li key={headline} className="flex items-start gap-3">
                     <span style={{ color: product.accent, marginTop: '3px', flexShrink: 0, fontSize: '0.55rem' }}>◆</span>
@@ -737,11 +742,11 @@ function BlendDetailInner({ product }) {
                   { label: 'Natural L-Theanine', detail: 'Naturally occurring in whole-leaf matcha; supports calm, focused energy without jitters.' },
                   { label: '25 servings per tin', detail: 'No fillers, no artificial flavors, nothing added.' },
                 ] : product.category === 'classic-coffee' ? [
-                  { label: 'Premium Arabica Instant Coffee', detail: 'For a rich, balanced flavor profile and smooth instant preparation.' },
-                  { label: '27 servings per tube', detail: 'No artificial colors, flavors, or preservatives.' },
-                  { label: 'No pods, no machine', detail: 'Just add 8–10 oz hot water. That\'s it.' },
-                ] : [
-                  { label: 'Instant Arabica Coffee', detail: 'For a rich, balanced flavor profile and smooth instant preparation.' },
+                   { label: 'Single-Origin Papua New Guinea Arabica', detail: 'Highland-grown in rich volcanic soil. Dark chocolate, toasted almond, and toffee notes with a smooth, aromatic finish.' },
+                   { label: 'Freeze-Dried Premium Instant', detail: 'Brewed as specialty coffee, then freeze-dried to preserve natural flavor compounds. 27 servings per tube.' },
+                   { label: 'No pods, no machine', detail: 'Just add 8–10 oz hot water. That\'s it. No artificial colors, flavors, or preservatives.' },
+                 ] : [
+                   { label: 'Single-Origin Papua New Guinea Arabica', detail: 'Highland-grown 100% Arabica with dark chocolate and toasted almond notes, freeze-dried to preserve flavor.' },
                   { label: "Lion's Mane mushroom extract", detail: <>Known for supporting focus and mental clarity. <Link to="/journal/science-of-lions-mane" style={{ color: '#10B981', textDecoration: 'none' }}>Our research hub breaks down the science →</Link></> },
                   { label: 'Chaga mushroom extract', detail: 'Antioxidant support to help your ritual do more than just wake you up.' },
                   { label: '27 servings per tube', detail: 'No artificial colors, flavors, or preservatives.' },
@@ -830,6 +835,13 @@ function BlendDetailInner({ product }) {
           </motion.div>
         </div>
       </section>
+
+      {/* COFFEE ORIGIN & CRAFTSMANSHIP SECTIONS */}
+      <CoffeeTrustBar accent={product.accent} />
+      <CoffeeOriginSection accent={product.accent} />
+      <FlavorExperienceSection accent={product.accent} />
+      <WhyFreezeDriedSection accent={product.accent} />
+      <WhyInstantRitualSection accent={product.accent} />
 
       {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">

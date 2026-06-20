@@ -10,16 +10,23 @@ import { base44 } from '@/api/base44Client';
 import CategorySEO from '@/components/seo/CategorySEO';
 import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
 import FAQSchema from '@/components/seo/FAQSchema';
+import CoffeeOriginSection from '@/components/coffee/CoffeeOriginSection';
+import FlavorExperienceSection from '@/components/coffee/FlavorExperienceSection';
+import WhyFreezeDriedSection from '@/components/coffee/WhyFreezeDriedSection';
+import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection';
+import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 
 const GOLD = '#C4A35A';
 
 // FAQ data for schema
 const FAQS = [
-  { q: 'What is instant coffee?', a: 'Instant coffee is made from brewed coffee that has been freeze-dried or spray-dried into powder form. Torch Republic uses premium Arabica beans for a smooth, rich taste.' },
-  { q: 'Does instant coffee taste like regular coffee?', a: 'Yes, premium instant coffee like Torch Republic is crafted for smooth, rich coffee flavor. The instant format preserves the coffee natural taste while adding convenience.' },
-  { q: 'Do I need a coffee machine?', a: 'No. Torch Republic instant coffee just needs hot water. Add one serving to 8–10 oz of hot water, stir, and enjoy. No machine, pods, or grinder needed.' },
-  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings of premium instant coffee.' },
-  { q: 'Can I drink instant coffee daily?', a: 'Yes, instant coffee is designed for daily ritual use. Many people prefer it for its convenience and consistent taste.' },
+  { q: 'What makes Papua New Guinea coffee special?', a: 'Papua New Guinea coffee is grown in the mountainous highlands in rich volcanic soil at high elevations. It is highly regarded for its clean cup profile, complexity, smooth character, and nuanced sweetness. Many PNG coffees trace their heritage to Jamaica Blue Mountain stock, giving the region a reputation for exceptionally balanced and refined coffees.' },
+  { q: 'What does Torch Republic instant coffee taste like?', a: 'Our single-origin Papua New Guinea coffee highlights notes of dark chocolate, toasted almond, and sweet toffee with a smooth, aromatic finish. The body is smooth and rich with balanced acidity — a flavor profile that stands apart from typical commodity instant coffee.' },
+  { q: 'What is freeze-dried coffee?', a: 'Freeze-dried coffee is made by brewing specialty coffee to full concentration, then freeze-drying it to preserve the natural flavor compounds, aroma, and freshness. The freeze-drying process removes water through sublimation while locking in the complex flavors. The result dissolves instantly in hot water with no brewing equipment required.' },
+  { q: 'Do I need a coffee machine?', a: 'No. Torch Republic instant coffee just needs hot water. Add one serving to 8–10 oz of hot water, stir, and enjoy. No machine, pods, or grinder needed. It is designed for home, office, travel, and camping.' },
+  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings of premium single-origin Papua New Guinea instant coffee — nearly a month of daily rituals.' },
+  { q: 'Is Torch Republic instant coffee single-origin?', a: 'Yes. Our coffee is single-origin from Papua New Guinea, 100% Arabica, and freeze-dried to preserve the flavor compounds that make this region respected among specialty coffee drinkers.' },
+  { q: 'Can I drink instant coffee daily?', a: 'Yes, instant coffee is designed for daily ritual use. Many people prefer it for its convenience, consistent taste, and the fact that it requires no machine or cleanup.' },
 ];
 
 export default function ClassicCoffeeCollection() {
@@ -69,8 +76,8 @@ export default function ClassicCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Premium Freeze-Dried Instant Coffee | Torch Republic',
-    description: 'Discover smooth premium instant coffee made for busy mornings, travel, and everyday rituals. Add water, stir, and enjoy — no coffee machine needed.',
+    title: 'Single-Origin Papua New Guinea Instant Coffee | Torch Republic',
+    description: 'Premium freeze-dried instant coffee from single-origin Papua New Guinea highlands. 100% Arabica with dark chocolate, toasted almond, and toffee notes. No machine, no pods. 27 servings per tube.',
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [
@@ -96,11 +103,11 @@ export default function ClassicCoffeeCollection() {
               Torch Republic Coffee Co. — Classic Instant Coffee
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Best Premium Instant Coffee<br />No Machine, No Pods, No Compromise
-            </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              100% Arabica instant coffee for smooth, rich flavor in seconds — hot or iced. Three blends, 27 servings each. No coffee maker, no pods, no mushrooms. Just great coffee.
-            </p>
+               Premium Coffee Rituals<br />Powered By Nature
+             </h1>
+             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+               Single-origin Papua New Guinea coffee — 100% Arabica, freeze-dried to preserve dark chocolate, toasted almond, and sweet toffee notes. No machine, no pods, no compromise. Just add hot water.
+             </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
                 <strong>Note:</strong> These are pure classic coffee blends. They do not contain mushrooms.
@@ -135,21 +142,20 @@ export default function ClassicCoffeeCollection() {
         </motion.div>
       </section>
 
-      {/* Benefits */}
-      <section style={{ background: '#0A0A0A', padding: '20px 24px', borderBottom: `1px solid ${GOLD}15` }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[{ label: '100% Arabica', icon: Coffee }, { label: 'No Coffee Maker', icon: Zap }, { label: '27 Servings', icon: Sparkles }, { label: 'No Mushrooms', icon: Coffee }, { label: 'Instant Format', icon: Zap }].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-2">
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: `${GOLD}15`, border: `1px solid ${GOLD}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <item.icon size={16} style={{ color: GOLD }} />
-                </div>
-                <p className="font-heading text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(245,239,230,0.6)' }}>{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Coffee Trust Bar */}
+      <CoffeeTrustBar accent={GOLD} />
+
+      {/* Coffee Origin Story */}
+      <CoffeeOriginSection accent={GOLD} />
+
+      {/* Flavor Experience */}
+      <FlavorExperienceSection accent={GOLD} />
+
+      {/* Why Freeze-Dried */}
+      <WhyFreezeDriedSection accent={GOLD} />
+
+      {/* Why Instant Ritual Coffee */}
+      <WhyInstantRitualSection accent={GOLD} />
 
       {/* Products */}
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
@@ -203,8 +209,8 @@ export default function ClassicCoffeeCollection() {
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Simple. Premium. Instant.</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Premium instant coffee crafted for smooth energy, rich flavor, and a daily ritual that fits real life. No machine required — just add water and begin.</p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>Premium Coffee Rituals Powered By Nature</h2>
+            <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>Single-origin Papua New Guinea coffee — freeze-dried to preserve dark chocolate, toasted almond, and toffee notes. A daily ritual that fits real life. No machine, no pods, no compromise. Just add hot water and begin.</p>
             <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#050505', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Products <ArrowRight className="w-4 h-4" />
             </Link>

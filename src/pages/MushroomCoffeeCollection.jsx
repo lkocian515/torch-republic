@@ -11,6 +11,11 @@ import MushroomTransparencyTable from '../components/mushroom/MushroomTransparen
 import CategorySEO from '@/components/seo/CategorySEO';
 import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
 import FAQSchema from '@/components/seo/FAQSchema';
+import CoffeeOriginSection from '@/components/coffee/CoffeeOriginSection';
+import FlavorExperienceSection from '@/components/coffee/FlavorExperienceSection';
+import WhyFreezeDriedSection from '@/components/coffee/WhyFreezeDriedSection';
+import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection';
+import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 
 const RG = '#E6B7AD';
 const DEEP_CHARCOAL = '#0A0908';
@@ -33,11 +38,12 @@ const INGREDIENTS = [
 
 // FAQ data for schema
 const FAQS = [
-  { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium instant coffee with functional mushrooms traditionally used in wellness routines. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
-  { q: 'Does it taste like mushrooms?', a: 'It tastes primarily like coffee, with a smooth and lightly earthy profile depending on the blend. The coffee flavor is dominant.' },
+  { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium single-origin Papua New Guinea instant coffee with functional mushrooms like Lion\'s Mane and Chaga. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
+  { q: 'Where does the coffee come from?', a: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea — 100% Arabica, grown in rich volcanic soil at high elevations. The region is known for its clean cup profile, complexity, and nuanced sweetness, with heritage connected to Jamaica Blue Mountain stock.' },
+  { q: 'What does it taste like?', a: 'It tastes primarily like coffee — dark chocolate, toasted almond, and sweet toffee notes from the Papua New Guinea origin, with a smooth and lightly earthy profile from the mushroom extracts. The coffee flavor is dominant.' },
   { q: 'Is this regular coffee or a supplement?', a: 'It is coffee with functional mushroom ingredients. It is designed as a daily beverage ritual, not a medical product.' },
-  { q: 'Does it have caffeine?', a: 'Yes, all mushroom coffee blends contain caffeine from the premium instant coffee base.' },
-  { q: 'How do I make it?', a: 'Add one serving to hot water, stir, and enjoy. It works with milk, creamer, or iced preparations too.' },
+  { q: 'Does it have caffeine?', a: 'Yes, all mushroom coffee blends contain caffeine from the premium single-origin Papua New Guinea instant coffee base.' },
+  { q: 'How do I make it?', a: 'Add one serving to hot water, stir, and enjoy. It works with milk, creamer, or iced preparations too. No machine, no pods, no grinder needed.' },
   { q: 'Which blend should I start with?', a: 'Start with SunCap Rise for morning energy, GlowMind Clarity for focus, or MoonCap Restore for a calmer ritual.' },
   { q: 'Can I drink it every day?', a: 'Yes, it is designed for daily ritual use. Follow product directions and consult a healthcare professional if pregnant, nursing, or managing a medical condition.' },
 ];
@@ -68,8 +74,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: "Instant Mushroom Coffee with Lion's Mane + Chaga | Torch Republic",
-    description: "Explore six coffee-forward instant mushroom blends made with Lion's Mane and Chaga. Easy to prepare, approximately 27 servings, and no machine required.",
+    title: "Instant Mushroom Coffee with Lion's Mane + Chaga | Single-Origin PNG | Torch Republic",
+    description: "Six premium instant mushroom coffee blends made with single-origin Papua New Guinea Arabica, Lion's Mane, and Chaga. Freeze-dried for dark chocolate and toasted almond flavor. No machine required. 27 servings per tube.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [
@@ -95,11 +101,11 @@ export default function MushroomCoffeeCollection() {
               Torch Republic Coffee Co. — Mushroom Coffee
             </p>
             <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Instant Mushroom Coffee<br />with Lion's Mane & Chaga
-            </h1>
-            <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Six premium instant mushroom coffee blends — Lion's Mane for focus, Chaga for resilience, premium Arabica for taste. Coffee-forward. No machine, no pods, no compromise.
-            </p>
+               Premium Coffee Rituals<br />Powered By Nature
+             </h1>
+             <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
+               Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Six premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
+             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#080808', borderRadius: '4px' }}>
                 Shop Mushroom Coffee
@@ -147,6 +153,13 @@ export default function MushroomCoffeeCollection() {
           </motion.div>
           </div>
           </section>
+
+      {/* ── COFFEE ORIGIN & CRAFTSMANSHIP ── */}
+      <CoffeeTrustBar accent={RG} />
+      <CoffeeOriginSection accent={RG} />
+      <FlavorExperienceSection accent={RG} />
+      <WhyFreezeDriedSection accent={RG} />
+      <WhyInstantRitualSection accent={RG} />
 
       {/* ── WHY MUSHROOM COFFEE ── */}
       <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
@@ -351,10 +364,10 @@ export default function MushroomCoffeeCollection() {
       <section className="px-6 md:px-10 py-20 text-center" style={{ background: '#080808', borderTop: `1px solid ${RG}15` }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
           <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
-            Begin Your Ritual Today
+            Premium Coffee Rituals Powered By Nature
           </h2>
           <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
-            Premium instant coffee. Functional mushrooms. A clearer morning.
+            Single-origin Papua New Guinea coffee. Functional mushrooms. A clearer morning — powered by nature, crafted for your daily ritual.
           </p>
           <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#080808', borderRadius: '4px' }}>
             Shop Mushroom Coffee →
