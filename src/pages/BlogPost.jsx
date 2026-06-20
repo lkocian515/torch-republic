@@ -6,6 +6,8 @@ import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, User, Bookmark, ArrowRight } from 'lucide-react';
 import ShareButtons from '../components/social/ShareButtons';
+import BlogEmailCapture from '../components/blog/BlogEmailCapture';
+import PopularArticles from '../components/blog/PopularArticles';
 
 // Related articles map by slug — covers all 5 priority articles + existing content
 const RELATED_BY_SLUG = {
@@ -412,6 +414,9 @@ export default function BlogPostPage() {
               </div>
             )}
 
+            {/* Email Capture */}
+            <BlogEmailCapture />
+
             {/* Related Articles */}
             {RELATED_BY_SLUG[post.slug] && (
               <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
@@ -471,7 +476,9 @@ export default function BlogPostPage() {
           </div>
         </div>
       </article>
-    </div>
-    </>
-  );
-}
+
+      <PopularArticles />
+      </div>
+      </>
+      );
+      }

@@ -48,9 +48,16 @@ const COMPARISONS = [
     badge: null,
   },
   {
-    slug: 'instant-coffee-vs-pods-comparison',
+    slug: 'mushroom-coffee-vs-coffee-pods',
     competitor: 'Coffee Pods',
-    headline: 'Instant Coffee vs. K-Cups',
+    headline: 'Mushroom Coffee vs. Coffee Pods',
+    tagline: 'Functional coffee vs. single-use pods — convenience, waste, and quality compared.',
+    badge: null,
+  },
+  {
+    slug: 'instant-coffee-vs-k-cups',
+    competitor: 'K-Cups',
+    headline: 'Premium Instant Coffee vs. K-Cups',
     tagline: 'Cost, waste, and convenience — instant coffee vs. K-Cups compared.',
     badge: null,
   },
@@ -109,6 +116,32 @@ export default function ComparisonCenter() {
               </Link>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Related Guides — internal linking to SEO landing pages */}
+      <section className="px-6 md:px-10 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6 text-center" style={{ color: 'rgba(230,183,173,0.4)' }}>Related Guides</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {[
+              { slug: '/coffee-pod-alternatives', label: 'Coffee Pod Alternatives' },
+              { slug: '/coffee-without-a-machine', label: 'Coffee Without a Machine' },
+              { slug: '/camping-coffee', label: 'Best Coffee for Camping' },
+              { slug: '/healthy-coffee-alternatives', label: 'Healthy Coffee Alternatives' },
+              { slug: '/matcha-vs-coffee', label: 'Matcha vs. Coffee' },
+              { slug: '/papua-new-guinea-coffee', label: 'Papua New Guinea Coffee' },
+              { slug: '/coffee-rituals', label: 'Coffee Rituals' },
+              { slug: '/mushroom-coffee-benefits', label: 'Mushroom Coffee Benefits' },
+              { slug: '/ingredients/freeze-dried-instant-coffee', label: 'Freeze-Dried Coffee' },
+            ].map((g, i) => (
+              <Link key={i} to={g.slug}
+                className="font-mono text-[8px] tracking-[0.2em] uppercase px-4 py-3 text-center transition-all hover:opacity-80"
+                style={{ border: '1px solid rgba(230,183,173,0.15)', color: 'rgba(230,183,173,0.5)' }}>
+                {g.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

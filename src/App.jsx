@@ -120,6 +120,17 @@ const MorningRitualCollection = lazy(() => import('./pages/MorningRitualCollecti
 const FocusCoffeeCollection = lazy(() => import('./pages/FocusCoffeeCollection.jsx'));
 const TravelCoffeeCollection = lazy(() => import('./pages/TravelCoffeeCollection.jsx'));
 
+// ── SEO Keyword Landing Pages ──
+const CoffeePodAlternatives = lazy(() => import('./pages/seo/CoffeePodAlternatives.jsx'));
+const CoffeeWithoutMachine = lazy(() => import('./pages/seo/CoffeeWithoutMachine.jsx'));
+const CampingCoffee = lazy(() => import('./pages/seo/CampingCoffee.jsx'));
+const HealthyCoffeeAlternatives = lazy(() => import('./pages/seo/HealthyCoffeeAlternatives.jsx'));
+const CoffeeRituals = lazy(() => import('./pages/seo/CoffeeRituals.jsx'));
+const MatchaVsCoffee = lazy(() => import('./pages/seo/MatchaVsCoffee.jsx'));
+const PapuaNewGuineaCoffee = lazy(() => import('./pages/seo/PapuaNewGuineaCoffee.jsx'));
+const MushroomCoffeeVsCoffeePods = lazy(() => import('./pages/compare/MushroomCoffeeVsCoffeePods.jsx'));
+const InstantCoffeeVsKCups = lazy(() => import('./pages/compare/InstantCoffeeVsKCups.jsx'));
+
 const mainPageKey = 'Home';
 
 // Loading fallback component
@@ -274,6 +285,15 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/why-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMushroomCoffee" queryClient={queryClient}><WhyMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/why-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMatcha" queryClient={queryClient}><WhyMatcha /></LayoutWrapper></Suspense>} />
 
+        {/* ── SEO KEYWORD LANDING PAGES ── */}
+        <Route path="/coffee-pod-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodAlternatives" queryClient={queryClient}><CoffeePodAlternatives /></LayoutWrapper></Suspense>} />
+        <Route path="/coffee-without-a-machine" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeWithoutMachine" queryClient={queryClient}><CoffeeWithoutMachine /></LayoutWrapper></Suspense>} />
+        <Route path="/camping-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CampingCoffee" queryClient={queryClient}><CampingCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/healthy-coffee-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HealthyCoffeeAlternatives" queryClient={queryClient}><HealthyCoffeeAlternatives /></LayoutWrapper></Suspense>} />
+        <Route path="/coffee-rituals" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRituals" queryClient={queryClient}><CoffeeRituals /></LayoutWrapper></Suspense>} />
+        <Route path="/matcha-vs-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaVsCoffee" queryClient={queryClient}><MatchaVsCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/papua-new-guinea-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PapuaNewGuineaCoffee" queryClient={queryClient}><PapuaNewGuineaCoffee /></LayoutWrapper></Suspense>} />
+
         {/* ── BLOG POSTS ── */}
         <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffee" queryClient={queryClient}><ChagaMushroomCoffee /></LayoutWrapper></Suspense>} />
@@ -312,6 +332,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/compare/four-sigmatic-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FourSigmaticVsTorchRepublic" queryClient={queryClient}><FourSigmaticVsTorchRepublic /></LayoutWrapper></Suspense>} />
         <Route path="/compare/mudwtr-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MudwtrVsTorchRepublic" queryClient={queryClient}><MudwtrVsTorchRepublic /></LayoutWrapper></Suspense>} />
         <Route path="/compare/everyday-dose-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EverydayDoseVsTorchRepublic" queryClient={queryClient}><EverydayDoseVsTorchRepublic /></LayoutWrapper></Suspense>} />
+        <Route path="/compare/mushroom-coffee-vs-coffee-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeVsCoffeePods" queryClient={queryClient}><MushroomCoffeeVsCoffeePods /></LayoutWrapper></Suspense>} />
+        <Route path="/compare/instant-coffee-vs-k-cups" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeVsKCups" queryClient={queryClient}><InstantCoffeeVsKCups /></LayoutWrapper></Suspense>} />
         {/* Fallback generic comparison page for remaining slugs */}
         <Route path="/compare/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonPage" queryClient={queryClient}><ComparisonPage /></LayoutWrapper></Suspense>} />
 
