@@ -35,6 +35,7 @@ const ABOUT_LINKS = [
   { label: 'Our Ingredients', href: '/ingredients' },
   { label: 'Torchbearers Rewards', href: '/torchbearers-rewards' },
   { label: 'Reviews', href: '/reviews' },
+  { label: 'Customer Spotlight', href: '/spotlight' },
 ];
 
 // Mobile full menu — simplified, shop-first
@@ -55,6 +56,7 @@ const MOBILE_NAV_SECTIONS = [
     links: [
       { label: 'Our Mission', href: '/mission' },
       { label: 'Reviews', href: '/reviews' },
+      { label: 'Customer Spotlight', href: '/spotlight' },
       { label: 'Journal', href: '/journal' },
       { label: 'Contact', href: '/contact' },
     ],
