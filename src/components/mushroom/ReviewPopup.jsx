@@ -10,8 +10,6 @@ const GOLD = '#C4A35A';
 export default function ReviewPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hasClosed, setHasClosed] = useState(false);
-
   const { data: allReviews = [], isLoading } = useQuery({
     queryKey: ['reviews'],
     queryFn: async () => {
@@ -26,25 +24,17 @@ export default function ReviewPopup() {
     return shuffled.slice(0, 15);
   }, [allReviews.length]);
 
-  // Show popup after 3 seconds on first visit, then cycle: 8 seconds open, 5 seconds closed
+  // Show popup once after 3 seconds — only once per session, never auto-cycles
   useEffect(() => {
-    if (reviews.length === 0 || hasClosed) return;
-    
+    if (reviews.length === 0) return;
+    if (sessionStorage.getItem('review_popup_dismissed')) return;
+
     const timer = setTimeout(() => {
-      if (!isOpen) {
-        setIsOpen(true);
-        // Keep open for 8 seconds, then close for 5 seconds
-        setTimeout(() => {
-          setIsOpen(false);
-          setTimeout(() => {
-            if (!hasClosed) setIsOpen(true);
-          }, 5000);
-        }, 8000);
-      }
+      setIsOpen(true);
     }, 3000);
-    
+
     return () => clearTimeout(timer);
-  }, [reviews.length, hasClosed, isOpen]);
+  }, [reviews.length]);
 
   // Auto-rotate reviews every 10 seconds
   useEffect(() => {
@@ -57,7 +47,7 @@ export default function ReviewPopup() {
 
   const handleClose = () => {
     setIsOpen(false);
-    setHasClosed(true);
+    sessionStorage.setItem('review_popup_dismissed', '1');
   };
 
   const handleNext = () => {
