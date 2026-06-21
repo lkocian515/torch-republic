@@ -162,7 +162,7 @@ function ToolCard({ icon: Icon, title, description, onRun, loading, result, colo
         className="w-full font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-2.5 transition-all hover:opacity-90 flex items-center justify-center gap-2"
         style={{ background: loading ? `${color}30` : color, color: loading ? 'rgba(255,255,255,0.4)' : '#080808', borderRadius: '4px', cursor: loading ? 'not-allowed' : 'pointer' }}
       >
-        {loading ? <><RefreshCw size={11} className="animate-spin" /> Running...</> : 'Run'}
+        {loading ? <><RefreshCw size={11} className="animate-spin" /> Running...</> : result ? <><CheckCircle size={11} /> Run Again</> : 'Run'}
       </button>
       <ResultPanel title={title} data={result} loading={loading} expanded={expanded} onToggle={() => setExpanded(e => !e)} />
     </div>

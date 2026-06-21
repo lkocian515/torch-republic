@@ -28,6 +28,7 @@ export default function ReviewPopup() {
   useEffect(() => {
     if (reviews.length === 0) return;
     if (sessionStorage.getItem('review_popup_dismissed')) return;
+    if (window.location.pathname.startsWith('/admin') || window.location.pathname.startsWith('/email-campaign') || window.location.pathname.startsWith('/traffic-report')) return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
