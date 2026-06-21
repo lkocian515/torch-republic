@@ -170,12 +170,25 @@ Deno.serve(async (req) => {
                 const customerName = customer.first_name || '';
                 const html = template.html(customerName);
 
-                // Send email via service role to bypass app-user restriction
-                await base44.asServiceRole.integrations.Core.SendEmail({
-                    to: customer.email,
-                    subject: template.subject,
-                    body: html,
+                // Send email via Resend API (platform SendEmail only works for app users)
+                const resendResp = await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${Deno.env.get('RESEND_API_KEY')}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        from: 'Torch Republic <onboarding@resend.dev>',
+                        to: [customer.email],
+                        subject: template.subject,
+                        html: html,
+                    }),
                 });
+
+                if (!resendResp.ok) {
+                    const errText = await resendResp.text();
+                    throw new Error(`Resend API ${resendResp.status}: ${errText}`);
+                }
 
                 // Log to EmailCampaign entity
                 try {
