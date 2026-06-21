@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
-import { trackAddToCart, buildItem } from '@/lib/analytics';
+import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
 
 const RG = '#E6B7AD';
 
@@ -44,6 +44,12 @@ export default function CartRecommendations({ cartItems }) {
 
   const recommendations = useMemo(() => getRecommendations(cartItems), [cartItems]);
 
+  useEffect(() => {
+    if (recommendations.length > 0) {
+      trackUpsellViewed('complete_your_ritual', recommendations.map(p => p.name));
+    }
+  }, [recommendations]);
+
   if (recommendations.length === 0) return null;
 
   const handleAdd = (product) => {
@@ -63,6 +69,7 @@ export default function CartRecommendations({ cartItems }) {
       category: product.category,
       price: product.price,
     }));
+    trackUpsellClicked(product.name, 'complete_your_ritual');
   };
 
   return (

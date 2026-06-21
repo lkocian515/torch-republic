@@ -3,10 +3,17 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
+
+const RG = '#E6B7AD';
 
 export default function CartToast() {
-  const { toast, clearToast } = useCart();
+  const { toast, clearToast, subtotal } = useCart();
   const navigate = useNavigate();
+
+  const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+  const progress = Math.min((subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
+  const isUnlocked = remaining <= 0;
 
   return (
     <AnimatePresence>
@@ -37,6 +44,17 @@ export default function CartToast() {
             <p className="font-heading text-[10px] md:text-xs text-center leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>
               {toast}
             </p>
+            {/* Compact free shipping progress */}
+            <div className="w-full mb-3">
+              <p className="font-mono text-[7px] tracking-[0.1em] text-center mb-1.5" style={{ color: isUnlocked ? '#10B981' : 'rgba(230,183,173,0.7)' }}>
+                {isUnlocked
+                  ? '✓ You\'ve unlocked FREE shipping'
+                  : <>You're <span className="font-bold" style={{ color: RG }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}
+              </p>
+              <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(230,183,173,0.08)' }}>
+                <div className="h-full rounded-full transition-all duration-500" style={{ width: `${progress}%`, background: isUnlocked ? 'linear-gradient(90deg, #10B981, #34D399)' : `linear-gradient(90deg, ${RG}, #D6B27A)` }} />
+              </div>
+            </div>
             <div className="flex items-center gap-2 w-full">
               <button
                 onClick={(e) => {

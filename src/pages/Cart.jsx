@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
@@ -14,6 +14,10 @@ import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
 import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
 import CartSubscriptionPromo from '@/components/cart/CartSubscriptionPromo';
 import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
+import CartBundleIncentive from '@/components/cart/CartBundleIncentive';
+import CartReassurance from '@/components/cart/CartReassurance';
+import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
+import { trackFreeShippingThresholdReached, trackCheckoutStarted } from '@/lib/analytics';
 
 const RG = '#E6B7AD';
 
@@ -26,6 +30,13 @@ export default function Cart() {
     noindex: true,
   });
   const { items, updateQty, removeItem, subtotal, totalItems } = useCart();
+
+  // Track when free shipping threshold is reached
+  useEffect(() => {
+    if (subtotal >= 50) {
+      trackFreeShippingThresholdReached(subtotal);
+    }
+  }, [subtotal]);
 
   // Build the Shopify checkout URL with all current cart items
   const checkoutUrl = useMemo(() => {
@@ -59,24 +70,32 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center" style={{ background: '#080808', color: '#F0EBE1' }}>
-        <ShoppingBag className="w-12 h-12 mb-6" style={{ color: 'rgba(230,183,173,0.3)' }} />
-        <h1 className="font-serif font-bold text-2xl mb-3" style={{ color: '#F5EFE6' }}>Your Ritual Awaits</h1>
-        <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
-          You haven't added anything yet.
-        </p>
-        <Link to="/shop"
-          className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-10 py-4 transition-all hover:opacity-90"
-          style={{ background: RG, color: '#080808' }}>
-          Browse Individual Blends →
-        </Link>
-        <Link to="/build-your-ritual"
-          className="font-mono text-[9px] tracking-[0.25em] uppercase mt-4 py-3 px-8 transition-all hover:opacity-70 block"
-          style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.6)' }}>
-          Build My Ritual Bundle
-        </Link>
-        <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-6" style={{ color: 'rgba(230,183,173,0.35)' }}>
-          Have a discount code? Enter it at checkout.
-        </p>
+        <div className="max-w-md mx-auto">
+          <div className="w-16 h-16 mx-auto mb-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>
+            <ShoppingBag className="w-7 h-7" style={{ color: 'rgba(230,183,173,0.4)' }} />
+          </div>
+          <h1 className="font-serif font-bold text-3xl mb-4" style={{ color: '#F5EFE6' }}>
+            Your Ritual Starts Here
+          </h1>
+          <p className="font-heading mb-10 leading-relaxed" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, fontSize: '0.95rem' }}>
+            Discover premium instant coffee, mushroom blends, and ceremonial matcha crafted for modern rituals.
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <Link to="/shop"
+              className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-12 py-4 transition-all hover:opacity-90"
+              style={{ background: RG, color: '#080808' }}>
+              Shop Best Sellers →
+            </Link>
+            <Link to="/build-your-ritual"
+              className="font-mono text-[9px] tracking-[0.25em] uppercase py-3 px-10 transition-all hover:opacity-70"
+              style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
+              Build Your Ritual
+            </Link>
+          </div>
+          <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-8" style={{ color: 'rgba(230,183,173,0.35)' }}>
+            Have a discount code? Enter it at checkout.
+          </p>
+        </div>
       </div>
     );
   }
@@ -99,6 +118,7 @@ export default function Cart() {
         {/* First-time customer welcome + Free shipping progress */}
         <CartFirstTimeOffer />
         <CartFreeShippingBar subtotal={subtotal} />
+        <CartBundleIncentive itemCount={totalItems} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
@@ -178,6 +198,9 @@ export default function Cart() {
               {/* Delivery estimate */}
               <CartDeliveryEstimate />
 
+              {/* Rotating review snippets — social proof */}
+              <CartReviewSnippets />
+
               {/* Bundle upsell */}
               <CartBundleUpsell cartItems={items} subtotal={subtotal} />
 
@@ -211,6 +234,7 @@ export default function Cart() {
                   href={checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackCheckoutStarted(subtotal, totalItems)}
                   className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                   style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
                 >
@@ -240,6 +264,9 @@ export default function Cart() {
               {/* Trust confidence block */}
               <CartTrustBlock />
             </div>
+
+            {/* Checkout reassurance — full width below summary */}
+            <CartReassurance />
           </div>
         </div>
       </div>

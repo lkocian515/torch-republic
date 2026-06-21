@@ -23,9 +23,15 @@ export default function CartFreeShippingBar({ subtotal }) {
     >
       <div className="flex items-center gap-3 mb-3">
         {isUnlocked ? (
-          <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(16,185,129,0.15)' }}>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 12 }}
+            className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+            style={{ background: 'rgba(16,185,129,0.15)' }}
+          >
             <Check className="w-4 h-4" style={{ color: '#10B981' }} />
-          </div>
+          </motion.div>
         ) : (
           <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(230,183,173,0.1)' }}>
             <Truck className="w-4 h-4" style={{ color: RG }} />
@@ -33,7 +39,7 @@ export default function CartFreeShippingBar({ subtotal }) {
         )}
         <p className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: isUnlocked ? '#10B981' : 'rgba(245,239,230,0.85)' }}>
           {isUnlocked
-            ? 'Congratulations! You\'ve unlocked FREE shipping'
+            ? '✓ You\'ve unlocked FREE shipping'
             : <>You're only <span className="font-bold" style={{ color: RG }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}
         </p>
       </div>

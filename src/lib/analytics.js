@@ -301,3 +301,12 @@ export const trackShippingInformationViewed = () => { send('shipping_information
 export const trackFAQOpened = (question) => { send('faq_opened', { question }); matomoTrackFAQOpened(question); };
 export const trackOutboundSocialClick = (platform, url) => { send('outbound_social_click', { platform, url }); matomoTrackOutboundSocialClick(platform, url); };
 export const trackCheckoutHandoff = (cartValue, itemCount) => { send('checkout_handoff', { cart_value: cartValue, item_count: itemCount }); matomoTrackCheckoutHandoff(cartValue, itemCount); };
+
+// ── CRO Conversion Events ─────────────────────────────────────────────────────
+export const trackFreeShippingThresholdReached = (cartValue) => { send('free_shipping_threshold_reached', { cart_value: cartValue }); };
+export const trackUpsellViewed = (section, recommendedProducts) => { send('upsell_viewed', { section, recommended_products: recommendedProducts }); };
+export const trackUpsellClicked = (productName, section) => { send('upsell_clicked', { product_name: productName, section }); };
+export const trackBundleStarted = () => { send('bundle_started'); };
+export const trackBundleCompleted = (itemCount, value) => { send('bundle_completed', { item_count: itemCount, value }); };
+export const trackCheckoutStarted = (cartValue, itemCount) => { send('checkout_started', { cart_value: cartValue, item_count: itemCount }); };
+export const trackCheckoutCompleted = (transactionId, value) => { send('checkout_completed', { transaction_id: transactionId, value }); };

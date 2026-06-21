@@ -1,8 +1,7 @@
 import React from 'react';
 import { Progress } from "@/components/ui/progress";
 import { Truck, PartyPopper } from 'lucide-react';
-
-const FREE_SHIPPING_THRESHOLD = 75;
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 
 export default function FreeShippingProgress({ subtotal }) {
   const remaining = FREE_SHIPPING_THRESHOLD - subtotal;

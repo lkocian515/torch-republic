@@ -35,24 +35,26 @@ import FlavorExperienceSection from '../components/coffee/FlavorExperienceSectio
 import WhyFreezeDriedSection from '../components/coffee/WhyFreezeDriedSection';
 import WhyInstantRitualSection from '../components/coffee/WhyInstantRitualSection';
 import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
+import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
+import ProductShippingConfidence from '@/components/cart/ProductShippingConfidence';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
     { icon: Zap, label: 'Single-Origin PNG Arabica' },
     { icon: ShieldCheck, label: "Lion's Mane + Chaga" },
-    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Truck, label: 'Free Shipping $50+' },
     { icon: Lock, label: '27 Servings — No Machine' },
   ],
   'classic-coffee': [
     { icon: Zap, label: 'Single-Origin PNG Arabica' },
     { icon: ShieldCheck, label: 'Freeze-Dried Premium Instant' },
-    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Truck, label: 'Free Shipping $50+' },
     { icon: Lock, label: '27 Servings — No Machine' },
   ],
   matcha: [
     { icon: Zap, label: 'Instant — Just Add Water' },
     { icon: ShieldCheck, label: 'Ceremonial Grade Matcha' },
-    { icon: Truck, label: 'Free Shipping $75+' },
+    { icon: Truck, label: 'Free Shipping $50+' },
     { icon: Lock, label: 'Secure Checkout' },
   ],
 };
@@ -76,7 +78,7 @@ const ACCORDIONS = [
   },
   {
     title: 'Shipping & Returns',
-    content: 'Ships fast from Texas within 1–3 business days. Free standard shipping on orders over $75. 30-day satisfaction guarantee — if you\'re not happy, reach out and we\'ll make it right.',
+    content: 'Ships fast from Texas within 1–3 business days. Free standard shipping on orders over $50. 30-day satisfaction guarantee — if you\'re not happy, reach out and we\'ll make it right.',
   },
 ];
 
@@ -175,7 +177,7 @@ function GalleryCarousel({ images, accent, productName }) {
 }
 
 function BlendDetailInner({ product }) {
-  const { addItem } = useCart();
+  const { addItem, subtotal } = useCart();
   const [qty, setQty] = useState(1);
   const [isSubscription, setIsSubscription] = useState(false);
   const subscriptionPrice = product.price * 0.8; // 20% off
@@ -576,6 +578,9 @@ function BlendDetailInner({ product }) {
               </p>
             </div>
 
+            {/* Free shipping progress bar */}
+            <CartFreeShippingBar subtotal={subtotal} />
+
             {/* Qty + Add to Cart */}
             <div className="flex flex-col gap-3">
               {/* Subscribe & Save Toggle */}
@@ -680,6 +685,9 @@ function BlendDetailInner({ product }) {
               <p className="font-mono text-[8px] tracking-[0.15em] text-center" style={{ color: 'rgba(230,183,173,0.55)', lineHeight: 1.6 }}>
                 Fast shipping from Texas · Love your first bag or contact us and we'll make it right
               </p>
+
+              {/* Shipping confidence icons */}
+              <ProductShippingConfidence />
 
               {/* Discount reminders */}
               <DiscountReminders cartSubtotal={product.price * qty} compact />
@@ -796,7 +804,7 @@ function BlendDetailInner({ product }) {
               </div>
               <div className="p-3 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
                 <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: '#E6B7AD' }}>Free Shipping</p>
-                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>On orders over $75. Ships in 1–3 business days.</p>
+                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>On orders over $50. Ships in 1–2 business days.</p>
               </div>
             </div>
 

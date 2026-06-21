@@ -18,9 +18,9 @@ export const SUBSCRIBE_SAVE_PERCENT = 20;           // integer, e.g. 20 for disp
 export const SUBSCRIBE_SAVE_RATE = 0.20;            // decimal for price calculations
 
 // ── Free Shipping ─────────────────────────────────────────────────────────────
-export const FREE_SHIPPING_THRESHOLD = 75;          // USD, integer for comparisons
-export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$75+';
-export const FREE_SHIPPING_LABEL = `Free Shipping ${75}+`;
+export const FREE_SHIPPING_THRESHOLD = 50;          // USD, integer for comparisons
+export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$50+';
+export const FREE_SHIPPING_LABEL = `Free Shipping $50+`;
 
 // ── Satisfaction Guarantee ────────────────────────────────────────────────────
 export const GUARANTEE_DAYS = 30;
