@@ -246,6 +246,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/LocalSEO" element={<Navigate to="/" replace />} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/ProductSync" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/product-sync" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/products" element={<Navigate to="/shop" replace />} />
         <Route path="/KeywordAnalysis" element={<Navigate to="/admin/keywords" replace />} />
         <Route path="/BlendDetail" element={<Navigate to="/shop" replace />} />
         <Route path="/blenddetail" element={<Navigate to="/shop" replace />} />
