@@ -18,6 +18,7 @@ Allow: /products/
 Allow: /how-it-works
 Allow: /mission
 Allow: /reviews
+Allow: /spotlight
 Allow: /recipes
 Allow: /research
 Allow: /quiz
@@ -29,7 +30,6 @@ Allow: /mushroom-coffee-benefits
 Allow: /lions-mane-coffee
 Allow: /instant-coffee-for-energy
 Allow: /torchbearers-rewards
-Allow: /spotlight
 Allow: /gifts
 Allow: /founder-story
 Allow: /contact
@@ -40,9 +40,6 @@ Allow: /sitemap-products.xml
 Allow: /sitemap-blog.xml
 
 # Admin and internal pages — disallow crawling
-# NOTE: These pages also have <meta name="robots" content="noindex,nofollow">
-# Robots.txt disallow only prevents crawling; noindex handles deindexing.
-# Do NOT add noindex pages here until deindexing is confirmed via GSC.
 Disallow: /admin/
 Disallow: /command/
 Disallow: /traffic-report
@@ -90,11 +87,6 @@ Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /subscription
-Disallow: /Subscription
-
-# Legacy apparel/jewelry pages — now 410 Gone, let GSC process via noindex before blocking
-# (Do not add here until deindex confirmed)
 
 # Sitemap
 Sitemap: https://torchrepublic.com/sitemap.xml
