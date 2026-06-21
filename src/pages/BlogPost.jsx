@@ -8,6 +8,7 @@ import { ArrowLeft, Calendar, Clock, User, Bookmark, ArrowRight } from 'lucide-r
 import ShareButtons from '../components/social/ShareButtons';
 import BlogEmailCapture from '../components/blog/BlogEmailCapture';
 import PopularArticles from '../components/blog/PopularArticles';
+import { KNOWLEDGE_ARTICLES } from '@/lib/knowledgeArticles';
 
 // Related articles map by slug — covers all 5 priority articles + existing content
 const RELATED_BY_SLUG = {
@@ -123,6 +124,57 @@ const RELATED_PRODUCTS_BY_SLUG = {
     { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
   ],
 };
+
+// ── Extract FAQ Q&A pairs from HTML content for FAQ schema ──
+function extractFAQFromContent(html) {
+  if (!html) return [];
+  // Find FAQ section (h2/h3 containing "FAQ" or "Frequently Asked Questions")
+  const faqMatch = html.match(/<h[23][^>]*>(?:FAQ|Frequently Asked Questions|Common Questions)[^<]*<\/h[23]>([\s\S]*?)(?=<h[23]|<\/article>|$)/i);
+  if (!faqMatch) return [];
+  const faqSection = faqMatch[1];
+  const qaPairs = [];
+  // Match h3/h4 (question) followed by p or ul (answer)
+  const qaRegex = /<h[34][^>]*>(.*?)<\/h[34]>\s*(?:<p[^>]*>(.*?)<\/p>|<ul[^>]*>([\s\S]*?)<\/ul>)/gi;
+  let match;
+  while ((match = qaRegex.exec(faqSection)) !== null) {
+    const question = match[1].replace(/<[^>]*>/g, '').trim();
+    const answer = (match[2] || match[3] || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (question && answer) qaPairs.push({ question, answer });
+  }
+  return qaPairs;
+}
+
+// ── Get relevant Knowledge Center articles based on post content ──
+function getKnowledgeCenterLinks(post) {
+  if (!post) return [];
+  const checkText = `${post.title || ''} ${(post.tags || []).join(' ')} ${post.category || ''}`.toLowerCase();
+  const keywordMap = {
+    'mushroom': ['mushroom-coffee-vs-regular-coffee', 'how-much-caffeine-in-mushroom-coffee', 'can-you-take-mushroom-coffee-on-plane'],
+    'coffee': ['what-makes-papua-new-guinea-coffee-different', 'why-freeze-dried-coffee-making-comeback', 'best-coffee-without-coffee-maker'],
+    'instant': ['why-freeze-dried-coffee-making-comeback', 'coffee-pods-vs-instant-coffee', 'best-coffee-without-coffee-maker'],
+    'pod': ['coffee-pods-vs-instant-coffee', 'why-coffee-drinkers-ditching-pods', 'best-coffee-without-coffee-maker'],
+    'travel': ['best-coffee-for-travel-2026', 'can-you-take-mushroom-coffee-on-plane'],
+    'matcha': ['mushroom-coffee-vs-regular-coffee'],
+    'papua': ['what-makes-papua-new-guinea-coffee-different', 'history-of-papua-new-guinea-coffee'],
+    'freeze': ['why-freeze-dried-coffee-making-comeback'],
+    'caffeine': ['how-much-caffeine-in-mushroom-coffee'],
+    'lion': ['mushroom-coffee-vs-regular-coffee', 'how-much-caffeine-in-mushroom-coffee'],
+    'chaga': ['mushroom-coffee-vs-regular-coffee'],
+    'adaptogen': ['mushroom-coffee-vs-regular-coffee'],
+    'ritual': ['best-coffee-without-coffee-maker', 'best-coffee-for-travel-2026'],
+  };
+  const matchedSlugs = new Set();
+  Object.entries(keywordMap).forEach(([keyword, slugs]) => {
+    if (checkText.includes(keyword)) slugs.forEach(s => matchedSlugs.add(s));
+  });
+  return KNOWLEDGE_ARTICLES.filter(a => matchedSlugs.has(a.slug)).slice(0, 3);
+}
+
+// ── Default related products fallback for unmapped slugs ──
+const DEFAULT_PRODUCTS = [
+  { name: 'Shop All Coffee', path: '/shop' },
+  { name: 'Take the Blend Quiz', path: '/quiz' },
+];
 
 const RG = '#E6B7AD';
 

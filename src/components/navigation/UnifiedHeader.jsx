@@ -42,6 +42,7 @@ const MOBILE_NAV_SECTIONS = [
   {
     heading: 'Shop',
     links: [
+      { label: 'Home', href: '/' },
       { label: 'Shop All', href: '/shop' },
       { label: 'Mushroom Coffee', href: '/shop/instant-mushroom-coffee' },
       { label: 'Instant Coffee', href: '/shop/instant-coffee' },
@@ -154,6 +155,11 @@ export default function UnifiedHeader() {
             {/* Right: Cart + Desktop Nav */}
             <div className="w-10 md:w-auto flex items-center justify-end gap-4">
               <nav className="hidden md:flex items-center gap-6">
+                {/* Home */}
+                <Link to="/" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#F5EFE6', fontWeight: 500 }}>
+                  Home
+                </Link>
+
                 {/* Shop dropdown */}
                 <div className="relative group">
                   <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: '#F5EFE6', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
