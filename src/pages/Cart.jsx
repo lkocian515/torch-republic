@@ -18,6 +18,7 @@ import CartBundleIncentive from '@/components/cart/CartBundleIncentive';
 import CartReassurance from '@/components/cart/CartReassurance';
 import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
 import { trackFreeShippingThresholdReached, trackCheckoutStarted } from '@/lib/analytics';
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 
 const RG = '#E6B7AD';
 
@@ -33,7 +34,7 @@ export default function Cart() {
 
   // Track when free shipping threshold is reached
   useEffect(() => {
-    if (subtotal >= 50) {
+    if (subtotal >= FREE_SHIPPING_THRESHOLD) {
       trackFreeShippingThresholdReached(subtotal);
     }
   }, [subtotal]);
