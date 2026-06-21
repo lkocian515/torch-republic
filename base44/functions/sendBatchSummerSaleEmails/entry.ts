@@ -178,7 +178,7 @@ Deno.serve(async (req) => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        from: 'Torch Republic <onboarding@resend.dev>',
+                        from: 'Torch Republic <admin@torchrepublic.com>',
                         to: [customer.email],
                         subject: template.subject,
                         html: html,
