@@ -229,15 +229,16 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── ADMIN / INTERNAL PAGES — ALL REDIRECT TO HOMEPAGE (NO PUBLIC ACCESS) ── */}
         <Route path="/traffic-report" element={<Navigate to="/" replace />} />
         <Route path="/TrafficReport" element={<Navigate to="/" replace />} />
-        <Route path="/email-campaign" element={<Navigate to="/" replace />} />
-        <Route path="/email-campaign-dashboard" element={<Navigate to="/" replace />} />
+        <Route path="/email-campaign" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="EmailCampaignDashboard" queryClient={queryClient}><EmailCampaignDashboard /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/email-campaign-dashboard" element={<Navigate to="/email-campaign" replace />} />
+        <Route path="/admin" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
         <Route path="/admin/blog" element={<Navigate to="/" replace />} />
         <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
-        <Route path="/Admin" element={<Navigate to="/" replace />} />
-        <Route path="/Dashboard" element={<Navigate to="/" replace />} />
+        <Route path="/Admin" element={<Navigate to="/admin/shopify" replace />} />
+        <Route path="/Dashboard" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/SEO" element={<Navigate to="/" replace />} />
         <Route path="/seo" element={<Navigate to="/" replace />} />
         <Route path="/SearchQueryAnalysis" element={<Navigate to="/" replace />} />
@@ -251,8 +252,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/MushroomShop" element={<Navigate to="/shop" replace />} />
         <Route path="/mushroomshop" element={<Navigate to="/shop" replace />} />
         <Route path="/BuildYourRitual" element={<Navigate to="/build-your-ritual" replace />} />
-        <Route path="/emailcampaigndashboard" element={<Navigate to="/" replace />} />
-        <Route path="/EmailCampaignDashboard" element={<Navigate to="/" replace />} />
+        <Route path="/emailcampaigndashboard" element={<Navigate to="/email-campaign" replace />} />
+        <Route path="/EmailCampaignDashboard" element={<Navigate to="/email-campaign" replace />} />
         <Route path="/CustomerPortal" element={<Navigate to="/" replace />} />
         <Route path="/customerportal" element={<Navigate to="/" replace />} />
         <Route path="/portal" element={<Navigate to="/" replace />} />
