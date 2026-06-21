@@ -7,6 +7,7 @@ const ITEMS = [
   { icon: '✦', text: 'Transparent Ingredients' },
   { icon: '✦', text: 'No Machine Needed' },
   { icon: '✦', text: 'Small-Batch Wellness Brand' },
+  { icon: '✦', text: 'Born in Texas. Inspired by rituals around the world.' },
   { icon: '✦', text: 'Secure Checkout' },
   { icon: '✦', text: '30-Day Guarantee' },
 ];
