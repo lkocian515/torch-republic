@@ -43,13 +43,7 @@ export default function Profile() {
     if (!user?.id) return;
     setIsDeleting(true);
     try {
-      // Use base44.auth.deleteUser if available (App Store / Play Store compliance)
-      // Falls back to entity delete for platforms where deleteUser isn't yet exposed
-      if (typeof base44.auth.deleteUser === 'function') {
-        await base44.auth.deleteUser();
-      } else {
-        await base44.asServiceRole.entities.User.delete(user.id);
-      }
+      await base44.functions.invoke('deleteAccount', {});
       setIsDeleteDialogOpen(false);
       logout('/');
     } catch (error) {

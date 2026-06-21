@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Home, ShoppingBag, User } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigationStack } from '@/contexts/NavigationContext';
 
 const RG = '#E6B7AD';
 
@@ -13,18 +14,23 @@ const TABS = [
 
 export default function BottomTabs() {
   const location = useLocation();
-  
-  // Only show on mobile and on specific routes
+  const { navigateToTab, activeTab } = useNavigationStack();
+
+  const handleTabClick = (e, path) => {
+    e.preventDefault();
+    navigateToTab(path);
+  };
+
   const isActive = (path) => {
-    if (path === '/') return location.pathname === '/';
-    return location.pathname.startsWith(path);
+    if (path === '/') return activeTab === '/' || location.pathname === '/';
+    return activeTab === path || location.pathname.startsWith(path);
   };
 
   return (
     <>
       {/* Spacer to prevent content from being hidden behind tabs */}
       <div className="md:hidden" style={{ height: 'calc(60px + env(safe-area-inset-bottom))' }} />
-      
+
       {/* Bottom Tabs Bar */}
       <nav
         className="md:hidden fixed bottom-0 left-0 right-0 z-50"
@@ -40,9 +46,10 @@ export default function BottomTabs() {
           {TABS.map((tab) => {
             const active = isActive(tab.path);
             return (
-              <Link
+              <a
                 key={tab.path}
-                to={tab.path}
+                href={tab.path}
+                onClick={(e) => handleTabClick(e, tab.path)}
                 className="flex flex-col items-center justify-center flex-1"
                 style={{
                   minWidth: '44px',
@@ -83,7 +90,7 @@ export default function BottomTabs() {
                     {tab.label}
                   </span>
                 </motion.div>
-              </Link>
+              </a>
             );
           })}
         </div>

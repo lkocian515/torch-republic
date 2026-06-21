@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Flame, ArrowLeft, Shield } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAuth } from '@/lib/AuthContext';
+import { useOverlayHistory } from '@/hooks/useOverlayHistory';
 
 
 const PROMO_MESSAGES = [
@@ -65,6 +66,8 @@ const MOBILE_NAV_SECTIONS = [
 
 export default function UnifiedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Register the mobile menu in browser history so the back gesture closes it
+  useOverlayHistory(mobileMenuOpen, () => setMobileMenuOpen(false));
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
