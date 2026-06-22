@@ -40,29 +40,29 @@
     --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Warm matte charcoal — wellness/ritual palette */
-    --background: 24 8% 8%; /* warm dark brown-black #141210 */
-    --foreground: 36 40% 93%; /* warm cream */
+    /* Clean dark gray — high contrast for readability */
+    --background: 0 0% 9%; /* neutral dark gray #171717 */
+    --foreground: 0 0% 100%; /* pure white */
 
-    --card: 24 6% 10%;
-    --card-foreground: 36 40% 93%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 24 8% 6%;
-    --popover-foreground: 36 38% 90%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
     /* Rose gold primary #E6B7AD */
     --primary: 7 52% 79%;
     --primary-foreground: 0 0% 4%;
 
     /* Deep charcoal secondary */
-    --secondary: 20 8% 10%;
-    --secondary-foreground: 30 30% 95%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 7%;
-    --muted-foreground: 35 35% 85%; /* brighter muted text for readability */
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 92%; /* bright light gray for readable secondary text */
 
-    --accent: 20 8% 10%;
-    --accent-foreground: 30 30% 95%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
@@ -89,26 +89,26 @@
   }
 
   .dark {
-    --background: 24 8% 8%;
-    --foreground: 36 40% 93%;
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
 
-    --card: 24 6% 10%;
-    --card-foreground: 36 40% 93%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 24 8% 6%;
-    --popover-foreground: 36 38% 90%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 7 52% 79%;
     --primary-foreground: 0 0% 4%;
 
-    --secondary: 20 8% 10%;
-    --secondary-foreground: 30 30% 95%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 7%;
-    --muted-foreground: 30 25% 78%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 90%;
 
-    --accent: 20 8% 10%;
-    --accent-foreground: 30 30% 95%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
@@ -126,8 +126,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-heading);
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.7;
   }
 }
 
