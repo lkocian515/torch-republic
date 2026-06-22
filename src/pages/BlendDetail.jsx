@@ -37,6 +37,7 @@ import WhyInstantRitualSection from '../components/coffee/WhyInstantRitualSectio
 import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
 import ProductShippingConfidence from '@/components/cart/ProductShippingConfidence';
+import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -237,36 +238,17 @@ function BlendDetailInner({ product }) {
   const shopifyUrl = getShopifyCartUrl(product.slug, qty);
   const checkoutDest = shopifyUrl || SHOPIFY_CART_URL;
 
-  const handleAddToCart = () => {
-    // Track add to cart event
-    try {
-      base44.analytics.track({
-        eventName: 'add_to_cart',
-        properties: {
-          product_id: product.slug,
-          product_name: product.name,
-          price: isSubscription ? subscriptionPrice : product.price,
-          quantity: qty,
-          is_subscription: isSubscription,
-          currency: 'USD'
-        }
-      });
-      // GA4 event
-      if (window.gtag) {
-        window.gtag('event', 'add_to_cart', {
-          currency: 'USD',
-          value: (isSubscription ? subscriptionPrice : product.price) * qty,
-          items: [{
-            item_id: product.slug,
-            item_name: product.name,
-            price: isSubscription ? subscriptionPrice : product.price,
-            quantity: qty
-          }]
-        });
-      }
-    } catch (e) {
-      // Analytics tracking failed silently
-    }
+  const handleAddToCart = (ctaLocation = 'product_primary_add_to_cart') => {
+    // Track add to cart — deduplication-safe via analyticsEvents
+    trackAddToCart({
+      productId: product.slug,
+      productName: product.name,
+      category: product.category,
+      price: isSubscription ? subscriptionPrice : product.price,
+      quantity: qty,
+      isSubscription,
+      ctaLocation,
+    });
     // Add to local cart instead of redirecting to Shopify
     addItem({
       id: product.id || product.slug,
@@ -285,33 +267,14 @@ function BlendDetailInner({ product }) {
     addToRecentlyViewed(product);
   }, [product.slug]);
 
-  // Track product view
+  // Track product view — fires once per product slug per page load
   React.useEffect(() => {
-    try {
-      base44.analytics.track({
-        eventName: 'view_item',
-        properties: {
-          product_id: product.slug,
-          product_name: product.name,
-          price: product.price,
-          category: product.category || 'mushroom-coffee'
-        }
-      });
-      if (window.gtag) {
-        window.gtag('event', 'view_item', {
-          currency: 'USD',
-          value: product.price,
-          items: [{
-            item_id: product.slug,
-            item_name: product.name,
-            price: product.price,
-            category: product.category || 'mushroom-coffee'
-          }]
-        });
-      }
-    } catch (e) {
-      // Silent fail
-    }
+    trackViewItem({
+      productId: product.slug,
+      productName: product.name,
+      price: product.price,
+      category: product.category || 'mushroom-coffee',
+    });
   }, [product.slug]);
 
   return (
@@ -667,7 +630,7 @@ function BlendDetailInner({ product }) {
 
               {/* Subscribe & Save — Primary CTA */}
               <button
-                onClick={() => { setIsSubscription(true); handleAddToCart(); }}
+                onClick={() => { setIsSubscription(true); handleAddToCart('product_primary_add_to_cart_subscribe'); }}
                 className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
                 style={{ background: '#E6B7AD', color: '#080808' }}>
                 Subscribe &amp; Save — Add to Cart
@@ -675,7 +638,7 @@ function BlendDetailInner({ product }) {
 
               {/* One-Time — Secondary CTA */}
               <button
-                onClick={() => { setIsSubscription(false); handleAddToCart(); }}
+                onClick={() => { setIsSubscription(false); handleAddToCart('product_primary_add_to_cart_onetime'); }}
                 className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-4"
                 style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
                 One-Time Purchase — Add to Cart
@@ -926,7 +889,7 @@ function BlendDetailInner({ product }) {
           <p className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</p>
           <p className="font-mono text-xs mb-3" style={{ color: '#E6B7AD' }}>${(product.price * qty).toFixed(2)}</p>
           <button
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart('product_sticky_desktop_cart')}
             className="w-full font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
             style={{ background: '#E6B7AD', color: '#080808' }}>
             Add to Cart
@@ -954,7 +917,7 @@ function BlendDetailInner({ product }) {
             </button>
           </div>
           <button
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart('product_sticky_mobile_cart')}
             className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 px-5 py-3"
             style={{ background: '#E6B7AD', color: '#080808', flexShrink: 0 }}>
             Add to Cart

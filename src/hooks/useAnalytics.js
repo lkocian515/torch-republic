@@ -12,11 +12,17 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView, setInternalTraffic } from '@/lib/analytics';
 import { base44 } from '@/api/base44Client';
+import { clearEventRegistry, preserveUTM } from '@/lib/analyticsEvents';
 
 export default function useAnalytics() {
   const location = useLocation();
   const prevPath = useRef(null);
   const adminFlagSet = useRef(false);
+
+  // On mount: preserve UTM params before they're lost
+  useEffect(() => {
+    preserveUTM();
+  }, []);
 
   // On mount: check if user is admin/owner and tag traffic accordingly
   useEffect(() => {
@@ -35,6 +41,9 @@ export default function useAnalytics() {
     // Avoid firing on same path (e.g. hash changes without path change)
     if (pathname === prevPath.current) return;
     prevPath.current = pathname;
+
+    // Clear per-page event dedup registry so events can re-fire on new pages
+    clearEventRegistry();
 
     trackPageView({
       path: pathname,

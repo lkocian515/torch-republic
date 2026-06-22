@@ -9,6 +9,8 @@ import ShareButtons from '../components/social/ShareButtons';
 import BlogEmailCapture from '../components/blog/BlogEmailCapture';
 import PopularArticles from '../components/blog/PopularArticles';
 import { KNOWLEDGE_ARTICLES } from '@/lib/knowledgeArticles';
+import JournalRitualCTA from '../components/journal/JournalRitualCTA';
+import JournalMidCTA from '../components/journal/JournalMidCTA';
 
 // Related articles map by slug — covers all 5 priority articles + existing content
 const RELATED_BY_SLUG = {
@@ -434,6 +436,8 @@ export default function BlogPostPage() {
         {/* Content */}
         <div className="px-6 md:px-10 pb-16">
           <div className="max-w-[750px] mx-auto">
+            {/* Mid-article inline CTA — injected via React, not into HTML content */}
+            <JournalMidCTA slug={post.slug} category={post.category} />
             <div
               className="prose prose-invert prose-lg max-w-none"
               style={{
@@ -465,6 +469,9 @@ export default function BlogPostPage() {
                 </div>
               </div>
             )}
+
+            {/* Continue Your Ritual CTA — conversion section before related articles */}
+            <JournalRitualCTA slug={post.slug} category={post.category} />
 
             {/* Email Capture */}
             <BlogEmailCapture />
