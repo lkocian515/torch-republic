@@ -1,92 +1,77 @@
+# Torch Republic Coffee Company — robots.txt
+# Allow search engines to crawl all public pages, blog posts, and product collections
+# while excluding internal, admin, auth, and legacy routes.
+
 User-agent: *
 Allow: /
 
-# Public content — allow all crawlers
-Allow: /shop
-Allow: /shop/
-Allow: /journal
-Allow: /journal/
-Allow: /ingredients
-Allow: /ingredients/
-Allow: /compare
-Allow: /compare/
-Allow: /faq
-Allow: /faq/
-Allow: /blends
-Allow: /blends/
-Allow: /products/
-Allow: /how-it-works
-Allow: /mission
-Allow: /reviews
-Allow: /spotlight
-Allow: /recipes
-Allow: /research
-Allow: /quiz
-Allow: /build-your-ritual
-Allow: /subscription
-Allow: /why-mushroom-coffee
-Allow: /why-matcha
-Allow: /mushroom-coffee-benefits
-Allow: /lions-mane-coffee
-Allow: /instant-coffee-for-energy
-Allow: /torchbearers-rewards
-Allow: /gifts
-Allow: /founder-story
-Allow: /contact
-Allow: /about/
-Allow: /sitemap.xml
-Allow: /sitemap-pages.xml
-Allow: /sitemap-products.xml
-Allow: /sitemap-blog.xml
-
-# Admin and internal pages — disallow crawling
-Disallow: /admin/
-Disallow: /command/
-Disallow: /traffic-report
-Disallow: /TrafficReport
-Disallow: /email-campaign
-Disallow: /email-campaign-dashboard
-Disallow: /EmailCampaignDashboard
-Disallow: /emailcampaigndashboard
-Disallow: /admin/shopify
-Disallow: /admin/keywords
-Disallow: /admin/traffic
-Disallow: /admin/blog
-Disallow: /local
-Disallow: /LocalSEO
-Disallow: /SEO
-Disallow: /seo
-Disallow: /SearchQueryAnalysis
-Disallow: /search-query-analysis
-Disallow: /KeywordAnalysis
-Disallow: /AdminShopify
-Disallow: /AdminBlogEditor
-Disallow: /AdminCommand
-Disallow: /TorchCommandHome
-Disallow: /CognitiveQuiz
-Disallow: /FlowTimer
-Disallow: /ProtocolsDirectory
-Disallow: /ProtocolDetail
-Disallow: /Dashboard
-Disallow: /Admin
-
-# Account and transaction pages — disallow crawling
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
-Disallow: /profile
-Disallow: /Profile
-Disallow: /loyalty
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
-Disallow: /portal
-Disallow: /Portal
-Disallow: /CustomerPortal
-Disallow: /customerportal
+# ── Auth & account pages (no SEO value, should not be indexed) ──
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
+Disallow: /profile
+Disallow: /loyalty
 
-# Sitemap
+# ── Cart & checkout (transactional, not content pages) ──
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
+
+# ── Admin & internal dashboards ──
+Disallow: /admin/
+Disallow: /admin
+Disallow: /email-campaign
+Disallow: /traffic-report
+Disallow: /TrafficReport
+
+# ── Torch Command (internal tooling) ──
+Disallow: /command/
+Disallow: /command
+
+# ── Legacy redirect routes (301 redirects, no original content) ──
+Disallow: /classic-coffee
+Disallow: /mushroom-coffee
+Disallow: /matcha
+Disallow: /about
+Disallow: /products
+Disallow: /coffee-pods
+Disallow: /pods
+Disallow: /pod
+Disallow: /patriotic-coffee
+Disallow: /founders-series
+Disallow: /founders
+
+# ── 410 Gone routes (discontinued categories) ──
+Disallow: /libertees
+Disallow: /apparel
+Disallow: /collectibles
+Disallow: /patriotic
+Disallow: /lincoln
+Disallow: /washington
+Disallow: /jefferson
+Disallow: /reagan
+Disallow: /historical
+Disallow: /liberty
+Disallow: /freedom
+Disallow: /american-heroes
+Disallow: /christ-is-king
+Disallow: /god-family-country
+Disallow: /faith-over-fear
+Disallow: /we-the-people
+Disallow: /freedom-isnt-free
+Disallow: /t-shirts
+Disallow: /hoodies
+Disallow: /hats
+Disallow: /mugs
+Disallow: /stickers
+Disallow: /flags
+Disallow: /bobbleheads
+Disallow: /jewelry
+Disallow: /necklaces
+Disallow: /bracelets
+Disallow: /rings
+Disallow: /collections/
+
+# ── Sitemap ──
 Sitemap: https://torchrepublic.com/sitemap.xml

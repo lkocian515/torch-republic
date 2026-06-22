@@ -1,96 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Mushroom Coffee Articles -->
+  <url><loc>https://torchrepublic.com/journal/mushroom-coffee-vs-regular-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/lions-mane-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/chaga-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/history-of-mushroom-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/mushroom-coffee-benefits</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/science-of-lions-mane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/chaga-mushroom-antioxidant-king</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <!-- Static Blog Posts -->
-  <url>
-    <loc>https://torchrepublic.com/journal/lions-mane-mushroom-coffee</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/chaga-mushroom-coffee</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/instant-ceremonial-matcha</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/mushroom-coffee-benefits</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/best-instant-coffee</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/matcha-benefits</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/coffee-and-focus</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/morning-ritual-for-focus</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/adaptogens-guide</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/history-of-mushroom-coffee</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/history-of-matcha</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/science-of-lions-mane</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/chaga-mushroom-antioxidant-king</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/ceremonial-matcha-vs-culinary</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/journal/what-makes-premium-instant-coffee-different</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Instant Coffee Articles -->
+  <url><loc>https://torchrepublic.com/journal/best-instant-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/what-makes-premium-instant-coffee-different</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Matcha Articles -->
+  <url><loc>https://torchrepublic.com/journal/instant-ceremonial-matcha</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/matcha-benefits</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/history-of-matcha</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/ceremonial-matcha-vs-culinary</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Wellness Rituals Articles -->
+  <url><loc>https://torchrepublic.com/journal/morning-ritual-for-focus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/adaptogens-guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/journal/coffee-and-focus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Morning Routines Articles -->
+  <url><loc>https://torchrepublic.com/journal/morning-ritual-guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Recipe Articles -->
+  <url><loc>https://torchrepublic.com/journal/classic-morning-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/journal/creamy-focus-latte-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/journal/iced-energy-boost-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/journal/protein-power-blend-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/journal/golden-mushroom-milk-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/journal/morning-smoothie-boost-recipe</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

@@ -1,90 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Classic Coffee -->
+  <url><loc>https://torchrepublic.com/products/torchbearer</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/ember-rise</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/midnight-watch</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Mushroom Coffee Products -->
-  <url>
-    <loc>https://torchrepublic.com/products/glow-mind</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/moon-cap</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/sun-cap-rise</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/shadow-cap</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/ember-cap</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/spark-cap</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Mushroom Coffee -->
+  <url><loc>https://torchrepublic.com/products/suncap-rise</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/glowmind-clarity-blend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/mooncap-restore</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/dreamcap-blend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/the-oracle</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/mystic-bloom</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Classic Coffee Products -->
-  <url>
-    <loc>https://torchrepublic.com/products/torchbearer</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/ember-rise</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/midnight-watch</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Matcha Products -->
-  <url>
-    <loc>https://torchrepublic.com/products/the-monk</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/the-ascendant</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://torchrepublic.com/products/the-alchemist</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Blends Overview -->
-  <url>
-    <loc>https://torchrepublic.com/blends</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
+  <!-- Matcha -->
+  <url><loc>https://torchrepublic.com/products/the-monk-matcha-blend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/the-ascendant-matcha-blend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/products/the-alchemist-matcha-blend</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
