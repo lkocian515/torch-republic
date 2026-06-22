@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Flame, ArrowLeft, Shield } from 'lucide-react';
+import { Menu, X, ShoppingBag, Flame, ArrowLeft, Search } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAuth } from '@/lib/AuthContext';
 import { useOverlayHistory } from '@/hooks/useOverlayHistory';
+import SearchModal from '@/components/search/SearchModal';
 
 
 const PROMO_MESSAGES = [
@@ -66,6 +67,7 @@ const MOBILE_NAV_SECTIONS = [
 
 export default function UnifiedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   // Register the mobile menu in browser history so the back gesture closes it
   useOverlayHistory(mobileMenuOpen, () => setMobileMenuOpen(false));
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
@@ -230,6 +232,15 @@ export default function UnifiedHeader() {
                   </div>
                 </div>
               </nav>
+              {/* Search */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="flex items-center justify-center transition-colors hover:opacity-70"
+                style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', background: 'none', border: 'none', cursor: 'pointer' }}
+                aria-label="Search"
+              >
+                <Search className="w-5 h-5" strokeWidth={1.8} />
+              </button>
               {/* Admin panel removed from public header navigation for security */}
               <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} aria-label="Cart">
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
@@ -284,6 +295,9 @@ export default function UnifiedHeader() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

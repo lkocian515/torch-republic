@@ -2,11 +2,11 @@
  * Journal Hub — comprehensive topic cluster navigation
  * Shows all 100 blog topics organized by cluster with internal linking.
  */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowRight, BookOpen, Coffee, HelpCircle, Leaf } from 'lucide-react';
+import { ArrowRight, BookOpen, Coffee, HelpCircle, Leaf, Search, X } from 'lucide-react';
 import { ALL_BLOG_TOPICS, TOPIC_CLUSTERS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
 import GEOOptimization from '@/components/seo/GEOOptimization';
 
@@ -25,6 +25,7 @@ const RECIPE_SLUG_TO_ID = {
 
 export default function JournalHub() {
   const [activeCluster, setActiveCluster] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useSEO({
     title: 'Coffee, Mushroom and Matcha Guides | Torch Republic Journal',
@@ -43,9 +44,16 @@ export default function JournalHub() {
     published: ALL_BLOG_TOPICS.filter(t => t.cluster === key && t.exists),
   }));
 
-  const filteredTopics = activeCluster === 'all'
-    ? ALL_BLOG_TOPICS.filter(t => t.exists)
-    : ALL_BLOG_TOPICS.filter(t => t.cluster === activeCluster && t.exists);
+  const filteredTopics = useMemo(() => {
+    let topics = activeCluster === 'all'
+      ? ALL_BLOG_TOPICS.filter(t => t.exists)
+      : ALL_BLOG_TOPICS.filter(t => t.cluster === activeCluster && t.exists);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      topics = topics.filter(t => t.title.toLowerCase().includes(q));
+    }
+    return topics;
+  }, [activeCluster, searchQuery]);
 
   return (
     <div className="min-h-screen" style={{ background: '#080808' }}>
@@ -83,6 +91,41 @@ export default function JournalHub() {
         </motion.div>
       </section>
 
+      {/* Search Bar */}
+      <div className="px-6 md:px-12 py-6" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+        <div className="max-w-2xl mx-auto relative">
+          <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(230,183,173,0.4)' }} />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search articles by title..."
+            className="w-full pl-11 pr-10 py-3 font-heading text-sm outline-none transition-colors"
+            style={{
+              background: '#111',
+              border: '1px solid rgba(230,183,173,0.15)',
+              color: '#F5EFE6',
+              borderRadius: '4px',
+            }}
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center"
+              style={{ color: 'rgba(230,183,173,0.5)', minWidth: '32px', minHeight: '32px', background: 'none', border: 'none', cursor: 'pointer' }}
+              aria-label="Clear search"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+        {searchQuery && (
+          <p className="text-center mt-3 font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
+            {filteredTopics.length} article{filteredTopics.length !== 1 ? 's' : ''} found
+          </p>
+        )}
+      </div>
+
       {/* Cluster Tabs */}
       <div className="px-6 md:px-12 py-4 sticky top-0 z-20" style={{ background: 'rgba(8,8,8,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-6xl mx-auto flex flex-wrap gap-2">
@@ -104,7 +147,48 @@ export default function JournalHub() {
       {/* Article Grid */}
       <section className="px-6 md:px-12 py-12">
         <div className="max-w-6xl mx-auto">
-          {activeCluster === 'all' ? (
+          {searchQuery.trim() ? (
+            // Show search results as flat grid
+            <div>
+              {filteredTopics.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="font-heading text-base mb-2" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                    No articles match "{searchQuery}"
+                  </p>
+                  <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                    Try a different keyword
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {filteredTopics.map((article, i) => {
+                    const cluster = TOPIC_CLUSTERS[article.cluster];
+                    const isRecipe = article.cluster === 'recipes';
+                    const recipeHref = isRecipe ? `/recipes#${RECIPE_SLUG_TO_ID[article.slug] || ''}` : `/journal/${article.slug}`;
+                    return (
+                      <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
+                        <Link to={recipeHref}
+                          className="p-4 block transition-all h-full"
+                          style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                          onMouseEnter={e => e.currentTarget.style.borderColor = `${cluster?.color || RG}35`}
+                          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
+                          <div className="flex items-center gap-2 mb-2">
+                            {isRecipe ? <Coffee size={11} style={{ color: cluster?.color || RG }} /> : <BookOpen size={11} style={{ color: cluster?.color || RG }} />}
+                            <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster?.color || RG }}>{isRecipe ? 'Recipe' : 'Article'}</p>
+                          </div>
+                          <p className="font-heading text-sm font-medium mb-3" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{article.title}</p>
+                          <div className="flex items-center gap-1">
+                            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${cluster?.color || RG}70` }}>{isRecipe ? 'View' : 'Read'}</span>
+                            <ArrowRight size={9} style={{ color: `${cluster?.color || RG}70` }} />
+                          </div>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ) : activeCluster === 'all' ? (
             // Show clusters with articles
             <div className="space-y-16">
               {clusters.filter(c => c.published.length > 0).map((cluster, ci) => (
