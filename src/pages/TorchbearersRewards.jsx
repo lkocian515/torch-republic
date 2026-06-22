@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Flame, Gift, Star, Users, Crown, Zap, ShoppingBag, MessageCircle, Camera, Calendar, TrendingUp, Award, ChevronRight, Sparkles } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-import useNoIndex from '@/hooks/useNoIndex';
 
 const RG = '#E6B7AD';
 const BG = '#0D0C0B';
@@ -141,8 +140,7 @@ function EarningCard({ item, index }) {
 }
 
 export default function TorchbearersRewards() {
-  useNoIndex();
-  useSEO({ title: 'Torchbearers Rewards | Torch Republic', description: 'Loyalty rewards program for Torch Republic members.', url: '/torchbearers-rewards', noindex: true });
+  useSEO({ title: 'Torchbearers Rewards Program | Earn Points on Every Order | Torch Republic', description: 'Join the Torchbearers Rewards program. Earn points on every purchase, leave reviews, refer friends, and unlock exclusive perks. Free to join.', url: '/torchbearers-rewards' });
   return (
     <div className="min-h-screen" style={{ background: BG }}>
       {/* Hero Section */}
