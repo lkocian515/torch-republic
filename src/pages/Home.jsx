@@ -70,9 +70,8 @@ function StickyMobileCTA() {
 
 export default function Home() {
   useSEO({
-    isHomePage: true,
     title: 'Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
-    description: "Shop premium instant coffee, Lion's Mane and Chaga mushroom coffee, and matcha blends made for simple daily rituals. No machine needed. Free shipping $75+.",
+    description: "Explore premium instant coffee, mushroom coffee, and ceremonial matcha created for convenient, intentional daily rituals—no machine required. Free shipping $75+.",
     url: '/',
     type: 'website',
     faq: [

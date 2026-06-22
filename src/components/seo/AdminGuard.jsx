@@ -6,11 +6,28 @@
  */
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { base44 } from '@/api/base44Client';
+
+function useNoIndex() {
+  useEffect(() => {
+    const setTag = (content) => {
+      let el = document.querySelector('meta[name="robots"]');
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('name', 'robots');
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+      return el;
+    };
+    const el = setTag('noindex, nofollow');
+    return () => { if (el) el.setAttribute('content', 'index, follow'); };
+  }, []);
+}
 
 export default function AdminGuard({ children }) {
   const [status, setStatus] = useState('loading'); // 'loading' | 'allowed' | 'denied'
+  useNoIndex();
 
   useEffect(() => {
     let cancelled = false;
@@ -25,38 +42,17 @@ export default function AdminGuard({ children }) {
     return () => { cancelled = true; };
   }, []);
 
-  // Always inject noindex regardless of auth state
-  const noIndexHelmet = (
-    <Helmet>
-      <meta name="robots" content="noindex, nofollow" />
-      <meta name="googlebot" content="noindex, nofollow" />
-    </Helmet>
-  );
-
   if (status === 'loading') {
     return (
-      <>
-        {noIndexHelmet}
-        <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
-          <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#E6B7AD', borderTopColor: 'transparent' }} />
-        </div>
-      </>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
+        <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#E6B7AD', borderTopColor: 'transparent' }} />
+      </div>
     );
   }
 
   if (status === 'denied') {
-    return (
-      <>
-        {noIndexHelmet}
-        <Navigate to="/" replace />
-      </>
-    );
+    return <Navigate to="/" replace />;
   }
 
-  return (
-    <>
-      {noIndexHelmet}
-      {children}
-    </>
-  );
+  return children;
 }

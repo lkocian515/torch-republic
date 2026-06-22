@@ -76,8 +76,8 @@ export default function ClassicCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: 'Single-Origin Papua New Guinea Instant Coffee | Torch Republic',
-    description: 'Premium freeze-dried instant coffee from single-origin Papua New Guinea highlands. 100% Arabica with dark chocolate, toasted almond, and toffee notes. No machine, no pods. 27 servings per tube.',
+    title: 'Premium Freeze-Dried Instant Coffee | 100% Arabica | Torch Republic',
+    description: 'Premium freeze-dried instant coffee made from single-origin Papua New Guinea Arabica. Dark chocolate and toasted almond notes. No machine, no pods. 27 servings per tube.',
     url: '/shop/instant-coffee',
     type: 'website',
     breadcrumbs: [

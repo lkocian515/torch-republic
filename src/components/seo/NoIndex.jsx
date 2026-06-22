@@ -5,11 +5,9 @@
  * Drop <NoIndex /> at the top of any page component that should be excluded.
  */
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 
 export default function NoIndex() {
   useEffect(() => {
-    // Set via DOM as well (belt-and-suspenders)
     let el = document.querySelector('meta[name="robots"]');
     if (!el) {
       el = document.createElement('meta');
@@ -19,15 +17,9 @@ export default function NoIndex() {
     el.setAttribute('content', 'noindex, nofollow');
 
     return () => {
-      // Restore default on unmount
       if (el) el.setAttribute('content', 'index, follow');
     };
   }, []);
 
-  return (
-    <Helmet>
-      <meta name="robots" content="noindex, nofollow" />
-      <meta name="googlebot" content="noindex, nofollow" />
-    </Helmet>
-  );
+  return null;
 }

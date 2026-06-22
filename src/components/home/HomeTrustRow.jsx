@@ -3,13 +3,13 @@ import React from 'react';
 const RG = '#E6B7AD';
 
 const ITEMS = [
-  { icon: '✦', text: 'Instant Rituals' },
-  { icon: '✦', text: 'Transparent Ingredients' },
-  { icon: '✦', text: 'No Machine Needed' },
-  { icon: '✦', text: 'Small-Batch Wellness Brand' },
-  { icon: '✦', text: 'Born in Texas. Inspired by rituals around the world.' },
-  { icon: '✦', text: 'Secure Checkout' },
+  { icon: '⚡', text: 'Ready in Seconds' },
+  { icon: '☕', text: 'No Machine Required' },
+  { icon: '🔒', text: 'Secure Shopify Checkout' },
+  { icon: '✦', text: '27 Servings Per Tube' },
   { icon: '✦', text: '30-Day Guarantee' },
+  { icon: '✦', text: 'Free Shipping $75+' },
+  { icon: '✦', text: '100% Arabica Coffee' },
 ];
 
 export default function HomeTrustRow() {

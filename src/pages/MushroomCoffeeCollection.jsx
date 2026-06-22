@@ -31,9 +31,9 @@ const BLEND_RECOMMENDATIONS = [
 
 // Ingredient data
 const INGREDIENTS = [
-  { name: "Lion's Mane", benefit: 'Commonly chosen to support focus, clarity, and mental performance', blends: 'All mushroom blends' },
-  { name: 'Chaga', benefit: 'Traditionally used for daily resilience and balance', blends: 'All mushroom blends' },
-  { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient coffee base — no maker needed', blends: 'All blends' },
+  { name: "Lion's Mane", benefit: 'A functional mushroom commonly added to morning rituals for its unique compound profile', blends: 'All mushroom blends' },
+  { name: 'Chaga', benefit: 'Traditionally used in Northern wellness practices as part of a daily routine', blends: 'All mushroom blends' },
+  { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient Arabica coffee base — no machine needed', blends: 'All blends' },
 ];
 
 // FAQ data for schema
@@ -74,8 +74,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: "Instant Mushroom Coffee with Lion's Mane + Chaga | Single-Origin PNG | Torch Republic",
-    description: "Six premium instant mushroom coffee blends made with single-origin Papua New Guinea Arabica, Lion's Mane, and Chaga. Freeze-dried for dark chocolate and toasted almond flavor. No machine required. 27 servings per tube.",
+    title: "Instant Mushroom Coffee Blends | Lion's Mane + Chaga | Torch Republic",
+    description: "Shop Torch Republic's instant mushroom coffee blends—premium Arabica coffee with Lion's Mane and Chaga, ready in seconds. No machine required. 27 servings per tube.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [

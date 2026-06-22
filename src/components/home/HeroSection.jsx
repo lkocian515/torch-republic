@@ -42,21 +42,21 @@ export default function HeroSection() {
             maxWidth: '700px',
           }}
         >
-          Your Daily Ritual,{' '}
-          <span style={{ color: RG }}>Simplified.</span>
+          A Better Daily Ritual,{' '}
+          <span style={{ color: RG }}>Ready in Seconds.</span>
         </h1>
 
         <p
           className="font-heading mx-auto mb-8"
           style={{
             fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)',
-            color: 'rgba(245,239,230,0.9)',
+            color: 'rgba(245,239,230,0.85)',
             fontWeight: 400,
             lineHeight: 1.75,
-            maxWidth: '420px',
+            maxWidth: '460px',
           }}
         >
-          Premium instant coffee, mushroom coffee, and ceremonial matcha—ready in seconds. No pods. No machine.
+          Premium instant coffee, mushroom coffee, and matcha for the way you want to feel—without pods, equipment, or complicated preparation.
         </p>
 
         {/* CTA buttons */}
@@ -70,12 +70,12 @@ export default function HeroSection() {
             Shop Best Sellers →
           </Link>
           <Link
-            to="/build-your-ritual"
-            onClick={() => trackHeroCTAClick('Find Your Ritual')}
+            to="/quiz"
+            onClick={() => trackHeroCTAClick('Take the Quiz')}
             className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-75 w-full sm:w-auto"
             style={{ border: '1px solid rgba(230,183,173,0.35)', color: RG, padding: '16px 32px', display: 'inline-block', textAlign: 'center', minHeight: '52px', lineHeight: '20px' }}
           >
-            Find Your Ritual
+            Take the 30-Second Quiz
           </Link>
         </div>
 

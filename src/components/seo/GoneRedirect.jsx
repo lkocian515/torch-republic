@@ -5,6 +5,7 @@
  */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// GoneRedirect — renders a branded 410 Gone page for discontinued product/category URLs.
 
 export default function GoneRedirect() {
   useEffect(() => {
@@ -36,13 +37,29 @@ export default function GoneRedirect() {
       <p className="font-heading text-base mb-8" style={{ color: 'rgba(245,239,230,0.75)', maxWidth: '400px' }}>
         Torch Republic now focuses on premium instant coffee, mushroom coffee, and matcha. Browse our current collection below.
       </p>
-      <Link
-        to="/shop"
-        className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-10"
-        style={{ background: '#E6B7AD', color: '#080808' }}
-      >
-        Shop Coffee &amp; Matcha →
-      </Link>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <Link
+          to="/shop"
+          className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90"
+          style={{ background: '#E6B7AD', color: '#080808' }}
+        >
+          Shop Best Sellers →
+        </Link>
+        <Link
+          to="/quiz"
+          className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-75"
+          style={{ border: '1px solid rgba(230,183,173,0.35)', color: '#E6B7AD' }}
+        >
+          Take the 30-Second Quiz
+        </Link>
+        <Link
+          to="/"
+          className="font-mono text-[11px] tracking-[0.2em] uppercase py-4 px-8 transition-all hover:opacity-75"
+          style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
+        >
+          Return Home
+        </Link>
+      </div>
     </div>
   );
 }

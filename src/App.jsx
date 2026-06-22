@@ -218,7 +218,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
-        <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><OrderConfirmation /></Suspense>} />
+        <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderConfirmation" queryClient={queryClient}><OrderConfirmation /></LayoutWrapper></Suspense>} />
         <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
@@ -266,6 +266,29 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Profile" element={<Navigate to="/profile" replace />} />
         <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
         <Route path="/Loyalty" element={<Navigate to="/loyalty" replace />} />
+        <Route path="/Apparel" element={<GoneRedirect />} />
+        <Route path="/apparel" element={<GoneRedirect />} />
+        <Route path="/Shop" element={<Navigate to="/shop" replace />} />
+        <Route path="/rewards" element={<Navigate to="/torchbearers-rewards" replace />} />
+        <Route path="/loyalty-program" element={<Navigate to="/torchbearers-rewards" replace />} />
+        <Route path="/account" element={<Navigate to="/profile" replace />} />
+        <Route path="/account/login" element={<Navigate to="/login" replace />} />
+        <Route path="/account/register" element={<Navigate to="/register" replace />} />
+        <Route path="/account/orders" element={<Navigate to="/profile" replace />} />
+        <Route path="/our-story" element={<Navigate to="/mission" replace />} />
+        <Route path="/our-mission" element={<Navigate to="/mission" replace />} />
+        <Route path="/about-us" element={<Navigate to="/mission" replace />} />
+        <Route path="/blogs/news" element={<Navigate to="/journal" replace />} />
+        <Route path="/blogs/news/:slug" element={<Navigate to="/journal" replace />} />
+        <Route path="/blog" element={<Navigate to="/journal" replace />} />
+        <Route path="/pages/about-us" element={<Navigate to="/mission" replace />} />
+        <Route path="/pages/about" element={<Navigate to="/mission" replace />} />
+        <Route path="/pages/contact" element={<Navigate to="/contact" replace />} />
+        <Route path="/pages/faq" element={<Navigate to="/faq" replace />} />
+        <Route path="/pages/shipping" element={<Navigate to="/shipping-policy" replace />} />
+        <Route path="/pages/returns" element={<Navigate to="/return-policy" replace />} />
+        <Route path="/pages/privacy" element={<Navigate to="/privacy-policy" replace />} />
+        <Route path="/pages/terms" element={<Navigate to="/terms-of-service" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
@@ -396,6 +419,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/bracelets" element={<GoneRedirect />} />
         <Route path="/rings" element={<GoneRedirect />} />
         <Route path="/collections/jewelry" element={<GoneRedirect />} />
+        <Route path="/collections/jewelry-all" element={<GoneRedirect />} />
         <Route path="/collections/apparel" element={<GoneRedirect />} />
         <Route path="/collections/t-shirts" element={<GoneRedirect />} />
         <Route path="/collections/hoodies-sweatshirts" element={<GoneRedirect />} />
@@ -405,8 +429,13 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/collections/stickers" element={<GoneRedirect />} />
         <Route path="/collections/flags" element={<GoneRedirect />} />
         <Route path="/collections/bobbleheads" element={<GoneRedirect />} />
+        <Route path="/collections/hollywood-bobbles" element={<GoneRedirect />} />
         <Route path="/collections/candles" element={<GoneRedirect />} />
         <Route path="/collections/home-decor" element={<GoneRedirect />} />
+        <Route path="/collections/men" element={<GoneRedirect />} />
+        <Route path="/collections/women" element={<GoneRedirect />} />
+        {/* Catch-all for any remaining /collections/* routes not individually mapped */}
+        <Route path="/collections/:handle" element={<Navigate to="/shop" replace />} />
 
         {/* ── TORCH COMMAND (INTERNAL) — ALL REDIRECT TO HOMEPAGE ── */}
         <Route path="/command" element={<Navigate to="/" replace />} />

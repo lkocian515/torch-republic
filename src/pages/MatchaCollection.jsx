@@ -70,8 +70,8 @@ export default function MatchaCollection() {
   }, []);
 
   useSEO({
-    title: 'Premium Matcha Blends for Daily Rituals | Torch Republic',
-    description: 'Shop smooth premium matcha blends made for calm energy and simple preparation at home or on the go.',
+    title: 'Ceremonial Matcha Blends for Daily Rituals | Torch Republic',
+    description: 'Shop Torch Republic ceremonial grade matcha blends—smooth, vibrant, and easy to prepare at home or on the go. 25 servings per tin. No equipment needed.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [

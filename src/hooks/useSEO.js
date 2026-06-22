@@ -26,7 +26,17 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     const fullTitle = title
       ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
       : `${SITE_NAME} | Premium Instant Coffee, Mushroom Coffee & Matcha`;
-    const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
+
+    // Strip tracking params from canonical — canonical must never contain utm_*, gclid, fbclid, srsltid
+    const STRIP_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','srsltid','msclkid','ref'];
+    let cleanPath = url || window.location.pathname;
+    if (cleanPath.includes('?')) {
+      const [path, qs] = cleanPath.split('?');
+      const params = new URLSearchParams(qs);
+      STRIP_PARAMS.forEach(p => params.delete(p));
+      cleanPath = params.toString() ? `${path}?${params}` : path;
+    }
+    const canonicalUrl = url ? `${BASE_URL}${cleanPath}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
 
     const prevTitle = document.title;
