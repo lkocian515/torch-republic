@@ -106,6 +106,7 @@ const FOOTER_LINKS = [
       { label: 'Return Policy', href: '/return-policy' },
       { label: 'Privacy Policy', href: '/privacy-policy' },
       { label: 'Terms of Service', href: '/terms-of-service' },
+      { label: 'robots.txt', external: 'https://torchrepublic.com/robots.txt' },
     ]
   }
 ];
