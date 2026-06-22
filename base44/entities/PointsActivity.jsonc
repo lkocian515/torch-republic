@@ -21,6 +21,11 @@
     "label": {
       "type": "string",
       "description": "Human-readable reason, e.g. 'Order placed', 'Redeemed 10% Off'"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this activity entry"
     }
   },
   "required": [
