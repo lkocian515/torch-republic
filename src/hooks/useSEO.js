@@ -58,13 +58,16 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     const canonEl = setLink('canonical', canonicalUrl);
 
     // Open Graph
-    setMeta('meta[property="og:title"]', 'content', fullTitle);
-    setMeta('meta[property="og:description"]', 'content', description || '');
-    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
-    setMeta('meta[property="og:type"]', 'content', type === 'article' ? 'article' : type === 'product' ? 'product' : 'website');
-    setMeta('meta[property="og:image"]', 'content', ogImage);
-    setMeta('meta[property="og:site_name"]', 'content', SITE_NAME);
-    setMeta('meta[property="og:locale"]', 'content', 'en_US');
+    const ogEls = [];
+    ogEls.push(setMeta('meta[property="og:title"]', 'content', fullTitle));
+    ogEls.push(setMeta('meta[property="og:description"]', 'content', description || ''));
+    ogEls.push(setMeta('meta[property="og:url"]', 'content', canonicalUrl));
+    ogEls.push(setMeta('meta[property="og:type"]', 'content', type === 'article' ? 'article' : type === 'product' ? 'product' : 'website'));
+    ogEls.push(setMeta('meta[property="og:image"]', 'content', ogImage));
+    ogEls.push(setMeta('meta[property="og:image:width"]', 'content', '1200'));
+    ogEls.push(setMeta('meta[property="og:image:height"]', 'content', '630'));
+    ogEls.push(setMeta('meta[property="og:site_name"]', 'content', SITE_NAME));
+    ogEls.push(setMeta('meta[property="og:locale"]', 'content', 'en_US'));
 
     // OG Article-specific tags
     const articleMetaEls = [];
@@ -76,10 +79,13 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     }
 
     // Twitter Card
-    setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
-    setMeta('meta[name="twitter:title"]', 'content', fullTitle);
-    setMeta('meta[name="twitter:description"]', 'content', description || '');
-    setMeta('meta[name="twitter:image"]', 'content', ogImage);
+    const twitterEls = [];
+    twitterEls.push(setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image'));
+    twitterEls.push(setMeta('meta[name="twitter:title"]', 'content', fullTitle));
+    twitterEls.push(setMeta('meta[name="twitter:description"]', 'content', description || ''));
+    twitterEls.push(setMeta('meta[name="twitter:image"]', 'content', ogImage));
+    twitterEls.push(setMeta('meta[name="twitter:site"]', 'content', '@torchrepublic'));
+    twitterEls.push(setMeta('meta[name="twitter:creator"]', 'content', '@torchrepublic'));
 
     // JSON-LD Structured Data
     const schemas = [];
@@ -182,6 +188,10 @@ export function useSEO({ title, description, image, url, type = 'website', produ
       if (keywordsEl) keywordsEl.setAttribute('content', '');
       if (robotsEl) robotsEl.setAttribute('content', '');
       canonEl.setAttribute('href', BASE_URL);
+      // Reset OG and Twitter tags to prevent stale data between page navigations
+      ogEls.forEach(el => el.setAttribute('content', ''));
+      twitterEls.forEach(el => el.setAttribute('content', ''));
+      articleMetaEls.forEach(el => el.setAttribute('content', ''));
       scriptEls.forEach(el => el.remove());
     };
   }, [title, description, image, url, type, product, breadcrumbs, article, faq]);
