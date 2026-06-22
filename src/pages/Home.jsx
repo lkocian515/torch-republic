@@ -1,34 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
-// Homepage sections
+// Above-fold — loaded eagerly
 import HeroSection from '../components/home/HeroSection';
 import HomeTrustRow from '../components/home/HomeTrustRow';
 import StartHereSection from '../components/home/StartHereSection';
-import BundleSection from '../components/home/BundleSection';
-import ShopByCategory from '../components/home/ShopByCategory';
-import QuizTeaser from '../components/home/QuizTeaser';
-import BlendComparisonSection from '../components/home/BlendComparisonSection';
-import WhyTorchRepublic from '../components/home/WhyTorchRepublic';
-import TrustSection from '../components/home/TrustSection';
-import WhyTorchRepublicExists from '../components/home/WhyTorchRepublicExists';
-import PremiumComparisonTable from '../components/home/PremiumComparisonTable';
-import PNGCoffeeCallout from '../components/home/PNGCoffeeCallout';
-import IngredientClarity from '../components/home/IngredientClarity';
-import FounderNote from '../components/home/FounderNote';
-import ReviewsSection from '../components/home/ReviewsSection';
-import SubscribeAndSaveSection from '../components/home/SubscribeAndSaveSection';
-import TorchbearersRewardsSection from '../components/home/TorchbearersRewardsSection';
-import FAQSection from '../components/mushroom/FAQSection';
-import FinalCTA from '../components/mushroom/FinalCTA';
-import GEOOptimizationSection from '../components/home/GEOOptimizationSection';
-import BuiltForRituals from '../components/home/BuiltForRituals';
 
-// Schema components
+// Below-fold — lazy loaded to improve LCP / TTI
+const BundleSection = lazy(() => import('../components/home/BundleSection'));
+const ShopByCategory = lazy(() => import('../components/home/ShopByCategory'));
+const QuizTeaser = lazy(() => import('../components/home/QuizTeaser'));
+const BlendComparisonSection = lazy(() => import('../components/home/BlendComparisonSection'));
+const WhyTorchRepublic = lazy(() => import('../components/home/WhyTorchRepublic'));
+const TrustSection = lazy(() => import('../components/home/TrustSection'));
+const WhyTorchRepublicExists = lazy(() => import('../components/home/WhyTorchRepublicExists'));
+const PremiumComparisonTable = lazy(() => import('../components/home/PremiumComparisonTable'));
+const PNGCoffeeCallout = lazy(() => import('../components/home/PNGCoffeeCallout'));
+const IngredientClarity = lazy(() => import('../components/home/IngredientClarity'));
+const FounderNote = lazy(() => import('../components/home/FounderNote'));
+const ReviewsSection = lazy(() => import('../components/home/ReviewsSection'));
+const SubscribeAndSaveSection = lazy(() => import('../components/home/SubscribeAndSaveSection'));
+const TorchbearersRewardsSection = lazy(() => import('../components/home/TorchbearersRewardsSection'));
+const FAQSection = lazy(() => import('../components/mushroom/FAQSection'));
+const FinalCTA = lazy(() => import('../components/mushroom/FinalCTA'));
+const GEOOptimizationSection = lazy(() => import('../components/home/GEOOptimizationSection'));
+const BuiltForRituals = lazy(() => import('../components/home/BuiltForRituals'));
+
+// Schema components (lightweight, no render output)
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import GEOOptimization from '../components/seo/GEOOptimization';
+
+// Minimal section placeholder to prevent CLS while lazy sections load
+const SectionFallback = () => <div style={{ minHeight: '200px' }} />;
 
 const RG = '#E6B7AD';
 
@@ -100,62 +105,81 @@ export default function Home() {
       {/* 1b. Trust Row */}
       <HomeTrustRow />
 
-      {/* 1c. Built for Better Daily Rituals */}
-      <BuiltForRituals />
-
-      {/* 2. Best Sellers — Start Here */}
+      {/* 2. Best Sellers — Start Here (above fold on some viewports, eager) */}
       <StartHereSection />
 
-      {/* 3. Build Your Ritual Bundle — primary conversion section */}
-      <BundleSection />
+      {/* Everything below is lazy-loaded — doesn't block LCP */}
+      <Suspense fallback={<SectionFallback />}>
+        <BuiltForRituals />
+      </Suspense>
 
-      {/* 3. Shop by Category */}
-      <ShopByCategory />
+      <Suspense fallback={<SectionFallback />}>
+        <BundleSection />
+      </Suspense>
 
-      {/* 3b. Quiz Teaser — high-engagement element */}
-      <QuizTeaser />
+      <Suspense fallback={<SectionFallback />}>
+        <ShopByCategory />
+      </Suspense>
 
-      {/* 4. Compare the Blends */}
-      <BlendComparisonSection />
+      <Suspense fallback={<SectionFallback />}>
+        <QuizTeaser />
+      </Suspense>
 
-      {/* 5. Why Torch Republic */}
-      <WhyTorchRepublic />
+      <Suspense fallback={<SectionFallback />}>
+        <BlendComparisonSection />
+      </Suspense>
 
-      {/* 5b. Trust Section */}
-      <TrustSection />
+      <Suspense fallback={<SectionFallback />}>
+        <WhyTorchRepublic />
+      </Suspense>
 
-      {/* 5c. GEO Optimization — AI-readable content */}
-      <GEOOptimizationSection />
+      <Suspense fallback={<SectionFallback />}>
+        <TrustSection />
+      </Suspense>
 
-      {/* 6. Why Torch Republic Exists */}
-      <WhyTorchRepublicExists />
+      <Suspense fallback={<SectionFallback />}>
+        <GEOOptimizationSection />
+      </Suspense>
 
-      {/* 6b. Premium Comparison Table */}
-      <PremiumComparisonTable />
+      <Suspense fallback={<SectionFallback />}>
+        <WhyTorchRepublicExists />
+      </Suspense>
 
-      {/* 6c. PNG Coffee Callout */}
-      <PNGCoffeeCallout />
+      <Suspense fallback={<SectionFallback />}>
+        <PremiumComparisonTable />
+      </Suspense>
 
-      {/* 6. Ingredient Transparency */}
-      <IngredientClarity />
+      <Suspense fallback={<SectionFallback />}>
+        <PNGCoffeeCallout />
+      </Suspense>
 
-      {/* 7. Founder Note */}
-      <FounderNote />
+      <Suspense fallback={<SectionFallback />}>
+        <IngredientClarity />
+      </Suspense>
 
-      {/* 8. Reviews */}
-      <ReviewsSection />
+      <Suspense fallback={<SectionFallback />}>
+        <FounderNote />
+      </Suspense>
 
-      {/* Subscribe & Save CTA */}
-      <SubscribeAndSaveSection />
+      <Suspense fallback={<SectionFallback />}>
+        <ReviewsSection />
+      </Suspense>
 
-      {/* Torchbearers Rewards */}
-      <TorchbearersRewardsSection />
+      <Suspense fallback={<SectionFallback />}>
+        <SubscribeAndSaveSection />
+      </Suspense>
 
-      {/* 9. FAQ */}
-      <FAQSection />
+      <Suspense fallback={<SectionFallback />}>
+        <TorchbearersRewardsSection />
+      </Suspense>
 
-      {/* 10. Final CTA */}
-      <FinalCTA />
+      <Suspense fallback={<SectionFallback />}>
+        <FAQSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <FinalCTA />
+      </Suspense>
 
       <StickyMobileCTA />
     </div>

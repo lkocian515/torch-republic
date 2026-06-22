@@ -58,23 +58,24 @@ export function getImageLoadingProps(index, isHero = false) {
   if (isHero) {
     return {
       loading: 'eager',
-      fetchpriority: 'high',
-      decoding: 'async',
+      fetchPriority: 'high',
+      decoding: 'sync',
     };
   }
-  
-  // First 2-4 images should be eager-loaded (above fold)
+
+  // First 2 images should be eager-loaded (above fold)
   if (index < 2) {
     return {
       loading: 'eager',
-      fetchpriority: 'high',
+      fetchPriority: 'high',
       decoding: 'async',
     };
   }
-  
-  // Remaining images can be lazy-loaded
+
+  // Remaining images lazy-loaded
   return {
     loading: 'lazy',
+    fetchPriority: 'low',
     decoding: 'async',
   };
 }

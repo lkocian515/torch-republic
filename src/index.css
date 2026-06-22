@@ -311,6 +311,12 @@ button, a, [role="button"], nav {
   object-fit: cover;
 }
 
+/* content-visibility: auto — skip rendering off-screen sections (major paint perf win) */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px; /* estimated height prevents CLS */
+}
+
 /* Category card images */
 .category-image-wrap {
   aspect-ratio: 4 / 3;

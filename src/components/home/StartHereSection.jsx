@@ -91,15 +91,13 @@ export default function StartHereSection() {
                     src={product.imageUrl || FALLBACK_PRODUCT_IMAGE}
                     alt={product.alt}
                     loading={i < 2 ? "eager" : "lazy"}
-                    fetchpriority={i < 2 ? "high" : undefined}
+                    fetchPriority={i < 2 ? "high" : "low"}
+                    decoding={i < 2 ? "sync" : "async"}
                     width="400"
                     height="400"
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                     style={{ padding: '12px' }}
-                    onError={(e) => {
-                      console.warn(`⚠️ Image failed for ${product.label}:`, product.imageUrl);
-                      e.currentTarget.src = FALLBACK_PRODUCT_IMAGE;
-                    }}
+                    onError={(e) => { e.currentTarget.src = FALLBACK_PRODUCT_IMAGE; }}
                   />
                   {/* Review Stars */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.7)' }}>
