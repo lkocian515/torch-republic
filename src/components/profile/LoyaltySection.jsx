@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Flame, Gift, Zap, CheckCircle, Copy, Trophy, Star } from 'lucide-react';
+import { Flame, Gift, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, TrendingDown, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
@@ -22,14 +22,19 @@ function getTier(lifetime) {
 
 export default function LoyaltySection({ user }) {
   const [record, setRecord] = useState(null);
+  const [activity, setActivity] = useState([]);
   const [loading, setLoading] = useState(true);
   const [redeeming, setRedeeming] = useState(null);
   const [copied, setCopied] = useState(null);
 
   useEffect(() => {
     if (!user?.id) return;
-    base44.entities.LoyaltyPoints.filter({ user_id: user.id }).then(records => {
-      if (records.length > 0) setRecord(records[0]);
+    Promise.all([
+      base44.entities.LoyaltyPoints.filter({ user_id: user.id }),
+      base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10),
+    ]).then(([pointsRecords, activityRecords]) => {
+      if (pointsRecords.length > 0) setRecord(pointsRecords[0]);
+      setActivity(activityRecords);
       setLoading(false);
     });
   }, [user?.id]);
@@ -38,11 +43,20 @@ export default function LoyaltySection({ user }) {
     if (!record || record.points < reward.points) return;
     if (record.redeemed_codes?.includes(reward.code)) return;
     setRedeeming(reward.code);
-    const updated = await base44.entities.LoyaltyPoints.update(record.id, {
-      points: record.points - reward.points,
-      redeemed_codes: [...(record.redeemed_codes || []), reward.code],
-    });
+    const [updated, newActivity] = await Promise.all([
+      base44.entities.LoyaltyPoints.update(record.id, {
+        points: record.points - reward.points,
+        redeemed_codes: [...(record.redeemed_codes || []), reward.code],
+      }),
+      base44.entities.PointsActivity.create({
+        user_id: user.id,
+        type: 'redeem',
+        points: reward.points,
+        label: `Redeemed ${reward.label}`,
+      }),
+    ]);
     setRecord(updated);
+    setActivity(prev => [newActivity, ...prev].slice(0, 10));
     setRedeeming(null);
     copyCode(reward.code);
   };
@@ -271,6 +285,59 @@ export default function LoyaltySection({ user }) {
             </p>
           </div>
         )}
+
+        {/* Recent Activity */}
+        <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+          <div className="flex items-center gap-2 mb-4">
+            <Clock size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+              Recent Activity
+            </p>
+          </div>
+
+          {activity.length === 0 ? (
+            <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+              No activity yet — earn points with your first order.
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {activity.map((item) => {
+                const isEarn = item.type === 'earn';
+                const color = isEarn ? '#10B981' : RG;
+                const date = item.created_date
+                  ? new Date(item.created_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                  : '';
+                return (
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between px-3 py-2.5"
+                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '2px' }}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      {isEarn
+                        ? <TrendingUp size={12} style={{ color, flexShrink: 0 }} />
+                        : <TrendingDown size={12} style={{ color, flexShrink: 0 }} />
+                      }
+                      <div>
+                        <p className="font-mono text-[9px] font-medium" style={{ color: '#F5EFE6' }}>
+                          {item.label}
+                        </p>
+                        {date && (
+                          <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                            {date}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <span className="font-mono text-xs font-bold" style={{ color }}>
+                      {isEarn ? '+' : '−'}{item.points} pts
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
 
       </div>
     </motion.div>
