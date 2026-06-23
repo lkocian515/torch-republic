@@ -279,10 +279,12 @@ export default function SpinWheelPopup() {
 
               <button
                 onClick={dismiss}
-                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-70"
-                style={{ border: '1px solid rgba(212,175,90,0.5)', color: GOLD, backgroundColor: 'rgba(0,0,0,0.6)' }}
+                aria-label="Close"
+                type="button"
+                className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center rounded-full transition-all hover:opacity-100 opacity-90"
+                style={{ border: '1px solid rgba(212,175,90,0.5)', color: GOLD, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 50, cursor: 'pointer' }}
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
 
               <div className="text-center pt-5 px-4 sm:px-6 pb-0 relative z-10">
