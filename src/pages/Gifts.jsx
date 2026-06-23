@@ -20,8 +20,8 @@ const GIFT_FAQS = [
     a: 'Yes. Because each kit is made of individual blends rather than a sealed bundle, you can adjust the cart before checkout, and recipients can manage individual items through their order. For help with a specific order, reach us at support@torchrepublic.com.',
   },
   {
-    q: 'Is gift wrapping included?',
-    a: 'Not at this time. Items ship in Torch Republic product packaging. If you would like a handwritten note added, mention it in your order notes and we will do our best — but we cannot guarantee custom gift services on every order.',
+    q: 'Is gift wrapping or a printed gift card included?',
+    a: 'No. Items ship in standard Torch Republic product packaging. Printed personalized gift cards, handwritten notes, custom inserts, and gift wrapping are not offered at this time. Any card, ribbon, mug, or box shown in a photo is styled for presentation only.',
   },
   {
     q: 'Do you offer bulk or corporate gifting?',
@@ -192,13 +192,47 @@ export default function Gifts() {
               <GiftKitCard key={kit.id} kit={kit} index={i} />
             ))}
           </div>
+
+          {/* Discreet decorative-items disclaimer beneath the collection. */}
+          <p
+            className="font-mono text-center mt-8"
+            style={{ color: 'rgba(240,235,225,0.55)', fontSize: '0.72rem', lineHeight: 1.6, letterSpacing: '0.02em' }}
+          >
+            Products and accessories shown are styled for presentation. Only items listed in each gift description are included.
+          </p>
         </div>
       </section>
 
-      {/* How It Works — removed any gift-wrap/card claims not backed by a service */}
+      {/* Send It Their Way — verified replacement for the removed "Add Personal Touch / printed gift card" section. */}
       <section
         className="px-6 md:px-10 py-16"
         style={{ background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(230,183,173,0.06)' }}
+      >
+        <div className="max-w-[900px] mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}` }}>
+              Simple Process
+            </p>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#F5EFE6' }}>
+              Send It Their Way
+            </h2>
+            <p
+              className="font-heading max-w-2xl mx-auto"
+              style={{ color: 'rgba(240,235,225,0.75)', fontWeight: 300, lineHeight: 1.8, fontSize: '1.05rem' }}
+            >
+              Choose a thoughtful coffee or matcha ritual and have it delivered directly to someone special.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section
+        className="px-6 md:px-10 py-16"
       >
         <div className="max-w-[1200px] mx-auto">
           <motion.div
@@ -208,7 +242,7 @@ export default function Gifts() {
             className="text-center mb-12"
           >
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}` }}>
-              Simple Process
+              Three Steps
             </p>
             <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#F5EFE6' }}>
               How Gifting Works
