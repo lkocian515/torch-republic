@@ -3,29 +3,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
-import openModalRegistry from '@/lib/openModalRegistry.js';
+import openModalRegistry from '@/lib/openModalRegistry';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
 
 // ── Configuration ──────────────────────────────────────────────
-const TIME_THRESHOLD_MS = 20000;      // 20s on site
-const SCROLL_THRESHOLD_PCT = 40;      // 40% of page scrolled
-const DISMISS_DAYS = 7;                // hide for 7 days after close
+const TIME_THRESHOLD_MS = 20_000;      // 20s on site
+const SCROLL_THRESHOLD_PCT = 40;       // 40% of page scrolled
+const DISMISS_DAYS = 7;                 // hide for 7 days after close
 const SEVEN_DAYS_MS = DISMISS_DAYS * 24 * 60 * 60 * 1000;
 
 // localStorage (persistent, 7-day dismissal) + sessionStorage (once-per-session)
 const DISMISS_KEY = 'torch_review_popup_dismissed';
 const SESSION_KEY = 'torch_review_popup_session';
 
-// Dev-only reset helper — testers can call from console, or run:
+// Dev-only reset helper — call from the browser console during testing:
+//   DEV_REVIEW_POPUP_RESET()  OR
 //   localStorage.removeItem('torch_review_popup_dismissed')
 //   sessionStorage.removeItem('torch_review_popup_session')
-export const devResetReviewPopup = () => {
+// Kept exported so testers can import it; never wired into the public UI.
+export const DEV_REVIEW_POPUP_RESET = () => {
   try {
     localStorage.removeItem(DISMISS_KEY);
     sessionStorage.removeItem(SESSION_KEY);
-  } catch (e) { /* noop */ }
+  } catch { /* noop */ }
 };
 
 // Pages where the popup must never appear (purchase/account flow)
@@ -45,11 +47,13 @@ const BLOCKED_PATHS = [
 ];
 
 function isBlockedPath(pathname) {
-  if (pathname.startsWith('/admin') ||
-      pathname.startsWith('/email-campaign') ||
-      pathname.startsWith('/traffic-report') ||
-      pathname.startsWith('/command')) return true;
-  return BLOCKED_PATHS.some(p => pathname === p || pathname.startsWith(p + '/'));
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/email-campaign') ||
+    pathname.startsWith('/traffic-report') ||
+    pathname.startsWith('/command')
+  ) return true;
+  return BLOCKED_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'));
 }
 
 function readDismiss() {
@@ -58,13 +62,13 @@ function readDismiss() {
     if (!raw) return null;
     const obj = JSON.parse(raw);
     if (typeof obj?.expiresAt !== 'number') return null;
-    // Expired? Clear it and allow re-show.
+    // Expired? Clear it and allow re-show under normal timing rules.
     if (Date.now() >= obj.expiresAt) {
       localStorage.removeItem(DISMISS_KEY);
       return null;
     }
     return obj;
-  } catch (e) {
+  } catch {
     return null;
   }
 }
@@ -72,7 +76,7 @@ function readDismiss() {
 function writeDismiss() {
   const now = Date.now();
   const rec = { dismissedAt: now, expiresAt: now + SEVEN_DAYS_MS };
-  try { localStorage.setItem(DISMISS_KEY, JSON.stringify(rec)); } catch (e) { /* noop */ }
+  try { localStorage.setItem(DISMISS_KEY, JSON.stringify(rec)); } catch { /* noop */ }
   return rec;
 }
 
@@ -83,15 +87,14 @@ export default function ReviewPopup() {
   const closeBtnRef = useRef(null);
 
   // Fetch only genuine reviews from the Review entity. The schema does not
-  // currently include a verification flag, so we render the "Verified Customer"
-  // badge ONLY when a record carries a truthy `verified_purchaser` field.
+  // currently include a verification flag, so the "Verified Customer" badge is
+  // rendered ONLY when a record carries a truthy `verified_purchaser` field.
   // (Forward-compatible: when Loox/Judge.me sync adds that flag, badges appear.)
   const { data: allReviews = [], isLoading } = useQuery({
     queryKey: ['reviews_popup'],
     queryFn: async () => {
       const reviews = await base44.entities.Review.list('-review_date', 200);
-      // Body must be non-empty and rating must be a real number >= 4
-      return reviews.filter(r => r.rating >= 4 && r.body && r.body.trim().length > 0);
+      return reviews.filter((r) => r.rating >= 4 && r.body && r.body.trim().length > 0);
     },
   });
 
@@ -101,7 +104,7 @@ export default function ReviewPopup() {
     return shuffled.slice(0, 15);
   }, [allReviews.length]);
 
-  // ── Decide whether to show the popup ─────────────────────────
+  // ── Decide whether to show the popup ────────────────────────
   useEffect(() => {
     if (isLoading) return;
     if (reviews.length === 0) return;
@@ -114,7 +117,7 @@ export default function ReviewPopup() {
         shownThisSessionRef.current = true;
         return;
       }
-    } catch (e) { /* noop */ }
+    } catch { /* noop */ }
 
     // 7-day persistent dismissal (close-button behavior)
     if (readDismiss()) return;
@@ -124,23 +127,12 @@ export default function ReviewPopup() {
     let scrollHandler;
     let pollTimer;
 
-    const cleanup = () => {
-      if (timeTimer) clearTimeout(timeTimer);
-      if (pollTimer) clearTimeout(pollTimer);
-      if (scrollHandler) {
-        window.removeEventListener('scroll', scrollHandler, { passive: true });
-      }
-    };
-
     const trigger = () => {
       if (canceled) return;
 
       // Do not show while another modal/promo/email/cookie banner is open
       if (openModalRegistry.hasOpen('review_popup')) {
-        // Re-check shortly — a transient email popup might close
-        if (pollTimer === undefined) {
-          pollTimer = window.setTimeout(trigger, 3000);
-        }
+        if (pollTimer === undefined) pollTimer = setTimeout(trigger, 3000);
         return;
       }
 
@@ -149,34 +141,36 @@ export default function ReviewPopup() {
         document.querySelector('[role="dialog"][data-state="open"]') !== null ||
         document.querySelector('[data-cookie-banner="true"]') !== null;
       if (otherOpen) {
-        if (pollTimer === undefined) {
-          pollTimer = window.setTimeout(trigger, 3000);
-        }
+        if (pollTimer === undefined) pollTimer = setTimeout(trigger, 3000);
         return;
       }
 
       canceled = true;
       cleanup();
       shownThisSessionRef.current = true;
-      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) { /* noop */ }
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch { /* noop */ }
       setIsOpen(true);
     };
 
-    // Time rule — 20s
-    timeTimer = window.setTimeout(trigger, TIME_THRESHOLD_MS);
+    const cleanup = () => {
+      if (timeTimer) clearTimeout(timeTimer);
+      if (pollTimer) clearTimeout(pollTimer);
+      if (scrollHandler) window.removeEventListener('scroll', scrollHandler, { passive: true });
+    };
 
-    // Scroll rule — 40%
+    // Time rule — 20s on site
+    timeTimer = setTimeout(trigger, TIME_THRESHOLD_MS);
+
+    // Scroll rule — 40% of page
     const onScroll = () => {
       const scrollPct =
         (window.scrollY /
           Math.max(1, document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPct >= SCROLL_THRESHOLD_PCT) {
-        trigger();
-      }
+      if (scrollPct >= SCROLL_THRESHOLD_PCT) trigger();
     };
     scrollHandler = onScroll;
-    window.addEventListener('scroll', scrollHandler, { passive: true });
-    // Also evaluate once in case the page is already short / already scrolled
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Also evaluate once in case the page is short / already scrolled
     onScroll();
 
     return () => {
@@ -185,7 +179,7 @@ export default function ReviewPopup() {
     };
   }, [isLoading, reviews.length]);
 
-  // ── Auto-rotate through reviews (only while open) ─────────────
+  // ── Auto-rotate through reviews (only while open) ────────────
   useEffect(() => {
     if (!isOpen) return;
     const interval = setInterval(() => {
@@ -201,11 +195,10 @@ export default function ReviewPopup() {
     return () => unregister();
   }, [isOpen]);
 
-  // ── Focus + Escape handling for accessibility ─────────────────
+  // ── Focus + Escape handling for accessibility ────────────────
   useEffect(() => {
     if (!isOpen) return;
-    // Move focus to the close button on open
-    const id = window.setTimeout(() => closeBtnRef.current?.focus(), 80);
+    const id = setTimeout(() => closeBtnRef.current?.focus(), 80);
 
     const onKey = (e) => {
       if (e.key === 'Escape') {
@@ -220,25 +213,21 @@ export default function ReviewPopup() {
     };
   }, [isOpen]);
 
-  // ── Close → store 7-day dismissal (NOT forever) ───────────────
+  // ── Close → store 7-day dismissal (NOT forever) ──────────────
   const close = useCallback(() => {
     setIsOpen(false);
     writeDismiss();
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % reviews.length);
-  };
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-  };
+  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   if (isLoading || reviews.length === 0) return null;
 
   const currentReview = reviews[currentIndex];
 
-  // Genuine reviews only — already guaranteed by query filter.
-  // Badge shows only if a verification flag exists on the record.
+  // Genuine reviews only — already guaranteed by the query filter.
+  // The "Verified Customer" badge shows only when a verification flag exists.
   const isVerified = Boolean(currentReview.verified_purchaser);
 
   return (
@@ -250,7 +239,8 @@ export default function ReviewPopup() {
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
           className="fixed bottom-0 left-0 z-40 m-2 md:m-4 lg:m-6"
-          // Sit above mobile bottom tab bar so it never covers nav/purchase buttons
+          // Sit above the mobile bottom tab bar so the popup never covers
+          // nav or purchase buttons.
           style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 86px)' }}
           role="dialog"
           aria-modal="false"
