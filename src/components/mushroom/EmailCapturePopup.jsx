@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
+import openModalRegistry from '@/lib/openModalRegistry';
 
 const RG = '#E6B7AD';
 
@@ -25,6 +26,13 @@ export default function EmailCapturePopup() {
     }, 20000); // 20 seconds
     return () => clearTimeout(timer);
   }, []);
+
+  // Register while open so other popups (ReviewPopup) defer
+  useEffect(() => {
+    if (!visible) return;
+    const unregister = openModalRegistry.register('email_capture');
+    return () => unregister();
+  }, [visible]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
