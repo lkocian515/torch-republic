@@ -7,8 +7,8 @@ const TRUST_ITEMS = [
   { icon: Shield, label: 'Secure Checkout', sub: 'SSL encrypted & protected' },
   { icon: Leaf, label: 'Premium Ingredients', sub: 'Sourced with intention' },
   { icon: Award, label: 'Satisfaction Guarantee', sub: '30-day guarantee' },
-  { icon: Truck, label: 'Fast Shipping', sub: '1-3 business days' },
-  { icon: Star, label: '5-Star Reviews', sub: 'Verified customers' },
+  { icon: Truck, label: 'Free Shipping $50+', sub: 'Ships in 1–2 business days' },
+  { icon: Star, label: 'Customer Reviews', sub: '4.9 average · store-wide' },
   { icon: User, label: 'Founder-Led', sub: 'Small business, big care' },
 ];
 

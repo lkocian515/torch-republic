@@ -39,8 +39,8 @@ const PILLARS = [
   },
   {
     icon: '💰',
-    title: 'Only $0.74–$1.00 Per Cup',
-    body: 'Premium wellness coffee that costs less per cup than your daily café stop — starting at $0.74 per serving for classic blends.',
+    title: 'From $0.74 Per Cup',
+    body: 'Premium wellness coffee that works out to approximately $0.74–$0.93/serving one-time, or less with Subscribe & Save 20%.',
   },
   {
     icon: '🔄',
@@ -134,7 +134,7 @@ export default function WhyTorchRepublic() {
         <div className="flex flex-wrap justify-center gap-8">
           {[
             { label: '30-Day Satisfaction Guarantee', sub: 'Not right? We make it right.' },
-            { label: 'Free Shipping Over $75', sub: 'Ships in 1–3 business days.' },
+            { label: 'Free Shipping $50+', sub: 'Ships in 1–2 business days.' },
             { label: 'Subscribe & Save 20%', sub: 'Cancel or pause anytime.' },
             { label: 'Texas-Based Small Business', sub: 'Corpus Christi, TX.' },
           ].map(item => (

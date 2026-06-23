@@ -42,8 +42,8 @@ export default function HeroSection() {
             maxWidth: '700px',
           }}
         >
-          A Better Daily Ritual,{' '}
-          <span style={{ color: RG }}>Ready in Seconds.</span>
+          Better Coffee.{' '}
+          <span style={{ color: RG }}>No Machine Required.</span>
         </h1>
 
         <p
@@ -56,7 +56,7 @@ export default function HeroSection() {
             maxWidth: '460px',
           }}
         >
-          Premium instant coffee, mushroom coffee, and matcha for the way you want to feel—without pods, equipment, or complicated preparation.
+          Coffee, mushroom coffee and ceremonial matcha designed for smooth, convenient daily rituals — no pods, no machine, no complicated prep.
         </p>
 
         {/* CTA buttons */}
@@ -67,15 +67,15 @@ export default function HeroSection() {
             className="font-mono text-[12px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 w-full sm:w-auto"
             style={{ background: RG, color: '#080808', padding: '16px 48px', display: 'inline-block', textAlign: 'center', minHeight: '52px', lineHeight: '20px' }}
           >
-            Shop Best Sellers →
+            SHOP BESTSELLERS →
           </Link>
           <Link
-            to="/quiz"
-            onClick={() => trackHeroCTAClick('Take the Quiz')}
+            to="/build-your-ritual"
+            onClick={() => trackHeroCTAClick('Find Your Ritual')}
             className="font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-75 w-full sm:w-auto"
             style={{ border: '1px solid rgba(230,183,173,0.35)', color: RG, padding: '16px 32px', display: 'inline-block', textAlign: 'center', minHeight: '52px', lineHeight: '20px' }}
           >
-            Take the 30-Second Quiz
+            FIND YOUR RITUAL
           </Link>
         </div>
 

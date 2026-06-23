@@ -105,11 +105,10 @@ export default function MushroomProductCard({ product, index = 0 }) {
               e.currentTarget.src = FALLBACK_IMAGE;
             }}
           />
-          {/* Review Stars */}
+          {/* Review Stars — store-wide average, not per-product count */}
           <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded" style={{ background: 'rgba(0,0,0,0.75)' }}>
             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
             <span className="font-mono text-[8px] tracking-[0.1em] text-white font-bold">4.9</span>
-            <span className="font-mono text-[7px]" style={{ color: 'rgba(255,255,255,0.5)' }}>(127)</span>
           </div>
           {/* Roast badge */}
           <div className="absolute top-3 left-3">
