@@ -62,7 +62,7 @@ export default function Gifts() {
       'Explore premium instant coffee, mushroom coffee, and ceremonial matcha gifts from Torch Republic. Thoughtful rituals for coffee lovers, wellness routines, and special occasions.',
     url: '/gifts',
     type: 'website',
-    image: HERO_GIFT_IMAGE.webp,
+    image: HERO_GIFT_IMAGE.png,
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Gifts', url: '/gifts' },
@@ -129,36 +129,35 @@ export default function Gifts() {
             </Link>
           </motion.div>
 
-          {/* Subtle premium hero image (Complete Ritual) — desktop only to keep mobile clean */}
+          {/* Hero promo image — shown on all viewports, cropped to keep the
+              product showcase centered on mobile (object-position right). */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="hidden lg:block"
             aria-hidden="true"
           >
             <div
               className="relative w-full overflow-hidden"
-              style={{ aspectRatio: '4 / 3', borderRadius: '6px', border: '1px solid rgba(230,183,173,0.15)' }}
+              style={{ aspectRatio: '16 / 10', borderRadius: '6px', border: '1px solid rgba(230,183,173,0.15)' }}
             >
-              <picture>
-                <source type="image/webp" srcSet={HERO_GIFT_IMAGE.webp} />
-                <img
-                  src={HERO_GIFT_IMAGE.png}
-                  alt=""
-                  width={1200}
-                  height={900}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                  style={{ display: 'block' }}
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: 'linear-gradient(135deg, rgba(10,10,10,0.25) 0%, transparent 60%)' }}
-                />
-              </picture>
+              <img
+                src={HERO_GIFT_IMAGE.png}
+                alt=""
+                width={1600}
+                height={1000}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                sizes="(max-width: 1023px) 100vw, 50vw"
+                srcSet={`${HERO_GIFT_IMAGE.png} 1600w`}
+                className="w-full h-full object-cover"
+                style={{ display: 'block', objectPosition: 'right center' }}
+              />
+              <div
+                className="absolute inset-0 lg:hidden"
+                style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.35) 100%)' }}
+              />
             </div>
           </motion.div>
         </div>

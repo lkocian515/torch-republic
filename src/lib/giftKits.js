@@ -16,24 +16,25 @@ import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
 const IMG_BASE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec';
 
 // ── Kit image assets (supplied 1200×900) ─────────────────────────────────────
-// Each entry has the WebP URL (preferred), the PNG URL (fallback), and an
-// in-file srcset descriptor at the three responsive widths the layout uses.
+// Supplied as PNG only (no WebP variants exist for these files). We expose only
+// the png URL so the <picture> doesn't request a non-existent .webp source.
 const kitImage = (file) => ({
-  webp: `${IMG_BASE}/${file}.webp`,
   png: `${IMG_BASE}/${file}.png`,
-  // Native 1200×900. We reference 480/768/1200 as srcset descriptors so the
-  // browser can pick an appropriate size; the file itself is 1200 wide.
-  srcset: `${IMG_BASE}/${file}.webp 1200w`,
+  srcset: `${IMG_BASE}/${file}.png 1200w`,
 });
 
 export const GIFT_IMAGES = {
-  morningClarity: kitImage('2c363a1e8_01_morning_clarity_kit'),
-  eveningRestore: kitImage('e6ad133ad_02_evening_restore_kit'),
-  completeRitual: kitImage('914c725a1_03_complete_ritual_kit'),
-  matchaSerenity: kitImage('9f7e026f8_04_matcha_serenity_kit'),
+  morningClarity: kitImage('42d8248e8_01_morning_clarity_kit'),
+  eveningRestore: kitImage('e1a8c86ce_02_evening_restore_kit'),
+  completeRitual: kitImage('4d27c56f8_03_complete_ritual_kit'),
+  matchaSerenity: kitImage('6fa125164_04_matcha_serenity_kit'),
 };
 
-export const HERO_GIFT_IMAGE = GIFT_IMAGES.completeRitual;
+// Hero promo image (wide horizontal layout). PNG only.
+export const HERO_GIFT_IMAGE = {
+  png: `${IMG_BASE}/dfab1b98a_fdsfdsfds.png`,
+  srcset: `${IMG_BASE}/dfab1b98a_fdsfdsfds.png 1600w`,
+};
 
 // Catalog fallback prices (verified against lib/mushroomProducts.js).
 // Used only when live Shopify prices aren't passed in.
