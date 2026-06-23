@@ -225,7 +225,7 @@ export default function OurMission() {
       <section className="px-6 md:px-10 py-16" style={{ background: '#080808', borderTop: '1px solid rgba(230,183,173,0.08)' }}>
         <div className="max-w-2xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.4rem' }}>
+            <p className="font-serif italic mb-4" style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.92)', letterSpacing: '0.01em', lineHeight: 1.4 }}>
               Lisa Marie Kocian
             </p>
             <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: RG }}>
