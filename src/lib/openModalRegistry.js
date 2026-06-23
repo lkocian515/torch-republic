@@ -14,19 +14,19 @@
 const SET_KEY = '__torch_open_modals';
 
 const openModalRegistry = {
-  _ensure(): Set<string> {
+  _ensure() {
     if (typeof window === 'undefined') return new Set();
     if (!window[SET_KEY]) window[SET_KEY] = new Set();
     return window[SET_KEY];
   },
-  register(name: string): () => void {
+  register(name) {
     const set = this._ensure();
     set.add(name);
     return () => {
       set.delete(name);
     };
   },
-  hasOpen(exclude?: string): boolean {
+  hasOpen(exclude) {
     const set = this._ensure();
     for (const n of set) {
       if (n !== exclude) return true;

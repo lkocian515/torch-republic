@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Coffee } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
-import openModalRegistry from '@/lib/openModalRegistry';
+import openModalRegistry from '@/lib/openModalRegistry.js';
 
 const RG = '#E6B7AD';
 
