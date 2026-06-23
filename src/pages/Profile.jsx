@@ -192,18 +192,20 @@ export default function Profile() {
           {/* Logout Button */}
           <button
             onClick={() => logout(true)}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-primary text-primary font-mono text-sm tracking-widest uppercase hover:bg-primary hover:text-primary-foreground transition-colors select-none"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-primary text-primary font-mono text-sm tracking-widest uppercase hover:bg-primary hover:text-primary-foreground transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+            style={{ borderRadius: '2px' }}
           >
-            <LogOut className="w-4 h-4" />
+            <LogOut className="w-4 h-4" aria-hidden="true" />
             Sign Out
           </button>
 
           {/* Delete Account Button */}
           <button
             onClick={() => setIsDeleteDialogOpen(true)}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-destructive text-destructive font-mono text-sm tracking-widest uppercase hover:bg-destructive hover:text-destructive-foreground transition-colors select-none"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-destructive text-destructive font-mono text-sm tracking-widest uppercase hover:bg-destructive hover:text-destructive-foreground transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+            style={{ borderRadius: '2px' }}
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2 className="w-4 h-4" aria-hidden="true" />
             Delete Account
           </button>
         </div>

@@ -132,6 +132,7 @@ export default function UnifiedHeader() {
       {/* Main Header */}
       <header
         className="sticky top-0 z-40 w-full"
+        role="banner"
         style={{
           background: '#0A0A0A',
           borderBottom: `1px solid ${RG_DEEP}20`,
@@ -144,26 +145,26 @@ export default function UnifiedHeader() {
             {/* Left: Back button (mobile) / Hamburger (mobile home) */}
             <div className="w-10">
               {isChildRoute ? (
-                <button onClick={handleBack} className="md:hidden flex items-center justify-center" style={{ color: RG, minWidth: '44px', minHeight: '44px' }} aria-label="Go back">
+                <button onClick={handleBack} className="md:hidden flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: RG, minWidth: '44px', minHeight: '44px', borderRadius: '4px' }} aria-label="Go back to previous page">
                   <ArrowLeft className="w-5 h-5" strokeWidth={2} />
                 </button>
               ) : (
-                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center" style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px' }} aria-label="Open menu">
+                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', borderRadius: '4px' }} aria-label="Open navigation menu" aria-expanded={mobileMenuOpen} aria-controls="mobile-nav-menu">
                   <Menu className="w-6 h-6" strokeWidth={1.5} />
                 </button>
               )}
             </div>
 
             {/* Center: Logo */}
-            <Link to="/" className={`flex-1 md:flex-none flex items-center justify-center ${isChildRoute ? 'hidden md:flex' : ''}`}>
+            <Link to="/" className={`flex-1 md:flex-none flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold ${isChildRoute ? 'hidden md:flex' : ''}`} style={{ borderRadius: '4px' }} aria-label="Torch Republic home">
               <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" width="180" height="48" loading="eager" decoding="async" className="sm:h-16" style={{ height: '48px', width: 'auto' }} />
             </Link>
 
             {/* Right: Cart + Desktop Nav */}
             <div className="w-10 md:w-auto flex items-center justify-end gap-4">
-              <nav className="hidden md:flex items-center gap-6">
+              <nav className="hidden md:flex items-center gap-6" aria-label="Primary navigation">
                 {/* Home */}
-                <Link to="/" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#F5EFE6', fontWeight: 500 }}>
+                <Link to="/" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#F5EFE6', fontWeight: 500 }} aria-label="Home" aria-current={location.pathname === '/' ? 'page' : undefined}>
                   Home
                 </Link>
 
@@ -235,14 +236,14 @@ export default function UnifiedHeader() {
               {/* Search */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center justify-center transition-colors hover:opacity-70"
-                style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', background: 'none', border: 'none', cursor: 'pointer' }}
-                aria-label="Search"
+                className="flex items-center justify-center transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+                style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', background: 'none', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
+                aria-label="Search Torch Republic products and content"
               >
                 <Search className="w-5 h-5" strokeWidth={1.8} />
               </button>
               {/* Admin panel removed from public header navigation for security */}
-              <Link to="/cart" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} aria-label="Cart">
+              <Link to="/cart" className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', borderRadius: '4px' }} aria-label="View cart" aria-current={location.pathname === '/cart' ? 'page' : undefined}>
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
               </Link>
             </div>
@@ -253,29 +254,33 @@ export default function UnifiedHeader() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div initial={{ opacity: 0, x: -300 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -300 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 md:hidden" style={{ background: 'rgba(0,0,0,0.95)' }}>
+          <motion.div initial={{ opacity: 0, x: -300 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -300 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 md:hidden" style={{ background: 'rgba(0,0,0,0.95)' }} role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: `1px solid ${RG}20` }}>
                 <span className="font-serif text-lg" style={{ color: RG }}>Menu</span>
-                <button onClick={() => setMobileMenuOpen(false)} style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <button onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px' }} aria-label="Close navigation menu">
                   <X className="w-6 h-6" strokeWidth={1.8} />
                 </button>
               </div>
-              <nav className="flex-1 overflow-y-auto px-5 py-6">
+              <nav className="flex-1 overflow-y-auto px-5 py-6" id="mobile-nav-menu" aria-label="Mobile navigation">
                 {MOBILE_NAV_SECTIONS.map((section, si) => (
                   <div key={section.heading} className="mb-6">
-                    <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>{section.heading}</p>
+                    <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.7)' }}>{section.heading}</p>
                     <div className="space-y-1">
-                      {section.links.map((link, i) => (
+                      {section.links.map((link, i) => {
+                        const isCurrent = location.pathname === link.href;
+                        return (
                         <motion.div key={link.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: (si * 4 + i) * 0.04 }}>
                           <Link to={link.href} onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center gap-3 py-3 font-heading text-base transition-colors hover:opacity-70"
-                            style={{ color: 'rgba(240,235,225,0.85)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                            <span aria-hidden="true" style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(230,183,173,0.35)', flexShrink: 0, display: 'inline-block' }} />
+                            className="flex items-center gap-3 py-3 font-heading text-base transition-colors hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+                            style={{ color: 'rgba(240,235,225,0.95)', borderBottom: '1px solid rgba(255,255,255,0.06)', borderRadius: '4px' }}
+                            aria-current={isCurrent ? 'page' : undefined}>
+                            <span aria-hidden="true" style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(230,183,173,0.7)', flexShrink: 0, display: 'inline-block' }} />
                             {link.label}
                           </Link>
                         </motion.div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
@@ -287,7 +292,7 @@ export default function UnifiedHeader() {
                 <Link to="/subscription" onClick={() => setMobileMenuOpen(false)} className="block text-center py-2.5 font-mono text-xs tracking-[0.25em] uppercase font-bold transition-all hover:opacity-80" style={{ border: `1px solid ${RG}40`, color: RG, borderRadius: '2px' }}>
                   Subscribe &amp; Save 20%
                 </Link>
-                <Link to="/quiz" onClick={() => setMobileMenuOpen(false)} className="block text-center py-2.5 font-mono text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-70" style={{ color: 'rgba(240,235,225,0.5)' }}>
+                <Link to="/quiz" onClick={() => setMobileMenuOpen(false)} className="block text-center py-2.5 font-mono text-[10px] tracking-[0.2em] uppercase transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: 'rgba(240,235,225,0.85)', borderRadius: '4px' }}>
                   ✨ Take the Blend Quiz
                 </Link>
               </div>

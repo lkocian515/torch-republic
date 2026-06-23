@@ -34,6 +34,7 @@ export default function BottomTabs() {
       {/* Bottom Tabs Bar */}
       <nav
         className="md:hidden fixed bottom-0 left-0 right-0 z-50"
+        aria-label="Bottom navigation"
         style={{
           background: 'rgba(10,10,10,0.95)',
           backdropFilter: 'blur(20px)',
@@ -50,14 +51,17 @@ export default function BottomTabs() {
                 key={tab.path}
                 href={tab.path}
                 onClick={(e) => handleTabClick(e, tab.path)}
-                className="flex flex-col items-center justify-center flex-1"
+                className="flex flex-col items-center justify-center flex-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
                 style={{
                   minWidth: '44px',
                   minHeight: '44px',
                   textDecoration: 'none',
                   userSelect: 'none',
                   WebkitUserSelect: 'none',
+                  borderRadius: '4px',
                 }}
+                aria-label={tab.label}
+                aria-current={active ? 'page' : undefined}
               >
                 <motion.div
                   initial={false}
