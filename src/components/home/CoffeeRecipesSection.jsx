@@ -11,7 +11,7 @@ const FEATURED_RECIPES = [
     title: 'The Classic Morning',
     time: '2 min',
     icon: Sun,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/classic_morning_recipe.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8815056a9_8.png',
     description: 'Start your day with intention',
   },
   {
@@ -19,7 +19,7 @@ const FEATURED_RECIPES = [
     title: 'Creamy Focus Latte',
     time: '4 min',
     icon: Coffee,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/creamy_latte_recipe.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1cde802f2_9.png',
     description: 'Café-worthy comfort',
   },
   {
@@ -27,7 +27,7 @@ const FEATURED_RECIPES = [
     title: 'Iced Energy Boost',
     time: '3 min',
     icon: Zap,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/iced_energy_recipe.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/55f9e1350_10.png',
     description: 'Refreshing pick-me-up',
   },
   {
@@ -35,7 +35,7 @@ const FEATURED_RECIPES = [
     title: 'Protein Power Blend',
     time: '3 min',
     icon: Heart,
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/protein_blend_recipe.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0a615b4db_11.png',
     description: 'Complete morning fuel',
   },
 ];

@@ -54,7 +54,7 @@ const PATHWAYS = [
     servings: 27,
     category: 'mushroom-coffee',
     accent: '#10B981',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise-mushroom-coffee-torch-republic.png?v=1781102333',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
     path: '/products/suncap-rise',
     cta: 'Shop Mushroom Coffee',
     featured: true,
@@ -287,7 +287,7 @@ function StickyBar({ visible }) {
       id: 'suncap-rise',
       name: 'SunCap Rise',
       price: SUNCAP_PRICE,
-      image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise-mushroom-coffee-torch-republic.png?v=1781102333',
+      image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
       category: 'mushroom-coffee',
       shopifyHandle: 'suncap-rise',
     });
@@ -560,7 +560,7 @@ export default function SwitchFromPods() {
           >
             <div className="flex-shrink-0 flex items-center justify-center" style={{ width: '160px', height: '160px' }}>
               <img
-                src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise-mushroom-coffee-torch-republic.png?v=1781102333"
+                src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332"
                 alt="SunCap Rise mushroom coffee by Torch Republic"
                 loading="lazy"
                 width="160"
