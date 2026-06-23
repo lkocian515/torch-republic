@@ -24,17 +24,15 @@ const kitImage = (file) => ({
 });
 
 export const GIFT_IMAGES = {
-  morningClarity: kitImage('42d8248e8_01_morning_clarity_kit'),
-  eveningRestore: kitImage('e1a8c86ce_02_evening_restore_kit'),
-  completeRitual: kitImage('4d27c56f8_03_complete_ritual_kit'),
-  matchaSerenity: kitImage('6fa125164_04_matcha_serenity_kit'),
+  morningClarity: kitImage('3166a1a2e_01_morning_clarity_kit'),
+  eveningRestore: kitImage('800a2d3eb_02_evening_restore_kit'),
+  completeRitual: kitImage('0639390db_03_complete_ritual_kit'),
+  matchaSerenity: kitImage('d1c0eef3a_04_matcha_serenity_kit'),
 };
 
-// Hero promo image (wide horizontal layout). PNG only.
-export const HERO_GIFT_IMAGE = {
-  png: `${IMG_BASE}/dfab1b98a_fdsfdsfds.png`,
-  srcset: `${IMG_BASE}/dfab1b98a_fdsfdsfds.png 1600w`,
-};
+// Hero promo / social share image for the Gifts hub. Uses the Complete Ritual
+// Kit photography (the featured kit) since it best represents the page.
+export const HERO_GIFT_IMAGE = GIFT_IMAGES.completeRitual;
 
 // Catalog fallback prices (verified against lib/mushroomProducts.js).
 // Used only when live Shopify prices aren't passed in.
