@@ -24,17 +24,17 @@ const PERKS = [
   { icon: Flame, text: 'Free gifts up for grabs' },
 ];
 
-function Wheel({ rotation }) {
-  const size = 300;
+function Wheel({ rotation, size = 300 }) {
   const cx = size / 2;
   const r = size / 2 - 10;
 
   return (
     <svg
-      width={size}
-      height={size}
+      width="100%"
+      height="100%"
       viewBox={`0 0 ${size} ${size}`}
-      style={{ transform: `rotate(${rotation}deg)`, transition: 'none', filter: `drop-shadow(0 0 18px rgba(212,175,90,0.25))` }}
+      preserveAspectRatio="xMidYMid meet"
+      style={{ transform: `rotate(${rotation}deg)`, transition: 'none', filter: `drop-shadow(0 0 18px rgba(212,175,90,0.25))`, display: 'block' }}
     >
       <defs>
         <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
@@ -155,7 +155,31 @@ export default function SpinWheelPopup() {
   const [prize, setPrize] = useState(null);
   const [copied, setCopied] = useState(false);
   const [focused, setFocused] = useState(false);
+  const [wheelSize, setWheelSize] = useState(280);
   const animRef = useRef(null);
+
+  // Responsive wheel size based on viewport
+  useEffect(() => {
+    const updateSize = () => {
+      const w = Math.min(window.innerWidth, window.innerHeight, 360);
+      setWheelSize(Math.max(220, Math.min(300, w - 80)));
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    window.addEventListener('orientationchange', updateSize);
+    return () => {
+      window.removeEventListener('resize', updateSize);
+      window.removeEventListener('orientationchange', updateSize);
+    };
+  }, []);
+
+  // Lock body scroll while open
+  useEffect(() => {
+    if (!visible) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = original; };
+  }, [visible]);
 
   useEffect(() => {
     if (localStorage.getItem('spinWheelEmail')) return;
@@ -234,10 +258,10 @@ export default function SpinWheelPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 40 }}
             transition={{ type: 'spring', damping: 20, stiffness: 160 }}
-            className="fixed inset-0 z-[101] flex items-center justify-center px-4 pointer-events-none"
+            className="fixed inset-0 z-[101] flex items-center justify-center px-4 py-4 pointer-events-none overflow-y-auto"
           >
             <div
-              className="relative w-full max-w-[400px] pointer-events-auto overflow-hidden"
+              className="relative w-full max-w-[400px] my-auto pointer-events-auto overflow-y-auto"
               style={{
                 background: 'linear-gradient(175deg, #04111a 0%, #071e2a 25%, #0a2535 50%, #071520 75%, #020c12 100%)',
                 border: '1px solid rgba(212,175,90,0.6)',
@@ -261,7 +285,7 @@ export default function SpinWheelPopup() {
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="text-center pt-6 px-6 pb-0 relative z-10">
+              <div className="text-center pt-5 px-4 sm:px-6 pb-0 relative z-10">
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -273,15 +297,15 @@ export default function SpinWheelPopup() {
                   </span>
                 </motion.div>
 
-                <h2 className="text-3xl font-heading font-black uppercase leading-tight tracking-tight" style={{ color: '#fff', textShadow: `0 0 30px rgba(212,175,90,0.3)` }}>
+                <h2 className="text-2xl sm:text-3xl font-heading font-black uppercase leading-tight tracking-tight" style={{ color: '#fff', textShadow: `0 0 30px rgba(212,175,90,0.3)` }}>
                   Spin &<br />
                   <span style={{ color: GOLD_LIGHT, textShadow: `0 0 20px ${GOLD}, 0 0 40px rgba(212,175,90,0.4)` }}>Win Big</span>
                 </h2>
-                <p className="font-mono text-xs tracking-wider mt-1.5 mb-3" style={{ color: 'rgba(212,175,90,0.6)' }}>
+                <p className="font-mono text-[11px] sm:text-xs tracking-wider mt-1.5 mb-3" style={{ color: 'rgba(212,175,90,0.6)' }}>
                   Enter your email. One spin. Real rewards.
                 </p>
 
-                <div className="flex justify-center gap-4 mb-3">
+                <div className="hidden sm:flex justify-center gap-4 mb-3">
                   {PERKS.map(({ icon: Icon, text }, i) => (
                     <div key={i} className="flex flex-col items-center gap-1">
                       <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,175,90,0.1)', border: '1px solid rgba(212,175,90,0.2)' }}>
@@ -305,14 +329,15 @@ export default function SpinWheelPopup() {
                 </div>
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-72 h-72 rounded-full" style={{ background: `radial-gradient(circle, rgba(14,42,47,0.6) 0%, rgba(212,175,90,0.06) 50%, transparent 70%)` }} />
+                  <div className="rounded-full" style={{ width: wheelSize, height: wheelSize, background: `radial-gradient(circle, rgba(14,42,47,0.6) 0%, rgba(212,175,90,0.06) 50%, transparent 70%)` }} />
                 </div>
 
                 <motion.div
                   animate={step === 'email' ? { rotate: [0, 1, -1, 0] } : {}}
                   transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }}
+                  style={{ width: wheelSize, height: wheelSize, position: 'relative', zIndex: 5 }}
                 >
-                  <Wheel rotation={rotation} />
+                  <Wheel rotation={rotation} size={wheelSize} />
                 </motion.div>
               </div>
 
