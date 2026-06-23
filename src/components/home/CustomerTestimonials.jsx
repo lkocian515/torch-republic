@@ -6,7 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
-// Community member photos (lifestyle/ritual imagery)
+// Community member photos (lifestyle/ritual imagery) — verified reachable.
+// Removed 4b8c7e3f1_14.png + 7a2d9f5e8_15.png (404).
 const COMMUNITY_PHOTOS = [
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8815056a9_8.png',
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1cde802f2_9.png',
@@ -14,8 +15,6 @@ const COMMUNITY_PHOTOS = [
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0a615b4db_11.png',
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2bcbd60ef_12.png',
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9d0e4d06a_13.png',
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b8c7e3f1_14.png',
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a2d9f5e8_15.png',
 ];
 
 // Product name mapping from handle
@@ -111,6 +110,11 @@ export default function CustomerTestimonials() {
                     src={COMMUNITY_PHOTOS[photoIndex]}
                     alt={`${review.reviewer_name}'s ritual`}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Graceful fallback to the next valid photo in the array
+                      const fallback = COMMUNITY_PHOTOS[(photoIndex + 1) % COMMUNITY_PHOTOS.length];
+                      if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback;
+                    }}
                   />
                 </div>
 

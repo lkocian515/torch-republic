@@ -3,7 +3,7 @@
  * Checks all likely Shopify/Base44 image fields in priority order
  * Never returns undefined/null - always provides a valid image URL
  */
-export function getProductImage(product, fallbackImage = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333') {
+export function getProductImage(product, fallbackImage = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png') {
   if (!product) return fallbackImage;
 
   const imageUrl =

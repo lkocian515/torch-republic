@@ -3,8 +3,8 @@
  * This ensures homepage loads instantly with real product images even if Shopify API is slow
  */
 
-// Fallback placeholder image - Torch Republic branded
-export const FALLBACK_PRODUCT_IMAGE = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-product-placeholder.png?v=1781102333';
+// Fallback placeholder image - Torch Republic branded (verified reachable)
+export const FALLBACK_PRODUCT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
 
 // Helper function to safely extract image URL from product data
 export function getProductImage(product) {
@@ -99,7 +99,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#D6B27A',
     price: PRICES['mushroom-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/suncap-rise-mushroom-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
     alt: 'SunCap Rise instant mushroom coffee by Torch Republic',
   },
   {
@@ -111,7 +111,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#4A6DB8',
     price: PRICES['mushroom-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dreamcap-blend-mushroom-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6_8c807391-10cd-46e4-9a59-151cae236e29.png?v=1781102333',
     alt: 'DreamCap Blend instant mushroom coffee by Torch Republic',
   },
   {
@@ -123,7 +123,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#B88FA8',
     price: PRICES['mushroom-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-oracle-blend-mushroom-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/10_43ce9b58-361d-4539-9624-443920a03747.png?v=1781102333',
     alt: 'The Oracle Blend instant mushroom coffee by Torch Republic',
   },
   {
@@ -135,7 +135,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#E6B7C8',
     price: PRICES['mushroom-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mystic-bloom-blend-mushroom-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a8ad9afd0_2.png',
     alt: 'Mystic Bloom Blend instant mushroom coffee by Torch Republic',
   },
   // Additional Classic Coffee
@@ -148,7 +148,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#D67A5A',
     price: PRICES['classic-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ember-rise-premium-instant-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/17_a9cde60d-d323-42f1-9eb5-1ca1cce8678e.png?v=1781102333',
     alt: 'Ember Rise premium instant coffee by Torch Republic',
   },
   {
@@ -160,7 +160,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#5A6B7C',
     price: PRICES['classic-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/midnight-watch-premium-instant-coffee-torch-republic.png?v=1781102333',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/14_3a9ab2f8-627d-4d27-a636-29a0900700bb.png?v=1781102333',
     alt: 'Midnight Watch premium instant coffee by Torch Republic',
   },
   // Additional Matcha
@@ -173,7 +173,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#8BC45A',
     price: PRICES['matcha'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-ascendant-matcha-blend-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/18eb6d3c7_14.png',
     alt: 'The Ascendant ceremonial matcha by Torch Republic',
   },
   {
@@ -185,7 +185,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#C4A85A',
     price: PRICES['matcha'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/the-alchemist-matcha-blend-torch-republic.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffc347224_17.png',
     alt: 'The Alchemist ceremonial matcha by Torch Republic',
   },
 ];
@@ -193,15 +193,15 @@ export const ALL_HOMEPAGE_PRODUCTS = [
 // Category collection images for ThreeCategories section
 export const CATEGORY_IMAGES = {
   'classic-coffee': {
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-classic-instant-coffee-collection.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2be7102cc_15.png',
     alt: 'Classic Instant Coffee collection by Torch Republic',
   },
   'mushroom-coffee': {
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-mushroom-coffee-collection.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cef6afa41_18.png',
     alt: 'Mushroom Coffee collection by Torch Republic',
   },
   'matcha': {
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-ceremonial-matcha-collection.png?v=1781102333',
+    imageUrl: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/28dd949f5_12.png',
     alt: 'Ceremonial Matcha collection by Torch Republic',
   },
 };
