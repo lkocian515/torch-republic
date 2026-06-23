@@ -11,6 +11,19 @@ import PopularArticles from '../components/blog/PopularArticles';
 import { KNOWLEDGE_ARTICLES } from '@/lib/knowledgeArticles';
 import JournalRitualCTA from '../components/journal/JournalRitualCTA';
 import JournalMidCTA from '../components/journal/JournalMidCTA';
+import {
+  ARTICLE_SOCIAL_OVERRIDES,
+  articleUrl,
+  resolveArticleImage,
+  SOCIAL_CONSTANTS,
+} from '@/lib/articleSocialMeta';
+import { ALL_BLOG_TOPICS } from '@/lib/seoContent';
+
+// Synchronous title lookup from the static topic list — lets us emit correct
+// OG title on the FIRST render, before the async DB fetch resolves.
+const TITLE_BY_SLUG = Object.fromEntries(
+  ALL_BLOG_TOPICS.map((t) => [t.slug, t.title])
+);
 
 // Related articles map by slug — covers all 5 priority articles + existing content
 const RELATED_BY_SLUG = {
@@ -193,43 +206,33 @@ export default function BlogPostPage() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Set meta tags immediately for social media crawlers
-  useEffect(() => {
-    const setMetaTag = (property, content, isProperty = true) => {
-      let el = document.querySelector(`meta[${isProperty ? 'property' : 'name'}="${property}"]`);
-      if (!el) {
-        el = document.createElement('meta');
-        el.setAttribute(isProperty ? 'property' : 'name', property);
-        document.head.appendChild(el);
-      }
-      el.setAttribute('content', content);
+  // ── SYNCHRONOUS first-render meta ─────────────────────────────────────────
+  // Base44 prerenders the React tree for social crawlers. To guarantee the
+  // crawler snapshot reads article-specific OG tags (not the generic
+  // "Loading…" / Journal-home defaults), compute meta from the slug on the
+  // very first render — before the async DB fetch resolves. The DB post
+  // (when it arrives) refines title/excerpt/featured image, but the article
+  // URL, type, image priority order, and image alt are correct from t=0.
+  const syncMeta = React.useMemo(() => {
+    const override = ARTICLE_SOCIAL_OVERRIDES[slug];
+    const syncTitle = override?.title || TITLE_BY_SLUG[slug];
+    const syncDesc = override?.description;
+    const { image: syncImage, alt: syncImageAlt } = resolveArticleImage(slug, null);
+    return {
+      title: syncTitle,
+      description: syncDesc,
+      image: syncImage,
+      imageAlt: syncImageAlt,
+      url: articleUrl(slug),
     };
+  }, [slug]);
 
-    const fetchPostAndSetMeta = async () => {
+  useEffect(() => {
+    const fetchPost = async () => {
       try {
         const posts = await base44.entities.BlogPost.filter({ slug });
         if (posts.length > 0 && posts[0].published) {
-          const postData = posts[0];
-          setPost(postData);
-          
-          // Set meta tags immediately
-          const ogImage = postData.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
-          const fullUrl = `https://torchrepublic.com/journal/${slug}`;
-          
-          setMetaTag('og:title', postData.title);
-          setMetaTag('og:description', postData.excerpt || postData.title);
-          setMetaTag('og:image', ogImage);
-          setMetaTag('og:image:width', '1200');
-          setMetaTag('og:image:height', '630');
-          setMetaTag('og:type', 'article');
-          setMetaTag('og:url', fullUrl);
-          setMetaTag('article:published_time', postData.published_date);
-          setMetaTag('article:author', postData.author || 'Torch Republic');
-          setMetaTag('article:section', postData.category);
-          setMetaTag('twitter:title', postData.title, false);
-          setMetaTag('twitter:description', postData.excerpt || postData.title, false);
-          setMetaTag('twitter:image', ogImage, false);
-          setMetaTag('twitter:card', 'summary_large_image', false);
+          setPost(posts[0]);
         }
       } catch (error) {
         console.error('Error fetching post:', error);
@@ -237,7 +240,7 @@ export default function BlogPostPage() {
         setLoading(false);
       }
     };
-    fetchPostAndSetMeta();
+    fetchPost();
   }, [slug]);
 
   // Parse FAQ JSON for structured data injection
@@ -247,10 +250,15 @@ export default function BlogPostPage() {
     return null; // FAQPage schema is handled below via Helmet for DB posts
   })();
 
+  // Resolve the article social image with the centralized priority order:
+  //   1. article-specific social image  2. DB featured_image  3. Journal cover  4. logo
+  const { image: resolvedOgImage, alt: resolvedImageAlt } = resolveArticleImage(slug, post?.featured_image);
+
   useSEO({
-    title: post ? `${post.title} | Torch Republic` : 'Loading...',
-    description: post?.excerpt || 'Read more on the Torch Republic Ritual Journal',
-    image: post?.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    title: post ? `${post.title} | Torch Republic` : (syncMeta.title ? `${syncMeta.title} | Torch Republic` : 'Loading...'),
+    description: post?.excerpt || syncMeta.description || 'Read more on the Torch Republic Ritual Journal',
+    image: resolvedOgImage,
+    imageAlt: resolvedImageAlt,
     url: `/journal/${slug}`,
     type: 'article',
     article: {
@@ -267,17 +275,37 @@ export default function BlogPostPage() {
     ] : undefined,
   });
 
-  // For social media crawlers that don't execute JS, we also use Helmet
-  const ogImage = post?.featured_image || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
-
   if (loading) {
+    // Even during loading, emit article-specific OG meta so any crawler
+    // snapshot is correct. Title shows article title (or a generic "Read on
+    // the Journal" if the slug is unknown), never the homepage defaults.
+    const loadingTitle = syncMeta.title
+      ? `${syncMeta.title} | Torch Republic`
+      : 'Read on the Torch Republic Ritual Journal';
     return (
       <>
         <Helmet>
-          <title>Loading... | Torch Republic</title>
-          <meta property="og:title" content="Loading..." />
-          <meta property="og:description" content="Loading article..." />
-          <meta property="og:image" content="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png" />
+          <title>{loadingTitle}</title>
+          <meta name="description" content={syncMeta.description || 'Read this Torch Republic Journal article.'} />
+          <link rel="canonical" href={syncMeta.url} />
+          {/* Open Graph */}
+          <meta property="og:title" content={loadingTitle} />
+          <meta property="og:description" content={syncMeta.description || ''} />
+          <meta property="og:url" content={syncMeta.url} />
+          <meta property="og:type" content="article" />
+          <meta property="og:site_name" content={SOCIAL_CONSTANTS.SITE_NAME} />
+          <meta property="og:image" content={syncMeta.image} />
+          <meta property="og:image:secure_url" content={syncMeta.image} />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={syncMeta.imageAlt} />
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={loadingTitle} />
+          <meta name="twitter:description" content={syncMeta.description || ''} />
+          <meta name="twitter:image" content={syncMeta.image} />
+          <meta name="twitter:image:alt" content={syncMeta.imageAlt} />
         </Helmet>
         <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
           <div className="text-center">
@@ -291,23 +319,31 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
-        <div className="text-center max-w-md px-6">
-          <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
-            Article Not Found
-          </h1>
-          <p className="font-heading mb-8" style={{ color: 'rgba(210,195,175,0.6)' }}>
-            This article may have been moved or unpublished.
-          </p>
-          <Link
-            to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8 rounded-sm"
-            style={{ background: RG, color: '#050505' }}
-          >
-            <ArrowLeft size={14} /> Back to Journal
-          </Link>
+      <>
+        {/* noindex + canonical so an unpublished/missing article URL never
+            surfaces homepage OG metadata to crawlers. */}
+        <Helmet>
+          <meta name="robots" content="noindex, follow" />
+          <link rel="canonical" href={syncMeta.url} />
+        </Helmet>
+        <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
+          <div className="text-center max-w-md px-6">
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
+              Article Not Found
+            </h1>
+            <p className="font-heading mb-8" style={{ color: 'rgba(210,195,175,0.6)' }}>
+              This article may have been moved or unpublished.
+            </p>
+            <Link
+              to="/journal"
+              className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8 rounded-sm"
+              style={{ background: RG, color: '#050505' }}
+            >
+              <ArrowLeft size={14} /> Back to Journal
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -318,14 +354,19 @@ export default function BlogPostPage() {
       <Helmet>
         <title>{post.title} | Torch Republic</title>
         <meta name="description" content={post.excerpt || post.title} />
+        <link rel="canonical" href={`https://torchrepublic.com/journal/${slug}`} />
         {/* Open Graph / Facebook */}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt || post.title} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={`https://torchrepublic.com/journal/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={SOCIAL_CONSTANTS.SITE_NAME} />
+        <meta property="og:image" content={resolvedOgImage} />
+        <meta property="og:image:secure_url" content={resolvedOgImage} />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://torchrepublic.com/journal/${slug}`} />
+        <meta property="og:image:alt" content={resolvedImageAlt} />
         <meta property="article:published_time" content={post.published_date} />
         <meta property="article:author" content={post.author || 'Torch Republic'} />
         <meta property="article:section" content={post.category} />
@@ -333,7 +374,8 @@ export default function BlogPostPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt || post.title} />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={resolvedOgImage} />
+        <meta name="twitter:image:alt" content={resolvedImageAlt} />
       </Helmet>
       <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
       {/* Back Link */}
@@ -422,7 +464,7 @@ export default function BlogPostPage() {
                 title={post.title}
                 url={`/journal/${post.slug}`}
                 excerpt={post.excerpt}
-                image={post.featured_image}
+                image={resolvedOgImage}
                 slug={post.slug}
                 contentType="article"
                 location="top"
@@ -516,7 +558,7 @@ export default function BlogPostPage() {
                 title={post.title}
                 url={`/journal/${post.slug}`}
                 excerpt={post.excerpt}
-                image={post.featured_image}
+                image={resolvedOgImage}
                 slug={post.slug}
                 contentType="article"
                 location="bottom"

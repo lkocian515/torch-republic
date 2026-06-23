@@ -28,9 +28,10 @@ export default function JournalHub() {
   const [searchQuery, setSearchQuery] = useState('');
 
   useSEO({
-    title: 'Coffee, Mushroom and Matcha Guides | Torch Republic Journal',
-    description: 'Explore practical guides to instant coffee, mushroom coffee, Lion\'s Mane, Chaga, matcha, ingredients, and easy daily rituals.',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png',
+    title: 'Journal | Torch Republic Coffee Company',
+    description: 'Explore research, coffee education, mushroom ingredients, matcha guides, sustainability, and better daily rituals from Torch Republic.',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f081b50f3_generated_image.png',
+    imageAlt: 'Torch Republic Journal cover — coffee, mushroom coffee, and matcha education.',
     url: '/journal',
     type: 'website',
     breadcrumbs: [

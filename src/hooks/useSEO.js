@@ -20,7 +20,7 @@ const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
  * @param {object} [opts.article]      - { author, datePublished, dateModified, section, keywords, tags }
  * @param {object[]} [opts.faq]        - [{ question, answer }] for FAQPage schema (rich snippets)
  */
-export function useSEO({ title, description, image, url, type = 'website', product, breadcrumbs, article, faq, noindex = false }) {
+export function useSEO({ title, description, image, imageAlt, imageType = 'image/png', url, type = 'website', product, breadcrumbs, article, faq, noindex = false }) {
   useEffect(() => {
     // Avoid double-branding — only append if not already present
     const fullTitle = title
@@ -38,6 +38,8 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     }
     const canonicalUrl = url ? `${BASE_URL}${cleanPath}` : BASE_URL;
     const ogImage = image || DEFAULT_IMAGE;
+    const ogImageAlt = imageAlt
+      || (title ? `${title.replace(/\s*\|\s*Torch Republic.*$/i, '')} — ${SITE_NAME}` : 'Torch Republic Coffee Company');
 
     const prevTitle = document.title;
     document.title = fullTitle;
@@ -74,8 +76,11 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     ogEls.push(setMeta('meta[property="og:url"]', 'content', canonicalUrl));
     ogEls.push(setMeta('meta[property="og:type"]', 'content', type === 'article' ? 'article' : type === 'product' ? 'product' : 'website'));
     ogEls.push(setMeta('meta[property="og:image"]', 'content', ogImage));
+    ogEls.push(setMeta('meta[property="og:image:secure_url"]', 'content', ogImage));
+    ogEls.push(setMeta('meta[property="og:image:type"]', 'content', imageType));
     ogEls.push(setMeta('meta[property="og:image:width"]', 'content', '1200'));
     ogEls.push(setMeta('meta[property="og:image:height"]', 'content', '630'));
+    ogEls.push(setMeta('meta[property="og:image:alt"]', 'content', ogImageAlt));
     ogEls.push(setMeta('meta[property="og:site_name"]', 'content', SITE_NAME));
     ogEls.push(setMeta('meta[property="og:locale"]', 'content', 'en_US'));
 
@@ -94,6 +99,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
     twitterEls.push(setMeta('meta[name="twitter:title"]', 'content', fullTitle));
     twitterEls.push(setMeta('meta[name="twitter:description"]', 'content', description || ''));
     twitterEls.push(setMeta('meta[name="twitter:image"]', 'content', ogImage));
+    twitterEls.push(setMeta('meta[name="twitter:image:alt"]', 'content', ogImageAlt));
     twitterEls.push(setMeta('meta[name="twitter:site"]', 'content', '@torchrepublic'));
     twitterEls.push(setMeta('meta[name="twitter:creator"]', 'content', '@torchrepublic'));
 
@@ -107,7 +113,7 @@ export function useSEO({ title, description, image, url, type = 'website', produ
         '@type': 'BlogPosting',
         headline: title,
         description: description || '',
-        image: { '@type': 'ImageObject', url: ogImage },
+        image: { '@type': 'ImageObject', url: ogImage, width: 1200, height: 630, caption: ogImageAlt },
         author: { '@type': 'Organization', name: article?.author || SITE_NAME, url: BASE_URL },
         publisher: {
           '@type': 'Organization',
@@ -204,5 +210,5 @@ export function useSEO({ title, description, image, url, type = 'website', produ
       articleMetaEls.forEach(el => el.setAttribute('content', ''));
       scriptEls.forEach(el => el.remove());
     };
-  }, [title, description, image, url, type, product, breadcrumbs, article, faq]);
+  }, [title, description, image, imageAlt, imageType, url, type, product, breadcrumbs, article, faq]);
 }

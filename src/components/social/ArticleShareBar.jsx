@@ -14,34 +14,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Facebook, Twitter, Linkedin, Mail, Link as LinkIcon, Check, Share2, MessageCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { resolveLiveUrl, resolveImageUrl } from '@/lib/articleSocialMeta';
 
 const RG = '#E6B7AD';
-
-const LIVE_BASE = 'https://torchrepublic.com';
-
-// Resolve the live torchrepublic.com URL, never a preview/staging domain.
-function resolveLiveUrl(path) {
-  if (!path) return typeof window !== 'undefined' ? window.location.href : LIVE_BASE;
-  // If a full http(s) URL was passed, normalize to torchrepublic.com when possible
-  if (path.startsWith('http')) {
-    try {
-      const u = new URL(path);
-      // Replace any *.base44.dev / preview host with the live domain
-      if (u.hostname.includes('base44') || u.hostname.includes('preview') || u.hostname.includes('localhost')) {
-        return `${LIVE_BASE}${u.pathname}${u.search}`;
-      }
-      return path;
-    } catch { return path; }
-  }
-  return `${LIVE_BASE}${path.startsWith('/') ? path : `/${path}`}`;
-}
-
-// Pinterest requires a real hosted image URL. Resolve the same way.
-function resolveImage(url) {
-  if (!url) return '';
-  if (url.startsWith('http')) return url;
-  return `${LIVE_BASE}${url.startsWith('/') ? url : `/${url}`}`;
-}
 
 /**
  * @param {object} props
@@ -68,7 +43,7 @@ export default function ArticleShareBar({
   const [canNativeShare, setCanNativeShare] = useState(false);
 
   const liveUrl = resolveLiveUrl(url);
-  const liveImage = resolveImage(image);
+  const liveImage = resolveImageUrl(image);
   const shareText = title || '';
   const shareDescription = excerpt || title || '';
 
