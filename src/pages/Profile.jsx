@@ -30,6 +30,12 @@ export default function Profile() {
   const { user, logout, isLoadingAuth } = useAuth();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteStep, setDeleteStep] = useState(1); // 1 = explainer + type-to-confirm, 2 = final confirmation
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [deleteError, setDeleteError] = useState(null);
+
+  const DELETE_PHRASE = 'DELETE';
+  const canProceedToFinal = deleteConfirmText.trim().toUpperCase() === DELETE_PHRASE;
 
   if (isLoadingAuth) {
     return (
@@ -42,14 +48,44 @@ export default function Profile() {
   const handleDeleteAccount = async () => {
     if (!user?.id) return;
     setIsDeleting(true);
+    setDeleteError(null);
     try {
       await base44.functions.invoke('deleteAccount', {});
+      // Clear any locally-stored session/preferences before logout
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+      } catch (e) { /* ignore storage errors */ }
       setIsDeleteDialogOpen(false);
+      // Hard redirect to homepage after account is deleted + auth cleared
       logout('/');
+      if (typeof window !== 'undefined') {
+        window.location.href = '/';
+      }
     } catch (error) {
       console.error('Delete account error:', error);
       setIsDeleting(false);
+      setDeleteError(
+        'We could not complete your request right now. Please try again, or contact support if the issue persists.'
+      );
     }
+  };
+
+  const closeDeleteDialog = (open) => {
+    if (isDeleting) return; // don't allow closing mid-request
+    setIsDeleteDialogOpen(open);
+    if (!open) {
+      // reset state when dismissed
+      setDeleteStep(1);
+      setDeleteConfirmText('');
+      setDeleteError(null);
+    }
+  };
+
+  const resetToDeleteStep1 = () => {
+    setDeleteStep(1);
+    setDeleteConfirmText('');
+    setDeleteError(null);
   };
 
   return (
@@ -172,52 +208,123 @@ export default function Profile() {
           </button>
         </div>
 
-        {/* Delete Account Confirmation Dialog — App Store / Google Play required */}
-        <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-          <AlertDialogContent style={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', maxWidth: '420px' }}>
+        {/* Delete Account Confirmation Dialog — two-step, App Store / Google Play compliant */}
+        <AlertDialog open={isDeleteDialogOpen} onOpenChange={closeDeleteDialog}>
+          <AlertDialogContent style={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', maxWidth: '460px' }}>
             <AlertDialogHeader>
               <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm" style={{ color: '#F5EFE6' }}>
                 Permanently Delete Account
               </AlertDialogTitle>
               <AlertDialogDescription asChild>
                 <div className="space-y-3 mt-2">
-                  <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                    This action is <strong style={{ color: '#F5EFE6' }}>permanent and cannot be undone.</strong> Deleting your account will:
-                  </p>
-                  <ul className="space-y-1.5 pl-1">
-                    {[
-                      'Permanently erase your account and login credentials',
-                      'Delete all loyalty points and Torchbearer rewards',
-                      'Remove your order history and saved preferences',
-                      'Cancel any active subscriptions (you may need to cancel directly in Shopify)',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.55)' }}>
-                        <span className="mt-0.5 flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#E6B7AD', marginTop: '6px' }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="font-mono text-xs tracking-wide" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                    If you just want a break, you can simply sign out instead.
-                  </p>
+                  {deleteStep === 1 ? (
+                    <>
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                        This action is <strong style={{ color: '#F5EFE6' }}>permanent and cannot be undone.</strong> In accordance with app store data-privacy requirements, deleting your account will:
+                      </p>
+                      <ul className="space-y-1.5 pl-1">
+                        {[
+                          'Permanently erase your account record and login credentials',
+                          'Delete all loyalty points and Torchbearer rewards history',
+                          'Remove your saved preferences and order history',
+                          'Sign you out across all devices immediately',
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.55)' }}>
+                            <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#E6B7AD', marginTop: '6px' }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="pt-1">
+                        <p className="font-heading text-xs mb-1.5" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                          To continue, type <strong style={{ color: '#F5EFE6' }}>"{DELETE_PHRASE}"</strong> below to confirm.
+                        </p>
+                        <input
+                          type="text"
+                          value={deleteConfirmText}
+                          onChange={(e) => setDeleteConfirmText(e.target.value)}
+                          placeholder={DELETE_PHRASE}
+                          className="w-full px-3 py-2 font-mono text-sm uppercase tracking-widest"
+                          style={{
+                            background: '#0c0c0c',
+                            border: '1px solid rgba(230,183,173,0.3)',
+                            color: '#F5EFE6',
+                            borderRadius: '2px',
+                            outline: 'none',
+                          }}
+                          aria-label="Type DELETE to confirm"
+                          autoComplete="off"
+                        />
+                      </div>
+                      <p className="font-mono text-xs tracking-wide" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                        If you just want a break, you can simply sign out instead. Active Shopify subscriptions may need to be cancelled in your Shopify account.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.7)' }}>
+                        You typed <strong style={{ color: '#F5EFE6' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
+                      </p>
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                        If you proceed, your account and all associated personal data will be <strong style={{ color: '#F5EFE6' }}>permanently deleted</strong> — we cannot recover it afterward.
+                      </p>
+                      {deleteError && (
+                        <p className="font-mono text-xs" style={{ color: 'hsl(var(--destructive))' }}>
+                          {deleteError}
+                        </p>
+                      )}
+                    </>
+                  )}
                 </div>
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter className="flex-col-reverse sm:flex-row gap-2 mt-4">
-              <AlertDialogCancel
-                className="font-mono text-xs tracking-widest uppercase"
-                style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px' }}
-              >
-                Keep My Account
-              </AlertDialogCancel>
-              <AlertDialogAction
-                onClick={handleDeleteAccount}
-                disabled={isDeleting}
-                className="font-mono text-xs tracking-widest uppercase"
-                style={{ background: 'hsl(var(--destructive))', color: '#fff', minHeight: '44px', opacity: isDeleting ? 0.6 : 1 }}
-              >
-                {isDeleting ? 'Deleting...' : 'Yes, Delete Permanently'}
-              </AlertDialogAction>
+              {deleteStep === 2 ? (
+                <button
+                  type="button"
+                  onClick={resetToDeleteStep1}
+                  disabled={isDeleting}
+                  className="font-mono text-xs tracking-widest uppercase"
+                  style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px', borderRadius: '2px' }}
+                >
+                  Back
+                </button>
+              ) : (
+                <AlertDialogCancel
+                  className="font-mono text-xs tracking-widest uppercase"
+                  style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px' }}
+                  disabled={isDeleting}
+                >
+                  Keep My Account
+                </AlertDialogCancel>
+              )}
+              {deleteStep === 1 ? (
+                <AlertDialogAction
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (canProceedToFinal) setDeleteStep(2);
+                  }}
+                  disabled={!canProceedToFinal}
+                  className="font-mono text-xs tracking-widest uppercase"
+                  style={{
+                    background: canProceedToFinal ? 'hsl(var(--destructive))' : 'rgba(255,255,255,0.08)',
+                    color: canProceedToFinal ? '#fff' : 'rgba(240,235,225,0.35)',
+                    minHeight: '44px',
+                    cursor: canProceedToFinal ? 'pointer' : 'not-allowed',
+                  }}
+                >
+                  Continue
+                </AlertDialogAction>
+              ) : (
+                <AlertDialogAction
+                  onClick={handleDeleteAccount}
+                  disabled={isDeleting}
+                  className="font-mono text-xs tracking-widest uppercase"
+                  style={{ background: 'hsl(var(--destructive))', color: '#fff', minHeight: '44px', opacity: isDeleting ? 0.6 : 1 }}
+                >
+                  {isDeleting ? 'Deleting...' : 'Yes, Delete Permanently'}
+                </AlertDialogAction>
+              )}
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
