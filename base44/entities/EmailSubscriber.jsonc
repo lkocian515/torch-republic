@@ -10,9 +10,10 @@
       "type": "string",
       "enum": [
         "timed_popup",
-        "exit_intent"
+        "exit_intent",
+        "welcome_spin_wheel"
       ],
-      "description": "Which popup captured this email"
+      "description": "Which capture source produced this subscriber"
     },
     "discount_code": {
       "type": "string",
