@@ -102,7 +102,7 @@ export default function ReviewsSection() {
               {[1,2,3,4,5].map(n => <Star key={n} className="w-4 h-4" fill={RG} stroke={RG} />)}
             </div>
             <span className="font-mono text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(230,183,173,0.9)' }}>
-              4.9 / 5 average rating
+              Customer reviews
             </span>
           </div>
         </motion.div>
@@ -131,6 +131,9 @@ export default function ReviewsSection() {
                     {reviews[currentIdx].location}
                   </p>
                 )}
+                <p className="font-mono text-[8px] tracking-[0.12em] uppercase mt-2" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                  Customer Review
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>

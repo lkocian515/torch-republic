@@ -8,9 +8,10 @@ import HomeTrustRow from '../components/home/HomeTrustRow';
 import StartHereSection from '../components/home/StartHereSection';
 
 // Below-fold — lazy loaded to improve LCP / TTI
+const WhatDoYouWant = lazy(() => import('../components/home/WhatDoYouWant'));
+const NewToTorchRepublic = lazy(() => import('../components/home/NewToTorchRepublic'));
 const BundleSection = lazy(() => import('../components/home/BundleSection'));
 const ShopByCategory = lazy(() => import('../components/home/ShopByCategory'));
-const QuizTeaser = lazy(() => import('../components/home/QuizTeaser'));
 const BlendComparisonSection = lazy(() => import('../components/home/BlendComparisonSection'));
 const WhyTorchRepublic = lazy(() => import('../components/home/WhyTorchRepublic'));
 const TrustSection = lazy(() => import('../components/home/TrustSection'));
@@ -76,7 +77,7 @@ function StickyMobileCTA() {
 export default function Home() {
   useSEO({
     title: 'Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
-    description: "Explore premium instant coffee, mushroom coffee, and ceremonial matcha created for convenient, intentional daily rituals—no machine required. Free shipping $75+.",
+    description: "Explore premium instant coffee, mushroom coffee, and ceremonial matcha created for convenient, intentional daily rituals—no machine required. Free shipping $50+.",
     url: '/',
     type: 'website',
     faq: [
@@ -88,7 +89,7 @@ export default function Home() {
       { question: 'Who should drink mushroom coffee?', answer: 'Mushroom coffee is ideal for anyone seeking focus, clarity, and sustained energy without jitters. It\'s perfect for professionals, students, entrepreneurs, and wellness-conscious individuals who want a functional coffee alternative.' },
       { question: 'What are functional mushrooms?', answer: 'Functional mushrooms are adaptogenic mushrooms like Lion\'s Mane, Chaga, and Cordyceps that support cognitive function, immunity, energy, and overall wellness when consumed regularly.' },
       { question: 'What is instant coffee made from?', answer: 'Instant coffee is made from brewed coffee that has been freeze-dried or spray-dried into soluble granules. Torch Republic uses premium freeze-dried instant coffee to preserve flavor and aroma.' },
-      { question: 'How much caffeine is in Torch Republic coffee?', answer: 'Each serving of Torch Republic instant coffee contains approximately 60-80mg of caffeine, similar to a standard cup of coffee. Mushroom blends may have slightly less due to mushroom content.' },
+      { question: 'How much caffeine is in Torch Republic coffee?', answer: 'Caffeine content varies by blend. Classic instant coffee servings are comparable to a standard cup of coffee. Check the individual product page for the most current information.' },
     ],
   });
 
@@ -105,8 +106,18 @@ export default function Home() {
       {/* 1b. Trust Row */}
       <HomeTrustRow />
 
-      {/* 2. Best Sellers — Start Here (above fold on some viewports, eager) */}
+      {/* 2. "What do you want to change?" — customer intent selector */}
+      <Suspense fallback={<SectionFallback />}>
+        <WhatDoYouWant />
+      </Suspense>
+
+      {/* 3. Best Sellers — Start Here */}
       <StartHereSection />
+
+      {/* 4. New to Torch Republic — first-buyer path */}
+      <Suspense fallback={<SectionFallback />}>
+        <NewToTorchRepublic />
+      </Suspense>
 
       {/* Everything below is lazy-loaded — doesn't block LCP */}
       <Suspense fallback={<SectionFallback />}>
@@ -119,10 +130,6 @@ export default function Home() {
 
       <Suspense fallback={<SectionFallback />}>
         <ShopByCategory />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <QuizTeaser />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>
