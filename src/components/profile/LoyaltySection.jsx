@@ -28,15 +28,45 @@ export default function LoyaltySection({ user }) {
   const [copied, setCopied] = useState(null);
 
   useEffect(() => {
-    if (!user?.id) return;
-    Promise.all([
-      base44.entities.LoyaltyPoints.filter({ user_id: user.id }),
-      base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10),
-    ]).then(([pointsRecords, activityRecords]) => {
-      if (pointsRecords.length > 0) setRecord(pointsRecords[0]);
-      setActivity(activityRecords);
+    let cancelled = false;
+
+    const load = async () => {
+      if (!user?.id) return;
+      const [pointsRecords, activityRecords] = await Promise.all([
+        base44.entities.LoyaltyPoints.filter({ user_id: user.id }),
+        base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10),
+      ]);
+
+      let currentRecord = pointsRecords[0];
+      let currentActivity = activityRecords;
+
+      // First time opening loyalty: claim the one-time welcome bonus via a
+      // backend function (service role) so the member starts with points and
+      // has a real earn entry in Recent Activity.
+      if (!currentRecord) {
+        try {
+          const res = await base44.functions.invoke('claimWelcomeBonus', {});
+          if (res?.data?.record) {
+            currentRecord = res.data.record;
+            if (res.data.activity) currentActivity = [res.data.activity, ...currentActivity];
+          }
+        } catch (err) {
+          // Best-effort: if it fails, fall through with empty state below.
+          const retry = await base44.entities.LoyaltyPoints.filter({ user_id: user.id });
+          if (retry.length > 0) currentRecord = retry[0];
+          const retryActivity = await base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10);
+          currentActivity = retryActivity;
+        }
+      }
+
+      if (cancelled) return;
+      if (currentRecord) setRecord(currentRecord);
+      setActivity(currentActivity);
       setLoading(false);
-    });
+    };
+
+    load();
+    return () => { cancelled = true; };
   }, [user?.id]);
 
   const handleRedeem = async (reward) => {
