@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, User, Bookmark, ArrowRight } from 'lucide-react';
-import ShareButtons from '../components/social/ShareButtons';
+import ArticleShareBar from '@/components/social/ArticleShareBar';
 import BlogEmailCapture from '../components/blog/BlogEmailCapture';
 import PopularArticles from '../components/blog/PopularArticles';
 import { KNOWLEDGE_ARTICLES } from '@/lib/knowledgeArticles';
@@ -410,11 +410,23 @@ export default function BlogPostPage() {
                 </div>
               )}
               <div className="flex items-center gap-4 ml-auto">
-                <ShareButtons title={post.title} url={`/journal/${post.slug}`} image={post.featured_image} compact />
                 <button className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80" style={{ color: `${RG}50` }}>
                   <Bookmark size={14} /> Save
                 </button>
               </div>
+            </div>
+
+            {/* Share Bar — directly below author/date/reading-time row */}
+            <div className="mt-6">
+              <ArticleShareBar
+                title={post.title}
+                url={`/journal/${post.slug}`}
+                excerpt={post.excerpt}
+                image={post.featured_image}
+                slug={post.slug}
+                contentType="article"
+                location="top"
+              />
             </div>
           </div>
         </header>
@@ -498,9 +510,17 @@ export default function BlogPostPage() {
               </div>
             )}
 
-            {/* Share at bottom */}
+            {/* Share Bar — bottom, after conclusion and references */}
             <div className="mt-10 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-              <ShareButtons title={post.title} url={`/journal/${post.slug}`} image={post.featured_image} />
+              <ArticleShareBar
+                title={post.title}
+                url={`/journal/${post.slug}`}
+                excerpt={post.excerpt}
+                image={post.featured_image}
+                slug={post.slug}
+                contentType="article"
+                location="bottom"
+              />
             </div>
 
             {/* Related Products CTA */}

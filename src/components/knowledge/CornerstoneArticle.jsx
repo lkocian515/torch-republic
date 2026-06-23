@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { getRelatedArticles } from '@/lib/knowledgeArticles';
 import BlogEmailCapture from '@/components/blog/BlogEmailCapture';
 import PopularArticles from '@/components/blog/PopularArticles';
+import ArticleShareBar from '@/components/social/ArticleShareBar';
 
 const RG = '#E6B7AD';
 
@@ -92,6 +93,11 @@ function renderBlock(block, key) {
           <p className="font-heading" style={{ color: 'rgba(240,235,225,0.75)', fontWeight: 300, lineHeight: 1.75, fontSize: '0.95rem' }}>
             {block.text}
           </p>
+          {block.link && (
+            <Link to={block.link} className="inline-flex items-center gap-1.5 mt-3 font-mono text-[8px] tracking-[0.25em] uppercase font-bold transition-opacity hover:opacity-80" style={{ color: RG }}>
+              {block.linkLabel || 'Read the full research guide'} <ArrowRight size={11} />
+            </Link>
+          )}
         </div>
       );
     case 'timeline':
@@ -319,10 +325,22 @@ export default function CornerstoneArticle({ article }) {
                 <span className="font-mono text-[8px] tracking-[0.25em] uppercase">{article.readTime} min read</span>
               </div>
             </div>
+
+            {/* Share Bar — directly below the author/date/reading-time row */}
+            <div className="mt-8 flex justify-center">
+              <div className="w-full max-w-md">
+                <ArticleShareBar
+                  title={article.title}
+                  url={`/knowledge/${article.slug}`}
+                  excerpt={article.excerpt}
+                  slug={article.slug}
+                  contentType="knowledge_article"
+                  location="top"
+                />
+              </div>
+            </div>
           </div>
         </header>
-
-        {/* Content — Two column on desktop */}
         <div className="px-6 md:px-10 pb-16">
           <div className="max-w-[1200px] mx-auto flex gap-12">
             {/* TOC Sidebar */}
@@ -415,6 +433,18 @@ export default function CornerstoneArticle({ article }) {
                   </Link>
                 </section>
               )}
+
+              {/* Share Bar — bottom, after the conclusion and CTAs */}
+              <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${RG}15` }}>
+                <ArticleShareBar
+                  title={article.title}
+                  url={`/knowledge/${article.slug}`}
+                  excerpt={article.excerpt}
+                  slug={article.slug}
+                  contentType="knowledge_article"
+                  location="bottom"
+                />
+              </div>
             </div>
           </div>
         </div>

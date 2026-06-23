@@ -43,7 +43,7 @@ function FAQItem({ question, answer }) {
 export default function ComparisonDetailPage({ data }) {
   const {
     competitor, title, metaTitle, intro, tableRows, bodySection, ourEdge, theirEdge,
-    products, faqs, relatedComparisons, verdict
+    products, faqs, relatedComparisons, verdict, researchLink
   } = data;
 
   return (
@@ -141,10 +141,22 @@ export default function ComparisonDetailPage({ data }) {
               ))}
             </motion.div>
           ))}
+
+          {/* Cross-link to the full research article — concise, not duplicated content */}
+          {researchLink && (
+            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="mt-8 p-5" style={{ background: `${RG}06`, border: `1px solid ${RG}20`, borderLeft: `3px solid ${RG}` }}>
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: RG }}>{researchLink.eyebrow || 'The Deeper Research'}</p>
+              <p className="font-heading mb-3" style={{ color: 'rgba(240,235,225,0.75)', fontWeight: 300, lineHeight: 1.75, fontSize: '0.95rem' }}>
+                {researchLink.text}
+              </p>
+              <Link to={researchLink.to} className="inline-flex items-center gap-1.5 font-mono text-[8px] tracking-[0.25em] uppercase font-bold transition-opacity hover:opacity-80" style={{ color: RG }}>
+                {researchLink.label || 'Read the full research guide'} <ArrowRight size={11} />
+              </Link>
+            </motion.div>
+          )}
         </div>
       </section>
-
-      {/* Verdict */}
       <section className="px-6 md:px-10 py-12">
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}

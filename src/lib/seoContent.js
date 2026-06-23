@@ -125,6 +125,7 @@ export const ALL_BLOG_TOPICS = [
 
   // ── INSTANT COFFEE (15) ──
   { slug: 'best-instant-coffee', title: 'Best Instant Coffee: How to Choose Quality in a Jar or Tube', cluster: 'instant-coffee', exists: true },
+  { slug: 'coffee-pods-plastic-waste-microplastics', title: 'Coffee Pods, Plastic Waste, and Microplastics: What the Research Actually Says', cluster: 'instant-coffee', exists: true, featured: true },
   { slug: 'what-makes-premium-instant-coffee-different', title: 'What Makes Premium Instant Coffee Different from Regular?', cluster: 'instant-coffee', exists: true },
   { slug: 'freeze-dried-vs-spray-dried-coffee', title: 'Freeze-Dried vs. Spray-Dried Instant Coffee: What\'s the Difference?', cluster: 'instant-coffee', exists: false },
   { slug: 'instant-coffee-hot-vs-iced', title: 'Instant Coffee Hot vs. Iced: The Best Ways to Brew Both', cluster: 'instant-coffee', exists: false },
@@ -1069,10 +1070,22 @@ export const INTERNAL_LINK_MAP = {
   '/shop/instant-coffee': [
     '/journal/best-instant-coffee',
     '/journal/what-makes-premium-instant-coffee-different',
+    '/journal/coffee-pods-plastic-waste-microplastics',
     '/faq/what-is-instant-coffee',
     '/faq/freeze-dried-vs-spray-dried-faq',
     '/ingredients/arabica-coffee',
     '/build-your-ritual',
+  ],
+  '/journal/coffee-pods-plastic-waste-microplastics': [
+    '/switch-from-pods',
+    '/knowledge/coffee-pods-vs-instant-coffee',
+    '/compare/instant-coffee-vs-k-cups',
+    '/journal/what-makes-premium-instant-coffee-different',
+    '/knowledge/best-coffee-without-coffee-maker',
+    '/ingredients/freeze-dried-instant-coffee',
+    '/shop/instant-coffee',
+    '/shop/instant-mushroom-coffee',
+    '/founder-story',
   ],
   '/journal': [
     '/shop/instant-mushroom-coffee',

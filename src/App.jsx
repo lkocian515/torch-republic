@@ -98,6 +98,7 @@ const AdminBlogEditor = lazy(() => import('./pages/AdminBlogEditor.jsx'));
 const TrafficGrowthCenter = lazy(() => import('./pages/TrafficGrowthCenter.jsx'));
 const JournalHub = lazy(() => import('./pages/JournalHub.jsx'));
 const MushroomCoffeeVsRegularCoffee = lazy(() => import('./pages/blog/MushroomCoffeeVsRegularCoffee.jsx'));
+const CoffeePodsPlasticWasteMicroplastics = lazy(() => import('./pages/blog/CoffeePodsPlasticWasteMicroplastics.jsx'));
 const CeremonialMatchaVsCulinary = lazy(() => import('./pages/blog/CeremonialMatchaVsCulinary.jsx'));
 const PremiumInstantCoffeeDifference = lazy(() => import('./pages/blog/PremiumInstantCoffeeDifference.jsx'));
 const FAQIndex = lazy(() => import('./pages/FAQIndex.jsx'));
@@ -340,6 +341,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-antioxidant-king" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomAntioxidantKing" queryClient={queryClient}><ChagaMushroomAntioxidantKing /></LayoutWrapper></Suspense>} />
         {/* mushroom-coffee-vs-regular-coffee now served from DB via /journal/:slug */}
+        <Route path="/journal/coffee-pods-plastic-waste-microplastics" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodsPlasticWasteMicroplastics" queryClient={queryClient}><CoffeePodsPlasticWasteMicroplastics /></LayoutWrapper></Suspense>} />
+        {/* /Journal (uppercase) → /journal (lowercase) — single canonical Journal URL */}
+        <Route path="/Journal" element={<Navigate to="/journal" replace />} />
+        <Route path="/Journal/:slug" element={<Navigate to="/journal" replace />} />
         <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaVsCulinary" queryClient={queryClient}><CeremonialMatchaVsCulinary /></LayoutWrapper></Suspense>} />
         <Route path="/journal/what-makes-premium-instant-coffee-different" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PremiumInstantCoffeeDifference" queryClient={queryClient}><PremiumInstantCoffeeDifference /></LayoutWrapper></Suspense>} />
 
