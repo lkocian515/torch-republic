@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import ShareButtons from '../components/social/ShareButtons';
@@ -59,6 +59,15 @@ const TRUST_BY_CATEGORY = {
     { icon: Truck, label: 'Free Shipping $50+' },
     { icon: Lock, label: 'Secure Checkout' },
   ],
+};
+
+const DEPRECATED_PRODUCT_REDIRECTS = {
+  'ember-rise': '/products/ember-reserve',
+  'midnight-watch': '/shop/instant-coffee',
+  'dreamcap-blend': '/shop/instant-mushroom-coffee',
+  'the-oracle': '/shop/instant-mushroom-coffee',
+  'mystic-bloom': '/shop/instant-mushroom-coffee',
+  'the-ascendant-matcha-blend': '/shop/matcha',
 };
 
 const ACCORDIONS = [
@@ -1004,12 +1013,14 @@ export default function BlendDetail() {
   }
 
   if (!product) {
+    const redirectTo = DEPRECATED_PRODUCT_REDIRECTS[slug];
+    if (redirectTo) return <Navigate to={redirectTo} replace />;
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-6"
-        style={{ background: '#080808', color: '#F7F1E8' }}>
-        <p className="font-serif text-2xl">Blend not found.</p>
+        style={{ background: '#FBF8F2', color: '#2D2824' }}>
+        <p className="font-serif text-2xl">Product not found.</p>
         <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
-          style={{ color: '#E6B7AD' }}>← Back to Shop</Link>
+          style={{ color: '#B86543' }}>← Back to Shop</Link>
       </div>
     );
   }

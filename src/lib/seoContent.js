@@ -18,9 +18,9 @@ export const TOPIC_CLUSTERS = {
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
       { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
       { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
-      { name: 'DreamCap', path: '/products/dreamcap-instant-mushroom-coffee' },
-      { name: 'The Oracle', path: '/products/the-oracle-instant-mushroom-coffee' },
-      { name: 'Mystic Bloom', path: '/products/mystic-bloom-instant-mushroom-coffee' },
+      { name: 'DreamCap', path: '/products/mooncap-restore-instant-mushroom-coffee' },
+      { name: 'The Oracle', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'Mystic Bloom', path: '/products/suncap-rise-instant-mushroom-coffee' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -31,7 +31,7 @@ export const TOPIC_CLUSTERS = {
     products: [
       { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
       { name: 'Ember Rise', path: '/products/ember-rise-instant-coffee' },
-      { name: 'Midnight Watch', path: '/products/midnight-watch-instant-coffee' },
+      { name: 'Midnight Watch', path: '/products/ember-rise-instant-coffee' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
@@ -41,7 +41,7 @@ export const TOPIC_CLUSTERS = {
     pillarUrl: '/shop/matcha',
     products: [
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Ascendant Matcha', path: '/products/the-ascendant-matcha-blend' },
+      { name: 'The Ascendant Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
@@ -322,7 +322,7 @@ export const INGREDIENT_PAGES = [
     researchSummary: "Strongest evidence for immune support and stress modulation. Smaller but credible evidence base for sleep quality. Long safety record in traditional use.",
     products: [
       { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
-      { name: 'DreamCap', path: '/products/dreamcap-instant-mushroom-coffee' },
+      { name: 'DreamCap', path: '/products/mooncap-restore-instant-mushroom-coffee' },
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
     relatedSlugs: ['adaptogens-guide', 'mushroom-coffee-benefits', 'reishi-guide', 'sleep-and-coffee-timing'],
@@ -347,7 +347,7 @@ export const INGREDIENT_PAGES = [
     researchSummary: "One of the most well-studied functional compounds. Over 30 human trials across cognitive performance, anxiety, and sleep. Combination with caffeine is strongly supported.",
     products: [
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Ascendant Matcha', path: '/products/the-ascendant-matcha-blend' },
+      { name: 'The Ascendant Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
     relatedSlugs: ['matcha-benefits', 'l-theanine-and-caffeine', 'matcha-for-anxiety', 'ceremonial-matcha-vs-culinary'],
@@ -373,7 +373,7 @@ export const INGREDIENT_PAGES = [
     products: [
       { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
       { name: 'Ember Rise', path: '/products/ember-rise-instant-coffee' },
-      { name: 'Midnight Watch', path: '/products/midnight-watch-instant-coffee' },
+      { name: 'Midnight Watch', path: '/products/ember-rise-instant-coffee' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
     relatedSlugs: ['what-makes-premium-instant-coffee-different', 'freeze-dried-vs-spray-dried-coffee', 'best-instant-coffee', 'arabica-vs-robusta-instant'],

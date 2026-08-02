@@ -99,7 +99,7 @@ export default function MatchaCollection() {
               Ceremonial Matcha Powder<br />for Calm Focus & Instant Matcha Lattes
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-              Three ceremonial grade matcha blends with L-theanine for calm, jitter-free energy and deep focus. Dissolves instantly — hot or iced. No whisk needed.
+              Two ceremonial matcha blends for calm daily ritual and versatile preparation. Dissolves instantly — hot or iced. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.7 }}>
@@ -123,7 +123,7 @@ export default function MatchaCollection() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto">
           <img 
             src={collectionImage} 
-            alt="Torch Republic Matcha Collection - The Monk, The Ascendant, The Alchemist" 
+            alt="Torch Republic Matcha Collection - The Alchemist and The Monk" 
             loading="lazy"
             decoding="async"
             className="w-full rounded-lg shadow-lg"
@@ -195,7 +195,7 @@ export default function MatchaCollection() {
               Choose Your Matcha Ritual
             </h2>
             <p className="font-heading text-sm" style={{ color: 'rgba(210,195,175,0.55)' }}>
-              Three ceremonial matcha blends. Each crafted for a different intention.
+              Two ceremonial matcha blends. Each crafted for a different intention.
             </p>
           </motion.div>
           

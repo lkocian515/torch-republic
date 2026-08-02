@@ -223,7 +223,7 @@ export default function CoffeeOfMonth({ topBlend, avgRating, reviewCount }) {
             View All Blends
           </Link>
           <Link
-            to="/bundle"
+            to="/build-your-ritual"
             className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-80 py-3 px-6 rounded-sm"
             style={{
               border: `1px solid ${RG}30`,

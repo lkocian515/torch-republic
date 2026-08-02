@@ -26,8 +26,7 @@ const WARM_CREAM = '#F0EBE1';
 const BLEND_RECOMMENDATIONS = [
   { goal: 'I want focus', blend: 'GlowMind Clarity', slug: 'glowmind-clarity', icon: Brain, color: '#E6B7AD' },
   { goal: 'I want morning energy', blend: 'SunCap Rise', slug: 'suncap-rise', icon: Sun, color: '#D6B27A' },
-  { goal: 'I want calm restoration', blend: 'MoonCap Restore', slug: 'mooncap-restore', icon: Moon, color: '#C98F86' },
-  { goal: 'I want intuition and reflection', blend: 'The Oracle', slug: 'the-oracle', icon: Sparkles, color: '#C4A8A0' },
+  { goal: 'I want calm restoration', blend: 'MoonCap Restore', slug: 'mooncap-restore', icon: Moon, color: '#9EAD95' },
 ];
 
 // Ingredient data
@@ -105,7 +104,7 @@ export default function MushroomCoffeeCollection() {
                Premium Coffee Rituals<br />Powered By Nature
              </h1>
              <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-               Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Six premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
+               Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
              </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#080808', borderRadius: '4px' }}>
@@ -141,7 +140,7 @@ export default function MushroomCoffeeCollection() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="mt-16">
             <img 
               src={collectionImage || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1c5f69d5c_bgyvyj.png'} 
-              alt="Torch Republic mushroom coffee collection featuring six instant mushroom coffee blends" 
+              alt="Torch Republic mushroom coffee collection featuring three instant mushroom coffee blends" 
               loading="lazy"
               decoding="async"
               className="w-full rounded-lg shadow-lg"
@@ -178,7 +177,7 @@ export default function MushroomCoffeeCollection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { title: 'Focus', desc: 'Blends featuring Lion\'s Mane are crafted for mornings when you want clarity and mental presence.', icon: Brain, color: '#E6B7AD' },
-              { title: 'Resilience', desc: 'Mushroom blends such as Chaga are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#D6B27A' },
+              { title: 'Resilience', desc: 'Mushroom blends with Chaga are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#D6B27A' },
               { title: 'Ritual', desc: 'Instant format means no grinder, no machine, and no complicated routine. Just scoop, stir, and begin.', icon: Coffee, color: '#C98F86' },
             ].map((card, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
@@ -215,7 +214,7 @@ export default function MushroomCoffeeCollection() {
               Choose Your Ritual
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
-              Six purpose-built blends crafted with premium instant coffee, Lion's Mane, and Chaga for a different kind of morning. All available as subscriptions — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
+              Three purpose-built mushroom coffees crafted with premium instant coffee, Lion's Mane, and Chaga for a different kind of morning. All available as subscriptions — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
 

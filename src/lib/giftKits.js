@@ -40,14 +40,14 @@ const CATALOG_PRICES = {
   'suncap-rise-instant-mushroom-coffee': 22.99,
   'glowmind-clarity-instant-mushroom-coffee': 22.99,
   'mooncap-restore-instant-mushroom-coffee': 22.99,
-  'dreamcap-instant-mushroom-coffee': 22.99,
-  'the-oracle-instant-mushroom-coffee': 22.99,
-  'mystic-bloom-instant-mushroom-coffee': 22.99,
+  'mooncap-restore-instant-mushroom-coffee': 22.99,
+  'glowmind-clarity-instant-mushroom-coffee': 22.99,
+  'suncap-rise-instant-mushroom-coffee': 22.99,
   'torchbearer-instant-coffee': 19.99,
   'ember-rise-instant-coffee': 19.99,
-  'midnight-watch-instant-coffee': 19.99,
+  'ember-rise-instant-coffee': 19.99,
   'the-monk-matcha-blend': 24.99,
-  'the-ascendant-matcha-blend': 24.99,
+  'the-alchemist-matcha-blend': 24.99,
   'the-alchemist-matcha-blend': 24.99,
 };
 
@@ -79,7 +79,7 @@ const KIT_DEFS = [
       'Torch Republic Evening Restore Kit with mushroom coffee, a dark ceramic mug, and a calming evening setting.',
     items: [
       { handle: 'mooncap-restore-instant-mushroom-coffee', label: 'MoonCap Restore — Dark Roast Mushroom Coffee' },
-      { handle: 'dreamcap-instant-mushroom-coffee', label: 'DreamCap Blend — Medium Roast Mushroom Coffee' },
+      { handle: 'mooncap-restore-instant-mushroom-coffee', label: 'DreamCap Blend — Medium Roast Mushroom Coffee' },
     ],
     decorationNote: 'Serving accessories shown in the photo are not included.',
     detailPath: '/shop/instant-mushroom-coffee',
@@ -96,7 +96,7 @@ const KIT_DEFS = [
     items: [
       { handle: 'torchbearer-instant-coffee', label: 'Torchbearer — Premium Instant Coffee' },
       { handle: 'suncap-rise-instant-mushroom-coffee', label: 'SunCap Rise — Mushroom Coffee' },
-      { handle: 'dreamcap-instant-mushroom-coffee', label: 'DreamCap Blend — Mushroom Coffee' },
+      { handle: 'mooncap-restore-instant-mushroom-coffee', label: 'DreamCap Blend — Mushroom Coffee' },
     ],
     decorationNote: 'Gift box, mug, and card shown in the photo are not included.',
     detailPath: '/bundle',
@@ -113,7 +113,7 @@ const KIT_DEFS = [
       'Torch Republic Matcha Serenity Kit with ceremonial matcha, a matcha bowl, whisk, and premium branded packaging.',
     items: [
       { handle: 'the-monk-matcha-blend', label: 'The Monk — Ceremonial Matcha Blend' },
-      { handle: 'the-ascendant-matcha-blend', label: 'The Ascendant — Ceremonial Matcha Blend' },
+      { handle: 'the-alchemist-matcha-blend', label: 'The Ascendant — Ceremonial Matcha Blend' },
     ],
     decorationNote: 'Matcha bowl and whisk shown in the photo are not included.',
     detailPath: '/shop/matcha',

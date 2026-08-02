@@ -16,19 +16,14 @@ export const PRICES = {
 // ── Per-product canonical prices ────────────────────────────────────────────
 // Classic Coffee
 export const PRICE_TORCHBEARER = 19.99;
-export const PRICE_EMBER_RISE = 19.99;
-export const PRICE_MIDNIGHT_WATCH = 19.99;
+export const PRICE_EMBER_RESERVE = 19.99;
 // Mushroom Coffee
 export const PRICE_MOONCAP_RESTORE = 22.99;
-export const PRICE_DREAMCAP_BLEND = 22.99;
 export const PRICE_GLOWMIND_CLARITY = 22.99;
 export const PRICE_SUNCAP_RISE = 22.99;
-export const PRICE_THE_ORACLE = 22.99;
-export const PRICE_MYSTIC_BLOOM = 22.99;
 // Matcha
-export const PRICE_THE_MONK = 24.99;
-export const PRICE_THE_ASCENDANT = 24.99;
 export const PRICE_THE_ALCHEMIST = 24.99;
+export const PRICE_THE_MONK = 24.99;
 
 // ── Bundle pricing ───────────────────────────────────────────────────────────
 // Every 3-tube bundle is always exactly $49.99, regardless of which products are selected.

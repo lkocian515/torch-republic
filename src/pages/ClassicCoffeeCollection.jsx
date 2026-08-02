@@ -129,7 +129,7 @@ export default function ClassicCoffeeCollection() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto">
           <img 
             src={collectionImage} 
-            alt="Torch Republic Classic Instant Coffee Collection - Torchbearer, Ember Rise, Midnight Watch" 
+            alt="Torch Republic Classic Instant Coffee Collection - Torchbearer and Ember Reserve" 
             loading="lazy"
             decoding="async"
             className="w-full rounded-lg shadow-lg"
@@ -165,7 +165,7 @@ export default function ClassicCoffeeCollection() {
               Choose Your Classic Ritual
             </h2>
             <p className="font-heading text-sm" style={{ color: 'rgba(210,195,175,0.55)' }}>
-              Three premium instant coffee blends. Pure coffee. No mushrooms. Just smooth, elevated mornings.
+              Two premium instant coffee blends. Pure coffee. No mushrooms. Just smooth, elevated mornings.
             </p>
           </motion.div>
           

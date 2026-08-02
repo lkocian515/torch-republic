@@ -21,28 +21,23 @@ const BUNDLE_SIZE = 3;
 
 // Core 12 products with their Shopify handles
 const CORE_PRODUCT_HANDLES = [
-  // Mushroom Coffee (6)
+  // Mushroom Coffee (3)
+  'suncap-rise-instant-mushroom-coffee',
   'glowmind-clarity-instant-mushroom-coffee',
   'mooncap-restore-instant-mushroom-coffee',
-  'dreamcap-instant-mushroom-coffee',
-  'suncap-rise-instant-mushroom-coffee',
-  'the-oracle-instant-mushroom-coffee',
-  'mystic-bloom-instant-mushroom-coffee',
-  // Classic Coffee (3)
+  // Classic Coffee (2)
   'torchbearer-instant-coffee',
   'ember-rise-instant-coffee',
-  'midnight-watch-instant-coffee',
-  // Matcha (3)
-  'the-monk-matcha-blend',
-  'the-ascendant-matcha-blend',
+  // Matcha (2)
   'the-alchemist-matcha-blend',
+  'the-monk-matcha-blend',
 ];
 
 // Category mapping
 const PRODUCT_CATEGORIES = {
-  'Mushroom Coffee': ['suncap-rise-instant-mushroom-coffee', 'glowmind-clarity-instant-mushroom-coffee', 'mooncap-restore-instant-mushroom-coffee', 'dreamcap-instant-mushroom-coffee', 'the-oracle-instant-mushroom-coffee', 'mystic-bloom-instant-mushroom-coffee'],
-  'Classic Coffee': ['torchbearer-instant-coffee', 'ember-rise-instant-coffee', 'midnight-watch-instant-coffee'],
-  'Matcha': ['the-monk-matcha-blend', 'the-ascendant-matcha-blend', 'the-alchemist-matcha-blend'],
+  'Mushroom Coffee': ['suncap-rise-instant-mushroom-coffee', 'glowmind-clarity-instant-mushroom-coffee', 'mooncap-restore-instant-mushroom-coffee'],
+  'Classic Coffee': ['torchbearer-instant-coffee', 'ember-rise-instant-coffee'],
+  'Matcha': ['the-alchemist-matcha-blend', 'the-monk-matcha-blend'],
 };
 
 export default function BuildYourRitual() {
@@ -54,7 +49,7 @@ export default function BuildYourRitual() {
 
   useSEO({
     title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
-    description: 'Build your custom 3-blend bundle and save. Mix and match from 12 products — classic coffee, mushroom coffee with Lions Mane and Chaga, and ceremonial matcha. Any 3 blends for $49.99. 30-day guarantee.',
+    description: 'Build your custom 3-blend bundle and save. Mix and match from seven Torch Republic products — classic instant coffee, mushroom coffee, and ceremonial matcha. Any 3 blends for $49.99. 30-day guarantee.',
     url: '/build-your-ritual',
   });
 
@@ -302,7 +297,7 @@ export default function BuildYourRitual() {
               Build Your Ritual
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
-              Choose any 3 products and save. Mix and match from our complete collection of premium instant coffee, functional mushroom coffee, and ceremonial matcha.
+              Choose any 3 products and save. Mix and match from the final seven-product collection of classic instant coffee, mushroom coffee, and ceremonial matcha.
             </p>
             <div className="flex items-center justify-center gap-6">
               <div className="text-center">

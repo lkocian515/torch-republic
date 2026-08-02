@@ -14,7 +14,7 @@ const BEST_SELLERS = [
     benefit: 'Morning energy + clarity',
     badge: 'Best Seller',
     badgeColor: RG,
-    href: '/blends/suncap-rise',
+    href: '/products/suncap-rise',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666faf673_4.png',
     why: 'Best mainstream hook: morning energy + mushroom coffee',
   },
@@ -24,7 +24,7 @@ const BEST_SELLERS = [
     benefit: 'Focus, flow, and mental clarity',
     badge: "Founder's Pick",
     badgeColor: GOLD,
-    href: '/blends/glowmind-clarity',
+    href: '/products/glowmind-clarity-blend',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ded856483_3.png',
     why: 'Strongest benefit name — "Clarity" is what shoppers want',
   },
@@ -34,7 +34,7 @@ const BEST_SELLERS = [
     benefit: 'Bold · Smooth · Intense',
     badge: 'Classic Favorite',
     badgeColor: '#D67A5A',
-    href: '/torchbearer',
+    href: '/products/torchbearer',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0960b7cd6_fsdfesfes.png',
     why: 'Best entry product for people curious about the brand',
   },
@@ -44,7 +44,7 @@ const BEST_SELLERS = [
     benefit: 'Grounding, restoration, and calm balance',
     badge: 'Calm Ritual',
     badgeColor: '#C98F86',
-    href: '/blends/mooncap-restore',
+    href: '/products/mooncap-restore',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/375860656_2.png',
     why: 'Strong emotional appeal: calm, recovery, evening ritual',
   },
@@ -188,7 +188,7 @@ export default function BestSellersSection() {
             SunCap Rise + GlowMind Clarity + Torchbearer — everything you need to discover your perfect morning ritual.
           </p>
           <Link
-            to="/bundle"
+            to="/build-your-ritual"
             className="inline-flex items-center gap-2 font-mono uppercase tracking-[0.28em] text-xs font-bold transition-all hover:opacity-90"
             style={{ background: RG, color: '#050505', padding: '14px 36px', borderRadius: '2px' }}
           >
