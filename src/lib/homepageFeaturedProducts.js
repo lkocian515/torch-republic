@@ -99,7 +99,7 @@ export const ALL_HOMEPAGE_PRODUCTS = [
     accent: '#D6B27A',
     price: PRICES['mushroom-coffee'],
     cta: 'Add to Cart',
-    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/3_7cea93ef-7095-477f-b049-d4e885243dc6.png?v=1781102332',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     alt: 'SunCap Rise instant mushroom coffee by Torch Republic',
   },
   {

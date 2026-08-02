@@ -1,3 +1,35 @@
+export const APPROVED_PRODUCT_IMAGES = {
+  'glowmind-clarity': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
+  'glowmind-clarity-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
+  'glowmind-clarity-instant-mushroom-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
+  'glowmind clarity': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
+  'suncap-rise': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+  'suncap-rise-instant-mushroom-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+  'suncap rise': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+  'suncaprise': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+};
+
+export function getApprovedProductImage(product) {
+  if (!product) return null;
+  const keys = [product.id, product.slug, product.shopifyHandle, product.handle, product.name, product.title]
+    .filter(Boolean)
+    .map(value => String(value).toLowerCase());
+  return keys.map(key => APPROVED_PRODUCT_IMAGES[key]).find(Boolean) || null;
+}
+
+export function withApprovedProductImage(product) {
+  const approvedImage = getApprovedProductImage(product);
+  if (!approvedImage) return product;
+  return {
+    ...product,
+    image: approvedImage,
+    image_url: approvedImage,
+    featuredImage: approvedImage,
+    galleryImages: [approvedImage],
+    images: [approvedImage],
+  };
+}
+
 /**
  * Extract image URL from product object with comprehensive fallback chain
  * Checks all likely Shopify/Base44 image fields in priority order
@@ -5,6 +37,9 @@
  */
 export function getProductImage(product, fallbackImage = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png') {
   if (!product) return fallbackImage;
+
+  const approvedImage = getApprovedProductImage(product);
+  if (approvedImage) return approvedImage;
 
   const imageUrl =
     // DIRECT STRING FIELD - Most important for local catalog

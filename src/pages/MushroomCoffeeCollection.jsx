@@ -222,11 +222,11 @@ export default function MushroomCoffeeCollection() {
             {products.map((product, i) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
                 <Link to={`/products/${product.slug}`} className="block group" style={{ background: '#0F0E0D', border: `1px solid ${product.accent}20`, borderRadius: '6px', overflow: 'hidden', textDecoration: 'none' }}>
-                  <div className="aspect-[4/5] relative overflow-hidden" style={{ background: '#141312' }}>
+                  <div className="aspect-[4/5] relative overflow-hidden flex items-center justify-center" style={{ background: '#F8F5EF' }}>
                     <img 
                       src={product.image} 
                       alt={product.alt} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         // Show placeholder if image fails
                         e.target.style.display = 'none';

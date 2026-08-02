@@ -38,6 +38,7 @@ import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
 import ProductShippingConfidence from '@/components/cart/ProductShippingConfidence';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
+import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
 
 const TRUST_BY_CATEGORY = {
   'mushroom-coffee': [
@@ -189,6 +190,9 @@ function BlendDetailInner({ product }) {
     ? 'Premium Instant Coffee'
     : 'Instant Mushroom Coffee';
 
+  const approvedImage = getProductImage(product);
+  const isApprovedLightProduct = approvedImage === 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747' || approvedImage === 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988';
+
   const seoDesc = product.category === 'matcha'
     ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Ceremonial grade matcha for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
     : product.category === 'classic-coffee'
@@ -210,12 +214,12 @@ function BlendDetailInner({ product }) {
     description: seoDesc.slice(0, 160),
     url: `/products/${product.slug}`,
     type: 'product',
-    image: product.image,
+    image: approvedImage,
     product: {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.image,
+      image: approvedImage,
       sku: product.shopifyHandle || product.slug,
     },
     breadcrumbs: [
@@ -254,7 +258,7 @@ function BlendDetailInner({ product }) {
       id: product.id || product.slug,
       name: product.name,
       price: isSubscription ? subscriptionPrice : product.price,
-      image: product.image,
+      image: approvedImage,
       category: product.category,
       servings: product.servings,
       shopifyHandle: product.shopifyHandle,
@@ -305,7 +309,7 @@ function BlendDetailInner({ product }) {
             className="lg:sticky lg:top-24"
           >
             <div className="relative flex items-center justify-center"
-              style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}>
+              style={{ background: isApprovedLightProduct ? '#F8F5EF' : '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}>
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}12 0%, transparent 70%)` }} />
               {product.imagePlaceholder || !product.image ? (
@@ -317,10 +321,10 @@ function BlendDetailInner({ product }) {
                 </div>
               ) : (
                 <img
-                  src={product.image}
+                  src={approvedImage}
                   alt={product.alt || `${product.name} - ${product.roast} ${product.category === 'matcha' ? 'ceremonial matcha' : product.category === 'classic-coffee' ? 'premium instant coffee' : 'instant mushroom coffee'} - Torch Republic Coffee Company`}
                   className="w-full h-full object-contain p-8"
-                  style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
+                  style={{ filter: isApprovedLightProduct ? 'none' : 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
                     const placeholder = e.target.parentElement.querySelector('.product-image-error');
@@ -356,7 +360,7 @@ function BlendDetailInner({ product }) {
 
             {/* Gallery carousel */}
             {product.galleryImages && product.galleryImages.length > 0 && (
-              <GalleryCarousel images={product.galleryImages} accent={product.accent} productName={product.name} />
+              <GalleryCarousel images={isApprovedLightProduct ? [approvedImage] : product.galleryImages} accent={product.accent} productName={product.name} />
             )}
           </motion.div>
 
@@ -960,26 +964,26 @@ export default function BlendDetail() {
           if (shopifyProduct) {
             console.log('✅ Found Shopify match for', localProduct.name, ':', shopifyProduct.handle);
             // Merge Shopify data with local product
-            setProduct({
+            setProduct(withApprovedProductImage({
               ...localProduct,
               image: shopifyProduct.featuredImage || shopifyProduct.images?.[0] || localProduct.image,
               galleryImages: shopifyProduct.images?.length > 0 ? shopifyProduct.images : localProduct.galleryImages,
               price: shopifyProduct.price || localProduct.price,
               inStock: shopifyProduct.availableForSale,
-            });
+            }));
           } else {
             console.warn('⚠️ No Shopify match for', localProduct.name, '- using local data. Searched for:', localProduct.shopifyHandle, localProduct.slug, localProduct.id);
-            setProduct(localProduct);
+            setProduct(withApprovedProductImage(localProduct));
           }
         } else {
           console.warn('⚠️ No Shopify products returned - using local data');
-          setProduct(localProduct);
+          setProduct(withApprovedProductImage(localProduct));
         }
       } catch (error) {
         console.error('❌ Failed to fetch product from Shopify:', error);
         // Fallback to local product
         const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
-        setProduct(localProducts.find(p => p.slug === slug));
+        setProduct(withApprovedProductImage(localProducts.find(p => p.slug === slug)));
       } finally {
         setLoading(false);
       }

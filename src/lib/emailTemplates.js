@@ -94,7 +94,7 @@ export const EMAIL_TEMPLATES = {
                             <p style="font-family: 'Courier New', monospace; font-size: 10px; color: rgba(245,239,230,0.5); margin: 0;">Classic Instant Coffee</p>
                         </td>
                         <td width="33%" align="center" style="padding: 10px;">
-                            <img src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333" alt="GlowMind Clarity" width="140" style="max-width: 100%; border-radius: 4px;">
+                            <img src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747" alt="GlowMind Clarity" width="140" style="max-width: 100%; border-radius: 4px;">
                             <p style="font-family: 'Georgia', serif; font-size: 14px; color: #10B981; margin: 10px 0 5px;">GlowMind Clarity</p>
                             <p style="font-family: 'Courier New', monospace; font-size: 10px; color: rgba(245,239,230,0.5); margin: 0;">Mushroom Coffee</p>
                         </td>
@@ -198,7 +198,7 @@ export const EMAIL_TEMPLATES = {
                 <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; background: #141312; border: 1px solid rgba(16,185,129,0.2); border-radius: 8px;">
                     <tr>
                         <td width="45%" style="padding: 20px;">
-                            <img src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333" alt="GlowMind Clarity" width="200" style="max-width: 100%; border-radius: 4px;">
+                            <img src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747" alt="GlowMind Clarity" width="200" style="max-width: 100%; border-radius: 4px;">
                         </td>
                         <td width="55%" style="padding: 20px; vertical-align: top;">
                             <p style="font-family: 'Georgia', serif; font-size: 20px; color: #10B981; margin: 0 0 10px;">GlowMind Clarity</p>

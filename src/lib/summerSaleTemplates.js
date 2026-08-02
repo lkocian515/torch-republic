@@ -8,7 +8,7 @@
 const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
 const HERO_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg';
 const TORCHBEARER_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15_9efec3d4-7d73-4fd6-a4df-aba0f6cad920.png?v=1781102331';
-const GLOWMIND_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/4_21dba766-0e82-4b33-821a-3efdf847b2e9.png?v=1781102333';
+const GLOWMIND_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747';
 const MONK_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/18_8e5aeb4b-6266-48e5-a725-639e74310697.png?v=1781102333';
 
 const FOOTER = `

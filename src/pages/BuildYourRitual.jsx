@@ -5,6 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
 import { base44 } from '@/api/base44Client';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { getProductImage } from '@/lib/productImageHelpers';
 
 const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
   .reduce((acc, p) => { acc[p.shopifyHandle] = p.image; return acc; }, {});
@@ -98,7 +99,7 @@ export default function BuildYourRitual() {
             title: p.title,
             price: p.price || 24.99,
             compareAtPrice: p.compareAtPrice,
-            image: p.images?.[0]?.src || p.image || LOCAL_IMAGE_MAP[p.handle],
+            image: getProductImage({ id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: p.title, title: p.title, image: p.images?.[0]?.src || p.image || LOCAL_IMAGE_MAP[p.handle] }),
             category: category,
             accent: accentColors[category] || '#E6B7AD',
             available: p.availableForSale !== false,
@@ -393,7 +394,7 @@ export default function BuildYourRitual() {
                         }}
                       >
                         <div className="flex items-start gap-4 p-4">
-                          <div className="w-20 h-20 flex-shrink-0" style={{ background: '#0C0C0C' }}>
+                          <div className="w-20 h-20 flex-shrink-0" style={{ background: '#F8F5EF' }}>
                             <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -467,7 +468,7 @@ export default function BuildYourRitual() {
                               className="flex items-center justify-between"
                             >
                               <div className="flex items-center gap-3">
-                                <div className="w-12 h-12" style={{ background: '#0C0C0C', border: `1px solid ${product.accent}20` }}>
+                                <div className="w-12 h-12" style={{ background: '#F8F5EF', border: `1px solid ${product.accent}20` }}>
                                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" />
                                 </div>
                                 <div>
