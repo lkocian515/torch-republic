@@ -18,12 +18,37 @@ Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
 
-# ── Admin & internal dashboards ──
+# ── Admin, analytics & internal dashboards ──
 Disallow: /admin/
 Disallow: /admin
+Disallow: /Admin
+Disallow: /Dashboard
+Disallow: /dashboard
 Disallow: /email-campaign
+Disallow: /email-campaign-dashboard
+Disallow: /EmailCampaignDashboard
+Disallow: /emailcampaigndashboard
 Disallow: /traffic-report
 Disallow: /TrafficReport
+Disallow: /traffic-report
+Disallow: /admin/traffic
+Disallow: /admin/keywords
+Disallow: /KeywordAnalysis
+Disallow: /SearchQueryAnalysis
+Disallow: /search-query-analysis
+Disallow: /SEO
+Disallow: /seo
+Disallow: /local
+Disallow: /LocalSEO
+Disallow: /AdminShopify
+Disallow: /ProductSync
+Disallow: /product-sync
+Disallow: /CustomerPortal
+Disallow: /customerportal
+Disallow: /portal
+Disallow: /Portal
+Disallow: /LoyaltyPortal
+Disallow: /loyaltyportal
 
 # ── Torch Command (internal tooling) ──
 Disallow: /command/
