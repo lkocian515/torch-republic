@@ -1,0 +1,7 @@
+import React from 'react';
+import EditorialButton from './EditorialButton';
+import { colors, routes } from './theme';
+
+export default function BrandStorySection() {
+  return <section className="px-5 py-16 md:px-10" style={{ background: colors.card }}><div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-8 md:grid-cols-[0.35fr_0.65fr]"><h2 className="font-serif text-5xl font-bold tracking-[-0.03em]" style={{ color: colors.text }}>Coffee should mark the moment.</h2><div><p className="text-lg leading-8" style={{ color: colors.secondary }}>Torch Republic was created around a simple idea: what you drink can help shape how you enter the day. Each product gives that moment a name, a distinctive character, and a ritual worth returning to.</p><p className="mt-5 text-lg leading-8" style={{ color: colors.secondary }}>Our collection brings together convenient instant coffee, mushroom coffee, and Japanese matcha without reducing them to one generic experience. Choose the cup that fits the moment, prepare it your way, and carry the ritual forward.</p><div className="mt-8"><EditorialButton to={routes.why} variant="secondary">Why Torch Republic</EditorialButton></div></div></div></section>;
+}
