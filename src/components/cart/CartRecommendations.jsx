@@ -4,6 +4,7 @@ import { Plus, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const RG = '#E6B7AD';
 
@@ -57,7 +58,7 @@ export default function CartRecommendations({ cartItems }) {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: getProductImage(product),
       category: product.category,
       shopifyHandle: product.shopifyHandle,
       servings: product.servings,
@@ -95,8 +96,8 @@ export default function CartRecommendations({ cartItems }) {
             className="flex items-center gap-3 p-3 transition-all hover:border-opacity-30"
             style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.12)' }}
           >
-            <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: '#141414' }}>
-              <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" />
+            <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: '#F8F5EF' }}>
+              <img src={getProductImage(product)} alt={getProductAltText(product)} className="w-full h-full object-contain p-1" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-serif font-bold text-sm truncate" style={{ color: '#F5EFE6' }}>{product.name}</p>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Star, Award, TrendingUp, ArrowRight } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../../lib/mushroomProducts';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
@@ -95,10 +96,10 @@ export default function CoffeeOfMonth({ topBlend, avgRating, reviewCount }) {
               }}
             >
               <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-auto object-cover"
-                style={{ minHeight: '400px' }}
+                src={getProductImage(product)}
+                alt={getProductAltText(product)}
+                className="w-full h-auto object-contain"
+                style={{ minHeight: '400px', background: '#F8F5EF', padding: '16px' }}
               />
             </div>
             {/* Badge */}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 function ProductCard({ product, index }) {
   const [imgError, setImgError] = React.useState(false);
@@ -25,11 +26,11 @@ function ProductCard({ product, index }) {
           style={{ aspectRatio: '4/5', background: '#0A0A0A', border: '1px solid rgba(196,163,90,0.08)' }}
         >
           <img
-            src={imgError ? 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80' : product.image_url}
+            src={getProductImage(product)}
             onError={() => setImgError(true)}
-            alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            style={{ opacity: 0.85 }}
+            alt={getProductAltText(product)}
+            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+            style={{ opacity: imgError ? 0.6 : 0.95, background: '#F8F5EF', padding: '12px' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
           {product.compare_at_price > product.price && (

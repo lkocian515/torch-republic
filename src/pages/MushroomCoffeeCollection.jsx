@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, Leaf, Brain, Moon, Sun, Shield, Truck, Star, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, mergeWithShopifyData, getCollectionImage } from '@/lib/mushroomProducts';
+import { withApprovedProductImage, getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import BlendComparisonChart from '@/components/mushroom/BlendComparisonChart';
@@ -58,7 +59,7 @@ export default function MushroomCoffeeCollection() {
     async function loadData() {
       try {
         const { products: mergedProducts, collections } = await mergeWithShopifyData(MUSHROOM_PRODUCTS);
-        setProducts(mergedProducts);
+        setProducts(mergedProducts.map(withApprovedProductImage));
         // Get mushroom collection image from Shopify
         const mushroomCollection = getCollectionImage('mushroom-coffee', collections);
         if (mushroomCollection) {
@@ -224,8 +225,8 @@ export default function MushroomCoffeeCollection() {
                 <Link to={`/products/${product.slug}`} className="block group" style={{ background: '#0F0E0D', border: `1px solid ${product.accent}20`, borderRadius: '6px', overflow: 'hidden', textDecoration: 'none' }}>
                   <div className="aspect-[4/5] relative overflow-hidden flex items-center justify-center" style={{ background: '#F8F5EF' }}>
                     <img 
-                      src={product.image} 
-                      alt={product.alt} 
+                      src={getProductImage(product)} 
+                      alt={getProductAltText(product)} 
                       className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         // Show placeholder if image fails

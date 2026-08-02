@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Zap, Clock, Coffee, CheckCircle } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const RG = '#E6B7AD';
 const DIM = 'rgba(240,232,220,0.55)';
@@ -63,8 +64,8 @@ export default function InstantCoffeeForEnergy() {
           {CLASSIC_COFFEE_PRODUCTS.slice(0, 3).map((product) => (
             <div key={product.id} className="relative" style={{ width: '140px', height: '140px' }}>
               <img
-                src={product.image}
-                alt={product.name}
+                src={getProductImage(product)}
+                alt={getProductAltText(product)}
                 className="w-full h-full object-contain"
                 style={{ filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.5))' }}
               />

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
@@ -66,10 +67,10 @@ function BestSellerCard({ product, index }) {
       {/* Image */}
       <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
         <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-          style={{ opacity: 0.9 }}
+          src={getProductImage(product)}
+          alt={getProductAltText(product)}
+          className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+          style={{ opacity: 0.95, background: '#F8F5EF', padding: '12px' }}
         />
         {/* Badge */}
         <div className="absolute top-3 left-3">

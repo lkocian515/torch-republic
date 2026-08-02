@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 function ProductCard({ product, index }) {
   const url = product.shopify_handle ? `https://torch-republic.com/products/${product.shopify_handle}` : null;
@@ -23,10 +24,10 @@ function ProductCard({ product, index }) {
         {/* Image */}
         <div className="relative overflow-hidden mb-4" style={{ aspectRatio: '4/5', background: '#0A0A0A', border: '1px solid rgba(196,163,90,0.08)' }}>
           <img
-            src={product.image_url}
-            alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            style={{ opacity: 0.88 }}
+            src={getProductImage(product)}
+            alt={getProductAltText(product)}
+            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+            style={{ opacity: 0.95, background: '#F8F5EF', padding: '12px' }}
           />
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)' }}>
             <div className="w-full p-4 text-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ background: '#C9A24A', color: '#000' }}>

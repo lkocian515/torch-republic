@@ -5,10 +5,10 @@ import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
 import { base44 } from '@/api/base44Client';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
-import { getProductImage } from '@/lib/productImageHelpers';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const LOCAL_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
-  .reduce((acc, p) => { acc[p.shopifyHandle] = p.image; return acc; }, {});
+const LOCAL_PRODUCT_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
+  .reduce((acc, p) => { acc[p.shopifyHandle] = p; return acc; }, {});
 
 import { BUNDLE_PRICE_3, getPriceByCategory } from '@/lib/pricingConfig';
 
@@ -99,7 +99,8 @@ export default function BuildYourRitual() {
             title: p.title,
             price: p.price || 24.99,
             compareAtPrice: p.compareAtPrice,
-            image: getProductImage({ id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: p.title, title: p.title, image: p.images?.[0]?.src || p.image || LOCAL_IMAGE_MAP[p.handle] }),
+            image: getProductImage({ ...(LOCAL_PRODUCT_MAP[p.handle] || {}), id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: p.title, title: p.title }),
+            imageAlt: getProductAltText(LOCAL_PRODUCT_MAP[p.handle] || { name: p.title, category }),
             category: category,
             accent: accentColors[category] || '#E6B7AD',
             available: p.availableForSale !== false,
@@ -395,7 +396,7 @@ export default function BuildYourRitual() {
                       >
                         <div className="flex items-start gap-4 p-4">
                           <div className="w-20 h-20 flex-shrink-0" style={{ background: '#F8F5EF' }}>
-                            <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" />
+                            <img src={getProductImage(product)} alt={product.imageAlt || getProductAltText(product)} className="w-full h-full object-contain p-2" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <h3 className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</h3>
@@ -469,7 +470,7 @@ export default function BuildYourRitual() {
                             >
                               <div className="flex items-center gap-3">
                                 <div className="w-12 h-12" style={{ background: '#F8F5EF', border: `1px solid ${product.accent}20` }}>
-                                  <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" />
+                                  <img src={getProductImage(product)} alt={product.imageAlt || getProductAltText(product)} className="w-full h-full object-contain p-1" />
                                 </div>
                                 <div>
                                   <p className="font-serif font-bold text-white text-xs">{product.name}</p>

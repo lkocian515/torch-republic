@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const CartContext = createContext(null);
 
@@ -30,16 +31,21 @@ export function CartProvider({ children }) {
   }, [items]);
 
   const addItem = useCallback((product, qty = 1) => {
+    const normalizedProduct = {
+      ...product,
+      image: getProductImage(product),
+      imageAlt: getProductAltText(product),
+    };
     setItems(prev => {
       // Use shopifyHandle as primary key if available, fallback to id
-      const key = product.shopifyHandle || product.id;
+      const key = normalizedProduct.shopifyHandle || normalizedProduct.id;
       const existing = prev.find(i => (i.shopifyHandle || i.id) === key);
       if (existing) {
-        return prev.map(i => (i.shopifyHandle || i.id) === key ? { ...i, qty: i.qty + qty } : i);
+        return prev.map(i => (i.shopifyHandle || i.id) === key ? { ...i, qty: i.qty + qty, image: normalizedProduct.image, imageAlt: normalizedProduct.imageAlt } : i);
       }
-      return [...prev, { ...product, qty }];
+      return [...prev, { ...normalizedProduct, qty }];
     });
-    setToast(product.name);
+    setToast(normalizedProduct.name);
     setDrawerOpen(true);
   }, []);
 

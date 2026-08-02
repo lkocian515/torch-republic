@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-// Build a quick handle→image lookup from local product catalog
-const PRODUCT_IMAGE_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
-  .reduce((acc, p) => { if (p.shopifyHandle && p.image) acc[p.shopifyHandle] = p.image; return acc; }, {});
+const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
+  .reduce((acc, p) => {
+    [p.shopifyHandle, p.slug, p.id, p.name].filter(Boolean).forEach(key => { acc[key] = p; });
+    return acc;
+  }, {});
 
 const RG = '#E6B7AD';
 
@@ -252,18 +255,12 @@ export default function FindYourRitual() {
               <div className="grid grid-cols-1 sm:grid-cols-2">
                 <div className="flex items-center justify-center p-8 sm:p-12"
                   style={{ background: `linear-gradient(135deg, ${result.accent}12 0%, #0C0C0C 100%)`, minHeight: '260px' }}>
-                  {PRODUCT_IMAGE_MAP[result.imageHandle] ? (
-                    <img
-                      src={PRODUCT_IMAGE_MAP[result.imageHandle]}
-                      alt={result.products[0]}
-                      className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
-                      style={{ filter: 'drop-shadow(0 0 32px rgba(0,0,0,0.6))' }}
-                    />
-                  ) : (
-                    <div className="w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center" style={{ background: `${result.accent}10`, borderRadius: '8px' }}>
-                      <p className="font-mono text-[8px] tracking-[0.2em] uppercase text-center" style={{ color: result.accent }}>{result.products[0]}</p>
-                    </div>
-                  )}
+                  <img
+                    src={getProductImage(PRODUCT_LOOKUP[result.imageHandle])}
+                    alt={getProductAltText(PRODUCT_LOOKUP[result.imageHandle], result.products[0])}
+                    className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
+                    style={{ filter: 'none' }}
+                  />
                 </div>
                 <div className="p-8 flex flex-col justify-center text-center sm:text-left" style={{ background: '#0F0E0D' }}>
                   <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: result.accent }}>

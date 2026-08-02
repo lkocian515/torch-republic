@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS, CLASSIC_COLLECTION_IMAGE } from '@/lib/mushroomProducts';
+import { withApprovedProductImage } from '@/lib/productImageHelpers';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import { base44 } from '@/api/base44Client';
@@ -49,13 +50,11 @@ export default function ClassicCoffeeCollection() {
             const shopify = response.data.products.find(p => 
               p.handle === local.shopifyHandle || p.handle === local.handle
             );
-            return shopify ? {
+            return withApprovedProductImage(shopify ? {
               ...local,
-              image: shopify.image_url || local.image,
-              galleryImages: shopify.image_url ? [shopify.image_url] : local.galleryImages,
               price: shopify.price || local.price,
               inStock: shopify.in_stock,
-            } : local;
+            } : local);
           });
           
           setProducts(merged);

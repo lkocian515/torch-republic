@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 export default function BrandStoryCard({ product, index = 0 }) {
   return (
@@ -35,8 +36,8 @@ export default function BrandStoryCard({ product, index = 0 }) {
           {/* Image */}
           <div className="relative overflow-hidden" style={{ aspectRatio: '1/1', background: '#0F0F0F' }}>
             <img
-              src={product.image}
-              alt={product.alt}
+              src={getProductImage(product)}
+              alt={getProductAltText(product)}
               className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
             />
             {/* Category badge */}

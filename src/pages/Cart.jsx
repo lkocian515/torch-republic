@@ -19,6 +19,7 @@ import CartReassurance from '@/components/cart/CartReassurance';
 import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
 import { trackFreeShippingThresholdReached, trackCheckoutStarted } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
+import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const RG = '#E6B7AD';
 
@@ -134,9 +135,7 @@ export default function Cart() {
                 className="flex items-center gap-4 p-4"
                 style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.1)' }}
               >
-                {item.image && (
-                  <img src={item.image} alt={item.name} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#141414', padding: '4px' }} />
-                )}
+                <img src={getProductImage(item)} alt={item.imageAlt || getProductAltText(item)} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px' }} />
                 <div className="flex-1 min-w-0">
                   <p className="font-serif font-bold text-sm mb-0.5 truncate" style={{ color: '#F5EFE6' }}>{item.name}</p>
                   <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
