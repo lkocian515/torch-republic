@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RG = '#E6B7AD';
+const RG = '#B48A4A';
 
 const ITEMS = [
   { icon: '⚡', text: 'Ready in Seconds' },
@@ -17,9 +17,9 @@ export default function HomeTrustRow() {
     <div
       className="px-6 md:px-10 py-4"
       style={{
-        background: '#0D0C0B',
-        borderTop: '1px solid rgba(230,183,173,0.07)',
-        borderBottom: '1px solid rgba(230,183,173,0.07)',
+        background: '#FFFDFC',
+        borderTop: '1px solid #DED8CF',
+        borderBottom: '1px solid #DED8CF',
       }}
     >
       <div className="max-w-[1280px] mx-auto">
@@ -29,7 +29,7 @@ export default function HomeTrustRow() {
               <span style={{ fontSize: '0.75rem' }}>{item.icon}</span>
               <span
                 className="font-mono text-[11px] tracking-[0.12em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.85)' }}
+                style={{ color: '#655E56' }}
               >
                 {item.text}
               </span>

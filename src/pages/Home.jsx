@@ -94,7 +94,7 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#080808' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F8F5EF' }}>
       {/* Schema Markup for SEO */}
       <LocalBusinessSchema />
       <OrganizationSchema />

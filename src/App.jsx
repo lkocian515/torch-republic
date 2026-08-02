@@ -16,7 +16,6 @@ import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
 import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
-import SpinWheelPopup from './components/SpinWheelPopup';
 import ReviewPopup from './components/mushroom/ReviewPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
@@ -498,7 +497,6 @@ function App() {
               <ReviewPopup />
               <EmailCapturePopup />
               <ExitIntentPopup />
-              <SpinWheelPopup />
             </NavigationProvider>
           </Router>
           <Toaster />

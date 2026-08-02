@@ -100,10 +100,10 @@ export default function UnifiedHeader() {
       {/* Announcement Bar */}
       <div
         className="w-full flex items-center justify-center px-4 py-2.5"
-        style={{ background: '#050505', borderBottom: `1px solid ${RG}20`, willChange: 'transform' }}
+        style={{ background: '#3E3A24', borderBottom: '1px solid #DED8CF', willChange: 'transform' }}
       >
         <div className="flex items-center gap-2 max-w-4xl">
-          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RG }} />
+          <Flame className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#8A6F3E' }} />
           <AnimatePresence mode="wait">
             <motion.p
               key={currentPromoIndex}
@@ -112,13 +112,13 @@ export default function UnifiedHeader() {
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.3 }}
               className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-center"
-              style={{ color: 'rgba(240,235,225,0.8)', textTransform: 'uppercase', lineHeight: 1.4 }}
+              style={{ color: 'rgba(248,245,239,0.88)', textTransform: 'uppercase', lineHeight: 1.4 }}
             >
               {PROMO_MESSAGES[currentPromoIndex].split(' — ').map((part, i, arr) => (
                 <React.Fragment key={i}>
                   {i > 0 && ' — '}
                   {part.includes('code') || part.includes('Code') || part.includes('FREE') ? (
-                    <span style={{ color: RG, fontWeight: 700 }}>{part}</span>
+                    <span style={{ color: '#F8F5EF', fontWeight: 700 }}>{part}</span>
                   ) : (
                     part
                   )}
@@ -134,8 +134,8 @@ export default function UnifiedHeader() {
         className="sticky top-0 z-40 w-full"
         role="banner"
         style={{
-          background: '#0A0A0A',
-          borderBottom: `1px solid ${RG_DEEP}20`,
+          background: 'rgba(248,245,239,0.94)',
+          borderBottom: '1px solid #DED8CF',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
         }}
@@ -149,7 +149,7 @@ export default function UnifiedHeader() {
                   <ArrowLeft className="w-5 h-5" strokeWidth={2} />
                 </button>
               ) : (
-                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', borderRadius: '4px' }} aria-label="Open navigation menu" aria-expanded={mobileMenuOpen} aria-controls="mobile-nav-menu">
+                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: '#26231F', minWidth: '44px', minHeight: '44px', borderRadius: '4px' }} aria-label="Open navigation menu" aria-expanded={mobileMenuOpen} aria-controls="mobile-nav-menu">
                   <Menu className="w-6 h-6" strokeWidth={1.5} />
                 </button>
               )}
@@ -164,7 +164,7 @@ export default function UnifiedHeader() {
             <div className="w-10 md:w-auto flex items-center justify-end gap-4">
               <nav className="hidden md:flex items-center gap-6" aria-label="Primary navigation">
                 {/* Home */}
-                <Link to="/" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#F5EFE6', fontWeight: 500 }} aria-label="Home" aria-current={location.pathname === '/' ? 'page' : undefined}>
+                <Link to="/" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#26231F', fontWeight: 500 }} aria-label="Home" aria-current={location.pathname === '/' ? 'page' : undefined}>
                   Home
                 </Link>
 
@@ -176,15 +176,15 @@ export default function UnifiedHeader() {
                   </button>
                   <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
                     <div style={{ height: '8px' }} />
-                    <div className="py-2 min-w-[220px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                    <div className="py-2 min-w-[220px]" style={{ background: '#FFFDFC', border: '1px solid #DED8CF', borderRadius: '4px', boxShadow: '0 18px 45px rgba(38,35,31,0.12)' }}>
                       {SHOP_LINKS.map(link => (
                         <Link key={link.href} to={link.href} className="flex flex-col px-4 py-3 transition-all hover:opacity-70" style={{ textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                          <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.9)' }}>{link.label}</span>
-                          <span className="font-mono text-[9px] tracking-[0.15em] mt-0.5" style={{ color: 'rgba(230,183,173,0.45)' }}>{link.sub}</span>
+                          <span className="font-heading text-sm" style={{ color: '#26231F' }}>{link.label}</span>
+                          <span className="font-mono text-[9px] tracking-[0.15em] mt-0.5" style={{ color: '#8A6F3E' }}>{link.sub}</span>
                         </Link>
                       ))}
                       <div className="px-4 pt-3 pb-2">
-                        <Link to="/subscription" className="block text-center py-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ background: RG, color: '#080808' }}>
+                        <Link to="/subscription" className="block text-center py-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ background: '#B48A4A', color: '#211A12' }}>
                           Subscribe &amp; Save 20% →
                         </Link>
                       </div>
@@ -194,15 +194,15 @@ export default function UnifiedHeader() {
 
                 {/* Learn dropdown */}
                 <div className="relative group">
-                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: '#655E56', background: 'none', border: 'none', cursor: 'pointer' }}>
                     Learn
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
                   <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
                     <div style={{ height: '8px' }} />
-                    <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                    <div className="py-2 min-w-[200px]" style={{ background: '#FFFDFC', border: '1px solid #DED8CF', borderRadius: '4px', boxShadow: '0 18px 45px rgba(38,35,31,0.12)' }}>
                       {LEARN_LINKS.map(link => (
-                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
+                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#655E56', textDecoration: 'none' }}>
                           {link.label}
                         </Link>
                       ))}
@@ -211,21 +211,21 @@ export default function UnifiedHeader() {
                 </div>
 
                 {/* Subscribe & Save — standalone nav link */}
-                <Link to="/subscription" className="font-heading text-sm font-semibold transition-colors hover:opacity-70" style={{ color: RG }}>
+                <Link to="/subscription" className="font-heading text-sm font-semibold transition-colors hover:opacity-70" style={{ color: '#8A6F3E' }}>
                   Subscribe &amp; Save 20%
                 </Link>
 
                 {/* About dropdown */}
                 <div className="relative group">
-                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: 'rgba(240,235,225,0.7)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                  <button className="font-heading text-sm transition-colors hover:opacity-70 flex items-center gap-1.5" style={{ color: '#655E56', background: 'none', border: 'none', cursor: 'pointer' }}>
                     About
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5 }}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </button>
                   <div className="absolute top-full right-0 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-150 z-50">
                     <div style={{ height: '8px' }} />
-                    <div className="py-2 min-w-[200px]" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '4px' }}>
+                    <div className="py-2 min-w-[200px]" style={{ background: '#FFFDFC', border: '1px solid #DED8CF', borderRadius: '4px', boxShadow: '0 18px 45px rgba(38,35,31,0.12)' }}>
                       {ABOUT_LINKS.map(link => (
-                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: 'rgba(240,235,225,0.7)', textDecoration: 'none' }}>
+                        <Link key={link.href} to={link.href} className="block px-4 py-2.5 font-heading text-sm transition-colors hover:opacity-70" style={{ color: '#655E56', textDecoration: 'none' }}>
                           {link.label}
                         </Link>
                       ))}
@@ -237,13 +237,13 @@ export default function UnifiedHeader() {
               <button
                 onClick={() => setSearchOpen(true)}
                 className="flex items-center justify-center transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
-                style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', background: 'none', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
+                style={{ color: '#26231F', minWidth: '44px', minHeight: '44px', background: 'none', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
                 aria-label="Search Torch Republic products and content"
               >
                 <Search className="w-5 h-5" strokeWidth={1.8} />
               </button>
               {/* Admin panel removed from public header navigation for security */}
-              <Link to="/cart" className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', borderRadius: '4px' }} aria-label="View cart" aria-current={location.pathname === '/cart' ? 'page' : undefined}>
+              <Link to="/cart" className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: '#26231F', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', borderRadius: '4px' }} aria-label="View cart" aria-current={location.pathname === '/cart' ? 'page' : undefined}>
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.8} />
               </Link>
             </div>
@@ -257,7 +257,7 @@ export default function UnifiedHeader() {
           <motion.div initial={{ opacity: 0, x: -300 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -300 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 md:hidden" style={{ background: 'rgba(0,0,0,0.95)' }} role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: `1px solid ${RG}20` }}>
-                <span className="font-serif text-lg" style={{ color: RG }}>Menu</span>
+                <span className="font-serif text-lg" style={{ color: '#8A6F3E' }}>Menu</span>
                 <button onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold" style={{ color: RG, minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px' }} aria-label="Close navigation menu">
                   <X className="w-6 h-6" strokeWidth={1.8} />
                 </button>
