@@ -11,8 +11,8 @@ export default function Home() {
     description: 'Discover seven distinctive instant coffee, mushroom coffee, and ceremonial matcha rituals made for brighter starts and intentional days.',
     url: '/',
     type: 'website',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png',
-    imageAlt: 'Torch Republic coffee, mushroom coffee, and ceremonial matcha collection.',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png',
+    imageAlt: 'Torch Republic seven-product coffee, mushroom coffee, and matcha collection.',
     noindex: false,
   });
 

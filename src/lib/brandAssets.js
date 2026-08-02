@@ -6,7 +6,7 @@
 export const BRAND_IMAGES = {
   // Hero images — cinematic coffee scenes
   hero: {
-    main: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0a3c00618_generated_image.png',
+    main: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png',
     secondary: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5b60912f0_generated_image.png',
   },
 

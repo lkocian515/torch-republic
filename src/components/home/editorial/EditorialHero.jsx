@@ -1,7 +1,8 @@
 import React from 'react';
 import EditorialButton from './EditorialButton';
-import EditorialProductImage from './EditorialProductImage';
 import { colors, routes } from './theme';
+
+const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png';
 
 export default function EditorialHero({ products }) {
   return (
@@ -12,8 +13,14 @@ export default function EditorialHero({ products }) {
           <p className="mt-6 max-w-xl text-[clamp(1rem,1.5vw,1.18rem)] leading-8" style={{ color: colors.secondary }}>Instant coffee, mushroom coffee, and ceremonial matcha for the way your day unfolds—from the first spark to the slower moments in between.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row"><EditorialButton to={routes.ritual}>Find Your Ritual</EditorialButton><EditorialButton to={routes.shop} variant="secondary">Shop All Seven</EditorialButton></div>
         </div>
-        <div className="grid grid-cols-3 gap-2 sm:gap-3" aria-label="Complete seven-product Torch Republic collection">
-          {products.map((product, index) => <EditorialProductImage key={product.id} product={product} eager={index < 3} alt={`${product.displayTitle} tube in the seven-product Torch Republic collection`} />)}
+        <div className="overflow-hidden rounded-[28px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${colors.border}` }}>
+          <img
+            src={HERO_IMAGE}
+            alt="Torch Republic seven-product coffee, mushroom coffee, and matcha collection"
+            className="h-full w-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
     </section>

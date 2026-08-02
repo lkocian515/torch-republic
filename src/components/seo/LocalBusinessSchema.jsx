@@ -12,8 +12,8 @@ export default function LocalBusinessSchema() {
     "alternateName": "Torch Republic",
     "description": "Premium instant coffee, mushroom coffee, and ceremonial matcha designed for focus, clarity, and daily rituals. U.S.-based small business in Corpus Christi, Texas.",
     "url": "https://torchrepublic.com",
-    "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png",
-    "image": "https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg",
+    "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/894664fd3_generated-image.png",
+    "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png",
     "telephone": "+1-361-555-0123",
     "email": "admin@torchrepublic.com",
     "address": {
