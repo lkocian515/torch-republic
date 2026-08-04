@@ -66,10 +66,17 @@ const SEO_BY_PATH = {
 };
 
 const CANONICAL_OVERRIDES = {
+  '/bundle': '/build-your-ritual',
   '/mission': '/our-story',
+  '/compare': '/shop',
   '/classic-coffee': '/shop/instant-coffee',
   '/mushroom-coffee': '/shop/instant-mushroom-coffee',
   '/matcha': '/shop/matcha',
+  '/apparel': '/shop',
+  '/t-shirts': '/shop',
+  '/hoodies': '/shop',
+  '/collections/apparel': '/shop',
+  '/collections/t-shirts': '/shop',
 };
 
 const NOINDEX_EXACT_PATHS = new Set([
@@ -80,7 +87,7 @@ const NOINDEX_EXACT_PATHS = new Set([
   '/dashboard', '/seo', '/localseo', '/local', '/customerportal', '/portal', '/loyaltyportal',
   '/torchcommandhome', '/cognitivequiz', '/flowtimer', '/protocolsdirectory', '/protocoldetail', '/admincommand', '/adminblogeditor',
   '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service',
-  '/mission', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
+  '/bundle', '/mission', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
   '/research', '/compare', '/about/torch-republic-team', '/shop/morning-ritual', '/shop/focus-coffee', '/shop/travel-coffee',
   '/coffee-pod-alternatives', '/coffee-without-a-machine', '/camping-coffee', '/healthy-coffee-alternatives', '/coffee-rituals', '/matcha-vs-coffee', '/papua-new-guinea-coffee',
   '/mushroom-coffee-benefits', '/lions-mane-coffee', '/instant-coffee-for-energy', '/why-mushroom-coffee',
