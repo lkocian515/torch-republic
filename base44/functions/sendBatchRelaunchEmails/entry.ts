@@ -1,4 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
+import { EMAIL_TEMPLATES } from '../../shared/emailTemplates.js';
 
 Deno.serve(async (req) => {
     try {
@@ -23,9 +24,6 @@ Deno.serve(async (req) => {
         }
 
         const customers = customersResponse.data.data.segments[segment] || [];
-        
-        // Import email templates
-        const { EMAIL_TEMPLATES } = await import('../lib/emailTemplates.js');
         
         let template;
         let subject;
