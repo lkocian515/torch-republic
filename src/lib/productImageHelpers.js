@@ -52,7 +52,7 @@ export function withApprovedProductImage(product) {
  * Checks all likely Shopify/Base44 image fields in priority order
  * Never returns undefined/null - always provides a valid image URL
  */
-export function getProductImage(product, fallbackImage = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png') {
+export function getProductImage(product, fallbackImage = '/torch-republic-logo-transparent.png') {
   if (!product) return fallbackImage;
 
   const approvedImage = getApprovedProductImage(product);

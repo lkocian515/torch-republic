@@ -212,7 +212,7 @@ export const ALL_PRODUCTS = [
 
 export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;
-export const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png';
+export const LOGO_URL = '/torch-republic-logo-transparent.png';
 
 export const MUSHROOM_COLLECTION_IMAGE = FINAL_PRODUCT_IMAGE_URLS['suncap-rise'];
 export const CLASSIC_COLLECTION_IMAGE = FINAL_PRODUCT_IMAGE_URLS.torchbearer;
