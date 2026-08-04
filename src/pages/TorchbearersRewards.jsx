@@ -170,7 +170,7 @@ export default function TorchbearersRewards() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                to="/profile"
+                to="/login"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
                 style={{ background: RG, color: '#080808' }}
               >
@@ -268,7 +268,7 @@ export default function TorchbearersRewards() {
               When they make their first purchase, you both receive bonus points.
             </p>
             <Link
-              to="/profile"
+              to="/login"
               className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
               style={{ background: RG, color: '#080808' }}
             >

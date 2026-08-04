@@ -132,9 +132,7 @@ export default function IngredientPage() {
                 <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.8 }}>
                   {ingredient.researchSummary}
                 </p>
-                <Link to="/research" className="inline-flex items-center gap-2 mt-4 font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: ingredient.color }}>
-                  Research Hub <ArrowRight size={10} />
-                </Link>
+
               </div>
             </motion.div>
 
