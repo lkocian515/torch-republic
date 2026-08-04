@@ -12,8 +12,17 @@ const LOCAL_PRODUCT_MAP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...
 
 import { BUNDLE_PRICE_3, getPriceByCategory } from '@/lib/pricingConfig';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#B7653E';
+const EMERALD = '#566047';
+const THEME = {
+  page: '#F7F1E7',
+  cream: '#FBF8F1',
+  card: '#FFFDF8',
+  text: '#292622',
+  secondary: '#5F574F',
+  border: '#D9CDBA',
+  parchment: '#EFE5D6',
+};
 // Fixed bundle price — always $49.99 regardless of products selected
 const BUNDLE_PRICE = BUNDLE_PRICE_3;
 const INDIVIDUAL_PRICE = 22.99; // default fallback price
@@ -179,14 +188,14 @@ export default function BuildYourRitual() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808', color: '#F0EBE1' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: THEME.page, color: THEME.text }}>
         <div className="text-center">
           <p className="font-serif text-xl mb-4" style={{ color: RG }}>Unable to Load Products</p>
-          <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.5)' }}>{error}</p>
+          <p className="font-heading mb-6" style={{ color: THEME.secondary }}>{error}</p>
           <button
             onClick={() => window.location.reload()}
             className="font-mono text-[9px] tracking-[0.3em] uppercase px-6 py-3"
-            style={{ background: RG, color: '#080808' }}
+            style={{ background: RG, color: THEME.cream }}
           >
             Refresh Page
           </button>
@@ -196,7 +205,7 @@ export default function BuildYourRitual() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: '#080808', color: '#F0EBE1' }}>
+    <div className="min-h-screen" style={{ background: THEME.page, color: THEME.text }}>
 
       {/* Best Starter Bundle */}
       <section className="px-6 md:px-10 pt-16 pb-0">
@@ -206,58 +215,58 @@ export default function BuildYourRitual() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             className="relative overflow-hidden"
-            style={{ background: `linear-gradient(135deg, rgba(230,183,173,0.07) 0%, rgba(230,183,173,0.02) 100%)`, border: `1px solid ${RG}35` }}
+            style={{ background: THEME.card, border: `1px solid ${THEME.border}`, boxShadow: '0 18px 60px rgba(53,38,29,0.08)' }}
           >
             <div className="px-6 py-2" style={{ background: RG }}>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: '#080808' }}>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: THEME.cream }}>
                 ✦ Best Starter Bundle — Most Popular First Order
               </p>
             </div>
             <div className="p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div>
-                  <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+                  <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: THEME.text, lineHeight: 1.2 }}>
                     The Starter Ritual Bundle
                   </h2>
-                  <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.75)', fontWeight: 400, lineHeight: 1.8 }}>
+                  <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: THEME.secondary, fontWeight: 400, lineHeight: 1.8 }}>
                     The easiest way to experience Torch Republic — one blend for clarity, one for daily energy, and one for calm ritual.
                   </p>
                   <div className="space-y-1 mb-5">
                     {['GlowMind Clarity — Focus & Deep Work', 'Torchbearer — Bold Classic Energy', 'The Monk Matcha — Calm Presence'].map((item, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <span style={{ color: RG }}>✦</span>
-                        <span className="font-mono text-[10px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.8)' }}>{item}</span>
+                        <span className="font-mono text-[10px] tracking-[0.1em]" style={{ color: THEME.secondary }}>{item}</span>
                       </div>
                     ))}
                   </div>
                   <div className="flex flex-wrap items-baseline gap-3 mb-2">
                     <span className="font-serif font-bold" style={{ fontSize: '1.6rem', color: RG }}>${BUNDLE_PRICE.toFixed(2)}</span>
-                    <span className="font-mono text-[10px] line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>$67.97 separately</span>
+                    <span className="font-mono text-[10px] line-through" style={{ color: '#9A9085' }}>$67.97 separately</span>
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1" style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>Save $17.98</span>
                   </div>
-                  <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <p className="font-mono text-[9px] mb-4" style={{ color: '#7A6E64' }}>
                     Bundle pricing cannot be combined with additional product discounts.
                   </p>
                   <a
                     href="#builder"
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
-                    style={{ background: RG, color: '#080808' }}
+                    style={{ background: RG, color: THEME.cream }}
                   >
                     Start My Ritual →
                   </a>
                 </div>
                 <div className="hidden md:flex flex-col gap-3">
-                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>3 Blends · ~79 Servings Total</p>
-                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Only ~$0.76 per serving</p>
+                  <div className="p-4" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: RG }}>3 Blends · ~79 Servings Total</p>
+                    <p className="font-mono text-[9px]" style={{ color: THEME.secondary }}>Only ~$0.76 per serving</p>
                   </div>
-                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>No Machine Needed</p>
-                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Instant powder — stir, sip, begin.</p>
+                  <div className="p-4" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: RG }}>No Machine Needed</p>
+                    <p className="font-mono text-[9px]" style={{ color: THEME.secondary }}>Instant powder — stir, sip, begin.</p>
                   </div>
-                  <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>Shipping Calculated at Checkout</p>
-                    <p className="font-mono text-[9px]" style={{ color: 'rgba(230,183,173,0.45)' }}>Rates calculated at Shopify checkout.</p>
+                  <div className="p-4" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
+                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: RG }}>Shipping Calculated at Checkout</p>
+                    <p className="font-mono text-[9px]" style={{ color: THEME.secondary }}>Rates calculated at Shopify checkout.</p>
                   </div>
                 </div>
               </div>
@@ -270,15 +279,14 @@ export default function BuildYourRitual() {
       </section>
 
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ minHeight: '350px' }}>
-        <div className="absolute inset-0" style={{ background: '#0B0B0B' }} />
+      <section className="relative overflow-hidden" style={{ minHeight: '350px', background: THEME.cream, borderTop: `1px solid ${THEME.border}`, borderBottom: `1px solid ${THEME.border}` }}>
         <img
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png"
           alt="Torch Republic bundles"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.25 }}
+          style={{ opacity: 0.16 }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,8,8,0.6) 0%, #080808 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(251,248,241,0.9) 0%, rgba(247,241,231,0.96) 100%)' }} />
         
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24">
           <motion.div
@@ -286,29 +294,29 @@ export default function BuildYourRitual() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: `${RG}60` }}>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: RG }}>
               Build Your Ritual Bundle
             </p>
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: THEME.text, letterSpacing: '-0.02em' }}>
               Build Your Ritual
             </h1>
-            <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
+            <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: THEME.secondary, fontWeight: 300, lineHeight: 1.85 }}>
               Choose any 3 products and save. Mix and match from the final seven-product collection of classic instant coffee, mushroom coffee, and ceremonial matcha.
             </p>
             <div className="flex items-center justify-center gap-6">
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: RG }}>3</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Blends</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>Blends</p>
               </div>
-              <div className="w-px h-10" style={{ background: `${RG}30` }} />
+              <div className="w-px h-10" style={{ background: THEME.border }} />
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: RG }}>${BUNDLE_PRICE}</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Bundle Price</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>Bundle Price</p>
               </div>
-              <div className="w-px h-10" style={{ background: `${RG}30` }} />
+              <div className="w-px h-10" style={{ background: THEME.border }} />
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save up to $14.98</p>
-                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>vs. Buying Separately</p>
+                <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>vs. Buying Separately</p>
               </div>
             </div>
           </motion.div>
@@ -330,10 +338,10 @@ export default function BuildYourRitual() {
                 <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}50` }}>
                   Step 1 of 2
                 </p>
-                <h2 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F5EFE6' }}>
+                <h2 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: THEME.text }}>
                   Choose Your Blends
                 </h2>
-                <p className="font-heading" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
+                <p className="font-heading" style={{ color: THEME.secondary, fontWeight: 300, lineHeight: 1.8 }}>
                   Select any three products from our collection. Mix mushroom coffee, matcha, or classic blends.
                 </p>
               </motion.div>
@@ -364,7 +372,7 @@ export default function BuildYourRitual() {
                 </div>
               ) : shopifyProducts.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="font-heading mb-4" style={{ color: 'rgba(240,235,225,0.5)' }}>No products available</p>
+                  <p className="font-heading mb-4" style={{ color: THEME.secondary }}>No products available</p>
                   <p className="font-mono text-[8px] tracking-[0.2em]" style={{ color: `${RG}50` }}>Please check back soon</p>
                 </div>
               ) : (
@@ -381,8 +389,8 @@ export default function BuildYourRitual() {
                         onClick={() => toggleProduct(product.id)}
                         className={`cursor-pointer rounded-sm overflow-hidden transition-all ${isSelected ? 'ring-2 ring-rose-gold' : 'hover:ring-1 hover:ring-rose-gold/30'}`}
                         style={{
-                          background: isSelected ? 'rgba(230,183,173,0.08)' : '#0F0E0E',
-                          border: `1px solid ${isSelected ? RG : `${product.accent}20`}`,
+                          background: isSelected ? 'rgba(183,101,62,0.08)' : THEME.card,
+                          border: `1px solid ${isSelected ? RG : THEME.border}`,
                         }}
                       >
                         <div className="flex items-start gap-4 p-4">
@@ -390,7 +398,7 @@ export default function BuildYourRitual() {
                             <img src={getProductImage(product)} alt={product.imageAlt || getProductAltText(product)} className="w-full h-full object-contain p-2" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</h3>
+                            <h3 className="font-serif font-bold text-sm mb-1 truncate" style={{ color: THEME.text }}>{product.name}</h3>
                             <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: product.accent }}>
                               {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
                             </p>
@@ -426,8 +434,8 @@ export default function BuildYourRitual() {
                 viewport={{ once: true }}
                 className="sticky top-24"
                 style={{
-                  background: '#0F0E0E',
-                  border: `1px solid ${RG}20`,
+                  background: THEME.card,
+                  border: `1px solid ${THEME.border}`,
                   borderRadius: '4px',
                   padding: '24px',
                 }}
@@ -439,7 +447,7 @@ export default function BuildYourRitual() {
                 {selectedProducts.length === 0 ? (
                   <div className="text-center py-8">
                     <ShoppingBag size={48} style={{ color: `${RG}20`, margin: '0 auto 16px' }} />
-                    <p className="font-heading mb-2" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
+                    <p className="font-heading mb-2" style={{ color: THEME.secondary, fontWeight: 300 }}>
                       Select 3 blends to build your bundle
                     </p>
                   </div>
@@ -464,7 +472,7 @@ export default function BuildYourRitual() {
                                   <img src={getProductImage(product)} alt={product.imageAlt || getProductAltText(product)} className="w-full h-full object-contain p-1" />
                                 </div>
                                 <div>
-                                  <p className="font-serif font-bold text-white text-xs">{product.name}</p>
+                                  <p className="font-serif font-bold text-xs" style={{ color: THEME.text }}>{product.name}</p>
                                   <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: product.accent }}>
                                     ${product.price} {countInBundle > 1 && <span style={{ color: RG }}>×{countInBundle}</span>}
                                   </p>
@@ -511,7 +519,7 @@ export default function BuildYourRitual() {
                             <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}40` }}>
                               Bundle Value
                             </span>
-                            <span className="font-mono text-sm line-through" style={{ color: 'rgba(240,235,225,0.35)' }}>
+                            <span className="font-mono text-sm line-through" style={{ color: '#9A9085' }}>
                               ${totalPrice.toFixed(2)}
                             </span>
                           </div>
@@ -552,7 +560,7 @@ export default function BuildYourRitual() {
                         }`}
                         style={{
                           background: selectedProducts.length === 3 ? RG : `${RG}30`,
-                          color: selectedProducts.length === 3 ? '#050505' : 'rgba(255,255,255,0.3)',
+                          color: selectedProducts.length === 3 ? THEME.cream : '#9A9085',
                         }}
                       >
                         {selectedProducts.length > 3 ? `Remove ${selectedProducts.length - 3} to Continue` : selectedProducts.length < 3 ? `Add ${3 - selectedProducts.length} More` : `Add Bundle to Cart — $${bundleTotal.toFixed(2)}`}
@@ -576,7 +584,7 @@ export default function BuildYourRitual() {
           <button
             onClick={handleAddToCart}
             className="w-full font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
-            style={{ background: RG, color: '#080808', boxShadow: '0 4px 24px rgba(0,0,0,0.7)' }}
+            style={{ background: RG, color: THEME.cream, boxShadow: '0 4px 24px rgba(53,38,29,0.22)' }}
           >
             Add Bundle to Cart — ${bundleTotal.toFixed(2)}
           </button>
@@ -584,7 +592,7 @@ export default function BuildYourRitual() {
       )}
 
       {/* Trust Bar */}
-      <section className="px-6 md:px-10 py-12" style={{ borderTop: `1px solid ${RG}10` }}>
+      <section className="px-6 md:px-10 py-12" style={{ borderTop: `1px solid ${THEME.border}` }}>
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
