@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const colors = { page: '#F8F5EF', card: '#FFFDFC', text: '#26231F', secondary: '#655E56', border: '#DED8CF', coffee: '#6F4A32' };
+const colors = {
+  card: 'hsl(var(--card))',
+  text: 'hsl(var(--foreground))',
+  secondary: 'hsl(var(--muted-foreground))',
+  border: 'hsl(var(--border))',
+};
 const groups = [
   ['Shop', [['All Products', '/shop'], ['Classic Coffee', '/shop/instant-coffee'], ['Mushroom Coffee', '/shop/instant-mushroom-coffee'], ['Matcha', '/shop/matcha'], ['Build Your Ritual', '/build-your-ritual'], ['Subscriptions', '/subscription']]],
   ['About', [['Our Story', '/mission'], ['Ingredients', '/ingredients'], ['Journal', '/journal']]],

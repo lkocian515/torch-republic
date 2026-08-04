@@ -471,7 +471,7 @@ const AuthenticatedApp = ({ queryClient }) => {
       <RouteSeoManager />
       <BottomTabs />
       </AnimatePresence>
-      <Footer />
+      <div className="hidden md:block"><Footer /></div>
     </>
   );
 };
