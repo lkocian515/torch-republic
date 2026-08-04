@@ -18,6 +18,7 @@ import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection
 import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 
 const GOLD = '#B7653E';
+const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7b261dff1_classic_coffee_category.png';
 
 // FAQ data for schema
 const FAQS = [
@@ -90,15 +91,15 @@ export default function ClassicCoffeeCollection() {
 
       {/* Hero */}
       <section style={{ background: '#FBF8F1', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${GOLD}25` }}>
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: GOLD }}>
               Torch Republic Coffee Co. — Classic Instant Coffee
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                Premium Coffee Rituals<br />Powered By Nature
              </h1>
-             <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+             <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
                Single-origin Papua New Guinea coffee — 100% Arabica, freeze-dried to preserve dark chocolate, toasted almond, and sweet toffee notes. No machine, no pods, no compromise. Just add hot water.
              </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
@@ -106,7 +107,7 @@ export default function ClassicCoffeeCollection() {
                 <strong>Note:</strong> These are pure classic coffee blends. They do not contain mushrooms.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFDF8', padding: '14px 36px', borderRadius: '4px' }}>
                 Shop Classic Coffee
               </Link>
@@ -114,6 +115,9 @@ export default function ClassicCoffeeCollection() {
                 Find Your Ritual
               </Link>
             </div>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${GOLD}30` }}>
+            <img src={CLASSIC_HERO_IMAGE} alt="Torch Republic Torchbearer Classic Coffee and Ember Reserve classic coffee blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
           </motion.div>
         </div>
       </section>
