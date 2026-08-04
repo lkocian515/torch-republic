@@ -82,7 +82,7 @@ const NOINDEX_EXACT_PATHS = new Set([
   '/torchcommandhome', '/cognitivequiz', '/flowtimer', '/protocolsdirectory', '/protocoldetail', '/admincommand', '/adminblogeditor',
   '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service',
   '/bundle', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
-  '/research', '/compare', '/about/torch-republic-team', '/faq', '/shop/morning-ritual', '/shop/focus-coffee', '/shop/travel-coffee',
+  '/research', '/compare', '/about/torch-republic-team', '/shop/morning-ritual', '/shop/focus-coffee', '/shop/travel-coffee',
   '/coffee-pod-alternatives', '/coffee-without-a-machine', '/camping-coffee', '/healthy-coffee-alternatives', '/coffee-rituals', '/matcha-vs-coffee', '/papua-new-guinea-coffee',
   '/mushroom-coffee-benefits', '/lions-mane-coffee', '/instant-coffee-for-energy', '/why-mushroom-coffee',
   '/coffee-pods', '/pods', '/pod', '/patriotic-coffee', '/founders-series', '/founders',

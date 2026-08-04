@@ -144,9 +144,10 @@ export default function MushroomShop() {
 
       {/* ── HERO ── */}
       <section style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <div className="sr-only">
-          <h1>Shop Torch Republic Coffee Company</h1>
-          <p>Explore premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles made for simple daily preparation. No pods, no machine, no complicated routine — just an intentional daily ritual.</p>
+        <div className="mx-auto hidden max-w-3xl px-6 pb-8 pt-10 text-center md:block md:pb-10 md:pt-12">
+          <p className="font-mono text-[9px] uppercase tracking-[0.45em]" style={{ color: '#B86543' }}>Torch Republic Coffee Company</p>
+          <h1 className="mt-4 font-serif text-4xl font-bold leading-tight md:text-6xl" style={{ color: '#293626' }}>Shop Coffee, Mushroom Blends &amp; Matcha</h1>
+          <p className="mx-auto mt-5 max-w-2xl font-heading text-base leading-8" style={{ color: '#5F5145' }}>Explore premium instant coffee, functional mushroom coffee, ceremonial matcha, and ritual bundles made for simple daily preparation.</p>
         </div>
         {/* Desktop layout */}
         <div className="hidden md:block">
@@ -184,7 +185,7 @@ export default function MushroomShop() {
             </p>
             <h1 className="font-serif font-bold mb-4"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#2D2824', letterSpacing: '-0.02em' }}>
-              Instant Coffee, Mushroom Coffee &amp; Matcha
+              Shop Coffee, Mushroom Blends &amp; Matcha
             </h1>
             <p className="font-heading max-w-xl mx-auto mb-8"
               style={{ fontSize: '0.95rem', color: '#6D625A', lineHeight: 1.85, fontWeight: 300 }}>

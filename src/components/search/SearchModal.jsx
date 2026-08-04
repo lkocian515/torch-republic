@@ -173,7 +173,7 @@ export default function SearchModal({ isOpen, onClose }) {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Search products, articles, FAQs..."
+                  placeholder="Search products, articles, ingredients..."
                   className="flex-1 bg-transparent outline-none font-heading text-base"
                   style={{ color: '#2D2824' }}
                 />

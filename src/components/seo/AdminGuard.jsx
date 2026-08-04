@@ -44,8 +44,8 @@ export default function AdminGuard({ children }) {
 
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
-        <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#E6B7AD', borderTopColor: 'transparent' }} />
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#FBF8F1' }}>
+        <div className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#B86543', borderTopColor: 'transparent' }} />
       </div>
     );
   }
