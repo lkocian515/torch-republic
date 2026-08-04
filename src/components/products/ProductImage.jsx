@@ -4,7 +4,7 @@ import React, { useState } from 'react';
  * ProductImage — standardized image renderer
  *
  * variant:
- *   "clean"     — pure black bg, soft top light, centered, no clutter
+ *   "clean"     — warm light bg, soft top light, centered, no clutter
  *   "lifestyle" — slightly warmer, slight vignette, natural feel
  *   "cinematic" — grain overlay + dark edge fade + reduced opacity
  */
@@ -19,7 +19,7 @@ export default function ProductImage({
   const [loaded, setLoaded] = useState(false);
 
   const wrapperBase = {
-    backgroundColor: '#0B0B0B',
+    backgroundColor: '#F8F5EF',
     position: 'relative',
     overflow: 'hidden',
     aspectRatio,
@@ -41,7 +41,7 @@ export default function ProductImage({
         {/* Subtle bottom shadow */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{
           height: '30%',
-          background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(111,74,50,0.08) 0%, transparent 100%)',
           zIndex: 1,
         }} />
       </>
@@ -51,7 +51,7 @@ export default function ProductImage({
       <>
         {/* Warm vignette */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(0,0,0,0.5) 100%)',
+          background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(111,74,50,0.08) 100%)',
           zIndex: 1,
         }} />
         {/* Soft top warmth */}
@@ -66,11 +66,11 @@ export default function ProductImage({
       <>
         {/* Dark edge fade */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.4) 100%)',
+          background: 'linear-gradient(to right, rgba(111,74,50,0.06) 0%, transparent 25%, transparent 75%, rgba(111,74,50,0.06) 100%)',
           zIndex: 1,
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 65%, rgba(0,0,0,0.6) 100%)',
+          background: 'linear-gradient(to bottom, rgba(111,74,50,0.04) 0%, transparent 30%, transparent 65%, rgba(111,74,50,0.10) 100%)',
           zIndex: 1,
         }} />
         {/* Film grain via SVG */}
@@ -101,7 +101,7 @@ export default function ProductImage({
     <div style={wrapperBase} className={className}>
       {/* Loading skeleton */}
       {!loaded && (
-        <div className="absolute inset-0" style={{ backgroundColor: '#0B0B0B' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: '#F8F5EF' }} />
       )}
 
       <img

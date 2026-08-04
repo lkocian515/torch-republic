@@ -154,12 +154,12 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
+            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
             alt="Torch Republic Products"
-            className="w-full h-auto object-cover"
-            style={{ aspectRatio: '16/9', maxHeight: '600px', background: '#FBF8F2' }}
+            className="w-full h-auto object-contain"
+            style={{ aspectRatio: '16/9', maxHeight: '600px', background: '#FBF8F2', padding: '32px' }}
             onError={(e) => {
-              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
+              e.target.src = '/torch-republic-logo-transparent.png';
             }}
           />
         </div>
@@ -170,12 +170,12 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14dc247ce_hgfhfg.png"
+            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
             alt="Torch Republic Products"
             className="w-full h-auto object-contain rounded mb-8"
-            style={{ maxHeight: '400px' }}
+            style={{ maxHeight: '400px', background: '#FBF8F2', padding: '20px' }}
             onError={(e) => {
-              e.target.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c34315a9e_LIVEFREESTAYREADY5.png';
+              e.target.src = '/torch-republic-logo-transparent.png';
             }}
           />
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
@@ -183,11 +183,11 @@ export default function MushroomShop() {
               Torch Republic Coffee Company
             </p>
             <h1 className="font-serif font-bold mb-4"
-              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#2D2824', letterSpacing: '-0.02em' }}>
               Instant Coffee, Mushroom Coffee &amp; Matcha
             </h1>
             <p className="font-heading max-w-xl mx-auto mb-8"
-              style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+              style={{ fontSize: '0.95rem', color: '#6D625A', lineHeight: 1.85, fontWeight: 300 }}>
               Premium instant blends crafted for focus, calm, energy, and everyday ritual. No machine needed.
             </p>
 
@@ -340,25 +340,25 @@ export default function MushroomShop() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <a href={getAllClassicBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
+                style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-xs mb-1">Classic Duo</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: '#6D625A' }}>2 Classic Coffees</p>
               </a>
               <a href={getShopifyBundleUrl(MUSH_PROD.map(p => ({ slug: p.shopifyHandle, qty: 1 }))) || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
+                style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-xs mb-1">Mushroom Collection</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: '#6D625A' }}>3 Mushroom Coffees</p>
               </a>
               <a href={getAllMatchaBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
+                style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-xs mb-1">Matcha Ritual</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: '#6D625A' }}>2 Matcha Blends</p>
               </a>
               <a href={getFullBundleUrl() || SHOPIFY_CART_URL}
                 className="p-3 text-center transition-all hover:opacity-90"
-                style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
+                style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.15)', display: 'block' }}>
                 <p className="font-serif font-bold text-xs mb-1">Complete Collection</p>
                 <p className="font-mono text-[6px] tracking-[0.15em] uppercase" style={{ color: '#6D625A' }}>All 7 Products</p>
               </a>

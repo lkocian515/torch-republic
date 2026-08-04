@@ -9,7 +9,7 @@ const OPTIONS = [
     benefit: 'The one everyone starts with. Bold, smooth, unforgettable.',
     cta: 'Shop Coffee',
     to: '/LibertyTorchBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     tag: 'Most Popular',
     tagColor: '#C9A24A',
   },

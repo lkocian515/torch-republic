@@ -15,7 +15,7 @@ const FOUNDERS = [
     code: 'TR-001',
     seriesNum: 'Founders #01',
     rarity: "FOUNDER'S EDITION",
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
   },
   {
     name: 'Thomas Jefferson',
@@ -75,7 +75,7 @@ const FOUNDERS = [
     code: 'TR-005',
     seriesNum: 'Founders #05',
     rarity: 'CORE',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
   },
   {
     name: 'Theodore Roosevelt',

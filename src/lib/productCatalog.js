@@ -29,7 +29,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'washington-blend',            // ✅ verified live
     internalRoute: '/WashingtonBlend',
     productsRoute: '/products/washington-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
   },
   {
     code: 'TR-002',
@@ -47,7 +47,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'jefferson-blend',             // ✅ verified live
     internalRoute: '/JeffersonBlend',
     productsRoute: '/products/jefferson-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-8_3f3a45dd-8d2c-4a04-b3e7-7657eb306db4.jpg?v=1775891841',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
   },
   {
     code: 'TR-003',
@@ -65,7 +65,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'franklin-blend',              // ✅ verified live
     internalRoute: '/FranklinBlend',
     productsRoute: '/products/franklin-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-9_4f650292-3215-4b0f-aed8-7ed4c1a02fb6.jpg?v=1775891986',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jbhyvgyu.png?v=1785663564',
   },
   {
     code: 'TR-004',
@@ -83,7 +83,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'adams-blend',                 // ✅ verified live
     internalRoute: '/AdamsBlend',
     productsRoute: '/products/adams-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-10_6f98a910-06fe-466c-b034-23133f53a324.jpg?v=1775892090',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
   },
   {
     code: 'TR-005',
@@ -101,7 +101,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'lincoln-blend-founders-series-coffee', // ✅ verified live (exact Shopify handle)
     internalRoute: '/LincolnBlend',
     productsRoute: '/products/lincoln-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/lifestyle_lincoln_1.png?v=1775827869',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
   },
   {
     code: 'TR-006',
@@ -119,7 +119,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'roosevelt-blend',             // ✅ verified live
     internalRoute: '/RooseveltBlend',
     productsRoute: '/products/roosevelt-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-6_9c4a00ed-4e07-40bf-b93c-42f039931d2e.jpg?v=1775891504',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
   },
 
   // ── LIBERTY ICONS SERIES ─────────────────────────────────────────────────
@@ -139,7 +139,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'eagles-flight-blend',         // ✅ verified live
     internalRoute: '/EaglesFlightBlend',
     productsRoute: '/products/eagles-flight-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
   },
   {
     code: 'LI-002',
@@ -157,7 +157,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'liberty-torch-blend',         // ✅ verified live
     internalRoute: '/LibertyTorchBlend',
     productsRoute: '/products/liberty-torch-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/30_fda88503-e869-47ed-8acc-33230f6246c9.png?v=1776038701',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
   },
   {
     code: 'LI-003',
@@ -175,7 +175,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'old-glory-house-blend',       // ✅ verified live
     internalRoute: '/OldGloryHouseBlend',
     productsRoute: '/products/old-glory-house-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/j9ihuio.png?v=1776038315',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jbhyvgyu.png?v=1785663564',
   },
   {
     code: 'LI-004',
@@ -193,7 +193,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'rosies-grind',                // ✅ verified live
     internalRoute: '/RosiesGrind',
     productsRoute: '/products/rosies-grind',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/28.png?v=1776038440',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/frewrdwqerq.png?v=1785661782',
   },
   {
     code: 'LI-005',
@@ -211,7 +211,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'uncle-sams-bold-brew',        // ✅ verified live
     internalRoute: '/UncleSamsBoldBrew',
     productsRoute: '/products/uncle-sams-bold-brew',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/27.png?v=1776038585',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/trdtyfuyh_25801652-e2ec-4a02-8d62-6855c6e55396.png?v=1785661294',
   },
 
   // ── PODS ─────────────────────────────────────────────────────────────────
@@ -231,7 +231,7 @@ export const PRODUCT_CATALOG = [
     shopifyHandle: 'washington-blend-coffee-pods', // ✅ verified live
     internalRoute: '/washington-pods',
     productsRoute: '/products/washington-pods',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/6bef9712-230c-45c1-911d-f0780d1fafc8.png?v=1776641348',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
   },
 ];
 

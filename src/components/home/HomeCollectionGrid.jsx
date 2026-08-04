@@ -6,7 +6,7 @@ const COLLECTIONS = [
   {
     title: 'Founders Series',
     description: 'Heritage-crafted small-batch coffee. Collectible by design.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     route: '/CoffeeCollection',
     accent: '#C9A24A',
     comingSoon: false,
@@ -14,7 +14,7 @@ const COLLECTIONS = [
   {
     title: 'Liberty Icons',
     description: 'Bold blends named for the symbols of American freedom.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/31.png?v=1776038383',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     route: '/LibertyIcons',
     accent: '#8B6D47',
     comingSoon: false,

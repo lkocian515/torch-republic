@@ -278,7 +278,7 @@ button, a, [role="button"], nav {
 .product-image-wrap {
   aspect-ratio: 1 / 1;
   width: 100%;
-  background: #111;
+  background: #F8F5EF;
   border-radius: 16px;
   overflow: hidden;
   display: flex;
@@ -309,7 +309,7 @@ button, a, [role="button"], nav {
 .category-image-wrap {
   aspect-ratio: 4 / 3;
   width: 100%;
-  background: #141414;
+  background: #F8F5EF;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -317,6 +317,6 @@ button, a, [role="button"], nav {
 .category-image-wrap img {
   width: 100%;
   height: 100%;
-  object-cover: contain;
+  object-fit: contain;
   display: block;
 }

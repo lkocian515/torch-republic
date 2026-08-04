@@ -9,7 +9,7 @@ const CROSS_SELL_BLENDS = [
     price: 18.99,
     route: '/JeffersonBlend',
     shopifyHandle: 'jefferson-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-8_3f3a45dd-8d2c-4a04-b3e7-7657eb306db4.jpg?v=1775891841',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
     tag: 'Popular Choice',
   },
   {
@@ -18,7 +18,7 @@ const CROSS_SELL_BLENDS = [
     price: 18.99,
     route: '/FranklinBlend',
     shopifyHandle: 'franklin-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/mockup_hero_dark.png_preview_81d6ce65-2c5f-4b97-9aaf-ad69c22e7212.jpg?v=1775822721',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     tag: 'Best Seller',
   },
   {
@@ -27,7 +27,7 @@ const CROSS_SELL_BLENDS = [
     price: 18.99,
     route: '/LincolnBlend',
     shopifyHandle: 'lincoln-blend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/image-7_7567e36f-1c97-4da4-9564-83e59f922553.jpg?v=1775891757',
+    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
     tag: null,
   },
 ];
