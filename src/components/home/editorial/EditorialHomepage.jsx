@@ -4,6 +4,7 @@ import { requestedProducts, colors } from './theme';
 import EditorialHero from './EditorialHero';
 import ShopByRitual from '@/components/home/botanical/ShopByRitual';
 import BotanicalFavorites from '@/components/home/botanical/BotanicalFavorites';
+import MushroomCoffeeFeature from '@/components/home/botanical/MushroomCoffeeFeature';
 import NatureMeetsFunction from '@/components/home/botanical/NatureMeetsFunction';
 import DailyRitualStory from '@/components/home/botanical/DailyRitualStory';
 import CraftStandards from '@/components/home/botanical/CraftStandards';
@@ -16,5 +17,5 @@ function hydrateProduct(source, req) { return { ...source, ...req, sourceName: s
 export default function EditorialHomepage() {
   const [products, setProducts] = useState(() => requestedProducts.map(req => hydrateProduct(ALL_PRODUCTS.find(p => p.id === req.id) || {}, req)));
   useEffect(() => { let active = true; mergeWithShopifyData(ALL_PRODUCTS).then(({ products: live }) => { if (!active) return; setProducts(requestedProducts.map(req => hydrateProduct(live.find(p => p.id === req.id || p.name === req.title) || ALL_PRODUCTS.find(p => p.id === req.id) || {}, req))); }); return () => { active = false; }; }, []);
-  return <main id="main-content" style={{ background: colors.page }}><EditorialHero /><ShopByRitual /><BotanicalFavorites products={products} /><NatureMeetsFunction /><DailyRitualStory /><CraftStandards /><CreateRitualSection /><SocialProofSection /><JournalEducationSection /><EditorialSignup /></main>;
+  return <main id="main-content" style={{ background: colors.page }}><EditorialHero /><ShopByRitual /><MushroomCoffeeFeature /><BotanicalFavorites products={products} /><NatureMeetsFunction /><DailyRitualStory /><CraftStandards /><CreateRitualSection /><SocialProofSection /><JournalEducationSection /><EditorialSignup /></main>;
 }

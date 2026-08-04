@@ -21,6 +21,7 @@ import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 const RG = '#B7653E';
 const DEEP_CHARCOAL = '#FBF8F1';
 const WARM_CREAM = '#F7F1E7';
+const MUSHROOM_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6fc7c6061_mushroom_coffee_category.png';
 
 // Find Your Blend recommendations
 const BLEND_RECOMMENDATIONS = [
@@ -90,25 +91,30 @@ export default function MushroomCoffeeCollection() {
       {/* ── HERO SECTION ── */}
       <section className="relative px-6 md:px-10 pt-20 pb-16" style={{ background: '#F7F1E7', borderBottom: `1px solid ${RG}25` }}>
         <div className="max-w-6xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
-              Torch Republic Coffee Co. — Mushroom Coffee
-            </p>
-            <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-               Premium Coffee Rituals<br />Powered By Nature
-             </h1>
-             <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '1.05rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-               Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
-             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
-                Shop Mushroom Coffee
-              </Link>
-              <Link to="#find-your-blend" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-4 px-10" style={{ border: `1px solid ${RG}`, color: RG, borderRadius: '4px' }}>
-                Find Your Blend
-              </Link>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center lg:text-left">
+              <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
+                Torch Republic Coffee Co. — Mushroom Coffee
+              </p>
+              <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                 Premium Coffee Rituals<br />Powered By Nature
+               </h1>
+               <p className="font-heading max-w-2xl mx-auto lg:mx-0 mb-8" style={{ fontSize: '1.05rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+                 Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
+                </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
+                  Shop Mushroom Coffee
+                </Link>
+                <Link to="#find-your-blend" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-4 px-10" style={{ border: `1px solid ${RG}`, color: RG, borderRadius: '4px' }}>
+                  Find Your Blend
+                </Link>
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${RG}30` }}>
+              <img src={MUSHROOM_HERO_IMAGE} alt="Torch Republic SunCap Rise, MoonCap Restore, and GlowMind Clarity mushroom coffee blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
+            </motion.div>
+          </div>
 
           {/* Trust Bar */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}>
