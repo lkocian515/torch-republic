@@ -17,7 +17,7 @@ export default function UnifiedHeader() {
   const { totalItems } = useCart();
   const location = useLocation();
   return <>
-    <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.page }}><p className="font-heading text-sm">Seven rituals. Find the one that fits your day.</p></div>
+    <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.page }}><p className="font-heading text-sm">Thoughtfully crafted daily rituals for coffee, matcha, and botanical blends.</p></div>
     <header className="sticky top-0 z-40" style={{ background: 'rgba(248,245,239,0.96)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)' }}>
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
         <button onClick={() => setOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden" aria-label="Open navigation menu" aria-expanded={open}><Menu className="h-6 w-6" /></button>

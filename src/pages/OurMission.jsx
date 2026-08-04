@@ -9,7 +9,7 @@ const RG = '#E6B7AD';
 
 const SECTIONS = [
   {
-    label: '01 — Three Categories, One Standard',
+    label: '01 — Coffee With Purpose',
     title: 'Classic Coffee. Mushroom Coffee. Matcha.',
     body: "Whether you want pure classic instant coffee with no mushrooms, functional mushroom coffee with Lion's Mane + Chaga for focus and clarity, or ceremonial grade matcha for calm energy — each category is designed for consistency, quality, and ease. When coffee is this easy to prepare, you show up for your ritual every single day.",
   },
@@ -21,7 +21,7 @@ const SECTIONS = [
 ];
 
 const TRUST = [
-  { label: 'Three Categories', desc: "Classic Instant Coffee (no mushrooms), Mushroom Coffee (Lion's Mane + Chaga), and Ceremonial Matcha — clearly labeled." },
+  { label: 'Clear Beverage Paths', desc: "Classic instant coffee, mushroom coffee with Lion's Mane + Chaga, and ceremonial matcha — clearly labeled." },
   { label: 'Clear Product Details', desc: '27 servings for coffee blends, 25 for matcha. Premium ingredients, no hidden additives.' },
   { label: 'Secure Checkout', desc: 'Trusted payment options and a clean, simple checkout flow.' },
   { label: 'Easy Support', desc: 'Questions about your order or subscription? Reach out and we\'ll help.' },

@@ -1,0 +1,10 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { colors, routes } from '@/components/home/editorial/theme';
+
+const RITUAL_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png';
+
+export default function CreateRitualSection() {
+  return <section className="px-5 py-16 md:px-10 md:py-24" style={{ background: colors.parchment }}><div className="mx-auto grid max-w-[1180px] overflow-hidden rounded-2xl lg:grid-cols-2" style={{ background: colors.card, border: `1px solid ${colors.border}` }}><div className="min-h-[360px]"><img src={RITUAL_IMAGE} alt="Torch Republic products arranged with warm botanical styling" loading="lazy" decoding="async" className="h-full w-full object-cover" /></div><div className="flex flex-col justify-center p-8 md:p-12"><p className="font-heading text-sm uppercase tracking-[0.22em]" style={{ color: colors.gold }}>Create your ritual</p><h2 className="mt-3 font-serif text-[clamp(2.3rem,4vw,4rem)] font-semibold leading-none" style={{ color: colors.forest }}>Coffee, matcha, and mushroom blends for your routine.</h2><p className="mt-5 text-lg leading-8" style={{ color: colors.secondary }}>Mix coffee, mushroom blends, and matcha to create a collection that fits the way your day actually unfolds.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to={routes.ritual} className="inline-flex min-h-[48px] items-center justify-center rounded-md px-6 font-heading font-semibold" style={{ background: colors.forest, color: colors.cream }}>Build Your Ritual</Link><Link to={routes.shop} className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md px-6 font-heading font-semibold" style={{ color: colors.forest, border: `1px solid ${colors.border}` }}>Explore All Products <ArrowRight className="h-4 w-4" /></Link></div></div></div></section>;
+}
