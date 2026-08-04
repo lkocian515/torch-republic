@@ -160,8 +160,8 @@ export default function FirstCupGuarantee() {
           <div style={{ textAlign: 'center', marginTop: '28px', paddingTop: '24px', borderTop: '1px solid rgba(230,183,173,0.07)' }}>
             <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.45)' }}>
               Questions? Reach out to{' '}
-              <a href="mailto:admin@torchrepublic.com" style={{ color: RG, textDecoration: 'none' }}>
-                admin@torchrepublic.com
+              <a href="mailto:support@torchrepublic.com" style={{ color: RG, textDecoration: 'none' }}>
+                support@torchrepublic.com
               </a>
             </p>
           </div>

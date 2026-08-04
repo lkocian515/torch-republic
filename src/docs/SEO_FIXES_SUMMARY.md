@@ -42,7 +42,7 @@ Created comprehensive schema:
 ### 6. LOCAL SEO (Priority 11)
 - ✅ Created /local page
 - ✅ Business address (Corpus Christi, TX)
-- ✅ Contact email: admin@torchrepublic.com
+- ✅ Contact email: support@torchrepublic.com
 - ✅ Business hours: Mon-Fri 9AM-6PM CST
 - ✅ Service area: United States
 - ✅ Trust badges and ratings
@@ -193,4 +193,4 @@ Enhanced footer with:
 
 **SEO Implementation Status: 40% Complete**  
 **Next Review: June 17, 2026**  
-**Contact: admin@torchrepublic.com**
+**Contact: support@torchrepublic.com**

@@ -27,7 +27,7 @@ export default function OrganizationSchema() {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "admin@torchrepublic.com",
+      "email": "support@torchrepublic.com",
       "contactType": "Customer Service",
       "availableLanguage": "English"
     },

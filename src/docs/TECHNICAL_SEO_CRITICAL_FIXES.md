@@ -617,4 +617,4 @@ Social Profiles:
 
 **Last Updated:** June 10, 2026  
 **Next Review:** June 17, 2026  
-**Contact:** admin@torchrepublic.com
+**Contact:** support@torchrepublic.com

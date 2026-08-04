@@ -5,7 +5,7 @@ const RG = '#E6B7AD';
 
 const TRUST_DETAILS = [
   { label: 'U.S.-Based Small Business', sub: 'Corpus Christi, TX' },
-  { label: 'Customer Support', sub: 'admin@torchrepublic.com' },
+  { label: 'Customer Support', sub: 'support@torchrepublic.com' },
   { label: 'Secure Checkout', sub: '256-bit SSL · Shopify Payments' },
   { label: '30-Day Guarantee', sub: 'Not satisfied? We make it right.' },
 ];

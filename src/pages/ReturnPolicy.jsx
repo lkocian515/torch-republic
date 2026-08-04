@@ -41,7 +41,7 @@ export default function ReturnPolicy() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>How to Start a Return</h2>
-            <p>Email us at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a> with your order number and reason for the return. We'll respond within 1–2 business days with instructions.</p>
+            <p>Email us at <a href="mailto:support@torchrepublic.com" style={{ color: RG }}>support@torchrepublic.com</a> with your order number and reason for the return. We'll respond within 1–2 business days with instructions.</p>
             <p className="mt-3">You do not need to ship the product back for first-order refund requests under the First Cup Guarantee.</p>
           </section>
 
@@ -66,8 +66,8 @@ export default function ReturnPolicy() {
           <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.4)' }}>
             Questions? Contact us
           </p>
-          <a href="mailto:admin@torchrepublic.com" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.1em' }}>
-            admin@torchrepublic.com
+          <a href="mailto:support@torchrepublic.com" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.1em' }}>
+            support@torchrepublic.com
           </a>
           <div className="mt-6">
             <Link to="/" className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}>

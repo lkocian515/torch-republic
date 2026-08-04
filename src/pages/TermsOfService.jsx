@@ -64,7 +64,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>Contact</h2>
-            <p>Questions? Email us at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a>.</p>
+            <p>Questions? Email us at <a href="mailto:support@torchrepublic.com" style={{ color: RG }}>support@torchrepublic.com</a>.</p>
           </section>
 
         </div>

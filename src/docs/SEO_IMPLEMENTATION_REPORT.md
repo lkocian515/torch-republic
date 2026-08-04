@@ -83,7 +83,7 @@ Premium instant coffee, mushroom coffee, and ceremonial matcha crafted for focus
 **Features:**
 - Business name: Torch Republic Coffee Company
 - Location: Corpus Christi, Texas, U.S.A.
-- Email: admin@torchrepublic.com
+- Email: support@torchrepublic.com
 - Hours: Mon-Fri 9AM-6PM CST
 - Service area: United States
 - Trust badges: 4.9 rating, 1000+ customers, 100% U.S. based
@@ -548,4 +548,4 @@ Premium instant coffee, mushroom coffee, and ceremonial matcha crafted for focus
 
 **Last Updated:** June 10, 2026  
 **Next Review:** June 17, 2026  
-**Contact:** admin@torchrepublic.com
+**Contact:** support@torchrepublic.com

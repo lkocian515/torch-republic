@@ -161,7 +161,7 @@ This gives Google time to recrawl and see the noindex tags.
 
 **Full Documentation:** See `/docs/SEO_CLEANUP_AUDIT_COMPLETE.md`
 
-**Contact:** admin@torchrepublic.com
+**Contact:** support@torchrepublic.com
 
 ---
 

@@ -418,7 +418,7 @@ The sitemap at `/public/sitemap.xml` should include only:
 
 For questions or issues related to this cleanup:
 
-- **Email:** admin@torchrepublic.com
+- **Email:** support@torchrepublic.com
 - **Location:** Corpus Christi, Texas, U.S.A.
 - **Business Hours:** Mon-Fri 9AM-6PM CST
 

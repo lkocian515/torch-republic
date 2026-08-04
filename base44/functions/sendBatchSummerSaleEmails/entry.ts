@@ -11,7 +11,7 @@ const FOOTER = `
         <tr>
             <td align="center" style="padding: 40px 20px; border-top: 1px solid rgba(230,183,173,0.1);">
                 <p style="font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: 0.15em; color: rgba(255,255,255,0.3); margin-bottom: 15px;">TORCH REPUBLIC COFFEE COMPANY</p>
-                <p style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 15px;">Corpus Christi, Texas · U.S.A.<br><a href="mailto:admin@torchrepublic.com" style="color: rgba(230,183,173,0.6); text-decoration: none;">admin@torchrepublic.com</a></p>
+                <p style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 15px;">Corpus Christi, Texas · U.S.A.<br><a href="mailto:support@torchrepublic.com" style="color: rgba(230,183,173,0.6); text-decoration: none;">support@torchrepublic.com</a></p>
                 <p style="font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); margin: 10px 0;">© 2026 Torch Republic Coffee Company. All rights reserved.</p>
                 <p style="font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); margin: 10px 0;">You're receiving this email because you're a valued Torch Republic customer.</p>
             </td>
@@ -178,7 +178,7 @@ Deno.serve(async (req) => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        from: 'Torch Republic <admin@torchrepublic.com>',
+                        from: 'Torch Republic <support@torchrepublic.com>',
                         to: [customer.email],
                         subject: template.subject,
                         html: html,

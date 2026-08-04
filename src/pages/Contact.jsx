@@ -139,7 +139,7 @@ export default function Contact() {
                 <Mail className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: RG }} />
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>Support Email</p>
-                  <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)' }}>admin@torchrepublic.com</p>
+                  <p className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)' }}>support@torchrepublic.com</p>
                 </div>
               </div>
 

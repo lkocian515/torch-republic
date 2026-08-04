@@ -653,4 +653,4 @@ When users search `site:torchrepublic.com` after Google recrawls (1-4 weeks):
 **Audit Completed:** June 12, 2026  
 **Status:** ✅ COMPLETE  
 **Prepared By:** Base44 AI Assistant  
-**Contact:** admin@torchrepublic.com
+**Contact:** support@torchrepublic.com
