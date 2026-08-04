@@ -40,7 +40,7 @@ export default function UnifiedHeader() {
     else navigate(getParentPath());
   };
   return <>
-    <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}><p className="font-heading text-sm">Thoughtfully crafted daily rituals for coffee, matcha, and botanical blends.</p></div>
+    <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}><p className="font-heading text-sm">Thoughtfully crafted daily rituals for coffee, matcha, and botanical blends · Free shipping $50+</p></div>
     <header className="sticky top-0 z-40" style={{ background: 'hsl(var(--background) / 0.96)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)' }}>
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
         <button onClick={handleMobileNav} className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 md:hidden" aria-label={isHome ? 'Open navigation menu' : 'Go back'} aria-expanded={isHome ? open : undefined}>{isHome ? <Menu className="h-6 w-6" /> : <><ChevronLeft className="h-6 w-6" />{isChildPage && <span className="font-heading text-sm" style={{ color: colors.text }}>Back</span>}</>}</button>

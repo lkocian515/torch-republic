@@ -65,7 +65,7 @@ export const EMAIL_TEMPLATES = {
                         WELCOME15
                     </p>
                     <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(245,239,230,0.6); margin: 10px 0;">
-                        15% off your first order · Free shipping on orders $75+
+                        15% off your first order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>
@@ -310,7 +310,7 @@ export const EMAIL_TEMPLATES = {
                         </p>
                     </div>
                     <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(245,239,230,0.6); margin: 15px 0;">
-                        15% off your entire order · Free shipping on orders $75+
+                        15% off your entire order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>
@@ -396,7 +396,7 @@ export const MOBILE_TEMPLATES = {
         <div style="background: rgba(230,183,173,0.1); border: 2px solid rgba(230,183,173,0.3); border-radius: 8px; padding: 25px; text-align: center; margin-bottom: 30px;">
             <p style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(230,183,173,0.6); margin-bottom: 10px;">Use Code</p>
             <p style="font-size: 24px; font-weight: bold; letter-spacing: 0.15em; color: #E6B7AD; margin: 10px 0;">WELCOME15</p>
-            <p style="font-size: 12px; color: rgba(245,239,230,0.6); margin: 0;">15% off · Free shipping $75+</p>
+            <p style="font-size: 12px; color: rgba(245,239,230,0.6); margin: 0;">15% off · Free shipping $50+</p>
         </div>
         
         <a href="https://torchrepublic.com/shop" style="display: block; background-color: #E6B7AD; color: #080808; text-align: center; font-size: 11px; font-weight: bold; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; padding: 16px 32px; border-radius: 4px; margin-bottom: 30px;">

@@ -15,7 +15,7 @@ const INTERVIEWS = [
     icon: Code,
     blend: 'GlowMind — Clarity & Flow',
     routine: 'Morning Deep Work Block',
-    quote: "I used to rely on three cups of regular coffee just to get through my morning standup. With GlowMind, I get one cup and I'm locked in for 4-5 hours of deep coding work. The difference is mental clarity without the crash.",
+    quote: "I used to rely on three cups of regular coffee just to get through my morning standup. GlowMind became a simpler, more intentional part of my workday routine.",
     ritual: "I mix my GlowMind at 7am while reviewing my task list. By the time I start coding at 8, I'm in flow state. No jitters, no 10am crash.",
     photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
   },

@@ -39,7 +39,7 @@ const TEMPLATES = {
             <div style="background: linear-gradient(135deg, rgba(230,183,173,0.15) 0%, rgba(196,163,90,0.08) 100%); border: 2px solid rgba(230,183,173,0.3); border-radius: 8px; padding: 30px; max-width: 500px;">
                 <p style="font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(230,183,173,0.6); margin-bottom: 15px;">Summer Sale · 20% Off Everything</p>
                 <p style="font-family: 'Courier New', monospace; font-size: 28px; font-weight: bold; letter-spacing: 0.2em; color: #E6B7AD; margin: 15px 0;">SUMMER20</p>
-                <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(245,239,230,0.6); margin: 10px 0;">20% off your entire order · Free shipping on orders $75+</p>
+                <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(245,239,230,0.6); margin: 10px 0;">20% off your entire order · Free shipping on orders $50+</p>
             </div>
         </td></tr>
         <tr><td align="center" style="padding: 0 20px 50px;"><a href="https://torchrepublic.com/shop" style="display: inline-block; background-color: #E6B7AD; color: #080808; font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; padding: 18px 48px; border-radius: 4px;">Shop the Summer Sale →</a></td></tr>
@@ -109,7 +109,7 @@ ${FOOTER}`,
                 <div style="background: #080808; border: 1px dashed rgba(230,183,173,0.4); border-radius: 4px; padding: 20px; margin: 20px 0;">
                     <p style="font-family: 'Courier New', monospace; font-size: 28px; font-weight: bold; letter-spacing: 0.2em; color: #E6B7AD; margin: 0;">SUMMER20</p>
                 </div>
-                <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(245,239,230,0.6); margin: 15px 0;">20% off your entire order · Free shipping on orders $75+</p>
+                <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(245,239,230,0.6); margin: 15px 0;">20% off your entire order · Free shipping on orders $50+</p>
             </div>
         </td></tr>
         <tr><td align="center" style="padding: 0 20px 50px;"><a href="https://torchrepublic.com/shop" style="display: inline-block; background-color: #E6B7AD; color: #080808; font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; padding: 18px 48px; border-radius: 4px;">Claim Your Discount →</a></td></tr>

@@ -54,7 +54,7 @@ const RESULTS = {
     blend: 'GlowMind',
     profile: 'The Deep Work Architect',
     protocol: 'The 90-Minute Sprint Protocol',
-    description: 'Your cognitive bottlenecks happen during execution and sustained attention. You need steady-state energy without the crash.',
+    description: 'Your ritual may benefit from a smoother, more intentional morning or afternoon routine.',
     productDescription: "Lion's Mane and Chaga infused coffee to lock you into flow state.",
     ctaLabel: 'Optimize Your Focus — Shop GlowMind',
     buyUrl: 'https://torchrepublic.com/products/glowmind-clarity-blend',

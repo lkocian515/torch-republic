@@ -57,7 +57,7 @@ export default function RecommendedRitualBlock({
         </Link>
       </div>
       <p className="font-mono text-[7px] tracking-[0.2em] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>
-        30-day satisfaction guarantee · Free shipping on orders $75+ · Cancel anytime
+        30-day satisfaction guarantee · Free shipping on orders $50+ · Cancel anytime
       </p>
     </motion.div>
   );

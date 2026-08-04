@@ -44,7 +44,7 @@ const TIERS = [
       'Exclusive member offers',
       'Early product launches',
       'Priority customer support',
-      'Free shipping on orders $75+',
+      'Free shipping on orders $50+',
     ],
     icon: Sparkles,
   },

@@ -9,7 +9,7 @@ export default function JoinMovementBanner() {
         <div className="px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-2" style={{ color: '#C8A44D' }}>Limited Time</p>
-            <h3 className="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight text-white">Free Shipping on Orders Over $75</h3>
+            <h3 className="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight text-white">Free Shipping on Orders $50+</h3>
             <p className="text-gray-400 text-sm mt-1">Use code <span className="font-mono font-bold" style={{ color: '#C8A44D' }}>PATRIOT</span> at checkout for 10% off your first order.</p>
           </div>
           <Link

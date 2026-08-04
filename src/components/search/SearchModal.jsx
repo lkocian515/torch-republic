@@ -43,16 +43,7 @@ function buildSearchIndex() {
     });
   });
 
-  // FAQ pages
-  FAQ_PAGES.forEach(f => {
-    items.push({
-      type: 'faq',
-      title: f.question,
-      subtitle: 'FAQ',
-      keywords: (f.question + ' ' + (f.answer || '')).toLowerCase(),
-      url: `/faq/${f.slug}`,
-    });
-  });
+  // FAQ pages stay reachable from the FAQ experience, but are not promoted in global search.
 
   // Ingredient pages
   INGREDIENT_PAGES.forEach(i => {
@@ -65,16 +56,7 @@ function buildSearchIndex() {
     });
   });
 
-  // Comparison pages
-  COMPARISON_PAGES.forEach(c => {
-    items.push({
-      type: 'comparison',
-      title: c.title,
-      subtitle: `vs ${c.competitor}`,
-      keywords: c.title.toLowerCase(),
-      url: `/compare/${c.slug}`,
-    });
-  });
+  // Comparison detail pages remain directly reachable, but the comparison center is not promoted in global search.
 
   return items;
 }

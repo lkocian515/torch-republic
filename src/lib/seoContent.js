@@ -109,8 +109,8 @@ export const ALL_BLOG_TOPICS = [
   { slug: 'chaga-mushroom-coffee', title: 'Chaga Mushroom Coffee: What Is It and Why Drink It?', cluster: 'mushroom-coffee', exists: true },
   { slug: 'history-of-mushroom-coffee', title: 'The History of Mushroom Coffee: From Finland to Your Cup', cluster: 'mushroom-coffee', exists: true },
   { slug: 'mushroom-coffee-benefits', title: 'Mushroom Coffee Benefits: What the Research Actually Says', cluster: 'mushroom-coffee', exists: true },
-  { slug: 'science-of-lions-mane', title: "The Science of Lion's Mane: Cognitive Research Overview", cluster: 'mushroom-coffee', exists: true },
-  { slug: 'chaga-mushroom-antioxidant-king', title: 'Chaga Mushroom: Why It\'s Called the Antioxidant King', cluster: 'mushroom-coffee', exists: true },
+  { slug: 'science-of-lions-mane', title: "Lion’s Mane: Tradition, Research and Modern Coffee Blends", cluster: 'mushroom-coffee', exists: true },
+  { slug: 'chaga-mushroom-antioxidant-king', title: 'Understanding Chaga in Functional Coffee', cluster: 'mushroom-coffee', exists: true },
   { slug: 'how-to-make-mushroom-coffee', title: 'How to Make Mushroom Coffee: Instant vs. Brewed Methods', cluster: 'mushroom-coffee', exists: false },
   { slug: 'mushroom-coffee-side-effects', title: 'Mushroom Coffee Side Effects: What to Know Before You Drink', cluster: 'mushroom-coffee', exists: false },
   { slug: 'best-mushroom-coffee-for-focus', title: 'Best Mushroom Coffee for Focus in 2025', cluster: 'mushroom-coffee', exists: false },
@@ -143,7 +143,7 @@ export const ALL_BLOG_TOPICS = [
 
   // ── MATCHA (15) ──
   { slug: 'instant-ceremonial-matcha', title: 'Instant Ceremonial Matcha: What It Is and How to Choose It', cluster: 'matcha', exists: true },
-  { slug: 'matcha-benefits', title: 'Matcha Benefits: L-Theanine, Antioxidants & Honest Research', cluster: 'matcha', exists: true },
+  { slug: 'matcha-benefits', title: 'A Practical Guide to Ceremonial Matcha', cluster: 'matcha', exists: true },
   { slug: 'history-of-matcha', title: 'The History of Matcha: From Tang Dynasty to Modern Wellness', cluster: 'matcha', exists: true },
   { slug: 'ceremonial-matcha-vs-culinary', title: 'Ceremonial Matcha vs. Culinary Grade: What\'s the Difference?', cluster: 'matcha', exists: true },
   { slug: 'matcha-vs-coffee', title: 'Matcha vs. Coffee: Caffeine, Focus, Taste & Energy Compared', cluster: 'matcha', exists: false },
@@ -161,7 +161,7 @@ export const ALL_BLOG_TOPICS = [
   // ── WELLNESS RITUALS (15) ──
   { slug: 'morning-ritual-for-focus', title: 'Morning Ritual for Focus: A Structured Routine That Works', cluster: 'wellness-rituals', exists: true },
   { slug: 'adaptogens-guide', title: 'Adaptogens Guide: What They Are, What They Do, What They\'re Not', cluster: 'wellness-rituals', exists: true },
-  { slug: 'coffee-and-focus', title: 'Coffee and Focus: What Caffeine Research Actually Shows', cluster: 'wellness-rituals', exists: true },
+  { slug: 'coffee-and-focus', title: 'Coffee, Attention and the Morning Ritual', cluster: 'wellness-rituals', exists: true },
   { slug: 'building-better-morning-habits', title: 'Building Better Morning Habits: A Science-Backed Framework', cluster: 'wellness-rituals', exists: false },
   { slug: 'coffee-ritual-for-productivity', title: 'How to Turn Your Morning Coffee Into a Productivity Ritual', cluster: 'wellness-rituals', exists: false },
   { slug: 'wellness-drinks-for-focus', title: 'Best Wellness Drinks for Focus: Coffee, Matcha & Mushroom Coffee', cluster: 'wellness-rituals', exists: false },
@@ -336,9 +336,9 @@ export const INGREDIENT_PAGES = [
     category: 'Amino Acid',
     color: '#10B981',
     tagline: 'The calm-focus amino acid found naturally in matcha green tea.',
-    description: "L-Theanine is a naturally occurring amino acid found almost exclusively in green tea leaves (Camellia sinensis). It is responsible for the calming, focused energy state that distinguishes matcha from coffee. Unlike caffeine alone, L-theanine promotes alpha brainwave activity — associated with relaxed alertness — while reducing perceived stress.",
+    description: "L-Theanine is a naturally occurring amino acid found almost exclusively in green tea leaves (Camellia sinensis). It is responsible for the calming, focused energy state that distinguishes matcha from coffee. Unlike caffeine alone, L-theanine is traditionally associated with calm-focus tea rituals and has been studied for relaxed alertness in some research contexts.",
     benefits: [
-      { title: 'Calm Alertness', detail: "L-Theanine promotes alpha brainwave activity (8-13 Hz), associated with the meditative 'alert and relaxed' state." },
+      { title: 'Calm Ritual Appeal', detail: "L-Theanine is naturally found in matcha and is traditionally associated with calm, mindful tea rituals." },
       { title: 'Caffeine Synergy', detail: "When combined with caffeine (as naturally occurs in matcha), L-theanine sharpens focus while reducing caffeine jitter and anxiety." },
       { title: 'Stress Reduction', detail: "Clinical evidence for reduced salivary cortisol and perceived stress in multiple double-blind trials." },
       { title: 'Working Memory', detail: "Combined L-theanine + caffeine shows improved working memory and attention in several well-designed RCTs." },
@@ -352,7 +352,7 @@ export const INGREDIENT_PAGES = [
     ],
     relatedSlugs: ['matcha-benefits', 'l-theanine-and-caffeine', 'matcha-for-anxiety', 'ceremonial-matcha-vs-culinary'],
     metaTitle: 'L-Theanine: Ingredient Guide & Focus Research | Torch Republic',
-    metaDescription: 'L-Theanine deep dive — alpha brainwaves, caffeine synergy, stress reduction research, and why it makes ceremonial matcha different from coffee.',
+    metaDescription: 'L-Theanine deep dive — naturally occurring matcha compounds, caffeine pairing, research context, and why ceremonial matcha feels different for some drinkers.',
   },
   {
     slug: 'arabica-coffee',
@@ -394,7 +394,7 @@ export const COMPARISON_PAGES = [
     winner: null,
     categories: ['Price per serving', 'Mushroom variety', 'Blend options', 'Instant format', 'Servings per package'],
     summary: "Both brands make functional mushroom coffee with instant powder format. Key differences come down to price per serving, number of blend options, and specific mushroom ingredient focus.",
-    ourEdge: ["More blend variety (12 products vs. fewer options)", "Lower price per serving", "Dedicated ritual-matching (quiz + bundle builder)", "Transparent ingredient sourcing"],
+    ourEdge: ["A broader coffee, mushroom coffee, and matcha ritual collection", "Lower price per serving", "Dedicated ritual-matching (quiz + bundle builder)", "Transparent ingredient sourcing"],
     theirEdge: ["Longer market presence", "Wider retail distribution", "More third-party certifications"],
     cluster: 'mushroom-coffee',
   },
@@ -433,7 +433,7 @@ export const COMPARISON_PAGES = [
     winner: null,
     categories: ['Caffeine content', 'Energy duration', 'Focus quality', 'Taste profile', 'Antioxidants'],
     summary: "Coffee and matcha serve different ritual needs. Coffee provides higher, faster energy. Matcha provides calmer, more sustained focus. Neither is objectively better — it depends on your ritual.",
-    ourEdge: ["L-theanine for calm focus", "No energy crash", "Higher antioxidant content", "Lower caffeine anxiety"],
+    ourEdge: ["Naturally occurring L-theanine", "Traditionally associated with mindful tea rituals", "Distinct ceremonial flavor profile", "May feel different from traditional coffee for some drinkers"],
     theirEdge: ["Higher caffeine for bigger energy kick", "More familiar taste", "Widely available", "Lower cost"],
     cluster: 'matcha',
   },
@@ -459,7 +459,7 @@ export const COMPARISON_PAGES = [
     winner: null,
     categories: ['Price per serving', 'Blend variety', 'Mushroom diversity', 'Caffeine options', 'Servings per package'],
     summary: "Both Ryze and Torch Republic make instant mushroom coffee. Key differences: Torch Republic offers more blend options and dedicated ritual-matching tools. Ryze has established brand recognition and wider distribution. The right choice depends on whether you want one core blend or a customized multi-blend ritual.",
-    ourEdge: ["12 distinct blends vs. limited options", "Dedicated blend quiz for personalized matching", "Custom bundle builder (any 3 for $49.99)", "Classic coffee + mushroom + matcha all in one brand", "Ritual-first philosophy"],
+    ourEdge: ["A growing collection of classic instant coffee, functional mushroom blends, and ceremonial matcha", "Dedicated blend quiz for personalized matching", "Custom bundle builder (any 3 for $49.99)", "Classic coffee + mushroom + matcha all in one brand", "Ritual-first philosophy"],
     theirEdge: ["Widely recognized brand name", "Broader retail availability", "Well-established repeat customer base"],
     cluster: 'mushroom-coffee',
   },
@@ -471,8 +471,8 @@ export const COMPARISON_PAGES = [
     metaDescription: 'Mushroom coffee vs. energy drinks — ingredients, caffeine crash, sugar content, functional benefits, and which is better for sustainable daily energy.',
     winner: 'mushroom-coffee',
     categories: ['Sugar content', 'Caffeine crash', 'Functional ingredients', 'Cost per serving', 'Clean label'],
-    summary: "Mushroom coffee has a clear advantage for daily wellness — no sugar, no crash, functional adaptogens, and a clean ingredient label. Energy drinks deliver more caffeine but with significant trade-offs.",
-    ourEdge: ["Zero sugar", "No crash", "Functional mushroom adaptogens", "Coffee ritual format", "Clean ingredients"],
+    summary: "Mushroom coffee can be a smoother, coffee-forward alternative to sugary energy drinks for people building an intentional daily routine.",
+    ourEdge: ["Zero sugar", "Coffee ritual format", "Functional mushroom ingredients", "Simple preparation", "Clean ingredient label"],
     theirEdge: ["Higher caffeine dose", "More widely available", "Multiple flavors"],
     cluster: 'mushroom-coffee',
   },
@@ -807,7 +807,7 @@ export const FAQ_PAGES = [
     cluster: 'wellness-rituals',
     metaTitle: 'How Does the Torch Republic Bundle Deal Work? | FAQ',
     metaDescription: 'How the Torch Republic ritual bundle works — any 3 blends for $49.99, savings calculation, how to customize, and bundle checkout process.',
-    answer: "The Build Your Ritual bundle lets you choose any 3 products from Torch Republic's full catalog (mushroom coffee, classic coffee, or matcha) for a flat $49.99 — regardless of which blends you select. Individual prices range from $19.99-$24.99, so a typical 3-product bundle at individual prices would cost $60-$75. The bundle saves you $10-$25 depending on selections. Use the Bundle Builder to mix and match, then proceed directly to checkout.",
+    answer: "The Build Your Ritual bundle lets you choose any 3 products from Torch Republic's full catalog (mushroom coffee, classic coffee, or matcha) for a flat $49.99 — regardless of which blends you select. Individual prices vary by selection, and the builder shows the final bundle value before checkout. Use the Bundle Builder to mix and match, then proceed directly to checkout.",
     relatedFaqs: ['subscription-faq', 'best-mushroom-blend-for-beginners', 'how-to-make-mushroom-coffee'],
     products: [
       { name: 'Build Your Ritual Bundle', path: '/build-your-ritual' },
@@ -846,7 +846,7 @@ export const FAQ_PAGES = [
     cluster: 'matcha',
     metaTitle: 'What Is L-Theanine? How It Works in Matcha | Torch Republic',
     metaDescription: "What is L-theanine? How it creates calm focus, why it's uniquely concentrated in matcha, caffeine synergy research, and brain wave effects.",
-    answer: "L-theanine is an amino acid found almost exclusively in green tea (Camellia sinensis) — and matcha has 5x more than regular green tea because the shade-growing process concentrates it. L-theanine promotes alpha brainwave activity (8-13 Hz), associated with the relaxed-alert state of meditation. When combined with caffeine (as naturally occurs in matcha), it sharpens focus while dampening caffeine-induced anxiety and jitter. Multiple double-blind trials support this combination for cognitive performance.",
+    answer: "L-theanine is an amino acid found almost exclusively in green tea (Camellia sinensis) — and matcha has 5x more than regular green tea because the shade-growing process concentrates it. L-theanine is naturally found in tea and traditionally associated with mindful tea rituals. It has been studied alongside caffeine, but individual experiences can vary.",
     relatedFaqs: ['what-is-ceremonial-matcha', 'does-matcha-have-health-benefits', 'matcha-vs-coffee-faq'],
     products: [
       { name: 'Shop Matcha', path: '/shop/matcha' },
@@ -1009,7 +1009,7 @@ export const INGREDIENT_LONG_FORM = {
       },
       {
         heading: "L-Theanine: The Science of Calm Focus",
-        body: "L-theanine (gamma-glutamylethylamide) is an amino acid found almost exclusively in green tea — specifically in the Camellia sinensis plant. Matcha has approximately 5x more L-theanine than regular green tea because of the shade-growing process that concentrates it.\n\nL-theanine promotes alpha brainwave activity (8-13 Hz) — the brain state associated with relaxed alertness, often described as the feeling of meditation or creative flow. Unlike benzodiazepines or alcohol, which promote delta and theta waves (drowsiness), L-theanine increases alpha without sedation.\n\nWhen combined with caffeine (as naturally occurs in matcha), L-theanine has a specific interaction that has been studied in over 30 human trials: it reduces caffeine-induced anxiety and jitteriness while maintaining or enhancing caffeine's focus and attention benefits. The combination improves reaction time, working memory, and sustained attention in well-controlled trials.\n\nKey research: Owen et al. (2008), Journal of Nutritional Neuroscience — participants receiving L-theanine + caffeine showed significantly better accuracy on demanding cognitive tasks than those on caffeine alone."
+        body: "L-theanine (gamma-glutamylethylamide) is an amino acid found almost exclusively in green tea — specifically in the Camellia sinensis plant. Matcha has approximately 5x more L-theanine than regular green tea because of the shade-growing process that concentrates it.\n\nL-theanine is a naturally occurring amino acid in tea that is traditionally associated with relaxed alertness and mindful tea rituals. Unlike benzodiazepines or alcohol, which promote delta and theta waves (drowsiness), L-theanine increases alpha without sedation.\n\nWhen combined with caffeine (as naturally occurs in matcha), L-theanine has a specific interaction that has been studied in over 30 human trials: it reduces caffeine-induced anxiety and jitteriness while maintaining or enhancing caffeine's focus and attention benefits. The combination improves reaction time, working memory, and sustained attention in well-controlled trials.\n\nKey research: Owen et al. (2008), Journal of Nutritional Neuroscience — participants receiving L-theanine + caffeine showed significantly better accuracy on demanding cognitive tasks than those on caffeine alone."
       },
       {
         heading: "EGCG and Antioxidant Density",
@@ -1021,7 +1021,7 @@ export const INGREDIENT_LONG_FORM = {
       },
       {
         heading: "Matcha vs. Coffee: An Honest Comparison",
-        body: "Matcha and coffee serve different ritual needs, and neither is objectively superior.\n\nCoffee provides higher total caffeine (80-120mg per cup vs 25-70mg for matcha), faster onset, and a more familiar flavor profile. For high-energy mornings or work requiring immediate activation, coffee often wins.\n\nMatcha provides calmer, more sustained energy through the L-theanine mechanism. The energy curve is flatter — less spike, less crash. For sustained creative work, afternoon sessions, or anyone who experiences caffeine anxiety from coffee, matcha's profile is genuinely better.\n\nMany experienced coffee drinkers alternate based on work type: coffee for high-output physical mornings, matcha for focused creative or analytical work. The Torch Republic ritual system was designed to support this — we have both premium instant coffee and ceremonial matcha, with a quiz that helps people find the right blend for their specific ritual needs."
+        body: "Matcha and coffee serve different ritual needs, and neither is objectively superior.\n\nCoffee provides higher total caffeine (80-120mg per cup vs 25-70mg for matcha), faster onset, and a more familiar flavor profile. For high-energy mornings or work requiring immediate activation, coffee often wins.\n\nMatcha contains naturally occurring caffeine and L-theanine, and may feel different from traditional coffee for some drinkers. For sustained creative work, afternoon sessions, or anyone who experiences caffeine anxiety from coffee, matcha's profile is genuinely better.\n\nMany experienced coffee drinkers alternate based on work type: coffee for high-output physical mornings, matcha for focused creative or analytical work. The Torch Republic ritual system was designed to support this — we have both premium instant coffee and ceremonial matcha, with a quiz that helps people find the right blend for their specific ritual needs."
       },
     ],
   },
@@ -1109,7 +1109,7 @@ export const GEO_ENTITIES = {
     keyIngredients: ["Lion's Mane", 'Chaga', 'Cordyceps', 'Reishi', 'L-Theanine', 'Arabica Coffee'],
     uniqueSellingPoints: [
       'Instant format — no coffee maker needed',
-      '12 distinct blend options',
+      'A growing collection of classic instant coffee, functional mushroom blends, and ceremonial matcha',
       'Functional mushroom extracts in all mushroom blends',
       '27 servings per tube',
       'Subscribe and save 20%',

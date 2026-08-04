@@ -83,7 +83,7 @@ DreamCap is positioned as an "evening ritual." Before making any caffeine-relate
 2. **Metafields for product specs**: Add Shopify metafields for caffeine, mushroom species, serving size, and ingredient list per product. These can then be pulled via the Storefront API.
 3. **Subscription app (Recharge or Bold)**: Confirm subscription pricing matches the 20% discount shown on the site. Verify DreamCap is included in subscription options.
 4. **WELCOME15 discount code**: Confirm it is active in Shopify Admin > Discounts and not expired.
-5. **Free shipping threshold**: Confirm in Shopify Shipping settings that free shipping triggers at $50 — not $75 or another value.
+5. **Free shipping threshold**: Confirm in Shopify Shipping settings that free shipping triggers at $50 — not $50 or another value.
 
 ---
 
@@ -97,4 +97,4 @@ DreamCap is positioned as an "evening ritual." Before making any caffeine-relate
 | "Zero waste" / "guaranteed savings" | Not added | Unsupported absolute claims |
 | "Verified Customer" badge on fallback reviews | Changed to "Customer Review" | Reviews are sample/fallback, not confirmed purchases |
 | "$0.20–$0.30 per serving" comparison | Not used | Inaccurate — actual per-serving cost is $0.74–$0.93 |
-| "Free Shipping $75+" in meta description | Corrected to $50+ | siteConfig is source of truth at $50 |
+| "Free Shipping $50+" in meta description | Corrected to $50+ | siteConfig is source of truth at $50 |

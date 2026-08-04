@@ -8,7 +8,7 @@ const ITEMS = [
   { icon: '🔒', text: 'Secure Shopify Checkout' },
   { icon: '✦', text: '27 Servings Per Tube' },
   { icon: '✦', text: '30-Day Guarantee' },
-  { icon: '✦', text: 'Free Shipping $75+' },
+  { icon: '✦', text: 'Free Shipping $50+' },
   { icon: '✦', text: '100% Arabica Coffee' },
 ];
 

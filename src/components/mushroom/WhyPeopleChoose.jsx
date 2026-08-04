@@ -193,7 +193,7 @@ export default function WhyPeopleChoose() {
               marginTop: '14px',
             }}
           >
-            30-Day First Cup Guarantee · Free shipping over $75
+            30-Day First Cup Guarantee · Free shipping $50+
           </p>
         </motion.div>
       </div>

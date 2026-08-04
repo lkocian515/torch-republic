@@ -20,7 +20,7 @@ const BENEFITS = [
   {
     icon: Brain,
     title: 'Enhanced Focus',
-    description: 'L-theanine in matcha promotes alpha brain waves, associated with relaxed alertness and improved concentration.',
+    description: 'Matcha contains naturally occurring caffeine and L-theanine, traditionally associated with mindful tea rituals.',
   },
   {
     icon: Heart,

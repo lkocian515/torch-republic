@@ -107,7 +107,7 @@ Premium section showcasing the three tiers with icons and colors.
   - Exclusive member offers
   - Early product launches
   - Priority customer support
-  - Free shipping on orders $75+
+  - Free shipping on orders $50+
 
 ### TIER 3: FLAMEKEEPER (VIP)
 - **Color:** Gold (#D4AF37)

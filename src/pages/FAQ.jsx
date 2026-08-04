@@ -43,7 +43,7 @@ const FAQ_DATA = [
   },
   {
     question: 'What shipping options do you offer?',
-    answer: 'We offer free shipping on orders over $75. Standard shipping takes 3-5 business days within the continental U.S.',
+    answer: 'We offer free shipping on orders $50+. Standard shipping takes 3-5 business days within the continental U.S.',
   },
   {
     question: 'What is your return policy?',

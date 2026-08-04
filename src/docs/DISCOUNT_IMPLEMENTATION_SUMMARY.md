@@ -57,7 +57,7 @@ A reusable React component that displays all three discount offers with:
 2. **Review step** → Sees all discounts:
    - ✓ 20% OFF subscription (SUBSCRIBE20)
    - ✓ Saves $14.99/month
-   - ✓ Free shipping unlocked ($75 threshold)
+   - ✓ Free shipping unlocked ($50 threshold)
 3. **Checkout** → SUBSCRIBE20 applied → $59.98/month
 
 ### Bundle Buyer (6 tubes = $149.94)
@@ -88,9 +88,9 @@ A reusable React component that displays all three discount offers with:
 - **Usage limits**: Recurring (for subscription app integration)
 - **Active dates**: Ongoing
 
-#### 3. Free Shipping $75+
+#### 3. Free Shipping $50+
 - **Type**: Free shipping rate
-- **Applies to**: All orders over $75
+- **Applies to**: All orders over $50
 - **Configuration**: Shopify Settings → Shipping and delivery
 - **Automatic**: No code required
 - **Active dates**: Ongoing
@@ -115,7 +115,7 @@ A reusable React component that displays all three discount offers with:
 ### State Management
 - Auto-rotates through 3 discounts every 5 seconds
 - Calculates free shipping progress in real-time
-- Updates UI when threshold is crossed ($75)
+- Updates UI when threshold is crossed ($50)
 - Manual navigation via dot indicators
 
 ### Styling
@@ -174,7 +174,7 @@ Track discount code usage:
 
 ### Conversion Rate Optimization
 - **Welcome discount**: +15-25% first-time conversions
-- **Free shipping threshold**: +30% AOV (customers add more to reach $75)
+- **Free shipping threshold**: +30% AOV (customers add more to reach $50)
 - **Subscription discount**: +40% subscription adoption
 
 ### Revenue Impact
@@ -193,7 +193,7 @@ Track discount code usage:
 
 ### Before Launch
 - [ ] All three discount codes active in Shopify
-- [ ] Free shipping rate configured for $75+
+- [ ] Free shipping rate configured for $50+
 - [ ] Component renders correctly on all pages
 - [ ] Auto-rotation working (every 5 seconds)
 - [ ] Progress bars calculate correctly

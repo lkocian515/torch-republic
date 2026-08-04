@@ -31,15 +31,15 @@ const GRADES = [
 const FAQS = [
   { q: "What is ceremonial grade matcha?", a: "Ceremonial grade matcha is the highest quality category of matcha, made from the youngest, shade-grown tea leaves of the first spring harvest. It's characterized by a bright vibrant green color, smooth umami flavor with natural sweetness, and higher L-Theanine content than lower-grade matchas. It's designed to be consumed with just hot water — no milk or sweetener required to taste good." },
   { q: "What is the difference between ceremonial and culinary matcha?", a: "Ceremonial matcha is made from younger leaves and processed more carefully, resulting in a sweeter, smoother flavor and brighter color. Culinary matcha uses older, lower leaves and is more bitter and duller in color — it's designed to be blended with strong flavors in baking or smoothies. Using culinary matcha as a drinking tea produces a bitter, unpleasant experience. Always use ceremonial grade for drinking." },
-  { q: "Does ceremonial matcha have caffeine?", a: "Yes. Ceremonial matcha contains approximately 30–50mg of caffeine per serving (roughly half a cup of coffee). Importantly, matcha's L-Theanine slows caffeine absorption and reduces the cortisol spike associated with coffee, creating smoother, more sustained energy without jitters or crash." },
-  { q: "What does L-Theanine do in matcha?", a: "L-Theanine is an amino acid unique to tea that increases alpha-wave brain activity — associated with calm, focused attention. When combined with caffeine, L-Theanine blunts the anxious edge of caffeine while preserving alertness. This synergistic combination (often called 'calm focus') is the primary reason matcha produces a distinctly different energy experience than coffee." },
+  { q: "Does ceremonial matcha have caffeine?", a: "Yes. Ceremonial matcha contains approximately 30–50mg of naturally occurring caffeine per serving. Its L-theanine content is traditionally associated with mindful tea rituals, and individual experiences can vary." },
+  { q: "What does L-Theanine do in matcha?", a: "L-Theanine is an amino acid naturally found in tea. It is traditionally associated with mindful tea rituals and has been studied alongside caffeine, but individual experiences can vary." },
   { q: "Is instant ceremonial matcha as good as traditional matcha?", a: "High-quality instant ceremonial matcha preserves the L-Theanine and antioxidant profile of traditionally whisked matcha. The difference is in ritual — traditional matcha requires careful whisking technique and specific water temperature. Instant ceremonial matcha (like Torch Republic's blends) delivers the same active compounds in 30 seconds without equipment. If you value the ceremonial aspect, traditional preparation is irreplaceable. For a daily functional habit, instant ceremonial matcha is nutritionally equivalent." },
 ];
 
 export default function CeremonialMatchaGuide() {
   useSEO({
     title: "Ceremonial Matcha: Grades, Benefits & How to Choose | Torch Republic",
-    description: "Everything about ceremonial grade matcha — what it is, how it differs from culinary grade, L-Theanine benefits, and Torch Republic's instant ceremonial matcha blends.",
+    description: "Everything about ceremonial grade matcha — what it is, how it differs from culinary grade, naturally occurring L-theanine, and Torch Republic's instant ceremonial matcha blends.",
     url: '/ceremonial-matcha',
     type: 'website',
     faq: FAQS.map(f => ({ question: f.q, answer: f.a })),
@@ -79,7 +79,7 @@ export default function CeremonialMatchaGuide() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.14 }}
           className="font-heading mb-8"
           style={{ fontSize: '1rem', color: DIM, fontWeight: 300, lineHeight: 1.85 }}>
-          Ceremonial matcha is the highest quality grade of matcha — shade-grown, hand-harvested, stone-ground, and loaded with L-Theanine for calm, focused energy. Here's everything you need to know before you buy.
+          Ceremonial matcha is the highest quality grade of matcha — shade-grown, hand-harvested, stone-ground, and naturally rich in L-theanine. Here's everything you need to know before you buy.
         </motion.p>
         <div className="flex gap-3 justify-center flex-wrap">
           <Link to="/shop/matcha"
@@ -154,9 +154,9 @@ export default function CeremonialMatchaGuide() {
         </h2>
         <div className="flex flex-col gap-3">
           {[
-            { name: 'The Monk Matcha', tagline: 'Pure ceremonial matcha — calm, focused simplicity', slug: 'the-monk-matcha-blend' },
+            { name: 'The Monk Matcha', tagline: 'Pure ceremonial matcha for a simple daily ritual', slug: 'the-monk-matcha-blend' },
             { name: 'The Ascendant Matcha', tagline: 'Ceremonial matcha with elevated ritual intention', slug: 'the-ascendant-matcha-blend' },
-            { name: 'The Alchemist Matcha', tagline: 'Complex, layered ceremonial matcha for deep focus', slug: 'the-alchemist-matcha-blend' },
+            { name: 'The Alchemist Matcha', tagline: 'Complex, layered ceremonial matcha for intentional routines', slug: 'the-alchemist-matcha-blend' },
           ].map(p => (
             <Link key={p.slug} to={`/products/${p.slug}`}
               className="flex items-center justify-between gap-4 p-5 transition-all"

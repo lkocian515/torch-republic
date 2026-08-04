@@ -17,7 +17,7 @@ These pages should be indexed by search engines:
 | Route | Page | Status |
 |-------|------|--------|
 | `/` | Home | INDEX |
-| `/shop` | Mushroom Shop | INDEX |
+| `/shop` | Shop Instant Coffee, Mushroom Coffee & Matcha | INDEX |
 | `/shop/instant-mushroom-coffee` | Mushroom Coffee Collection | INDEX |
 | `/shop/instant-coffee` | Classic Coffee Collection | INDEX |
 | `/shop/matcha` | Matcha Collection | INDEX |
@@ -27,7 +27,7 @@ These pages should be indexed by search engines:
 | `/blends` | Blends Collection | INDEX |
 | `/blends/:slug` | Blend Detail | INDEX |
 | `/products/:slug` | Product Detail | INDEX |
-| `/bundle` | Mushroom Bundle | INDEX |
+| `/bundle` | Build Your Ritual | INDEX |
 | `/how-it-works` | How It Works | INDEX |
 | `/reviews` | Reviews | INDEX |
 | `/mission` | Our Mission | INDEX |

@@ -9,9 +9,9 @@ const RG = '#E6B7AD';
 const MATCHA_GREEN = '#6CBD5A';
 
 const BENEFITS = [
-  { icon: Brain, title: 'L-Theanine + Caffeine Synergy', body: 'Matcha delivers caffeine and L-theanine together — a combination shown in multiple studies to produce calmer, more sustained focus than caffeine alone. L-theanine triggers alpha brain waves, the state associated with relaxed alertness.' },
+  { icon: Brain, title: 'Naturally Occurring L-Theanine', body: 'Matcha contains caffeine and L-theanine together — a pairing that has been studied in tea research and is traditionally associated with mindful rituals.' },
   { icon: Shield, title: 'EGCG Antioxidant Power', body: 'Matcha contains 137x more EGCG (epigallocatechin gallate) than standard green tea. EGCG is one of the most studied antioxidant compounds in nutrition science, linked to cardiovascular health, metabolic support, and cellular protection.' },
-  { icon: Zap, title: 'Clean, Jitter-Free Energy', body: 'The L-theanine in matcha moderates caffeine absorption, smoothing the onset and extending the duration. The result is a calm, focused energy state without the adrenal spike, jitters, or hard crash of coffee.' },
+  { icon: Zap, title: 'Smooth Ritual Appeal', body: 'Matcha contains naturally occurring caffeine and L-theanine, and may feel different from traditional coffee for some drinkers.' },
   { icon: Heart, title: 'Metabolism & Fat Oxidation', body: 'Multiple studies show matcha increases thermogenesis (calorie burning) and fat oxidation by 17–43% during moderate exercise. It\'s one of the most evidence-backed metabolic support compounds available.' },
   { icon: Leaf, title: 'Chlorophyll & Detox Support', body: 'Matcha\'s deep green color comes from high chlorophyll content — a result of shade-growing that also increases L-theanine. Chlorophyll supports natural detoxification pathways and alkalinity.' },
 ];

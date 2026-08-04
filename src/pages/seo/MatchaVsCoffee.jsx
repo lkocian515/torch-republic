@@ -8,8 +8,8 @@ const DATA = {
     url: '/matcha-vs-coffee',
     type: 'article',
     faq: [
-      { question: 'Is matcha better than coffee?', answer: 'It depends on what you want. Matcha provides a calmer, more sustained energy boost thanks to L-theanine, which slows caffeine absorption. Coffee provides a faster, more intense energy spike. For focus without jitters, matcha is often better. For a quick energy hit, coffee wins.' },
-      { question: 'Does matcha have more caffeine than coffee?', answer: 'No. A cup of coffee typically contains 95–100mg of caffeine. A cup of matcha contains approximately 70mg. However, matcha\'s L-theanine slows caffeine absorption, creating a longer-lasting, calmer energy curve.' },
+      { question: 'Is matcha better than coffee?', answer: 'It depends on what you want. Matcha provides a calmer, more sustained energy boost thanks to naturally occurring L-theanine. Coffee provides a faster, more intense energy spike. For focus without jitters, matcha is often better. For a quick energy hit, coffee wins.' },
+      { question: 'Does matcha have more caffeine than coffee?', answer: 'No. A cup of coffee typically contains 95–100mg of caffeine. A cup of matcha contains approximately 70mg. However, matcha also contains naturally occurring L-theanine, traditionally associated with mindful tea rituals.' },
       { question: 'Can you drink matcha instead of coffee?', answer: 'Yes. Many people switch from coffee to matcha for a calmer, more sustained energy experience. Matcha also provides antioxidants (catechins/EGCG) and L-theanine, which coffee does not. Some people drink both — coffee in the morning, matcha in the afternoon.' },
     ],
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Matcha vs Coffee', url: '/matcha-vs-coffee' }],
@@ -25,13 +25,13 @@ const DATA = {
       heading: 'Caffeine: Speed vs. Duration',
       paragraphs: [
         'A standard cup of coffee contains approximately 95–100mg of caffeine. A cup of ceremonial matcha contains approximately 70mg. But the raw number doesn\'t tell the whole story.',
-        'Coffee delivers caffeine quickly — you feel the peak within 15–30 minutes, followed by a gradual decline. Matcha delivers caffeine more slowly thanks to L-theanine, an amino acid that binds to caffeine and slows its absorption. The result is a calmer, more sustained energy curve that lasts longer and has a gentler decline.',
+        'Coffee delivers caffeine quickly — you feel the peak within 15–30 minutes, followed by a gradual decline. Matcha contains naturally occurring caffeine and L-theanine, an amino acid traditionally associated with mindful tea rituals. Some drinkers experience matcha differently from traditional coffee.',
       ],
     },
     {
       heading: 'Focus and Jitters',
       paragraphs: [
-        'The L-theanine in matcha is the key differentiator. L-theanine promotes alpha brain wave activity, which is associated with a state of calm alertness. This is why matcha drinkers often report "focused but calm" energy, while coffee drinkers sometimes report jitters or anxiety at higher doses.',
+        'The L-theanine in matcha is the key differentiator. L-theanine is naturally found in matcha and is traditionally associated with mindful tea rituals. This is why matcha drinkers often report "focused but calm" energy, while coffee drinkers sometimes report jitters or anxiety at higher doses.',
         'If you\'re sensitive to caffeine, prone to jitters, or want sustained focus for deep work, matcha\'s L-theanine profile is a meaningful advantage. If you want a fast, powerful energy spike for a workout or early morning, coffee is more effective.',
       ],
     },
@@ -58,14 +58,14 @@ const DATA = {
   ],
   features: [
     { title: 'Coffee: Fast Energy', detail: 'Quick caffeine peak in 15–30 minutes. Best for mornings and workouts.' },
-    { title: 'Matcha: Calm Focus', detail: 'L-theanine slows caffeine for sustained, jitter-free energy. Best for deep work.' },
+    { title: 'Matcha: Mindful Ritual', detail: 'Contains naturally occurring caffeine and L-theanine. Often chosen for intentional routines.' },
     { title: 'Both: Antioxidants', detail: 'Each offers unique antioxidant compounds. Drinking both gives you the broadest benefit.' },
   ],
   faqs: [
-    { question: 'Is matcha better than coffee?', answer: 'It depends on what you want. Matcha provides a calmer, more sustained energy boost thanks to L-theanine, which slows caffeine absorption. Coffee provides a faster, more intense energy spike. For focus without jitters, matcha is often better. For a quick energy hit, coffee wins.' },
-    { question: 'Does matcha have more caffeine than coffee?', answer: 'No. A cup of coffee typically contains 95–100mg of caffeine. A cup of matcha contains approximately 70mg. However, matcha\'s L-theanine slows caffeine absorption, creating a longer-lasting, calmer energy curve.' },
+    { question: 'Is matcha better than coffee?', answer: 'It depends on what you want. Matcha provides a calmer, more sustained energy boost thanks to naturally occurring L-theanine. Coffee provides a faster, more intense energy spike. For focus without jitters, matcha is often better. For a quick energy hit, coffee wins.' },
+    { question: 'Does matcha have more caffeine than coffee?', answer: 'No. A cup of coffee typically contains 95–100mg of caffeine. A cup of matcha contains approximately 70mg. However, matcha also contains naturally occurring L-theanine, traditionally associated with mindful tea rituals.' },
     { question: 'Can you drink matcha instead of coffee?', answer: 'Yes. Many people switch from coffee to matcha for a calmer, more sustained energy experience. Matcha also provides antioxidants (catechins/EGCG) and L-theanine, which coffee does not. Some people drink both — coffee in the morning, matcha in the afternoon.' },
-    { question: 'Does matcha give you jitters?', answer: 'Matcha is less likely to cause jitters than coffee because its L-theanine content slows caffeine absorption and promotes calm alertness. People who experience jitters from coffee often find matcha provides a smoother energy experience.' },
+    { question: 'Does matcha give you jitters?', answer: 'Matcha is less likely to cause jitters than coffee because its L-theanine content is traditionally associated with mindful tea rituals. People who experience jitters from coffee often find matcha provides a smoother energy experience.' },
   ],
   products: [
     { name: 'Shop Matcha', path: '/shop/matcha' },

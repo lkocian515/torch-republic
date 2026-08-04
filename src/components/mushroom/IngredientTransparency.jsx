@@ -13,7 +13,7 @@ const TRANSPARENCY_ITEMS = [
   {
     icon: Droplet,
     label: 'Caffeine Content',
-    desc: 'Approximately 60-80mg per serving (varies by blend). Smooth energy without the crash or jitters.',
+    desc: 'Approximately 60-80mg per serving (varies by blend). Designed for a balanced daily routine.',
   },
   {
     icon: Leaf,

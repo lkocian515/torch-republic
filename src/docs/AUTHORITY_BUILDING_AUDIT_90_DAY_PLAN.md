@@ -245,7 +245,7 @@ These 20 NEW FAQs supplement the existing 30 in `seoContent.js`. Each is designe
 **A:** High-quality ceremonial matcha has a smooth, vegetal, slightly sweet flavor with umami depth. It should not taste bitter — bitterness indicates lower quality or improper preparation. The flavor profile includes grassy notes, a creamy mouthfeel, and a lingering sweet aftertaste. If your matcha tastes bitter or astringent, it's likely culinary grade, the water was too hot (above 80°C), or the powder wasn't properly whisked. Torch Republic's ceremonial matcha is pre-sifted and optimized for smooth preparation.
 
 **Q15: Is matcha better than coffee for anxiety?**
-**A:** For many people, yes. Matcha contains L-theanine, an amino acid that promotes alpha brainwave activity (associated with relaxed alertness) and reduces caffeine-induced anxiety. Coffee contains no L-theanine, so its caffeine hits faster and harder, which can trigger anxiety in sensitive individuals. If you experience jitteriness, racing thoughts, or anxiety from coffee, switching to matcha often resolves these symptoms while still providing focus and energy. Many people alternate: coffee for high-energy mornings, matcha for focused or afternoon work.
+**A:** For many people, yes. Matcha contains L-theanine, an amino acid that is traditionally associated with mindful tea rituals. Coffee contains no L-theanine, so its caffeine hits faster and harder, which can trigger anxiety in sensitive individuals. If you experience jitteriness, racing thoughts, or anxiety from coffee, switching to matcha often resolves these symptoms while still providing focus and energy. Many people alternate: coffee for high-energy mornings, matcha for focused or afternoon work.
 
 ### Wellness & Ritual Cluster (5 new FAQs)
 

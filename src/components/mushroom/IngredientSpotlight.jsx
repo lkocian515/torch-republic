@@ -54,7 +54,7 @@ const SPOTLIGHT_DATA = {
       description:
         'L-Theanine is a rare amino acid found almost exclusively in tea leaves. It is the reason matcha feels different from coffee — clear-headed and calm, not wired and anxious.',
       howItWorks:
-        'L-Theanine promotes alpha brainwave activity — the same state associated with relaxed, creative focus. Combined with caffeine, research shows it improves reaction time, working memory, and accuracy more than either compound alone.',
+        'L-Theanine occurs naturally in matcha and is traditionally associated with mindful tea rituals. Research continues to evaluate how it pairs with naturally occurring caffeine for different drinkers.',
       bestFor: ['Calm, jitter-free focus', 'Creative work', 'Reducing coffee anxiety', 'Meditation and flow states'],
       callout: {
         label: 'The Combination',

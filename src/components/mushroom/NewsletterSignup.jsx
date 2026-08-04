@@ -173,7 +173,7 @@ export default function NewsletterSignup() {
             className="font-mono text-[7px] tracking-[0.2em] uppercase mt-5"
             style={{ color: 'rgba(230,183,173,0.35)' }}
           >
-            Free shipping on orders $75+ · Unsubscribe anytime
+            Free shipping on orders $50+ · Unsubscribe anytime
           </p>
         </motion.div>
       </div>

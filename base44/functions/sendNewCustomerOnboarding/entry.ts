@@ -52,7 +52,7 @@ Deno.serve(async (req) => {
                                 <tr>
                                     <td style="padding: 15px; background-color: rgba(230,183,173,0.05); border-left: 3px solid #E6B7AD; margin-bottom: 15px;">
                                         <p style="font-size: 14px; font-weight: 600; color: #E6B7AD; margin: 0 0 8px 0;">☀️ Morning Ritual</p>
-                                        <p style="font-size: 13px; color: rgba(247,241,232,0.6); margin: 0;">Start your day with GlowMind or Lions Mane for focused energy without the crash.</p>
+                                        <p style="font-size: 13px; color: rgba(247,241,232,0.6); margin: 0;">Start your day with GlowMind or Lion's Mane as a smooth, convenient addition to an intentional morning ritual.</p>
                                     </td>
                                 </tr>
                                 <tr>

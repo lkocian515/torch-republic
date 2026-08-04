@@ -57,8 +57,8 @@ export default function BuildYourRitual() {
   const [error, setError] = useState(null);
 
   useSEO({
-    title: 'Build Your Ritual Bundle | Torch Republic Coffee Company',
-    description: 'Build your custom 3-blend bundle and save. Mix and match from seven Torch Republic products — classic instant coffee, mushroom coffee, and ceremonial matcha. Any 3 blends for $49.99. 30-day guarantee.',
+    title: 'Build Your Ritual | Coffee, Mushroom Coffee & Matcha Bundle',
+    description: 'Choose your favorite coffee, mushroom blends, and matcha to create a ritual that fits your routine. Build a custom bundle and save.',
     url: '/build-your-ritual',
   });
 
@@ -301,7 +301,7 @@ export default function BuildYourRitual() {
               Build Your Ritual
             </h1>
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: THEME.secondary, fontWeight: 300, lineHeight: 1.85 }}>
-              Choose any 3 products and save. Mix and match from the final seven-product collection of classic instant coffee, mushroom coffee, and ceremonial matcha.
+              Choose your favorite coffee, mushroom blends, and matcha to create a ritual that fits your routine.
             </p>
             <div className="flex items-center justify-center gap-6">
               <div className="text-center">

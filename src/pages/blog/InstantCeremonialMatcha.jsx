@@ -28,7 +28,7 @@ const GRADE_COMPARISON = [
 const L_THEANINE_BENEFITS = [
   'Crosses blood-brain barrier, influences neurotransmitter activity directly',
   'Promotes production of GABA, serotonin, and dopamine — neurotransmitters of calm, focus, and wellbeing',
-  'Stimulates alpha brain waves — the brain state associated with wakeful relaxation, meditation, flow states, and creative work',
+  'Contains naturally occurring L-theanine, traditionally associated with mindful tea rituals',
   'Slows and moderates caffeine absorption, extending energy window from 1–1.5 hours to 3–6 hours sustained release',
 ];
 

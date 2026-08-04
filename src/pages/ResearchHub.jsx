@@ -25,7 +25,7 @@ const RESEARCH_TOPICS = [
   {
     icon: Zap,
     title: 'L-Theanine & Matcha',
-    description: 'Calm focus without the crash — 3-6 hour sustained energy from ceremonial grade matcha',
+    description: 'Ceremonial grade matcha for an intentional morning or afternoon ritual',
     link: '/journal/instant-ceremonial-matcha',
     color: '#10B981',
   },

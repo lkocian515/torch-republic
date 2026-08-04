@@ -95,7 +95,7 @@ ${HEADER}
                         SUMMER20
                     </p>
                     <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(245,239,230,0.6); margin: 10px 0;">
-                        20% off your entire order · Free shipping on orders $75+
+                        20% off your entire order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>
@@ -279,7 +279,7 @@ ${HEADER}
                         </p>
                     </div>
                     <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(245,239,230,0.6); margin: 15px 0;">
-                        20% off your entire order · Free shipping on orders $75+
+                        20% off your entire order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>

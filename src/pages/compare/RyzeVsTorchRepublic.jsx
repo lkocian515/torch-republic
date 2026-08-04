@@ -16,7 +16,7 @@ const OTHER_COMPARISONS = [
 const DATA = {
   competitor: 'Ryze',
   title: 'Ryze Mushroom Coffee vs. Torch Republic: Full Comparison (2025)',
-  intro: "Ryze is one of the most-searched mushroom coffee brands in the US, known for its creamy, latte-style instant mushroom coffee. Torch Republic is a ritual-first brand offering 12 distinct blends across mushroom coffee, classic coffee, and ceremonial matcha. This comparison covers ingredients, taste, serving count, price, and subscription — so you can decide which brand fits your daily ritual.",
+  intro: "Ryze is one of the most-searched mushroom coffee brands in the US, known for its creamy, latte-style instant mushroom coffee. Torch Republic is a ritual-first brand offering a growing collection of classic instant coffee, functional mushroom blends, and ceremonial matcha across mushroom coffee, classic coffee, and ceremonial matcha. This comparison covers ingredients, taste, serving count, price, and subscription — so you can decide which brand fits your daily ritual.",
 
   tableRows: [
     { label: 'Format', tr: 'Instant powder (dissolvable)', them: 'Instant powder (creamy blend)', trWins: false },
@@ -26,7 +26,7 @@ const DATA = {
     { label: 'Caffeine per serving', tr: '~60–80mg', them: '~48mg', trWins: true },
     { label: 'Servings per package', tr: '27 per tube', them: '30 per bag', trWins: false },
     { label: 'Price per serving', tr: '~$0.85', them: '~$1.17', trWins: true },
-    { label: 'Blend variety', tr: '12 distinct blends', them: '1–2 core SKUs', trWins: true },
+    { label: 'Blend variety', tr: 'Growing coffee, mushroom coffee, and matcha collection', them: '1–2 core SKUs', trWins: true },
     { label: 'Matcha option', tr: 'Yes — 3 ceremonial matcha blends', them: 'No', trWins: true },
     { label: 'Classic coffee option', tr: 'Yes — 3 pure Arabica blends', them: 'No', trWins: true },
     { label: 'Subscription discount', tr: '20% off', them: '~15% off', trWins: true },
@@ -82,7 +82,7 @@ const DATA = {
     { question: "Is Ryze mushroom coffee or Torch Republic better?", answer: "It depends on your preference. Ryze makes a creamier, adaptogen-latte-style mushroom coffee. Torch Republic is more coffee-forward, lower priced (~$0.85/serving vs ~$1.17), and offers 12 blend options including classic coffee and ceremonial matcha. For pure coffee drinkers, Torch Republic is a better fit. For people who want a creamy wellness latte format, Ryze suits that preference." },
     { question: "How does Ryze compare to Torch Republic in price per serving?", answer: "Ryze costs approximately $1.17 per serving at standard pricing. Torch Republic costs approximately $0.85 per serving, dropping to ~$0.68 with a 20% subscription discount. Over a year of daily use, Torch Republic saves approximately $179 vs. Ryze on subscription." },
     { question: "Does Ryze mushroom coffee contain MCT oil?", answer: "Yes. Ryze's formula includes coconut milk powder and MCT oil, which creates its creamy texture but adds ~50 calories per serving. Torch Republic's formula is pure 100% Arabica coffee plus mushroom extracts — no added fats, no coconut milk. You control what goes in your cup." },
-    { question: "Which has more mushrooms — Ryze or Torch Republic?", answer: "Ryze uses 6 mushroom varieties (Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail, King Trumpet). Torch Republic uses up to 4 per blend (Lion's Mane, Chaga, Cordyceps, Reishi), but each blend is formulated for a specific purpose rather than combining all mushrooms in every product. Torch Republic also offers 12 distinct blends optimized for different ritual needs." },
+    { question: "Which has more mushrooms — Ryze or Torch Republic?", answer: "Ryze uses 6 mushroom varieties (Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail, King Trumpet). Torch Republic uses up to 4 per blend (Lion's Mane, Chaga, Cordyceps, Reishi), but each blend is formulated for a specific purpose rather than combining all mushrooms in every product. Torch Republic also offers a growing coffee, mushroom coffee, and matcha collection optimized for different ritual needs." },
   ],
 
   relatedComparisons: OTHER_COMPARISONS,

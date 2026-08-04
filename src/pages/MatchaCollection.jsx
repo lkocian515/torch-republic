@@ -154,7 +154,7 @@ export default function MatchaCollection() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { title: 'Calm Focus', desc: 'L-theanine promotes alpha brain waves for relaxed alertness. Perfect for deep work or mindful mornings.' },
+              { title: 'Mindful Ritual', desc: 'Matcha contains naturally occurring caffeine and L-theanine, traditionally associated with mindful tea rituals.' },
               { title: 'Sustained Energy', desc: 'No spike, no crash. Matcha energy builds gradually and lasts 4–6 hours.' },
               { title: 'Antioxidants', desc: 'Rich in catechins, especially EGCG. One cup of matcha equals approximately 10 cups of green tea in antioxidant content.' },
             ].map((card, i) => (

@@ -48,7 +48,7 @@ export default function FunctionalBenefits({ product }) {
             style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8, fontSize: '1.05rem' }}
           >
             {isMatcha
-              ? `${product.name} delivers clean, sustained energy without the crash. The natural combination of L-theanine and caffeine creates a state of relaxed alertness.`
+              ? `${product.name} is a smooth, convenient addition to an intentional morning or afternoon ritual. It contains naturally occurring caffeine and L-theanine.`
               : `${product.name} combines the cognitive benefits of Lion's Mane with the immune support of Chaga — all in a delicious instant ritual.`}
           </p>
         </motion.div>

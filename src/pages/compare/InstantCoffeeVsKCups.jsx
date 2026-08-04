@@ -91,7 +91,7 @@ const DATA = {
 
 export default function InstantCoffeeVsKCups() {
   useSEO({
-    title: 'Premium Instant Coffee vs. K-Cups: Honest Comparison (2025)',
+    title: 'Premium Instant Coffee vs. K-Cups: Honest Comparison',
     description: "Premium instant coffee vs. K-Cups — taste, cost, waste, convenience, and coffee quality compared. An honest, factual comparison with a clear verdict.",
     url: '/compare/instant-coffee-vs-k-cups',
     type: 'article',

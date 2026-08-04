@@ -105,7 +105,7 @@ const RESEARCH = {
           'Improves sustained attention and reaction time',
           'Reduces caffeine-induced jitters and anxiety',
           'Enhances working memory accuracy',
-          'Promotes alpha brainwave activity (relaxed alertness)',
+          'Contains naturally occurring L-theanine',
         ],
         studies: [
           {
@@ -120,7 +120,7 @@ const RESEARCH = {
             journal: 'Asia Pacific Journal of Clinical Nutrition',
             type: 'EEG Study',
             url: 'https://pubmed.ncbi.nlm.nih.gov/18296328/',
-            summary: 'L-Theanine promoted alpha brainwave activity within 40 minutes of ingestion — associated with a state of relaxed alertness without drowsiness.',
+            summary: 'L-Theanine is naturally found in tea and is traditionally associated with mindful tea rituals; research continues to evaluate individual responses.',
           },
           {
             title: 'Matcha vs. Green Tea — Cognitive Effects (Dietz & Dekker, 2017)',

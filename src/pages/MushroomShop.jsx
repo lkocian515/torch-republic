@@ -104,7 +104,7 @@ export default function MushroomShop() {
 
   useSEO({
     title: 'Shop Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
-    description: "Explore Torch Republic's premium instant coffee, mushroom coffee blends, and ceremonial matcha. Easy hot or iced drinks for your daily ritual.",
+    description: 'Explore light-roast instant coffee, functional mushroom blends, and ceremonial matcha created for simple, intentional daily rituals.',
     url: '/shop',
     type: 'website',
     noindex: false,

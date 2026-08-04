@@ -32,7 +32,7 @@ const DATA = {
       heading: 'Ceremonial Matcha: Calm, Sustained Energy',
       paragraphs: [
         'Matcha is finely ground whole-leaf green tea. Unlike brewed tea (where you discard the leaves), with matcha you consume the entire leaf — giving you a concentrated dose of antioxidants (catechins/EGCG) and L-theanine.',
-        'L-theanine is the key compound that makes matcha different from coffee. It promotes alpha brain wave activity (calm alertness) and slows caffeine absorption, creating a smoother, longer-lasting energy curve without the jitters or crash that some people experience with coffee.',
+        'L-theanine is the key compound that makes matcha different from coffee. It is traditionally associated with mindful tea rituals and may feel different from traditional coffee for some drinkers, without the jitters or crash that some people experience with coffee.',
       ],
     },
     {
@@ -64,7 +64,7 @@ const DATA = {
     { question: 'What is a healthy alternative to coffee?', answer: 'Healthy coffee alternatives include mushroom coffee (coffee with functional mushrooms like Lion\'s Mane and Chaga), ceremonial matcha (high in L-theanine and antioxidants), and herbal coffee substitutes. The best choice depends on whether you want caffeine, functional benefits, or a caffeine-free option.' },
     { question: 'Is mushroom coffee healthier than regular coffee?', answer: 'Mushroom coffee adds functional mushrooms like Lion\'s Mane and Chaga to regular coffee. These mushrooms have been studied for potential cognitive and immune-supporting properties. The coffee base is the same quality Arabica. Whether it\'s "healthier" depends on whether you value the added functional mushrooms.' },
     { question: 'What is the healthiest coffee to drink?', answer: 'The healthiest coffee is one you enjoy consistently. Premium single-origin coffee (like Papua New Guinea Arabica) without added sugar or artificial creamers is a clean choice. Mushroom coffee adds functional mushrooms. Matcha provides L-theanine and antioxidants. All can be part of a healthy routine.' },
-    { question: 'Does matcha have less caffeine than coffee?', answer: 'Yes. Matcha contains approximately 70mg of caffeine per cup, while coffee contains approximately 95–100mg. However, matcha\'s L-theanine slows caffeine absorption, creating a longer-lasting, calmer energy experience.' },
+    { question: 'Does matcha have less caffeine than coffee?', answer: 'Yes. Matcha contains approximately 70mg of naturally occurring caffeine per cup, while coffee contains approximately 95–100mg. Matcha also contains L-theanine, which is traditionally associated with mindful tea rituals.' },
   ],
   products: [
     { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },

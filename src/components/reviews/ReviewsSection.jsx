@@ -30,7 +30,7 @@ const STATIC_REVIEWS = {
   'lincoln-blend': [
     { id: 's1', reviewer_name: 'Brian M.', location: 'Springfield, IL', rating: 5, body: "Dark and deep without tasting burnt. The molasses note is subtle and adds real depth.", product_handle: 'lincoln-blend', review_date: '2025-12-08' },
     { id: 's2', reviewer_name: 'Kevin W.', location: 'Chicago, IL', rating: 5, body: "This is what a dark roast should taste like. Bold but not aggressive. Smooth finish.", product_handle: 'lincoln-blend', review_date: '2025-11-22' },
-    { id: 's3', reviewer_name: 'David R.', location: 'Indianapolis, IN', rating: 5, body: "Third order now. Lincoln Blend gets me through long mornings without the crash.", product_handle: 'lincoln-blend', review_date: '2025-11-10' },
+    { id: 's3', reviewer_name: 'David R.', location: 'Indianapolis, IN', rating: 5, body: "Third order now. This blend has become part of my long-morning routine.", product_handle: 'lincoln-blend', review_date: '2025-11-10' },
   ],
   'roosevelt-blend': [
     { id: 's1', reviewer_name: 'Matt C.', location: 'Boise, ID', rating: 5, body: "Hits hard, finishes clean. That's exactly what I needed. No wasted effort in this cup.", product_handle: 'roosevelt-blend', review_date: '2025-12-01' },

@@ -5,7 +5,7 @@ Three discount offers are now integrated throughout the Torch Republic mushroom 
 
 1. **WELCOME10** - 10% off first order
 2. **SUBSCRIBE20** - 20% off subscriptions  
-3. **FREE SHIPPING** - Automatic on orders over $75
+3. **FREE SHIPPING** - Automatic on orders over $50
 
 ## Shopify Admin Setup Required
 
@@ -39,13 +39,13 @@ Three discount offers are now integrated throughout the Torch Republic mushroom 
 
 ---
 
-### 3. Free Shipping (Automatic on orders $75+)
+### 3. Free Shipping (Automatic on orders $50+)
 **Location**: Shopify Admin → Discounts → Create discount → Free shipping
 
 **Settings**:
 - **Discount type**: Free shipping
-- **Applies to**: Orders over $75
-- **Minimum purchase amount**: $75 USD
+- **Applies to**: Orders over $50
+- **Minimum purchase amount**: $50 USD
 - **Customer eligibility**: All customers
 - **Active**: Yes
 - **Automatic**: Yes (no code needed)
@@ -97,7 +97,7 @@ Three discount offers are now integrated throughout the Torch Republic mushroom 
 
 ### Cart Subtotal Tracking
 - Component accepts `cartSubtotal` prop
-- Calculates distance to $75 free shipping threshold
+- Calculates distance to $50 free shipping threshold
 - Shows dynamic progress bar and unlock message
 
 ---
@@ -108,7 +108,7 @@ Three discount offers are now integrated throughout the Torch Republic mushroom 
 - [ ] Create all three discount codes in Shopify Admin
 - [ ] Test WELCOME10 with new customer account
 - [ ] Test SUBSCRIBE20 on subscription checkout
-- [ ] Test free shipping auto-applies at $75+
+- [ ] Test free shipping auto-applies at $50+
 - [ ] Verify discount codes work on mobile
 - [ ] Check progress bars show correct values
 

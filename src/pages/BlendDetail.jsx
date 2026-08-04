@@ -37,6 +37,7 @@ import WhyInstantRitualSection from '../components/coffee/WhyInstantRitualSectio
 import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
 import ProductShippingConfidence from '@/components/cart/ProductShippingConfidence';
+import GoneRedirect from '@/components/seo/GoneRedirect';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
 
@@ -69,6 +70,8 @@ const DEPRECATED_PRODUCT_REDIRECTS = {
   'mystic-bloom': '/shop/instant-mushroom-coffee',
   'the-ascendant-matcha-blend': '/shop/matcha',
 };
+
+const DISCONTINUED_PRODUCT_PATTERN = /(american|patriot|shirt|long-sleeve|tee|hoodie|apparel|liberty|freedom)/i;
 
 const ACCORDIONS = [
   {
@@ -213,7 +216,7 @@ function BlendDetailInner({ product }) {
     { question: `What does ${product.name} taste like?`, answer: product.tasteDescription },
     { question: 'How do I prepare this blend?', answer: 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.' },
     { question: 'Is this product instant?', answer: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
-    { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains natural caffeine for smooth, sustained energy.' : 'Yes, all blends contain caffeine from the premium instant coffee base.' },
+    { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains naturally occurring caffeine.' : 'Yes, all blends contain caffeine from the premium instant coffee base.' },
     { question: 'How many servings are included?', answer: `${product.servings || (product.category === 'matcha' ? 25 : 27)} servings per ${product.category === 'matcha' ? 'tin' : 'tube'}.` },
     { question: 'Can I drink it daily?', answer: 'Yes, Torch Republic blends are designed for daily ritual use. Follow product directions and consult a healthcare professional if pregnant, nursing, or managing a medical condition.' },
   ];
@@ -443,7 +446,7 @@ function BlendDetailInner({ product }) {
               </p>
               <ul className="space-y-3.5">
                 {(product.category === 'matcha' ? [
-                  { headline: 'Calm focus without the crash', body: 'L-Theanine in ceremonial matcha delivers smooth, sustained energy — no jitters, no afternoon slump.' },
+                  { headline: 'A mindful matcha ritual', body: 'Ceremonial matcha contains naturally occurring caffeine and L-theanine, traditionally associated with mindful tea rituals.' },
                   { headline: 'Ritual in 30 seconds', body: 'Ceremonial-grade matcha in instant format. Just add hot water or warm milk and stir.' },
                   { headline: 'Gentle on the gut', body: 'Lower acidity than coffee, easier on your stomach while keeping you sharp.' },
                   { headline: 'Premium grade, no fillers', body: '100% ceremonial matcha — no artificial flavors, no added sugar, nothing extra.' },
@@ -454,7 +457,7 @@ function BlendDetailInner({ product }) {
                   { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced single-origin specialty Arabica.' },
                 ] : [
                   { headline: 'Single-origin Papua New Guinea', body: 'Highland-grown 100% Arabica from rich volcanic soil — dark chocolate and toasted almond notes paired with functional mushrooms.' },
-                  { headline: 'Calm focus without the crash', body: "Lion's Mane and Chaga support cognitive function and balanced energy so you stay sharp without feeling wired." },
+                  { headline: 'A balanced functional ritual', body: "Lion's Mane and Chaga add functional-beverage appeal to a coffee-forward daily ritual." },
                   { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried instant coffee designed for busy mornings — just stir into hot water or your favorite milk.' },
                   { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just single-origin coffee and functional mushrooms.' },
                 ]).map(({ headline, body }) => (
@@ -476,10 +479,10 @@ function BlendDetailInner({ product }) {
               </span>
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.6 }}>
                 {product.category === 'matcha'
-                  ? 'Calm, focused energy in 30 seconds — just whisk with hot water.'
+                  ? 'A smooth ceremonial matcha ritual in 30 seconds — just whisk with hot water.'
                   : product.category === 'classic-coffee'
                   ? 'Premium single-origin taste in 30 seconds — no machine, no pods.'
-                  : `Clean, jitter-free focus in 30 seconds — Lion's Mane + Chaga, just add hot water.`}
+                  : `A smooth functional coffee ritual in 30 seconds — Lion's Mane + Chaga, just add hot water.`}
               </p>
             </div>
 
@@ -539,10 +542,10 @@ function BlendDetailInner({ product }) {
             {/* Top 3 benefits + reassurance — right before the button */}
             <div className="flex flex-col gap-2">
               {(product.category === 'matcha'
-                ? ['Calm, focused energy without jitters', 'Natural L-Theanine from whole-leaf matcha', 'Ready in 30 seconds — just add hot water']
+                ? ['Naturally occurring caffeine', 'L-Theanine from whole-leaf matcha', 'Ready in 30 seconds — just add hot water']
                 : product.category === 'classic-coffee'
                 ? ['Premium single-origin taste, no machine needed', 'Smooth, clean flavor — no artificial additives', 'Ready in 30 seconds — just add hot water']
-                : ['Jitter-free focus with Lion\'s Mane + Chaga', 'Gut-friendly — no artificial flavors or fillers', 'Ready in 30 seconds — just add hot water']
+                : ['Lion\'s Mane + Chaga functional blend', 'No artificial flavors or fillers', 'Ready in 30 seconds — just add hot water']
               ).map((b, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span className="text-[10px]" style={{ color: '#10B981', flexShrink: 0 }}>✓</span>
@@ -715,7 +718,7 @@ function BlendDetailInner({ product }) {
               </p>
               <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
                 {product.category === 'matcha'
-                  ? 'Built for thinkers and modern torchbearers who want calm, sustained energy without sacrificing the ritual of a great morning drink.'
+                  ? 'Built for modern torchbearers who want a smooth, convenient addition to an intentional morning or afternoon ritual.'
                   : product.category === 'classic-coffee'
                   ? 'Built for torchbearers who want specialty coffee taste in the simplest possible format — no compromises, no machines.'
                   : "Built for thinkers, builders, and modern torchbearers who want a sharper mind without sacrificing the comfort of a great cup of coffee."}
@@ -723,7 +726,7 @@ function BlendDetailInner({ product }) {
               <div className="space-y-3">
                 {(product.category === 'matcha' ? [
                   { label: '100% Ceremonial Grade Matcha', detail: 'Whisked-quality matcha in instant format — no ceremony required.' },
-                  { label: 'Natural L-Theanine', detail: 'Naturally occurring in whole-leaf matcha; supports calm, focused energy without jitters.' },
+                  { label: 'Natural L-Theanine', detail: 'Naturally occurring in whole-leaf matcha; traditionally associated with mindful tea rituals.' },
                   { label: '25 servings per tin', detail: 'No fillers, no artificial flavors, nothing added.' },
                 ] : product.category === 'classic-coffee' ? [
                    { label: 'Single-Origin Papua New Guinea Arabica', detail: 'Highland-grown in rich volcanic soil. Dark chocolate, toasted almond, and toffee notes with a smooth, aromatic finish.' },
@@ -767,7 +770,7 @@ function BlendDetailInner({ product }) {
                   <strong style={{ color: 'rgba(247,241,232,0.65)' }}>For iced:</strong> Dissolve in a splash of hot water first, then pour over ice and cold water or milk.
                 </p>
                 <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
-                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>Tip:</strong> Drink daily for at least 2 weeks to feel the full ritual and cognitive benefits.
+                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>Tip:</strong> Drink consistently as part of a balanced daily routine.
                 </p>
               </div>
             </div>
@@ -1015,6 +1018,7 @@ export default function BlendDetail() {
   if (!product) {
     const redirectTo = DEPRECATED_PRODUCT_REDIRECTS[slug];
     if (redirectTo) return <Navigate to={redirectTo} replace />;
+    if (DISCONTINUED_PRODUCT_PATTERN.test(slug)) return <GoneRedirect />;
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-6"
         style={{ background: '#FBF8F2', color: '#2D2824' }}>

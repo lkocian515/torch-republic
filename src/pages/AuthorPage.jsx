@@ -81,7 +81,7 @@ export default function AuthorPage() {
                   { label: 'Founded', value: '2023' },
                   { label: 'Location', value: 'Corpus Christi, TX' },
                   { label: 'Specialty', value: 'Instant Mushroom Coffee, Classic Coffee, Ceremonial Matcha' },
-                  { label: 'Blends', value: '12 distinct blends across 3 categories' },
+                  { label: 'Collection', value: 'Coffee, mushroom coffee, and matcha rituals' },
                   { label: 'Format', value: 'Premium instant powder — no machine required' },
                   { label: 'Contact', value: 'hello@torchrepublic.com' },
                 ].map((item, i) => (

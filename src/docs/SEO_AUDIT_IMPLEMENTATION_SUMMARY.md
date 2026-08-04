@@ -20,7 +20,7 @@ These pages are **public-facing** and **should be indexed**:
 
 #### Core Pages
 - `/` - Homepage
-- `/shop` - Shop (Mushroom Shop)
+- `/shop` - Shop Instant Coffee, Mushroom Coffee & Matcha
 - `/shop/instant-mushroom-coffee` - Mushroom Coffee Collection
 - `/shop/instant-coffee` - Classic Coffee Collection
 - `/shop/matcha` - Matcha Collection

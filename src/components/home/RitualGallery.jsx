@@ -23,7 +23,7 @@ const RITUAL_PHOTOS = [
     location: 'Austin, TX',
     ritual: 'Pre-Work Focus Session',
     blend: 'SunCap Rise',
-    description: 'Before my deep work blocks, I brew SunCap Rise. Clean energy without the crash.',
+    description: 'Before my deep work blocks, I brew SunCap Rise as part of an intentional morning ritual.',
     icon: Laptop,
     likes: 189,
   },

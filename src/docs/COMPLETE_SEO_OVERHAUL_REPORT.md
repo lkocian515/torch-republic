@@ -262,7 +262,7 @@ Each product page now includes:
 
 **Revenue Impact:**
 - Organic conversion rate: 2.5-3.5% (e-commerce average for wellness)
-- Average order value: $75-100 (bundle focus)
+- Average order value: $50-100 (bundle focus)
 - Projected monthly organic revenue (Month 12): $15K-30K
 
 ### Traffic Sources Breakdown (Projected)

@@ -23,7 +23,7 @@ const STEPS = [
 export default function InstantCoffeeForEnergy() {
   useSEO({
     title: 'Instant Coffee for Clean Energy | No Crash | Torch Republic Coffee Co.',
-    description: 'Premium instant coffee and mushroom coffee blends for clean, sustained energy without the crash. No machines, no pods. Just add hot water and begin. Shop Torch Republic Coffee Co.',
+    description: 'Premium instant coffee and mushroom coffee blends for a smooth, convenient addition to an intentional morning or afternoon ritual. No machines, no pods.',
     url: '/instant-coffee-for-energy',
   });
 

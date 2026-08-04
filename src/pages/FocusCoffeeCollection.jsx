@@ -25,7 +25,7 @@ const FOCUS_PRODUCTS = [
   {
     name: 'The Monk Matcha',
     tagline: 'Calm focus & presence',
-    description: "Ceremonial grade matcha with naturally high L-theanine. The alpha brainwave state — relaxed but alert. For focus that doesn't create anxiety. Pairs with meditation, reading, and slow creative work.",
+    description: "Ceremonial grade matcha with naturally occurring L-theanine. Traditionally associated with mindful tea rituals and a balanced daily routine.",
     path: '/products/the-monk-matcha-blend',
     accent: '#10B981',
     mushrooms: ['L-Theanine (natural)', 'EGCG'],

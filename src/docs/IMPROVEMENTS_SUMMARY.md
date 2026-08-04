@@ -176,7 +176,7 @@ This document summarizes all improvements made to the Torch Republic Coffee Comp
 ### 5.2 Meta Descriptions
 **Homepage:**
 ```
-Premium instant mushroom coffee blends crafted with Lion's Mane and Chaga for focus, energy, and daily ritual. Smooth, coffee-forward taste. Subscribe & save 20%. Free shipping on orders $75+.
+Premium instant mushroom coffee blends crafted with Lion's Mane and Chaga for focus, energy, and daily ritual. Smooth, coffee-forward taste. Subscribe & save 20%. Free shipping on orders $50+.
 ```
 
 ### 5.3 URL Redirects (Recommended)

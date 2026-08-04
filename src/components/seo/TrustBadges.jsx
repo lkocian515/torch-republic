@@ -15,7 +15,7 @@ export default function TrustBadges({ compact = false }) {
     {
       icon: Truck,
       label: 'Free Shipping',
-      description: 'Orders $75+'
+      description: 'Orders $50+'
     },
     {
       icon: RefreshCcw,
