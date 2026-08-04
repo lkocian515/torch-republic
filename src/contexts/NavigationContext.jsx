@@ -11,6 +11,8 @@ const TABS = [
 ];
 
 function getTabKey(pathname) {
+  if (pathname.startsWith('/products/') || pathname.startsWith('/blends/') || pathname === '/bundle') return '/shop';
+  if (pathname === '/account' || pathname.startsWith('/account/') || pathname === '/loyalty') return '/profile';
   for (const tab of TABS) {
     if (pathname === tab.root || pathname.startsWith(tab.root + '/')) {
       return tab.key;
@@ -61,26 +63,16 @@ export function NavigationProvider({ children }) {
     });
   }, [location.pathname]);
 
-  // Navigate to a tab root; if already on that tab, reset its stack to root
+  // Navigate to a tab and restore that tab's latest route/scroll position.
   const navigateToTab = (tabKey) => {
     const tab = TABS.find(t => t.key === tabKey);
     if (!tab) return;
 
-    // Save current scroll position for the tab we're leaving
     scrollPositions.current[activeTab] = window.scrollY;
-
-    if (activeTab === tabKey) {
-      // Already on this tab — reset to root
-      setTabStacks(prev => ({ ...prev, [tabKey]: [tab.root] }));
-      navigate(tab.root, { replace: true });
-      pendingScrollRef.current = 0;
-    } else {
-      // Switch to tab — restore last position in that tab's stack
-      const stack = tabStacks[tabKey];
-      const destination = (stack && stack.length > 0) ? stack[stack.length - 1] : tab.root;
-      pendingScrollRef.current = scrollPositions.current[tabKey] || 0;
-      navigate(destination);
-    }
+    const stack = tabStacks[tabKey];
+    const destination = (stack && stack.length > 0) ? stack[stack.length - 1] : tab.root;
+    pendingScrollRef.current = activeTab === tabKey ? 0 : (scrollPositions.current[tabKey] || 0);
+    navigate(activeTab === tabKey ? tab.root : destination, { replace: activeTab === tabKey });
   };
 
   // Legacy support

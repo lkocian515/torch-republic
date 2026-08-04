@@ -5,6 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { ArrowLeft, Save, Eye, Image as ImageIcon, Calendar, Clock, User, Tag, Globe } from 'lucide-react';
 import { toast } from 'sonner';
+import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 
 const RG = '#E6B7AD';
 
@@ -289,21 +290,19 @@ export default function AdminBlogEditor() {
                   <label className="block font-mono text-[9px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
                     Category
                   </label>
-                  <select
+                  <MobileSelectDrawer
                     value={formData.category}
-                    onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
-                    className="w-full px-4 py-2.5 font-heading text-sm"
+                    onChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
+                    options={CATEGORY_OPTIONS}
+                    title="Choose category"
+                    className="px-4 py-2.5 font-heading text-sm"
                     style={{ 
                       background: '#0A0908', 
                       border: '1px solid rgba(230,183,173,0.15)',
                       color: '#F5EFE6',
                       borderRadius: '3px'
                     }}
-                  >
-                    {CATEGORY_OPTIONS.map(opt => (
-                      <option key={opt.value} value={opt.value}>{opt.label}</option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 <div>
                   <label className="block font-mono text-[9px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
@@ -563,20 +562,19 @@ export default function AdminBlogEditor() {
                   <label className="block font-mono text-[9px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
                     Card Type
                   </label>
-                  <select
+                  <MobileSelectDrawer
                     value={formData.twitter_card}
-                    onChange={(e) => setFormData(prev => ({ ...prev, twitter_card: e.target.value }))}
-                    className="w-full px-4 py-3 font-heading text-sm"
+                    onChange={(value) => setFormData(prev => ({ ...prev, twitter_card: value }))}
+                    options={[{ value: 'summary_large_image', label: 'Summary Large Image' }, { value: 'summary', label: 'Summary' }]}
+                    title="Choose card type"
+                    className="px-4 py-3 font-heading text-sm"
                     style={{ 
                       background: '#0A0908', 
                       border: '1px solid rgba(230,183,173,0.15)',
                       color: '#F5EFE6',
                       borderRadius: '3px'
                     }}
-                  >
-                    <option value="summary_large_image">Summary Large Image</option>
-                    <option value="summary">Summary</option>
-                  </select>
+                  />
                   <p className="font-mono text-[8px] mt-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>
                     Uses same title, description, and image as Open Graph if not specified
                   </p>

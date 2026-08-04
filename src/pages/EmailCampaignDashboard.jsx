@@ -188,14 +188,41 @@ export default function EmailCampaignDashboard() {
             });
             return response.data;
         },
+        onMutate: async (segment) => {
+            setSendStatus('sending');
+            setSelectedSegment(segment);
+            await queryClient.cancelQueries({ queryKey: ['campaignMetrics'] });
+            const previousMetrics = queryClient.getQueryData(['campaignMetrics']);
+            const segmentKey = segment.replace(/\s+(.)/g, (_, c) => c.toUpperCase()).replace(/^./, c => c.toLowerCase());
+            const sentCount = customers?.data?.segments?.[segmentKey]?.length || 0;
+            queryClient.setQueryData(['campaignMetrics'], old => {
+                if (!old) return old;
+                const previousSegment = old.bySegment?.[segmentKey] || {};
+                return {
+                    ...old,
+                    totalSent: (old.totalSent || 0) + sentCount,
+                    bySegment: {
+                        ...(old.bySegment || {}),
+                        [segmentKey]: {
+                            ...previousSegment,
+                            sent: (previousSegment.sent || 0) + sentCount,
+                        },
+                    },
+                };
+            });
+            return { previousMetrics };
+        },
         onSuccess: () => {
             setSendStatus('success');
-            queryClient.invalidateQueries(['campaignMetrics']);
             setTimeout(() => setSendStatus('idle'), 3000);
         },
-        onError: (error) => {
+        onError: (error, _segment, context) => {
+            if (context?.previousMetrics) queryClient.setQueryData(['campaignMetrics'], context.previousMetrics);
             setSendStatus('error');
             console.error('Send failed:', error);
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries({ queryKey: ['campaignMetrics'] });
         },
     });
 
@@ -385,6 +412,22 @@ export default function EmailCampaignDashboard() {
                 </motion.div>
 
                 {/* Send Status */}
+                {sendStatus === 'sending' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="fixed bottom-6 right-6 p-5"
+                        style={{ background: '#6366F1', borderRadius: '8px', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}
+                    >
+                        <div className="flex items-center gap-3">
+                            <Send className="w-5 h-5 text-white" />
+                            <p className="font-mono text-sm text-white font-bold">
+                                Sending {selectedSegment} emails...
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+
                 {sendStatus === 'success' && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

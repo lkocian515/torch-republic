@@ -29,10 +29,11 @@ export default function UnifiedHeader() {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const isChildPage = pathParts.length > 1;
   const getParentPath = () => {
-    const parts = location.pathname.split('/').filter(Boolean);
-    if (parts.length <= 1) return '/';
-    return `/${parts.slice(0, -1).join('/')}`;
+    if (pathParts.length <= 1) return '/';
+    return `/${pathParts.slice(0, -1).join('/')}`;
   };
   const handleMobileNav = () => {
     if (isHome) setOpen(true);
@@ -42,8 +43,8 @@ export default function UnifiedHeader() {
     <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}><p className="font-heading text-sm">Thoughtfully crafted daily rituals for coffee, matcha, and botanical blends.</p></div>
     <header className="sticky top-0 z-40" style={{ background: 'hsl(var(--background) / 0.96)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)' }}>
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
-        <button onClick={handleMobileNav} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden" aria-label={isHome ? 'Open navigation menu' : 'Go to parent page'} aria-expanded={isHome ? open : undefined}>{isHome ? <Menu className="h-6 w-6" /> : <ChevronLeft className="h-6 w-6" />}</button>
-        <Link to="/" className="flex items-center" aria-label="Torch Republic home"><img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="220" height="72" className="h-12 w-auto object-contain" /></Link>
+        <button onClick={handleMobileNav} className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 md:hidden" aria-label={isHome ? 'Open navigation menu' : 'Go back'} aria-expanded={isHome ? open : undefined}>{isHome ? <Menu className="h-6 w-6" /> : <><ChevronLeft className="h-6 w-6" />{isChildPage && <span className="font-heading text-sm" style={{ color: colors.text }}>Back</span>}</>}</button>
+        <Link to="/" className={`${isChildPage ? 'hidden md:flex' : 'flex'} items-center`} aria-label="Torch Republic home"><img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="220" height="72" className="h-12 w-auto object-contain" /></Link>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">{nav.map(([label, href]) => <Link key={href} to={href} className="font-heading text-sm transition-opacity duration-200 hover:opacity-70" style={{ color: location.pathname === href ? colors.text : colors.secondary }} aria-current={location.pathname === href ? 'page' : undefined}>{label}</Link>)}</nav>
         <div className="flex items-center gap-2"><button type="button" onClick={() => setSearchOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center" aria-label="Search site"><Search className="h-5 w-5" style={{ color: colors.text }} /></button><Link to="/profile" className="hidden min-h-[44px] min-w-[44px] items-center justify-center md:flex" aria-label="Account"><User className="h-5 w-5" style={{ color: colors.text }} /></Link><Link to="/cart" className="relative flex min-h-[44px] min-w-[44px] items-center justify-center" aria-label={`Cart with ${totalItems} items`}><ShoppingBag className="h-5 w-5" style={{ color: colors.text }} />{totalItems > 0 && <span className="absolute right-0 top-1 flex h-5 min-w-5 items-center justify-center rounded-full px-1 text-[11px]" style={{ background: colors.coffee, color: colors.card }}>{totalItems}</span>}</Link></div>
       </div>

@@ -5,6 +5,7 @@
  */
 import React, { useState } from 'react';
 import { Copy, CheckCircle, ExternalLink } from 'lucide-react';
+import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 
 const RG = '#E6B7AD';
 const BASE = 'https://torchrepublic.com';
@@ -136,15 +137,13 @@ export default function UTMLinkBuilder() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>Destination Page</p>
-            <select
+            <MobileSelectDrawer
               value={destination}
-              onChange={e => { setDestination(e.target.value); setCustomDestination(''); }}
+              onChange={value => { setDestination(value); setCustomDestination(''); }}
+              options={DESTINATION_PRESETS.map(d => ({ value: d.path, label: `${d.label} (${d.path})` }))}
+              title="Choose destination"
               style={{ ...inputStyle, cursor: 'pointer' }}
-            >
-              {DESTINATION_PRESETS.map(d => (
-                <option key={d.path} value={d.path}>{d.label} ({d.path})</option>
-              ))}
-            </select>
+            />
           </div>
           <div>
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>Custom Path (overrides above)</p>

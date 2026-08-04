@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 import { Plus, Trash2, Edit2, Check, X } from 'lucide-react';
+import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 
 const GOLD = '#D4AF37';
 const BG = '#0A0A0A';
@@ -114,16 +115,12 @@ function ProtocolEditor() {
                 placeholder={label} className="px-4 py-2.5 bg-transparent font-mono text-sm focus:outline-none"
                 style={{ border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
             ))}
-            <select value={form.category || ''} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
-              className="px-4 py-2.5 font-mono text-sm focus:outline-none" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }}>
-              <option value="">Category</option>
-              {['focus', 'sleep', 'energy', 'recovery', 'mindset'].map(c => <option key={c} value={c}>{c}</option>)}
-            </select>
-            <select value={form.recommended_blend || ''} onChange={e => setForm(f => ({ ...f, recommended_blend: e.target.value }))}
-              className="px-4 py-2.5 font-mono text-sm focus:outline-none" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }}>
-              <option value="">Blend</option>
-              {['GlowMind', 'MoonCap', 'Both'].map(b => <option key={b} value={b}>{b}</option>)}
-            </select>
+            <MobileSelectDrawer value={form.category || ''} onChange={value => setForm(f => ({ ...f, category: value }))}
+              options={[{ value: '', label: 'Category' }, ...['focus', 'sleep', 'energy', 'recovery', 'mindset'].map(c => ({ value: c, label: c }))]}
+              title="Choose category" className="px-4 py-2.5 font-mono text-sm focus:outline-none" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
+            <MobileSelectDrawer value={form.recommended_blend || ''} onChange={value => setForm(f => ({ ...f, recommended_blend: value }))}
+              options={[{ value: '', label: 'Blend' }, ...['GlowMind', 'MoonCap', 'Both'].map(b => ({ value: b, label: b }))]}
+              title="Choose blend" className="px-4 py-2.5 font-mono text-sm focus:outline-none" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
           </div>
           <textarea value={form.blend_rationale || ''} onChange={e => setForm(f => ({ ...f, blend_rationale: e.target.value }))}
             placeholder="Blend rationale..." rows={2} className="w-full px-4 py-2.5 bg-transparent font-mono text-sm focus:outline-none resize-none mb-3"
@@ -211,14 +208,12 @@ function KanbanBoard() {
           <input value={newTask.title} onChange={e => setNewTask(t => ({ ...t, title: e.target.value }))}
             placeholder="Task title..." className="flex-1 min-w-[200px] px-3 py-2.5 bg-transparent font-mono text-sm focus:outline-none"
             style={{ border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
-          <select value={newTask.priority} onChange={e => setNewTask(t => ({ ...t, priority: e.target.value }))}
-            className="px-3 py-2.5 font-mono text-sm" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }}>
-            {['low', 'medium', 'high'].map(p => <option key={p} value={p}>{p}</option>)}
-          </select>
-          <select value={newTask.tag} onChange={e => setNewTask(t => ({ ...t, tag: e.target.value }))}
-            className="px-3 py-2.5 font-mono text-sm" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }}>
-            {['SEO', 'Content', 'Social', 'Email', 'Paid', 'Technical'].map(tag => <option key={tag} value={tag}>{tag}</option>)}
-          </select>
+          <MobileSelectDrawer value={newTask.priority} onChange={value => setNewTask(t => ({ ...t, priority: value }))}
+            options={['low', 'medium', 'high'].map(p => ({ value: p, label: p }))}
+            title="Choose priority" className="px-3 py-2.5 font-mono text-sm" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
+          <MobileSelectDrawer value={newTask.tag} onChange={value => setNewTask(t => ({ ...t, tag: value }))}
+            options={['SEO', 'Content', 'Social', 'Email', 'Paid', 'Technical'].map(tag => ({ value: tag, label: tag }))}
+            title="Choose tag" className="px-3 py-2.5 font-mono text-sm" style={{ background: '#111', border: `1px solid rgba(212,175,55,0.25)`, color: '#F0EBE1' }} />
           <button onClick={() => createMutation.mutate(newTask)} disabled={!newTask.title || createMutation.isPending}
             className="font-mono text-[9px] tracking-[0.3em] uppercase px-5 py-2.5 transition-all hover:opacity-90" style={{ background: GOLD, color: '#0A0A0A' }}>
             Add

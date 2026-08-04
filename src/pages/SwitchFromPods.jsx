@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check, ShoppingBag, ChevronDown } from 'lucide-react';
+import { Check, ShoppingBag } from 'lucide-react';
+import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
 import NoIndex from '@/components/seo/NoIndex';
@@ -164,24 +165,23 @@ function CostCalculator() {
           <label className="font-mono text-[9px] tracking-[0.2em] uppercase block mb-2" style={{ color: RG }}>
             Torch Republic product
           </label>
-          <div className="relative">
-            <select
-              value={selectedProduct}
-              onChange={e => setSelectedProduct(e.target.value)}
-              className="w-full px-3 py-2 font-mono text-sm appearance-none"
-              style={{
-                background: '#1A1A1A',
-                border: '1px solid rgba(230,183,173,0.2)',
-                color: '#F5EFE6',
-                outline: 'none',
-              }}
-            >
-              <option value="classic-coffee">Classic Instant Coffee — {formatPrice(PRICES['classic-coffee'])}/tube</option>
-              <option value="mushroom-coffee">Mushroom Coffee — {formatPrice(PRICES['mushroom-coffee'])}/tube</option>
-              <option value="matcha">Ceremonial Matcha — {formatPrice(PRICES['matcha'])}/tube</option>
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: RG }} />
-          </div>
+          <MobileSelectDrawer
+            value={selectedProduct}
+            onChange={setSelectedProduct}
+            options={[
+              { value: 'classic-coffee', label: `Classic Instant Coffee — ${formatPrice(PRICES['classic-coffee'])}/tube` },
+              { value: 'mushroom-coffee', label: `Mushroom Coffee — ${formatPrice(PRICES['mushroom-coffee'])}/tube` },
+              { value: 'matcha', label: `Ceremonial Matcha — ${formatPrice(PRICES['matcha'])}/tube` },
+            ]}
+            title="Choose product"
+            className="px-3 py-2 font-mono text-sm"
+            style={{
+              background: '#1A1A1A',
+              border: '1px solid rgba(230,183,173,0.2)',
+              color: '#F5EFE6',
+              outline: 'none',
+            }}
+          />
         </div>
 
         {/* Purchase type */}

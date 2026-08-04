@@ -20,6 +20,7 @@ import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
 import { trackFreeShippingThresholdReached, trackCheckoutStarted } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
+import { useMutation } from '@tanstack/react-query';
 
 const RG = '#E6B7AD';
 
@@ -32,6 +33,14 @@ export default function Cart() {
     noindex: true,
   });
   const { items, updateQty, removeItem, subtotal, totalItems } = useCart();
+  const qtyMutation = useMutation({
+    mutationFn: async () => true,
+    onMutate: ({ id, delta }) => updateQty(id, delta),
+  });
+  const removeMutation = useMutation({
+    mutationFn: async () => true,
+    onMutate: (id) => removeItem(id),
+  });
 
   // Track when free shipping threshold is reached
   useEffect(() => {
@@ -146,7 +155,7 @@ export default function Cart() {
                     {/* Qty controls */}
                     <div className="flex items-center gap-2" style={{ border: '1px solid rgba(230,183,173,0.15)' }}>
                       <button
-                        onClick={() => item.qty <= 1 ? removeItem(item.id) : updateQty(item.id, -1)}
+                        onClick={() => item.qty <= 1 ? removeMutation.mutate(item.id) : qtyMutation.mutate({ id: item.id, delta: -1 })}
                         className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: 'rgba(230,183,173,0.6)' }}
                         aria-label="Decrease quantity"
@@ -155,7 +164,7 @@ export default function Cart() {
                       </button>
                       <span className="font-mono text-xs w-5 text-center" style={{ color: '#F5EFE6' }}>{item.qty}</span>
                       <button
-                        onClick={() => updateQty(item.id, 1)}
+                        onClick={() => qtyMutation.mutate({ id: item.id, delta: 1 })}
                         className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: 'rgba(230,183,173,0.6)' }}
                         aria-label="Increase quantity"
@@ -167,7 +176,7 @@ export default function Cart() {
                   </div>
                 </div>
                 <button
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => removeMutation.mutate(item.id)}
                   className="w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all hover:opacity-70"
                   style={{ color: 'rgba(230,183,173,0.35)' }}
                   aria-label="Remove item"
