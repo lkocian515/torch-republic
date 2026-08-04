@@ -154,7 +154,7 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a7ef71722_ChatGPTImageAug4202607_00_32AM.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-contain"
             style={{ aspectRatio: '16/9', maxHeight: '600px', background: '#FBF8F2', padding: '32px' }}
@@ -170,7 +170,7 @@ export default function MushroomShop() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a7ef71722_ChatGPTImageAug4202607_00_32AM.png"
             alt="Torch Republic Products"
             className="w-full h-auto object-contain rounded mb-8"
             style={{ maxHeight: '400px', background: '#FBF8F2', padding: '20px' }}
