@@ -300,7 +300,7 @@ export default function AdminShopify() {
             </span>
           </Link>
 
-          <Link to="/traffic-report" className="block p-5 transition-all hover:opacity-80" style={{ background: '#0F0E0D', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '6px', textDecoration: 'none' }}>
+          <Link to="/admin/traffic" className="block p-5 transition-all hover:opacity-80" style={{ background: '#0F0E0D', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '6px', textDecoration: 'none' }}>
             <div className="flex items-center gap-2 mb-3">
               <BarChart2 size={16} style={{ color: '#10B981' }} />
               <h3 className="font-serif font-bold text-white">Traffic Report</h3>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingBag, User } from 'lucide-react';
+import { Search, ShoppingBag } from 'lucide-react';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
 const NAV_LINKS = [
@@ -92,11 +92,7 @@ export default function NavBar() {
                 className="hover:text-white transition-colors">
                 <ShoppingBag className="w-[15px] h-[15px]" />
               </a>
-              <Link to="/profile"
-                style={{ color: 'rgba(255,255,255,0.38)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                className="hover:text-white transition-colors">
-                <User className="w-[15px] h-[15px]" />
-              </Link>
+
             </div>
           </div>
 

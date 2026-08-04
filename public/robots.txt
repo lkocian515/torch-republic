@@ -1,37 +1,49 @@
 # Torch Republic Coffee Company — robots.txt
-# Allow search engines to crawl all public pages, blog posts, and product collections
-# while excluding internal, admin, auth, and legacy routes.
+# Public product, collection, journal, FAQ, ingredient, and comparison pages are crawlable.
+# Internal tools, account-state pages, utility pages, redirects, and discontinued routes are excluded.
 
 User-agent: *
 Allow: /
 
-# ── Auth & account pages (no SEO value, should not be indexed) ──
+# Auth & account-state pages
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /profile
+Disallow: /Profile
 Disallow: /loyalty
-Disallow: /research
+Disallow: /Loyalty
+Disallow: /account
+Disallow: /CustomerPortal
+Disallow: /customerportal
+Disallow: /portal
+Disallow: /Portal
+Disallow: /LoyaltyPortal
+Disallow: /loyaltyportal
 
-# ── Cart & checkout (transactional, not content pages) ──
+# Cart, checkout, order-confirmation, and utility/legal pages
 Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
+Disallow: /shipping-policy
+Disallow: /return-policy
+Disallow: /privacy-policy
+Disallow: /terms-of-service
 
-# ── Admin, analytics & internal dashboards ──
-Disallow: /admin/
+# Admin, analytics, campaign, keyword, and research tools
 Disallow: /admin
+Disallow: /admin/
 Disallow: /Admin
 Disallow: /Dashboard
 Disallow: /dashboard
+Disallow: /AdminShopify
 Disallow: /email-campaign
 Disallow: /email-campaign-dashboard
 Disallow: /EmailCampaignDashboard
 Disallow: /emailcampaigndashboard
 Disallow: /traffic-report
 Disallow: /TrafficReport
-Disallow: /traffic-report
 Disallow: /admin/traffic
 Disallow: /admin/keywords
 Disallow: /KeywordAnalysis
@@ -41,26 +53,33 @@ Disallow: /SEO
 Disallow: /seo
 Disallow: /local
 Disallow: /LocalSEO
-Disallow: /AdminShopify
 Disallow: /ProductSync
 Disallow: /product-sync
-Disallow: /CustomerPortal
-Disallow: /customerportal
-Disallow: /portal
-Disallow: /Portal
-Disallow: /LoyaltyPortal
-Disallow: /loyaltyportal
+Disallow: /research
 
-# ── Torch Command (internal tooling) ──
-Disallow: /command/
+# Torch Command and development/internal utility routes
 Disallow: /command
+Disallow: /command/
+Disallow: /TorchCommandHome
+Disallow: /CognitiveQuiz
+Disallow: /FlowTimer
+Disallow: /ProtocolsDirectory
+Disallow: /ProtocolDetail
+Disallow: /AdminCommand
+Disallow: /AdminBlogEditor
 
-# ── Legacy redirect routes (301 redirects, no original content) ──
+# Redirect-only aliases and legacy duplicates
 Disallow: /classic-coffee
 Disallow: /mushroom-coffee
 Disallow: /matcha
 Disallow: /about
 Disallow: /products
+Disallow: /Shop
+Disallow: /MushroomShop
+Disallow: /BuildYourRitual
+Disallow: /blogs/news
+Disallow: /blog
+Disallow: /pages/
 Disallow: /coffee-pods
 Disallow: /pods
 Disallow: /pod
@@ -68,7 +87,7 @@ Disallow: /patriotic-coffee
 Disallow: /founders-series
 Disallow: /founders
 
-# ── 410 Gone routes (discontinued categories) ──
+# 410 Gone discontinued routes
 Disallow: /libertees
 Disallow: /apparel
 Disallow: /collectibles
@@ -99,5 +118,4 @@ Disallow: /bracelets
 Disallow: /rings
 Disallow: /collections/
 
-# ── Sitemap ──
 Sitemap: https://torchrepublic.com/sitemap.xml

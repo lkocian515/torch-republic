@@ -70,11 +70,28 @@ const CANONICAL_OVERRIDES = {
   '/matcha': '/shop/matcha',
 };
 
-const NOINDEX_PREFIXES = ['/login', '/register', '/forgot-password', '/reset-password', '/profile', '/loyalty', '/cart', '/checkout', '/order-confirmation', '/account', '/admin', '/email-campaign', '/research', '/command', '/traffic-report', '/TrafficReport', '/seo', '/SEO', '/local', '/LocalSEO', '/search-query-analysis', '/SearchQueryAnalysis', '/KeywordAnalysis', '/ProductSync', '/product-sync', '/CustomerPortal', '/customerportal', '/portal', '/Portal', '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service'];
+const NOINDEX_EXACT_PATHS = new Set([
+  '/login', '/register', '/forgot-password', '/reset-password',
+  '/profile', '/loyalty', '/cart', '/checkout', '/order-confirmation', '/account', '/account/login', '/account/register', '/account/orders',
+  '/email-campaign', '/email-campaign-dashboard', '/emailcampaigndashboard',
+  '/traffic-report', '/trafficreport', '/adminshopify', '/productsync', '/product-sync', '/keywordanalysis', '/searchqueryanalysis', '/search-query-analysis',
+  '/dashboard', '/seo', '/localseo', '/local', '/customerportal', '/portal', '/loyaltyportal',
+  '/torchcommandhome', '/cognitivequiz', '/flowtimer', '/protocolsdirectory', '/protocoldetail', '/admincommand', '/adminblogeditor',
+  '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service',
+  '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
+  '/coffee-pods', '/pods', '/pod', '/patriotic-coffee', '/founders-series', '/founders',
+  '/libertees', '/apparel', '/collectibles', '/patriotic', '/lincoln', '/washington', '/jefferson', '/reagan', '/historical', '/liberty', '/freedom',
+  '/american-heroes', '/christ-is-king', '/god-family-country', '/faith-over-fear', '/we-the-people', '/freedom-isnt-free',
+  '/t-shirts', '/hoodies', '/hats', '/mugs', '/stickers', '/flags', '/bobbleheads', '/jewelry', '/necklaces', '/bracelets', '/rings',
+]);
+const NOINDEX_PREFIXES = ['/admin', '/research', '/command', '/collections', '/pages'];
 const SEARCH_PARAMS = ['q', 'query', 'search', 's'];
 
 function isNoIndex(pathname, search) {
-  if (NOINDEX_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`))) return true;
+  if (pathname !== pathname.toLowerCase()) return true;
+  const normalized = pathname.toLowerCase();
+  if (NOINDEX_EXACT_PATHS.has(normalized)) return true;
+  if (NOINDEX_PREFIXES.some((prefix) => normalized === prefix || normalized.startsWith(`${prefix}/`))) return true;
   const params = new URLSearchParams(search || '');
   return SEARCH_PARAMS.some((param) => params.has(param));
 }

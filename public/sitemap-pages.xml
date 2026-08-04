@@ -103,9 +103,4 @@
   <url><loc>https://torchrepublic.com/faq/shipping-faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://torchrepublic.com/faq/return-policy-faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <!-- Policy Pages -->
-  <url><loc>https://torchrepublic.com/shipping-policy</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://torchrepublic.com/return-policy</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://torchrepublic.com/privacy-policy</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://torchrepublic.com/terms-of-service</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 </urlset>

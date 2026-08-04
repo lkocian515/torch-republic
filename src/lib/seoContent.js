@@ -63,7 +63,7 @@ export const TOPIC_CLUSTERS = {
     products: [
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
   'ingredients': {
@@ -73,7 +73,7 @@ export const TOPIC_CLUSTERS = {
     products: [
       { name: 'Mushroom Coffee Collection', path: '/shop/instant-mushroom-coffee' },
       { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
   'morning-routines': {
@@ -531,7 +531,7 @@ export const FAQ_PAGES = [
     relatedFaqs: ['mushroom-coffee-pregnancy-faq', 'mushroom-coffee-side-effects-faq', 'how-much-caffeine-mushroom-coffee'],
     products: [
       { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
   {
@@ -743,7 +743,7 @@ export const FAQ_PAGES = [
     answer: "Matcha contains several well-researched bioactive compounds. L-theanine is strongly supported for calm focus and stress reduction. EGCG (epigallocatechin gallate) is one of the most studied antioxidants in green tea research, with evidence for metabolic support. Matcha also contains chlorophyll and vitamin K. Note: matcha is a food/beverage — it is not a medicine and cannot treat, cure, or prevent disease. The evidence for taste and focus benefits is real; more dramatic claims require more research.",
     relatedFaqs: ['what-is-ceremonial-matcha', 'how-much-caffeine-matcha', 'matcha-vs-coffee-faq'],
     products: [
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
       { name: 'Ingredient Guide: L-Theanine', path: '/ingredients/l-theanine' },
     ],
   },
@@ -771,7 +771,7 @@ export const FAQ_PAGES = [
     answer: "Adaptogens are plant or fungal compounds that — according to traditional use and emerging research — help the body respond to and recover from physical and mental stress. To qualify as an adaptogen, a compound must: 1) be non-toxic at normal doses, 2) produce a nonspecific resistance to stress, and 3) normalize physiological function regardless of the direction of stress. Functional mushrooms like Reishi, Chaga, and Cordyceps are classified as adaptogens. Lion's Mane doesn't fit the classic adaptogen definition — it's more accurately a nootropic mushroom.",
     relatedFaqs: ['what-is-mushroom-coffee', 'lions-mane-benefits-faq', 'chaga-benefits-faq'],
     products: [
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -824,7 +824,7 @@ export const FAQ_PAGES = [
     relatedFaqs: ['is-mushroom-coffee-safe', 'how-much-caffeine-mushroom-coffee', 'can-you-drink-mushroom-coffee-every-day'],
     products: [
       { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
   {
@@ -837,7 +837,7 @@ export const FAQ_PAGES = [
     relatedFaqs: ['is-mushroom-coffee-safe', 'mushroom-coffee-pregnancy-faq', 'how-much-caffeine-mushroom-coffee'],
     products: [
       { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Research Hub', path: '/research' },
+      { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
   {
@@ -928,7 +928,7 @@ export const FAQ_PAGES = [
     answer: "Torch Republic processes orders within 1-3 business days. Domestic US shipping typically arrives in 3-7 business days after processing. Subscription orders are scheduled and processed on your chosen delivery date. You'll receive a tracking notification when your order ships. For specific shipping inquiries, contact hello@torchrepublic.com.",
     relatedFaqs: ['subscription-faq', 'bundle-deal-faq', 'torchbearers-rewards-faq'],
     products: [
-      { name: 'Shipping Policy', path: '/shipping-policy' },
+      { name: 'Contact Us', path: '/contact' },
       { name: 'Shop Now', path: '/shop' },
     ],
   },
@@ -941,7 +941,6 @@ export const FAQ_PAGES = [
     answer: "Torch Republic offers a 30-day satisfaction guarantee on first-time orders. If you're not satisfied with your purchase, contact hello@torchrepublic.com within 30 days. We'll work to make it right — whether that's an exchange, credit, or refund. Opened products are handled on a case-by-case basis. Subscription orders can be paused or canceled anytime before the next shipment processes.",
     relatedFaqs: ['subscription-faq', 'shipping-faq', 'bundle-deal-faq'],
     products: [
-      { name: 'Return Policy', path: '/return-policy' },
       { name: 'Contact Us', path: '/contact' },
     ],
   },
@@ -1093,7 +1092,6 @@ export const INTERNAL_LINK_MAP = {
     '/shop/instant-coffee',
     '/quiz',
     '/ingredients',
-    '/research',
   ],
 };
 

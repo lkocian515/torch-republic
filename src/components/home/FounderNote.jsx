@@ -73,10 +73,7 @@ export default function FounderNote() {
 
           {/* DBA statement */}
           <p className="font-mono text-[10px] tracking-[0.08em] mt-6" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>
-            Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC. ·{' '}
-            <Link to="/shipping-policy" style={{ color: 'rgba(230,183,173,0.8)', textDecoration: 'none' }}>Shipping</Link>{' '}
-            ·{' '}
-            <Link to="/return-policy" style={{ color: 'rgba(230,183,173,0.8)', textDecoration: 'none' }}>Returns</Link>
+            Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.
           </p>
 
           {/* CTA */}

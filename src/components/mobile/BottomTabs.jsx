@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, ShoppingBag, User } from 'lucide-react';
+import { Home, ShoppingBag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigationStack } from '@/contexts/NavigationContext';
 
@@ -9,7 +9,6 @@ const RG = '#E6B7AD';
 const TABS = [
   { path: '/', icon: Home, label: 'Home' },
   { path: '/shop', icon: ShoppingBag, label: 'Shop' },
-  { path: '/profile', icon: User, label: 'Profile' },
 ];
 
 export default function BottomTabs() {

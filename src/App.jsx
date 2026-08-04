@@ -19,6 +19,7 @@ import ExitIntentPopup from './components/home/ExitIntentPopup';
 import ReviewPopup from './components/mushroom/ReviewPopup';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import NoIndex from './components/seo/NoIndex';
 import GoneRedirect from './components/seo/GoneRedirect';
 import RouteSeoManager from './components/seo/RouteSeoManager';
@@ -216,8 +217,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/bundle" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomBundle" queryClient={queryClient}><MushroomBundle /></LayoutWrapper></Suspense>} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
-        <Route path="/profile" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
-        <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
+        <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+          <Route path="/profile" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
+          <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
+        </Route>
         <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
@@ -238,8 +241,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/admin/shopify" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminShopify" queryClient={queryClient}><AdminShopify /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
-        <Route path="/admin/blog" element={<Navigate to="/" replace />} />
-        <Route path="/admin/blog/:slug" element={<Navigate to="/" replace />} />
+        <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
+        <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/Admin" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/Dashboard" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/SEO" element={<Navigate to="/" replace />} />

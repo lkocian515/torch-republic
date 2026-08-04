@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const colors = { page: '#F8F5EF', card: '#FFFDFC', text: '#26231F', secondary: '#655E56', border: '#DED8CF', coffee: '#6F4A32' };
 const groups = [
   ['Shop', [['Shop', '/shop'], ['Find Your Ritual', '/build-your-ritual'], ['Why Torch', '/mission'], ['Journal', '/journal'], ['FAQ', '/faq']]],
-  ['Support', [['Account', '/profile'], ['Contact', '/contact'], ['Shipping', '/shipping-policy'], ['Returns', '/return-policy']]],
-  ['Policies', [['Privacy Policy', '/privacy-policy'], ['Terms', '/terms-of-service']]],
+  ['Support', [['Contact', '/contact']]],
 ];
 const socials = [['Instagram', 'https://instagram.com/torchrepublic'], ['TikTok', 'https://tiktok.com/@torchrepublic'], ['Facebook', 'https://facebook.com/torchrepublic'], ['Pinterest', 'https://pinterest.com/torchrepublic']];
 
