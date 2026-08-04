@@ -374,7 +374,7 @@ export default function LionsManeMushroomCoffee() {
                 ))}
               </div>
               <p>
-                The flavor profile depends on the blend you choose. Our Dark Roast blends (Mooncap Restore, Midnight Watch) bring forward the bold, chocolatey depth of the Arabica base. Our Medium Roast options (Glowmind Clarity, Torchbearer) run smooth and slightly sweet, with the earthiness of the mushroom extracts complementing rather than competing with the coffee. None of our blends taste like "mushroom" in any culinary sense — the extract is neutral, and what you taste is premium coffee with an added depth.
+                The flavor profile depends on the blend you choose. Our Dark Roast blends (MoonCap Restore) bring forward the bold, chocolatey depth of the Arabica base. Our Medium Roast options (Glowmind Clarity, Torchbearer) run smooth and slightly sweet, with the earthiness of the mushroom extracts complementing rather than competing with the coffee. None of our blends taste like "mushroom" in any culinary sense — the extract is neutral, and what you taste is premium coffee with an added depth.
               </p>
             </div>
           </section>

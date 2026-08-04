@@ -42,7 +42,7 @@ const MORNING_PRODUCTS = [
     icon: '🔥',
   },
   {
-    name: 'Ember Rise',
+    name: 'Ember Reserve',
     tagline: 'Morning energy & momentum',
     description: "100% Arabica, medium roast. Smooth, approachable, perfectly balanced — the morning coffee that works whether you're hitting the gym, the office, or the road.",
     path: '/products/ember-rise-instant-coffee',

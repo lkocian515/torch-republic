@@ -15,12 +15,12 @@ export const TOPIC_CLUSTERS = {
     color: '#6CBD5A',
     pillarUrl: '/shop/instant-mushroom-coffee',
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-      { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
-      { name: 'DreamCap', path: '/products/mooncap-restore-instant-mushroom-coffee' },
-      { name: 'The Oracle', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-      { name: 'Mystic Bloom', path: '/products/suncap-rise-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
+      { name: 'SunCap Rise', path: '/products/suncap-rise' },
+      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
+      { name: 'DreamCap', path: '/products/mooncap-restore' },
+      { name: 'The Oracle', path: '/products/glowmind-clarity-blend' },
+      { name: 'Mystic Bloom', path: '/products/suncap-rise' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -29,9 +29,9 @@ export const TOPIC_CLUSTERS = {
     color: '#C4A35A',
     pillarUrl: '/shop/instant-coffee',
     products: [
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
-      { name: 'Ember Rise', path: '/products/ember-rise-instant-coffee' },
-      { name: 'Midnight Watch', path: '/products/ember-rise-instant-coffee' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
+      { name: 'Ember Reserve', path: '/products/ember-reserve' },
+      { name: 'Ember Reserve', path: '/products/ember-reserve' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
@@ -41,7 +41,7 @@ export const TOPIC_CLUSTERS = {
     pillarUrl: '/shop/matcha',
     products: [
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Ascendant Matcha', path: '/products/the-alchemist-matcha-blend' },
+      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
@@ -61,7 +61,7 @@ export const TOPIC_CLUSTERS = {
     color: '#B88FA8',
     pillarUrl: '/why-mushroom-coffee',
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
       { name: 'Ingredients Page', path: '/ingredients' },
     ],
@@ -81,8 +81,8 @@ export const TOPIC_CLUSTERS = {
     color: '#D4A576',
     pillarUrl: '/how-it-works',
     products: [
-      { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
+      { name: 'SunCap Rise', path: '/products/suncap-rise' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
       { name: 'Build Your Ritual', path: '/build-your-ritual' },
     ],
   },
@@ -92,7 +92,7 @@ export const TOPIC_CLUSTERS = {
     pillarUrl: '/recipes',
     products: [
       { name: 'All Recipes', path: '/recipes' },
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
     ],
   },
@@ -245,9 +245,9 @@ export const INGREDIENT_PAGES = [
     activeCompounds: ["Hericenones", "Erinacines", "Beta-glucans", "Polysaccharides"],
     researchSummary: "The most studied functional mushroom for cognitive outcomes. Key trials include Mori et al. (2009) and Saitsu et al. (2019). Results are promising but most human studies have small sample sizes.",
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-      { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
+      { name: 'SunCap Rise', path: '/products/suncap-rise' },
+      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
     relatedSlugs: ['science-of-lions-mane', 'lions-mane-mushroom-coffee', 'mushroom-coffee-benefits', 'best-mushroom-coffee-for-focus'],
@@ -271,8 +271,8 @@ export const INGREDIENT_PAGES = [
     activeCompounds: ["Beta-glucans", "Melanin", "Betulinic acid", "Polyphenols", "Triterpenoids"],
     researchSummary: "Well-documented for antioxidant content. Most human research focuses on immune modulation. Fewer cognitive studies than Lion's Mane. More controlled trials needed.",
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
+      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
     relatedSlugs: ['chaga-mushroom-coffee', 'chaga-mushroom-antioxidant-king', 'mushroom-coffee-benefits', 'adaptogens-guide'],
@@ -297,7 +297,7 @@ export const INGREDIENT_PAGES = [
     researchSummary: "Best human evidence for exercise performance improvement. Chen et al. (2010) and Hirsch et al. (2017) show modest but real VO2 max improvements.",
     products: [
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'Build Your Ritual', path: '/build-your-ritual' },
     ],
     relatedSlugs: ['adaptogens-guide', 'mushroom-coffee-benefits', 'pre-workout-mushroom-coffee', 'best-mushroom-coffee-for-focus'],
@@ -321,8 +321,8 @@ export const INGREDIENT_PAGES = [
     activeCompounds: ["Triterpenes", "Beta-glucans", "Polysaccharides", "Ganoderic acids"],
     researchSummary: "Strongest evidence for immune support and stress modulation. Smaller but credible evidence base for sleep quality. Long safety record in traditional use.",
     products: [
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore-instant-mushroom-coffee' },
-      { name: 'DreamCap', path: '/products/mooncap-restore-instant-mushroom-coffee' },
+      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
+      { name: 'DreamCap', path: '/products/mooncap-restore' },
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
     relatedSlugs: ['adaptogens-guide', 'mushroom-coffee-benefits', 'reishi-guide', 'sleep-and-coffee-timing'],
@@ -347,7 +347,7 @@ export const INGREDIENT_PAGES = [
     researchSummary: "One of the most well-studied functional compounds. Over 30 human trials across cognitive performance, anxiety, and sleep. Combination with caffeine is strongly supported.",
     products: [
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Ascendant Matcha', path: '/products/the-alchemist-matcha-blend' },
+      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
     relatedSlugs: ['matcha-benefits', 'l-theanine-and-caffeine', 'matcha-for-anxiety', 'ceremonial-matcha-vs-culinary'],
@@ -371,9 +371,9 @@ export const INGREDIENT_PAGES = [
     activeCompounds: ["Caffeine", "Chlorogenic acids", "Diterpenes (cafestol, kahweol)", "Trigonelline"],
     researchSummary: "Arabica's flavor superiority is well-documented in sensory science. The freeze-drying process better preserves aromatic volatile compounds versus spray-drying.",
     products: [
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
-      { name: 'Ember Rise', path: '/products/ember-rise-instant-coffee' },
-      { name: 'Midnight Watch', path: '/products/ember-rise-instant-coffee' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
+      { name: 'Ember Reserve', path: '/products/ember-reserve' },
+      { name: 'Ember Reserve', path: '/products/ember-reserve' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
     relatedSlugs: ['what-makes-premium-instant-coffee-different', 'freeze-dried-vs-spray-dried-coffee', 'best-instant-coffee', 'arabica-vs-robusta-instant'],
@@ -492,7 +492,7 @@ export const FAQ_PAGES = [
     relatedFaqs: ['does-mushroom-coffee-taste-like-mushrooms', 'is-mushroom-coffee-safe', 'how-much-caffeine-mushroom-coffee'],
     products: [
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
     ],
   },
   {
@@ -517,7 +517,7 @@ export const FAQ_PAGES = [
     answer: "Torch Republic mushroom coffee contains approximately 60-80mg of caffeine per serving — similar to a moderate cup of regular coffee. Mushroom extracts don't add caffeine; they're blended with the coffee base. This is lower than most energy drinks and espresso drinks but in the normal range for a daily coffee ritual.",
     relatedFaqs: ['what-is-mushroom-coffee', 'mushroom-coffee-vs-regular-coffee-faq', 'is-mushroom-coffee-safe'],
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -569,8 +569,8 @@ export const FAQ_PAGES = [
     answer: "For beginners, we recommend SunCap Rise or GlowMind Clarity as your first mushroom coffee. SunCap Rise is blended for morning energy — it has the most approachable coffee-forward flavor and familiar morning energy feel. GlowMind Clarity is the most popular, designed for focus-oriented mornings. Start with one tube, drink it daily for 2 weeks to let the functional ingredients build up in your system, then decide if you want to try other blends.",
     relatedFaqs: ['what-is-mushroom-coffee', 'does-mushroom-coffee-taste-like-mushrooms', 'how-to-make-mushroom-coffee'],
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-      { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
+      { name: 'SunCap Rise', path: '/products/suncap-rise' },
       { name: 'Take the Blend Quiz', path: '/quiz' },
     ],
   },
@@ -596,7 +596,7 @@ export const FAQ_PAGES = [
     answer: "Lion's Mane (Hericium erinaceus) contains unique compounds called hericenones and erinacines that may stimulate Nerve Growth Factor (NGF) production. NGF is essential for the growth and maintenance of neurons. Human research suggests modest improvements in mild cognitive impairment and memory in older adults. For healthy adults, evidence is less established but promising. It is not a drug and cannot treat disease — it is a functional food ingredient.",
     relatedFaqs: ['what-is-mushroom-coffee', 'chaga-benefits-faq', 'is-mushroom-coffee-safe'],
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'Ingredient Guide: Lion\'s Mane', path: '/ingredients/lions-mane' },
     ],
   },
@@ -625,7 +625,7 @@ export const FAQ_PAGES = [
     relatedFaqs: ['is-instant-coffee-real-coffee-faq', 'freeze-dried-vs-spray-dried-faq', 'how-much-caffeine-instant-coffee'],
     products: [
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
     ],
   },
   {
@@ -663,7 +663,7 @@ export const FAQ_PAGES = [
     answer: "A typical serving of premium instant coffee contains 60-80mg of caffeine — similar to a standard 8oz cup of brewed coffee. Espresso has ~63mg per shot. Energy drinks often contain 80-300mg. Instant coffee's caffeine level is reliably in the moderate range, making it a good option for people who want consistent, manageable daily caffeine without the variability of cold brew or espresso drinks.",
     relatedFaqs: ['what-is-instant-coffee', 'can-i-drink-coffee-in-afternoon', 'instant-coffee-before-workout'],
     products: [
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
@@ -875,8 +875,8 @@ export const FAQ_PAGES = [
     answer: "Yes — 60-80mg of caffeine 30-60 minutes before exercise is well-supported by sports science for improved endurance, strength, and focus. Premium instant coffee delivers this efficiently with zero sugar, no jittery pre-workout ingredients, and a clean energy source. Mushroom coffee also adds Cordyceps, which has its own research support for oxygen utilization and endurance. It's a clean, natural pre-workout alternative to sugary energy drinks or supplement-heavy pre-workouts.",
     relatedFaqs: ['how-much-caffeine-instant-coffee', 'how-much-caffeine-mushroom-coffee', 'best-mushroom-blend-for-beginners'],
     products: [
-      { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
-      { name: 'Torchbearer', path: '/products/torchbearer-instant-coffee' },
+      { name: 'SunCap Rise', path: '/products/suncap-rise' },
+      { name: 'Torchbearer', path: '/products/torchbearer' },
     ],
   },
   {
@@ -911,10 +911,10 @@ export const FAQ_PAGES = [
     cluster: 'mushroom-coffee',
     metaTitle: "What's in Each Torch Republic Blend? | Ingredient Guide | FAQ",
     metaDescription: "Full ingredient overview for each Torch Republic coffee and matcha blend — mushroom extracts, coffee type, functional purpose, and which blend is right for you.",
-    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Chaga — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. DreamCap: premium Arabica instant coffee + Reishi + Lion's Mane — for evening ritual and sleep support. The Oracle: premium Arabica instant coffee + full mushroom complex — for comprehensive daily wellness. Torchbearer/Ember Rise/Midnight Watch: pure 100% Arabica classic coffee — no mushrooms.",
+    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Chaga — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. DreamCap: premium Arabica instant coffee + Reishi + Lion's Mane — for evening ritual and sleep support. The Oracle: premium Arabica instant coffee + full mushroom complex — for comprehensive daily wellness. Torchbearer/Ember Reserve/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
     relatedFaqs: ['what-is-mushroom-coffee', 'best-mushroom-blend-for-beginners', 'does-mushroom-coffee-taste-like-mushrooms'],
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'Shop All Blends', path: '/shop' },
       { name: 'Take the Blend Quiz', path: '/quiz' },
     ],

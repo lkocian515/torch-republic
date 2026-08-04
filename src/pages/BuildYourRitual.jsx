@@ -35,18 +35,18 @@ const CORE_PRODUCT_HANDLES = [
   'glowmind-clarity-instant-mushroom-coffee',
   'mooncap-restore-instant-mushroom-coffee',
   // Classic Coffee (2)
-  'torchbearer-instant-coffee',
+  'torchbearer™-single-origin-instant-coffee',
   'ember-rise-instant-coffee',
   // Matcha (2)
-  'the-alchemist-matcha-blend',
-  'the-monk-matcha-blend',
+  'the-alchemist-matcha',
+  'the-monk-matcha',
 ];
 
 // Category mapping
 const PRODUCT_CATEGORIES = {
   'Mushroom Coffee': ['suncap-rise-instant-mushroom-coffee', 'glowmind-clarity-instant-mushroom-coffee', 'mooncap-restore-instant-mushroom-coffee'],
-  'Classic Coffee': ['torchbearer-instant-coffee', 'ember-rise-instant-coffee'],
-  'Matcha': ['the-alchemist-matcha-blend', 'the-monk-matcha-blend'],
+  'Classic Coffee': ['torchbearer™-single-origin-instant-coffee', 'ember-rise-instant-coffee'],
+  'Matcha': ['the-alchemist-matcha', 'the-monk-matcha'],
 };
 
 export default function BuildYourRitual() {
@@ -84,8 +84,9 @@ export default function BuildYourRitual() {
 
         // Map to our internal format
         const mappedProducts = coreProducts.map(p => {
+          const localProduct = LOCAL_PRODUCT_MAP[p.handle];
           // Determine category based on handle
-          let category = 'mushroom-coffee';
+          let category = localProduct?.category || 'mushroom-coffee';
           if (p.handle.includes('matcha')) category = 'matcha';
           else if (p.handle.includes('instant-coffee') && !p.handle.includes('mushroom')) category = 'classic-coffee';
 
@@ -99,12 +100,12 @@ export default function BuildYourRitual() {
           return {
             id: p.handle,
             shopifyHandle: p.handle,
-            name: p.title.replace(/(Instant Coffee|Instant Mushroom Coffee|Matcha Blend|Matcha)/g, '').trim(),
-            title: p.title,
+            name: localProduct?.name || p.title.replace(/(Instant Coffee|Instant Mushroom Coffee|Matcha Blend|Matcha)/g, '').trim(),
+            title: localProduct?.name || p.title,
             price: p.price || 24.99,
             compareAtPrice: p.compareAtPrice,
-            image: getProductImage({ ...(LOCAL_PRODUCT_MAP[p.handle] || {}), id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: p.title, title: p.title }),
-            imageAlt: getProductAltText(LOCAL_PRODUCT_MAP[p.handle] || { name: p.title, category }),
+            image: getProductImage({ ...(localProduct || {}), id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: localProduct?.name || p.title, title: localProduct?.name || p.title }),
+            imageAlt: getProductAltText(localProduct || { name: p.title, category }),
             category: category,
             accent: accentColors[category] || '#E6B7AD',
             available: p.availableForSale !== false,

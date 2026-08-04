@@ -10,7 +10,7 @@ const CATEGORIES = [
     icon: Coffee,
     label: 'Classic Instant Coffee',
     type: 'CLASSIC COFFEE',
-    desc: 'Torchbearer · Ember Rise · Midnight Watch — 100% Arabica instant coffee. No mushrooms, no pods, no machine. Bold, smooth, and ready in seconds.',
+    desc: 'Torchbearer · Ember Reserve — 100% Arabica instant coffee. No mushrooms, no pods, no machine. Bold, smooth, and ready in seconds.',
     cta: 'Shop Classic Coffee',
     href: '/classic-coffee',
     accent: '#C4A35A',

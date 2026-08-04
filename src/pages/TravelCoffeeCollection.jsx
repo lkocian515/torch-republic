@@ -21,7 +21,7 @@ const TRAVEL_SCENARIOS = [
 
 const TRAVEL_PRODUCTS = [
   {
-    name: 'Ember Rise',
+    name: 'Ember Reserve',
     tagline: 'All-purpose travel companion',
     description: 'Medium roast 100% Arabica. Smooth, balanced, works in any vessel with any water temperature that\'s "hot enough." The most versatile travel coffee we make.',
     path: '/products/ember-rise-instant-coffee',

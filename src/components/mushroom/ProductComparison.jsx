@@ -9,7 +9,7 @@ export default function ProductComparison() {
     },
     {
       image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ff2e1875_ChatGPTImageJun6202609_40_38PM.png',
-      alt: 'Mushroom Coffee Collection - Ember Rise & Midnight Watch',
+      alt: 'Mushroom Coffee Collection - Ember Reserve',
     },
     {
       image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e3ce414ad_ChatGPTImageJun6202609_41_50PM.png',

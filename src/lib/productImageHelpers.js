@@ -9,6 +9,7 @@ export const APPROVED_PRODUCT_IMAGES = {
   'mooncap-restore': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jbhyvgyu.png?v=1785663564',
   'mooncap-restore-instant-mushroom-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jbhyvgyu.png?v=1785663564',
   'torchbearer': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
+  'torchbearer™-single-origin-instant-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
   'torchbearer-instant-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
   'ember-reserve': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
   'ember reserve': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
@@ -16,8 +17,10 @@ export const APPROVED_PRODUCT_IMAGES = {
   'ember-rise-instant-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
   'the-alchemist': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/frewrdwqerq.png?v=1785661782',
   'the-alchemist-matcha-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/frewrdwqerq.png?v=1785661782',
+  'the-alchemist-matcha': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/frewrdwqerq.png?v=1785661782',
   'the-monk': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/trdtyfuyh_25801652-e2ec-4a02-8d62-6855c6e55396.png?v=1785661294',
   'the-monk-matcha-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/trdtyfuyh_25801652-e2ec-4a02-8d62-6855c6e55396.png?v=1785661294',
+  'the-monk-matcha': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/trdtyfuyh_25801652-e2ec-4a02-8d62-6855c6e55396.png?v=1785661294',
 };
 
 export function getApprovedProductImage(product) {

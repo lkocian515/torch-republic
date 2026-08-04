@@ -10,8 +10,7 @@ const GOLD = '#C4A35A';
 const PRODUCTS = {
   coffee: [
     { name: 'Torchbearer', type: 'Instant Coffee · Medium Roast', benefit: 'Bold · Smooth · Intense — the original daily ritual. 100% Arabica + Lion\'s Mane + Chaga.', href: '/torchbearer', accent: GOLD, live: true },
-    { name: 'Ember Rise', type: 'Instant Coffee · Medium Roast', benefit: 'Rich · Smooth · Bold — ignite your momentum. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
-    { name: 'Midnight Watch', type: 'Instant Coffee · Dark Roast', benefit: 'Bold · Deep · Intense — own the night. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
+    { name: 'Ember Reserve', type: 'Instant Coffee · Medium Roast', benefit: 'Rich · Smooth · Bold — ignite your momentum. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
   ],
   mushroom: [
     { name: 'SunCap Rise', type: 'Mushroom Coffee · Light Roast', benefit: 'Morning energy + clarity. Lion\'s Mane + Chaga.', href: '/blends/suncap-rise', accent: RG, live: true },

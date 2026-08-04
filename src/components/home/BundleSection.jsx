@@ -10,7 +10,7 @@ const BUNDLES = [
     name: 'Morning Ritual Bundle',
     bestFor: 'Classic morning energy and smooth daily routine',
     description: 'Three blends chosen for clean energy, a smooth start, and a ritual that sets your tone for the day.',
-    includes: 'Torchbearer + Ember Rise + one focus blend',
+    includes: 'Torchbearer + Ember Reserve + one focus blend',
     servings: '3 tubes · ~81 servings total',
     perServing: '~$0.62 per serving',
     price: '$49.99',

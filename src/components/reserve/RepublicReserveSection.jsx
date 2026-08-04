@@ -15,7 +15,7 @@ const FEATURES = [
 ];
 
 // Future Reserve products — framework ready for expansion
-const COMING_SOON = ['Ember Roast', 'Midnight Watch'];
+const COMING_SOON = ['Ember Reserve'];
 
 export default function RepublicReserveSection() {
   const cartUrl = getShopifyCartUrl('torchbearer-premium-instant-coffee', 1);

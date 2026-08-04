@@ -15,7 +15,7 @@ const FAQ_DATA = [
   },
   {
     question: 'Which products are regular coffee?',
-    answer: 'Torchbearer, Ember Rise, and Midnight Watch are Classic Instant Coffee products made from 100% premium Arabica coffee with no mushrooms.',
+    answer: 'Torchbearer, Ember Reserve are Classic Instant Coffee products made from 100% premium Arabica coffee with no mushrooms.',
   },
   {
     question: 'Which products are mushroom coffee?',

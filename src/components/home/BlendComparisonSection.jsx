@@ -17,7 +17,7 @@ const BLENDS = [
     slug: 'torchbearer',
   },
   {
-    name: 'Ember Rise',
+    name: 'Ember Reserve',
     category: 'Classic Coffee',
     categoryColor: '#C4A35A',
     bestFor: 'Fresh starts, renewal',
@@ -28,7 +28,7 @@ const BLENDS = [
     slug: 'ember-rise',
   },
   {
-    name: 'Midnight Watch',
+    name: 'Ember Reserve',
     category: 'Classic Coffee',
     categoryColor: '#C4A35A',
     bestFor: 'Deep focus, resilience',

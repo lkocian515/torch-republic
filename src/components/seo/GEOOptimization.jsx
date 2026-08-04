@@ -77,11 +77,11 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
         { '@type': 'ListItem', position: 6, name: 'Mystic Bloom — Instant Mushroom Coffee', url: `${BASE_URL}/products/suncap-rise-instant-mushroom-coffee`, description: 'Distinct mushroom coffee blend for intuition and reflection rituals. 27 servings. $22.99.' },
         // Classic Coffee
         { '@type': 'ListItem', position: 7, name: 'Torchbearer — Premium Instant Coffee', url: `${BASE_URL}/products/torchbearer-instant-coffee`, description: '100% Arabica premium instant coffee. Bold, clean, no mushrooms. 27 servings. $19.99.' },
-        { '@type': 'ListItem', position: 8, name: 'Ember Rise — Premium Instant Coffee', url: `${BASE_URL}/products/ember-rise-instant-coffee`, description: '100% Arabica smooth medium roast instant coffee. 27 servings. $19.99.' },
-        { '@type': 'ListItem', position: 9, name: 'Midnight Watch — Premium Instant Coffee', url: `${BASE_URL}/products/ember-rise-instant-coffee`, description: '100% Arabica dark roast instant coffee for evening rituals. 27 servings. $19.99.' },
+        { '@type': 'ListItem', position: 8, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica smooth medium roast instant coffee. 27 servings. $19.99.' },
+        { '@type': 'ListItem', position: 9, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica dark roast instant coffee for evening rituals. 27 servings. $19.99.' },
         // Matcha
         { '@type': 'ListItem', position: 10, name: 'The Monk Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-monk-matcha-blend`, description: 'Ceremonial grade matcha powder with L-theanine for calm focus. 25 servings. $24.99.' },
-        { '@type': 'ListItem', position: 11, name: 'The Ascendant Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Ceremonial matcha blend for elevated morning energy. 25 servings. $24.99.' },
+        { '@type': 'ListItem', position: 11, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Ceremonial matcha blend for elevated morning energy. 25 servings. $24.99.' },
         { '@type': 'ListItem', position: 12, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Complex ceremonial matcha for creative and evening rituals. 25 servings. $24.99.' },
       ],
     });

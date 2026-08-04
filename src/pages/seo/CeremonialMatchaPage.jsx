@@ -30,7 +30,7 @@ const PAA = [
 
 const PRODUCTS = [
   { name: "The Monk Matcha", slug: "the-monk-matcha-blend", tagline: "Pure ceremonial matcha — calm, focused clarity" },
-  { name: "The Ascendant Matcha", slug: "the-ascendant-matcha-blend", tagline: "Ceremonial matcha with elevated ritual profile" },
+  { name: "The Alchemist Matcha", slug: "the-alchemist-matcha-blend", tagline: "Ceremonial matcha with elevated ritual profile" },
   { name: "The Alchemist Matcha", slug: "the-alchemist-matcha-blend", tagline: "Complex ceremonial matcha — earthy and full-bodied" },
 ];
 

@@ -46,9 +46,9 @@ const CATALOG_PRICES = {
   'torchbearer-instant-coffee': 19.99,
   'ember-rise-instant-coffee': 19.99,
   'ember-rise-instant-coffee': 19.99,
-  'the-monk-matcha-blend': 24.99,
-  'the-alchemist-matcha-blend': 24.99,
-  'the-alchemist-matcha-blend': 24.99,
+  'the-monk-matcha': 24.99,
+  'the-alchemist-matcha': 24.99,
+  'the-alchemist-matcha': 24.99,
 };
 
 // Base kit definitions (no price — attached at build time from live data).
@@ -112,8 +112,8 @@ const KIT_DEFS = [
     alt:
       'Torch Republic Matcha Serenity Kit with ceremonial matcha, a matcha bowl, whisk, and premium branded packaging.',
     items: [
-      { handle: 'the-monk-matcha-blend', label: 'The Monk — Ceremonial Matcha Blend' },
-      { handle: 'the-alchemist-matcha-blend', label: 'The Ascendant — Ceremonial Matcha Blend' },
+      { handle: 'the-monk-matcha', label: 'The Monk — Ceremonial Matcha Blend' },
+      { handle: 'the-alchemist-matcha', label: 'The Alchemist — Ceremonial Matcha Blend' },
     ],
     decorationNote: 'Matcha bowl and whisk shown in the photo are not included.',
     detailPath: '/shop/matcha',

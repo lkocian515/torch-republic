@@ -95,7 +95,7 @@ export default function PremiumInstantCoffeeDifference() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Classic Coffee vs Mushroom Coffee</h2>
-            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start — <Link to="/products/torchbearer" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-rise" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Ember Rise</Link>, and <Link to="/products/midnight-watch" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Midnight Watch</Link>. Premium Arabica, instant format, nothing added.</p>
+            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start — <Link to="/products/torchbearer" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-reserve" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Ember Reserve</Link>. Premium Arabica, instant format, nothing added.</p>
             <p className="mt-3">If you want everything premium instant offers plus functional mushrooms, the <Link to="/shop/instant-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Mushroom Coffee Collection</Link> adds Lion's Mane and Chaga to the same premium base — for $3 more per tube.</p>
           </section>
 

@@ -23,14 +23,14 @@ const PAA = [
   { q: "Is freeze-dried instant coffee better than regular instant coffee?", a: "Yes. Freeze-dried instant coffee is the premium tier of instant coffee. The freeze-drying process preserves aromatic compounds that are destroyed by the high heat of spray-drying (the cheaper method used in most commodity instant coffee). In taste tests, freeze-dried instant coffee from quality Arabica beans produces a flavor profile significantly closer to fresh-brewed specialty coffee." },
   { q: "Is instant coffee as good as brewed coffee?", a: "Freeze-dried instant coffee from quality Arabica beans has closed the gap significantly with fresh-brewed coffee. It lacks some aromatics that fresh brewing produces, but for most daily drinkers, premium freeze-dried instant is indistinguishable from brewed in a blind taste test — especially when prepared in milk or used as a coffee base for lattes or iced drinks." },
   { q: "Does instant coffee have the same caffeine as brewed coffee?", a: "Approximately. A serving of Torch Republic instant coffee contains approximately 60–80mg of caffeine, similar to a standard 8oz cup of drip coffee. Caffeine content varies slightly based on serving size and blend, but premium instant coffee provides comparable caffeine to most brewing methods." },
-  { q: "What is the best instant coffee?", a: "The best instant coffee is freeze-dried, made from 100% Arabica beans, and produced from specialty-grade green coffee. Torch Republic's classic instant coffee blends (Torchbearer, Ember Rise, Midnight Watch) use premium freeze-dried Arabica with no Robusta filler, no artificial additives, and transparent ingredient sourcing." },
+  { q: "What is the best instant coffee?", a: "The best instant coffee is freeze-dried, made from 100% Arabica beans, and produced from specialty-grade green coffee. Torch Republic's classic instant coffee blends (Torchbearer, Ember Reserve, Ember Reserve) use premium freeze-dried Arabica with no Robusta filler, no artificial additives, and transparent ingredient sourcing." },
   { q: "Can instant coffee be used for specialty coffee drinks?", a: "Yes. Premium freeze-dried instant coffee dissolves completely in any liquid and works for lattes, cappuccinos, iced coffee, cold brew-style drinks, and baking. It also works perfectly as the coffee base in mushroom coffee blends — which is exactly what Torch Republic does, adding functional mushroom extracts to a premium instant coffee base." },
 ];
 
 const PRODUCTS = [
   { name: "Torchbearer", slug: "torchbearer-instant-coffee", tagline: "Bold, classic instant Arabica — the flagship blend" },
-  { name: "Ember Rise", slug: "ember-rise-instant-coffee", tagline: "Medium roast, smooth and balanced for daily ritual" },
-  { name: "Midnight Watch", slug: "midnight-watch-instant-coffee", tagline: "Dark roast, rich and full-bodied" },
+  { name: "Ember Reserve", slug: "ember-reserve", tagline: "Medium roast, smooth and balanced for daily ritual" },
+  { name: "Ember Reserve", slug: "ember-reserve", tagline: "Dark roast, rich and full-bodied" },
 ];
 
 export default function FreezeDriedInstantCoffeePage() {

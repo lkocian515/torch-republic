@@ -18,8 +18,8 @@ const SAMPLE_REVIEWS = {
   ],
   'classic-coffee': [
     { reviewer_name: 'Tom H.', location: 'Dallas, TX', rating: 5, body: 'Torchbearer is the best instant coffee I\'ve ever had. Bold, smooth, and ready in seconds. No machine needed.' },
-    { reviewer_name: 'Jennifer S.', location: 'Miami, FL', rating: 5, body: 'Midnight Watch is my late-night work companion. Dark, rich, and never bitter. Pure coffee perfection.' },
-    { reviewer_name: 'Chris B.', location: 'Phoenix, AZ', rating: 5, body: 'Ember Rise replaced my expensive espresso habit. Same bold flavor, fraction of the time and cost.' },
+    { reviewer_name: 'Jennifer S.', location: 'Miami, FL', rating: 5, body: 'Ember Reserve is my late-night work companion. Dark, rich, and never bitter. Pure coffee perfection.' },
+    { reviewer_name: 'Chris B.', location: 'Phoenix, AZ', rating: 5, body: 'Ember Reserve replaced my expensive espresso habit. Same bold flavor, fraction of the time and cost.' },
   ],
 };
 

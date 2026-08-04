@@ -15,12 +15,12 @@ const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 // ── Per-product Shopify variant IDs for the active seven-product catalog ──────────────────────────
 export const SHOPIFY_VARIANT_IDS = {
   'suncap-rise-instant-mushroom-coffee': '49148263465212',
-  'glowmind-clarity-instant-mushroom-coffee': '49148263596284',
+  'glowmind-clarity-instant-mushroom-coffee': '50910406050044',
   'mooncap-restore-instant-mushroom-coffee': '49148263760124',
-  'torchbearer-instant-coffee': '49171204276476',
-  'ember-rise-instant-coffee': '49171202375932',
-  'the-alchemist-matcha-blend': '49170572148988',
-  'the-monk-matcha-blend': '49170574115068',
+  'torchbearer™-single-origin-instant-coffee': '49166825160956',
+  'ember-rise-instant-coffee': '49171204276476',
+  'the-alchemist-matcha': '49170572148988',
+  'the-monk-matcha': '49170574115068',
 };
 
 // ── Cart page (no specific product) ──────────────────────────────────────────
@@ -67,9 +67,9 @@ export function getFullBundleUrl() {
 // One from each category (Classic + Mushroom + Matcha)
 export function getOneFromEachBundleUrl() {
   const items = [
-    { slug: 'torchbearer-instant-coffee', qty: 1 },
+    { slug: 'torchbearer™-single-origin-instant-coffee', qty: 1 },
     { slug: 'glowmind-clarity-instant-mushroom-coffee', qty: 1 },
-    { slug: 'the-monk-matcha-blend', qty: 1 },
+    { slug: 'the-monk-matcha', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
 }
@@ -77,8 +77,8 @@ export function getOneFromEachBundleUrl() {
 // All Matcha bundle (2 active matcha products)
 export function getAllMatchaBundleUrl() {
   const items = [
-    { slug: 'the-alchemist-matcha-blend', qty: 1 },
-    { slug: 'the-monk-matcha-blend', qty: 1 },
+    { slug: 'the-alchemist-matcha', qty: 1 },
+    { slug: 'the-monk-matcha', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
 }
@@ -86,7 +86,7 @@ export function getAllMatchaBundleUrl() {
 // All Classic Coffee bundle (2 active classic products)
 export function getAllClassicBundleUrl() {
   const items = [
-    { slug: 'torchbearer-instant-coffee', qty: 1 },
+    { slug: 'torchbearer™-single-origin-instant-coffee', qty: 1 },
     { slug: 'ember-rise-instant-coffee', qty: 1 },
   ];
   return getShopifyBundleUrl(items);
@@ -112,11 +112,13 @@ export async function getSubscriptionCheckoutUrl(blendQty) {
     'suncap-rise': 'suncap-rise-instant-mushroom-coffee',
     'glowmind-clarity-blend': 'glowmind-clarity-instant-mushroom-coffee',
     'mooncap-restore': 'mooncap-restore-instant-mushroom-coffee',
-    'torchbearer': 'torchbearer-instant-coffee',
+    'torchbearer': 'torchbearer™-single-origin-instant-coffee',
     'ember-reserve': 'ember-rise-instant-coffee',
     'ember-rise': 'ember-rise-instant-coffee',
-    'the-alchemist-matcha-blend': 'the-alchemist-matcha-blend',
-    'the-monk-matcha-blend': 'the-monk-matcha-blend',
+    'the-alchemist-matcha-blend': 'the-alchemist-matcha',
+    'the-alchemist': 'the-alchemist-matcha',
+    'the-monk-matcha-blend': 'the-monk-matcha',
+    'the-monk': 'the-monk-matcha',
   };
   const items = Object.entries(blendQty)
     .filter(([, qty]) => qty > 0)

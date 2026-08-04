@@ -10,7 +10,7 @@ const CATEGORIES = [
     name: 'Premium Instant Coffee',
     tagline: 'For those who want coffee in its purest, simplest form.',
     desc: 'Smooth, premium instant coffee for mornings when simplicity is enough. No machine, no grinder, no complication — just a clean cup and a clear beginning.',
-    products: 'Torchbearer · Ember Rise · Midnight Watch',
+    products: 'Torchbearer · Ember Reserve',
     icon: Coffee,
     color: '#D6B27A',
     link: '/classic-coffee',

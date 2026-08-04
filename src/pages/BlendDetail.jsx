@@ -64,6 +64,12 @@ const TRUST_BY_CATEGORY = {
 
 const DEPRECATED_PRODUCT_REDIRECTS = {
   'ember-rise': '/products/ember-reserve',
+  'ember-rise-instant-coffee': '/products/ember-reserve',
+  'torchbearer-instant-coffee': '/products/torchbearer',
+  'torchbearer™-single-origin-instant-coffee': '/products/torchbearer',
+  'torchbearer-single-origin-instant-coffee': '/products/torchbearer',
+  'the-alchemist-matcha': '/products/the-alchemist-matcha-blend',
+  'the-monk-matcha': '/products/the-monk-matcha-blend',
   'midnight-watch': '/shop/instant-coffee',
   'dreamcap-blend': '/shop/instant-mushroom-coffee',
   'the-oracle': '/shop/instant-mushroom-coffee',

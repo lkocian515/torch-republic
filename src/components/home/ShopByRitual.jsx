@@ -9,7 +9,7 @@ const RITUALS = [
   {
     name: 'Rise',
     desc: 'For energy, momentum, and starting strong.',
-    products: 'SunCap Rise · Torchbearer · Ember Rise',
+    products: 'SunCap Rise · Torchbearer · Ember Reserve',
     icon: Sun,
     color: '#D6B27A',
     link: '/shop'
@@ -49,7 +49,7 @@ const RITUALS = [
   {
     name: 'Reflect',
     desc: 'For journaling, intuition, and inner clarity.',
-    products: 'The Oracle · Midnight Watch',
+    products: 'MoonCap Restore',
     icon: Book,
     color: '#C4A8A0',
     link: '/shop'

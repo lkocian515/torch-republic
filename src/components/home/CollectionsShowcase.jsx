@@ -13,7 +13,7 @@ export default function CollectionsShowcase() {
       image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/35f19912f_ChatGPTImageJun7202612_09_33PM.png',
       link: '/classic-coffee',
       color: RG,
-      accent: 'Torchbearer, Ember Rise, Midnight Watch',
+      accent: 'Torchbearer, Ember Reserve',
     },
     {
       title: 'Ceremonial Matcha',

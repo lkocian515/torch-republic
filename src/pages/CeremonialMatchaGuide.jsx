@@ -155,7 +155,7 @@ export default function CeremonialMatchaGuide() {
         <div className="flex flex-col gap-3">
           {[
             { name: 'The Monk Matcha', tagline: 'Pure ceremonial matcha for a simple daily ritual', slug: 'the-monk-matcha-blend' },
-            { name: 'The Ascendant Matcha', tagline: 'Ceremonial matcha with elevated ritual intention', slug: 'the-ascendant-matcha-blend' },
+            { name: 'The Alchemist Matcha', tagline: 'Ceremonial matcha with elevated ritual intention', slug: 'the-alchemist-matcha-blend' },
             { name: 'The Alchemist Matcha', tagline: 'Complex, layered ceremonial matcha for intentional routines', slug: 'the-alchemist-matcha-blend' },
           ].map(p => (
             <Link key={p.slug} to={`/products/${p.slug}`}
