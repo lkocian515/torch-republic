@@ -54,11 +54,11 @@ export default function CollectorSystemSection() {
 
             <div className="mt-8">
               <a
-                href="https://torch-republic.com/collections/coffee"
+                href="/shop/instant-coffee"
                 className="inline-flex items-center gap-2 px-6 py-3 font-mono text-xs tracking-[0.25em] uppercase"
                 style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#C8A44D' }}
               >
-                Collect them all →
+                Shop coffee rituals →
               </a>
             </div>
           </motion.div>

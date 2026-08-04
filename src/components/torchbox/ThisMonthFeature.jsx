@@ -77,13 +77,11 @@ export default function ThisMonthFeature() {
                   Join for This Month
                 </a>
                 <a
-                  href="https://torch-republic.com/products/washington-blend-coffee-pods"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/shop/instant-coffee"
                   className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.25em] uppercase transition-all hover:opacity-75"
                   style={{ color: AC, border: `1px solid ${AC}45`, padding: '14px 24px' }}
                 >
-                  Buy One-Time
+                  Shop Instant Coffee
                 </a>
               </div>
             </motion.div>

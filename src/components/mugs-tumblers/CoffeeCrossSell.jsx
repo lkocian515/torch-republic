@@ -115,9 +115,7 @@ export default function CoffeeCrossSell() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href="https://torch-republic.com/collections/founders-series"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/shop/instant-coffee"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
             style={{ color: '#C9A24A', borderBottom: '1px solid rgba(201,162,74,0.4)', paddingBottom: '4px' }}
           >

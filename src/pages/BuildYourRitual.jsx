@@ -239,11 +239,7 @@ export default function BuildYourRitual() {
                     Bundle pricing cannot be combined with additional product discounts.
                   </p>
                   <a
-                    href="https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = 'https://libertees-for-all.myshopify.com/cart/49148263596284:1,49171204276476:1,49170574115068:1';
-                    }}
+                    href="#builder"
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: '#080808' }}
                   >
@@ -320,7 +316,7 @@ export default function BuildYourRitual() {
       </section>
 
       {/* Builder Section */}
-      <section className="px-6 md:px-10 py-16">
+      <section id="builder" className="px-6 md:px-10 py-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Product Selection */}

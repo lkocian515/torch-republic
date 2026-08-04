@@ -87,7 +87,7 @@ export default function HomeReviewStrip() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="https://torch-republic.com/reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all font-black"
+          <a href="/reviews" className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all font-black"
             style={{ background: '#C9A24A', color: '#080808', padding: '14px 28px' }}>
             Read All Reviews →
           </a>

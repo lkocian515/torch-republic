@@ -144,7 +144,7 @@ export default function LuxuryTestimonials() {
 
         {/* Review page CTA */}
         <div className="text-center mt-16">
-          <a href="/Reviews" className="font-mono text-[10px] tracking-[0.35em] uppercase transition-opacity hover:opacity-60"
+          <a href="/reviews" className="font-mono text-[10px] tracking-[0.35em] uppercase transition-opacity hover:opacity-60"
             style={{ color: 'rgba(196,163,90,0.5)', borderBottom: '1px solid rgba(196,163,90,0.2)', paddingBottom: '3px' }}>
             Read All Verified Reviews
           </a>

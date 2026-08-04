@@ -76,9 +76,7 @@ export default function MugsTumblersHero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            href="https://torch-republic.com/collections/mugs-tumblers"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/shop"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
             style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
           >

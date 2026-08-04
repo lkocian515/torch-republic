@@ -72,18 +72,18 @@ export default function CoffeeHeroSection() {
             className="flex flex-col sm:flex-row gap-3"
           >
             <a
-              href="/CoffeeCollection"
+              href="/shop/instant-coffee"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
               style={{ background: '#C4A35A', color: '#000', boxShadow: '0 4px 30px rgba(196,163,90,0.3)' }}
             >
-              Shop the Founders Series
+              Shop Instant Coffee
             </a>
             <a
-              href="/TheTorchBox"
+              href="/subscription"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
               style={{ background: 'transparent', border: '1px solid #C4A35A', color: 'white' }}
             >
-              Join Torch Box →
+              Subscribe & Save →
             </a>
           </motion.div>
 

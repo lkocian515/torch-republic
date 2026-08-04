@@ -77,19 +77,19 @@ export default function CuratedApparel() {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Apparel</span>
+              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Coffee Rituals</span>
             </div>
             <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
-              Carry the Brand.
+              Carry the Ritual.
             </h2>
-            <p className="text-gray-600 font-mono text-xs mt-2">Built for those who stand firm.</p>
+            <p className="text-gray-600 font-mono text-xs mt-2">Built for intentional coffee moments.</p>
           </div>
           <a
-            href="https://torch-republic.com/collections/all"
+            href="/shop"
             className="font-mono text-xs tracking-widest uppercase self-start md:self-end pb-1"
             style={{ color: '#C8A44D', borderBottom: '1px solid rgba(200,164,77,0.3)' }}
           >
-            View All Apparel →
+            View All Products →
           </a>
         </div>
 

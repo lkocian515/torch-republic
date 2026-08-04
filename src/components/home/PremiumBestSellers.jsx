@@ -214,7 +214,7 @@ export default function PremiumBestSellers() {
         {/* View All */}
         <div className="text-center mt-12">
           <a
-            href="https://torch-republic.com/collections/all"
+            href="/shop"
             className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-all hover:gap-3"
             style={{ border: '1px solid rgba(212,175,90,0.4)', color: '#C8A44D' }}
           >

@@ -133,7 +133,7 @@ export default function SocialProof() {
 
         {/* View all */}
         <div className="text-center mt-10">
-          <a href="/Reviews" className="font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-0.5"
+          <a href="/reviews" className="font-mono text-[10px] tracking-[0.3em] uppercase transition-opacity hover:opacity-60 pb-0.5"
             style={{ color: 'rgba(201,162,74,0.5)', borderBottom: '1px solid rgba(201,162,74,0.18)' }}>
             View All Reviews →
           </a>

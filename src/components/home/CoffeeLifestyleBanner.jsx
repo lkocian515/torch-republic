@@ -56,7 +56,7 @@ export default function CoffeeLifestyleBanner() {
           </p>
 
           <a
-            href="https://torch-republic.com/collections/coffee"
+            href="/shop/instant-coffee"
             className="inline-flex items-center gap-2 px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase"
             style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff' }}
           >

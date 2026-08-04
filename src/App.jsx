@@ -230,7 +230,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearer" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Torchbearer" queryClient={queryClient}><Torchbearer /></LayoutWrapper></Suspense>} />
         <Route path="/about" element={<Navigate to="/mission" replace />} />
-        <Route path="/faq" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FAQ" queryClient={queryClient}><FAQ /></LayoutWrapper></Suspense>} />
         
         {/* ── ADMIN / INTERNAL PAGES — ALL REDIRECT TO HOMEPAGE (NO PUBLIC ACCESS) ── */}
         <Route path="/traffic-report" element={<Navigate to="/" replace />} />
@@ -249,7 +248,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/seo" element={<Navigate to="/" replace />} />
         <Route path="/SearchQueryAnalysis" element={<Navigate to="/" replace />} />
         <Route path="/search-query-analysis" element={<Navigate to="/" replace />} />
-        <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/LocalSEO" element={<Navigate to="/" replace />} />
         <Route path="/AdminShopify" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/ProductSync" element={<Navigate to="/admin/shopify" replace />} />
@@ -273,7 +271,6 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/Subscription" element={<Navigate to="/subscription" replace />} />
         <Route path="/Loyalty" element={<Navigate to="/loyalty" replace />} />
         <Route path="/Apparel" element={<GoneRedirect />} />
-        <Route path="/apparel" element={<GoneRedirect />} />
         <Route path="/Shop" element={<Navigate to="/shop" replace />} />
         <Route path="/rewards" element={<Navigate to="/torchbearers-rewards" replace />} />
         <Route path="/loyalty-program" element={<Navigate to="/torchbearers-rewards" replace />} />
