@@ -12,7 +12,7 @@ export default function OrganizationSchema() {
     "alternateName": "Torch Republic",
     "legalName": "LiberTees For All Apparel LLC DBA Torch Republic Coffee Company",
     "url": "https://torchrepublic.com",
-    "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/894664fd3_generated-image.png",
+    "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png",
     "description": "Premium instant coffee, mushroom coffee, and ceremonial matcha designed for focus, clarity, and intentional daily rituals.",
     "foundingDate": "2020",
     "founder": {
@@ -41,7 +41,7 @@ export default function OrganizationSchema() {
     "brand": {
       "@type": "Brand",
       "name": "Torch Republic",
-      "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/894664fd3_generated-image.png",
+      "logo": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png",
       "tagline": "Premium Instant Coffee & Mushroom Coffee for Your Daily Ritual"
     },
     "knowsAbout": [

@@ -6,7 +6,7 @@ import { useCart } from '@/contexts/CartContext';
 import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
 
 // Fallback placeholder image (Torch Republic logo — verified reachable)
-const FALLBACK_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
+const FALLBACK_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png';
 
 // Best-for label per product shopifyHandle
 const BEST_FOR = {

@@ -98,14 +98,14 @@ export default function ThreeCategories() {
                   {/* Category Image */}
                   <div className="mb-6 product-image-wrap" style={{ aspectRatio: '4/3', background: '#141414', borderRadius: '8px', overflow: 'hidden' }}>
                     <img
-                      src={categoryImage?.imageUrl || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png'}
+                      src={categoryImage?.imageUrl || 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png'}
                       alt={categoryImage?.alt || `${cat.label} collection`}
                       loading="lazy"
                       width="400"
                       height="300"
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
+                        e.currentTarget.src = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png';
                       }}
                     />
                   </div>

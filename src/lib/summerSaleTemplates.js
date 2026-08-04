@@ -5,7 +5,7 @@
  * Discount Code: SUMMER20 (20% off)
  */
 
-const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png';
+const LOGO_URL = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png';
 const HERO_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg';
 const TORCHBEARER_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/15_9efec3d4-7d73-4fd6-a4df-aba0f6cad920.png?v=1781102331';
 const GLOWMIND_IMG = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747';

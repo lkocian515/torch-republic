@@ -21,7 +21,7 @@ export const EMAIL_TEMPLATES = {
         <!-- Header -->
         <tr>
             <td align="center" style="padding: 40px 20px 30px;">
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
                 <p style="font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(230,183,173,0.5); margin: 0;">
                     Premium Instant Coffee · Mushroom Coffee · Matcha
                 </p>
@@ -148,7 +148,7 @@ export const EMAIL_TEMPLATES = {
         <!-- Header -->
         <tr>
             <td align="center" style="padding: 40px 20px 30px;">
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
             </td>
         </tr>
         
@@ -290,7 +290,7 @@ export const EMAIL_TEMPLATES = {
         <!-- Header -->
         <tr>
             <td align="center" style="padding: 40px 20px 30px;">
-                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
+                <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png" alt="Torch Republic Coffee Company" width="280" style="display: block; margin-bottom: 20px;">
             </td>
         </tr>
         
@@ -382,7 +382,7 @@ export const MOBILE_TEMPLATES = {
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #080808; color: #F5EFE6;">
     <div style="max-width: 100%; padding: 20px;">
-        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png" alt="Torch Republic" width="200" style="display: block; margin: 0 auto 20px;">
+        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png" alt="Torch Republic" width="200" style="display: block; margin: 0 auto 20px;">
         
         <img src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/torch-republic-hero-banner.jpg" alt="Products" width="100%" style="border-radius: 8px; margin-bottom: 30px;">
         

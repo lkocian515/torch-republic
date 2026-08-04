@@ -53,7 +53,7 @@ export default function MobileHeader() {
           {/* Left logo */}
           <Link to="/">
             <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b6dc9e8d_ChatGPTImageMay31202606_49_02AM.png"
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e55fe06b_vghvhv.png"
               alt="Torch Republic Coffee Company"
               style={{ height: '42px', width: 'auto', display: 'block' }}
             />
