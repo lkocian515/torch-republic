@@ -102,17 +102,28 @@ const ACCORDIONS = [
   },
 ];
 
+const HOME_THEME = {
+  page: '#F7F1E7',
+  cream: '#FBF8F1',
+  card: '#FFFDF8',
+  text: '#292622',
+  secondary: '#5F574F',
+  border: '#D9CDBA',
+  clay: '#B7653E',
+  moss: '#566047',
+};
+
 function Accordion({ title, content }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
+    <div style={{ borderBottom: `1px solid ${HOME_THEME.border}` }}>
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:text-white"
-        style={{ color: open ? '#F7F1E8' : 'rgba(247,241,232,0.6)', background: 'none', border: 'none' }}
+        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:opacity-80"
+        style={{ color: open ? HOME_THEME.text : HOME_THEME.secondary, background: 'none', border: 'none' }}
       >
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase">{title}</span>
-        <span className="font-mono text-lg" style={{ color: '#E6B7AD' }}>{open ? '−' : '+'}</span>
+        <span className="font-mono text-lg" style={{ color: HOME_THEME.clay }}>{open ? '−' : '+'}</span>
       </button>
       {open && (
         <motion.div
@@ -121,7 +132,7 @@ function Accordion({ title, content }) {
           exit={{ opacity: 0, height: 0 }}
           className="pb-5"
         >
-          <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300 }}>
+          <p className="font-heading text-sm leading-relaxed" style={{ color: HOME_THEME.secondary, fontWeight: 300 }}>
             {content}
           </p>
         </motion.div>
@@ -139,8 +150,8 @@ function GalleryCarousel({ images, accent, productName }) {
   return (
     <div className="mt-6">
       <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3"
-        style={{ color: 'rgba(230,183,173,0.5)' }}>Gallery</p>
-      <div className="relative" style={{ background: '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${accent}25`, overflow: 'hidden' }}>
+        style={{ color: HOME_THEME.clay }}>Gallery</p>
+      <div className="relative" style={{ background: HOME_THEME.card, aspectRatio: '1/1', border: `1px solid ${HOME_THEME.border}`, overflow: 'hidden' }}>
         <motion.img
           key={currentIndex}
           initial={{ opacity: 0, scale: 1.02 }}
@@ -160,15 +171,15 @@ function GalleryCarousel({ images, accent, productName }) {
           <>
             <button
               onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
-              style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:opacity-80"
+              style={{ width: 36, height: 36, borderRadius: '50%', background: HOME_THEME.cream, border: `1px solid ${HOME_THEME.border}` }}
             >
               <ChevronLeft className="w-4 h-4" style={{ color: accent }} />
             </button>
             <button
               onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:bg-white/10"
-              style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: `1px solid ${accent}30` }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:opacity-80"
+              style={{ width: 36, height: 36, borderRadius: '50%', background: HOME_THEME.cream, border: `1px solid ${HOME_THEME.border}` }}
             >
               <ChevronRight className="w-4 h-4" style={{ color: accent }} />
             </button>
@@ -300,18 +311,18 @@ function BlendDetailInner({ product }) {
   }, [product.slug]);
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: HOME_THEME.page, color: HOME_THEME.text, minHeight: '100vh' }}>
       {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-8 pb-2">
         <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase"
-          style={{ color: 'rgba(255,255,255,0.28)' }}>
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          style={{ color: HOME_THEME.secondary }}>
+          <Link to="/" className="transition-colors hover:opacity-80">Home</Link>
           <span>›</span>
-          <Link to="/shop" className="hover:text-white transition-colors">Shop</Link>
+          <Link to="/shop" className="transition-colors hover:opacity-80">Shop</Link>
           <span>›</span>
-          <Link to="/blends" className="hover:text-white transition-colors">The Blends</Link>
+          <Link to="/blends" className="transition-colors hover:opacity-80">The Blends</Link>
           <span>›</span>
-          <span style={{ color: '#E6B7AD' }}>{product.name}</span>
+          <span style={{ color: HOME_THEME.clay }}>{product.name}</span>
         </nav>
       </div>
 
@@ -327,9 +338,9 @@ function BlendDetailInner({ product }) {
             className="lg:sticky lg:top-24"
           >
             <div className="relative flex items-center justify-center"
-              style={{ background: isApprovedLightProduct ? '#F8F5EF' : '#0C0C0C', aspectRatio: '1/1', border: `1px solid ${product.accent}25` }}>
+              style={{ background: HOME_THEME.card, aspectRatio: '1/1', border: `1px solid ${HOME_THEME.border}` }}>
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}12 0%, transparent 70%)` }} />
+                style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}10 0%, transparent 70%)` }} />
               {product.imagePlaceholder || !product.image ? (
                 <div className="flex flex-col items-center justify-center gap-4 p-12">
                   <div className="w-24 h-24 rounded-full border-2 border-dashed"
@@ -352,7 +363,7 @@ function BlendDetailInner({ product }) {
               )}
               {/* Error placeholder */}
               <div className="product-image-error hidden flex-col items-center justify-center gap-4 p-12 absolute inset-0"
-                style={{ background: '#0C0C0C', display: (!product.image || product.imagePlaceholder) ? 'flex' : 'none' }}>
+                style={{ background: HOME_THEME.card, display: (!product.image || product.imagePlaceholder) ? 'flex' : 'none' }}>
                 <div className="w-24 h-24 rounded-full border-2 border-dashed"
                   style={{ borderColor: `${product.accent}35` }} />
                 <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
@@ -369,9 +380,9 @@ function BlendDetailInner({ product }) {
                 : [['Single-Origin PNG', 'Highland Arabica'], ["Lion's Mane + Chaga", 'Mushroom Blend'], ['27 Servings', 'Per Tube'], ['Freeze-Dried', 'No Brewer Needed']]
               ).map(([val, label]) => (
                 <div key={label} className="flex flex-col gap-1 p-3"
-                  style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.07)' }}>
-                  <p className="font-serif font-bold text-white text-xs">{val}</p>
-                  <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.32)' }}>{label}</p>
+                  style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+                  <p className="font-serif font-bold text-xs" style={{ color: HOME_THEME.text }}>{val}</p>
+                  <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: HOME_THEME.secondary }}>{label}</p>
                 </div>
               ))}
             </div>
@@ -396,19 +407,19 @@ function BlendDetailInner({ product }) {
                 {product.roast}
               </span>
                       <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2.5 py-1"
-                style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                style={{ background: HOME_THEME.card, color: HOME_THEME.secondary, border: `1px solid ${HOME_THEME.border}` }}>
                 {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Premium Instant Coffee' : 'Instant Mushroom Coffee'}
               </span>
             </div>
 
             {/* Title */}
             <h1 className="font-serif font-bold"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.05 }}>
+              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: HOME_THEME.text, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
               {product.name}
             </h1>
 
             {/* Mood */}
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: HOME_THEME.clay }}>
               {product.mood}
             </p>
 
@@ -421,7 +432,7 @@ function BlendDetailInner({ product }) {
                   </svg>
                 ))}
               </div>
-              <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.6)' }}>
+              <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: HOME_THEME.clay }}>
                 4.9 · Verified Torchbearers
               </span>
             </div>
@@ -431,7 +442,7 @@ function BlendDetailInner({ product }) {
 
             {/* Description */}
             <p className="font-heading leading-relaxed"
-              style={{ fontSize: '0.93rem', color: 'rgba(247,241,232,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
+              style={{ fontSize: '0.93rem', color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.85 }}>
               {product.description}
             </p>
 
@@ -446,8 +457,8 @@ function BlendDetailInner({ product }) {
             </div>
 
             {/* Why You'll Love This Coffee */}
-            <div className="p-5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: HOME_THEME.clay }}>
                 Why You'll Love This Coffee
               </p>
               <ul className="space-y-3.5">
@@ -469,8 +480,8 @@ function BlendDetailInner({ product }) {
                 ]).map(({ headline, body }) => (
                   <li key={headline} className="flex items-start gap-3">
                     <span style={{ color: product.accent, marginTop: '3px', flexShrink: 0, fontSize: '0.55rem' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>
-                      <strong style={{ color: '#F7F1E8', fontWeight: 600 }}>{headline}</strong> — {body}
+                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
+                      <strong style={{ color: HOME_THEME.text, fontWeight: 600 }}>{headline}</strong> — {body}
                     </span>
                   </li>
                 ))}
@@ -479,11 +490,11 @@ function BlendDetailInner({ product }) {
 
             {/* Functional promise — visible right before purchase */}
             <div className="px-4 py-3 flex items-center gap-3"
-              style={{ background: 'rgba(230,183,173,0.05)', borderLeft: '2px solid rgba(230,183,173,0.4)' }}>
+              style={{ background: HOME_THEME.card, borderLeft: `2px solid ${HOME_THEME.clay}` }}>
               <span style={{ fontSize: '1.1rem' }}>
                 {product.category === 'matcha' ? '🍵' : product.category === 'classic-coffee' ? '☕' : '⚡'}
               </span>
-              <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.8)', fontWeight: 400, lineHeight: 1.6 }}>
+              <p className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 400, lineHeight: 1.6 }}>
                 {product.category === 'matcha'
                   ? 'A smooth ceremonial matcha ritual in 30 seconds — just whisk with hot water.'
                   : product.category === 'classic-coffee'
@@ -507,13 +518,13 @@ function BlendDetailInner({ product }) {
             />
 
             {/* Price */}
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.2), transparent)' }} />
+            <div className="h-px w-full" style={{ background: `linear-gradient(90deg, ${HOME_THEME.border}, transparent)` }} />
             <div className="flex items-baseline gap-3 flex-wrap">
-              <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: '#E6B7AD' }}>
+              <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: HOME_THEME.clay }}>
                 ${isSubscription ? (product.price * 0.8).toFixed(2) : product.price.toFixed(2)}
               </span>
               {isSubscription && (
-                <span className="font-mono text-[9px] tracking-[0.2em] line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                <span className="font-mono text-[9px] tracking-[0.2em] line-through" style={{ color: HOME_THEME.secondary }}>
                   ${product.price.toFixed(2)}
                 </span>
               )}
@@ -521,11 +532,11 @@ function BlendDetailInner({ product }) {
             {/* Cost-per-serving callout */}
             <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: HOME_THEME.clay }}>
                   {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
                 </span>
                 <span style={{ color: 'rgba(230,183,173,0.2)' }}>·</span>
-                <span className="font-mono text-[9px] font-bold" style={{ color: '#E6B7AD' }}>
+                <span className="font-mono text-[9px] font-bold" style={{ color: HOME_THEME.clay }}>
                   Only ${(isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27)) < 1
                     ? ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
                     : ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
@@ -555,10 +566,10 @@ function BlendDetailInner({ product }) {
               ).map((b, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span className="text-[10px]" style={{ color: '#10B981', flexShrink: 0 }}>✓</span>
-                  <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300 }}>{b}</span>
+                  <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300 }}>{b}</span>
                 </div>
               ))}
-              <p className="font-mono text-[8px] tracking-[0.15em] mt-1" style={{ color: 'rgba(230,183,173,0.6)' }}>
+              <p className="font-mono text-[8px] tracking-[0.15em] mt-1" style={{ color: HOME_THEME.clay }}>
                 Ships fast from Texas · Love it or we'll make it right — 30-day guarantee
               </p>
             </div>
@@ -569,7 +580,7 @@ function BlendDetailInner({ product }) {
             {/* Qty + Add to Cart */}
             <div className="flex flex-col gap-3">
               {/* Subscribe & Save Toggle */}
-              <div className="mb-4 p-5" style={{ background: isSubscription ? 'rgba(230,183,173,0.08)' : 'rgba(230,183,173,0.04)', border: isSubscription ? '2px solid rgba(230,183,173,0.4)' : '1px solid rgba(230,183,173,0.12)', borderRadius: '4px', transition: 'all 0.3s ease' }}>
+              <div className="mb-4 p-5" style={{ background: HOME_THEME.card, border: isSubscription ? `2px solid ${HOME_THEME.clay}` : `1px solid ${HOME_THEME.border}`, borderRadius: '4px', transition: 'all 0.3s ease' }}>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <input
@@ -581,16 +592,16 @@ function BlendDetailInner({ product }) {
                       style={{ accentColor: '#E6B7AD' }}
                     />
                     <label htmlFor="subscribe-toggle" className="cursor-pointer">
-                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold block" style={{ color: '#E6B7AD' }}>
+                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold block" style={{ color: HOME_THEME.clay }}>
                         Subscribe &amp; Save 20%
                       </span>
-                      <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                      <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: HOME_THEME.clay }}>
                         Pause or cancel anytime in 2 clicks
                       </span>
                     </label>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono text-[9px] tracking-[0.2em] line-through block" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                    <span className="font-mono text-[9px] tracking-[0.2em] line-through block" style={{ color: HOME_THEME.secondary }}>
                       ${product.price.toFixed(2)}
                     </span>
                     <span className="font-mono text-[11px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
@@ -607,7 +618,7 @@ function BlendDetailInner({ product }) {
                     { icon: '⚡', text: 'Priority customer support' },
                     { icon: '🎁', text: 'Exclusive member perks' },
                   ].map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-2 p-2" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}>
+                    <div key={i} className="flex items-center gap-2 p-2" style={{ background: HOME_THEME.cream, borderRadius: '2px' }}>
                       <span className="text-sm">{benefit.icon}</span>
                       <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.7)' }}>{benefit.text}</span>
                     </div>
@@ -628,23 +639,23 @@ function BlendDetailInner({ product }) {
               {/* Qty selector */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-0"
-                  style={{ border: '1px solid rgba(230,183,173,0.2)' }}>
+                  style={{ border: `1px solid ${HOME_THEME.border}` }}>
                   <button
                     onClick={() => setQty(q => Math.max(1, q - 1))}
                     className="flex items-center justify-center transition-colors hover:bg-white/5"
-                    style={{ width: 40, height: 40, color: 'rgba(255,255,255,0.5)', borderRight: '1px solid rgba(230,183,173,0.15)' }}>
+                    style={{ width: 40, height: 40, color: HOME_THEME.text, borderRight: `1px solid ${HOME_THEME.border}` }}>
                     <Minus className="w-3 h-3" />
                   </button>
                   <span className="font-mono text-sm w-12 text-center"
-                    style={{ color: '#F7F1E8' }}>{qty}</span>
+                    style={{ color: HOME_THEME.text }}>{qty}</span>
                   <button
                     onClick={() => setQty(q => q + 1)}
                     className="flex items-center justify-center transition-colors hover:bg-white/5"
-                    style={{ width: 40, height: 40, color: 'rgba(255,255,255,0.5)', borderLeft: '1px solid rgba(230,183,173,0.15)' }}>
+                    style={{ width: 40, height: 40, color: HOME_THEME.text, borderLeft: `1px solid ${HOME_THEME.border}` }}>
                     <Plus className="w-3 h-3" />
                   </button>
                 </div>
-                <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                <span className="font-mono text-[9px]" style={{ color: HOME_THEME.secondary }}>
                   ${((isSubscription ? subscriptionPrice : product.price) * qty).toFixed(2)} total
                   {isSubscription && <span className="text-green-500 ml-1">(save ${(product.price * 0.2 * qty).toFixed(2)})</span>}
                 </span>
@@ -654,7 +665,7 @@ function BlendDetailInner({ product }) {
               <button
                 onClick={() => { setIsSubscription(true); handleAddToCart('product_primary_add_to_cart_subscribe'); }}
                 className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
-                style={{ background: '#E6B7AD', color: '#080808' }}>
+                style={{ background: HOME_THEME.clay, color: HOME_THEME.cream }}>
                 Subscribe &amp; Save — Add to Cart
               </button>
 
@@ -662,12 +673,12 @@ function BlendDetailInner({ product }) {
               <button
                 onClick={() => { setIsSubscription(false); handleAddToCart('product_primary_add_to_cart_onetime'); }}
                 className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-4"
-                style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)' }}>
+                style={{ border: `1px solid ${HOME_THEME.clay}`, color: HOME_THEME.clay }}>
                 One-Time Purchase — Add to Cart
               </button>
 
               {/* Reassurance line */}
-              <p className="font-mono text-[8px] tracking-[0.15em] text-center" style={{ color: 'rgba(230,183,173,0.55)', lineHeight: 1.6 }}>
+              <p className="font-mono text-[8px] tracking-[0.15em] text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.6 }}>
                 Fast shipping from Texas · Love your first bag or contact us and we'll make it right
               </p>
 
@@ -685,32 +696,32 @@ function BlendDetailInner({ product }) {
             <div className="grid grid-cols-2 gap-2">
               {(TRUST_BY_CATEGORY[product.category] || TRUST_BY_CATEGORY['mushroom-coffee']).map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2 px-3 py-2.5"
-                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.07)' }}>
-                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: 'rgba(230,183,173,0.5)' }} />
-                  <span className="font-mono text-[8px] uppercase tracking-wide" style={{ color: 'rgba(247,241,232,0.35)' }}>{label}</span>
+                  style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: HOME_THEME.clay }} />
+                  <span className="font-mono text-[8px] uppercase tracking-wide" style={{ color: HOME_THEME.secondary }}>{label}</span>
                 </div>
               ))}
             </div>
 
             {/* Torchbearers Rewards Banner */}
-            <div className="my-5 p-4" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.12)' }}>
+            <div className="my-5 p-4" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E6B7AD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: HOME_THEME.cream }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={HOME_THEME.clay} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
                   </svg>
                 </div>
                 <div>
-                  <p className="font-mono text-[9px] tracking-[0.22em] uppercase font-bold" style={{ color: '#E6B7AD' }}>
+                  <p className="font-mono text-[9px] tracking-[0.22em] uppercase font-bold" style={{ color: HOME_THEME.clay }}>
                     Torchbearers Rewards
                   </p>
-                  <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.6)' }}>
+                  <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary }}>
                     Earn points on this purchase
                   </p>
                 </div>
               </div>
-              <p className="font-mono text-[7.5px] tracking-[0.15em] text-center" style={{ color: 'rgba(245,239,230,0.55)', lineHeight: 1.6 }}>
-                Join Torchbearers Rewards and earn points for every ritual. <a href="/torchbearers-rewards" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Learn more →</a>
+              <p className="font-mono text-[7.5px] tracking-[0.15em] text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.6 }}>
+                Join Torchbearers Rewards and earn points for every ritual. <a href="/torchbearers-rewards" style={{ color: HOME_THEME.clay, textDecoration: 'none' }}>Learn more →</a>
               </p>
             </div>
 
@@ -718,11 +729,11 @@ function BlendDetailInner({ product }) {
             <RitualMembershipBlock />
 
             {/* What's Inside (and Why) */}
-            <div className="p-5" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}>
+            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
               <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: 'rgba(16,185,129,0.7)' }}>
                 What's Inside (and Why)
               </p>
-              <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
+              <p className="font-heading text-sm mb-4" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.7 }}>
                 {product.category === 'matcha'
                   ? 'Built for modern torchbearers who want a smooth, convenient addition to an intentional morning or afternoon ritual.'
                   : product.category === 'classic-coffee'
@@ -746,8 +757,8 @@ function BlendDetailInner({ product }) {
                 ]).map(({ label, detail }) => (
                   <div key={label} className="flex items-start gap-2">
                     <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px', flexShrink: 0 }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>
-                      <strong style={{ color: '#F7F1E8' }}>{label}</strong> — {detail}
+                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
+                      <strong style={{ color: HOME_THEME.text }}>{label}</strong> — {detail}
                     </span>
                   </div>
                 ))}
@@ -755,8 +766,8 @@ function BlendDetailInner({ product }) {
             </div>
 
             {/* How to Use */}
-            <div className="p-5" style={{ background: 'rgba(230,183,173,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: HOME_THEME.clay }}>
                 How to Use It
               </p>
               <ol className="space-y-3 mb-4">
@@ -766,16 +777,16 @@ function BlendDetailInner({ product }) {
                   'Sip and settle into your focus ritual.',
                 ].map((step, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="font-mono text-[10px] font-bold flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full" style={{ background: 'rgba(230,183,173,0.12)', color: '#E6B7AD', marginTop: '1px' }}>{i + 1}</span>
-                    <span className="font-heading text-sm" style={{ color: 'rgba(247,241,232,0.7)', fontWeight: 300, lineHeight: 1.6 }}>{step}</span>
+                    <span className="font-mono text-[10px] font-bold flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full" style={{ background: HOME_THEME.cream, color: HOME_THEME.clay, marginTop: '1px' }}>{i + 1}</span>
+                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>{step}</span>
                   </li>
                 ))}
               </ol>
-              <div className="pt-3 space-y-1.5" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
-                <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+              <div className="pt-3 space-y-1.5" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
+                <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
                   <strong style={{ color: 'rgba(247,241,232,0.65)' }}>For iced:</strong> Dissolve in a splash of hot water first, then pour over ice and cold water or milk.
                 </p>
-                <p className="font-heading text-xs" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300, lineHeight: 1.6 }}>
+                <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
                   <strong style={{ color: 'rgba(247,241,232,0.65)' }}>Tip:</strong> Drink consistently as part of a balanced daily routine.
                 </p>
               </div>
@@ -783,25 +794,25 @@ function BlendDetailInner({ product }) {
 
             {/* Guarantee + Shipping strip */}
             <div className="grid grid-cols-2 gap-2">
-              <div className="p-3 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: '#E6B7AD' }}>30-Day Guarantee</p>
+              <div className="p-3 text-center" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: HOME_THEME.clay }}>30-Day Guarantee</p>
                 <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>Not satisfied? Full refund, no questions asked.</p>
               </div>
-              <div className="p-3 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: '#E6B7AD' }}>Free Shipping</p>
+              <div className="p-3 text-center" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: HOME_THEME.clay }}>Free Shipping</p>
                 <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>On orders over $50. Ships in 1–2 business days.</p>
               </div>
             </div>
 
             {/* Accordions */}
-            <div className="mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
+            <div className="mt-2" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
               {ACCORDIONS.map(a => <Accordion key={a.title} {...a} />)}
             </div>
 
             {/* Subscription micro-copy */}
-            <p className="font-heading text-xs text-center" style={{ color: 'rgba(247,241,232,0.35)', lineHeight: 1.7 }}>
+            <p className="font-heading text-xs text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.7 }}>
               Want the best deal?{' '}
-              <Link to="/subscription" style={{ color: '#E6B7AD', textDecoration: 'none' }}>
+              <Link to="/subscription" style={{ color: HOME_THEME.clay, textDecoration: 'none' }}>
                 Learn how our subscription saves you 20% →
               </Link>
             </p>
@@ -819,7 +830,7 @@ function BlendDetailInner({ product }) {
 
             {/* FDA */}
             <p className="font-mono text-[8px] tracking-[0.1em] leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.18)' }}>
+              style={{ color: HOME_THEME.secondary }}>
               Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
 
@@ -882,14 +893,14 @@ function BlendDetailInner({ product }) {
       </section>
 
       {/* Related products */}
-      <section className="px-6 md:px-10 py-20" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <section className="px-6 md:px-10 py-20" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
         <div className="max-w-[1100px] mx-auto">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-2"
-            style={{ color: 'rgba(230,183,173,0.4)' }}>
+            style={{ color: HOME_THEME.clay }}>
             Complete Your Ritual
           </p>
-          <h2 className="font-serif text-white text-center font-bold mb-10"
-            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>
+          <h2 className="font-serif text-center font-bold mb-10"
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: HOME_THEME.text }}>
             You Might Also Like
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -907,13 +918,13 @@ function BlendDetailInner({ product }) {
 
       {/* Desktop sticky CTA */}
       <div className="hidden lg:block fixed right-6 bottom-8 z-40">
-        <div style={{ background: '#0D0C0B', border: '1px solid rgba(230,183,173,0.2)', padding: '16px 20px', minWidth: '200px', boxShadow: '0 8px 40px rgba(0,0,0,0.7)' }}>
-          <p className="font-serif font-bold text-white text-sm mb-1 truncate">{product.name}</p>
-          <p className="font-mono text-xs mb-3" style={{ color: '#E6B7AD' }}>${(product.price * qty).toFixed(2)}</p>
+        <div style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}`, padding: '16px 20px', minWidth: '200px', boxShadow: '0 8px 40px rgba(53,38,29,0.18)' }}>
+          <p className="font-serif font-bold text-sm mb-1 truncate" style={{ color: HOME_THEME.text }}>{product.name}</p>
+          <p className="font-mono text-xs mb-3" style={{ color: HOME_THEME.clay }}>${(product.price * qty).toFixed(2)}</p>
           <button
             onClick={() => handleAddToCart('product_sticky_desktop_cart')}
             className="w-full font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
-            style={{ background: '#E6B7AD', color: '#080808' }}>
+            style={{ background: HOME_THEME.clay, color: HOME_THEME.cream }}>
             Add to Cart
           </button>
         </div>
@@ -921,27 +932,27 @@ function BlendDetailInner({ product }) {
 
       {/* Mobile sticky bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
-        style={{ background: '#0C0B0A', borderTop: '1px solid rgba(230,183,173,0.15)', padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
+        style={{ background: HOME_THEME.card, borderTop: `1px solid ${HOME_THEME.border}`, padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
         <div className="flex items-center gap-3">
           <div className="flex-1 min-w-0">
-            <p className="font-serif font-bold text-white text-sm truncate">{product.name}</p>
-            <p className="font-mono text-[9px]" style={{ color: '#E6B7AD' }}>${(product.price * qty).toFixed(2)}</p>
+            <p className="font-serif font-bold text-sm truncate" style={{ color: HOME_THEME.text }}>{product.name}</p>
+            <p className="font-mono text-[9px]" style={{ color: HOME_THEME.clay }}>${(product.price * qty).toFixed(2)}</p>
           </div>
           <div className="flex items-center gap-0" style={{ border: '1px solid rgba(230,183,173,0.2)', flexShrink: 0 }}>
             <button onClick={() => setQty(q => Math.max(1, q - 1))}
-              className="flex items-center justify-center" style={{ width: 32, height: 32, color: 'rgba(255,255,255,0.5)' }}>
+              className="flex items-center justify-center" style={{ width: 32, height: 32, color: HOME_THEME.text }}>
               <Minus className="w-3 h-3" />
             </button>
-            <span className="font-mono text-sm w-8 text-center" style={{ color: '#F7F1E8' }}>{qty}</span>
+            <span className="font-mono text-sm w-8 text-center" style={{ color: HOME_THEME.text }}>{qty}</span>
             <button onClick={() => setQty(q => q + 1)}
-              className="flex items-center justify-center" style={{ width: 32, height: 32, color: 'rgba(255,255,255,0.5)' }}>
+              className="flex items-center justify-center" style={{ width: 32, height: 32, color: HOME_THEME.text }}>
               <Plus className="w-3 h-3" />
             </button>
           </div>
           <button
             onClick={() => handleAddToCart('product_sticky_mobile_cart')}
             className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 px-5 py-3"
-            style={{ background: '#E6B7AD', color: '#080808', flexShrink: 0 }}>
+            style={{ background: HOME_THEME.clay, color: HOME_THEME.cream, flexShrink: 0 }}>
             Add to Cart
           </button>
         </div>
@@ -1012,10 +1023,10 @@ export default function BlendDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: HOME_THEME.page }}>
         <div className="text-center">
           <div className="w-10 h-10 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>Loading...</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: HOME_THEME.clay }}>Loading...</p>
         </div>
       </div>
     );
