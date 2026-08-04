@@ -92,8 +92,8 @@ const OLD_URL_REDIRECTS = {
   '/products/founders': '/shop/instant-coffee',
 
   // ── Legacy Shopify pages ──
-  '/pages/about-us': '/mission',
-  '/pages/about': '/mission',
+  '/pages/about-us': '/our-story',
+  '/pages/about': '/our-story',
   '/pages/contact': '/contact',
   '/pages/contact-us': '/contact',
   '/pages/faq': '/faq',
@@ -127,9 +127,8 @@ const OLD_URL_REDIRECTS = {
   '/account/orders': '/profile',
   '/rewards': '/torchbearers-rewards',
   '/loyalty-program': '/torchbearers-rewards',
-  '/about-us': '/mission',
-  '/our-story': '/mission',
-  '/our-mission': '/mission',
+  '/about-us': '/our-story',
+  '/our-mission': '/our-story',
 };
 
 export default function PageNotFound() {

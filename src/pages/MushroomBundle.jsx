@@ -108,7 +108,7 @@ export default function MushroomBundle() {
   useSEO({
     title: 'Build Your Ritual Bundle | Choose Any 3 Coffee or Matcha Products',
     description: 'Create your own Torch Republic bundle with instant coffee, mushroom coffee, or ceremonial matcha. Choose any 3 and build your daily ritual.',
-    url: '/bundle',
+    url: '/build-your-ritual',
   });
   return (
     <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>

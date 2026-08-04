@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'Classic Coffee', href: '/classic-coffee' },
   { label: 'Mushroom Coffee', href: '/mushroom-coffee' },
   { label: 'Matcha', href: '/matcha' },
-  { label: 'Bundles', href: '/bundle' },
+  { label: 'Bundles', href: '/build-your-ritual' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Find Your Blend', href: '/quiz' },
   { label: 'Journal', href: '/journal' },

@@ -363,7 +363,7 @@ export default function CoffeeRecipes() {
               style={{ background: RG, color: '#080808' }}>
               Shop Now →
             </Link>
-            <Link to="/bundle"
+            <Link to="/build-your-ritual"
               className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-3.5 px-8"
               style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)' }}>
               Get the Bundle →

@@ -141,7 +141,7 @@ export default function BlendsCollection() {
         <h2 className="font-serif font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)' }}>
           Shop the Complete Collection
         </h2>
-        <Link to="/bundle"
+        <Link to="/build-your-ritual"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
           style={{ background: '#E6B7AD', color: '#080808', padding: '14px 32px' }}>
           Shop All Blends →

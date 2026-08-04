@@ -99,7 +99,7 @@ const KIT_DEFS = [
       { handle: 'mooncap-restore-instant-mushroom-coffee', label: 'DreamCap Blend — Mushroom Coffee' },
     ],
     decorationNote: 'Gift box, mug, and card shown in the photo are not included.',
-    detailPath: '/bundle',
+    detailPath: '/build-your-ritual',
     featured: true,
     featuredLabel: 'FEATURED GIFT',
   },

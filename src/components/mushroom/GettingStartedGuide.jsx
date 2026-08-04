@@ -163,7 +163,7 @@ export default function GettingStartedGuide() {
               Shop All Blends →
             </Link>
             <Link
-              to="/bundle"
+              to="/build-your-ritual"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
               style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)', padding: '14px 36px', borderRadius: '4px' }}
             >

@@ -8,11 +8,11 @@ import EditorialHomepage from '../components/home/editorial/EditorialHomepage';
 export default function Home() {
   useSEO({
     title: 'Torch Republic | Botanical Coffee, Mushroom Coffee & Matcha',
-    description: 'Small-batch light roast coffee, ceremonial matcha, and functional mushroom blends thoughtfully crafted for clarity, balanced energy, calm, and everyday wellness.',
+    description: 'Explore thoughtfully crafted instant coffee, functional mushroom blends, and ceremonial matcha made for brighter, more intentional daily rituals.',
     url: '/',
     type: 'website',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png',
-    imageAlt: 'Torch Republic seven-product coffee, mushroom coffee, and matcha collection.',
+    imageAlt: 'Torch Republic coffee, mushroom coffee, and matcha collection.',
     noindex: false,
   });
 

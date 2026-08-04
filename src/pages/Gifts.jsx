@@ -334,7 +334,7 @@ export default function Gifts() {
         </div>
       </section>
 
-      {/* Footer CTA — recommends the featured Complete Ritual Kit, links to /bundle */}
+      {/* Footer CTA — recommends the featured Complete Ritual Kit, links to the canonical ritual builder */}
       <section className="px-6 md:px-10 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -352,7 +352,7 @@ export default function Gifts() {
             The Complete Ritual Kit is our featured recommendation — a curated introduction to multiple Torch Republic rituals for morning, daytime, and evening.
           </p>
           <Link
-            to="/bundle"
+            to="/build-your-ritual"
             className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold rounded-sm"
             style={{ background: RG, color: '#050505', padding: '14px 28px', minHeight: '44px' }}
           >

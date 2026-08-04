@@ -364,7 +364,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/ingredients/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="IngredientPage" queryClient={queryClient}><IngredientPage /></LayoutWrapper></Suspense>} />
 
         {/* ── COMPARISON CENTER ── */}
-        <Route path="/compare" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonCenter" queryClient={queryClient}><ComparisonCenter /></LayoutWrapper></Suspense>} />
+        <Route path="/compare" element={<Navigate to="/shop" replace />} />
         {/* Dedicated rich competitor pages */}
         <Route path="/compare/ryze-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RyzeVsTorchRepublic" queryClient={queryClient}><RyzeVsTorchRepublic /></LayoutWrapper></Suspense>} />
         <Route path="/compare/four-sigmatic-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FourSigmaticVsTorchRepublic" queryClient={queryClient}><FourSigmaticVsTorchRepublic /></LayoutWrapper></Suspense>} />

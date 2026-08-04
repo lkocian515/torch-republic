@@ -8,7 +8,7 @@ const stripParams = (search = '') => {
 };
 
 const SEO_BY_PATH = {
-  '/': ['Torch Republic | Coffee, Mushroom Coffee & Matcha', 'Shop premium instant coffee, mushroom coffee, and ceremonial matcha blends made for focused mornings and intentional daily rituals.'],
+  '/': ['Torch Republic | Coffee, Mushroom Coffee & Matcha', 'Explore thoughtfully crafted instant coffee, functional mushroom blends, and ceremonial matcha made for brighter, more intentional daily rituals.'],
   '/shop': ['Shop Instant Coffee, Mushroom Coffee & Matcha | Torch Republic', 'Explore light-roast instant coffee, functional mushroom blends, and ceremonial matcha created for simple, intentional daily rituals.'],
   '/shop/instant-mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Shop instant mushroom coffee with Lion’s Mane, Chaga, Cordyceps, and Reishi for focus, energy, and restorative daily rituals.'],
   '/shop/instant-coffee': ['Premium Instant Coffee Collection', 'Shop 100% Arabica freeze-dried instant coffee for smooth, bold coffee rituals without pods, machines, or bitter shortcuts.'],
@@ -17,7 +17,6 @@ const SEO_BY_PATH = {
   '/mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Explore Torch Republic mushroom coffee blends for focus, energy, calm, and daily wellness rituals with premium Arabica coffee.'],
   '/matcha': ['Ceremonial Matcha Collection', 'Explore Torch Republic ceremonial matcha for smooth lattes and intentional morning or afternoon rituals.'],
   '/blends': ['All Torch Republic Blends', 'Compare every Torch Republic coffee, mushroom coffee, and matcha blend to find the ritual that fits your morning or afternoon.'],
-  '/bundle': ['Build Your Ritual | Coffee, Mushroom Coffee & Matcha Bundle', 'Choose your favorite coffee, mushroom blends, and matcha to create a ritual that fits your routine.'],
   '/build-your-ritual': ['Build Your Ritual | Coffee, Mushroom Coffee & Matcha Bundle', 'Choose your favorite coffee, mushroom blends, and matcha to create a ritual that fits your routine.'],
   '/how-it-works': ['How Torch Republic Works', 'Learn how Torch Republic instant coffee, mushroom coffee, and matcha prepare quickly while supporting practical daily routines.'],
   '/reviews': ['Torch Republic Customer Reviews | Coffee, Mushroom Coffee & Matcha', 'Read customer experiences with Torch Republic instant coffee, mushroom blends, matcha, and everyday beverage rituals.'],
@@ -52,7 +51,7 @@ const SEO_BY_PATH = {
   '/coffee-rituals': ['Coffee Rituals Guide', 'Build better coffee rituals with simple preparation, better ingredients, mindful timing, and routines that support focused days.'],
   '/matcha-vs-coffee': ['Matcha vs Coffee', 'Compare matcha and coffee by caffeine, L-theanine, taste, energy curve, focus quality, and daily ritual fit.'],
   '/papua-new-guinea-coffee': ['Papua New Guinea Coffee', 'Learn about Papua New Guinea coffee origins, flavor notes, growing regions, and what makes PNG coffee distinctive.'],
-  '/compare': ['Coffee & Matcha Comparison Center', 'Compare Torch Republic with other mushroom coffee, instant coffee, matcha, pod, and wellness drink options side by side.'],
+  '/compare': ['Coffee & Matcha Comparisons', 'Compare Torch Republic with other mushroom coffee, instant coffee, matcha, pod, and wellness drink options side by side.'],
   '/compare/ryze-vs-torch-republic': ['Ryze vs Torch Republic', 'Compare Ryze and Torch Republic mushroom coffee by ingredients, price per serving, blend variety, taste, and ritual fit.'],
   '/compare/four-sigmatic-vs-torch-republic': ['Four Sigmatic vs Torch Republic', 'Compare Four Sigmatic and Torch Republic mushroom coffee by ingredients, serving cost, format, taste, and daily use.'],
   '/compare/mudwtr-vs-torch-republic': ['MUD\\WTR vs Torch Republic', 'Compare MUD\\WTR and Torch Republic by caffeine, flavor, ingredients, coffee content, preparation, and daily ritual fit.'],
@@ -67,7 +66,7 @@ const SEO_BY_PATH = {
 };
 
 const CANONICAL_OVERRIDES = {
-  '/bundle': '/build-your-ritual',
+  '/mission': '/our-story',
   '/classic-coffee': '/shop/instant-coffee',
   '/mushroom-coffee': '/shop/instant-mushroom-coffee',
   '/matcha': '/shop/matcha',
@@ -81,7 +80,7 @@ const NOINDEX_EXACT_PATHS = new Set([
   '/dashboard', '/seo', '/localseo', '/local', '/customerportal', '/portal', '/loyaltyportal',
   '/torchcommandhome', '/cognitivequiz', '/flowtimer', '/protocolsdirectory', '/protocoldetail', '/admincommand', '/adminblogeditor',
   '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service',
-  '/bundle', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
+  '/mission', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
   '/research', '/compare', '/about/torch-republic-team', '/shop/morning-ritual', '/shop/focus-coffee', '/shop/travel-coffee',
   '/coffee-pod-alternatives', '/coffee-without-a-machine', '/camping-coffee', '/healthy-coffee-alternatives', '/coffee-rituals', '/matcha-vs-coffee', '/papua-new-guinea-coffee',
   '/mushroom-coffee-benefits', '/lions-mane-coffee', '/instant-coffee-for-energy', '/why-mushroom-coffee',

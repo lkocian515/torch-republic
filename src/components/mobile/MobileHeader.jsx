@@ -10,7 +10,7 @@ const RG_DEEP = '#C98F86';
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
   { label: 'Blends', href: '/blends' },
-  { label: 'Bundle', href: '/bundle' },
+  { label: 'Bundle', href: '/build-your-ritual' },
   { label: 'Journal', href: '/journal' },
   { label: 'Recipes', href: '/recipes' },
   { label: 'About', href: '/about' },
@@ -172,7 +172,7 @@ export default function MobileHeader() {
 
             {/* Bottom */}
             <div className="px-5 py-5 flex-shrink-0" style={{ borderTop: `1px solid ${RG_DEEP}1F` }}>
-              <Link to="/bundle" onClick={() => setOpen(false)}
+              <Link to="/build-your-ritual" onClick={() => setOpen(false)}
                 className="flex items-center justify-center w-full py-4 font-mono uppercase tracking-[0.3em] transition-all hover:opacity-90"
                 style={{
                   fontSize: '10px',

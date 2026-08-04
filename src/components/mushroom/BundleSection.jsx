@@ -89,7 +89,7 @@ export default function BundleSection() {
                 Add All 6 to Cart →
               </a>
               <Link
-                to="/bundle"
+                to="/build-your-ritual"
                 className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-75 w-fit"
                 style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.8)', padding: '14px 28px' }}
               >

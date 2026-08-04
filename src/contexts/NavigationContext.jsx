@@ -11,7 +11,7 @@ const TABS = [
 ];
 
 function getTabKey(pathname) {
-  if (pathname.startsWith('/products/') || pathname.startsWith('/blends/') || pathname === '/bundle') return '/shop';
+  if (pathname.startsWith('/products/') || pathname.startsWith('/blends/')) return '/shop';
   if (pathname === '/account' || pathname.startsWith('/account/') || pathname === '/loyalty') return '/profile';
   for (const tab of TABS) {
     if (pathname === tab.root || pathname.startsWith(tab.root + '/')) {
