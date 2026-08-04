@@ -226,10 +226,11 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderConfirmation" queryClient={queryClient}><OrderConfirmation /></LayoutWrapper></Suspense>} />
         <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
-        <Route path="/mission" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
+        <Route path="/our-story" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
+        <Route path="/mission" element={<Navigate to="/our-story" replace />} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearer" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Torchbearer" queryClient={queryClient}><Torchbearer /></LayoutWrapper></Suspense>} />
-        <Route path="/about" element={<Navigate to="/mission" replace />} />
+        <Route path="/about" element={<Navigate to="/our-story" replace />} />
         
         {/* ── ADMIN / INTERNAL PAGES — ALL REDIRECT TO HOMEPAGE (NO PUBLIC ACCESS) ── */}
         <Route path="/traffic-report" element={<Navigate to="/" replace />} />
@@ -278,14 +279,13 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/account/login" element={<Navigate to="/login" replace />} />
         <Route path="/account/register" element={<Navigate to="/register" replace />} />
         <Route path="/account/orders" element={<Navigate to="/profile" replace />} />
-        <Route path="/our-story" element={<Navigate to="/mission" replace />} />
-        <Route path="/our-mission" element={<Navigate to="/mission" replace />} />
-        <Route path="/about-us" element={<Navigate to="/mission" replace />} />
+        <Route path="/our-mission" element={<Navigate to="/our-story" replace />} />
+        <Route path="/about-us" element={<Navigate to="/our-story" replace />} />
         <Route path="/blogs/news" element={<Navigate to="/journal" replace />} />
         <Route path="/blogs/news/:slug" element={<Navigate to="/journal" replace />} />
         <Route path="/blog" element={<Navigate to="/journal" replace />} />
-        <Route path="/pages/about-us" element={<Navigate to="/mission" replace />} />
-        <Route path="/pages/about" element={<Navigate to="/mission" replace />} />
+        <Route path="/pages/about-us" element={<Navigate to="/our-story" replace />} />
+        <Route path="/pages/about" element={<Navigate to="/our-story" replace />} />
         <Route path="/pages/contact" element={<Navigate to="/contact" replace />} />
         <Route path="/pages/faq" element={<Navigate to="/faq" replace />} />
         <Route path="/pages/shipping" element={<Navigate to="/shipping-policy" replace />} />
@@ -296,7 +296,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
-        <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
+        <Route path="/customer-spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
+        <Route path="/spotlight" element={<Navigate to="/customer-spotlight" replace />} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />

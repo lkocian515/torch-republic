@@ -1,16 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const colors = {
-  card: 'hsl(var(--card))',
-  text: 'hsl(var(--foreground))',
-  secondary: 'hsl(var(--muted-foreground))',
-  border: 'hsl(var(--border))',
-};
+const colors = { card: 'hsl(var(--card))', text: 'hsl(var(--foreground))', secondary: 'hsl(var(--muted-foreground))', border: 'hsl(var(--border))' };
 const groups = [
   ['Shop', [['All Products', '/shop'], ['Classic Coffee', '/shop/instant-coffee'], ['Mushroom Coffee', '/shop/instant-mushroom-coffee'], ['Matcha', '/shop/matcha'], ['Build Your Ritual', '/build-your-ritual'], ['Subscriptions', '/subscription']]],
-  ['About', [['Our Story', '/mission'], ['Ingredients', '/ingredients'], ['Journal', '/journal']]],
-  ['Help', [['FAQ', '/faq'], ['Shipping and Returns', '/shipping-policy'], ['Contact', '/contact'], ['Account', '/profile'], ['Subscription Management', '/subscription']]],
+  ['About', [['Our Story', '/our-story'], ['Customer Spotlight', '/customer-spotlight'], ['Ingredients', '/ingredients'], ['Journal', '/journal']]],
+  ['Help', [['Reviews', '/reviews'], ['Share Your Ritual', '/customer-spotlight#submit-story'], ['FAQ', '/faq'], ['Contact', '/contact'], ['Account', '/profile']]],
   ['Legal', [['Privacy Policy', '/privacy-policy'], ['Terms of Service', '/terms-of-service'], ['Refund Policy', '/return-policy'], ['Shipping Policy', '/shipping-policy']]],
 ];
 const socials = [['Instagram', 'https://instagram.com/torchrepublic'], ['TikTok', 'https://tiktok.com/@torchrepublic'], ['Facebook', 'https://facebook.com/torchrepublic'], ['Pinterest', 'https://pinterest.com/torchrepublic']];

@@ -1,0 +1,89 @@
+{
+  "name": "CustomerStorySubmission",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Submitter full name for internal review"
+    },
+    "email": {
+      "type": "string",
+      "description": "Submitter email for follow-up"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Public display name approved by the customer"
+    },
+    "favorite_product": {
+      "type": "string",
+      "description": "Favorite Torch Republic product"
+    },
+    "preparation": {
+      "type": "string",
+      "description": "How the customer prepares the product"
+    },
+    "story": {
+      "type": "string",
+      "description": "Customer ritual story submitted for review"
+    },
+    "quote": {
+      "type": "string",
+      "description": "Optional approved quote excerpt"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Optional submitted photo URL"
+    },
+    "permission_to_publish": {
+      "type": "boolean",
+      "default": false,
+      "description": "Customer consent for publication after review"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Editorial approval status"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "display_name",
+    "favorite_product",
+    "story",
+    "permission_to_publish",
+    "status"
+  ],
+  "rls": {
+    "create": {
+      "data.status": "pending"
+    },
+    "read": {
+      "$or": [
+        {
+          "data.status": "approved"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

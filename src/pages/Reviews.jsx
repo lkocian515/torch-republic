@@ -1,222 +1,100 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronDown } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
-import { useQuery } from '@tanstack/react-query';
-import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const theme = {
+  page: '#FBF8F1',
+  section: '#F7F1E7',
+  sage: '#EEF2E8',
+  card: '#FFFFFF',
+  text: '#293626',
+  body: '#5F5145',
+  border: '#E4D8C9',
+  accent: '#B86543',
+  gold: '#B48A4A',
+};
 
-const ALL_PRODUCTS = [
-  ...MUSHROOM_PRODUCTS,
-  ...MATCHA_PRODUCTS,
-  ...CLASSIC_COFFEE_PRODUCTS,
-];
+const categoryLabels = {
+  'classic-coffee': 'Classic Coffee',
+  'mushroom-coffee': 'Mushroom Coffee',
+  matcha: 'Matcha',
+};
 
 function StarRating({ rating, size = 'sm' }) {
-  const sz = size === 'sm' ? 'w-3.5 h-3.5' : 'w-5 h-5';
-  return (
-    <div className="flex items-center gap-0.5">
-      {[1,2,3,4,5].map(i => (
-        <Star key={i} className={`${sz} fill-current`} style={{ color: i <= rating ? GOLD : 'rgba(255,255,255,0.12)' }} />
-      ))}
-    </div>
-  );
+  const stars = Math.max(0, Math.min(5, Number(rating) || 0));
+  const sz = size === 'lg' ? 'w-5 h-5' : 'w-4 h-4';
+  return <div className="flex items-center gap-1" aria-label={`${stars} out of 5 stars`}>{[1, 2, 3, 4, 5].map((i) => <Star key={i} className={`${sz} ${i <= stars ? 'fill-current' : ''}`} style={{ color: i <= stars ? theme.gold : '#D8C9B6' }} aria-hidden="true" />)}</div>;
 }
 
 function ReviewCard({ review }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      className="flex flex-col p-6"
-      style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}
-    >
-      <StarRating rating={review.rating} />
-      <blockquote className="font-heading mt-4 mb-5 flex-1"
-        style={{ fontSize: '0.93rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.75, fontWeight: 300 }}>
-        "{review.body}"
-      </blockquote>
-      <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
-        <div>
-          <p className="font-mono text-[8px] tracking-[0.25em] uppercase font-bold" style={{ color: RG }}>
-            {review.reviewer_name}
-          </p>
-          {review.location && (
-            <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.3)' }}>
-              {review.location}
-            </p>
-          )}
-        </div>
-        {review.review_date && (
-          <p className="font-mono text-[7px] tracking-[0.18em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
-            {new Date(review.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-          </p>
-        )}
-      </div>
-    </motion.div>
-  );
+  const product = ALL_PRODUCTS.find((p) => p.shopifyHandle === review.product_handle || p.slug === review.product_id);
+  return <article className="rounded-[1.5rem] border p-6 shadow-sm" style={{ background: theme.card, borderColor: theme.border }}>
+    <div className="mb-4 flex items-center justify-between gap-4"><StarRating rating={review.rating} /><time className="font-heading text-sm" style={{ color: theme.body }}>{review.review_date ? new Date(review.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : ''}</time></div>
+    {product && <p className="mb-3 font-heading text-sm font-semibold" style={{ color: theme.accent }}>{product.name}</p>}
+    <blockquote className="font-heading text-base leading-8" style={{ color: theme.body }}>“{review.body}”</blockquote>
+    <div className="mt-6 border-t pt-4" style={{ borderColor: theme.border }}><p className="font-heading font-semibold" style={{ color: theme.text }}>{review.reviewer_name}</p>{review.location && <p className="font-heading text-sm" style={{ color: theme.body }}>{review.location}</p>}</div>
+  </article>;
 }
 
 export default function Reviews() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const queryClient = useQueryClient();
+  const [category, setCategory] = useState('all');
+  const [productHandle, setProductHandle] = useState('all');
+  const [sort, setSort] = useState('recent');
   const [showAll, setShowAll] = useState(false);
+  const [form, setForm] = useState({ reviewer_name: '', location: '', product_handle: '', rating: 5, body: '' });
+  const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
-  useSEO({
-    title: 'Torch Republic Reviews | Customer Rituals & Blend Feedback',
-    description: 'Read real customer reviews of Torch Republic instant coffee, mushroom coffee blends, and ceremonial matcha. See what customers say about taste, convenience, energy, focus, and daily ritual.',
-    url: '/reviews',
-    type: 'website',
-  });
+  useSEO({ title: 'Torch Republic Customer Reviews | Coffee, Mushroom Coffee & Matcha', description: 'Read customer experiences with Torch Republic instant coffee, mushroom blends, matcha, and everyday beverage rituals.', url: '/reviews', type: 'website' });
 
-  const { data: allReviews = [] } = useQuery({
-    queryKey: ['reviews'],
-    queryFn: () => base44.entities.Review.list('-review_date', 200),
-  });
+  const { data: allReviews = [] } = useQuery({ queryKey: ['reviews'], queryFn: () => base44.entities.Review.list('-review_date', 200) });
+  const productMap = useMemo(() => new Map(ALL_PRODUCTS.map((p) => [p.shopifyHandle, p])), []);
+  const reviewedProducts = useMemo(() => ALL_PRODUCTS.filter((p) => allReviews.some((r) => r.product_handle === p.shopifyHandle)), [allReviews]);
+  const categories = useMemo(() => Object.keys(categoryLabels).filter((key) => reviewedProducts.some((p) => p.category === key)), [reviewedProducts]);
 
-  const avgRating = '4.8';
+  const filtered = useMemo(() => {
+    let items = [...allReviews];
+    if (category !== 'all') items = items.filter((r) => productMap.get(r.product_handle)?.category === category);
+    if (productHandle !== 'all') items = items.filter((r) => r.product_handle === productHandle);
+    return items.sort((a, b) => sort === 'highest' ? (Number(b.rating) || 0) - (Number(a.rating) || 0) : new Date(b.review_date || b.created_date || 0) - new Date(a.review_date || a.created_date || 0));
+  }, [allReviews, category, productHandle, productMap, sort]);
 
-  const fiveStarCount = allReviews.filter(r => r.rating === 5).length;
+  const avgRating = allReviews.length ? (allReviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0) / allReviews.length).toFixed(1) : null;
+  const distribution = [5, 4, 3, 2, 1].map((rating) => ({ rating, count: allReviews.filter((r) => Number(r.rating) === rating).length }));
+  const visibleReviews = showAll ? filtered : filtered.slice(0, 9);
 
-  const filters = [
-    { key: 'all', label: 'All Reviews' },
-    ...ALL_PRODUCTS.map(p => ({ key: p.shopifyHandle, label: p.name })),
-  ];
+  const submitReview = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setMessage('');
+    try {
+      await base44.entities.Review.create({ ...form, rating: Number(form.rating), review_date: new Date().toISOString(), product_id: ALL_PRODUCTS.find((p) => p.shopifyHandle === form.product_handle)?.slug });
+      setForm({ reviewer_name: '', location: '', product_handle: '', rating: 5, body: '' });
+      setMessage('Thank you — your review has been submitted.');
+      queryClient.invalidateQueries({ queryKey: ['reviews'] });
+    } catch (error) { setMessage('We could not submit your review right now. Please try again.'); }
+    setSubmitting(false);
+  };
 
-  const filtered = activeFilter === 'all'
-    ? allReviews
-    : allReviews.filter(r => r.product_handle === activeFilter);
+  return <main className="min-h-screen" style={{ background: theme.page, color: theme.text }}>
+    <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-24" style={{ background: theme.section }}>
+      <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-40" style={{ background: theme.sage }} aria-hidden="true" />
+      <div className="mx-auto max-w-3xl text-center"><p className="mb-4 font-heading text-sm uppercase tracking-[0.35em]" style={{ color: theme.accent }}>Customer Reviews</p><h1 className="font-serif text-5xl font-bold leading-tight md:text-6xl" style={{ color: theme.text }}>Real Rituals. Real Experiences.</h1><p className="mx-auto mt-6 max-w-2xl font-heading text-lg leading-8" style={{ color: theme.body }}>Read what customers are sharing about Torch Republic coffee, mushroom blends, matcha, and their everyday routines.</p></div>
+    </section>
 
-  const INITIAL_SHOW = 12;
-  const visibleReviews = showAll ? filtered : filtered.slice(0, INITIAL_SHOW);
+    {allReviews.length > 0 && <section className="px-5 py-12 md:px-10"><div className="mx-auto grid max-w-6xl gap-6 rounded-[2rem] border p-6 md:grid-cols-[260px_1fr] md:p-8" style={{ background: theme.card, borderColor: theme.border }}><div><p className="font-serif text-5xl font-bold" style={{ color: theme.text }}>{avgRating}</p><StarRating rating={Math.round(Number(avgRating))} size="lg" /><p className="mt-3 font-heading" style={{ color: theme.body }}>Based on {allReviews.length} customer {allReviews.length === 1 ? 'review' : 'reviews'}.</p></div><div className="space-y-3">{distribution.map((row) => <div key={row.rating} className="grid grid-cols-[64px_1fr_40px] items-center gap-3"><span className="font-heading text-sm" style={{ color: theme.body }}>{row.rating} star</span><div className="h-2 rounded-full" style={{ background: '#F0E7DB' }}><div className="h-2 rounded-full" style={{ width: `${allReviews.length ? (row.count / allReviews.length) * 100 : 0}%`, background: theme.gold }} /></div><span className="font-heading text-sm" style={{ color: theme.body }}>{row.count}</span></div>)}</div></div></section>}
 
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#000' }}>
+    <section className="px-5 pb-6 md:px-10"><div className="mx-auto flex max-w-6xl flex-col gap-3 rounded-[1.25rem] border p-4 md:flex-row md:items-center" style={{ background: theme.card, borderColor: theme.border }}><button onClick={() => { setCategory('all'); setProductHandle('all'); }} className="rounded-full px-5 py-3 font-heading text-sm font-semibold" style={{ background: category === 'all' && productHandle === 'all' ? theme.text : '#F3ECE2', color: category === 'all' && productHandle === 'all' ? '#FBF8F1' : theme.text }}>All Reviews</button>{categories.map((key) => <button key={key} onClick={() => { setCategory(key); setProductHandle('all'); }} className="rounded-full px-5 py-3 font-heading text-sm font-semibold" style={{ background: category === key ? theme.text : '#F3ECE2', color: category === key ? '#FBF8F1' : theme.text }}>{categoryLabels[key]}</button>)}<select aria-label="Filter by product" value={productHandle} onChange={(e) => setProductHandle(e.target.value)} className="min-h-[44px] rounded-full border bg-white px-4 font-heading text-sm" style={{ borderColor: theme.border, color: theme.text }}><option value="all">Product name</option>{reviewedProducts.map((p) => <option key={p.shopifyHandle} value={p.shopifyHandle}>{p.name}</option>)}</select><select aria-label="Sort reviews" value={sort} onChange={(e) => setSort(e.target.value)} className="min-h-[44px] rounded-full border bg-white px-4 font-heading text-sm" style={{ borderColor: theme.border, color: theme.text }}><option value="recent">Most Recent</option><option value="highest">Highest Rated</option></select></div></section>
 
-      {/* Hero */}
-      <section className="py-20 px-6 md:px-12 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Customer Reviews
-          </p>
-          <h1 className="font-serif text-white mb-5"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.02em' }}>
-            What Our Community Says
-          </h1>
+    <section className="px-5 py-10 md:px-10"><div className="mx-auto max-w-6xl">{visibleReviews.length ? <><p className="mb-6 text-center font-heading text-sm" style={{ color: theme.body }}>Showing {visibleReviews.length} of {filtered.length} reviews</p><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{visibleReviews.map((review) => <ReviewCard key={review.id} review={review} />)}</div>{!showAll && filtered.length > visibleReviews.length && <div className="mt-10 text-center"><button onClick={() => setShowAll(true)} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border px-7 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Show More Reviews <ChevronDown className="h-4 w-4" /></button></div>}</> : <div className="rounded-[2rem] border p-10 text-center" style={{ background: theme.card, borderColor: theme.border }}><p className="font-heading text-lg" style={{ color: theme.body }}>No reviews are available for this filter yet.</p></div>}</div></section>
 
-          {/* Aggregate Rating */}
-          {allReviews.length > 0 && (
-            <div className="flex flex-col items-center gap-3 mb-6">
-              <div className="flex items-center gap-2">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-6 h-6 fill-current" style={{ color: GOLD }} />
-                ))}
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="font-serif font-bold text-white" style={{ fontSize: '2.5rem', lineHeight: 1 }}>{avgRating}</span>
-                <div className="text-left">
-                  <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: RG }}>out of 5</p>
-                  <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300 }}>
-                    {allReviews.length} verified reviews · {fiveStarCount} five-star
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+    <section className="px-5 py-16 md:px-10" style={{ background: theme.sage }}><div className="mx-auto grid max-w-6xl gap-8 rounded-[2rem] border p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8" style={{ background: theme.card, borderColor: theme.border }}><div><p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Write a Review</p><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Share your Torch Republic ritual.</h2><p className="mt-4 font-heading leading-8" style={{ color: theme.body }}>Choose the product you tried and tell other customers what the experience was like.</p>{message && <p className="mt-4 rounded-xl p-3 font-heading text-sm" style={{ background: '#F3ECE2', color: theme.text }}>{message}</p>}</div><form onSubmit={submitReview} className="grid gap-4"><label className="font-heading text-sm font-semibold" style={{ color: theme.text }}>Display name<input required value={form.reviewer_name} onChange={(e) => setForm({ ...form, reviewer_name: e.target.value })} className="mt-2 min-h-[44px] w-full rounded-xl border px-4" style={{ borderColor: theme.border }} /></label><label className="font-heading text-sm font-semibold" style={{ color: theme.text }}>Product<select required value={form.product_handle} onChange={(e) => setForm({ ...form, product_handle: e.target.value })} className="mt-2 min-h-[44px] w-full rounded-xl border bg-white px-4" style={{ borderColor: theme.border }}><option value="">Choose a product</option>{ALL_PRODUCTS.map((p) => <option key={p.shopifyHandle} value={p.shopifyHandle}>{p.name}</option>)}</select></label><label className="font-heading text-sm font-semibold" style={{ color: theme.text }}>Rating<select value={form.rating} onChange={(e) => setForm({ ...form, rating: e.target.value })} className="mt-2 min-h-[44px] w-full rounded-xl border bg-white px-4" style={{ borderColor: theme.border }}>{[5, 4, 3, 2, 1].map((r) => <option key={r} value={r}>{r} stars</option>)}</select></label><label className="font-heading text-sm font-semibold" style={{ color: theme.text }}>Review<textarea required value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} rows={5} className="mt-2 w-full rounded-xl border px-4 py-3" style={{ borderColor: theme.border }} /></label><label className="font-heading text-sm font-semibold" style={{ color: theme.text }}>Location, optional<input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="mt-2 min-h-[44px] w-full rounded-xl border px-4" style={{ borderColor: theme.border }} /></label><button disabled={submitting} className="min-h-[48px] rounded-full px-7 py-3 font-heading font-semibold disabled:opacity-60" style={{ background: theme.accent, color: '#FBF8F1' }}>{submitting ? 'Submitting…' : 'Write a Review'}</button></form></div></section>
 
-          <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.45)', lineHeight: 1.85, fontWeight: 300 }}>
-            Real experiences from people who made Torch Republic part of their daily ritual.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Filter bar */}
-      {allReviews.length > 0 && (
-        <section className="px-6 md:px-12 py-8 sticky top-0 z-20" style={{ background: 'rgba(8,8,8,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
-          <div className="max-w-6xl mx-auto overflow-x-auto">
-            <div className="flex gap-2 justify-start md:justify-center min-w-max md:min-w-0 mx-auto">
-              {filters.map(f => (
-                <button
-                  key={f.key}
-                  onClick={() => { setActiveFilter(f.key); setShowAll(false); }}
-                  className="font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-2 transition-all whitespace-nowrap"
-                  style={{
-                    background: activeFilter === f.key ? RG : 'rgba(255,255,255,0.03)',
-                    color: activeFilter === f.key ? '#080808' : 'rgba(230,183,173,0.55)',
-                    border: activeFilter === f.key ? `1px solid ${RG}` : '1px solid rgba(230,183,173,0.15)',
-                    fontWeight: activeFilter === f.key ? 700 : 400,
-                  }}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Reviews Grid */}
-      {filtered.length > 0 ? (
-        <section className="px-6 md:px-12 py-14">
-          <div className="max-w-6xl mx-auto">
-            <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-8 text-center" style={{ color: 'rgba(230,183,173,0.35)' }}>
-              Showing {visibleReviews.length} of {filtered.length} reviews
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {visibleReviews.map((r, i) => <ReviewCard key={r.id || i} review={r} />)}
-            </div>
-
-            {/* Show more */}
-            {!showAll && filtered.length > INITIAL_SHOW && (
-              <div className="text-center mt-10">
-                <button
-                  onClick={() => setShowAll(true)}
-                  className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-8 py-4 transition-all hover:opacity-90"
-                  style={{ border: `1px solid ${RG}`, color: RG }}
-                >
-                  Show All {filtered.length} Reviews
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              </div>
-            )}
-          </div>
-        </section>
-      ) : (
-        <section className="py-20 text-center px-6">
-          <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.3)' }}>
-            No reviews for this blend yet.
-          </p>
-        </section>
-      )}
-
-      {/* CTA */}
-      <section className="py-20 px-6 text-center" style={{ background: '#070707', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <div className="max-w-lg mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.4)' }}>
-            Try the Blends
-          </p>
-          <h2 className="font-serif text-white font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}>
-            Start your ritual today.
-          </h2>
-          <div className="h-px w-12 mx-auto mb-8" style={{ background: 'linear-gradient(90deg, transparent, #E6B7AD, transparent)' }} />
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/shop"
-              className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-opacity hover:opacity-80"
-              style={{ background: RG, color: '#080808', fontWeight: 800, padding: '16px 40px' }}>
-              Shop All Blends →
-            </Link>
-            <Link to="/bundle"
-              className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-opacity hover:opacity-80"
-              style={{ border: '1px solid rgba(230,183,173,0.35)', color: 'rgba(230,183,173,0.7)', padding: '16px 40px' }}>
-              Try the Bundle
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+    <section className="px-5 py-16 text-center md:px-10"><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Explore the Collection</h2><p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Find the coffee, mushroom blend, or matcha that fits your daily ritual.</p><Link to="/shop" className="mt-8 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#FBF8F1' }}>Explore the Collection</Link></section>
+  </main>;
 }
