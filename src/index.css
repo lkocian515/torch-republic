@@ -56,7 +56,7 @@
     --secondary-foreground: 28 11% 16%;
 
     --muted: 34 39% 92%;
-    --muted-foreground: 24 10% 39%; /* #6D625A */
+    --muted-foreground: 24 12% 28%; /* #524940 - stronger readable secondary text */
 
     --accent: 95 17% 63%; /* #9EAD95 */
     --accent-foreground: 28 11% 16%;
@@ -116,6 +116,15 @@
     font-family: var(--font-heading);
     font-size: 18px;
     line-height: 1.7;
+  }
+
+  p, li, span, label, input, textarea, select {
+    text-rendering: optimizeLegibility;
+  }
+
+  ::placeholder {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.82;
   }
 }
 
@@ -271,6 +280,37 @@ button, a, [role="button"], nav {
   button, a, [role="button"] {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* Readability guardrails for the warm light-label theme */
+@layer utilities {
+  .text-readable-secondary {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .text-readable-soft {
+    color: hsl(24 12% 32%);
+  }
+
+  [style*="rgba(240,235,225,0.35)"],
+  [style*="rgba(240,235,225,0.4)"],
+  [style*="rgba(240,235,225,0.45)"],
+  [style*="rgba(240,235,225,0.5)"],
+  [style*="rgba(240,235,225,0.55)"] {
+    color: rgba(240,235,225,0.78) !important;
+  }
+
+  [style*="rgba(255,255,255,0.25)"],
+  [style*="rgba(255,255,255,0.3)"],
+  [style*="rgba(255,255,255,0.35)"] {
+    color: rgba(255,255,255,0.72) !important;
+  }
+
+  .bg-background [style*="rgba(240,235,225,0.55)"],
+  .bg-background [style*="rgba(240,235,225,0.5)"],
+  .bg-background [style*="rgba(255,255,255,0.3)"] {
+    color: hsl(var(--muted-foreground)) !important;
   }
 }
 
