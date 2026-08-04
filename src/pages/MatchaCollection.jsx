@@ -13,6 +13,7 @@ import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
 import FAQSchema from '@/components/seo/FAQSchema';
 
 const MATCHA_GREEN = '#566047';
+const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bd822ced2_matcha_category.png';
 
 // FAQ data for schema
 const FAQS = [
@@ -84,15 +85,15 @@ export default function MatchaCollection() {
 
       {/* Hero */}
       <section style={{ background: '#FBF8F1', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${MATCHA_GREEN}25` }}>
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
               Torch Republic Coffee Co. — Ceremonial Matcha
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Ceremonial Matcha Powder<br />for Calm Focus & Instant Matcha Lattes
             </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
               Two ceremonial matcha blends for calm daily ritual and versatile preparation. Dissolves instantly — hot or iced. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
@@ -100,7 +101,7 @@ export default function MatchaCollection() {
                 <strong>Note:</strong> These are matcha blends, not mushroom coffee.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
               <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#FFFDF8', padding: '14px 36px', borderRadius: '4px' }}>
                 Shop Matcha
               </Link>
@@ -108,6 +109,9 @@ export default function MatchaCollection() {
                 Find Your Ritual
               </Link>
             </div>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${MATCHA_GREEN}30` }}>
+            <img src={MATCHA_HERO_IMAGE} alt="Torch Republic The Monk and The Alchemist ceremonial matcha blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
           </motion.div>
         </div>
       </section>
