@@ -2,7 +2,7 @@ import React from 'react';
 import EditorialButton from './EditorialButton';
 import { colors, routes } from './theme';
 
-const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png';
+const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/65bca8616_ghjgf.png';
 
 export default function EditorialHero() {
   return (
