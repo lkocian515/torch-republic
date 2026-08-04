@@ -275,6 +275,10 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+header.sticky.top-0 {
+  padding-top: env(safe-area-inset-top);
+}
+
 /* User select none for buttons and nav */
 button, a, [role="button"], nav {
   user-select: none;
