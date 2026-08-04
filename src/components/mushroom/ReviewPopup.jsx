@@ -84,8 +84,10 @@ function writeDismiss() {
 export default function ReviewPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAvoidingContent, setIsAvoidingContent] = useState(false);
   const shownThisSessionRef = useRef(false);
   const closeBtnRef = useRef(null);
+  const popupRef = useRef(null);
 
   // Fetch only genuine reviews from the Review entity. The schema does not
   // currently include a verification flag, so the "Verified Customer" badge is
@@ -214,6 +216,36 @@ export default function ReviewPopup() {
     };
   }, [isOpen]);
 
+  // ── Avoid covering newsletter and footer content ─────────────
+  useEffect(() => {
+    if (!isOpen) {
+      setIsAvoidingContent(false);
+      return;
+    }
+
+    const updateAvoidance = () => {
+      const newsletter = document.getElementById('homepage-email')?.closest('section');
+      const footer = document.querySelector('footer');
+      const avoidElements = [newsletter, footer].filter(Boolean);
+      const shouldAvoid = avoidElements.some((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > window.innerHeight - 280;
+      });
+      setIsAvoidingContent(shouldAvoid);
+      if (shouldAvoid && popupRef.current?.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    };
+
+    updateAvoidance();
+    window.addEventListener('scroll', updateAvoidance, { passive: true });
+    window.addEventListener('resize', updateAvoidance);
+    return () => {
+      window.removeEventListener('scroll', updateAvoidance);
+      window.removeEventListener('resize', updateAvoidance);
+    };
+  }, [isOpen]);
+
   // ── Close → store 7-day dismissal (NOT forever) ──────────────
   const close = useCallback(() => {
     setIsOpen(false);
@@ -236,15 +268,20 @@ export default function ReviewPopup() {
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={{ opacity: isAvoidingContent ? 0 : 1, x: isAvoidingContent ? -20 : 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
+          ref={popupRef}
           className="fixed bottom-0 left-0 z-40 m-2 md:m-4 lg:m-6"
           // Sit above the mobile bottom tab bar so the popup never covers
           // nav or purchase buttons.
-          style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 86px)' }}
+          style={{
+            paddingBottom: 'calc(env(safe-area-inset-bottom) + 86px)',
+            pointerEvents: isAvoidingContent ? 'none' : 'auto',
+          }}
           role="dialog"
           aria-modal="false"
+          aria-hidden={isAvoidingContent}
           aria-label="Customer review"
         >
           <div
