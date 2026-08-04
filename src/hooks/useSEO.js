@@ -29,14 +29,15 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
 
     // Strip tracking params from canonical — canonical must never contain utm_*, gclid, fbclid, srsltid
     const STRIP_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','srsltid','msclkid','ref'];
-    let cleanPath = url || window.location.pathname;
+    let cleanPath = url || `${window.location.pathname}${window.location.search}`;
     if (cleanPath.includes('?')) {
       const [path, qs] = cleanPath.split('?');
       const params = new URLSearchParams(qs);
       STRIP_PARAMS.forEach(p => params.delete(p));
       cleanPath = params.toString() ? `${path}?${params}` : path;
     }
-    const canonicalUrl = url ? `${BASE_URL}${cleanPath}` : BASE_URL;
+    if (!cleanPath.startsWith('/')) cleanPath = `/${cleanPath}`;
+    const canonicalUrl = `${BASE_URL}${cleanPath}`;
     const ogImage = image || DEFAULT_IMAGE;
     const ogImageAlt = imageAlt
       || (title ? `${title.replace(/\s*\|\s*Torch Republic.*$/i, '')} — ${SITE_NAME}` : 'Torch Republic Coffee Company');
@@ -210,5 +211,5 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
       articleMetaEls.forEach(el => el.setAttribute('content', ''));
       scriptEls.forEach(el => el.remove());
     };
-  }, [title, description, image, imageAlt, imageType, url, type, product, breadcrumbs, article, faq]);
+  }, [title, description, image, imageAlt, imageType, url, type, product, breadcrumbs, article, faq, noindex]);
 }

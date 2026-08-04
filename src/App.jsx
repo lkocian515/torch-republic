@@ -21,6 +21,7 @@ import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import NoIndex from './components/seo/NoIndex';
 import GoneRedirect from './components/seo/GoneRedirect';
+import RouteSeoManager from './components/seo/RouteSeoManager';
 import useAnalytics from './hooks/useAnalytics';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
@@ -464,6 +465,7 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
       </Routes>
+      <RouteSeoManager />
       <BottomTabs />
       </AnimatePresence>
       <Footer />
