@@ -51,14 +51,14 @@ function NewsletterSignup() {
         placeholder="your@email.com"
         required
         disabled={status === 'loading'}
-        className="flex-1 px-4 py-3 font-heading text-sm bg-transparent border rounded-sm focus:outline-none"
-        style={{ borderColor: `${RG}30`, color: '#F5EFE6' }}
+        className="flex-1 px-4 py-3 font-heading text-base bg-white border rounded-sm focus:outline-none"
+        style={{ borderColor: '#E4D8C9', color: '#2D2824' }}
       />
       <button
         type="submit"
         disabled={status === 'loading'}
         className="px-8 py-3 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 rounded-sm disabled:opacity-50"
-        style={{ background: RG, color: '#050505' }}
+        style={{ background: '#B86543', color: '#FBF8F1' }}
       >
         {status === 'loading' ? 'Joining...' : 'Subscribe'}
       </button>
@@ -164,7 +164,7 @@ export default function MushroomShop() {
           />
         </div>
 
-        {/* Mobile layout with text overlay */}
+        {/* Mobile layout */}
         <div className="md:hidden px-6 pt-20 pb-14 text-center">
           <motion.img
             initial={{ opacity: 0 }}
@@ -195,7 +195,7 @@ export default function MushroomShop() {
             <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mb-6">
               {['No Coffee Maker Needed', 'Instant Powder', 'Functional Adaptogens', 'Subscribe & Save 20%'].map(t => (
                 <span key={t} className="font-mono text-[8px] tracking-[0.25em] uppercase"
-                  style={{ color: 'rgba(230,183,173,0.45)' }}>✦ {t}</span>
+                  style={{ color: '#6D625A' }}>✦ {t}</span>
               ))}
             </div>
           </motion.div>
@@ -261,7 +261,7 @@ export default function MushroomShop() {
               <button
                 key={t.key}
                 onClick={() => setTab(t.key)}
-                className="font-mono text-[9px] tracking-[0.3em] uppercase transition-all"
+                className="min-h-[44px] font-mono text-[9px] tracking-[0.3em] uppercase transition-all"
                 style={{
                   padding: '10px 22px',
                   border: `1px solid ${tab === t.key ? t.color + '60' : '#E4D8C9'}`,
@@ -299,7 +299,7 @@ export default function MushroomShop() {
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase text-center mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
               Build Your Ritual Bundle
             </p>
-            <p className="font-heading text-center max-w-xl mx-auto mb-6" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.7 }}>
+            <p className="font-heading text-center max-w-xl mx-auto mb-6" style={{ fontSize: '1rem', color: '#6D625A', fontWeight: 400, lineHeight: 1.7 }}>
               Choose your blends. Create your daily ritual. Save when you bundle.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
@@ -375,13 +375,13 @@ export default function MushroomShop() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#B86543' }}>
               Stay Connected
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#293626' }}>
               Get Updates, Special Offers & New Product Announcements
             </h2>
-            <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading mb-8" style={{ color: '#5F5145', fontWeight: 400, lineHeight: 1.8 }}>
               Join the Torch Republic community. Be the first to know about new blends, limited releases, and exclusive member offers.
             </p>
             <NewsletterSignup />

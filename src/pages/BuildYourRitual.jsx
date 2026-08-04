@@ -138,6 +138,8 @@ export default function BuildYourRitual() {
   const savings = selectedProducts.length === BUNDLE_SIZE ? Math.max(0, totalPrice - BUNDLE_PRICE) : 0;
 
   const toggleProduct = (productId) => {
+    const product = shopifyProducts.find(p => p.id === productId);
+    if (product?.available === false) return;
     setSelectedProducts(prev => {
       const index = prev.indexOf(productId);
       if (index !== -1) {
@@ -145,6 +147,7 @@ export default function BuildYourRitual() {
         newArray.splice(index, 1);
         return newArray;
       }
+      if (prev.length >= BUNDLE_SIZE) return prev;
       return [...prev, productId];
     });
   };
@@ -205,7 +208,7 @@ export default function BuildYourRitual() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: THEME.page, color: THEME.text }}>
+    <div className="min-h-screen pb-24 md:pb-0" style={{ background: THEME.page, color: THEME.text }}>
 
       {/* Best Starter Bundle */}
       <section className="px-6 md:px-10 pt-16 pb-0">
@@ -303,17 +306,17 @@ export default function BuildYourRitual() {
             <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: THEME.secondary, fontWeight: 300, lineHeight: 1.85 }}>
               Choose your favorite coffee, mushroom blends, and matcha to create a ritual that fits your routine.
             </p>
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: RG }}>3</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>Blends</p>
               </div>
-              <div className="w-px h-10" style={{ background: THEME.border }} />
+              <div className="hidden h-10 w-px sm:block" style={{ background: THEME.border }} />
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: RG }}>${BUNDLE_PRICE}</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>Bundle Price</p>
               </div>
-              <div className="w-px h-10" style={{ background: THEME.border }} />
+              <div className="hidden h-10 w-px sm:block" style={{ background: THEME.border }} />
               <div className="text-center">
                 <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save up to $14.98</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>vs. Buying Separately</p>
@@ -352,7 +355,7 @@ export default function BuildYourRitual() {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-4 py-2 rounded-sm font-mono text-[8px] tracking-[0.25em] uppercase transition-all ${activeCategory === cat ? 'scale-105' : 'hover:scale-105'}`}
+                    className={`min-h-[44px] px-4 py-2 rounded-sm font-mono text-[8px] tracking-[0.25em] uppercase transition-all ${activeCategory === cat ? 'scale-105' : 'hover:scale-105'}`}
                     style={{
                       background: activeCategory === cat ? `${RG}15` : 'transparent',
                       border: `1px solid ${activeCategory === cat ? RG : `${RG}20`}`,
@@ -381,13 +384,16 @@ export default function BuildYourRitual() {
                     const isSelected = selectedProducts.includes(product.id);
                     const countInBundle = selectedProducts.filter(id => id === product.id).length;
                     return (
-                      <motion.div
+                      <motion.button
                         key={product.id}
+                        type="button"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.02 }}
                         onClick={() => toggleProduct(product.id)}
-                        className={`cursor-pointer rounded-sm overflow-hidden transition-all ${isSelected ? 'ring-2 ring-rose-gold' : 'hover:ring-1 hover:ring-rose-gold/30'}`}
+                        disabled={product.available === false}
+                        aria-pressed={isSelected}
+                        className={`w-full overflow-hidden rounded-sm text-left transition-all disabled:cursor-not-allowed disabled:opacity-60 ${isSelected ? 'ring-2 ring-rose-gold' : 'hover:ring-1 hover:ring-rose-gold/30'}`}
                         style={{
                           background: isSelected ? 'rgba(183,101,62,0.08)' : THEME.card,
                           border: `1px solid ${isSelected ? RG : THEME.border}`,
@@ -398,15 +404,17 @@ export default function BuildYourRitual() {
                             <img src={getProductImage(product)} alt={product.imageAlt || getProductAltText(product)} className="w-full h-full object-contain p-2" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-serif font-bold text-sm mb-1 truncate" style={{ color: THEME.text }}>{product.name}</h3>
+                            <h3 className="font-serif font-bold text-sm mb-1 whitespace-normal break-words" style={{ color: THEME.text }}>{product.name}</h3>
                             <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: product.accent }}>
                               {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
                             </p>
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between gap-3">
                               <span className="font-serif font-bold" style={{ fontSize: '1.1rem', color: product.accent }}>
                                 ${product.price}
                               </span>
-                              {isSelected ? (
+                              {product.available === false ? (
+                                <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: '#9A9085' }}>Out of Stock</span>
+                              ) : isSelected ? (
                                 <div className="flex items-center gap-1" style={{ color: RG }}>
                                   <Check size={14} />
                                   <span className="font-mono text-[7px] tracking-[0.2em] uppercase">
@@ -419,7 +427,7 @@ export default function BuildYourRitual() {
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -432,7 +440,7 @@ export default function BuildYourRitual() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="sticky top-24"
+                className="lg:sticky lg:top-24"
                 style={{
                   background: THEME.card,
                   border: `1px solid ${THEME.border}`,
@@ -480,7 +488,7 @@ export default function BuildYourRitual() {
                               </div>
                               <button
                                 onClick={() => toggleProduct(productId)}
-                                className="p-1 transition-colors hover:opacity-70"
+                                className="min-h-[44px] min-w-[44px] p-1 transition-colors hover:opacity-70"
                                 style={{ color: `${RG}50` }}
                               >
                                 <X size={14} />

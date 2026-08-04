@@ -154,7 +154,7 @@ export default function SearchModal({ isOpen, onClose }) {
           onClick={onClose}
         >
           <div
-            className="w-full max-w-2xl mx-auto mt-[8vh] mx-4"
+            className="mx-auto mt-[8vh] w-[calc(100vw-32px)] max-w-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <motion.div
@@ -180,7 +180,7 @@ export default function SearchModal({ isOpen, onClose }) {
                 <button
                   onClick={onClose}
                   className="flex items-center justify-center flex-shrink-0"
-                  style={{ color: '#655E56', minWidth: '36px', minHeight: '36px' }}
+                  style={{ color: '#655E56', minWidth: '44px', minHeight: '44px' }}
                   aria-label="Close search"
                 >
                   <X className="w-5 h-5" />

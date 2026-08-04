@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
 import { ArrowRight, Quote } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#B86543';
 
 const SECTIONS = [
   {
@@ -109,7 +109,7 @@ export default function FounderStory() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: '#080808' }}>
+    <div className="min-h-screen" style={{ background: '#FBF8F1', color: '#293626' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-16 pb-16" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <div className="max-w-3xl mx-auto text-center">
@@ -117,10 +117,10 @@ export default function FounderStory() {
             <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-5" style={{ color: 'rgba(230,183,173,0.5)' }}>
               Founder Story
             </p>
-            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1 }}>
+            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)', color: '#293626', lineHeight: 1.1 }}>
               Why I Walked Away<br />From Coffee Pods
             </h1>
-            <p className="font-heading" style={{ fontSize: '1.1rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300, maxWidth: '600px', margin: '0 auto' }}>
+            <p className="font-heading" style={{ fontSize: '1.1rem', color: '#5F5145', lineHeight: 1.9, fontWeight: 300, maxWidth: '600px', margin: '0 auto' }}>
               On convenience, waste, functional mushrooms, and why a better morning ritual doesn't require a machine.
             </p>
             <div className="flex items-center justify-center gap-3 mt-8">
@@ -135,12 +135,12 @@ export default function FounderStory() {
       </section>
 
       {/* Pull Quote */}
-      <section className="px-6 md:px-10 py-16" style={{ background: '#0A0908' }}>
+      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F1E7' }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="flex items-start gap-5">
             <Quote size={28} style={{ color: `${RG}40`, flexShrink: 0, marginTop: 4 }} />
-            <p className="font-serif italic" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: 'rgba(240,235,225,0.7)', lineHeight: 1.65 }}>
+            <p className="font-serif italic" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#5F5145', lineHeight: 1.65 }}>
               I was going through 20 pods a week. Every one went to a landfill. When I finally did the math, I felt the quiet embarrassment of realizing you'd been sleepwalking through a habit that wasn't serving you.
             </p>
           </motion.div>
@@ -158,12 +158,12 @@ export default function FounderStory() {
                 <span className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: `${RG}50` }}>0{i + 1}</span>
                 <div className="h-px flex-1" style={{ background: `${RG}15` }} />
               </div>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', color: '#293626', lineHeight: 1.2 }}>
                 {section.heading}
               </h2>
               <div className="space-y-5">
                 {section.body.split('\n\n').map((para, pi) => (
-                  <p key={pi} className="font-heading" style={{ fontSize: '0.975rem', color: 'rgba(240,235,225,0.65)', lineHeight: 1.95, fontWeight: 300 }}>
+                  <p key={pi} className="font-heading" style={{ fontSize: '0.975rem', color: '#5F5145', lineHeight: 1.95, fontWeight: 300 }}>
                     {para}
                   </p>
                 ))}
@@ -187,16 +187,16 @@ export default function FounderStory() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Start the Ritual
             </p>
-            <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#293626', lineHeight: 1.2 }}>
               No machine. No pods. No compromise.
             </h2>
-            <p className="font-heading mb-10" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
+            <p className="font-heading mb-10" style={{ fontSize: '0.95rem', color: '#5F5145', lineHeight: 1.85, fontWeight: 300 }}>
               Torch Republic is premium instant coffee, functional mushroom blends, and ceremonial matcha — all in one format. Add hot water. That's it. 27 servings per tube. Free shipping on orders over $50.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/build-your-ritual"
                 className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90"
-                style={{ background: RG, color: '#080808' }}>
+                style={{ background: RG, color: '#FBF8F1' }}>
                 Build Your Ritual Bundle <ArrowRight size={13} />
               </Link>
               <Link to="/quiz"
@@ -212,7 +212,7 @@ export default function FounderStory() {
       {/* Related Reading */}
       <section className="px-6 md:px-10 pb-16" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-3xl mx-auto pt-14">
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#F5EFE6' }}>Continue Reading</h2>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#293626' }}>Continue Reading</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { title: "What Is Mushroom Coffee?", path: "/faq/what-is-mushroom-coffee" },
@@ -222,10 +222,10 @@ export default function FounderStory() {
             ].map((link, i) => (
               <Link key={i} to={link.path}
                 className="p-4 flex items-center justify-between transition-all"
-                style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E4D8C9' }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = `${RG}30`}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.8)' }}>{link.title}</span>
+                onMouseLeave={e => e.currentTarget.style.borderColor = '#E4D8C9'}>
+                <span className="font-heading text-sm" style={{ color: '#293626' }}>{link.title}</span>
                 <ArrowRight size={13} style={{ color: `${RG}60` }} />
               </Link>
             ))}
@@ -235,7 +235,7 @@ export default function FounderStory() {
 
       {/* FDA */}
       <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.04)' }}>
-        <p className="font-mono text-[7px] tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.18)', lineHeight: 1.8 }}>
+        <p className="font-mono text-[7px] tracking-[0.15em] max-w-xl mx-auto" style={{ color: '#5F5145', lineHeight: 1.8 }}>
           These statements have not been evaluated by the FDA. Torch Republic products are not intended to diagnose, treat, cure, or prevent any disease.
         </p>
       </div>
