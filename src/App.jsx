@@ -293,7 +293,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/pages/terms" element={<Navigate to="/terms-of-service" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
-        <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
+        <Route path="/research" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
         <Route path="/spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />

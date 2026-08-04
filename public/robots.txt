@@ -12,6 +12,7 @@ Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /profile
 Disallow: /loyalty
+Disallow: /research
 
 # ── Cart & checkout (transactional, not content pages) ──
 Disallow: /cart

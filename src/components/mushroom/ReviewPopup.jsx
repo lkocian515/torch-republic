@@ -51,6 +51,7 @@ function isBlockedPath(pathname) {
     pathname.startsWith('/admin') ||
     pathname.startsWith('/email-campaign') ||
     pathname.startsWith('/traffic-report') ||
+    pathname.startsWith('/research') ||
     pathname.startsWith('/command')
   ) return true;
   return BLOCKED_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'));

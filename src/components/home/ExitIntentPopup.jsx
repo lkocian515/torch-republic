@@ -14,7 +14,7 @@ export default function ExitIntentPopup() {
 
   useEffect(() => {
     if (sessionStorage.getItem('exit_shown')) return;
-    if (window.location.pathname.startsWith('/admin') || window.location.pathname.startsWith('/email-campaign') || window.location.pathname.startsWith('/traffic-report')) return;
+    if (window.location.pathname.startsWith('/admin') || window.location.pathname.startsWith('/email-campaign') || window.location.pathname.startsWith('/traffic-report') || window.location.pathname.startsWith('/research')) return;
 
     const timer = setTimeout(() => {
       const handleMouseLeave = (e) => {
