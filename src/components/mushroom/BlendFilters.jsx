@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sliders, Zap, Coffee } from 'lucide-react';
+import MobileSelect from '@/components/forms/MobileSelect';
 
 const RG = '#E6B7AD';
 
@@ -31,10 +32,31 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
         </span>
       </div>
 
-      <div className="flex flex-wrap gap-4">
+      <div className="grid gap-3 md:hidden">
+        <MobileSelect
+          ariaLabel="Filter by roast intensity"
+          title="Roast Intensity"
+          value={roastFilter}
+          onChange={(value) => onFilterChange('roast', value)}
+          options={ROAST_OPTIONS}
+          className="rounded-sm border px-4 font-mono text-[9px] uppercase tracking-[0.25em]"
+          style={{ background: '#FFFFFF', borderColor: '#E4D8C9', color: '#6D625A' }}
+        />
+        <MobileSelect
+          ariaLabel="Filter by caffeine level"
+          title="Caffeine"
+          value={caffeineFilter}
+          onChange={(value) => onFilterChange('caffeine', value)}
+          options={CAFFEINE_OPTIONS}
+          className="rounded-sm border px-4 font-mono text-[9px] uppercase tracking-[0.25em]"
+          style={{ background: '#FFFFFF', borderColor: '#E4D8C9', color: '#6D625A' }}
+        />
+      </div>
+
+      <div className="hidden flex-wrap gap-4 md:flex">
         {/* Roast Intensity */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#6D625A' }}>
             Roast Intensity
           </span>
           <div className="flex gap-1.5">
@@ -45,11 +67,11 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
                 <button
                   key={opt.value}
                   onClick={() => onFilterChange('roast', opt.value)}
-                  className="px-3 py-2 transition-all"
+                  className="min-h-[44px] px-3 py-2 transition-all"
                   style={{
-                    background: isActive ? `${RG}15` : 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${isActive ? RG : 'rgba(255,255,255,0.1)'}`,
-                    color: isActive ? RG : 'rgba(255,255,255,0.4)',
+                    background: isActive ? `${RG}15` : '#FFFFFF',
+                    border: `1px solid ${isActive ? RG : '#E4D8C9'}`,
+                    color: isActive ? RG : '#6D625A',
                   }}
                 >
                   <div className="flex items-center gap-1.5">
@@ -66,7 +88,7 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
 
         {/* Caffeine Level */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#6D625A' }}>
             Caffeine
           </span>
           <div className="flex gap-1.5">
@@ -77,11 +99,11 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
                 <button
                   key={opt.value}
                   onClick={() => onFilterChange('caffeine', opt.value)}
-                  className="px-3 py-2 transition-all"
+                  className="min-h-[44px] px-3 py-2 transition-all"
                   style={{
-                    background: isActive ? `${RG}15` : 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${isActive ? RG : 'rgba(255,255,255,0.1)'}`,
-                    color: isActive ? RG : 'rgba(255,255,255,0.4)',
+                    background: isActive ? `${RG}15` : '#FFFFFF',
+                    border: `1px solid ${isActive ? RG : '#E4D8C9'}`,
+                    color: isActive ? RG : '#6D625A',
                   }}
                 >
                   <div className="flex items-center gap-1.5">

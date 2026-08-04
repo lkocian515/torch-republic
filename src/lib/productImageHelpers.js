@@ -1,3 +1,13 @@
+export const PRODUCT_IMAGE_DRAG_PREVENTION_STYLE = {
+  WebkitUserDrag: 'none',
+  userSelect: 'none',
+};
+
+export const PRODUCT_IMAGE_DRAG_PREVENTION_PROPS = {
+  draggable: false,
+  style: PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
+};
+
 export const APPROVED_PRODUCT_IMAGES = {
   'suncap-rise': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
   'suncap-rise-instant-mushroom-coffee': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
@@ -115,6 +125,8 @@ export function getImageLoadingProps(index, isHero = false) {
       loading: 'eager',
       fetchPriority: 'high',
       decoding: 'sync',
+      draggable: false,
+      style: PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
     };
   }
 
@@ -124,6 +136,8 @@ export function getImageLoadingProps(index, isHero = false) {
       loading: 'eager',
       fetchPriority: 'high',
       decoding: 'async',
+      draggable: false,
+      style: PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
     };
   }
 
@@ -132,13 +146,25 @@ export function getImageLoadingProps(index, isHero = false) {
     loading: 'lazy',
     fetchPriority: 'low',
     decoding: 'async',
-  };
+    draggable: false,
+    style: PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
+    };
 }
 
 /**
  * Get responsive image sizes attribute for better performance
  * Tells browser what image size to load based on viewport
  */
+export function getProductImageDragProps(style = {}) {
+  return {
+    draggable: false,
+    style: {
+      ...PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
+      ...style,
+    },
+  };
+}
+
 export function getImageSizes(width = '400px') {
   return `(max-width: 640px) ${width}, (max-width: 1024px) ${width}, ${width}`;
 }

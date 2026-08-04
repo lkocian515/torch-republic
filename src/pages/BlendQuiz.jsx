@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
-import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
+import { getProductImage, getProductAltText, getProductImageDragProps } from '@/lib/productImageHelpers';
+import MobileSelect from '@/components/forms/MobileSelect';
 
 const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
   .reduce((acc, p) => {
@@ -229,7 +230,22 @@ export default function FindYourRitual() {
               <p className="font-serif font-bold text-white text-center mb-8" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>
                 {currentQ.q}
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="md:hidden">
+                <MobileSelect
+                  ariaLabel={currentQ.q}
+                  title={currentQ.q}
+                  value=""
+                  onChange={(value) => {
+                    const option = currentQ.options[Number(value)];
+                    if (option) handleAnswer(option.weights);
+                  }}
+                  options={currentQ.options.map((opt, index) => ({ value: String(index), label: opt.label }))}
+                  placeholder="Choose an answer"
+                  className="rounded-md px-4 font-heading text-base"
+                  style={{ background: '#0F0E0D', border: `1px solid ${RG}25`, color: 'rgba(240,235,225,0.85)' }}
+                />
+              </div>
+              <div className="hidden grid-cols-2 gap-3 md:grid lg:grid-cols-3">
                 {currentQ.options.map((opt, i) => (
                   <button
                     key={i}
@@ -259,7 +275,7 @@ export default function FindYourRitual() {
                     src={getProductImage(PRODUCT_LOOKUP[result.imageHandle])}
                     alt={getProductAltText(PRODUCT_LOOKUP[result.imageHandle], result.products[0])}
                     className="w-48 h-48 sm:w-56 sm:h-56 object-contain"
-                    style={{ filter: 'none' }}
+                    {...getProductImageDragProps({ filter: 'none' })}
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center text-center sm:text-left" style={{ background: '#0F0E0D' }}>

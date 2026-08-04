@@ -99,7 +99,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
             {...loadingProps}
             crossOrigin="anonymous"
             className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            style={{ padding: '12px' }}
+            style={{ ...loadingProps.style, padding: '12px' }}
             onError={(e) => {
               console.warn(`⚠️ Image failed for ${product.name}:`, imageUrl);
               e.currentTarget.src = FALLBACK_IMAGE;
