@@ -105,7 +105,7 @@ export default function PremiumHero() {
             {/* Product Image */}
             <div className="mb-12" style={{ width: '100%', maxWidth: '800px', aspectRatio: '16/9', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png"
+                src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
                 alt="Torch Republic Products"
                 className="w-full h-full object-cover"
               />
@@ -204,7 +204,7 @@ export default function PremiumHero() {
           {/* Product Image */}
           <div className="mb-8" style={{ aspectRatio: '1/1', borderRadius: '8px', overflow: 'hidden' }}>
             <img
-              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ee5e8f634_LIVEFREESTAYREADY5.png"
+              src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
               alt="Torch Republic Products"
               className="w-full h-full object-cover"
             />
