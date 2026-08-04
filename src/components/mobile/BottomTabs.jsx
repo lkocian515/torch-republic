@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, ShoppingBag } from 'lucide-react';
+import { Home, ShoppingBag, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigationStack } from '@/contexts/NavigationContext';
 
@@ -9,6 +9,7 @@ const RG = '#E6B7AD';
 const TABS = [
   { path: '/', icon: Home, label: 'Home' },
   { path: '/shop', icon: ShoppingBag, label: 'Shop' },
+  { path: '/profile', icon: User, label: 'Account' },
 ];
 
 export default function BottomTabs() {
@@ -35,10 +36,10 @@ export default function BottomTabs() {
         className="md:hidden fixed bottom-0 left-0 right-0 z-50"
         aria-label="Bottom navigation"
         style={{
-          background: 'rgba(10,10,10,0.95)',
+          background: 'rgba(248,245,239,0.96)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          borderTop: `1px solid ${RG}20`,
+          borderTop: '1px solid #DED8CF',
           paddingBottom: 'env(safe-area-inset-bottom)',
         }}
       >
@@ -79,14 +80,14 @@ export default function BottomTabs() {
                     className="w-5 h-5"
                     strokeWidth={active ? 2.5 : 1.8}
                     style={{
-                      color: active ? RG : 'rgba(240,235,225,0.5)',
+                      color: active ? '#6F4A32' : '#655E56',
                       transition: 'color 0.2s ease',
                     }}
                   />
                   <span
                     className="font-mono text-[9px] tracking-[0.15em] uppercase"
                     style={{
-                      color: active ? RG : 'rgba(240,235,225,0.4)',
+                      color: active ? '#6F4A32' : '#655E56',
                       fontWeight: active ? 700 : 400,
                     }}
                   >

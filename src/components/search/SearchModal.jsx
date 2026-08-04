@@ -168,7 +168,7 @@ export default function SearchModal({ isOpen, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
           className="fixed inset-0 z-[60]"
-          style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
+          style={{ background: 'rgba(45,40,36,0.28)', backdropFilter: 'blur(8px)' }}
           onClick={onClose}
         >
           <div
@@ -180,7 +180,7 @@ export default function SearchModal({ isOpen, onClose }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              style={{ background: '#111', border: `1px solid ${RG}30`, borderRadius: '8px', overflow: 'hidden' }}
+              style={{ background: '#FFFDFC', border: '1px solid #DED8CF', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 24px 80px rgba(45,40,36,0.18)' }}
             >
               {/* Search input */}
               <div className="flex items-center gap-3 px-4 py-4" style={{ borderBottom: `1px solid ${RG}15` }}>
@@ -193,12 +193,12 @@ export default function SearchModal({ isOpen, onClose }) {
                   onKeyDown={handleKeyDown}
                   placeholder="Search products, articles, FAQs..."
                   className="flex-1 bg-transparent outline-none font-heading text-base"
-                  style={{ color: '#F5EFE6' }}
+                  style={{ color: '#2D2824' }}
                 />
                 <button
                   onClick={onClose}
                   className="flex items-center justify-center flex-shrink-0"
-                  style={{ color: 'rgba(240,235,225,0.5)', minWidth: '36px', minHeight: '36px' }}
+                  style={{ color: '#655E56', minWidth: '36px', minHeight: '36px' }}
                   aria-label="Close search"
                 >
                   <X className="w-5 h-5" />
@@ -209,17 +209,17 @@ export default function SearchModal({ isOpen, onClose }) {
               <div className="max-h-[60vh] overflow-y-auto">
                 {!query.trim() ? (
                   <div className="px-4 py-12 text-center">
-                    <Search className="w-8 h-8 mx-auto mb-3" style={{ color: 'rgba(230,183,173,0.2)' }} />
-                    <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.4)' }}>
+                    <Search className="w-8 h-8 mx-auto mb-3" style={{ color: '#C2A66E' }} />
+                    <p className="font-heading text-sm" style={{ color: '#655E56' }}>
                       Search for coffee blends, journal articles, ingredients, and more.
                     </p>
                   </div>
                 ) : results.length === 0 ? (
                   <div className="px-4 py-12 text-center">
-                    <p className="font-heading text-sm mb-1" style={{ color: 'rgba(240,235,225,0.6)' }}>
+                    <p className="font-heading text-sm mb-1" style={{ color: '#655E56' }}>
                       No results for "{query}"
                     </p>
-                    <p className="font-mono text-[10px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                    <p className="font-mono text-[10px] tracking-[0.15em]" style={{ color: '#8A6F3E' }}>
                       Try a different keyword or browse the shop.
                     </p>
                   </div>
@@ -232,7 +232,7 @@ export default function SearchModal({ isOpen, onClose }) {
                     return (
                       <div key={type}>
                         <div className="px-4 pt-4 pb-2">
-                          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                          <p className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: '#8A6F3E' }}>
                             {meta.label}
                           </p>
                         </div>
@@ -253,11 +253,11 @@ export default function SearchModal({ isOpen, onClose }) {
                             >
                               <Icon className="w-4 h-4 flex-shrink-0" style={{ color: meta.color }} />
                               <div className="flex-1 min-w-0">
-                                <p className="font-heading text-sm truncate" style={{ color: isActive ? '#F5EFE6' : 'rgba(240,235,225,0.8)' }}>
+                                <p className="font-heading text-sm truncate" style={{ color: isActive ? '#2D2824' : '#655E56' }}>
                                   {item.title}
                                 </p>
                                 {item.subtitle && (
-                                  <p className="font-mono text-[9px] tracking-[0.1em] truncate" style={{ color: 'rgba(230,183,173,0.4)' }}>
+                                  <p className="font-mono text-[9px] tracking-[0.1em] truncate" style={{ color: '#8A6F3E' }}>
                                     {item.subtitle}
                                   </p>
                                 )}
@@ -274,11 +274,11 @@ export default function SearchModal({ isOpen, onClose }) {
 
               {/* Footer hint */}
               {results.length > 0 && (
-                <div className="px-4 py-2.5 flex items-center justify-between" style={{ borderTop: `1px solid ${RG}10`, background: '#0D0C0B' }}>
-                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.3)' }}>
+                <div className="px-4 py-2.5 flex items-center justify-between" style={{ borderTop: `1px solid ${RG}10`, background: '#F8F5EF' }}>
+                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#6D625A' }}>
                     ↑↓ Navigate · ↵ Select · ESC Close
                   </p>
-                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.3)' }}>
+                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#6D625A' }}>
                     {results.length} result{results.length !== 1 ? 's' : ''}
                   </p>
                 </div>
