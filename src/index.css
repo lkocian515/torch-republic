@@ -56,7 +56,7 @@
     --secondary-foreground: 28 11% 16%;
 
     --muted: 34 39% 92%;
-    --muted-foreground: 24 12% 28%; /* #524940 - stronger readable secondary text */
+    --muted-foreground: 25 15% 20%; /* #362E27 - darker secondary text for AA contrast on cream */
 
     --accent: 95 17% 63%; /* #9EAD95 */
     --accent-foreground: 28 11% 16%;
