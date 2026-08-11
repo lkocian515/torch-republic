@@ -1,65 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Minus, Plus, ShieldCheck, Truck, Zap, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Minus, Plus, Check, ShoppingBag, Truck, ShieldCheck, RotateCcw, ChevronRight } from 'lucide-react';
 import ShareButtons from '../components/social/ShareButtons';
 import { useCart } from '@/contexts/CartContext';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
-import FAQSection from '../components/mushroom/FAQSection';
 import MushroomProductCard from '../components/mushroom/ProductCard';
-import TasteProfileCard from '../components/mushroom/TasteProfileCard';
-import BlendCompositionCard from '../components/mushroom/BlendCompositionCard';
-import SubscribeAndSave from '../components/mushroom/SubscribeAndSave';
-import OriginCraftsmanshipSection from '../components/mushroom/OriginCraftsmanshipSection';
-import MushroomCoffeeComparison from '../components/mushroom/MushroomCoffeeComparison';
-import FunctionalBenefits from '../components/mushroom/FunctionalBenefits';
-import DreamCapEveningRitual from '../components/mushroom/DreamCapEveningRitual';
-import ProductReviewsCarousel from '../components/mushroom/ProductReviewsCarousel';
-import DiscountReminders from '../components/discounts/DiscountReminders';
-import ProductPageFAQ from '../components/mushroom/ProductPageFAQ';
-import { getShopifyCartUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
-import TorchbearerCrossSell from '../components/reserve/TorchbearerCrossSell';
-import ScarcityBadge from '../components/mushroom/ScarcityBadge';
+import RecentlyViewed, { addToRecentlyViewed } from '../components/products/RecentlyViewed';
+import GoneRedirect from '@/components/seo/GoneRedirect';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
-import RitualMembershipBlock from '../components/mushroom/RitualMembershipBlock';
-import ProductTestimonialFeed from '../components/mushroom/ProductTestimonialFeed';
-import IngredientResearch from '../components/mushroom/IngredientResearch';
-import IngredientSpotlight from '../components/mushroom/IngredientSpotlight';
-import IngredientsAndBenefits from '../components/mushroom/IngredientsAndBenefits';
-import LearnMorePanel from '../components/content/LearnMorePanel';
-import ReviewSummaryBar from '../components/products/ReviewSummaryBar';
-import RecentlyViewed, { addToRecentlyViewed } from '../components/products/RecentlyViewed';
-import CoffeeOriginSection from '../components/coffee/CoffeeOriginSection';
-import FlavorExperienceSection from '../components/coffee/FlavorExperienceSection';
-import WhyFreezeDriedSection from '../components/coffee/WhyFreezeDriedSection';
-import WhyInstantRitualSection from '../components/coffee/WhyInstantRitualSection';
-import CoffeeTrustBar from '../components/coffee/CoffeeTrustBar';
-import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
-import ProductShippingConfidence from '@/components/cart/ProductShippingConfidence';
-import GoneRedirect from '@/components/seo/GoneRedirect';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
 
-const TRUST_BY_CATEGORY = {
-  'mushroom-coffee': [
-    { icon: Zap, label: 'Single-Origin PNG Arabica' },
-    { icon: ShieldCheck, label: "Lion's Mane + Chaga" },
-    { icon: Truck, label: 'Free Shipping $50+' },
-    { icon: Lock, label: '27 Servings — No Machine' },
-  ],
-  'classic-coffee': [
-    { icon: Zap, label: 'Single-Origin PNG Arabica' },
-    { icon: ShieldCheck, label: 'Freeze-Dried Premium Instant' },
-    { icon: Truck, label: 'Free Shipping $50+' },
-    { icon: Lock, label: '27 Servings — No Machine' },
-  ],
-  matcha: [
-    { icon: Zap, label: 'Instant — Just Add Water' },
-    { icon: ShieldCheck, label: 'Ceremonial Grade Matcha' },
-    { icon: Truck, label: 'Free Shipping $50+' },
-    { icon: Lock, label: 'Secure Checkout' },
-  ],
+const THEME = {
+  page: '#F7F1E7',
+  cream: '#FBF8F1',
+  card: '#FFFDF8',
+  text: '#292622',
+  secondary: '#5F574F',
+  border: '#E4D8C9',
+  clay: '#B7653E',
+  moss: '#566047',
 };
 
 const DEPRECATED_PRODUCT_REDIRECTS = {
@@ -79,139 +41,107 @@ const DEPRECATED_PRODUCT_REDIRECTS = {
 
 const DISCONTINUED_PRODUCT_PATTERN = /(american|patriot|shirt|long-sleeve|tee|hoodie|apparel|liberty|freedom)/i;
 
-const ACCORDIONS = [
-  {
-    title: 'Ingredients & Details',
-    content: 'Premium instant coffee, organic Lion\'s Mane mushroom extract, organic Chaga mushroom extract. Net weight: 1.9 oz / 54g. 27 servings per tube. No artificial colors, flavors, or preservatives.',
-  },
-  {
-    title: 'How to Use',
-    content: 'Add one scoop (approximately 2g) to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. Enjoy immediately. For iced: dissolve in 2–3 oz hot water first, then pour over ice.',
-  },
-  {
-    title: 'Why Our Mushrooms',
-    content: 'We source organic Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) — two of the most studied functional mushrooms in wellness traditions. Lion\'s Mane has been used for centuries in Eastern practices for cognitive support. Chaga, called the "King of Mushrooms," is prized for daily resilience. Every Torch Republic blend pairs these with premium instant coffee for a ritual built on intention, not just caffeine.',
-  },
-  {
-    title: 'Why Instant Coffee',
-    content: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea — 100% Arabica, grown in rich volcanic soil. It is brewed first as specialty coffee, then freeze-dried to preserve the natural flavor compounds, aroma, and freshness. The result highlights notes of dark chocolate, toasted almond, and sweet toffee with a smooth, aromatic finish. No pod waste, no machine, no cleanup. A daily ritual should lower barriers, not add them.',
-  },
-  {
-    title: 'Shipping & Returns',
-    content: 'Ships fast from Texas within 1–3 business days. Free standard shipping on orders over $50. 30-day satisfaction guarantee — if you\'re not happy, reach out and we\'ll make it right.',
-  },
+const TRUST = [
+  { icon: Truck, label: 'Free shipping over $50' },
+  { icon: RotateCcw, label: '30-day satisfaction guarantee' },
+  { icon: ShieldCheck, label: 'Secure checkout' },
 ];
 
-const HOME_THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#D9CDBA',
-  clay: '#B7653E',
-  moss: '#566047',
-};
-
-function Accordion({ title, content }) {
-  const [open, setOpen] = useState(false);
+function Accordion({ title, children, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <div style={{ borderBottom: `1px solid ${HOME_THEME.border}` }}>
+    <div style={{ borderBottom: `1px solid ${THEME.border}` }}>
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:opacity-80"
-        style={{ color: open ? HOME_THEME.text : HOME_THEME.secondary, background: 'none', border: 'none' }}
+        className="w-full flex items-center justify-between py-5 text-left"
+        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+        aria-expanded={open}
       >
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase">{title}</span>
-        <span className="font-mono text-lg" style={{ color: HOME_THEME.clay }}>{open ? '−' : '+'}</span>
+        <span className="font-serif font-bold" style={{ fontSize: '1rem', color: THEME.text }}>{title}</span>
+        <span className="font-mono text-xl" style={{ color: THEME.clay, minWidth: 20, textAlign: 'center' }}>{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="pb-5"
-        >
-          <p className="font-heading text-sm leading-relaxed" style={{ color: HOME_THEME.secondary, fontWeight: 300 }}>
-            {content}
-          </p>
+        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pb-6">
+          <div className="font-heading text-sm" style={{ color: THEME.secondary, lineHeight: 1.8 }}>
+            {children}
+          </div>
         </motion.div>
       )}
     </div>
   );
 }
 
-function GalleryCarousel({ images, accent, productName }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const next = () => setCurrentIndex((prev) => (prev + 1) % images.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+function Gallery({ product, alt }) {
+  const images = (product.galleryImages && product.galleryImages.length > 0 ? product.galleryImages : [getProductImage(product)]);
+  const [active, setActive] = useState(0);
+  const hasMultiple = images.length > 1;
 
   return (
-    <div className="mt-6">
-      <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3"
-        style={{ color: HOME_THEME.clay }}>Gallery</p>
-      <div className="relative" style={{ background: HOME_THEME.card, aspectRatio: '1/1', border: `1px solid ${HOME_THEME.border}`, overflow: 'hidden' }}>
-        <motion.img
-          key={currentIndex}
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.35 }}
-          src={images[currentIndex]}
-          alt={`${productName} gallery image ${currentIndex + 1}`}
-          className="w-full h-full object-contain p-6"
-          style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
-          onError={(e) => {
-            e.target.style.opacity = '0.5';
-          }}
+    <div>
+      {/* Main image — fixed aspect ratio prevents layout shift */}
+      <div
+        className="relative w-full overflow-hidden flex items-center justify-center"
+        style={{ aspectRatio: '1 / 1', background: THEME.cream, border: `1px solid ${THEME.border}`, borderRadius: 12 }}
+      >
+        <img
+          src={images[active]}
+          alt={hasMultiple ? `${alt} — view ${active + 1}` : alt}
+          width={800}
+          height={800}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          draggable={false}
+          className="w-full h-full"
+          style={{ objectFit: 'contain', padding: 20, WebkitUserDrag: 'none', userSelect: 'none' }}
+          onError={(e) => { e.currentTarget.src = '/torch-republic-logo-transparent.png'; }}
         />
-        
-        {/* Navigation arrows — only when multiple images exist */}
-        {images.length > 1 && (
-          <>
-            <button
-              onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:opacity-80"
-              style={{ width: 36, height: 36, borderRadius: '50%', background: HOME_THEME.cream, border: `1px solid ${HOME_THEME.border}` }}
-            >
-              <ChevronLeft className="w-4 h-4" style={{ color: accent }} />
-            </button>
-            <button
-              onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all hover:opacity-80"
-              style={{ width: 36, height: 36, borderRadius: '50%', background: HOME_THEME.cream, border: `1px solid ${HOME_THEME.border}` }}
-            >
-              <ChevronRight className="w-4 h-4" style={{ color: accent }} />
-            </button>
-
-            {/* Dots indicator */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className="transition-all"
-                  style={{
-                    width: idx === currentIndex ? 24 : 8,
-                    height: 8,
-                    borderRadius: 4,
-                    background: idx === currentIndex ? accent : `${accent}40`,
-                  }}
-                />
-              ))}
-            </div>
-          </>
-        )}
       </div>
+
+      {/* Thumbnails */}
+      {hasMultiple && (
+        <div className="grid grid-cols-4 gap-3 mt-3">
+          {images.slice(0, 4).map((img, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className="overflow-hidden flex items-center justify-center"
+              style={{
+                aspectRatio: '1 / 1', background: THEME.cream,
+                border: `1px solid ${i === active ? THEME.clay : THEME.border}`,
+                borderRadius: 8, cursor: 'pointer',
+              }}
+              aria-label={`View image ${i + 1}`}
+            >
+              <img src={img} alt="" loading="lazy" draggable={false}
+                className="w-full h-full" style={{ objectFit: 'contain', padding: 6 }} />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SummaryCard({ label, children }) {
+  return (
+    <div className="card-torch p-5">
+      <p className="eyebrow mb-2" style={{ color: THEME.clay }}>{label}</p>
+      <div className="font-heading text-sm" style={{ color: THEME.secondary, lineHeight: 1.75 }}>{children}</div>
     </div>
   );
 }
 
 function BlendDetailInner({ product }) {
-  const { addItem, subtotal } = useCart();
+  const { addItem } = useCart();
   const [qty, setQty] = useState(1);
   const [isSubscription, setIsSubscription] = useState(false);
-  const subscriptionPrice = product.price * 0.8; // 20% off
+  const [justAdded, setJustAdded] = useState(false);
+  const [cartError, setCartError] = useState(null);
+
+  const subscriptionPrice = product.price * 0.8;
+  const unitPrice = isSubscription ? subscriptionPrice : product.price;
+  const servings = product.servings || (product.category === 'matcha' ? 25 : 27);
 
   const categoryLabel = product.category === 'matcha'
     ? 'Ceremonial Matcha'
@@ -219,36 +149,41 @@ function BlendDetailInner({ product }) {
     ? 'Premium Instant Coffee'
     : 'Instant Mushroom Coffee';
 
-  const approvedImage = getProductImage(product);
-  const isApprovedLightProduct = approvedImage === 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747' || approvedImage === 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988';
+  const alt = product.alt || `${product.name} ${categoryLabel} by Torch Republic`;
+  const inStock = product.inStock !== false;
+  const formatLabel = product.category === 'matcha' ? `${servings} servings · Tin` : `${servings} servings · Tube`;
 
-  const seoDesc = product.category === 'matcha'
-    ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Ceremonial grade matcha for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
+  const ingredientsText = product.category === 'matcha'
+    ? '100% ceremonial grade matcha. No artificial colors, flavors, or preservatives.'
     : product.category === 'classic-coffee'
-    ? `${product.name} — ${product.tasteDescription} ${product.servings} servings. Premium instant coffee for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`
-    : `${product.name} — ${product.tasteDescription} ${product.servings} servings. Instant mushroom coffee with Lion's Mane + Chaga for ${product.bestFor}. Torch Republic Coffee Company.`;
+    ? '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.'
+    : "Premium instant coffee, organic Lion's Mane mushroom extract, organic Chaga mushroom extract. No artificial colors, flavors, or preservatives.";
 
-  // Build FAQ schema for product page
+  const prepText = 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
+
+  const shippingText = 'Ships from Texas within 1–3 business days. Free standard shipping on orders over $50. 30-day satisfaction guarantee — if you’re not happy, reach out and we’ll make it right.';
+
   const productFAQs = [
-    { question: `What does ${product.name} taste like?`, answer: product.tasteDescription },
-    { question: 'How do I prepare this blend?', answer: 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.' },
+    { question: `What does ${product.name} taste like?`, answer: product.tasteDescription || product.description },
+    { question: 'How do I prepare this blend?', answer: prepText },
     { question: 'Is this product instant?', answer: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
-    { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains naturally occurring caffeine.' : 'Yes, all blends contain caffeine from the premium instant coffee base.' },
-    { question: 'How many servings are included?', answer: `${product.servings || (product.category === 'matcha' ? 25 : 27)} servings per ${product.category === 'matcha' ? 'tin' : 'tube'}.` },
-    { question: 'Can I drink it daily?', answer: 'Yes, Torch Republic blends are designed for daily ritual use. Follow product directions and consult a healthcare professional if pregnant, nursing, or managing a medical condition.' },
+    { question: 'How many servings are included?', answer: `${servings} servings per ${product.category === 'matcha' ? 'tin' : 'tube'}.` },
+    { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains naturally occurring caffeine.' : 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
+
+  const seoDesc = `${product.name} — ${product.tasteDescription || product.description} ${servings} servings. ${categoryLabel} for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`;
 
   useSEO({
     title: `${product.name} | ${categoryLabel} | Torch Republic Coffee Company`,
     description: seoDesc.slice(0, 160),
     url: `/products/${product.slug}`,
     type: 'product',
-    image: approvedImage,
+    image: getProductImage(product),
     product: {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: approvedImage,
+      image: getProductImage(product),
       sku: product.shopifyHandle || product.slug,
     },
     breadcrumbs: [
@@ -260,700 +195,293 @@ function BlendDetailInner({ product }) {
     faq: productFAQs,
   });
 
-  // Remove hardcoded schema - useSEO hook handles it with real review data
-
-  // Note: product is guaranteed non-null here (checked by parent)
-
-  const related = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS].filter(p => p.id !== product.id && p.category === product.category).slice(0, 3)
-    .concat([...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS].filter(p => p.id !== product.id && p.category !== product.category).slice(0, Math.max(0, 3 - [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS].filter(p => p.id !== product.id && p.category === product.category).slice(0, 3).length)))
-    .slice(0, 3);
-
-  const shopifyUrl = getShopifyCartUrl(product.slug, qty);
-  const checkoutDest = shopifyUrl || SHOPIFY_CART_URL;
+  const allCatalog = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
+  const sameCategory = allCatalog.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
+  const otherCategory = allCatalog.filter(p => p.id !== product.id && p.category !== product.category).slice(0, 3 - sameCategory.length);
+  const related = [...sameCategory, ...otherCategory].slice(0, 3);
 
   const handleAddToCart = (ctaLocation = 'product_primary_add_to_cart') => {
-    // Track add to cart — deduplication-safe via analyticsEvents
-    trackAddToCart({
-      productId: product.slug,
-      productName: product.name,
-      category: product.category,
-      price: isSubscription ? subscriptionPrice : product.price,
-      quantity: qty,
-      isSubscription,
-      ctaLocation,
-    });
-    // Add to local cart instead of redirecting to Shopify
-    addItem({
-      id: product.id || product.slug,
-      name: product.name,
-      price: isSubscription ? subscriptionPrice : product.price,
-      image: approvedImage,
-      category: product.category,
-      servings: product.servings,
-      shopifyHandle: product.shopifyHandle,
-      isSubscription: isSubscription,
-    }, qty);
+    if (!inStock) return;
+    setCartError(null);
+    try {
+      trackAddToCart({
+        productId: product.slug,
+        productName: product.name,
+        category: product.category,
+        price: unitPrice,
+        quantity: qty,
+        isSubscription,
+        ctaLocation,
+      });
+      addItem({
+        id: product.id || product.slug,
+        name: product.name,
+        price: unitPrice,
+        image: getProductImage(product),
+        category: product.category,
+        servings,
+        shopifyHandle: product.shopifyHandle,
+        isSubscription,
+      }, qty);
+      setJustAdded(true);
+      setTimeout(() => setJustAdded(false), 2500);
+    } catch (e) {
+      setCartError('We couldn’t add this to your cart. Please try again.');
+    }
   };
 
-  // Track recently viewed
+  React.useEffect(() => { addToRecentlyViewed(product); }, [product.slug]);
   React.useEffect(() => {
-    addToRecentlyViewed(product);
-  }, [product.slug]);
-
-  // Track product view — fires once per product slug per page load
-  React.useEffect(() => {
-    trackViewItem({
-      productId: product.slug,
-      productName: product.name,
-      price: product.price,
-      category: product.category || 'mushroom-coffee',
-    });
+    trackViewItem({ productId: product.slug, productName: product.name, price: product.price, category: product.category || 'mushroom-coffee' });
   }, [product.slug]);
 
   return (
-    <div style={{ backgroundColor: HOME_THEME.page, color: HOME_THEME.text, minHeight: '100vh' }}>
+    <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh', paddingBottom: '7rem' }} className="lg:pb-0">
       {/* Breadcrumb */}
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-8 pb-2">
-        <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase"
-          style={{ color: HOME_THEME.secondary }}>
-          <Link to="/" className="transition-colors hover:opacity-80">Home</Link>
-          <span>›</span>
-          <Link to="/shop" className="transition-colors hover:opacity-80">Shop</Link>
-          <span>›</span>
-          <Link to="/blends" className="transition-colors hover:opacity-80">The Blends</Link>
-          <span>›</span>
-          <span style={{ color: HOME_THEME.clay }}>{product.name}</span>
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-7 pb-2">
+        <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: THEME.secondary }}>
+          <Link to="/" className="hover:opacity-70">Home</Link>
+          <ChevronRight size={11} />
+          <Link to="/shop" className="hover:opacity-70">Shop</Link>
+          <ChevronRight size={11} />
+          <Link to={product.category === 'matcha' ? '/shop/matcha' : product.category === 'classic-coffee' ? '/shop/instant-coffee' : '/shop/instant-mushroom-coffee'} className="hover:opacity-70">{categoryLabel}</Link>
+          <ChevronRight size={11} />
+          <span style={{ color: THEME.clay }}>{product.name}</span>
         </nav>
       </div>
 
-      {/* Product section */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-
-          {/* LEFT: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.75 }}
-            className="lg:sticky lg:top-24"
-          >
-            <div className="relative flex items-center justify-center"
-              style={{ background: HOME_THEME.card, aspectRatio: '1/1', border: `1px solid ${HOME_THEME.border}` }}>
-              <div className="absolute inset-0 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${product.accent}10 0%, transparent 70%)` }} />
-              {product.imagePlaceholder || !product.image ? (
-                <div className="flex flex-col items-center justify-center gap-4 p-12">
-                  <div className="w-24 h-24 rounded-full border-2 border-dashed"
-                    style={{ borderColor: `${product.accent}35` }} />
-                  <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-                    style={{ color: `${product.accent}50` }}>Product image coming soon</p>
-                </div>
-              ) : (
-                <img
-                  src={approvedImage}
-                  alt={product.alt || `${product.name} - ${product.roast} ${product.category === 'matcha' ? 'ceremonial matcha' : product.category === 'classic-coffee' ? 'premium instant coffee' : 'instant mushroom coffee'} - Torch Republic Coffee Company`}
-                  className="w-full h-full object-contain p-8"
-                  style={{ filter: isApprovedLightProduct ? 'none' : 'drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    const placeholder = e.target.parentElement.querySelector('.product-image-error');
-                    if (placeholder) placeholder.style.display = 'flex';
-                  }}
-                />
-              )}
-              {/* Error placeholder */}
-              <div className="product-image-error hidden flex-col items-center justify-center gap-4 p-12 absolute inset-0"
-                style={{ background: HOME_THEME.card, display: (!product.image || product.imagePlaceholder) ? 'flex' : 'none' }}>
-                <div className="w-24 h-24 rounded-full border-2 border-dashed"
-                  style={{ borderColor: `${product.accent}35` }} />
-                <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center"
-                  style={{ color: `${product.accent}50` }}>Image loading...</p>
-              </div>
-            </div>
-
-            {/* Product specs grid below image on desktop */}
-            <div className="grid grid-cols-2 gap-2 mt-4">
-              {(product.category === 'matcha'
-                ? [['100% Ceremonial Matcha', 'Grade'], ['25 Servings', 'Per Tin'], ['Instant', 'Just Add Water'], ['No Machine', 'Needed']]
-                : product.category === 'classic-coffee'
-                ? [['Single-Origin PNG', 'Highland Arabica'], ['27 Servings', 'Per Tube'], ['Freeze-Dried', 'Premium Instant'], ['No Machine', 'Needed']]
-                : [['Single-Origin PNG', 'Highland Arabica'], ["Lion's Mane + Chaga", 'Mushroom Blend'], ['27 Servings', 'Per Tube'], ['Freeze-Dried', 'No Brewer Needed']]
-              ).map(([val, label]) => (
-                <div key={label} className="flex flex-col gap-1 p-3"
-                  style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-                  <p className="font-serif font-bold text-xs" style={{ color: HOME_THEME.text }}>{val}</p>
-                  <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: HOME_THEME.secondary }}>{label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Gallery carousel */}
-            {product.galleryImages && product.galleryImages.length > 0 && (
-              <GalleryCarousel images={isApprovedLightProduct ? [approvedImage] : product.galleryImages} accent={product.accent} productName={product.name} />
-            )}
+      {/* Main product section */}
+      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-8 md:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          {/* Gallery */}
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:sticky lg:top-24">
+            <Gallery product={product} alt={alt} />
           </motion.div>
 
-          {/* RIGHT: Purchase area */}
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.75, delay: 0.1 }}
-            className="flex flex-col gap-5"
-          >
-            {/* Badges */}
+          {/* Purchase panel */}
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="flex flex-col gap-6">
+            {/* Type + roast badges */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-2.5 py-1"
-                style={{ background: `${product.accent}18`, color: product.accent, border: `1px solid ${product.accent}30` }}>
-                {product.roast}
-              </span>
-                      <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2.5 py-1"
-                style={{ background: HOME_THEME.card, color: HOME_THEME.secondary, border: `1px solid ${HOME_THEME.border}` }}>
-                {product.category === 'matcha' ? 'Ceremonial Matcha' : product.category === 'classic-coffee' ? 'Premium Instant Coffee' : 'Instant Mushroom Coffee'}
-              </span>
+              <span className="badge-torch" style={{ background: `${THEME.clay}14`, color: THEME.clay, borderColor: `${THEME.clay}30` }}>{categoryLabel}</span>
+              <span className="badge-torch">{product.roast}</span>
             </div>
 
             {/* Title */}
-            <h1 className="font-serif font-bold"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: HOME_THEME.text, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
-              {product.name}
-            </h1>
-
-            {/* Mood */}
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: HOME_THEME.clay }}>
-              {product.mood}
-            </p>
-
-            {/* Star rating near title */}
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#C4A35A" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ))}
-              </div>
-              <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: HOME_THEME.clay }}>
-                4.9 · Verified Torchbearers
-              </span>
-            </div>
+            <h1 className="h1" style={{ fontSize: 'clamp(1.9rem, 3.4vw, 2.6rem)' }}>{product.name}</h1>
+            <p className="font-mono text-[9px] tracking-[0.22em] uppercase" style={{ color: THEME.clay }}>{product.mood}</p>
 
             {/* Share */}
-            <ShareButtons title={`${product.name} — Torch Republic Coffee`} url={`/blends/${product.slug}`} />
-
-            {/* Description */}
-            <p className="font-heading leading-relaxed"
-              style={{ fontSize: '0.93rem', color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.85 }}>
-              {product.description}
-            </p>
-
-            {/* Flavor notes */}
-            <div className="flex flex-wrap gap-2">
-              {product.flavorNotes.map(note => (
-                <span key={note} className="font-mono text-[8px] tracking-[0.25em] uppercase px-3 py-1.5"
-                  style={{ background: `${product.accent}08`, border: `1px solid ${product.accent}20`, color: `${product.accent}80` }}>
-                  {note}
-                </span>
-              ))}
-            </div>
-
-            {/* Why You'll Love This Coffee */}
-            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: HOME_THEME.clay }}>
-                Why You'll Love This Coffee
-              </p>
-              <ul className="space-y-3.5">
-                {(product.category === 'matcha' ? [
-                  { headline: 'A mindful matcha ritual', body: 'Ceremonial matcha contains naturally occurring caffeine and L-theanine, traditionally associated with mindful tea rituals.' },
-                  { headline: 'Ritual in 30 seconds', body: 'Ceremonial-grade matcha in instant format. Just add hot water or warm milk and stir.' },
-                  { headline: 'Gentle on the gut', body: 'Lower acidity than coffee, easier on your stomach while keeping you sharp.' },
-                  { headline: 'Premium grade, no fillers', body: '100% ceremonial matcha — no artificial flavors, no added sugar, nothing extra.' },
-                ] : product.category === 'classic-coffee' ? [
-                  { headline: 'Single-origin Papua New Guinea', body: 'Highland-grown 100% Arabica from rich volcanic soil — dark chocolate, toasted almond, and sweet toffee notes in every cup.' },
-                  { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried Arabica dissolves instantly in hot water, milk, or cold brew — no machine required.' },
-                  { headline: 'Smooth, clean flavor', body: 'Balanced acidity and a smooth, aromatic finish — no bitterness or artificial aftertaste.' },
-                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just carefully sourced single-origin specialty Arabica.' },
-                ] : [
-                  { headline: 'Single-origin Papua New Guinea', body: 'Highland-grown 100% Arabica from rich volcanic soil — dark chocolate and toasted almond notes paired with functional mushrooms.' },
-                  { headline: 'A balanced functional ritual', body: "Lion's Mane and Chaga add functional-beverage appeal to a coffee-forward daily ritual." },
-                  { headline: 'Ritual in 30 seconds', body: 'Premium freeze-dried instant coffee designed for busy mornings — just stir into hot water or your favorite milk.' },
-                  { headline: 'Premium ingredients, no junk', body: 'No artificial flavors, no added sugar, no fillers — just single-origin coffee and functional mushrooms.' },
-                ]).map(({ headline, body }) => (
-                  <li key={headline} className="flex items-start gap-3">
-                    <span style={{ color: product.accent, marginTop: '3px', flexShrink: 0, fontSize: '0.55rem' }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
-                      <strong style={{ color: HOME_THEME.text, fontWeight: 600 }}>{headline}</strong> — {body}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Functional promise — visible right before purchase */}
-            <div className="px-4 py-3 flex items-center gap-3"
-              style={{ background: HOME_THEME.card, borderLeft: `2px solid ${HOME_THEME.clay}` }}>
-              <span style={{ fontSize: '1.1rem' }}>
-                {product.category === 'matcha' ? '🍵' : product.category === 'classic-coffee' ? '☕' : '⚡'}
-              </span>
-              <p className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 400, lineHeight: 1.6 }}>
-                {product.category === 'matcha'
-                  ? 'A smooth ceremonial matcha ritual in 30 seconds — just whisk with hot water.'
-                  : product.category === 'classic-coffee'
-                  ? 'Premium single-origin taste in 30 seconds — no machine, no pods.'
-                  : `A smooth functional coffee ritual in 30 seconds — Lion's Mane + Chaga, just add hot water.`}
-              </p>
-            </div>
-
-            {/* Review Summary Bar — social proof above the price */}
-            <ReviewSummaryBar
-              rating={4.9}
-              count={127}
-              accent={product.accent}
-              snippet={
-                product.category === 'matcha'
-                  ? 'Smooth, calm, no jitters. This is my morning now.'
-                  : product.category === 'classic-coffee'
-                  ? 'Best instant coffee I\'ve ever had. Replaced my espresso machine.'
-                  : "Finally a mushroom coffee that actually tastes like coffee. I'm hooked."
-              }
-            />
+            <ShareButtons title={`${product.name} — Torch Republic Coffee`} url={`/products/${product.slug}`} />
 
             {/* Price */}
-            <div className="h-px w-full" style={{ background: `linear-gradient(90deg, ${HOME_THEME.border}, transparent)` }} />
             <div className="flex items-baseline gap-3 flex-wrap">
-              <span className="font-mono font-black" style={{ fontSize: '2.2rem', color: HOME_THEME.clay }}>
-                ${isSubscription ? (product.price * 0.8).toFixed(2) : product.price.toFixed(2)}
-              </span>
+              <span className="font-serif font-bold" style={{ fontSize: '2rem', color: THEME.text }}>${unitPrice.toFixed(2)}</span>
               {isSubscription && (
-                <span className="font-mono text-[9px] tracking-[0.2em] line-through" style={{ color: HOME_THEME.secondary }}>
-                  ${product.price.toFixed(2)}
-                </span>
+                <span className="font-mono text-sm line-through" style={{ color: THEME.secondary }}>${product.price.toFixed(2)}</span>
               )}
+              <span className="font-mono text-[9px] tracking-[0.15em] uppercase" style={{ color: THEME.secondary }}>
+                ${(unitPrice / servings).toFixed(2)} per {product.category === 'matcha' ? 'serving' : 'cup'}
+              </span>
             </div>
-            {/* Cost-per-serving callout */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>
-                <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: HOME_THEME.clay }}>
-                  {product.servings || (product.category === 'matcha' ? 25 : 27)} servings
-                </span>
-                <span style={{ color: 'rgba(230,183,173,0.2)' }}>·</span>
-                <span className="font-mono text-[9px] font-bold" style={{ color: HOME_THEME.clay }}>
-                  Only ${(isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27)) < 1
-                    ? ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
-                    : ((isSubscription ? (product.price * 0.8) : product.price) / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)
-                  } per {product.category === 'matcha' ? 'serving' : 'cup'}
-                </span>
-              </div>
-              {!isSubscription && (
-                <div className="flex items-center gap-2 px-3 py-2" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}>
-                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(16,185,129,0.7)' }}>Subscribe &amp; Save:</span>
-                  <span className="font-mono text-[9px] font-bold" style={{ color: '#10B981' }}>${(product.price * 0.8).toFixed(2)}</span>
-                </div>
-              )}
-            </div>
-            {isSubscription && (
-              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
-                Save ${(product.price * 0.2).toFixed(2)} with subscription
-              </p>
-            )}
 
-            {/* Top 3 benefits + reassurance — right before the button */}
+            {/* Format / size */}
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>Format:</span>
+              <span className="badge-torch" style={{ background: THEME.card, borderColor: THEME.clay + '55', color: THEME.text }}>{formatLabel}</span>
+            </div>
+
+            {/* Purchase type selector */}
             <div className="flex flex-col gap-2">
-              {(product.category === 'matcha'
-                ? ['Naturally occurring caffeine', 'L-Theanine from whole-leaf matcha', 'Ready in 30 seconds — just add hot water']
-                : product.category === 'classic-coffee'
-                ? ['Premium single-origin taste, no machine needed', 'Smooth, clean flavor — no artificial additives', 'Ready in 30 seconds — just add hot water']
-                : ['Lion\'s Mane + Chaga functional blend', 'No artificial flavors or fillers', 'Ready in 30 seconds — just add hot water']
-              ).map((b, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <span className="text-[10px]" style={{ color: '#10B981', flexShrink: 0 }}>✓</span>
-                  <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300 }}>{b}</span>
-                </div>
-              ))}
-              <p className="font-mono text-[8px] tracking-[0.15em] mt-1" style={{ color: HOME_THEME.clay }}>
-                Ships fast from Texas · Love it or we'll make it right — 30-day guarantee
-              </p>
-            </div>
-
-            {/* Free shipping progress bar */}
-            <CartFreeShippingBar subtotal={subtotal} />
-
-            {/* Qty + Add to Cart */}
-            <div className="flex flex-col gap-3">
-              {/* Subscribe & Save Toggle */}
-              <div className="mb-4 p-5" style={{ background: HOME_THEME.card, border: isSubscription ? `2px solid ${HOME_THEME.clay}` : `1px solid ${HOME_THEME.border}`, borderRadius: '4px', transition: 'all 0.3s ease' }}>
-                <div className="flex items-center justify-between mb-4">
+              <button
+                onClick={() => setIsSubscription(true)}
+                className="text-left p-4 transition-all"
+                style={{
+                  background: isSubscription ? THEME.card : 'transparent',
+                  border: `1.5px solid ${isSubscription ? THEME.clay : THEME.border}`,
+                  borderRadius: 10, cursor: 'pointer',
+                }}
+              >
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      id="subscribe-toggle"
-                      checked={isSubscription}
-                      onChange={() => setIsSubscription(!isSubscription)}
-                      className="w-5 h-5 rounded"
-                      style={{ accentColor: '#E6B7AD' }}
-                    />
-                    <label htmlFor="subscribe-toggle" className="cursor-pointer">
-                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold block" style={{ color: HOME_THEME.clay }}>
-                        Subscribe &amp; Save 20%
-                      </span>
-                      <span className="font-mono text-[8px] tracking-[0.15em]" style={{ color: HOME_THEME.clay }}>
-                        Pause or cancel anytime in 2 clicks
-                      </span>
-                    </label>
-                  </div>
-                  <div className="text-right">
-                    <span className="font-mono text-[9px] tracking-[0.2em] line-through block" style={{ color: HOME_THEME.secondary }}>
-                      ${product.price.toFixed(2)}
+                    <span className="flex items-center justify-center" style={{ width: 18, height: 18, borderRadius: '50%', border: `1.5px solid ${THEME.clay}` }}>
+                      {isSubscription && <span style={{ width: 9, height: 9, borderRadius: '50%', background: THEME.clay }} />}
                     </span>
-                    <span className="font-mono text-[11px] tracking-[0.2em]" style={{ color: '#10B981', fontWeight: 700 }}>
-                      ${(product.price * 0.8).toFixed(2)} /mo
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Membership Benefits */}
-                <div className="grid grid-cols-2 gap-2 mb-3">
-                  {[
-                    { icon: '🔥', text: '20% off every order' },
-                    { icon: '📦', text: 'Free shipping on all orders' },
-                    { icon: '⚡', text: 'Priority customer support' },
-                    { icon: '🎁', text: 'Exclusive member perks' },
-                  ].map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-2 p-2" style={{ background: HOME_THEME.cream, borderRadius: '2px' }}>
-                      <span className="text-sm">{benefit.icon}</span>
-                      <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(230,183,173,0.7)' }}>{benefit.text}</span>
+                    <div>
+                      <p className="font-heading font-bold text-sm" style={{ color: THEME.text }}>Subscribe &amp; Save 20%</p>
+                      <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Pause or cancel anytime</p>
                     </div>
-                  ))}
+                  </div>
+                  <span className="font-mono text-sm font-bold" style={{ color: THEME.moss }}>${subscriptionPrice.toFixed(2)}</span>
                 </div>
-                
-                <p className="font-mono text-[7px] tracking-[0.2em] text-center" style={{ color: 'rgba(230,183,173,0.5)', lineHeight: 1.6, borderTop: '1px solid rgba(230,183,173,0.08)', paddingTop: '8px' }}>
-                  Cancel or pause anytime · No commitments
-                </p>
-              </div>
-
-              {/* Qty label */}
-              <p className="font-mono text-[8px] tracking-[0.3em] uppercase"
-                style={{ color: 'rgba(230,183,173,0.45)' }}>
-                {isSubscription ? 'Your subscription quantity:' : 'Stock your ritual — choose one tube or build your full set.'}
-              </p>
-
-              {/* Qty selector */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-0"
-                  style={{ border: `1px solid ${HOME_THEME.border}` }}>
-                  <button
-                    onClick={() => setQty(q => Math.max(1, q - 1))}
-                    className="flex items-center justify-center transition-colors hover:bg-white/5"
-                    style={{ width: 40, height: 40, color: HOME_THEME.text, borderRight: `1px solid ${HOME_THEME.border}` }}>
-                    <Minus className="w-3 h-3" />
-                  </button>
-                  <span className="font-mono text-sm w-12 text-center"
-                    style={{ color: HOME_THEME.text }}>{qty}</span>
-                  <button
-                    onClick={() => setQty(q => q + 1)}
-                    className="flex items-center justify-center transition-colors hover:bg-white/5"
-                    style={{ width: 40, height: 40, color: HOME_THEME.text, borderLeft: `1px solid ${HOME_THEME.border}` }}>
-                    <Plus className="w-3 h-3" />
-                  </button>
-                </div>
-                <span className="font-mono text-[9px]" style={{ color: HOME_THEME.secondary }}>
-                  ${((isSubscription ? subscriptionPrice : product.price) * qty).toFixed(2)} total
-                  {isSubscription && <span className="text-green-500 ml-1">(save ${(product.price * 0.2 * qty).toFixed(2)})</span>}
-                </span>
-              </div>
-
-              {/* Subscribe & Save — Primary CTA */}
-              <button
-                onClick={() => { setIsSubscription(true); handleAddToCart('product_primary_add_to_cart_subscribe'); }}
-                className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
-                style={{ background: HOME_THEME.clay, color: HOME_THEME.cream }}>
-                Subscribe &amp; Save — Add to Cart
               </button>
 
-              {/* One-Time — Secondary CTA */}
               <button
-                onClick={() => { setIsSubscription(false); handleAddToCart('product_primary_add_to_cart_onetime'); }}
-                className="w-full font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80 py-4"
-                style={{ border: `1px solid ${HOME_THEME.clay}`, color: HOME_THEME.clay }}>
-                One-Time Purchase — Add to Cart
+                onClick={() => setIsSubscription(false)}
+                className="text-left p-4 transition-all"
+                style={{
+                  background: !isSubscription ? THEME.card : 'transparent',
+                  border: `1.5px solid ${!isSubscription ? THEME.clay : THEME.border}`,
+                  borderRadius: 10, cursor: 'pointer',
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center justify-center" style={{ width: 18, height: 18, borderRadius: '50%', border: `1.5px solid ${THEME.clay}` }}>
+                      {!isSubscription && <span style={{ width: 9, height: 9, borderRadius: '50%', background: THEME.clay }} />}
+                    </span>
+                    <div>
+                      <p className="font-heading font-bold text-sm" style={{ color: THEME.text }}>One-time purchase</p>
+                      <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Just this order</p>
+                    </div>
+                  </div>
+                  <span className="font-mono text-sm font-bold" style={{ color: THEME.text }}>${product.price.toFixed(2)}</span>
+                </div>
               </button>
-
-              {/* Reassurance line */}
-              <p className="font-mono text-[8px] tracking-[0.15em] text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.6 }}>
-                Fast shipping from Texas · Love your first bag or contact us and we'll make it right
-              </p>
-
-              {/* Shipping confidence icons */}
-              <ProductShippingConfidence />
-
-              {/* Discount reminders */}
-              <DiscountReminders cartSubtotal={product.price * qty} compact />
-
-              {/* Scarcity / social proof */}
-              <ScarcityBadge productSlug={product.slug} />
             </div>
 
-            {/* Trust badges */}
-            <div className="grid grid-cols-2 gap-2">
-              {(TRUST_BY_CATEGORY[product.category] || TRUST_BY_CATEGORY['mushroom-coffee']).map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2 px-3 py-2.5"
-                  style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-                  <Icon className="w-3 h-3 flex-shrink-0" style={{ color: HOME_THEME.clay }} />
-                  <span className="font-mono text-[8px] uppercase tracking-wide" style={{ color: HOME_THEME.secondary }}>{label}</span>
+            {/* Quantity */}
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>Quantity</span>
+              <div className="flex items-center" style={{ border: `1px solid ${THEME.border}`, borderRadius: 8, overflow: 'hidden' }}>
+                <button onClick={() => setQty(q => Math.max(1, q - 1))} className="flex items-center justify-center" style={{ width: 44, height: 44, color: THEME.text, background: 'none', border: 'none', cursor: 'pointer' }} aria-label="Decrease quantity"><Minus size={14} /></button>
+                <span className="font-mono text-base w-12 text-center" style={{ color: THEME.text }}>{qty}</span>
+                <button onClick={() => setQty(q => q + 1)} className="flex items-center justify-center" style={{ width: 44, height: 44, color: THEME.text, background: 'none', border: 'none', cursor: 'pointer' }} aria-label="Increase quantity"><Plus size={14} /></button>
+              </div>
+              <span className="font-mono text-xs" style={{ color: THEME.secondary }}>${(unitPrice * qty).toFixed(2)} total</span>
+            </div>
+
+            {/* Add to cart + status */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => handleAddToCart(isSubscription ? 'product_primary_add_to_cart_subscribe' : 'product_primary_add_to_cart_onetime')}
+                disabled={!inStock}
+                className="btn btn-primary w-full"
+                style={inStock ? {} : { opacity: 0.5, cursor: 'not-allowed' }}
+              >
+                {justAdded ? <><Check size={16} /> Added to cart</> : <><ShoppingBag size={16} /> Add to Cart</>}
+              </button>
+              {!inStock && (
+                <p className="font-mono text-[9px] tracking-[0.12em] uppercase text-center" style={{ color: THEME.clay }}>
+                  Currently unavailable — check back soon
+                </p>
+              )}
+              {justAdded && (
+                <p className="font-heading text-sm text-center" style={{ color: THEME.moss }}>
+                  Added to your cart. <Link to="/cart" style={{ color: THEME.clay, textDecoration: 'underline' }}>View cart →</Link>
+                </p>
+              )}
+              {cartError && (
+                <p className="font-heading text-sm text-center" style={{ color: '#B23A2A' }}>{cartError}</p>
+              )}
+            </div>
+
+            {/* Reassurance row */}
+            <div className="flex flex-col gap-2 pt-1">
+              {TRUST.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <Icon size={14} style={{ color: THEME.clay, flexShrink: 0 }} />
+                  <span className="font-heading text-sm" style={{ color: THEME.secondary }}>{label}</span>
                 </div>
               ))}
             </div>
-
-            {/* Torchbearers Rewards Banner */}
-            <div className="my-5 p-4" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-              <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: HOME_THEME.cream }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={HOME_THEME.clay} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-mono text-[9px] tracking-[0.22em] uppercase font-bold" style={{ color: HOME_THEME.clay }}>
-                    Torchbearers Rewards
-                  </p>
-                  <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary }}>
-                    Earn points on this purchase
-                  </p>
-                </div>
-              </div>
-              <p className="font-mono text-[7.5px] tracking-[0.15em] text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.6 }}>
-                Join Torchbearers Rewards and earn points for every ritual. <a href="/torchbearers-rewards" style={{ color: HOME_THEME.clay, textDecoration: 'none' }}>Learn more →</a>
-              </p>
-            </div>
-
-            {/* Ritual Membership Benefits Block */}
-            <RitualMembershipBlock />
-
-            {/* What's Inside (and Why) */}
-            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: 'rgba(16,185,129,0.7)' }}>
-                What's Inside (and Why)
-              </p>
-              <p className="font-heading text-sm mb-4" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.7 }}>
-                {product.category === 'matcha'
-                  ? 'Built for modern torchbearers who want a smooth, convenient addition to an intentional morning or afternoon ritual.'
-                  : product.category === 'classic-coffee'
-                  ? 'Built for torchbearers who want specialty coffee taste in the simplest possible format — no compromises, no machines.'
-                  : "Built for thinkers, builders, and modern torchbearers who want a sharper mind without sacrificing the comfort of a great cup of coffee."}
-              </p>
-              <div className="space-y-3">
-                {(product.category === 'matcha' ? [
-                  { label: '100% Ceremonial Grade Matcha', detail: 'Whisked-quality matcha in instant format — no ceremony required.' },
-                  { label: 'Natural L-Theanine', detail: 'Naturally occurring in whole-leaf matcha; traditionally associated with mindful tea rituals.' },
-                  { label: '25 servings per tin', detail: 'No fillers, no artificial flavors, nothing added.' },
-                ] : product.category === 'classic-coffee' ? [
-                   { label: 'Single-Origin Papua New Guinea Arabica', detail: 'Highland-grown in rich volcanic soil. Dark chocolate, toasted almond, and toffee notes with a smooth, aromatic finish.' },
-                   { label: 'Freeze-Dried Premium Instant', detail: 'Brewed as specialty coffee, then freeze-dried to preserve natural flavor compounds. 27 servings per tube.' },
-                   { label: 'No pods, no machine', detail: 'Just add 8–10 oz hot water. That\'s it. No artificial colors, flavors, or preservatives.' },
-                 ] : [
-                   { label: 'Single-Origin Papua New Guinea Arabica', detail: 'Highland-grown 100% Arabica with dark chocolate and toasted almond notes, freeze-dried to preserve flavor.' },
-                  { label: "Lion's Mane mushroom extract", detail: <>Known for supporting focus and mental clarity. <Link to="/journal/science-of-lions-mane" style={{ color: '#10B981', textDecoration: 'none' }}>Our research hub breaks down the science →</Link></> },
-                  { label: 'Chaga mushroom extract', detail: 'Antioxidant support to help your ritual do more than just wake you up.' },
-                  { label: '27 servings per tube', detail: 'No artificial colors, flavors, or preservatives.' },
-                ]).map(({ label, detail }) => (
-                  <div key={label} className="flex items-start gap-2">
-                    <span style={{ color: '#10B981', fontSize: '0.55rem', marginTop: '4px', flexShrink: 0 }}>◆</span>
-                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
-                      <strong style={{ color: HOME_THEME.text }}>{label}</strong> — {detail}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* How to Use */}
-            <div className="p-5" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-              <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: HOME_THEME.clay }}>
-                How to Use It
-              </p>
-              <ol className="space-y-3 mb-4">
-                {[
-                  'Scoop 1 serving into your mug.',
-                  `Add 8–10 oz of hot water (or warm milk) and stir until dissolved.`,
-                  'Sip and settle into your focus ritual.',
-                ].map((step, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="font-mono text-[10px] font-bold flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full" style={{ background: HOME_THEME.cream, color: HOME_THEME.clay, marginTop: '1px' }}>{i + 1}</span>
-                    <span className="font-heading text-sm" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>{step}</span>
-                  </li>
-                ))}
-              </ol>
-              <div className="pt-3 space-y-1.5" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
-                <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
-                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>For iced:</strong> Dissolve in a splash of hot water first, then pour over ice and cold water or milk.
-                </p>
-                <p className="font-heading text-xs" style={{ color: HOME_THEME.secondary, fontWeight: 300, lineHeight: 1.6 }}>
-                  <strong style={{ color: 'rgba(247,241,232,0.65)' }}>Tip:</strong> Drink consistently as part of a balanced daily routine.
-                </p>
-              </div>
-            </div>
-
-            {/* Guarantee + Shipping strip */}
-            <div className="grid grid-cols-2 gap-2">
-              <div className="p-3 text-center" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: HOME_THEME.clay }}>30-Day Guarantee</p>
-                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>Not satisfied? Full refund, no questions asked.</p>
-              </div>
-              <div className="p-3 text-center" style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}` }}>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: HOME_THEME.clay }}>Free Shipping</p>
-                <p className="font-heading text-[11px]" style={{ color: 'rgba(247,241,232,0.45)', fontWeight: 300 }}>On orders over $50. Ships in 1–2 business days.</p>
-              </div>
-            </div>
-
-            {/* Accordions */}
-            <div className="mt-2" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
-              {ACCORDIONS.map(a => <Accordion key={a.title} {...a} />)}
-            </div>
-
-            {/* Subscription micro-copy */}
-            <p className="font-heading text-xs text-center" style={{ color: HOME_THEME.secondary, lineHeight: 1.7 }}>
-              Want the best deal?{' '}
-              <Link to="/subscription" style={{ color: HOME_THEME.clay, textDecoration: 'none' }}>
-                Learn how our subscription saves you 20% →
-              </Link>
-            </p>
-
-            {/* "Want to go deeper?" — learn more panel */}
-            {product.category === 'mushroom-coffee' && (
-              <LearnMorePanel category="mushroom-coffee" />
-            )}
-            {product.category === 'matcha' && (
-              <LearnMorePanel category="matcha" />
-            )}
-
-            {/* Product Reviews Carousel */}
-            <ProductReviewsCarousel productSlug={product.shopifyHandle} />
-
-            {/* FDA */}
-            <p className="font-mono text-[8px] tracking-[0.1em] leading-relaxed"
-              style={{ color: HOME_THEME.secondary }}>
-              Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-            </p>
-
-            {/* Torchbearer Cross-sell */}
-            <TorchbearerCrossSell />
           </motion.div>
         </div>
       </section>
 
-      {/* COFFEE ORIGIN & CRAFTSMANSHIP SECTIONS */}
-      <CoffeeTrustBar accent={product.accent} />
-      <CoffeeOriginSection accent={product.accent} />
-      <FlavorExperienceSection accent={product.accent} />
-      <WhyFreezeDriedSection accent={product.accent} />
-      <WhyInstantRitualSection accent={product.accent} />
-
-      {/* PREMIUM COFFEE EXPERIENCE SECTIONS */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        {/* Ingredients & Benefits */}
-        <IngredientsAndBenefits product={product} />
-
-        {/* Functional Benefits */}
-        <FunctionalBenefits product={product} />
-
-        {/* Ingredient Spotlight — premium ingredient education */}
-        <IngredientSpotlight product={product} />
-
-        {/* Ingredient Research — clinical studies */}
-        <IngredientResearch product={product} />
-
-        {/* Taste Profile */}
-        <TasteProfileCard product={product} />
-
-        {/* Blend Composition */}
-        <BlendCompositionCard product={product} />
-
-        {/* Origin & Craftsmanship */}
-        <OriginCraftsmanshipSection product={product} />
-
-        {/* Comparison */}
-        <MushroomCoffeeComparison productName={product.name} product={product} />
-
-        {/* DreamCap Evening Ritual Section (only for DreamCap) */}
-        {product.slug === 'dreamcap-blend' && <DreamCapEveningRitual />}
-
-        {/* Product Page FAQ */}
-        <ProductPageFAQ />
+      {/* Shopper summary */}
+      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-10">
+        <div className="mb-6">
+          <p className="eyebrow mb-2" style={{ color: THEME.clay }}>At a glance</p>
+          <h2 className="h2">{product.tagline ? product.tagline : 'A daily ritual, simplified'}</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <SummaryCard label="What it is">
+            {product.description}
+          </SummaryCard>
+          <SummaryCard label="Flavor profile">
+            <p>{product.tasteDescription}</p>
+            {product.flavorNotes && product.flavorNotes.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {product.flavorNotes.map(note => (
+                  <span key={note} className="badge-torch" style={{ background: `${product.accent}10`, color: product.accent, borderColor: `${product.accent}25` }}>{note}</span>
+                ))}
+              </div>
+            )}
+          </SummaryCard>
+          <SummaryCard label="How to prepare">
+            {prepText}
+          </SummaryCard>
+          <SummaryCard label="Who it’s for">
+            {product.bestFor}
+          </SummaryCard>
+        </div>
       </section>
 
-      {/* Subscribe & Save Banner */}
-      <SubscribeAndSave />
-
-      {/* Customer Testimonial Feed */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
-        <ProductTestimonialFeed
-          productHandle={product.shopifyHandle}
-          productName={product.name}
-          accent={product.accent}
-        />
+      {/* Information accordions */}
+      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
+        <div className="max-w-3xl">
+          <Accordion title="Ingredients & details" defaultOpen>
+            <p>{ingredientsText}</p>
+          </Accordion>
+          <Accordion title="How to prepare">
+            <p>{prepText}</p>
+          </Accordion>
+          <Accordion title="Shipping & returns">
+            <p>{shippingText}</p>
+          </Accordion>
+          <Accordion title="Frequently asked questions">
+            <div className="flex flex-col gap-5">
+              {productFAQs.map((f, i) => (
+                <div key={i}>
+                  <p className="font-heading font-bold text-sm mb-1" style={{ color: THEME.text }}>{f.question}</p>
+                  <p style={{ color: THEME.secondary }}>{f.answer}</p>
+                </div>
+              ))}
+            </div>
+          </Accordion>
+        </div>
       </section>
 
       {/* Related products */}
-      <section className="px-6 md:px-10 py-20" style={{ borderTop: `1px solid ${HOME_THEME.border}` }}>
-        <div className="max-w-[1100px] mx-auto">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-2"
-            style={{ color: HOME_THEME.clay }}>
-            Complete Your Ritual
-          </p>
-          <h2 className="font-serif text-center font-bold mb-10"
-            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: HOME_THEME.text }}>
-            You Might Also Like
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {related.map((p, i) => (
-              <MushroomProductCard key={p.id} product={p} index={i} />
-            ))}
+      {related.length > 0 && (
+        <section className="px-6 md:px-10 py-14" style={{ borderTop: `1px solid ${THEME.border}` }}>
+          <div className="max-w-[1100px] mx-auto">
+            <div className="text-center mb-8">
+              <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Complete your ritual</p>
+              <h2 className="h2">You might also like</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {related.map((p, i) => <MushroomProductCard key={p.id} product={p} index={i} />)}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Recently Viewed */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-16">
+      {/* Recently viewed */}
+      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pb-16">
         <RecentlyViewed currentSlug={product.slug} />
       </section>
 
-      {/* Desktop sticky CTA */}
-      <div className="hidden lg:block fixed right-6 bottom-8 z-40">
-        <div style={{ background: HOME_THEME.card, border: `1px solid ${HOME_THEME.border}`, padding: '16px 20px', minWidth: '200px', boxShadow: '0 8px 40px rgba(53,38,29,0.18)' }}>
-          <p className="font-serif font-bold text-sm mb-1 truncate" style={{ color: HOME_THEME.text }}>{product.name}</p>
-          <p className="font-mono text-xs mb-3" style={{ color: HOME_THEME.clay }}>${(product.price * qty).toFixed(2)}</p>
-          <button
-            onClick={() => handleAddToCart('product_sticky_desktop_cart')}
-            className="w-full font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
-            style={{ background: HOME_THEME.clay, color: HOME_THEME.cream }}>
-            Add to Cart
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile sticky bar */}
+      {/* Mobile sticky purchase bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
-        style={{ background: HOME_THEME.card, borderTop: `1px solid ${HOME_THEME.border}`, padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
+        style={{ background: THEME.card, borderTop: `1px solid ${THEME.border}`, padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))', boxShadow: '0 -8px 24px rgba(45,40,36,0.08)' }}>
         <div className="flex items-center gap-3">
           <div className="flex-1 min-w-0">
-            <p className="font-serif font-bold text-sm truncate" style={{ color: HOME_THEME.text }}>{product.name}</p>
-            <p className="font-mono text-[9px]" style={{ color: HOME_THEME.clay }}>${(product.price * qty).toFixed(2)}</p>
+            <p className="font-serif font-bold text-sm truncate" style={{ color: THEME.text }}>{product.name}</p>
+            <p className="font-mono text-[10px]" style={{ color: THEME.clay }}>${(unitPrice * qty).toFixed(2)}{isSubscription ? ' · Subscribe & Save' : ''}</p>
           </div>
-          <div className="flex items-center gap-0" style={{ border: '1px solid rgba(230,183,173,0.2)', flexShrink: 0 }}>
-            <button onClick={() => setQty(q => Math.max(1, q - 1))}
-              className="flex items-center justify-center" style={{ width: 32, height: 32, color: HOME_THEME.text }}>
-              <Minus className="w-3 h-3" />
-            </button>
-            <span className="font-mono text-sm w-8 text-center" style={{ color: HOME_THEME.text }}>{qty}</span>
-            <button onClick={() => setQty(q => q + 1)}
-              className="flex items-center justify-center" style={{ width: 32, height: 32, color: HOME_THEME.text }}>
-              <Plus className="w-3 h-3" />
-            </button>
+          <div className="flex items-center" style={{ border: `1px solid ${THEME.border}`, borderRadius: 8, overflow: 'hidden', flexShrink: 0 }}>
+            <button onClick={() => setQty(q => Math.max(1, q - 1))} className="flex items-center justify-center" style={{ width: 38, height: 42, color: THEME.text, background: 'none', border: 'none' }} aria-label="Decrease quantity"><Minus size={13} /></button>
+            <span className="font-mono text-sm w-9 text-center" style={{ color: THEME.text }}>{qty}</span>
+            <button onClick={() => setQty(q => q + 1)} className="flex items-center justify-center" style={{ width: 38, height: 42, color: THEME.text, background: 'none', border: 'none' }} aria-label="Increase quantity"><Plus size={13} /></button>
           </div>
           <button
             onClick={() => handleAddToCart('product_sticky_mobile_cart')}
-            className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold transition-all hover:opacity-90 px-5 py-3"
-            style={{ background: HOME_THEME.clay, color: HOME_THEME.cream, flexShrink: 0 }}>
-            Add to Cart
+            disabled={!inStock}
+            className="btn btn-primary"
+            style={{ flexShrink: 0, padding: '0.6rem 1.1rem' }}
+          >
+            {justAdded ? <Check size={16} /> : <ShoppingBag size={16} />}
           </button>
         </div>
       </div>
@@ -966,33 +494,28 @@ export default function BlendDetail() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch product with Shopify images on mount
   useEffect(() => {
     async function fetchProduct() {
       try {
         const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
         const localProduct = localProducts.find(p => p.slug === slug);
-        
+
         if (!localProduct) {
           console.error('Product not found in local catalog:', slug);
           setLoading(false);
           return;
         }
 
-        // Fetch ALL Shopify products to ensure we find the match
         const response = await base44.functions.invoke('fetchShopifyProducts', {});
-        
+
         if (response.data?.products) {
-          // Try multiple matching strategies
-          const shopifyProduct = response.data.products.find(p => 
-            p.handle === localProduct.shopifyHandle ||  // Primary: match by shopifyHandle
-            p.handle === localProduct.slug ||           // Fallback: match by slug
-            p.handle === localProduct.id                // Last resort: match by id
+          const shopifyProduct = response.data.products.find(p =>
+            p.handle === localProduct.shopifyHandle ||
+            p.handle === localProduct.slug ||
+            p.handle === localProduct.id
           );
-          
+
           if (shopifyProduct) {
-            console.log('✅ Found Shopify match for', localProduct.name, ':', shopifyProduct.handle);
-            // Merge Shopify data with local product
             setProduct(withApprovedProductImage({
               ...localProduct,
               image: shopifyProduct.featuredImage || shopifyProduct.images?.[0] || localProduct.image,
@@ -1001,32 +524,29 @@ export default function BlendDetail() {
               inStock: shopifyProduct.availableForSale,
             }));
           } else {
-            console.warn('⚠️ No Shopify match for', localProduct.name, '- using local data. Searched for:', localProduct.shopifyHandle, localProduct.slug, localProduct.id);
             setProduct(withApprovedProductImage(localProduct));
           }
         } else {
-          console.warn('⚠️ No Shopify products returned - using local data');
           setProduct(withApprovedProductImage(localProduct));
         }
       } catch (error) {
-        console.error('❌ Failed to fetch product from Shopify:', error);
-        // Fallback to local product
+        console.error('Failed to fetch product from Shopify:', error);
         const localProducts = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
         setProduct(withApprovedProductImage(localProducts.find(p => p.slug === slug)));
       } finally {
         setLoading(false);
       }
     }
-    
+
     fetchProduct();
   }, [slug]);
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: HOME_THEME.page }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: THEME.page }}>
         <div className="text-center">
-          <div className="w-10 h-10 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: HOME_THEME.clay }}>Loading...</p>
+          <div className="w-10 h-10 border-2 rounded-full animate-spin mx-auto mb-4" style={{ borderColor: THEME.clay, borderTopColor: 'transparent' }} />
+          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: THEME.clay }}>Loading...</p>
         </div>
       </div>
     );
@@ -1037,11 +557,9 @@ export default function BlendDetail() {
     if (redirectTo) return <Navigate to={redirectTo} replace />;
     if (DISCONTINUED_PRODUCT_PATTERN.test(slug)) return <GoneRedirect />;
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-6"
-        style={{ background: '#FBF8F2', color: '#2D2824' }}>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6" style={{ background: THEME.page, color: THEME.text }}>
         <p className="font-serif text-2xl">Product not found.</p>
-        <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase"
-          style={{ color: '#B86543' }}>← Back to Shop</Link>
+        <Link to="/shop" className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: THEME.clay }}>← Back to Shop</Link>
       </div>
     );
   }
