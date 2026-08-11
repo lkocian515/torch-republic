@@ -16,6 +16,8 @@ import FlavorExperienceSection from '@/components/coffee/FlavorExperienceSection
 import WhyFreezeDriedSection from '@/components/coffee/WhyFreezeDriedSection';
 import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection';
 import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
+import SelectionAid from '@/components/collection/SelectionAid';
+import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 
 const GOLD = '#B7653E';
 const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7b261dff1_classic_coffee_category.png';
@@ -158,6 +160,20 @@ export default function ClassicCoffeeCollection() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Selection aid + cross-link */}
+      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>
+        <SelectionAid
+          accent={GOLD}
+          items={[
+            { if: 'you want a bold, everyday single-origin cup', pick: 'Torchbearer', to: '/products/torchbearer' },
+            { if: 'you want a smooth, light-roast cup', pick: 'Ember Reserve', to: '/products/ember-reserve' },
+          ]}
+        />
+        <div className="mt-8">
+          <CollectionCrossLink to="/subscription" label="Subscribe & Save 20%" sub="Keep your daily ritual stocked — skip or cancel anytime." accent={GOLD} />
         </div>
       </section>
 

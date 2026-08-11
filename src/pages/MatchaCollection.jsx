@@ -11,6 +11,8 @@ import { base44 } from '@/api/base44Client';
 import CategorySEO from '@/components/seo/CategorySEO';
 import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
 import FAQSchema from '@/components/seo/FAQSchema';
+import SelectionAid from '@/components/collection/SelectionAid';
+import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 
 const MATCHA_GREEN = '#566047';
 const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bd822ced2_matcha_category.png';
@@ -188,6 +190,20 @@ export default function MatchaCollection() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Selection aid + cross-link */}
+      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>
+        <SelectionAid
+          accent={MATCHA_GREEN}
+          items={[
+            { if: 'you want matcha for lattes and iced drinks', pick: 'The Alchemist', to: '/products/the-alchemist-matcha-blend' },
+            { if: 'you want a simple, traditional matcha ritual', pick: 'The Monk', to: '/products/the-monk-matcha-blend' },
+          ]}
+        />
+        <div className="mt-8">
+          <CollectionCrossLink to="/ingredients/ceremonial-matcha" label="Learn about ceremonial matcha" sub="What makes ceremonial grade different — and how to prepare it." accent={MATCHA_GREEN} />
         </div>
       </section>
 

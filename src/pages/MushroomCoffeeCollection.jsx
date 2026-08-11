@@ -203,40 +203,10 @@ export default function MushroomCoffeeCollection() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product, i) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <Link to={`/products/${product.slug}`} className="block group" style={{ background: '#FFFDF8', border: `1px solid ${product.accent}20`, borderRadius: '6px', overflow: 'hidden', textDecoration: 'none' }}>
-                  <div className="aspect-[4/5] relative overflow-hidden flex items-center justify-center" style={{ background: '#F8F5EF' }}>
-                    <img 
-                      src={getProductImage(product)} 
-                      alt={getProductAltText(product)} 
-                      className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        // Show placeholder if image fails
-                        e.target.style.display = 'none';
-                        const placeholder = e.target.parentElement.querySelector('.image-placeholder');
-                        if (placeholder) placeholder.style.display = 'flex';
-                      }}
-                    />
-                    <div className="image-placeholder hidden flex-col items-center justify-center w-full h-full" style={{ background: '#F7F1E7' }}>
-                      <div className="w-16 h-16 rounded-full border border-dashed" style={{ borderColor: `${product.accent}40` }} />
-                      <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-center" style={{ color: `${product.accent}50` }}>Image unavailable</p>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-serif font-bold  mb-1" style={{ fontSize: '1.2rem' }}>{product.name}</h3>
-                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: product.accent }}>{product.tagline}</p>
-                    <p className="font-heading text-xs mb-4" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.7 }}>{product.description}</p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-1" style={{ color: '#5F574F' }}>27 Servings</p>
-                        <p className="font-serif font-bold" style={{ fontSize: '1.3rem', color: product.accent }}>${product.price}</p>
-                      </div>
-                      <span className="font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all group-hover:translate-x-1" style={{ color: RG }}>View Blend →</span>
-                    </div>
-                  </div>
-                </Link>
+                <MushroomProductCard product={product} index={i} />
               </motion.div>
             ))}
           </div>
