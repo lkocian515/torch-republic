@@ -59,7 +59,7 @@ export default function PortfolioCaseStudy() {
   return (
     <div style={{ background: CREAM, color: INK, minHeight: '100vh' }}>
       {/* Logo header — black band matching the brand mark */}
-      <header style={{ background: '#000000', borderBottom: `1px solid ${RULE}` }}>
+      <header style={{ background: CREAM, borderBottom: `1px solid ${RULE}` }}>
         <div className="mx-auto max-w-[760px] px-5 md:px-8 py-8 md:py-12 flex flex-col items-center gap-6">
           <img
             src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/93b387998_back.png"
@@ -76,7 +76,7 @@ export default function PortfolioCaseStudy() {
             style={{
               fontFamily: 'var(--font-heading)',
               fontSize: '0.8125rem',
-              color: CREAM,
+              color: INK,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.3rem',
@@ -84,7 +84,7 @@ export default function PortfolioCaseStudy() {
               minHeight: 40,
               padding: '0.25rem 0.75rem',
               borderRadius: '999px',
-              border: '1px solid rgba(251,248,242,0.25)',
+              border: `1px solid ${RULE}`,
             }}
           >
             <ArrowLeft style={{ width: 14, height: 14 }} /> Back to site
