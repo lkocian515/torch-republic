@@ -69,7 +69,7 @@ export default function PortfolioCaseStudy() {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            style={{ width: 'min(92vw, 440px)', height: 'auto', display: 'block', maxWidth: '100%' }}
+            style={{ width: 'min(94vw, 560px)', height: 'auto', display: 'block', maxWidth: '100%' }}
           />
           <Link
             to="/"
