@@ -84,7 +84,7 @@ export default function UnifiedHeader() {
             <Menu className="h-6 w-6" />
           </button>
           <Link to="/" className="flex items-center" aria-label="Torch Republic home">
-            <img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="220" height="72" className="h-10 w-auto object-contain lg:h-12" />
+            <img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="220" height="72" className="h-12 w-auto object-contain lg:h-14" />
           </Link>
           <nav className="hidden items-center gap-5 md:ml-6 lg:ml-10 lg:gap-7 md:flex" aria-label="Primary navigation">
             {SECTIONS.map(({ label, items, to }) => (
