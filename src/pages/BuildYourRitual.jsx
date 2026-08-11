@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, ShoppingBag, Sparkles } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
-import { base44 } from '@/api/base44Client';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
@@ -68,55 +67,37 @@ export default function BuildYourRitual() {
       try {
         setLoading(true);
         setError(null);
-        
-        const response = await base44.functions.invoke('fetchShopifyProducts', {});
-        
-        if (!response.data?.products) {
-          throw new Error('No products returned from Shopify');
-        }
 
-        const allProducts = response.data.products;
-        
-        // Filter to only our core 12 products
-        const coreProducts = allProducts.filter(p => 
-          CORE_PRODUCT_HANDLES.includes(p.handle)
-        );
+        // Source products from the local catalog. The bundle builder and
+        // checkout use each product's Shopify handle, which is preserved here.
+        const localAll = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS];
+        const coreProducts = localAll.filter(p => CORE_PRODUCT_HANDLES.includes(p.shopifyHandle));
 
-        // Map to our internal format
-        const mappedProducts = coreProducts.map(p => {
-          const localProduct = LOCAL_PRODUCT_MAP[p.handle];
-          // Determine category based on handle
-          let category = localProduct?.category || 'mushroom-coffee';
-          if (p.handle.includes('matcha')) category = 'matcha';
-          else if (p.handle.includes('instant-coffee') && !p.handle.includes('mushroom')) category = 'classic-coffee';
+        const accentColors = {
+          'mushroom-coffee': '#4A9EE6',
+          'classic-coffee': '#C4A35A',
+          'matcha': '#6CBD5A',
+        };
 
-          // Get accent color based on category
-          const accentColors = {
-            'mushroom-coffee': '#4A9EE6',
-            'classic-coffee': '#C4A35A',
-            'matcha': '#6CBD5A',
-          };
-
-          return {
-            id: p.handle,
-            shopifyHandle: p.handle,
-            name: localProduct?.name || p.title.replace(/(Instant Coffee|Instant Mushroom Coffee|Matcha Blend|Matcha)/g, '').trim(),
-            title: localProduct?.name || p.title,
-            price: p.price || 24.99,
-            compareAtPrice: p.compareAtPrice,
-            image: getProductImage({ ...(localProduct || {}), id: p.handle, handle: p.handle, shopifyHandle: p.handle, name: localProduct?.name || p.title, title: localProduct?.name || p.title }),
-            imageAlt: getProductAltText(localProduct || { name: p.title, category }),
-            category: category,
-            accent: accentColors[category] || '#E6B7AD',
-            available: p.availableForSale !== false,
-            inventory: p.quantityAvailable || 0,
-            shopifyData: p,
-          };
-        });
+        const mappedProducts = coreProducts.map(p => ({
+          id: p.shopifyHandle,
+          shopifyHandle: p.shopifyHandle,
+          name: p.name,
+          title: p.name,
+          price: p.price,
+          compareAtPrice: p.compareAtPrice || null,
+          image: getProductImage(p),
+          imageAlt: getProductAltText(p),
+          category: p.category,
+          accent: accentColors[p.category] || '#E6B7AD',
+          available: true,
+          inventory: 0,
+          shopifyData: null,
+        }));
 
         setShopifyProducts(mappedProducts);
       } catch (err) {
-        console.error('Failed to fetch products:', err);
+        console.error('Failed to load products:', err);
         setError('Unable to load products. Please refresh the page.');
       } finally {
         setLoading(false);
