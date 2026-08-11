@@ -33,19 +33,19 @@ export default function HeroSection() {
           className="font-heading text-xs font-semibold uppercase tracking-[0.26em] md:text-sm"
           style={{ color: colors.gold }}
         >
-          Coffee · Matcha · Functional Mushroom Blends
+          Coffee for the way you live
         </p>
         <h1
           className="mt-5 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[clamp(2.4rem,3.4vw,3.8rem)]"
           style={{ color: colors.forest }}
         >
-          A better cup begins with better ingredients.
+          A better ritual starts here.
         </h1>
         <p
           className="mt-6 text-[clamp(1.05rem,1.4vw,1.2rem)] leading-8"
           style={{ color: colors.secondary }}
         >
-          Light-roast instant coffee, functional mushroom blends, and ceremonial matcha — thoughtfully made for intentional daily rituals.
+          Thoughtfully crafted coffee, mushroom blends, and ceremonial matcha for your everyday rhythm.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
           <EditorialButton to={routes.shop}>Shop Coffee</EditorialButton>
