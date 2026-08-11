@@ -4,7 +4,7 @@ import EditorialButton from './EditorialButton';
 import { colors, routes } from './theme';
 
 const HERO_BACKGROUND =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2138aa867_09a83df1-8ff9-4ad2-bc00-daf0ed284d91.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f686c9f57_hhbiiui.png';
 
 export default function HeroSection() {
   return (
