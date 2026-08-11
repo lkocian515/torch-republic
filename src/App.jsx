@@ -134,6 +134,7 @@ const PapuaNewGuineaCoffee = lazy(() => import('./pages/seo/PapuaNewGuineaCoffee
 const MushroomCoffeeVsCoffeePods = lazy(() => import('./pages/compare/MushroomCoffeeVsCoffeePods.jsx'));
 const InstantCoffeeVsKCups = lazy(() => import('./pages/compare/InstantCoffeeVsKCups.jsx'));
 const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
+const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
 
 const mainPageKey = 'Home';
 
@@ -172,9 +173,11 @@ const AuthenticatedApp = ({ queryClient }) => {
   const location = useLocation();
   // SPA analytics — fires exactly one page_view per route change
   useAnalytics();
+  // Standalone portfolio route renders without storefront chrome (header/footer/tabs)
+  const isStandalonePortfolio = location.pathname.startsWith('/portfolio');
   return (
     <>
-      <UnifiedHeader />
+      {!isStandalonePortfolio && <UnifiedHeader />}
       <AnimatePresence mode="wait">
         <ScrollToTop key={location.pathname} />
         <Routes location={location} key={location.pathname}>
@@ -318,6 +321,9 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         {/* ── PAID-AD LANDING PAGE ── */}
         <Route path="/switch-from-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SwitchFromPods" queryClient={queryClient}><SwitchFromPods /></LayoutWrapper></Suspense>} />
+
+        {/* ── STANDALONE PORTFOLIO CASE STUDY (noindex, no storefront chrome) ── */}
+        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Suspense fallback={<PageLoader />}><NoIndex /><PortfolioCaseStudy /></Suspense>} />
 
         {/* ── SEO KEYWORD LANDING PAGES ── */}
         <Route path="/coffee-pod-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodAlternatives" queryClient={queryClient}><CoffeePodAlternatives /></LayoutWrapper></Suspense>} />
@@ -466,10 +472,10 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
       </Routes>
-      <RouteSeoManager />
-      <BottomTabs />
+      {!isStandalonePortfolio && <RouteSeoManager />}
+      {!isStandalonePortfolio && <BottomTabs />}
       </AnimatePresence>
-      <div className="hidden md:block"><Footer /></div>
+      {!isStandalonePortfolio && <div className="hidden md:block"><Footer /></div>}
     </>
   );
 };
