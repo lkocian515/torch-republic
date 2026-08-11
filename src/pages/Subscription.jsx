@@ -212,7 +212,7 @@ export default function Subscription() {
                     <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: THEME.secondary }}>
                       {n === 1 ? 'Tube' : 'Tubes'} / Month
                     </span>
-                    <span className="font-mono text-[9px]" style={{ color: tubeCount === n ? THEME.clay : THEME.secondary }}>
+                    <span className="font-mono text-[10px]" style={{ color: tubeCount === n ? THEME.clay : THEME.secondary }}>
                       from ${(n * 19.99 * 0.80).toFixed(2)}/mo after 20% off
                     </span>
                   </button>
@@ -252,14 +252,16 @@ export default function Subscription() {
                     {group.products.map(p => {
                       const qty = blendQty[p.slug] || 0;
                       return (
-                        <div key={p.id} className="flex items-center gap-4 p-4 transition-all"
+                        <div key={p.id} className="flex flex-col sm:flex-row sm:items-center gap-3 p-4 transition-all"
                           style={{ background: qty > 0 ? `${p.accent}0A` : THEME.card, border: `1px solid ${qty > 0 ? p.accent + '40' : THEME.border}`, borderRadius: 8 }}>
-                          <img src={p.image} alt={p.name} className="w-14 h-14 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px', borderRadius: 6 }} />
-                          <div className="flex-1 min-w-0">
-                            <p className="font-serif font-bold text-sm" style={{ color: THEME.text }}>{p.name}</p>
-                            <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{p.roast}</p>
+                          <div className="flex items-center gap-3 flex-1 min-w-0">
+                            <img src={p.image} alt={p.name} className="w-12 h-12 sm:w-14 sm:h-14 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px', borderRadius: 6 }} />
+                            <div className="flex-1 min-w-0">
+                              <p className="font-serif font-bold text-sm" style={{ color: THEME.text }}>{p.name}</p>
+                              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{p.roast}</p>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-2 flex-shrink-0">
+                          <div className="flex items-center gap-2 self-end sm:self-auto">
                             <button onClick={() => adjustBlend(p.slug, -1)} disabled={qty === 0}
                               className="w-9 h-9 flex items-center justify-center transition-all" style={{ border: `1px solid ${THEME.border}`, color: qty === 0 ? THEME.border : THEME.text, cursor: qty === 0 ? 'not-allowed' : 'pointer', background: 'none' }} aria-label={`Decrease ${p.name}`}>
                               <Minus className="w-3.5 h-3.5" />
