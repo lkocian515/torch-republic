@@ -24,9 +24,20 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Mobile product image — full-width, no crop, shown near the top */}
+      <img
+        src={HERO_BACKGROUND}
+        alt="Torch Republic coffee, matcha, and mushroom coffee tins"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        className="block w-full md:hidden"
+        style={{ height: 'auto', display: 'block', paddingTop: '8px', paddingBottom: '12px', objectFit: 'contain' }}
+      />
+
       {/* Single text block — reflows from stacked (mobile) to left-positioned (desktop) */}
       <div
-        className="relative z-10 w-full pt-12 pb-12 px-6 md:max-w-[540px] md:w-[42%] md:py-0 md:pr-6"
+        className="relative z-10 w-full py-12 px-6 md:max-w-[540px] md:w-[42%] md:py-0 md:pr-6"
         style={{ paddingLeft: 'clamp(24px, 8vw, 120px)' }}
       >
         <p
@@ -36,7 +47,7 @@ export default function HeroSection() {
           Coffee for the way you live
         </p>
         <h1
-          className="mt-5 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[clamp(2.4rem,3.4vw,3.8rem)]"
+          className="mt-6 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[clamp(2.4rem,3.4vw,3.8rem)]"
           style={{ color: colors.forest }}
         >
           A better ritual starts here.
@@ -58,17 +69,6 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
-
-      {/* Mobile product image — full-width, no crop, below the text */}
-      <img
-        src={HERO_BACKGROUND}
-        alt="Torch Republic coffee, matcha, and mushroom coffee tins"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="block w-full md:hidden"
-        style={{ height: 'auto', display: 'block', paddingBottom: '32px', objectFit: 'contain' }}
-      />
     </section>
   );
 }
