@@ -58,17 +58,39 @@ export default function PortfolioCaseStudy() {
 
   return (
     <div style={{ background: CREAM, color: INK, minHeight: '100vh' }}>
-      {/* Top bar */}
-      <div style={{ borderBottom: `1px solid ${RULE}` }}>
-        <div className="mx-auto max-w-[760px] px-5 md:px-8 py-4 flex items-center justify-between">
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6875rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: SECONDARY, fontWeight: 600 }}>
-            Portfolio · Case Study
-          </span>
-          <Link to="/" style={{ fontFamily: 'var(--font-heading)', fontSize: '0.875rem', color: INK, display: 'inline-flex', alignItems: 'center', gap: '0.25rem', textDecoration: 'none', minHeight: 40 }}>
+      {/* Logo header — black band matching the brand mark */}
+      <header style={{ background: '#000000', borderBottom: `1px solid ${RULE}` }}>
+        <div className="mx-auto max-w-[760px] px-5 md:px-8 py-8 md:py-12 flex flex-col items-center gap-6">
+          <img
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/93b387998_back.png"
+            alt="Torch Republic Coffee Company"
+            width={900}
+            height={300}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            style={{ width: 'min(92vw, 440px)', height: 'auto', display: 'block', maxWidth: '100%' }}
+          />
+          <Link
+            to="/"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '0.8125rem',
+              color: CREAM,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.3rem',
+              textDecoration: 'none',
+              minHeight: 40,
+              padding: '0.25rem 0.75rem',
+              borderRadius: '999px',
+              border: '1px solid rgba(251,248,242,0.25)',
+            }}
+          >
             <ArrowLeft style={{ width: 14, height: 14 }} /> Back to site
           </Link>
         </div>
-      </div>
+      </header>
 
       {/* Hero */}
       <header className="mx-auto max-w-[760px] px-5 md:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
