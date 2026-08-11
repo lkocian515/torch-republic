@@ -2,7 +2,7 @@ import React from 'react';
 import EditorialButton from './EditorialButton';
 import { colors, routes } from './theme';
 
-const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/65bca8616_ghjgf.png';
+const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/423d68cdd_hhbiiui.png';
 const texture = `url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D9CDBA' stroke-width='1' opacity='0.32'%3E%3Cpath d='M18 116c22-24 32-54 28-91'/%3E%3Cpath d='M102 130c-10-28-7-56 9-84'/%3E%3Cpath d='M46 55c-13-4-22-12-27-24'/%3E%3Cpath d='M108 86c12-8 19-19 21-32'/%3E%3C/g%3E%3Cg fill='%23A97B32' opacity='0.16'%3E%3Ccircle cx='24' cy='36' r='2'/%3E%3Ccircle cx='116' cy='56' r='2'/%3E%3Ccircle cx='58' cy='104' r='1.6'/%3E%3C/g%3E%3C/svg%3E")`;
 
 export default function EditorialHero() {

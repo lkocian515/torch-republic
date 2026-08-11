@@ -11,7 +11,7 @@ export default function Home() {
     description: 'Explore thoughtfully crafted instant coffee, functional mushroom blends, and ceremonial matcha made for brighter, more intentional daily rituals.',
     url: '/',
     type: 'website',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/423d68cdd_hhbiiui.png',
     imageAlt: 'Torch Republic coffee, mushroom coffee, and matcha collection.',
     noindex: false,
   });

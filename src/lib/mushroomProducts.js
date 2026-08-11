@@ -210,7 +210,7 @@ export const ALL_PRODUCTS = [
   ...MATCHA_PRODUCTS,
 ];
 
-export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e6cba4d4_ChatGPTImageJun10202607_49_52AM.png';
+export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/423d68cdd_hhbiiui.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;
 export const LOGO_URL = '/torch-republic-logo-transparent.png';
 
