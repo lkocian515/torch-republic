@@ -357,6 +357,14 @@ button, a, [role="button"], nav {
   contain-intrinsic-size: 0 400px; /* estimated height prevents CLS */
 }
 
+/* Skip rendering of offscreen homepage sections until near viewport.
+   Major paint/render win on mobile; no visual change when in view.
+   Hero (first child) is excluded so the LCP image is never delayed. */
+.perf-home-main > * + * {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
 /* Category card images */
 .category-image-wrap {
   aspect-ratio: 4 / 3;

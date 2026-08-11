@@ -36,7 +36,7 @@ export default function EditorialHomepage() {
   }, []);
 
   return (
-    <main id="main-content" style={{ background: colors.page }}>
+    <main id="main-content" className="perf-home-main" style={{ background: colors.page }}>
       <HeroSection />
       <TrustStrip />
       <RitualCategories />
