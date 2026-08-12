@@ -33,7 +33,7 @@ const RECIPES = [
     difficulty: 'Easy',
     icon: Coffee,
     description: 'Transform your mushroom coffee into a café-worthy latte. Creamy, comforting, and perfect for slow mornings.',
-    ingredients: ['1 scoop MoonCap Restore or DreamCap', '6oz hot water', '4oz steamed oat milk or almond milk', '1 tsp maple syrup (optional)', 'Pinch of vanilla'],
+    ingredients: ['1 scoop MoonCap Restore', '6oz hot water', '4oz steamed oat milk or almond milk', '1 tsp maple syrup (optional)', 'Pinch of vanilla'],
     steps: [
       'Mix scoop with hot water in mug',
       'Steam or heat your milk of choice',
@@ -41,7 +41,7 @@ const RECIPES = [
       'Add maple syrup and vanilla if desired',
       'Top with foam if you\'re feeling fancy',
     ],
-    bestWith: ['MoonCap Restore', 'DreamCap Blend'],
+    bestWith: ['MoonCap Restore'],
     benefits: ['Comforting ritual', 'Sustained energy', 'Satisfying treat'],
   },
   {
@@ -69,7 +69,7 @@ const RECIPES = [
     difficulty: 'Easy',
     icon: Heart,
     description: 'Turn your mushroom coffee into a complete morning fuel. Perfect for busy days when you need lasting energy.',
-    ingredients: ['1 scoop GlowMind Clarity or The Oracle', '8oz hot water', '1 scoop collagen peptides or protein powder', '1 tbsp MCT oil or coconut oil (optional)'],
+    ingredients: ['1 scoop GlowMind Clarity or SunCap Rise', '8oz hot water', '1 scoop collagen peptides or protein powder', '1 tbsp MCT oil or coconut oil (optional)'],
     steps: [
       'Mix mushroom coffee with hot water',
       'Add collagen or protein powder',
@@ -77,7 +77,7 @@ const RECIPES = [
       'Add MCT oil if using',
       'Pour and enjoy immediately',
     ],
-    bestWith: ['GlowMind Clarity', 'The Oracle Blend'],
+    bestWith: ['GlowMind Clarity', 'SunCap Rise'],
     benefits: ['Sustained energy', 'Protein boost', 'Keeps you full'],
   },
   {
@@ -95,7 +95,7 @@ const RECIPES = [
       'Simmer for 2 minutes (don\'t boil)',
       'Strain if desired, add honey',
     ],
-    bestWith: ['MoonCap Restore', 'DreamCap Blend'],
+    bestWith: ['MoonCap Restore'],
     benefits: ['Anti-inflammatory', 'Calming', 'Immune support'],
   },
   {
@@ -105,7 +105,7 @@ const RECIPES = [
     difficulty: 'Easy',
     icon: Zap,
     description: 'Hide your mushroom coffee in a delicious smoothie. All the benefits, none of the coffee taste.',
-    ingredients: ['1 scoop The Oracle or Mystic Bloom', '1 frozen banana', '1 cup spinach', '1 cup almond milk', '1 tbsp almond butter', 'Ice cubes'],
+    ingredients: ['1 scoop GlowMind Clarity or SunCap Rise', '1 frozen banana', '1 cup spinach', '1 cup almond milk', '1 tbsp almond butter', 'Ice cubes'],
     steps: [
       'Add all ingredients to blender',
       'Blend on high for 45 seconds',
@@ -113,7 +113,7 @@ const RECIPES = [
       'Pour into glass',
       'Enjoy your hidden superfood boost',
     ],
-    bestWith: ['The Oracle Blend', 'Mystic Bloom'],
+    bestWith: ['GlowMind Clarity', 'SunCap Rise'],
     benefits: ['Nutrient-dense', 'Great taste', 'Full breakfast'],
   },
 ];

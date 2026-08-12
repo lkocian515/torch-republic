@@ -18,9 +18,6 @@ export const TOPIC_CLUSTERS = {
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
       { name: 'SunCap Rise', path: '/products/suncap-rise' },
       { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
-      { name: 'DreamCap', path: '/products/mooncap-restore' },
-      { name: 'The Oracle', path: '/products/glowmind-clarity-blend' },
-      { name: 'Mystic Bloom', path: '/products/suncap-rise' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -31,7 +28,6 @@ export const TOPIC_CLUSTERS = {
     products: [
       { name: 'Torchbearer', path: '/products/torchbearer' },
       { name: 'Ember Reserve', path: '/products/ember-reserve' },
-      { name: 'Ember Reserve', path: '/products/ember-reserve' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
@@ -41,7 +37,6 @@ export const TOPIC_CLUSTERS = {
     pillarUrl: '/shop/matcha',
     products: [
       { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
       { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
@@ -235,7 +230,7 @@ export const INGREDIENT_PAGES = [
     category: 'Functional Mushroom',
     color: '#E6B7AD',
     tagline: 'The cognitive mushroom — traditionally paired with focus rituals.',
-    description: "Lion's Mane (Hericium erinaceus) is a white, globe-shaped mushroom used in traditional East Asian medicine for centuries. Modern research has focused on its bioactive compounds — hericenones and erinacines — which may stimulate Nerve Growth Factor (NGF) production. It appears in Torch Republic's GlowMind Clarity, MoonCap Restore, and all six mushroom coffee blends.",
+    description: "Lion's Mane (Hericium erinaceus) is a white, globe-shaped mushroom used in traditional East Asian medicine for centuries. Modern research has focused on its bioactive compounds — hericenones and erinacines — which may stimulate Nerve Growth Factor (NGF) production. It appears in Torch Republic's GlowMind Clarity, SunCap Rise, and MoonCap Restore — all three mushroom coffee blends.",
     benefits: [
       { title: 'Nerve Growth Factor Support', detail: "Contains hericenones and erinacines that may stimulate NGF production — critical for neuron maintenance and neuroplasticity." },
       { title: 'Cognitive Function Research', detail: "Several human trials show modest improvements in mild cognitive impairment. More research is needed for healthy adults." },
@@ -261,7 +256,7 @@ export const INGREDIENT_PAGES = [
     category: 'Functional Mushroom',
     color: '#C4A35A',
     tagline: 'The antioxidant mushroom — traditionally used for resilience and balance.',
-    description: "Chaga (Inonotus obliquus) grows on birch trees in cold climates and has been used in Russian and Eastern European folk medicine for centuries. It has one of the highest ORAC (antioxidant) scores of any natural food. Torch Republic uses Chaga extract in all six mushroom coffee blends for its antioxidant richness.",
+    description: "Chaga (Inonotus obliquus) grows on birch trees in cold climates and has been used in Russian and Eastern European folk medicine for centuries. It has one of the highest ORAC (antioxidant) scores of any natural food. Torch Republic uses Chaga extract in all three mushroom coffee blends for its antioxidant richness.",
     benefits: [
       { title: 'Antioxidant Richness', detail: "Among the highest ORAC values of any food, driven by melanin complexes, phenols, and beta-glucans." },
       { title: 'Immune Balance Support', detail: "Beta-glucans in Chaga may help modulate immune activity. Used in traditional wellness for resilience." },
@@ -311,7 +306,7 @@ export const INGREDIENT_PAGES = [
     category: 'Functional Mushroom',
     color: '#B88FA8',
     tagline: 'The calm mushroom — traditionally used for evening restoration and stress balance.',
-    description: "Reishi (Ganoderma lucidum) is one of the oldest-used mushrooms in traditional Chinese medicine, valued for thousands of years as a longevity tonic. Modern research focuses on immune modulation, stress response, and sleep quality. Torch Republic uses Reishi extract in evening-ritual blends like MoonCap Restore and DreamCap.",
+    description: "Reishi (Ganoderma lucidum) is one of the oldest-used mushrooms in traditional Chinese medicine, valued for thousands of years as a longevity tonic. Modern research focuses on immune modulation, stress response, and sleep quality. Torch Republic uses Reishi extract in its evening-ritual mushroom coffee blend, MoonCap Restore.",
     benefits: [
       { title: 'Stress Adaptation', detail: "Triterpenes in Reishi may reduce cortisol response and support the body's stress-adaptation pathways." },
       { title: 'Sleep Quality', detail: "Some research suggests improved sleep quality and duration with consistent Reishi use over 4–8 weeks." },
@@ -322,7 +317,6 @@ export const INGREDIENT_PAGES = [
     researchSummary: "Strongest evidence for immune support and stress modulation. Smaller but credible evidence base for sleep quality. Long safety record in traditional use.",
     products: [
       { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
-      { name: 'DreamCap', path: '/products/mooncap-restore' },
       { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
     relatedSlugs: ['adaptogens-guide', 'mushroom-coffee-benefits', 'reishi-guide', 'sleep-and-coffee-timing'],
@@ -372,7 +366,6 @@ export const INGREDIENT_PAGES = [
     researchSummary: "Arabica's flavor superiority is well-documented in sensory science. The freeze-drying process better preserves aromatic volatile compounds versus spray-drying.",
     products: [
       { name: 'Torchbearer', path: '/products/torchbearer' },
-      { name: 'Ember Reserve', path: '/products/ember-reserve' },
       { name: 'Ember Reserve', path: '/products/ember-reserve' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
@@ -911,7 +904,7 @@ export const FAQ_PAGES = [
     cluster: 'mushroom-coffee',
     metaTitle: "What's in Each Torch Republic Blend? | Ingredient Guide | FAQ",
     metaDescription: "Full ingredient overview for each Torch Republic coffee and matcha blend — mushroom extracts, coffee type, functional purpose, and which blend is right for you.",
-    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Chaga — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. DreamCap: premium Arabica instant coffee + Reishi + Lion's Mane — for evening ritual and sleep support. The Oracle: premium Arabica instant coffee + full mushroom complex — for comprehensive daily wellness. Torchbearer/Ember Reserve/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
+    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Chaga — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. Torchbearer/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
     relatedFaqs: ['what-is-mushroom-coffee', 'best-mushroom-blend-for-beginners', 'does-mushroom-coffee-taste-like-mushrooms'],
     products: [
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
@@ -967,7 +960,7 @@ export const INGREDIENT_LONG_FORM = {
       },
       {
         heading: "How Torch Republic Uses Lion's Mane",
-        body: "Torch Republic uses dual-extracted Lion's Mane extract in all six of its mushroom coffee blends. Dual extraction uses both hot water (for polysaccharides and beta-glucans) and alcohol (for hericenones and other fat-soluble compounds) to capture the full spectrum of bioactive compounds.\n\nThis matters because a simple hot water extract — the most common and cheapest form — only captures the water-soluble fraction. The hericenones that drive most of the cognitive research are not fully water-soluble. A quality extract needs alcohol extraction to capture them.\n\nThe ratio of Lion's Mane to coffee is carefully balanced so the functional ingredient is present at a meaningful amount without compromising the coffee-forward flavor profile. Our mushroom coffee tastes like premium coffee, not a supplement."
+        body: "Torch Republic uses dual-extracted Lion's Mane extract in all three of its mushroom coffee blends. Dual extraction uses both hot water (for polysaccharides and beta-glucans) and alcohol (for hericenones and other fat-soluble compounds) to capture the full spectrum of bioactive compounds.\n\nThis matters because a simple hot water extract — the most common and cheapest form — only captures the water-soluble fraction. The hericenones that drive most of the cognitive research are not fully water-soluble. A quality extract needs alcohol extraction to capture them.\n\nThe ratio of Lion's Mane to coffee is carefully balanced so the functional ingredient is present at a meaningful amount without compromising the coffee-forward flavor profile. Our mushroom coffee tastes like premium coffee, not a supplement."
       },
       {
         heading: "Daily Use: Building a Consistent Lion's Mane Ritual",

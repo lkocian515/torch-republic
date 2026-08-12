@@ -69,20 +69,15 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
       url: `${BASE_URL}/shop`,
       itemListElement: [
         // Mushroom Coffee
-        { '@type': 'ListItem', position: 1, name: 'GlowMind Clarity — Instant Mushroom Coffee', url: `${BASE_URL}/products/glowmind-clarity-instant-mushroom-coffee`, description: "Premium instant coffee with Lion's Mane and Chaga for morning focus and mental clarity. 27 servings. $22.99." },
-        { '@type': 'ListItem', position: 2, name: 'SunCap Rise — Instant Mushroom Coffee', url: `${BASE_URL}/products/suncap-rise-instant-mushroom-coffee`, description: "Instant mushroom coffee with Lion's Mane and Cordyceps for morning energy and vitality. 27 servings. $22.99." },
-        { '@type': 'ListItem', position: 3, name: 'MoonCap Restore — Instant Mushroom Coffee', url: `${BASE_URL}/products/mooncap-restore-instant-mushroom-coffee`, description: 'Instant mushroom coffee with Reishi and Chaga for evening calm and restoration. 27 servings. $22.99.' },
-        { '@type': 'ListItem', position: 4, name: 'DreamCap — Instant Mushroom Coffee', url: `${BASE_URL}/products/mooncap-restore-instant-mushroom-coffee`, description: "Evening ritual instant mushroom coffee with Reishi and Lion's Mane. 27 servings. $22.99." },
-        { '@type': 'ListItem', position: 5, name: "The Oracle — Instant Mushroom Coffee", url: `${BASE_URL}/products/glowmind-clarity-instant-mushroom-coffee`, description: 'Full mushroom complex instant coffee blend for comprehensive daily wellness. 27 servings. $22.99.' },
-        { '@type': 'ListItem', position: 6, name: 'Mystic Bloom — Instant Mushroom Coffee', url: `${BASE_URL}/products/suncap-rise-instant-mushroom-coffee`, description: 'Distinct mushroom coffee blend for intuition and reflection rituals. 27 servings. $22.99.' },
+        { '@type': 'ListItem', position: 1, name: 'GlowMind Clarity — Instant Mushroom Coffee', url: `${BASE_URL}/products/glowmind-clarity-blend`, description: "Premium instant coffee with Lion's Mane and Chaga for morning focus and mental clarity. 27 servings. $22.99." },
+        { '@type': 'ListItem', position: 2, name: 'SunCap Rise — Instant Mushroom Coffee', url: `${BASE_URL}/products/suncap-rise`, description: "Premium instant coffee with Lion's Mane and Chaga for morning energy and fresh starts. 27 servings. $22.99." },
+        { '@type': 'ListItem', position: 3, name: 'MoonCap Restore — Instant Mushroom Coffee', url: `${BASE_URL}/products/mooncap-restore`, description: "Premium instant coffee with Lion's Mane and Chaga for calm mornings and reset rituals. 27 servings. $22.99." },
         // Classic Coffee
-        { '@type': 'ListItem', position: 7, name: 'Torchbearer — Premium Instant Coffee', url: `${BASE_URL}/products/torchbearer-instant-coffee`, description: '100% Arabica premium instant coffee. Bold, clean, no mushrooms. 27 servings. $19.99.' },
-        { '@type': 'ListItem', position: 8, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica smooth medium roast instant coffee. 27 servings. $19.99.' },
-        { '@type': 'ListItem', position: 9, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica dark roast instant coffee for evening rituals. 27 servings. $19.99.' },
+        { '@type': 'ListItem', position: 4, name: 'Torchbearer — Premium Instant Coffee', url: `${BASE_URL}/products/torchbearer`, description: '100% Arabica single-origin premium instant coffee. Bold, clean, no mushrooms. 27 servings. $19.99.' },
+        { '@type': 'ListItem', position: 5, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica smooth light-roast premium instant coffee. 27 servings. $19.99.' },
         // Matcha
-        { '@type': 'ListItem', position: 10, name: 'The Monk Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-monk-matcha-blend`, description: 'Ceremonial grade matcha powder with L-theanine for calm focus. 25 servings. $24.99.' },
-        { '@type': 'ListItem', position: 11, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Ceremonial matcha blend for elevated morning energy. 25 servings. $24.99.' },
-        { '@type': 'ListItem', position: 12, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Complex ceremonial matcha for creative and evening rituals. 25 servings. $24.99.' },
+        { '@type': 'ListItem', position: 6, name: 'The Monk Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-monk-matcha-blend`, description: 'Ceremonial grade matcha powder for stillness and daily matcha ritual. 25 servings. $24.99.' },
+        { '@type': 'ListItem', position: 7, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Ceremonial grade matcha for lattes, iced drinks, and creative rituals. 25 servings. $24.99.' },
       ],
     });
 
@@ -104,7 +99,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'What mushroom coffee does Torch Republic make?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic makes six instant mushroom coffee blends: GlowMind Clarity (Lion's Mane + Chaga for focus), SunCap Rise (Lion's Mane + Cordyceps for energy), MoonCap Restore (Reishi + Chaga for evening calm), DreamCap (Reishi + Lion's Mane for evening ritual), The Oracle (full mushroom complex), and Mystic Bloom. All are $22.99 per tube with 27 servings.",
+            text: "Torch Republic makes three instant mushroom coffee blends: GlowMind Clarity (Lion's Mane + Chaga for focus), SunCap Rise (Lion's Mane + Chaga for morning energy), and MoonCap Restore (Lion's Mane + Chaga for calm mornings). All are $22.99 per tube with 27 servings.",
           },
         },
         {
@@ -128,7 +123,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'What functional mushrooms does Torch Republic use?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic uses Lion's Mane (Hericium erinaceus) for cognitive support, Chaga (Inonotus obliquus) for antioxidant richness, Cordyceps (Cordyceps militaris) for energy and endurance, and Reishi (Ganoderma lucidum) for calm and sleep support.",
+            text: "Torch Republic uses Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) across its three mushroom coffee blends.",
           },
         },
         {

@@ -7,9 +7,6 @@ const PRODUCTS = [
   { name: 'GlowMind Clarity',  bestFor: 'Deep work & daily focus',     time: 'Morning / Midday', functional: 'Focus & clarity' },
   { name: 'SunCap Rise',       bestFor: 'Morning energy & fresh starts', time: 'Morning',          functional: 'Vitality & energy' },
   { name: 'MoonCap Restore',   bestFor: 'Calm evenings & restoration',  time: 'Afternoon / Evening', functional: 'Recovery & calm' },
-  { name: 'DreamCap Blend',    bestFor: 'Calm ritual & evening reset',  time: 'Evening',          functional: 'Restoration & rest' },
-  { name: 'The Oracle Blend',  bestFor: 'Creative flow & intuition',    time: 'Morning / Anytime', functional: 'Wisdom & focus' },
-  { name: 'Mystic Bloom Blend', bestFor: 'Balance & gentle mornings',   time: 'Morning',          functional: 'Growth & balance' },
 ];
 
 const PLACEHOLDER = (label) => (

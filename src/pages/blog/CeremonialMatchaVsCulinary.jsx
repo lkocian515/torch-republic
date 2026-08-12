@@ -115,7 +115,7 @@ export default function CeremonialMatchaVsCulinary() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Torch Republic Matcha: Ceremonial Grade, Instant Format</h2>
-            <p>All three Torch Republic matcha blends — <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Monk</Link>, <Link to="/products/the-ascendant-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Ascendant</Link>, and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Alchemist</Link> — use 100% ceremonial grade matcha in instant format.</p>
+            <p>Both Torch Republic matcha blends — <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Monk</Link> and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Alchemist</Link> — use 100% ceremonial grade matcha in instant format.</p>
             <p className="mt-3">That means you get the smooth, vibrant taste and full L-Theanine content of ceremonial matcha — without needing a bamboo whisk, a chawan, or any equipment at all. Just add water and stir.</p>
             <p className="mt-3">25 servings per tin. $24.99. About $1.00 per ceremonial-grade serving.</p>
           </section>

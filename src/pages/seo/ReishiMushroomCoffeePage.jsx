@@ -16,7 +16,7 @@ const SCIENCE_POINTS = [
   { heading: "Cortisol Modulation and Calm Focus", body: "Reishi's ganoderic acids interact with the HPA (hypothalamic-pituitary-adrenal) axis — the stress-response system that governs cortisol production. Research suggests regular Reishi supplementation helps blunt exaggerated cortisol spikes, producing a calming, grounding effect without sedation. This is why Reishi appears in Torch Republic's evening and recovery blends rather than morning focus formulas." },
   { heading: "Sleep Quality Research", body: "A 2012 trial in mice showed increased total sleep time and slow-wave (deep) sleep with Reishi extract. Human studies are smaller but consistent: users report easier sleep onset and improved perceived sleep quality. The mechanism is thought to involve Reishi's interaction with adenosine receptors — the same pathway as caffeine, but in the opposite direction." },
   { heading: "Immune Modulation (Not Just Stimulation)", body: "Reishi contains 1,3 and 1,6 beta-glucans that interact with immune cell receptors. The research characterizes Reishi's immune action as 'bidirectional modulation' — it can both support sluggish immune function and calm overactive immune responses. This makes it potentially useful across different contexts, though the evidence for immune claims is stronger in some areas than others." },
-  { heading: "Best in Evening Blends", body: "Because Reishi's primary effects are calming rather than activating, it works best in evening or recovery contexts. Torch Republic's MoonCap Restore and DreamCap evening blends feature Reishi prominently. For morning focus, our GlowMind and Oracle blends emphasize Lion's Mane and Cordyceps instead." },
+  { heading: "Best in Evening Blends", body: "Because Reishi's primary effects are calming rather than activating, it works best in evening or recovery contexts. Torch Republic's MoonCap Restore evening blend features Reishi prominently. For morning focus, our GlowMind Clarity and SunCap Rise blends emphasize Lion's Mane and Chaga instead." },
 ];
 
 const PAA = [
@@ -29,7 +29,6 @@ const PAA = [
 
 const PRODUCTS = [
   { name: "MoonCap Restore", slug: "mooncap-restore-instant-mushroom-coffee", tagline: "Chaga + Reishi — evening recovery & restoration" },
-  { name: "DreamCap", slug: "dreamcap-instant-mushroom-coffee", tagline: "Reishi-forward — night ritual for deep rest" },
 ];
 
 export default function ReishiMushroomCoffeePage() {

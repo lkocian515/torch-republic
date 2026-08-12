@@ -11,7 +11,7 @@ const QUESTIONS = [
     options: [
       { text: 'Early morning', result: 'suncap-rise' },
       { text: 'Mid-morning / Focus time', result: 'glowmind-clarity' },
-      { text: 'Afternoon', result: 'the-oracle' },
+      { text: 'Afternoon', result: 'glowmind-clarity' },
       { text: 'Evening', result: 'mooncap-restore' },
     ],
   },
@@ -20,7 +20,7 @@ const QUESTIONS = [
     options: [
       { text: 'Energy & momentum', result: 'suncap-rise' },
       { text: 'Focus & clarity', result: 'glowmind-clarity' },
-      { text: 'Creativity & insight', result: 'the-oracle' },
+      { text: 'Creativity & insight', result: 'glowmind-clarity' },
       { text: 'Calm & restoration', result: 'mooncap-restore' },
     ],
   },
@@ -29,7 +29,7 @@ const QUESTIONS = [
     options: [
       { text: 'Light & bright', result: 'suncap-rise' },
       { text: 'Smooth & balanced', result: 'glowmind-clarity' },
-      { text: 'Rich & earthy', result: 'the-oracle' },
+      { text: 'Rich & earthy', result: 'glowmind-clarity' },
       { text: 'Dark & mellow', result: 'mooncap-restore' },
     ],
   },
@@ -63,10 +63,9 @@ export default function BlendQuiz() {
 
   const getBlendInfo = (slug) => {
     const blends = {
-      'suncap-rise': { name: 'SunCap Rise', tagline: 'Morning Energy', color: '#D6B27A' },
-      'glowmind-clarity': { name: 'GlowMind Clarity', tagline: 'Focus & Clarity', color: '#E6B7AD' },
-      'the-oracle': { name: 'The Oracle Blend', tagline: 'Creative Flow', color: '#C4A8A0' },
-      'mooncap-restore': { name: 'MoonCap Restore', tagline: 'Evening Calm', color: '#C98F86' },
+      'suncap-rise': { name: 'SunCap Rise', tagline: 'Morning Energy', color: '#D6B27A', slug: 'suncap-rise' },
+      'glowmind-clarity': { name: 'GlowMind Clarity', tagline: 'Focus & Clarity', color: '#E6B7AD', slug: 'glowmind-clarity-blend' },
+      'mooncap-restore': { name: 'MoonCap Restore', tagline: 'Evening Calm', color: '#C98F86', slug: 'mooncap-restore' },
     };
     return blends[slug] || blends['glowmind-clarity'];
   };
@@ -175,7 +174,7 @@ export default function BlendQuiz() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                to={`/blends/${result}`}
+                to={`/products/${getBlendInfo(result).slug}`}
                 className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 px-6 py-3"
                 style={{ background: RG, color: '#080808', borderRadius: '2px' }}
               >
