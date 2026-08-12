@@ -27,7 +27,7 @@ const BUNDLE_PRICE = BUNDLE_PRICE_3;
 const INDIVIDUAL_PRICE = 22.99; // default fallback price
 const BUNDLE_SIZE = 3;
 
-// Core 12 products with their Shopify handles
+// 7 active products with their Shopify handles
 const CORE_PRODUCT_HANDLES = [
   // Mushroom Coffee (3)
   'suncap-rise-instant-mushroom-coffee',
@@ -118,6 +118,16 @@ export default function BuildYourRitual() {
   // Bundle price is always fixed at $49.99 — never varies by product selection
   const bundleTotal = BUNDLE_PRICE;
   const savings = selectedProducts.length === BUNDLE_SIZE ? Math.max(0, totalPrice - BUNDLE_PRICE) : 0;
+
+  // Servings per product: matcha = 25, mushroom & classic coffee = 27
+  const SERVINGS_BY_CATEGORY = { matcha: 25, 'mushroom-coffee': 27, 'classic-coffee': 27 };
+  const totalServings = useMemo(() => {
+    return selectedProducts.reduce((sum, productId) => {
+      const product = shopifyProducts.find(p => p.id === productId);
+      return sum + (product ? (SERVINGS_BY_CATEGORY[product.category] || 27) : 0);
+    }, 0);
+  }, [selectedProducts, shopifyProducts]);
+  const perServing = totalServings > 0 ? bundleTotal / totalServings : 0;
 
   const toggleProduct = (productId) => {
     const product = shopifyProducts.find(p => p.id === productId);
@@ -243,7 +253,7 @@ export default function BuildYourRitual() {
                 <div className="hidden md:flex flex-col gap-3">
                   <div className="p-4" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: RG }}>3 Blends · ~79 Servings Total</p>
-                    <p className="font-mono text-[9px]" style={{ color: THEME.secondary }}>Only ~$0.76 per serving</p>
+                    <p className="font-mono text-[9px]" style={{ color: THEME.secondary }}>Only ~$0.63 per serving</p>
                   </div>
                   <div className="p-4" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: RG }}>No Machine Needed</p>
@@ -300,7 +310,7 @@ export default function BuildYourRitual() {
               </div>
               <div className="hidden h-10 w-px sm:block" style={{ background: THEME.border }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save up to $14.98</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: EMERALD }}>Save up to $24.98</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: THEME.secondary }}>vs. Buying Separately</p>
               </div>
             </div>
@@ -527,6 +537,14 @@ export default function BuildYourRitual() {
                             </span>
                             <span className="font-mono text-sm font-bold" style={{ color: EMERALD }}>
                               ${savings.toFixed(2)}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}40` }}>
+                              Total Servings
+                            </span>
+                            <span className="font-mono text-sm" style={{ color: THEME.secondary }}>
+                              {totalServings} · ~${perServing.toFixed(2)}/serving
                             </span>
                           </div>
                         </>
