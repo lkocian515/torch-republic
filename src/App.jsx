@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { NavigationProvider } from '@/contexts/NavigationContext'
-import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate, useParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
@@ -152,6 +152,12 @@ const PageLoader = () => (
     </div>
   </motion.div>
 );
+
+// Preserve slug on case-insensitive /Journal/:slug → /journal/:slug (was dropping the slug to /journal)
+const JournalSlugRedirect = () => {
+  const { slug } = useParams();
+  return <Navigate to={`/journal/${slug}`} replace />;
+};
 
 const LayoutWrapper = ({ children, currentPageName, queryClient }) => {
   // Wrap main pages with PullToRefresh for native-like experience
@@ -352,7 +358,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal/coffee-pods-plastic-waste-microplastics" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodsPlasticWasteMicroplastics" queryClient={queryClient}><CoffeePodsPlasticWasteMicroplastics /></LayoutWrapper></Suspense>} />
         {/* /Journal (uppercase) → /journal (lowercase) — single canonical Journal URL */}
         <Route path="/Journal" element={<Navigate to="/journal" replace />} />
-        <Route path="/Journal/:slug" element={<Navigate to="/journal" replace />} />
+        <Route path="/Journal/:slug" element={<JournalSlugRedirect />} />
         <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaVsCulinary" queryClient={queryClient}><CeremonialMatchaVsCulinary /></LayoutWrapper></Suspense>} />
         <Route path="/journal/what-makes-premium-instant-coffee-different" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PremiumInstantCoffeeDifference" queryClient={queryClient}><PremiumInstantCoffeeDifference /></LayoutWrapper></Suspense>} />
 
