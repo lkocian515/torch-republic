@@ -58,7 +58,7 @@ const SECTIONS = [
     ],
   },
   {
-    label: 'Help & Legal',
+    label: 'Support',
     items: [
       ['Shipping Policy', '/shipping-policy'],
       ['Return Policy', '/return-policy'],
