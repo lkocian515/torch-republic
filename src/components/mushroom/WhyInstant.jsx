@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const PAGE = '#F8F5EF';
+const CARD = '#FFFFFF';
+const TEXT = '#3F3027';
+const BODY = '#6A5A4A';
 const RG = '#E6B7AD';
+const CLAY = '#B86543';
 
 const PILLARS = [
   {
@@ -23,8 +28,7 @@ const PILLARS = [
 
 export default function WhyInstant() {
   return (
-    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: '#161616', position: 'relative' }}>
-      <div className="divider-gradient absolute top-0 left-0 right-0" />
+    <section className="px-5 md:px-10 py-14 md:py-20" style={{ background: PAGE, position: 'relative' }}>
       <div className="max-w-[1100px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -33,15 +37,15 @@ export default function WhyInstant() {
           className="text-center mb-10"
         >
           <p className="font-mono text-[8px] tracking-[0.6em] uppercase mb-3"
-            style={{ color: 'rgba(230,183,173,0.5)' }}>
+            style={{ color: RG }}>
             The Torch Republic Difference
           </p>
           <h2 className="font-serif font-bold mb-3"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: TEXT, letterSpacing: '-0.02em' }}>
             Coffee That Works as Hard as You Do
           </h2>
           <p className="font-heading max-w-md mx-auto"
-            style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.75)', lineHeight: 1.9, fontWeight: 300 }}>
+            style={{ fontSize: '0.9rem', color: BODY, lineHeight: 1.9, fontWeight: 300 }}>
             Premium instant coffee elevated with functional mushrooms — no compromise on taste, no compromise on quality.
           </p>
         </motion.div>
@@ -55,13 +59,13 @@ export default function WhyInstant() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="flex flex-col gap-4 p-7"
-              style={{ background: '#1C1C1C', border: '1px solid rgba(230,183,173,0.1)', transition: 'border-color 0.3s' }}
+              style={{ background: CARD, border: '1px solid rgba(230,183,173,0.28)', transition: 'border-color 0.3s' }}
             >
-              <span className="font-mono font-black" style={{ fontSize: '0.7rem', color: 'rgba(230,183,173,0.25)', letterSpacing: '0.1em' }}>
+              <span className="font-mono font-black" style={{ fontSize: '0.7rem', color: 'rgba(184,101,67,0.4)', letterSpacing: '0.1em' }}>
                 {p.num}
               </span>
-              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', lineHeight: 1.2, color: '#F5EFE6' }}>{p.title}</h3>
-              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(250,245,235,0.78)', fontWeight: 300 }}>
+              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', lineHeight: 1.2, color: TEXT }}>{p.title}</h3>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: BODY, fontWeight: 300 }}>
                 {p.desc}
               </p>
             </motion.div>
@@ -75,14 +79,14 @@ export default function WhyInstant() {
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
           className="mt-10 p-8 md:p-10 text-center"
-          style={{ background: '#1A1A1A', border: '1px solid rgba(230,183,173,0.1)' }}
+          style={{ background: CARD, border: '1px solid rgba(230,183,173,0.28)' }}
         >
           <h3 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F5EFE6', letterSpacing: '-0.01em' }}>
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: TEXT, letterSpacing: '-0.01em' }}>
             Small daily rituals create lasting change.
           </h3>
           <p className="font-heading max-w-2xl mx-auto"
-            style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.75)', lineHeight: 1.9, fontWeight: 300 }}>
+            style={{ fontSize: '0.9rem', color: BODY, lineHeight: 1.9, fontWeight: 300 }}>
             Torch Republic was built on that belief. Each blend represents a different mindset — from focus and discipline to creativity and transformation. Drink with intention. Build your ritual.
           </p>
         </motion.div>

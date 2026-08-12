@@ -33,18 +33,18 @@ export default function GiftKitCard({ kit, index = 0 }) {
       transition={{ duration: 0.4 }}
       className="flex flex-col h-full"
       style={{
-        background: '#11100F',
-        border: '1px solid rgba(230,183,173,0.15)',
+        background: '#FFFFFF',
+        border: '1px solid rgba(230,183,173,0.28)',
         borderRadius: '4px',
         overflow: 'hidden',
         transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.borderColor = `${RG}80`;
-        e.currentTarget.style.boxShadow = `0 0 0 1px ${RG}40, 0 6px 24px rgba(0,0,0,0.4)`;
+        e.currentTarget.style.boxShadow = `0 0 0 1px ${RG}40, 0 6px 24px rgba(63,48,39,0.12)`;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(230,183,173,0.15)';
+        e.currentTarget.style.borderColor = 'rgba(230,183,173,0.28)';
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
@@ -63,7 +63,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {kit.featured && kit.featuredLabel && (
           <div
             className="self-start mb-3 px-3 py-1.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold rounded-sm"
-            style={{ background: RG, color: '#050505' }}
+            style={{ background: '#B86543', color: '#FBF8F1' }}
           >
             {kit.featuredLabel}
           </div>
@@ -72,7 +72,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {/* 3. Kit name (heading) */}
         <h3
           className="font-serif font-bold mb-2"
-          style={{ color: '#F5EFE6', fontSize: '1.4rem', lineHeight: 1.2 }}
+          style={{ color: '#3F3027', fontSize: '1.4rem', lineHeight: 1.2 }}
         >
           <Link
             to={kit.detailPath}
@@ -86,7 +86,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {/* 4. Description */}
         <p
           className="font-heading mb-4"
-          style={{ color: 'rgba(240,235,225,0.72)', fontWeight: 300, lineHeight: 1.6, fontSize: '0.92rem' }}
+          style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.6, fontSize: '0.92rem' }}
         >
           {kit.description}
         </p>
@@ -104,7 +104,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
               <li
                 key={i}
                 className="flex items-start gap-2 font-heading"
-                style={{ color: 'rgba(240,235,225,0.8)', fontSize: '0.86rem', lineHeight: 1.45 }}
+                style={{ color: '#3F3027', fontSize: '0.86rem', lineHeight: 1.45 }}
               >
                 <span
                   aria-hidden="true"
@@ -121,7 +121,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {kit.decorationNote && (
           <p
             className="font-mono mb-4"
-            style={{ color: 'rgba(240,235,225,0.45)', fontSize: '0.68rem', lineHeight: 1.5, letterSpacing: '0.02em' }}
+            style={{ color: '#9A8A7A', fontSize: '0.68rem', lineHeight: 1.5, letterSpacing: '0.02em' }}
           >
             {kit.decorationNote}
           </p>
@@ -131,7 +131,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         <div className="mb-4">
           <span
             className="font-serif font-bold"
-            style={{ color: RG, fontSize: '1.5rem' }}
+            style={{ color: '#B86543', fontSize: '1.5rem' }}
           >
             {fmtPrice(kit.price)}
           </span>
@@ -139,7 +139,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
           {kit.compareAtPrice && Number(kit.compareAtPrice) > kit.price && (
             <span
               className="ml-2 font-mono line-through"
-              style={{ color: 'rgba(230,183,173,0.45)', fontSize: '0.85rem' }}
+              style={{ color: '#9A8A7A', fontSize: '0.85rem' }}
             >
               {fmtPrice(kit.compareAtPrice)}
             </span>
@@ -155,8 +155,8 @@ export default function GiftKitCard({ kit, index = 0 }) {
             aria-label={`Add ${kit.name} to cart`}
             className="flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
             style={{
-              background: RG,
-              color: '#050505',
+              background: '#B86543',
+              color: '#FBF8F1',
               minHeight: '44px',
               padding: '12px 16px',
             }}
@@ -172,13 +172,13 @@ export default function GiftKitCard({ kit, index = 0 }) {
             className="flex items-center justify-center gap-1 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
             style={{
               background: 'transparent',
-              color: RG,
-              border: `1px solid ${RG}40`,
+              color: '#B86543',
+              border: `1px solid #E6B7AD`,
               minHeight: '44px',
               padding: '12px 16px',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = RG; e.currentTarget.style.background = `${RG}10`; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${RG}40`; e.currentTarget.style.background = 'transparent'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#B86543'; e.currentTarget.style.background = `${RG}18`; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E6B7AD'; e.currentTarget.style.background = 'transparent'; }}
           >
             View Gift <ChevronRight className="w-3 h-3" aria-hidden="true" />
           </Link>

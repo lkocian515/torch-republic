@@ -71,7 +71,7 @@ export default function Gifts() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: '#0A0A0A' }}>
+    <div className="min-h-screen" style={{ background: '#F8F5EF' }}>
       {/* Hero — text + CTA on the left, subtle Complete Ritual image on the right (desktop) */}
       <section
         className="px-6 md:px-10 pt-16 md:pt-20 pb-16"
@@ -90,32 +90,32 @@ export default function Gifts() {
             </p>
             <h1
               className="font-serif font-bold mb-4"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.05 }}
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#3F3027', letterSpacing: '-0.02em', lineHeight: 1.05 }}
             >
               Gift a Ritual
             </h1>
             <p
               className="font-heading max-w-xl mb-8"
-              style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.75)', fontWeight: 300, lineHeight: 1.75 }}
+              style={{ fontSize: '1.05rem', color: '#6A5A4A', fontWeight: 300, lineHeight: 1.75 }}
             >
               Thoughtful instant coffee, mushroom coffee, and matcha gifts for the people and moments that matter.
             </p>
             <div className="flex flex-wrap items-center gap-5 mb-8">
               <div className="flex items-center gap-2">
                 <ShieldCheck size={16} style={{ color: RG }} aria-hidden="true" />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.85)' }}>
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: '#9A6358' }}>
                   Real Blends, Verified Cart
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck size={16} style={{ color: RG }} aria-hidden="true" />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.85)' }}>
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: '#9A6358' }}>
                   Ships From Torch Republic
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Package size={16} style={{ color: RG }} aria-hidden="true" />
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.85)' }}>
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: '#9A6358' }}>
                   Mix &amp; Match Any Kit
                 </span>
               </div>
@@ -123,7 +123,7 @@ export default function Gifts() {
             <Link
               to="#ritual-kits"
               className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold rounded-sm"
-              style={{ background: RG, color: '#050505', padding: '14px 28px', minHeight: '44px' }}
+              style={{ background: '#B86543', color: '#FBF8F1', padding: '14px 28px', minHeight: '44px' }}
             >
               Explore Gift Kits <ChevronRight size={14} aria-hidden="true" />
             </Link>
@@ -139,7 +139,7 @@ export default function Gifts() {
           >
             <div
               className="relative w-full overflow-hidden"
-              style={{ aspectRatio: '16 / 10', borderRadius: '6px', border: '1px solid rgba(230,183,173,0.15)' }}
+              style={{ aspectRatio: '16 / 10', borderRadius: '6px', border: '1px solid rgba(230,183,173,0.28)' }}
             >
               <img
                 src={HERO_GIFT_IMAGE.png}
@@ -175,12 +175,12 @@ export default function Gifts() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}` }}>
               Curated Collections
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#3F3027' }}>
               Choose Their Ritual
             </h2>
             <p
               className="font-heading max-w-2xl mx-auto mt-4"
-              style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.7, fontSize: '1rem' }}
+              style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.7, fontSize: '1rem' }}
             >
               Four thoughtful starting points for coffee, mushroom coffee, and matcha lovers. Each kit adds real Torch Republic blends to your cart — no subscriptions or selections required.
             </p>
@@ -195,7 +195,7 @@ export default function Gifts() {
           {/* Discreet decorative-items disclaimer beneath the collection. */}
           <p
             className="font-mono text-center mt-8"
-            style={{ color: 'rgba(240,235,225,0.55)', fontSize: '0.72rem', lineHeight: 1.6, letterSpacing: '0.02em' }}
+            style={{ color: '#6A5A4A', fontSize: '0.72rem', lineHeight: 1.6, letterSpacing: '0.02em' }}
           >
             Products and accessories shown are styled for presentation. Only items listed in each gift description are included.
           </p>
@@ -205,7 +205,7 @@ export default function Gifts() {
       {/* Send It Their Way — verified replacement for the removed "Add Personal Touch / printed gift card" section. */}
       <section
         className="px-6 md:px-10 py-16"
-        style={{ background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(230,183,173,0.06)' }}
+        style={{ background: '#FBF8F1', borderTop: '1px solid rgba(230,183,173,0.22)' }}
       >
         <div className="max-w-[900px] mx-auto text-center">
           <motion.div
@@ -216,12 +216,12 @@ export default function Gifts() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}` }}>
               Simple Process
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#3F3027' }}>
               Send It Their Way
             </h2>
             <p
               className="font-heading max-w-2xl mx-auto"
-              style={{ color: 'rgba(240,235,225,0.75)', fontWeight: 300, lineHeight: 1.8, fontSize: '1.05rem' }}
+              style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.8, fontSize: '1.05rem' }}
             >
               Choose a thoughtful coffee or matcha ritual and have it delivered directly to someone special.
             </p>
@@ -243,7 +243,7 @@ export default function Gifts() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}` }}>
               Three Steps
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', color: '#3F3027' }}>
               How Gifting Works
             </h2>
           </motion.div>
@@ -279,17 +279,17 @@ export default function Gifts() {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: `${RG}10`, border: `1px solid ${RG}25` }}
+                  style={{ background: `${RG}18`, border: `1px solid ${RG}40` }}
                 >
                   <item.icon size={28} style={{ color: RG }} aria-hidden="true" />
                 </div>
-                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.7)' }}>
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: '#B86543' }}>
                   Step {item.step}
                 </p>
-                <h3 className="font-serif font-bold text-lg mb-3" style={{ color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold text-lg mb-3" style={{ color: '#3F3027' }}>
                   {item.title}
                 </h3>
-                <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.7 }}>
+                <p className="font-heading text-sm" style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.7 }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -299,7 +299,7 @@ export default function Gifts() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 md:px-10 py-16" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <section className="px-6 md:px-10 py-16" style={{ borderTop: '1px solid rgba(230,183,173,0.22)' }}>
         <div className="max-w-[800px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -310,7 +310,7 @@ export default function Gifts() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: `${RG}` }}>
               Questions
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#3F3027' }}>
               Gift FAQ
             </h2>
           </motion.div>
@@ -320,12 +320,12 @@ export default function Gifts() {
               <div
                 key={i}
                 className="p-5"
-                style={{ background: 'rgba(255,255,255,0.015)', border: `1px solid ${RG}10`, borderRadius: '2px' }}
+                style={{ background: '#FFFFFF', border: `1px solid ${RG}30`, borderRadius: '2px' }}
               >
-                <h3 className="font-heading font-medium mb-2" style={{ color: '#F5EFE6', fontSize: '0.95rem' }}>
+                <h3 className="font-heading font-medium mb-2" style={{ color: '#3F3027', fontSize: '0.95rem' }}>
                   {faq.q}
                 </h3>
-                <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.7 }}>
+                <p className="font-heading text-sm" style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.7 }}>
                   {faq.a}
                 </p>
               </div>
@@ -335,7 +335,7 @@ export default function Gifts() {
       </section>
 
       {/* Footer CTA — recommends the featured Complete Ritual Kit, links to the canonical ritual builder */}
-      <section className="px-6 md:px-10 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <section className="px-6 md:px-10 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.22)' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -345,16 +345,16 @@ export default function Gifts() {
           <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: `${RG}` }}>
             Need Help?
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#3F3027' }}>
             Can't Decide?
           </h2>
-          <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.8 }}>
+          <p className="font-heading mb-6" style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.8 }}>
             The Complete Ritual Kit is our featured recommendation — a curated introduction to multiple Torch Republic rituals for morning, daytime, and evening.
           </p>
           <Link
             to="/build-your-ritual"
             className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold rounded-sm"
-            style={{ background: RG, color: '#050505', padding: '14px 28px', minHeight: '44px' }}
+            style={{ background: '#B86543', color: '#FBF8F1', padding: '14px 28px', minHeight: '44px' }}
           >
             Explore the Complete Ritual <ChevronRight size={14} aria-hidden="true" />
           </Link>

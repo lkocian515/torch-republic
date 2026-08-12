@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { Sun, Moon, Coffee, Zap, Brain, Heart, Shield } from 'lucide-react';
 
 const RG = '#E6B7AD';
+const CLAY = '#B86543';
+const CREAM = '#FBF8F1';
+const CARD = '#FFFFFF';
+const TEXT = '#3F3027';
+const BODY = '#6A5A4A';
 
 const DAYS = [
   {
@@ -73,21 +78,21 @@ const DAYS = [
 
 export default function GettingStartedGuide() {
   return (
-    <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+    <section className="px-6 md:px-10 py-20" style={{ background: CREAM, borderTop: '1px solid rgba(230,183,173,0.22)', borderBottom: '1px solid rgba(230,183,173,0.22)' }}>
       <div className="max-w-[900px] mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 12 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
+          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>
             Getting Started
           </p>
-          <h2 className="font-serif font-bold text-white mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.2 }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: TEXT, lineHeight: 1.2 }}>
             The 7-Day Ritual Framework
           </h2>
-          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
+          <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: BODY, fontWeight: 300, lineHeight: 1.8 }}>
             Transform your morning from rushed to intentional. This guided week helps you build a sustainable coffee ritual that supports your energy, focus, and well-being.
           </p>
         </motion.div>
@@ -103,37 +108,37 @@ export default function GettingStartedGuide() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 className="p-6 md:p-7"
-                style={{ 
-                  background: '#0F0E0D', 
-                  border: '1px solid rgba(230,183,173,0.08)',
+                style={{
+                  background: CARD,
+                  border: '1px solid rgba(230,183,173,0.28)',
                   borderRadius: '4px'
                 }}
               >
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Day Number & Icon */}
                   <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-4 md:gap-3">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: `rgba(230,183,173,0.12)` }}>
-                      <Icon className="w-5 h-5" style={{ color: RG }} strokeWidth={1.5} />
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(230,183,173,0.16)' }}>
+                      <Icon className="w-5 h-5" style={{ color: CLAY }} strokeWidth={1.5} />
                     </div>
                     <div className="text-center md:text-left">
-                      <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Day {day.day}</p>
+                      <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: RG }}>Day {day.day}</p>
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.2rem' }}>
+                    <h3 className="font-serif font-bold mb-1" style={{ fontSize: '1.2rem', color: TEXT }}>
                       {day.title}
                     </h3>
-                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3" style={{ color: `${RG}80` }}>
+                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-3" style={{ color: CLAY }}>
                       {day.focus} · {day.blend}
                     </p>
-                    <p className="font-heading text-sm leading-relaxed mb-3" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300 }}>
+                    <p className="font-heading text-sm leading-relaxed mb-3" style={{ color: BODY, fontWeight: 300 }}>
                       {day.instruction}
                     </p>
                     <div className="flex items-start gap-2">
-                      <span className="text-lg" style={{ opacity: 0.6 }}>💡</span>
-                      <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
+                      <span className="text-lg" style={{ opacity: 0.7 }}>💡</span>
+                      <p className="font-heading text-xs" style={{ color: BODY, fontWeight: 300 }}>
                         {day.tip}
                       </p>
                     </div>
@@ -145,27 +150,27 @@ export default function GettingStartedGuide() {
         </div>
 
         {/* CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 16 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="font-heading text-sm mb-6" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
+          <p className="font-heading text-sm mb-6" style={{ color: BODY, fontWeight: 300 }}>
             Ready to begin your ritual?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/shop"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ background: RG, color: '#080808', padding: '14px 36px', borderRadius: '4px' }}
+              style={{ background: CLAY, color: '#FBF8F1', padding: '14px 36px', borderRadius: '4px' }}
             >
               Shop All Blends →
             </Link>
             <Link
               to="/build-your-ritual"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
-              style={{ border: '1px solid rgba(230,183,173,0.3)', color: 'rgba(230,183,173,0.7)', padding: '14px 36px', borderRadius: '4px' }}
+              style={{ border: '1px solid #E6B7AD', color: CLAY, padding: '14px 36px', borderRadius: '4px' }}
             >
               Get the Full Set →
             </Link>

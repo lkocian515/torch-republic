@@ -5,7 +5,13 @@ import { Flame, Gift, Star, Users, Crown, Zap, ShoppingBag, MessageCircle, Camer
 import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
-const BG = '#0D0C0B';
+const GOLD = '#C4A35A';
+const MOSS = '#566047';
+const BG = '#F8F5EF';
+const CREAM = '#FBF8F1';
+const TEXT = '#3F3027';
+const BODY = '#6A5A4A';
+const CLAY = '#B86543';
 
 const WAYS_TO_EARN = [
   { icon: ShoppingBag, label: 'Make a Purchase', points: '1 point per $1', desc: 'Earn on every order' },
@@ -23,8 +29,8 @@ const TIERS = [
     name: 'EMBER',
     level: 1,
     color: '#C98F86',
-    bg: 'rgba(201,143,134,0.08)',
-    border: 'rgba(201,143,134,0.3)',
+    bg: '#FFFFFF',
+    border: 'rgba(201,143,134,0.45)',
     benefits: [
       'Earn points on every purchase',
       'Birthday reward',
@@ -36,9 +42,9 @@ const TIERS = [
   {
     name: 'BEACON',
     level: 2,
-    color: '#E6B7AD',
-    bg: 'rgba(230,183,173,0.08)',
-    border: 'rgba(230,183,173,0.4)',
+    color: '#B86543',
+    bg: '#FFFFFF',
+    border: 'rgba(230,183,173,0.5)',
     benefits: [
       '1.25x points multiplier',
       'Exclusive member offers',
@@ -51,9 +57,9 @@ const TIERS = [
   {
     name: 'FLAMEKEEPER',
     level: 3,
-    color: '#D4AF37',
-    bg: 'rgba(212,175,55,0.08)',
-    border: 'rgba(212,175,55,0.4)',
+    color: '#B89535',
+    bg: '#FFFFFF',
+    border: 'rgba(184,149,53,0.5)',
     benefits: [
       '1.5x points multiplier',
       'Exclusive VIP launches',
@@ -89,7 +95,7 @@ function TierCard({ tier, index }) {
           </h3>
         </div>
         
-        <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>
+        <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6" style={{ color: RG }}>
           {tier.level === 1 ? 'Entry Tier' : tier.level === 2 ? 'Mid Tier' : 'VIP Tier'}
         </p>
 
@@ -97,7 +103,7 @@ function TierCard({ tier, index }) {
           {tier.benefits.map((benefit, i) => (
             <li key={i} className="flex items-start gap-2.5">
               <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: tier.color }} />
-              <span className="font-heading text-sm md:text-base" style={{ color: 'rgba(245,239,230,0.85)' }}>
+              <span className="font-heading text-sm md:text-base" style={{ color: TEXT }}>
                 {benefit}
               </span>
             </li>
@@ -118,21 +124,21 @@ function EarningCard({ item, index }) {
       transition={{ delay: index * 0.05 }}
       className="flex flex-col items-center text-center p-5"
       style={{
-        background: 'rgba(230,183,173,0.04)',
-        border: '1px solid rgba(230,183,173,0.08)',
+        background: '#FFFFFF',
+        border: '1px solid rgba(230,183,173,0.28)',
       }}
     >
       <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3"
-        style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.15)' }}>
+        style={{ background: 'rgba(230,183,173,0.16)', border: '1px solid rgba(230,183,173,0.4)' }}>
         <Icon className="w-5 h-5" style={{ color: RG }} />
       </div>
       <p className="font-mono text-[9px] tracking-[0.18em] uppercase font-bold mb-1" style={{ color: RG }}>
         {item.points}
       </p>
-      <p className="font-heading text-sm font-semibold mb-1" style={{ color: '#F5EFE6' }}>
+      <p className="font-heading text-sm font-semibold mb-1" style={{ color: TEXT }}>
         {item.label}
       </p>
-      <p className="font-heading text-xs" style={{ color: 'rgba(245,239,230,0.5)' }}>
+      <p className="font-heading text-xs" style={{ color: BODY }}>
         {item.desc}
       </p>
     </motion.div>
@@ -157,14 +163,14 @@ export default function TorchbearersRewards() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
+            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
               Torchbearers Rewards
             </p>
-            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: TEXT, letterSpacing: '-0.02em' }}>
               Carry the Flame.<br />Earn the Rewards.
             </h1>
             <p className="font-heading text-lg md:text-xl max-w-2xl mx-auto mb-8"
-              style={{ color: 'rgba(245,239,230,0.7)', fontWeight: 300, lineHeight: 1.8 }}>
+              style={{ color: BODY, fontWeight: 300, lineHeight: 1.8 }}>
               Earn rewards every time you build your ritual with Torch Republic.
               Join a community that values intention, quality, and daily practice.
             </p>
@@ -172,14 +178,14 @@ export default function TorchbearersRewards() {
               <Link
                 to="/login"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
-                style={{ background: RG, color: '#080808' }}
+                style={{ background: CLAY, color: '#FBF8F1' }}
               >
                 View My Rewards
               </Link>
               <Link
                 to="/shop"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:border-rose-gold"
-                style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}
+                style={{ border: '1px solid #E6B7AD', color: CLAY }}
               >
                 Start Earning
               </Link>
@@ -189,7 +195,7 @@ export default function TorchbearersRewards() {
       </section>
 
       {/* Ways to Earn */}
-      <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: '#0F0E0D' }}>
+      <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: CREAM }}>
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -198,13 +204,13 @@ export default function TorchbearersRewards() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
               Ways to Earn
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: TEXT }}>
               Every Ritual Earns More
             </h2>
-            <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(245,239,230,0.6)', fontWeight: 300, lineHeight: 1.85 }}>
+            <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: BODY, fontWeight: 300, lineHeight: 1.85 }}>
               From your first purchase to sharing with friends, every interaction builds your rewards.
             </p>
           </motion.div>
@@ -227,13 +233,13 @@ export default function TorchbearersRewards() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
               Reward Tiers
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: TEXT }}>
               Advance Through the Ranks
             </h2>
-            <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(245,239,230,0.6)', fontWeight: 300, lineHeight: 1.85 }}>
+            <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: BODY, fontWeight: 300, lineHeight: 1.85 }}>
               The more you engage with your ritual, the more you unlock.
             </p>
           </motion.div>
@@ -247,7 +253,7 @@ export default function TorchbearersRewards() {
       </section>
 
       {/* Referral Program */}
-      <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: '#0F0E0D' }}>
+      <section className="px-4 md:px-10 py-16 md:py-24 relative" style={{ background: CREAM }}>
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -256,21 +262,21 @@ export default function TorchbearersRewards() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
               Referral Program
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: TEXT }}>
               Share the Flame
             </h2>
             <p className="font-heading max-w-2xl mx-auto mb-8"
-              style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.7)', fontWeight: 300, lineHeight: 1.85 }}>
+              style={{ fontSize: '1.05rem', color: BODY, fontWeight: 300, lineHeight: 1.85 }}>
               Invite friends to discover their next ritual and earn rewards together.
               When they make their first purchase, you both receive bonus points.
             </p>
             <Link
               to="/login"
               className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
-              style={{ background: RG, color: '#080808' }}
+              style={{ background: CLAY, color: '#FBF8F1' }}
             >
               Get Your Referral Link
               <ChevronRight className="w-4 h-4" />
@@ -289,14 +295,14 @@ export default function TorchbearersRewards() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
+            <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
               Subscription
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: TEXT }}>
               Subscribe & Save 20%
             </h2>
             <p className="font-heading max-w-2xl mx-auto mb-8"
-              style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.7)', fontWeight: 300, lineHeight: 1.85 }}>
+              style={{ fontSize: '1.05rem', color: BODY, fontWeight: 300, lineHeight: 1.85 }}>
               Lock in your daily ritual and earn Torchbearer rewards on every recurring order.
               Subscriptions are the fastest path to advancing through tiers.
             </p>
@@ -304,14 +310,14 @@ export default function TorchbearersRewards() {
               <Link
                 to="/subscription"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
-                style={{ background: RG, color: '#080808' }}
+                style={{ background: CLAY, color: '#FBF8F1' }}
               >
                 View Subscription Options
               </Link>
               <Link
                 to="/shop"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:border-rose-gold"
-                style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}
+                style={{ border: '1px solid #E6B7AD', color: CLAY }}
               >
                 Shop Products
               </Link>
@@ -321,7 +327,7 @@ export default function TorchbearersRewards() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-4 md:px-10 py-20 md:py-28 relative" style={{ background: '#0F0E0D' }}>
+      <section className="px-4 md:px-10 py-20 md:py-28 relative" style={{ background: CREAM }}>
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
@@ -329,25 +335,25 @@ export default function TorchbearersRewards() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)', color: TEXT }}>
               Ready to Carry the Flame?
             </h2>
             <p className="font-heading text-lg mb-8"
-              style={{ color: 'rgba(245,239,230,0.7)', fontWeight: 300, lineHeight: 1.8 }}>
+              style={{ color: BODY, fontWeight: 300, lineHeight: 1.8 }}>
               Join thousands of Torchbearers building intentional daily rituals.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/login"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
-                style={{ background: RG, color: '#080808' }}
+                style={{ background: CLAY, color: '#FBF8F1' }}
               >
                 Sign In to View Rewards
               </Link>
               <Link
                 to="/register"
                 className="font-mono text-[11px] tracking-[0.25em] uppercase font-bold px-8 py-3.5 transition-all hover:border-rose-gold"
-                style={{ border: '1px solid rgba(230,183,173,0.3)', color: RG }}
+                style={{ border: '1px solid #E6B7AD', color: CLAY }}
               >
                 Create Account
               </Link>

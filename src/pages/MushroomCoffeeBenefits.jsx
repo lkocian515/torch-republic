@@ -6,7 +6,12 @@ import { Brain, Zap, Leaf, Shield, Coffee, Moon } from 'lucide-react';
 import RecommendedRitualBlock from '../components/content/RecommendedRitualBlock';
 
 const RG = '#E6B7AD';
-const DIM = 'rgba(240,232,220,0.55)';
+const CLAY = '#B86543';
+const PAGE = '#F8F5EF';
+const CARD = '#FFFFFF';
+const TEXT = '#3F3027';
+const BODY = '#6A5A4A';
+const BORDER = 'rgba(230,183,173,0.28)';
 
 const BENEFITS = [
   { icon: Brain, title: "Lion's Mane in Your Morning Ritual", body: "Lion's Mane (Hericium erinaceus) is a unique functional mushroom that has been researched for its compound profile. It is included in our blends as a ritual ingredient for focused mornings—not as a medical treatment. Statements about this product have not been evaluated by the FDA." },
@@ -38,37 +43,37 @@ export default function MushroomCoffeeBenefits() {
   });
 
   return (
-    <div style={{ background: '#100F0D', minHeight: '100vh' }}>
+    <div style={{ background: PAGE, minHeight: '100vh' }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(64px, 8vw, 120px) 24px 48px', textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}>
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
-          style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.48em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.45)', marginBottom: '16px' }}
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.48em', textTransform: 'uppercase', color: RG, marginBottom: '16px' }}
         >
           Torch Republic · The Science
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
           className="font-serif font-bold"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: TEXT, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
         >
           Mushroom Coffee Benefits,<br />
-          <span style={{ color: RG }}>Honestly Explained</span>
+          <span style={{ color: CLAY }}>Honestly Explained</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.14 }}
           className="font-heading"
-          style={{ fontSize: '1rem', color: DIM, fontWeight: 300, lineHeight: 1.8, marginBottom: '36px' }}
+          style={{ fontSize: '1rem', color: BODY, fontWeight: 300, lineHeight: 1.8, marginBottom: '36px' }}
         >
           Functional mushrooms have been used in traditional medicine for thousands of years. Modern research is now catching up. Here's what the science actually says — no hype, no exaggeration.
         </motion.p>
         <Link
           to="/shop"
           style={{
-            display: 'inline-block', background: RG, color: '#040404',
+            display: 'inline-block', background: CLAY, color: '#FBF8F1',
             fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.24em',
-            textTransform: 'uppercase', fontWeight: 700, padding: '14px 32px', textDecoration: 'none',
+            textTransform: 'uppercase', fontWeight: 700, padding: '14px 32px', textDecoration: 'none', borderRadius: '4px',
           }}
         >
           Shop Mushroom Coffee
@@ -77,21 +82,21 @@ export default function MushroomCoffeeBenefits() {
 
       {/* Benefits */}
       <section style={{ maxWidth: '1060px', margin: '0 auto', padding: '48px 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1px', background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.08)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
           {BENEFITS.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}
-              style={{ background: '#100F0D', padding: 'clamp(24px, 3vw, 36px)' }}
+              style={{ background: CARD, border: `1px solid ${BORDER}`, padding: 'clamp(24px, 3vw, 36px)', borderRadius: '10px' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                <div style={{ width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0, background: 'rgba(230,183,173,0.07)', border: '1px solid rgba(230,183,173,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <b.icon size={15} style={{ color: RG }} />
+                <div style={{ width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0, background: 'rgba(230,183,173,0.16)', border: '1px solid rgba(230,183,173,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <b.icon size={15} style={{ color: CLAY }} />
                 </div>
-                <h2 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6', margin: 0, lineHeight: 1.3 }}>{b.title}</h2>
+                <h2 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: TEXT, margin: 0, lineHeight: 1.3 }}>{b.title}</h2>
               </div>
-              <p className="font-heading" style={{ fontSize: '0.87rem', color: DIM, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{b.body}</p>
+              <p className="font-heading" style={{ fontSize: '0.87rem', color: BODY, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{b.body}</p>
             </motion.div>
           ))}
         </div>
@@ -108,17 +113,17 @@ export default function MushroomCoffeeBenefits() {
 
       {/* FAQ */}
       <section style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px clamp(64px, 8vw, 96px)' }}>
-        <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE6', marginBottom: '32px', textAlign: 'center' }}>
+        <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: TEXT, marginBottom: '32px', textAlign: 'center' }}>
           Common Questions
         </h2>
         {FAQS.map(({ q, a }) => (
-          <div key={q} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)', paddingBottom: '24px', marginBottom: '24px' }}>
-            <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#F5EFE6', marginBottom: '10px' }}>{q}</h3>
-            <p className="font-heading" style={{ fontSize: '0.87rem', color: DIM, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{a}</p>
+          <div key={q} style={{ borderBottom: `1px solid ${BORDER}`, paddingBottom: '24px', marginBottom: '24px' }}>
+            <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: TEXT, marginBottom: '10px' }}>{q}</h3>
+            <p className="font-heading" style={{ fontSize: '0.87rem', color: BODY, fontWeight: 300, lineHeight: 1.75, margin: 0 }}>{a}</p>
           </div>
         ))}
         <div style={{ textAlign: 'center', marginTop: '32px' }}>
-          <Link to="/shop" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.58rem', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none' }}>
+          <Link to="/shop" style={{ color: CLAY, fontFamily: 'var(--font-mono)', fontSize: '0.58rem', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none', fontWeight: 700 }}>
             Try a Blend — 30-Day Guarantee →
           </Link>
         </div>
