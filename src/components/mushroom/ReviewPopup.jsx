@@ -285,12 +285,12 @@ export default function ReviewPopup() {
           aria-label="Customer review"
         >
           <div
-            className="relative w-full max-w-[140px] sm:max-w-[180px] md:max-w-sm"
+            className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-sm"
             style={{
-              background: 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)',
-              border: `1px solid ${RG}30`,
-              borderRadius: '6px',
-              boxShadow: `0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px ${RG}10`,
+              background: '#F8F5EF',
+              border: `1px solid ${RG}40`,
+              borderRadius: '10px',
+              boxShadow: '0 8px 28px rgba(63,48,39,0.14), 0 2px 6px rgba(63,48,39,0.08)',
             }}
           >
             {/* Accessible close button */}
@@ -298,8 +298,8 @@ export default function ReviewPopup() {
               ref={closeBtnRef}
               onClick={close}
               aria-label="Close review popup"
-              className="absolute top-2 right-2 z-10 p-1.5 rounded-full transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
-              style={{ color: `${RG}60` }}
+              className="absolute top-2 right-2 z-10 p-1.5 rounded-full transition-all hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+              style={{ color: RG }}
             >
               <X className="w-4 h-4" />
             </button>
@@ -307,10 +307,10 @@ export default function ReviewPopup() {
             {/* Content */}
             <div className="p-3">
               {/* Header */}
-              <div className="mb-2">
+              <div className="mb-2.5">
                 <p
-                  className="font-mono text-[5px] tracking-[0.4em] uppercase mb-1.5"
-                  style={{ color: `${RG}60` }}
+                  className="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] uppercase mb-1.5"
+                  style={{ color: RG }}
                 >
                   Review
                 </p>
@@ -318,8 +318,8 @@ export default function ReviewPopup() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-2.5 h-2.5 fill-current"
-                      style={{ color: i < currentReview.rating ? GOLD : 'rgba(255,255,255,0.15)' }}
+                      className="w-3 h-3 fill-current"
+                      style={{ color: i < currentReview.rating ? GOLD : 'rgba(63,48,39,0.18)' }}
                     />
                   ))}
                 </div>
@@ -334,29 +334,29 @@ export default function ReviewPopup() {
                 transition={{ duration: 0.2 }}
               >
                 <blockquote
-                  className="font-heading mb-2"
+                  className="font-heading mb-2.5"
                   style={{
-                    fontSize: '0.75rem',
-                    color: 'rgba(240,235,225,0.85)',
-                    lineHeight: 1.5,
+                    fontSize: '0.8125rem',
+                    color: '#3F3027',
+                    lineHeight: 1.55,
                   }}
                 >
                   "{currentReview.body.length > 140 ? currentReview.body.substring(0, 140) + '...' : currentReview.body}"
                 </blockquote>
 
                 {/* Reviewer info */}
-                <div className="flex items-center justify-between pt-1.5" style={{ borderTop: `1px solid ${RG}15` }}>
-                  <div className="flex flex-col gap-0.5 min-w-0">
+                <div className="flex items-center justify-between pt-2" style={{ borderTop: `1px solid ${RG}25` }}>
+                  <div className="flex flex-col gap-1 min-w-0">
                     <p
-                      className="font-mono text-[6px] tracking-[0.25em] uppercase font-bold truncate"
-                      style={{ color: RG }}
+                      className="font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase font-bold truncate"
+                      style={{ color: '#3F3027' }}
                     >
                       {currentReview.reviewer_name}
                     </p>
                     {isVerified && (
                       <span
-                        className="font-mono text-[5px] tracking-[0.15em] uppercase"
-                        style={{ color: `${RG}70` }}
+                        className="font-mono text-[8px] sm:text-[9px] tracking-[0.12em] uppercase"
+                        style={{ color: RG }}
                       >
                         Verified Customer
                       </span>
@@ -364,8 +364,8 @@ export default function ReviewPopup() {
                   </div>
                   {currentReview.review_date && (
                     <p
-                      className="font-mono text-[5px] tracking-[0.15em] uppercase ml-2 shrink-0"
-                      style={{ color: `${RG}50` }}
+                      className="font-mono text-[8px] sm:text-[9px] tracking-[0.12em] uppercase ml-2 shrink-0"
+                      style={{ color: '#6A5A4A' }}
                     >
                       {new Date(currentReview.review_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
                     </p>
@@ -379,10 +379,10 @@ export default function ReviewPopup() {
                   <button
                     onClick={handlePrev}
                     aria-label="Previous review"
-                    className="p-1 rounded-full transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+                    className="p-1 rounded-full transition-all hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
                     style={{ color: RG }}
                   >
-                    <ChevronLeft className="w-3 h-3" />
+                    <ChevronLeft className="w-3.5 h-3.5" />
                   </button>
 
                   <div className="flex items-center gap-1">
@@ -391,10 +391,10 @@ export default function ReviewPopup() {
                         key={idx}
                         className="transition-all"
                         style={{
-                          width: idx === currentIndex ? '10px' : '3px',
-                          height: '3px',
-                          borderRadius: '1.5px',
-                          background: idx === currentIndex ? RG : `rgba(230,183,173,0.2)`,
+                          width: idx === currentIndex ? '10px' : '4px',
+                          height: '4px',
+                          borderRadius: '2px',
+                          background: idx === currentIndex ? RG : 'rgba(63,48,39,0.2)',
                         }}
                       />
                     ))}
@@ -403,10 +403,10 @@ export default function ReviewPopup() {
                   <button
                     onClick={handleNext}
                     aria-label="Next review"
-                    className="p-1 rounded-full transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
+                    className="p-1 rounded-full transition-all hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
                     style={{ color: RG }}
                   >
-                    <ChevronRight className="w-3 h-3" />
+                    <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               )}
