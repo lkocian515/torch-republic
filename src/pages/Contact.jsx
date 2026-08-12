@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const RG = '#E6B7AD';
@@ -149,6 +149,14 @@ export default function Contact() {
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: RG }}>Support Email</p>
                   <p className="font-heading text-sm" style={{ color: TEXT }}>support@torchrepublic.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-5" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
+                <Phone className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: CLAY }} />
+                <div>
+                  <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: RG }}>Telephone</p>
+                  <a href="tel:+13613601931" className="font-heading text-sm transition-colors hover:opacity-70" style={{ color: TEXT }}>361-360-1931</a>
                 </div>
               </div>
 

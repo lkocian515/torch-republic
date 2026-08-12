@@ -212,24 +212,34 @@ const PATHWAYS = [
 
 const SCREENSHOTS = [
   {
-    label: 'Homepage — editorial hero & section flow',
-    caption: 'Full-width background hero with left-aligned editorial copy, followed by a modular nine-section layout.',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png',
+    title: 'Homepage — editorial hero and navigation',
+    caption: 'A cohesive light-theme storefront with prioritized paths to shopping, rewards, educational content, and guided product selection.',
+    alt: 'Torch Republic homepage showing the navigation and editorial product hero.',
   },
   {
-    label: 'Collection page — standardized product grid',
-    caption: 'Light-themed grid with consistent product cards, category intro, and a factual selection aid.',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/abd9bea94_portfolio-collection.png',
+    title: 'Collection page — standardized product grid',
+    caption: 'Consistent product imagery, category labels, subscription messaging, pricing, and action hierarchy across the three mushroom blends.',
+    alt: 'Torch Republic mushroom coffee collection showing three standardized product cards.',
   },
   {
-    label: 'Product detail — editorial layout',
-    caption: 'Local catalog data, honest descriptions, clear purchase actions, and related-product recommendations.',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e1ef6959_portfolio-product.png',
+    title: 'Product detail — purchase decision flow',
+    caption: 'A focused product view organizing imagery, serving count, subscription and one-time pricing, quantity, and add-to-cart controls.',
+    alt: 'Torchbearer product page showing product imagery, pricing, purchase options, and serving information.',
   },
   {
-    label: 'Build Your Ritual — bundle builder',
-    caption: 'Mobile-first conversion flow guiding first-time visitors through coffee, mushroom, and matcha selection.',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4efd7698f_portfolio-bundle.png',
+    title: 'Build Your Ritual — bundle logic',
+    caption: 'A fixed-price starter bundle with verified serving math, comparison value, savings, and a clear path into custom selection.',
+    alt: 'Torch Republic Starter Ritual Bundle showing included products, price, savings, and serving calculation.',
   },
   {
-    label: 'Blend Quiz — recommendation flow',
-    caption: 'Weighted multi-step quiz that recommends a product ritual and captures a lead for follow-up.',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2068c679d_portfolio-quiz.png',
+    title: 'Blend Quiz — guided recommendation flow',
+    caption: 'A four-question, no-account-required experience that reduces choice friction and guides visitors toward an appropriate product.',
+    alt: 'Torch Republic Find Your Ritual quiz introduction and start button.',
   },
 ];
 
@@ -464,37 +474,35 @@ export default function PortfolioCaseStudy() {
       {/* 8 — Screenshots */}
       <SectionShell id="screenshots" alt>
         <SectionTitle n={7}>Screenshots</SectionTitle>
-        <Lead>Real screenshots to be added. Placeholders are labeled — no mockups used.</Lead>
+        <Lead>Real screenshots of the live storefront, captured at desktop width. Select any image to open it at full size.</Lead>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-          {SCREENSHOTS.map(({ label, caption }) => (
-            <figure key={label} style={{ margin: 0 }}>
-              <div
-                aria-hidden="true"
+          {SCREENSHOTS.map(({ src, title, caption, alt }) => (
+            <figure key={title} style={{ margin: 0 }}>
+              <a
+                href={src}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open full-size image: ${title}`}
                 style={{
-                  width: '100%',
-                  aspectRatio: '16 / 10',
-                  background: CREAM,
-                  border: `1px dashed ${RULE}`,
+                  display: 'block',
+                  border: `1px solid ${RULE}`,
                   borderRadius: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  background: CARD,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6875rem',
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    color: SECONDARY,
-                  }}
-                >
-                  Screenshot — to be added
-                </span>
-              </div>
+                <img
+                  src={src}
+                  alt={alt}
+                  width={1400}
+                  height={875}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1400 / 875' }}
+                />
+              </a>
               <figcaption style={{ marginTop: '0.6rem' }}>
-                <strong style={{ fontFamily: 'var(--font-heading)', color: INK, fontSize: '0.875rem' }}>{label}</strong>
+                <strong style={{ fontFamily: 'var(--font-heading)', color: INK, fontSize: '0.875rem' }}>{title}</strong>
                 <p style={{ fontSize: '0.8125rem', lineHeight: 1.6, color: SECONDARY, marginTop: '0.25rem' }}>
                   {caption}
                 </p>
