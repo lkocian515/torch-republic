@@ -48,6 +48,11 @@
       ],
       "default": "pending",
       "description": "Editorial approval status"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this story submission"
     }
   },
   "required": [
