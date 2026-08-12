@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, ShieldCheck, Truck, Package } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-import { buildRitualKits, HERO_GIFT_IMAGE } from '@/lib/giftKits';
+import { buildRitualKits } from '@/lib/giftKits';
 import GiftKitCard from '@/components/gifts/GiftKitCard';
 
 const RG = '#E6B7AD';
+const HERO_GIFT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/64de50cec_canyougenerategiftingphotosofthecoffeetube1.png';
 
 // FAQ content — kept factual; no gift-wrap/card/scheduled-delivery claims that
 // aren't backed by a real configured service.
@@ -72,16 +73,47 @@ export default function Gifts() {
 
   return (
     <div className="min-h-screen" style={{ background: '#F8F5EF' }}>
-      {/* Hero — text + CTA on the left, subtle Complete Ritual image on the right (desktop) */}
+      {/* Hero — single full-width product image at top, editorial copy below */}
       <section
-        className="px-6 md:px-10 pt-16 md:pt-20 pb-16"
+        className="px-6 md:px-10 pt-12 md:pt-16 pb-14"
         style={{
-          borderBottom: '1px solid rgba(230,183,173,0.08)',
+          borderBottom: '1px solid rgba(230,183,173,0.18)',
           background: 'radial-gradient(ellipse at top, rgba(230,183,173,0.07) 0%, transparent 70%)',
         }}
       >
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <div className="max-w-[1400px] mx-auto">
+          {/* Full-width hero image — the only image on the page */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            aria-hidden="true"
+            className="w-full"
+          >
+            <div
+              className="relative w-full overflow-hidden"
+              style={{ aspectRatio: '16 / 10', borderRadius: '8px', border: '1px solid rgba(230,183,173,0.28)' }}
+            >
+              <img
+                src={HERO_GIFT_IMAGE}
+                alt="Torch Republic gift sets — mushroom coffee and ceremonial matcha ritual kits arranged on a warm stone surface."
+                width={1600}
+                height={1000}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="w-full h-full object-cover"
+                style={{ display: 'block', objectPosition: 'center center' }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Editorial copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center max-w-2xl mx-auto mt-10 md:mt-12"
+          >
             <p
               className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
               style={{ color: `${RG}` }}
@@ -95,12 +127,12 @@ export default function Gifts() {
               Gift a Ritual
             </h1>
             <p
-              className="font-heading max-w-xl mb-8"
+              className="font-heading max-w-xl mx-auto mb-8"
               style={{ fontSize: '1.05rem', color: '#6A5A4A', fontWeight: 300, lineHeight: 1.75 }}
             >
               Thoughtful instant coffee, mushroom coffee, and matcha gifts for the people and moments that matter.
             </p>
-            <div className="flex flex-wrap items-center gap-5 mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-5 mb-8">
               <div className="flex items-center gap-2">
                 <ShieldCheck size={16} style={{ color: RG }} aria-hidden="true" />
                 <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: '#9A6358' }}>
@@ -127,38 +159,6 @@ export default function Gifts() {
             >
               Explore Gift Kits <ChevronRight size={14} aria-hidden="true" />
             </Link>
-          </motion.div>
-
-          {/* Hero promo image — shown on all viewports, cropped to keep the
-              product showcase centered on mobile (object-position right). */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            aria-hidden="true"
-          >
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ aspectRatio: '16 / 10', borderRadius: '6px', border: '1px solid rgba(230,183,173,0.28)' }}
-            >
-              <img
-                src={HERO_GIFT_IMAGE.png}
-                alt=""
-                width={1600}
-                height={1000}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                sizes="(max-width: 1023px) 100vw, 50vw"
-                srcSet={`${HERO_GIFT_IMAGE.png} 1600w`}
-                className="w-full h-full object-cover"
-                style={{ display: 'block', objectPosition: 'right center' }}
-              />
-              <div
-                className="absolute inset-0 lg:hidden"
-                style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.35) 100%)' }}
-              />
-            </div>
           </motion.div>
         </div>
       </section>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ShoppingBag } from 'lucide-react';
-import GiftKitImage from './GiftKitImage';
+import { ChevronRight, ShoppingBag, Gift } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
@@ -48,15 +47,20 @@ export default function GiftKitCard({ kit, index = 0 }) {
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      {/* 1. Image — clickable, opens the gift detail page */}
-      <Link
-        to={kit.detailPath}
-        aria-label={`${kit.name} — view details`}
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
-        style={{ display: 'block' }}
+      {/* 1. Text-only header — decorative top accent + icon medallion (no image) */}
+      <div aria-hidden="true" style={{ height: '4px', background: `linear-gradient(90deg, ${RG}30 0%, #B8654380 50%, ${RG}30 100%)` }} />
+      <div
+        className="flex items-center justify-center pt-6 pb-2"
+        style={{ borderBottom: '1px solid rgba(230,183,173,0.22)', background: `${RG}0A` }}
       >
-        <GiftKitImage img={kit.img} alt={kit.alt} priority={priority} />
-      </Link>
+        <div
+          className="w-12 h-12 rounded-full flex items-center justify-center"
+          style={{ background: '#FBF8F1', border: `1px solid ${RG}50` }}
+        >
+          <Gift size={22} style={{ color: '#B86543' }} aria-hidden="true" />
+        </div>
+      </div>
+      {void priority}
 
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         {/* 2. Optional badge */}
