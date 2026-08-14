@@ -4,7 +4,7 @@
   "properties": {
     "customer_id": {
       "type": "string",
-      "description": "Shopify customer ID"
+      "description": "Legacy Shopify customer ID \u2014 preserved for historical compatibility"
     },
     "first_name": {
       "type": "string",
@@ -48,6 +48,30 @@
     "country_code": {
       "type": "string",
       "description": "Customer country code"
+    },
+    "shipping_address": {
+      "type": "string",
+      "description": "Default shipping street address"
+    },
+    "shipping_city": {
+      "type": "string",
+      "description": "Default shipping city"
+    },
+    "shipping_state": {
+      "type": "string",
+      "description": "Default shipping state/province"
+    },
+    "shipping_postal_code": {
+      "type": "string",
+      "description": "Default shipping postal code"
+    },
+    "shipping_country": {
+      "type": "string",
+      "description": "Default shipping country"
+    },
+    "stripe_customer_id": {
+      "type": "string",
+      "description": "Stripe customer ID for recurring/linked payments"
     },
     "description": {
       "type": "string",

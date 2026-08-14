@@ -1,0 +1,85 @@
+{
+  "name": "OrderItem",
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "description": "ID of the Order this line item belongs to"
+    },
+    "product_id": {
+      "type": "string",
+      "description": "Base44 Product entity ID"
+    },
+    "product_title": {
+      "type": "string",
+      "description": "Product name at time of purchase"
+    },
+    "sku": {
+      "type": "string",
+      "description": "Product SKU at time of purchase"
+    },
+    "shopify_handle": {
+      "type": "string",
+      "description": "Legacy Shopify handle, preserved for historical line items"
+    },
+    "roastify_product_id": {
+      "type": "string",
+      "description": "Roastify product ID (optional until configured)"
+    },
+    "roastify_variant_id": {
+      "type": "string",
+      "description": "Roastify variant ID (optional until configured)"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity ordered"
+    },
+    "unit_price": {
+      "type": "number",
+      "description": "Price per unit in USD (server-validated)"
+    },
+    "line_total": {
+      "type": "number",
+      "description": "quantity \u00d7 unit_price in USD"
+    },
+    "product_image": {
+      "type": "string",
+      "description": "Product image URL at time of purchase"
+    }
+  },
+  "required": [
+    "order_id",
+    "product_title",
+    "quantity",
+    "unit_price"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -4,43 +4,178 @@
   "properties": {
     "customer_email": {
       "type": "string",
-      "description": "Customer email address"
+      "description": "Customer email address (preserved)"
     },
     "customer_name": {
       "type": "string",
-      "description": "Customer full name"
+      "description": "Customer full name (preserved)"
     },
     "order_id": {
       "type": "string",
-      "description": "Shopify order ID or internal order ID"
+      "description": "Legacy Shopify order ID \u2014 preserved for historical orders. New Base44 orders use internal_order_number."
+    },
+    "internal_order_number": {
+      "type": "string",
+      "description": "Internal human-readable order number for the Base44 storefront (e.g. TR-100001)"
     },
     "product_handle": {
       "type": "string",
-      "description": "Product handle that was purchased"
+      "description": "Legacy single-product handle (preserved). Multi-item orders use the OrderItem entity."
     },
     "product_title": {
       "type": "string",
-      "description": "Product name"
+      "description": "Legacy single-product title (preserved)"
     },
     "order_date": {
       "type": "string",
       "format": "date-time",
-      "description": "When the order was placed"
+      "description": "When the order was placed (preserved)"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "refunded",
+        "partially_refunded",
+        "failed",
+        "cancelled"
+      ],
+      "default": "pending",
+      "description": "Stripe payment status"
+    },
+    "stripe_session_id": {
+      "type": "string",
+      "description": "Stripe Checkout Session ID"
+    },
+    "stripe_payment_intent_id": {
+      "type": "string",
+      "description": "Stripe Payment Intent ID"
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Order subtotal in USD (sum of line items, server-validated)"
+    },
+    "shipping_amount": {
+      "type": "number",
+      "description": "Shipping cost in USD"
+    },
+    "tax": {
+      "type": "number",
+      "description": "Tax collected in USD"
+    },
+    "discount": {
+      "type": "number",
+      "description": "Total discount applied in USD"
+    },
+    "discount_code": {
+      "type": "string",
+      "description": "Discount/coupon code applied to the order"
+    },
+    "total": {
+      "type": "number",
+      "description": "Order grand total in USD"
+    },
+    "shipping_name": {
+      "type": "string",
+      "description": "Full shipping recipient name"
+    },
+    "shipping_address": {
+      "type": "string",
+      "description": "Shipping street address"
+    },
+    "shipping_city": {
+      "type": "string",
+      "description": "Shipping city"
+    },
+    "shipping_state": {
+      "type": "string",
+      "description": "Shipping state/province"
+    },
+    "shipping_postal_code": {
+      "type": "string",
+      "description": "Shipping postal code"
+    },
+    "shipping_country": {
+      "type": "string",
+      "description": "Shipping country"
+    },
+    "shipping_phone": {
+      "type": "string",
+      "description": "Shipping contact phone (when provided)"
+    },
+    "fulfillment_status": {
+      "type": "string",
+      "enum": [
+        "unfulfilled",
+        "submitted_to_roastify",
+        "in_production",
+        "shipped",
+        "delivered",
+        "fulfillment_error",
+        "cancelled"
+      ],
+      "default": "unfulfilled",
+      "description": "Fulfillment lifecycle status"
+    },
+    "roastify_order_id": {
+      "type": "string",
+      "description": "Roastify order ID once submitted"
+    },
+    "roastify_fulfillment_status": {
+      "type": "string",
+      "description": "Raw fulfillment status returned by Roastify"
+    },
+    "roastify_production_status": {
+      "type": "string",
+      "description": "Raw production status returned by Roastify"
+    },
+    "tracking_number": {
+      "type": "string",
+      "description": "Shipment tracking number"
+    },
+    "tracking_url": {
+      "type": "string",
+      "description": "Shipment tracking URL"
+    },
+    "fulfillment_error": {
+      "type": "string",
+      "description": "Last fulfillment/roastify submission error message (empty when successful)"
+    },
+    "fulfillment_attempt_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of Roastify submission attempts"
+    },
+    "fulfillment_submitted_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the order was successfully submitted to Roastify"
+    },
+    "shipped_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the order was shipped"
+    },
+    "delivered_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the order was delivered"
     },
     "review_email_sent": {
       "type": "boolean",
       "default": false,
-      "description": "Whether the review request email was sent"
+      "description": "Whether the review request email was sent (preserved)"
     },
     "review_email_sent_date": {
       "type": "string",
       "format": "date-time",
-      "description": "When the review email was sent"
+      "description": "When the review email was sent (preserved)"
     },
     "description": {
       "type": "string",
       "maxLength": 1000,
-      "description": "Optional notes or description for this order"
+      "description": "Optional notes or description for this order (preserved)"
     }
   },
   "required": [
