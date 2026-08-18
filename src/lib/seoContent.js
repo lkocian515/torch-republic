@@ -1070,10 +1070,10 @@ export const INTERNAL_LINK_MAP = {
   ],
   '/journal/coffee-pods-plastic-waste-microplastics': [
     '/switch-from-pods',
-    '/knowledge/coffee-pods-vs-instant-coffee',
+    '/coffee-pod-alternatives',
     '/compare/instant-coffee-vs-k-cups',
     '/journal/what-makes-premium-instant-coffee-different',
-    '/knowledge/best-coffee-without-coffee-maker',
+    '/coffee-without-a-machine',
     '/ingredients/freeze-dried-instant-coffee',
     '/shop/instant-coffee',
     '/shop/instant-mushroom-coffee',

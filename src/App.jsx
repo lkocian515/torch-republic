@@ -302,6 +302,20 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/pages/privacy" element={<Navigate to="/privacy-policy" replace />} />
         <Route path="/pages/terms" element={<Navigate to="/terms-of-service" replace />} />
 
+        {/* ── DUPLICATE CONTENT → CANONICAL (301) ── */}
+        {/* Old /seo/ PascalCase landing pages → clean lowercase canonicals */}
+        <Route path="/seo/CoffeePodAlternatives" element={<Navigate to="/coffee-pod-alternatives" replace />} />
+        <Route path="/seo/PapuaNewGuineaCoffee" element={<Navigate to="/papua-new-guinea-coffee" replace />} />
+        {/* Old /knowledge/ pages → canonical SEO landing pages */}
+        <Route path="/knowledge/PapuaNewGuineaCoffee" element={<Navigate to="/papua-new-guinea-coffee" replace />} />
+        <Route path="/knowledge/BestCoffeeWithoutCoffeeMaker" element={<Navigate to="/coffee-without-a-machine" replace />} />
+        <Route path="/knowledge/CoffeePodsVsInstantCoffee" element={<Navigate to="/compare/instant-coffee-vs-k-cups" replace />} />
+        {/* Old /blog/ PascalCase articles → canonical /journal/ slug */}
+        <Route path="/blog/ChagaMushroomCoffee" element={<Navigate to="/journal/chaga-mushroom-coffee" replace />} />
+        <Route path="/blog/LionsManeMushroomCoffee" element={<Navigate to="/journal/lions-mane-mushroom-coffee" replace />} />
+        <Route path="/blog/BestInstantCoffee" element={<Navigate to="/journal/best-instant-coffee" replace />} />
+        <Route path="/blog/MatchaBenefits" element={<Navigate to="/journal/matcha-benefits" replace />} />
+
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
@@ -384,6 +398,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/compare/everyday-dose-vs-torch-republic" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="EverydayDoseVsTorchRepublic" queryClient={queryClient}><EverydayDoseVsTorchRepublic /></LayoutWrapper></Suspense>} />
         <Route path="/compare/mushroom-coffee-vs-coffee-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeVsCoffeePods" queryClient={queryClient}><MushroomCoffeeVsCoffeePods /></LayoutWrapper></Suspense>} />
         <Route path="/compare/instant-coffee-vs-k-cups" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCoffeeVsKCups" queryClient={queryClient}><InstantCoffeeVsKCups /></LayoutWrapper></Suspense>} />
+        {/* ── DUPLICATE /compare/ PascalCase URLs → canonical lowercase (301) ── */}
+        <Route path="/compare/RyzeVsTorchRepublic" element={<Navigate to="/compare/ryze-vs-torch-republic" replace />} />
+        <Route path="/compare/FourSigmaticVsTorchRepublic" element={<Navigate to="/compare/four-sigmatic-vs-torch-republic" replace />} />
+        <Route path="/compare/MudwtrVsTorchRepublic" element={<Navigate to="/compare/mudwtr-vs-torch-republic" replace />} />
+        <Route path="/compare/MudWtrVsTorchRepublic" element={<Navigate to="/compare/mudwtr-vs-torch-republic" replace />} />
+        <Route path="/compare/EverydayDoseVsTorchRepublic" element={<Navigate to="/compare/everyday-dose-vs-torch-republic" replace />} />
+        <Route path="/compare/MushroomCoffeeVsCoffeePods" element={<Navigate to="/compare/mushroom-coffee-vs-coffee-pods" replace />} />
+        <Route path="/compare/InstantCoffeeVsKCups" element={<Navigate to="/compare/instant-coffee-vs-k-cups" replace />} />
         {/* Fallback generic comparison page for remaining slugs */}
         <Route path="/compare/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ComparisonPage" queryClient={queryClient}><ComparisonPage /></LayoutWrapper></Suspense>} />
 
