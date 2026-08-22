@@ -329,92 +329,33 @@ export default function PortfolioCaseStudy() {
         </div>
       </header>
 
-      {/* Hero */}
-      <header className="mx-auto max-w-[960px] px-6 md:px-10 pt-14 pb-16 md:pt-20 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
-          {/* Identity + value + CTAs */}
-          <div>
-            <Eyebrow>Portfolio Case Study</Eyebrow>
-            <h1
-              className="h1"
-              style={{
-                marginTop: '0.75rem',
-                fontSize: 'clamp(2.4rem, 6vw, 3.4rem)',
-                letterSpacing: '-0.015em',
-                lineHeight: 1.05,
-              }}
-            >
-              Lisa Kocian
-            </h1>
-            <p
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: ACCENT,
-                marginTop: '0.6rem',
-              }}
-            >
-              AI Quality • Content Evaluation • E-Commerce Systems
-            </p>
-            <p className="body-lg" style={{ marginTop: '1.4rem', color: INK }}>
-              I use AI-assisted workflows, human review, and structured QA to turn complex digital builds into accurate,
-              polished, reliable user experiences.
-            </p>
-            <p style={{ marginTop: '1rem', fontSize: '0.9375rem', lineHeight: 1.65, color: SECONDARY }}>
-              Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
-              troubleshooting, UX review, SEO, and final output verification.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a href="#overview" className="btn btn-primary">
-                View Case Study <ArrowUpRight style={{ width: 16, height: 16 }} />
-              </a>
-              <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
-              </a>
-            </div>
-          </div>
+      {/* Hero — designed banner replaces the title block */}
+      <header>
+        <img
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7969543dc_ChatGPTImageAug22202603_33_06PM.png"
+          alt="Lisa Kocian — AI Quality, Content Evaluation, and E-Commerce Systems portfolio hero."
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 10' }}
+        />
 
-          {/* Project visual */}
-          <div>
-            <a
-              href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open full-size image: Torch Republic storefront homepage"
-              style={{
-                display: 'block',
-                borderRadius: '14px',
-                overflow: 'hidden',
-                border: `1px solid ${RULE}`,
-                background: CARD,
-                boxShadow: '0 1px 2px rgba(45,40,36,0.04), 0 18px 44px rgba(45,40,36,0.10)',
-              }}
-            >
-              <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png"
-                alt="Torch Republic storefront homepage — the live e-commerce build featured in this case study."
-                width={1400}
-                height={875}
-                loading="eager"
-                decoding="async"
-                style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1400 / 875' }}
-              />
+        <div className="mx-auto max-w-[860px] px-6 md:px-10 pt-10 md:pt-12 pb-16 md:pb-20">
+          <p className="body-lg" style={{ color: INK }}>
+            I use AI-assisted workflows, human review, and structured QA to turn complex digital builds into accurate,
+            polished, reliable user experiences.
+          </p>
+          <p style={{ marginTop: '1rem', fontSize: '0.9375rem', lineHeight: 1.65, color: SECONDARY }}>
+            Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
+            troubleshooting, UX review, SEO, and final output verification.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#overview" className="btn btn-primary">
+              View Case Study <ArrowUpRight style={{ width: 16, height: 16 }} />
             </a>
-            <p
-              style={{
-                marginTop: '0.65rem',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.62rem',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: SECONDARY,
-                textAlign: 'center',
-              }}
-            >
-              Torch Republic — Live Storefront
-            </p>
+            <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
+            </a>
           </div>
         </div>
       </header>
