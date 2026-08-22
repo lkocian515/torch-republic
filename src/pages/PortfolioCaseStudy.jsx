@@ -6,19 +6,25 @@ import {
   ArrowUpRight,
   ArrowLeft,
   Check,
-  ShoppingBag,
-  FlaskConical,
-  BookOpen,
-  ShieldCheck,
   Search,
-  Compass,
-  Layers,
+  AlertTriangle,
+  RefreshCw,
+  ShieldCheck,
   MonitorSmartphone,
+  Layers,
   Route,
-  PenLine,
-  ListChecks,
+  Cpu,
+  FileCheck,
+  Eye,
+  Wrench,
+  BadgeCheck,
+  Lightbulb,
+  ClipboardCheck,
+  Target,
+  UserCheck,
 } from 'lucide-react';
 
+/* ── Tokens (kept consistent with the site's light editorial theme) ── */
 const ACCENT = '#B86543';
 const INK = '#2D2824';
 const SECONDARY = '#5C544C';
@@ -27,22 +33,11 @@ const CREAM = '#FBF8F2';
 const CARD = '#FFFFFF';
 
 const LIVE_STORE = 'https://torchrepublic.com';
-const CONTACT_EMAIL = 'admin@torchrepublic.com';
+const AUTHOR = 'Lisa Marie Kocian';
 
-/* ── Small presentation primitives ────────────────────────────── */
+/* ── Presentation primitives ────────────────────────────────────── */
 
-function Eyebrow({ children, tone = ACCENT }) {
-  return (
-    <p
-      className="eyebrow"
-      style={{ color: tone }}
-    >
-      {children}
-    </p>
-  );
-}
-
-function SectionShell({ id, children, alt = false }) {
+function Shell({ id, children, alt = false }) {
   return (
     <section
       id={id}
@@ -51,207 +46,202 @@ function SectionShell({ id, children, alt = false }) {
         borderTop: alt ? `1px solid ${RULE}` : '1px solid transparent',
       }}
     >
-      <div className="mx-auto max-w-[760px] px-6 md:px-10 py-12 md:py-20">{children}</div>
+      <div className="mx-auto max-w-[860px] px-6 md:px-10 py-14 md:py-20">{children}</div>
     </section>
   );
 }
 
-function SectionTitle({ n, children }) {
+function Eyebrow({ children }) {
+  return <p className="eyebrow" style={{ color: ACCENT }}>{children}</p>;
+}
+
+function SectionTitle({ children }) {
+  return <h2 className="h2" style={{ margin: '0 0 1rem' }}>{children}</h2>;
+}
+
+function Lead({ children }) {
+  return <p className="body-lg" style={{ margin: 0, color: SECONDARY }}>{children}</p>;
+}
+
+function Card({ children, pad = '1.5rem' }) {
   return (
-    <div className="flex items-baseline gap-3 mb-7">
-      <span
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.75rem',
-          color: ACCENT,
-          fontWeight: 600,
-          letterSpacing: '0.06em',
-        }}
-      >
-        0{n}
-      </span>
-      <h2 className="h2" style={{ margin: 0 }}>
-        {children}
-      </h2>
+    <div
+      style={{
+        background: CARD,
+        border: `1px solid ${RULE}`,
+        borderRadius: '12px',
+        padding: pad,
+        height: '100%',
+      }}
+    >
+      {children}
     </div>
   );
 }
 
-function Lead({ children }) {
-  return (
-    <p className="body-lg" style={{ margin: 0 }}>
-      {children}
-    </p>
-  );
-}
+/* ── Data ──────────────────────────────────────────────────────── */
 
-function Bullet({ children, title }) {
-  return (
-    <li className="flex gap-3" style={{ color: SECONDARY, fontSize: '1rem', lineHeight: 1.7 }}>
-      <span
-        aria-hidden="true"
-        style={{ color: ACCENT, fontWeight: 700, marginTop: '0.1rem', flexShrink: 0 }}
-      >
-        —
-      </span>
-      <span>
-        {title && <strong style={{ color: INK }}>{title} </strong>}
-        {children}
-      </span>
-    </li>
-  );
-}
+const SUMMARY_CARDS = [
+  { label: 'Project', value: 'AI-Assisted Ecommerce Experience' },
+  { label: 'Primary Focus', value: 'Quality Assurance & Iteration' },
+  { label: 'Environment', value: 'Web · Desktop · Mobile' },
+  { label: 'Responsibilities', value: 'Testing · Validation · Prompt Iteration · Content QA · UX Review' },
+];
 
-/* ── Data: "What I built" cards ─────────────────────────────────── */
+const ROLE_POINTS = [
+  'Translating business requirements into clear AI instructions and implementation tasks',
+  'Reviewing AI-generated content and interface changes',
+  'Identifying inconsistencies, broken states, inaccurate information, and UX problems',
+  'Testing navigation, product pages, responsive behavior, links, forms, and user flows',
+  'Verifying factual claims rather than relying solely on AI-generated information',
+  'Iterating prompts when outputs failed to meet requirements',
+  'Documenting issues and validating fixes',
+  'Reviewing the final experience from the perspective of an end user',
+];
 
-const BUILT_CARDS = [
+const WORKFLOW_FLOW = [
+  'Requirements',
+  'Prompt / Build',
+  'Evaluate',
+  'Identify Defects',
+  'Correct',
+  'Retest',
+  'Validate',
+];
+
+const WORKFLOW = [
+  { icon: Target, title: 'Define Requirements', body: 'Determine expected behavior, content, visual standards, and user experience before evaluating any output.' },
+  { icon: Cpu, title: 'Generate & Implement', body: 'Use AI-assisted development tools to translate requirements into working interface changes and content.' },
+  { icon: Eye, title: 'Evaluate Output', body: 'Compare the generated result against the original instructions and expected behavior.' },
+  { icon: AlertTriangle, title: 'Identify Defects', body: 'Look for factual errors, inconsistencies, broken functionality, visual problems, instruction-following failures, and unexpected behavior.' },
+  { icon: Wrench, title: 'Correct & Iterate', body: 'Refine prompts, content, configuration, or implementation based on the identified problem.' },
+  { icon: RefreshCw, title: 'Retest', body: 'Repeat affected workflows across relevant pages, states, and screen sizes.' },
+  { icon: BadgeCheck, title: 'Validate', body: 'Confirm the fix solved the original issue without introducing regressions elsewhere.' },
+];
+
+const DEFECTS = [
   {
-    icon: Route,
-    title: 'Navigation & information architecture',
-    body: 'Consolidated legacy routes, retired discontinued categories with 410 responses, and redirected old URLs to current pages so the site stays crawlable and navigable for both shoppers and search engines.',
+    icon: FileCheck,
+    category: 'Content Accuracy',
+    issue: 'AI-generated copy sometimes contained benefit claims that could not be verified.',
+    evaluation: 'Reviewed product and ingredient copy against the source requirements rather than accepting it.',
+    correction: 'Removed unsupported health and functional claims, keeping language honest and factual.',
+    validation: 'Re-read affected pages to confirm no unsupported claims remained.',
   },
   {
     icon: Layers,
-    title: 'Homepage & collections',
-    body: 'Built a modular editorial homepage and standardized collection grids so browsing is consistent, fast, and visually coherent across coffee, mushroom, and matcha categories.',
-  },
-  {
-    icon: PenLine,
-    title: 'Product-page experience',
-    body: 'Edited product detail layouts for honest, readable descriptions, clear purchase actions, and consistent imagery treatment — never inventing claims around functional benefits.',
-  },
-  {
-    icon: FlaskConical,
-    title: 'Subscription & quiz customer paths',
-    body: 'Kept subscription pricing and Shopify checkout redirects intact while refreshing the surrounding layout and adding a blend-recommendation quiz for first-time visitors.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Research & content ecosystem',
-    body: 'Organized educational articles, ingredient deep dives, and SEO landing pages around canonical topics to reduce duplication and build topical authority.',
+    category: 'Catalog Consistency',
+    issue: 'Product naming, pricing, servings, and discontinued items needed to stay consistent across the store.',
+    evaluation: 'Checked product information across collection, product, and bundle pages for drift.',
+    correction: 'Standardized product data and retired discontinued categories with explicit redirects and 410 responses.',
+    validation: 'Cross-referenced the same product on multiple pages to confirm matching details.',
   },
   {
     icon: MonitorSmartphone,
-    title: 'Responsive design',
-    body: 'Worked at narrow mobile viewports to keep touch targets at 44px+, stacking correct, padding generous, and readability intact across every screen size.',
+    category: 'Responsive UI',
+    issue: 'Layouts and interface elements needed to hold up on desktop and narrow mobile widths.',
+    evaluation: 'Tested at mobile viewports for overflow, touch-target size, stacking, and readability.',
+    correction: 'Adjusted spacing, kept touch targets at 44px+, and fixed stacking where elements collided.',
+    validation: 'Re-checked the affected layouts at narrow widths after each change.',
+  },
+  {
+    icon: Eye,
+    category: 'Visual Consistency',
+    issue: 'Legacy dark-theme elements and newer light-theme components created an inconsistent experience.',
+    evaluation: 'Audited sections for mismatched backgrounds, text colors, and component styling.',
+    correction: 'Converted remaining dark surfaces to the light editorial theme so the experience felt unified.',
+    validation: 'Reviewed pages end-to-end to confirm a single, coherent visual treatment.',
+  },
+  {
+    icon: Route,
+    category: 'Navigation & User Flow',
+    issue: 'Links, menus, product paths, and calls to action required functional validation.',
+    evaluation: 'Followed each navigation path to catch broken, duplicate, or orphaned routes.',
+    correction: 'Consolidated duplicate URLs with redirects and pointed every call to action at a real destination.',
+    validation: 'Retested header, footer, and in-page links to confirm each resolves correctly.',
+  },
+  {
+    icon: Cpu,
+    category: 'AI Instruction Following',
+    issue: 'Generated changes occasionally drifted from the original requirements.',
+    evaluation: 'Compared the output to the specific instruction it was meant to satisfy.',
+    correction: 'Refined the prompt to be more specific and bounded, then regenerated the affected section.',
+    validation: 'Confirmed the new output matched the requirement without altering unrelated sections.',
   },
 ];
 
-/* ── Data: six-step AI workflow ────────────────────────────────── */
-
-const WORKFLOW = [
-  {
-    step: 'Plan',
-    body: 'Define the goal, the customer path, and the constraints in plain language before any code is generated.',
-  },
-  {
-    step: 'Scope the prompt',
-    body: 'Write specific, bounded prompts so output stays reviewable and nothing incidental gets touched.',
-  },
-  {
-    step: 'Read the output',
-    body: 'Review what was actually generated — copy, layout, links, data calls — instead of trusting that it worked.',
-  },
-  {
-    step: 'Flag & guard',
-    body: 'Catch fabricated numbers, unsupported claims, broken links, duplicate scripts, and layout problems; correct or remove them.',
-  },
-  {
-    step: 'Refine iteratively',
-    body: 'Re-prompt in tight loops to fix the specific issue without rewriting working sections.',
-  },
-  {
-    step: 'Verify live',
-    body: 'Confirm checkout, cart, subscriptions, and analytics still behave correctly before releasing.',
-  },
+const EVAL_CHECKLIST = [
+  'Instruction following',
+  'Factual accuracy',
+  'Internal consistency',
+  'Completeness',
+  'Relevance',
+  'User experience',
+  'Tone and brand consistency',
+  'Functional behavior',
+  'Edge cases',
+  'Regression risk',
+  'Privacy / sensitive-information awareness',
+  'Final human verification',
 ];
 
-/* ── Data: release checks ──────────────────────────────────────── */
-
-const QA_CHECKS = [
-  'Checkout behavior — cart, add-to-cart, and Shopify/Stripe redirects — still works.',
-  'Responsive layouts at narrow mobile widths check for overflow, touch-target size, and stacking.',
-  'Every call to action leads somewhere real and relevant.',
-  'Generated copy reviewed for factual accuracy; unsupported claims removed.',
-  'No unsupported product or health claims, especially around functional mushroom and matcha benefits.',
-  'Navigation paths — header, footer, links, redirects — tested to catch broken or orphaned routes.',
-  'Analytics and tracking still fire and are not duplicated.',
+const TOOLS = [
+  'Base44',
+  'AI-assisted development',
+  'Prompt engineering / prompt iteration',
+  'Shopify',
+  'Ecommerce workflows',
+  'Responsive testing',
+  'Content QA',
+  'Functional QA',
+  'Manual validation',
+  'SEO review',
+  'Analytics',
+  'UX evaluation',
+  'Documentation',
+  'Cross-page consistency testing',
 ];
 
-/* ── Data: five customer pathways ─────────────────────────────── */
-
-const PATHWAYS = [
-  {
-    icon: ShoppingBag,
-    name: 'Shop',
-    body: 'All products, classic coffee, mushroom coffee, and matcha collections.',
-  },
-  {
-    icon: Compass,
-    name: 'Build Your Ritual',
-    body: 'Bundle builder, blend quiz, subscription, and how-it-works guidance.',
-  },
-  {
-    icon: BookOpen,
-    name: 'Learn',
-    body: 'Journal, recipes, ingredients, FAQ, research hub, and reviews.',
-  },
-  {
-    icon: ShieldCheck,
-    name: 'Trust & Retention',
-    body: 'Our story, founder story, team, customer spotlight, and contact.',
-  },
-  {
-    icon: Search,
-    name: 'Search Discovery',
-    body: 'SEO landing pages, ingredient deep dives, and comparison content.',
-  },
+const DEMONSTRATES = [
+  { icon: Eye, title: 'AI Output Evaluation', body: 'Critically reviewing generated output instead of accepting it at face value.' },
+  { icon: ShieldCheck, title: 'Quality Assurance', body: 'Systematic identification, correction, retesting, and validation of defects.' },
+  { icon: ClipboardCheck, title: 'Instruction Following', body: 'Translating requirements into clear tasks and checking whether the output satisfies them.' },
+  { icon: Search, title: 'Attention to Detail', body: 'Finding inconsistencies across content, products, interfaces, and user flows.' },
+  { icon: Lightbulb, title: 'Independent Problem Solving', body: 'Diagnosing issues and iterating toward solutions without constant supervision.' },
+  { icon: UserCheck, title: 'User-Centered Thinking', body: 'Evaluating technical output from the perspective of the person ultimately using it.' },
 ];
-
-/* ── Data: screenshot placeholders ────────────────────────────── */
 
 const SCREENSHOTS = [
   {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png',
     title: 'Homepage — editorial hero and navigation',
-    caption: 'A cohesive light-theme storefront with prioritized paths to shopping, rewards, educational content, and guided product selection.',
+    caption: 'A cohesive light-theme storefront with clear paths to shopping, rewards, educational content, and guided product selection.',
     alt: 'Torch Republic homepage showing the navigation and editorial product hero.',
   },
   {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/abd9bea94_portfolio-collection.png',
     title: 'Collection page — standardized product grid',
-    caption: 'Consistent product imagery, category labels, subscription messaging, pricing, and action hierarchy across the three mushroom blends.',
-    alt: 'Torch Republic mushroom coffee collection showing three standardized product cards.',
+    caption: 'Consistent product imagery, category labels, pricing, and action hierarchy across the collection.',
+    alt: 'Torch Republic collection showing standardized product cards.',
   },
   {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e1ef6959_portfolio-product.png',
     title: 'Product detail — purchase decision flow',
-    caption: 'A focused product view organizing imagery, serving count, subscription and one-time pricing, quantity, and add-to-cart controls.',
-    alt: 'Torchbearer product page showing product imagery, pricing, purchase options, and serving information.',
+    caption: 'A focused product view organizing imagery, serving count, pricing, quantity, and add-to-cart controls.',
+    alt: 'Torchbearer product page showing product imagery, pricing, and purchase options.',
   },
   {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4efd7698f_portfolio-bundle.png',
     title: 'Build Your Ritual — bundle logic',
     caption: 'A fixed-price starter bundle with verified serving math, comparison value, savings, and a clear path into custom selection.',
-    alt: 'Torch Republic Starter Ritual Bundle showing included products, price, savings, and serving calculation.',
+    alt: 'Torch Republic Starter Ritual Bundle showing included products, price, and savings.',
   },
   {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2068c679d_portfolio-quiz.png',
     title: 'Blend Quiz — guided recommendation flow',
-    caption: 'A four-question, no-account-required experience that reduces choice friction and guides visitors toward an appropriate product.',
+    caption: 'A short, no-account-required experience that reduces choice friction and guides visitors toward an appropriate product.',
     alt: 'Torch Republic Find Your Ritual quiz introduction and start button.',
   },
-];
-
-/* ── Data: metrics being tracked (no numbers) ──────────────────── */
-
-const METRICS_TRACKED = [
-  'Conversion rate',
-  'Email sign-ups',
-  'Page-speed scores (LCP, CLS, INP)',
-  'Order volume',
-  'Quiz completion rate',
-  'Subscription take-rate',
 ];
 
 /* ── Page ──────────────────────────────────────────────────────── */
@@ -259,9 +249,9 @@ const METRICS_TRACKED = [
 export default function PortfolioCaseStudy() {
   useNoIndex();
   useSEO({
-    title: 'Torch Republic: AI-Assisted E-Commerce Build & UX Optimization — Case Study',
+    title: 'Torch Republic — AI-Assisted Ecommerce Build & QA Case Study | Lisa Marie Kocian',
     description:
-      'A portfolio case study on building and optimizing the Torch Republic Coffee Company storefront using AI assistance and Base44, written for prospective employers.',
+      'An end-to-end ecommerce case study demonstrating AI-assisted development, prompt iteration, output evaluation, functional QA, content verification, UX testing, and continuous refinement.',
     url: '/portfolio/torch-republic-ecommerce-build',
     type: 'article',
     noindex: true,
@@ -269,19 +259,20 @@ export default function PortfolioCaseStudy() {
 
   return (
     <div style={{ background: CREAM, color: INK, minHeight: '100vh' }}>
-      {/* Brand header */}
-      <header style={{ background: CREAM, borderBottom: `1px solid ${RULE}` }}>
-        <div className="mx-auto max-w-[760px] px-6 md:px-10 py-8 md:py-12 flex flex-col items-center gap-6">
-          <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/93b387998_back.png"
-            alt="Torch Republic Coffee Company"
-            width={900}
-            height={300}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            style={{ width: 'min(94vw, 460px)', height: 'auto', display: 'block', maxWidth: '100%' }}
-          />
+      {/* Slim portfolio header */}
+      <header style={{ borderBottom: `1px solid ${RULE}` }}>
+        <div className="mx-auto max-w-[860px] px-6 md:px-10 py-4 flex items-center justify-between gap-4">
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.7rem',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: SECONDARY,
+            }}
+          >
+            {AUTHOR} — Portfolio
+          </span>
           <Link
             to="/"
             style={{
@@ -303,178 +294,254 @@ export default function PortfolioCaseStudy() {
         </div>
       </header>
 
-      {/* 1 — Hero */}
-      <header className="mx-auto max-w-[760px] px-6 md:px-10 pt-14 pb-14 md:pt-20 md:pb-20">
-        <Eyebrow>AI-Assisted Build · UX & Conversion · Content Strategy</Eyebrow>
-        <h1
-          className="h1"
-          style={{ marginTop: '0.75rem' }}
-        >
-          Torch Republic: an AI-assisted e-commerce build
+      {/* Hero */}
+      <header className="mx-auto max-w-[860px] px-6 md:px-10 pt-14 pb-14 md:pt-20 md:pb-20">
+        <Eyebrow>Case Study · AI Quality & Ecommerce</Eyebrow>
+        <h1 className="h1" style={{ marginTop: '0.75rem', fontSize: 'clamp(1.9rem, 4.5vw, 3rem)' }}>
+          Torch Republic — AI-Assisted Ecommerce Build &amp; Quality Assurance Case Study
         </h1>
+        <p className="body-lg" style={{ marginTop: '1.25rem' }}>
+          An end-to-end ecommerce project demonstrating AI-assisted development, prompt iteration, output evaluation,
+          functional QA, content verification, UX testing, troubleshooting, and continuous refinement.
+        </p>
+
         <p
-          className="body-lg"
-          style={{ marginTop: '1.25rem' }}
+          className="body"
+          style={{
+            marginTop: '1.25rem',
+            fontSize: '0.9375rem',
+            color: INK,
+          }}
         >
-          A first-person account of planning, building, and refining a live coffee storefront using AI tooling and Base44 — including how I reviewed output, guarded against fabricated claims, and protected the working checkout customers rely on.
+          <strong style={{ fontWeight: 600 }}>Role:</strong>{' '}
+          <span style={{ color: SECONDARY }}>
+            Project Owner · AI Workflow &amp; QA · Ecommerce Strategy · Content &amp; UX
+          </span>
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <a
-            href={LIVE_STORE}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Visit the live store <ArrowUpRight style={{ width: 16, height: 16 }} />
+          <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            View Live Project <ArrowUpRight style={{ width: 16, height: 16 }} />
           </a>
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Portfolio%20%E2%80%94%20Torch%20Republic%20case%20study`}
-            className="btn btn-ghost"
-          >
-            Contact me
+          <a href="#workflow" className="btn btn-ghost">
+            Explore QA Process
           </a>
         </div>
-
-        {/* Facts row */}
-        <dl
-          className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-y-4 gap-x-8"
-          style={{ borderTop: `1px solid ${RULE}`, paddingTop: '1.5rem' }}
-        >
-          <div>
-            <dt className="eyebrow" style={{ color: SECONDARY }}>Role</dt>
-            <dd className="body" style={{ marginTop: '0.35rem', color: INK }}>
-              Founder · Builder · Editor
-            </dd>
-          </div>
-          <div>
-            <dt className="eyebrow" style={{ color: SECONDARY }}>Tools</dt>
-            <dd className="body" style={{ marginTop: '0.35rem', color: INK }}>
-              Base44 · Shopify · Stripe
-            </dd>
-          </div>
-          <div>
-            <dt className="eyebrow" style={{ color: SECONDARY }}>Scope</dt>
-            <dd className="body" style={{ marginTop: '0.35rem', color: INK }}>
-              Storefront, content, UX & QA
-            </dd>
-          </div>
-        </dl>
       </header>
 
-      {/* 2 — Challenge */}
-      <SectionShell id="challenge" alt>
-        <SectionTitle n={1}>The challenge</SectionTitle>
+      {/* Project Overview */}
+      <Shell id="overview" alt>
+        <Eyebrow>Project Overview</Eyebrow>
+        <SectionTitle>An AI-assisted build, owned end-to-end</SectionTitle>
         <Lead>
-          Torch Republic sells instant coffee, functional mushroom blends, and ceremonial matcha from a single content-driven storefront. The work was to make those categories, plus subscriptions, educational articles, and SEO landing pages, feel like one coherent store — not a confusing catalog a first-time visitor has to decode.
+          I independently developed and refined the Torch Republic ecommerce experience using AI-assisted / no-code tools
+          alongside traditional ecommerce platforms. The work required more than generating a website: it meant repeatedly
+          evaluating AI-generated output against requirements, identifying defects and inconsistencies, correcting content
+          and functionality, testing user flows, validating changes, and improving the final experience.
         </Lead>
-        <p className="body" style={{ marginTop: '1.25rem' }}>
-          The harder constraint was doing it with AI assistance. AI generates pages and copy quickly, but it also fabricates, omits context, breaks working integrations, and produces confident claims that aren’t true. The job was to capture the speed without letting those failures reach a live store.
-        </p>
-      </SectionShell>
-
-      {/* 3 — Role */}
-      <SectionShell id="role">
-        <SectionTitle n={2}>My role</SectionTitle>
-        <Lead>I led the work end-to-end, as a founder working alongside AI tooling — not as a trained engineer, but as the person accountable for every decision and the final experience.</Lead>
-        <ul className="mt-6 space-y-3 list-none p-0 m-0">
-          <Bullet title="Founder —">accountable owner of the brand and the storefront.</Bullet>
-          <Bullet title="AI-assisted e-commerce builder —">writing prompts, directing builds, and assembling sections in Base44.</Bullet>
-          <Bullet title="UX & content strategist —">shaping layouts, calls to action, and copy across the catalog.</Bullet>
-          <Bullet title="QA reviewer —">the final human check before anything reached customers.</Bullet>
-        </ul>
-      </SectionShell>
-
-      {/* 4 — What I built */}
-      <SectionShell id="built" alt>
-        <SectionTitle n={3}>What I built</SectionTitle>
-        <Lead>Six workstreams, each with a specific responsibility.</Lead>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-          {BUILT_CARDS.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="card-torch p-5" style={{ borderRadius: '12px' }}>
-              <div className="flex items-center gap-2.5">
-                <Icon style={{ width: 18, height: 18, color: ACCENT }} aria-hidden="true" />
-                <h3 className="h4" style={{ margin: 0, fontSize: '0.9375rem' }}>{title}</h3>
-              </div>
-              <p className="body" style={{ marginTop: '0.6rem', fontSize: '0.9375rem', lineHeight: 1.65 }}>
-                {body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </SectionShell>
-
-      {/* 5 — AI-assisted workflow */}
-      <SectionShell id="workflow">
-        <SectionTitle n={4}>AI-assisted workflow</SectionTitle>
-        <Lead>A repeatable six-step loop, applied to every feature — emphasizing scoped prompts, guardrails, and human judgment over raw output.</Lead>
-        <ol className="mt-8 space-y-4 list-none p-0 m-0">
-          {WORKFLOW.map(({ step, body }, i) => (
-            <li key={step} className="flex gap-4">
-              <span
-                aria-hidden="true"
+        <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {SUMMARY_CARDS.map((c) => (
+            <Card key={c.label} pad="1.25rem">
+              <p className="eyebrow" style={{ color: ACCENT }}>{c.label}</p>
+              <p
                 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem',
+                  marginTop: '0.5rem',
+                  fontFamily: 'var(--font-heading)',
                   fontWeight: 600,
-                  color: ACCENT,
-                  flexShrink: 0,
-                  width: '1.75rem',
-                  paddingTop: '0.15rem',
+                  fontSize: '0.95rem',
+                  color: INK,
+                  lineHeight: 1.4,
                 }}
               >
-                0{i + 1}
-              </span>
-              <div>
-                <strong style={{ fontFamily: 'var(--font-heading)', color: INK, fontSize: '0.9375rem' }}>{step}.</strong>{' '}
-                <span className="body" style={{ fontSize: '0.9375rem' }}>{body}</span>
-              </div>
+                {c.value}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Shell>
+
+      {/* My Role */}
+      <Shell id="role">
+        <Eyebrow>My Role</Eyebrow>
+        <SectionTitle>Clear ownership of the full process</SectionTitle>
+        <Lead>
+          I managed the project from concept through implementation and QA, using AI-assisted tools to accelerate
+          development while manually reviewing the resulting output for accuracy, consistency, usability, and alignment
+          with project requirements.
+        </Lead>
+        <ul className="mt-6 space-y-2.5 list-none p-0 m-0">
+          {ROLE_POINTS.map((p) => (
+            <li key={p} className="flex gap-3 items-start" style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: SECONDARY }}>
+              <Check style={{ width: 16, height: 16, color: ACCENT, flexShrink: 0, marginTop: '0.25rem' }} aria-hidden="true" />
+              <span>{p}</span>
             </li>
           ))}
-        </ol>
-      </SectionShell>
+        </ul>
+      </Shell>
 
-      {/* 6 — Quality assurance */}
-      <SectionShell id="qa" alt>
-        <SectionTitle n={5}>Quality assurance</SectionTitle>
-        <Lead>Every change passed through these release checks before it reached customers.</Lead>
-        <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-none p-0 m-0">
-          {QA_CHECKS.map((c) => (
-            <li key={c} className="flex gap-3 items-start" style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: SECONDARY }}>
+      {/* AI Quality Workflow */}
+      <Shell id="workflow" alt>
+        <Eyebrow>AI Quality Workflow</Eyebrow>
+        <SectionTitle>A systematic, repeatable QA loop</SectionTitle>
+        <Lead>
+          Every feature moved through the same loop — emphasizing evaluation and human judgment over raw output.
+        </Lead>
+
+        {/* Visual flow */}
+        <div
+          className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-2"
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.04em' }}
+        >
+          {WORKFLOW_FLOW.map((s, i) => (
+            <React.Fragment key={s}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '0.4rem 0.7rem',
+                  borderRadius: '999px',
+                  border: `1px solid ${RULE}`,
+                  background: CARD,
+                  color: INK,
+                  fontWeight: 600,
+                }}
+              >
+                {s}
+              </span>
+              {i < WORKFLOW_FLOW.length - 1 && (
+                <span style={{ color: ACCENT, fontWeight: 700 }}>→</span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* Step cards */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {WORKFLOW.map(({ icon: Icon, title, body }, i) => (
+            <Card key={title} pad="1.25rem">
+              <div className="flex items-center gap-2.5">
+                <span
+                  aria-hidden="true"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    color: ACCENT,
+                  }}
+                >
+                  0{i + 1}
+                </span>
+                <Icon style={{ width: 18, height: 18, color: ACCENT }} aria-hidden="true" />
+                <h3 className="h4" style={{ margin: 0, fontSize: '0.95rem' }}>{title}</h3>
+              </div>
+              <p style={{ marginTop: '0.6rem', fontSize: '0.9rem', lineHeight: 1.6, color: SECONDARY, margin: '0.6rem 0 0' }}>
+                {body}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Shell>
+
+      {/* Examples of Issues Identified */}
+      <Shell id="issues">
+        <Eyebrow>Examples of Issues Identified</Eyebrow>
+        <SectionTitle>Defects found, evaluated, and resolved</SectionTitle>
+        <Lead>
+          Representative issues from the project — each handled with the same evaluate → correct → validate discipline.
+        </Lead>
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {DEFECTS.map(({ icon: Icon, category, issue, evaluation, correction, validation }) => (
+            <Card key={category} pad="1.4rem">
+              <div className="flex items-center gap-2.5">
+                <Icon style={{ width: 18, height: 18, color: ACCENT }} aria-hidden="true" />
+                <h3 className="h4" style={{ margin: 0, fontSize: '0.95rem' }}>{category}</h3>
+              </div>
+              <dl className="mt-3 space-y-2.5" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
+                {[
+                  ['Issue', issue],
+                  ['Evaluation', evaluation],
+                  ['Correction', correction],
+                  ['Validation', validation],
+                ].map(([label, text]) => (
+                  <div key={label} className="flex gap-3">
+                    <dt
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.62rem',
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: ACCENT,
+                        fontWeight: 700,
+                        flexShrink: 0,
+                        paddingTop: '0.1rem',
+                        width: '4.5rem',
+                      }}
+                    >
+                      {label}
+                    </dt>
+                    <dd style={{ margin: 0, color: SECONDARY }}>{text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Card>
+          ))}
+        </div>
+      </Shell>
+
+      {/* How I Evaluate AI Output */}
+      <Shell id="evaluate" alt>
+        <Eyebrow>How I Evaluate AI Output</Eyebrow>
+        <SectionTitle>A transferable evaluation checklist</SectionTitle>
+        <Lead>
+          The same criteria apply whether I’m reviewing generated copy, a UI change, or a configured workflow.
+        </Lead>
+        <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 list-none p-0 m-0">
+          {EVAL_CHECKLIST.map((c) => (
+            <li key={c} className="flex gap-2.5 items-start" style={{ fontSize: '0.9rem', color: INK, lineHeight: 1.5 }}>
               <Check style={{ width: 16, height: 16, color: ACCENT, flexShrink: 0, marginTop: '0.2rem' }} aria-hidden="true" />
               <span>{c}</span>
             </li>
           ))}
         </ul>
-      </SectionShell>
+        <p
+          className="body-lg"
+          style={{ marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: `1px solid ${RULE}`, fontStyle: 'italic' }}
+        >
+          AI accelerates the workflow; human judgment determines whether the output is actually correct.
+        </p>
+      </Shell>
 
-      {/* 7 — Content architecture */}
-      <SectionShell id="architecture">
-        <SectionTitle n={6}>Content architecture</SectionTitle>
-        <Lead>Five customer pathways organize the storefront so a visitor can always answer “where do I go next.”</Lead>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-          {PATHWAYS.map(({ icon: Icon, name, body }) => (
-            <div
-              key={name}
+      {/* Tools & Methods */}
+      <Shell id="tools">
+        <Eyebrow>Tools &amp; Methods</Eyebrow>
+        <SectionTitle>What I worked with</SectionTitle>
+        <Lead>Methods and tools actually used across this project.</Lead>
+        <div className="mt-7 flex flex-wrap gap-2.5">
+          {TOOLS.map((t) => (
+            <span
+              key={t}
               style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '0.8125rem',
+                fontWeight: 500,
+                color: INK,
                 background: CARD,
                 border: `1px solid ${RULE}`,
-                borderRadius: '12px',
-                padding: '1.25rem',
+                borderRadius: '999px',
+                padding: '0.45rem 0.9rem',
               }}
             >
-              <Icon style={{ width: 20, height: 20, color: ACCENT }} aria-hidden="true" />
-              <h3 className="h4" style={{ margin: '0.6rem 0 0.35rem', fontSize: '0.9375rem' }}>{name}</h3>
-              <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: SECONDARY, margin: 0 }}>{body}</p>
-            </div>
+              {t}
+            </span>
           ))}
         </div>
-      </SectionShell>
+      </Shell>
 
-      {/* 8 — Screenshots */}
-      <SectionShell id="screenshots" alt>
-        <SectionTitle n={7}>Screenshots</SectionTitle>
-        <Lead>Real screenshots of the live storefront, captured at desktop width. Select any image to open it at full size.</Lead>
+      {/* Screenshots */}
+      <Shell id="screenshots" alt>
+        <Eyebrow>The Finished Product</Eyebrow>
+        <SectionTitle>Screenshots of the live storefront</SectionTitle>
+        <Lead>Real screenshots of the live project, captured at desktop width. Select any image to open it at full size.</Lead>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
           {SCREENSHOTS.map(({ src, title, caption, alt }) => (
             <figure key={title} style={{ margin: 0 }}>
@@ -483,13 +550,7 @@ export default function PortfolioCaseStudy() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open full-size image: ${title}`}
-                style={{
-                  display: 'block',
-                  border: `1px solid ${RULE}`,
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  background: CARD,
-                }}
+                style={{ display: 'block', border: `1px solid ${RULE}`, borderRadius: '12px', overflow: 'hidden', background: CARD }}
               >
                 <img
                   src={src}
@@ -503,52 +564,46 @@ export default function PortfolioCaseStudy() {
               </a>
               <figcaption style={{ marginTop: '0.6rem' }}>
                 <strong style={{ fontFamily: 'var(--font-heading)', color: INK, fontSize: '0.875rem' }}>{title}</strong>
-                <p style={{ fontSize: '0.8125rem', lineHeight: 1.6, color: SECONDARY, marginTop: '0.25rem' }}>
-                  {caption}
-                </p>
+                <p style={{ fontSize: '0.8125rem', lineHeight: 1.6, color: SECONDARY, marginTop: '0.25rem' }}>{caption}</p>
               </figcaption>
             </figure>
           ))}
         </div>
-      </SectionShell>
+      </Shell>
 
-      {/* 9 — Operational outcomes */}
-      <SectionShell id="outcomes">
-        <SectionTitle n={8}>Operational outcomes</SectionTitle>
-        <Lead>
-          The storefront is live and operating — a consolidated catalog, consistent collection and product-page UX, intact subscription and checkout flows, and an organized content structure. I’m not reporting performance metrics here because I won’t present numbers I can’t verify.
-        </Lead>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-          {METRICS_TRACKED.map((m) => (
-            <div
-              key={m}
-              className="flex items-center gap-2.5"
-              style={{ fontSize: '0.9375rem', color: SECONDARY }}
-            >
-              <ListChecks style={{ width: 16, height: 16, color: ACCENT, flexShrink: 0 }} aria-hidden="true" />
-              <span>{m} <span style={{ color: SECONDARY, opacity: 0.7 }}>(being tracked)</span></span>
-            </div>
+      {/* What This Project Demonstrates */}
+      <Shell id="demonstrates">
+        <Eyebrow>What This Project Demonstrates</Eyebrow>
+        <SectionTitle>Transferable capabilities</SectionTitle>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DEMONSTRATES.map(({ icon: Icon, title, body }) => (
+            <Card key={title} pad="1.4rem">
+              <Icon style={{ width: 20, height: 20, color: ACCENT }} aria-hidden="true" />
+              <h3 className="h4" style={{ margin: '0.75rem 0 0.4rem', fontSize: '0.95rem' }}>{title}</h3>
+              <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: SECONDARY, margin: 0 }}>{body}</p>
+            </Card>
           ))}
         </div>
-      </SectionShell>
+      </Shell>
 
-      {/* 10 — Closing CTA */}
-      <section style={{ borderTop: `1px solid ${RULE}` }}>
-        <div className="mx-auto max-w-[760px] px-6 md:px-10 py-14 md:py-20 text-center">
-          <Eyebrow>Let’s talk</Eyebrow>
-          <h2 className="h2" style={{ marginTop: '0.75rem' }}>
-            Discuss this build or my process
+      {/* Final */}
+      <section style={{ borderTop: `1px solid ${RULE}`, background: CARD }}>
+        <div className="mx-auto max-w-[860px] px-6 md:px-10 py-16 md:py-24 text-center">
+          <Eyebrow>Next</Eyebrow>
+          <h2 className="h2" style={{ marginTop: '0.75rem', fontSize: 'clamp(1.5rem, 3vw, 2.1rem)' }}>
+            Interested in how I approach AI quality and digital product work?
           </h2>
           <p className="body-lg" style={{ marginTop: '0.75rem' }}>
-            I’m happy to walk through the decisions, the AI workflow, and the trade-offs in more detail.
+            This case study is self-contained — the process, evaluation methods, and finished product above describe the
+            work without requiring a separate résumé.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              Live store <ArrowUpRight style={{ width: 16, height: 16 }} />
+              View Live Project <ArrowUpRight style={{ width: 16, height: 16 }} />
             </a>
-            <a href={`mailto:${CONTACT_EMAIL}?subject=Portfolio%20%E2%80%94%20Torch%20Republic%20case%20study`} className="btn btn-ghost">
-              Email me
-            </a>
+            <Link to="/" className="btn btn-ghost">
+              <ArrowLeft style={{ width: 16, height: 16 }} /> Back to site
+            </Link>
           </div>
         </div>
       </section>
