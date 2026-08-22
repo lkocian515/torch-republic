@@ -259,6 +259,69 @@ const SCREENSHOTS = [
   },
 ];
 
+const FRAMEWORKS = [
+  {
+    icon: Cpu,
+    title: 'AI-Assisted Build & Prompt Iteration',
+    what: 'Used AI-assisted tools to accelerate development and content production, then refined prompts and iterated until the output matched intent.',
+    points: [
+      'Iterated prompts when generated output drifted from requirements',
+      'Regenerated sections that failed instruction-following',
+      'Bounded instructions to keep output specific and on-brand',
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Human QA & Output Validation',
+    what: 'Reviewed AI-generated output for accuracy, instruction-following, consistency, completeness, and formatting before accepting it.',
+    points: [
+      'Compared every output against the original requirement',
+      'Rejected output that introduced unsupported claims',
+      'Applied final human verification before publish',
+    ],
+  },
+  {
+    icon: MonitorSmartphone,
+    title: 'UX & Functional Testing',
+    what: 'Reviewed navigation, responsive behavior, calls to action, page flow, and overall usability across the live experience.',
+    points: [
+      'Tested mobile and desktop viewports for overflow and touch targets',
+      'Validated links, menus, product paths, and CTAs',
+      'Fixed stacking, spacing, and broken interactions',
+    ],
+  },
+  {
+    icon: FileCheck,
+    title: 'Content Accuracy & Claim Verification',
+    what: 'Reviewed generated content and factual claims, researched questionable information, corrected unsupported language, and preserved truthful copy.',
+    points: [
+      'Removed unsupported health and functional claims',
+      'Verified ingredient and product copy against sources',
+      'Kept final language honest, factual, and consistent',
+    ],
+  },
+  {
+    icon: Layers,
+    title: 'Information Architecture & SEO',
+    what: 'Organized collections, research content, articles, FAQs, comparison pages, and search-focused landing pages into a coherent system.',
+    points: [
+      'Consolidated duplicate URLs with redirects and canonical tags',
+      'Standardized metadata and URL structure sitewide',
+      'Structured content for search discovery and user wayfinding',
+    ],
+  },
+  {
+    icon: Route,
+    title: 'E-Commerce Systems & Digital Execution',
+    what: 'Coordinated the end-to-end operational scope — product architecture, collections, subscriptions, rewards, quiz, and reusable components.',
+    points: [
+      'Standardized product data across collection, product, and bundle pages',
+      'Retired discontinued categories with explicit responses',
+      'Aligned pricing, servings, and naming sitewide',
+    ],
+  },
+];
+
 /* ── Page ──────────────────────────────────────────────────────── */
 
 export default function PortfolioCaseStudy() {
@@ -329,29 +392,74 @@ export default function PortfolioCaseStudy() {
         </div>
       </header>
 
-      {/* Hero — designed banner replaces the title block */}
-      <header>
-        <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cc58d834a_gfdgd.png"
-          alt="Lisa Kocian — AI Quality, Content Evaluation, and E-Commerce Systems portfolio hero."
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 10' }}
-        />
-
-        <div className="mx-auto max-w-[860px] px-6 md:px-10 pt-10 md:pt-12 pb-16 md:pb-20">
-          <p style={{ fontSize: '1rem', lineHeight: 1.7, color: INK }}>
-            Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
-            troubleshooting, UX review, SEO, and final output verification.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#overview" className="btn btn-primary">
-              View Case Study <ArrowUpRight style={{ width: 16, height: 16 }} />
-            </a>
-            <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
-            </a>
+      {/* Hero — two-column, recruiter-first */}
+      <header style={{ borderBottom: `1px solid ${RULE}` }}>
+        <div className="mx-auto max-w-[1140px] px-6 md:px-10 py-14 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+            <div>
+              <p className="eyebrow" style={{ color: ACCENT }}>Portfolio Case Study</p>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontWeight: 700,
+                  fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
+                  lineHeight: 1.05,
+                  letterSpacing: '-0.01em',
+                  color: INK,
+                  margin: '0.75rem 0 0.4rem',
+                }}
+              >
+                Lisa Kocian
+              </h1>
+              <p
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  color: ACCENT,
+                  margin: '0 0 1.5rem',
+                }}
+              >
+                AI Quality • Content Evaluation • E-Commerce Systems
+              </p>
+              <p style={{ fontSize: '1.0625rem', lineHeight: 1.65, color: INK, margin: '0 0 1rem' }}>
+                I use AI-assisted workflows, human review, and structured QA to turn complex digital builds into
+                accurate, polished, reliable user experiences.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.65, color: SECONDARY, margin: '0 0 1.75rem' }}>
+                Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
+                troubleshooting, UX review, SEO, and final output verification.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="#overview" className="btn btn-primary">
+                  View Case Study <ArrowUpRight style={{ width: 16, height: 16 }} />
+                </a>
+                <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                  View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
+                </a>
+              </div>
+            </div>
+            <div>
+              <a
+                href={SCREENSHOTS[0].src}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open full-size image: Torch Republic homepage"
+                style={{ display: 'block', border: `1px solid ${RULE}`, borderRadius: '12px', overflow: 'hidden', background: CARD }}
+              >
+                <img
+                  src={SCREENSHOTS[0].src}
+                  alt={SCREENSHOTS[0].alt}
+                  width={1400}
+                  height={875}
+                  loading="eager"
+                  decoding="async"
+                  style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1400 / 875' }}
+                />
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -410,6 +518,33 @@ export default function PortfolioCaseStudy() {
               </span>
             ))}
           </div>
+        </div>
+      </Shell>
+
+      {/* How I Approached the Build — six frameworks */}
+      <Shell id="frameworks">
+        <Eyebrow>How I Approached the Build</Eyebrow>
+        <SectionTitle>Six connected disciplines, one coherent process</SectionTitle>
+        <Lead>
+          Six connected disciplines guided the project from AI-assisted creation through human review, testing,
+          refinement, and final validation.
+        </Lead>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {FRAMEWORKS.map(({ icon: Icon, title, what, points }) => (
+            <Card key={title} pad="1.4rem">
+              <Icon style={{ width: 20, height: 20, color: ACCENT }} aria-hidden="true" />
+              <h3 className="h4" style={{ margin: '0.75rem 0 0.5rem', fontSize: '0.95rem' }}>{title}</h3>
+              <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: SECONDARY, margin: '0 0 0.75rem' }}>{what}</p>
+              <ul className="m-0 p-0 list-none space-y-1.5">
+                {points.map((pt) => (
+                  <li key={pt} className="flex gap-2 items-start" style={{ fontSize: '0.8125rem', lineHeight: 1.5, color: INK }}>
+                    <Check style={{ width: 14, height: 14, color: ACCENT, flexShrink: 0, marginTop: '0.2rem' }} aria-hidden="true" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
         </div>
       </Shell>
 
