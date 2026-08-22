@@ -45,6 +45,11 @@
     "product_image": {
       "type": "string",
       "description": "Product image URL at time of purchase"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this line item"
     }
   },
   "required": [
