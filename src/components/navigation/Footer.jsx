@@ -53,18 +53,18 @@ export default function Footer() {
   return (
     <footer style={{ background: colors.card, borderTop: `1px solid ${colors.border}` }}>
       <div className="mx-auto max-w-[1280px] px-5 py-12 md:px-10">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr]">
-          <div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2.2fr] lg:gap-14">
+          <div className="lg:max-w-xs">
             <img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="190" height="52" className="h-14 w-auto" />
             <p className="mt-4 max-w-sm text-base leading-7" style={{ color: colors.secondary }}>Thoughtfully crafted light-roast instant coffee, functional mushroom coffee, and ceremonial matcha for clearer, more intentional daily rituals.</p>
             <p className="mt-3 font-heading text-sm" style={{ color: colors.text }}>Torch Republic Coffee Company</p>
             <p className="mt-2 max-w-sm font-heading text-xs leading-6" style={{ color: colors.secondary }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-5 lg:gap-x-6">
             {groups.map(([heading, links]) => (
               <div key={heading}>
                 <h2 className="font-heading text-sm font-semibold" style={{ color: colors.text }}>{heading}</h2>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-3 space-y-2.5">
                   {links.map(([label, href]) => (
                     <li key={href}>
                       <Link to={href} className="font-heading text-sm transition-opacity duration-200 hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ color: colors.secondary, borderRadius: '4px' }}>{label}</Link>
