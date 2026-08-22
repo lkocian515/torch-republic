@@ -5,6 +5,11 @@ import { base44 } from '@/api/base44Client';
 import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 import openModalRegistry from '@/lib/openModalRegistry.js';
 
+const CLAY = '#B86543';
+const INK = '#2D2824';
+const BODY = '#6A5A4A';
+const CARD = '#FFFFFF';
+const CREAM = '#FBF8F2';
 const RG = '#E6B7AD';
 
 /**
@@ -50,7 +55,7 @@ export default function EmailCapturePopup() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center px-4 pb-4 sm:pb-0"
-          style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(6px)' }}
+          style={{ background: 'rgba(45,40,36,0.55)', backdropFilter: 'blur(6px)' }}
           onClick={() => setVisible(false)}
         >
           <motion.div
@@ -59,45 +64,45 @@ export default function EmailCapturePopup() {
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="relative w-full max-w-sm overflow-hidden"
-            style={{ background: '#0C0B0A', border: `1px solid ${RG}22` }}
+            style={{ background: CARD, border: `1px solid ${RG}40`, borderRadius: '16px' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Accent line */}
-            <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${RG}70, transparent)` }} />
+            <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${CLAY}80, transparent)` }} />
 
             <div className="p-8 text-center">
               <button onClick={() => setVisible(false)}
                 className="absolute top-4 right-4 transition-opacity hover:opacity-60"
-                style={{ color: 'rgba(255,255,255,0.25)' }}>
+                style={{ color: BODY }}>
                 <X className="w-4 h-4" />
               </button>
 
               <div className="flex items-center justify-center mb-4">
-                <Sparkles size={18} style={{ color: RG }} />
+                <Sparkles size={18} style={{ color: CLAY }} />
               </div>
 
               {submitted ? (
                 <>
-                  <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.4rem' }}>
+                  <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.4rem', color: INK }}>
                     Check your inbox ☕
                   </h3>
-                  <p className="font-mono text-[10px] mb-4" style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 1.8 }}>
+                  <p className="font-mono text-[10px] mb-4" style={{ color: BODY, lineHeight: 1.8 }}>
                     Your code is on the way.
                   </p>
-                  <div style={{ background: `${RG}12`, border: `1px solid ${RG}30`, padding: '10px 16px', display: 'inline-block' }}>
-                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: RG }}>{WELCOME_DISCOUNT_CODE}</span>
+                  <div style={{ background: `${CLAY}12`, border: `1px solid ${CLAY}40`, padding: '10px 16px', display: 'inline-block', borderRadius: '8px' }}>
+                    <span className="font-mono font-bold tracking-[0.3em]" style={{ color: CLAY }}>{WELCOME_DISCOUNT_CODE}</span>
                   </div>
                 </>
               ) : (
                 <>
-                  <p className="font-mono text-[8px] tracking-[0.45em] uppercase mb-3" style={{ color: `${RG}50` }}>
+                  <p className="font-mono text-[8px] tracking-[0.45em] uppercase mb-3" style={{ color: CLAY }}>
                     First Time Customer
                   </p>
-                  <h3 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.5rem', lineHeight: 1.15 }}>
+                  <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.5rem', lineHeight: 1.15, color: INK }}>
                     {WELCOME_DISCOUNT_PERCENT}% off your<br />
-                    <span style={{ color: RG }}>first order.</span>
+                    <span style={{ color: CLAY }}>first order.</span>
                   </h3>
-                  <p className="font-mono text-[10px] mb-6" style={{ color: 'rgba(255,255,255,0.3)', lineHeight: 1.8 }}>
+                  <p className="font-mono text-[10px] mb-6" style={{ color: BODY, lineHeight: 1.8 }}>
                     Join our community and get an instant discount code + exclusive wellness tips.
                   </p>
 
@@ -110,15 +115,16 @@ export default function EmailCapturePopup() {
                       required
                       className="w-full px-4 py-3.5 text-sm font-mono text-center outline-none"
                       style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: `1px solid ${RG}20`,
-                        color: 'rgba(255,255,255,0.75)',
+                        background: CREAM,
+                        border: `1px solid ${RG}40`,
+                        color: INK,
                         fontSize: '13px',
+                        borderRadius: '10px',
                       }}
                     />
                     <button type="submit"
                       className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
-                      style={{ fontSize: '10px', background: RG, color: '#060606' }}>
+                      style={{ fontSize: '10px', background: CLAY, color: '#FBF8F1', borderRadius: '999px' }}>
                       Get {WELCOME_DISCOUNT_PERCENT}% Off →
                     </button>
                   </form>
@@ -127,7 +133,7 @@ export default function EmailCapturePopup() {
 
               <button onClick={() => setVisible(false)}
                 className="mt-4 font-mono text-[8px] tracking-widest uppercase transition-opacity hover:opacity-60"
-                style={{ color: 'rgba(255,255,255,0.15)' }}>
+                style={{ color: BODY }}>
                 No thanks
               </button>
             </div>
