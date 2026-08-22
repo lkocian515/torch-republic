@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
@@ -33,7 +33,7 @@ const CREAM = '#FBF8F2';
 const CARD = '#FFFFFF';
 
 const LIVE_STORE = 'https://torchrepublic.com';
-const AUTHOR = 'Lisa Marie Kocian';
+const AUTHOR = 'Lisa Kocian';
 
 /* ── Presentation primitives ────────────────────────────────────── */
 
@@ -104,6 +104,7 @@ const WORKFLOW_FLOW = [
   'Prompt / Build',
   'Evaluate',
   'Identify Defects',
+  'Research / Verify',
   'Correct',
   'Retest',
   'Validate',
@@ -114,9 +115,23 @@ const WORKFLOW = [
   { icon: Cpu, title: 'Generate & Implement', body: 'Use AI-assisted development tools to translate requirements into working interface changes and content.' },
   { icon: Eye, title: 'Evaluate Output', body: 'Compare the generated result against the original instructions and expected behavior.' },
   { icon: AlertTriangle, title: 'Identify Defects', body: 'Look for factual errors, inconsistencies, broken functionality, visual problems, instruction-following failures, and unexpected behavior.' },
+  { icon: Search, title: 'Research & Verify', body: 'Investigate and verify facts, claims, and expected behavior against authoritative sources and project requirements before changing anything.' },
   { icon: Wrench, title: 'Correct & Iterate', body: 'Refine prompts, content, configuration, or implementation based on the identified problem.' },
   { icon: RefreshCw, title: 'Retest', body: 'Repeat affected workflows across relevant pages, states, and screen sizes.' },
   { icon: BadgeCheck, title: 'Validate', body: 'Confirm the fix solved the original issue without introducing regressions elsewhere.' },
+];
+
+const SCOPE_AREAS = [
+  'AI output review',
+  'Prompt iteration',
+  'Content & claim validation',
+  'UI/UX quality assurance',
+  'Functional testing',
+  'Troubleshooting',
+  'Information architecture',
+  'SEO & content optimization',
+  'Cross-page consistency',
+  'Human review of AI output',
 ];
 
 const DEFECTS = [
@@ -249,13 +264,33 @@ const SCREENSHOTS = [
 export default function PortfolioCaseStudy() {
   useNoIndex();
   useSEO({
-    title: 'Torch Republic — AI-Assisted Ecommerce Build & QA Case Study | Lisa Marie Kocian',
+    title: 'Lisa Kocian | AI Quality & E-Commerce Portfolio',
     description:
-      'An end-to-end ecommerce case study demonstrating AI-assisted development, prompt iteration, output evaluation, functional QA, content verification, UX testing, and continuous refinement.',
+      'AI-assisted e-commerce case study by Lisa Kocian demonstrating quality assurance, output validation, content evaluation, troubleshooting, prompt iteration, SEO, and end-to-end digital project execution.',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png',
+    imageAlt: 'Torch Republic storefront homepage — AI-assisted e-commerce case study by Lisa Kocian',
     url: '/portfolio/torch-republic-ecommerce-build',
     type: 'article',
     noindex: true,
   });
+
+  // Enforce the exact portfolio title and social description. The global SEO hook
+  // appends the Torch Republic brand to the title; for this professional portfolio
+  // the title should stand alone, so we override title + social tags after it runs.
+  useEffect(() => {
+    const PORTFOLIO_TITLE = 'Lisa Kocian | AI Quality & E-Commerce Portfolio';
+    const SOCIAL_DESC =
+      'AI-assisted e-commerce case study demonstrating QA, output validation, content evaluation, troubleshooting, prompt iteration, and end-to-end project execution.';
+    document.title = PORTFOLIO_TITLE;
+    const apply = (selector, value) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute('content', value);
+    };
+    apply('meta[property="og:title"]', PORTFOLIO_TITLE);
+    apply('meta[name="twitter:title"]', PORTFOLIO_TITLE);
+    apply('meta[property="og:description"]', SOCIAL_DESC);
+    apply('meta[name="twitter:description"]', SOCIAL_DESC);
+  }, []);
 
   return (
     <div style={{ background: CREAM, color: INK, minHeight: '100vh' }}>
@@ -297,7 +332,13 @@ export default function PortfolioCaseStudy() {
       {/* Hero */}
       <header className="mx-auto max-w-[860px] px-6 md:px-10 pt-14 pb-14 md:pt-20 md:pb-20">
         <Eyebrow>Case Study · AI Quality & Ecommerce</Eyebrow>
-        <h1 className="h1" style={{ marginTop: '0.75rem', fontSize: 'clamp(1.9rem, 4.5vw, 3rem)' }}>
+        <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.05rem', color: INK, marginTop: '0.75rem' }}>
+          Lisa Kocian
+        </p>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: ACCENT, marginTop: '0.3rem' }}>
+          AI Quality · Content Evaluation · E-Commerce Systems
+        </p>
+        <h1 className="h1" style={{ marginTop: '1rem', fontSize: 'clamp(1.9rem, 4.5vw, 3rem)' }}>
           Torch Republic — AI-Assisted Ecommerce Build &amp; Quality Assurance Case Study
         </h1>
         <p className="body-lg" style={{ marginTop: '1.25rem' }}>
@@ -321,7 +362,7 @@ export default function PortfolioCaseStudy() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
           <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            View Live Project <ArrowUpRight style={{ width: 16, height: 16 }} />
+            View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
           </a>
           <a href="#workflow" className="btn btn-ghost">
             Explore QA Process
@@ -357,6 +398,32 @@ export default function PortfolioCaseStudy() {
               </p>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-8">
+          <p className="eyebrow" style={{ color: ACCENT }}>Scope of Work</p>
+          <p className="body" style={{ marginTop: '0.5rem', color: SECONDARY, fontSize: '0.9375rem' }}>
+            The project spanned the full lifecycle of AI-assisted work — from generation through human review, verification, and validation.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2.5">
+            {SCOPE_AREAS.map((a) => (
+              <span
+                key={a}
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.8125rem',
+                  fontWeight: 500,
+                  color: INK,
+                  background: CARD,
+                  border: `1px solid ${RULE}`,
+                  borderRadius: '999px',
+                  padding: '0.4rem 0.8rem',
+                }}
+              >
+                {a}
+              </span>
+            ))}
+          </div>
         </div>
       </Shell>
 
@@ -599,7 +666,7 @@ export default function PortfolioCaseStudy() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              View Live Project <ArrowUpRight style={{ width: 16, height: 16 }} />
+              View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
             </a>
             <Link to="/" className="btn btn-ghost">
               <ArrowLeft style={{ width: 16, height: 16 }} /> Back to site
