@@ -341,11 +341,7 @@ export default function PortfolioCaseStudy() {
         />
 
         <div className="mx-auto max-w-[860px] px-6 md:px-10 pt-10 md:pt-12 pb-16 md:pb-20">
-          <p className="body-lg" style={{ color: INK }}>
-            I use AI-assisted workflows, human review, and structured QA to turn complex digital builds into accurate,
-            polished, reliable user experiences.
-          </p>
-          <p style={{ marginTop: '1rem', fontSize: '0.9375rem', lineHeight: 1.65, color: SECONDARY }}>
+          <p style={{ fontSize: '1rem', lineHeight: 1.7, color: INK }}>
             Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
             troubleshooting, UX review, SEO, and final output verification.
           </p>
@@ -491,7 +487,7 @@ export default function PortfolioCaseStudy() {
                 <Icon style={{ width: 18, height: 18, color: ACCENT }} aria-hidden="true" />
                 <h3 className="h4" style={{ margin: 0, fontSize: '0.95rem' }}>{title}</h3>
               </div>
-              <p style={{ marginTop: '0.6rem', fontSize: '0.9rem', lineHeight: 1.6, color: SECONDARY, margin: '0.6rem 0 0' }}>
+              <p style={{ margin: '0.6rem 0 0', fontSize: '0.9rem', lineHeight: 1.6, color: SECONDARY }}>
                 {body}
               </p>
             </Card>
