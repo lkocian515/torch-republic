@@ -20,7 +20,7 @@ const FOOTER = `
                 </p>
                 <p style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 15px;">
                     Corpus Christi, Texas · U.S.A.<br>
-                    <a href="mailto:support@torchrepublic.com" style="color: rgba(230,183,173,0.6); text-decoration: none;">support@torchrepublic.com</a>
+                    <a href="mailto:admin@torchrepublic.com" style="color: rgba(230,183,173,0.6); text-decoration: none;">admin@torchrepublic.com</a>
                 </p>
                 <p style="font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); margin: 10px 0;">
                     © 2026 Torch Republic Coffee Company. All rights reserved.

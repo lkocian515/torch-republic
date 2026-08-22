@@ -15,7 +15,7 @@ export default function LocalBusinessSchema() {
     "logo": "https://torchrepublic.com/torch-republic-logo-transparent.png",
     "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png",
     "telephone": "+1-361-360-1931",
-    "email": "support@torchrepublic.com",
+    "email": "admin@torchrepublic.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Corpus Christi",

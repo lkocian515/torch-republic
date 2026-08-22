@@ -650,7 +650,7 @@ export default function PortfolioCaseStudy() {
             I'm currently exploring opportunities in AI quality, content evaluation, AI operations, and related roles.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="mailto:support@torchrepublic.com" className="btn btn-primary">
+            <a href="mailto:admin@torchrepublic.com" className="btn btn-primary">
               Get in touch <ArrowUpRight style={{ width: 16, height: 16 }} />
             </a>
             <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">

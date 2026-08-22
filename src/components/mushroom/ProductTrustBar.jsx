@@ -28,8 +28,8 @@ export default function ProductTrustBar({ compact = false }) {
         </div>
       ))}
       <div className="w-full flex flex-wrap gap-4 justify-center md:justify-start mt-2" style={{ borderTop: '1px solid rgba(230,183,173,0.06)', paddingTop: '8px' }}>
-        <a href="mailto:support@torchrepublic.com" className="font-mono text-[9px] tracking-[0.15em] hover:opacity-80" style={{ color: 'rgba(230,183,173,0.35)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-          support@torchrepublic.com
+        <a href="mailto:admin@torchrepublic.com" className="font-mono text-[9px] tracking-[0.15em] hover:opacity-80" style={{ color: 'rgba(230,183,173,0.35)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+          admin@torchrepublic.com
         </a>
       </div>
     </div>
