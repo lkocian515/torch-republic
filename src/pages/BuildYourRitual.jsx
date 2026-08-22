@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, ShoppingBag, Sparkles } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { getShopifyBundleUrl } from '@/lib/shopifyCheckout';
+import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
@@ -152,6 +153,9 @@ export default function BuildYourRitual() {
 
   const handleAddToCart = () => {
     if (selectedProducts.length !== 3) return;
+    // Temporary fallback: the external Shopify bundle handoff is currently
+    // unavailable. Intercept before the broken integration executes.
+    if (guardExternalPurchase()) return;
 
     const items = selectedProducts.map(id => {
       const product = shopifyProducts.find(p => p.id === id);

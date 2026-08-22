@@ -43,6 +43,7 @@ const TorchbearersRewards = lazy(() => import('./pages/TorchbearersRewards'));
 const Cart = lazy(() => import('./pages/Cart'));
 const CartRedirect = lazy(() => import('./components/cart/CartRedirect'));
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
+const Restocking = lazy(() => import('./pages/Restocking'));
 const Subscription = lazy(() => import('./pages/Subscription'));
 const OurMission = lazy(() => import('./pages/OurMission'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -234,6 +235,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderConfirmation" queryClient={queryClient}><OrderConfirmation /></LayoutWrapper></Suspense>} />
+        <Route path="/restocking" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Restocking" queryClient={queryClient}><Restocking /></LayoutWrapper></Suspense>} />
         <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
         <Route path="/our-story" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Navigate to="/our-story" replace />} />

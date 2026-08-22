@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ShoppingBag, Gift } from 'lucide-react';
+import { guardExternalPurchase } from '@/lib/purchaseFallback';
 
 const RG = '#E6B7AD';
 
@@ -156,6 +157,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
             href={kit.cartUrl || '#'}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => guardExternalPurchase(e)}
             aria-label={`Add ${kit.name} to cart`}
             className="flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
             style={{

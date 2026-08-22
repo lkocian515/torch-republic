@@ -1,5 +1,6 @@
 import React from 'react';
 import { Lock } from 'lucide-react';
+import { guardExternalPurchase } from '@/lib/purchaseFallback';
 
 const RG = '#E6B7AD';
 
@@ -29,6 +30,7 @@ export default function CartStickyCheckout({ subtotal, checkoutUrl, totalItems }
           href={checkoutUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={(e) => guardExternalPurchase(e)}
           className="flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90 flex-1 max-w-[220px]"
           style={{ background: RG, color: '#080808', textDecoration: 'none', minHeight: '52px' }}
         >

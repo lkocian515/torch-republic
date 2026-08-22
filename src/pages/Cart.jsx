@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
@@ -243,7 +244,7 @@ export default function Cart() {
                   href={checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackCheckoutStarted(subtotal, totalItems)}
+                  onClick={(e) => { if (guardExternalPurchase(e)) return; trackCheckoutStarted(subtotal, totalItems); }}
                   className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                   style={{ background: RG, color: '#080808', textDecoration: 'none', display: 'flex' }}
                 >

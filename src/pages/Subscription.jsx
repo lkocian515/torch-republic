@@ -6,6 +6,7 @@ import { Plus, Minus, ChevronDown, ChevronUp, Check, RefreshCw, Calendar, Wallet
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
 import useNoIndex from '@/hooks/useNoIndex';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
 const THEME = {
@@ -100,6 +101,9 @@ export default function Subscription() {
 
   const handleCheckout = async () => {
     if (!canCheckout) return;
+    // Temporary fallback: the external Shopify subscription checkout handoff is
+    // currently unavailable. Intercept before the broken integration executes.
+    if (guardExternalPurchase()) return;
     setIsGeneratingCheckout(true);
     try {
       const url = await getSubscriptionCheckoutUrl(blendQty);
