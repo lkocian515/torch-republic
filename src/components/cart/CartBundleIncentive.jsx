@@ -2,7 +2,9 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const ACCENT = '#B86543';
+const MUTED = '#6A5A4A';
+const BORDER = '#E4D8C9';
 
 export default function CartBundleIncentive({ itemCount }) {
   if (!itemCount || itemCount < 1) return null;
@@ -21,17 +23,17 @@ export default function CartBundleIncentive({ itemCount }) {
       return {
         text: 'Add one more product and complete your ritual',
         icon: null,
-        color: RG,
-        bg: 'rgba(230,183,173,0.04)',
-        border: 'rgba(230,183,173,0.12)',
+        color: ACCENT,
+        bg: 'rgba(184,101,67,0.05)',
+        border: BORDER,
       };
     }
     return {
       text: 'Most customers choose 3 products to create their ritual',
       icon: null,
-      color: 'rgba(245,239,230,0.6)',
-      bg: 'rgba(230,183,173,0.03)',
-      border: 'rgba(230,183,173,0.08)',
+      color: MUTED,
+      bg: 'rgba(184,101,67,0.03)',
+      border: BORDER,
     };
   };
 

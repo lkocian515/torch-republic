@@ -5,7 +5,11 @@ import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 
-const RG = '#E6B7AD';
+const ACCENT = '#B86543';
+const BTN_TEXT = '#FBF8F1';
+const INK = '#2D2824';
+const MUTED = '#9A8A7A';
+const BORDER = '#E4D8C9';
 
 export default function CartToast() {
   const { toast, clearToast, subtotal } = useCart();
@@ -28,31 +32,31 @@ export default function CartToast() {
           <div 
             className="w-full max-w-[400px]"
             style={{ 
-              background: '#13110F', 
-              border: '1px solid rgba(230,183,173,0.3)', 
-              boxShadow: '0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(230,183,173,0.08)', 
+              background: '#FFFFFF', 
+              border: `1px solid ${BORDER}`, 
+              boxShadow: '0 8px 40px rgba(45,40,36,0.12)', 
               borderRadius: '8px',
               padding: '16px',
             }}
           >
             <div className="flex items-center gap-2 mb-2.5 justify-center">
-              <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#E6B7AD' }} />
-              <p className="font-mono text-[8px] md:text-[10px] tracking-[0.25em] uppercase font-bold text-center" style={{ color: '#E6B7AD' }}>
+              <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: ACCENT }} />
+              <p className="font-mono text-[8px] md:text-[10px] tracking-[0.25em] uppercase font-bold text-center" style={{ color: ACCENT }}>
                 Added to your ritual
               </p>
             </div>
-            <p className="font-heading text-[10px] md:text-xs text-center leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="font-heading text-[10px] md:text-xs text-center leading-relaxed mb-3" style={{ color: MUTED }}>
               {toast}
             </p>
             {/* Compact free shipping progress */}
             <div className="w-full mb-3">
-              <p className="font-mono text-[7px] tracking-[0.1em] text-center mb-1.5" style={{ color: isUnlocked ? '#10B981' : 'rgba(230,183,173,0.7)' }}>
+              <p className="font-mono text-[7px] tracking-[0.1em] text-center mb-1.5" style={{ color: isUnlocked ? '#10B981' : ACCENT }}>
                 {isUnlocked
                   ? '✓ You\'ve unlocked FREE shipping'
-                  : <>You're <span className="font-bold" style={{ color: RG }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}
+                  : <>You're <span className="font-bold" style={{ color: ACCENT }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}
               </p>
-              <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(230,183,173,0.08)' }}>
-                <div className="h-full rounded-full transition-all duration-500" style={{ width: `${progress}%`, background: isUnlocked ? 'linear-gradient(90deg, #10B981, #34D399)' : `linear-gradient(90deg, ${RG}, #D6B27A)` }} />
+              <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: '#F3ECE2' }}>
+                <div className="h-full rounded-full transition-all duration-500" style={{ width: `${progress}%`, background: isUnlocked ? 'linear-gradient(90deg, #10B981, #34D399)' : `linear-gradient(90deg, ${ACCENT}, #D6B27A)` }} />
               </div>
             </div>
             <div className="flex items-center gap-2 w-full">
@@ -64,7 +68,7 @@ export default function CartToast() {
                   navigate('/cart');
                 }}
                 className="flex-1 font-mono text-[8px] md:text-[10px] tracking-[0.22em] uppercase font-bold py-2.5 md:py-3 text-center transition-all hover:opacity-90 active:scale-[0.98] min-h-[40px]"
-                style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>
+                style={{ background: ACCENT, color: BTN_TEXT, borderRadius: '4px', border: 'none', cursor: 'pointer' }}>
                 View Cart
               </button>
               <button
@@ -74,8 +78,8 @@ export default function CartToast() {
                   clearToast();
                   navigate('/shop');
                 }}
-                className="flex-1 font-mono text-[8px] md:text-[10px] tracking-[0.22em] uppercase font-bold py-2.5 md:py-3 text-center transition-all hover:border-rose-gold active:scale-[0.98] min-h-[40px]"
-                style={{ border: '1px solid rgba(230,183,173,0.25)', color: 'rgba(230,183,173,0.7)', background: 'transparent', borderRadius: '4px', cursor: 'pointer' }}>
+                className="flex-1 font-mono text-[8px] md:text-[10px] tracking-[0.22em] uppercase font-bold py-2.5 md:py-3 text-center transition-all hover:opacity-90 active:scale-[0.98] min-h-[40px]"
+                style={{ border: `1px solid ${BORDER}`, color: ACCENT, background: 'transparent', borderRadius: '4px', cursor: 'pointer' }}>
                 Keep Shopping
               </button>
             </div>

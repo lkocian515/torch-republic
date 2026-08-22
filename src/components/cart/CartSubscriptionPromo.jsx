@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import { SUBSCRIBE_SAVE_PERCENT, SUBSCRIBE_SAVE_RATE } from '@/lib/siteConfig';
 
-const RG = '#E6B7AD';
+const ACCENT = '#B86543';
+const MUTED = '#6A5A4A';
+const BORDER = '#E4D8C9';
 
 const FREQUENCIES = [
   { label: 'Every 2 weeks', value: '2w' },
@@ -22,18 +24,18 @@ export default function CartSubscriptionPromo({ subtotal }) {
       transition={{ duration: 0.4, delay: 0.12 }}
       className="mb-4 p-4"
       style={{
-        background: 'rgba(230,183,173,0.04)',
-        border: '1px solid rgba(230,183,173,0.15)',
+        background: 'rgba(184,101,67,0.04)',
+        border: `1px solid ${BORDER}`,
       }}
     >
       <div className="flex items-center gap-2 mb-2">
-        <RefreshCw className="w-3.5 h-3.5" style={{ color: RG }} />
-        <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>
+        <RefreshCw className="w-3.5 h-3.5" style={{ color: ACCENT }} />
+        <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: ACCENT }}>
           Subscribe & Save {SUBSCRIBE_SAVE_PERCENT}%
         </p>
       </div>
-      <p className="font-mono text-[8px] tracking-[0.1em] mb-3" style={{ color: 'rgba(245,239,230,0.55)' }}>
-        Save <span className="font-bold" style={{ color: RG }}>${savings}</span> on this order when you subscribe
+      <p className="font-mono text-[8px] tracking-[0.1em] mb-3" style={{ color: MUTED }}>
+        Save <span className="font-bold" style={{ color: ACCENT }}>${savings}</span> on this order when you subscribe
       </p>
 
       {/* Frequency selector */}
@@ -44,9 +46,9 @@ export default function CartSubscriptionPromo({ subtotal }) {
             onClick={() => setFrequency(freq.value)}
             className="font-mono text-[8px] tracking-[0.1em] uppercase py-2 px-3 transition-all"
             style={{
-              background: frequency === freq.value ? 'rgba(230,183,173,0.12)' : 'transparent',
-              border: `1px solid ${frequency === freq.value ? 'rgba(230,183,173,0.35)' : 'rgba(230,183,173,0.12)'}`,
-              color: frequency === freq.value ? RG : 'rgba(245,239,230,0.5)',
+              background: frequency === freq.value ? 'rgba(184,101,67,0.1)' : 'transparent',
+              border: `1px solid ${frequency === freq.value ? ACCENT : BORDER}`,
+              color: frequency === freq.value ? ACCENT : MUTED,
             }}
           >
             {freq.label}
@@ -54,7 +56,7 @@ export default function CartSubscriptionPromo({ subtotal }) {
         ))}
       </div>
 
-      <p className="font-mono text-[7.5px] tracking-[0.1em]" style={{ color: 'rgba(245,239,230,0.4)' }}>
+      <p className="font-mono text-[7.5px] tracking-[0.1em]" style={{ color: MUTED }}>
         Pause or cancel anytime — no commitments
       </p>
     </motion.div>

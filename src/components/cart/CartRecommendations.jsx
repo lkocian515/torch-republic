@@ -6,7 +6,10 @@ import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const RG = '#E6B7AD';
+const ACCENT = '#B86543';
+const INK = '#2D2824';
+const MUTED = '#9A8A7A';
+const BORDER = '#E4D8C9';
 
 // Recommendation rules — what to suggest based on what's in the cart
 const RULES = {
@@ -81,10 +84,10 @@ export default function CartRecommendations({ cartItems }) {
       className="mt-6"
     >
       <div className="mb-4">
-        <h3 className="font-serif font-bold text-lg mb-1" style={{ color: '#F5EFE6' }}>
+        <h3 className="font-serif font-bold text-lg mb-1" style={{ color: INK }}>
           Complete Your Ritual
         </h3>
-        <p className="font-mono text-[9px] tracking-[0.15em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
+        <p className="font-mono text-[9px] tracking-[0.15em] uppercase" style={{ color: ACCENT }}>
           Customers often pair this with
         </p>
       </div>
@@ -93,28 +96,28 @@ export default function CartRecommendations({ cartItems }) {
         {recommendations.map(product => (
           <div
             key={product.id}
-            className="flex items-center gap-3 p-3 transition-all hover:border-opacity-30"
-            style={{ background: '#0F0E0E', border: '1px solid rgba(230,183,173,0.12)' }}
+            className="flex items-center gap-3 p-3 transition-all"
+            style={{ background: '#FFFFFF', border: `1px solid ${BORDER}` }}
           >
             <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: '#F8F5EF' }}>
               <img src={getProductImage(product)} alt={getProductAltText(product)} className="w-full h-full object-contain p-1" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-serif font-bold text-sm truncate" style={{ color: '#F5EFE6' }}>{product.name}</p>
+              <p className="font-serif font-bold text-sm truncate" style={{ color: INK }}>{product.name}</p>
               <div className="flex items-center gap-1 mb-1">
-                <Star className="w-3 h-3 fill-current" style={{ color: RG }} />
-                <span className="font-mono text-[8px] tracking-[0.1em]" style={{ color: 'rgba(230,183,173,0.6)' }}>4.9</span>
-                <span className="font-mono text-[8px]" style={{ color: 'rgba(245,239,230,0.3)' }}>· {product.servings} servings</span>
+                <Star className="w-3 h-3 fill-current" style={{ color: ACCENT }} />
+                <span className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>4.9</span>
+                <span className="font-mono text-[8px]" style={{ color: MUTED }}>· {product.servings} servings</span>
               </div>
-              <p className="font-mono font-bold text-xs" style={{ color: RG }}>${product.price.toFixed(2)}</p>
+              <p className="font-mono font-bold text-xs" style={{ color: ACCENT }}>${product.price.toFixed(2)}</p>
             </div>
             <button
               onClick={() => handleAdd(product)}
               className="flex-shrink-0 w-9 h-9 flex items-center justify-center transition-all hover:opacity-80"
-              style={{ background: 'rgba(230,183,173,0.1)', border: '1px solid rgba(230,183,173,0.25)' }}
+              style={{ background: 'rgba(184,101,67,0.08)', border: `1px solid ${BORDER}` }}
               aria-label={`Add ${product.name} to cart`}
             >
-              <Plus className="w-4 h-4" style={{ color: RG }} />
+              <Plus className="w-4 h-4" style={{ color: ACCENT }} />
             </button>
           </div>
         ))}
