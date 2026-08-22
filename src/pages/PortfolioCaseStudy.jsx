@@ -332,7 +332,7 @@ export default function PortfolioCaseStudy() {
       {/* Hero — designed banner replaces the title block */}
       <header>
         <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7969543dc_ChatGPTImageAug22202603_33_06PM.png"
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cc58d834a_gfdgd.png"
           alt="Lisa Kocian — AI Quality, Content Evaluation, and E-Commerce Systems portfolio hero."
           loading="eager"
           decoding="async"
