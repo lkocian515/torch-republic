@@ -17,7 +17,7 @@ const SECTIONS = [
     heading: 'The Pod Problem Nobody Talks About',
     body: `It started with a simple calculation. I was going through two boxes of K-Cups a week — about 20 pods. At roughly $0.70-$1.00 per pod, that was $14-$20 a week, or nearly $80 a month, just for the convenience of not having to deal with a coffee maker. And every single one of those pods — those tiny, non-recyclable plastic cups — went straight into a landfill. Not some of them. All of them.
 
-I'd been using a pod machine for three years without doing that math. When I finally did, I felt genuinely embarrassed. Not performatively — just the quiet embarrassment of realizing you'd been sleepwalking through a habit that wasn't actually serving you.
+I'd been using a pod machine for three years without doing that math. When I finally did, I felt genuinely embarrassed. Not performatively — just the quiet embarrassment of realizing I'd been sleepwalking through a habit that wasn't actually serving me.
 
 But here's the thing: I didn't stop using pods right away. Because the ritual had become automatic. Wake up, press a button, get coffee. It was frictionless. And friction-reduction is how most bad habits survive — not because they're secretly good, but because removing them requires energy you don't have at 6am.`
   },
@@ -141,7 +141,7 @@ export default function FounderStory() {
             className="flex items-start gap-5">
             <Quote size={28} style={{ color: `${RG}40`, flexShrink: 0, marginTop: 4 }} />
             <p className="font-serif italic" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#5F5145', lineHeight: 1.65 }}>
-              I was going through 20 pods a week. Every one went to a landfill. When I finally did the math, I felt the quiet embarrassment of realizing you'd been sleepwalking through a habit that wasn't serving you.
+              I was going through 20 pods a week. Every one went to a landfill. When I finally did the math, I felt the quiet embarrassment of realizing I'd been sleepwalking through a habit that wasn't serving me.
             </p>
           </motion.div>
         </div>
