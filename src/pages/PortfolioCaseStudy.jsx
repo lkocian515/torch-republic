@@ -330,43 +330,92 @@ export default function PortfolioCaseStudy() {
       </header>
 
       {/* Hero */}
-      <header className="mx-auto max-w-[860px] px-6 md:px-10 pt-14 pb-14 md:pt-20 md:pb-20">
-        <Eyebrow>Case Study · AI Quality & Ecommerce</Eyebrow>
-        <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.05rem', color: INK, marginTop: '0.75rem' }}>
-          Lisa Kocian
-        </p>
-        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: ACCENT, marginTop: '0.3rem' }}>
-          AI Quality · Content Evaluation · E-Commerce Systems
-        </p>
-        <h1 className="h1" style={{ marginTop: '1rem', fontSize: 'clamp(1.9rem, 4.5vw, 3rem)' }}>
-          Torch Republic — AI-Assisted Ecommerce Build &amp; Quality Assurance Case Study
-        </h1>
-        <p className="body-lg" style={{ marginTop: '1.25rem' }}>
-          An end-to-end ecommerce project demonstrating AI-assisted development, prompt iteration, output evaluation,
-          functional QA, content verification, UX testing, troubleshooting, and continuous refinement.
-        </p>
+      <header className="mx-auto max-w-[960px] px-6 md:px-10 pt-14 pb-16 md:pt-20 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+          {/* Identity + value + CTAs */}
+          <div>
+            <Eyebrow>Portfolio Case Study</Eyebrow>
+            <h1
+              className="h1"
+              style={{
+                marginTop: '0.75rem',
+                fontSize: 'clamp(2.4rem, 6vw, 3.4rem)',
+                letterSpacing: '-0.015em',
+                lineHeight: 1.05,
+              }}
+            >
+              Lisa Kocian
+            </h1>
+            <p
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: ACCENT,
+                marginTop: '0.6rem',
+              }}
+            >
+              AI Quality • Content Evaluation • E-Commerce Systems
+            </p>
+            <p className="body-lg" style={{ marginTop: '1.4rem', color: INK }}>
+              I use AI-assisted workflows, human review, and structured QA to turn complex digital builds into accurate,
+              polished, reliable user experiences.
+            </p>
+            <p style={{ marginTop: '1rem', fontSize: '0.9375rem', lineHeight: 1.65, color: SECONDARY }}>
+              Torch Republic is an end-to-end e-commerce build demonstrating prompt iteration, content validation,
+              troubleshooting, UX review, SEO, and final output verification.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#overview" className="btn btn-primary">
+                View Case Study <ArrowUpRight style={{ width: 16, height: 16 }} />
+              </a>
+              <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
+              </a>
+            </div>
+          </div>
 
-        <p
-          className="body"
-          style={{
-            marginTop: '1.25rem',
-            fontSize: '0.9375rem',
-            color: INK,
-          }}
-        >
-          <strong style={{ fontWeight: 600 }}>Role:</strong>{' '}
-          <span style={{ color: SECONDARY }}>
-            Project Owner · AI Workflow &amp; QA · Ecommerce Strategy · Content &amp; UX
-          </span>
-        </p>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
-          </a>
-          <a href="#workflow" className="btn btn-ghost">
-            Explore QA Process
-          </a>
+          {/* Project visual */}
+          <div>
+            <a
+              href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open full-size image: Torch Republic storefront homepage"
+              style={{
+                display: 'block',
+                borderRadius: '14px',
+                overflow: 'hidden',
+                border: `1px solid ${RULE}`,
+                background: CARD,
+                boxShadow: '0 1px 2px rgba(45,40,36,0.04), 0 18px 44px rgba(45,40,36,0.10)',
+              }}
+            >
+              <img
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png"
+                alt="Torch Republic storefront homepage — the live e-commerce build featured in this case study."
+                width={1400}
+                height={875}
+                loading="eager"
+                decoding="async"
+                style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1400 / 875' }}
+              />
+            </a>
+            <p
+              style={{
+                marginTop: '0.65rem',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.62rem',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: SECONDARY,
+                textAlign: 'center',
+              }}
+            >
+              Torch Republic — Live Storefront
+            </p>
+          </div>
         </div>
       </header>
 
@@ -653,24 +702,23 @@ export default function PortfolioCaseStudy() {
         </div>
       </Shell>
 
-      {/* Final */}
+      {/* Recruiter CTA */}
       <section style={{ borderTop: `1px solid ${RULE}`, background: CARD }}>
         <div className="mx-auto max-w-[860px] px-6 md:px-10 py-16 md:py-24 text-center">
-          <Eyebrow>Next</Eyebrow>
+          <Eyebrow>Connect</Eyebrow>
           <h2 className="h2" style={{ marginTop: '0.75rem', fontSize: 'clamp(1.5rem, 3vw, 2.1rem)' }}>
-            Interested in how I approach AI quality and digital product work?
+            Interested in working together?
           </h2>
-          <p className="body-lg" style={{ marginTop: '0.75rem' }}>
-            This case study is self-contained — the process, evaluation methods, and finished product above describe the
-            work without requiring a separate résumé.
+          <p className="body-lg" style={{ marginTop: '0.75rem', maxWidth: '620px', marginLeft: 'auto', marginRight: 'auto' }}>
+            I'm currently exploring opportunities in AI quality, content evaluation, AI operations, and related roles.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            <a href="mailto:support@torchrepublic.com" className="btn btn-primary">
+              Get in touch <ArrowUpRight style={{ width: 16, height: 16 }} />
+            </a>
+            <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               View Live Site <ArrowUpRight style={{ width: 16, height: 16 }} />
             </a>
-            <Link to="/" className="btn btn-ghost">
-              <ArrowLeft style={{ width: 16, height: 16 }} /> Back to site
-            </Link>
           </div>
         </div>
       </section>
