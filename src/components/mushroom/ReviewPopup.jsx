@@ -44,6 +44,7 @@ const BLOCKED_PATHS = [
   '/order-confirmation',
   '/subscription',
   '/account',
+  '/portfolio',
 ];
 
 function isBlockedPath(pathname) {
