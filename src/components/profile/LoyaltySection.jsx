@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
+import { ensureLoyaltyRecord, redeemReward } from '@/lib/loyalty';
 import { Flame, Gift, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, TrendingDown, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -32,36 +33,14 @@ export default function LoyaltySection({ user }) {
 
     const load = async () => {
       if (!user?.id) return;
-      const [pointsRecords, activityRecords] = await Promise.all([
-        base44.entities.LoyaltyPoints.filter({ user_id: user.id }),
-        base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10),
-      ]);
-
-      let currentRecord = pointsRecords[0];
-      let currentActivity = activityRecords;
-
-      // First time opening loyalty: claim the one-time welcome bonus via a
-      // backend function (service role) so the member starts with points and
-      // has a real earn entry in Recent Activity.
-      if (!currentRecord) {
-        try {
-          const res = await base44.functions.invoke('claimWelcomeBonus', {});
-          if (res?.data?.record) {
-            currentRecord = res.data.record;
-            if (res.data.activity) currentActivity = [res.data.activity, ...currentActivity];
-          }
-        } catch (err) {
-          // Best-effort: if it fails, fall through with empty state below.
-          const retry = await base44.entities.LoyaltyPoints.filter({ user_id: user.id });
-          if (retry.length > 0) currentRecord = retry[0];
-          const retryActivity = await base44.entities.PointsActivity.filter({ user_id: user.id }, '-created_date', 10);
-          currentActivity = retryActivity;
-        }
+      try {
+        const { record, activity } = await ensureLoyaltyRecord(user);
+        if (cancelled) return;
+        if (record) setRecord(record);
+        setActivity(activity);
+      } catch (err) {
+        if (cancelled) return;
       }
-
-      if (cancelled) return;
-      if (currentRecord) setRecord(currentRecord);
-      setActivity(currentActivity);
       setLoading(false);
     };
 
@@ -73,22 +52,15 @@ export default function LoyaltySection({ user }) {
     if (!record || record.points < reward.points) return;
     if (record.redeemed_codes?.includes(reward.code)) return;
     setRedeeming(reward.code);
-    const [updated, newActivity] = await Promise.all([
-      base44.entities.LoyaltyPoints.update(record.id, {
-        points: record.points - reward.points,
-        redeemed_codes: [...(record.redeemed_codes || []), reward.code],
-      }),
-      base44.entities.PointsActivity.create({
-        user_id: user.id,
-        type: 'redeem',
-        points: reward.points,
-        label: `Redeemed ${reward.label}`,
-      }),
-    ]);
-    setRecord(updated);
-    setActivity(prev => [newActivity, ...prev].slice(0, 10));
+    try {
+      const { record: updated, activity: newActivity } = await redeemReward(user, record, reward);
+      setRecord(updated);
+      setActivity(prev => [newActivity, ...prev].slice(0, 10));
+      copyCode(reward.code);
+    } catch (err) {
+      // Redemption failed — keep the current record unchanged.
+    }
     setRedeeming(null);
-    copyCode(reward.code);
   };
 
   const copyCode = (code) => {

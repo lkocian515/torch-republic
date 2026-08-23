@@ -149,7 +149,7 @@ export default function Profile() {
               </div>
             </div>
             <Link
-              to="/portal"
+              to="/loyalty"
               className="font-mono uppercase tracking-[0.2em] text-xs px-4 py-2 transition-all hover:opacity-90"
               style={{ background: '#E6B7AD', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
             >

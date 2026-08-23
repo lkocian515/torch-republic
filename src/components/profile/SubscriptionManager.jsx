@@ -29,13 +29,19 @@ export default function SubscriptionManager() {
 
   const fetchSub = async () => {
     setLoading(true);
-    const res = await base44.functions.invoke('getSubscription', {});
-    if (res.data?.subscription) {
-      setSub(res.data.subscription);
-      // Set selected frequency to match current sub
-      const match = FREQUENCIES.find(f => f.interval === res.data.subscription.interval && f.intervalCount === res.data.subscription.intervalCount);
-      setSelectedFreq(match || FREQUENCIES[2]);
-    } else {
+    try {
+      const res = await base44.functions.invoke('getSubscription', {});
+      if (res.data?.subscription) {
+        setSub(res.data.subscription);
+        // Set selected frequency to match current sub
+        const match = FREQUENCIES.find(f => f.interval === res.data.subscription.interval && f.intervalCount === res.data.subscription.intervalCount);
+        setSelectedFreq(match || FREQUENCIES[2]);
+      } else {
+        setNoSub(true);
+      }
+    } catch (err) {
+      // Subscription service is unavailable (e.g. plan doesn't include backend
+      // functions). Show the no-subscription state instead of hanging.
       setNoSub(true);
     }
     setLoading(false);
@@ -45,14 +51,18 @@ export default function SubscriptionManager() {
 
   const doAction = async (action, extra = {}) => {
     setActionLoading(true);
-    await base44.functions.invoke('updateSubscription', {
-      action,
-      contractId: sub.id,
-      interval: sub.interval,
-      intervalCount: sub.intervalCount,
-      ...extra,
-    });
-    await fetchSub();
+    try {
+      await base44.functions.invoke('updateSubscription', {
+        action,
+        contractId: sub.id,
+        interval: sub.interval,
+        intervalCount: sub.intervalCount,
+        ...extra,
+      });
+      await fetchSub();
+    } catch (err) {
+      showToast('Subscription update is unavailable right now.');
+    }
     setActionLoading(false);
   };
 

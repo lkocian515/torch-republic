@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
+import { ensureLoyaltyRecord } from '@/lib/loyalty';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Gift, TrendingUp, ShoppingBag, Clock, ChevronRight, Lock, CheckCircle } from 'lucide-react';
@@ -203,8 +204,8 @@ export default function LoyaltyPortal() {
     queryKey: ['loyalty', user?.id],
     queryFn: async () => {
       if (!user?.id) return null;
-      const records = await base44.entities.LoyaltyPoints.filter({ user_id: user.id });
-      return records[0] || { points: 0, lifetime_points: 0, redeemed_codes: [] };
+      const { record } = await ensureLoyaltyRecord(user);
+      return record || { points: 0, lifetime_points: 0, redeemed_codes: [] };
     },
     enabled: !!user?.id,
   });
