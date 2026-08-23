@@ -37,7 +37,7 @@ export default function HeroSection() {
 
       {/* Single text block — reflows from stacked (mobile) to left-positioned (desktop) */}
       <div
-        className="relative z-10 w-full py-12 px-6 md:max-w-[540px] md:w-[42%] md:py-0 md:pr-6"
+        className="relative z-10 w-full py-12 px-6 text-center md:max-w-[540px] md:w-[42%] md:py-0 md:pr-6 md:text-left"
         style={{ paddingLeft: 'clamp(24px, 8vw, 120px)' }}
       >
         <p
@@ -48,7 +48,7 @@ export default function HeroSection() {
         </p>
         <h1
           className="mt-6 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[clamp(2.4rem,3.4vw,3.8rem)]"
-          style={{ color: colors.forest }}
+          style={{ color: colors.forest, textWrap: 'balance' }}
         >
           A better ritual starts here.
         </h1>
@@ -58,7 +58,7 @@ export default function HeroSection() {
         >
           Thoughtfully crafted coffee, mushroom blends, and ceremonial matcha for your everyday rhythm.
         </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center md:items-start md:justify-start">
           <EditorialButton to={routes.shop}>Shop Coffee</EditorialButton>
           <Link
             to={routes.ritual}
