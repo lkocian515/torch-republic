@@ -75,10 +75,11 @@ export function NavigationProvider({ children }) {
     navigate(activeTab === tabKey ? tab.root : destination, { replace: activeTab === tabKey });
   };
 
-  // Legacy support
+  // Reset a tab's history to its root path (used on second tap of an active tab)
   const resetTabStack = (tabPath) => {
     setTabStacks(prev => ({ ...prev, [tabPath]: [tabPath] }));
-    navigate(tabPath);
+    pendingScrollRef.current = 0;
+    navigate(tabPath, { replace: true });
   };
 
   return (

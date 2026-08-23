@@ -50,7 +50,7 @@ export default function Profile() {
     setIsDeleting(true);
     setDeleteError(null);
     try {
-      await base44.functions.invoke('deleteAccount', {});
+      await base44.auth.deleteUser();
       // Clear any locally-stored session/preferences before logout
       try {
         localStorage.clear();

@@ -14,11 +14,16 @@ const TABS = [
 
 export default function BottomTabs() {
   const location = useLocation();
-  const { navigateToTab, activeTab } = useNavigationStack();
+  const { navigateToTab, resetTabStack, activeTab } = useNavigationStack();
 
   const handleTabClick = (e, path) => {
     e.preventDefault();
-    navigateToTab(path);
+    // Tapping the already-active tab resets that tab's history to its root path (native tab behavior)
+    if (activeTab === path) {
+      resetTabStack(path);
+    } else {
+      navigateToTab(path);
+    }
   };
 
   const isActive = (path) => {
