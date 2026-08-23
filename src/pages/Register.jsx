@@ -5,6 +5,13 @@ import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
 
 const RG = '#E6B7AD';
+const PAGE = '#FBF8F2';
+const CARD = '#FFFFFF';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const CLAY = '#B7653E';
+const ERROR = '#C0392B';
 
 function MicrosoftIcon() {
   return (
@@ -87,14 +94,14 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#111111' }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: PAGE }}>
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-10">
-          <h1 className="font-heading font-black uppercase tracking-[0.2em] text-2xl" style={{ color: '#F0EBE1' }}>
+          <h1 className="font-heading font-black uppercase tracking-[0.2em] text-2xl" style={{ color: INK }}>
             Torch Republic
           </h1>
-          <p className="font-mono text-[10px] tracking-[0.35em] uppercase mt-1" style={{ color: RG + '80' }}>
+          <p className="font-mono text-[10px] tracking-[0.35em] uppercase mt-1" style={{ color: CLAY }}>
             {step === 'otp' ? 'Verify Email' : 'Create Account'}
           </p>
         </div>
@@ -105,15 +112,15 @@ export default function Register() {
             <div className="space-y-3 mb-6">
               <button
                 onClick={() => handleProvider('google')}
-                className="w-full flex items-center justify-center gap-3 py-3 font-mono text-[11px] tracking-[0.2em] uppercase transition-opacity hover:opacity-80"
-                style={{ background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(240,235,225,0.75)' }}
+                className="w-full flex items-center justify-center gap-3 py-3 font-mono text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
+                style={{ background: CARD, border: `1px solid ${BORDER}`, color: INK }}
               >
                 <GoogleIcon /> Continue with Google
               </button>
               <button
                 onClick={() => handleProvider('microsoft')}
-                className="w-full flex items-center justify-center gap-3 py-3 font-mono text-[11px] tracking-[0.2em] uppercase transition-opacity hover:opacity-80"
-                style={{ background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(240,235,225,0.75)' }}
+                className="w-full flex items-center justify-center gap-3 py-3 font-mono text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
+                style={{ background: CARD, border: `1px solid ${BORDER}`, color: INK }}
               >
                 <MicrosoftIcon /> Continue with Microsoft
               </button>
@@ -121,54 +128,54 @@ export default function Register() {
 
             {/* Divider */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
-              <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(240,235,225,0.25)' }}>or</span>
-              <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+              <div className="flex-1 h-px" style={{ background: BORDER }} />
+              <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: SECONDARY }}>or</span>
+              <div className="flex-1 h-px" style={{ background: BORDER }} />
             </div>
 
             <form onSubmit={handleRegister} className="space-y-4">
               <div>
-                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>Email</label>
+                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>Email</label>
                 <input
                   type="email" required value={email} onChange={e => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 font-mono text-sm outline-none"
-                  style={{ background: '#1A1A1A', border: `1px solid ${email ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                  className="w-full px-4 py-3 font-mono text-sm outline-none transition-all"
+                  style={{ background: CARD, border: `1px solid ${email ? CLAY : BORDER}`, color: INK }}
                   placeholder="you@example.com"
                 />
               </div>
               <div>
-                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>Password</label>
+                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>Password</label>
                 <input
                   type="password" required value={password} onChange={e => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 font-mono text-sm outline-none"
-                  style={{ background: '#1A1A1A', border: `1px solid ${password ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                  className="w-full px-4 py-3 font-mono text-sm outline-none transition-all"
+                  style={{ background: CARD, border: `1px solid ${password ? CLAY : BORDER}`, color: INK }}
                   placeholder="••••••••"
                 />
               </div>
               <div>
-                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>Confirm Password</label>
+                <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>Confirm Password</label>
                 <input
                   type="password" required value={confirm} onChange={e => setConfirm(e.target.value)}
-                  className="w-full px-4 py-3 font-mono text-sm outline-none"
-                  style={{ background: '#1A1A1A', border: `1px solid ${confirm ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                  className="w-full px-4 py-3 font-mono text-sm outline-none transition-all"
+                  style={{ background: CARD, border: `1px solid ${confirm ? CLAY : BORDER}`, color: INK }}
                   placeholder="••••••••"
                 />
               </div>
 
-              {error && <p className="font-mono text-[10px]" style={{ color: '#E06C6C' }}>{error}</p>}
+              {error && <p className="font-mono text-[10px]" style={{ color: ERROR }}>{error}</p>}
 
               <button
                 type="submit" disabled={loading}
-                className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-opacity hover:opacity-80 disabled:opacity-50"
-                style={{ background: RG + '18', border: `1px solid ${RG}40`, color: RG }}
+                className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 disabled:opacity-50"
+                style={{ background: CLAY, border: `1px solid ${CLAY}`, color: '#FFFFFF' }}
               >
                 {loading ? 'Creating account…' : 'Create Account'}
               </button>
             </form>
 
-            <p className="text-center mt-5 font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.3)' }}>
+            <p className="text-center mt-5 font-mono text-[10px]" style={{ color: SECONDARY }}>
               Already have an account?{' '}
-              <Link to="/login" className="transition-opacity hover:opacity-60" style={{ color: RG + '80', borderBottom: `1px solid ${RG}25` }}>
+              <Link to="/login" className="transition-opacity hover:opacity-60" style={{ color: CLAY, borderBottom: `1px solid ${RG}55` }}>
                 Sign in
               </Link>
             </p>
@@ -177,33 +184,33 @@ export default function Register() {
 
         {step === 'otp' && (
           <form onSubmit={handleVerify} className="space-y-5">
-            <p className="font-mono text-[11px] leading-relaxed text-center" style={{ color: 'rgba(240,235,225,0.5)' }}>
-              We sent a verification code to <span style={{ color: RG + '90' }}>{email}</span>. Enter it below.
+            <p className="font-mono text-[11px] leading-relaxed text-center" style={{ color: SECONDARY }}>
+              We sent a verification code to <span style={{ color: CLAY }}>{email}</span>. Enter it below.
             </p>
             <div>
-              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>Verification Code</label>
+              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>Verification Code</label>
               <input
                 type="text" required value={otp} onChange={e => setOtp(e.target.value)}
-                className="w-full px-4 py-3 font-mono text-lg text-center tracking-[0.5em] outline-none"
-                style={{ background: '#1A1A1A', border: `1px solid ${otp ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                className="w-full px-4 py-3 font-mono text-lg text-center tracking-[0.5em] outline-none transition-all"
+                style={{ background: CARD, border: `1px solid ${otp ? CLAY : BORDER}`, color: INK }}
                 placeholder="000000"
                 maxLength={6}
               />
             </div>
 
-            {error && <p className="font-mono text-[10px]" style={{ color: '#E06C6C' }}>{error}</p>}
+            {error && <p className="font-mono text-[10px]" style={{ color: ERROR }}>{error}</p>}
 
             <button
               type="submit" disabled={loading}
-              className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-opacity hover:opacity-80 disabled:opacity-50"
-              style={{ background: RG + '18', border: `1px solid ${RG}40`, color: RG }}
+              className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 disabled:opacity-50"
+              style={{ background: CLAY, border: `1px solid ${CLAY}`, color: '#FFFFFF' }}
             >
               {loading ? 'Verifying…' : 'Verify Email'}
             </button>
 
             <button type="button" onClick={handleResend}
               className="w-full font-mono text-[10px] tracking-[0.2em] uppercase transition-opacity hover:opacity-60"
-              style={{ color: 'rgba(240,235,225,0.3)' }}>
+              style={{ color: SECONDARY }}>
               Resend code
             </button>
           </form>

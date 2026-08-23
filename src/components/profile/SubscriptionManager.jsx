@@ -3,7 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Package, ChevronDown, Pause, Play, SkipForward, RefreshCw, Check, Loader2, AlertCircle, ExternalLink } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
-const RG = '#C9A24A';
+const CLAY = '#B7653E';
+const RG = '#E6B7AD';
+const CARD = '#FFFFFF';
+const CREAM = '#FBF8F1';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
 
 const FREQUENCIES = [
   { label: 'Every Week', interval: 'week', intervalCount: 1 },
@@ -87,19 +93,19 @@ export default function SubscriptionManager() {
   const isPaused = sub?.status === 'paused';
 
   return (
-    <div className="border mb-6" style={{ borderColor: `${RG}22`, background: '#0B0B0B' }}>
+    <div className="border mb-6" style={{ borderColor: BORDER, background: CARD, borderRadius: '8px' }}>
       {/* Header toggle */}
       <button
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between p-6 text-left"
       >
         <div className="flex items-center gap-3">
-          <Package className="w-4 h-4 flex-shrink-0" style={{ color: RG }} />
+          <Package className="w-4 h-4 flex-shrink-0" style={{ color: CLAY }} />
           <div>
-            <p className="font-mono text-[11px] tracking-[0.35em] uppercase font-bold" style={{ color: '#F0EBE1' }}>
+            <p className="font-mono text-[11px] tracking-[0.35em] uppercase font-bold" style={{ color: INK }}>
               Manage Subscription
             </p>
-            <p className="font-mono text-[10px] mt-0.5" style={{ color: 'rgba(240,235,225,0.35)' }}>
+            <p className="font-mono text-[10px] mt-0.5" style={{ color: SECONDARY }}>
               {loading ? 'Loading...' : noSub ? 'No active subscription' : sub?.productTitle}
             </p>
           </div>
@@ -108,15 +114,15 @@ export default function SubscriptionManager() {
           {!loading && !noSub && sub && (
             <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-0.5"
               style={{
-                background: isPaused ? 'rgba(255,255,255,0.04)' : `${RG}12`,
-                border: isPaused ? '1px solid rgba(255,255,255,0.1)' : `1px solid ${RG}30`,
-                color: isPaused ? 'rgba(255,255,255,0.3)' : RG,
+                background: isPaused ? CREAM : `${CLAY}14`,
+                border: isPaused ? `1px solid ${BORDER}` : `1px solid ${CLAY}40`,
+                color: isPaused ? SECONDARY : CLAY,
               }}>
               {isPaused ? 'Paused' : 'Active'}
             </span>
           )}
           <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown className="w-4 h-4" style={{ color: `${RG}55` }} />
+            <ChevronDown className="w-4 h-4" style={{ color: SECONDARY }} />
           </motion.div>
         </div>
       </button>
@@ -131,26 +137,26 @@ export default function SubscriptionManager() {
             transition={{ duration: 0.28, ease: 'easeInOut' }}
             style={{ overflow: 'hidden' }}
           >
-            <div className="px-6 pb-6" style={{ borderTop: `1px solid ${RG}10` }}>
+            <div className="px-6 pb-6" style={{ borderTop: `1px solid ${BORDER}` }}>
 
               {/* Loading */}
               {loading && (
                 <div className="flex items-center justify-center gap-3 py-10">
-                  <Loader2 className="w-5 h-5 animate-spin" style={{ color: `${RG}60` }} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: `${RG}50` }}>Loading subscription…</span>
+                  <Loader2 className="w-5 h-5 animate-spin" style={{ color: `${CLAY}80` }} />
+                  <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: SECONDARY }}>Loading subscription…</span>
                 </div>
               )}
 
               {/* No subscription */}
               {!loading && noSub && (
                 <div className="py-8 text-center space-y-4">
-                  <AlertCircle className="w-6 h-6 mx-auto" style={{ color: `${RG}40` }} />
-                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: 'rgba(240,235,225,0.35)' }}>
+                  <AlertCircle className="w-6 h-6 mx-auto" style={{ color: `${CLAY}80` }} />
+                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
                     No active subscription found for your account.
                   </p>
                   <a href="https://torchrepublic.com/subscription" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-70"
-                    style={{ color: RG, borderBottom: `1px solid ${RG}30` }}>
+                    style={{ color: CLAY, borderBottom: `1px solid ${CLAY}40` }}>
                     Start a subscription <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -170,16 +176,16 @@ export default function SubscriptionManager() {
                       { label: 'Status', value: sub.status?.charAt(0).toUpperCase() + sub.status?.slice(1) },
                       { label: 'Order Origin', value: sub.orderId || '—' },
                     ].map(({ label, value }) => (
-                      <div key={label} className="p-3" style={{ background: '#111', border: `1px solid ${RG}09` }}>
-                        <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: `${RG}45` }}>{label}</p>
-                        <p className="font-mono text-xs font-bold" style={{ color: 'rgba(240,235,225,0.8)' }}>{value}</p>
+                      <div key={label} className="p-3" style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}>
+                        <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-1" style={{ color: SECONDARY }}>{label}</p>
+                        <p className="font-mono text-xs font-bold" style={{ color: INK }}>{value}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* Frequency selector */}
                   <div>
-                    <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: `${RG}55` }}>
+                    <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: SECONDARY }}>
                       Delivery Frequency
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -192,9 +198,10 @@ export default function SubscriptionManager() {
                             disabled={actionLoading}
                             className="flex items-center justify-between px-3 py-2.5 transition-all disabled:opacity-50"
                             style={{
-                              background: active ? `${RG}12` : 'transparent',
-                              border: active ? `1px solid ${RG}40` : `1px solid ${RG}12`,
-                              color: active ? RG : 'rgba(240,235,225,0.45)',
+                              background: active ? `${CLAY}14` : CARD,
+                              border: active ? `1px solid ${CLAY}55` : `1px solid ${BORDER}`,
+                              color: active ? CLAY : SECONDARY,
+                              borderRadius: '4px',
                             }}
                           >
                             <span className="font-mono text-[10px] tracking-wide">{f.label}</span>
@@ -213,9 +220,10 @@ export default function SubscriptionManager() {
                       disabled={actionLoading}
                       className="flex items-center justify-center gap-2 py-3 px-5 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-80 disabled:opacity-50"
                       style={{
-                        border: `1px solid ${RG}28`,
-                        color: isPaused ? RG : 'rgba(240,235,225,0.55)',
-                        background: isPaused ? `${RG}08` : 'transparent',
+                        border: `1px solid ${CLAY}40`,
+                        color: isPaused ? CLAY : SECONDARY,
+                        background: isPaused ? `${CLAY}14` : CARD,
+                        borderRadius: '4px',
                       }}
                     >
                       {actionLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> :
@@ -231,7 +239,7 @@ export default function SubscriptionManager() {
                         onClick={() => setConfirmSkip(true)}
                         disabled={actionLoading}
                         className="flex items-center justify-center gap-2 py-3 px-5 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-80 disabled:opacity-50"
-                        style={{ border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(240,235,225,0.4)' }}
+                        style={{ border: `1px solid ${BORDER}`, color: SECONDARY, background: CARD, borderRadius: '4px' }}
                       >
                         <SkipForward className="w-3.5 h-3.5" /> Skip Next Delivery
                       </button>
@@ -240,13 +248,13 @@ export default function SubscriptionManager() {
                       <div className="flex gap-2 flex-1">
                         <button onClick={() => setConfirmSkip(false)}
                           className="flex-1 py-3 font-mono text-[10px] tracking-[0.25em] uppercase transition-all hover:opacity-70"
-                          style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(240,235,225,0.4)' }}>
+                          style={{ border: `1px solid ${BORDER}`, color: SECONDARY, background: CARD, borderRadius: '4px' }}>
                           Cancel
                         </button>
                         <button onClick={handleSkip}
                           disabled={actionLoading}
                           className="flex-1 py-3 font-mono text-[10px] tracking-[0.25em] uppercase transition-all hover:opacity-80 disabled:opacity-50"
-                          style={{ background: `${RG}14`, border: `1px solid ${RG}32`, color: RG }}>
+                          style={{ background: `${CLAY}18`, border: `1px solid ${CLAY}55`, color: CLAY, borderRadius: '4px' }}>
                           {actionLoading ? 'Skipping…' : 'Confirm Skip'}
                         </button>
                       </div>
@@ -255,10 +263,10 @@ export default function SubscriptionManager() {
 
                   {/* Shopify portal link */}
                   <div className="flex items-center gap-2 pt-1">
-                    <RefreshCw className="w-3 h-3 flex-shrink-0" style={{ color: `${RG}38` }} />
+                    <RefreshCw className="w-3 h-3 flex-shrink-0" style={{ color: SECONDARY }} />
                     <a href="https://torchrepublic.com/account/subscriptions" target="_blank" rel="noopener noreferrer"
                       className="font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-60 pb-px"
-                      style={{ color: `${RG}55`, borderBottom: `1px solid ${RG}20` }}>
+                      style={{ color: SECONDARY, borderBottom: `1px solid ${BORDER}` }}>
                       Full subscription portal on Shopify →
                     </a>
                   </div>
@@ -271,10 +279,10 @@ export default function SubscriptionManager() {
                   <motion.div
                     initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                     className="mt-5 flex items-center gap-2 px-4 py-2.5"
-                    style={{ background: `${RG}10`, border: `1px solid ${RG}25` }}
+                    style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}30`, borderRadius: '4px' }}
                   >
-                    <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RG }} />
-                    <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.7)' }}>{toast}</span>
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: CLAY }} />
+                    <span className="font-mono text-[10px]" style={{ color: INK }}>{toast}</span>
                   </motion.div>
                 )}
               </AnimatePresence>

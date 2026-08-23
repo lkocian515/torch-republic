@@ -9,6 +9,14 @@ import useNoIndex from '@/hooks/useNoIndex';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
+const CLAY = '#B7653E';
+const PAGE = '#FBF8F2';
+const CARD = '#FFFFFF';
+const CREAM = '#FBF8F1';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const GOLD = '#B89535';
 
 const REWARD_TIERS = [
   { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
@@ -31,28 +39,28 @@ function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
       style={{
-        background: 'linear-gradient(135deg, rgba(230,183,173,0.08) 0%, rgba(230,183,173,0.02) 100%)',
-        border: `1px solid ${RG}25`,
-        borderRadius: '3px',
+        background: `linear-gradient(135deg, ${RG}22 0%, ${RG}0A 100%)`,
+        border: `1px solid ${RG}55`,
+        borderRadius: '8px',
         padding: 'clamp(24px, 4vw, 32px)',
       }}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div>
-          <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: `${RG}90` }}>
+          <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: CLAY }}>
             Current Balance
           </p>
           <div className="flex items-baseline gap-3">
-            <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: '#F5EFE6', lineHeight: 1 }}>
+            <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: INK, lineHeight: 1 }}>
               {points.toLocaleString()}
             </span>
-            <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>
+            <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: CLAY }}>
               points
             </span>
           </div>
           {lifetimePoints > 0 && (
-            <p className="font-heading text-xs mt-3" style={{ color: 'rgba(210,195,175,0.55)' }}>
-              Lifetime earned: <span style={{ color: '#F5EFE6' }}>{lifetimePoints.toLocaleString()}</span> points
+            <p className="font-heading text-xs mt-3" style={{ color: SECONDARY }}>
+              Lifetime earned: <span style={{ color: INK }}>{lifetimePoints.toLocaleString()}</span> points
             </p>
           )}
         </div>
@@ -60,25 +68,25 @@ function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
         {nextTier && (
           <div>
             <div className="flex justify-between items-center mb-3">
-              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: `${RG}70` }}>
+              <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
                 Next: {nextTier.points.toLocaleString()} pts
               </p>
-              <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: RG }}>
+              <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: CLAY }}>
                 {nextTier.discount} OFF
               </p>
             </div>
-            <div style={{ height: 4, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden' }}>
+            <div style={{ height: 4, background: BORDER, borderRadius: 2, overflow: 'hidden' }}>
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min(progressPercent, 100)}%` }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
                 style={{
                   height: '100%',
-                  background: `linear-gradient(90deg, ${RG} 0%, #C98F86 100%)`,
+                  background: `linear-gradient(90deg, ${CLAY} 0%, ${RG} 100%)`,
                 }}
               />
             </div>
-            <p className="font-heading text-[10px] mt-2" style={{ color: 'rgba(210,195,175,0.45)' }}>
+            <p className="font-heading text-[10px] mt-2" style={{ color: SECONDARY }}>
               {nextTier.points - points} points to {nextTier.discount} off
             </p>
           </div>
@@ -97,9 +105,9 @@ function RewardTier({ tier, currentPoints, isUnlocked }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       style={{
-        background: isUnlocked ? 'rgba(230,183,173,0.06)' : 'rgba(255,255,255,0.015)',
-        border: isUnlocked ? `1px solid ${RG}25` : '1px solid rgba(230,183,173,0.06)',
-        borderRadius: '2px',
+        background: isUnlocked ? `${RG}18` : CARD,
+        border: isUnlocked ? `1px solid ${RG}55` : `1px solid ${BORDER}`,
+        borderRadius: '6px',
         padding: '24px 20px',
         textAlign: 'center',
       }}
@@ -109,23 +117,23 @@ function RewardTier({ tier, currentPoints, isUnlocked }) {
           width: 44,
           height: 44,
           borderRadius: '50%',
-          background: isUnlocked ? 'rgba(230,183,173,0.12)' : 'rgba(255,255,255,0.03)',
-          border: `1px solid ${isUnlocked ? RG : 'rgba(230,183,173,0.08)'}`,
+          background: isUnlocked ? `${RG}28` : CREAM,
+          border: `1px solid ${isUnlocked ? RG : BORDER}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 16px',
         }}
       >
-        {isUnlocked ? <CheckCircle size={18} style={{ color: RG }} /> : <Lock size={18} style={{ color: 'rgba(230,183,173,0.3)' }} />}
+        {isUnlocked ? <CheckCircle size={18} style={{ color: CLAY }} /> : <Lock size={18} style={{ color: '#B5A89A' }} />}
       </div>
-      <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
+      <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: SECONDARY }}>
         {tier.points.toLocaleString()} pts
       </p>
-      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: isUnlocked ? '#F5EFE6' : 'rgba(245,239,230,0.4)' }}>
+      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: isUnlocked ? INK : '#9C948A' }}>
         {tier.label}
       </h3>
-      <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-bold" style={{ color: isUnlocked ? RG : 'rgba(230,183,173,0.3)' }}>
+      <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-bold" style={{ color: isUnlocked ? CLAY : '#B5A89A' }}>
         {tier.discount} OFF
       </p>
     </motion.div>
@@ -142,9 +150,9 @@ function EarningRule({ rule, index }) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
       style={{
-        background: 'rgba(255,255,255,0.015)',
-        border: '1px solid rgba(230,183,173,0.06)',
-        borderRadius: '2px',
+        background: CARD,
+        border: `1px solid ${BORDER}`,
+        borderRadius: '6px',
         padding: '20px',
         display: 'flex',
         alignItems: 'center',
@@ -156,19 +164,19 @@ function EarningRule({ rule, index }) {
           width: 40,
           height: 40,
           borderRadius: '50%',
-          background: 'rgba(230,183,173,0.08)',
-          border: `1px solid ${RG}25`,
+          background: `${RG}25`,
+          border: `1px solid ${RG}55`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
         }}
       >
-        <Icon size={16} style={{ color: RG }} />
+        <Icon size={16} style={{ color: CLAY }} />
       </div>
       <div className="flex-1">
-        <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{rule.action}</p>
-        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: RG }}>{rule.points}</p>
+        <p className="font-serif font-bold text-sm" style={{ color: INK }}>{rule.action}</p>
+        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: CLAY }}>{rule.points}</p>
       </div>
     </motion.div>
   );
@@ -223,28 +231,28 @@ export default function LoyaltyPortal() {
 
   if (isAuthenticated === false) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A', padding: '24px' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: PAGE, padding: '24px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-md"
         >
-          <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
+          <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: INK }}>
             Member Access
           </h1>
-          <p className="font-heading mb-8" style={{ color: 'rgba(210,195,175,0.6)' }}>
+          <p className="font-heading mb-8" style={{ color: SECONDARY }}>
             Sign in to view your loyalty points and rewards
           </p>
           <Link
             to="/login"
             className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
             style={{
-              background: RG,
-              color: '#050505',
+              background: CLAY,
+              color: '#FFFFFF',
               fontSize: '0.7rem',
               fontWeight: 700,
               padding: '14px 36px',
-              borderRadius: '2px',
+              borderRadius: '4px',
             }}
           >
             Sign In
@@ -256,27 +264,27 @@ export default function LoyaltyPortal() {
 
   if (isLoading || !loyaltyData) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: PAGE }}>
         <div className="text-center">
-          <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: RG }}>Loading...</p>
+          <div className="w-8 h-8 border-2 rounded-full animate-spin mx-auto mb-4" style={{ borderColor: CLAY, borderTopColor: 'transparent' }} />
+          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: CLAY }}>Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen" style={{ background: '#0A0A0A', paddingBottom: '80px' }}>
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px 60px', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+    <div className="min-h-screen" style={{ background: PAGE, paddingBottom: '80px' }}>
+      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px 60px', borderBottom: `1px solid ${BORDER}` }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
               Loyalty Rewards
             </p>
-            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: INK, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Welcome to Torch Republic Rewards
             </h1>
-            <p className="font-heading mt-4 max-w-2xl" style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.65)', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading mt-4 max-w-2xl" style={{ fontSize: '0.95rem', color: SECONDARY, fontWeight: 300, lineHeight: 1.8 }}>
               Earn points on every purchase, unlock exclusive discounts, and join the republic of premium coffee lovers.
             </p>
           </motion.div>
@@ -288,10 +296,10 @@ export default function LoyaltyPortal() {
       <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px' }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
               Unlock Rewards
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: INK, lineHeight: 1.2 }}>
               Your Path to Savings
             </h2>
           </motion.div>
@@ -304,13 +312,13 @@ export default function LoyaltyPortal() {
         </div>
       </section>
 
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px', background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px', background: CREAM, borderTop: `1px solid ${BORDER}` }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
               Earn Points
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: INK, lineHeight: 1.2 }}>
               How to Earn Rewards
             </h2>
           </motion.div>
@@ -325,7 +333,7 @@ export default function LoyaltyPortal() {
             <Link
               to="/shop"
               className="inline-flex items-center gap-2 font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
-              style={{ background: RG, color: '#050505', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
+              style={{ background: CLAY, color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '4px' }}
             >
               Start Earning <ChevronRight size={14} />
             </Link>
@@ -334,8 +342,8 @@ export default function LoyaltyPortal() {
       </section>
 
       <section className="text-center" style={{ padding: '40px 24px' }}>
-        <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.8 }}>
-          <strong style={{ color: 'rgba(255,255,255,0.3)' }}>Terms:</strong> Points are awarded per qualifying purchase. Discount codes are single-use and cannot be combined with other offers. Points expire after 12 months of account inactivity.
+        <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: SECONDARY, lineHeight: 1.8 }}>
+          <strong style={{ color: INK }}>Terms:</strong> Points are awarded per qualifying purchase. Discount codes are single-use and cannot be combined with other offers. Points expire after 12 months of account inactivity.
         </p>
       </section>
     </div>

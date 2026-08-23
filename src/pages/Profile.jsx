@@ -212,17 +212,17 @@ export default function Profile() {
 
         {/* Delete Account Confirmation Dialog — two-step, App Store / Google Play compliant */}
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={closeDeleteDialog}>
-          <AlertDialogContent style={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', maxWidth: '460px' }}>
+          <AlertDialogContent style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', maxWidth: '460px' }}>
             <AlertDialogHeader>
-              <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm" style={{ color: '#F5EFE6' }}>
+              <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm" style={{ color: '#2D2824' }}>
                 Permanently Delete Account
               </AlertDialogTitle>
               <AlertDialogDescription asChild>
                 <div className="space-y-3 mt-2">
                   {deleteStep === 1 ? (
                     <>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                        This action is <strong style={{ color: '#F5EFE6' }}>permanent and cannot be undone.</strong> In accordance with app store data-privacy requirements, deleting your account will:
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
+                        This action is <strong style={{ color: '#2D2824' }}>permanent and cannot be undone.</strong> In accordance with app store data-privacy requirements, deleting your account will:
                       </p>
                       <ul className="space-y-1.5 pl-1">
                         {[
@@ -231,15 +231,15 @@ export default function Profile() {
                           'Remove your saved preferences and order history',
                           'Sign you out across all devices immediately',
                         ].map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.55)' }}>
-                            <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#E6B7AD', marginTop: '6px' }} />
+                          <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: '#5F574F' }}>
+                            <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#B7653E', marginTop: '6px' }} />
                             {item}
                           </li>
                         ))}
                       </ul>
                       <div className="pt-1">
-                        <p className="font-heading text-xs mb-1.5" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                          To continue, type <strong style={{ color: '#F5EFE6' }}>"{DELETE_PHRASE}"</strong> below to confirm.
+                        <p className="font-heading text-xs mb-1.5" style={{ color: '#5F574F' }}>
+                          To continue, type <strong style={{ color: '#2D2824' }}>"{DELETE_PHRASE}"</strong> below to confirm.
                         </p>
                         <input
                           type="text"
@@ -248,27 +248,27 @@ export default function Profile() {
                           placeholder={DELETE_PHRASE}
                           className="w-full px-3 py-2 font-mono text-sm uppercase tracking-widest"
                           style={{
-                            background: '#0c0c0c',
-                            border: '1px solid rgba(230,183,173,0.3)',
-                            color: '#F5EFE6',
-                            borderRadius: '2px',
+                            background: '#FFFFFF',
+                            border: '1px solid #E4D8C9',
+                            color: '#2D2824',
+                            borderRadius: '4px',
                             outline: 'none',
                           }}
                           aria-label="Type DELETE to confirm"
                           autoComplete="off"
                         />
                       </div>
-                      <p className="font-mono text-xs tracking-wide" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                      <p className="font-mono text-xs tracking-wide" style={{ color: '#8A8076' }}>
                         If you just want a break, you can simply sign out instead. Active Shopify subscriptions may need to be cancelled in your Shopify account.
                       </p>
                     </>
                   ) : (
                     <>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.7)' }}>
-                        You typed <strong style={{ color: '#F5EFE6' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
+                        You typed <strong style={{ color: '#2D2824' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
                       </p>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                        If you proceed, your account and all associated personal data will be <strong style={{ color: '#F5EFE6' }}>permanently deleted</strong> — we cannot recover it afterward.
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
+                        If you proceed, your account and all associated personal data will be <strong style={{ color: '#2D2824' }}>permanently deleted</strong> — we cannot recover it afterward.
                       </p>
                       {deleteError && (
                         <p className="font-mono text-xs" style={{ color: 'hsl(var(--destructive))' }}>
@@ -287,14 +287,14 @@ export default function Profile() {
                   onClick={resetToDeleteStep1}
                   disabled={isDeleting}
                   className="font-mono text-xs tracking-widest uppercase"
-                  style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px', borderRadius: '2px' }}
+                  style={{ background: 'transparent', border: '1px solid #E4D8C9', color: '#5F574F', minHeight: '44px', borderRadius: '4px' }}
                 >
                   Back
                 </button>
               ) : (
                 <AlertDialogCancel
                   className="font-mono text-xs tracking-widest uppercase"
-                  style={{ background: 'transparent', border: '1px solid rgba(230,183,173,0.3)', color: '#E6B7AD', minHeight: '44px' }}
+                  style={{ background: 'transparent', border: '1px solid #E4D8C9', color: '#5F574F', minHeight: '44px' }}
                   disabled={isDeleting}
                 >
                   Keep My Account
@@ -309,8 +309,8 @@ export default function Profile() {
                   disabled={!canProceedToFinal}
                   className="font-mono text-xs tracking-widest uppercase"
                   style={{
-                    background: canProceedToFinal ? 'hsl(var(--destructive))' : 'rgba(255,255,255,0.08)',
-                    color: canProceedToFinal ? '#fff' : 'rgba(240,235,225,0.35)',
+                    background: canProceedToFinal ? 'hsl(var(--destructive))' : '#F0EAE0',
+                    color: canProceedToFinal ? '#fff' : '#9C948A',
                     minHeight: '44px',
                     cursor: canProceedToFinal ? 'pointer' : 'not-allowed',
                   }}

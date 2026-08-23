@@ -4,8 +4,14 @@ import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
 
-
 const RG = '#E6B7AD';
+const PAGE = '#FBF8F2';
+const CARD = '#FFFFFF';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const CLAY = '#B7653E';
+const ERROR = '#C0392B';
 
 export default function ResetPassword() {
   useNoIndex();
@@ -39,53 +45,53 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#111111' }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: PAGE }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-10">
-          <h1 className="font-heading font-black uppercase tracking-[0.2em] text-2xl" style={{ color: '#F0EBE1' }}>
+          <h1 className="font-heading font-black uppercase tracking-[0.2em] text-2xl" style={{ color: INK }}>
             Torch Republic
           </h1>
-          <p className="font-mono text-[10px] tracking-[0.35em] uppercase mt-1" style={{ color: RG + '80' }}>
+          <p className="font-mono text-[10px] tracking-[0.35em] uppercase mt-1" style={{ color: CLAY }}>
             New Password
           </p>
         </div>
 
         {done ? (
           <div className="text-center space-y-4">
-            <p className="font-mono text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.55)' }}>
+            <p className="font-mono text-[11px] leading-relaxed" style={{ color: SECONDARY }}>
               Your password has been reset successfully.
             </p>
-            <Link to="/login" className="inline-block font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-60" style={{ color: RG + '70', borderBottom: `1px solid ${RG}25` }}>
+            <Link to="/login" className="inline-block font-mono text-[10px] tracking-[0.25em] uppercase transition-opacity hover:opacity-60" style={{ color: CLAY, borderBottom: `1px solid ${RG}55` }}>
               Sign in
             </Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>New Password</label>
+              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>New Password</label>
               <input
                 type="password" required value={password} onChange={e => setPassword(e.target.value)}
-                className="w-full px-4 py-3 font-mono text-sm outline-none"
-                style={{ background: '#1A1A1A', border: `1px solid ${password ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                className="w-full px-4 py-3 font-mono text-sm outline-none transition-all"
+                style={{ background: CARD, border: `1px solid ${password ? CLAY : BORDER}`, color: INK }}
                 placeholder="••••••••"
               />
             </div>
             <div>
-              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: RG + '70' }}>Confirm Password</label>
+              <label className="block font-mono text-[9px] tracking-[0.35em] uppercase mb-1.5" style={{ color: SECONDARY }}>Confirm Password</label>
               <input
                 type="password" required value={confirm} onChange={e => setConfirm(e.target.value)}
-                className="w-full px-4 py-3 font-mono text-sm outline-none"
-                style={{ background: '#1A1A1A', border: `1px solid ${confirm ? RG + '40' : 'rgba(255,255,255,0.1)'}`, color: '#F0EBE1' }}
+                className="w-full px-4 py-3 font-mono text-sm outline-none transition-all"
+                style={{ background: CARD, border: `1px solid ${confirm ? CLAY : BORDER}`, color: INK }}
                 placeholder="••••••••"
               />
             </div>
 
-            {error && <p className="font-mono text-[10px]" style={{ color: '#E06C6C' }}>{error}</p>}
+            {error && <p className="font-mono text-[10px]" style={{ color: ERROR }}>{error}</p>}
 
             <button
               type="submit" disabled={loading}
-              className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-opacity hover:opacity-80 disabled:opacity-50"
-              style={{ background: RG + '18', border: `1px solid ${RG}40`, color: RG }}
+              className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 disabled:opacity-50"
+              style={{ background: CLAY, border: `1px solid ${CLAY}`, color: '#FFFFFF' }}
             >
               {loading ? 'Resetting…' : 'Reset Password'}
             </button>

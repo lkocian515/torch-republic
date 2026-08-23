@@ -4,13 +4,18 @@ import { Calendar, Coffee, Clock, Edit2, CheckCircle, ArrowRight, Loader2, Alert
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const CLAY = '#B7653E';
+const CARD = '#FFFFFF';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const MOSS = '#566047';
 
 export default function SubscriptionTracker({ sub, subLoading, actionLoading, selectedFreq, onFrequencyChange, onPauseResume, showToast }) {
   if (subLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="w-6 h-6 animate-spin" style={{ color: `${RG}60` }} />
+        <Loader2 className="w-6 h-6 animate-spin" style={{ color: `${CLAY}80` }} />
       </div>
     );
   }
@@ -18,14 +23,14 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
   if (!sub) {
     return (
       <div className="text-center py-12">
-        <AlertCircle className="w-8 h-8 mx-auto mb-4" style={{ color: `${RG}40` }} />
-        <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: 'rgba(240,235,225,0.35)' }}>
+        <AlertCircle className="w-8 h-8 mx-auto mb-4" style={{ color: `${CLAY}80` }} />
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-6" style={{ color: SECONDARY }}>
           No active subscription found
         </p>
         <Link
           to="/subscription"
           className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
-          style={{ background: RG, color: '#050505', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
+          style={{ background: CLAY, color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
         >
           Start Subscription
         </Link>
@@ -34,7 +39,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
   }
 
   const isPaused = sub.status === 'paused';
-  
+
   // Calculate next delivery date display
   const nextDelivery = sub.nextDelivery || '—';
   const nextBlend = sub.productTitle || '—';
@@ -45,21 +50,21 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
       animate={{ opacity: 1, y: 0 }}
       className="p-6 mb-6"
       style={{
-        background: 'rgba(230,183,173,0.06)',
-        border: `1px solid ${RG}25`,
+        background: CARD,
+        border: `1px solid ${BORDER}`,
         borderRadius: '4px',
       }}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <Calendar size={20} style={{ color: RG }} />
-          <h3 className="font-serif font-bold" style={{ fontSize: '1.3rem', color: '#F5EFE6' }}>
+          <Calendar size={20} style={{ color: CLAY }} />
+          <h3 className="font-serif font-bold" style={{ fontSize: '1.3rem', color: INK }}>
             Your Subscription Tracker
           </h3>
         </div>
         {isPaused && (
-          <span className="px-3 py-1 rounded-sm font-mono text-[7px] tracking-[0.25em] uppercase" style={{ background: `${RG}20`, color: RG, border: `1px solid ${RG}30` }}>
+          <span className="px-3 py-1 rounded-sm font-mono text-[7px] tracking-[0.25em] uppercase" style={{ background: `${RG}30`, color: CLAY, border: `1px solid ${RG}55` }}>
             Paused
           </span>
         )}
@@ -68,51 +73,51 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
       {/* Tracker Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {/* Next Delivery Date */}
-        <div className="p-4" style={{ background: '#0F0E0E', border: `1px solid ${RG}15`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
-            <Clock size={16} style={{ color: `${RG}70` }} />
-            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}50` }}>
+            <Clock size={16} style={{ color: CLAY }} />
+            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
               Next Delivery
             </p>
           </div>
-          <p className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+          <p className="font-serif font-bold text-lg" style={{ color: INK }}>
             {isPaused ? '—' : nextDelivery}
           </p>
           {!isPaused && (
-            <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-2" style={{ color: `${EMERALD}80` }}>
+            <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-2" style={{ color: MOSS }}>
               On track
             </p>
           )}
         </div>
 
         {/* Next Blend */}
-        <div className="p-4" style={{ background: '#0F0E0E', border: `1px solid ${RG}15`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
-            <Coffee size={16} style={{ color: `${RG}70` }} />
-            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}50` }}>
+            <Coffee size={16} style={{ color: CLAY }} />
+            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
               Next Blend
             </p>
           </div>
-          <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>
+          <p className="font-serif font-bold text-sm" style={{ color: INK }}>
             {nextBlend}
           </p>
-          <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-2" style={{ color: `${RG}50` }}>
+          <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-2" style={{ color: SECONDARY }}>
             {sub.interval === 'week' ? `Every ${sub.intervalCount} week${sub.intervalCount > 1 ? 's' : ''}` : `Every ${sub.intervalCount} month${sub.intervalCount > 1 ? 's' : ''}`}
           </p>
         </div>
 
         {/* Frequency Edit */}
-        <div className="p-4" style={{ background: '#0F0E0E', border: `1px solid ${RG}15`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
-            <Edit2 size={16} style={{ color: `${RG}70` }} />
-            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}50` }}>
+            <Edit2 size={16} style={{ color: CLAY }} />
+            <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
               Delivery Frequency
             </p>
           </div>
-          <p className="font-serif font-bold text-sm mb-3" style={{ color: '#F5EFE6' }}>
+          <p className="font-serif font-bold text-sm mb-3" style={{ color: INK }}>
             {selectedFreq?.label || '—'}
           </p>
-          <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}50` }}>
+          <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: SECONDARY }}>
             {sub.interval === 'week' ? `Every ${sub.intervalCount} week${sub.intervalCount > 1 ? 's' : ''}` : `Every ${sub.intervalCount} month${sub.intervalCount > 1 ? 's' : ''}`}
           </p>
         </div>
@@ -120,31 +125,31 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
 
       {/* Visual Timeline */}
       {!isPaused && (
-        <div className="p-4" style={{ background: 'rgba(230,183,173,0.04)', border: `1px solid ${RG}15`, borderRadius: '3px' }}>
-          <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: `${RG}50` }}>
+        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
+          <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: SECONDARY }}>
             Upcoming Deliveries
           </p>
           <div className="flex items-center gap-2">
-            <div className="flex-1 h-1" style={{ background: `${RG}20` }}>
+            <div className="flex-1 h-1" style={{ background: BORDER }}>
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '30%' }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                style={{ height: '100%', background: RG }}
+                style={{ height: '100%', background: CLAY }}
               />
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full" style={{ background: RG }} />
-              <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: RG }}>
+              <div className="w-3 h-3 rounded-full" style={{ background: CLAY }} />
+              <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: CLAY }}>
                 Next
               </span>
             </div>
           </div>
           <div className="flex justify-between mt-3">
-            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}40` }}>
+            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: SECONDARY }}>
               Today
             </span>
-            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}40` }}>
+            <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: SECONDARY }}>
               {nextDelivery}
             </span>
           </div>

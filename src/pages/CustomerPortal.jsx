@@ -7,14 +7,14 @@ import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
 
 import SubscriptionTracker from '../components/portal/SubscriptionTracker';
-import { 
-  Package, 
-  Gift, 
-  Zap, 
-  TrendingUp, 
-  ShoppingBag, 
-  Clock, 
-  CheckCircle, 
+import {
+  Package,
+  Gift,
+  Zap,
+  TrendingUp,
+  ShoppingBag,
+  Clock,
+  CheckCircle,
   ChevronRight,
   RefreshCw,
   Pause,
@@ -28,7 +28,14 @@ import {
 } from 'lucide-react';
 
 const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const CLAY = '#B7653E';
+const PAGE = '#FBF8F2';
+const CARD = '#FFFFFF';
+const CREAM = '#FBF8F1';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const MOSS = '#566047';
 
 const REWARD_TIERS = [
   { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
@@ -149,28 +156,28 @@ export default function CustomerPortal() {
 
   if (isAuthenticated === false) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A', padding: '24px' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: PAGE, padding: '24px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-md"
         >
-          <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
+          <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: INK }}>
             Member Access
           </h1>
-          <p className="font-heading mb-8" style={{ color: 'rgba(210,195,175,0.6)' }}>
+          <p className="font-heading mb-8" style={{ color: SECONDARY }}>
             Sign in to access your customer portal
           </p>
           <Link
             to="/login"
             className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
             style={{
-              background: RG,
-              color: '#050505',
+              background: CLAY,
+              color: '#FFFFFF',
               fontSize: '0.7rem',
               fontWeight: 700,
               padding: '14px 36px',
-              borderRadius: '2px',
+              borderRadius: '4px',
             }}
           >
             Sign In
@@ -182,10 +189,10 @@ export default function CustomerPortal() {
 
   if (loyaltyLoading || subLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: PAGE }}>
         <div className="text-center">
-          <div className="w-8 h-8 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: RG }}>Loading...</p>
+          <div className="w-8 h-8 border-2 rounded-full animate-spin mx-auto mb-4" style={{ borderColor: CLAY, borderTopColor: 'transparent' }} />
+          <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: CLAY }}>Loading...</p>
         </div>
       </div>
     );
@@ -194,18 +201,18 @@ export default function CustomerPortal() {
   const isPaused = sub?.status === 'paused';
 
   return (
-    <div className="min-h-screen" style={{ background: '#0A0A0A', paddingBottom: '80px' }}>
+    <div className="min-h-screen" style={{ background: PAGE, paddingBottom: '80px' }}>
       {/* Header */}
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px 60px', borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
+      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px 60px', borderBottom: `1px solid ${BORDER}` }}>
         <div className="max-w-[1200px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
               Customer Portal
             </p>
-            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: INK, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Welcome Back, {user?.full_name || 'Member'}
             </h1>
-            <p className="font-heading mt-4" style={{ fontSize: '0.95rem', color: 'rgba(210,195,175,0.65)', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading mt-4" style={{ fontSize: '0.95rem', color: SECONDARY, fontWeight: 300, lineHeight: 1.8 }}>
               Manage your subscription, track loyalty points, and customize your monthly blends.
             </p>
           </motion.div>
@@ -222,9 +229,9 @@ export default function CustomerPortal() {
                 onClick={() => setActiveTab(tab.id)}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-sm whitespace-nowrap transition-all font-mono text-[9px] tracking-[0.25em] uppercase"
                 style={{
-                  background: activeTab === tab.id ? `${RG}15` : 'transparent',
-                  border: activeTab === tab.id ? `1px solid ${RG}40` : '1px solid rgba(230,183,173,0.1)',
-                  color: activeTab === tab.id ? RG : 'rgba(230,183,173,0.5)',
+                  background: activeTab === tab.id ? `${CLAY}14` : CARD,
+                  border: activeTab === tab.id ? `1px solid ${CLAY}55` : `1px solid ${BORDER}`,
+                  color: activeTab === tab.id ? CLAY : SECONDARY,
                 }}
               >
                 <tab.icon size={14} />
@@ -238,7 +245,7 @@ export default function CustomerPortal() {
       {/* Content */}
       <section style={{ padding: 'clamp(40px, 6vw, 60px) 24px' }}>
         <div className="max-w-[1200px] mx-auto">
-          
+
           {/* Overview Tab */}
           {activeTab === 'overview' && (
             <motion.div
@@ -247,35 +254,35 @@ export default function CustomerPortal() {
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {/* Loyalty Summary */}
-              <div style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20`, borderRadius: '3px', padding: 'clamp(20px, 3vw, 28px)' }}>
+              <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: '8px', padding: 'clamp(20px, 3vw, 28px)' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <Gift size={18} style={{ color: RG }} />
-                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: RG }}>
+                  <Gift size={18} style={{ color: CLAY }} />
+                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: CLAY }}>
                     Loyalty Balance
                   </p>
                 </div>
                 <div className="flex items-baseline gap-3 mb-3">
-                  <span className="font-serif font-bold" style={{ fontSize: '2.5rem', color: '#F5EFE6', lineHeight: 1 }}>
+                  <span className="font-serif font-bold" style={{ fontSize: '2.5rem', color: INK, lineHeight: 1 }}>
                     {points.toLocaleString()}
                   </span>
-                  <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>
+                  <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: CLAY }}>
                     points
                   </span>
                 </div>
-                <p className="font-heading text-xs mb-4" style={{ color: 'rgba(210,195,175,0.55)' }}>
-                  Lifetime: <span style={{ color: '#F5EFE6' }}>{lifetimePoints.toLocaleString()}</span> points
+                <p className="font-heading text-xs mb-4" style={{ color: SECONDARY }}>
+                  Lifetime: <span style={{ color: INK }}>{lifetimePoints.toLocaleString()}</span> points
                 </p>
                 {nextTier && (
                   <div>
-                    <div className="flex justify-between font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: `${RG}60` }}>
+                    <div className="flex justify-between font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: SECONDARY }}>
                       <span>{nextTier.points - points} pts to {nextTier.discount}</span>
                       <span>{nextTier.label}</span>
                     </div>
-                    <div style={{ height: 3, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden' }}>
+                    <div style={{ height: 3, background: BORDER, borderRadius: 2, overflow: 'hidden' }}>
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${Math.min(progressPercent, 100)}%` }}
-                        style={{ height: '100%', background: `linear-gradient(90deg, ${RG} 0%, #C98F86 100%)` }}
+                        style={{ height: '100%', background: `linear-gradient(90deg, ${CLAY} 0%, ${RG} 100%)` }}
                       />
                     </div>
                   </div>
@@ -283,35 +290,35 @@ export default function CustomerPortal() {
                 <Link
                   to="/loyalty"
                   className="mt-4 inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80"
-                  style={{ color: RG, borderBottom: `1px solid ${RG}30` }}
+                  style={{ color: CLAY, borderBottom: `1px solid ${CLAY}40` }}
                 >
                   View Full Portal <ArrowRight size={12} />
                 </Link>
               </div>
 
               {/* Subscription Summary */}
-              <div style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20`, borderRadius: '3px', padding: 'clamp(20px, 3vw, 28px)' }}>
+              <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: '8px', padding: 'clamp(20px, 3vw, 28px)' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <Package size={18} style={{ color: RG }} />
-                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: RG }}>
+                  <Package size={18} style={{ color: CLAY }} />
+                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: CLAY }}>
                     Subscription
                   </p>
                 </div>
                 {sub ? (
                   <>
-                    <p className="font-serif font-bold text-lg mb-2" style={{ color: '#F5EFE6' }}>
+                    <p className="font-serif font-bold text-lg mb-2" style={{ color: INK }}>
                       {sub.productTitle}
                     </p>
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div>
-                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1" style={{ color: `${RG}50` }}>Status</p>
-                        <p className="font-mono text-sm font-bold" style={{ color: isPaused ? 'rgba(230,183,173,0.5)' : '#6EBD8E' }}>
+                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1" style={{ color: SECONDARY }}>Status</p>
+                        <p className="font-mono text-sm font-bold" style={{ color: isPaused ? SECONDARY : MOSS }}>
                           {isPaused ? 'Paused' : 'Active'}
                         </p>
                       </div>
                       <div>
-                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1" style={{ color: `${RG}50` }}>Next Delivery</p>
-                        <p className="font-mono text-sm font-bold" style={{ color: '#F5EFE6' }}>
+                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1" style={{ color: SECONDARY }}>Next Delivery</p>
+                        <p className="font-mono text-sm font-bold" style={{ color: INK }}>
                           {isPaused ? '—' : (sub.nextDelivery || '—')}
                         </p>
                       </div>
@@ -319,20 +326,20 @@ export default function CustomerPortal() {
                     <Link
                       to="/subscription"
                       className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80 py-2 px-4 rounded-sm"
-                      style={{ background: `${RG}15`, border: `1px solid ${RG}30`, color: RG }}
+                      style={{ background: `${CLAY}14`, border: `1px solid ${CLAY}40`, color: CLAY }}
                     >
                       Manage Subscription <ChevronRight size={12} />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <p className="font-heading text-sm mb-4" style={{ color: 'rgba(210,195,175,0.55)' }}>
+                    <p className="font-heading text-sm mb-4" style={{ color: SECONDARY }}>
                       No active subscription
                     </p>
                     <Link
                       to="/subscription"
-                      className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-80 py-2 px-4 rounded-sm"
-                      style={{ background: RG, color: '#050505', fontWeight: 700 }}
+                      className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-90 py-2 px-4 rounded-sm"
+                      style={{ background: CLAY, color: '#FFFFFF', fontWeight: 700 }}
                     >
                       Start Subscription <ChevronRight size={12} />
                     </Link>
@@ -341,10 +348,10 @@ export default function CustomerPortal() {
               </div>
 
               {/* Quick Actions */}
-              <div className="md:col-span-2" style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20`, borderRadius: '3px', padding: 'clamp(20px, 3vw, 28px)' }}>
+              <div className="md:col-span-2" style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: '8px', padding: 'clamp(20px, 3vw, 28px)' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <Zap size={18} style={{ color: RG }} />
-                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: RG }}>
+                  <Zap size={18} style={{ color: CLAY }} />
+                  <p className="font-mono text-[8px] tracking-[0.35em] uppercase" style={{ color: CLAY }}>
                     Quick Actions
                   </p>
                 </div>
@@ -352,14 +359,14 @@ export default function CustomerPortal() {
                   <Link
                     to="/shop"
                     className="flex items-center justify-center gap-2 py-3 px-4 rounded-sm transition-all font-mono text-[9px] tracking-[0.25em] uppercase"
-                    style={{ background: `${RG}10`, border: `1px solid ${RG}25`, color: RG }}
+                    style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}30`, color: CLAY }}
                   >
                     <ShoppingBag size={14} /> Shop Blends
                   </Link>
                   <Link
                     to="/loyalty"
                     className="flex items-center justify-center gap-2 py-3 px-4 rounded-sm transition-all font-mono text-[9px] tracking-[0.25em] uppercase"
-                    style={{ background: `${RG}10`, border: `1px solid ${RG}25`, color: RG }}
+                    style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}30`, color: CLAY }}
                   >
                     <Gift size={14} /> Redeem Rewards
                   </Link>
@@ -368,7 +375,7 @@ export default function CustomerPortal() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 py-3 px-4 rounded-sm transition-all font-mono text-[9px] tracking-[0.25em] uppercase"
-                    style={{ background: `${RG}10`, border: `1px solid ${RG}25`, color: RG }}
+                    style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}30`, color: CLAY }}
                   >
                     <ExternalLink size={14} /> Full Account
                   </a>
@@ -396,23 +403,23 @@ export default function CustomerPortal() {
           {activeTab === 'loyalty' && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               {/* Points Card */}
-              <div style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}25`, borderRadius: '3px', padding: 'clamp(24px, 4vw, 32px)', marginBottom: '32px' }}>
+              <div style={{ background: `linear-gradient(135deg, ${RG}22 0%, ${RG}0A 100%)`, border: `1px solid ${RG}55`, borderRadius: '8px', padding: 'clamp(24px, 4vw, 32px)', marginBottom: '32px' }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                   <div>
-                    <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: `${RG}90` }}>
+                    <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: CLAY }}>
                       Current Balance
                     </p>
                     <div className="flex items-baseline gap-3">
-                      <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: '#F5EFE6', lineHeight: 1 }}>
+                      <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: INK, lineHeight: 1 }}>
                         {points.toLocaleString()}
                       </span>
-                      <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>
+                      <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: CLAY }}>
                         points
                       </span>
                     </div>
                     {lifetimePoints > 0 && (
-                      <p className="font-heading text-xs mt-3" style={{ color: 'rgba(210,195,175,0.55)' }}>
-                        Lifetime earned: <span style={{ color: '#F5EFE6' }}>{lifetimePoints.toLocaleString()}</span> points
+                      <p className="font-heading text-xs mt-3" style={{ color: SECONDARY }}>
+                        Lifetime earned: <span style={{ color: INK }}>{lifetimePoints.toLocaleString()}</span> points
                       </p>
                     )}
                   </div>
@@ -420,22 +427,22 @@ export default function CustomerPortal() {
                   {nextTier && (
                     <div>
                       <div className="flex justify-between items-center mb-3">
-                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: `${RG}70` }}>
+                        <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
                           Next: {nextTier.points.toLocaleString()} pts
                         </p>
-                        <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: RG }}>
+                        <p className="font-mono text-[7px] tracking-[0.2em]" style={{ color: CLAY }}>
                           {nextTier.discount} OFF
                         </p>
                       </div>
-                      <div style={{ height: 4, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden' }}>
+                      <div style={{ height: 4, background: BORDER, borderRadius: 2, overflow: 'hidden' }}>
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${Math.min(progressPercent, 100)}%` }}
                           transition={{ duration: 1.2, ease: 'easeOut' }}
-                          style={{ height: '100%', background: `linear-gradient(90deg, ${RG} 0%, #C98F86 100%)` }}
+                          style={{ height: '100%', background: `linear-gradient(90deg, ${CLAY} 0%, ${RG} 100%)` }}
                         />
                       </div>
-                      <p className="font-heading text-[10px] mt-2" style={{ color: 'rgba(210,195,175,0.45)' }}>
+                      <p className="font-heading text-[10px] mt-2" style={{ color: SECONDARY }}>
                         {nextTier.points - points} points to {nextTier.discount} off
                       </p>
                     </div>
@@ -445,7 +452,7 @@ export default function CustomerPortal() {
 
               {/* Reward Tiers */}
               <div className="mb-8">
-                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${RG}80` }}>
+                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: CLAY }}>
                   Reward Tiers
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -453,9 +460,9 @@ export default function CustomerPortal() {
                     <div
                       key={tier.points}
                       style={{
-                        background: points >= tier.points ? 'rgba(230,183,173,0.06)' : 'rgba(255,255,255,0.015)',
-                        border: points >= tier.points ? `1px solid ${RG}25` : '1px solid rgba(230,183,173,0.06)',
-                        borderRadius: '2px',
+                        background: points >= tier.points ? `${RG}18` : CARD,
+                        border: points >= tier.points ? `1px solid ${RG}55` : `1px solid ${BORDER}`,
+                        borderRadius: '6px',
                         padding: '24px 20px',
                         textAlign: 'center',
                       }}
@@ -465,23 +472,23 @@ export default function CustomerPortal() {
                           width: 44,
                           height: 44,
                           borderRadius: '50%',
-                          background: points >= tier.points ? 'rgba(230,183,173,0.12)' : 'rgba(255,255,255,0.03)',
-                          border: `1px solid ${points >= tier.points ? RG : 'rgba(230,183,173,0.08)'}`,
+                          background: points >= tier.points ? `${RG}28` : CREAM,
+                          border: `1px solid ${points >= tier.points ? RG : BORDER}`,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           margin: '0 auto 16px',
                         }}
                       >
-                        {points >= tier.points ? <CheckCircle size={18} style={{ color: RG }} /> : <span style={{ color: 'rgba(230,183,173,0.3)', fontSize: '1.2rem' }}>🔒</span>}
+                        {points >= tier.points ? <CheckCircle size={18} style={{ color: CLAY }} /> : <span style={{ color: '#B5A89A', fontSize: '1.2rem' }}>🔒</span>}
                       </div>
-                      <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
+                      <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: SECONDARY }}>
                         {tier.points.toLocaleString()} pts
                       </p>
-                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: points >= tier.points ? '#F5EFE6' : 'rgba(245,239,230,0.4)' }}>
+                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: points >= tier.points ? INK : '#9C948A' }}>
                         {tier.label}
                       </h3>
-                      <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-bold" style={{ color: points >= tier.points ? RG : 'rgba(230,183,173,0.3)' }}>
+                      <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-bold" style={{ color: points >= tier.points ? CLAY : '#B5A89A' }}>
                         {tier.discount} OFF
                       </p>
                     </div>
@@ -491,7 +498,7 @@ export default function CustomerPortal() {
 
               {/* Earning Rules */}
               <div>
-                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${RG}80` }}>
+                <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: CLAY }}>
                   How to Earn
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
@@ -499,9 +506,9 @@ export default function CustomerPortal() {
                     <div
                       key={rule.action}
                       style={{
-                        background: 'rgba(255,255,255,0.015)',
-                        border: '1px solid rgba(230,183,173,0.06)',
-                        borderRadius: '2px',
+                        background: CARD,
+                        border: `1px solid ${BORDER}`,
+                        borderRadius: '6px',
                         padding: '20px',
                         display: 'flex',
                         alignItems: 'center',
@@ -513,19 +520,19 @@ export default function CustomerPortal() {
                           width: 40,
                           height: 40,
                           borderRadius: '50%',
-                          background: 'rgba(230,183,173,0.08)',
-                          border: `1px solid ${RG}25`,
+                          background: `${RG}25`,
+                          border: `1px solid ${RG}55`,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           flexShrink: 0,
                         }}
                       >
-                        <rule.icon size={16} style={{ color: RG }} />
+                        <rule.icon size={16} style={{ color: CLAY }} />
                       </div>
                       <div className="flex-1">
-                        <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{rule.action}</p>
-                        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: RG }}>{rule.points}</p>
+                        <p className="font-serif font-bold text-sm" style={{ color: INK }}>{rule.action}</p>
+                        <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: CLAY }}>{rule.points}</p>
                       </div>
                     </div>
                   ))}
@@ -544,10 +551,10 @@ export default function CustomerPortal() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             className="flex items-center gap-3 px-5 py-3 rounded-sm"
-            style={{ background: `${RG}10`, border: `1px solid ${RG}25` }}
+            style={{ background: CARD, border: `1px solid ${CLAY}30` }}
           >
-            <CheckCircle className="w-4 h-4" style={{ color: RG }} />
-            <span className="font-mono text-[10px]" style={{ color: 'rgba(240,235,225,0.8)' }}>{toast}</span>
+            <CheckCircle className="w-4 h-4" style={{ color: CLAY }} />
+            <span className="font-mono text-[10px]" style={{ color: INK }}>{toast}</span>
           </motion.div>
         </div>
       )}

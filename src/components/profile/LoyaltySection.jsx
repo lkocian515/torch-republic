@@ -5,7 +5,14 @@ import { Flame, Gift, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, Trending
 import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';
-const GOLD = '#C8A96E';
+const CLAY = '#B7653E';
+const CARD = '#FFFFFF';
+const CREAM = '#FBF8F1';
+const INK = '#2D2824';
+const SECONDARY = '#5F574F';
+const BORDER = '#E4D8C9';
+const GOLD = '#B89535';
+const MOSS = '#566047';
 
 const REWARDS = [
   { points: 100, label: '10% Off',    code: 'LOYALTY10',   icon: '✦' },
@@ -16,9 +23,9 @@ const REWARDS = [
 // Tier logic
 function getTier(lifetime) {
   if (lifetime >= 500) return { name: 'Torchbearer Elite',  color: GOLD,   min: 500,  next: null };
-  if (lifetime >= 250) return { name: 'Torchbearer',        color: RG,     min: 250,  next: 500 };
-  if (lifetime >= 100) return { name: 'Kindler',            color: '#A8D5BA', min: 100, next: 250 };
-  return                       { name: 'Spark',             color: '#7A9EA8', min: 0,   next: 100 };
+  if (lifetime >= 250) return { name: 'Torchbearer',        color: CLAY,   min: 250,  next: 500 };
+  if (lifetime >= 100) return { name: 'Kindler',            color: MOSS,   min: 100,  next: 250 };
+  return                       { name: 'Spark',             color: CLAY,   min: 0,    next: 100 };
 }
 
 export default function LoyaltySection({ user }) {
@@ -71,9 +78,9 @@ export default function LoyaltySection({ user }) {
 
   if (loading) {
     return (
-      <div className="mb-6 animate-pulse" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '2px', padding: '32px' }}>
-        <div className="h-4 rounded w-1/3 mb-4" style={{ background: 'rgba(255,255,255,0.06)' }} />
-        <div className="h-10 rounded w-1/2" style={{ background: 'rgba(255,255,255,0.06)' }} />
+      <div className="mb-6 animate-pulse" style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: '8px', padding: '32px' }}>
+        <div className="h-4 rounded w-1/3 mb-4" style={{ background: BORDER }} />
+        <div className="h-10 rounded w-1/2" style={{ background: BORDER }} />
       </div>
     );
   }
@@ -98,17 +105,17 @@ export default function LoyaltySection({ user }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       className="mb-6"
-      style={{ background: '#0A0908', border: `1px solid ${RG}22`, borderRadius: '2px', overflow: 'hidden' }}
+      style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: '8px', overflow: 'hidden' }}
     >
       {/* Top accent line */}
-      <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${RG}80, ${GOLD}60, transparent)` }} />
+      <div style={{ height: '2px', background: `linear-gradient(90deg, transparent, ${RG}, ${GOLD}, transparent)` }} />
 
       <div className="p-6 md:p-8">
 
         {/* Section header */}
         <div className="flex items-center gap-2.5 mb-6">
-          <Flame size={16} style={{ color: RG }} />
-          <p className="font-mono text-[9px] tracking-[0.45em] uppercase" style={{ color: `${RG}80` }}>
+          <Flame size={16} style={{ color: CLAY }} />
+          <p className="font-mono text-[9px] tracking-[0.45em] uppercase" style={{ color: CLAY }}>
             Torchbearer Rewards
           </p>
         </div>
@@ -118,7 +125,7 @@ export default function LoyaltySection({ user }) {
           <div>
             <div
               className="inline-flex items-center gap-1.5 px-3 py-1 mb-3"
-              style={{ background: `${tier.color}12`, border: `1px solid ${tier.color}35`, borderRadius: '2px' }}
+              style={{ background: `${tier.color}14`, border: `1px solid ${tier.color}40`, borderRadius: '4px' }}
             >
               <Trophy size={11} style={{ color: tier.color }} />
               <span className="font-mono text-[8px] tracking-[0.3em] uppercase font-bold" style={{ color: tier.color }}>
@@ -126,10 +133,10 @@ export default function LoyaltySection({ user }) {
               </span>
             </div>
             <div className="flex items-end gap-2">
-              <span className="font-serif font-black" style={{ fontSize: '3.5rem', lineHeight: 1, color: RG }}>
+              <span className="font-serif font-black" style={{ fontSize: '3.5rem', lineHeight: 1, color: tier.color }}>
                 {points.toLocaleString()}
               </span>
-              <span className="font-mono text-xs tracking-widest uppercase mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              <span className="font-mono text-xs tracking-widest uppercase mb-2" style={{ color: SECONDARY }}>
                 pts available
               </span>
             </div>
@@ -138,11 +145,11 @@ export default function LoyaltySection({ user }) {
           {/* Lifetime stat */}
           <div
             className="sm:ml-auto text-right px-5 py-4"
-            style={{ background: `${GOLD}08`, border: `1px solid ${GOLD}20`, borderRadius: '2px' }}
+            style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}
           >
             <div className="flex items-center gap-1.5 justify-end mb-1">
               <Star size={11} style={{ color: GOLD }} />
-              <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${GOLD}70` }}>
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: SECONDARY }}>
                 Lifetime Earned
               </p>
             </div>
@@ -155,14 +162,14 @@ export default function LoyaltySection({ user }) {
         {/* Tier progress */}
         {tier.next && (
           <div className="mb-6">
-            <div className="flex justify-between font-mono text-[8px] uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            <div className="flex justify-between font-mono text-[8px] uppercase tracking-widest mb-2" style={{ color: SECONDARY }}>
               <span>{tier.name}</span>
               <span>{tier.next - lifetime} pts to next tier</span>
             </div>
-            <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+            <div className="h-1 rounded-full overflow-hidden" style={{ background: BORDER }}>
               <div
                 className="h-full rounded-full transition-all duration-700"
-                style={{ width: `${nextTierProgress}%`, background: `linear-gradient(90deg, ${tier.color}80, ${tier.color})` }}
+                style={{ width: `${nextTierProgress}%`, background: `linear-gradient(90deg, ${tier.color}99, ${tier.color})` }}
               />
             </div>
           </div>
@@ -171,34 +178,34 @@ export default function LoyaltySection({ user }) {
         {/* How to earn strip */}
         <div
           className="flex items-start gap-2.5 mb-8 p-3"
-          style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '2px' }}
+          style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}
         >
-          <Zap size={13} style={{ color: RG, flexShrink: 0, marginTop: '1px' }} />
-          <p className="font-mono text-[9px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            Earn <span style={{ color: RG }}>10 pts</span> per order ·{' '}
-            <span style={{ color: RG }}>50 pts</span> for subscribing ·{' '}
-            <span style={{ color: RG }}>25 pts</span> for a review
+          <Zap size={13} style={{ color: CLAY, flexShrink: 0, marginTop: '1px' }} />
+          <p className="font-mono text-[9px] leading-relaxed" style={{ color: SECONDARY }}>
+            Earn <span style={{ color: CLAY }}>10 pts</span> per order ·{' '}
+            <span style={{ color: CLAY }}>50 pts</span> for subscribing ·{' '}
+            <span style={{ color: CLAY }}>25 pts</span> for a review
           </p>
         </div>
 
         {/* Reward progress bar */}
         {nextReward && (
           <div className="mb-6">
-            <div className="flex justify-between font-mono text-[8px] uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            <div className="flex justify-between font-mono text-[8px] uppercase tracking-widest mb-2" style={{ color: SECONDARY }}>
               <span>{points} pts</span>
               <span>{nextReward.points} pts — {nextReward.label}</span>
             </div>
-            <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+            <div className="h-1 rounded-full overflow-hidden" style={{ background: BORDER }}>
               <div
                 className="h-full rounded-full transition-all duration-700"
-                style={{ width: `${rewardProgressPct}%`, background: RG }}
+                style={{ width: `${rewardProgressPct}%`, background: CLAY }}
               />
             </div>
           </div>
         )}
 
         {/* Rewards grid */}
-        <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(255,255,255,0.25)' }}>
+        <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: SECONDARY }}>
           Redeem Rewards
         </p>
         <div className="space-y-2.5">
@@ -211,20 +218,20 @@ export default function LoyaltySection({ user }) {
                 key={reward.code}
                 className="flex items-center justify-between px-4 py-3.5"
                 style={{
-                  background: alreadyRedeemed ? `${RG}08` : canRedeem ? `${RG}06` : 'rgba(255,255,255,0.015)',
-                  border: `1px solid ${alreadyRedeemed ? RG + '40' : canRedeem ? RG + '30' : 'rgba(255,255,255,0.06)'}`,
-                  borderRadius: '2px',
+                  background: alreadyRedeemed ? `${RG}18` : canRedeem ? `${CLAY}0C` : CARD,
+                  border: `1px solid ${alreadyRedeemed ? `${RG}55` : canRedeem ? `${CLAY}40` : BORDER}`,
+                  borderRadius: '4px',
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <span style={{ color: canRedeem || alreadyRedeemed ? RG : 'rgba(255,255,255,0.15)', fontSize: '10px', letterSpacing: '2px' }}>
+                  <span style={{ color: canRedeem || alreadyRedeemed ? CLAY : '#9C948A', fontSize: '10px', letterSpacing: '2px' }}>
                     {reward.icon}
                   </span>
                   <div>
-                    <p className="font-mono text-xs font-bold" style={{ color: canRedeem || alreadyRedeemed ? '#F5EFE6' : 'rgba(255,255,255,0.3)' }}>
+                    <p className="font-mono text-xs font-bold" style={{ color: canRedeem || alreadyRedeemed ? INK : SECONDARY }}>
                       {reward.label}
                     </p>
-                    <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                    <p className="font-mono text-[8px]" style={{ color: SECONDARY }}>
                       {reward.points} pts · code: {reward.code}
                     </p>
                   </div>
@@ -234,7 +241,7 @@ export default function LoyaltySection({ user }) {
                   <button
                     onClick={() => copyCode(reward.code)}
                     className="flex items-center gap-1.5 font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-2 transition-opacity hover:opacity-75"
-                    style={{ background: `${RG}15`, border: `1px solid ${RG}40`, color: RG, borderRadius: '2px' }}
+                    style={{ background: `${RG}25`, border: `1px solid ${RG}55`, color: CLAY, borderRadius: '4px' }}
                   >
                     {copied === reward.code ? <CheckCircle size={10} /> : <Copy size={10} />}
                     {copied === reward.code ? 'Copied!' : 'Copy Code'}
@@ -243,10 +250,10 @@ export default function LoyaltySection({ user }) {
                   <button
                     onClick={() => handleRedeem(reward)}
                     disabled={!canRedeem || redeeming === reward.code}
-                    className="font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-2 transition-all hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-2 transition-all hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
                     style={canRedeem
-                      ? { background: RG, color: '#040404', borderRadius: '2px', fontWeight: 700 }
-                      : { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '2px' }
+                      ? { background: CLAY, color: '#FFFFFF', borderRadius: '4px', fontWeight: 700, border: `1px solid ${CLAY}` }
+                      : { background: CARD, color: SECONDARY, border: `1px solid ${BORDER}`, borderRadius: '4px' }
                     }
                   >
                     {redeeming === reward.code ? '...' : 'Redeem'}
@@ -259,8 +266,8 @@ export default function LoyaltySection({ user }) {
 
         {/* Redeemed codes history */}
         {redeemed.length > 0 && (
-          <div className="mt-6 pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          <div className="mt-6 pt-5" style={{ borderTop: `1px solid ${BORDER}` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: SECONDARY }}>
               Redeemed Codes
             </p>
             <div className="flex flex-wrap gap-2">
@@ -269,9 +276,9 @@ export default function LoyaltySection({ user }) {
                   key={code}
                   onClick={() => copyCode(code)}
                   className="flex items-center gap-1.5 font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-1.5 transition-opacity hover:opacity-70"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)', borderRadius: '2px' }}
+                  style={{ background: CREAM, border: `1px solid ${BORDER}`, color: SECONDARY, borderRadius: '4px' }}
                 >
-                  <CheckCircle size={9} style={{ color: '#10B981' }} />
+                  <CheckCircle size={9} style={{ color: MOSS }} />
                   {copied === code ? 'Copied!' : code}
                 </button>
               ))}
@@ -281,31 +288,31 @@ export default function LoyaltySection({ user }) {
 
         {/* Zero state message */}
         {!record && (
-          <div className="mt-4 p-4 text-center" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '2px' }}>
-            <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <div className="mt-4 p-4 text-center" style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}>
+            <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: SECONDARY }}>
               Points are awarded after your first order.
             </p>
           </div>
         )}
 
         {/* Recent Activity */}
-        <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mt-8 pt-6" style={{ borderTop: `1px solid ${BORDER}` }}>
           <div className="flex items-center gap-2 mb-4">
-            <Clock size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            <Clock size={12} style={{ color: SECONDARY }} />
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: SECONDARY }}>
               Recent Activity
             </p>
           </div>
 
           {activity.length === 0 ? (
-            <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            <p className="font-mono text-[9px]" style={{ color: SECONDARY }}>
               No activity yet — earn points with your first order.
             </p>
           ) : (
             <div className="space-y-2">
               {activity.map((item) => {
                 const isEarn = item.type === 'earn';
-                const color = isEarn ? '#10B981' : RG;
+                const color = isEarn ? MOSS : CLAY;
                 const date = item.created_date
                   ? new Date(item.created_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
                   : '';
@@ -313,7 +320,7 @@ export default function LoyaltySection({ user }) {
                   <div
                     key={item.id}
                     className="flex items-center justify-between px-3 py-2.5"
-                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '2px' }}
+                    style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}
                   >
                     <div className="flex items-center gap-2.5">
                       {isEarn
@@ -321,11 +328,11 @@ export default function LoyaltySection({ user }) {
                         : <TrendingDown size={12} style={{ color, flexShrink: 0 }} />
                       }
                       <div>
-                        <p className="font-mono text-[9px] font-medium" style={{ color: '#F5EFE6' }}>
+                        <p className="font-mono text-[9px] font-medium" style={{ color: INK }}>
                           {item.label}
                         </p>
                         {date && (
-                          <p className="font-mono text-[8px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                          <p className="font-mono text-[8px]" style={{ color: SECONDARY }}>
                             {date}
                           </p>
                         )}
