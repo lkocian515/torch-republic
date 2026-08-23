@@ -44,7 +44,7 @@ export default function HeroSection() {
           className="font-heading text-xs font-semibold uppercase tracking-[0.26em] md:text-sm"
           style={{ color: colors.gold }}
         >
-          Coffee for the way you live
+          Coffee &amp; matcha for the way you live
         </p>
         <h1
           className="mt-6 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[clamp(2.4rem,3.4vw,3.8rem)]"
