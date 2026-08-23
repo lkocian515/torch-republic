@@ -60,14 +60,14 @@ export default function Footer() {
             <p className="mt-3 font-heading text-sm" style={{ color: colors.text }}>Torch Republic Coffee Company</p>
             <p className="mt-2 max-w-sm font-heading text-xs leading-6" style={{ color: colors.secondary }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>
           </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-5 lg:gap-x-6">
+          <div className="grid grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
             {groups.map(([heading, links]) => (
-              <div key={heading}>
+              <div key={heading} className="min-w-0">
                 <h2 className="font-heading text-sm font-semibold" style={{ color: colors.text }}>{heading}</h2>
                 <ul className="mt-3 space-y-2.5">
                   {links.map(([label, href]) => (
-                    <li key={href}>
-                      <Link to={href} className="font-heading text-sm transition-opacity duration-200 hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ color: colors.secondary, borderRadius: '4px' }}>{label}</Link>
+                    <li key={href} className="leading-6">
+                      <Link to={href} className="inline-block font-heading text-sm transition-opacity duration-200 hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ color: colors.secondary, borderRadius: '4px' }}>{label}</Link>
                     </li>
                   ))}
                 </ul>
