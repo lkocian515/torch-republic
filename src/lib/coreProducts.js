@@ -5,9 +5,10 @@
 // here — it stays untouched so historical orders, admin views, and database
 // integrity remain intact. Only these three products are promoted publicly.
 //
-// Product imagery references the EXISTING tube PNGs (Phase 1). When bag
-// packaging is ready (Phase 2), only FINAL_PRODUCT_IMAGE_URLS needs updating —
-// the rest of the UI uses flexible object-contain containers.
+// Product imagery: real 3oz bag photography (Dripshipper) — Phase 2 packaging
+// is live. Each product carries an explicit `image`; getProductImage resolves
+// to the same bag photos via productImageHelpers. Image containers are neutral
+// white so the product-shot backgrounds blend cleanly.
 
 import { FINAL_PRODUCT_IMAGE_URLS } from './mushroomProducts';
 import { PRICES } from './pricingConfig';
@@ -54,6 +55,7 @@ const build = (p) => {
 // ── The three core products (verified data only — no invented claims) ───────
 export const CORE_PRODUCTS = [
   build({
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
     id: 'torchbearer',
     name: 'Instant Classic Coffee',
     blendName: 'Torchbearer',
@@ -80,6 +82,7 @@ export const CORE_PRODUCTS = [
     collectionPath: '/shop/instant-coffee',
   }),
   build({
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
     id: 'the-alchemist',
     name: 'Ceremonial Matcha',
     blendName: 'The Alchemist',
@@ -106,6 +109,7 @@ export const CORE_PRODUCTS = [
     collectionPath: '/shop/matcha',
   }),
   build({
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
     id: 'glowmind-clarity',
     name: 'Instant Mushroom Coffee',
     blendName: 'GlowMind Clarity',

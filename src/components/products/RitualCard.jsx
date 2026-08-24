@@ -41,7 +41,7 @@ export default function RitualCard({ product, index = 0 }) {
       className="card-torch flex h-full flex-col overflow-hidden"
     >
       <Link to={product.path} className="group block" style={{ textDecoration: 'none' }}>
-        <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: c.soft }}>
+        <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: '#FFFFFF' }}>
           <RitualProductImage
             product={product}
             className="h-full w-full p-6"

@@ -180,7 +180,7 @@ function RitualPDP({ product }) {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Gallery — flexible container (tubes now, bags later) */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:sticky lg:top-24">
-            <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: c.soft, border: `1px solid ${c.accent}22`, borderRadius: 12 }}>
+            <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: '#FFFFFF', border: `1px solid ${c.accent}22`, borderRadius: 12 }}>
               <RitualProductImage product={product} eager alt={imageAlt} className="h-full w-full p-8" imgClassName="h-full w-full" />
             </div>
           </motion.div>

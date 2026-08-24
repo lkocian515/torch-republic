@@ -59,7 +59,7 @@ export default function RitualHero() {
                       to={p.path}
                       aria-label={p.name}
                       className="flex w-full items-end justify-center overflow-hidden rounded-2xl"
-                      style={{ background: c.soft, aspectRatio: '3/4', border: `1px solid ${c.accent}22` }}
+                      style={{ background: '#FFFFFF', aspectRatio: '3/4', border: `1px solid ${c.accent}22` }}
                     >
                       <RitualProductImage product={p} eager={i === 0} className="h-full w-full p-3 sm:p-4" imgClassName="h-full w-full" />
                     </Link>
