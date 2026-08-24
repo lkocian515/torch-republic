@@ -4,6 +4,7 @@ import ChooseYourRitual from './ChooseYourRitual';
 import RitualWhy from './RitualWhy';
 import RitualComparison from './RitualComparison';
 import RitualMomentStrip from './RitualMomentStrip';
+import PoweredByNature from './PoweredByNature';
 import RitualSubscriptionTeaser from './RitualSubscriptionTeaser';
 import RitualRewardsTeaser from './RitualRewardsTeaser';
 
@@ -12,6 +13,7 @@ export default function RitualHomepage() {
     <main id="main-content" className="perf-home-main" style={{ background: '#FBF8F1' }}>
       <RitualHero />
       <ChooseYourRitual />
+      <PoweredByNature />
       <RitualWhy />
       <RitualComparison />
       <RitualMomentStrip

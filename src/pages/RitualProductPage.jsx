@@ -11,6 +11,7 @@ import ShareButtons from '@/components/social/ShareButtons';
 import BlendDetail from '@/pages/BlendDetail';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanner';
+import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e62795928_IMG_20260823_165103.png',
@@ -285,6 +286,8 @@ function RitualPDP({ product }) {
         title={LIFESTYLE_COPY[product.category].title}
         subtitle={LIFESTYLE_COPY[product.category].subtitle}
       />
+
+      <PoweredByNature accent={c.accent} />
 
       {/* Tabs */}
       <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
