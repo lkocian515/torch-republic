@@ -28,16 +28,32 @@ export default function ProjectGallery() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open full-size image: ${s.title}`}
-              style={{ display: 'block', border: `1px solid ${P.rule}`, borderRadius: '12px', overflow: 'hidden', background: P.surface }}
+              style={{
+                display: 'block',
+                border: `1px solid ${P.rule}`,
+                borderRadius: '12px',
+                overflow: 'hidden',
+                background: P.surface,
+                // Fixed ratio container — guarantees a uniform, undistorted grid
+                // on mobile (1 col) and desktop (2 col).
+                aspectRatio: '16 / 10',
+              }}
             >
               <img
                 src={s.src}
                 alt={s.alt}
-                width={1400}
-                height={875}
                 loading="lazy"
                 decoding="async"
-                style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1400 / 875' }}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  // Keep the top of each screenshot visible (hero/nav area),
+                  // since these are tall full-page captures.
+                  objectPosition: 'top',
+                  transition: 'transform 0.4s ease',
+                }}
               />
             </a>
             <figcaption style={{ marginTop: '0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
