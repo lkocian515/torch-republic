@@ -25,5 +25,5 @@ export const SECTION = {
 
 export const LIVE_STORE = 'https://torchrepublic.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/lisamariekocian';
-export const CONTACT_EMAIL = 'lkocian515@gmail.com';
+export const CONTACT_EMAIL = 'lisakocian@outlook.com';
 export const RESUME_URL = 'https://media.base44.com/files/public/69afc77e4c80e5e88ca6e3ec/0c89f0c86_LisaKocianResume2026.pdf';
