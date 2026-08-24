@@ -5,10 +5,12 @@ import { ArrowUpRight } from 'lucide-react';
 
 // Real screenshots of the live project — interface evidence, not glamour shots.
 const SHOTS = [
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e97bb3911_portfolio-homepage.png', title: 'Homepage — editorial hero & navigation', alt: 'Torch Republic homepage showing navigation and editorial product hero.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/abd9bea94_portfolio-collection.png', title: 'Collection — standardized product grid', alt: 'Torch Republic collection page with standardized product cards.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9e1ef6959_portfolio-product.png', title: 'Product detail — purchase decision flow', alt: 'Product page showing imagery, pricing and add-to-cart controls.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4efd7698f_portfolio-bundle.png', title: 'Build Your Ritual — bundle logic', alt: 'Starter ritual bundle showing included products and savings.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6661578c5_Screenshot_2026-08-24-13-03-47-00_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Homepage — editorial hero & navigation', alt: 'Torch Republic homepage hero with three 3oz black-bag products.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6abb4bbaf_Screenshot_2026-08-24-13-03-56-27_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Product card — mushroom coffee', alt: 'Product card showing 3oz black-bag instant mushroom coffee.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/42e51d0dc_Screenshot_2026-08-24-13-03-53-03_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Product card — ceremonial matcha', alt: 'Product card showing 3oz black-bag ceremonial matcha.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/543afa947_Screenshot_2026-08-24-13-04-02-57_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Powered by Nature — benefit grid', alt: 'Powered by Nature benefits section with clean ingredients messaging.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/740aecdfd_Screenshot_2026-08-24-13-04-06-42_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Lifestyle hero — ritual in nature', alt: 'Lifestyle hero showing the daily ritual in an outdoor setting.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/82a403301_Screenshot_2026-08-24-13-03-43-32_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Storefront hero — the lineup', alt: 'Storefront hero featuring the three 3oz black-bag products.' },
 ];
 
 export default function ProjectGallery() {
