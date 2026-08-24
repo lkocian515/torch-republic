@@ -14,6 +14,7 @@ import ProjectGallery from '@/components/portfolio/ProjectGallery';
 import ToolsPlatforms from '@/components/portfolio/ToolsPlatforms';
 import BusinessLens from '@/components/portfolio/BusinessLens';
 import CareerDirection from '@/components/portfolio/CareerDirection';
+import ResumeExperience from '@/components/portfolio/ResumeExperience';
 import AboutLisa from '@/components/portfolio/AboutLisa';
 import ContactCta from '@/components/portfolio/ContactCta';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
@@ -109,6 +110,7 @@ export default function PortfolioCaseStudy() {
         <ToolsPlatforms />
         <BusinessLens />
         <CareerDirection />
+        <ResumeExperience />
         <AboutLisa />
         <ContactCta />
       </main>

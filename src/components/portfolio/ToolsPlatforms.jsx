@@ -2,23 +2,30 @@ import React from 'react';
 import { SectionWrap, Eyebrow, SectionHeading } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
 
-// Understated tooling — only platforms with legitimate project experience.
 const GROUPS = [
   {
     heading: 'AI & Evaluation',
-    items: ['Generative AI tools', 'Prompt iteration', 'AI-assisted development', 'Output evaluation'],
+    items: ['LLM output evaluation', 'Prompt & instruction testing', 'AI performance QA', 'NLP-aware review', 'Hallucination detection'],
   },
   {
-    heading: 'Commerce',
-    items: ['Shopify', 'Base44', 'E-commerce systems'],
+    heading: 'Engineering Stack',
+    items: ['React / Redux / TypeScript', 'Node.js / Python', 'GraphQL & API QA', 'GCP / Kubernetes', 'MySQL / PostgreSQL'],
   },
   {
-    heading: 'Marketing / Experience',
-    items: ['Klaviyo', 'Google Search Console', 'Google Analytics', 'SEO tooling'],
+    heading: 'Commerce & Analytics',
+    items: ['Shopify', 'Base44', 'Google Analytics', 'Google Search Console', 'Klaviyo'],
   },
   {
-    heading: 'Quality',
-    items: ['Manual QA', 'Responsive testing', 'Content validation', 'Workflow testing', 'Defect documentation'],
+    heading: 'QA Methods',
+    items: ['Defect reproduction & docs', 'Regression & revalidation', 'Direct-route testing', 'Access-control review', 'Privacy / PII review'],
+  },
+  {
+    heading: 'Dev Practices',
+    items: ['GitHub version control', 'Agile workflows', 'Jira (Fundamentals Badge)', 'UiPath Automation'],
+  },
+  {
+    heading: 'Certifications',
+    items: ['Jira Fundamentals · Atlassian 2026', 'UiPath Automation Diploma · 2026', 'Google Analytics Cert · 2026', 'ML (Kaggle) · In Progress'],
   },
 ];
 
@@ -28,7 +35,7 @@ export default function ToolsPlatforms() {
       <Eyebrow>Tools &amp; Platforms</Eyebrow>
       <SectionHeading>What I worked with</SectionHeading>
 
-      <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {GROUPS.map((g) => (
           <div key={g.heading}>
             <p style={{ fontFamily: FONT_MONO, fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: '0 0 0.85rem', paddingBottom: '0.5rem', borderBottom: `1px solid ${P.rule}` }}>

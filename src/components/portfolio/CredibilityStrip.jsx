@@ -1,7 +1,7 @@
 import React from 'react';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
 
-const CAPS = ['AI Quality', 'Prompt Evaluation', 'E-Commerce', 'Workflow Design', 'UX / QA', 'Business Operations'];
+const CAPS = ['AI Quality & LLM Evaluation', 'Prompt & Instruction Testing', 'E-Commerce QA', 'Defect Documentation', 'Responsive Web Testing', 'Source-to-Output Validation'];
 
 export default function CredibilityStrip() {
   return (
