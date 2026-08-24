@@ -15,7 +15,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 
 const MATCHA_GREEN = '#566047';
-const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bd822ced2_matcha_category.png';
+const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
 
 // FAQ data for schema
 const FAQS = [
@@ -112,8 +112,8 @@ export default function MatchaCollection() {
               </Link>
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${MATCHA_GREEN}30` }}>
-            <img src={MATCHA_HERO_IMAGE} alt="Torch Republic The Monk and The Alchemist ceremonial matcha blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${MATCHA_GREEN}30` }}>
+            <img src={MATCHA_HERO_IMAGE} alt="Torch Republic The Monk and The Alchemist ceremonial matcha blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
           </motion.div>
         </div>
       </section>

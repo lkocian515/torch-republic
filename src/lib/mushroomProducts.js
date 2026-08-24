@@ -1,13 +1,13 @@
 // Central active product catalog for Torch Republic — final seven-product lineup.
 
 export const FINAL_PRODUCT_IMAGE_URLS = {
-  'suncap-rise': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
-  'glowmind-clarity-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
-  'mooncap-restore': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/jbhyvgyu.png?v=1785663564',
-  'torchbearer': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/fvtfyu.png?v=1785663280',
-  'ember-reserve': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/ChatGPT_Image_Aug_2_2026_01_01_16_AM.png?v=1785650939',
-  'the-alchemist-matcha-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/frewrdwqerq.png?v=1785661782',
-  'the-monk-matcha-blend': 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/trdtyfuyh_25801652-e2ec-4a02-8d62-6855c6e55396.png?v=1785661294',
+  'suncap-rise': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+  'glowmind-clarity-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+  'mooncap-restore': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+  'torchbearer': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+  'ember-reserve': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+  'the-alchemist-matcha-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
+  'the-monk-matcha-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
 };
 
 const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, tagline, description, flavorNotes, tasteDescription, bestFor, mushrooms, servings, price, shopifyHandle, accent, category, keyBenefits }) => {

@@ -68,7 +68,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
     >
       <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
         <div className="relative overflow-hidden flex items-center justify-center product-image-wrap"
-          style={{ aspectRatio: '1/1', background: '#F8F5EF' }}>
+          style={{ aspectRatio: '1/1', background: '#FFFFFF' }}>
           <img
             src={imageUrl}
             alt={imageAlt}

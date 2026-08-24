@@ -21,7 +21,7 @@ import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 const RG = '#B7653E';
 const DEEP_CHARCOAL = '#FBF8F1';
 const WARM_CREAM = '#F7F1E7';
-const MUSHROOM_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6fc7c6061_mushroom_coffee_category.png';
+const MUSHROOM_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
 
 // Find Your Blend recommendations
 const BLEND_RECOMMENDATIONS = [
@@ -111,8 +111,8 @@ export default function MushroomCoffeeCollection() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${RG}30` }}>
-              <img src={MUSHROOM_HERO_IMAGE} alt="Torch Republic SunCap Rise, MoonCap Restore, and GlowMind Clarity mushroom coffee blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
+            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${RG}30` }}>
+              <img src={MUSHROOM_HERO_IMAGE} alt="Torch Republic SunCap Rise, MoonCap Restore, and GlowMind Clarity mushroom coffee blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
             </motion.div>
           </div>
 

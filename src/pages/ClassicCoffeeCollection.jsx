@@ -20,7 +20,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 
 const GOLD = '#B7653E';
-const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7b261dff1_classic_coffee_category.png';
+const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
 
 // FAQ data for schema
 const FAQS = [
@@ -118,8 +118,8 @@ export default function ClassicCoffeeCollection() {
               </Link>
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#E9DFD1', border: `1px solid ${GOLD}30` }}>
-            <img src={CLASSIC_HERO_IMAGE} alt="Torch Republic Torchbearer Classic Coffee and Ember Reserve classic coffee blends" className="h-full min-h-[300px] w-full object-cover" loading="eager" decoding="async" />
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${GOLD}30` }}>
+            <img src={CLASSIC_HERO_IMAGE} alt="Torch Republic Torchbearer Classic Coffee and Ember Reserve classic coffee blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
           </motion.div>
         </div>
       </section>
