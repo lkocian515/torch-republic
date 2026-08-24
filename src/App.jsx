@@ -345,8 +345,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── PAID-AD LANDING PAGE ── */}
         <Route path="/switch-from-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SwitchFromPods" queryClient={queryClient}><SwitchFromPods /></LayoutWrapper></Suspense>} />
 
-        {/* ── STANDALONE PORTFOLIO CASE STUDY (noindex, no storefront chrome) ── */}
-        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Suspense fallback={<PageLoader />}><NoIndex /><PortfolioCaseStudy /></Suspense>} />
+        {/* ── STANDALONE PROFESSIONAL PORTFOLIO (no storefront chrome) ── */}
+        <Route path="/portfolio" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+        {/* Legacy portfolio URL kept for back-compat; canonical resolves to lisakocian.com */}
+        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
 
         {/* ── SEO KEYWORD LANDING PAGES ── */}
         <Route path="/coffee-pod-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodAlternatives" queryClient={queryClient}><CoffeePodAlternatives /></LayoutWrapper></Suspense>} />

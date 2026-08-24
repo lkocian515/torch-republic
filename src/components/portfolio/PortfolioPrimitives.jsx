@@ -1,0 +1,119 @@
+import React from 'react';
+import { P, FONT_SANS, FONT_MONO, SECTION } from './portfolioTheme';
+
+export function SectionWrap({ id, alt = false, wide = false, children }) {
+  return (
+    <section
+      id={id}
+      style={{
+        background: alt ? P.surface : 'transparent',
+        borderTop: alt ? `1px solid ${P.rule}` : '1px solid transparent',
+        scrollMarginTop: '72px',
+      }}
+    >
+      <div
+        className="mx-auto px-6 md:px-10"
+        style={{
+          maxWidth: wide ? 1140 : 880,
+          paddingTop: SECTION.paddingTop,
+          paddingBottom: SECTION.paddingBottom,
+        }}
+      >
+        {children}
+      </div>
+    </section>
+  );
+}
+
+export function Eyebrow({ children }) {
+  return (
+    <p
+      style={{
+        fontFamily: FONT_MONO,
+        fontSize: '0.6875rem',
+        letterSpacing: '0.22em',
+        textTransform: 'uppercase',
+        fontWeight: 600,
+        color: P.accent,
+        margin: 0,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function SectionHeading({ children, as: Tag = 'h2', style }) {
+  return (
+    <Tag
+      style={{
+        fontFamily: FONT_SANS,
+        fontWeight: 700,
+        fontSize: 'clamp(1.6rem, 3vw, 2.25rem)',
+        lineHeight: 1.15,
+        letterSpacing: '-0.01em',
+        color: P.ink,
+        margin: '0.75rem 0 0',
+        ...style,
+      }}
+    >
+      {children}
+    </Tag>
+  );
+}
+
+export function Lead({ children, center = false, style }) {
+  return (
+    <p
+      style={{
+        fontFamily: FONT_SANS,
+        fontSize: '1.0625rem',
+        lineHeight: 1.7,
+        color: P.secondary,
+        margin: '0.85rem 0 0',
+        maxWidth: center ? '60ch' : '65ch',
+        marginLeft: center ? 'auto' : 0,
+        marginRight: center ? 'auto' : 0,
+        ...style,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function Card({ children, pad = '1.5rem', style }) {
+  return (
+    <div
+      style={{
+        background: P.surface,
+        border: `1px solid ${P.rule}`,
+        borderRadius: '14px',
+        padding: pad,
+        height: '100%',
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function Pill({ children }) {
+  return (
+    <span
+      style={{
+        fontFamily: FONT_SANS,
+        fontSize: '0.8125rem',
+        fontWeight: 500,
+        color: P.ink,
+        background: P.surface,
+        border: `1px solid ${P.rule}`,
+        borderRadius: '999px',
+        padding: '0.45rem 0.9rem',
+      }}
+    >
+      {children}
+    </span>
+  );
+}
