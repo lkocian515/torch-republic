@@ -15,20 +15,8 @@ function getCartUrl(qty = 1) {
 
 const PRODUCT_IMAGES = [
   {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/36a57140d_fsdgfrtre.png',
-    alt: 'Torchbearer Premium Instant Coffee — Carry The Flame hero shot',
-  },
-  {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d0365d75_dgdfgdr.png',
-    alt: 'Torchbearer Premium Instant Coffee — marble surface lifestyle',
-  },
-  {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0960b7cd6_fsdfesfes.png',
-    alt: 'Torchbearer Premium Instant Coffee — golden hour product showcase',
-  },
-  {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4c5871c59_rgdrget.png',
-    alt: 'Torchbearer Premium Instant Coffee — brew guide back label',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+    alt: 'Torchbearer Instant Classic Coffee — 3oz black bag',
   },
 ];
 

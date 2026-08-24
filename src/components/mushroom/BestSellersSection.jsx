@@ -35,7 +35,7 @@ const BEST_SELLERS = [
     badge: 'Classic Favorite',
     badgeColor: '#D67A5A',
     href: '/products/torchbearer',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0960b7cd6_fsdfesfes.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
     why: 'Best entry product for people curious about the brand',
   },
   {

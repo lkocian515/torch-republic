@@ -13,7 +13,7 @@ const COLLECTIONS = [
   {
     title: 'Liberty Icons',
     description: 'Bold blends named for the symbols that define American freedom. Uncompromising.',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
     route: '/LibertyIcons',
     accent: '#9BB8CC',
   },

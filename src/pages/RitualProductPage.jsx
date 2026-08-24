@@ -14,14 +14,11 @@ import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanne
 import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 import RitualProductGallery from '@/components/products/RitualProductGallery';
 
-const LINEUP = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f213f9d2e_IMG_20260823_165025.png';
-const COLLAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2a4c0d5f4_file_00000000fa3081fd88706f110b70b97a.png';
-const MUSHROOM_LIFESTYLE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6608d19c3_IMG_20260823_165103.png';
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
 const MATCHA_POWDER = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png';
 
 const LIFESTYLE_IMAGE = {
-  'mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e62795928_IMG_20260823_165103.png',
+  'mushroom-coffee': null,
   'classic-coffee': null,
   matcha: null,
 };
@@ -30,8 +27,8 @@ const LIFESTYLE_IMAGE = {
 // ONLY single-product shots — no group / lineup / collage images.
 const GALLERY_EXTRA = {
   'mushroom-coffee': {
-    images: [MUSHROOM_LIFESTYLE, COFFEE_FLAKES],
-    alts: ['Instant Mushroom Coffee in a real home ritual', 'Instant coffee flakes — what is inside the bag'],
+    images: [COFFEE_FLAKES],
+    alts: ['Instant coffee flakes — what is inside the bag'],
   },
   'classic-coffee': {
     images: [COFFEE_FLAKES],

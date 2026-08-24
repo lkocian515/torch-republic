@@ -17,7 +17,7 @@ export default function PodsProductPage({ data }) {
     accent = '#C9A24A',
     price = '$16.99',
     shopifyHandle = 'washington-blend-coffee-pods',
-    heroImage = 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/washington-pods-hero.jpg',
+    heroImage = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
     images = [heroImage],
     hook = 'Strength without noise. Leadership without compromise.',
     heroDescription = 'Washington didn\'t chase comfort — he built discipline. This blend reflects that same standard: bold, steady, and built to endure.',

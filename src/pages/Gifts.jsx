@@ -7,7 +7,10 @@ import { buildRitualKits } from '@/lib/giftKits';
 import GiftKitCard from '@/components/gifts/GiftKitCard';
 
 const RG = '#E6B7AD';
-const HERO_GIFT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/64de50cec_canyougenerategiftingphotosofthecoffeetube1.png';
+const BAG_CLASSIC = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
+const BAG_MATCHA = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
+const BAG_MUSHROOM = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
+const OG_IMAGE = BAG_CLASSIC;
 
 // FAQ content — kept factual; no gift-wrap/card/scheduled-delivery claims that
 // aren't backed by a real configured service.
@@ -63,7 +66,7 @@ export default function Gifts() {
       'Explore premium instant coffee, mushroom coffee, and ceremonial matcha gifts from Torch Republic. Thoughtful rituals for coffee lovers, wellness routines, and special occasions.',
     url: '/gifts',
     type: 'website',
-    image: HERO_GIFT_IMAGE.png,
+    image: OG_IMAGE,
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Gifts', url: '/gifts' },
@@ -91,20 +94,12 @@ export default function Gifts() {
             className="w-full"
           >
             <div
-              className="relative w-full overflow-hidden"
-              style={{ aspectRatio: '16 / 10', borderRadius: '8px', border: '1px solid rgba(230,183,173,0.28)' }}
+              className="relative w-full overflow-hidden flex items-center justify-center gap-4 md:gap-8 px-6 py-6"
+              style={{ aspectRatio: '16 / 10', borderRadius: '8px', border: '1px solid rgba(230,183,173,0.28)', background: '#FFFFFF' }}
             >
-              <img
-                src={HERO_GIFT_IMAGE}
-                alt="Torch Republic gift sets — mushroom coffee and ceremonial matcha ritual kits arranged on a warm stone surface."
-                width={1600}
-                height={1000}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-full object-cover"
-                style={{ display: 'block', objectPosition: 'center center' }}
-              />
+              {[BAG_MUSHROOM, BAG_CLASSIC, BAG_MATCHA].map((src, i) => (
+                <img key={i} src={src} alt="Torch Republic 3oz black bag — instant coffee, mushroom coffee, or ceremonial matcha" loading="eager" decoding="async" className="h-full max-h-[82%] w-auto object-contain" style={{ display: 'block' }} />
+              ))}
             </div>
           </motion.div>
 

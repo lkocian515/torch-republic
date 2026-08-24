@@ -9,7 +9,7 @@ const FEATURED = [
     roast: 'Dark Roast',
     notes: 'Cocoa · Toasted Nut · Full Body',
     route: '/WashingtonBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
     color: '#160D04',
   },
   {
@@ -18,7 +18,7 @@ const FEATURED = [
     roast: 'Medium Roast',
     notes: 'Dark Chocolate · Almond · Toffee',
     route: '/JeffersonBlend',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/dsadasdas_fdecaa67-f286-4373-a98a-55b775a6a2c9.png?v=1785668747',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
     color: '#080F14',
   },
   {

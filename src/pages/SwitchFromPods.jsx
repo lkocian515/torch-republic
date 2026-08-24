@@ -41,7 +41,7 @@ const PATHWAYS = [
     servings: 27,
     category: 'classic-coffee',
     accent: '#D6B27A',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2be7102cc_15.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
     path: '/shop/instant-coffee',
     cta: 'Shop Instant Coffee',
   },
@@ -55,7 +55,7 @@ const PATHWAYS = [
     servings: 27,
     category: 'mushroom-coffee',
     accent: '#10B981',
-    image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
     path: '/products/suncap-rise',
     cta: 'Shop Mushroom Coffee',
     featured: true,
@@ -70,7 +70,7 @@ const PATHWAYS = [
     servings: 25,
     category: 'matcha',
     accent: '#6EE7B7',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ed4b0c26d_18.png',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
     path: '/shop/matcha',
     cta: 'Shop Matcha',
   },
@@ -287,7 +287,7 @@ function StickyBar({ visible }) {
       id: 'suncap-rise',
       name: 'SunCap Rise',
       price: SUNCAP_PRICE,
-      image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
       category: 'mushroom-coffee',
       shopifyHandle: 'suncap-rise',
     });
@@ -560,7 +560,7 @@ export default function SwitchFromPods() {
           >
             <div className="flex-shrink-0 flex items-center justify-center" style={{ width: '160px', height: '160px' }}>
               <img
-                src="https://cdn.shopify.com/s/files/1/0620/7140/6844/files/g6tg67.png?v=1785663988"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg"
                 alt="SunCap Rise mushroom coffee by Torch Republic"
                 loading="lazy"
                 width="160"

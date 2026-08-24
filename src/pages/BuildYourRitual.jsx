@@ -279,12 +279,6 @@ export default function BuildYourRitual() {
 
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ minHeight: '350px', background: THEME.cream, borderTop: `1px solid ${THEME.border}`, borderBottom: `1px solid ${THEME.border}` }}>
-        <img
-          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7f4efdbaa_LIVEFREESTAYREADY15x5in.png"
-          alt="Torch Republic bundles"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.16 }}
-        />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(251,248,241,0.9) 0%, rgba(247,241,231,0.96) 100%)' }} />
         
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24">

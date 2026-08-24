@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
 const GOLD = '#C4A35A';
-const IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a2d13fe4d_fsdfesfes.png';
+const IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
 
 const NOTES = [
   { label: 'Toasted Almond', sub: 'Warm nutty sweetness' },
