@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
+import { getProductByRitual } from '@/lib/coreProducts';
+import RitualCard from '@/components/products/RitualCard';
 import { withApprovedProductImage } from '@/lib/productImageHelpers';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
@@ -150,16 +152,12 @@ export default function ClassicCoffeeCollection() {
               Choose Your Classic Ritual
             </h2>
             <p className="font-heading text-sm" style={{ color: '#5F574F' }}>
-              Two premium instant coffee blends. Pure coffee. No mushrooms. Just smooth, elevated mornings.
+              One premium instant coffee. Pure coffee. No mushrooms. Just smooth, elevated mornings.
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {products.map((product, i) => (
-              <motion.div key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.5 }}>
-                <MushroomProductCard product={product} />
-              </motion.div>
-            ))}
+          <div className="mx-auto max-w-sm">
+            <RitualCard product={getProductByRitual('classic')} />
           </div>
         </div>
       </section>
@@ -178,8 +176,7 @@ export default function ClassicCoffeeCollection() {
         <SelectionAid
           accent={GOLD}
           items={[
-            { if: 'you want a bold, everyday single-origin cup', pick: 'Torchbearer', to: '/products/torchbearer' },
-            { if: 'you want a smooth, light-roast cup', pick: 'Ember Reserve', to: '/products/ember-reserve' },
+            { if: 'you want a bold, smooth, everyday single-origin cup', pick: 'Instant Classic Coffee', to: '/products/torchbearer' },
           ]}
         />
         <div className="mt-8">

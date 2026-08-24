@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, Check, ShoppingBag, Truck, ShieldCheck, RotateCcw, ChevronRight, Gift, Brain, Leaf } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
@@ -109,11 +109,26 @@ function faqsFor(p) {
   ];
 }
 
+// Legacy 7-product slugs → the single core product for that ritual, so old
+// links land on the current product page (and the correct cart name) instead
+// of the legacy BlendDetail template.
+const LEGACY_SLUG_REDIRECT = {
+  'suncap-rise': 'glowmind-clarity-blend',
+  'glowmind-clarity': 'glowmind-clarity-blend',
+  'mooncap-restore': 'glowmind-clarity-blend',
+  'ember-reserve': 'torchbearer',
+  'the-monk-matcha-blend': 'the-alchemist-matcha-blend',
+};
+
 export default function RitualProductPage() {
   const { slug } = useParams();
   const product = getProductBySlug(slug);
-  // Legacy / order-linked slugs defer to the existing template unchanged.
-  if (!product) return <BlendDetail />;
+  if (!product) {
+    const redirect = LEGACY_SLUG_REDIRECT[slug];
+    if (redirect) return <Navigate to={`/products/${redirect}`} replace />;
+    // Order-linked / truly unknown slugs defer to the existing template unchanged.
+    return <BlendDetail />;
+  }
   return <RitualPDP product={product} />;
 }
 

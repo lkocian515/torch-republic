@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Leaf, Zap, Shield } from 'lucide-react';
 import { MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { getProductByRitual } from '@/lib/coreProducts';
+import RitualCard from '@/components/products/RitualCard';
 import { withApprovedProductImage } from '@/lib/productImageHelpers';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
@@ -180,16 +182,12 @@ export default function MatchaCollection() {
               Choose Your Matcha Ritual
             </h2>
             <p className="font-heading text-sm" style={{ color: '#5F574F' }}>
-              Two ceremonial matcha blends. Each crafted for a different intention.
+              One ceremonial matcha, crafted for calm focus and everyday ritual.
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {products.map((product, i) => (
-              <motion.div key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.5 }}>
-                <MushroomProductCard product={product} />
-              </motion.div>
-            ))}
+          <div className="mx-auto max-w-sm">
+            <RitualCard product={getProductByRitual('matcha')} />
           </div>
         </div>
       </section>
@@ -208,8 +206,7 @@ export default function MatchaCollection() {
         <SelectionAid
           accent={MATCHA_GREEN}
           items={[
-            { if: 'you want matcha for lattes and iced drinks', pick: 'The Alchemist', to: '/products/the-alchemist-matcha-blend' },
-            { if: 'you want a simple, traditional matcha ritual', pick: 'The Monk', to: '/products/the-monk-matcha-blend' },
+            { if: 'you want matcha for lattes, iced drinks, and a calm daily ritual', pick: 'Ceremonial Matcha', to: '/products/the-alchemist-matcha-blend' },
           ]}
         />
         <div className="mt-8">

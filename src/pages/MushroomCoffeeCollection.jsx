@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Coffee, Zap, Sparkles, Leaf, Brain, Moon, Sun, Shield, Truck, Star, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, mergeWithShopifyData } from '@/lib/mushroomProducts';
+import { getProductByRitual } from '@/lib/coreProducts';
+import RitualCard from '@/components/products/RitualCard';
 import { withApprovedProductImage, getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
@@ -200,16 +202,12 @@ export default function MushroomCoffeeCollection() {
               Choose Your Ritual
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-              Three purpose-built mushroom coffees crafted with premium instant coffee, Lion's Mane, and Chaga for a different kind of morning. All available as subscriptions — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
+              One purpose-built mushroom coffee — premium instant coffee with Lion's Mane and Chaga for a focused morning. Available as a subscription — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product, i) => (
-              <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <MushroomProductCard product={product} index={i} />
-              </motion.div>
-            ))}
+          <div className="mx-auto max-w-sm">
+            <RitualCard product={getProductByRitual('mushroom')} />
           </div>
         </div>
       </section>
@@ -222,37 +220,6 @@ export default function MushroomCoffeeCollection() {
         title="Scoop. Stir. Sip."
         subtitle="Coffee-forward, functional, and ready in seconds — no machine, no pods, no compromise."
       />
-
-      {/* ── FIND YOUR BLEND ── */}
-      <section id="find-your-blend" className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>03 — Ritual Guide</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
-              Find the Blend That Fits Your Ritual
-            </h2>
-            <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-              Not sure where to start? Match your intention to the right blend.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {BLEND_RECOMMENDATIONS.map((rec, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-6 text-center" style={{ background: '#FFFDF8', border: `1px solid ${rec.color}25`, borderRadius: '6px' }}>
-                <div className="mb-4 flex justify-center" style={{ width: 56, height: 56, margin: '0 auto 16px', borderRadius: '50%', background: `${rec.color}15`, border: `1px solid ${rec.color}35`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <rec.icon size={26} style={{ color: rec.color }} />
-                </div>
-                <p className="font-heading text-sm mb-3" style={{ color: '#5F574F', fontWeight: 300 }}>{rec.goal}</p>
-                <p className="font-serif font-bold  mb-4" style={{ fontSize: '1.1rem' }}>Recommended: {rec.blend}</p>
-                <Link to={`/products/${rec.slug}`} className="inline-block font-mono text-[8px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-80" style={{ color: rec.color }}>
-                  Shop This Ritual →
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── COMPARISON CHART ── */}
       <BlendComparisonChart />
