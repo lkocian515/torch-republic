@@ -12,11 +12,34 @@ import BlendDetail from '@/pages/BlendDetail';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanner';
 import PoweredByNature from '@/components/home/ritual/PoweredByNature';
+import RitualProductGallery from '@/components/products/RitualProductGallery';
+
+const LINEUP = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f213f9d2e_IMG_20260823_165025.png';
+const COLLAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2a4c0d5f4_file_00000000fa3081fd88706f110b70b97a.png';
+const MUSHROOM_LIFESTYLE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6608d19c3_IMG_20260823_165103.png';
+const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
+const MATCHA_POWDER = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png';
 
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e62795928_IMG_20260823_165103.png',
-  'classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be02f22d0_generated_image.png',
-  matcha: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666fa62e9_generated_image.png',
+  'classic-coffee': LINEUP,
+  matcha: LINEUP,
+};
+
+// Extra gallery images per category (the real bag is always image #0).
+const GALLERY_EXTRA = {
+  'mushroom-coffee': {
+    images: [MUSHROOM_LIFESTYLE, LINEUP, COFFEE_FLAKES],
+    alts: ['Instant Mushroom Coffee in a real home ritual', 'The three Torch Republic rituals lined up', 'Instant coffee flakes — what is inside the bag'],
+  },
+  'classic-coffee': {
+    images: [LINEUP, COLLAGE, COFFEE_FLAKES],
+    alts: ['The three Torch Republic rituals lined up', 'Torch Republic lifestyle and what is inside each bag', 'Instant coffee flakes — what is inside the bag'],
+  },
+  matcha: {
+    images: [LINEUP, COLLAGE, MATCHA_POWDER],
+    alts: ['The three Torch Republic rituals lined up', 'Torch Republic lifestyle and what is inside each bag', 'Ceremonial matcha powder — what is inside the bag'],
+  },
 };
 
 const LIFESTYLE_COPY = {
@@ -108,6 +131,8 @@ function RitualPDP({ product }) {
   const unitPrice = isSubscription ? subscriptionPrice : product.price;
   const imageUrl = getProductImage(product);
   const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
+  const galleryImages = [imageUrl, ...GALLERY_EXTRA[product.category].images];
+  const galleryAlts = [imageAlt, ...GALLERY_EXTRA[product.category].alts];
   const faqs = faqsFor(product);
   const benefits = benefitsFor(product);
   const related = otherRituals(product.ritualKey);
@@ -195,9 +220,7 @@ function RitualPDP({ product }) {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Gallery — flexible container (tubes now, bags later) */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:sticky lg:top-24">
-            <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: '#FFFFFF', border: `1px solid ${c.accent}22`, borderRadius: 12 }}>
-              <RitualProductImage product={product} eager alt={imageAlt} className="h-full w-full p-8" imgClassName="h-full w-full" />
-            </div>
+            <RitualProductGallery images={galleryImages} alts={galleryAlts} accent={c.accent} />
           </motion.div>
 
           {/* Info + purchase */}
