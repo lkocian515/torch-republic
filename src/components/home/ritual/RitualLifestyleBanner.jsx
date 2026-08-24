@@ -12,6 +12,7 @@ export default function RitualLifestyleBanner({
   title = 'Your daily ritual, in a real cup.',
   subtitle = 'Just add hot water. No machine, no pods, no compromise.',
 }) {
+  if (!image) return null;
   return (
     <section className="relative w-full overflow-hidden" style={{ background: '#1A1612' }}>
       <motion.img

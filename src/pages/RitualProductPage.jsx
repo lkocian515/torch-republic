@@ -22,23 +22,24 @@ const MATCHA_POWDER = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
 
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e62795928_IMG_20260823_165103.png',
-  'classic-coffee': LINEUP,
-  matcha: LINEUP,
+  'classic-coffee': null,
+  matcha: null,
 };
 
 // Extra gallery images per category (the real bag is always image #0).
+// ONLY single-product shots — no group / lineup / collage images.
 const GALLERY_EXTRA = {
   'mushroom-coffee': {
-    images: [MUSHROOM_LIFESTYLE, LINEUP, COFFEE_FLAKES],
-    alts: ['Instant Mushroom Coffee in a real home ritual', 'The three Torch Republic rituals lined up', 'Instant coffee flakes — what is inside the bag'],
+    images: [MUSHROOM_LIFESTYLE, COFFEE_FLAKES],
+    alts: ['Instant Mushroom Coffee in a real home ritual', 'Instant coffee flakes — what is inside the bag'],
   },
   'classic-coffee': {
-    images: [LINEUP, COLLAGE, COFFEE_FLAKES],
-    alts: ['The three Torch Republic rituals lined up', 'Torch Republic lifestyle and what is inside each bag', 'Instant coffee flakes — what is inside the bag'],
+    images: [COFFEE_FLAKES],
+    alts: ['Instant coffee flakes — what is inside the bag'],
   },
   matcha: {
-    images: [LINEUP, COLLAGE, MATCHA_POWDER],
-    alts: ['The three Torch Republic rituals lined up', 'Torch Republic lifestyle and what is inside each bag', 'Ceremonial matcha powder — what is inside the bag'],
+    images: [MATCHA_POWDER],
+    alts: ['Ceremonial matcha powder — what is inside the bag'],
   },
 };
 
