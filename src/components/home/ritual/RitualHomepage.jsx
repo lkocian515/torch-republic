@@ -5,6 +5,7 @@ import RitualWhy from './RitualWhy';
 import RitualComparison from './RitualComparison';
 import RitualMomentStrip from './RitualMomentStrip';
 import PoweredByNature from './PoweredByNature';
+import NatureRitualBanner from './NatureRitualBanner';
 import RitualSubscriptionTeaser from './RitualSubscriptionTeaser';
 import RitualRewardsTeaser from './RitualRewardsTeaser';
 
@@ -14,6 +15,7 @@ export default function RitualHomepage() {
       <RitualHero />
       <ChooseYourRitual />
       <PoweredByNature />
+      <NatureRitualBanner />
       <RitualWhy />
       <RitualComparison />
       <RitualMomentStrip
