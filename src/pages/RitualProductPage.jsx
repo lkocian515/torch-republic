@@ -10,6 +10,19 @@ import RecentlyViewed, { addToRecentlyViewed } from '@/components/products/Recen
 import ShareButtons from '@/components/social/ShareButtons';
 import BlendDetail from '@/pages/BlendDetail';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
+import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanner';
+
+const LIFESTYLE_IMAGE = {
+  'mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e62795928_IMG_20260823_165103.png',
+  'classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/be02f22d0_generated_image.png',
+  matcha: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/666fa62e9_generated_image.png',
+};
+
+const LIFESTYLE_COPY = {
+  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane, Chaga & Reishi meet smooth instant coffee. Just add hot water." },
+  'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
+  matcha: { eyebrow: 'Brewed for calm focus', title: 'Ceremonial matcha, in a real cup.', subtitle: 'Vibrant and whiskable — dissolves instantly. No whisk required.' },
+};
 import { useSEO } from '@/hooks/useSEO';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
@@ -263,6 +276,15 @@ function RitualPDP({ product }) {
           </motion.div>
         </div>
       </section>
+
+      <RitualLifestyleBanner
+        image={LIFESTYLE_IMAGE[product.category]}
+        alt={`${product.name} in a real home ritual setting`}
+        accent={c.accent}
+        eyebrow={LIFESTYLE_COPY[product.category].eyebrow}
+        title={LIFESTYLE_COPY[product.category].title}
+        subtitle={LIFESTYLE_COPY[product.category].subtitle}
+      />
 
       {/* Tabs */}
       <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
