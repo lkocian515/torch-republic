@@ -33,6 +33,7 @@ const MushroomCoffeeCollection = lazy(() => import('./pages/MushroomCoffeeCollec
 const MatchaCollection = lazy(() => import('./pages/MatchaCollection'));
 const MushroomBundle = lazy(() => import('./pages/MushroomBundle'));
 const BlendDetail = lazy(() => import('./pages/BlendDetail'));
+const RitualProductPage = lazy(() => import('./pages/RitualProductPage.jsx'));
 const BlendsCollection = lazy(() => import('./pages/BlendsCollection'));
 const HowItWorks = lazy(() => import('./pages/HowItWorks'));
 const Reviews = lazy(() => import('./pages/Reviews'));
@@ -223,7 +224,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
         <Route path="/blends" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendsCollection" queryClient={queryClient}><BlendsCollection /></LayoutWrapper></Suspense>} />
         <Route path="/blends/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
-        <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
+        <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RitualProductPage" queryClient={queryClient}><RitualProductPage /></LayoutWrapper></Suspense>} />
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
