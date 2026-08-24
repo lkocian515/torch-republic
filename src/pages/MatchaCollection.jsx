@@ -13,6 +13,7 @@ import GlobalSEOHead from '@/components/seo/GlobalSEOHead';
 import FAQSchema from '@/components/seo/FAQSchema';
 import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
+import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
 const MATCHA_GREEN = '#566047';
 const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
@@ -192,6 +193,15 @@ export default function MatchaCollection() {
           </div>
         </div>
       </section>
+
+      <RitualMomentStrip
+        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png"
+        alt="Ceremonial matcha powder whisked into a bowl"
+        accent={MATCHA_GREEN}
+        eyebrow="The Ritual"
+        title="Whisked. Sipped. Savored."
+        subtitle="Ceremonial matcha that dissolves instantly — calm, focused energy with no whisk required."
+      />
 
       {/* Selection aid + cross-link */}
       <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>

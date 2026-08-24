@@ -9,6 +9,7 @@ import RitualProductImage from '@/components/products/RitualProductImage';
 import RecentlyViewed, { addToRecentlyViewed } from '@/components/products/RecentlyViewed';
 import ShareButtons from '@/components/social/ShareButtons';
 import BlendDetail from '@/pages/BlendDetail';
+import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 import { useSEO } from '@/hooks/useSEO';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
@@ -299,6 +300,17 @@ function RitualPDP({ product }) {
           )}
         </div>
       </section>
+
+      <RitualMomentStrip
+        image={product.category === 'matcha'
+          ? 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png'
+          : 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png'}
+        alt={product.category === 'matcha' ? 'Ceremonial matcha powder whisked into a bowl' : 'Instant coffee flakes stirred into a hot cup'}
+        accent={c.accent}
+        eyebrow="The Ritual"
+        title="Your ritual, ready in seconds."
+        subtitle="One scoop. A swirl of hot water. A café-quality cup — no machine, no pods, no compromise."
+      />
 
       {/* Related — only the other two core rituals */}
       <section className="px-6 py-14 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>

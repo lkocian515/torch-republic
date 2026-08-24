@@ -18,6 +18,7 @@ import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection
 import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
+import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
 const GOLD = '#B7653E';
 const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
@@ -162,6 +163,15 @@ export default function ClassicCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      <RitualMomentStrip
+        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
+        alt="Instant coffee flakes stirred into a hot cup of coffee"
+        accent={GOLD}
+        eyebrow="The Ritual"
+        title="Just add hot water."
+        subtitle="Single-origin instant coffee that blooms into a rich, smooth cup in seconds — no machine, no pods."
+      />
 
       {/* Selection aid + cross-link */}
       <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>

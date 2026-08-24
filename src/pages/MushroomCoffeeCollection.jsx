@@ -17,6 +17,7 @@ import FlavorExperienceSection from '@/components/coffee/FlavorExperienceSection
 import WhyFreezeDriedSection from '@/components/coffee/WhyFreezeDriedSection';
 import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection';
 import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
+import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
 const RG = '#B7653E';
 const DEEP_CHARCOAL = '#FBF8F1';
@@ -212,6 +213,15 @@ export default function MushroomCoffeeCollection() {
           </div>
         </div>
       </section>
+
+      <RitualMomentStrip
+        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
+        alt="Instant mushroom coffee flakes stirred into a hot cup"
+        accent={RG}
+        eyebrow="The Ritual"
+        title="Scoop. Stir. Sip."
+        subtitle="Coffee-forward, functional, and ready in seconds — no machine, no pods, no compromise."
+      />
 
       {/* ── FIND YOUR BLEND ── */}
       <section id="find-your-blend" className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
