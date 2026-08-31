@@ -151,7 +151,6 @@ function RitualPDP({ product }) {
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Shop', url: '/shop' },
-      { name: product.categoryLabel, url: product.collectionPath },
       { name: product.name, url: product.path },
     ],
     faq: faqs,

@@ -27,9 +27,7 @@ import useAnalytics from './hooks/useAnalytics';
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
 const Home = lazy(() => import('./pages/Home'));
 const MushroomShop = lazy(() => import('./pages/MushroomShop'));
-const ClassicCoffeeCollection = lazy(() => import('./pages/ClassicCoffeeCollection'));
-const MushroomCoffeeCollection = lazy(() => import('./pages/MushroomCoffeeCollection'));
-const MatchaCollection = lazy(() => import('./pages/MatchaCollection'));
+
 const MushroomBundle = lazy(() => import('./pages/MushroomBundle'));
 const BlendDetail = lazy(() => import('./pages/BlendDetail'));
 const RitualProductPage = lazy(() => import('./pages/RitualProductPage.jsx'));
@@ -214,13 +212,13 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── MUSHROOM COFFEE STORE ── */}
         <Route path="/shop" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomShop" queryClient={queryClient}><MushroomShop /></LayoutWrapper></Suspense>} />
         {/* SEO Category Pages */}
-        <Route path="/shop/instant-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeCollection" queryClient={queryClient}><MushroomCoffeeCollection /></LayoutWrapper></Suspense>} />
-        <Route path="/shop/instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ClassicCoffeeCollection" queryClient={queryClient}><ClassicCoffeeCollection /></LayoutWrapper></Suspense>} />
-        <Route path="/shop/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/shop/instant-mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
+        <Route path="/shop/instant-coffee" element={<Navigate to="/products/instant-classic-coffee" replace />} />
+        <Route path="/shop/matcha" element={<Navigate to="/products/ceremonial-matcha" replace />} />
         {/* Legacy routes for backward compatibility */}
-        <Route path="/classic-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ClassicCoffeeCollection" queryClient={queryClient}><ClassicCoffeeCollection /></LayoutWrapper></Suspense>} />
-        <Route path="/mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeCollection" queryClient={queryClient}><MushroomCoffeeCollection /></LayoutWrapper></Suspense>} />
-        <Route path="/matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaCollection" queryClient={queryClient}><MatchaCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/classic-coffee" element={<Navigate to="/products/instant-classic-coffee" replace />} />
+        <Route path="/mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
+        <Route path="/matcha" element={<Navigate to="/products/ceremonial-matcha" replace />} />
         <Route path="/blends" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendsCollection" queryClient={queryClient}><BlendsCollection /></LayoutWrapper></Suspense>} />
         <Route path="/blends/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
         <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RitualProductPage" queryClient={queryClient}><RitualProductPage /></LayoutWrapper></Suspense>} />

@@ -16,15 +16,10 @@ const SECTIONS = [
   {
     label: 'Shop',
     items: [
-      ['All Products', '/shop'],
-      ['Classic Coffee', '/shop/instant-coffee'],
-      ['Mushroom Coffee', '/shop/instant-mushroom-coffee'],
-      ['Matcha', '/shop/matcha'],
-      ['The Blends', '/blends'],
-      ['Gifts', '/gifts'],
-      ['Morning Ritual', '/shop/morning-ritual'],
-      ['Focus Coffee', '/shop/focus-coffee'],
-      ['Travel Coffee', '/shop/travel-coffee'],
+      ['Shop All Three', '/shop'],
+      ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+      ['Ceremonial Matcha', '/products/ceremonial-matcha'],
     ],
   },
   {

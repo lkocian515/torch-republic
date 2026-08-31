@@ -80,7 +80,7 @@ export const CORE_PRODUCTS = [
     prep: 'Hot or iced',
     cta: 'Shop Coffee',
     path: '/products/instant-classic-coffee',
-    collectionPath: '/shop/instant-coffee',
+    collectionPath: '/products/instant-classic-coffee',
     image:
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
   }),
@@ -107,7 +107,7 @@ export const CORE_PRODUCTS = [
     prep: 'Hot or iced',
     cta: 'Shop Mushroom Coffee',
     path: '/products/instant-mushroom-coffee',
-    collectionPath: '/shop/instant-mushroom-coffee',
+    collectionPath: '/products/instant-mushroom-coffee',
     image:
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
   }),
@@ -134,7 +134,7 @@ export const CORE_PRODUCTS = [
     prep: 'Hot or iced',
     cta: 'Shop Matcha',
     path: '/products/ceremonial-matcha',
-    collectionPath: '/shop/matcha',
+    collectionPath: '/products/ceremonial-matcha',
     image:
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
   }),

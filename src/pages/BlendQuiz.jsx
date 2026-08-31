@@ -81,7 +81,7 @@ const RESULTS = {
     slug: 'instant-classic-coffee',
     desc: 'A traditional instant coffee with bold flavor and higher caffeine — straightforward energy, ready in seconds with no machine.',
     link: '/products/instant-classic-coffee',
-    compareLink: '/shop/instant-coffee',
+    compareLink: '/shop',
     accent: '#B86543',
   },
   mushroom: {
@@ -90,7 +90,7 @@ const RESULTS = {
     slug: 'instant-mushroom-coffee',
     desc: 'Coffee plus functional mushrooms (Lion’s Mane + Chaga) for focus and work sessions — balanced energy without the crash.',
     link: '/products/instant-mushroom-coffee',
-    compareLink: '/shop/instant-mushroom-coffee',
+    compareLink: '/shop',
     accent: '#2F4A73',
   },
   matcha: {
@@ -99,7 +99,7 @@ const RESULTS = {
     slug: 'ceremonial-matcha',
     desc: 'Smoother, lower-jitter energy for a calm or intentional ritual — whisk it hot or pour it over ice.',
     link: '/products/ceremonial-matcha',
-    compareLink: '/shop/matcha',
+    compareLink: '/shop',
     accent: '#5E7A3E',
   },
 };

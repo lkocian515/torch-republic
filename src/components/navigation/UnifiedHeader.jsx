@@ -20,11 +20,10 @@ const SECTIONS = [
   {
     label: 'Shop',
     items: [
-      ['All Products', '/shop'],
-      ['Classic Coffee', '/products/torchbearer'],
-      ['Mushroom Coffee', '/products/glowmind-clarity-blend'],
-      ['Matcha', '/products/the-alchemist-matcha-blend'],
-      ['Build Your Routine', '/build-your-ritual'],
+      ['Shop All Three', '/shop'],
+      ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+      ['Ceremonial Matcha', '/products/ceremonial-matcha'],
     ],
   },
   {
