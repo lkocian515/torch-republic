@@ -69,6 +69,7 @@
     --ring: 17 46% 49%;
 
     --radius: 0.25rem;
+    --bottom-nav-height: 60px;
 
     --rose-gold: 17 46% 49%;
     --rose-gold-deep: 17 46% 39%;
@@ -277,6 +278,15 @@ body {
 
 header.sticky.top-0 {
   padding-top: env(safe-area-inset-top);
+}
+
+/* Cart sticky checkout bar — sits above the fixed bottom navigation.
+   On md+ the bottom nav is hidden, so the bar drops to the very bottom. */
+.cart-sticky-checkout {
+  bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+}
+@media (min-width: 768px) {
+  .cart-sticky-checkout { bottom: 0; }
 }
 
 /* User select none for buttons and nav */

@@ -1,12 +1,9 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
-import { getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
-import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
 import { requireCommerce } from '@/lib/commerceGuard';
-import { guardExternalPurchase } from '@/lib/purchaseFallback';
-import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
+import { Minus, Plus, X, ShoppingBag, ArrowLeft, Flame } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
@@ -20,7 +17,7 @@ import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
 import CartBundleIncentive from '@/components/cart/CartBundleIncentive';
 import CartReassurance from '@/components/cart/CartReassurance';
 import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
-import { trackFreeShippingThresholdReached, trackCheckoutStarted } from '@/lib/analytics';
+import { trackFreeShippingThresholdReached } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { useMutation } from '@tanstack/react-query';
@@ -45,7 +42,7 @@ export default function Cart() {
     url: '/cart',
     noindex: true,
   });
-  const { items, updateQty, removeItem, subtotal, totalItems } = useCart();
+  const { items, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed } = useCart();
   const qtyMutation = useMutation({
     mutationFn: async () => true,
     onMutate: ({ id, delta }) => updateQty(id, delta),
@@ -61,20 +58,6 @@ export default function Cart() {
       trackFreeShippingThresholdReached(subtotal);
     }
   }, [subtotal]);
-
-  // Build the Shopify checkout URL with all current cart items.
-  // An empty cart is a valid state (null URL, no error). When commerce is
-  // disabled (COMMERCE_ENABLED === false) this is null without any Shopify
-  // request or console noise — the checkout button then shows an availability
-  // notice instead of routing to a broken cart.
-  const checkoutUrl = useMemo(() => {
-    if (!COMMERCE_ENABLED || items.length === 0) return null;
-    const mapped = items
-      .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }))
-      .filter(m => SHOPIFY_VARIANT_IDS[m.slug]);
-    if (mapped.length === 0) return null;
-    return getShopifyBundleUrl(mapped);
-  }, [items]);
 
   if (items.length === 0) {
     return (
@@ -123,6 +106,18 @@ export default function Cart() {
             Continue Shopping
           </Link>
         </div>
+
+        {/* Cart was refreshed to drop retired products */}
+        {refreshed && (
+          <div className="mb-4 flex items-center justify-between gap-3 p-3" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.25)' }}>
+            <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: '#0f766e' }}>
+              Your cart was refreshed to match the current collection.
+            </p>
+            <button onClick={dismissRefreshed} aria-label="Dismiss notice" className="shrink-0" style={{ color: '#0f766e' }}>
+              <X className="w-3 h-3" />
+            </button>
+          </div>
+        )}
 
         {/* First-time customer welcome + Free shipping progress */}
         <CartFirstTimeOffer />
@@ -227,42 +222,13 @@ export default function Cart() {
                 </p>
               </div>
 
-              {!COMMERCE_ENABLED ? (
-                <button
-                  onClick={() => requireCommerce()}
-                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
-                  style={{ background: ACCENT, color: BTN_TEXT }}
-                >
-                  Continue to Checkout
-                </button>
-              ) : checkoutUrl ? (
-                <a
-                  href={checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => { if (guardExternalPurchase(e)) return; trackCheckoutStarted(subtotal, totalItems); }}
-                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
-                  style={{ background: ACCENT, color: BTN_TEXT, textDecoration: 'none', display: 'flex' }}
-                >
-                  <Lock className="w-3.5 h-3.5" />
-                  Secure Checkout →
-                </a>
-              ) : (
-                <button
-                  disabled
-                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 mb-3 opacity-50 cursor-not-allowed"
-                  style={{ background: 'rgba(184,101,67,0.25)', color: BTN_TEXT }}
-                >
-                  <Lock className="w-3.5 h-3.5" />
-                  Preparing checkout…
-                </button>
-              )}
-
-              {COMMERCE_ENABLED && (
-                <p className="font-mono text-[7px] tracking-[0.15em] text-center mb-4" style={{ color: MUTED, lineHeight: 1.8 }}>
-                  Secure checkout powered by Shopify
-                </p>
-              )}
+              <button
+                onClick={() => requireCommerce()}
+                className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: 'pointer' }}
+              >
+                Continue to Checkout
+              </button>
 
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Secure Checkout</span>
@@ -289,10 +255,12 @@ export default function Cart() {
       </div>
 
       {/* Mobile sticky checkout bar */}
-      <CartStickyCheckout subtotal={subtotal} checkoutUrl={checkoutUrl} totalItems={totalItems} />
+      <CartStickyCheckout subtotal={subtotal} totalItems={totalItems} />
 
-      {/* Mobile bottom spacing for sticky bar */}
-      <div className="lg:hidden h-20" />
+      {/* Bottom spacing so content clears the fixed mobile checkout bar and
+          the fixed bottom navigation on every viewport. */}
+      <div aria-hidden className="lg:hidden" style={{ height: 'calc(env(safe-area-inset-bottom) + 96px)' }} />
+      <div aria-hidden className="md:hidden" style={{ height: 'var(--bottom-nav-height)' }} />
     </div>
   );
 }

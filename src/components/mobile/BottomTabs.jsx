@@ -34,7 +34,7 @@ export default function BottomTabs() {
   return (
     <>
       {/* Spacer to prevent content from being hidden behind tabs */}
-      <div className="md:hidden" style={{ height: 'calc(60px + env(safe-area-inset-bottom))' }} />
+      <div className="md:hidden" style={{ height: 'calc(var(--bottom-nav-height) + env(safe-area-inset-bottom))' }} />
 
       {/* Bottom Tabs Bar */}
       <nav
@@ -48,7 +48,7 @@ export default function BottomTabs() {
           paddingBottom: 'env(safe-area-inset-bottom)',
         }}
       >
-        <div className="flex items-center justify-around" style={{ height: '60px' }}>
+        <div className="flex items-center justify-around" style={{ height: 'var(--bottom-nav-height)' }}>
           {TABS.map((tab) => {
             const active = isActive(tab.path);
             return (
