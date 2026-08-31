@@ -7,30 +7,30 @@ const RG = '#E6B7AD';
 
 const QUESTIONS = [
   {
-    q: 'What time of day do you usually drink coffee?',
+    q: 'What time of day do you usually drink your ritual?',
     options: [
-      { text: 'Early morning', result: 'suncap-rise' },
-      { text: 'Mid-morning / Focus time', result: 'glowmind-clarity' },
-      { text: 'Afternoon', result: 'glowmind-clarity' },
-      { text: 'Evening', result: 'mooncap-restore' },
+      { text: 'Early morning', result: 'instant-classic-coffee' },
+      { text: 'Mid-morning / Focus time', result: 'instant-mushroom-coffee' },
+      { text: 'Afternoon', result: 'instant-mushroom-coffee' },
+      { text: 'Evening', result: 'ceremonial-matcha' },
     ],
   },
   {
     q: 'What are you looking to support?',
     options: [
-      { text: 'Energy & momentum', result: 'suncap-rise' },
-      { text: 'Focus & clarity', result: 'glowmind-clarity' },
-      { text: 'Creativity & insight', result: 'glowmind-clarity' },
-      { text: 'Calm & restoration', result: 'mooncap-restore' },
+      { text: 'Energy & momentum', result: 'instant-classic-coffee' },
+      { text: 'Focus & clarity', result: 'instant-mushroom-coffee' },
+      { text: 'Creativity & insight', result: 'ceremonial-matcha' },
+      { text: 'Calm & restoration', result: 'ceremonial-matcha' },
     ],
   },
   {
     q: 'What flavor profile do you prefer?',
     options: [
-      { text: 'Light & bright', result: 'suncap-rise' },
-      { text: 'Smooth & balanced', result: 'glowmind-clarity' },
-      { text: 'Rich & earthy', result: 'glowmind-clarity' },
-      { text: 'Dark & mellow', result: 'mooncap-restore' },
+      { text: 'Bold & straightforward', result: 'instant-classic-coffee' },
+      { text: 'Smooth & balanced', result: 'instant-mushroom-coffee' },
+      { text: 'Bright & vegetal', result: 'ceremonial-matcha' },
+      { text: 'Mellow & grounding', result: 'ceremonial-matcha' },
     ],
   },
 ];
@@ -63,11 +63,11 @@ export default function BlendQuiz() {
 
   const getBlendInfo = (slug) => {
     const blends = {
-      'suncap-rise': { name: 'SunCap Rise', tagline: 'Morning Energy', color: '#D6B27A', slug: 'suncap-rise' },
-      'glowmind-clarity': { name: 'GlowMind Clarity', tagline: 'Focus & Clarity', color: '#E6B7AD', slug: 'glowmind-clarity-blend' },
-      'mooncap-restore': { name: 'MoonCap Restore', tagline: 'Evening Calm', color: '#C98F86', slug: 'mooncap-restore' },
+      'instant-classic-coffee': { name: 'Instant Classic Coffee', tagline: 'Bold · Higher Caffeine', color: '#B86543', slug: 'instant-classic-coffee' },
+      'instant-mushroom-coffee': { name: 'Instant Mushroom Coffee', tagline: 'Focus · Functional Mushrooms', color: '#2F4A73', slug: 'instant-mushroom-coffee' },
+      'ceremonial-matcha': { name: 'Ceremonial Matcha', tagline: 'Calm · Smoother Energy', color: '#5E7A3E', slug: 'ceremonial-matcha' },
     };
-    return blends[slug] || blends['glowmind-clarity'];
+    return blends[slug] || blends['instant-mushroom-coffee'];
   };
 
   return (
@@ -89,7 +89,7 @@ export default function BlendQuiz() {
             Not sure where to start?
           </h2>
           <p className="font-heading mt-3" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300 }}>
-            Take our quick quiz to discover your ideal mushroom coffee blend.
+            Take our quick quiz to discover your ideal coffee, mushroom coffee, or matcha ritual.
           </p>
         </motion.div>
 
@@ -202,7 +202,7 @@ export default function BlendQuiz() {
 
         {/* Trust note */}
         <p className="text-center mt-8 font-mono text-[7px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.25)' }}>
-          All blends contain Lion's Mane + Chaga · 27 servings per tube
+          Instant coffee & ceremonial matcha · No machine needed
         </p>
       </div>
     </section>
