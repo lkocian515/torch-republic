@@ -12,10 +12,8 @@ import QaEvidence from '@/components/portfolio/QaEvidence';
 import DefectCard from '@/components/portfolio/DefectCard';
 import ProjectGallery from '@/components/portfolio/ProjectGallery';
 import ToolsPlatforms from '@/components/portfolio/ToolsPlatforms';
-import BusinessLens from '@/components/portfolio/BusinessLens';
-import CareerDirection from '@/components/portfolio/CareerDirection';
-import ResumeExperience from '@/components/portfolio/ResumeExperience';
-import AboutLisa from '@/components/portfolio/AboutLisa';
+import ExperienceSnapshot from '@/components/portfolio/ExperienceSnapshot';
+import ResumeAccess from '@/components/portfolio/ResumeAccess';
 import ContactCta from '@/components/portfolio/ContactCta';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import { P, LINKEDIN } from '@/components/portfolio/portfolioTheme';
@@ -99,19 +97,17 @@ export default function PortfolioCaseStudy() {
       <main>
         <PortfolioHero />
         <CredibilityStrip />
-        <SixFrameworks />
-        <ProcessDiagram />
         <CaseStudyIntro />
         <CommerceSystem />
         <DevLoop />
         <QaEvidence />
         <DefectCard />
         <ProjectGallery />
+        <SixFrameworks />
+        <ProcessDiagram />
+        <ExperienceSnapshot />
         <ToolsPlatforms />
-        <BusinessLens />
-        <CareerDirection />
-        <ResumeExperience />
-        <AboutLisa />
+        <ResumeAccess />
         <ContactCta />
       </main>
       <PortfolioFooter />
