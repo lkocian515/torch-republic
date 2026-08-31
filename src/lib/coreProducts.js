@@ -1,14 +1,17 @@
-// Torch Republic — three-product core storefront (the "lineup").
+// Torch Republic — canonical three-product storefront (the "lineup").
 //
 // This is the SINGLE source of truth for the customer-facing assortment.
-// Legacy 7-product data in mushroomProducts.js is intentionally NOT imported
-// here — it stays untouched so historical orders, admin views, and database
-// integrity remain intact. Only these three products are promoted publicly.
+// Only these three products exist publicly. Legacy 7-product data in
+// mushroomProducts.js is retained solely for historical/admin integrity and
+// is NOT rendered to customers.
 //
-// Product imagery: real 3oz bag photography (Dripshipper) — Phase 2 packaging
-// is live. Each product carries an explicit `image`; getProductImage resolves
-// to the same bag photos via productImageHelpers. Image containers are neutral
-// white so the product-shot backgrounds blend cleanly.
+// Product imagery: real 3oz bag photography. Each product carries an explicit
+// `image`; getProductImage resolves to the same bag photos via
+// productImageHelpers. Image containers are neutral white so the product-shot
+// backgrounds blend cleanly.
+//
+// Public product identifiers use plain, generic names and routes — no former
+// blend names, subtitles, or retired SKUs appear in any customer-facing field.
 
 import { FINAL_PRODUCT_IMAGE_URLS } from './mushroomProducts';
 import { PRICES } from './pricingConfig';
@@ -55,11 +58,9 @@ const build = (p) => {
 // ── The three core products (verified data only — no invented claims) ───────
 export const CORE_PRODUCTS = [
   build({
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-    id: 'torchbearer',
+    id: 'instant-classic-coffee',
     name: 'Instant Classic Coffee',
-    blendName: 'Torchbearer',
-    slug: 'torchbearer',
+    slug: 'instant-classic-coffee',
     shopifyHandle: 'torchbearer™-single-origin-instant-coffee',
     ritualKey: 'classic',
     category: 'classic-coffee',
@@ -78,42 +79,15 @@ export const CORE_PRODUCTS = [
     functionalLabel: null,
     prep: 'Hot or iced',
     cta: 'Shop Coffee',
-    path: '/products/torchbearer',
+    path: '/products/instant-classic-coffee',
     collectionPath: '/shop/instant-coffee',
+    image:
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
   }),
   build({
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-    id: 'the-alchemist',
-    name: 'Ceremonial Matcha',
-    blendName: 'The Alchemist',
-    slug: 'the-alchemist-matcha-blend',
-    shopifyHandle: 'the-alchemist-matcha',
-    ritualKey: 'matcha',
-    category: 'matcha',
-    categoryLabel: 'Ceremonial Matcha',
-    price: PRICES['matcha'],
-    servings: 25,
-    caffeineLevel: 'medium',
-    caffeineLabel: 'Medium',
-    positioning: 'Clean energy for a slower kind of morning.',
-    description:
-      'A ceremonial matcha made for lattes, iced drinks, and everyday exploration. Whisk it with water or make the ritual your own.',
-    flavorNotes: ['Ceremonial Matcha', 'Bright', 'Versatile'],
-    flavorLabel: 'Bright ceremonial matcha',
-    bestFor: 'Matcha lattes, iced drinks, and creative rituals',
-    mushrooms: null,
-    functionalLabel: null,
-    prep: 'Hot or iced',
-    cta: 'Shop Matcha',
-    path: '/products/the-alchemist-matcha-blend',
-    collectionPath: '/shop/matcha',
-  }),
-  build({
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-    id: 'glowmind-clarity',
+    id: 'instant-mushroom-coffee',
     name: 'Instant Mushroom Coffee',
-    blendName: 'GlowMind Clarity',
-    slug: 'glowmind-clarity-blend',
+    slug: 'instant-mushroom-coffee',
     shopifyHandle: 'glowmind-clarity-instant-mushroom-coffee',
     ritualKey: 'mushroom',
     category: 'mushroom-coffee',
@@ -132,10 +106,68 @@ export const CORE_PRODUCTS = [
     functionalLabel: 'Lion’s Mane + Chaga',
     prep: 'Hot or iced',
     cta: 'Shop Mushroom Coffee',
-    path: '/products/glowmind-clarity-blend',
+    path: '/products/instant-mushroom-coffee',
     collectionPath: '/shop/instant-mushroom-coffee',
+    image:
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+  }),
+  build({
+    id: 'ceremonial-matcha',
+    name: 'Ceremonial Matcha',
+    slug: 'ceremonial-matcha',
+    shopifyHandle: 'the-alchemist-matcha',
+    ritualKey: 'matcha',
+    category: 'matcha',
+    categoryLabel: 'Ceremonial Matcha',
+    price: PRICES['matcha'],
+    servings: 25,
+    caffeineLevel: 'medium',
+    caffeineLabel: 'Medium',
+    positioning: 'Clean energy for a slower kind of morning.',
+    description:
+      'A ceremonial matcha made for lattes, iced drinks, and everyday exploration. Whisk it with water or make the ritual your own.',
+    flavorNotes: ['Ceremonial Matcha', 'Bright', 'Versatile'],
+    flavorLabel: 'Bright ceremonial matcha',
+    bestFor: 'Matcha lattes, iced drinks, and creative rituals',
+    mushrooms: null,
+    functionalLabel: null,
+    prep: 'Hot or iced',
+    cta: 'Shop Matcha',
+    path: '/products/ceremonial-matcha',
+    collectionPath: '/shop/matcha',
+    image:
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
   }),
 ];
+
+// ── Legacy slug → canonical slug redirect map ───────────────────────────────
+// Former product URLs (and any stale internal references) resolve to the
+// appropriate current product. Used by RitualProductPage for <Navigate>
+// redirects so old inbound links land on the clean canonical route.
+export const LEGACY_SLUG_REDIRECT = {
+  // → Instant Classic Coffee
+  torchbearer: 'instant-classic-coffee',
+  'torchbearer™-single-origin-instant-coffee': 'instant-classic-coffee',
+  'ember-reserve': 'instant-classic-coffee',
+  'ember-rise': 'instant-classic-coffee',
+  'ember-rise-instant-coffee': 'instant-classic-coffee',
+  'torchbearer-instant-coffee': 'instant-classic-coffee',
+  // → Instant Mushroom Coffee
+  'glowmind-clarity': 'instant-mushroom-coffee',
+  'glowmind-clarity-blend': 'instant-mushroom-coffee',
+  'glowmind-clarity-instant-mushroom-coffee': 'instant-mushroom-coffee',
+  'suncap-rise': 'instant-mushroom-coffee',
+  'suncap-rise-instant-mushroom-coffee': 'instant-mushroom-coffee',
+  'mooncap-restore': 'instant-mushroom-coffee',
+  'mooncap-restore-instant-mushroom-coffee': 'instant-mushroom-coffee',
+  // → Ceremonial Matcha
+  'the-alchemist': 'ceremonial-matcha',
+  'the-alchemist-matcha-blend': 'ceremonial-matcha',
+  'the-alchemist-matcha': 'ceremonial-matcha',
+  'the-monk': 'ceremonial-matcha',
+  'the-monk-matcha-blend': 'ceremonial-matcha',
+  'the-monk-matcha': 'ceremonial-matcha',
+};
 
 export const getProductBySlug = (slug) => CORE_PRODUCTS.find((p) => p.slug === slug);
 export const getProductByRitual = (key) => CORE_PRODUCTS.find((p) => p.ritualKey === key);

@@ -60,9 +60,7 @@ export default function RitualCard({ product, index = 0 }) {
               {product.name}
             </h3>
           </Link>
-          <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.2em]" style={{ color: c.deep }}>
-            {product.blendName}
-          </p>
+
         </div>
 
         <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.6 }}>

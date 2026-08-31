@@ -8,29 +8,30 @@ export const PRODUCT_IMAGE_DRAG_PREVENTION_PROPS = {
   style: PRODUCT_IMAGE_DRAG_PREVENTION_STYLE,
 };
 
+// Only the three current products resolve to a current bag image.
+// Retired-only products (SunCap, MoonCap, Ember Reserve, The Monk) are
+// intentionally absent so they can NEVER borrow a current bag image — they
+// fall back to the logo, since they should not render publicly at all.
+const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
+const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
+const MATCHA_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
+
 export const APPROVED_PRODUCT_IMAGES = {
-  'suncap-rise': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'suncap-rise-instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'suncap rise': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'glowmind-clarity': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'glowmind-clarity-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'glowmind-clarity-instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'glowmind clarity': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'mooncap-restore': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'mooncap-restore-instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'torchbearer': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'torchbearer™-single-origin-instant-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'torchbearer-instant-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'ember-reserve': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'ember reserve': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'ember-rise': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'ember-rise-instant-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
-  'the-alchemist': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-  'the-alchemist-matcha-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-  'the-alchemist-matcha': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-  'the-monk': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-  'the-monk-matcha-blend': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
-  'the-monk-matcha': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
+  // Instant Classic Coffee (canonical + legacy slug/shopify handle keys)
+  'instant-classic-coffee': CLASSIC_IMG,
+  'torchbearer': CLASSIC_IMG,
+  'torchbearer™-single-origin-instant-coffee': CLASSIC_IMG,
+  'torchbearer-instant-coffee': CLASSIC_IMG,
+  // Instant Mushroom Coffee (canonical + legacy slug/shopify handle keys)
+  'instant-mushroom-coffee': MUSHROOM_IMG,
+  'glowmind-clarity': MUSHROOM_IMG,
+  'glowmind-clarity-blend': MUSHROOM_IMG,
+  'glowmind-clarity-instant-mushroom-coffee': MUSHROOM_IMG,
+  // Ceremonial Matcha (canonical + legacy slug/shopify handle keys)
+  'ceremonial-matcha': MATCHA_IMG,
+  'the-alchemist': MATCHA_IMG,
+  'the-alchemist-matcha-blend': MATCHA_IMG,
+  'the-alchemist-matcha': MATCHA_IMG,
 };
 
 export function getApprovedProductImage(product) {

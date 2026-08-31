@@ -2,24 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { getProductBySlug } from '@/lib/coreProducts';
 
-const STORAGE_KEY = 'tr_recently_viewed';
+// Versioned storage key — previous caches (which held stale tube imagery and
+// retired product objects) are intentionally abandoned so they can never
+// re-render. Old keys are cleared on first read of the new version.
+const LEGACY_STORAGE_KEYS = ['tr_recently_viewed'];
+const STORAGE_KEY = 'tr_recently_viewed_v3';
 const MAX_ITEMS = 4;
 
 /**
  * RecentlyViewed — tracks and displays recently viewed products.
  * Call addToRecentlyViewed(product) on product page mount.
  * Render <RecentlyViewed currentSlug={product.slug} /> on product pages.
+ *
+ * Only the product slug is persisted. Everything shown (name, price, image,
+ * category, accent) is rehydrated from the canonical three-product catalog on
+ * read, so a cached stale image or retired name can never be restored.
  */
 export function addToRecentlyViewed(product) {
   try {
+    purgeLegacyKeys();
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    const filtered = stored.filter(p => p.slug !== product.slug);
-    const updated = [
-      { slug: product.slug, name: product.name, price: product.price, image: product.image, accent: product.accent, category: product.category },
-      ...filtered,
-    ].slice(0, MAX_ITEMS + 1); // keep one extra to filter current
+    const filtered = stored.filter((p) => p.slug !== product.slug);
+    const updated = [{ slug: product.slug }, ...filtered].slice(0, MAX_ITEMS + 1);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  } catch (_) {}
+}
+
+function purgeLegacyKeys() {
+  try {
+    LEGACY_STORAGE_KEYS.forEach((k) => localStorage.removeItem(k));
   } catch (_) {}
 }
 
@@ -28,9 +41,20 @@ export default function RecentlyViewed({ currentSlug }) {
 
   useEffect(() => {
     try {
+      purgeLegacyKeys();
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      setItems(stored.filter(p => p.slug !== currentSlug).slice(0, MAX_ITEMS));
-    } catch (_) {}
+      // Rehydrate from the canonical catalog; discard any entry whose slug is
+      // no longer an active product. This prevents retired/tube products from
+      // ever reappearing, regardless of what was cached.
+      const active = stored
+        .map((p) => getProductBySlug(p.slug))
+        .filter(Boolean)
+        .filter((p) => p.slug !== currentSlug)
+        .slice(0, MAX_ITEMS);
+      setItems(active);
+    } catch (_) {
+      setItems([]);
+    }
   }, [currentSlug]);
 
   if (items.length === 0) return null;
@@ -61,7 +85,7 @@ export default function RecentlyViewed({ currentSlug }) {
               >
                 {item.image && (
                   <div style={{ aspectRatio: '1/1', background: '#111', overflow: 'hidden' }}>
-                    <img src={item.image} alt={item.name} className="w-full h-full object-contain p-3"
+                    <img src={item.image} alt={item.alt || item.name} className="w-full h-full object-contain p-3"
                       style={{ transition: 'transform 0.3s' }}
                       onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
                       onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
@@ -70,7 +94,7 @@ export default function RecentlyViewed({ currentSlug }) {
                 )}
                 <div className="p-3">
                   <p className="font-serif font-bold text-white text-xs mb-0.5 truncate">{item.name}</p>
-                  <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-1" style={{ color: `${item.accent}70` }}>
+                  <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-1" style={{ color: `${item.ritual?.accent}70` || 'rgba(230,183,173,0.5)' }}>
                     {categoryLabel(item.category)}
                   </p>
                   <div className="flex items-center justify-between">

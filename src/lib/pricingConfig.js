@@ -6,7 +6,7 @@
  * Updated: 2026-06-14
  */
 
-// ── One-time purchase prices (per tube) ────────────────────────────────────
+// ── One-time purchase prices (per bag) ────────────────────────────────────
 export const PRICES = {
   'classic-coffee': 19.99,
   'mushroom-coffee': 22.99,
@@ -26,7 +26,7 @@ export const PRICE_THE_ALCHEMIST = 24.99;
 export const PRICE_THE_MONK = 24.99;
 
 // ── Bundle pricing ───────────────────────────────────────────────────────────
-// Every 3-tube bundle is always exactly $49.99, regardless of which products are selected.
+// Every 3-bag bundle is always exactly $49.99, regardless of which products are selected.
 export const BUNDLE_PRICE_3 = 49.99;
 
 // ── Subscription discount ────────────────────────────────────────────────────

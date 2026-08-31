@@ -3,7 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, Check, ShoppingBag, Truck, ShieldCheck, RotateCcw, ChevronRight, Gift, Brain, Leaf } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { getProductBySlug, otherRituals } from '@/lib/coreProducts';
+import { getProductBySlug, otherRituals, LEGACY_SLUG_REDIRECT } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import RitualProductImage from '@/components/products/RitualProductImage';
 import RecentlyViewed, { addToRecentlyViewed } from '@/components/products/RecentlyViewed';
@@ -41,7 +41,7 @@ const GALLERY_EXTRA = {
 };
 
 const LIFESTYLE_COPY = {
-  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane, Chaga & Reishi meet smooth instant coffee. Just add hot water." },
+  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane and Chaga meet smooth instant coffee. Just add hot water." },
   'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
   matcha: { eyebrow: 'Brewed for calm focus', title: 'Ceremonial matcha, in a real cup.', subtitle: 'Vibrant and whiskable — dissolves instantly. No whisk required.' },
 };
@@ -90,12 +90,11 @@ function benefitsFor(p) {
 }
 
 function faqsFor(p) {
-  const format = p.category === 'matcha' ? 'tin' : 'tube';
   return [
     { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
     { q: 'How do I prepare it?', a: PREP },
     { q: 'Is it instant?', a: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
-    { q: 'How many servings are included?', a: `${p.servings} servings per ${format}.` },
+    { q: 'How many servings are included?', a: `${p.servings} servings per bag.` },
     {
       q: 'Does it contain caffeine?',
       a:
@@ -106,16 +105,8 @@ function faqsFor(p) {
   ];
 }
 
-// Legacy 7-product slugs → the single core product for that ritual, so old
-// links land on the current product page (and the correct cart name) instead
-// of the legacy BlendDetail template.
-const LEGACY_SLUG_REDIRECT = {
-  'suncap-rise': 'glowmind-clarity-blend',
-  'glowmind-clarity': 'glowmind-clarity-blend',
-  'mooncap-restore': 'glowmind-clarity-blend',
-  'ember-reserve': 'torchbearer',
-  'the-monk-matcha-blend': 'the-alchemist-matcha-blend',
-};
+// Legacy slug → canonical slug redirect map lives in coreProducts
+// (LEGACY_SLUG_REDIRECT) and is imported above.
 
 export default function RitualProductPage() {
   const { slug } = useParams();
@@ -231,7 +222,7 @@ function RitualPDP({ product }) {
       {/* Main */}
       <section className="mx-auto max-w-[1100px] px-6 py-8 md:px-10 md:py-12">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Gallery — flexible container (tubes now, bags later) */}
+          {/* Gallery — bag product container */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:sticky lg:top-24">
             <RitualProductGallery images={galleryImages} alts={galleryAlts} accent={c.accent} />
           </motion.div>
@@ -245,7 +236,6 @@ function RitualPDP({ product }) {
 
             <div>
               <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem,4vw,2.6rem)', color: THEME.text, lineHeight: 1.1 }}>{product.name}</h1>
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em]" style={{ color: c.deep }}>{product.blendName}</p>
             </div>
 
             <p className="font-heading" style={{ color: THEME.secondary, lineHeight: 1.7 }}>{product.description}</p>
