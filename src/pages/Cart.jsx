@@ -2,7 +2,9 @@ import React, { useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
-import { SHOPIFY_CART_URL, getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { getShopifyBundleUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
+import { requireCommerce } from '@/lib/commerceGuard';
 import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import { Minus, Plus, X, ShoppingBag, Lock, ArrowLeft, Flame } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
@@ -60,33 +62,18 @@ export default function Cart() {
     }
   }, [subtotal]);
 
-  // Build the Shopify checkout URL with all current cart items
+  // Build the Shopify checkout URL with all current cart items.
+  // An empty cart is a valid state (null URL, no error). When commerce is
+  // disabled (COMMERCE_ENABLED === false) this is null without any Shopify
+  // request or console noise — the checkout button then shows an availability
+  // notice instead of routing to a broken cart.
   const checkoutUrl = useMemo(() => {
-    if (items.length === 0) {
-      console.error('[Cart] Empty cart - no checkout URL');
-      return null;
-    }
+    if (!COMMERCE_ENABLED || items.length === 0) return null;
     const mapped = items
-      .filter(i => {
-        const handle = i.shopifyHandle || i.id;
-        const hasVariant = !!SHOPIFY_VARIANT_IDS[handle];
-        if (!hasVariant) {
-          console.error('[Cart] Missing variant ID for:', i.name, '| handle:', handle);
-        }
-        return hasVariant;
-      })
-      .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }));
-    if (mapped.length === 0) {
-      console.error('[Cart] No valid Shopify variants mapped');
-      return null;
-    }
-    const baseUrl = getShopifyBundleUrl(mapped);
-    if (!baseUrl) {
-      console.error('[Cart] Failed to build Shopify bundle URL');
-      return null;
-    }
-    console.log('[Cart] Checkout URL:', baseUrl);
-    return baseUrl;
+      .map(i => ({ slug: i.shopifyHandle || i.id, qty: i.qty }))
+      .filter(m => SHOPIFY_VARIANT_IDS[m.slug]);
+    if (mapped.length === 0) return null;
+    return getShopifyBundleUrl(mapped);
   }, [items]);
 
   if (items.length === 0) {
@@ -240,16 +227,15 @@ export default function Cart() {
                 </p>
               </div>
 
-              {!checkoutUrl ? (
+              {!COMMERCE_ENABLED ? (
                 <button
-                  disabled
-                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 mb-3 opacity-50 cursor-not-allowed"
-                  style={{ background: 'rgba(184,101,67,0.25)', color: BTN_TEXT }}
+                  onClick={() => requireCommerce()}
+                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                  style={{ background: ACCENT, color: BTN_TEXT }}
                 >
-                  <Lock className="w-3.5 h-3.5" />
-                  Your cart is empty
+                  Check Availability
                 </button>
-              ) : (
+              ) : checkoutUrl ? (
                 <a
                   href={checkoutUrl}
                   target="_blank"
@@ -261,11 +247,22 @@ export default function Cart() {
                   <Lock className="w-3.5 h-3.5" />
                   Secure Checkout →
                 </a>
+              ) : (
+                <button
+                  disabled
+                  className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 mb-3 opacity-50 cursor-not-allowed"
+                  style={{ background: 'rgba(184,101,67,0.25)', color: BTN_TEXT }}
+                >
+                  <Lock className="w-3.5 h-3.5" />
+                  Preparing checkout…
+                </button>
               )}
 
-              <p className="font-mono text-[7px] tracking-[0.15em] text-center mb-4" style={{ color: MUTED, lineHeight: 1.8 }}>
-                Secure checkout powered by Shopify
-              </p>
+              {COMMERCE_ENABLED && (
+                <p className="font-mono text-[7px] tracking-[0.15em] text-center mb-4" style={{ color: MUTED, lineHeight: 1.8 }}>
+                  Secure checkout powered by Shopify
+                </p>
+              )}
 
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Secure Checkout</span>

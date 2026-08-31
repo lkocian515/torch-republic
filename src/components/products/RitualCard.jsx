@@ -83,7 +83,7 @@ export default function RitualCard({ product, index = 0 }) {
         <div className="flex-1" />
 
         <div className="flex gap-2 pt-3" style={{ borderTop: '1px solid #E4D8C9' }}>
-          <button onClick={handleAdd} className="btn btn-secondary flex-1" style={{ borderColor: `${c.accent}40`, color: c.deep }}>
+          <button onClick={handleAdd} aria-label={`Add ${product.name} to cart`} className="btn btn-secondary flex-1" style={{ borderColor: `${c.accent}40`, color: c.deep }}>
             <ShoppingBag className="h-4 w-4" /> Add
           </button>
           <Link to={product.path} className="btn flex-1" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF' }}>

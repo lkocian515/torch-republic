@@ -11,12 +11,11 @@ import PageTransition from './components/PageTransition';
 import ScrollToTop from './components/ScrollToTop';
 import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
-import CartToast from './components/cart/CartToast';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
 import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
-import ReviewPopup from './components/mushroom/ReviewPopup';
+import CommerceNotice from './components/commerce/CommerceNotice';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import ProtectedRoute from '@/components/ProtectedRoute';
@@ -535,8 +534,7 @@ function App() {
           <Router>
             <NavigationProvider>
               <AuthenticatedApp queryClient={queryClientInstance} />
-              <CartToast />
-              <ReviewPopup />
+              <CommerceNotice />
               <EmailCapturePopup />
               <ExitIntentPopup />
             </NavigationProvider>

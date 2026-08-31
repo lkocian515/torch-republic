@@ -10,12 +10,10 @@
     <link rel="preconnect" href="https://media.base44.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin />
+
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <title>Torch Republic | Coffee, Mushroom Coffee &amp; Matcha</title>
     <meta name="theme-color" content="#F8F5EF" />
-    <!-- Preload LCP hero image — must match src in HeroSection exactly -->
-    <link rel="preload" as="image" href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f686c9f57_hhbiiui.png" fetchpriority="high" imagesizes="(min-width: 768px) 100vw, 92vw" />
     <!-- Critical fonts only — Inter (body) and one serif weight loaded async to avoid render-block -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap&font-display=swap" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
@@ -75,27 +73,8 @@
         window.addEventListener('load', loadGA, { passive: true, once: true });
       }
     </script>
-    <!-- Matomo Cloud — deferred until after page load to reduce TBT -->
-    <script>
-      var _paq = window._paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      function loadMatomo() {
-        var u = "https://torchrepublic.matomo.cloud/";
-        _paq.push(['setTrackerUrl', u + 'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-        g.async = true;
-        g.src = 'https://cdn.matomo.cloud/torchrepublic.matomo.cloud/matomo.js';
-        s.parentNode.insertBefore(g, s);
-      }
-      if (document.readyState === 'complete') {
-        setTimeout(loadMatomo, 2000);
-      } else {
-        window.addEventListener('load', function() { setTimeout(loadMatomo, 2000); }, { passive: true, once: true });
-      }
-    </script>
-    <!-- End Matomo Code -->
+    <!-- Matomo removed — GA4 (above) is the single analytics system. lib/matomo.js
+         calls are inert no-ops while window._paq is absent, so no references break. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

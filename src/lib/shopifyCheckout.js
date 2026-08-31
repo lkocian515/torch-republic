@@ -1,127 +1,103 @@
 /**
- * SHOPIFY CHECKOUT — Single Source of Truth
- * UPDATED: 2026-06-11 — All variant IDs verified from live Shopify catalog
- * 
- * Cart permalink format:
- *   https://libertees-for-all.myshopify.com/cart/VARIANT_ID:QTY
+ * SHOPIFY CHECKOUT — gated by COMMERCE_ENABLED (lib/commerceConfig.js).
  *
- * Bundle format (multiple variants):
- *   https://libertees-for-all.myshopify.com/cart/VARIANT_ID_1:1,VARIANT_ID_2:1
+ * While COMMERCE_ENABLED is false, every function here returns null WITHOUT
+ * making any network request and WITHOUT logging an error. This eliminates
+ * the HTTP 402 Shopify requests, the failed collection merges, and the
+ * "Missing variant ID for torchbearer-instant-coffee" console noise reported
+ * in the audit. The app's cart/checkout UI is responsible for reading
+ * COMMERCE_ENABLED and showing an availability notice instead of navigating
+ * to a null URL.
+ *
+ * When commerce is re-enabled, set COMMERCE_ENABLED = true and these helpers
+ * resume building Shopify cart permalinks unchanged.
  */
+import { COMMERCE_ENABLED } from './commerceConfig';
 
 // Use the canonical customer domain for all cart/checkout links.
 const SHOPIFY_DOMAIN = 'https://libertees-for-all.myshopify.com';
 
-// ── Per-product Shopify variant IDs for the active seven-product catalog ──────────────────────────
-export const SHOPIFY_VARIANT_IDS = {
-  'suncap-rise-instant-mushroom-coffee': '49148263465212',
-  'glowmind-clarity-instant-mushroom-coffee': '50910406050044',
-  'mooncap-restore-instant-mushroom-coffee': '49148263760124',
-  'torchbearer™-single-origin-instant-coffee': '49166825160956',
-  'ember-rise-instant-coffee': '49171204276476',
-  'the-alchemist-matcha': '49170572148988',
-  'the-monk-matcha': '49170574115068',
-};
+// Per-product Shopify variant IDs. Only the three current canonical handles are
+// kept active; retired-only variants (SunCap, MoonCap, Ember, The Monk) are
+// removed so they can never be looked up or sent to Shopify.
+export const SHOPIFY_VARIANT_IDS = COMMERCE_ENABLED
+  ? {
+      'instant-classic-coffee': '49166825160956',
+      'instant-mushroom-coffee': '50910406050044',
+      'ceremonial-matcha': '49170572148988',
+      // Legacy handle aliases (for historical cart line items)
+      'torchbearer™-single-origin-instant-coffee': '49166825160956',
+      'glowmind-clarity-instant-mushroom-coffee': '50910406050044',
+      'the-alchemist-matcha': '49170572148988',
+    }
+  : {};
 
-// ── Cart page (no specific product) ──────────────────────────────────────────
-export const SHOPIFY_CART_URL = `${SHOPIFY_DOMAIN}/cart`;
+export const SHOPIFY_CART_URL = COMMERCE_ENABLED ? `${SHOPIFY_DOMAIN}/cart` : null;
 
-// ── Build a single-product cart permalink ────────────────────────────────────
+// Build a single-product cart permalink.
 export function getShopifyCartUrl(productSlug, qty = 1) {
+  if (!COMMERCE_ENABLED) return null;
   const variantId = SHOPIFY_VARIANT_IDS[productSlug];
-  if (!variantId) {
-    console.error('[Shopify Cart] Variant ID not found for:', productSlug);
-    return null;
-  }
+  if (!variantId) return null; // no console noise — caller handles null
   return `${SHOPIFY_DOMAIN}/cart/${variantId}:${qty}`;
 }
 
-// ── Build a multi-product bundle cart permalink ───────────────────────────────
-// Pass an array of { slug, qty } objects.
+// Build a multi-product bundle cart permalink. Pass an array of { slug, qty }.
 export function getShopifyBundleUrl(items) {
+  if (!COMMERCE_ENABLED) return null;
   const parts = items
     .map(({ slug, qty = 1 }) => {
       const variantId = SHOPIFY_VARIANT_IDS[slug];
-      if (!variantId) {
-        console.error('[Shopify Bundle] Variant ID not found for:', slug);
-        return null;
-      }
-      return `${variantId}:${qty}`;
+      return variantId ? `${variantId}:${qty}` : null;
     })
     .filter(Boolean);
-
-  if (parts.length === 0) {
-    console.error('[Shopify Bundle] No valid variant IDs found');
-    return null;
-  }
+  if (parts.length === 0) return null;
   return `${SHOPIFY_DOMAIN}/cart/${parts.join(',')}`;
 }
 
-// ── Full 6-blend bundle convenience link ─────────────────────────────────────
-export function getFullBundleUrl() {
-  const allSlugs = Object.keys(SHOPIFY_VARIANT_IDS).map(slug => ({ slug, qty: 1 }));
-  return getShopifyBundleUrl(allSlugs);
-}
-
-// ── New Bundle Options ───────────────────────────────────────────────────────
-// One from each category (Classic + Mushroom + Matcha)
+// One from each category (Classic + Mushroom + Matcha).
 export function getOneFromEachBundleUrl() {
-  const items = [
-    { slug: 'torchbearer™-single-origin-instant-coffee', qty: 1 },
-    { slug: 'glowmind-clarity-instant-mushroom-coffee', qty: 1 },
-    { slug: 'the-monk-matcha', qty: 1 },
-  ];
-  return getShopifyBundleUrl(items);
+  if (!COMMERCE_ENABLED) return null;
+  return getShopifyBundleUrl([
+    { slug: 'instant-classic-coffee', qty: 1 },
+    { slug: 'instant-mushroom-coffee', qty: 1 },
+    { slug: 'ceremonial-matcha', qty: 1 },
+  ]);
 }
 
-// All Matcha bundle (2 active matcha products)
+// All-current-products bundle (one of each of the three core products).
+export function getFullBundleUrl() {
+  if (!COMMERCE_ENABLED) return null;
+  return getShopifyBundleUrl(Object.keys(SHOPIFY_VARIANT_IDS).map((slug) => ({ slug, qty: 1 })));
+}
+
+// Matcha bundle (current ceremonial matcha).
 export function getAllMatchaBundleUrl() {
-  const items = [
-    { slug: 'the-alchemist-matcha', qty: 1 },
-    { slug: 'the-monk-matcha', qty: 1 },
-  ];
-  return getShopifyBundleUrl(items);
+  if (!COMMERCE_ENABLED) return null;
+  return getShopifyBundleUrl([{ slug: 'ceremonial-matcha', qty: 1 }]);
 }
 
-// All Classic Coffee bundle (2 active classic products)
+// Classic coffee bundle (current instant classic coffee).
 export function getAllClassicBundleUrl() {
-  const items = [
-    { slug: 'torchbearer™-single-origin-instant-coffee', qty: 1 },
-    { slug: 'ember-rise-instant-coffee', qty: 1 },
-  ];
-  return getShopifyBundleUrl(items);
+  if (!COMMERCE_ENABLED) return null;
+  return getShopifyBundleUrl([{ slug: 'instant-classic-coffee', qty: 1 }]);
 }
 
-// ── Build subscription checkout from blend selection ─────────────────────────
-export async function getSubscriptionCheckoutUrl(blendQty) {
+// Build subscription checkout from blend selection.
+export async function getSubscriptionCheckoutUrl(_blendQty) {
+  // Commerce disabled — do not call the backend function (it is inaccessible
+  // without Builder+ and would 402/404). Caller shows the availability notice.
+  if (!COMMERCE_ENABLED) return null;
   try {
-    const response = await fetch('https://69afc77e4c80e5e88ca6e3ec.base44.app/functions/createSubscriptionCheckout', {
+    const response = await fetch('https://torchrepublic.base44.app/functions/createSubscriptionCheckout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ blendQty }),
+      body: JSON.stringify({ blendQty: _blendQty }),
     });
     const data = await response.json();
-    if (data.checkoutUrl) {
-      return data.checkoutUrl;
-    }
-  } catch (error) {
-    console.error('Subscription checkout failed, falling back to standard cart:', error);
+    if (data.checkoutUrl) return data.checkoutUrl;
+  } catch {
+    return null;
   }
-  // Fallback: map product slugs → shopify handles, then build bundle URL
-  const SLUG_TO_HANDLE = {
-    'suncap-rise': 'suncap-rise-instant-mushroom-coffee',
-    'glowmind-clarity-blend': 'glowmind-clarity-instant-mushroom-coffee',
-    'mooncap-restore': 'mooncap-restore-instant-mushroom-coffee',
-    'torchbearer': 'torchbearer™-single-origin-instant-coffee',
-    'ember-reserve': 'ember-rise-instant-coffee',
-    'ember-rise': 'ember-rise-instant-coffee',
-    'the-alchemist-matcha-blend': 'the-alchemist-matcha',
-    'the-alchemist': 'the-alchemist-matcha',
-    'the-monk-matcha-blend': 'the-monk-matcha',
-    'the-monk': 'the-monk-matcha',
-  };
-  const items = Object.entries(blendQty)
-    .filter(([, qty]) => qty > 0)
-    .map(([slug, qty]) => ({ slug: SLUG_TO_HANDLE[slug] || slug, qty }));
-  return getShopifyBundleUrl(items);
+  return null;
 }

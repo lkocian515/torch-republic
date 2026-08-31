@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
+import { toast as showToast } from '@/components/ui/use-toast';
 
 const CartContext = createContext(null);
 
@@ -45,8 +46,7 @@ export function CartProvider({ children }) {
       }
       return [...prev, { ...normalizedProduct, qty }];
     });
-    setToast(normalizedProduct.name);
-    setDrawerOpen(true);
+    showToast({ title: 'Added to your cart', description: normalizedProduct.name });
   }, []);
 
   const clearToast = useCallback(() => {

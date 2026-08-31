@@ -11,6 +11,7 @@ const HERO_IMAGE =
 export default function RitualHero() {
   return (
     <section id="top" style={{ background: '#F7F1E7' }}>
+      <h1 className="sr-only">Premium Coffee, Mushroom Coffee &amp; Matcha—Ready in Seconds</h1>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="w-full">
         <img
           src={HERO_IMAGE}
