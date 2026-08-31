@@ -233,7 +233,7 @@ export default function Cart() {
                   className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                   style={{ background: ACCENT, color: BTN_TEXT }}
                 >
-                  Check Availability
+                  Continue to Checkout
                 </button>
               ) : checkoutUrl ? (
                 <a

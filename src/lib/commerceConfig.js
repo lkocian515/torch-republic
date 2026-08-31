@@ -17,4 +17,4 @@ export const COMMERCE_ENABLED = false;
 export const STOREFRONT_MODE = COMMERCE_ENABLED ? 'live' : 'catalog';
 
 export const COMMERCE_DISABLED_REASON =
-  'Live checkout is temporarily unavailable. You can still browse the collection and build your cart — we will not route you to a broken checkout. Check back shortly or contact us for availability.';
+  'The products in your cart are currently sold out. Orders are not being accepted at this time. Please check back soon.';

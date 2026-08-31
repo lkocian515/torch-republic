@@ -39,7 +39,7 @@ export default function CartStickyCheckout({ subtotal, checkoutUrl, totalItems }
             className="flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90 flex-1 max-w-[220px]"
             style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: 'pointer' }}
           >
-            Check Availability
+            Continue to Checkout
           </button>
         ) : (
           <a
