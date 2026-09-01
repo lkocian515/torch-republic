@@ -45,7 +45,7 @@ const SECTIONS = [
   {
     label: 'Our Story',
     items: [
-      ['Our Mission', '/our-story'],
+      ['Our Story', '/our-story'],
       ['Founder Story', '/founder-story'],
       ['Our Team', '/about/torch-republic-team'],
       ['Customer Spotlight', '/customer-spotlight'],

@@ -1,336 +1,189 @@
 import React from 'react';
-import { useSEO } from '@/hooks/useSEO';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Leaf, Zap, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
-import { INGREDIENT_PAGES } from '@/lib/seoContent';
+import { CheckCircle, Leaf, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
 
-const RG = '#E6B7AD';
+const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
 
+// Conservative, educational ingredient descriptions. No disease-treatment
+// claims — only traditional use, naturally occurring compounds, and notes
+// that research remains ongoing.
 const INGREDIENTS = [
   {
     name: "Lion's Mane Mushroom",
     scientific: 'Hericium erinaceus',
     icon: Brain,
-    benefits: ['Cognitive support', 'Focus & clarity', 'Nerve growth factor', 'Brain health'],
-    description: "Lion's Mane is a functional mushroom renowned for its cognitive-enhancing properties. Traditionally used in Eastern medicine, modern research suggests it may support nerve growth factor (NGF) production, which is essential for brain cell health and function.",
-    uses: ['Daily focus rituals', 'Mental clarity support', 'Cognitive wellness', 'Morning routines'],
+    description: "Lion's Mane is a functional mushroom traditionally used in East Asian practice. Early research has explored compounds that may be associated with nerve growth factor (NGF) activity. Research remains ongoing and findings are not conclusive.",
+    uses: ['Daily focus rituals', 'Mental clarity', 'Morning routines'],
   },
   {
     name: 'Chaga Mushroom',
     scientific: 'Inonotus obliquus',
     icon: Shield,
-    benefits: ['Antioxidant support', 'Immune function', 'Anti-inflammatory', 'Overall wellness'],
-    description: 'Chaga is a powerful adaptogenic mushroom that grows on birch trees in cold climates. It is one of the richest natural sources of antioxidants, particularly superoxide dismutase (SOD), which helps protect cells from oxidative stress.',
-    uses: ['Daily wellness support', 'Immune health', 'Antioxidant intake', 'Stress management'],
+    description: "Chaga grows on birch trees in cold climates and is a natural source of antioxidants. It has a long history of traditional use; modern research is still preliminary and health outcomes are not proven.",
+    uses: ['Daily wellness support', 'Antioxidant intake', 'General wellness'],
   },
   {
-    name: 'Premium Arabica Coffee',
+    name: 'Single-Origin Arabica Coffee',
     scientific: 'Coffea arabica',
     icon: Coffee,
-    benefits: ['Clean energy', 'Rich flavor', 'Antioxidants', 'Morning ritual'],
-    description: 'Our classic coffee blends use 100% premium Arabica beans, known for their smooth, refined flavor profile and lower acidity compared to Robusta. Freeze-dried to preserve aroma and taste.',
-    uses: ['Morning energy', 'Afternoon pick-me-up', 'Coffee lovers', 'Traditional coffee ritual'],
+    description: "Our classic coffee uses single-origin Arabica coffee, freeze-dried to preserve aroma and flavor. Arabica is known for its smooth, refined profile and naturally occurring caffeine and antioxidants.",
+    uses: ['Morning energy', 'Afternoon pick-me-up', 'Traditional coffee ritual'],
   },
   {
     name: 'Ceremonial Matcha',
     scientific: 'Camellia sinensis',
     icon: Leaf,
-    benefits: ['Calm energy', 'L-theanine', 'Antioxidants', 'Meditation support'],
-    description: 'Our ceremonial grade matcha is made from shade-grown Japanese tea leaves, stone-ground into a fine powder. Rich in L-theanine, which promotes calm alertness and sustained focus without jitters.',
-    uses: ['Morning meditation', 'Afternoon focus', 'Evening wind-down', 'Mindful rituals'],
+    description: "Our ceremonial grade matcha is made from shade-grown green tea leaves, stone-ground into a fine powder. It contains naturally occurring L-theanine and antioxidants, often studied for calm, sustained focus.",
+    uses: ['Morning meditation', 'Afternoon focus', 'Mindful rituals'],
   },
 ];
 
-const COMPARISON = [
-  { feature: 'Instant Preparation', torch: '✓ All Products', competitor1: '✓ Some', competitor2: '✗ Ground Only' },
-  { feature: 'Mushroom Options', torch: '✓ 6 Blends', competitor1: '✓ 2-3', competitor2: '✗ None' },
-  { feature: 'Matcha Options', torch: '✓ 3 Blends', competitor1: '✗ None', competitor2: '✓ 1' },
-  { feature: 'Classic Coffee', torch: '✓ 3 Blends', competitor1: '✗ None', competitor2: '✓ Many' },
-  { feature: 'Servings Per Container', torch: '25-27', competitor1: '15-20', competitor2: 'Varies' },
-  { feature: 'Price Per Serving', torch: '$0.93', competitor1: '$1.50+', competitor2: '$0.50-1.00' },
-  { feature: 'No Machine Needed', torch: '✓ Yes', competitor1: '✗ No', competitor2: '✗ No' },
-  { feature: 'Travel-Friendly', torch: '✓ Yes', competitor1: '✗ No', competitor2: '✗ No' },
+// Transparent overview of which ingredients are in each of the three products.
+const PRODUCTS = [
+  { name: 'Instant Classic Coffee', ingredients: ['Single-origin Arabica coffee'], note: '27 servings · medium roast · high caffeine' },
+  { name: 'Instant Mushroom Coffee', ingredients: ['Premium instant coffee', "Lion's Mane extract", 'Chaga extract'], note: '27 servings · medium caffeine' },
+  { name: 'Ceremonial Matcha', ingredients: ['Ceremonial grade matcha'], note: '25 servings · medium caffeine' },
+];
+
+// Local deep-dive links — kept inline so this page does not depend on a large
+// shared SEO module that delayed the route's initial render.
+const DEEP_DIVES = [
+  { name: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', category: 'Mushroom', color: '#B86543' },
+  { name: 'Chaga', slug: 'chaga-mushroom-coffee', category: 'Mushroom', color: '#8A6A3A' },
+  { name: 'Reishi', slug: 'reishi-mushroom-coffee', category: 'Mushroom', color: '#6B4E2E' },
+  { name: 'Ceremonial Matcha', slug: 'ceremonial-matcha', category: 'Tea', color: '#5E7A3E' },
+  { name: 'Freeze-Dried Coffee', slug: 'freeze-dried-instant-coffee', category: 'Coffee', color: '#7A5230' },
 ];
 
 export default function Ingredients() {
   useSEO({
-    title: "Our Ingredients | Lion's Mane, Chaga & Premium Coffee",
-    description: "Learn about Torch Republic's premium ingredients: Lion's Mane mushroom for focus, Chaga for wellness, 100% Arabica coffee, and ceremonial matcha. Transparent sourcing, functional benefits, no hidden additives.",
+    title: 'Our Ingredients | Torch Republic Coffee Company',
+    description: 'An honest overview of the ingredients behind Torch Republic — functional mushrooms, ceremonial matcha, and premium instant coffee — with conservative notes on traditional use and preliminary research.',
     url: '/ingredients',
     type: 'website',
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <main className="min-h-screen" style={{ background: theme.page, color: theme.text }}>
       {/* Hero */}
-      <section className="px-6 md:px-10 pt-20 pb-16 text-center"
-        style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-          className="max-w-3xl mx-auto">
-          <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
-            Transparency & Quality
-          </p>
-          <h1 className="font-serif font-bold mb-5"
-            style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-            Our Ingredients
-          </h1>
-          <p className="font-heading"
-            style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.9, fontWeight: 300, maxWidth: '680px', margin: '0 auto' }}>
-            Premium, functional, and transparent. Every Torch Republic product is crafted with carefully sourced ingredients designed to support your daily rituals—no hidden additives, no artificial fillers, no compromises.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* What Are Functional Mushrooms */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908' }}>
-        <div className="max-w-[860px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-2" style={{ color: RG }}>Education</p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
-              What Are Functional Mushrooms?
-            </h2>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Functional mushrooms, also known as medicinal or adaptogenic mushrooms, are specialized varieties that offer health-supporting compounds beyond basic nutrition. Unlike culinary mushrooms used primarily for cooking, functional mushrooms contain bioactive compounds like beta-glucans, triterpenes, and antioxidants that support various aspects of wellness.
-            </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              The two functional mushrooms we use—Lion's Mane and Chaga—have been studied for their potential cognitive, immune, and overall wellness benefits. These mushrooms have been used in traditional Eastern medicine for centuries and are now gaining recognition in modern wellness practices.
-            </p>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              <strong>Important:</strong> Torch Republic mushroom coffee blends are created for daily ritual and general wellness support. They are not intended to diagnose, treat, cure, or prevent any disease. Always consult with a healthcare professional before making significant changes to your diet or wellness routine.
-            </p>
-          </motion.div>
+      <section className="px-5 py-20 md:px-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 font-heading text-sm uppercase tracking-[0.35em]" style={{ color: theme.accent }}>Transparency & Quality</p>
+          <h1 className="font-serif text-5xl font-bold leading-tight md:text-6xl" style={{ color: theme.text }}>Our Ingredients</h1>
+          <p className="mx-auto mt-6 max-w-2xl font-heading text-lg leading-8" style={{ color: theme.body }}>Every Torch Republic product is made with clearly listed ingredients — no hidden additives, no artificial fillers, no proprietary blends. Here is what is inside, in plain language.</p>
         </div>
       </section>
 
-      {/* Main Ingredients Grid */}
-      <section className="px-6 md:px-10 py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-              Premium Ingredients
-            </p>
-            <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-              What's Inside Every Cup
-            </h2>
-          </motion.div>
+      {/* What are functional mushrooms */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Education</p>
+          <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>What Are Functional Mushrooms?</h2>
+          <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
+            <p>Functional mushrooms are varieties traditionally used beyond basic nutrition. They contain naturally occurring compounds such as beta-glucans, triterpenes, and antioxidants, and have a long history of use in traditional Eastern practices.</p>
+            <p>The two functional mushrooms we use — Lion's Mane and Chaga — have been studied for their potential wellness interest. These mushrooms have been used in traditional practice for centuries and are now the subject of ongoing modern research.</p>
+            <p><strong>Important:</strong> Torch Republic products are created for daily ritual and general wellness support. They are not intended to diagnose, treat, cure, or prevent any disease. Always consult a healthcare professional before making significant changes to your diet or wellness routine.</p>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {INGREDIENTS.map((ingredient, i) => {
+      {/* Ingredient cards */}
+      <section className="px-5 py-16 md:px-10">
+        <div className="mx-auto max-w-[1100px]">
+          <h2 className="mb-10 text-center font-serif text-4xl font-bold" style={{ color: theme.text }}>What's Inside Every Cup</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {INGREDIENTS.map((ingredient) => {
               const Icon = ingredient.icon;
               return (
-                <motion.div
-                  key={ingredient.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8"
-                  style={{
-                    background: '#0F0E0D',
-                    border: '1px solid rgba(230,183,173,0.08)',
-                    borderRadius: '4px',
-                  }}
-                >
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3" style={{ background: 'rgba(230,183,173,0.1)', borderRadius: '4px' }}>
-                      <Icon className="w-6 h-6" style={{ color: RG }} />
+                <article key={ingredient.name} className="rounded-[2rem] border p-8" style={{ background: theme.card, borderColor: theme.border }}>
+                  <div className="mb-6 flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F3ECE2' }}>
+                      <Icon className="h-5 w-5" style={{ color: theme.accent }} aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="font-serif font-bold text-white mb-1" style={{ fontSize: '1.4rem' }}>
-                        {ingredient.name}
-                      </h3>
-                      <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                        {ingredient.scientific}
-                      </p>
+                      <h3 className="font-serif text-2xl font-bold" style={{ color: theme.text }}>{ingredient.name}</h3>
+                      <p className="mt-1 font-heading text-xs italic" style={{ color: theme.body }}>{ingredient.scientific}</p>
                     </div>
                   </div>
-
-                  <p className="font-heading text-sm leading-relaxed mb-6" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-                    {ingredient.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                      Key Benefits
-                    </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {ingredient.benefits.map((benefit) => (
-                        <div key={benefit} className="flex items-center gap-2">
-                          <CheckCircle className="w-3 h-3" style={{ color: RG }} />
-                          <span className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.7)' }}>{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-                      Best For
-                    </p>
+                  <p className="font-heading leading-7" style={{ color: theme.body }}>{ingredient.description}</p>
+                  <div className="mt-6">
+                    <p className="mb-3 font-heading text-xs uppercase tracking-[0.2em]" style={{ color: theme.accent }}>Often associated with</p>
                     <div className="flex flex-wrap gap-2">
                       {ingredient.uses.map((use) => (
-                        <span
-                          key={use}
-                          className="px-3 py-1.5 text-[9px] tracking-[0.2em] uppercase"
-                          style={{
-                            background: 'rgba(230,183,173,0.05)',
-                            border: '1px solid rgba(230,183,173,0.15)',
-                            color: 'rgba(230,183,173,0.6)',
-                            borderRadius: '2px',
-                          }}
-                        >
-                          {use}
-                        </span>
+                        <span key={use} className="rounded-full px-3 py-1.5 font-heading text-xs" style={{ background: '#F3ECE2', color: theme.body, border: `1px solid ${theme.border}` }}>{use}</span>
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </article>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <div className="max-w-[1000px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-              Comparison
-            </p>
-            <h2 className="font-serif font-bold text-white" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-              Why Choose Torch Republic
-            </h2>
-          </motion.div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr style={{ borderBottom: '1px solid rgba(230,183,173,0.2)' }}>
-                  <th className="text-left py-4 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>Feature</th>
-                  <th className="text-center py-4 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: RG }}>Torch Republic</th>
-                  <th className="text-center py-4 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Competitor 1</th>
-                  <th className="text-center py-4 px-4 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Competitor 2</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row, i) => (
-                  <tr key={row.feature} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
-                    <td className="py-4 px-4 font-heading" style={{ color: 'rgba(240,235,225,0.8)' }}>{row.feature}</td>
-                    <td className="py-4 px-4 text-center font-heading" style={{ color: RG }}>{row.torch}</td>
-                    <td className="py-4 px-4 text-center font-heading" style={{ color: 'rgba(255,255,255,0.5)' }}>{row.competitor1}</td>
-                    <td className="py-4 px-4 text-center font-heading" style={{ color: 'rgba(255,255,255,0.5)' }}>{row.competitor2}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      {/* Transparent product overview (replaces vague competitor table) */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.sage }}>
+        <div className="mx-auto max-w-[1000px]">
+          <div className="mb-10 text-center">
+            <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>By Product</p>
+            <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>What's in Each Torch Republic Product</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {PRODUCTS.map((p) => (
+              <article key={p.name} className="rounded-[1.5rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}>
+                <h3 className="font-serif text-xl font-bold" style={{ color: theme.text }}>{p.name}</h3>
+                <p className="mt-1 font-heading text-xs" style={{ color: theme.body }}>{p.note}</p>
+                <ul className="mt-4 space-y-2">
+                  {p.ingredients.map((ing) => (
+                    <li key={ing} className="flex items-center gap-2 font-heading text-sm" style={{ color: theme.body }}>
+                      <CheckCircle className="h-4 w-4" style={{ color: theme.accent }} /> {ing}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* No Hidden Additives */}
-      <section className="px-6 md:px-10 py-20">
-        <div className="max-w-[860px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
-              No Hidden Additives. Ever.
-            </h2>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              We believe in complete transparency. That's why every Torch Republic product contains only what we list—no proprietary blends, no hidden fillers, no artificial ingredients.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-              {[
-                'No artificial flavors',
-                'No artificial colors',
-                'No preservatives',
-                'No fillers or flow agents',
-                'No added sugars',
-                'No GMO ingredients',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5" style={{ color: RG }} />
-                  <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+      {/* No hidden additives */}
+      <section className="px-5 py-16 md:px-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>No Hidden Additives. Ever.</h2>
+          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We list every ingredient clearly. No proprietary blends, no hidden fillers, and no artificial ingredients.</p>
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {['No artificial flavors', 'No artificial colors', 'No preservatives', 'No fillers or flow agents', 'No added sugars', 'No GMO ingredients'].map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <CheckCircle className="h-5 w-5" style={{ color: theme.accent }} />
+                <span className="font-heading text-sm" style={{ color: theme.body }}>{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Sourcing */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <div className="max-w-[860px] mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
-              Responsibly Sourced
-            </h2>
-            <p className="font-heading text-base leading-relaxed" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
-              Our ingredients are sourced from trusted suppliers who share our commitment to quality and sustainability. Lion's Mane and Chaga mushrooms are cultivated in controlled environments to ensure purity and potency. Our Arabica coffee beans are ethically sourced, and our ceremonial matcha comes from traditional Japanese tea gardens.
-            </p>
-            <Link
-              to="/mission"
-              className="inline-flex items-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{
-                background: RG,
-                color: '#080808',
-                padding: '14px 36px',
-                borderRadius: '4px',
-                marginTop: '20px',
-              }}
-            >
-              Learn About Our Mission →
-            </Link>
-          </motion.div>
+      {/* Sourcing (conservative — no invented supplier relationships) */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Selected With Care</h2>
+          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our coffee is single-origin Arabica, our matcha is ceremonial grade, and our mushroom coffee includes Lion's Mane and Chaga extracts. We list every ingredient so you always know what is in your cup.</p>
+          <Link to="/our-story" className="mt-6 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Read Our Story →</Link>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="px-6 md:px-10 py-20 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="max-w-2xl mx-auto">
-          <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
-            Start Your Ritual
-          </p>
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
-            Experience the Difference
-          </h2>
-          <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
-            Try Torch Republic risk-free with our 30-day satisfaction guarantee. If it's not right for you, we'll make it right.
-          </p>
-          <Link
-            to="/shop"
-            className="inline-flex items-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-            style={{
-              background: RG,
-              color: '#080808',
-              padding: '14px 36px',
-              borderRadius: '4px',
-            }}
-          >
-            Shop All Products →
-          </Link>
-        </motion.div>
-      </section>
-
-      {/* Deep Dive Ingredient Pages */}
-      <section className="px-6 md:px-10 py-14" style={{ borderTop: '1px solid rgba(230,183,173,0.06)', background: '#0A0908' }}>
-        <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-serif font-bold mb-6 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
-            Ingredient Deep Dives
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {INGREDIENT_PAGES.map((ing, i) => (
-              <Link key={i} to={`/ingredients/${ing.slug}`}
-                className="p-4 text-center block transition-all group"
-                style={{ background: '#0F0E0D', border: `1px solid ${ing.color}20` }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = `${ing.color}50`}
-                onMouseLeave={e => e.currentTarget.style.borderColor = `${ing.color}20`}>
-                <p className="font-serif font-bold text-sm mb-1" style={{ color: ing.color }}>{ing.name}</p>
-                <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.25)' }}>{ing.category}</p>
-                <div className="flex items-center justify-center gap-1">
-                  <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${ing.color}60` }}>Deep Dive</span>
-                  <ArrowRight size={8} style={{ color: `${ing.color}60` }} />
+      {/* Deep dives */}
+      <section className="px-5 py-16 md:px-10">
+        <div className="mx-auto max-w-[1100px]">
+          <h2 className="mb-8 text-center font-serif text-4xl font-bold" style={{ color: theme.text }}>Ingredient Deep Dives</h2>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+            {DEEP_DIVES.map((ing) => (
+              <Link key={ing.slug} to={`/ingredients/${ing.slug}`} className="block rounded-[1rem] border p-5 text-center transition-all hover:opacity-90" style={{ background: theme.card, borderColor: theme.border }}>
+                <p className="font-serif text-base font-bold" style={{ color: ing.color }}>{ing.name}</p>
+                <p className="mt-1 font-heading text-[10px] uppercase tracking-[0.15em]" style={{ color: theme.body }}>{ing.category}</p>
+                <div className="mt-2 flex items-center justify-center gap-1">
+                  <span className="font-heading text-[10px] uppercase tracking-[0.15em]" style={{ color: theme.accent }}>Deep Dive</span>
+                  <ArrowRight className="h-3 w-3" style={{ color: theme.accent }} />
                 </div>
               </Link>
             ))}
@@ -338,12 +191,12 @@ export default function Ingredients() {
         </div>
       </section>
 
-      {/* FDA */}
-      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
-        <p className="font-mono text-[8px] tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.2)', lineHeight: 1.75 }}>
-          Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
-      </div>
-    </div>
+      {/* FDA disclaimer */}
+      <section className="px-5 py-12 md:px-10" style={{ background: theme.section }}>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="font-heading text-xs leading-7" style={{ color: theme.body }}>Statements on this site have not been evaluated by the FDA. These products are not intended to diagnose, treat, cure, or prevent any disease. If you are pregnant, nursing, taking medication, or have a health condition, consult a qualified healthcare professional before use.</p>
+        </div>
+      </section>
+    </main>
   );
 }

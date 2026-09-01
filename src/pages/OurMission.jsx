@@ -1,35 +1,122 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Coffee, Leaf, Sparkles, Timer, PackageCheck } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 
-const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#293626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
-const categories = [
-  { name: 'Classic instant coffee', desc: 'Smooth Arabica instant coffee for a simple cup without pods, machines, or complicated preparation.', href: '/shop/instant-coffee', image: CLASSIC_COFFEE_PRODUCTS[0].image, icon: Coffee },
-  { name: 'Functional mushroom coffee', desc: 'Coffee-forward blends with Lion’s Mane and Chaga, made for intentional daily routines.', href: '/shop/instant-mushroom-coffee', image: MUSHROOM_PRODUCTS[0].image, icon: Leaf },
-  { name: 'Ceremonial matcha', desc: 'Ceremonial matcha for lattes, iced drinks, and slower moments throughout the day.', href: '/shop/matcha', image: MATCHA_PRODUCTS[0].image, icon: Sparkles },
-];
+const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
+
+// Only products with a valid image are rendered, so a missing asset can never
+// crash the entire page.
+const products = (ALL_PRODUCTS || []).filter((p) => p && p.image && p.name && p.slug);
+
 const principles = [
-  ['Thoughtful ingredients', 'Clear ingredient language and blends designed around real daily use.'],
-  ['Light-roast character', 'Coffee rituals that keep flavor approachable, smooth, and easy to return to.'],
-  ['Convenient preparation', 'Instant formats that fit busy mornings, workdays, travel, and quiet pauses.'],
-  ['Intentional daily rituals', 'Products made to help a simple beverage feel more deliberate.'],
+  ['Intentional routines', 'Products made to help a simple daily cup feel more deliberate.'],
+  ['Thoughtful selection', 'A focused collection of three products, chosen with care over quantity.'],
+  ['Clear transparency', 'Straightforward ingredient language and honest product descriptions.'],
+  ['Convenient preparation', 'Instant formats for hot or iced drinks without pods or machines.'],
 ];
 
 export default function OurMission() {
-  useSEO({ title: 'Our Story | Torch Republic Coffee Company', description: 'Learn why Torch Republic creates light-roast instant coffee, functional mushroom blends, and ceremonial matcha for more intentional daily rituals.', url: '/our-story', type: 'website' });
-  return <main className="min-h-screen" style={{ background: theme.page, color: theme.text }}>
-    <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-24" style={{ background: theme.section }}><div className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full opacity-50" style={{ background: theme.sage }} aria-hidden="true" /><div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center"><div><p className="mb-4 font-heading text-sm uppercase tracking-[0.35em]" style={{ color: theme.accent }}>Our Story</p><h1 className="font-serif text-5xl font-bold leading-tight md:text-6xl" style={{ color: theme.text }}>A Better Ritual Begins With a Better Choice</h1><p className="mt-6 max-w-2xl font-heading text-lg leading-8" style={{ color: theme.body }}>Torch Republic was created to make thoughtfully crafted coffee, mushroom blends, and ceremonial matcha easier to enjoy as part of an intentional daily routine.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Explore the Collection</Link><Link to="/build-your-ritual" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Build Your Ritual</Link></div></div><div className="rounded-[2rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}><div className="grid grid-cols-2 gap-4">{[CLASSIC_COFFEE_PRODUCTS[0], MUSHROOM_PRODUCTS[0], MATCHA_PRODUCTS[0], MUSHROOM_PRODUCTS[1]].map((product) => <div key={product.slug} className="rounded-[1.25rem] p-3" style={{ background: '#F8F5EF' }}><img src={product.image} alt={`${product.name} by Torch Republic`} className="aspect-square w-full object-contain" /></div>)}</div></div></div></section>
+  useSEO({
+    title: 'Our Story | Torch Republic Coffee Company',
+    description: 'Torch Republic Coffee Company is a modern coffee and wellness brand built around simple, intentional daily rituals — instant coffee, mushroom coffee, and ceremonial matcha.',
+    url: '/our-story',
+    type: 'website',
+  });
 
-    <section className="px-5 py-16 md:px-10"><div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center"><div className="rounded-[2rem] border p-5" style={{ background: theme.card, borderColor: theme.border }}><img src={CLASSIC_COFFEE_PRODUCTS[0].image} alt="Torchbearer instant coffee package" className="mx-auto aspect-square max-w-sm object-contain" /></div><div><p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Why Torch Republic Began</p><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Convenience without losing intention.</h2><div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}><p>Life feels better when we begin each day with intention. In a world that moves quickly, it is easy to rush through mornings on autopilot.</p><p>Torch Republic began from a simple search: the convenience of pod coffee without the pod. No machine. No plastic capsule. No complicated brewing process.</p><p>The result is a collection of instant coffee, mushroom coffee, and matcha made for people who want their daily cup to feel simple, elevated, and more mindful.</p></div></div></div></section>
+  return (
+    <main className="min-h-screen" style={{ background: theme.page, color: theme.text }}>
+      {/* Hero */}
+      <section className="px-5 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 font-heading text-sm uppercase tracking-[0.35em]" style={{ color: theme.accent }}>Our Story</p>
+          <h1 className="font-serif text-5xl font-bold leading-tight md:text-6xl" style={{ color: theme.text }}>A Better Daily Ritual, Made Simple</h1>
+          <p className="mx-auto mt-6 max-w-2xl font-heading text-lg leading-8" style={{ color: theme.body }}>Torch Republic Coffee Company is a modern coffee and wellness brand built around simple, intentional daily rituals — a few thoughtfully made products for the moments that start and shape your day.</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Explore the Collection</Link>
+            <Link to="/founder-story" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Read the Founder Story</Link>
+          </div>
+        </div>
+      </section>
 
-    <section className="px-5 py-16 md:px-10" style={{ background: theme.sage }}><div className="mx-auto max-w-6xl"><div className="mb-10 text-center"><p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>The Approach</p><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Thoughtful Products for Everyday Rituals</h2></div><div className="grid gap-6 md:grid-cols-3">{categories.map(({ name, desc, href, image, icon: Icon }) => <article key={name} className="rounded-[2rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}><div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F3ECE2' }}><Icon className="h-5 w-5" style={{ color: theme.accent }} aria-hidden="true" /></div><img src={image} alt={`${name} from Torch Republic`} className="mb-5 aspect-square w-full object-contain" /><h3 className="font-serif text-2xl font-bold" style={{ color: theme.text }}>{name}</h3><p className="mt-3 font-heading leading-7" style={{ color: theme.body }}>{desc}</p><Link to={href} className="mt-5 inline-flex font-heading font-semibold" style={{ color: theme.accent }}>View collection →</Link></article>)}</div></div></section>
+      {/* Why we began */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Why Torch Republic Began</p>
+          <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Convenience without losing intention.</h2>
+          <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
+            <p>Torch Republic began with a simple idea: the convenience of instant coffee without the pods, machines, or complicated steps. We wanted a daily cup that felt easy and still worth slowing down for.</p>
+            <p>That idea became a small, focused collection — instant coffee, mushroom coffee, and ceremonial matcha — made for people who want their routine to feel simple, elevated, and more mindful.</p>
+          </div>
+        </div>
+      </section>
 
-    <section className="px-5 py-16 md:px-10"><div className="mx-auto max-w-6xl"><p className="mb-3 text-center font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>What Guides Us</p><h2 className="text-center font-serif text-4xl font-bold" style={{ color: theme.text }}>Built around small daily choices.</h2><div className="mt-10 grid gap-5 md:grid-cols-4">{principles.map(([title, body], index) => <article key={title} className="rounded-[1.5rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}><p className="mb-4 font-serif text-3xl" style={{ color: theme.gold }}>0{index + 1}</p><h3 className="font-heading text-lg font-semibold" style={{ color: theme.text }}>{title}</h3><p className="mt-3 font-heading leading-7" style={{ color: theme.body }}>{body}</p></article>)}</div></div></section>
+      {/* Why three products */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.sage }}>
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 text-center">
+            <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Why Three Products</p>
+            <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>A focused collection, made well.</h2>
+            <p className="mx-auto mt-4 max-w-2xl font-heading leading-7" style={{ color: theme.body }}>Each product is designed for convenient hot or iced preparation without pods or complicated equipment.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {products.map((product) => (
+              <article key={product.slug} className="overflow-hidden rounded-[2rem] border" style={{ background: theme.card, borderColor: theme.border }}>
+                <div className="p-6" style={{ background: '#F8F5EF' }}>
+                  <img src={product.image} alt={`${product.name} by Torch Republic`} className="mx-auto aspect-square w-full max-w-[220px] object-contain" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-serif text-2xl font-bold" style={{ color: theme.text }}>{product.name}</h3>
+                  <p className="mt-3 font-heading leading-7" style={{ color: theme.body }}>{product.description}</p>
+                  <Link to={`/products/${product.slug}`} className="mt-5 inline-flex font-heading font-semibold" style={{ color: theme.accent }}>View product →</Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}><div className="mx-auto max-w-4xl rounded-[2rem] border p-8 md:p-10" style={{ background: theme.card, borderColor: theme.border }}><p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Founder Note</p><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>One cup. One ritual. One intentional step forward.</h2><div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}><p>We believe wellness is not about perfection or chasing every trend. It is built through consistency and small actions repeated day after day.</p><p>The torch in our name represents awareness — the inner light that guides us forward and reminds us that growth is always possible.</p><p>Everything we create is rooted in a simple idea: transformation happens through the choices we make every day.</p></div><p className="mt-6 font-heading font-semibold" style={{ color: theme.text }}>Lisa Marie Kocian, Founder</p></div></section>
+      {/* Principles */}
+      <section className="px-5 py-16 md:px-10">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-3 text-center font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>What Guides Us</p>
+          <h2 className="text-center font-serif text-4xl font-bold" style={{ color: theme.text }}>Built around small daily choices.</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-4">
+            {principles.map(([title, body], index) => (
+              <article key={title} className="rounded-[1.5rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}>
+                <p className="mb-4 font-serif text-3xl" style={{ color: theme.gold }}>0{index + 1}</p>
+                <h3 className="font-heading text-lg font-semibold" style={{ color: theme.text }}>{title}</h3>
+                <p className="mt-3 font-heading leading-7" style={{ color: theme.body }}>{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section className="px-5 py-20 text-center md:px-10"><h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Find the Ritual That Fits Your Day</h2><p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Explore coffee, mushroom blends, and matcha designed for simple daily routines.</p><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#FBF8F1' }}>Explore the Collection</Link><Link to="/build-your-ritual" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Build Your Ritual</Link></div></section>
-  </main>;
+      {/* Founder callout */}
+      <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
+        <div className="mx-auto max-w-4xl rounded-[2rem] border p-8 md:p-10" style={{ background: theme.card, borderColor: theme.border }}>
+          <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Founder Note</p>
+          <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>One cup. One ritual. One intentional step forward.</h2>
+          <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
+            <p>We believe wellness is not about perfection. It is built through small, consistent choices repeated day after day.</p>
+            <p>The torch in our name represents awareness — the quiet light that reminds us growth is always possible.</p>
+          </div>
+          <p className="mt-6 font-heading font-semibold" style={{ color: theme.text }}>Lisa Marie Kocian, Founder</p>
+          <Link to="/founder-story" className="mt-6 inline-flex min-h-[44px] items-center rounded-full border px-6 py-2 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Read the full Founder Story →</Link>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="px-5 py-20 text-center md:px-10">
+        <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Find the Ritual That Fits Your Day</h2>
+        <p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Explore coffee, mushroom coffee, and ceremonial matcha designed for simple daily routines.</p>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#FBF8F1' }}>Explore the Collection</Link>
+          <Link to="/quiz" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Find Your Blend</Link>
+        </div>
+        <p className="mt-10 font-heading text-xs leading-6" style={{ color: theme.body }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>
+      </section>
+    </main>
+  );
 }

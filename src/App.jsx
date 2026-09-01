@@ -19,6 +19,7 @@ import CommerceNotice from './components/commerce/CommerceNotice';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import NoIndex from './components/seo/NoIndex';
 import GoneRedirect from './components/seo/GoneRedirect';
 import RouteSeoManager from './components/seo/RouteSeoManager';
@@ -183,6 +184,7 @@ const AuthenticatedApp = ({ queryClient }) => {
   return (
     <>
       {!isStandalonePortfolio && <UnifiedHeader />}
+      <ErrorBoundary resetKey={location.pathname}>
       <AnimatePresence mode="wait">
         <ScrollToTop key={location.pathname} />
         <Routes location={location} key={location.pathname}>
@@ -317,7 +319,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/blog/MatchaBenefits" element={<Navigate to="/journal/matcha-benefits" replace />} />
 
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
-        <Route path="/research" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
         <Route path="/customer-spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
         <Route path="/spotlight" element={<Navigate to="/customer-spotlight" replace />} />
@@ -505,6 +507,7 @@ const AuthenticatedApp = ({ queryClient }) => {
       {!isStandalonePortfolio && <RouteSeoManager />}
       {!isStandalonePortfolio && <BottomTabs />}
       </AnimatePresence>
+      </ErrorBoundary>
       {!isStandalonePortfolio && <div className="hidden md:block"><Footer /></div>}
     </>
   );
