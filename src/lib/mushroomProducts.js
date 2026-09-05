@@ -89,17 +89,17 @@ const MUSHROOM = product({
   caffeineLevel: 'medium',
   mood: 'Focus · Clarity · Intentional work',
   tagline: 'I see clearly.',
-  description: 'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion's Mane, and Chaga.',
+  description: 'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion’s Mane, and Chaga.',
   flavorNotes: ['Smooth Coffee', 'Cocoa', 'Balanced Finish'],
   tasteDescription: 'Smooth coffee, cocoa, subtle earth, balanced finish.',
   bestFor: 'Focused thinking and daily clarity',
-  mushrooms: 'Lion's Mane + Chaga',
+  mushrooms: 'Lion’s Mane + Chaga',
   servings: 27,
   price: 22.99,
   shopifyHandle: 'glowmind-clarity-instant-mushroom-coffee',
   accent: '#2F4A73',
   category: 'mushroom-coffee',
-  keyBenefits: ['Focus', 'Lion's Mane + Chaga', '27 Servings', 'Balanced Coffee'],
+  keyBenefits: ['Focus', 'Lion’s Mane + Chaga', '27 Servings', 'Balanced Coffee'],
 });
 
 const MATCHA = product({
