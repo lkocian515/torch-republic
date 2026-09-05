@@ -2,21 +2,29 @@ import React from 'react';
 import RitualHero from './RitualHero';
 import ChooseYourRitual from './ChooseYourRitual';
 import RitualWhy from './RitualWhy';
+import NatureRitualBanner from './NatureRitualBanner';
+import RitualTrustStrip from './RitualTrustStrip';
 import RitualComparison from './RitualComparison';
 import RitualMomentStrip from './RitualMomentStrip';
-import PoweredByNature from './PoweredByNature';
-import NatureRitualBanner from './NatureRitualBanner';
 import RitualSubscriptionTeaser from './RitualSubscriptionTeaser';
-import RitualRewardsTeaser from './RitualRewardsTeaser';
+import RitualFinalCTA from './RitualFinalCTA';
 
+// Homepage conversion flow:
+// 1. Hero  2. Three core products  3. Why Torch Republic  4. Lifestyle proof
+// 5. Trust / social proof  6. Product comparison  7. How to prepare
+// 8. Subscription benefits  9. Final purchase CTA
+//
+// PoweredByNature and RitualRewardsTeaser were removed to eliminate repeated
+// "no machine / just add water" messaging (now consolidated in RitualMomentStrip)
+// and to keep the page focused on the purchase path.
 export default function RitualHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: '#FBF8F1' }}>
       <RitualHero />
       <ChooseYourRitual />
-      <PoweredByNature />
-      <NatureRitualBanner />
       <RitualWhy />
+      <NatureRitualBanner />
+      <RitualTrustStrip />
       <RitualComparison />
       <RitualMomentStrip
         image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
@@ -26,7 +34,7 @@ export default function RitualHomepage() {
         subtitle="Scoop. Stir. Sip. A café-quality cup in seconds — no machine, no pods, no compromise."
       />
       <RitualSubscriptionTeaser />
-      <RitualRewardsTeaser />
+      <RitualFinalCTA />
     </main>
   );
 }

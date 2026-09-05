@@ -4,6 +4,7 @@ import { Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
+import { BUNDLE_PRICE_3 } from '@/lib/pricingConfig';
 
 const RG = '#B86543';
 const THEME = {
@@ -15,9 +16,9 @@ const THEME = {
   border: '#D9CDBA',
 };
 
-const STARTER_BUNDLE_PRICE = 59.99;
-const STARTER_REGULAR = 19.99 + 22.99 + 24.99; // 67.97
-const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // 7.98
+const STARTER_BUNDLE_PRICE = BUNDLE_PRICE_3; // single source of truth (pricingConfig)
+const STARTER_REGULAR = CORE_PRODUCTS.reduce((s, p) => s + p.price, 0); // 67.97
+const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // dynamic
 
 const categoryLabel = (c) =>
   c === 'matcha' ? 'Ceremonial Matcha' : c === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee';

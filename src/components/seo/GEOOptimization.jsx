@@ -1,27 +1,28 @@
 /**
  * GEO Optimization Component
- * Injects structured JSON-LD entities optimized for AI answer engines:
- * ChatGPT, Gemini, Claude, Perplexity — making Torch Republic easy to cite.
- * 
- * Uses: speakable schema, ItemList for products, FAQPage, and brand entity.
+ * Injects structured JSON-LD entities optimized for AI answer engines.
+ *
+ * Product data is sourced from CORE_PRODUCTS (the single source of truth) so
+ * the structured data always matches the live three-product catalog — no
+ * retired blend names, no "tube" references, no stale prices.
  */
 import { useEffect } from 'react';
-import { GEO_ENTITIES } from '@/lib/seoContent';
+import { CORE_PRODUCTS } from '@/lib/coreProducts';
+import { BUNDLE_PRICE_3, SUBSCRIPTION_DISCOUNT } from '@/lib/pricingConfig';
 
 const BASE_URL = 'https://torchrepublic.com';
 
-export default function GEOOptimization({ page = 'home', faqs = [], products = [] }) {
+export default function GEOOptimization({ page = 'home' }) {
   useEffect(() => {
     const schemas = [];
 
-    // ── Brand / Organization entity (always present) ──
+    // ── Brand / Organization entity ──
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
-      name: GEO_ENTITIES.brand.name,
-      url: GEO_ENTITIES.brand.url,
-      foundingDate: String(GEO_ENTITIES.brand.foundedYear),
+      name: 'Torch Republic Coffee Company',
+      url: BASE_URL,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Corpus Christi',
@@ -30,7 +31,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        email: GEO_ENTITIES.brand.contact,
+        email: 'admin@torchrepublic.com',
         contactType: 'customer support',
       },
       knowsAbout: [
@@ -43,10 +44,10 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
         'L-theanine',
         'adaptogens',
       ],
-      description: `Torch Republic Coffee Company makes premium instant mushroom coffee with Lion's Mane and Chaga, classic 100% Arabica instant coffee, and ceremonial grade matcha. All products are in instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
+      description: `Torch Republic Coffee Company makes premium instant coffee, instant mushroom coffee with Lion's Mane and Chaga, and ceremonial grade matcha. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
     });
 
-    // ── Speakable Schema — marks key text for voice and AI reading ──
+    // ── Speakable Schema ──
     if (page === 'home') {
       schemas.push({
         '@context': 'https://schema.org',
@@ -60,28 +61,25 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
       });
     }
 
-    // ── Product Catalog — ItemList for AI citation ──
+    // ── Product Catalog — exactly three current products ──
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: 'Torch Republic Product Catalog',
-      description: 'Complete product listing for Torch Republic Coffee Company instant mushroom coffee, classic coffee, and ceremonial matcha blends.',
+      description: 'Complete product listing for Torch Republic Coffee Company — instant classic coffee, instant mushroom coffee, and ceremonial matcha.',
       url: `${BASE_URL}/shop`,
-      itemListElement: [
-        // Mushroom Coffee
-        { '@type': 'ListItem', position: 1, name: 'GlowMind Clarity — Instant Mushroom Coffee', url: `${BASE_URL}/products/glowmind-clarity-blend`, description: "Premium instant coffee with Lion's Mane and Chaga for morning focus and mental clarity. 27 servings. $22.99." },
-        { '@type': 'ListItem', position: 2, name: 'SunCap Rise — Instant Mushroom Coffee', url: `${BASE_URL}/products/suncap-rise`, description: "Premium instant coffee with Lion's Mane and Chaga for morning energy and fresh starts. 27 servings. $22.99." },
-        { '@type': 'ListItem', position: 3, name: 'MoonCap Restore — Instant Mushroom Coffee', url: `${BASE_URL}/products/mooncap-restore`, description: "Premium instant coffee with Lion's Mane and Chaga for calm mornings and reset rituals. 27 servings. $22.99." },
-        // Classic Coffee
-        { '@type': 'ListItem', position: 4, name: 'Torchbearer — Premium Instant Coffee', url: `${BASE_URL}/products/torchbearer`, description: '100% Arabica single-origin premium instant coffee. Bold, clean, no mushrooms. 27 servings. $19.99.' },
-        { '@type': 'ListItem', position: 5, name: 'Ember Reserve — Premium Instant Coffee', url: `${BASE_URL}/products/ember-reserve`, description: '100% Arabica smooth light-roast premium instant coffee. 27 servings. $19.99.' },
-        // Matcha
-        { '@type': 'ListItem', position: 6, name: 'The Monk Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-monk-matcha-blend`, description: 'Ceremonial grade matcha powder for stillness and daily matcha ritual. 25 servings. $24.99.' },
-        { '@type': 'ListItem', position: 7, name: 'The Alchemist Matcha — Ceremonial Grade', url: `${BASE_URL}/products/the-alchemist-matcha-blend`, description: 'Ceremonial grade matcha for lattes, iced drinks, and creative rituals. 25 servings. $24.99.' },
-      ],
+      itemListElement: CORE_PRODUCTS.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: p.name,
+        url: `${BASE_URL}${p.path}`,
+        description: `${p.description} ${p.servings} servings. $${p.price.toFixed(2)}.`,
+      })),
     });
 
-    // ── Key Facts — structured for AI answer extraction ──
+    const subSavePct = Math.round(SUBSCRIPTION_DISCOUNT * 100);
+
+    // ── Key Facts — FAQPage for AI answer extraction ──
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -91,7 +89,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'What is Torch Republic?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant mushroom coffee (with Lion's Mane and Chaga), classic 100% Arabica instant coffee, and ceremonial grade matcha. All products come in instant powder format — no coffee maker needed.",
+            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee, instant mushroom coffee with Lion's Mane and Chaga, and ceremonial grade matcha. All products are instant powder format — no coffee maker needed.",
           },
         },
         {
@@ -99,23 +97,23 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'What mushroom coffee does Torch Republic make?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic makes three instant mushroom coffee blends: GlowMind Clarity (Lion's Mane + Chaga for focus), SunCap Rise (Lion's Mane + Chaga for morning energy), and MoonCap Restore (Lion's Mane + Chaga for calm mornings). All are $22.99 per tube with 27 servings.",
+            text: "Torch Republic makes one instant mushroom coffee, blended with premium instant coffee, Lion's Mane, and Chaga. It is $22.99 per bag with 27 servings.",
           },
         },
         {
           '@type': 'Question',
-          name: "What is the price of Torch Republic mushroom coffee?",
+          name: 'What is the price of Torch Republic products?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic mushroom coffee is $22.99 per tube (27 servings). Classic instant coffee is $19.99. Ceremonial matcha is $24.99. Any 3 products can be bundled for $49.99. Subscribe and save 20% on every delivery.",
+            text: `Instant Classic Coffee is $19.99, Instant Mushroom Coffee is $22.99, and Ceremonial Matcha is $24.99. All three can be bundled for $${BUNDLE_PRICE_3.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
           },
         },
         {
           '@type': 'Question',
-          name: 'Does Torch Republic mushroom coffee need a coffee maker?',
+          name: 'Does Torch Republic coffee need a coffee maker?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. All Torch Republic products are in instant powder format. Just add hot water, stir, and enjoy. No coffee maker, pods, grinder, or equipment needed.',
+            text: 'No. All Torch Republic products are instant powder format. Just add hot water, stir, and enjoy. No coffee maker, pods, grinder, or equipment needed.',
           },
         },
         {
@@ -123,7 +121,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'What functional mushrooms does Torch Republic use?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic uses Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) across its three mushroom coffee blends.",
+            text: "Torch Republic uses Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) in its instant mushroom coffee.",
           },
         },
         {
@@ -131,14 +129,13 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
           name: 'Where can I buy Torch Republic coffee?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Torch Republic is available at torchrepublic.com. They ship domestically within the US. Subscribe and save 20% on monthly deliveries.',
+            text: 'Torch Republic is available at torchrepublic.com. They ship domestically within the US. Subscribe and save on recurring deliveries.',
           },
         },
       ],
     });
 
-    // Inject all schemas
-    const scriptEls = schemas.map(schema => {
+    const scriptEls = schemas.map((schema) => {
       const el = document.createElement('script');
       el.type = 'application/ld+json';
       el.setAttribute('data-geo-optimization', 'true');
@@ -147,7 +144,7 @@ export default function GEOOptimization({ page = 'home', faqs = [], products = [
       return el;
     });
 
-    return () => scriptEls.forEach(el => el.remove());
+    return () => scriptEls.forEach((el) => el.remove());
   }, [page]);
 
   return null;

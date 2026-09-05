@@ -1,22 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Leaf, Clock, Sparkles } from 'lucide-react';
+import { Leaf, Sparkles, Mountain } from 'lucide-react';
 
+// Brand-trust pillars. Intentionally distinct from the "how to prepare"
+// section (RitualMomentStrip) so the homepage never repeats the
+// "no machine / just add water" message in multiple places.
 const PILLARS = [
   {
     icon: Sparkles,
-    title: 'Three rituals, no clutter',
-    body: 'Coffee, matcha, or mushrooms — and nothing asking you to choose between seven things.',
-  },
-  {
-    icon: Clock,
-    title: 'Easy to prepare',
-    body: 'Just add hot or iced water. No machine, no mess, no waiting on a brew.',
+    title: 'Intentionally simple',
+    body: 'Three products, chosen with care over a crowded catalog. Coffee, mushroom coffee, or matcha — nothing else to wade through.',
   },
   {
     icon: Leaf,
-    title: 'Real ingredients',
-    body: 'Single-origin coffee, ceremonial matcha, and functional mushrooms — listed clearly.',
+    title: 'Real, clean ingredients',
+    body: 'Single-origin coffee, ceremonial matcha, and functional mushrooms — listed clearly, with nothing artificial.',
+  },
+  {
+    icon: Mountain,
+    title: 'Made for daily life',
+    body: 'Premium quality designed for everyday routines, wherever the day takes you.',
   },
 ];
 
@@ -25,14 +28,17 @@ export default function RitualWhy() {
     <section style={{ background: '#F7F1E7' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto mb-10 max-w-2xl text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+            Why Torch Republic
+          </p>
           <h2
-            className="font-serif font-semibold"
+            className="mt-4 font-serif font-semibold"
             style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622', textWrap: 'balance' }}
           >
             Good mornings don’t need to be complicated.
           </h2>
           <p className="mt-4 font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Torch Republic makes three simple daily rituals designed to be easy to prepare and easy to love.
+            Torch Republic makes three simple daily rituals — designed to be easy to love and easy to trust.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
