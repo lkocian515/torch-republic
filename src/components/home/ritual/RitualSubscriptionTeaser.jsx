@@ -18,7 +18,7 @@ export default function RitualSubscriptionTeaser() {
             Subscribe to the product you actually drink.
           </h2>
           <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            No giant bundle required. Choose your product and your delivery schedule — every 2, 4, or 6 weeks. Start
+            No giant bundle required. Choose your product and your delivery schedule &mdash; every 2, 4, or 6 weeks. Start
             with one. Add another whenever your routine changes.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

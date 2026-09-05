@@ -28,9 +28,9 @@ export const GUARANTEE_DISPLAY = '30-Day Guarantee';
 export const GUARANTEE_DESCRIPTION = 'If it\'s not right, we make it right';
 
 // ── Shipping Estimate ─────────────────────────────────────────────────────────
-export const SHIP_TIME = '1–2 business days';
-export const SHIP_TIME_DISPLAY = 'Ships in 1–2 business days';
-export const SHIP_NOTE = 'Most orders ship in 1–2 days';
+export const SHIP_TIME = '1-2 business days';
+export const SHIP_TIME_DISPLAY = 'Ships in 1-2 business days';
+export const SHIP_NOTE = 'Most orders ship in 1-2 days';
 
 // ── Support ───────────────────────────────────────────────────────────────────
 export const SUPPORT_EMAIL = 'admin@torchrepublic.com';
@@ -41,7 +41,7 @@ export const SUPPORT_EMAIL = 'admin@torchrepublic.com';
 export const TRUST_PILLS = [
   'No Pods',
   'No Machine',
-  '25–27 Servings Per Bag',
+  '25-27 Servings Per Bag',
   `Subscribe & Save ${SUBSCRIBE_SAVE_PERCENT}%`,
   `Free Shipping ${FREE_SHIPPING_THRESHOLD_DISPLAY}`,
   `${GUARANTEE_DAYS}-Day Guarantee`,

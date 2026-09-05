@@ -29,7 +29,7 @@ export default function NatureRitualBanner() {
             Your cup in nature, before the trail begins
           </h2>
           <p className="mx-auto mt-4 max-w-[40rem] font-heading" style={{ fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', color: '#5F574F', lineHeight: 1.7 }}>
-            Sunlit mornings, packed bags, a quiet moment before you go. Torch Republic was built for hikers, students, travelers — anyone whose day starts in motion. Take a minute for yourself before the adventure.
+            Sunlit mornings, packed bags, a quiet moment before you go. Torch Republic was built for hikers, students, travelers &mdash; anyone whose day starts in motion. Take a minute for yourself before the adventure.
           </p>
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="/shop" className="btn btn-primary" style={{ minWidth: '220px' }}>Shop the Rituals</Link>

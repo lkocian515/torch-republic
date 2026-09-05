@@ -82,7 +82,7 @@ export default function BuildYourRitual() {
             Build Your Ritual
           </h1>
           <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: THEME.secondary, lineHeight: 1.7 }}>
-            Choose Instant Classic Coffee, Instant Mushroom Coffee, and Ceremonial Matcha — together or on their own.
+            Choose Instant Classic Coffee, Instant Mushroom Coffee, and Ceremonial Matcha &mdash; together or on their own.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function BuildYourRitual() {
           <div className="overflow-hidden" style={{ background: THEME.card, border: `1px solid ${THEME.border}`, boxShadow: '0 12px 40px rgba(53,38,29,0.06)' }}>
             <div className="px-6 py-2" style={{ background: RG }}>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold text-center" style={{ color: THEME.cream }}>
-                ✦ Featured Starter Ritual Bundle
+                &#10022; Featured Starter Ritual Bundle
               </p>
             </div>
             <div className="p-6 md:p-8">
@@ -105,7 +105,7 @@ export default function BuildYourRitual() {
                   <ul className="space-y-1.5 mb-5">
                     {CORE_PRODUCTS.map((p) => (
                       <li key={p.slug} className="flex items-center gap-2">
-                        <span style={{ color: RG }}>✦</span>
+                        <span style={{ color: RG }}>&#10022;</span>
                         <span className="font-mono text-[10px] tracking-[0.1em]" style={{ color: THEME.secondary }}>
                           1 {p.name}
                         </span>
@@ -127,14 +127,14 @@ export default function BuildYourRitual() {
                     </span>
                   </div>
                   <p className="font-mono text-[9px] mb-5" style={{ color: '#7A6E64' }}>
-                    One of each · 79 servings total · No machine needed
+                    One of each &middot; 79 servings total &middot; No machine needed
                   </p>
                   <button
                     onClick={startStarterRitual}
                     className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                     style={{ background: RG, color: THEME.cream }}
                   >
-                    Start My Ritual →
+                    Start My Ritual &rarr;
                   </button>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
@@ -231,7 +231,7 @@ export default function BuildYourRitual() {
                         <li key={p.slug} className="flex items-center justify-between">
                           <span className="font-heading text-xs" style={{ color: THEME.text }}>{p.name}</span>
                           <span className="font-mono text-[10px]" style={{ color: THEME.secondary }}>
-                            ×{qty[p.slug]} · ${(qty[p.slug] * p.price).toFixed(2)}
+                            &times;{qty[p.slug]} &middot; ${(qty[p.slug] * p.price).toFixed(2)}
                           </span>
                         </li>
                       ))}
@@ -263,7 +263,7 @@ export default function BuildYourRitual() {
                       className="w-full font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4"
                       style={{ background: RG, color: THEME.cream }}
                     >
-                      Add Bundle to Cart — ${subtotal.toFixed(2)}
+                      Add Bundle to Cart &mdash; ${subtotal.toFixed(2)}
                     </button>
                   </>
                 )}

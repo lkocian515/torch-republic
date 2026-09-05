@@ -9,12 +9,12 @@ const PILLARS = [
   {
     icon: Sparkles,
     title: 'Intentionally simple',
-    body: 'Three products, chosen with care over a crowded catalog. Coffee, mushroom coffee, or matcha — nothing else to wade through.',
+    body: 'Three products, chosen with care over a crowded catalog. Coffee, mushroom coffee, or matcha - nothing else to wade through.',
   },
   {
     icon: Leaf,
     title: 'Real, clean ingredients',
-    body: 'Single-origin coffee, ceremonial matcha, and functional mushrooms — listed clearly, with nothing artificial.',
+    body: 'Single-origin coffee, ceremonial matcha, and functional mushrooms - listed clearly, with nothing artificial.',
   },
   {
     icon: Mountain,
@@ -35,10 +35,10 @@ export default function RitualWhy() {
             className="mt-4 font-serif font-semibold"
             style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622', textWrap: 'balance' }}
           >
-            Good mornings don’t need to be complicated.
+            Good mornings don&apos;t need to be complicated.
           </h2>
           <p className="mt-4 font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Torch Republic makes three simple daily rituals — designed to be easy to love and easy to trust.
+            Torch Republic makes three simple daily rituals &mdash; designed to be easy to love and easy to trust.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">

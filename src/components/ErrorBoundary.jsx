@@ -36,7 +36,7 @@ export default class ErrorBoundary extends React.Component {
           <div className="max-w-lg text-center">
             <p className="mb-4 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: '#B86543' }}>Something went wrong</p>
             <h1 className="mb-4 font-serif text-4xl font-bold" style={{ color: '#292626' }}>This page could not load.</h1>
-            <p className="mb-8 font-heading leading-7" style={{ color: '#5F5145' }}>We had trouble displaying this page. The rest of the site is still available — please try again or start from the collection.</p>
+            <p className="mb-8 font-heading leading-7" style={{ color: '#5F5145' }}>We had trouble displaying this page. The rest of the site is still available &mdash; please try again or start from the collection.</p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <Link to="/" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: '#B86543', color: '#FBF8F1' }}>Return Home</Link>
               <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: '#B86543', color: '#B86543' }}>Shop All Products</Link>

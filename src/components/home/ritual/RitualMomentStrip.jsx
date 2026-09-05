@@ -9,7 +9,7 @@ export default function RitualMomentStrip({
   accent = '#B7653E',
   eyebrow = 'The Ritual',
   title = 'Just add hot water.',
-  subtitle = 'Scoop. Stir. Sip. A café-quality cup in seconds — no machine, no pods, no compromise.',
+  subtitle = 'Scoop. Stir. Sip. A cafe-quality cup in seconds - no machine, no pods, no compromise.',
 }) {
   return (
     <section className="relative w-full overflow-hidden" style={{ background: '#1A1612' }}>

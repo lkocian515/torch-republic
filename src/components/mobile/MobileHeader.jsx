@@ -33,7 +33,7 @@ export default function MobileHeader() {
           style={{ fontSize: '8px', letterSpacing: '0.4em', color: 'rgba(230,183,173,0.8)', textTransform: 'uppercase' }}>
           Use code{' '}
           <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span>
-          {' '}for 15% off · Free Shipping $50+
+          {' '}for 15% off &middot; Free Shipping $50+
         </p>
       </div>
 
@@ -163,7 +163,7 @@ export default function MobileHeader() {
                       }}
                     >
                       <span style={{ transition: 'transform 0.25s ease' }}>{item.label}</span>
-                      <span style={{ color: `${RG}66`, fontSize: '14px', transition: 'all 0.25s ease' }}>→</span>
+                      <span style={{ color: `${RG}66`, fontSize: '14px', transition: 'all 0.25s ease' }}>&rarr;</span>
                     </Link>
                   </motion.div>
                 ))}
@@ -181,7 +181,7 @@ export default function MobileHeader() {
                   borderRadius: '2px',
                   background: `${RG}08`,
                 }}>
-                Shop the 6-Tube Bundle →
+                Build Your Ritual &rarr;
               </Link>
               <div className="flex items-center justify-center gap-6 mt-5">
                 <Link to="/Profile" onClick={() => setOpen(false)}

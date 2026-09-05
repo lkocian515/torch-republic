@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t pt-6 md:flex-row md:items-center md:justify-between" style={{ borderColor: colors.border }}>
-          <p className="font-heading text-sm" style={{ color: colors.secondary }}>© {new Date().getFullYear()} Torch Republic Coffee Company</p>
+          <p className="font-heading text-sm" style={{ color: colors.secondary }}>&copy; {new Date().getFullYear()} Torch Republic Coffee Company</p>
         </div>
       </div>
     </footer>

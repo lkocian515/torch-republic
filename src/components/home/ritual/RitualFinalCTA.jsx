@@ -17,7 +17,7 @@ export default function RitualFinalCTA() {
           Three products. One simple daily ritual.
         </h2>
         <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: 'rgba(251,248,241,0.82)', lineHeight: 1.7 }}>
-          Instant coffee, mushroom coffee, and ceremonial matcha — made to be easy, premium, and worth slowing down for.
+          Instant coffee, mushroom coffee, and ceremonial matcha &mdash; made to be easy, premium, and worth slowing down for.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link to="/shop" className="btn btn-primary" style={{ minWidth: '220px' }}>Shop All Three</Link>
