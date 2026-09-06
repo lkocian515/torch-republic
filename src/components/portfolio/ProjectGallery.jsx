@@ -50,9 +50,9 @@ export default function ProjectGallery() {
                 overflow: 'hidden',
                 background: P.surface,
                 cursor: 'zoom-in',
-                // Fixed ratio container — guarantees a uniform, undistorted grid
-                // on mobile (1 col) and desktop (2 col).
-                aspectRatio: '16 / 10',
+                // Portrait ratio — fits pre-cropped mobile screenshots without
+                // further cropping or large empty borders.
+                aspectRatio: '3 / 4',
               }}
             >
               <img
@@ -64,11 +64,7 @@ export default function ProjectGallery() {
                   display: 'block',
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
-                  // Center-crop so the browser/status bar at the top of each
-                  // full-page screenshot (and any other identifiable info) is
-                  // cropped out of the visible area.
-                  objectPosition: 'center',
+                  objectFit: 'contain',
                 }}
               />
             </button>
@@ -119,12 +115,12 @@ export default function ProjectGallery() {
           >
             <X size={20} />
           </button>
-          <figure style={{ margin: 0, maxWidth: 720, width: '100%' }} onClick={(e) => e.stopPropagation()}>
+          <figure style={{ margin: 0, maxWidth: 480, width: '100%' }} onClick={(e) => e.stopPropagation()}>
             <div style={{
               borderRadius: '12px',
               overflow: 'hidden',
               background: P.surface,
-              aspectRatio: '16 / 10',
+              aspectRatio: '3 / 4',
             }}>
               <img
                 src={active.src}
@@ -133,8 +129,7 @@ export default function ProjectGallery() {
                   display: 'block',
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center',
+                  objectFit: 'contain',
                 }}
               />
             </div>
