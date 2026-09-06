@@ -1,5 +1,5 @@
 # Torch Republic Coffee Company — robots.txt
-# Public product, collection, journal, FAQ, ingredient, and comparison pages are crawlable.
+# Public product, collection, journal, FAQ, ingredient, comparison, and policy pages are crawlable.
 # Internal tools, account-state pages, utility pages, redirects, and discontinued routes are excluded.
 
 User-agent: *
@@ -22,14 +22,11 @@ Disallow: /Portal
 Disallow: /LoyaltyPortal
 Disallow: /loyaltyportal
 
-# Cart, checkout, order-confirmation, and utility/legal pages
+# Cart, checkout, order-confirmation, and utility pages
 Disallow: /cart
 Disallow: /checkout
 Disallow: /order-confirmation
-Disallow: /shipping-policy
-Disallow: /return-policy
-Disallow: /privacy-policy
-Disallow: /terms-of-service
+Disallow: /restocking
 
 # Admin, analytics, campaign, keyword, and research tools
 Disallow: /admin
@@ -55,7 +52,6 @@ Disallow: /local
 Disallow: /LocalSEO
 Disallow: /ProductSync
 Disallow: /product-sync
-Disallow: /research
 
 # Torch Command and development/internal utility routes
 Disallow: /command

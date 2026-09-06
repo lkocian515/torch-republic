@@ -298,6 +298,11 @@ function RitualPDP({ product }) {
               ))}
             </div>
 
+            <p className="text-center font-mono text-[8px] tracking-[0.08em] pt-1" style={{ color: THEME.secondary }}>
+              Shipping details &middot; Easy subscription changes &middot;{' '}
+              <Link to="/shipping-policy" style={{ color: c.accent, textDecoration: 'underline' }}>See shipping &amp; returns</Link>
+            </p>
+
             <ShareButtons title={`${product.name} — Torch Republic`} url={product.path} />
           </motion.div>
         </div>

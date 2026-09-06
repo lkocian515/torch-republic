@@ -67,7 +67,7 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
     // Core meta
     const descEl = description ? setMeta('meta[name="description"]', 'content', description) : null;
     const keywordsEl = article?.keywords?.length ? setMeta('meta[name="keywords"]', 'content', article.keywords.join(', ')) : null;
-    const robotsEl = setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow');
+    const robotsEl = setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow');
     const canonEl = setLink('canonical', canonicalUrl);
 
     // Open Graph

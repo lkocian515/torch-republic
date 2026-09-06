@@ -86,16 +86,16 @@ const NOINDEX_EXACT_PATHS = new Set([
   '/traffic-report', '/trafficreport', '/adminshopify', '/productsync', '/product-sync', '/keywordanalysis', '/searchqueryanalysis', '/search-query-analysis',
   '/dashboard', '/seo', '/localseo', '/local', '/customerportal', '/portal', '/loyaltyportal',
   '/torchcommandhome', '/cognitivequiz', '/flowtimer', '/protocolsdirectory', '/protocoldetail', '/admincommand', '/adminblogeditor',
-  '/shipping-policy', '/return-policy', '/privacy-policy', '/terms-of-service',
+  '/restocking',
   '/bundle', '/mission', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
-  '/research', '/compare',
+  '/compare',
 
   '/coffee-pods', '/pods', '/pod', '/patriotic-coffee', '/founders-series', '/founders',
   '/libertees', '/apparel', '/collectibles', '/patriotic', '/lincoln', '/washington', '/jefferson', '/reagan', '/historical', '/liberty', '/freedom',
   '/american-heroes', '/christ-is-king', '/god-family-country', '/faith-over-fear', '/we-the-people', '/freedom-isnt-free',
   '/t-shirts', '/hoodies', '/hats', '/mugs', '/stickers', '/flags', '/bobbleheads', '/jewelry', '/necklaces', '/bracelets', '/rings',
 ]);
-const NOINDEX_PREFIXES = ['/admin', '/research', '/command', '/collections', '/pages'];
+const NOINDEX_PREFIXES = ['/admin', '/command', '/collections', '/pages'];
 const SEARCH_PARAMS = ['q', 'query', 'search', 's'];
 
 function isNoIndex(pathname, search) {

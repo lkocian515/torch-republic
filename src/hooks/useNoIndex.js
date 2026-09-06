@@ -11,7 +11,7 @@ import { useEffect } from 'react';
  * 
  * @param {boolean} follow - Whether to allow link following (default: false)
  */
-export default function useNoIndex(follow = false) {
+export default function useNoIndex(follow = true) {
   useEffect(() => {
     // Create or update meta robots tag
     let metaTag = document.querySelector('meta[name="robots"]');

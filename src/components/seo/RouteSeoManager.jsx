@@ -32,7 +32,7 @@ export default function RouteSeoManager() {
   useEffect(() => {
     const seo = getRouteSeo(location.pathname, location.search);
     const canonicalUrl = `${SITE_URL}${seo.canonicalPath}`;
-    const robots = seo.noindex ? 'noindex, nofollow' : 'index, follow';
+    const robots = seo.noindex ? 'noindex, follow' : 'index, follow';
 
     document.title = seo.title;
     upsertMeta('meta[name="description"]', 'content', seo.description);

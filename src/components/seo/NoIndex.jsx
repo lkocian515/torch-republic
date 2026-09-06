@@ -14,7 +14,7 @@ export default function NoIndex() {
       el.setAttribute('name', 'robots');
       document.head.appendChild(el);
     }
-    el.setAttribute('content', 'noindex, nofollow');
+    el.setAttribute('content', 'noindex, follow');
 
     return () => {
       if (el) el.setAttribute('content', 'index, follow');

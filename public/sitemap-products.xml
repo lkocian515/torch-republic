@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://torchrepublic.com/products/suncap-rise</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/glowmind-clarity-blend</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/mooncap-restore</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/torchbearer</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/ember-reserve</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/the-alchemist-matcha-blend</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/products/the-monk-matcha-blend</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/products/instant-classic-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/products/instant-mushroom-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://torchrepublic.com/products/ceremonial-matcha</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 </urlset>

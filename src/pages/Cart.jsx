@@ -235,7 +235,7 @@ export default function Cart() {
                 <span style={{ color: BORDER }}>•</span>
                 <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Ships from the U.S.</span>
                 <span style={{ color: BORDER }}>•</span>
-                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Easy Returns</span>
+                <Link to="/shipping-policy" className="font-mono text-[7px] tracking-[0.15em] transition-opacity hover:opacity-70" style={{ color: MUTED }}>Shipping &amp; Returns</Link>
               </div>
 
               <Link to="/shop"

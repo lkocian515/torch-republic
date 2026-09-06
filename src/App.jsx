@@ -327,10 +327,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
         <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
-        <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
-        <Route path="/terms-of-service" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="TermsOfService" queryClient={queryClient}><TermsOfService /></LayoutWrapper></Suspense>} />
+        <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
+        <Route path="/terms-of-service" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TermsOfService" queryClient={queryClient}><TermsOfService /></LayoutWrapper></Suspense>} />
 
         {/* ── SEO CONTENT PAGES ── */}
         <Route path="/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefits" queryClient={queryClient}><MushroomCoffeeBenefits /></LayoutWrapper></Suspense>} />

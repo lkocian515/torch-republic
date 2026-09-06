@@ -20,7 +20,7 @@ function useNoIndex() {
       el.setAttribute('content', content);
       return el;
     };
-    const el = setTag('noindex, nofollow');
+    const el = setTag('noindex, follow');
     return () => { if (el) el.setAttribute('content', 'index, follow'); };
   }, []);
 }
