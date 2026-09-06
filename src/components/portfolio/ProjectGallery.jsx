@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
 import { P, FONT_SANS } from './portfolioTheme';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 
 // Real screenshots of the live project — interface evidence, not glamour shots.
 const SHOTS = [
@@ -14,6 +14,20 @@ const SHOTS = [
 ];
 
 export default function ProjectGallery() {
+  const [active, setActive] = useState(null);
+
+  const close = useCallback(() => setActive(null), []);
+  const onKey = useCallback((e) => { if (e.key === 'Escape') close(); }, [close]);
+  useEffect(() => {
+    if (!active) return;
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [active, onKey]);
+
   return (
     <SectionWrap id="gallery" alt>
       <Eyebrow>Selected Interface / Project Gallery</Eyebrow>
@@ -23,13 +37,19 @@ export default function ProjectGallery() {
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {SHOTS.map((s) => (
           <figure key={s.src} style={{ margin: 0 }}>
-            <div
+            <button
+              type="button"
+              onClick={() => setActive(s)}
+              aria-label={`Expand image: ${s.title}`}
               style={{
                 display: 'block',
+                width: '100%',
+                padding: 0,
                 border: `1px solid ${P.rule}`,
                 borderRadius: '12px',
                 overflow: 'hidden',
                 background: P.surface,
+                cursor: 'zoom-in',
                 // Fixed ratio container — guarantees a uniform, undistorted grid
                 // on mobile (1 col) and desktop (2 col).
                 aspectRatio: '16 / 10',
@@ -51,7 +71,7 @@ export default function ProjectGallery() {
                   objectPosition: 'center',
                 }}
               />
-            </div>
+            </button>
             <figcaption style={{ marginTop: '0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.875rem', color: P.ink }}>{s.title}</span>
               <ArrowUpRight size={13} style={{ color: P.accent }} aria-hidden="true" />
@@ -59,6 +79,78 @@ export default function ProjectGallery() {
           </figure>
         ))}
       </div>
+
+      {active && (
+        <div
+          onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Expanded view: ${active.title}`}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 100,
+            background: 'rgba(15, 15, 15, 0.92)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem',
+          }}
+        >
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close expanded view"
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              right: '1rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 40,
+              height: 40,
+              borderRadius: '50%',
+              border: 'none',
+              background: 'rgba(255,255,255,0.12)',
+              color: '#fff',
+              cursor: 'pointer',
+            }}
+          >
+            <X size={20} />
+          </button>
+          <figure style={{ margin: 0, maxWidth: 720, width: '100%' }} onClick={(e) => e.stopPropagation()}>
+            <div style={{
+              borderRadius: '12px',
+              overflow: 'hidden',
+              background: P.surface,
+              aspectRatio: '16 / 10',
+            }}>
+              <img
+                src={active.src}
+                alt={active.alt}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
+            </div>
+            <figcaption style={{
+              marginTop: '0.75rem',
+              textAlign: 'center',
+              fontFamily: FONT_SANS,
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              color: '#fff',
+            }}>
+              {active.title}
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </SectionWrap>
   );
 }
