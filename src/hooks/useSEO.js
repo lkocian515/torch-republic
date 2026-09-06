@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const BASE_URL = 'https://torchrepublic.com';
 const SITE_NAME = 'Torch Republic';
-const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
+const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png';
 
 /**
  * Full SEO hook — sets title, meta description, Open Graph, Twitter Card,

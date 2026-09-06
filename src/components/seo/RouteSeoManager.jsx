@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { getRouteSeo } from '@/lib/routeSeo';
 
 const SITE_URL = 'https://torchrepublic.com';
-const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';
+const DEFAULT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png';
 
 function upsertMeta(selector, attr, value) {
   let element = document.querySelector(selector);

@@ -13,7 +13,7 @@ export default function LocalBusinessSchema() {
     "description": "Explore thoughtfully crafted instant coffee, functional mushroom blends, and ceremonial matcha made for brighter, more intentional daily rituals.",
     "url": "https://torchrepublic.com",
     "logo": "https://torchrepublic.com/torch-republic-logo-transparent.png",
-    "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png",
+    "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png",
     "telephone": "+1-361-360-1931",
     "email": "admin@torchrepublic.com",
     "address": {
