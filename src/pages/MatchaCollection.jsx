@@ -18,7 +18,7 @@ import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
 const MATCHA_GREEN = '#566047';
-const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
+const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
 
 // FAQ data for schema
 const FAQS = [

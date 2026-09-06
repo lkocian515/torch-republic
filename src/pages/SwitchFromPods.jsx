@@ -70,7 +70,7 @@ const PATHWAYS = [
     servings: 25,
     category: 'matcha',
     accent: '#6EE7B7',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg',
     path: '/shop/matcha',
     cta: 'Shop Matcha',
   },

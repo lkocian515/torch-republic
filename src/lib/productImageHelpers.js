@@ -14,7 +14,7 @@ export const PRODUCT_IMAGE_DRAG_PREVENTION_PROPS = {
 // fall back to the logo, since they should not render publicly at all.
 const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
 const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
-const MATCHA_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
+const MATCHA_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
 
 export const APPROVED_PRODUCT_IMAGES = {
   // Instant Classic Coffee (canonical + legacy slug/shopify handle keys)
@@ -112,6 +112,7 @@ export function getProductAltText(product, defaultAlt = 'Torch Republic premium 
                    product?.category?.includes('mushroom') ? 'mushroom coffee' :
                    product?.category === 'classic-coffee' ? 'instant coffee' : 'product';
   
+  if (product?.category === 'matcha') return 'Torch Republic Ceremonial Matcha white stand-up pouch.';
   return `${name} ${category} by Torch Republic`;
 }
 

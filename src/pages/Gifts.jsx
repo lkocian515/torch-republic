@@ -8,7 +8,7 @@ import GiftKitCard from '@/components/gifts/GiftKitCard';
 
 const RG = '#E6B7AD';
 const BAG_CLASSIC = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
-const BAG_MATCHA = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg';
+const BAG_MATCHA = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
 const BAG_MUSHROOM = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
 const OG_IMAGE = BAG_CLASSIC;
 

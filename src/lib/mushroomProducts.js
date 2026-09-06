@@ -17,7 +17,7 @@ import { COMMERCE_ENABLED } from './commerceConfig';
 export const FINAL_PRODUCT_IMAGE_URLS = {
   'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
   'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
-  'ceremonial-matcha': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
+  'ceremonial-matcha': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg',
 };
 
 const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, tagline, description, flavorNotes, tasteDescription, bestFor, mushrooms, servings, price, shopifyHandle, accent, category, keyBenefits }) => {
@@ -49,7 +49,7 @@ const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, t
     gallery: [image],
     galleryImages: [image],
     images: [image],
-    alt: `${name} ${categoryText} by Torch Republic`,
+    alt: category === 'matcha' ? 'Torch Republic Ceremonial Matcha white stand-up pouch.' : `${name} ${categoryText} by Torch Republic`,
     price,
     shopifyHandle,
     accent,

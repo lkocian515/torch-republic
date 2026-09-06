@@ -49,7 +49,7 @@ const build = (p) => {
     imageUrl: image,
     image_url: image,
     thumbnail: image,
-    alt: `${p.name} by Torch Republic`,
+    alt: p.alt || `${p.name} by Torch Republic`,
     gallery: [image],
     ritual: RITUAL_COLORS[p.ritualKey],
   };
@@ -133,10 +133,11 @@ export const CORE_PRODUCTS = [
     functionalLabel: null,
     prep: 'Hot or iced',
     cta: 'Shop Matcha',
+    alt: 'Torch Republic Ceremonial Matcha white stand-up pouch.',
     path: '/products/ceremonial-matcha',
     collectionPath: '/products/ceremonial-matcha',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9268e0f1e_tcr_coffee_blank_final_latest3f.jpeg',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg',
   }),
 ];
 
