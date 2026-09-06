@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 // "Ignite Your Daily Ritual" headline, subheadline, and benefit icons, so no
 // text is rendered on top of it — only the conversion buttons sit below.
 const HERO_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6a3e5f1c3_file_00000000150481fda5e169b000a0c121.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/926ae1e1e_file_0000000057a481fba5334d374caf502f.png';
 
 export default function RitualHero() {
   return (
