@@ -5,12 +5,12 @@ import { ArrowUpRight, X } from 'lucide-react';
 
 // Real screenshots of the live project — interface evidence, not glamour shots.
 const SHOTS = [
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6661578c5_Screenshot_2026-08-24-13-03-47-00_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Homepage — editorial hero & navigation', alt: 'Torch Republic homepage hero with three 3oz black-bag products.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6abb4bbaf_Screenshot_2026-08-24-13-03-56-27_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Product card — mushroom coffee', alt: 'Product card showing 3oz black-bag instant mushroom coffee.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/42e51d0dc_Screenshot_2026-08-24-13-03-53-03_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Product card — ceremonial matcha', alt: 'Product card showing 3oz black-bag ceremonial matcha.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/543afa947_Screenshot_2026-08-24-13-04-02-57_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Powered by Nature — benefit grid', alt: 'Powered by Nature benefits section with clean ingredients messaging.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/740aecdfd_Screenshot_2026-08-24-13-04-06-42_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Lifestyle hero — ritual in nature', alt: 'Lifestyle hero showing the daily ritual in an outdoor setting.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/82a403301_Screenshot_2026-08-24-13-03-43-32_40deb401b9ffe8e1df2f1cc5ba480b12.jpg', title: 'Storefront hero — the lineup', alt: 'Storefront hero featuring the three 3oz black-bag products.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg', title: 'Homepage — hero & navigation', alt: 'Torch Republic homepage hero with product lineup and daily ritual messaging.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg', title: 'Product card — classic coffee', alt: 'Product card showing Instant Classic Coffee with pricing and subscription option.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg', title: 'Product card — mushroom coffee', alt: 'Product card showing Instant Mushroom Coffee with functional benefits.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/083d51a21_IMG_20260905_225458.jpg', title: 'Product card — ceremonial matcha', alt: 'Product card showing Ceremonial Matcha with clean energy messaging.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg', title: 'Real ingredients — benefit grid', alt: 'Feature grid highlighting clean ingredients, no plastic, no machine, and on-the-go convenience.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg', title: 'Lifestyle hero — ritual in nature', alt: 'Lifestyle hero showing the daily ritual in an outdoor mountain setting.' },
 ];
 
 export default function ProjectGallery() {
