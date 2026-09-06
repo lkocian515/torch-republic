@@ -23,11 +23,7 @@ export default function ProjectGallery() {
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {SHOTS.map((s) => (
           <figure key={s.src} style={{ margin: 0 }}>
-            <a
-              href={s.src}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open full-size image: ${s.title}`}
+            <div
               style={{
                 display: 'block',
                 border: `1px solid ${P.rule}`,
@@ -49,13 +45,13 @@ export default function ProjectGallery() {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  // Keep the top of each screenshot visible (hero/nav area),
-                  // since these are tall full-page captures.
-                  objectPosition: 'top',
-                  transition: 'transform 0.4s ease',
+                  // Center-crop so the browser/status bar at the top of each
+                  // full-page screenshot (and any other identifiable info) is
+                  // cropped out of the visible area.
+                  objectPosition: 'center',
                 }}
               />
-            </a>
+            </div>
             <figcaption style={{ marginTop: '0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.875rem', color: P.ink }}>{s.title}</span>
               <ArrowUpRight size={13} style={{ color: P.accent }} aria-hidden="true" />
