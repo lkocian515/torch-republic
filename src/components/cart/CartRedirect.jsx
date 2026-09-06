@@ -19,7 +19,7 @@ export default function CartRedirect() {
 
   // Prevent search engines from indexing this utility page
   useEffect(() => {
-    document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, nofollow');
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, follow');
     return () => {
       document.querySelector('meta[name="robots"]')?.setAttribute('content', 'index, follow');
     };

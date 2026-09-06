@@ -8,7 +8,7 @@ function GonePage() {
     document.title = '410 Gone — Torch Republic';
     let meta = document.querySelector('meta[name="robots"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = 'robots'; document.head.appendChild(meta); }
-    meta.content = 'noindex, nofollow';
+    meta.content = 'noindex, follow';
     return () => { if (meta) meta.content = 'index, follow'; };
   }, []);
 
@@ -135,7 +135,7 @@ export default function PageNotFound() {
       el.setAttribute('name', 'robots');
       document.head.appendChild(el);
     }
-    el.setAttribute('content', 'noindex, nofollow');
+    el.setAttribute('content', 'noindex, follow');
     return () => { if (el) el.setAttribute('content', 'index, follow'); };
   }, []);
 

@@ -151,7 +151,7 @@ export default function AdminBlogEditor() {
     <>
       <Helmet>
         <title>{isCreating ? 'New Article' : `Edit: ${formData.title}`} | Admin</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
       
       <div style={{ backgroundColor: '#080808', minHeight: '100vh', color: '#F0EBE1' }}>

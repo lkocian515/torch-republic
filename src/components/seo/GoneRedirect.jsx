@@ -17,7 +17,7 @@ export default function GoneRedirect() {
       meta.name = 'robots';
       document.head.appendChild(meta);
     }
-    meta.content = 'noindex, nofollow';
+    meta.content = 'noindex, follow';
     return () => {
       if (meta) meta.content = 'index, follow';
     };
