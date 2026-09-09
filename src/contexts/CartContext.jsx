@@ -44,7 +44,8 @@ export function CartProvider({ children }) {
   const dismissRefreshed = useCallback(() => setRefreshed(false), []);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [toast, setToast] = useState(null);
+  const [confirmation, setConfirmation] = useState(null);
+  const [isAdding, setIsAdding] = useState(false);
 
   // ── Shopify cart ID (NOT a secret — identifies the buyer's Shopify cart) ──
   const [shopifyCartId, setShopifyCartId] = useState(() => {
@@ -65,6 +66,10 @@ export function CartProvider({ children }) {
   // Ref mirror of shopifyCartId to avoid stale closures in async callbacks
   const shopifyCartIdRef = useRef(shopifyCartId);
   useEffect(() => { shopifyCartIdRef.current = shopifyCartId; }, [shopifyCartId]);
+
+  // Ref mirror of items for rollback in addItem without adding items to deps
+  const itemsRef = useRef(items);
+  useEffect(() => { itemsRef.current = items; }, [items]);
 
   // Checkout loading state
   const [isCheckingOut, setIsCheckingOut] = useState(false);
@@ -172,12 +177,16 @@ export function CartProvider({ children }) {
     // Prevent duplicate lines from repeated clicks
     if (mutationInFlight.current) return;
     mutationInFlight.current = true;
+    setIsAdding(true);
 
     const normalizedProduct = {
       ...product,
       image: getProductImage(product),
       imageAlt: getProductAltText(product),
     };
+
+    // Save previous state for rollback if Shopify rejects
+    const previousItems = itemsRef.current;
 
     // Optimistic local update
     setItems(prev => {
@@ -191,9 +200,45 @@ export function CartProvider({ children }) {
       return [...prev, { ...normalizedProduct, qty }];
     });
 
-    showToast({ title: 'Added to your cart', description: normalizedProduct.name });
+    // Helper: find the matching Shopify line from the cart response
+    const findMatch = (cart) => cart?.lines?.find(sl =>
+      sl.productTitle === normalizedProduct.name &&
+      sl.isSubscription === !!normalizedProduct.isSubscription
+    );
 
-    // Sync to Shopify cart when commerce is enabled
+    // Helper: update local items with Shopify-confirmed data + show confirmation
+    const applyShopifyData = (cart) => {
+      const matchedLine = findMatch(cart);
+      if (!matchedLine) return false;
+
+      setItems(prev => prev.map(localItem => {
+        if (localItem.name !== normalizedProduct.name ||
+            !!localItem.isSubscription !== !!normalizedProduct.isSubscription) return localItem;
+        return {
+          ...localItem,
+          qty: matchedLine.quantity,
+          shopifyLineId: matchedLine.lineId,
+          shopifyPrice: matchedLine.unitPrice,
+          shopifyLineTotal: matchedLine.lineSubtotal,
+          sellingPlanName: matchedLine.sellingPlanName,
+        };
+      }));
+
+      // Show confirmation ONLY after Shopify confirms the mutation
+      setConfirmation({
+        name: normalizedProduct.name,
+        image: normalizedProduct.image,
+        imageAlt: normalizedProduct.imageAlt,
+        qty: matchedLine.quantity,
+        isSubscription: !!normalizedProduct.isSubscription,
+        sellingPlanName: matchedLine.sellingPlanName,
+        shopifyPrice: matchedLine.unitPrice,
+        lineTotal: matchedLine.lineSubtotal,
+        price: normalizedProduct.price,
+      });
+      return true;
+    };
+
     if (COMMERCE_ENABLED) {
       const slug = normalizedProduct.shopifyHandle || normalizedProduct.id;
       const line = { slug, quantity: qty, isSubscription: !!normalizedProduct.isSubscription };
@@ -201,63 +246,51 @@ export function CartProvider({ children }) {
       (async () => {
         try {
           const currentCartId = shopifyCartIdRef.current;
+          let cart;
+
           if (!currentCartId) {
             // Create a new Shopify cart with this line
-            const cart = await createShopifyCart([line]);
-            if (cart?.cartId) {
-              persistShopifyCartId(cart.cartId);
-              // Update local items with Shopify-returned line data
-              if (cart.lines?.length) {
-                setItems(prev => prev.map(localItem => {
-                  const match = cart.lines.find(sl =>
-                    sl.productTitle === localItem.name &&
-                    sl.isSubscription === !!localItem.isSubscription
-                  );
-                  return match ? {
-                    ...localItem,
-                    qty: match.quantity,
-                    shopifyLineId: match.lineId,
-                    shopifyPrice: match.unitPrice,
-                    shopifyLineTotal: match.lineSubtotal,
-                    sellingPlanName: match.sellingPlanName,
-                  } : localItem;
-                }));
-              }
-            }
+            cart = await createShopifyCart([line]);
+            if (cart?.cartId) persistShopifyCartId(cart.cartId);
           } else {
             // Add to existing Shopify cart
-            const cart = await addShopifyCartLine(currentCartId, line);
-            if (cart?.lines?.length) {
-              setItems(prev => prev.map(localItem => {
-                const match = cart.lines.find(sl =>
-                  sl.productTitle === localItem.name &&
-                  sl.isSubscription === !!localItem.isSubscription
-                );
-                return match ? {
-                  ...localItem,
-                  qty: match.quantity,
-                  shopifyLineId: match.lineId,
-                  shopifyPrice: match.unitPrice,
-                  shopifyLineTotal: match.lineSubtotal,
-                  sellingPlanName: match.sellingPlanName,
-                } : localItem;
-              }));
-            }
+            cart = await addShopifyCartLine(currentCartId, line);
+          }
+
+          const applied = applyShopifyData(cart);
+          if (!applied) {
+            // Shopify returned a cart but no matching line — rollback
+            setItems(previousItems);
+            showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive' });
           }
         } catch {
-          // Silently fail — local cart remains the fallback
+          // Rollback optimistic update on Shopify failure
+          setItems(previousItems);
+          showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive' });
         } finally {
           mutationInFlight.current = false;
+          setIsAdding(false);
         }
       })();
     } else {
-      // Release the lock after a brief delay (prevents rapid double-clicks)
-      setTimeout(() => { mutationInFlight.current = false; }, 300);
+      // Commerce disabled — show confirmation with local data
+      setConfirmation({
+        name: normalizedProduct.name,
+        image: normalizedProduct.image,
+        imageAlt: normalizedProduct.imageAlt,
+        qty,
+        isSubscription: !!normalizedProduct.isSubscription,
+        sellingPlanName: normalizedProduct.isSubscription ? 'Deliver every 4 weeks' : null,
+        shopifyPrice: null,
+        lineTotal: (normalizedProduct.price * qty).toFixed(2),
+        price: normalizedProduct.price,
+      });
+      setTimeout(() => { mutationInFlight.current = false; setIsAdding(false); }, 300);
     }
   }, [getLineKey, persistShopifyCartId]);
 
-  const clearToast = useCallback(() => {
-    setToast(null);
+  const clearConfirmation = useCallback(() => {
+    setConfirmation(null);
   }, []);
 
   // Optimistic update with rollback support
@@ -417,7 +450,7 @@ export function CartProvider({ children }) {
   return (
     <CartContext.Provider value={{
       items, addItem, updateQty, setQty, removeItem, clearCart,
-      totalItems, subtotal, drawerOpen, setDrawerOpen, toast, clearToast,
+      totalItems, subtotal, drawerOpen, setDrawerOpen, confirmation, clearConfirmation, isAdding,
       refreshed, dismissRefreshed,
       shopifyCartId, persistShopifyCartId,
       handleCheckout, isCheckingOut,

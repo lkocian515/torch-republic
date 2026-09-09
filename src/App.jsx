@@ -16,6 +16,7 @@ import Footer from './components/navigation/Footer';
 import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
 import ExitIntentPopup from './components/home/ExitIntentPopup';
 import CommerceNotice from './components/commerce/CommerceNotice';
+import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
 import AdminGuard from './components/seo/AdminGuard';
 import ProtectedRoute from '@/components/ProtectedRoute';
@@ -544,6 +545,7 @@ function App() {
             <NavigationProvider>
               <AuthenticatedApp queryClient={queryClientInstance} />
               <CommerceNotice />
+              <AddToCartConfirmation />
               <EmailCapturePopup />
               <ExitIntentPopup />
             </NavigationProvider>
