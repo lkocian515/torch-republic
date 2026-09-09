@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2, ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
+import { Sun, Brain, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2, ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductImage, getProductAltText, getProductImageDragProps } from '@/lib/productImageHelpers';
 
-// Single source of truth — only the three current products.
-const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS]
+// Single source of truth — only the two current products.
+const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS]
   .reduce((acc, p) => {
     [p.shopifyHandle, p.slug, p.id, p.name].filter(Boolean).forEach(key => { acc[key] = p; });
     return acc;
@@ -24,20 +24,19 @@ const THEME = {
   moss: '#566047',
 };
 
-// Each option contributes weight to one of three result keys:
+// Each option contributes weight to one of two result keys:
 //   classic  → Instant Classic Coffee (traditional, bold, higher caffeine, straightforward energy)
 //   mushroom → Instant Mushroom Coffee (coffee + functional mushrooms, focus, work sessions, balanced)
-//   matcha   → Ceremonial Matcha (smoother energy, lower jitter, calm / intentional ritual)
 const QUESTIONS = [
   {
     q: 'What do you need most today?',
     options: [
       { label: 'Energy', icon: Sun, weights: { classic: 3 } },
       { label: 'Focus', icon: Brain, weights: { mushroom: 3 } },
-      { label: 'Calm', icon: Moon, weights: { matcha: 3 } },
-      { label: 'Creativity', icon: Sparkles, weights: { matcha: 2, mushroom: 1 } },
+      { label: 'Calm', icon: Wind, weights: { mushroom: 2 } },
+      { label: 'Creativity', icon: Sparkles, weights: { mushroom: 2 } },
       { label: 'Discipline', icon: Zap, weights: { mushroom: 3 } },
-      { label: 'Reflection', icon: Book, weights: { matcha: 2 } },
+      { label: 'Reflection', icon: Book, weights: { mushroom: 2 } },
       { label: 'Just Great Coffee', icon: Coffee, weights: { classic: 3 } },
     ],
   },
@@ -45,35 +44,35 @@ const QUESTIONS = [
     q: 'When do you usually drink your ritual?',
     options: [
       { label: 'Before 7am', icon: Star, weights: { classic: 2, mushroom: 1 } },
-      { label: 'Morning 7–10am', icon: Sun, weights: { classic: 1, mushroom: 1, matcha: 1 } },
+      { label: 'Morning 7-10am', icon: Sun, weights: { classic: 1, mushroom: 1 } },
       { label: 'Midday Work Session', icon: Brain, weights: { mushroom: 3 } },
-      { label: 'Afternoon Reset', icon: Wind, weights: { matcha: 2 } },
-      { label: 'Evening Wind-Down', icon: Moon, weights: { matcha: 3 } },
+      { label: 'Afternoon Reset', icon: Wind, weights: { mushroom: 2 } },
+      { label: 'Evening Wind-Down', icon: Coffee, weights: { mushroom: 2 } },
     ],
   },
   {
     q: "What's your current relationship with caffeine?",
     options: [
       { label: 'The more the better', icon: Flame, weights: { classic: 3 } },
-      { label: 'Moderate — I like balance', icon: Leaf, weights: { mushroom: 2 } },
-      { label: 'Sensitive — I want less jitter', icon: Wind, weights: { matcha: 3 } },
-      { label: 'I prefer a slow burn', icon: Moon, weights: { matcha: 2 } },
-      { label: 'I love the ritual more than the buzz', icon: Book, weights: { matcha: 2, mushroom: 1 } },
+      { label: 'Moderate - I like balance', icon: Leaf, weights: { mushroom: 2 } },
+      { label: 'Sensitive - I want less jitter', icon: Wind, weights: { mushroom: 3 } },
+      { label: 'I prefer a slow burn', icon: Coffee, weights: { mushroom: 2 } },
+      { label: 'I love the ritual more than the buzz', icon: Book, weights: { mushroom: 2, classic: 1 } },
     ],
   },
   {
     q: 'How would you describe your morning vibe right now?',
     options: [
-      { label: 'Fire me up — I\'m ready to execute', icon: Flame, weights: { classic: 3 } },
-      { label: 'Lock me in — I have deep work to do', icon: Brain, weights: { mushroom: 3 } },
-      { label: 'Slow it down — I need to reset', icon: Moon, weights: { matcha: 3 } },
-      { label: 'Inspire me — I want flow and ideas', icon: Sparkles, weights: { matcha: 2, mushroom: 1 } },
-      { label: 'Steady and smooth — no drama', icon: Clock, weights: { matcha: 2, classic: 1 } },
+      { label: "Fire me up - I'm ready to execute", icon: Flame, weights: { classic: 3 } },
+      { label: 'Lock me in - I have deep work to do', icon: Brain, weights: { mushroom: 3 } },
+      { label: 'Slow it down - I need to reset', icon: Wind, weights: { mushroom: 3 } },
+      { label: 'Inspire me - I want flow and ideas', icon: Sparkles, weights: { mushroom: 2 } },
+      { label: 'Steady and smooth - no drama', icon: Clock, weights: { classic: 2, mushroom: 1 } },
     ],
   },
 ];
 
-// Results map to the three current products only.
+// Results map to the two current products only.
 const RESULTS = {
   classic: {
     title: 'Your Ritual: Classic Coffee Energy',
@@ -88,19 +87,10 @@ const RESULTS = {
     title: 'Your Ritual: Focused Mushroom Coffee',
     product: 'Instant Mushroom Coffee',
     slug: 'instant-mushroom-coffee',
-    desc: 'Coffee plus functional mushrooms (Lion’s Mane + Chaga) for focus and work sessions — balanced energy without the crash.',
+    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Chaga) for focus and work sessions — balanced energy without the crash.',
     link: '/products/instant-mushroom-coffee',
     compareLink: '/shop',
     accent: '#2F4A73',
-  },
-  matcha: {
-    title: 'Your Ritual: Calm Ceremonial Matcha',
-    product: 'Ceremonial Matcha',
-    slug: 'ceremonial-matcha',
-    desc: 'Smoother, lower-jitter energy for a calm or intentional ritual — whisk it hot or pour it over ice.',
-    link: '/products/ceremonial-matcha',
-    compareLink: '/shop',
-    accent: '#5E7A3E',
   },
 };
 
@@ -121,7 +111,7 @@ export default function FindYourRitual() {
 
   useSEO({
     title: 'Find Your Blend | Torch Republic Coffee Company',
-    description: 'Take the Torch Republic quiz to discover whether Instant Classic Coffee, Instant Mushroom Coffee, or Ceremonial Matcha fits your focus, energy, or calm.',
+    description: 'Take the Torch Republic quiz to discover whether Instant Classic Coffee or Instant Mushroom Coffee fits your focus, energy, or calm.',
     url: '/quiz',
     type: 'website',
   });
@@ -175,7 +165,7 @@ export default function FindYourRitual() {
           <p className="eyebrow mb-3" style={{ color: THEME.clay }}>Ritual Finder</p>
           <h1 className="h1 mb-3">Find Your Ritual</h1>
           <p className="body-lg">
-            {isResult ? 'Your personalized match is ready.' : 'Answer a few questions and we’ll match you to the Torch Republic ritual made for your morning.'}
+            {isResult ? 'Your personalized match is ready.' : 'Answer a few questions and we\u2019ll match you to the Torch Republic ritual made for your morning.'}
           </p>
         </motion.div>
 
@@ -206,13 +196,13 @@ export default function FindYourRitual() {
             <motion.div key="intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="text-center">
               <div className="card-torch p-8 mb-8 text-left">
                 <p className="font-heading mb-4" style={{ color: THEME.text, lineHeight: 1.75, fontSize: '1rem' }}>
-                  This quick quiz helps you choose the Torch Republic ritual that fits your day — a classic instant coffee for bold energy, a mushroom coffee for focus, or a ceremonial matcha for calm.
+                  This quick quiz helps you choose the Torch Republic ritual that fits your day — a classic instant coffee for bold energy or a mushroom coffee for focus.
                 </p>
                 <div className="flex flex-col gap-3 pt-4" style={{ borderTop: `1px solid ${THEME.border}` }}>
                   {[
                     { label: '4 questions', sub: 'about your morning and what you need' },
                     { label: 'About 1 minute', sub: 'no email or account required' },
-                    { label: 'A clear match', sub: 'one of our three rituals, based on your answers' },
+                    { label: 'A clear match', sub: 'one of our two rituals, based on your answers' },
                   ].map(({ label, sub }) => (
                     <div key={label} className="flex items-start gap-3">
                       <Check size={18} style={{ color: THEME.moss, flexShrink: 0, marginTop: 2 }} />
@@ -320,7 +310,7 @@ export default function FindYourRitual() {
                     <RotateCcw size={16} /> Retake Quiz
                   </button>
                   <Link to={result.compareLink} className="font-heading text-sm text-center" style={{ color: THEME.secondary, textDecoration: 'none' }}>
-                    <span style={{ color: THEME.clay, textDecoration: 'underline' }}>Compare all rituals →</span>
+                    <span style={{ color: THEME.clay, textDecoration: 'underline' }}>Compare all rituals &rarr;</span>
                   </Link>
                 </div>
 
@@ -332,13 +322,13 @@ export default function FindYourRitual() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => {
-                        const text = `I just took the Torch Republic ritual quiz and got "${result.product}" ✨ Find yours at ${window.location.origin}/quiz`;
+                        const text = `I just took the Torch Republic ritual quiz and got "${result.product}". Find yours at ${window.location.origin}/quiz`;
                         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
                       }}
                       className="flex-1 font-mono text-[8px] tracking-[0.15em] uppercase py-2.5 transition-all hover:opacity-80"
                       style={{ background: 'rgba(29,161,242,0.08)', color: '#1DA1F2', border: '1px solid rgba(29,161,242,0.3)', borderRadius: 6, minHeight: 44 }}
                     >
-                      𝕏 Twitter
+                      Twitter
                     </button>
                     <button
                       onClick={() => {

@@ -11,14 +11,13 @@ const GOLD = '#B48A4A';
 // Reviews whose body text mentions these are filtered out.
 const RETIRED_NAMES = [
   'DreamCap', 'Mystic Bloom', 'The Oracle', 'MoonCap', 'SunCap',
-  'GlowMind', 'The Alchemist', 'The Monk', 'The Ascendant', 'Ember',
+  'GlowMind', 'The Alchemist', 'The Monk', 'The Ascendant', 'Ember', 'matcha', 'Matcha',
 ];
 
 // Current product handles — reviews matching these get a product label.
 const PRODUCT_MAP = {
   'glowmind-clarity-instant-mushroom-coffee': 'Instant Mushroom Coffee',
   'torchbearer\u2122-single-origin-instant-coffee': 'Instant Classic Coffee',
-  'the-alchemist-matcha': 'Ceremonial Matcha',
 };
 
 // Concise homepage review section — pulls from genuine Review records,

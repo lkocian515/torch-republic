@@ -16,10 +16,9 @@ const SECTIONS = [
   {
     label: 'Shop',
     items: [
-      ['Shop All Three', '/shop'],
+      ['Shop All', '/shop'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-      ['Ceremonial Matcha', '/products/ceremonial-matcha'],
     ],
   },
   {

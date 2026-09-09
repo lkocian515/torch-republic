@@ -17,10 +17,10 @@ export default function ChooseYourRitual() {
             Choose your ritual.
           </h2>
           <p className="mt-4 font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Three intentional choices. No catalog to get lost in &mdash; just the morning you want.
+            Two intentional choices. No catalog to get lost in &mdash; just the morning you want.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {CORE_PRODUCTS.map((p, i) => (
             <RitualCard key={p.id} product={p} index={i} />
           ))}

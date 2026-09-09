@@ -11,7 +11,6 @@ const groups = [
     ['All Products', '/shop'],
     ['Instant Classic Coffee', '/products/instant-classic-coffee'],
     ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-    ['Ceremonial Matcha', '/products/ceremonial-matcha'],
     ['Build Your Ritual', '/build-your-ritual'],
     ['Gifts', '/gifts'],
   ]],
@@ -53,7 +52,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2.2fr] lg:gap-14">
           <div className="lg:max-w-xs">
             <img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="190" height="52" className="h-14 w-auto" />
-            <p className="mt-4 max-w-sm text-base leading-7" style={{ color: colors.secondary }}>Thoughtfully crafted instant coffee, mushroom coffee, and ceremonial matcha for clearer, more intentional daily rituals.</p>
+            <p className="mt-4 max-w-sm text-base leading-7" style={{ color: colors.secondary }}>Thoughtfully crafted instant coffee and functional mushroom coffee for clearer, more intentional daily rituals.</p>
             <p className="mt-3 font-heading text-sm" style={{ color: colors.text }}>Torch Republic Coffee Company</p>
             <p className="mt-2 max-w-sm font-heading text-xs leading-6" style={{ color: colors.secondary }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>
           </div>

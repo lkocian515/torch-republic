@@ -19,13 +19,6 @@ const VALUES = {
     functional: '-',
     prep: 'Hot or iced',
   },
-  matcha: {
-    for: 'A slower-feeling alternative to coffee.',
-    flavor: 'Bright ceremonial matcha',
-    energy: 'Medium caffeine',
-    functional: '-',
-    prep: 'Hot or iced',
-  },
   mushroom: {
     for: "Coffee made with Lion's Mane and Chaga.",
     flavor: 'Smooth coffee, cocoa, balanced finish',
@@ -44,13 +37,13 @@ export default function RitualComparison() {
             Not sure where to start?
           </p>
           <h2 className="mt-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622' }}>
-            Coffee vs Matcha vs Mushroom Coffee
+            Classic Coffee vs Mushroom Coffee
           </h2>
         </div>
 
         {/* Desktop table */}
         <div className="card-torch hidden overflow-hidden md:block">
-          <div className="grid" style={{ gridTemplateColumns: '120px repeat(3, 1fr)' }}>
+          <div className="grid" style={{ gridTemplateColumns: '120px repeat(2, 1fr)' }}>
             <div />
             {CORE_PRODUCTS.map((p) => {
               const c = RITUAL_COLORS[p.ritualKey];

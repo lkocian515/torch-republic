@@ -39,12 +39,10 @@ export default function GEOOptimization({ page = 'home' }) {
         "Lion's Mane mushroom coffee",
         'Chaga mushroom coffee',
         'instant coffee',
-        'ceremonial matcha',
-        'functional wellness beverages',
-        'L-theanine',
+        'functional mushroom coffee',
         'adaptogens',
       ],
-      description: `Torch Republic Coffee Company makes premium instant coffee, instant mushroom coffee with Lion's Mane and Chaga, and ceremonial grade matcha. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
+      description: `Torch Republic Coffee Company makes premium instant coffee and instant mushroom coffee with Lion's Mane and Chaga. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
     });
 
     // ── Speakable Schema ──
@@ -66,7 +64,7 @@ export default function GEOOptimization({ page = 'home' }) {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: 'Torch Republic Product Catalog',
-      description: 'Complete product listing for Torch Republic Coffee Company — instant classic coffee, instant mushroom coffee, and ceremonial matcha.',
+      description: 'Complete product listing for Torch Republic Coffee Company — instant classic coffee and instant mushroom coffee.',
       url: `${BASE_URL}/shop`,
       itemListElement: CORE_PRODUCTS.map((p, i) => ({
         '@type': 'ListItem',
@@ -89,7 +87,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is Torch Republic?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee, instant mushroom coffee with Lion's Mane and Chaga, and ceremonial grade matcha. All products are instant powder format — no coffee maker needed.",
+            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee and instant mushroom coffee with Lion's Mane and Chaga. All products are instant powder format — no coffee maker needed.",
           },
         },
         {
@@ -105,7 +103,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is the price of Torch Republic products?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Instant Classic Coffee is $19.99, Instant Mushroom Coffee is $22.99, and Ceremonial Matcha is $24.99. All three can be bundled for $${BUNDLE_PRICE_3.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
+            text: `Instant Classic Coffee is $19.99 and Instant Mushroom Coffee is $22.99. Both can be bundled for $${BUNDLE_PRICE_3.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
           },
         },
         {

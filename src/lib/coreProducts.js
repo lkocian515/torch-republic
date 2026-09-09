@@ -1,9 +1,8 @@
-// Torch Republic — canonical three-product storefront (the "lineup").
+// Torch Republic — canonical two-product storefront (the "lineup").
 //
 // This is the SINGLE source of truth for the customer-facing assortment.
-// Only these three products exist publicly. Legacy 7-product data in
-// mushroomProducts.js is retained solely for historical/admin integrity and
-// is NOT rendered to customers.
+// Only these two products exist publicly: Instant Classic Coffee and
+// Instant Mushroom Coffee. Matcha has been fully retired.
 //
 // Product imagery: real 3oz bag photography. Each product carries an explicit
 // `image`; getProductImage resolves to the same bag photos via
@@ -24,13 +23,6 @@ export const RITUAL_COLORS = {
     accent: '#C06A38', // warm burnt orange / terracotta
     soft: '#F2E2D2',
     deep: '#9A5126',
-  },
-  matcha: {
-    key: 'matcha',
-    name: 'Ceremonial Matcha',
-    accent: '#5E7A3E', // rich botanical green
-    soft: '#E3EAD6',
-    deep: '#43612A',
   },
   mushroom: {
     key: 'mushroom',
@@ -55,7 +47,7 @@ const build = (p) => {
   };
 };
 
-// ── The three core products (verified data only — no invented claims) ───────
+// ── The two core products (verified data only — no invented claims) ────────
 export const CORE_PRODUCTS = [
   build({
     id: 'instant-classic-coffee',
@@ -98,12 +90,12 @@ export const CORE_PRODUCTS = [
     caffeineLabel: 'Medium',
     positioning: "Smooth coffee made with Lion's Mane and Chaga.",
     description:
-      'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion’s Mane, and Chaga.',
+      'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion\u2019s Mane, and Chaga.',
     flavorNotes: ['Smooth Coffee', 'Cocoa', 'Balanced Finish'],
     flavorLabel: 'Smooth coffee, cocoa, balanced finish',
     bestFor: 'Focused thinking and daily clarity',
-    mushrooms: 'Lion’s Mane + Chaga',
-    functionalLabel: 'Lion’s Mane + Chaga',
+    mushrooms: 'Lion\u2019s Mane + Chaga',
+    functionalLabel: 'Lion\u2019s Mane + Chaga',
     prep: 'Hot or iced',
     cta: 'Shop Mushroom Coffee',
     path: '/products/instant-mushroom-coffee',
@@ -111,39 +103,11 @@ export const CORE_PRODUCTS = [
     image:
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
   }),
-  build({
-    id: 'ceremonial-matcha',
-    name: 'Ceremonial Matcha',
-    slug: 'ceremonial-matcha',
-    shopifyHandle: 'the-alchemist-matcha',
-    ritualKey: 'matcha',
-    category: 'matcha',
-    categoryLabel: 'Ceremonial Matcha',
-    price: PRICES['matcha'],
-    servings: 25,
-    caffeineLevel: 'medium',
-    caffeineLabel: 'Medium',
-    positioning: 'A bright, smooth matcha - a slower-feeling alternative to coffee.',
-    description:
-      'A ceremonial matcha made for lattes, iced drinks, and everyday exploration. Whisk it with water or make the ritual your own.',
-    flavorNotes: ['Ceremonial Matcha', 'Bright', 'Versatile'],
-    flavorLabel: 'Bright ceremonial matcha',
-    bestFor: 'Matcha lattes, iced drinks, and creative rituals',
-    mushrooms: null,
-    functionalLabel: null,
-    prep: 'Hot or iced',
-    cta: 'Shop Matcha',
-    alt: 'Torch Republic Ceremonial Matcha white stand-up pouch.',
-    path: '/products/ceremonial-matcha',
-    collectionPath: '/products/ceremonial-matcha',
-    image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg',
-  }),
 ];
 
 // ── Legacy slug → canonical slug redirect map ───────────────────────────────
 // Former product URLs (and any stale internal references) resolve to the
-// appropriate current product. Used by RitualProductPage for <Navigate>
+// appropriate current product or /shop. Used by RitualProductPage for <Navigate>
 // redirects so old inbound links land on the clean canonical route.
 export const LEGACY_SLUG_REDIRECT = {
   // → Instant Classic Coffee
@@ -161,13 +125,14 @@ export const LEGACY_SLUG_REDIRECT = {
   'suncap-rise-instant-mushroom-coffee': 'instant-mushroom-coffee',
   'mooncap-restore': 'instant-mushroom-coffee',
   'mooncap-restore-instant-mushroom-coffee': 'instant-mushroom-coffee',
-  // → Ceremonial Matcha
-  'the-alchemist': 'ceremonial-matcha',
-  'the-alchemist-matcha-blend': 'ceremonial-matcha',
-  'the-alchemist-matcha': 'ceremonial-matcha',
-  'the-monk': 'ceremonial-matcha',
-  'the-monk-matcha-blend': 'ceremonial-matcha',
-  'the-monk-matcha': 'ceremonial-matcha',
+  // → Retired matcha slugs redirect to shop
+  'ceremonial-matcha': 'instant-classic-coffee',
+  'the-alchemist': 'instant-classic-coffee',
+  'the-alchemist-matcha-blend': 'instant-classic-coffee',
+  'the-alchemist-matcha': 'instant-classic-coffee',
+  'the-monk': 'instant-classic-coffee',
+  'the-monk-matcha-blend': 'instant-classic-coffee',
+  'the-monk-matcha': 'instant-classic-coffee',
 };
 
 export const getProductBySlug = (slug) => CORE_PRODUCTS.find((p) => p.slug === slug);

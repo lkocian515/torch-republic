@@ -12,11 +12,11 @@ const HERO_IMAGE =
 export default function RitualHero() {
   return (
     <section id="top" style={{ background: '#F7F1E7' }}>
-      <h1 className="sr-only">Premium Coffee, Mushroom Coffee &amp; Matcha&mdash;Ready in Seconds</h1>
+      <h1 className="sr-only">Premium Instant Coffee &amp; Mushroom Coffee&mdash;Ready in Seconds</h1>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="w-full">
         <img
           src={HERO_IMAGE}
-          alt="Torch Republic - premium instant coffee, ceremonial matcha, and instant mushroom coffee. Ignite your daily ritual."
+          alt="Torch Republic - premium instant coffee and instant mushroom coffee. Ignite your daily ritual."
           width={1600}
           height={1000}
           loading="eager"
@@ -46,7 +46,7 @@ export default function RitualHero() {
           className="flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Link to="/shop" className="btn btn-primary" style={{ minWidth: '220px' }}>
-            Shop All Three
+            Shop All
           </Link>
           <a href="#choose-ritual" className="btn btn-ghost" style={{ minWidth: '220px' }}>
             Find Your Ritual

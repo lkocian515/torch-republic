@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Full-bleed crave shot: instant flakes / matcha powder being stirred into a cup.
+// Full-bleed crave shot: instant coffee flakes being stirred into a cup.
 // The image is the star; a soft bottom gradient carries a short ritual caption.
 export default function RitualMomentStrip({
   image,

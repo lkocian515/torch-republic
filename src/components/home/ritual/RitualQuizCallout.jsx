@@ -24,7 +24,7 @@ export default function RitualQuizCallout() {
               Not sure which ritual fits your morning?
             </h3>
             <p className="mt-2 font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.6 }}>
-              Answer four quick questions and we will match you to one of our three rituals.
+              Answer four quick questions and we will match you to the right ritual.
             </p>
           </div>
           <Link to="/quiz" className="btn btn-primary flex-shrink-0">

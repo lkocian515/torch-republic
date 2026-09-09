@@ -216,13 +216,21 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* SEO Category Pages */}
         <Route path="/shop/instant-mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
         <Route path="/shop/instant-coffee" element={<Navigate to="/products/instant-classic-coffee" replace />} />
-        <Route path="/shop/matcha" element={<Navigate to="/products/ceremonial-matcha" replace />} />
+        <Route path="/shop/matcha" element={<Navigate to="/shop" replace />} />
         {/* Legacy routes for backward compatibility */}
         <Route path="/classic-coffee" element={<Navigate to="/products/instant-classic-coffee" replace />} />
         <Route path="/mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/matcha" element={<Navigate to="/products/ceremonial-matcha" replace />} />
+        <Route path="/matcha" element={<Navigate to="/shop" replace />} />
         <Route path="/blends" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendsCollection" queryClient={queryClient}><BlendsCollection /></LayoutWrapper></Suspense>} />
         <Route path="/blends/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendDetail" queryClient={queryClient}><BlendDetail /></LayoutWrapper></Suspense>} />
+        <Route path="/products/ceremonial-matcha" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-alchemist" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-alchemist-matcha" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-alchemist-matcha-blend" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-monk" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-monk-matcha" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-monk-matcha-blend" element={<Navigate to="/shop" replace />} />
+        <Route path="/products/the-ascendant" element={<Navigate to="/shop" replace />} />
         <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RitualProductPage" queryClient={queryClient}><RitualProductPage /></LayoutWrapper></Suspense>} />
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
@@ -339,7 +347,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/local" element={<Navigate to="/" replace />} />
         <Route path="/ingredients" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Ingredients" queryClient={queryClient}><Ingredients /></LayoutWrapper></Suspense>} />
         <Route path="/why-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMushroomCoffee" queryClient={queryClient}><WhyMushroomCoffee /></LayoutWrapper></Suspense>} />
-        <Route path="/why-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WhyMatcha" queryClient={queryClient}><WhyMatcha /></LayoutWrapper></Suspense>} />
+        <Route path="/why-matcha" element={<Navigate to="/journal" replace />} />
 
         {/* ── PAID-AD LANDING PAGE ── */}
         <Route path="/switch-from-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SwitchFromPods" queryClient={queryClient}><SwitchFromPods /></LayoutWrapper></Suspense>} />
@@ -355,21 +363,21 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/camping-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CampingCoffee" queryClient={queryClient}><CampingCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/healthy-coffee-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HealthyCoffeeAlternatives" queryClient={queryClient}><HealthyCoffeeAlternatives /></LayoutWrapper></Suspense>} />
         <Route path="/coffee-rituals" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRituals" queryClient={queryClient}><CoffeeRituals /></LayoutWrapper></Suspense>} />
-        <Route path="/matcha-vs-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaVsCoffee" queryClient={queryClient}><MatchaVsCoffee /></LayoutWrapper></Suspense>} />
+        <Route path="/matcha-vs-coffee" element={<Navigate to="/journal" replace />} />
         <Route path="/papua-new-guinea-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PapuaNewGuineaCoffee" queryClient={queryClient}><PapuaNewGuineaCoffee /></LayoutWrapper></Suspense>} />
 
         {/* ── BLOG POSTS ── */}
         <Route path="/journal/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffee" queryClient={queryClient}><LionsManeMushroomCoffee /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffee" queryClient={queryClient}><ChagaMushroomCoffee /></LayoutWrapper></Suspense>} />
-        <Route path="/journal/instant-ceremonial-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="InstantCeremonialMatcha" queryClient={queryClient}><InstantCeremonialMatcha /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/instant-ceremonial-matcha" element={<Navigate to="/journal" replace />} />
         <Route path="/journal/mushroom-coffee-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomCoffeeBenefitsGuide" queryClient={queryClient}><MushroomCoffeeBenefitsGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/best-instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BestInstantCoffee" queryClient={queryClient}><BestInstantCoffee /></LayoutWrapper></Suspense>} />
-        <Route path="/journal/matcha-benefits" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MatchaBenefitsGuide" queryClient={queryClient}><MatchaBenefitsGuide /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/matcha-benefits" element={<Navigate to="/journal" replace />} />
         <Route path="/journal/coffee-and-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeAndFocusGuide" queryClient={queryClient}><CoffeeAndFocusGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/morning-ritual-for-focus" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MorningRitualGuide" queryClient={queryClient}><MorningRitualGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/adaptogens-guide" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="AdaptogensGuide" queryClient={queryClient}><AdaptogensGuide /></LayoutWrapper></Suspense>} />
         <Route path="/journal/history-of-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMushroomCoffee" queryClient={queryClient}><HistoryOfMushroomCoffee /></LayoutWrapper></Suspense>} />
-        <Route path="/journal/history-of-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HistoryOfMatcha" queryClient={queryClient}><HistoryOfMatcha /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/history-of-matcha" element={<Navigate to="/journal" replace />} />
         <Route path="/journal/science-of-lions-mane" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ScienceOfLionsMane" queryClient={queryClient}><ScienceOfLionsMane /></LayoutWrapper></Suspense>} />
         <Route path="/journal/chaga-mushroom-antioxidant-king" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomAntioxidantKing" queryClient={queryClient}><ChagaMushroomAntioxidantKing /></LayoutWrapper></Suspense>} />
         {/* mushroom-coffee-vs-regular-coffee now served from DB via /journal/:slug */}
@@ -377,7 +385,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* /Journal (uppercase) → /journal (lowercase) — single canonical Journal URL */}
         <Route path="/Journal" element={<Navigate to="/journal" replace />} />
         <Route path="/Journal/:slug" element={<JournalSlugRedirect />} />
-        <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaVsCulinary" queryClient={queryClient}><CeremonialMatchaVsCulinary /></LayoutWrapper></Suspense>} />
+        <Route path="/journal/ceremonial-matcha-vs-culinary" element={<Navigate to="/journal" replace />} />
         <Route path="/journal/what-makes-premium-instant-coffee-different" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PremiumInstantCoffeeDifference" queryClient={queryClient}><PremiumInstantCoffeeDifference /></LayoutWrapper></Suspense>} />
 
         {/* ── FAQ LIBRARY ── */}
@@ -388,7 +396,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/ingredients/lions-mane-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="LionsManeMushroomCoffeePage" queryClient={queryClient}><LionsManeMushroomCoffeePage /></LayoutWrapper></Suspense>} />
         <Route path="/ingredients/chaga-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ChagaMushroomCoffeePage" queryClient={queryClient}><ChagaMushroomCoffeePage /></LayoutWrapper></Suspense>} />
         <Route path="/ingredients/reishi-mushroom-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReishiMushroomCoffeePage" queryClient={queryClient}><ReishiMushroomCoffeePage /></LayoutWrapper></Suspense>} />
-        <Route path="/ingredients/ceremonial-matcha" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CeremonialMatchaPage" queryClient={queryClient}><CeremonialMatchaPage /></LayoutWrapper></Suspense>} />
+        <Route path="/ingredients/ceremonial-matcha" element={<Navigate to="/ingredients" replace />} />
         <Route path="/ingredients/freeze-dried-instant-coffee" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="FreezeDriedInstantCoffeePage" queryClient={queryClient}><FreezeDriedInstantCoffeePage /></LayoutWrapper></Suspense>} />
         {/* ── INGREDIENT DEEP DIVES ── */}
         <Route path="/ingredients/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="IngredientPage" queryClient={queryClient}><IngredientPage /></LayoutWrapper></Suspense>} />

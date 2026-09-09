@@ -20,10 +20,9 @@ const SECTIONS = [
   {
     label: 'Shop',
     items: [
-      ['Shop All Three', '/shop'],
+      ['Shop All', '/shop'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-      ['Ceremonial Matcha', '/products/ceremonial-matcha'],
     ],
   },
   {
@@ -70,7 +69,7 @@ export default function UnifiedHeader() {
   return (
     <>
       <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}>
-        <p className="font-heading text-sm">Thoughtfully crafted daily rituals for coffee, matcha, and botanical blends &middot; Free shipping $50+</p>
+        <p className="font-heading text-sm">Thoughtfully crafted instant coffee and mushroom coffee &middot; Free shipping $50+</p>
       </div>
       <header className="sticky top-0 z-40" style={{ background: 'hsl(var(--background) / 0.96)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)' }}>
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">

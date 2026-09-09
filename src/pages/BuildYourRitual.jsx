@@ -21,7 +21,7 @@ const STARTER_REGULAR = CORE_PRODUCTS.reduce((s, p) => s + p.price, 0); // 67.97
 const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // dynamic
 
 const categoryLabel = (c) =>
-  c === 'matcha' ? 'Ceremonial Matcha' : c === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee';
+  c === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee';
 
 export default function BuildYourRitual() {
   const { addItem } = useCart();
@@ -31,9 +31,9 @@ export default function BuildYourRitual() {
   );
 
   useSEO({
-    title: 'Build Your Ritual | Coffee, Mushroom Coffee & Matcha Bundle',
+    title: 'Build Your Ritual | Coffee & Mushroom Coffee Bundle',
     description:
-      'Build your own ritual with Instant Classic Coffee, Instant Mushroom Coffee, and Ceremonial Matcha. Bundle all three and save.',
+      'Build your own ritual with Instant Classic Coffee and Instant Mushroom Coffee. Bundle both and save.',
     url: '/build-your-ritual',
   });
 
@@ -47,8 +47,7 @@ export default function BuildYourRitual() {
   );
   const isStarterCombo =
     qty['instant-classic-coffee'] === 1 &&
-    qty['instant-mushroom-coffee'] === 1 &&
-    qty['ceremonial-matcha'] === 1;
+    qty['instant-mushroom-coffee'] === 1;
   const subtotal = isStarterCombo ? STARTER_BUNDLE_PRICE : regularTotal;
   const savings = isStarterCombo ? STARTER_SAVINGS : 0;
 
@@ -82,7 +81,7 @@ export default function BuildYourRitual() {
             Build Your Ritual
           </h1>
           <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '0.95rem', color: THEME.secondary, lineHeight: 1.7 }}>
-            Choose Instant Classic Coffee, Instant Mushroom Coffee, and Ceremonial Matcha &mdash; together or on their own.
+            Choose Instant Classic Coffee and Instant Mushroom Coffee &mdash; together or on their own.
           </p>
         </div>
       </section>
@@ -137,7 +136,7 @@ export default function BuildYourRitual() {
                     Start My Ritual &rarr;
                   </button>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   {CORE_PRODUCTS.map((p) => (
                     <div key={p.slug} className="flex flex-col items-center text-center p-3" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
                       <div className="w-full" style={{ aspectRatio: '1/1', background: '#F8F5EF' }}>
