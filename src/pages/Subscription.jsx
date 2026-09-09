@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check, RefreshCw, Calendar, Wallet, Repeat } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
-import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
 const THEME = {
@@ -98,9 +97,6 @@ export default function Subscription() {
 
   const handleCheckout = async () => {
     if (!canCheckout) return;
-    // Temporary fallback: the external Shopify subscription checkout handoff is
-    // currently unavailable. Intercept before the broken integration executes.
-    if (guardExternalPurchase()) return;
     setIsGeneratingCheckout(true);
     try {
       const url = await getSubscriptionCheckoutUrl(blendQty);
