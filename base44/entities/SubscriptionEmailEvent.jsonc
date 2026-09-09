@@ -1,0 +1,138 @@
+{
+  "name": "SubscriptionEmailEvent",
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "string",
+      "description": "Shopify customer ID (or Base44 user ID) for the subscriber"
+    },
+    "customer_email": {
+      "type": "string",
+      "description": "Subscriber email address"
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Subscriber first name (for personalization)"
+    },
+    "order_id": {
+      "type": "string",
+      "description": "Base44 Order entity ID that triggered the sequence"
+    },
+    "shopify_order_id": {
+      "type": "string",
+      "description": "Legacy Shopify order ID if available"
+    },
+    "subscription_contract_id": {
+      "type": "string",
+      "description": "Shopify subscription contract ID if available"
+    },
+    "selling_plan_id": {
+      "type": "string",
+      "description": "Shopify selling plan ID if available"
+    },
+    "template_id": {
+      "type": "string",
+      "description": "Email template identifier (e.g. subscription_welcome_v1, subscription_prep_v1, subscription_manage_v1)"
+    },
+    "email_number": {
+      "type": "number",
+      "description": "Which email in the sequence (1, 2, or 3)"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "description": "Unique key preventing duplicate sends for the same order+email combination"
+    },
+    "scheduled_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the email was scheduled to send"
+    },
+    "sent_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the email was actually sent"
+    },
+    "delivery_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "sent",
+        "delivered",
+        "bounced",
+        "failed",
+        "skipped"
+      ],
+      "default": "pending",
+      "description": "Current delivery status of this email"
+    },
+    "failure_reason": {
+      "type": "string",
+      "description": "Error message if the send failed"
+    },
+    "provider_message_id": {
+      "type": "string",
+      "description": "Message ID returned by the email provider (Resend)"
+    },
+    "opened": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the email was opened"
+    },
+    "opened_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the email was opened"
+    },
+    "clicked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether a link in the email was clicked"
+    },
+    "clicked_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When a link was clicked"
+    },
+    "unsubscribed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the customer unsubscribed via this email sequence"
+    },
+    "sequence_complete": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the full 3-email sequence has been completed for this subscription"
+    }
+  },
+  "required": [
+    "customer_email",
+    "template_id",
+    "email_number",
+    "idempotency_key"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.customer_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
