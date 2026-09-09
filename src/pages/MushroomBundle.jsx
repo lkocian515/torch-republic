@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, ALL_PRODUCTS, BUNDLE_IMAGE } from '../lib/mushroomProducts';
-import { getFullBundleUrl, getAllClassicBundleUrl, getAllMatchaBundleUrl, getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { getFullBundleUrl, getAllClassicBundleUrl, getShopifyBundleUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import DiscountReminders from '../components/discounts/DiscountReminders';
 
 // All 12 products
