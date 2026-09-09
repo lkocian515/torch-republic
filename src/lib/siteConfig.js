@@ -9,9 +9,9 @@
  */
 
 // ── Welcome Offer ─────────────────────────────────────────────────────────────
-export const WELCOME_DISCOUNT_CODE = 'WELCOME15';
-export const WELCOME_DISCOUNT_PERCENT = 15;        // integer, e.g. 15 for display "15% off"
-export const WELCOME_DISCOUNT_RATE = 0.15;          // decimal for price calculations
+export const WELCOME_DISCOUNT_CODE = 'WELCOME10';
+export const WELCOME_DISCOUNT_PERCENT = 10;        // integer, e.g. 10 for display "10% off"
+export const WELCOME_DISCOUNT_RATE = 0.10;          // decimal for price calculations
 
 // ── Subscribe & Save ──────────────────────────────────────────────────────────
 export const SUBSCRIBE_SAVE_PERCENT = 10;           // integer, e.g. 10 for display "Save 10%"

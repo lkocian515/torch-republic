@@ -94,7 +94,7 @@ const MUSHROOM = product({
   servings: 27,
   price: 25.99,
   shopifyHandle: 'instant-coffee-with-mushroom',
-  accent: '#2F4A73',
+  accent: '#566047',
   category: 'mushroom-coffee',
   keyBenefits: ['Focus', 'Lion’s Mane + Chaga', '27 Servings', 'Balanced Coffee'],
 });

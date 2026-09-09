@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
-const CLOSE_DELAY = 300; // ms — forgiving gap between trigger and menu
+const CLOSE_DELAY = 200; // ms — forgiving gap between trigger and menu
 
 export default function NavDropdown({ label, items, to, active, colors }) {
   const [open, setOpen] = useState(false);

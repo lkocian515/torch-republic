@@ -2,20 +2,15 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
-import { Minus, Plus, X, ShoppingBag, ArrowLeft, Flame } from 'lucide-react';
+import { Minus, Plus, X, ShoppingBag, ArrowLeft } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
 import CartRecommendations from '@/components/cart/CartRecommendations';
 import CartBundleUpsell from '@/components/cart/CartBundleUpsell';
-import CartTrustBlock from '@/components/cart/CartTrustBlock';
 import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
 import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
-import CartSubscriptionPromo from '@/components/cart/CartSubscriptionPromo';
 import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
-import CartBundleIncentive from '@/components/cart/CartBundleIncentive';
-import CartReassurance from '@/components/cart/CartReassurance';
-import CartReviewSnippets from '@/components/cart/CartReviewSnippets';
 import { trackFreeShippingThresholdReached } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
@@ -121,7 +116,6 @@ export default function Cart() {
         {/* First-time customer welcome + Free shipping progress */}
         <CartFirstTimeOffer />
         <CartFreeShippingBar subtotal={subtotal} />
-        <CartBundleIncentive itemCount={totalItems} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
@@ -204,27 +198,8 @@ export default function Cart() {
               {/* Delivery estimate */}
               <CartDeliveryEstimate />
 
-              {/* Rotating review snippets — social proof */}
-              <CartReviewSnippets />
-
-              {/* Bundle upsell */}
+              {/* Bundle upsell — shown only when both products are in cart */}
               <CartBundleUpsell cartItems={items} subtotal={subtotal} />
-
-              {/* Subscription promotion */}
-              <CartSubscriptionPromo subtotal={subtotal} />
-
-              {/* Torchbearers Rewards nudge */}
-              <div className="mb-4 p-3" style={{ background: ACCENT_PANEL, border: `1px solid ${BORDER}` }}>
-                <div className="flex items-center gap-2 mb-2">
-                  <Flame className="w-3 h-3" style={{ color: ACCENT }} />
-                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: ACCENT }}>
-                    Torchbearers Rewards
-                  </p>
-                </div>
-                <p className="font-mono text-[7.5px] tracking-[0.12em] text-center" style={{ color: MUTED_MED, lineHeight: 1.6 }}>
-                  Earn points on this order! Join Torchbearers Rewards at checkout.
-                </p>
-              </div>
 
               <button
                 onClick={handleCheckout}
@@ -249,12 +224,7 @@ export default function Cart() {
                 ← Continue Shopping
               </Link>
 
-              {/* Trust confidence block */}
-              <CartTrustBlock />
             </div>
-
-            {/* Checkout reassurance — full width below summary */}
-            <CartReassurance />
           </div>
         </div>
       </div>

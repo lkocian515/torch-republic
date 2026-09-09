@@ -400,6 +400,15 @@ export function CartProvider({ children }) {
     }
 
     setIsCheckingOut(true);
+
+    // Safety timeout — prevents indefinite loading state if Shopify is slow
+    // or unresponsive. After 20s, show an actionable error and re-enable
+    // the checkout button so the customer can retry.
+    const timeoutId = setTimeout(() => {
+      setIsCheckingOut(false);
+      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+    }, 20000);
+
     try {
       let currentCartId = shopifyCartIdRef.current;
 
@@ -418,19 +427,23 @@ export function CartProvider({ children }) {
       }
 
       if (!currentCartId) {
+        clearTimeout(timeoutId);
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
         return;
       }
 
       const checkoutUrl = await getShopifyCheckoutUrl(currentCartId);
+      clearTimeout(timeoutId);
       if (checkoutUrl) {
         window.location.href = checkoutUrl;
       } else {
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
       }
     } catch {
+      clearTimeout(timeoutId);
       window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
     } finally {
+      clearTimeout(timeoutId);
       setIsCheckingOut(false);
     }
   }, [items, persistShopifyCartId]);

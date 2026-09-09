@@ -3,20 +3,25 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import RitualSocialProof from './RitualSocialProof';
 
-// Full-bleed lifestyle hero. The image itself carries the brand logo,
-// "Ignite Your Daily Ritual" headline, subheadline, and benefit icons, so no
-// text is rendered on top of it — only the conversion buttons sit below.
+// Hero image — note: this image has "Ignite Your Daily Ritual" baked into the
+// artwork. It should eventually be replaced with a clean product photograph.
+// For now it remains the strongest available visual asset.
 const HERO_IMAGE =
   'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ffa76f790_ChatGPTImageSep9202602_36_24AM.png';
 
 export default function RitualHero() {
   return (
     <section id="top" style={{ background: '#F7F1E7' }}>
-      <h1 className="sr-only">Premium Instant Coffee &amp; Mushroom Coffee&mdash;Ready in Seconds</h1>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="w-full">
+      {/* Visible H1 for SEO and accessibility */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="w-full"
+      >
         <img
           src={HERO_IMAGE}
-          alt="Torch Republic - premium instant coffee and instant mushroom coffee. Ignite your daily ritual."
+          alt="Torch Republic premium instant coffee and mushroom coffee bags."
           width={1600}
           height={1000}
           loading="eager"
@@ -31,6 +36,20 @@ export default function RitualHero() {
       </motion.div>
 
       <div className="mx-auto max-w-[1240px] px-6 py-8 md:px-10 md:py-10">
+        {/* Headline and supporting copy */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center mb-6"
+        >
+          <h1 className="h1 mb-3">Better mornings, in an instant.</h1>
+          <p className="body-lg mx-auto" style={{ maxWidth: '640px' }}>
+            Premium instant coffee and mushroom coffee &mdash; smooth, simple, and ready in seconds.
+          </p>
+        </motion.div>
+
+        {/* Genuine review proof (live data from stored reviews) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,6 +58,8 @@ export default function RitualHero() {
         >
           <RitualSocialProof />
         </motion.div>
+
+        {/* Primary + secondary CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,10 +67,10 @@ export default function RitualHero() {
           className="flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Link to="/shop" className="btn btn-primary" style={{ minWidth: '220px' }}>
-            Shop All
+            Shop Coffee
           </Link>
           <a href="#choose-ritual" className="btn btn-ghost" style={{ minWidth: '220px' }}>
-            Find Your Ritual
+            Compare the Two
           </a>
         </motion.div>
       </div>

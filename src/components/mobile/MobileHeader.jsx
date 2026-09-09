@@ -32,8 +32,8 @@ export default function MobileHeader() {
         <p className="font-mono text-center whitespace-nowrap overflow-hidden text-ellipsis"
           style={{ fontSize: '8px', letterSpacing: '0.4em', color: 'rgba(230,183,173,0.8)', textTransform: 'uppercase' }}>
           Use code{' '}
-          <span style={{ color: RG, fontWeight: 700 }}>WELCOME15</span>
-          {' '}for 15% off &middot; Free Shipping $50+
+          <span style={{ color: RG, fontWeight: 700 }}>WELCOME10</span>
+          {' '}for 10% off &middot; Free Shipping $50+
         </p>
       </div>
 

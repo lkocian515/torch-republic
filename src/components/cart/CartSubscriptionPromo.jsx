@@ -8,9 +8,7 @@ const MUTED = '#6A5A4A';
 const BORDER = '#E4D8C9';
 
 const FREQUENCIES = [
-  { label: 'Every 2 weeks', value: '2w' },
   { label: 'Every 4 weeks', value: '4w' },
-  { label: 'Every 8 weeks', value: '8w' },
 ];
 
 export default function CartSubscriptionPromo({ subtotal }) {

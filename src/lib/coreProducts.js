@@ -27,9 +27,9 @@ export const RITUAL_COLORS = {
   mushroom: {
     key: 'mushroom',
     name: 'Mushroom Coffee',
-    accent: '#2F4A73', // deep cobalt / royal blue
-    soft: '#DCE4EF',
-    deep: '#1E3260',
+    accent: '#566047', // muted olive
+    soft: '#E0DDD3',
+    deep: '#3D4633',
   },
 };
 

@@ -82,12 +82,12 @@ export default function RitualCard({ product, index = 0 }) {
 
         <div className="flex-1" />
 
-        <div className="flex gap-2 pt-3" style={{ borderTop: '1px solid #E4D8C9' }}>
-          <button onClick={handleAdd} aria-label={`Add ${product.name} to cart`} className="btn btn-secondary flex-1" style={{ borderColor: `${c.accent}40`, color: c.deep }}>
-            <ShoppingBag className="h-4 w-4" /> Add
+        <div className="pt-3" style={{ borderTop: '1px solid #E4D8C9' }}>
+          <button onClick={handleAdd} aria-label={`Add ${product.name} to cart`} className="btn btn-primary w-full" style={{ background: c.accent, borderColor: c.accent }}>
+            <ShoppingBag className="h-4 w-4" /> Add to Cart
           </button>
-          <Link to={product.path} className="btn flex-1" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF' }}>
-            {product.cta}
+          <Link to={product.path} className="block pt-2 text-center font-heading text-sm transition-opacity hover:opacity-70" style={{ color: c.deep }}>
+            View details
           </Link>
         </div>
       </div>
