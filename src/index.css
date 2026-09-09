@@ -229,18 +229,7 @@
   transform: scaleX(1);
 }
 
-/* Optimized custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(0 0% 4%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 15%);
-  border-radius: 3px;
-}
-/* Smooth rendering */
+/* Use the native OS scrollbar — do not force a narrow or decorative one */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
