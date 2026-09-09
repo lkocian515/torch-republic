@@ -4,7 +4,7 @@ import { Leaf, Recycle, Coffee, Plane } from 'lucide-react';
 
 const BENEFITS = [
   { icon: Leaf, title: 'Natural ingredients', body: 'Real, clean ingredients in every cup — nothing artificial, ever.' },
-  { icon: Recycle, title: 'No plastic waste', body: 'No pods, no capsules, no single-use plastic. Just one recyclable pouch.' },
+  { icon: Recycle, title: 'No pods, no capsules', body: 'No pods, no capsules, no single-use plastic. Just one pouch — nothing to discard but the bag.' },
   { icon: Coffee, title: 'No machine needed', body: 'Just add hot water. No brewer, grinder, or cleanup — ever.' },
   { icon: Plane, title: 'Made for on the go', body: 'Toss it in your bag — your daily ritual travels wherever you do.' },
 ];

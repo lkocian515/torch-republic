@@ -25,7 +25,7 @@ const DATA = {
     { label: 'Added L-theanine', tr: 'Naturally from matcha blends', them: 'Added L-theanine supplement', trWins: false },
     { label: 'Key mushrooms', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga", trWins: true },
     { label: 'Price per serving', tr: '~$0.85', them: '~$2.00–2.50', trWins: true },
-    { label: 'Servings per package', tr: '27 per tube', them: '30 per bag', trWins: false },
+    { label: 'Servings per package', tr: '27 per pouch', them: '30 per bag', trWins: false },
     { label: 'Blend variety', tr: '12 blends', them: '1–2 SKUs', trWins: true },
     { label: 'Matcha option', tr: 'Yes — 3 blends', them: 'No', trWins: true },
     { label: 'Classic coffee', tr: 'Yes — 3 blends', them: 'No', trWins: true },

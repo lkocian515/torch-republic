@@ -37,6 +37,7 @@ const SECTIONS = [
   {
     label: 'Learn',
     items: [
+      ['Find Your Ritual', '/quiz'],
       ['Journal', '/journal'],
       ['Coffee Recipes', '/recipes'],
       ['Ingredients', '/ingredients'],

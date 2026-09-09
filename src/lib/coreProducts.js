@@ -69,7 +69,7 @@ export const CORE_PRODUCTS = [
     servings: 27,
     caffeineLevel: 'high',
     caffeineLabel: 'High',
-    positioning: 'Bold, smooth, and ready in seconds.',
+    positioning: 'Bold, straightforward premium coffee - no brewing equipment needed.',
     description:
       'A classic instant coffee made with single-origin coffee from Papua New Guinea. A straightforward cup with origin character and everyday convenience.',
     flavorNotes: ['Bold', 'Smooth', 'Premium Arabica'],
@@ -96,7 +96,7 @@ export const CORE_PRODUCTS = [
     servings: 27,
     caffeineLevel: 'medium',
     caffeineLabel: 'Medium',
-    positioning: 'Coffee comfort with functional mushrooms built in.',
+    positioning: "Smooth coffee made with Lion's Mane and Chaga.",
     description:
       'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion’s Mane, and Chaga.',
     flavorNotes: ['Smooth Coffee', 'Cocoa', 'Balanced Finish'],
@@ -123,7 +123,7 @@ export const CORE_PRODUCTS = [
     servings: 25,
     caffeineLevel: 'medium',
     caffeineLabel: 'Medium',
-    positioning: 'Clean energy for a slower kind of morning.',
+    positioning: 'A bright, smooth matcha - a slower-feeling alternative to coffee.',
     description:
       'A ceremonial matcha made for lattes, iced drinks, and everyday exploration. Whisk it with water or make the ritual your own.',
     flavorNotes: ['Ceremonial Matcha', 'Bright', 'Versatile'],

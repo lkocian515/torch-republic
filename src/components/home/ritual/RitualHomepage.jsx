@@ -8,6 +8,10 @@ import RitualComparison from './RitualComparison';
 import RitualMomentStrip from './RitualMomentStrip';
 import RitualSubscriptionTeaser from './RitualSubscriptionTeaser';
 import RitualFinalCTA from './RitualFinalCTA';
+import RitualQuizCallout from './RitualQuizCallout';
+import RitualConvenienceComparison from './RitualConvenienceComparison';
+import RitualReviewHighlights from './RitualReviewHighlights';
+import RitualFounderTrust from './RitualFounderTrust';
 
 // Homepage conversion flow:
 // 1. Hero  2. Three core products  3. Why Torch Republic  4. Lifestyle proof
@@ -22,9 +26,11 @@ export default function RitualHomepage() {
     <main id="main-content" className="perf-home-main" style={{ background: '#FBF8F1' }}>
       <RitualHero />
       <ChooseYourRitual />
+      <RitualQuizCallout />
       <RitualWhy />
       <NatureRitualBanner />
       <RitualTrustStrip />
+      <RitualConvenienceComparison />
       <RitualComparison />
       <RitualMomentStrip
         image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
@@ -33,7 +39,9 @@ export default function RitualHomepage() {
         title="Just add hot water."
         subtitle="Scoop. Stir. Sip. A cafe-quality cup in seconds - no machine, no pods, no compromise."
       />
+      <RitualReviewHighlights />
       <RitualSubscriptionTeaser />
+      <RitualFounderTrust />
       <RitualFinalCTA />
     </main>
   );

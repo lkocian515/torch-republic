@@ -13,21 +13,21 @@ const ROWS = [
 // Verified product information only — no medical or health claims.
 const VALUES = {
   classic: {
-    for: 'Give me coffee.',
+    for: 'A familiar coffee ritual, no equipment.',
     flavor: 'Bold, smooth, premium Arabica',
     energy: 'High caffeine',
     functional: '-',
     prep: 'Hot or iced',
   },
   matcha: {
-    for: 'Smooth, intentional mornings.',
+    for: 'A slower-feeling alternative to coffee.',
     flavor: 'Bright ceremonial matcha',
     energy: 'Medium caffeine',
     functional: '-',
     prep: 'Hot or iced',
   },
   mushroom: {
-    for: 'Coffee plus functional ingredients.',
+    for: "Coffee made with Lion's Mane and Chaga.",
     flavor: 'Smooth coffee, cocoa, balanced finish',
     energy: 'Medium caffeine',
     functional: "Lion's Mane + Chaga",

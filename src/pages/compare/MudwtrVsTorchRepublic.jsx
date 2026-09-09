@@ -25,7 +25,7 @@ const DATA = {
     { label: 'Mushroom varieties', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail", trWins: false },
     { label: 'Added spices', tr: 'None', them: 'Turmeric, ginger, cinnamon, cardamom, black pepper', trWins: false },
     { label: 'Price per serving', tr: '~$0.85', them: '~$1.50–2.00', trWins: true },
-    { label: 'Servings per package', tr: '27 per tube', them: '30 per bag', trWins: false },
+    { label: 'Servings per package', tr: '27 per pouch', them: '30 per bag', trWins: false },
     { label: 'Blend variety', tr: '12 blends', them: '2–3 SKUs', trWins: true },
     { label: 'Matcha option', tr: 'Yes', them: 'No', trWins: true },
     { label: 'Classic coffee option', tr: 'Yes', them: 'No', trWins: true },

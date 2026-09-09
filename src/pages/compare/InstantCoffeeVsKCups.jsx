@@ -24,22 +24,22 @@ const DATA = {
     { label: 'Preparation time', tr: '~30 seconds', them: '~30–60 seconds', trWins: false },
     { label: 'Coffee quality', tr: 'Single-origin PNG Arabica, freeze-dried', them: 'Pre-ground, stored in plastic cups', trWins: true },
     { label: 'Flavor preservation', tr: 'Freeze-dried at low temperature', them: 'Pre-ground, sealed in plastic for months', trWins: true },
-    { label: 'Single-use waste', tr: 'None — recyclable tube', them: 'Plastic/aluminum K-Cup per serving', trWins: true },
-    { label: 'Servings per package', tr: '27 per tube', them: '10–24 per box', trWins: true },
+    { label: 'Single-use waste', tr: 'None — one pouch, no pods', them: 'Plastic/aluminum K-Cup per serving', trWins: true },
+    { label: 'Servings per package', tr: '27 per pouch', them: '10–24 per box', trWins: true },
     { label: 'Cost per serving', tr: '~$0.85', them: '~$0.75–$1.25', trWins: true },
     { label: 'Counter space', tr: 'None', them: 'Machine + K-Cup storage', trWins: true },
-    { label: 'Travel friendly', tr: 'Yes — compact tube', them: 'No — machine required', trWins: true },
-    { label: 'Flavor options', tr: '3 classic + 6 mushroom + 3 matcha', them: 'Hundreds of K-Cup varieties', trWins: false },
+    { label: 'Travel friendly', tr: 'Yes — compact pouch', them: 'No — machine required', trWins: true },
+    { label: 'Flavor options', tr: '3 rituals: classic, mushroom, matcha', them: 'Hundreds of K-Cup varieties', trWins: false },
     { label: 'Subscription discount', tr: '20% off', them: 'Varies by brand', trWins: false },
   ],
 
   ourEdge: [
     "No machine required — just hot water and a cup",
-    "Zero single-use K-Cup waste — recyclable tube",
+    "Zero single-use K-Cup waste — one pouch",
     "Premium single-origin Papua New Guinea Arabica, freeze-dried",
     "Better flavor preservation (freeze-dried vs. pre-ground in plastic)",
     "Lower cost per serving (~$0.85 vs $0.75–$1.25 for premium K-Cups)",
-    "Travel friendly — compact tube, no machine to bring",
+    "Travel friendly — compact pouch, no machine to bring",
     "No counter space needed — no brewer, no K-Cup storage",
   ],
   theirEdge: [
@@ -62,7 +62,7 @@ const DATA = {
     },
     {
       heading: "The Waste Problem",
-      body: "K-Cups are one of the most criticized single-use products in the coffee industry. Billions of K-Cups have ended up in landfills. Even 'recyclable' K-Cups require disassembly — separating the plastic cup, aluminum foil, paper filter, and wet coffee grounds — that most consumers don't do.\n\nInstant coffee in a recyclable tube generates zero per-cup waste. One tube of 27 servings = one recyclable container. Over a year of daily coffee, that's one tube vs. 365 K-Cups. The environmental difference is not subtle."
+      body: "K-Cups are one of the most criticized single-use products in the coffee industry. Billions of K-Cups have ended up in landfills. Even 'recyclable' K-Cups require disassembly — separating the plastic cup, aluminum foil, paper filter, and wet coffee grounds — that most consumers don't do.\n\nInstant coffee in a single pouch generates zero per-cup waste. One pouch of 27 servings = one container. Over a year of daily coffee, that's one pouch vs. 365 K-Cups. The environmental difference is not subtle."
     },
     {
       heading: "Cost Over Time",

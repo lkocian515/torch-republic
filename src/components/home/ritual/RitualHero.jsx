@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import RitualSocialProof from './RitualSocialProof';
 
 // Full-bleed lifestyle hero. The image itself carries the brand logo,
 // "Ignite Your Daily Ritual" headline, subheadline, and benefit icons, so no
@@ -30,6 +31,14 @@ export default function RitualHero() {
       </motion.div>
 
       <div className="mx-auto max-w-[1240px] px-6 py-8 md:px-10 md:py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex justify-center mb-5"
+        >
+          <RitualSocialProof />
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

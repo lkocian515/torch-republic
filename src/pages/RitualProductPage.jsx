@@ -259,9 +259,16 @@ function RitualPDP({ product }) {
             </div>
 
             <div className="flex flex-col gap-2">
-              <OptionRow active={isSubscription} onClick={() => setIsSubscription(true)} title="Subscribe & Save 20%" sub="Pause or cancel anytime" price={`$${subscriptionPrice.toFixed(2)}`} priceColor={THEME.moss} />
+              <OptionRow active={isSubscription} onClick={() => setIsSubscription(true)} title="Subscribe & Save 20%" sub="Deliver every 30 days - Pause or cancel anytime" price={`$${subscriptionPrice.toFixed(2)}`} priceColor={THEME.moss} />
               <OptionRow active={!isSubscription} onClick={() => setIsSubscription(false)} title="One-time purchase" sub="Just this order" price={`$${product.price.toFixed(2)}`} priceColor={THEME.text} />
             </div>
+
+            {isSubscription && (
+              <p className="font-heading text-xs" style={{ color: THEME.secondary }}>
+                Subscribers earn Torch Republic rewards on every delivery.{' '}
+                <Link to="/torchbearers-rewards" style={{ color: c.accent, textDecoration: 'underline' }}>Learn more</Link>
+              </p>
+            )}
 
             <div className="flex items-center gap-4">
               <span className="font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: THEME.secondary }}>Quantity</span>
@@ -332,7 +339,36 @@ function RitualPDP({ product }) {
           })}
         </div>
         <div className="py-6 font-heading text-sm" style={{ color: THEME.secondary, lineHeight: 1.8 }}>
-          {tab === 'Ingredients' && <p>{INGREDIENTS[product.category]}</p>}
+          {tab === 'Ingredients' && (
+            <div className="flex flex-col gap-5">
+              <p>{INGREDIENTS[product.category]}</p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  { label: 'Servings', value: `${product.servings} per pouch` },
+                  { label: 'Serving size', value: '1 scoop' },
+                  { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
+                  { label: 'Format', value: 'Instant - no machine needed' },
+                  ...(product.category === 'matcha' ? [{ label: 'Grade', value: 'Ceremonial grade' }] : []),
+                  ...(product.mushrooms ? [{ label: 'Functional ingredients', value: product.mushrooms }] : []),
+                  { label: 'Preparation', value: 'Hot or iced' },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-baseline gap-3">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] flex-shrink-0" style={{ color: THEME.secondary, minWidth: '120px' }}>
+                      {row.label}
+                    </span>
+                    <span className="font-heading text-sm" style={{ color: THEME.text }}>
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="font-heading text-xs" style={{ color: THEME.secondary }}>
+                <Link to="/shipping-policy" style={{ color: c.accent, textDecoration: 'underline' }}>Shipping &amp; returns</Link>
+                {' \u00b7 '}
+                <Link to="/return-policy" style={{ color: c.accent, textDecoration: 'underline' }}>Return policy</Link>
+              </p>
+            </div>
+          )}
           {tab === 'Benefits' && (
             <ul className="flex flex-col gap-2">
               {benefits.map((b, i) => (
@@ -366,6 +402,25 @@ function RitualPDP({ product }) {
         title="Your ritual, ready in seconds."
         subtitle="One scoop. A swirl of hot water. A café-quality cup — no machine, no pods, no compromise."
       />
+
+      {/* Quiz callout */}
+      <section className="px-6 py-10 md:px-10" style={{ background: THEME.cream }}>
+        <div className="mx-auto max-w-[800px]">
+          <div className="card-torch flex flex-col items-center gap-4 p-6 text-center sm:flex-row sm:text-left">
+            <div className="flex-1">
+              <p className="font-heading text-sm" style={{ color: THEME.text }}>
+                Not sure which ritual fits your morning?
+              </p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.15em] mt-1" style={{ color: THEME.secondary }}>
+                Take the 60-second quiz
+              </p>
+            </div>
+            <Link to="/quiz" className="btn btn-ghost" style={{ flexShrink: 0 }}>
+              Take the Quiz
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Related — only the other two core rituals */}
       <section className="px-6 py-14 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
