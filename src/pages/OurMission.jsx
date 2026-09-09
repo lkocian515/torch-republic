@@ -11,7 +11,7 @@ const products = (ALL_PRODUCTS || []).filter((p) => p && p.image && p.name && p.
 
 const principles = [
   ['Intentional routines', 'Products made to help a simple daily cup feel more deliberate.'],
-  ['Thoughtful selection', 'A focused collection of three products, chosen with care over quantity.'],
+  ['Thoughtful selection', 'A focused collection of two products, chosen with care over quantity.'],
   ['Clear transparency', 'Straightforward ingredient language and honest product descriptions.'],
   ['Convenient preparation', 'Instant formats for hot or iced drinks without pods or machines.'],
 ];
@@ -19,7 +19,7 @@ const principles = [
 export default function OurMission() {
   useSEO({
     title: 'Our Story | Torch Republic Coffee Company',
-    description: 'Torch Republic Coffee Company is a modern coffee and wellness brand built around simple, intentional daily rituals — instant coffee, mushroom coffee, and ceremonial matcha.',
+    description: 'Torch Republic Coffee Company is a modern coffee and wellness brand built around simple, intentional daily rituals — instant coffee and functional mushroom coffee.',
     url: '/our-story',
     type: 'website',
   });
@@ -46,7 +46,7 @@ export default function OurMission() {
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Convenience without losing intention.</h2>
           <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
             <p>Torch Republic began with a simple idea: the convenience of instant coffee without the pods, machines, or complicated steps. We wanted a daily cup that felt easy and still worth slowing down for.</p>
-            <p>That idea became a small, focused collection — instant coffee, mushroom coffee, and ceremonial matcha — made for people who want their routine to feel simple, elevated, and more mindful.</p>
+            <p>That idea became a small, focused collection — instant coffee and mushroom coffee — made for people who want their routine to feel simple, elevated, and more mindful.</p>
           </div>
         </div>
       </section>
@@ -55,11 +55,11 @@ export default function OurMission() {
       <section className="px-5 py-16 md:px-10" style={{ background: theme.sage }}>
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 text-center">
-            <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Why Three Products</p>
+            <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Why Two Products</p>
             <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>A focused collection, made well.</h2>
             <p className="mx-auto mt-4 max-w-2xl font-heading leading-7" style={{ color: theme.body }}>Each product is designed for convenient hot or iced preparation without pods or complicated equipment.</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {products.map((product) => (
               <article key={product.slug} className="overflow-hidden rounded-[2rem] border" style={{ background: theme.card, borderColor: theme.border }}>
                 <div className="p-6" style={{ background: '#F8F5EF' }}>
@@ -110,7 +110,7 @@ export default function OurMission() {
       {/* Final CTA */}
       <section className="px-5 py-20 text-center md:px-10">
         <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Find the Ritual That Fits Your Day</h2>
-        <p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Explore coffee, mushroom coffee, and ceremonial matcha designed for simple daily routines.</p>
+        <p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Explore instant coffee and mushroom coffee designed for simple daily routines.</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#FBF8F1' }}>Explore the Collection</Link>
           <Link to="/quiz" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Find Your Blend</Link>

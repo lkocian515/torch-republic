@@ -27,11 +27,11 @@ const SUB_FAQ = [
   { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee, classic coffee, or matcha however you like.' },
   { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearers Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
   { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
-  { q: 'How many tubes can I subscribe to monthly?', a: 'Choose between 1 and 6 tubes per delivery. You can adjust the quantity anytime from your account.' },
+  { q: 'How many bags can I subscribe to monthly?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
 ];
 
 const STEPS = [
-  { num: '1', title: 'Pick your blends', body: 'Choose your favorite coffee, mushroom blend, or matcha. Mix and match up to 6 tubes per monthly delivery.' },
+  { num: '1', title: 'Pick your blends', body: 'Choose your favorite instant coffee or mushroom coffee. Mix and match up to 6 bags per monthly delivery.' },
   { num: '2', title: 'Set monthly delivery', body: 'Your selection ships every month on your schedule. Adjust the delivery date, skip a month, or swap blends anytime from your account.' },
   { num: '3', title: 'Save 20% on every order', body: 'The 20% discount applies to every subscription order — not just the first. Pause or cancel in a few clicks, no calls required.' },
 ];
@@ -71,7 +71,7 @@ export default function Subscription() {
 
   useSEO({
     title: 'Subscribe & Save | Torch Republic Coffee Company',
-    description: 'Subscribe to your favorite Torch Republic coffee, mushroom coffee, or matcha ritual and save on repeat deliveries. Build your monthly blend selection.',
+    description: 'Subscribe to your favorite Torch Republic instant coffee or mushroom coffee and save on repeat deliveries. Build your monthly blend selection.',
     url: '/subscription',
   });
 
