@@ -7,6 +7,7 @@ import RitualMomentStrip from './RitualMomentStrip';
 import RitualSubscriptionTeaser from './RitualSubscriptionTeaser';
 import RitualFinalCTA from './RitualFinalCTA';
 import RitualReviewHighlights from './RitualReviewHighlights';
+import RitualBrandBreak from './RitualBrandBreak';
 import RitualFounderTrust from './RitualFounderTrust';
 
 // Homepage conversion flow:
@@ -33,13 +34,14 @@ export default function RitualHomepage() {
       <RitualWhy />
       <RitualComparison />
       <RitualMomentStrip
-        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
-        alt="Instant coffee flakes stirred into a hot cup of coffee"
+        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0acc337b2_generated_image.png"
+        alt="Instant coffee stirred into a cup of hot water"
         eyebrow="The Ritual"
         title="Just add hot water."
-        subtitle="Scoop. Stir. Sip. A cafe-quality cup in seconds - no machine, no pods, no compromise."
+        subtitle="Scoop. Stir. Sip. A cafe-quality cup in seconds — no machine, no pods, no compromise."
       />
       <RitualReviewHighlights />
+      <RitualBrandBreak />
       <RitualSubscriptionTeaser />
       <RitualFounderTrust />
       <RitualFinalCTA />

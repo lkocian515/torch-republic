@@ -8,7 +8,7 @@ export default function RitualSubscriptionTeaser() {
     <section style={{ background: '#F3ECE2' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 text-center md:px-10 md:py-20">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
             Make it a routine
           </p>
           <h2
@@ -23,7 +23,7 @@ export default function RitualSubscriptionTeaser() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link to="/build-your-ritual" className="btn btn-primary" style={{ minWidth: '200px' }}>
-              Build Your Routine
+              Build Your Ritual
             </Link>
             <Link to="/subscription" className="btn btn-ghost" style={{ minWidth: '200px' }}>
               How subscriptions work

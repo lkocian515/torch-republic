@@ -33,7 +33,7 @@ export default function RitualComparison() {
     <section style={{ background: '#FBF8F1' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
             Not sure where to start?
           </p>
           <h2 className="mt-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622' }}>

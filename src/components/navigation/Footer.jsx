@@ -16,7 +16,7 @@ const THEME = {
 const SHOP_LINKS = [
   ['Shop All', '/shop'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
-  ['Instant Coffee with Mushrooms', '/products/instant-mushroom-coffee'],
+  ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
   ['Coffee Duo', '/build-your-ritual'],
   ['Subscriptions', '/subscription'],
 ];

@@ -29,7 +29,7 @@ const SECTIONS = [
     label: 'Subscriptions',
     to: '/subscription',
     items: [
-      ['Build Your Routine', '/build-your-ritual'],
+      ['Build Your Ritual', '/build-your-ritual'],
       ['How Subscriptions Work', '/subscription'],
     ],
   },
