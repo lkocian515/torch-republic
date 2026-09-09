@@ -89,7 +89,7 @@ const CATEGORY_BUNDLES = [
     savings: 14.98,
     products: MATCHA_ONLY_BUNDLE,
     cta: 'Shop Matcha Trio',
-    getUrl: getAllMatchaBundleUrl,
+    getUrl: () => null,
   },
   {
     id: 'wellness-bundle',
