@@ -278,6 +278,15 @@ header.sticky.top-0 {
   .cart-sticky-checkout { bottom: 0; }
 }
 
+/* Footer clearance — ensures the fixed mobile bottom nav does not cover footer content.
+   On md+ the bottom nav is hidden, so no extra padding is needed. */
+.footer-mobile-clearance {
+  padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+}
+@media (min-width: 768px) {
+  .footer-mobile-clearance { padding-bottom: 0; }
+}
+
 /* User select none for buttons and nav */
 button, a, [role="button"], nav {
   user-select: none;

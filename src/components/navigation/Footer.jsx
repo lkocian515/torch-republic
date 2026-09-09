@@ -1,78 +1,146 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import FooterNewsletter from './FooterNewsletter';
 
-const colors = { card: 'hsl(var(--card))', text: 'hsl(var(--foreground))', secondary: 'hsl(var(--muted-foreground))', border: 'hsl(var(--border))' };
+const THEME = {
+  page: '#FBF8F2',
+  card: '#FFFDF8',
+  text: '#292622',
+  secondary: '#5F574F',
+  border: '#E4D8C9',
+  clay: '#B7653E',
+  moss: '#566047',
+};
 
-// Footer link structure — five groups, one Build Your Ritual, one "Our Story"
-// label throughout. Morning Ritual / Focus Coffee / Travel Coffee remain as
-// SEO collection pages but are intentionally not given footer prominence.
-const groups = [
-  ['Shop', [
-    ['All Products', '/shop'],
-    ['Instant Classic Coffee', '/products/instant-classic-coffee'],
-    ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-    ['Build Your Ritual', '/build-your-ritual'],
-    ['Gifts', '/gifts'],
-  ]],
-  ['Discover', [
-    ['Find Your Blend Quiz', '/quiz'],
-    ['Subscription', '/subscription'],
-    ['How It Works', '/how-it-works'],
-    ['Ingredients', '/ingredients'],
-    ['Reviews', '/reviews'],
-  ]],
-  ['Learn', [
-    ['Journal', '/journal'],
-    ['Coffee Recipes', '/recipes'],
-    ['Research Hub', '/research'],
-    ['FAQ', '/faq'],
-  ]],
-  ['Our Story', [
-    ['Our Story', '/our-story'],
-    ['Founder Story', '/founder-story'],
-    ['Our Team', '/about/torch-republic-team'],
-    ['Customer Spotlight', '/customer-spotlight'],
-    ['Contact', '/contact'],
-  ]],
-  ['Account & Support', [
-    ['Torchbearers Rewards', '/torchbearers-rewards'],
-    ['My Account', '/profile'],
-    ['Cart', '/cart'],
-    ['Shipping Policy', '/shipping-policy'],
-    ['Return & Refund Policy', '/return-policy'],
-    ['Privacy Policy', '/privacy-policy'],
-    ['Terms of Service', '/terms-of-service'],
-  ]],
+const SHOP_LINKS = [
+  ['Shop All', '/shop'],
+  ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+  ['Instant Coffee with Mushrooms', '/products/instant-mushroom-coffee'],
+  ['Coffee Duo', '/build-your-ritual'],
+  ['Subscriptions', '/subscription'],
 ];
+
+const COMPANY_LINKS = [
+  ['About', '/our-story'],
+  ['Our Ingredients', '/ingredients'],
+  ['Journal', '/journal'],
+];
+
+const SUPPORT_LINKS = [
+  ['Contact', '/contact'],
+  ['FAQ', '/faq'],
+  ['Shipping Policy', '/shipping-policy'],
+  ['Return Policy', '/return-policy'],
+  ['Account', '/profile'],
+];
+
+const LEGAL_LINKS = [
+  ['Privacy Policy', '/privacy-policy'],
+  ['Terms of Service', '/terms-of-service'],
+  ['Shipping Policy', '/shipping-policy'],
+  ['Return Policy', '/return-policy'],
+];
+
+const SOCIAL_LINKS = [
+  { icon: Instagram, href: 'https://www.instagram.com/torchrepublic', label: 'Instagram' },
+  { icon: Facebook, href: 'https://www.facebook.com/torchrepublic', label: 'Facebook' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/torchrepublic', label: 'LinkedIn' },
+];
+
+function LinkColumn({ heading, links }) {
+  return (
+    <nav aria-label={heading} className="min-w-0">
+      <h2 className="font-heading text-sm font-semibold mb-3" style={{ color: THEME.text }}>{heading}</h2>
+      <ul className="space-y-1">
+        {links.map(([label, href]) => (
+          <li key={href}>
+            <Link
+              to={href}
+              className="inline-flex items-center min-h-[44px] font-heading text-sm transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+              style={{ color: THEME.secondary, borderRadius: '4px', paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer style={{ background: colors.card, borderTop: `1px solid ${colors.border}` }}>
-      <div className="mx-auto max-w-[1280px] px-5 py-12 md:px-10">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2.2fr] lg:gap-14">
-          <div className="lg:max-w-xs">
-            <img src="/torch-republic-logo-transparent.png" alt="Torch Republic Coffee Company" width="190" height="52" className="h-14 w-auto" />
-            <p className="mt-4 max-w-sm text-base leading-7" style={{ color: colors.secondary }}>Thoughtfully crafted instant coffee and functional mushroom coffee for clearer, more intentional daily rituals.</p>
-            <p className="mt-3 font-heading text-sm" style={{ color: colors.text }}>Torch Republic Coffee Company</p>
-            <p className="mt-2 max-w-sm font-heading text-xs leading-6" style={{ color: colors.secondary }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>
+    <footer
+      style={{ background: THEME.page, borderTop: `1px solid ${THEME.border}` }}
+      className="footer-mobile-clearance"
+    >
+      <div className="mx-auto max-w-[1280px] px-5 py-12 md:px-10 md:py-14">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+          {/* Column 1 — Brand */}
+          <div className="lg:col-span-1">
+            <p className="font-serif font-bold tracking-wide" style={{ color: THEME.text, fontSize: '1.1rem', lineHeight: 1.2 }}>TORCH REPUBLIC</p>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1" style={{ color: THEME.clay }}>Coffee Company</p>
+            <p className="mt-4 font-heading text-sm leading-7" style={{ color: THEME.secondary }}>
+              Thoughtfully crafted instant coffee and mushroom coffee for smooth, convenient, and intentional daily rituals.
+            </p>
+            <p className="mt-3 font-heading text-xs" style={{ color: THEME.moss }}>Corpus Christi, Texas &middot; U.S.A.</p>
+            <div className="flex gap-2 mt-4">
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 flex items-center justify-center rounded-md transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{ border: `1px solid ${THEME.border}`, color: THEME.secondary, background: THEME.card }}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
-            {groups.map(([heading, links]) => (
-              <div key={heading} className="min-w-0">
-                <h2 className="font-heading text-sm font-semibold" style={{ color: colors.text }}>{heading}</h2>
-                <ul className="mt-3 space-y-2.5">
-                  {links.map(([label, href]) => (
-                    <li key={href} className="leading-6">
-                      <Link to={href} className="inline-block font-heading text-sm transition-opacity duration-200 hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ color: colors.secondary, borderRadius: '4px' }}>{label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+          {/* Column 2 — Shop */}
+          <LinkColumn heading="Shop" links={SHOP_LINKS} />
+
+          {/* Column 3 — Company */}
+          <LinkColumn heading="Company" links={COMPANY_LINKS} />
+
+          {/* Column 4 — Support */}
+          <LinkColumn heading="Support" links={SUPPORT_LINKS} />
+
+          {/* Column 5 — Newsletter */}
+          <div className="min-w-0">
+            <h2 className="font-heading text-sm font-semibold mb-2" style={{ color: THEME.text }}>Stay in the Loop</h2>
+            <p className="font-heading text-xs leading-6 mb-4" style={{ color: THEME.secondary }}>
+              Get product updates, coffee tips, and occasional offers from Torch Republic.
+            </p>
+            <FooterNewsletter />
           </div>
         </div>
-        <div className="mt-10 border-t pt-6 md:flex-row md:items-center md:justify-between" style={{ borderColor: colors.border }}>
-          <p className="font-heading text-sm" style={{ color: colors.secondary }}>&copy; {new Date().getFullYear()} Torch Republic Coffee Company</p>
+
+        {/* Legal bar */}
+        <div className="mt-10 pt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between" style={{ borderTop: `1px solid ${THEME.border}` }}>
+          <p className="font-heading text-xs" style={{ color: THEME.secondary }}>
+            &copy; {new Date().getFullYear()} Torch Republic Coffee Company. All rights reserved.
+          </p>
+          <nav aria-label="Legal policies">
+            <ul className="flex flex-wrap gap-x-4 gap-y-1">
+              {LEGAL_LINKS.map(([label, href]) => (
+                <li key={href}>
+                  <Link
+                    to={href}
+                    className="font-heading text-xs transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                    style={{ color: THEME.secondary, borderRadius: '4px' }}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

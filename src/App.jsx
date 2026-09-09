@@ -183,8 +183,9 @@ const AuthenticatedApp = ({ queryClient }) => {
   // Standalone portfolio route renders without storefront chrome (header/footer/tabs)
   const isStandalonePortfolio = location.pathname.startsWith('/portfolio');
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       {!isStandalonePortfolio && <UnifiedHeader />}
+      <div className="flex-1 flex flex-col">
       <ErrorBoundary resetKey={location.pathname}>
       <AnimatePresence mode="wait">
         <ScrollToTop key={location.pathname} />
@@ -517,8 +518,9 @@ const AuthenticatedApp = ({ queryClient }) => {
       {!isStandalonePortfolio && <BottomTabs />}
       </AnimatePresence>
       </ErrorBoundary>
-      {!isStandalonePortfolio && <div className="hidden md:block"><Footer /></div>}
-    </>
+      </div>
+      {!isStandalonePortfolio && <Footer />}
+    </div>
   );
 };
 
