@@ -53,7 +53,6 @@ const EARNING_RULES = [
 
 const FREQUENCIES = [
   { label: 'Every Week', interval: 'week', intervalCount: 1 },
-  { label: 'Every 2 Weeks', interval: 'week', intervalCount: 2 },
   { label: 'Every Month', interval: 'month', intervalCount: 1 },
   { label: 'Every 2 Months', interval: 'month', intervalCount: 2 },
 ];

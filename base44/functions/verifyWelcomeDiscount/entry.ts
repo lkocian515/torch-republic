@@ -1,5 +1,5 @@
 /**
- * verifyWelcomeDiscount — Checks whether the Shopify discount code WELCOME15 is
+ * verifyWelcomeDiscount — Checks whether the Shopify discount code WELCOME10 is
  * active and correctly configured before the spin wheel is allowed to display.
  *
  * Uses the Shopify Admin API (SHOPIFY_ADMIN_TOKEN) to fetch the discount code.
@@ -15,8 +15,8 @@ const SHOPIFY_SHOP = 'libertees-for-all';
 const ADMIN_TOKEN = Deno.env.get('SHOPIFY_ADMIN_TOKEN');
 const API_VERSION = '2024-10';
 
-const EXPECTED_CODE = 'WELCOME15';
-const EXPECTED_PERCENT = 15;
+const EXPECTED_CODE = 'WELCOME10';
+const EXPECTED_PERCENT = 10;
 
 Deno.serve(async (req) => {
   try {

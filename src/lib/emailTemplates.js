@@ -62,10 +62,10 @@ export const EMAIL_TEMPLATES = {
                         Welcome Back Offer
                     </p>
                     <p style="font-family: 'Courier New', monospace; font-size: 28px; font-weight: bold; letter-spacing: 0.2em; color: #E6B7AD; margin: 15px 0;">
-                        WELCOME15
+                        WELCOME10
                     </p>
                     <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(245,239,230,0.6); margin: 10px 0;">
-                        15% off your first order · Free shipping on orders $50+
+                        10% off your first order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>
@@ -276,8 +276,8 @@ export const EMAIL_TEMPLATES = {
 
     // Email #3: Last Chance (7 days later)
     lastChance: {
-        subject: 'Last Chance: Your 15% Off Ends Soon',
-        previewText: 'Don\'t miss out on WELCOME15 — your exclusive discount expires soon',
+        subject: 'Last Chance: Your 10% Off Ends Soon',
+        previewText: 'Don\'t miss out on WELCOME10 — your exclusive discount expires soon',
         html: (customerName = '') => `
 <!DOCTYPE html>
 <html lang="en">
@@ -306,11 +306,11 @@ export const EMAIL_TEMPLATES = {
                     </p>
                     <div style="background: #080808; border: 1px dashed rgba(230,183,173,0.4); border-radius: 4px; padding: 20px; margin: 20px 0;">
                         <p style="font-family: 'Courier New', monospace; font-size: 28px; font-weight: bold; letter-spacing: 0.2em; color: #E6B7AD; margin: 0;">
-                            WELCOME15
+                            WELCOME10
                         </p>
                     </div>
                     <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(245,239,230,0.6); margin: 15px 0;">
-                        15% off your entire order · Free shipping on orders $50+
+                        10% off your entire order · Free shipping on orders $50+
                     </p>
                 </div>
             </td>
@@ -395,8 +395,8 @@ export const MOBILE_TEMPLATES = {
         
         <div style="background: rgba(230,183,173,0.1); border: 2px solid rgba(230,183,173,0.3); border-radius: 8px; padding: 25px; text-align: center; margin-bottom: 30px;">
             <p style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(230,183,173,0.6); margin-bottom: 10px;">Use Code</p>
-            <p style="font-size: 24px; font-weight: bold; letter-spacing: 0.15em; color: #E6B7AD; margin: 10px 0;">WELCOME15</p>
-            <p style="font-size: 12px; color: rgba(245,239,230,0.6); margin: 0;">15% off · Free shipping $50+</p>
+            <p style="font-size: 24px; font-weight: bold; letter-spacing: 0.15em; color: #E6B7AD; margin: 10px 0;">WELCOME10</p>
+            <p style="font-size: 12px; color: rgba(245,239,230,0.6); margin: 0;">10% off · Free shipping $50+</p>
         </div>
         
         <a href="https://torchrepublic.com/shop" style="display: block; background-color: #E6B7AD; color: #080808; text-align: center; font-size: 11px; font-weight: bold; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; padding: 16px 32px; border-radius: 4px; margin-bottom: 30px;">

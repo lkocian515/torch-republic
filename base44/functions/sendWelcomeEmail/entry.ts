@@ -9,7 +9,7 @@ Deno.serve(async (req) => {
   const email = body_json.email || body_json.data?.email;
   const discount_code = body_json.discount_code || body_json.data?.discount_code;
 
-  const code = discount_code || 'WELCOME15';
+  const code = discount_code || 'WELCOME10';
 
   const body = `
 <!DOCTYPE html>

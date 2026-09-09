@@ -1,5 +1,5 @@
 /**
- * sendSpinWheelEmail — Idempotent delivery of the WELCOME15 welcome email to a
+ * sendSpinWheelEmail — Idempotent delivery of the WELCOME10 welcome email to a
  * visitor who unlocked the spin-wheel discount.
  *
  * Idempotency: the caller passes `source: 'welcome_spin_wheel'` and an optional
@@ -24,7 +24,7 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     const body = await req.json();
     const email = (body.email || '').toString().trim().toLowerCase();
-    const discount_code = (body.discount_code || 'WELCOME15').toString();
+    const discount_code = (body.discount_code || 'WELCOME10').toString();
     const session_id = (body.session_id || '').toString();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

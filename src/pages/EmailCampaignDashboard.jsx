@@ -249,7 +249,7 @@ export default function EmailCampaignDashboard() {
                         </h1>
                     </div>
                     <p className="font-heading text-base" style={{ color: 'rgba(245,239,230,0.7)' }}>
-                        Customer re-engagement email campaign · WELCOME15 discount code
+                        Customer re-engagement email campaign · WELCOME10 discount code
                     </p>
                 </motion.div>
 
@@ -341,7 +341,7 @@ export default function EmailCampaignDashboard() {
                                     Email #1: Relaunch Announcement
                                 </h3>
                                 <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                                    Welcome back message · Founder note · WELCOME15 offer
+                                    Welcome back message · Founder note · WELCOME10 offer
                                 </p>
                             </div>
                             <div className="text-right">

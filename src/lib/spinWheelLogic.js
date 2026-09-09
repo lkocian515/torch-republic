@@ -4,7 +4,7 @@
  * GUARANTEE: every eligible visitor receives 15% off.
  *
  * Outcomes are limited to exactly two:
- *   '15pct'     — wins the verified WELCOME15 code
+ *   '15pct'     — wins the verified WELCOME10 code
  *   'spin_again'— prompts a second, guaranteed-win spin
  *
  * First-spin allocation (no dark pattern):
