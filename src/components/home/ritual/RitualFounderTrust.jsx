@@ -48,14 +48,7 @@ export default function RitualFounderTrust() {
               &ldquo;I wanted a morning ritual that removed friction, not added it.
               No machine, no pods &mdash; just a better cup, made intentionally.&rdquo;
             </blockquote>
-            <div className="mt-6">
-              <p className="font-heading text-base font-bold" style={{ color: '#292622' }}>
-                The Torch Republic Team
-              </p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style={{ color: '#7A5C23' }}>
-                Corpus Christi, TX
-              </p>
-            </div>
+
             <Link
               to="/founder-story"
               className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-semibold transition-opacity hover:opacity-75"
