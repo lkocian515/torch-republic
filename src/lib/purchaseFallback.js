@@ -13,7 +13,7 @@
  * TO RESTORE the original flow: set PURCHASE_FALLBACK_MODE = false.
  * No cart / checkout / architecture changes are required to revert.
  */
-export const PURCHASE_FALLBACK_MODE = true;
+export const PURCHASE_FALLBACK_MODE = false;
 export const RESTOCKING_PATH = '/restocking';
 
 /**

@@ -17,3 +17,14 @@ export function requireCommerce() {
   }
   return false;
 }
+
+/**
+ * Report that a specific product is sold out (Shopify reports the variant
+ * as unavailable for sale). Dispatches 'tr:product-sold-out' which
+ * <CommerceNotice /> listens for to show a "Product Sold Out" message.
+ */
+export function reportProductSoldOut(productTitle) {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('tr:product-sold-out', { detail: { productTitle } }));
+  }
+}

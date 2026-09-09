@@ -3,7 +3,7 @@ import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
-import { getShopifyCart } from '@/lib/shopifyCheckout';
+import { getShopifyCart, createShopifyCart, addShopifyCartLine, getShopifyCheckoutUrl } from '@/lib/shopifyCheckout';
 
 // Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
@@ -61,6 +61,13 @@ export function CartProvider({ children }) {
   // ── Mutation lock: prevents concurrent mutations on the same cart ──
   // Also prevents duplicate lines from repeated clicks.
   const mutationInFlight = useRef(false);
+
+  // Ref mirror of shopifyCartId to avoid stale closures in async callbacks
+  const shopifyCartIdRef = useRef(shopifyCartId);
+  useEffect(() => { shopifyCartIdRef.current = shopifyCartId; }, [shopifyCartId]);
+
+  // Checkout loading state
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const persistShopifyCartId = useCallback((cartId) => {
     setShopifyCartId(cartId);
@@ -172,6 +179,7 @@ export function CartProvider({ children }) {
       imageAlt: getProductAltText(product),
     };
 
+    // Optimistic local update
     setItems(prev => {
       const key = getLineKey(normalizedProduct);
       const existing = prev.find(i => getLineKey(i) === key);
@@ -185,9 +193,68 @@ export function CartProvider({ children }) {
 
     showToast({ title: 'Added to your cart', description: normalizedProduct.name });
 
-    // Release the lock after a brief delay (prevents rapid double-clicks)
-    setTimeout(() => { mutationInFlight.current = false; }, 300);
-  }, [getLineKey]);
+    // Sync to Shopify cart when commerce is enabled
+    if (COMMERCE_ENABLED) {
+      const slug = normalizedProduct.shopifyHandle || normalizedProduct.id;
+      const line = { slug, quantity: qty, isSubscription: !!normalizedProduct.isSubscription };
+
+      (async () => {
+        try {
+          const currentCartId = shopifyCartIdRef.current;
+          if (!currentCartId) {
+            // Create a new Shopify cart with this line
+            const cart = await createShopifyCart([line]);
+            if (cart?.cartId) {
+              persistShopifyCartId(cart.cartId);
+              // Update local items with Shopify-returned line data
+              if (cart.lines?.length) {
+                setItems(prev => prev.map(localItem => {
+                  const match = cart.lines.find(sl =>
+                    sl.productTitle === localItem.name &&
+                    sl.isSubscription === !!localItem.isSubscription
+                  );
+                  return match ? {
+                    ...localItem,
+                    qty: match.quantity,
+                    shopifyLineId: match.lineId,
+                    shopifyPrice: match.unitPrice,
+                    shopifyLineTotal: match.lineSubtotal,
+                    sellingPlanName: match.sellingPlanName,
+                  } : localItem;
+                }));
+              }
+            }
+          } else {
+            // Add to existing Shopify cart
+            const cart = await addShopifyCartLine(currentCartId, line);
+            if (cart?.lines?.length) {
+              setItems(prev => prev.map(localItem => {
+                const match = cart.lines.find(sl =>
+                  sl.productTitle === localItem.name &&
+                  sl.isSubscription === !!localItem.isSubscription
+                );
+                return match ? {
+                  ...localItem,
+                  qty: match.quantity,
+                  shopifyLineId: match.lineId,
+                  shopifyPrice: match.unitPrice,
+                  shopifyLineTotal: match.lineSubtotal,
+                  sellingPlanName: match.sellingPlanName,
+                } : localItem;
+              }));
+            }
+          }
+        } catch {
+          // Silently fail — local cart remains the fallback
+        } finally {
+          mutationInFlight.current = false;
+        }
+      })();
+    } else {
+      // Release the lock after a brief delay (prevents rapid double-clicks)
+      setTimeout(() => { mutationInFlight.current = false; }, 300);
+    }
+  }, [getLineKey, persistShopifyCartId]);
 
   const clearToast = useCallback(() => {
     setToast(null);
@@ -289,6 +356,52 @@ export function CartProvider({ children }) {
     }
   }, [items, shopifyCartId]);
 
+  // ── Checkout: redirect to Shopify-hosted checkout ──
+  // If no Shopify cart exists, creates one with all current items.
+  // Then retrieves the checkout URL and redirects.
+  // Does NOT create a Base44 Order — Shopify handles the entire checkout.
+  const handleCheckout = useCallback(async () => {
+    if (!COMMERCE_ENABLED) {
+      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+      return;
+    }
+
+    setIsCheckingOut(true);
+    try {
+      let currentCartId = shopifyCartIdRef.current;
+
+      // If no Shopify cart exists yet, create one with all current items
+      if (!currentCartId) {
+        const lines = items.map(i => ({
+          slug: i.shopifyHandle || i.id,
+          quantity: i.qty,
+          isSubscription: !!i.isSubscription,
+        }));
+        const cart = await createShopifyCart(lines);
+        if (cart?.cartId) {
+          persistShopifyCartId(cart.cartId);
+          currentCartId = cart.cartId;
+        }
+      }
+
+      if (!currentCartId) {
+        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+        return;
+      }
+
+      const checkoutUrl = await getShopifyCheckoutUrl(currentCartId);
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+      }
+    } catch {
+      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+    } finally {
+      setIsCheckingOut(false);
+    }
+  }, [items, persistShopifyCartId]);
+
   const clearCart = useCallback(() => {
     setItems([]);
     persistShopifyCartId(null);
@@ -307,6 +420,7 @@ export function CartProvider({ children }) {
       totalItems, subtotal, drawerOpen, setDrawerOpen, toast, clearToast,
       refreshed, dismissRefreshed,
       shopifyCartId, persistShopifyCartId,
+      handleCheckout, isCheckingOut,
       isSyncing,
     }}>
       {children}

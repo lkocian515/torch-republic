@@ -37,9 +37,9 @@ export const SELLING_PLAN_IDS = {
   "instant-mushroom-coffee": "gid://shopify/SellingPlan/5701107964",
 };
 
-// ── Coffee Duo (DRAFT — disabled until Shopify reports Active + published) ──
+// ── Coffee Duo (VERIFIED ACTIVE 2026-09-09 — available via Storefront API) ──
 export const DUO_VARIANT_ID = "gid://shopify/ProductVariant/51245930217724";
-export const DUO_ENABLED = false;
+export const DUO_ENABLED = true;
 
 // ── Cart fragment (reused across all cart operations) ──
 const CART_FRAGMENT = `

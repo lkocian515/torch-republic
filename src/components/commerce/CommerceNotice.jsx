@@ -1,23 +1,49 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
-import { COMMERCE_DISABLED_REASON } from '@/lib/commerceConfig';
+import {
+  COMMERCE_DISABLED_TITLE,
+  COMMERCE_DISABLED_REASON,
+  PRODUCT_SOLD_OUT_TITLE,
+} from '@/lib/commerceConfig';
 
 /**
- * Global, single-instance "Product Sold Out" notice. Listens for the
- * 'tr:commerce-unavailable' window event (dispatched by requireCommerce() in
- * lib/commerceGuard.js) and shows one accessible, light-themed modal. Mounted
- * once in App.jsx. Does not navigate away from the visitor's current page and
- * never routes to a broken or external checkout.
+ * Global, single-instance commerce notice. Listens for two events:
+ *
+ * 1. 'tr:commerce-unavailable' — dispatched by requireCommerce() when
+ *    COMMERCE_ENABLED is false. Shows "Checkout Temporarily Unavailable"
+ *    — does NOT claim products are sold out.
+ *
+ * 2. 'tr:product-sold-out' — dispatched when Shopify explicitly reports
+ *    that a selected variant is unavailable for sale. Shows "Product Sold
+ *    Out" with the product name.
+ *
+ * Mounted once in App.jsx. Does not navigate away from the visitor's
+ * current page and never routes to a broken or external checkout.
  */
 export default function CommerceNotice() {
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState('checkout-unavailable');
+  const [productTitle, setProductTitle] = useState(null);
   const closeRef = useRef(null);
 
   useEffect(() => {
-    const handler = () => setOpen(true);
-    window.addEventListener('tr:commerce-unavailable', handler);
-    return () => window.removeEventListener('tr:commerce-unavailable', handler);
+    const handleCommerceUnavailable = () => {
+      setMode('checkout-unavailable');
+      setProductTitle(null);
+      setOpen(true);
+    };
+    const handleProductSoldOut = (e) => {
+      setMode('sold-out');
+      setProductTitle(e?.detail?.productTitle || null);
+      setOpen(true);
+    };
+    window.addEventListener('tr:commerce-unavailable', handleCommerceUnavailable);
+    window.addEventListener('tr:product-sold-out', handleProductSoldOut);
+    return () => {
+      window.removeEventListener('tr:commerce-unavailable', handleCommerceUnavailable);
+      window.removeEventListener('tr:product-sold-out', handleProductSoldOut);
+    };
   }, []);
 
   useEffect(() => {
@@ -36,12 +62,21 @@ export default function CommerceNotice() {
 
   if (!open) return null;
 
+  const isSoldOut = mode === 'sold-out';
+  const title = isSoldOut ? PRODUCT_SOLD_OUT_TITLE : COMMERCE_DISABLED_TITLE;
+  const message = isSoldOut
+    ? (productTitle
+      ? `${productTitle} is currently unavailable for purchase. Please check back soon.`
+      : 'This product is currently unavailable for purchase. Please check back soon.')
+    : COMMERCE_DISABLED_REASON;
+  const titleId = isSoldOut ? 'sold-out-title' : 'checkout-unavailable-title';
+
   return (
     <div
       className="fixed inset-0 z-[400] flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="sold-out-title"
+      aria-labelledby={titleId}
       style={{ background: 'rgba(45,40,36,0.45)' }}
       onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
     >
@@ -50,8 +85,8 @@ export default function CommerceNotice() {
         style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: '12px', boxShadow: '0 20px 60px rgba(45,40,36,0.18)' }}
       >
         <div className="flex items-start justify-between p-5" style={{ borderBottom: '1px solid #E4D8C9' }}>
-          <p id="sold-out-title" className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#2D2824' }}>
-            Product Sold Out
+          <p id={titleId} className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#2D2824' }}>
+            {title}
           </p>
           <button
             ref={closeRef}
@@ -65,7 +100,7 @@ export default function CommerceNotice() {
         </div>
         <div className="p-5">
           <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: '#2D2824' }}>
-            {COMMERCE_DISABLED_REASON}
+            {message}
           </p>
           <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
             <button

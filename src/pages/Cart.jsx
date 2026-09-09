@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
-import { requireCommerce } from '@/lib/commerceGuard';
 import { Minus, Plus, X, ShoppingBag, ArrowLeft, Flame } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
@@ -42,7 +41,7 @@ export default function Cart() {
     url: '/cart',
     noindex: true,
   });
-  const { items, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed } = useCart();
+  const { items, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed, handleCheckout, isCheckingOut } = useCart();
   const qtyMutation = useMutation({
     mutationFn: async () => true,
     onMutate: ({ id, delta }) => updateQty(id, delta),
@@ -144,6 +143,11 @@ export default function Cart() {
                     {item.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
                     {' · '}{item.servings || 27} servings
                   </p>
+                  {item.isSubscription && item.sellingPlanName && (
+                    <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-2" style={{ color: '#10B981' }}>
+                      {item.sellingPlanName}
+                    </p>
+                  )}
                   <div className="flex items-center gap-3">
                     {/* Qty controls */}
                     <div className="flex items-center gap-2" style={{ border: `1px solid ${BORDER}` }}>
@@ -165,7 +169,7 @@ export default function Cart() {
                         <Plus className="w-3 h-3" />
                       </button>
                     </div>
-                    <span className="font-mono font-bold text-sm" style={{ color: ACCENT }}>${(item.price * item.qty).toFixed(2)}</span>
+                    <span className="font-mono font-bold text-sm" style={{ color: ACCENT }}>${item.shopifyLineTotal ? parseFloat(item.shopifyLineTotal).toFixed(2) : (item.price * item.qty).toFixed(2)}</span>
                   </div>
                 </div>
                 <button
@@ -223,11 +227,12 @@ export default function Cart() {
               </div>
 
               <button
-                onClick={() => requireCommerce()}
+                onClick={handleCheckout}
+                disabled={isCheckingOut}
                 className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
-                style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: 'pointer' }}
+                style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: isCheckingOut ? 'wait' : 'pointer', opacity: isCheckingOut ? 0.7 : 1 }}
               >
-                Continue to Checkout
+                {isCheckingOut ? 'Preparing Checkout...' : 'Continue to Checkout'}
               </button>
 
               <div className="flex items-center justify-center gap-2 mb-4">
@@ -255,7 +260,7 @@ export default function Cart() {
       </div>
 
       {/* Mobile sticky checkout bar */}
-      <CartStickyCheckout subtotal={subtotal} totalItems={totalItems} />
+      <CartStickyCheckout subtotal={subtotal} totalItems={totalItems} onCheckout={handleCheckout} isCheckingOut={isCheckingOut} />
 
       {/* Bottom spacing so content clears the fixed mobile checkout bar and
           the fixed bottom navigation on every viewport. */}

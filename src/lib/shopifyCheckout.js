@@ -142,8 +142,8 @@ export async function getSubscriptionCheckoutUrl(blendQty) {
   }
 }
 
-// ── Coffee Duo — disabled while Draft ──
-export const DUO_ENABLED = false;
+// ── Coffee Duo (VERIFIED ACTIVE 2026-09-09) ──
+export const DUO_ENABLED = true;
 
 // ── Deprecated wrappers (backward compatibility) ──
 // These return null while COMMERCE_ENABLED = false.

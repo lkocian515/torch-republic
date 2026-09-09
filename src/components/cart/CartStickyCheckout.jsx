@@ -1,5 +1,4 @@
 import React from 'react';
-import { requireCommerce } from '@/lib/commerceGuard';
 
 const ACCENT = '#B86543';
 const BTN_TEXT = '#FBF8F1';
@@ -10,11 +9,11 @@ const BORDER = '#E4D8C9';
 /**
  * Mobile sticky checkout bar. Positioned above the fixed bottom navigation
  * (see .cart-sticky-checkout in index.css) so the button is never covered.
- * The single checkout action opens the global "Product Sold Out" modal via
- * requireCommerce() — it never contacts Shopify or launches an external
- * checkout. Hidden on desktop (lg:hidden) and when the cart is empty.
+ * Calls onCheckout (from CartContext.handleCheckout) to redirect to the
+ * Shopify-hosted checkout page. Hidden on desktop (lg:hidden) and when the
+ * cart is empty.
  */
-export default function CartStickyCheckout({ subtotal, totalItems }) {
+export default function CartStickyCheckout({ subtotal, totalItems, onCheckout, isCheckingOut }) {
   if (!totalItems) return null;
 
   return (
@@ -35,12 +34,13 @@ export default function CartStickyCheckout({ subtotal, totalItems }) {
           <p className="font-serif font-bold text-lg" style={{ color: INK }}>${subtotal.toFixed(2)}</p>
         </div>
         <button
-          onClick={() => requireCommerce()}
+          onClick={onCheckout}
+          disabled={isCheckingOut}
           aria-label="Continue to checkout"
           className="flex-1 flex items-center justify-center whitespace-nowrap font-mono text-[10px] tracking-[0.15em] uppercase font-bold transition-all hover:opacity-90"
-          style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
+          style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: isCheckingOut ? 'wait' : 'pointer', borderRadius: '4px', opacity: isCheckingOut ? 0.7 : 1 }}
         >
-          Continue to Checkout
+          {isCheckingOut ? 'Preparing...' : 'Continue to Checkout'}
         </button>
       </div>
     </div>
