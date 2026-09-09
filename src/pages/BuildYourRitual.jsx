@@ -4,7 +4,7 @@ import { Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
-import { BUNDLE_PRICE_3 } from '@/lib/pricingConfig';
+import { BUNDLE_PRICE_3, BUNDLE_PRICE_DUO } from '@/lib/pricingConfig';
 
 const RG = '#B86543';
 const THEME = {
@@ -16,9 +16,9 @@ const THEME = {
   border: '#D9CDBA',
 };
 
-const STARTER_BUNDLE_PRICE = BUNDLE_PRICE_3; // single source of truth (pricingConfig)
-const STARTER_REGULAR = CORE_PRODUCTS.reduce((s, p) => s + p.price, 0); // 67.97
-const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // dynamic
+const STARTER_BUNDLE_PRICE = BUNDLE_PRICE_DUO; // Coffee Duo: 1 Classic + 1 Mushroom
+const STARTER_REGULAR = CORE_PRODUCTS.reduce((s, p) => s + p.price, 0); // 42.98
+const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // 2.99 savings
 
 const categoryLabel = (c) =>
   c === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee';
@@ -167,8 +167,8 @@ export default function BuildYourRitual() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Product cards */}
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Product cards */}
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {CORE_PRODUCTS.map((p) => {
                 const c = p.ritual;
                 return (

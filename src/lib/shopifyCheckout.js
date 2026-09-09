@@ -24,11 +24,9 @@ export const SHOPIFY_VARIANT_IDS = COMMERCE_ENABLED
   ? {
       'instant-classic-coffee': '49166825160956',
       'instant-mushroom-coffee': '50910406050044',
-      'ceremonial-matcha': '49170572148988',
       // Legacy handle aliases (for historical cart line items)
       'torchbearer™-single-origin-instant-coffee': '49166825160956',
       'glowmind-clarity-instant-mushroom-coffee': '50910406050044',
-      'the-alchemist-matcha': '49170572148988',
     }
   : {};
 
@@ -55,26 +53,19 @@ export function getShopifyBundleUrl(items) {
   return `${SHOPIFY_DOMAIN}/cart/${parts.join(',')}`;
 }
 
-// One from each category (Classic + Mushroom + Matcha).
-export function getOneFromEachBundleUrl() {
+// Coffee Duo: 1 Classic + 1 Mushroom
+export function getCoffeeDuoBundleUrl() {
   if (!COMMERCE_ENABLED) return null;
   return getShopifyBundleUrl([
     { slug: 'instant-classic-coffee', qty: 1 },
     { slug: 'instant-mushroom-coffee', qty: 1 },
-    { slug: 'ceremonial-matcha', qty: 1 },
   ]);
 }
 
-// All-current-products bundle (one of each of the three core products).
+// All-current-products bundle (one of each product).
 export function getFullBundleUrl() {
   if (!COMMERCE_ENABLED) return null;
   return getShopifyBundleUrl(Object.keys(SHOPIFY_VARIANT_IDS).map((slug) => ({ slug, qty: 1 })));
-}
-
-// Matcha bundle (current ceremonial matcha).
-export function getAllMatchaBundleUrl() {
-  if (!COMMERCE_ENABLED) return null;
-  return getShopifyBundleUrl([{ slug: 'ceremonial-matcha', qty: 1 }]);
 }
 
 // Classic coffee bundle (current instant classic coffee).

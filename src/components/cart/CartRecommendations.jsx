@@ -13,9 +13,8 @@ const BORDER = '#E4D8C9';
 
 // Recommendation rules — what to suggest based on what's in the cart
 const RULES = {
-  'classic-coffee': ['matcha', 'mushroom-coffee'],
-  'mushroom-coffee': ['classic-coffee', 'matcha'],
-  'matcha': ['mushroom-coffee'],
+  'classic-coffee': ['mushroom-coffee'],
+  'mushroom-coffee': ['classic-coffee'],
 };
 
 // Pick one representative product per recommended category

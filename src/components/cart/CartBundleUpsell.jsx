@@ -17,7 +17,8 @@ export default function CartBundleUpsell({ cartItems, subtotal }) {
   if (!shouldShow) return null;
 
   // Calculate what 3 average products would cost vs bundle
-  const avgPrice = Object.values(PRICES).reduce((a, b) => a + b, 0) / Object.keys(PRICES).length;
+  const prices = Object.values(PRICES);
+  const avgPrice = prices.reduce((a, b) => a + b, 0) / prices.length;
   const retailTotal = avgPrice * 3;
   const savings = (retailTotal - BUNDLE_PRICE_3).toFixed(2);
 

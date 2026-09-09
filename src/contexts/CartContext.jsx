@@ -3,7 +3,7 @@ import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 
-// Only the three current products are valid cart items. Persisted carts
+// Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
 // stale entries never render in the cart.
 const ACTIVE_CART_IDS = new Set(ALL_PRODUCTS.map((p) => p.id));

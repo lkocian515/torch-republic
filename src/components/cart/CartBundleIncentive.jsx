@@ -21,7 +21,7 @@ export default function CartBundleIncentive({ itemCount }) {
     }
     if (itemCount === 2) {
       return {
-        text: 'Add one more product and complete your ritual',
+        text: 'Add one more bag and unlock the 3-bag ritual bundle',
         icon: null,
         color: ACCENT,
         bg: 'rgba(184,101,67,0.05)',
@@ -29,7 +29,7 @@ export default function CartBundleIncentive({ itemCount }) {
       };
     }
     return {
-      text: 'Most customers choose 3 products to create their ritual',
+      text: 'Most customers choose 3 bags to create their ritual',
       icon: null,
       color: MUTED,
       bg: 'rgba(184,101,67,0.03)',

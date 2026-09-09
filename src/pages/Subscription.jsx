@@ -19,12 +19,12 @@ const THEME = {
   moss: '#566047',
 };
 
-const TUBE_OPTIONS = [1, 2, 3, 4, 5, 6];
+const BAG_OPTIONS = [1, 2, 3, 4, 5, 6];
 
 const SUB_FAQ = [
   { q: 'Can I change my delivery date?', a: 'Yes — you can move it earlier or later anytime in your account before the shipment processes. Full flexibility, no phone calls needed.' },
   { q: 'Can I skip a shipment?', a: 'Yes. Just skip a month instead of canceling. Your subscription stays active and resumes the following cycle.' },
-  { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee, classic coffee, or matcha however you like.' },
+  { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee and classic coffee however you like.' },
   { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearers Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
   { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
   { q: 'How many bags can I subscribe to monthly?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
@@ -65,7 +65,7 @@ function FAQItem({ q, a }) {
 
 export default function Subscription() {
   const [step, setStep] = useState(1);
-  const [tubeCount, setTubeCount] = useState(null);
+  const [bagCount, setBagCount] = useState(null);
   const [blendQty, setBlendQty] = useState({});
   const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
 
@@ -76,14 +76,14 @@ export default function Subscription() {
   });
 
   const totalSelected = Object.values(blendQty).reduce((s, v) => s + v, 0);
-  const remaining = tubeCount ? tubeCount - totalSelected : 0;
-  const canCheckout = tubeCount && totalSelected === tubeCount;
+  const remaining = bagCount ? bagCount - totalSelected : 0;
+  const canCheckout = bagCount && totalSelected === bagCount;
 
   const adjustBlend = (slug, delta) => {
     setBlendQty(prev => {
       const cur = prev[slug] || 0;
       const next = Math.max(0, cur + delta);
-      if (delta > 0 && totalSelected >= tubeCount) return prev;
+      if (delta > 0 && totalSelected >= bagCount) return prev;
       return { ...prev, [slug]: next };
     });
   };
@@ -92,8 +92,7 @@ export default function Subscription() {
 
   const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
   const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
-  const AVG_PRICE = 22.99;
-  const monthlyPrice = tubeCount ? tubeCount * AVG_PRICE : 0;
+  const monthlyPrice = selectedBlends.reduce((s, p) => s + (blendQty[p.slug] || 0) * p.price, 0);
   const discountedPrice = monthlyPrice * 0.80;
   const savings = monthlyPrice - discountedPrice;
 
@@ -173,7 +172,7 @@ export default function Subscription() {
           <div className="flex items-center gap-3 mb-12 justify-center">
             {[1, 2, 3].map(s => (
               <React.Fragment key={s}>
-                <div className="flex items-center gap-2 cursor-pointer" onClick={() => { if (s < step || (s === 2 && tubeCount) || (s === 3 && canCheckout)) setStep(s); }}>
+                <div className="flex items-center gap-2 cursor-pointer" onClick={() => { if (s < step || (s === 2 && bagCount) || (s === 3 && canCheckout)) setStep(s); }}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center font-mono text-[10px] font-bold transition-all"
                     style={{
                       background: step === s ? THEME.clay : step > s ? `${THEME.clay}22` : THEME.cream,
@@ -183,7 +182,7 @@ export default function Subscription() {
                     {s}
                   </div>
                   <span className="font-mono text-[8px] tracking-[0.25em] uppercase hidden sm:block" style={{ color: step === s ? THEME.clay : THEME.secondary }}>
-                    {s === 1 ? 'Tube Count' : s === 2 ? 'Select Blends' : 'Review'}
+                    {s === 1 ? 'Bag Count' : s === 2 ? 'Select Blends' : 'Review'}
                   </span>
                 </div>
                 {s < 3 && <div className="flex-1 h-px max-w-[60px]" style={{ background: step > s ? `${THEME.clay}55` : THEME.border }} />}
@@ -196,26 +195,26 @@ export default function Subscription() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <div className="text-center mb-8">
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 1 of 3</p>
-                <h2 className="h2">Choose how many tubes per month</h2>
+                <h2 className="h2">Choose how many bags per month</h2>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {TUBE_OPTIONS.map(n => (
+                {BAG_OPTIONS.map(n => (
                   <button
                     key={n}
-                    onClick={() => { setTubeCount(n); resetSelections(); setStep(2); }}
+                    onClick={() => { setBagCount(n); resetSelections(); setStep(2); }}
                     className="flex flex-col items-center gap-2 py-8 px-4 transition-all"
                     style={{
-                      background: tubeCount === n ? `${THEME.clay}10` : THEME.card,
-                      border: `1.5px solid ${tubeCount === n ? THEME.clay : THEME.border}`,
+                      background: bagCount === n ? `${THEME.clay}10` : THEME.card,
+                      border: `1.5px solid ${bagCount === n ? THEME.clay : THEME.border}`,
                       borderRadius: 10, cursor: 'pointer',
                     }}
                   >
-                    <span className="font-serif font-bold" style={{ fontSize: '2.2rem', color: tubeCount === n ? THEME.clay : THEME.text, lineHeight: 1 }}>{n}</span>
+                    <span className="font-serif font-bold" style={{ fontSize: '2.2rem', color: bagCount === n ? THEME.clay : THEME.text, lineHeight: 1 }}>{n}</span>
                     <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: THEME.secondary }}>
-                      {n === 1 ? 'Tube' : 'Tubes'} / Month
+                      {n === 1 ? 'Bag' : 'Bags'} / Month
                     </span>
-                    <span className="font-mono text-[10px]" style={{ color: tubeCount === n ? THEME.clay : THEME.secondary }}>
-                      from ${(n * 19.99 * 0.80).toFixed(2)}/mo after 20% off
+                    <span className="font-mono text-[10px]" style={{ color: bagCount === n ? THEME.clay : THEME.secondary }}>
+                      from ${(n * 15.99 * 0.80).toFixed(2)}/mo after 20% off
                     </span>
                   </button>
                 ))}
@@ -224,22 +223,22 @@ export default function Subscription() {
           )}
 
           {/* STEP 2: Select Blends */}
-          {step === 2 && tubeCount && (
+          {step === 2 && bagCount && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <div className="text-center mb-2">
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 2 of 3</p>
                 <h2 className="h2 mb-1">Select your blends</h2>
                 <p className="body" style={{ fontSize: '0.95rem' }}>
-                  You’re building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{tubeCount}-tube</span> monthly subscription. Select {tubeCount} total tube{tubeCount > 1 ? 's' : ''}.
+                  You’re building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-tube</span> monthly subscription. Select {bagCount} total tube{bagCount > 1 ? 's' : ''}.
                 </p>
               </div>
 
               <div className="flex items-center justify-center gap-3 my-6">
                 <div className="h-1.5 rounded-full overflow-hidden" style={{ background: THEME.border, width: '160px' }}>
-                  <div className="h-full rounded-full transition-all" style={{ width: `${(totalSelected / tubeCount) * 100}%`, background: totalSelected === tubeCount ? THEME.moss : THEME.clay }} />
+                  <div className="h-full rounded-full transition-all" style={{ width: `${(totalSelected / bagCount) * 100}%`, background: totalSelected === bagCount ? THEME.moss : THEME.clay }} />
                 </div>
-                <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: totalSelected === tubeCount ? THEME.moss : THEME.clay }}>
-                  {totalSelected}/{tubeCount} selected
+                <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: totalSelected === bagCount ? THEME.moss : THEME.clay }}>
+                  {totalSelected}/{bagCount} selected
                 </span>
               </div>
 
@@ -269,8 +268,8 @@ export default function Subscription() {
                               <Minus className="w-3.5 h-3.5" />
                             </button>
                             <span className="font-mono font-bold w-6 text-center" style={{ color: qty > 0 ? THEME.clay : THEME.secondary, fontSize: '0.95rem' }}>{qty}</span>
-                            <button onClick={() => adjustBlend(p.slug, 1)} disabled={totalSelected >= tubeCount}
-                              className="w-9 h-9 flex items-center justify-center transition-all" style={{ border: `1px solid ${totalSelected >= tubeCount ? THEME.border : THEME.clay}`, color: totalSelected >= tubeCount ? THEME.border : THEME.clay, cursor: totalSelected >= tubeCount ? 'not-allowed' : 'pointer', background: 'none' }} aria-label={`Increase ${p.name}`}>
+                            <button onClick={() => adjustBlend(p.slug, 1)} disabled={totalSelected >= bagCount}
+                              className="w-9 h-9 flex items-center justify-center transition-all" style={{ border: `1px solid ${totalSelected >= bagCount ? THEME.border : THEME.clay}`, color: totalSelected >= bagCount ? THEME.border : THEME.clay, cursor: totalSelected >= bagCount ? 'not-allowed' : 'pointer', background: 'none' }} aria-label={`Increase ${p.name}`}>
                               <Plus className="w-3.5 h-3.5" />
                             </button>
                           </div>
@@ -288,7 +287,7 @@ export default function Subscription() {
                   disabled={!canCheckout}
                   className="btn btn-primary flex-1"
                   style={canCheckout ? {} : { opacity: 0.45, cursor: 'not-allowed' }}>
-                  {canCheckout ? 'Review My Subscription →' : `Select ${remaining} more tube${remaining !== 1 ? 's' : ''} to continue`}
+                  {canCheckout ? 'Review My Subscription →' : `Select ${remaining} more bag${remaining !== 1 ? 's' : ''} to continue`}
                 </button>
               </div>
             </motion.div>
@@ -310,7 +309,7 @@ export default function Subscription() {
                 <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: `1px solid ${THEME.border}` }}>
                   <div>
                     <p className="font-serif font-bold mb-1" style={{ color: THEME.text, fontSize: '1rem' }}>Monthly Coffee Subscription</p>
-                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{tubeCount} Tube{tubeCount > 1 ? 's' : ''} · Delivered Monthly</p>
+                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{bagCount} Bag{bagCount > 1 ? 's' : ''} · Delivered Monthly</p>
                   </div>
                   <div className="text-right">
                     <p className="font-mono text-xs line-through" style={{ color: THEME.secondary }}>${monthlyPrice.toFixed(2)}</p>
@@ -333,7 +332,7 @@ export default function Subscription() {
                 <div className="mt-5 pt-5 flex flex-wrap gap-2" style={{ borderTop: `1px solid ${THEME.border}` }}>
                   <span className="badge-torch">Monthly Delivery</span>
                   <span className="badge-torch">Shipping Calculated at Checkout</span>
-                  <span className="badge-torch">{tubeCount * 27} Total Servings</span>
+                  <span className="badge-torch">{bagCount * 27} Total Servings</span>
                 </div>
               </div>
 

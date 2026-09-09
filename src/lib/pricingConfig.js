@@ -10,7 +10,6 @@
 export const PRICES = {
   'classic-coffee': 19.99,
   'mushroom-coffee': 22.99,
-  'matcha': 24.99,
 };
 
 // ── Per-product canonical prices ────────────────────────────────────────────
@@ -21,13 +20,12 @@ export const PRICE_EMBER_RESERVE = 19.99;
 export const PRICE_MOONCAP_RESTORE = 22.99;
 export const PRICE_GLOWMIND_CLARITY = 22.99;
 export const PRICE_SUNCAP_RISE = 22.99;
-// Matcha
-export const PRICE_THE_ALCHEMIST = 24.99;
-export const PRICE_THE_MONK = 24.99;
 
 // ── Bundle pricing ───────────────────────────────────────────────────────────
 // Every 3-bag bundle is always exactly $49.99, regardless of which products are selected.
 export const BUNDLE_PRICE_3 = 49.99;
+// Coffee Duo: 1 Classic + 1 Mushroom (retail $42.98, saves $2.99)
+export const BUNDLE_PRICE_DUO = 39.99;
 
 // ── Subscription discount ────────────────────────────────────────────────────
 // Subscribe & Save = 20% off individual one-time price
@@ -36,7 +34,6 @@ export const SUBSCRIPTION_DISCOUNT = 0.20;
 export const SUBSCRIPTION_PRICES = {
   'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)),   // $15.99
   'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)), // $18.39
-  'matcha': parseFloat((PRICES['matcha'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)),                   // $19.99
 };
 
 // ── Welcome discount ─────────────────────────────────────────────────────────
@@ -47,7 +44,6 @@ export const WELCOME_DISCOUNT = 0.15;
 export const WELCOME_PRICES = {
   'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
   'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
-  'matcha': parseFloat((PRICES['matcha'] * (1 - WELCOME_DISCOUNT)).toFixed(2)),
 };
 
 /**

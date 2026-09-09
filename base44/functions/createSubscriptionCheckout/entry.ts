@@ -1,24 +1,30 @@
 /* global Deno */
 
-// All products keyed by the slug used in the Subscription page blendQty object
-// Variant IDs verified from live Shopify catalog (2026-06-11)
+// Only the TWO current canonical products are mapped. Matcha and all retired
+// blend slugs (SunCap, MoonCap, DreamCap, Oracle, Mystic Bloom, Ember Rise,
+// Midnight Watch, The Monk, The Ascendant, The Alchemist) have been removed
+// so they can never be sent to Shopify.
+//
+// Variant IDs were set on 2026-06-11 and have NOT been re-verified since
+// matcha removal. They must be confirmed against the live Shopify catalog
+// before COMMERCE_ENABLED is set to true.
 const VARIANT_ID_MAP = {
-  // Mushroom Coffee
-  'suncap-rise': '49148263465212',
-  'glowmind-clarity-blend': '49148263596284',
-  'mooncap-restore': '49148263760124',
-  'dreamcap-blend': '49148263006460',
-  'the-oracle': '49148263170300',
-  'mystic-bloom': '49148261597436',
   // Classic Coffee
-  'torchbearer': '49171204276476',
-  'ember-rise': '49171202375932',
-  'midnight-watch': '49148262809852',
-  // Matcha
-  'the-monk-matcha-blend': '49170574115068',
-  'the-ascendant-matcha-blend': '49170644402428',
-  'the-alchemist-matcha-blend': '49170572148988',
+  'instant-classic-coffee': '49166825160956',
+  // Mushroom Coffee
+  'instant-mushroom-coffee': '50910406050044',
 };
+
+// NOTE: These variant IDs are stored for use when commerce is re-enabled.
+// They have not been verified against the live Shopify store since the
+// matcha removal. The frontend gate (COMMERCE_ENABLED = false) prevents
+// this function from being called until verification is complete.
+//
+// SUBSCRIPTION WARNING: This function builds a Shopify cart permalink with
+// ?discount=SUBSCRIBE20. This applies a ONE-TIME discount code — it does
+// NOT create a true recurring subscription. No Shopify selling-plan IDs
+// are used. True recurring subscriptions require Shopify Subscriptions app
+// or Recharge integration, which is not currently configured.
 
 const SHOP_DOMAIN = 'https://libertees-for-all.myshopify.com';
 
@@ -54,7 +60,7 @@ Deno.serve(async (req) => {
     return Response.json({
       checkoutUrl,
       discountCode: 'SUBSCRIBE20',
-      message: '20% subscription discount auto-applied',
+      message: '20% subscription discount auto-applied (one-time discount code, not a recurring selling plan)',
     });
   } catch (error) {
     console.log('Subscription checkout error:', error.message);

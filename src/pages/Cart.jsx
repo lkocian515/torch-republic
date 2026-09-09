@@ -70,7 +70,7 @@ export default function Cart() {
             Your Ritual Starts Here
           </h1>
           <p className="font-heading mb-10 leading-relaxed" style={{ color: MUTED_MED, fontWeight: 300, fontSize: '0.95rem' }}>
-            Discover premium instant coffee, mushroom blends, and ceremonial matcha crafted for modern rituals.
+            Discover premium instant coffee and mushroom coffee crafted for modern rituals.
           </p>
           <div className="flex flex-col items-center gap-4">
             <Link to="/shop"
@@ -141,8 +141,8 @@ export default function Cart() {
                 <div className="flex-1 min-w-0">
                   <p className="font-serif font-bold text-sm mb-0.5 truncate" style={{ color: INK }}>{item.name}</p>
                   <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: MUTED }}>
-                    {item.category === 'matcha' ? 'Ceremonial Matcha' : item.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
-                    {' · '}{item.servings || (item.category === 'matcha' ? 25 : 27)} servings
+                    {item.category === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee'}
+                    {' · '}{item.servings || 27} servings
                   </p>
                   <div className="flex items-center gap-3">
                     {/* Qty controls */}

@@ -14,7 +14,6 @@ export const PRODUCT_IMAGE_DRAG_PREVENTION_PROPS = {
 // fall back to the logo, since they should not render publicly at all.
 const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
 const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
-const MATCHA_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
 
 export const APPROVED_PRODUCT_IMAGES = {
   // Instant Classic Coffee (canonical + legacy slug/shopify handle keys)
@@ -27,11 +26,6 @@ export const APPROVED_PRODUCT_IMAGES = {
   'glowmind-clarity': MUSHROOM_IMG,
   'glowmind-clarity-blend': MUSHROOM_IMG,
   'glowmind-clarity-instant-mushroom-coffee': MUSHROOM_IMG,
-  // Ceremonial Matcha (canonical + legacy slug/shopify handle keys)
-  'ceremonial-matcha': MATCHA_IMG,
-  'the-alchemist': MATCHA_IMG,
-  'the-alchemist-matcha-blend': MATCHA_IMG,
-  'the-alchemist-matcha': MATCHA_IMG,
 };
 
 export function getApprovedProductImage(product) {
@@ -108,11 +102,9 @@ export function getProductAltText(product, defaultAlt = 'Torch Republic premium 
   if (!product) return defaultAlt;
   
   const name = product?.title || product?.name || product?.label || 'Product';
-  const category = product?.category === 'matcha' ? 'ceremonial matcha' : 
-                   product?.category?.includes('mushroom') ? 'mushroom coffee' :
+  const category = product?.category?.includes('mushroom') ? 'mushroom coffee' :
                    product?.category === 'classic-coffee' ? 'instant coffee' : 'product';
   
-  if (product?.category === 'matcha') return 'Torch Republic Ceremonial Matcha white stand-up pouch.';
   return `${name} ${category} by Torch Republic`;
 }
 
