@@ -88,7 +88,7 @@ export function Card({ children, pad = '1.5rem', style }) {
       style={{
         background: P.surface,
         border: `1px solid ${P.rule}`,
-        borderRadius: '14px',
+        borderRadius: '10px',
         padding: pad,
         height: '100%',
         ...style,
@@ -109,7 +109,7 @@ export function Pill({ children }) {
         color: P.ink,
         background: P.surface,
         border: `1px solid ${P.rule}`,
-        borderRadius: '999px',
+        borderRadius: '6px',
         padding: '0.45rem 0.9rem',
       }}
     >

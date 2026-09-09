@@ -1,80 +1,129 @@
 import React, { useEffect } from 'react';
-import { useSEO } from '@/hooks/useSEO';
 import PortfolioNav from '@/components/portfolio/PortfolioNav';
 import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import CredibilityStrip from '@/components/portfolio/CredibilityStrip';
-import SixFrameworks from '@/components/portfolio/SixFrameworks';
-import ProcessDiagram from '@/components/portfolio/ProcessDiagram';
+import QaMethodology from '@/components/portfolio/QaMethodology';
 import CaseStudyIntro from '@/components/portfolio/CaseStudyIntro';
 import CommerceSystem from '@/components/portfolio/CommerceSystem';
 import DevLoop from '@/components/portfolio/DevLoop';
 import QaEvidence from '@/components/portfolio/QaEvidence';
 import DefectCard from '@/components/portfolio/DefectCard';
+import AiOutputValidation from '@/components/portfolio/AiOutputValidation';
 import ProjectGallery from '@/components/portfolio/ProjectGallery';
-import ToolsPlatforms from '@/components/portfolio/ToolsPlatforms';
+import SixFrameworks from '@/components/portfolio/SixFrameworks';
+import ProcessDiagram from '@/components/portfolio/ProcessDiagram';
 import ExperienceSnapshot from '@/components/portfolio/ExperienceSnapshot';
+import ToolsPlatforms from '@/components/portfolio/ToolsPlatforms';
 import ResumeAccess from '@/components/portfolio/ResumeAccess';
 import ContactCta from '@/components/portfolio/ContactCta';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
-import { P, LINKEDIN } from '@/components/portfolio/portfolioTheme';
+import { P, LINKEDIN, PORTFOLIO_TITLE, PORTFOLIO_DESC, PORTFOLIO_CANON, PORTFOLIO_OG_IMAGE } from '@/components/portfolio/portfolioTheme';
 
-const TITLE = 'Lisa Marie Kocian | AI QA + E-Commerce Implementation';
-const DESC = 'AI quality assurance, AI implementation, e-commerce systems, prompt iteration, output validation and digital experience portfolio by Lisa Marie Kocian.';
-const OG_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/64bb41300_generated_image.png';
-const CANON = 'https://lisakocian.com';
+// ── Portfolio SEO ──
+// Fully self-contained — does NOT use the storefront useSEO hook, which
+// appends " | Torch Republic" branding and sets og:site_name to the coffee
+// company. This page owns all its metadata independently so the portfolio
+// never presents itself to search engines or social platforms as Torch
+// Republic Coffee Company.
+const TITLE = PORTFOLIO_TITLE;
+const DESC = PORTFOLIO_DESC;
+const OG_IMAGE = PORTFOLIO_OG_IMAGE;
+const CANON = PORTFOLIO_CANON;
 
 export default function PortfolioCaseStudy() {
-  useSEO({
-    title: TITLE,
-    description: DESC,
-    image: OG_IMAGE,
-    imageAlt: 'Lisa Marie Kocian — AI QA + E-Commerce Implementation portfolio',
-    url: '/portfolio',
-    type: 'website',
-    noindex: false,
-  });
-
-  // Override coffee-store defaults so the portfolio stands alone as a
-  // professional brand (LisaKocian.com), with Person / ProfilePage schema.
   useEffect(() => {
     document.title = TITLE;
+
     const set = (sel, attr, val) => {
       const el = document.querySelector(sel);
       if (el) el.setAttribute(attr, val);
     };
-    set('meta[name="description"]', 'content', DESC);
-    set('meta[name="robots"]', 'content', 'index, follow');
-    set('meta[property="og:title"]', 'content', TITLE);
-    set('meta[property="og:description"]', 'content', DESC);
-    set('meta[property="og:url"]', 'content', CANON);
-    set('meta[property="og:site_name"]', 'content', 'Lisa Marie Kocian');
-    set('meta[property="og:image"]', 'content', OG_IMAGE);
-    set('meta[name="twitter:title"]', 'content', TITLE);
-    set('meta[name="twitter:description"]', 'content', DESC);
-    set('meta[name="twitter:image"]', 'content', OG_IMAGE);
-    set('meta[name="twitter:site"]', 'content', '');
-    set('meta[name="twitter:creator"]', 'content', '');
-    const canon = document.querySelector('link[rel="canonical"]');
-    if (canon) canon.setAttribute('href', CANON);
+    const setOrCreate = (selector, attr, value) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        const match = selector.match(/\[([^=]+)="([^"]+)"\]/);
+        if (match) el.setAttribute(match[1], match[2]);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
 
+    // Core meta
+    setOrCreate('meta[name="description"]', 'content', DESC);
+    setOrCreate('meta[name="robots"]', 'content', 'index, follow');
+    setOrCreate('meta[name="keywords"]', 'content', 'AI quality assurance, AI QA specialist, AI content evaluation, AI output validation, prompt testing, prompt iteration, e-commerce QA, AI commerce, content quality, document quality assurance, AI implementation, workflow testing, user journey testing, digital product QA');
+
+    // Canonical
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement('link');
+      canon.setAttribute('rel', 'canonical');
+      document.head.appendChild(canon);
+    }
+    canon.setAttribute('href', CANON);
+
+    // Open Graph
+    setOrCreate('meta[property="og:title"]', 'content', TITLE);
+    setOrCreate('meta[property="og:description"]', 'content', DESC);
+    setOrCreate('meta[property="og:url"]', 'content', CANON);
+    setOrCreate('meta[property="og:type"]', 'content', 'website');
+    setOrCreate('meta[property="og:site_name"]', 'content', 'Lisa Marie Kocian');
+    setOrCreate('meta[property="og:image"]', 'content', OG_IMAGE);
+    setOrCreate('meta[property="og:image:secure_url"]', 'content', OG_IMAGE);
+    setOrCreate('meta[property="og:image:type"]', 'content', 'image/png');
+    setOrCreate('meta[property="og:image:width"]', 'content', '1200');
+    setOrCreate('meta[property="og:image:height"]', 'content', '630');
+    setOrCreate('meta[property="og:image:alt"]', 'content', 'Lisa Kocian — AI QA & E-Commerce Portfolio');
+    setOrCreate('meta[property="og:locale"]', 'content', 'en_US');
+
+    // Twitter / X Card
+    setOrCreate('meta[name="twitter:card"]', 'content', 'summary_large_image');
+    setOrCreate('meta[name="twitter:title"]', 'content', TITLE);
+    setOrCreate('meta[name="twitter:description"]', 'content', DESC);
+    setOrCreate('meta[name="twitter:image"]', 'content', OG_IMAGE);
+    setOrCreate('meta[name="twitter:image:alt"]', 'content', 'Lisa Kocian — AI QA & E-Commerce Portfolio');
+    setOrCreate('meta[name="twitter:site"]', 'content', '');
+    setOrCreate('meta[name="twitter:creator"]', 'content', '');
+
+    // Structured data — Person + WebSite (NOT Organization/Coffee Company)
     const person = {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Lisa Marie Kocian',
-      jobTitle: 'AI QA + E-Commerce Implementation Specialist',
+      jobTitle: 'AI QA & E-Commerce Implementation Specialist',
       url: CANON,
       description: DESC,
       sameAs: [LINKEDIN],
       knowsAbout: [
-        'AI quality assurance', 'AI output evaluation', 'Prompt iteration',
-        'E-commerce implementation', 'Workflow optimization', 'Digital customer experience', 'Quality testing',
+        'AI quality assurance',
+        'AI content evaluation',
+        'AI output validation',
+        'prompt testing',
+        'prompt iteration',
+        'e-commerce QA',
+        'AI commerce',
+        'content quality',
+        'document quality assurance',
+        'AI implementation',
+        'workflow testing',
+        'user journey testing',
+        'digital product QA',
       ],
     };
-    const profile = {
+    const webSite = {
       '@context': 'https://schema.org',
-      '@type': 'ProfilePage',
+      '@type': 'WebSite',
+      name: 'Lisa Marie Kocian — AI QA & E-Commerce Portfolio',
       url: CANON,
-      mainEntity: { '@type': 'Person', name: 'Lisa Marie Kocian', url: CANON },
+    };
+    const webPage = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: TITLE,
+      description: DESC,
+      url: CANON,
+      primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE },
     };
     const inject = (obj) => {
       const s = document.createElement('script');
@@ -84,7 +133,8 @@ export default function PortfolioCaseStudy() {
       document.head.appendChild(s);
     };
     inject(person);
-    inject(profile);
+    inject(webSite);
+    inject(webPage);
 
     return () => {
       document.querySelectorAll('script[data-portfolio-seo="true"]').forEach((s) => s.remove());
@@ -97,11 +147,13 @@ export default function PortfolioCaseStudy() {
       <main>
         <PortfolioHero />
         <CredibilityStrip />
+        <QaMethodology />
         <CaseStudyIntro />
         <CommerceSystem />
         <DevLoop />
         <QaEvidence />
         <DefectCard />
+        <AiOutputValidation />
         <ProjectGallery />
         <SixFrameworks />
         <ProcessDiagram />

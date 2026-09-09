@@ -23,7 +23,7 @@ export default function ProcessDiagram() {
                   justifyContent: 'center',
                   minHeight: 52,
                   minWidth: 52,
-                  borderRadius: '14px',
+                  borderRadius: '10px',
                   background: P.surface,
                   border: `1px solid ${P.rule}`,
                   fontFamily: FONT_MONO,

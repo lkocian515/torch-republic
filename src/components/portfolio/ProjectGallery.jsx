@@ -45,7 +45,7 @@ export default function ProjectGallery() {
                 width: '100%',
                 padding: 0,
                 border: `1px solid ${P.rule}`,
-                borderRadius: '12px',
+                borderRadius: '10px',
                 overflow: 'hidden',
                 background: P.surface,
                 cursor: 'zoom-in',

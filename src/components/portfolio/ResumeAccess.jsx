@@ -1,11 +1,9 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { SectionWrap } from './PortfolioPrimitives';
-import { P, FONT_SANS, FONT_MONO, CONTACT_EMAIL } from './portfolioTheme';
+import { P, FONT_SANS, FONT_MONO, RESUME_URL } from './portfolioTheme';
 
-// Secondary résumé access — intentionally quiet, so the case studies and
-// contact CTA stay the primary actions on the page. Résumé and references
-// are available on request by email.
+// Résumé access — the résumé file is connected and available for download.
 export default function ResumeAccess() {
   return (
     <SectionWrap id="resume">
@@ -14,30 +12,31 @@ export default function ResumeAccess() {
         style={{
           background: P.surface,
           border: `1px solid ${P.rule}`,
-          borderRadius: '14px',
+          borderRadius: '10px',
           padding: 'clamp(1.5rem, 4vw, 2.25rem)',
         }}
       >
         <a
-          href={`mailto:${CONTACT_EMAIL}?subject=Résumé and References Request — Lisa Marie Kocian`}
+          href={RESUME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2"
           style={{
             minHeight: 44,
             padding: '0.6rem 1.4rem',
-            borderRadius: '999px',
-            background: 'transparent',
-            color: P.accent,
-            border: `1px solid ${P.accent}55`,
+            borderRadius: '6px',
+            background: P.accent,
+            color: '#FFFFFF',
             fontFamily: FONT_SANS,
             fontWeight: 600,
             fontSize: '0.9rem',
             textDecoration: 'none',
           }}
         >
-          <Mail size={15} /> Contact for Résumé &amp; References
+          <Download size={15} /> View Full R&eacute;sum&eacute;
         </a>
         <p style={{ fontFamily: FONT_MONO, fontSize: '0.66rem', letterSpacing: '0.08em', color: P.muted, margin: 0, maxWidth: '52ch' }}>
-          For complete employment history, education, credentials, and references, please email me directly.
+          Complete employment history, education, credentials, and references available in the full r&eacute;sum&eacute;.
         </p>
       </div>
     </SectionWrap>

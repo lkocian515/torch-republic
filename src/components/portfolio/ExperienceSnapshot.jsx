@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, ShoppingCart, FileSearch, Wrench } from 'lucide-react';
+import { ShieldCheck, ShoppingCart, FileSearch, BookOpen } from 'lucide-react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead, Card } from './PortfolioPrimitives';
 import { P, FONT_SANS, FONT_MONO } from './portfolioTheme';
 
@@ -8,36 +8,36 @@ import { P, FONT_SANS, FONT_MONO } from './portfolioTheme';
 const CARDS = [
   {
     icon: ShieldCheck,
-    title: 'AI Quality & Content Evaluation',
-    body: 'Evaluating AI-generated content for accuracy, instruction adherence, consistency, clarity, tone, and potential risk. Experienced in prompt iteration, output comparison, error documentation, transcription quality, and structured review.',
+    title: 'AI Quality Review & Content Evaluation',
+    body: 'Prompt evaluation, instruction adherence, content review, output validation, and QA documentation. Experienced in identifying hallucinations, unsupported claims, factual errors, and consistency issues across AI-generated content.',
   },
   {
     icon: ShoppingCart,
-    title: 'E-Commerce & AI Implementation',
-    body: 'Built and refined a complete e-commerce brand experience using AI-assisted tools, including site architecture, product presentation, user journeys, content systems, troubleshooting, SEO foundations, and iterative quality testing.',
+    title: 'AI & E-Commerce Product Development',
+    body: 'Built and tested Torch Republic\u2019s e-commerce experience end-to-end: customer journeys, SEO, analytics, integrations, accessibility, content systems, and conversion flows \u2014 with AI-assisted development validated by manual QA.',
   },
   {
     icon: FileSearch,
-    title: 'Document Quality & Research',
-    body: 'Background in legal-document support, proofreading, research, privacy-aware review, information organization, and identifying errors or inconsistencies across detailed materials.',
+    title: 'Document Quality & Legal Support',
+    body: 'Professional experience in document review, legal research, consistency checking, structured documentation, and detail-sensitive work requiring accuracy and careful source verification.',
   },
   {
-    icon: Wrench,
-    title: 'Operations & Problem Solving',
-    body: 'Extensive hands-on business and operational experience involving customer service, documentation, process management, troubleshooting, prioritization, and independent decision-making.',
+    icon: BookOpen,
+    title: 'Published Author',
+    body: 'Long-form research, editing, structural consistency, audience analysis, publishing workflows, and content quality. Experience translating complex topics into clear, accessible material.',
   },
 ];
 
 export default function ExperienceSnapshot() {
   return (
     <SectionWrap id="experience" alt>
-      <Eyebrow>Experience</Eyebrow>
+      <Eyebrow>Professional Background</Eyebrow>
       <SectionHeading>Experience That Supports the Work</SectionHeading>
       <Lead>
-        My background combines AI output evaluation, document quality, digital operations, e-commerce
-        implementation, research, and customer-focused problem solving. I use that experience to test
-        systems carefully, identify inconsistencies, improve workflows, and turn complex information
-        into clear next steps.
+        My background combines AI output evaluation, document quality, e-commerce
+        implementation, legal support, and published authorship. I use that experience
+        to test systems carefully, identify inconsistencies, improve workflows, and
+        turn complex information into clear next steps.
       </Lead>
 
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
@@ -51,7 +51,7 @@ export default function ExperienceSnapshot() {
                 justifyContent: 'center',
                 width: 40,
                 height: 40,
-                borderRadius: 10,
+                borderRadius: 8,
                 background: P.accentSoft,
                 color: P.accent,
                 marginBottom: '0.9rem',

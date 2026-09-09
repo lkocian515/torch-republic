@@ -34,7 +34,7 @@ export default function DevLoop() {
                   color: P.ink,
                   background: P.surface,
                   border: `1px solid ${P.rule}`,
-                  borderRadius: '999px',
+                  borderRadius: '6px',
                   padding: '0.45rem 0.8rem',
                   whiteSpace: 'nowrap',
                 }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { P, FONT_SERIF, FONT_MONO, FONT_SANS, LINKEDIN, CONTACT_EMAIL } from './portfolioTheme';
 
 export default function PortfolioFooter() {
@@ -24,10 +24,10 @@ export default function PortfolioFooter() {
         </div>
         <div className="mt-8 pt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between" style={{ borderTop: `1px solid ${P.rule}` }}>
           <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: P.muted, margin: 0 }}>
-            © 2026 Lisa Marie Kocian
+            &copy; 2026 Lisa Marie Kocian
           </p>
           <p style={{ fontFamily: FONT_SANS, fontSize: '0.78rem', color: P.muted, margin: 0 }}>
-            Torch Republic Coffee Company is a case study demonstrating this work.
+            Torch Republic is referenced as a case study demonstrating this work.
           </p>
         </div>
       </div>

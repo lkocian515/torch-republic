@@ -4,7 +4,7 @@ import { P, FONT_SERIF, FONT_MONO } from './portfolioTheme';
 
 const LINKS = [
   { label: 'Home', href: '#top' },
-  { label: 'Expertise', href: '#expertise' },
+  { label: 'Methodology', href: '#methodology' },
   { label: 'Case Study', href: '#case-study' },
   { label: 'Process', href: '#process' },
   { label: 'Experience', href: '#experience' },
@@ -39,7 +39,7 @@ export default function PortfolioNav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(247,247,245,0.86)',
+        background: 'rgba(247,247,245,0.92)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         borderBottom: `1px solid ${P.rule}`,
@@ -54,7 +54,7 @@ export default function PortfolioNav() {
             Lisa Marie Kocian
           </a>
 
-          <nav className="hidden md:flex items-center gap-7" aria-label="Portfolio">
+          <nav className="hidden md:flex items-center gap-6" aria-label="Portfolio">
             {LINKS.map((l) => (
               <a
                 key={l.href}

@@ -20,7 +20,7 @@ export default function DefectCard() {
       <SectionHeading>How a single issue gets framed</SectionHeading>
       <Lead>QA is more than “something looks off.” It is defining the issue, the impact, the priority, the action and how the fix is verified.</Lead>
 
-      <div className="mt-8" style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '14px', padding: '1.5rem', maxWidth: 720 }}>
+      <div className="mt-8" style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '10px', padding: '1.5rem', maxWidth: 720 }}>
         <dl className="m-0 flex flex-col gap-3">
           {ROWS.map((key) => (
             <div key={key} style={{ display: 'flex', gap: '1rem' }}>

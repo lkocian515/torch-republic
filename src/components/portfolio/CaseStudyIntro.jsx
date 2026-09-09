@@ -10,13 +10,29 @@ const ROLE = [
   'Conversion optimization', 'Iterative redesign',
 ];
 
+const SKILLS_DEMONSTRATED = [
+  'AI-assisted development',
+  'QA testing',
+  'E-commerce architecture',
+  'React / application troubleshooting',
+  'User journey testing',
+  'Accessibility review',
+  'SEO QA',
+  'Metadata QA',
+  'Content QA',
+  'Analytics implementation',
+  'Prompt iteration',
+  'Conversion analysis',
+  'Documentation',
+];
+
 export default function CaseStudyIntro() {
   return (
     <SectionWrap id="case-study">
       <Eyebrow>Flagship Case Study</Eyebrow>
       <SectionHeading>Building &amp; Iterating an AI-Assisted E-Commerce System</SectionHeading>
       <div className="mt-3 flex flex-wrap items-center gap-3">
-        <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.ink, background: P.accentSoft, border: `1px solid ${P.accent}33`, borderRadius: '999px', padding: '0.35rem 0.75rem' }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.ink, background: P.accentSoft, border: `1px solid ${P.accent}33`, borderRadius: '6px', padding: '0.35rem 0.75rem' }}>
           Project — Torch Republic Coffee Company
         </span>
         <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', fontWeight: 600, color: P.accent, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -45,8 +61,32 @@ export default function CaseStudyIntro() {
         </p>
         <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
           {ROLE.map((r) => (
-            <span key={r} style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', color: P.ink, background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '8px', padding: '0.4rem 0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <span key={r} style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', color: P.ink, background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '6px', padding: '0.4rem 0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <Check size={13} style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true" /> {r}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Skills Demonstrated */}
+      <div className="mt-10">
+        <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.15rem', color: P.ink, margin: 0 }}>Skills Demonstrated</h3>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {SKILLS_DEMONSTRATED.map((s) => (
+            <span
+              key={s}
+              style={{
+                fontFamily: FONT_SANS,
+                fontSize: '0.82rem',
+                fontWeight: 500,
+                color: P.ink,
+                background: P.surface,
+                border: `1px solid ${P.rule}`,
+                borderRadius: '6px',
+                padding: '0.4rem 0.75rem',
+              }}
+            >
+              {s}
             </span>
           ))}
         </div>
