@@ -100,10 +100,15 @@ export default function Subscription() {
     setIsGeneratingCheckout(true);
     try {
       const url = await getSubscriptionCheckoutUrl(blendQty);
-      setTimeout(() => { window.location.href = url; }, 500);
-    } catch (error) {
-      console.error('Checkout failed:', error);
+      if (url) {
+        window.location.href = url;
+      } else {
+        setIsGeneratingCheckout(false);
+        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+      }
+    } catch {
       setIsGeneratingCheckout(false);
+      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
     }
   };
 

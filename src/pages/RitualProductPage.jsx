@@ -121,8 +121,8 @@ function RitualPDP({ product }) {
   const [justAdded, setJustAdded] = useState(false);
 
   // Subscribe & Save: 10% off, delivered every 4 weeks.
-  // No Shopify selling plans exist yet — subscription checkout uses a
-  // discount-code fallback until Shopify Subscriptions is configured.
+  // Shopify selling plans are configured and verified — the backend attaches
+  // the real selling plan ID when isSubscription is passed to addItem.
   const subscriptionPrice = product.price * 0.9;
   const unitPrice = isSubscription ? subscriptionPrice : product.price;
   const imageUrl = getProductImage(product);
