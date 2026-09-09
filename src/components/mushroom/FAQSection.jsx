@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: 'How long does shipping take?',
-    a: 'Most orders ship within 1–2 business days and arrive within 3–7 business days depending on your location. You will receive a tracking confirmation by email.',
+    a: 'Most orders are processed within 1–3 business days and arrive within 3–7 business days depending on your location. You will receive a tracking confirmation by email.',
   },
   {
     q: 'What mushrooms are in the mushroom coffee blends?',

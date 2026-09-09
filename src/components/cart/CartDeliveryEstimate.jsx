@@ -17,9 +17,9 @@ function formatRange(start, end) {
 export default function CartDeliveryEstimate() {
   const { nationwideRange } = useMemo(() => {
     const today = new Date();
-    // Ships in 1-2 business days + 3-7 business days transit (nationwide)
-    const minDate = addBusinessDays(today, 4); // 1 + 3
-    const maxDate = addBusinessDays(today, 9); // 2 + 7
+    // Conservative: 1-3 business days processing + 2-7 business days transit
+    const minDate = addBusinessDays(today, 3); // 1 + 2
+    const maxDate = addBusinessDays(today, 10); // 3 + 7
     return { nationwideRange: formatRange(minDate, maxDate) };
   }, []);
 
@@ -28,31 +28,34 @@ export default function CartDeliveryEstimate() {
       <div className="flex items-center gap-2 mb-3">
         <Calendar className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ACCENT }} />
         <p className="font-mono text-[9px] tracking-[0.1em]" style={{ color: MUTED }}>
-          Orders typically ship within <span className="font-bold" style={{ color: INK }}>1–2 business days</span>
+          <span className="font-bold" style={{ color: INK }}>Processing:</span> 1&ndash;3 business days
         </p>
       </div>
       <div className="space-y-1.5 mb-3">
+        <p className="font-mono text-[8px] tracking-[0.1em] mb-1" style={{ color: MUTED }}>
+          <span style={{ color: INK }}>Transit</span> (varies by location):
+        </p>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
           <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
-            <span style={{ color: INK }}>Texas:</span> 2–4 business days
+            <span style={{ color: INK }}>Texas:</span> 2&ndash;4 business days
           </p>
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
           <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
-            <span style={{ color: INK }}>Southern US:</span> 3–5 business days
+            <span style={{ color: INK }}>Southern US:</span> 3&ndash;5 business days
           </p>
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
           <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
-            <span style={{ color: INK }}>Nationwide:</span> 3–7 business days
+            <span style={{ color: INK }}>Nationwide:</span> 3&ndash;7 business days
           </p>
         </div>
       </div>
       <p className="font-mono text-[8px] tracking-[0.1em] pt-2" style={{ color: MUTED, borderTop: `1px solid ${BORDER}` }}>
-        Tracking information is emailed once your order ships.
+        Estimated total delivery: {nationwideRange}. Tracking emailed once shipped.
       </p>
     </div>
   );

@@ -36,18 +36,10 @@ export default function RitualHero() {
       </motion.div>
 
       <div className="mx-auto max-w-[1240px] px-6 py-8 md:px-10 md:py-10">
-        {/* Headline and supporting copy */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center mb-6"
-        >
-          <h1 className="h1 mb-3">Better mornings, in an instant.</h1>
-          <p className="body-lg mx-auto" style={{ maxWidth: '640px' }}>
-            Premium instant coffee and mushroom coffee &mdash; smooth, simple, and ready in seconds.
-          </p>
-        </motion.div>
+        {/* Visually hidden H1 — the hero image has marketing text baked in.
+            A clean hero image without baked-in text is still needed; until then
+            the visible headline is suppressed to avoid duplication. */}
+        <h1 className="sr-only">Better mornings, in an instant. Premium instant coffee and mushroom coffee.</h1>
 
         {/* Genuine review proof (live data from stored reviews) */}
         <motion.div

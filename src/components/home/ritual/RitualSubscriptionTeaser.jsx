@@ -18,8 +18,8 @@ export default function RitualSubscriptionTeaser() {
             Subscribe to the product you actually drink.
           </h2>
           <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            No giant bundle required. Choose your product and your delivery schedule &mdash; every 2, 4, or 6 weeks. Start
-            with one. Add another whenever your routine changes.
+            Choose your coffee and have it delivered every four weeks. Save 10%, pause when needed, or cancel anytime.
+            Start with one. Add another whenever your routine changes.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link to="/build-your-ritual" className="btn btn-primary" style={{ minWidth: '200px' }}>

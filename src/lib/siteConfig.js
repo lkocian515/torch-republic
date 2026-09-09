@@ -5,7 +5,7 @@
  * IMPORTANT: Update values HERE only. Never hardcode these in components.
  * All components import from this file so changes propagate automatically.
  *
- * Last verified: 2026-06-19
+ * Last verified: 2026-09-09
  */
 
 // ── Welcome Offer ─────────────────────────────────────────────────────────────
@@ -29,9 +29,9 @@ export const GUARANTEE_DISPLAY = '30-Day Guarantee';
 export const GUARANTEE_DESCRIPTION = 'If it\'s not right, we make it right';
 
 // ── Shipping Estimate ─────────────────────────────────────────────────────────
-export const SHIP_TIME = '1-2 business days';
-export const SHIP_TIME_DISPLAY = 'Ships in 1-2 business days';
-export const SHIP_NOTE = 'Most orders ship in 1-2 days';
+export const SHIP_TIME = '1-3 business days';
+export const SHIP_TIME_DISPLAY = 'Ships in 1-3 business days';
+export const SHIP_NOTE = 'Most orders ship in 1-3 days';
 
 // ── Support ───────────────────────────────────────────────────────────────────
 export const SUPPORT_EMAIL = 'admin@torchrepublic.com';

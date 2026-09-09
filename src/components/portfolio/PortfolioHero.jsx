@@ -53,11 +53,11 @@ export default function PortfolioHero() {
                 Explore My Work <ArrowRight size={16} />
               </a>
               <a
-                href="#case-study"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2"
                 style={{ minHeight: 48, padding: '0.7rem 1.5rem', borderRadius: '999px', background: 'transparent', color: P.ink, border: `1px solid ${P.rule}`, fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}
               >
-                View Torch Republic Case Study <ArrowUpRight size={16} />
+                Contact Me <ArrowUpRight size={16} />
               </a>
               <a
                 href={LINKEDIN}

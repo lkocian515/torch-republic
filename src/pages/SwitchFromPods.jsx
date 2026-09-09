@@ -625,7 +625,7 @@ export default function SwitchFromPods() {
         <div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
           {[
             { label: `${GUARANTEE_DAYS}-Day Guarantee`, sub: 'Not right? We make it right.' },
-            { label: `Free Shipping ${FREE_SHIPPING_THRESHOLD_DISPLAY}`, sub: 'Ships 1–2 business days.' },
+            { label: `Free Shipping ${FREE_SHIPPING_THRESHOLD_DISPLAY}`, sub: 'Ships 1–3 business days.' },
             { label: `Subscribe & Save ${SUBSCRIBE_SAVE_PERCENT}%`, sub: 'Cancel anytime.' },
             { label: 'Secure Shopify Checkout', sub: 'Shop Pay accepted.' },
           ].map(item => (

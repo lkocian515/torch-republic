@@ -40,7 +40,7 @@ export default function FooterNewsletter() {
       <label htmlFor="footer-newsletter-email" className="block font-heading text-xs font-semibold mb-2" style={{ color: THEME.text }}>
         Email address
       </label>
-      <div className="flex gap-2">
+      <div className="flex flex-col gap-2 sm:flex-row sm:gap-2">
         <input
           id="footer-newsletter-email"
           type="email"
@@ -49,7 +49,7 @@ export default function FooterNewsletter() {
           placeholder="your@email.com"
           disabled={status === 'loading'}
           autoComplete="email"
-          className="flex-1 min-h-[44px] rounded-md border px-3 font-heading text-sm transition-colors focus:outline-none focus:ring-2"
+          className="flex-1 min-w-0 min-h-[44px] rounded-md border px-3 font-heading text-sm transition-colors focus:outline-none focus:ring-2 w-full"
           style={{ borderColor: THEME.border, background: THEME.card, color: THEME.text }}
           aria-required="true"
           aria-invalid={status === 'error'}
@@ -58,7 +58,7 @@ export default function FooterNewsletter() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="btn btn-primary shrink-0"
+          className="btn btn-primary shrink-0 w-full sm:w-auto"
           style={{ minHeight: 44, fontSize: '0.8125rem', padding: '0.5rem 1rem' }}
         >
           {status === 'loading' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Subscribe'}

@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Star } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
@@ -104,9 +104,7 @@ export default function CartRecommendations({ cartItems }) {
             <div className="flex-1 min-w-0">
               <p className="font-serif font-bold text-sm truncate" style={{ color: INK }}>{product.name}</p>
               <div className="flex items-center gap-1 mb-1">
-                <Star className="w-3 h-3 fill-current" style={{ color: ACCENT }} />
-                <span className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>4.9</span>
-                <span className="font-mono text-[8px]" style={{ color: MUTED }}>· {product.servings} servings</span>
+                <span className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>{product.servings} servings</span>
               </div>
               <p className="font-mono font-bold text-xs" style={{ color: ACCENT }}>${product.price.toFixed(2)}</p>
             </div>
