@@ -5,11 +5,10 @@ import { ArrowUpRight, X } from 'lucide-react';
 
 // Real screenshots of the live project — interface evidence, not glamour shots.
 const SHOTS = [
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg', title: 'Homepage — hero & navigation', alt: 'Torch Republic homepage hero with product lineup and daily ritual messaging.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg', title: 'Homepage — two-product hero and navigation', alt: 'Torch Republic homepage hero with two-product lineup and daily ritual messaging.' },
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg', title: 'Product card — classic coffee', alt: 'Product card showing Instant Classic Coffee with pricing and subscription option.' },
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg', title: 'Product card — mushroom coffee', alt: 'Product card showing Instant Mushroom Coffee with functional benefits.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/083d51a21_IMG_20260905_225458.jpg', title: 'Product card — ceremonial matcha', alt: 'Product card showing Ceremonial Matcha with clean energy messaging.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg', title: 'Real ingredients — benefit grid', alt: 'Feature grid highlighting clean ingredients, no plastic, no machine, and on-the-go convenience.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg', title: 'Powered by Nature — benefit grid', alt: 'Feature grid highlighting clean ingredients, no plastic, no machine, and on-the-go convenience.' },
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg', title: 'Lifestyle hero — ritual in nature', alt: 'Lifestyle hero showing the daily ritual in an outdoor mountain setting.' },
 ];
 
