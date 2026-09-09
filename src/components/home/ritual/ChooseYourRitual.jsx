@@ -17,7 +17,8 @@ export default function ChooseYourRitual() {
             Choose your ritual.
           </h2>
           <p className="mt-4 font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Two intentional choices. No catalog to get lost in &mdash; just the morning you want.
+            Better mornings, two ways.<br />
+            Classic coffee for smooth, bold energy. Mushroom coffee for focus with added function.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
