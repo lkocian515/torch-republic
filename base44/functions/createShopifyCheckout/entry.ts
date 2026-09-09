@@ -1,168 +1,281 @@
-/* global Deno */
 /**
- * SHOPIFY STOREFRONT CART CREATE
+ * SHOPIFY CART MANAGEMENT — sole authoritative backend interface.
  *
- * Verified variant IDs from Shopify Admin API (2026-09-09):
- *   - Instant Classic Coffee: variant 51245709623548 (handle: instant-coffee-1)
- *   - Instant Coffee with Mushrooms: variant 51245706608892 (handle: instant-coffee-with-mushroom)
+ * Actions: create | get | add | update | remove | checkout
  *
- * BLOCKER: The SHOPIFY_STOREFRONT_TOKEN currently returns 401 UNAUTHORIZED.
- * This function will fail until the Storefront API access is restored.
- * Cart permalinks (/cart/variant:qty) work as a fallback and do not require
- * the Storefront API.
+ * SECURITY:
+ *   - Token stays server-side via base44:runtime secrets (shared module).
+ *   - Uses Shopify-Storefront-Private-Token header (shared module).
+ *   - Returns ONLY sanitized cart data — never the token.
+ *   - Never calculates totals locally — Shopify is authoritative.
+ *   - Does NOT create a Base44 Order when checkout is clicked.
  *
- * When the token is fixed, this function supports:
- *   - Multi-line carts (array of { handle/slug, quantity, sellingPlanId? })
- *   - Subscription lines via sellingPlanId (when Shopify selling plans are configured)
+ * VERIFIED VARIANTS (2026-09-09):
+ *   Classic:  gid://shopify/ProductVariant/51245709623548  ($22.99)
+ *   Mushroom: gid://shopify/ProductVariant/51245706608892  ($25.99)
+ *   Duo:      gid://shopify/ProductVariant/51245930217724  (DRAFT — disabled)
+ *
+ * VERIFIED SELLING PLANS:
+ *   Classic:  gid://shopify/SellingPlan/5911216380  ($20.69, every 4 weeks)
+ *   Mushroom: gid://shopify/SellingPlan/5701107964  ($23.39, every 4 weeks)
  */
-const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
-const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
-const API_VERSION = '2024-10';
 
-// Verified variant IDs — the ACTIVE, PUBLISHED products only.
-const VARIANT_ID_MAP = {
-  'instant-classic-coffee': '51245709623548',
-  'instant-mushroom-coffee': '51245706608892',
-  // Active Shopify handles (for lookups by handle)
-  'instant-coffee-1': '51245709623548',
-  'instant-coffee-with-mushroom': '51245706608892',
-};
+import {
+  storefrontQuery,
+  resolveCartLine,
+  sanitizeCart,
+  VARIANT_IDS,
+  SELLING_PLAN_IDS,
+  DUO_VARIANT_ID,
+  DUO_ENABLED,
+  CART_CREATE_MUTATION,
+  CART_LINES_ADD_MUTATION,
+  CART_LINES_UPDATE_MUTATION,
+  CART_LINES_REMOVE_MUTATION,
+  CART_GET_QUERY,
+} from "../../shared/shopifyStorefront.ts";
 
-// Selling plan IDs will be populated when Shopify Subscriptions is configured.
-// Currently EMPTY — no selling plan groups exist in Shopify.
-const SELLING_PLAN_MAP = {};
+// ── Explicitly rejected slugs (Matcha + retired products) ──
+const REJECTED_SLUG_PATTERNS = [
+  "matcha", "alchemist", "monk", "ascendant",
+  "ceremonial", "the-alchemist", "the-monk",
+];
 
-async function storefrontQuery(query, variables = {}) {
-  const res = await fetch(`https://${SHOP_DOMAIN}/api/${API_VERSION}/graphql.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
-    },
-    body: JSON.stringify({ query, variables }),
-  });
-  const json = await res.json();
-  return json;
+function isRejectedSlug(slug) {
+  if (!slug) return false;
+  const lower = String(slug).toLowerCase();
+  return REJECTED_SLUG_PATTERNS.some((p) => lower.includes(p));
 }
 
-Deno.serve(async (req) => {
+// ── Quantity validation: positive safe integer, 1–999 ──
+function validateQuantity(qty) {
+  const n = Number(qty);
+  if (!Number.isInteger(n) || n < 1 || n > 999) return null;
+  return n;
+}
+
+export default async function (req) {
   try {
-    // Accept either a single product or an array of lines.
-    const body = await req.json();
-    const lines = Array.isArray(body.lines) ? body.lines : [body];
+    const body = await req.json().catch(() => ({}));
+    const action = body.action;
 
-    if (lines.length === 0 || (!lines[0].handle && !lines[0].slug && !lines[0].variantId)) {
-      return Response.json({ error: 'Missing handle, slug, or variantId' }, { status: 400 });
-    }
+    // ── CREATE ──
+    if (action === "create") {
+      const inputLines = Array.isArray(body.lines) ? body.lines : [];
+      const cartLines = [];
+      const rejectedLines = [];
 
-    // Resolve each line to a variant ID + optional selling plan
-    const cartLines = [];
-    for (const line of lines) {
-      let variantId = line.variantId;
+      for (const line of inputLines) {
+        const slug = line.slug || line.handle;
 
-      if (!variantId) {
-        const key = line.slug || line.handle;
-        variantId = VARIANT_ID_MAP[key];
-      }
+        if (isRejectedSlug(slug)) {
+          rejectedLines.push({ slug, reason: "Matcha and retired products are not available" });
+          continue;
+        }
 
-      if (!variantId) {
-        // Fallback: query Shopify by handle
-        const handle = line.handle || line.slug;
-        const productData = await storefrontQuery(`
-          query getProduct($handle: String!) {
-            productByHandle(handle: $handle) {
-              title
-              availableForSale
-              variants(first: 10) {
-                edges {
-                  node {
-                    id
-                    title
-                    availableForSale
-                    priceV2 { amount currencyCode }
-                  }
-                }
-              }
-            }
+        // Coffee Duo — disabled while Draft
+        if (slug === "coffee-duo" || slug === "torch-republic-coffee-duo") {
+          if (!DUO_ENABLED) {
+            rejectedLines.push({ slug, reason: "Coffee Duo is not yet available for purchase" });
+            continue;
           }
-        `, { handle });
-
-        const product = productData?.data?.productByHandle;
-        if (!product) {
-          return Response.json({ error: 'Product not found', handle }, { status: 404 });
+          const qty = validateQuantity(line.quantity);
+          if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
+          cartLines.push({ merchandiseId: DUO_VARIANT_ID, quantity: qty });
+          continue;
         }
-        const availableVariant = product.variants?.edges?.find(e => e.node.availableForSale)?.node
-          || product.variants?.edges?.[0]?.node;
-        if (!availableVariant) {
-          return Response.json({ error: 'No variants found', handle }, { status: 404 });
+
+        const variantId = line.variantId || VARIANT_IDS[slug];
+        if (!variantId) {
+          rejectedLines.push({ slug, reason: "Unknown product — not in verified catalog" });
+          continue;
         }
-        variantId = availableVariant.id;
-      }
 
-      const cartLine = {
-        merchandiseId: variantId,
-        quantity: line.quantity || 1,
-      };
+        // Reject raw variant IDs not in the verified set
+        if (line.variantId && !Object.values(VARIANT_IDS).includes(line.variantId) && line.variantId !== DUO_VARIANT_ID) {
+          rejectedLines.push({ slug, reason: "Unverified variant ID rejected" });
+          continue;
+        }
 
-      // Include selling plan only when explicitly provided and verified
-      if (line.sellingPlanId) {
-        cartLine.sellingPlanId = line.sellingPlanId;
-      } else if (line.slug && SELLING_PLAN_MAP[line.slug] && line.isSubscription) {
-        cartLine.sellingPlanId = SELLING_PLAN_MAP[line.slug];
-      }
+        const qty = validateQuantity(line.quantity);
+        if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
 
-      cartLines.push(cartLine);
-    }
+        const cartLine = { merchandiseId: variantId, quantity: qty };
 
-    // Create cart with all lines
-    const cartData = await storefrontQuery(`
-      mutation cartCreate($lines: [CartLineInput!]!) {
-        cartCreate(input: { lines: $lines }) {
-          cart {
-            id
-            checkoutUrl
-            totalQuantity
-            lines(first: 50) {
-              edges {
-                node {
-                  id
-                  quantity
-                  merchandise {
-                    ... on ProductVariant {
-                      id
-                      title
-                      priceV2 { amount currencyCode }
-                    }
-                  }
-                }
-              }
-            }
-            cost {
-              subtotalAmount { amount currencyCode }
-              totalAmount { amount currencyCode }
-            }
+        // Attach selling plan only for subscription lines
+        if (line.isSubscription) {
+          const planId = line.sellingPlanId || SELLING_PLAN_IDS[slug];
+          if (!planId) {
+            rejectedLines.push({ slug, reason: "No selling plan configured for this product" });
+            continue;
           }
-          userErrors { field message code }
+          cartLine.sellingPlanId = planId;
         }
-      }
-    `, { lines: cartLines });
 
-    const cart = cartData?.data?.cartCreate?.cart;
-    const userErrors = cartData?.data?.cartCreate?.userErrors;
-    if (!cart) {
-      return Response.json({ error: 'Cart creation failed', details: userErrors }, { status: 500 });
+        cartLines.push(cartLine);
+      }
+
+      // Allow empty cart creation
+      const input = {};
+      if (cartLines.length > 0) input.lines = cartLines;
+
+      const result = await storefrontQuery(CART_CREATE_MUTATION, { input });
+      if (!result.ok) {
+        return Response.json({
+          error: "Cart creation failed",
+          httpStatus: result.status,
+          shopifyRequestId: result.requestId,
+          details: result.error,
+          rejectedLines,
+        }, { status: 500 });
+      }
+
+      const cartCreate = result.json?.data?.cartCreate;
+      return Response.json({
+        action: "create",
+        cart: sanitizeCart(cartCreate?.cart, cartCreate?.userErrors),
+        rejectedLines,
+      });
     }
 
-    return Response.json({
-      checkoutUrl: cart.checkoutUrl,
-      cartId: cart.id,
-      totalQuantity: cart.totalQuantity,
-      subtotal: cart.cost?.subtotalAmount,
-      total: cart.cost?.totalAmount,
-      lines: cart.lines?.edges?.map(e => e.node),
-      userErrors: userErrors || [],
-    });
+    // ── GET ──
+    if (action === "get") {
+      const { cartId } = body;
+      if (!cartId) return Response.json({ error: "Missing cartId" }, { status: 400 });
+
+      const result = await storefrontQuery(CART_GET_QUERY, { cartId });
+      if (!result.ok) {
+        return Response.json({ error: "Cart retrieval failed", httpStatus: result.status, details: result.error }, { status: 500 });
+      }
+      const cart = result.json?.data?.cart;
+      if (!cart) {
+        return Response.json({ error: "Cart not found or expired", cartId }, { status: 404 });
+      }
+      return Response.json({ action: "get", cart: sanitizeCart(cart, []) });
+    }
+
+    // ── ADD ──
+    if (action === "add") {
+      const { cartId } = body;
+      if (!cartId) return Response.json({ error: "Missing cartId" }, { status: 400 });
+
+      const inputLines = Array.isArray(body.lines) ? body.lines : [];
+      const cartLines = [];
+      const rejectedLines = [];
+
+      for (const line of inputLines) {
+        const slug = line.slug || line.handle;
+
+        if (isRejectedSlug(slug)) {
+          rejectedLines.push({ slug, reason: "Matcha and retired products are not available" });
+          continue;
+        }
+
+        if (slug === "coffee-duo" || slug === "torch-republic-coffee-duo") {
+          if (!DUO_ENABLED) {
+            rejectedLines.push({ slug, reason: "Coffee Duo is not yet available" });
+            continue;
+          }
+          const qty = validateQuantity(line.quantity);
+          if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
+          cartLines.push({ merchandiseId: DUO_VARIANT_ID, quantity: qty });
+          continue;
+        }
+
+        const resolved = resolveCartLine(line);
+        if (!resolved) {
+          rejectedLines.push({ slug, reason: "Unknown product or unverified variant" });
+          continue;
+        }
+
+        const qty = validateQuantity(line.quantity);
+        if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
+        resolved.quantity = qty;
+        cartLines.push(resolved);
+      }
+
+      if (cartLines.length === 0) {
+        return Response.json({ error: "No valid lines to add", rejectedLines }, { status: 400 });
+      }
+
+      const result = await storefrontQuery(CART_LINES_ADD_MUTATION, { cartId, lines: cartLines });
+      if (!result.ok) {
+        return Response.json({ error: "cartLinesAdd failed", httpStatus: result.status, details: result.error }, { status: 500 });
+      }
+      const res = result.json?.data?.cartLinesAdd;
+      return Response.json({ action: "add", cart: sanitizeCart(res?.cart, res?.userErrors), rejectedLines });
+    }
+
+    // ── UPDATE ──
+    if (action === "update") {
+      const { cartId, lines } = body;
+      if (!cartId || !Array.isArray(lines)) {
+        return Response.json({ error: "Missing cartId or lines" }, { status: 400 });
+      }
+
+      const updateLines = [];
+      for (const l of lines) {
+        if (!l.lineId) continue;
+        const qty = validateQuantity(l.quantity);
+        if (!qty) continue;
+        const entry = { id: l.lineId, quantity: qty };
+        if (l.sellingPlanId) entry.sellingPlanId = l.sellingPlanId;
+        updateLines.push(entry);
+      }
+
+      if (updateLines.length === 0) {
+        return Response.json({ error: "No valid lines to update" }, { status: 400 });
+      }
+
+      const result = await storefrontQuery(CART_LINES_UPDATE_MUTATION, { cartId, lines: updateLines });
+      if (!result.ok) {
+        return Response.json({ error: "cartLinesUpdate failed", httpStatus: result.status, details: result.error }, { status: 500 });
+      }
+      const res = result.json?.data?.cartLinesUpdate;
+      return Response.json({ action: "update", cart: sanitizeCart(res?.cart, res?.userErrors) });
+    }
+
+    // ── REMOVE ──
+    if (action === "remove") {
+      const { cartId, lineIds } = body;
+      if (!cartId || !Array.isArray(lineIds) || lineIds.length === 0) {
+        return Response.json({ error: "Missing cartId or lineIds" }, { status: 400 });
+      }
+
+      const result = await storefrontQuery(CART_LINES_REMOVE_MUTATION, { cartId, lineIds });
+      if (!result.ok) {
+        return Response.json({ error: "cartLinesRemove failed", httpStatus: result.status, details: result.error }, { status: 500 });
+      }
+      const res = result.json?.data?.cartLinesRemove;
+      return Response.json({ action: "remove", cart: sanitizeCart(res?.cart, res?.userErrors) });
+    }
+
+    // ── CHECKOUT ──
+    // Returns the Shopify-hosted checkoutUrl. Does NOT create a Base44 Order.
+    if (action === "checkout") {
+      const { cartId } = body;
+      if (!cartId) return Response.json({ error: "Missing cartId" }, { status: 400 });
+
+      const result = await storefrontQuery(CART_GET_QUERY, { cartId });
+      if (!result.ok) {
+        return Response.json({ error: "Cart retrieval failed", httpStatus: result.status, details: result.error }, { status: 500 });
+      }
+      const cart = result.json?.data?.cart;
+      if (!cart) {
+        return Response.json({ error: "Cart not found or expired", cartId }, { status: 404 });
+      }
+      if (!cart.checkoutUrl) {
+        return Response.json({ error: "No checkout URL available — cart may be empty" }, { status: 400 });
+      }
+      return Response.json({
+        action: "checkout",
+        checkoutUrl: cart.checkoutUrl,
+        cart: sanitizeCart(cart, []),
+      });
+    }
+
+    return Response.json({ error: `Unknown action: ${action}. Supported: create, get, add, update, remove, checkout` }, { status: 400 });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
-});
+}

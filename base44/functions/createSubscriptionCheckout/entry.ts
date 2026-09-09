@@ -1,67 +1,147 @@
-/* global Deno */
 /**
- * SHOPIFY SUBSCRIPTION CHECKOUT
+ * SHOPIFY SUBSCRIPTION CHECKOUT — real Shopify selling plans.
  *
- * Verified variant IDs from Shopify Admin API (2026-09-09):
- *   - Instant Classic Coffee: variant 51245709623548
- *   - Instant Coffee with Mushrooms: variant 51245706608892
+ * Creates a Shopify cart with verified selling plan IDs attached.
+ * Uses Storefront Cart API (cartCreate) — NOT cart permalinks
+ * and NOT discount codes.
  *
- * BLOCKER: No Shopify selling plan groups exist. This function currently
- * builds a cart permalink with a 10% discount code (SUBSCRIBE10) as a
- * one-time discount fallback. This is NOT a true recurring subscription.
+ * SECURITY:
+ *   - Token stays server-side via base44:runtime secrets (shared module).
+ *   - Returns only sanitized cart data — never the token.
  *
- * True recurring subscriptions require:
- *   1. Shopify Subscriptions app installed and configured
- *   2. Selling plan groups created for each product
- *   3. Selling plan IDs queried and stored in SELLING_PLAN_MAP below
- *   4. The createShopifyCheckout function updated to pass sellingPlanId
+ * VERIFIED SELLING PLANS (2026-09-09):
+ *   Classic:  SellingPlan/5911216380  ($20.69, every 4 weeks, 10% off)
+ *   Mushroom: SellingPlan/5701107964  ($23.39, every 4 weeks, 10% off)
  *
- * Subscription terms: 10% off, delivered every 4 weeks.
+ * REMOVED:
+ *   - SUBSCRIBE10 discount code
+ *   - 20%-off logic
+ *   - Matcha selling plans
+ *   - Any behavior that silently converts subscriptions into one-time purchases
+ *
+ * A subscription cart line MUST include both merchandiseId and sellingPlanId.
+ * Before returning a checkout URL, we confirm Shopify returned a selling-plan
+ * allocation on every cart line. If missing, we return a clear error.
  */
 
-const VARIANT_ID_MAP = {
-  'instant-classic-coffee': '51245709623548',
-  'instant-mushroom-coffee': '51245706608892',
-};
+import {
+  storefrontQuery,
+  resolveCartLine,
+  sanitizeCart,
+  SELLING_PLAN_IDS,
+  VARIANT_IDS,
+  CART_CREATE_MUTATION,
+} from "../../shared/shopifyStorefront.ts";
 
-// Will be populated when Shopify selling plans are configured.
-const SELLING_PLAN_MAP = {};
-
-const SHOP_DOMAIN = 'https://libertees-for-all.myshopify.com';
-const SUBSCRIPTION_DISCOUNT_CODE = 'SUBSCRIBE10';
-
-Deno.serve(async (req) => {
+export default async function (req) {
   try {
-    const { blendQty } = await req.json();
+    const body = await req.json().catch(() => ({}));
+    const blendQty = body.blendQty || {};
 
-    if (!blendQty || typeof blendQty !== 'object') {
-      return Response.json({ error: 'Missing blendQty' }, { status: 400 });
+    // Build subscription cart lines from blend quantities
+    const inputLines = [];
+    const missingPlans = [];
+
+    for (const [slug, rawQty] of Object.entries(blendQty)) {
+      const qty = Number(rawQty);
+      if (!Number.isInteger(qty) || qty < 1) continue;
+
+      const variantId = VARIANT_IDS[slug];
+      const sellingPlanId = SELLING_PLAN_IDS[slug];
+
+      if (!variantId) {
+        missingPlans.push({ slug, reason: "Unknown product slug" });
+        continue;
+      }
+
+      if (!sellingPlanId) {
+        missingPlans.push({ slug, reason: "No selling plan configured for this product" });
+        continue;
+      }
+
+      inputLines.push({
+        slug,
+        quantity: qty,
+        isSubscription: true,
+        sellingPlanId,
+        variantId,
+      });
     }
 
-    const parts = [];
-    for (const [slug, qty] of Object.entries(blendQty)) {
-      if (qty > 0) {
-        const variantId = VARIANT_ID_MAP[slug];
-        if (!variantId) {
-          continue;
-        }
-        parts.push(`${variantId}:${qty}`);
+    if (inputLines.length === 0) {
+      return Response.json({
+        error: "No valid subscription products in cart",
+        missingPlans,
+        subscriptionAvailable: false,
+      }, { status: 400 });
+    }
+
+    // Resolve to Shopify cart line inputs
+    const cartLines = [];
+    for (const line of inputLines) {
+      const cartLine = resolveCartLine(line);
+      if (cartLine) {
+        cartLines.push(cartLine);
       }
     }
 
-    if (parts.length === 0) {
-      return Response.json({ error: 'No valid products in cart' }, { status: 400 });
+    if (cartLines.length === 0) {
+      return Response.json({
+        error: "Failed to resolve cart lines",
+        missingPlans,
+        subscriptionAvailable: false,
+      }, { status: 500 });
     }
 
-    const checkoutUrl = `${SHOP_DOMAIN}/cart/${parts.join(',')}?discount=${SUBSCRIPTION_DISCOUNT_CODE}`;
+    // Create Shopify cart with selling plan lines
+    const result = await storefrontQuery(CART_CREATE_MUTATION, {
+      input: { lines: cartLines },
+    });
+
+    if (!result.ok) {
+      return Response.json({
+        error: "Subscription cart creation failed",
+        httpStatus: result.status,
+        shopifyRequestId: result.requestId,
+        details: result.error,
+        missingPlans,
+        subscriptionAvailable: false,
+      }, { status: 500 });
+    }
+
+    const cartCreate = result.json?.data?.cartCreate;
+    const sanitized = sanitizeCart(cartCreate?.cart, cartCreate?.userErrors);
+
+    // ── CRITICAL: Verify selling-plan allocations on every line ──
+    // If Shopify did not attach the selling plan, this is NOT a subscription.
+    // Return a clear error and do NOT return a checkout URL.
+    const linesWithoutAllocation = (sanitized?.lines || []).filter((l) => !l.sellingPlanId);
+
+    if (linesWithoutAllocation.length > 0) {
+      return Response.json({
+        error: "Selling plan allocation missing on one or more cart lines",
+        missingAllocations: linesWithoutAllocation.map((l) => ({
+          lineId: l.lineId,
+          productTitle: l.productTitle,
+          variantId: l.variantId,
+        })),
+        subscriptionAvailable: false,
+        checkoutUrl: null,
+      }, { status: 500 });
+    }
 
     return Response.json({
-      checkoutUrl,
-      discountCode: SUBSCRIPTION_DISCOUNT_CODE,
-      message: '10% subscription discount applied (one-time discount code, not a recurring selling plan). True recurring subscriptions require Shopify Subscriptions app configuration.',
-      sellingPlansConfigured: Object.keys(SELLING_PLAN_MAP).length > 0,
+      action: "createSubscription",
+      cart: sanitized,
+      checkoutUrl: sanitized?.checkoutUrl || null,
+      subscriptionAvailable: true,
+      sellingPlansConfigured: Object.keys(SELLING_PLAN_IDS),
+      missingPlans,
     });
   } catch (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({
+      error: error.message,
+      subscriptionAvailable: false,
+    }, { status: 500 });
   }
-});
+}

@@ -61,10 +61,16 @@ const CART_FRAGMENT = `
             priceV2 { amount currencyCode }
           }
         }
-        sellingPlan {
-          id
-          name
-          description
+        sellingPlanAllocation {
+          sellingPlan {
+            id
+            name
+            description
+          }
+          priceAdjustments {
+            price { amount currencyCode }
+            perDeliveryPrice { amount currencyCode }
+          }
         }
         cost {
           subtotalAmount { amount currencyCode }
@@ -204,10 +210,12 @@ export function sanitizeCart(cartNode, userErrors) {
         currency: variant?.priceV2?.currencyCode || null,
         lineSubtotal: node.cost?.subtotalAmount?.amount || null,
         lineTotal: node.cost?.totalAmount?.amount || null,
-        isSubscription: !!node.sellingPlan,
-        sellingPlanId: node.sellingPlan?.id || null,
-        sellingPlanName: node.sellingPlan?.name || null,
-        sellingPlanDescription: node.sellingPlan?.description || null,
+        isSubscription: !!node.sellingPlanAllocation?.sellingPlan,
+        sellingPlanId: node.sellingPlanAllocation?.sellingPlan?.id || null,
+        sellingPlanName: node.sellingPlanAllocation?.sellingPlan?.name || null,
+        sellingPlanDescription: node.sellingPlanAllocation?.sellingPlan?.description || null,
+        subscriptionPrice: node.sellingPlanAllocation?.priceAdjustments?.[0]?.price?.amount || null,
+        perDeliveryPrice: node.sellingPlanAllocation?.priceAdjustments?.[0]?.perDeliveryPrice?.amount || null,
       };
     }),
     subtotal: cartNode.cost?.subtotalAmount?.amount || null,

@@ -1,7 +1,9 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
+import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
+import { getShopifyCart } from '@/lib/shopifyCheckout';
 
 // Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
@@ -10,12 +12,12 @@ const ACTIVE_CART_IDS = new Set(ALL_PRODUCTS.map((p) => p.id));
 
 const CartContext = createContext(null);
 
-// localStorage key
+// localStorage keys
 const CART_STORAGE_KEY = 'torch-republic-cart';
+const SHOPIFY_CART_ID_KEY = 'torch-republic-shopify-cart-id';
 
 export function CartProvider({ children }) {
-  // Initialize from localStorage, dropping any retired products that no
-  // longer exist in the active three-product catalog.
+  // ── Local cart items (persisted to localStorage) ──
   const [items, setItems] = useState(() => {
     try {
       const saved = typeof window !== 'undefined' ? localStorage.getItem(CART_STORAGE_KEY) : null;
@@ -26,6 +28,7 @@ export function CartProvider({ children }) {
       return [];
     }
   });
+
   // True when the persisted cart held retired products that were removed.
   const [refreshed, setRefreshed] = useState(() => {
     try {
@@ -39,10 +42,107 @@ export function CartProvider({ children }) {
     }
   });
   const dismissRefreshed = useCallback(() => setRefreshed(false), []);
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [toast, setToast] = useState(null);
 
-  // Persist to localStorage whenever items change
+  // ── Shopify cart ID (NOT a secret — identifies the buyer's Shopify cart) ──
+  const [shopifyCartId, setShopifyCartId] = useState(() => {
+    try {
+      return typeof window !== 'undefined' ? localStorage.getItem(SHOPIFY_CART_ID_KEY) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  // ── Loading state for Shopify operations ──
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  // ── Mutation lock: prevents concurrent mutations on the same cart ──
+  // Also prevents duplicate lines from repeated clicks.
+  const mutationInFlight = useRef(false);
+
+  const persistShopifyCartId = useCallback((cartId) => {
+    setShopifyCartId(cartId);
+    try {
+      if (typeof window !== 'undefined') {
+        if (cartId) {
+          localStorage.setItem(SHOPIFY_CART_ID_KEY, cartId);
+        } else {
+          localStorage.removeItem(SHOPIFY_CART_ID_KEY);
+        }
+      }
+    } catch {
+      // localStorage unavailable
+    }
+  }, []);
+
+  // ── Page-refresh reconciliation ──
+  // When commerce is enabled and we have a Shopify cart ID, retrieve the
+  // Shopify cart and reconcile it with the local display:
+  //   1. Replace locally calculated prices with Shopify-returned costs
+  //   2. Remove local items that Shopify rejects (not in Shopify cart)
+  //   3. Preserve valid quantities and selling-plan selections
+  //   4. Handle expired carts by clearing the stale ID
+  useEffect(() => {
+    if (!COMMERCE_ENABLED || !shopifyCartId) return;
+    let cancelled = false;
+    setIsSyncing(true);
+    (async () => {
+      try {
+        const shopifyCart = await getShopifyCart(shopifyCartId);
+        if (cancelled) return;
+
+        if (!shopifyCart) {
+          // Cart expired — clear stale ID so a new cart is created next time
+          persistShopifyCartId(null);
+          setIsSyncing(false);
+          return;
+        }
+
+        // Reconcile local items with Shopify-returned cart lines
+        const shopifyLines = shopifyCart.lines || [];
+        setItems((prev) => {
+          // Remove local items that don't exist in the Shopify cart
+          const reconciled = prev.filter((localItem) => {
+            const matchingLine = shopifyLines.find((sl) =>
+              sl.productTitle === localItem.name ||
+              sl.variantId?.includes(localItem.id)
+            );
+            return !!matchingLine;
+          });
+
+          // Replace locally calculated prices with Shopify-returned costs
+          // Preserve valid quantities and selling-plan selections
+          return reconciled.map((localItem) => {
+            const matchingLine = shopifyLines.find((sl) =>
+              sl.productTitle === localItem.name ||
+              sl.variantId?.includes(localItem.id)
+            );
+            if (matchingLine) {
+              return {
+                ...localItem,
+                qty: matchingLine.quantity,
+                shopifyPrice: matchingLine.unitPrice,
+                shopifyLineTotal: matchingLine.lineSubtotal,
+                isSubscription: matchingLine.isSubscription,
+                sellingPlanName: matchingLine.sellingPlanName,
+                shopifyLineId: matchingLine.lineId,
+              };
+            }
+            return localItem;
+          });
+        });
+      } catch {
+        // Silently fail — local cart remains the fallback
+      } finally {
+        if (!cancelled) setIsSyncing(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [shopifyCartId, persistShopifyCartId]);
+
+  // Persist local cart to localStorage whenever items change
   useEffect(() => {
     try {
       if (typeof window !== 'undefined') {
@@ -53,58 +153,161 @@ export function CartProvider({ children }) {
     }
   }, [items]);
 
+  // ── Cart line key: separates one-time and subscription versions ──
+  // A one-time and subscription version of the same product must remain
+  // separate cart lines because their selling-plan allocations differ.
+  const getLineKey = useCallback((product) => {
+    const baseKey = product.shopifyHandle || product.id;
+    return product.isSubscription ? `${baseKey}__sub` : `${baseKey}__onetime`;
+  }, []);
+
   const addItem = useCallback((product, qty = 1) => {
+    // Prevent duplicate lines from repeated clicks
+    if (mutationInFlight.current) return;
+    mutationInFlight.current = true;
+
     const normalizedProduct = {
       ...product,
       image: getProductImage(product),
       imageAlt: getProductAltText(product),
     };
+
     setItems(prev => {
-      // Use shopifyHandle as primary key if available, fallback to id
-      const key = normalizedProduct.shopifyHandle || normalizedProduct.id;
-      const existing = prev.find(i => (i.shopifyHandle || i.id) === key);
+      const key = getLineKey(normalizedProduct);
+      const existing = prev.find(i => getLineKey(i) === key);
       if (existing) {
-        return prev.map(i => (i.shopifyHandle || i.id) === key ? { ...i, qty: i.qty + qty, image: normalizedProduct.image, imageAlt: normalizedProduct.imageAlt } : i);
+        return prev.map(i => getLineKey(i) === key
+          ? { ...i, qty: i.qty + qty, image: normalizedProduct.image, imageAlt: normalizedProduct.imageAlt }
+          : i);
       }
       return [...prev, { ...normalizedProduct, qty }];
     });
+
     showToast({ title: 'Added to your cart', description: normalizedProduct.name });
-  }, []);
+
+    // Release the lock after a brief delay (prevents rapid double-clicks)
+    setTimeout(() => { mutationInFlight.current = false; }, 300);
+  }, [getLineKey]);
 
   const clearToast = useCallback(() => {
     setToast(null);
   }, []);
 
-  // Optimistic update: apply immediately to local state (already persisted via useEffect)
+  // Optimistic update with rollback support
+  // Saves previous state so it can be restored if Shopify rejects the mutation.
   const updateQty = useCallback((id, delta) => {
+    if (mutationInFlight.current) return;
+    mutationInFlight.current = true;
+
+    // Save previous state for rollback
+    const previousItems = items;
+
     setItems(prev =>
       prev.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)
     );
-  }, []);
+
+    // When commerce is enabled, sync to Shopify and roll back on failure
+    if (COMMERCE_ENABLED && shopifyCartId) {
+      const updatedItem = items.find(i => i.id === id);
+      if (updatedItem?.shopifyLineId) {
+        import('@/lib/shopifyCheckout').then(({ updateShopifyCartLine }) => {
+          updateShopifyCartLine(shopifyCartId, updatedItem.shopifyLineId, Math.max(1, updatedItem.qty + delta))
+            .then(() => { mutationInFlight.current = false; })
+            .catch(() => {
+              // Roll back optimistic update
+              setItems(previousItems);
+              mutationInFlight.current = false;
+            });
+        });
+      } else {
+        mutationInFlight.current = false;
+      }
+    } else {
+      mutationInFlight.current = false;
+    }
+  }, [items, shopifyCartId]);
 
   const removeItem = useCallback((id) => {
-    // Optimistic remove: update state immediately, no async wait
+    if (mutationInFlight.current) return;
+    mutationInFlight.current = true;
+
+    const previousItems = items;
+
+    // Optimistic remove
     setItems(prev => prev.filter(i => i.id !== id));
-  }, []);
+
+    // When commerce is enabled, sync to Shopify and roll back on failure
+    if (COMMERCE_ENABLED && shopifyCartId) {
+      const removedItem = items.find(i => i.id === id);
+      if (removedItem?.shopifyLineId) {
+        import('@/lib/shopifyCheckout').then(({ removeShopifyCartLine }) => {
+          removeShopifyCartLine(shopifyCartId, removedItem.shopifyLineId)
+            .then(() => { mutationInFlight.current = false; })
+            .catch(() => {
+              // Roll back optimistic remove
+              setItems(previousItems);
+              mutationInFlight.current = false;
+            });
+        });
+      } else {
+        mutationInFlight.current = false;
+      }
+    } else {
+      mutationInFlight.current = false;
+    }
+  }, [items, shopifyCartId]);
 
   const setQty = useCallback((id, qty) => {
+    if (mutationInFlight.current) return;
+    mutationInFlight.current = true;
+
+    const previousItems = items;
+
     if (qty < 1) {
       setItems(prev => prev.filter(i => i.id !== id));
     } else {
       setItems(prev => prev.map(i => i.id === id ? { ...i, qty } : i));
     }
-  }, []);
 
-  const clearCart = useCallback(() => setItems([]), []);
+    // When commerce is enabled, sync to Shopify and roll back on failure
+    if (COMMERCE_ENABLED && shopifyCartId) {
+      const updatedItem = items.find(i => i.id === id);
+      if (updatedItem?.shopifyLineId) {
+        import('@/lib/shopifyCheckout').then(({ updateShopifyCartLine }) => {
+          updateShopifyCartLine(shopifyCartId, updatedItem.shopifyLineId, qty)
+            .then(() => { mutationInFlight.current = false; })
+            .catch(() => {
+              setItems(previousItems);
+              mutationInFlight.current = false;
+            });
+        });
+      } else {
+        mutationInFlight.current = false;
+      }
+    } else {
+      mutationInFlight.current = false;
+    }
+  }, [items, shopifyCartId]);
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+    persistShopifyCartId(null);
+  }, [persistShopifyCartId]);
+
+  // Use Shopify-returned prices when available; fall back to local prices
   const totalItems = items.reduce((s, i) => s + i.qty, 0);
-  const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const subtotal = items.reduce((s, i) => {
+    const unitPrice = i.shopifyPrice ? parseFloat(i.shopifyPrice) : i.price;
+    return s + unitPrice * i.qty;
+  }, 0);
 
   return (
     <CartContext.Provider value={{
       items, addItem, updateQty, setQty, removeItem, clearCart,
       totalItems, subtotal, drawerOpen, setDrawerOpen, toast, clearToast,
-      refreshed, dismissRefreshed
+      refreshed, dismissRefreshed,
+      shopifyCartId, persistShopifyCartId,
+      isSyncing,
     }}>
       {children}
     </CartContext.Provider>
