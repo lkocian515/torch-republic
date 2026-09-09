@@ -50,10 +50,10 @@ export default function RitualFounderTrust() {
             </blockquote>
             <div className="mt-6">
               <p className="font-heading text-base font-bold" style={{ color: '#292622' }}>
-                Lisa Kocian
+                The Torch Republic Team
               </p>
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style={{ color: '#7A5C23' }}>
-                Founder &middot; Torch Republic
+                Corpus Christi, TX
               </p>
             </div>
             <Link
