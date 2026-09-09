@@ -16,13 +16,15 @@ const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6
 const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
 
 export const APPROVED_PRODUCT_IMAGES = {
-  // Instant Classic Coffee (canonical + legacy slug/shopify handle keys)
+  // Instant Classic Coffee (canonical + active Shopify handle + legacy keys)
   'instant-classic-coffee': CLASSIC_IMG,
+  'instant-coffee-1': CLASSIC_IMG,
   'torchbearer': CLASSIC_IMG,
   'torchbearer™-single-origin-instant-coffee': CLASSIC_IMG,
   'torchbearer-instant-coffee': CLASSIC_IMG,
-  // Instant Mushroom Coffee (canonical + legacy slug/shopify handle keys)
+  // Instant Mushroom Coffee (canonical + active Shopify handle + legacy keys)
   'instant-mushroom-coffee': MUSHROOM_IMG,
+  'instant-coffee-with-mushroom': MUSHROOM_IMG,
   'glowmind-clarity': MUSHROOM_IMG,
   'glowmind-clarity-blend': MUSHROOM_IMG,
   'glowmind-clarity-instant-mushroom-coffee': MUSHROOM_IMG,

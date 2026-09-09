@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
-import { BUNDLE_PRICE_3, PRICES } from '@/lib/pricingConfig';
+import { BUNDLE_PRICE_DUO, DUO_COMPARE_AT } from '@/lib/pricingConfig';
 
 const ACCENT = '#B86543';
 const INK = '#2D2824';
@@ -10,17 +10,13 @@ const MUTED = '#6A5A4A';
 const BORDER = '#E4D8C9';
 
 export default function CartBundleUpsell({ cartItems, subtotal }) {
-  // Show if cart has fewer than 3 items OR subtotal is below bundle price
+  // Show if cart has fewer than 2 items (the Coffee Duo is 1 of each)
   const itemCount = cartItems.reduce((s, i) => s + i.qty, 0);
-  const shouldShow = itemCount < 3 || subtotal < BUNDLE_PRICE_3;
+  const shouldShow = itemCount < 2 || subtotal < BUNDLE_PRICE_DUO;
 
   if (!shouldShow) return null;
 
-  // Calculate what 3 average products would cost vs bundle
-  const prices = Object.values(PRICES);
-  const avgPrice = prices.reduce((a, b) => a + b, 0) / prices.length;
-  const retailTotal = avgPrice * 3;
-  const savings = (retailTotal - BUNDLE_PRICE_3).toFixed(2);
+  const savings = (DUO_COMPARE_AT - BUNDLE_PRICE_DUO).toFixed(2);
 
   return (
     <motion.div
@@ -36,14 +32,14 @@ export default function CartBundleUpsell({ cartItems, subtotal }) {
       <div className="flex items-center gap-2 mb-2">
         <Sparkles className="w-3.5 h-3.5" style={{ color: ACCENT }} />
         <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: ACCENT }}>
-          Create Your Ritual Bundle & Save
+          Coffee Duo &amp; Save
         </p>
       </div>
       <p className="font-serif text-sm mb-1" style={{ color: INK }}>
-        Any 3 products for <span className="font-bold" style={{ color: ACCENT }}>${BUNDLE_PRICE_3.toFixed(2)}</span>
+        1 Classic + 1 Mushroom for <span className="font-bold" style={{ color: ACCENT }}>${BUNDLE_PRICE_DUO.toFixed(2)}</span>
       </p>
       <p className="font-mono text-[8px] tracking-[0.1em] mb-3" style={{ color: MUTED }}>
-        Save up to ${savings} vs individual pricing
+        Save ${savings} vs individual pricing
       </p>
       <Link
         to="/build-your-ritual"

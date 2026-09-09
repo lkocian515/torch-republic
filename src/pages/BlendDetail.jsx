@@ -139,7 +139,7 @@ function BlendDetailInner({ product }) {
   const [justAdded, setJustAdded] = useState(false);
   const [cartError, setCartError] = useState(null);
 
-  const subscriptionPrice = product.price * 0.8;
+  const subscriptionPrice = product.price * 0.9;
   const unitPrice = isSubscription ? subscriptionPrice : product.price;
   const servings = product.servings || (product.category === 'matcha' ? 25 : 27);
 
@@ -307,8 +307,8 @@ function BlendDetailInner({ product }) {
                       {isSubscription && <span style={{ width: 9, height: 9, borderRadius: '50%', background: THEME.clay }} />}
                     </span>
                     <div>
-                      <p className="font-heading font-bold text-sm" style={{ color: THEME.text }}>Subscribe &amp; Save 20%</p>
-                      <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Pause or cancel anytime</p>
+                      <p className="font-heading font-bold text-sm" style={{ color: THEME.text }}>Subscribe &amp; Save 10%</p>
+                      <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Every 4 weeks &middot; Pause or cancel anytime</p>
                     </div>
                   </div>
                   <span className="font-mono text-sm font-bold" style={{ color: THEME.moss }}>${subscriptionPrice.toFixed(2)}</span>

@@ -14,8 +14,9 @@ export const WELCOME_DISCOUNT_PERCENT = 15;        // integer, e.g. 15 for displ
 export const WELCOME_DISCOUNT_RATE = 0.15;          // decimal for price calculations
 
 // ── Subscribe & Save ──────────────────────────────────────────────────────────
-export const SUBSCRIBE_SAVE_PERCENT = 20;           // integer, e.g. 20 for display "Save 20%"
-export const SUBSCRIBE_SAVE_RATE = 0.20;            // decimal for price calculations
+export const SUBSCRIBE_SAVE_PERCENT = 10;           // integer, e.g. 10 for display "Save 10%"
+export const SUBSCRIBE_SAVE_RATE = 0.10;            // decimal for price calculations
+export const SUBSCRIBE_FREQUENCY = 'Every 4 weeks'; // delivery frequency
 
 // ── Free Shipping ─────────────────────────────────────────────────────────────
 export const FREE_SHIPPING_THRESHOLD = 50;          // USD, integer for comparisons

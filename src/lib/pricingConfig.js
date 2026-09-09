@@ -2,38 +2,42 @@
  * TORCH REPUBLIC — CANONICAL PRICING CONFIGURATION
  * Single source of truth for all product prices, subscription discounts, and bundle pricing.
  * All components must import prices from here — never hardcode prices inline.
- * 
- * Updated: 2026-06-14
+ *
+ * Verified against Shopify Admin API on 2026-09-09.
+ * Shopify product handles and variant IDs are the ACTIVE, PUBLISHED products.
+ *
+ * Subscription: 10% off, delivered every 4 weeks.
+ * NOTE: No Shopify selling plan groups exist yet. When configured, the
+ * selling-plan IDs must be queried and wired into the checkout flow.
+ *
+ * Updated: 2026-09-09
  */
 
 // ── One-time purchase prices (per bag) ────────────────────────────────────
 export const PRICES = {
-  'classic-coffee': 19.99,
-  'mushroom-coffee': 22.99,
+  'classic-coffee': 22.99,
+  'mushroom-coffee': 25.99,
 };
 
 // ── Per-product canonical prices ────────────────────────────────────────────
-// Classic Coffee
-export const PRICE_TORCHBEARER = 19.99;
-export const PRICE_EMBER_RESERVE = 19.99;
-// Mushroom Coffee
-export const PRICE_MOONCAP_RESTORE = 22.99;
-export const PRICE_GLOWMIND_CLARITY = 22.99;
-export const PRICE_SUNCAP_RISE = 22.99;
+export const PRICE_CLASSIC_COFFEE = PRICES['classic-coffee'];     // $22.99
+export const PRICE_MUSHROOM_COFFEE = PRICES['mushroom-coffee'];   // $25.99
 
 // ── Bundle pricing ───────────────────────────────────────────────────────────
-// Every 3-bag bundle is always exactly $49.99, regardless of which products are selected.
-export const BUNDLE_PRICE_3 = 49.99;
-// Coffee Duo: 1 Classic + 1 Mushroom (retail $42.98, saves $2.99)
-export const BUNDLE_PRICE_DUO = 39.99;
+// Coffee Duo: Shopify fixed-bundle product. 1 Classic + 1 Mushroom.
+// Shopify variant price must be $43.99 (currently $49.99 in Shopify — flagged).
+export const BUNDLE_PRICE_DUO = 43.99;
+export const DUO_COMPARE_AT = 48.98;
 
 // ── Subscription discount ────────────────────────────────────────────────────
-// Subscribe & Save = 20% off individual one-time price
-export const SUBSCRIPTION_DISCOUNT = 0.20;
+// Subscribe & Save = 10% off individual one-time price, delivered every 4 weeks
+export const SUBSCRIPTION_DISCOUNT = 0.10;
+export const SUBSCRIPTION_FREQUENCY = 'Every 4 weeks';
+export const SUBSCRIPTION_FREQUENCY_DAYS = 28;
 
 export const SUBSCRIPTION_PRICES = {
-  'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)),   // $15.99
-  'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)), // $18.39
+  'classic-coffee': parseFloat((PRICES['classic-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)),   // $20.69
+  'mushroom-coffee': parseFloat((PRICES['mushroom-coffee'] * (1 - SUBSCRIPTION_DISCOUNT)).toFixed(2)), // $23.39
 };
 
 // ── Welcome discount ─────────────────────────────────────────────────────────
@@ -69,8 +73,7 @@ export function formatPrice(price) {
 }
 
 /**
- * Compute total retail value of N products selected for a bundle.
- * Used to calculate the actual savings dynamically.
+ * Compute total retail value of selected products at one-time prices.
  */
 export function computeRetailTotal(selectedProducts) {
   return selectedProducts.reduce((sum, p) => sum + (getPriceByCategory(p.category)), 0);

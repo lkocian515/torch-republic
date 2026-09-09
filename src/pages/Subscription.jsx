@@ -23,22 +23,22 @@ const BAG_OPTIONS = [1, 2, 3, 4, 5, 6];
 
 const SUB_FAQ = [
   { q: 'Can I change my delivery date?', a: 'Yes — you can move it earlier or later anytime in your account before the shipment processes. Full flexibility, no phone calls needed.' },
-  { q: 'Can I skip a shipment?', a: 'Yes. Just skip a month instead of canceling. Your subscription stays active and resumes the following cycle.' },
+  { q: 'Can I skip a shipment?', a: 'Yes. Just skip a delivery instead of canceling. Your subscription stays active and resumes the following cycle.' },
   { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee and classic coffee however you like.' },
   { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearers Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
   { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
-  { q: 'How many bags can I subscribe to monthly?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
+  { q: 'How many bags can I subscribe to?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
 ];
 
 const STEPS = [
-  { num: '1', title: 'Pick your blends', body: 'Choose your favorite instant coffee or mushroom coffee. Mix and match up to 6 bags per monthly delivery.' },
-  { num: '2', title: 'Set monthly delivery', body: 'Your selection ships every month on your schedule. Adjust the delivery date, skip a month, or swap blends anytime from your account.' },
-  { num: '3', title: 'Save 20% on every order', body: 'The 20% discount applies to every subscription order — not just the first. Pause or cancel in a few clicks, no calls required.' },
+  { num: '1', title: 'Pick your blends', body: 'Choose your favorite instant coffee or mushroom coffee. Mix and match up to 6 bags per delivery.' },
+  { num: '2', title: 'Set your delivery', body: 'Your selection ships every 4 weeks on your schedule. Adjust the delivery date, skip a shipment, or swap blends anytime from your account.' },
+  { num: '3', title: 'Save 10% on every order', body: 'The 10% discount applies to every subscription order — not just the first. Pause or cancel in a few clicks, no calls required.' },
 ];
 
 const PERKS = [
-  { icon: Wallet, label: '20% off every order' },
-  { icon: Calendar, label: 'Delivered monthly' },
+  { icon: Wallet, label: '10% off every order' },
+  { icon: Calendar, label: 'Delivered every 4 weeks' },
   { icon: RefreshCw, label: 'Swap blends anytime' },
   { icon: Repeat, label: 'Pause, skip, or cancel anytime' },
 ];
@@ -93,7 +93,7 @@ export default function Subscription() {
   const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
   const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
   const monthlyPrice = selectedBlends.reduce((s, p) => s + (blendQty[p.slug] || 0) * p.price, 0);
-  const discountedPrice = monthlyPrice * 0.80;
+  const discountedPrice = monthlyPrice * 0.90;
   const savings = monthlyPrice - discountedPrice;
 
   const handleCheckout = async () => {
@@ -118,9 +118,9 @@ export default function Subscription() {
       <section className="px-6 md:px-10 pt-16 pb-14 text-center">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto">
           <p className="eyebrow mb-4" style={{ color: THEME.clay }}>Subscribe &amp; Save</p>
-          <h1 className="h1 mb-4">Save 20% on every order, delivered monthly.</h1>
+          <h1 className="h1 mb-4">Save 10% on every order, delivered every 4 weeks.</h1>
           <p className="body-lg mb-8">
-            Lock in your ritual and skip the reorder stress. The 20% savings apply to every delivery — not just the first. Pause, skip, or cancel anytime from your account.
+            Lock in your ritual and skip the reorder stress. The 10% savings apply to every delivery — not just the first. Pause, skip, or cancel anytime from your account.
           </p>
           <div className="flex flex-col items-center gap-4">
             <a href="#builder" className="btn btn-primary" style={{ minWidth: 260 }}>
@@ -185,6 +185,7 @@ export default function Subscription() {
                     {s === 1 ? 'Bag Count' : s === 2 ? 'Select Blends' : 'Review'}
                   </span>
                 </div>
+
                 {s < 3 && <div className="flex-1 h-px max-w-[60px]" style={{ background: step > s ? `${THEME.clay}55` : THEME.border }} />}
               </React.Fragment>
             ))}
@@ -195,7 +196,7 @@ export default function Subscription() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <div className="text-center mb-8">
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 1 of 3</p>
-                <h2 className="h2">Choose how many bags per month</h2>
+                <h2 className="h2">Choose how many bags per delivery</h2>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {BAG_OPTIONS.map(n => (
@@ -211,10 +212,10 @@ export default function Subscription() {
                   >
                     <span className="font-serif font-bold" style={{ fontSize: '2.2rem', color: bagCount === n ? THEME.clay : THEME.text, lineHeight: 1 }}>{n}</span>
                     <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: THEME.secondary }}>
-                      {n === 1 ? 'Bag' : 'Bags'} / Month
+                      {n === 1 ? 'Bag' : 'Bags'} / Delivery
                     </span>
                     <span className="font-mono text-[10px]" style={{ color: bagCount === n ? THEME.clay : THEME.secondary }}>
-                      from ${(n * 15.99).toFixed(2)}/mo after 20% off
+                      from ${(n * 20.69).toFixed(2)}/delivery after 10% off
                     </span>
                   </button>
                 ))}
@@ -229,7 +230,7 @@ export default function Subscription() {
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 2 of 3</p>
                 <h2 className="h2 mb-1">Select your blends</h2>
                 <p className="body" style={{ fontSize: '0.95rem' }}>
-                  You're building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-bag</span> monthly subscription. Select {bagCount} total bag{bagCount > 1 ? 's' : ''}.
+                  You're building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-bag</span> subscription. Select {bagCount} total bag{bagCount > 1 ? 's' : ''}.
                 </p>
               </div>
 
@@ -298,7 +299,7 @@ export default function Subscription() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <div className="text-center mb-8">
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 3 of 3</p>
-                <h2 className="h2">Review your monthly subscription</h2>
+                <h2 className="h2">Review your subscription</h2>
               </div>
 
               <div className="card-torch p-6 mb-6">
@@ -309,7 +310,7 @@ export default function Subscription() {
                 <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: `1px solid ${THEME.border}` }}>
                   <div>
                     <p className="font-serif font-bold mb-1" style={{ color: THEME.text, fontSize: '1rem' }}>Monthly Coffee Subscription</p>
-                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{bagCount} Bag{bagCount > 1 ? 's' : ''} · Delivered Monthly</p>
+                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{bagCount} Bag{bagCount > 1 ? 's' : ''} · Delivered Every 4 Weeks</p>
                   </div>
                   <div className="text-right">
                     <p className="font-mono text-xs line-through" style={{ color: THEME.secondary }}>${monthlyPrice.toFixed(2)}</p>
@@ -330,9 +331,9 @@ export default function Subscription() {
                 </div>
 
                 <div className="mt-5 pt-5 flex flex-wrap gap-2" style={{ borderTop: `1px solid ${THEME.border}` }}>
-                  <span className="badge-torch">Monthly Delivery</span>
+                  <span className="badge-torch">Every 4 Weeks</span>
                   <span className="badge-torch">Shipping Calculated at Checkout</span>
-                  <span className="badge-torch">{bagCount * 27} Total Servings</span>
+                  <span className="badge-torch">{bagCount * 27} Total Servings Per Delivery</span>
                 </div>
               </div>
 
@@ -369,7 +370,7 @@ export default function Subscription() {
       <section className="px-6 md:px-10 py-16 text-center">
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Ready to make it a ritual?</h2>
-          <p className="body-lg mb-8">Build your monthly subscription in under a minute. Save 20% on every order, cancel anytime.</p>
+          <p className="body-lg mb-8">Build your subscription in under a minute. Save 10% on every order, cancel anytime.</p>
           <a href="#builder" className="btn btn-primary" style={{ minWidth: 260 }}>Build My Subscription</a>
         </div>
       </section>

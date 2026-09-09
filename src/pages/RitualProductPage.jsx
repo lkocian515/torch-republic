@@ -120,10 +120,10 @@ function RitualPDP({ product }) {
   const [tab, setTab] = useState('Ingredients');
   const [justAdded, setJustAdded] = useState(false);
 
-  // NOTE: 20% reflects the CURRENT live Subscribe & Save configured in
-  // Shopify/Recharge. The new 10% / 15% model is deferred until that discount
-  // can be reconciled with the subscription provider (requires Builder+).
-  const subscriptionPrice = product.price * 0.8;
+  // Subscribe & Save: 10% off, delivered every 4 weeks.
+  // No Shopify selling plans exist yet — subscription checkout uses a
+  // discount-code fallback until Shopify Subscriptions is configured.
+  const subscriptionPrice = product.price * 0.9;
   const unitPrice = isSubscription ? subscriptionPrice : product.price;
   const imageUrl = getProductImage(product);
   const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
@@ -251,7 +251,7 @@ function RitualPDP({ product }) {
             </div>
 
             <div className="flex flex-col gap-2">
-              <OptionRow active={isSubscription} onClick={() => setIsSubscription(true)} title="Subscribe & Save 20%" sub="Deliver every 30 days - Pause or cancel anytime" price={`$${subscriptionPrice.toFixed(2)}`} priceColor={THEME.moss} />
+              <OptionRow active={isSubscription} onClick={() => setIsSubscription(true)} title="Subscribe & Save 10%" sub="Delivered every 4 weeks - Pause or cancel anytime" price={`$${subscriptionPrice.toFixed(2)}`} priceColor={THEME.moss} />
               <OptionRow active={!isSubscription} onClick={() => setIsSubscription(false)} title="One-time purchase" sub="Just this order" price={`$${product.price.toFixed(2)}`} priceColor={THEME.text} />
             </div>
 

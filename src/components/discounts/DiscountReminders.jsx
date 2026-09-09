@@ -20,7 +20,7 @@ const DISCOUNTS = [
     icon: Gift,
     title: 'Subscribe & Save',
     code: null,
-    description: '20% off every recurring subscription order',
+    description: '10% off every recurring subscription order',
     color: '#6EBD8E',
     bgColor: 'rgba(110,189,142,0.08)',
     borderColor: 'rgba(110,189,142,0.3)',

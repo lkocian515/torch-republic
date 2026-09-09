@@ -8,7 +8,7 @@
  */
 import { useEffect } from 'react';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
-import { BUNDLE_PRICE_3, SUBSCRIPTION_DISCOUNT } from '@/lib/pricingConfig';
+import { BUNDLE_PRICE_DUO, SUBSCRIPTION_DISCOUNT } from '@/lib/pricingConfig';
 
 const BASE_URL = 'https://torchrepublic.com';
 
@@ -103,7 +103,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is the price of Torch Republic products?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Instant Classic Coffee is $19.99 and Instant Mushroom Coffee is $22.99. Both can be bundled for $${BUNDLE_PRICE_3.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
+            text: `Instant Classic Coffee is $22.99 and Instant Mushroom Coffee is $25.99. Both can be bundled for $${BUNDLE_PRICE_DUO.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
           },
         },
         {

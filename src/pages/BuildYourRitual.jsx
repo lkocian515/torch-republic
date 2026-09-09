@@ -4,7 +4,7 @@ import { Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
-import { BUNDLE_PRICE_3, BUNDLE_PRICE_DUO } from '@/lib/pricingConfig';
+import { BUNDLE_PRICE_DUO, DUO_COMPARE_AT } from '@/lib/pricingConfig';
 
 const RG = '#B86543';
 const THEME = {
@@ -16,9 +16,9 @@ const THEME = {
   border: '#D9CDBA',
 };
 
-const STARTER_BUNDLE_PRICE = BUNDLE_PRICE_DUO; // Coffee Duo: 1 Classic + 1 Mushroom
-const STARTER_REGULAR = CORE_PRODUCTS.reduce((s, p) => s + p.price, 0); // 42.98
-const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // 2.99 savings
+const STARTER_BUNDLE_PRICE = BUNDLE_PRICE_DUO; // Coffee Duo: $43.99
+const STARTER_REGULAR = DUO_COMPARE_AT; // $48.98 retail value
+const STARTER_SAVINGS = STARTER_REGULAR - STARTER_BUNDLE_PRICE; // $4.99 savings
 
 const categoryLabel = (c) =>
   c === 'classic-coffee' ? 'Classic Coffee' : 'Mushroom Coffee';
@@ -126,7 +126,7 @@ export default function BuildYourRitual() {
                     </span>
                   </div>
                   <p className="font-mono text-[9px] mb-5" style={{ color: '#7A6E64' }}>
-                    One of each &middot; 79 servings total &middot; No machine needed
+                    One of each &middot; 54 servings total &middot; No machine needed
                   </p>
                   <button
                     onClick={startStarterRitual}

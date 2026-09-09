@@ -5,8 +5,8 @@ import { RefreshCw, Percent, Package, HeartHandshake } from 'lucide-react';
 const RG = '#E6B7AD';
 
 const PERKS = [
-  { icon: Percent, label: '20% Off Every Order', desc: 'Save automatically on each delivery.' },
-  { icon: Package, label: 'Flexible Delivery', desc: 'Set your schedule — every 2–8 weeks.' },
+  { icon: Percent, label: '10% Off Every Order', desc: 'Save automatically on each delivery.' },
+  { icon: Package, label: 'Every 4 Weeks', desc: 'Delivered on your schedule.' },
   { icon: RefreshCw, label: 'Cancel Anytime', desc: 'No commitments. Pause or cancel easily.' },
   { icon: HeartHandshake, label: 'Priority Support', desc: 'Members get first-access service.' },
 ];
@@ -26,11 +26,11 @@ export default function SubscribeAndSaveSection() {
             <h2 className="font-serif font-bold mb-4"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Never run out.<br />
-              <span style={{ color: RG }}>Save 20% every time.</span>
+              <span style={{ color: RG }}>Save 10% every time.</span>
             </h2>
             <p className="font-heading mb-8"
               style={{ fontSize: '1rem', color: 'rgba(245,239,230,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
-              Coffee is a daily ritual — your supply should be automatic. Subscribe and save 20% on every order, with zero commitment.
+              Coffee is a daily ritual — your supply should be automatic. Subscribe and save 10% on every order, with zero commitment.
             </p>
             <Link
               to="/subscription"

@@ -1,32 +1,34 @@
 /* global Deno */
+/**
+ * SHOPIFY SUBSCRIPTION CHECKOUT
+ *
+ * Verified variant IDs from Shopify Admin API (2026-09-09):
+ *   - Instant Classic Coffee: variant 51245709623548
+ *   - Instant Coffee with Mushrooms: variant 51245706608892
+ *
+ * BLOCKER: No Shopify selling plan groups exist. This function currently
+ * builds a cart permalink with a 10% discount code (SUBSCRIBE10) as a
+ * one-time discount fallback. This is NOT a true recurring subscription.
+ *
+ * True recurring subscriptions require:
+ *   1. Shopify Subscriptions app installed and configured
+ *   2. Selling plan groups created for each product
+ *   3. Selling plan IDs queried and stored in SELLING_PLAN_MAP below
+ *   4. The createShopifyCheckout function updated to pass sellingPlanId
+ *
+ * Subscription terms: 10% off, delivered every 4 weeks.
+ */
 
-// Only the TWO current canonical products are mapped. Matcha and all retired
-// blend slugs (SunCap, MoonCap, DreamCap, Oracle, Mystic Bloom, Ember Rise,
-// Midnight Watch, The Monk, The Ascendant, The Alchemist) have been removed
-// so they can never be sent to Shopify.
-//
-// Variant IDs were set on 2026-06-11 and have NOT been re-verified since
-// matcha removal. They must be confirmed against the live Shopify catalog
-// before COMMERCE_ENABLED is set to true.
 const VARIANT_ID_MAP = {
-  // Classic Coffee
-  'instant-classic-coffee': '49166825160956',
-  // Mushroom Coffee
-  'instant-mushroom-coffee': '50910406050044',
+  'instant-classic-coffee': '51245709623548',
+  'instant-mushroom-coffee': '51245706608892',
 };
 
-// NOTE: These variant IDs are stored for use when commerce is re-enabled.
-// They have not been verified against the live Shopify store since the
-// matcha removal. The frontend gate (COMMERCE_ENABLED = false) prevents
-// this function from being called until verification is complete.
-//
-// SUBSCRIPTION WARNING: This function builds a Shopify cart permalink with
-// ?discount=SUBSCRIBE20. This applies a ONE-TIME discount code — it does
-// NOT create a true recurring subscription. No Shopify selling-plan IDs
-// are used. True recurring subscriptions require Shopify Subscriptions app
-// or Recharge integration, which is not currently configured.
+// Will be populated when Shopify selling plans are configured.
+const SELLING_PLAN_MAP = {};
 
 const SHOP_DOMAIN = 'https://libertees-for-all.myshopify.com';
+const SUBSCRIPTION_DISCOUNT_CODE = 'SUBSCRIBE10';
 
 Deno.serve(async (req) => {
   try {
@@ -36,13 +38,11 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing blendQty' }, { status: 400 });
     }
 
-    // Build cart permalink: /cart/VARIANT_ID:QTY,VARIANT_ID:QTY
     const parts = [];
     for (const [slug, qty] of Object.entries(blendQty)) {
       if (qty > 0) {
         const variantId = VARIANT_ID_MAP[slug];
         if (!variantId) {
-          console.log('Variant not found for slug:', slug);
           continue;
         }
         parts.push(`${variantId}:${qty}`);
@@ -53,17 +53,15 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'No valid products in cart' }, { status: 400 });
     }
 
-    // Use Shopify cart permalink — most reliable, no API auth needed
-    // Append discount code as query param so it auto-applies at checkout
-    const checkoutUrl = `${SHOP_DOMAIN}/cart/${parts.join(',')}?discount=SUBSCRIBE20`;
+    const checkoutUrl = `${SHOP_DOMAIN}/cart/${parts.join(',')}?discount=${SUBSCRIPTION_DISCOUNT_CODE}`;
 
     return Response.json({
       checkoutUrl,
-      discountCode: 'SUBSCRIBE20',
-      message: '20% subscription discount auto-applied (one-time discount code, not a recurring selling plan)',
+      discountCode: SUBSCRIPTION_DISCOUNT_CODE,
+      message: '10% subscription discount applied (one-time discount code, not a recurring selling plan). True recurring subscriptions require Shopify Subscriptions app configuration.',
+      sellingPlansConfigured: Object.keys(SELLING_PLAN_MAP).length > 0,
     });
   } catch (error) {
-    console.log('Subscription checkout error:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });
