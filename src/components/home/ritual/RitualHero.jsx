@@ -7,7 +7,7 @@ import RitualSocialProof from './RitualSocialProof';
 // "Ignite Your Daily Ritual" headline, subheadline, and benefit icons, so no
 // text is rendered on top of it — only the conversion buttons sit below.
 const HERO_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/926ae1e1e_file_0000000057a481fba5334d374caf502f.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/973a216f3_d6877ab3-f800-4087-9a12-4e9ceb1ea5ae.png';
 
 export default function RitualHero() {
   return (
