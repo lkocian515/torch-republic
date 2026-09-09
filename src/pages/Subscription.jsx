@@ -190,7 +190,7 @@ export default function Subscription() {
             ))}
           </div>
 
-          {/* STEP 1: Tube Count */}
+          {/* STEP 1: Bag Count */}
           {step === 1 && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <div className="text-center mb-8">
@@ -214,7 +214,7 @@ export default function Subscription() {
                       {n === 1 ? 'Bag' : 'Bags'} / Month
                     </span>
                     <span className="font-mono text-[10px]" style={{ color: bagCount === n ? THEME.clay : THEME.secondary }}>
-                      from ${(n * 15.99 * 0.80).toFixed(2)}/mo after 20% off
+                      from ${(n * 15.99).toFixed(2)}/mo after 20% off
                     </span>
                   </button>
                 ))}
@@ -229,7 +229,7 @@ export default function Subscription() {
                 <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 2 of 3</p>
                 <h2 className="h2 mb-1">Select your blends</h2>
                 <p className="body" style={{ fontSize: '0.95rem' }}>
-                  You’re building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-tube</span> monthly subscription. Select {bagCount} total tube{bagCount > 1 ? 's' : ''}.
+                  You're building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-bag</span> monthly subscription. Select {bagCount} total bag{bagCount > 1 ? 's' : ''}.
                 </p>
               </div>
 

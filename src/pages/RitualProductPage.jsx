@@ -246,7 +246,7 @@ function RitualPDP({ product }) {
               <span className="font-serif font-bold" style={{ fontSize: '2rem', color: c.deep }}>${unitPrice.toFixed(2)}</span>
               {isSubscription && <span className="font-mono text-sm line-through" style={{ color: THEME.secondary }}>${product.price.toFixed(2)}</span>}
               <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: THEME.secondary }}>
-                ${(unitPrice / product.servings).toFixed(2)} per {product.category === 'matcha' ? 'serving' : 'cup'}
+                ${(unitPrice / product.servings).toFixed(2)} per cup
               </span>
             </div>
 
@@ -340,7 +340,6 @@ function RitualPDP({ product }) {
                   { label: 'Serving size', value: '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
                   { label: 'Format', value: 'Instant - no machine needed' },
-                  ...(product.category === 'matcha' ? [{ label: 'Grade', value: 'Ceremonial grade' }] : []),
                   ...(product.mushrooms ? [{ label: 'Functional ingredients', value: product.mushrooms }] : []),
                   { label: 'Preparation', value: 'Hot or iced' },
                 ].map((row) => (
@@ -385,10 +384,8 @@ function RitualPDP({ product }) {
       </section>
 
       <RitualMomentStrip
-        image={product.category === 'matcha'
-          ? 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png'
-          : 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png'}
-        alt={product.category === 'matcha' ? 'Ceremonial matcha powder whisked into a bowl' : 'Instant coffee flakes stirred into a hot cup'}
+        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
+        alt="Instant coffee flakes stirred into a hot cup"
         accent={c.accent}
         eyebrow="The Ritual"
         title="Your ritual, ready in seconds."
