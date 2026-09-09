@@ -26,7 +26,7 @@ export default function ThisMonthFeature() {
                 }}
               />
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png"
                 alt="This Month's Feature"
                 className="relative z-10 max-w-[300px] w-full object-contain"
                 style={{ opacity: 0.9 }}

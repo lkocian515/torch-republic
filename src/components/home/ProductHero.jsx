@@ -23,7 +23,7 @@ export default function ProductHero() {
           className="relative mb-12 md:mb-16"
         >
           <img
-            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg"
+            src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png"
             alt="Torch Republic Coffee Products - Torchbearer, Glowmind, The Monk"
             className="w-full h-auto object-cover rounded-sm"
             style={{ maxHeight: '500px', aspectRatio: 'auto' }}

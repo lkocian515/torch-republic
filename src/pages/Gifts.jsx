@@ -7,9 +7,9 @@ import { buildRitualKits } from '@/lib/giftKits';
 import GiftKitCard from '@/components/gifts/GiftKitCard';
 
 const RG = '#E6B7AD';
-const BAG_CLASSIC = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
+const BAG_CLASSIC = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png';
 const BAG_MATCHA = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
-const BAG_MUSHROOM = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
+const BAG_MUSHROOM = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png';
 const OG_IMAGE = BAG_CLASSIC;
 
 // FAQ content — kept factual; no gift-wrap/card/scheduled-delivery claims that

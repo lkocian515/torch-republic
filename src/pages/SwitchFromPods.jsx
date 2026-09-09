@@ -41,7 +41,7 @@ const PATHWAYS = [
     servings: 27,
     category: 'classic-coffee',
     accent: '#D6B27A',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
     path: '/shop/instant-coffee',
     cta: 'Shop Instant Coffee',
   },
@@ -55,7 +55,7 @@ const PATHWAYS = [
     servings: 27,
     category: 'mushroom-coffee',
     accent: '#10B981',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
     path: '/products/suncap-rise',
     cta: 'Shop Mushroom Coffee',
     featured: true,
@@ -287,7 +287,7 @@ function StickyBar({ visible }) {
       id: 'suncap-rise',
       name: 'SunCap Rise',
       price: SUNCAP_PRICE,
-      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+      image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
       category: 'mushroom-coffee',
       shopifyHandle: 'suncap-rise',
     });
@@ -560,7 +560,7 @@ export default function SwitchFromPods() {
           >
             <div className="flex-shrink-0 flex items-center justify-center" style={{ width: '160px', height: '160px' }}>
               <img
-                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg"
+                src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png"
                 alt="SunCap Rise mushroom coffee by Torch Republic"
                 loading="lazy"
                 width="160"

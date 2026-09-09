@@ -6,7 +6,7 @@ const COLLECTIONS = [
   {
     title: 'Founders Series',
     description: 'Collectible small-batch blends named for the men who built America.',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
     route: '/CoffeeCollection',
     comingSoon: false,
     accent: '#C8A44D',
@@ -14,7 +14,7 @@ const COLLECTIONS = [
   {
     title: 'Liberty Icons',
     description: 'Bold blends inspired by the symbols of American freedom.',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
     route: '/LibertyIcons',
     comingSoon: false,
     accent: '#9BB8CC',

@@ -58,7 +58,7 @@ const RESULTS = {
     productDescription: "Lion's Mane and Chaga infused coffee to lock you into flow state.",
     ctaLabel: 'Optimize Your Focus — Shop GlowMind',
     buyUrl: 'https://torchrepublic.com/products/glowmind-clarity-blend',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
   },
   MoonCap: {
     blend: 'MoonCap',
@@ -68,7 +68,7 @@ const RESULTS = {
     productDescription: 'A calming, restorative mushroom blend designed to down-regulate your nervous system.',
     ctaLabel: 'Optimize Your Recovery — Shop MoonCap',
     buyUrl: 'https://torchrepublic.com/products/mooncap-restore',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
   },
 };
 

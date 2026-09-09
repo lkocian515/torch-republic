@@ -74,7 +74,7 @@ export const CORE_PRODUCTS = [
     path: '/products/instant-classic-coffee',
     collectionPath: '/products/instant-classic-coffee',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
   }),
   build({
     id: 'instant-mushroom-coffee',
@@ -101,7 +101,7 @@ export const CORE_PRODUCTS = [
     path: '/products/instant-mushroom-coffee',
     collectionPath: '/products/instant-mushroom-coffee',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
   }),
 ];
 

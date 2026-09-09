@@ -14,7 +14,7 @@ const CATEGORIES = [
     cta: 'Shop Classic Coffee',
     href: '/classic-coffee',
     accent: '#C4A35A',
-    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg',
+    image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
   },
   {
     icon: Leaf,

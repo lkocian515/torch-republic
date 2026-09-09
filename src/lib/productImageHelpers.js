@@ -12,8 +12,8 @@ export const PRODUCT_IMAGE_DRAG_PREVENTION_PROPS = {
 // Retired-only products (SunCap, MoonCap, Ember Reserve, The Monk) are
 // intentionally absent so they can NEVER borrow a current bag image — they
 // fall back to the logo, since they should not render publicly at all.
-const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d91192b7_tcr_coffee_blank_final_latestdd3.jpeg';
-const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4262eaf1c_tcr_coffee_blank_final_latest3r.jpeg';
+const CLASSIC_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png';
+const MUSHROOM_IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png';
 
 export const APPROVED_PRODUCT_IMAGES = {
   // Instant Classic Coffee (canonical + active Shopify handle + legacy keys)
