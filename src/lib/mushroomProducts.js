@@ -1,12 +1,10 @@
-// Canonical active product catalog — exactly THREE current products.
+// Canonical active product catalog — exactly TWO current products.
 //
-// Retired products (SunCap Rise, GlowMind Clarity, MoonCap Restore, Torchbearer,
-// Ember Reserve, The Alchemist, The Monk) have been removed from the data
-// source entirely — not hidden. Any component that imports MUSHROOM_PRODUCTS,
-// CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS, or ALL_PRODUCTS now receives only
-// the three current products, so retired names cannot reappear in the shop,
-// bundle builder, cart recommendations, search, related-product lists,
-// recently viewed, or cached product data.
+// Matcha has been fully retired from the catalog. Any component that imports
+// MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS, or ALL_PRODUCTS
+// now receives only the two current coffee products, so matcha cannot reappear
+// in the shop, bundle builder, cart recommendations, search, related-product
+// lists, recently viewed, or cached product data.
 //
 // Customer-facing fields (name, slug, id) use the clean canonical values that
 // match lib/coreProducts.js. The internal `shopifyHandle` is preserved only for
@@ -22,7 +20,7 @@ export const FINAL_PRODUCT_IMAGE_URLS = {
 
 const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, tagline, description, flavorNotes, tasteDescription, bestFor, mushrooms, servings, price, shopifyHandle, accent, category, keyBenefits }) => {
   const image = FINAL_PRODUCT_IMAGE_URLS[slug];
-  const categoryText = category === 'matcha' ? 'ceremonial matcha' : category === 'classic-coffee' ? 'classic instant coffee' : 'mushroom coffee';
+  const categoryText = category === 'classic-coffee' ? 'classic instant coffee' : 'mushroom coffee';
   return {
     id,
     name,
@@ -49,7 +47,7 @@ const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, t
     gallery: [image],
     galleryImages: [image],
     images: [image],
-    alt: category === 'matcha' ? 'Torch Republic Ceremonial Matcha white stand-up pouch.' : `${name} ${categoryText} by Torch Republic`,
+    alt: `${name} ${categoryText} by Torch Republic`,
     price,
     shopifyHandle,
     accent,
@@ -102,32 +100,12 @@ const MUSHROOM = product({
   keyBenefits: ['Focus', 'Lion’s Mane + Chaga', '27 Servings', 'Balanced Coffee'],
 });
 
-const MATCHA = product({
-  id: 'ceremonial-matcha',
-  name: 'Ceremonial Matcha',
-  slug: 'ceremonial-matcha',
-  roast: 'Matcha',
-  roastIntensity: 4,
-  caffeineLevel: 'medium',
-  mood: 'Creation · Experimentation · Everyday ritual',
-  tagline: 'I create.',
-  description: 'A ceremonial matcha made for lattes, iced drinks, and everyday exploration. Whisk it with water or make the ritual your own.',
-  flavorNotes: ['Ceremonial Matcha', 'Bright', 'Versatile'],
-  tasteDescription: 'Bright ceremonial matcha with a versatile, latte-friendly profile.',
-  bestFor: 'Matcha lattes, iced drinks, and creative rituals',
-  mushrooms: 'None - ceremonial matcha',
-  servings: 25,
-  price: 24.99,
-  shopifyHandle: 'the-alchemist-matcha',
-  accent: '#5E7A3E',
-  category: 'matcha',
-  keyBenefits: ['Ceremonial Matcha', '25 Servings', 'Hot or Iced', 'Latte Friendly'],
-});
-
+// Matcha product has been retired — MATCHA_PRODUCTS is kept as an empty
+// array for backward compatibility with components that import it.
 export const MUSHROOM_PRODUCTS = [MUSHROOM];
 export const CLASSIC_COFFEE_PRODUCTS = [CLASSIC];
-export const MATCHA_PRODUCTS = [MATCHA];
-export const ALL_PRODUCTS = [CLASSIC, MUSHROOM, MATCHA];
+export const MATCHA_PRODUCTS = [];
+export const ALL_PRODUCTS = [CLASSIC, MUSHROOM];
 
 export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/423d68cdd_hhbiiui.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;

@@ -15,12 +15,10 @@ import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 import RitualProductGallery from '@/components/products/RitualProductGallery';
 
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
-const MATCHA_POWDER = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a5112999_generated_image.png';
 
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': null,
   'classic-coffee': null,
-  matcha: null,
 };
 
 // Extra gallery images per category (the real bag is always image #0).
@@ -34,16 +32,11 @@ const GALLERY_EXTRA = {
     images: [COFFEE_FLAKES],
     alts: ['Instant coffee flakes — what is inside the bag'],
   },
-  matcha: {
-    images: [MATCHA_POWDER],
-    alts: ['Ceremonial matcha powder — what is inside the bag'],
-  },
 };
 
 const LIFESTYLE_COPY = {
   'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane and Chaga meet smooth instant coffee. Just add hot water." },
   'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
-  matcha: { eyebrow: 'Brewed for calm focus', title: 'Ceremonial matcha, in a real cup.', subtitle: 'Vibrant and whiskable — dissolves instantly. No whisk required.' },
 };
 import { useSEO } from '@/hooks/useSEO';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
@@ -68,7 +61,6 @@ const TRUST = [
 
 // Verified ingredient lists (matches live BlendDetail copy — no invented claims).
 const INGREDIENTS = {
-  matcha: '100% ceremonial grade matcha. No artificial colors, flavors, or preservatives.',
   'classic-coffee':
     '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.',
   'mushroom-coffee':
@@ -97,10 +89,7 @@ function faqsFor(p) {
     { q: 'How many servings are included?', a: `${p.servings} servings per bag.` },
     {
       q: 'Does it contain caffeine?',
-      a:
-        p.category === 'matcha'
-          ? 'Yes, ceremonial matcha contains naturally occurring caffeine.'
-          : 'Yes, these blends contain caffeine from the premium instant coffee base.',
+      a: 'Yes, these blends contain caffeine from the premium instant coffee base.',
     },
   ];
 }
@@ -113,7 +102,10 @@ export default function RitualProductPage() {
   const product = getProductBySlug(slug);
   if (!product) {
     const redirect = LEGACY_SLUG_REDIRECT[slug];
-    if (redirect) return <Navigate to={`/products/${redirect}`} replace />;
+    if (redirect) {
+      if (redirect === 'shop') return <Navigate to="/shop" replace />;
+      return <Navigate to={`/products/${redirect}`} replace />;
+    }
     // Order-linked / truly unknown slugs defer to the existing template unchanged.
     return <BlendDetail />;
   }

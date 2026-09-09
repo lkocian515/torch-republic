@@ -59,8 +59,8 @@ function NewsletterSignup() {
 
 export default function MushroomShop() {
   useSEO({
-    title: 'Shop Instant Coffee, Mushroom Coffee & Matcha | Torch Republic',
-    description: 'Three simple rituals: instant classic coffee, ceremonial matcha, and instant mushroom coffee. Choose the morning you want.',
+    title: 'Shop Instant Coffee & Mushroom Coffee | Torch Republic',
+    description: 'Two simple rituals: instant classic coffee and instant mushroom coffee. Choose the morning you want.',
     url: '/shop',
     type: 'website',
     noindex: false,
@@ -84,7 +84,7 @@ export default function MushroomShop() {
             The lineup.
           </motion.h1>
           <p className="mx-auto mt-5 max-w-xl font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Three rituals. Coffee, matcha, or mushrooms. No catalog to get lost in — just the morning you want.
+            Two rituals. Classic coffee or mushroom coffee. No catalog to get lost in — just the morning you want.
           </p>
         </div>
       </section>

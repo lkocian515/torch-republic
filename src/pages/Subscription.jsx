@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronDown, ChevronUp, Check, RefreshCw, Calendar, Wallet, Repeat } from 'lucide-react';
-import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS, MATCHA_PRODUCTS } from '../lib/mushroomProducts';
+import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
 import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import { guardExternalPurchase } from '@/lib/purchaseFallback';
 import DiscountReminders from '../components/discounts/DiscountReminders';
@@ -90,7 +90,7 @@ export default function Subscription() {
 
   const resetSelections = () => { setBlendQty({}); };
 
-  const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS, ...MATCHA_PRODUCTS];
+  const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
   const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
   const AVG_PRICE = 22.99;
   const monthlyPrice = tubeCount ? tubeCount * AVG_PRICE : 0;
@@ -246,7 +246,7 @@ export default function Subscription() {
               {[
                 { label: 'Mushroom Coffee', products: MUSHROOM_PRODUCTS },
                 { label: 'Classic Coffee', products: CLASSIC_COFFEE_PRODUCTS },
-                { label: 'Ceremonial Matcha', products: MATCHA_PRODUCTS },
+          
               ].map(group => (
                 <div key={group.label} className="mb-6">
                   <p className="eyebrow mb-3" style={{ color: THEME.secondary }}>{group.label}</p>

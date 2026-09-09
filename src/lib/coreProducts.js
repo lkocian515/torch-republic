@@ -125,14 +125,14 @@ export const LEGACY_SLUG_REDIRECT = {
   'suncap-rise-instant-mushroom-coffee': 'instant-mushroom-coffee',
   'mooncap-restore': 'instant-mushroom-coffee',
   'mooncap-restore-instant-mushroom-coffee': 'instant-mushroom-coffee',
-  // → Retired matcha slugs redirect to shop
-  'ceremonial-matcha': 'instant-classic-coffee',
-  'the-alchemist': 'instant-classic-coffee',
-  'the-alchemist-matcha-blend': 'instant-classic-coffee',
-  'the-alchemist-matcha': 'instant-classic-coffee',
-  'the-monk': 'instant-classic-coffee',
-  'the-monk-matcha-blend': 'instant-classic-coffee',
-  'the-monk-matcha': 'instant-classic-coffee',
+  // → Retired matcha slugs redirect to /shop
+  'ceremonial-matcha': 'shop',
+  'the-alchemist': 'shop',
+  'the-alchemist-matcha-blend': 'shop',
+  'the-alchemist-matcha': 'shop',
+  'the-monk': 'shop',
+  'the-monk-matcha-blend': 'shop',
+  'the-monk-matcha': 'shop',
 };
 
 export const getProductBySlug = (slug) => CORE_PRODUCTS.find((p) => p.slug === slug);
