@@ -12,6 +12,7 @@ const GRANULE_IMAGES = {
 const PRODUCTS = [
   {
     id: 'instant-classic-coffee',
+    ritualKey: 'classic',
     index: '01',
     label: 'CLASSIC',
     name: 'Instant Classic Coffee',
@@ -20,6 +21,7 @@ const PRODUCTS = [
   },
   {
     id: 'instant-mushroom-coffee',
+    ritualKey: 'mushroom',
     index: '02',
     label: 'MUSHROOM',
     name: 'Instant Mushroom Coffee',
@@ -83,29 +85,23 @@ export default function DriftComparison() {
       delay: 0.1,
     });
 
-    // ── Image clip reveals ──
-    const imgSelector = mobile ? '.cmp-m-img' : '.cmp-d-img';
-    const innerSelector = mobile ? '.cmp-m-img-inner' : '.cmp-d-img-inner';
-
-    gsap.set(imgSelector, { clipPath: 'inset(0% 0% 100% 0%)' });
-    gsap.set(innerSelector, { scale: 1.04 });
-
+    // ── Image clip reveals (fromTo for fail-safety: if selector misses, image stays visible) ──
     const imgTl = gsap.timeline({
       scrollTrigger: { trigger: mobile ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 82%' },
     });
 
     if (mobile) {
       imgTl
-        .to('.cmp-m-img-classic', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' })
-        .to('.cmp-m-img-inner-classic', { scale: 1, duration: 1.0, ease: 'power3.out' }, 0)
-        .to('.cmp-m-img-mushroom', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' }, 0.15)
-        .to('.cmp-m-img-inner-mushroom', { scale: 1, duration: 1.0, ease: 'power3.out' }, 0.15);
+        .fromTo('.cmp-m-img-classic', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' })
+        .fromTo('.cmp-m-img-inner-classic', { scale: 1.04 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0)
+        .fromTo('.cmp-m-img-mushroom', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' }, 0.15)
+        .fromTo('.cmp-m-img-inner-mushroom', { scale: 1.04 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0.15);
     } else {
       imgTl
-        .to('.cmp-d-img-classic', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' })
-        .to('.cmp-d-img-inner-classic', { scale: 1, duration: 1.1, ease: 'power3.out' }, 0)
-        .to('.cmp-d-img-mushroom', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' }, 0.1)
-        .to('.cmp-d-img-inner-mushroom', { scale: 1, duration: 1.1, ease: 'power3.out' }, 0.1);
+        .fromTo('.cmp-d-img-classic', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' })
+        .fromTo('.cmp-d-img-inner-classic', { scale: 1.04 }, { scale: 1, duration: 1.1, ease: 'power3.out' }, 0)
+        .fromTo('.cmp-d-img-mushroom', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' }, 0.1)
+        .fromTo('.cmp-d-img-inner-mushroom', { scale: 1.04 }, { scale: 1, duration: 1.1, ease: 'power3.out' }, 0.1);
     }
 
     // ── Labels + names ──
@@ -178,8 +174,8 @@ export default function DriftComparison() {
             {PRODUCTS.map((p) => (
               <div key={p.id}>
                 <div className="cmp-d-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface }}>
-                  <div className={`cmp-d-img-inner cmp-d-img-inner-${p.id}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
-                    <img className={`cmp-d-img cmp-d-img-${p.id}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <div className={`cmp-d-img-inner cmp-d-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
+                    <img className={`cmp-d-img cmp-d-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
                 </div>
                 <p className={`cmp-d-label cmp-d-label-${p.id}`} style={{ ...labelStyle, margin: '1.25rem 0 0.5rem' }}>{p.index} / {p.label}</p>
@@ -221,8 +217,8 @@ export default function DriftComparison() {
               <div key={p.id}>
                 {/* Image */}
                 <div className="cmp-m-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface }}>
-                  <div className={`cmp-m-img-inner cmp-m-img-inner-${p.id}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
-                    <img className={`cmp-m-img cmp-m-img-${p.id}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <div className={`cmp-m-img-inner cmp-m-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
+                    <img className={`cmp-m-img cmp-m-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
                 </div>
 
