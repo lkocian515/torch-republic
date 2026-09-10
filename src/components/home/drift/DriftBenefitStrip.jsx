@@ -1,29 +1,45 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Coffee, Clock, Ban, Feather } from 'lucide-react';
-import { D, MONO, fadeUp } from './driftTheme';
+import { D, MONO } from './driftTheme';
+import { useDriftMotion } from './useDriftMotion';
 
-const BENEFITS = [
-  { icon: Coffee, label: 'Single-Origin Coffee' },
-  { icon: Clock, label: 'Ready in Seconds' },
-  { icon: Ban, label: 'No Pods' },
-  { icon: Feather, label: 'No Machine' },
+const ITEMS = [
+  'Single-Origin Coffee',
+  'Ready in Seconds',
+  'No Pods',
+  'No Machine',
+  'Made for Real Mornings',
 ];
 
-export default function DriftBenefitStrip() {
+function MarqueeSet() {
   return (
-    <section style={{ background: D.cream, borderBottom: `1px solid ${D.rule}` }}>
-      <div className="mx-auto max-w-[1100px] px-6 py-6">
-        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2">
-          {BENEFITS.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center justify-center gap-2.5">
-              <Icon size={18} strokeWidth={1.5} style={{ color: D.terracotta }} />
-              <span style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: D.ink, whiteSpace: 'nowrap' }}>
-                {label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
+    <div className="flex items-center flex-shrink-0" aria-hidden="true">
+      {ITEMS.map((item) => (
+        <span key={item} className="flex items-center">
+          <span style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600, color: D.ink, whiteSpace: 'nowrap', padding: '0 1.5rem' }}>
+            {item}
+          </span>
+          <span style={{ color: D.terracotta, fontSize: '0.7rem' }}>&bull;</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default function DriftBenefitStrip() {
+  const scope = useDriftMotion((gsap) => {
+    gsap.to('.marquee-track', {
+      xPercent: -50,
+      duration: 32,
+      ease: 'none',
+      repeat: -1,
+    });
+  });
+
+  return (
+    <section ref={scope} style={{ background: D.cream, overflow: 'hidden', borderTop: `1px solid ${D.rule}`, borderBottom: `1px solid ${D.rule}` }}>
+      <div className="marquee-track flex items-center py-3.5" style={{ width: 'max-content' }}>
+        <MarqueeSet />
+        <MarqueeSet />
       </div>
     </section>
   );
