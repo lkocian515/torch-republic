@@ -32,7 +32,7 @@ export default function CommerceSystem() {
                 gap: '1rem',
                 background: P.surface,
                 border: `1px solid ${P.rule}`,
-                borderRadius: '12px',
+                borderRadius: '8px',
                 padding: '0.85rem 1.1rem',
               }}
             >
@@ -41,7 +41,7 @@ export default function CommerceSystem() {
                 <span style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.95rem', color: P.ink }}>{l.label}</span>
               </div>
               {l.ai && (
-                <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, background: P.accentSoft, borderRadius: '6px', padding: '0.3rem 0.6rem', flexShrink: 0, whiteSpace: 'nowrap' }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, background: P.accentSoft, borderRadius: '4px', padding: '0.3rem 0.6rem', flexShrink: 0, whiteSpace: 'nowrap' }}>
                   AI-assisted
                 </span>
               )}

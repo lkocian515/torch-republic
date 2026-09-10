@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
-import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
+import { SectionWrap, Eyebrow, SectionHeading, Lead, SubLabel, BodyText, Pill } from './PortfolioPrimitives';
+import { P, FONT_SANS } from './portfolioTheme';
 
 // Second, smaller case study demonstrating that the QA methodology transfers
 // beyond a single website. Derived from verified work performed during the
@@ -31,6 +31,13 @@ const CASE = {
   ],
 };
 
+const SECTIONS = [
+  { label: 'The Problem', body: CASE.problem },
+  { label: 'What I Found', body: CASE.found },
+  { label: 'What I Changed', body: CASE.changed },
+  { label: 'Verification', body: CASE.verification },
+];
+
 export default function AiOutputValidation() {
   return (
     <SectionWrap id="second-case-study">
@@ -42,71 +49,33 @@ export default function AiOutputValidation() {
         This example shows how I caught and corrected AI-introduced errors in global SEO identity.
       </Lead>
 
-      {/* Problem */}
-      <div className="mt-9">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>The Problem</h3>
-        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.7, color: P.secondary, marginTop: '0.5rem', maxWidth: '68ch' }}>
-          {CASE.problem}
-        </p>
-      </div>
-
-      {/* What I Tested */}
-      <div className="mt-7">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>What I Tested</h3>
-        <ul className="mt-3 m-0 p-0 list-none flex flex-col gap-2">
+      {/* What I Tested — list format */}
+      <div className="mt-9" style={{ borderLeft: `2px solid ${P.accent}`, paddingLeft: '1.25rem' }}>
+        <SubLabel>What I Tested</SubLabel>
+        <ul className="mt-2.5 m-0 p-0 list-none flex flex-col gap-1.5">
           {CASE.tested.map((t) => (
             <li key={t} style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.6, color: P.secondary, display: 'flex', gap: '0.6rem' }}>
-              <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">—</span>
+              <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">&mdash;</span>
               <span>{t}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* What I Found */}
-      <div className="mt-7">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>What I Found</h3>
-        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.7, color: P.secondary, marginTop: '0.5rem', maxWidth: '68ch' }}>
-          {CASE.found}
-        </p>
-      </div>
-
-      {/* What I Changed */}
-      <div className="mt-7">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>What I Changed</h3>
-        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.7, color: P.secondary, marginTop: '0.5rem', maxWidth: '68ch' }}>
-          {CASE.changed}
-        </p>
-      </div>
-
-      {/* Verification */}
-      <div className="mt-7">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>Verification</h3>
-        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.7, color: P.secondary, marginTop: '0.5rem', maxWidth: '68ch' }}>
-          {CASE.verification}
-        </p>
-      </div>
+      {/* Narrative sections with consistent left-border structure */}
+      {SECTIONS.map((sec) => (
+        <div key={sec.label} className="mt-7" style={{ borderLeft: `2px solid ${P.rule}`, paddingLeft: '1.25rem' }}>
+          <SubLabel>{sec.label}</SubLabel>
+          <BodyText>{sec.body}</BodyText>
+        </div>
+      ))}
 
       {/* Skills Demonstrated */}
-      <div className="mt-7">
-        <h3 style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: 0 }}>Skills Demonstrated</h3>
+      <div className="mt-7" style={{ borderLeft: `2px solid ${P.rule}`, paddingLeft: '1.25rem' }}>
+        <SubLabel>Skills Demonstrated</SubLabel>
         <div className="mt-3 flex flex-wrap gap-2">
           {CASE.skills.map((s) => (
-            <span
-              key={s}
-              style={{
-                fontFamily: FONT_SANS,
-                fontSize: '0.82rem',
-                fontWeight: 500,
-                color: P.ink,
-                background: P.surface,
-                border: `1px solid ${P.rule}`,
-                borderRadius: '6px',
-                padding: '0.4rem 0.75rem',
-              }}
-            >
-              {s}
-            </span>
+            <Pill key={s}>{s}</Pill>
           ))}
         </div>
       </div>

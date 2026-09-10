@@ -88,7 +88,7 @@ export function Card({ children, pad = '1.5rem', style }) {
       style={{
         background: P.surface,
         border: `1px solid ${P.rule}`,
-        borderRadius: '10px',
+        borderRadius: '8px',
         padding: pad,
         height: '100%',
         ...style,
@@ -109,11 +109,69 @@ export function Pill({ children }) {
         color: P.ink,
         background: P.surface,
         border: `1px solid ${P.rule}`,
-        borderRadius: '6px',
-        padding: '0.45rem 0.9rem',
+        borderRadius: '4px',
+        padding: '0.4rem 0.85rem',
       }}
     >
       {children}
     </span>
+  );
+}
+
+// Mono uppercase label for sub-sections within a case study.
+// Replaces duplicated inline styles across AiOutputValidation, QaEvidence, DefectCard.
+export function SubLabel({ children }) {
+  return (
+    <h3
+      style={{
+        fontFamily: FONT_MONO,
+        fontSize: '0.68rem',
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        fontWeight: 700,
+        color: P.accent,
+        margin: 0,
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
+
+// Numbered sans heading for structured case study sections (e.g. "1. The Challenge").
+export function SubHeading({ children }) {
+  return (
+    <h3
+      style={{
+        fontFamily: FONT_SANS,
+        fontWeight: 700,
+        fontSize: '1.1rem',
+        color: P.ink,
+        margin: 0,
+        letterSpacing: '-0.005em',
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
+
+// Standard body paragraph for case study sections — consistent size, leading,
+// and measure across all sections.
+export function BodyText({ children, style }) {
+  return (
+    <p
+      style={{
+        fontFamily: FONT_SANS,
+        fontSize: '0.95rem',
+        lineHeight: 1.7,
+        color: P.secondary,
+        margin: '0.6rem 0 0',
+        maxWidth: '66ch',
+        ...style,
+      }}
+    >
+      {children}
+    </p>
   );
 }

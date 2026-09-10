@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionWrap, Eyebrow, SectionHeading, Lead, Card } from './PortfolioPrimitives';
+import { SectionWrap, Eyebrow, SectionHeading, Lead, Card, SubLabel } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
 
 // Real examples from the project. Outcomes are qualitative only — no
@@ -16,19 +16,19 @@ const EXAMPLES = [
   },
   {
     title: 'Legacy product names at checkout',
-    problem: 'The cart showed retired product names (for example “SunCap Rise”) instead of the current catalog names.',
+    problem: 'The cart showed retired product names (for example &ldquo;SunCap Rise&rdquo;) instead of the current catalog names.',
     evidence: 'Adding items from collection pages passed legacy catalog data into the cart.',
     hypothesis: 'The collection grids still fed the retired catalog into the cart instead of the current two-product catalog.',
     change: 'Simplified collection grids to the two core products and redirected legacy product links to the current product pages.',
     validation: 'Re-added items from collection pages and confirmed the cart names matched the public catalog.',
-    outcome: 'Cart and checkout naming aligned with the storefront’s current product model.',
+    outcome: 'Cart and checkout naming aligned with the storefront&rsquo;s current product model.',
   },
   {
     title: 'Discontinued category routes',
     problem: 'Legacy apparel and category URLs led to dead or stale pages.',
     evidence: 'Those routes returned 404s or outdated content instead of a clean destination.',
     hypothesis: 'Categories had been retired without redirect handling, leaving orphaned routes.',
-    change: 'Added 301 redirects to the closest relevant pages and 410 “gone” responses for truly discontinued categories.',
+    change: 'Added 301 redirects to the closest relevant pages and 410 &ldquo;gone&rdquo; responses for truly discontinued categories.',
     validation: 'Re-tested the legacy URLs to confirm each resolves to a correct, intentional destination.',
     outcome: 'Clean handling for both users and search engines on retired routes.',
   },
@@ -53,14 +53,14 @@ export default function QaEvidence() {
       <div className="mt-9 grid grid-cols-1 lg:grid-cols-3 gap-4 items-stretch">
         {EXAMPLES.map((ex) => (
           <Card key={ex.title} pad="1.5rem">
-            <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1rem', color: P.ink, margin: '0 0 1rem', lineHeight: 1.3 }}>{ex.title}</h3>
+            <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.05rem', color: P.ink, margin: '0 0 1.1rem', lineHeight: 1.3 }}>{ex.title}</h3>
             <dl className="m-0 flex flex-col gap-2.5">
               {ROWS.map(([label, key]) => (
-                <div key={label} style={{ display: 'flex', gap: '0.75rem' }}>
-                  <dt style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, flexShrink: 0, width: '4.6rem', paddingTop: '0.12rem' }}>
+                <div key={label} style={{ display: 'flex', gap: '0.85rem' }}>
+                  <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, flexShrink: 0, width: '4.8rem', paddingTop: '0.1rem' }}>
                     {label}
                   </dt>
-                  <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.85rem', lineHeight: 1.55, color: P.secondary }}>
+                  <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.55, color: P.secondary }}>
                     {ex[key]}
                   </dd>
                 </div>

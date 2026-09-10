@@ -38,15 +38,15 @@ export default function QaMethodology() {
             style={{
               background: P.surface,
               border: `1px solid ${P.rule}`,
-              borderRadius: '12px',
+              borderRadius: '8px',
               padding: '1.75rem 1.5rem',
             }}
           >
             <div className="flex items-baseline gap-3">
               <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accent }}>{p.n}</span>
-              <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.25rem', color: P.ink, margin: 0 }}>{p.title}</h3>
+              <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.2rem', color: P.ink, margin: 0 }}>{p.title}</h3>
             </div>
-            <p style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.92rem', color: P.accentInk, margin: '0.85rem 0 0.65rem', lineHeight: 1.4 }}>
+            <p style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9rem', color: P.accentInk, margin: '0.85rem 0 0.65rem', lineHeight: 1.4 }}>
               {p.question}
             </p>
             <p style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.65, color: P.secondary, margin: 0 }}>
