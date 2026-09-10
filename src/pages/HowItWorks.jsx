@@ -5,6 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import HowToUse from '../components/mushroom/HowToUse';
 import WhyInstant from '../components/mushroom/WhyInstant';
 import GettingStartedGuide from '../components/mushroom/GettingStartedGuide';
+import DriftRitualBuilder from '../components/home/drift/DriftRitualBuilder';
 
 const PAGE = '#F8F5EF';
 const TEXT = '#3F3027';
@@ -15,7 +16,7 @@ const CLAY = '#B86543';
 export default function HowItWorks() {
   useSEO({
     title: 'How It Works | Torch Republic Coffee Company',
-    description: 'Learn how to prepare Torch Republic instant coffee, mushroom coffee, and ceremonial matcha. Scoop, mix with hot or cold water, stir, and enjoy your daily ritual in seconds. No machine needed.',
+    description: 'Learn how to prepare Torch Republic instant coffee and mushroom coffee. Scoop, mix with hot or cold water, stir, and enjoy your daily ritual in seconds. No machine needed.',
   });
   return (
     <div style={{ backgroundColor: PAGE, color: TEXT, minHeight: '100vh' }}>
@@ -30,13 +31,14 @@ export default function HowItWorks() {
             Simple. Instant. Intentional.
           </h1>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: BODY, lineHeight: 1.85, fontWeight: 300 }}>
-            Premium instant coffee, mushroom coffee, and matcha designed for people who want an elevated ritual without the complexity of brewing.
+            Premium instant coffee and mushroom coffee designed for people who want an elevated ritual without the complexity of brewing.
           </p>
         </motion.div>
       </section>
       <HowToUse />
       <WhyInstant />
       <GettingStartedGuide />
+      <DriftRitualBuilder />
       <section className="px-6 py-20 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.22)' }}>
         <Link to="/shop"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"

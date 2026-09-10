@@ -9,13 +9,13 @@ import { useDriftMotion, prefersReducedMotion } from './useDriftMotion';
 const RITUALS = {
   classic: {
     hot: [
-      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 2g) of Instant Classic Coffee to your favorite mug.' },
+      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 3g) of Instant Classic Coffee to your favorite mug.' },
       { step: '02', title: 'Pour', detail: 'Add 8oz of hot water, just off the boil (about 200\u00b0F).' },
       { step: '03', title: 'Stir', detail: 'Stir thoroughly for 10\u201315 seconds until fully dissolved.' },
       { step: '04', title: 'Sip', detail: 'Enjoy your bold, smooth cup of single-origin coffee.' },
     ],
     iced: [
-      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 2g) of Instant Classic Coffee to a glass.' },
+      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 3g) of Instant Classic Coffee to a glass.' },
       { step: '02', title: 'Dissolve', detail: 'Pour in 2oz of hot water and stir until fully dissolved.' },
       { step: '03', title: 'Build Over Ice', detail: 'Add 6oz of cold water over a cup of ice.' },
       { step: '04', title: 'Sip', detail: 'Enjoy a bold, refreshing iced coffee.' },
@@ -23,13 +23,13 @@ const RITUALS = {
   },
   mushroom: {
     hot: [
-      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 2g) of Instant Mushroom Coffee to your mug.' },
+      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 3g) of Instant Mushroom Coffee to your mug.' },
       { step: '02', title: 'Pour', detail: 'Add 8oz of hot water, just off the boil (about 200\u00b0F).' },
       { step: '03', title: 'Stir', detail: 'Stir well for 15 seconds \u2014 mushroom extracts need a moment to fully dissolve.' },
       { step: '04', title: 'Sip', detail: 'Sip slowly and settle into your focus.' },
     ],
     iced: [
-      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 2g) of Instant Mushroom Coffee to a glass.' },
+      { step: '01', title: 'Scoop', detail: 'Add 1 teaspoon (about 3g) of Instant Mushroom Coffee to a glass.' },
       { step: '02', title: 'Dissolve', detail: 'Pour in 2oz of hot water and stir until fully dissolved.' },
       { step: '03', title: 'Build Over Ice', detail: 'Add 6oz of cold water over a cup of ice.' },
       { step: '04', title: 'Sip', detail: 'Enjoy a smooth, focused iced coffee.' },
@@ -108,7 +108,7 @@ export default function DriftRitualBuilder() {
                 }}
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <img src={p.image} alt={p.alt} style={{ width: 44, height: 44, objectFit: 'contain', mixBlendMode: 'multiply', flexShrink: 0 }} />
+                  <img src={p.image} alt={p.alt} style={{ width: 44, height: 44, objectFit: 'contain', flexShrink: 0 }} />
                   <div className="min-w-0">
                     <p style={{ fontFamily: SANS, fontWeight: 700, fontSize: '0.8125rem', color: D.ink, lineHeight: 1.3, margin: 0 }}>{p.name}</p>
                     <p style={{ fontFamily: MONO, fontSize: '0.5625rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: D.secondary, margin: '2px 0 0' }}>{p.caffeineLabel} Caffeine</p>
@@ -124,7 +124,7 @@ export default function DriftRitualBuilder() {
         <div ref={guideRef} className="br-guide" style={{ borderRadius: '12px', overflow: 'hidden', background: D.paper, border: `1px solid ${D.rule}` }}>
           {/* Product image banner */}
           <div className="flex items-center justify-center py-8" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft} 0%, ${D.paper} 70%)` }}>
-            <img src={product.image} alt={product.alt} style={{ width: '28%', maxWidth: 120, mixBlendMode: 'multiply', objectFit: 'contain' }} />
+            <img src={product.image} alt={product.alt} style={{ width: '28%', maxWidth: 120, objectFit: 'contain' }} />
           </div>
 
           <div className="p-6 md:p-8">

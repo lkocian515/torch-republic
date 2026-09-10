@@ -38,14 +38,14 @@ export default function DriftSubscription() {
         </p>
         <div className="sub-cta flex flex-col sm:flex-row gap-4 sm:items-center justify-center">
           <Link to="/subscription" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
-            Subscribe &amp; Save <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+            Learn About Subscriptions <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
           <Link to="/subscription" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: 'rgba(250,247,241,0.7)', textDecoration: 'none' }}>
             How Subscriptions Work &rarr;
           </Link>
         </div>
         <p className="sub-note" style={{ fontFamily: SANS, fontSize: '0.8125rem', color: 'rgba(250,247,241,0.5)', margin: '2rem 0 0' }}>
-          Subscribers continue earning Torch Republic rewards.
+          Subscription checkout launching soon. Subscribers earn Torch Republic rewards.
         </p>
       </div>
     </section>

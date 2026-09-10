@@ -7,7 +7,7 @@ import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
 const REVIEWS = [
   { name: 'Monica V.', rating: 5, text: 'The flavor is gentle, smooth, and easy to mix. I would recommend it to anyone trying mushroom coffee for the first time.', product: 'Instant Mushroom Coffee' },
   { name: 'Erica L.', rating: 4, text: 'It has a gentle coffee flavor and a cozy feel. I especially like that it does not taste artificial or overly sweet.', product: 'Instant Mushroom Coffee' },
-  { name: 'April K.', rating: 4, text: 'This blend feels instantly giftable &mdash; beautiful, smooth, and far more elevated than ordinary instant coffee.', product: 'Instant Mushroom Coffee' },
+  { name: 'April K.', rating: 4, text: 'This blend feels instantly giftable \u2014 beautiful, smooth, and far more elevated than ordinary instant coffee.', product: 'Instant Mushroom Coffee' },
   { name: 'Miranda H.', rating: 5, text: 'This is the blend I reach for on a slow morning. It feels calm, uplifting, and effortless to enjoy.', product: 'Instant Mushroom Coffee' },
 ];
 

@@ -36,11 +36,13 @@ export default function DriftBenefitStrip() {
   });
 
   return (
-    <section ref={scope} style={{ background: D.cream, overflow: 'hidden', borderTop: `1px solid ${D.rule}`, borderBottom: `1px solid ${D.rule}` }}>
+    <section ref={scope} style={{ background: D.cream, overflow: 'hidden', borderTop: `1px solid ${D.rule}`, borderBottom: `1px solid ${D.rule}`, position: 'relative' }}>
       <div className="marquee-track flex items-center py-3.5" style={{ width: 'max-content' }}>
         <MarqueeSet />
         <MarqueeSet />
       </div>
+      <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '64px', background: `linear-gradient(to right, ${D.cream}, transparent)`, pointerEvents: 'none', zIndex: 2 }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '64px', background: `linear-gradient(to left, ${D.cream}, transparent)`, pointerEvents: 'none', zIndex: 2 }} />
     </section>
   );
 }

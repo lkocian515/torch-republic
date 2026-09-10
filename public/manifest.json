@@ -1,17 +1,16 @@
 {
   "name": "Torch Republic Coffee Company",
   "short_name": "Torch Republic",
-  "description": "Premium instant coffee, mushroom coffee, and ceremonial matcha rituals.",
+  "description": "Premium instant coffee and mushroom coffee made for brighter, more intentional daily rituals.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FBF8F2",
-  "theme_color": "#B86543",
+  "theme_color": "#F8F5EF",
+  "background_color": "#F8F5EF",
   "icons": [
     {
-      "src": "/torch-republic-logo-transparent.png",
-      "sizes": "1024x350",
-      "type": "image/png",
-      "purpose": "any"
+      "src": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3822a0f7b_generated_image.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

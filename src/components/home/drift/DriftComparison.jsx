@@ -8,7 +8,7 @@ const ROWS = [
   { label: 'Best For', classic: 'Classic coffee and everyday ritual', mushroom: 'Focused thinking and daily clarity' },
   { label: 'Flavor', classic: 'Bold, smooth, premium Arabica', mushroom: 'Smooth coffee, cocoa, balanced finish' },
   { label: 'Energy', classic: 'Higher caffeine', mushroom: 'Medium caffeine' },
-  { label: 'Functional Ingredients', classic: 'Single-origin Arabica', mushroom: "Lion's Mane + Chaga" },
+  { label: 'Functional Ingredients', classic: 'Single-origin Arabica', mushroom: "Lion's Mane + Cordyceps + Reishi" },
   { label: 'Preparation', classic: 'Hot or iced', mushroom: 'Hot or iced' },
 ];
 
@@ -35,7 +35,7 @@ export default function DriftComparison() {
           ].map(({ p }) => (
             <div key={p.id} className="text-center">
               <div className="flex justify-center mb-3">
-                <img src={p.image} alt={p.alt} style={{ mixBlendMode: 'multiply', objectFit: 'contain' }} className="w-24 md:w-28" />
+                <img src={p.image} alt={p.alt} style={{ objectFit: 'contain' }} className="w-24 md:w-28" />
               </div>
               <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.15rem', color: D.ink, margin: 0 }}>{p.name}</p>
             </div>
