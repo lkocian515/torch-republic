@@ -74,8 +74,10 @@ export default function AddToCartConfirmation() {
     navigate('/cart');
   };
 
-  const lineTotal = confirmation?.lineTotal ||
-    ((confirmation?.shopifyPrice ? parseFloat(confirmation.shopifyPrice) : confirmation?.price || 0) * (confirmation?.qty || 1)).toFixed(2);
+  // One authoritative price source: unitPrice × quantity — never trust a
+  // pre-computed line total that could disagree with the cart subtotal.
+  const unitPrice = confirmation?.shopifyPrice ? parseFloat(confirmation.shopifyPrice) : (confirmation?.price || 0);
+  const lineTotal = (unitPrice * (confirmation?.qty || 1)).toFixed(2);
 
   return (
     <AnimatePresence>

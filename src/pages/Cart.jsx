@@ -163,7 +163,7 @@ export default function Cart() {
                         <Plus className="w-3 h-3" />
                       </button>
                     </div>
-                    <span className="font-mono font-bold text-sm" style={{ color: ACCENT }}>${item.shopifyLineTotal ? parseFloat(item.shopifyLineTotal).toFixed(2) : (item.price * item.qty).toFixed(2)}</span>
+                    <span className="font-mono font-bold text-sm" style={{ color: ACCENT }}>${((item.shopifyPrice ? parseFloat(item.shopifyPrice) : item.price) * item.qty).toFixed(2)}</span>
                   </div>
                 </div>
                 <button

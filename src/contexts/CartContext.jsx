@@ -3,7 +3,7 @@ import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
-import { getShopifyCart, createShopifyCart, addShopifyCartLine, getShopifyCheckoutUrl } from '@/lib/shopifyCheckout';
+import { getShopifyCart, createShopifyCart, addShopifyCartLine, getShopifyCheckoutUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 
 // Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
@@ -63,6 +63,10 @@ export function CartProvider({ children }) {
   // Also prevents duplicate lines from repeated clicks.
   const mutationInFlight = useRef(false);
 
+  // Tracks the last error toast so it can be dismissed immediately when the
+  // add ultimately succeeds (never leave a stale failure message visible).
+  const lastErrorToastRef = useRef(null);
+
   // Ref mirror of shopifyCartId to avoid stale closures in async callbacks
   const shopifyCartIdRef = useRef(shopifyCartId);
   useEffect(() => { shopifyCartIdRef.current = shopifyCartId; }, [shopifyCartId]);
@@ -117,9 +121,10 @@ export function CartProvider({ children }) {
         setItems((prev) => {
           // Remove local items that don't exist in the Shopify cart
           const reconciled = prev.filter((localItem) => {
+            const expectedVariantId = SHOPIFY_VARIANT_IDS[localItem.id];
             const matchingLine = shopifyLines.find((sl) =>
-              sl.productTitle === localItem.name ||
-              sl.variantId?.includes(localItem.id)
+              ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === localItem.name) &&
+              sl.isSubscription === !!localItem.isSubscription
             );
             return !!matchingLine;
           });
@@ -127,9 +132,10 @@ export function CartProvider({ children }) {
           // Replace locally calculated prices with Shopify-returned costs
           // Preserve valid quantities and selling-plan selections
           return reconciled.map((localItem) => {
+            const expectedVariantId = SHOPIFY_VARIANT_IDS[localItem.id];
             const matchingLine = shopifyLines.find((sl) =>
-              sl.productTitle === localItem.name ||
-              sl.variantId?.includes(localItem.id)
+              ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === localItem.name) &&
+              sl.isSubscription === !!localItem.isSubscription
             );
             if (matchingLine) {
               return {
@@ -200,11 +206,18 @@ export function CartProvider({ children }) {
       return [...prev, { ...normalizedProduct, qty }];
     });
 
-    // Helper: find the matching Shopify line from the cart response
-    const findMatch = (cart) => cart?.lines?.find(sl =>
-      sl.productTitle === normalizedProduct.name &&
-      sl.isSubscription === !!normalizedProduct.isSubscription
-    );
+    // Helper: find the matching Shopify line from the cart response.
+    // Primary match by verified Shopify variant GID (robust against product
+    // title differences between the local catalog and Shopify); falls back to
+    // exact product-title matching. isSubscription disambiguates one-time vs
+    // subscription lines that share the same variant.
+    const findMatch = (cart) => cart?.lines?.find(sl => {
+      const expectedVariantId = SHOPIFY_VARIANT_IDS[normalizedProduct.id];
+      const variantMatches = !!(expectedVariantId && sl.variantId === expectedVariantId);
+      const titleMatches = sl.productTitle === normalizedProduct.name;
+      return (variantMatches || titleMatches) &&
+             sl.isSubscription === !!normalizedProduct.isSubscription;
+    });
 
     // Helper: update local items with Shopify-confirmed data + show confirmation
     const applyShopifyData = (cart) => {
@@ -224,7 +237,10 @@ export function CartProvider({ children }) {
         };
       }));
 
-      // Show confirmation ONLY after Shopify confirms the mutation
+      // Show confirmation ONLY after Shopify confirms the mutation.
+      // lineTotal is ALWAYS computed as unitPrice × qty (one authoritative
+      // price source) so it can never disagree with the cart subtotal.
+      const confirmedUnitPrice = matchedLine.unitPrice ? parseFloat(matchedLine.unitPrice) : normalizedProduct.price;
       setConfirmation({
         name: normalizedProduct.name,
         image: normalizedProduct.image,
@@ -233,9 +249,12 @@ export function CartProvider({ children }) {
         isSubscription: !!normalizedProduct.isSubscription,
         sellingPlanName: matchedLine.sellingPlanName,
         shopifyPrice: matchedLine.unitPrice,
-        lineTotal: matchedLine.lineSubtotal,
+        lineTotal: (confirmedUnitPrice * matchedLine.quantity).toFixed(2),
         price: normalizedProduct.price,
       });
+      // Clear any stale error toast now that the add succeeded
+      lastErrorToastRef.current?.dismiss();
+      lastErrorToastRef.current = null;
       return true;
     };
 
@@ -261,12 +280,14 @@ export function CartProvider({ children }) {
           if (!applied) {
             // Shopify returned a cart but no matching line — rollback
             setItems(previousItems);
-            showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive' });
+            lastErrorToastRef.current?.dismiss();
+            lastErrorToastRef.current = showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive', duration: 4000 });
           }
         } catch {
           // Rollback optimistic update on Shopify failure
           setItems(previousItems);
-          showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive' });
+          lastErrorToastRef.current?.dismiss();
+          lastErrorToastRef.current = showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive', duration: 4000 });
         } finally {
           mutationInFlight.current = false;
           setIsAdding(false);
