@@ -3,34 +3,39 @@ import { Menu, X } from 'lucide-react';
 import { P, FONT_SERIF, FONT_MONO } from './portfolioTheme';
 
 const LINKS = [
-  { label: 'Home', href: '#top' },
-  { label: 'Methodology', href: '#methodology' },
-  { label: 'Case Study', href: '#case-study' },
-  { label: 'Process', href: '#process' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '#case-study', id: 'case-study' },
+  { label: 'Method', href: '#methodology', id: 'methodology' },
+  { label: 'Evidence', href: '#evidence', id: 'evidence' },
+  { label: 'Expertise', href: '#expertise', id: 'expertise' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ];
 
-const linkStyle = {
-  fontFamily: FONT_MONO,
-  fontSize: '0.72rem',
-  letterSpacing: '0.14em',
-  textTransform: 'uppercase',
-  fontWeight: 600,
-  color: P.secondary,
-  textDecoration: 'none',
-  padding: '0.4rem 0',
-  borderBottom: '1.5px solid transparent',
-  transition: 'color .2s, border-color .2s',
-};
+const SECTION_IDS = ['top', 'methodology', 'case-study', 'evidence', 'expertise', 'contact'];
 
 export default function PortfolioNav() {
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState('top');
 
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: '-35% 0px -55% 0px' }
+    );
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -54,18 +59,35 @@ export default function PortfolioNav() {
             Lisa Marie Kocian
           </a>
 
-          <nav className="hidden md:flex items-center gap-6" aria-label="Portfolio">
-            {LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                style={linkStyle}
-                onMouseEnter={(e) => { e.currentTarget.style.color = P.accent; e.currentTarget.style.borderBottomColor = P.accent; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = P.secondary; e.currentTarget.style.borderBottomColor = 'transparent'; }}
-              >
-                {l.label}
-              </a>
-            ))}
+          <nav className="hidden md:flex items-center gap-7" aria-label="Portfolio">
+            {LINKS.map((l) => {
+              const isActive = activeId === l.id;
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  style={{
+                    fontFamily: FONT_MONO,
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                    color: isActive ? P.accent : P.secondary,
+                    textDecoration: 'none',
+                    padding: '0.4rem 0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    transition: 'color .2s',
+                  }}
+                >
+                  {isActive && (
+                    <span style={{ width: 5, height: 5, borderRadius: '50%', background: P.accent, display: 'inline-block' }} aria-hidden="true" />
+                  )}
+                  {l.label}
+                </a>
+              );
+            })}
           </nav>
 
           <button

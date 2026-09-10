@@ -158,9 +158,10 @@ export function SubHeading({ children }) {
 
 // Standard body paragraph for case study sections — consistent size, leading,
 // and measure across all sections.
-export function BodyText({ children, style }) {
+export function BodyText({ children, style, className }) {
   return (
     <p
+      className={className}
       style={{
         fontFamily: FONT_SANS,
         fontSize: '0.95rem',

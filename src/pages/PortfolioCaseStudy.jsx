@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PortfolioNav from '@/components/portfolio/PortfolioNav';
+import ScrollProgressBar from '@/components/portfolio/ScrollProgressBar';
 import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import CredibilityStrip from '@/components/portfolio/CredibilityStrip';
 import QaMethodology from '@/components/portfolio/QaMethodology';
@@ -19,12 +20,6 @@ import ContactCta from '@/components/portfolio/ContactCta';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import { P, LINKEDIN, PORTFOLIO_TITLE, PORTFOLIO_DESC, PORTFOLIO_CANON, PORTFOLIO_OG_IMAGE } from '@/components/portfolio/portfolioTheme';
 
-// ── Portfolio SEO ──
-// Fully self-contained — does NOT use the storefront useSEO hook, which
-// appends " | Torch Republic" branding and sets og:site_name to the coffee
-// company. This page owns all its metadata independently so the portfolio
-// never presents itself to search engines or social platforms as Torch
-// Republic Coffee Company.
 const TITLE = PORTFOLIO_TITLE;
 const DESC = PORTFOLIO_DESC;
 const OG_IMAGE = PORTFOLIO_OG_IMAGE;
@@ -49,12 +44,10 @@ export default function PortfolioCaseStudy() {
       el.setAttribute(attr, value);
     };
 
-    // Core meta
     setOrCreate('meta[name="description"]', 'content', DESC);
     setOrCreate('meta[name="robots"]', 'content', 'index, follow');
     setOrCreate('meta[name="keywords"]', 'content', 'AI quality assurance, AI QA specialist, AI content evaluation, AI output validation, prompt testing, prompt iteration, e-commerce QA, AI commerce, content quality, document quality assurance, AI implementation, workflow testing, user journey testing, digital product QA');
 
-    // Canonical
     let canon = document.querySelector('link[rel="canonical"]');
     if (!canon) {
       canon = document.createElement('link');
@@ -63,7 +56,6 @@ export default function PortfolioCaseStudy() {
     }
     canon.setAttribute('href', CANON);
 
-    // Open Graph
     setOrCreate('meta[property="og:title"]', 'content', TITLE);
     setOrCreate('meta[property="og:description"]', 'content', DESC);
     setOrCreate('meta[property="og:url"]', 'content', CANON);
@@ -74,19 +66,17 @@ export default function PortfolioCaseStudy() {
     setOrCreate('meta[property="og:image:type"]', 'content', 'image/png');
     setOrCreate('meta[property="og:image:width"]', 'content', '1200');
     setOrCreate('meta[property="og:image:height"]', 'content', '630');
-    setOrCreate('meta[property="og:image:alt"]', 'content', 'Lisa Kocian — AI QA & E-Commerce Portfolio');
+    setOrCreate('meta[property="og:image:alt"]', 'content', 'Lisa Kocian \u2014 AI QA & E-Commerce Portfolio');
     setOrCreate('meta[property="og:locale"]', 'content', 'en_US');
 
-    // Twitter / X Card
     setOrCreate('meta[name="twitter:card"]', 'content', 'summary_large_image');
     setOrCreate('meta[name="twitter:title"]', 'content', TITLE);
     setOrCreate('meta[name="twitter:description"]', 'content', DESC);
     setOrCreate('meta[name="twitter:image"]', 'content', OG_IMAGE);
-    setOrCreate('meta[name="twitter:image:alt"]', 'content', 'Lisa Kocian — AI QA & E-Commerce Portfolio');
+    setOrCreate('meta[name="twitter:image:alt"]', 'content', 'Lisa Kocian \u2014 AI QA & E-Commerce Portfolio');
     setOrCreate('meta[name="twitter:site"]', 'content', '');
     setOrCreate('meta[name="twitter:creator"]', 'content', '');
 
-    // Structured data — Person + WebSite (NOT Organization/Coffee Company)
     const person = {
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -96,25 +86,16 @@ export default function PortfolioCaseStudy() {
       description: DESC,
       sameAs: [LINKEDIN],
       knowsAbout: [
-        'AI quality assurance',
-        'AI content evaluation',
-        'AI output validation',
-        'prompt testing',
-        'prompt iteration',
-        'e-commerce QA',
-        'AI commerce',
-        'content quality',
-        'document quality assurance',
-        'AI implementation',
-        'workflow testing',
-        'user journey testing',
-        'digital product QA',
+        'AI quality assurance', 'AI content evaluation', 'AI output validation',
+        'prompt testing', 'prompt iteration', 'e-commerce QA', 'AI commerce',
+        'content quality', 'document quality assurance', 'AI implementation',
+        'workflow testing', 'user journey testing', 'digital product QA',
       ],
     };
     const webSite = {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Lisa Marie Kocian — AI QA & E-Commerce Portfolio',
+      name: 'Lisa Marie Kocian \u2014 AI QA & E-Commerce Portfolio',
       url: CANON,
     };
     const webPage = {
@@ -143,6 +124,7 @@ export default function PortfolioCaseStudy() {
 
   return (
     <div style={{ background: P.paper, color: P.ink, minHeight: '100vh' }}>
+      <ScrollProgressBar />
       <PortfolioNav />
       <main>
         <PortfolioHero />

@@ -1,11 +1,19 @@
 import React from 'react';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
+import { usePortfolioMotion } from './usePortfolioMotion';
 
 const CAPS = ['AI Quality & LLM Evaluation', 'Prompt & Instruction Testing', 'E-Commerce QA', 'Defect Documentation', 'Responsive Web Testing', 'Source-to-Output Validation'];
 
 export default function CredibilityStrip() {
+  const scope = usePortfolioMotion((gsap) => {
+    gsap.from('.cred-item', {
+      opacity: 0, y: 10, duration: 0.4, stagger: 0.08, ease: 'power3.out',
+      scrollTrigger: { trigger: '.cred-strip', start: 'top 85%' },
+    });
+  });
+
   return (
-    <section style={{ background: P.surface, borderBottom: `1px solid ${P.rule}` }}>
+    <section ref={scope} className="cred-strip" style={{ background: P.surface, borderBottom: `1px solid ${P.rule}` }}>
       <div className="mx-auto max-w-[1140px] px-6 md:px-10 py-6 md:py-8">
         <ul
           className="m-0 p-0 list-none flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10"
@@ -14,6 +22,7 @@ export default function CredibilityStrip() {
           {CAPS.map((c) => (
             <li
               key={c}
+              className="cred-item"
               style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600, color: P.secondary, display: 'flex', alignItems: 'center', gap: '0.5rem' }}
             >
               <span style={{ width: 5, height: 5, borderRadius: '50%', background: P.accent, display: 'inline-block' }} aria-hidden="true" />
