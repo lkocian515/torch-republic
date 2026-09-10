@@ -14,10 +14,10 @@ function HeroText() {
         Premium Coffee &middot; Zero Equipment
       </p>
       <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
-        <span style={{ overflow: 'hidden', display: 'block' }}>
+        <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>Better mornings,</span>
         </span>
-        <span style={{ overflow: 'hidden', display: 'block' }}>
+        <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>in an instant.</span>
         </span>
       </h1>

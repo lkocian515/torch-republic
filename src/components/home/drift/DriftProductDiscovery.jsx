@@ -72,13 +72,13 @@ export default function DriftProductDiscovery() {
       <div className="md:hidden px-6 pb-16">
         <div className="pd-classic mb-12">
           <div className="pd-img-wrap flex items-center justify-center mb-6" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${classic.ritual.soft}40 0%, ${D.cream} 70%)`, borderRadius: '8px', padding: '2rem' }}>
-            <img className="pd-img w-[70%] max-w-[260px]" src={classic.image} alt={classic.alt} style={{ mixBlendMode: 'multiply', objectFit: 'contain' }} />
+            <img className="pd-img w-[70%] max-w-[260px]" src={classic.image} alt={classic.alt} style={{ objectFit: 'contain' }} />
           </div>
           <ProductInfo product={classic} index={1} addItem={addItem} isAdding={isAdding} />
         </div>
         <div className="pd-mushroom">
           <div className="pd-img-wrap flex items-center justify-center mb-6" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${mushroom.ritual.soft}40 0%, ${D.cream} 70%)`, borderRadius: '8px', padding: '2rem' }}>
-            <img className="pd-img w-[70%] max-w-[260px]" src={mushroom.image} alt={mushroom.alt} style={{ mixBlendMode: 'multiply', objectFit: 'contain' }} />
+            <img className="pd-img w-[70%] max-w-[260px]" src={mushroom.image} alt={mushroom.alt} style={{ objectFit: 'contain' }} />
           </div>
           <ProductInfo product={mushroom} index={2} addItem={addItem} isAdding={isAdding} />
         </div>
@@ -88,10 +88,10 @@ export default function DriftProductDiscovery() {
       <div className="hidden md:block pd-pin h-screen grid grid-cols-[55fr_45fr] items-center">
         <div className="relative h-full flex items-center justify-center">
           <div className="pd-classic-visual absolute inset-0 flex items-center justify-center">
-            <img src={classic.image} alt={classic.alt} style={{ mixBlendMode: 'multiply', objectFit: 'contain' }} className="w-[50%] max-w-[300px] transition-transform duration-500 hover:scale-[1.025]" />
+            <img src={classic.image} alt={classic.alt} style={{ objectFit: 'contain' }} className="w-[50%] max-w-[300px] transition-transform duration-500 hover:scale-[1.025]" />
           </div>
           <div className="pd-mushroom-visual absolute inset-0 flex items-center justify-center" style={{ opacity: 0 }}>
-            <img src={mushroom.image} alt={mushroom.alt} style={{ mixBlendMode: 'multiply', objectFit: 'contain' }} className="w-[50%] max-w-[300px] transition-transform duration-500 hover:scale-[1.025]" />
+            <img src={mushroom.image} alt={mushroom.alt} style={{ objectFit: 'contain' }} className="w-[50%] max-w-[300px] transition-transform duration-500 hover:scale-[1.025]" />
           </div>
         </div>
         <div className="relative px-12 h-full flex items-center">
