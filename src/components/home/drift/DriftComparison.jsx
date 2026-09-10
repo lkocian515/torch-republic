@@ -6,7 +6,7 @@ import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const GRANULE_IMAGES = {
   'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9b4c52b8d_generated_image.png',
-  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/551426c96_generated_image.png',
+  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a6da0230_file_0000000083a4822fb57a326137688ece.png',
 };
 
 const PRODUCTS = [
