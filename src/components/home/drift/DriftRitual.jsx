@@ -11,9 +11,9 @@ const STEPS = [
 ];
 
 export default function DriftRitual() {
-  const scope = useDriftMotion((gsap) => {
+  const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: '.ritual-section', start: 'top 65%' },
+      scrollTrigger: { trigger: el, start: 'top 65%' },
     });
     tl.from('.ritual-word', { opacity: 0, y: 25, duration: 0.5, stagger: 0.12, ease: 'power3.out' })
       .from('.ritual-img', { scale: 1.05, duration: 1.2, ease: 'power2.out' }, 0)

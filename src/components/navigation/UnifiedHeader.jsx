@@ -6,14 +6,17 @@ import SearchModal from '@/components/search/SearchModal';
 import NavDropdown from './NavDropdown';
 import MobileMenu from './MobileMenu';
 
+// Pinned to the warm light storefront theme so the brown logo wordmark and
+// dark icons stay readable regardless of OS dark-mode (the storefront is
+// always light; only the standalone portfolio uses a dark surface).
 const colors = {
-  page: 'hsl(var(--background))',
-  card: 'hsl(var(--card))',
-  text: 'hsl(var(--foreground))',
-  secondary: 'hsl(var(--muted-foreground))',
-  border: 'hsl(var(--border))',
-  coffee: 'hsl(var(--primary))',
-  coffeeText: 'hsl(var(--primary-foreground))',
+  page: '#FBF8F2',
+  card: '#FFFFFF',
+  text: '#2D2824',
+  secondary: '#5C544C',
+  border: '#E4D8C9',
+  coffee: '#B86543',
+  coffeeText: '#FBF8F1',
 };
 
 const SECTIONS = [
@@ -69,9 +72,9 @@ export default function UnifiedHeader() {
   return (
     <>
       <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}>
-        <p className="font-heading text-sm">Thoughtfully crafted instant coffee and mushroom coffee &middot; Free shipping $50+</p>
+        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>Thoughtfully crafted instant coffee and mushroom coffee &middot; Free shipping $50+</p>
       </div>
-      <header className="sticky top-0 z-40" style={{ background: 'hsl(var(--background) / 0.96)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)' }}>
+      <header className="sticky top-0 z-40" style={{ background: 'rgba(251, 248, 242, 0.97)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)', color: colors.text }}>
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
           {!isRoot && (
             <button onClick={() => navigate(-1)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Go back" style={{ borderRadius: '4px' }}>

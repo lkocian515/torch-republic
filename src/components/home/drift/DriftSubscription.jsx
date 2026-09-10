@@ -6,16 +6,16 @@ import { SUBSCRIBE_SAVE_PERCENT, SUBSCRIBE_FREQUENCY } from '@/lib/siteConfig';
 import { useDriftMotion } from './useDriftMotion';
 
 export default function DriftSubscription() {
-  const scope = useDriftMotion((gsap, ScrollTrigger) => {
+  const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
     // ── Background color transition ──
-    gsap.fromTo('.sub-section',
+    gsap.fromTo(el,
       { backgroundColor: D.espresso },
       { backgroundColor: D.terracottaDeep, duration: 1, ease: 'none',
-        scrollTrigger: { trigger: '.sub-section', start: 'top 70%', end: 'center 40%', scrub: 1 } });
+        scrollTrigger: { trigger: el, start: 'top 70%', end: 'center 40%', scrub: 1 } });
 
     // ── Staggered content reveal ──
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: '.sub-section', start: 'top 60%' },
+      scrollTrigger: { trigger: el, start: 'top 60%' },
     });
     tl.from('.sub-eyebrow', { opacity: 0, y: 10, duration: 0.5, ease: 'power3.out' })
       .from('.sub-heading', { opacity: 0, y: 25, duration: 0.6, ease: 'power3.out' }, '-=0.2')

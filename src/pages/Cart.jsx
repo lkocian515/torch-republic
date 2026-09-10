@@ -90,13 +90,13 @@ export default function Cart() {
     <div className="min-h-screen" style={{ background: PAGE_BG, color: INK }}>
       <div className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
 
-        {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <h1 className="font-serif font-bold text-2xl" style={{ color: INK }}>
+        {/* Header — stacks on narrow screens so nothing is clipped */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-10">
+          <h1 className="font-serif font-bold text-xl sm:text-2xl min-w-0" style={{ color: INK }}>
             Your Ritual Is Ready <span className="font-mono text-base font-normal" style={{ color: MUTED }}>({totalItems})</span>
           </h1>
-          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70" style={{ color: ACCENT }}>
-            <ArrowLeft className="w-3.5 h-3.5" />
+          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70 self-start sm:self-auto whitespace-nowrap" style={{ color: ACCENT }}>
+            <ArrowLeft className="w-3.5 h-3.5 flex-shrink-0" />
             Continue Shopping
           </Link>
         </div>

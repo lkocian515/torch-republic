@@ -7,18 +7,18 @@ import { useDriftMotion, isMobile } from './useDriftMotion';
 const CAMPAIGN_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bf107e79c_generated_image.png';
 
 export default function DriftLifestyleCampaign() {
-  const scope = useDriftMotion((gsap, ScrollTrigger) => {
+  const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
     // ── Parallax photograph ──
     if (!isMobile()) {
       gsap.fromTo('.parallax-img',
         { yPercent: -8 },
         { yPercent: 8, ease: 'none',
-          scrollTrigger: { trigger: '.parallax-section', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+          scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1 } });
     }
     // ── Overlay text reveal ──
     gsap.from('.campaign-text > *', {
       opacity: 0, y: 16, duration: 0.5, stagger: 0.1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.parallax-section', start: 'top 60%' },
+      scrollTrigger: { trigger: el, start: 'top 60%' },
     });
   });
 
