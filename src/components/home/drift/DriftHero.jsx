@@ -53,6 +53,24 @@ export default function DriftHero() {
       .from('.hero-cta', { opacity: 0, y: 15, duration: 0.5 }, 0.80);
 
     // ═══════════════════════════════════════════════════
+    // AMBIENT — barely perceptible natural life
+    // ═══════════════════════════════════════════════════
+    // Warm light drifts across the photograph (extremely slow)
+    gsap.to('.hero-light-overlay', {
+      x: '+=12', y: '-=4',
+      duration: 12, ease: 'sine.inOut',
+      yoyo: true, repeat: -1,
+    });
+
+    // Natural steam from the existing cup area (very faint)
+    gsap.utils.toArray('.hero-steam-wisp').forEach((wisp, i) => {
+      gsap.timeline({ repeat: -1, delay: i * 2.5 })
+        .set(wisp, { y: 0, opacity: 0, scale: 0.85 })
+        .to(wisp, { y: -12, opacity: 0.07, scale: 1, duration: 2, ease: 'sine.out' })
+        .to(wisp, { y: -30, opacity: 0, scale: 1.15, duration: 3, ease: 'sine.in' });
+    });
+
+    // ═══════════════════════════════════════════════════
     // SCROLL PARALLAX — cinematic transition out of hero
     // ═══════════════════════════════════════════════════
     if (!mobile) {
@@ -126,14 +144,30 @@ export default function DriftHero() {
               willChange: 'transform',
             }}
           />
-          {/* Extremely subtle warm light overlay (static, almost imperceptible) */}
+          {/* Extremely subtle warm light overlay — barely perceptible drift */}
           <div
-            className="absolute inset-0"
+            className="hero-light-overlay absolute inset-0"
             style={{
               background: 'radial-gradient(circle at 30% 40%, rgba(255,245,230,0.035) 0%, transparent 50%)',
               pointerEvents: 'none',
+              willChange: 'transform',
             }}
           />
+          {/* Extremely subtle natural steam from the cup area */}
+          <div style={{ position: 'absolute', left: '28%', bottom: '45%', pointerEvents: 'none' }}>
+            <div className="hero-steam-wisp" style={{
+              position: 'absolute', width: 18, height: 50,
+              background: 'linear-gradient(to top, rgba(255,255,255,0.08), transparent)',
+              borderRadius: '50%', filter: 'blur(7px)', opacity: 0,
+              willChange: 'transform, opacity',
+            }} />
+            <div className="hero-steam-wisp" style={{
+              position: 'absolute', left: 10, width: 14, height: 42,
+              background: 'linear-gradient(to top, rgba(255,255,255,0.06), transparent)',
+              borderRadius: '50%', filter: 'blur(6px)', opacity: 0,
+              willChange: 'transform, opacity',
+            }} />
+          </div>
         </div>
 
         {/* Left-side cream gradient for text readability */}
