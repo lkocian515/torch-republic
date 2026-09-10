@@ -10,7 +10,7 @@ import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
-import { D, MONO } from './driftTheme';
+import { D } from './driftTheme';
 
 // Drift-inspired editorial homepage flow:
 // 1. Announcement bar
@@ -27,13 +27,6 @@ import { D, MONO } from './driftTheme';
 export default function DriftHomepage() {
   return (
     <main id="main-content" style={{ background: D.paper }}>
-      {/* Announcement bar */}
-      <div style={{ background: D.espresso }} className="text-center py-2.5">
-        <span style={{ fontFamily: MONO, fontSize: '0.625rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600, color: D.cream }}>
-          Thoughtfully Crafted Instant Coffee &middot; Free Shipping $50+
-        </span>
-      </div>
-
       <DriftHero />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
