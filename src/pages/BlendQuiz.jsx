@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '@/lib/analyticsEvents';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Brain, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2, ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
@@ -150,6 +151,14 @@ export default function FindYourRitual() {
   const currentSel = selections[step - 1];
   const result = resultKey ? RESULTS[resultKey] : null;
   const isResult = !!result;
+
+  // Fire quiz_completed once when the results screen appears.
+  // Unique dedupKey allows retakes to count as new completions.
+  useEffect(() => {
+    if (resultKey && result) {
+      trackEvent('quiz_completed', { recommended_blend: result.product }, `quiz_completed::${Date.now()}`);
+    }
+  }, [resultKey, result]);
 
   return (
     <section className="px-6 md:px-10 py-16 md:py-20" style={{ background: THEME.page }}>

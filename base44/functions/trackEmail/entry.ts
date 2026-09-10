@@ -19,6 +19,24 @@ const pixelResponse = (headers = {}) => new Response(
     }
 );
 
+const isShopOrProductLink = (link) => {
+    try {
+        const path = link.startsWith('/') && !link.startsWith('//')
+            ? link
+            : new URL(link).pathname.toLowerCase();
+        return (
+            path === '/shop' ||
+            path.startsWith('/shop/') ||
+            path.startsWith('/products/') ||
+            path.startsWith('/blends/') ||
+            path.startsWith('/build-your-ritual') ||
+            path.startsWith('/bundle')
+        );
+    } catch {
+        return false;
+    }
+};
+
 const getSafeRedirectUrl = (link) => {
     try {
         if (link.startsWith('/') && !link.startsWith('//')) {
@@ -69,6 +87,15 @@ export default async function(req) {
             updateData.clicked = true;
             updateData.clicked_date = new Date().toISOString();
             await base44.entities.EmailCampaign.update(campaign.id, updateData);
+            // Track email-driven shop/product clicks for marketing KPIs
+            if (isShopOrProductLink(link)) {
+                try {
+                    await base44.analytics.track({
+                        eventName: 'email_click_to_shop',
+                        properties: { email_id: emailId, link },
+                    });
+                } catch (_) {}
+            }
             return Response.redirect(redirectUrl, 302);
         }
 
