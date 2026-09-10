@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
 
+const GRANULE_IMAGES = {
+  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/656b178ad_generated_image.png',
+  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b3cc8b16c_generated_image.png',
+};
+
 const ROWS = [
   { label: 'Best For', classic: 'Classic coffee and everyday ritual', mushroom: 'Focused thinking and daily clarity' },
   { label: 'Flavor', classic: 'Bold, smooth, premium Arabica', mushroom: 'Smooth coffee, cocoa, balanced finish' },
@@ -34,8 +39,8 @@ export default function DriftComparison() {
             { p: mushroom },
           ].map(({ p }) => (
             <div key={p.id} className="text-center">
-              <div className="flex justify-center mb-3">
-                <img src={p.image} alt={p.alt} style={{ objectFit: 'contain' }} className="w-24 md:w-28" />
+              <div className="flex justify-center mb-3 overflow-hidden rounded-lg" style={{ aspectRatio: '1 / 1' }}>
+                <img src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="w-24 md:w-28" />
               </div>
               <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.15rem', color: D.ink, margin: 0 }}>{p.name}</p>
             </div>
