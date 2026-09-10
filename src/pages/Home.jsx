@@ -3,7 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import GEOOptimization from '../components/seo/GEOOptimization';
-import RitualHomepage from '../components/home/ritual/RitualHomepage';
+import DriftHomepage from '../components/home/drift/DriftHomepage';
 
 export default function Home() {
   useSEO({
@@ -22,7 +22,7 @@ export default function Home() {
       <LocalBusinessSchema />
       <OrganizationSchema />
       <GEOOptimization page="home" />
-      <RitualHomepage />
+      <DriftHomepage />
     </>
   );
 }
