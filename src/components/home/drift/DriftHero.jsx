@@ -28,7 +28,7 @@ function HeroText() {
         <Link to="/shop" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', letterSpacing: '0.04em' }}>
           SHOP COFFEE <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
-        <a href="#comparison" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.espresso, textDecoration: 'none' }}>
+        <a href="#comparison" className="group hidden md:inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.espresso, textDecoration: 'none' }}>
           COMPARE THE TWO <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
         </a>
       </div>
@@ -191,6 +191,14 @@ export default function DriftHero() {
               willChange: 'transform',
             }}
           />
+        </div>
+
+        {/* Secondary compare link — below hero photograph, mobile only */}
+        <div className="hero-compare-link px-5 py-10 text-center">
+          <a href="#comparison" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: D.secondary, textDecoration: 'none' }}>
+            Compare the two
+            <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" style={{ strokeWidth: 1.75 }} />
+          </a>
         </div>
       </div>
     </section>
