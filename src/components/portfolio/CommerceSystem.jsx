@@ -55,7 +55,7 @@ export default function CommerceSystem() {
         ))}
       </div>
 
-      <p style={{ marginTop: '1.5rem', fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.7, color: P.secondary, maxWidth: '65ch' }}>
+      <p style={{ marginTop: '1.5rem', fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.65, color: P.secondary, maxWidth: '65ch' }}>
         AI-assisted development and review supported these layers; every layer was validated by human QA before it
         shipped. No integrations are implied beyond those actually present in the project.
       </p>

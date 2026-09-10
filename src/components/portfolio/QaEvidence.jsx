@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionWrap, Eyebrow, SectionHeading, Lead, Card, SubLabel } from './PortfolioPrimitives';
+import { SectionWrap, Eyebrow, SectionHeading, Lead, Card } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
 
 // Real examples from the project. Outcomes are qualitative only — no

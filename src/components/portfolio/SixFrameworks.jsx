@@ -53,17 +53,17 @@ export default function SixFrameworks() {
           <Card key={f.n} pad="1.5rem">
             <div className="flex items-baseline gap-3">
               <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accent }}>{f.n}</span>
-              <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>{f.title}</h3>
+              <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.05rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>{f.title}</h3>
             </div>
             <ul className="mt-3 m-0 p-0 list-none flex flex-col gap-1.5">
               {f.points.map((pt) => (
-                <li key={pt} style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', lineHeight: 1.5, color: P.secondary, display: 'flex', gap: '0.5rem' }}>
+                <li key={pt} style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.55, color: P.secondary, display: 'flex', gap: '0.5rem' }}>
                   <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">•</span>
                   <span>{pt}</span>
                 </li>
               ))}
             </ul>
-            <p style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: `1px solid ${P.rule}`, fontFamily: FONT_SANS, fontSize: '0.82rem', lineHeight: 1.6, color: P.ink, fontStyle: 'italic', margin: '1rem 0 0' }}>
+            <p style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: `1px solid ${P.rule}`, fontFamily: FONT_SANS, fontSize: '0.83rem', lineHeight: 1.6, color: P.ink, fontStyle: 'italic', margin: '1rem 0 0' }}>
               {f.principle}
             </p>
           </Card>
