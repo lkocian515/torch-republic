@@ -4,6 +4,7 @@ import DriftBenefitStrip from './DriftBenefitStrip';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import DriftBrandStory from './DriftBrandStory';
 import DriftRitual from './DriftRitual';
+import DriftRitualBuilder from './DriftRitualBuilder';
 import DriftLifestyleCampaign from './DriftLifestyleCampaign';
 import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
@@ -38,6 +39,7 @@ export default function DriftHomepage() {
       <DriftProductDiscovery />
       <DriftBrandStory />
       <DriftRitual />
+      <DriftRitualBuilder />
       <DriftLifestyleCampaign />
       <DriftComparison />
       <DriftSubscription />
