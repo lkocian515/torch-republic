@@ -5,8 +5,8 @@ import { D, SERIF, SANS, MONO } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const GRANULE_IMAGES = {
-  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/20ba53bbb_generated_image.png',
-  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1de629c6b_generated_image.png',
+  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9b4c52b8d_generated_image.png',
+  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7ba9edc88_generated_image.png',
 };
 
 const PRODUCTS = [
