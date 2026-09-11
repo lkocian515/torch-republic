@@ -411,14 +411,26 @@ export function CartProvider({ children }) {
   }, [items, shopifyCartId]);
 
   // ── Checkout: redirect to Shopify-hosted checkout ──
-  // If no Shopify cart exists, creates one with all current items.
-  // Then retrieves the checkout URL and redirects.
-  // Does NOT create a Base44 Order — Shopify handles the entire checkout.
+  //
+  // SYNCHRONIZATION CONTRACT:
+  //   The visible Torch Republic cart is the SINGLE source of truth.
+  //   Immediately before checkout, a FRESH Shopify cart is created with
+  //   exactly the items the customer sees — no stale cart ID is ever reused.
+  //   This guarantees Shopify Checkout matches the visible cart:
+  //     - product-for-product
+  //     - quantity-for-quantity
+  //     - dollar-for-dollar
+  //
+  //   Previous cart IDs are abandoned (Shopify expires them automatically).
+  //   No Base44 Order is created — Shopify handles the entire checkout.
   const handleCheckout = useCallback(async () => {
     if (!COMMERCE_ENABLED) {
       window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
       return;
     }
+
+    // Do not checkout an empty cart
+    if (items.length === 0) return;
 
     setIsCheckingOut(true);
 
@@ -431,35 +443,52 @@ export function CartProvider({ children }) {
     }, 20000);
 
     try {
-      let currentCartId = shopifyCartIdRef.current;
+      // ── ALWAYS rebuild the Shopify cart from the current local cart ──
+      // This is the authoritative sync point. A fresh cart is created with
+      // exactly the items the customer sees, ensuring checkout never shows
+      // stale or phantom items from a previous session or failed mutation.
+      const lines = items.map(i => ({
+        slug: i.shopifyHandle || i.id,
+        quantity: i.qty,
+        isSubscription: !!i.isSubscription,
+      }));
 
-      // If no Shopify cart exists yet, create one with all current items
-      if (!currentCartId) {
-        const lines = items.map(i => ({
-          slug: i.shopifyHandle || i.id,
-          quantity: i.qty,
-          isSubscription: !!i.isSubscription,
-        }));
-        const cart = await createShopifyCart(lines);
-        if (cart?.cartId) {
-          persistShopifyCartId(cart.cartId);
-          currentCartId = cart.cartId;
-        }
-      }
+      const cart = await createShopifyCart(lines);
 
-      if (!currentCartId) {
+      // Abort if cart creation failed or returned an error
+      if (!cart || cart.error || !cart.cartId) {
         clearTimeout(timeoutId);
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
         return;
       }
 
-      const checkoutUrl = await getShopifyCheckoutUrl(currentCartId);
-      clearTimeout(timeoutId);
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl;
-      } else {
+      // Persist the new cart ID (replaces any stale one)
+      persistShopifyCartId(cart.cartId);
+
+      if (!cart.checkoutUrl) {
+        clearTimeout(timeoutId);
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+        return;
       }
+
+      // ── Pre-checkout validation: Shopify cart must match local cart ──
+      // Compare line count and subtotal. If they diverge, abort checkout
+      // rather than sending the customer to an incorrect total.
+      const shopifyLineCount = cart.lines?.length || 0;
+      const localLineCount = items.length;
+      const shopifySubtotal = parseFloat(cart.subtotal || '0');
+      const localSubtotal = subtotal;
+
+      if (shopifyLineCount !== localLineCount ||
+          Math.abs(shopifySubtotal - localSubtotal) > 0.02) {
+        clearTimeout(timeoutId);
+        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+        return;
+      }
+
+      // ── All validation passed — redirect to Shopify Checkout ──
+      clearTimeout(timeoutId);
+      window.location.href = cart.checkoutUrl;
     } catch {
       clearTimeout(timeoutId);
       window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
@@ -467,7 +496,7 @@ export function CartProvider({ children }) {
       clearTimeout(timeoutId);
       setIsCheckingOut(false);
     }
-  }, [items, persistShopifyCartId]);
+  }, [items, persistShopifyCartId, subtotal]);
 
   const clearCart = useCallback(() => {
     setItems([]);
