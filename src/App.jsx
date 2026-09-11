@@ -181,7 +181,10 @@ const AuthenticatedApp = ({ queryClient }) => {
   // SPA analytics — fires exactly one page_view per route change
   useAnalytics();
   // Standalone portfolio route renders without storefront chrome (header/footer/tabs)
-  const isStandalonePortfolio = location.pathname.startsWith('/portfolio');
+  // Domain-aware routing: lisakocian.com serves the portfolio directly (no storefront chrome).
+  // torchrepublic.com (and all other hosts) serve the storefront. /portfolio path still works on any host.
+  const isPortfolioDomain = typeof window !== 'undefined' && /lisakocian\.com$/.test(window.location.hostname);
+  const isStandalonePortfolio = isPortfolioDomain || location.pathname.startsWith('/portfolio');
   return (
     <div className="flex flex-col min-h-screen">
       {!isStandalonePortfolio && <UnifiedHeader />}
@@ -191,6 +194,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         <ScrollToTop key={location.pathname} />
         <Routes location={location} key={location.pathname}>
 
+        {/* ── PORTFOLIO DOMAIN: lisakocian.com serves only the portfolio, no storefront chrome ── */}
+        {isPortfolioDomain && (
+          <Route path="/*" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+        )}
+
+        {/* ── STOREFRONT DOMAIN: torchrepublic.com and all other routes ── */}
+        {!isPortfolioDomain && (
+        <>
         {/* ── AUTH — noindex: login/account pages must not appear in search ── */}
         <Route path="/login" element={<Suspense fallback={<PageLoader />}><NoIndex /><Login /></Suspense>} />
         <Route path="/register" element={<Suspense fallback={<PageLoader />}><NoIndex /><Register /></Suspense>} />
@@ -513,6 +524,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/AdminBlogEditor" element={<Navigate to="/" replace />} />
 
         <Route path="*" element={<Suspense fallback={<PageLoader />}><PageNotFound /></Suspense>} />
+        </>
+        )}
       </Routes>
       {!isStandalonePortfolio && <RouteSeoManager />}
       {!isStandalonePortfolio && <BottomTabs />}
