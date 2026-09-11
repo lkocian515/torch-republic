@@ -410,6 +410,14 @@ export function CartProvider({ children }) {
     }
   }, [items, shopifyCartId]);
 
+  // Use Shopify-returned prices when available; fall back to local prices
+  // Declared before handleCheckout so the memoized callback can reference subtotal
+  const totalItems = items.reduce((s, i) => s + i.qty, 0);
+  const subtotal = items.reduce((s, i) => {
+    const unitPrice = i.shopifyPrice ? parseFloat(i.shopifyPrice) : i.price;
+    return s + unitPrice * i.qty;
+  }, 0);
+
   // ── Checkout: redirect to Shopify-hosted checkout ──
   //
   // SYNCHRONIZATION CONTRACT:
@@ -502,13 +510,6 @@ export function CartProvider({ children }) {
     setItems([]);
     persistShopifyCartId(null);
   }, [persistShopifyCartId]);
-
-  // Use Shopify-returned prices when available; fall back to local prices
-  const totalItems = items.reduce((s, i) => s + i.qty, 0);
-  const subtotal = items.reduce((s, i) => {
-    const unitPrice = i.shopifyPrice ? parseFloat(i.shopifyPrice) : i.price;
-    return s + unitPrice * i.qty;
-  }, 0);
 
   return (
     <CartContext.Provider value={{
