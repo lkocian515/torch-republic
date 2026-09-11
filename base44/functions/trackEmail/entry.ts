@@ -19,22 +19,37 @@ const pixelResponse = (headers = {}) => new Response(
     }
 );
 
-const isShopOrProductLink = (link) => {
+const resolveLinkPath = (link) => {
     try {
-        const path = link.startsWith('/') && !link.startsWith('//')
+        return link.startsWith('/') && !link.startsWith('//')
             ? link
             : new URL(link).pathname.toLowerCase();
-        return (
-            path === '/shop' ||
-            path.startsWith('/shop/') ||
-            path.startsWith('/products/') ||
-            path.startsWith('/blends/') ||
-            path.startsWith('/build-your-ritual') ||
-            path.startsWith('/bundle')
-        );
     } catch {
-        return false;
+        return '';
     }
+};
+
+const isShopOrProductLink = (link) => {
+    const path = resolveLinkPath(link);
+    return (
+        path === '/shop' ||
+        path.startsWith('/shop/') ||
+        path.startsWith('/products/') ||
+        path.startsWith('/blends/') ||
+        path.startsWith('/build-your-ritual') ||
+        path.startsWith('/bundle')
+    );
+};
+
+// Categorize the clicked link for analytics — 'product' vs 'shop' vs other CTA types
+const getLinkType = (link) => {
+    const path = resolveLinkPath(link);
+    if (path.startsWith('/products/')) return 'product';
+    if (path.startsWith('/blends/')) return 'blend';
+    if (path.startsWith('/build-your-ritual')) return 'ritual_builder';
+    if (path.startsWith('/bundle')) return 'bundle';
+    if (path.startsWith('/shop/') || path === '/shop') return 'shop';
+    return 'other';
 };
 
 const getSafeRedirectUrl = (link) => {
@@ -92,7 +107,12 @@ export default async function(req) {
                 try {
                     await base44.analytics.track({
                         eventName: 'email_click_to_shop',
-                        properties: { email_id: emailId, link },
+                        properties: {
+                            campaign_id: campaign.id,
+                            link_type: getLinkType(link),
+                            email_id: emailId,
+                            link,
+                        },
                     });
                 } catch (_) {}
             }
