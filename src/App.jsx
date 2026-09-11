@@ -39,6 +39,7 @@ const Reviews = lazy(() => import('./pages/Reviews'));
 const Journal = lazy(() => import('./pages/Journal'));
 const Profile = lazy(() => import('./pages/Profile'));
 const LoyaltyPortal = lazy(() => import('./pages/LoyaltyPortal'));
+const OrderStatusAssistant = lazy(() => import('./pages/OrderStatusAssistant.jsx'));
 const TorchbearersRewards = lazy(() => import('./pages/TorchbearersRewards'));
 const Cart = lazy(() => import('./pages/Cart'));
 const CartRedirect = lazy(() => import('./components/cart/CartRedirect'));
@@ -251,6 +252,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
           <Route path="/profile" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
           <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
+          <Route path="/order-status" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderStatusAssistant" queryClient={queryClient}><OrderStatusAssistant /></LayoutWrapper></Suspense>} />
         </Route>
         <Route path="/torchbearers-rewards" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearersRewards" queryClient={queryClient}><TorchbearersRewards /></LayoutWrapper></Suspense>} />
         <Route path="/cart" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
