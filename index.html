@@ -2,10 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Build v2026.09.11 — cache-consistency hardening: removed PWA manifest link (no
+         service worker is registered anywhere in the app, so the manifest only risked
+         app-shell caching of stale assets). HTML document marked no-cache so browsers
+         always revalidate and pick up the newest content-hashed JS/CSS on each build. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <link rel="icon" type="image/png" href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3822a0f7b_generated_image.png" />
     <link rel="apple-touch-icon" href="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/3822a0f7b_generated_image.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://torchrepublic.com/" />
     <link rel="preconnect" href="https://media.base44.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
