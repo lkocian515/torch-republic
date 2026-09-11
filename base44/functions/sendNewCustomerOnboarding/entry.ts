@@ -108,7 +108,7 @@ Deno.serve(async (req) => {
             `;
 
             try {
-                await base44.integrations.Core.SendEmail({
+                await base44.asServiceRole.integrations.Core.SendEmail({
                     to: campaign.recipient_email,
                     subject: 'Getting the Most from Your Ritual?',
                     html: html,

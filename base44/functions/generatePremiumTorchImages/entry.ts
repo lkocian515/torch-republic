@@ -26,7 +26,7 @@ Deno.serve(async (req) => {
         
         // PRIMARY IMAGE: Full lifestyle shot with model
         const primaryPrompt = buildPrimaryImagePrompt(title, category);
-        const primaryImage = await base44.integrations.Core.GenerateImage({
+        const primaryImage = await base44.asServiceRole.integrations.Core.GenerateImage({
           prompt: primaryPrompt,
           model: 'automatic'
         });
@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
         
         // ALTERNATE IMAGE: Different angle/pose
         const alternatePrompt = buildAlternateImagePrompt(title, category);
-        const alternateImage = await base44.integrations.Core.GenerateImage({
+        const alternateImage = await base44.asServiceRole.integrations.Core.GenerateImage({
           prompt: alternatePrompt,
           model: 'automatic'
         });
@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
         
         // DETAIL IMAGE: Close-up of product/graphic
         const detailPrompt = buildDetailImagePrompt(title, category);
-        const detailImage = await base44.integrations.Core.GenerateImage({
+        const detailImage = await base44.asServiceRole.integrations.Core.GenerateImage({
           prompt: detailPrompt,
           model: 'automatic'
         });

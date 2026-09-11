@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     for (const order of eligibleOrders) {
       try {
         // Send review request email
-        await base44.integrations.Core.SendEmail({
+        await base44.asServiceRole.integrations.Core.SendEmail({
           to: order.customer_email,
           subject: `How's Your ${order.product_title}? We'd Love Your Review!`,
           body: `Hi ${order.customer_name || 'there'},

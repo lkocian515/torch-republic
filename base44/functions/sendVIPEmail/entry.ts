@@ -115,7 +115,7 @@ Deno.serve(async (req) => {
             `;
 
             try {
-                await base44.integrations.Core.SendEmail({
+                await base44.asServiceRole.integrations.Core.SendEmail({
                     to: vip.email,
                     subject: 'You\'re Invited: Exclusive VIP Rewards Program',
                     html: html,

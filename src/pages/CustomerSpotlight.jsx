@@ -39,7 +39,7 @@ export default function CustomerSpotlight() {
     try {
       let photo_url = '';
       if (photo) {
-        const uploaded = await base44.integrations.Core.UploadFile({ file: photo });
+        const uploaded = await base44.integrations.Core.UploadPublicFile({ file: photo });
         photo_url = uploaded.file_url;
       }
       await base44.entities.CustomerStorySubmission.create({ ...form, photo_url, status: 'pending' });

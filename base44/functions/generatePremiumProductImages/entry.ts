@@ -22,13 +22,13 @@ Deno.serve(async (req) => {
         const prompt = buildProductImagePrompt(product);
         
         // Generate primary lifestyle image
-        const primaryImage = await base44.integrations.Core.GenerateImage({
+        const primaryImage = await base44.asServiceRole.integrations.Core.GenerateImage({
           prompt: prompt.primary,
           model: 'automatic'
         });
         
         // Generate secondary/alternate angle image
-        const secondaryImage = await base44.integrations.Core.GenerateImage({
+        const secondaryImage = await base44.asServiceRole.integrations.Core.GenerateImage({
           prompt: prompt.secondary,
           model: 'automatic'
         });
