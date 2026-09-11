@@ -3,7 +3,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { NavigationProvider } from '@/contexts/NavigationContext'
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate, useParams } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
 import React, { Suspense, lazy, useEffect } from 'react';
@@ -191,7 +191,7 @@ const AuthenticatedApp = ({ queryClient }) => {
       <div className="flex-1 flex flex-col">
       <ErrorBoundary resetKey={location.pathname}>
       <ScrollToTop />
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
       <Routes location={location} key={location.pathname}>
 
         {/* ── PORTFOLIO DOMAIN: lisakocian.com serves only the portfolio, no storefront chrome ── */}

@@ -1,0 +1,44 @@
+{
+  "name": "First-Subscription Email 3 \u2014 Manage Your Subscription",
+  "description": "Daily scan: sends Email 3 (Your Subscription, Your Routine) 7 days before the customer's next renewal charge. Renewal date calculated from verified 4-week selling plan interval (order_date + 28 days). Send date = order_date + 21 days.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "30 20 * * *",
+      "one_time_date": null,
+      "timezone": "UTC",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "first_subscription_email_3_manage_your_subscription",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendSubscriptionEmail3",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "sendSubscriptionEmail3"
+  }
+}

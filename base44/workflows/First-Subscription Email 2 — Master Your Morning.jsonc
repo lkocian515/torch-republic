@@ -1,0 +1,44 @@
+{
+  "name": "First-Subscription Email 2 \u2014 Master Your Morning",
+  "description": "Daily scan: sends Email 2 (Master Your Morning) to customers whose subscription order was fulfilled 3+ days ago and haven't received Email 2 yet. Preferred trigger: 3 days after shipped_date. Fallback: 3 days after order_date.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 20 * * *",
+      "one_time_date": null,
+      "timezone": "UTC",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "first_subscription_email_2_master_your_morning",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendSubscriptionEmail2",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "sendSubscriptionEmail2"
+  }
+}
