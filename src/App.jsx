@@ -190,9 +190,9 @@ const AuthenticatedApp = ({ queryClient }) => {
       {!isStandalonePortfolio && <UnifiedHeader />}
       <div className="flex-1 flex flex-col">
       <ErrorBoundary resetKey={location.pathname}>
+      <ScrollToTop />
       <AnimatePresence mode="wait">
-        <ScrollToTop key={location.pathname} />
-        <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={location.pathname}>
 
         {/* ── PORTFOLIO DOMAIN: lisakocian.com serves only the portfolio, no storefront chrome ── */}
         {isPortfolioDomain && (
@@ -527,10 +527,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         </>
         )}
       </Routes>
-      {!isStandalonePortfolio && <RouteSeoManager />}
-      {!isStandalonePortfolio && <BottomTabs />}
       </AnimatePresence>
       </ErrorBoundary>
+      {!isStandalonePortfolio && <RouteSeoManager />}
+      {!isStandalonePortfolio && <BottomTabs />}
       </div>
       {!isStandalonePortfolio && <Footer />}
     </div>
