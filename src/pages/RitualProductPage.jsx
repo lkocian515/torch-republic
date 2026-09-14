@@ -132,15 +132,13 @@ function RitualPDP({ product }) {
   const { addItem } = useCart();
   const c = product.ritual;
   const [qty, setQty] = useState(1);
-  const [isSubscription, setIsSubscription] = useState(false);
+  const isSubscription = false;
   const [tab, setTab] = useState('Ingredients');
   const [justAdded, setJustAdded] = useState(false);
 
-  // Subscribe & Save: 10% off, delivered every 4 weeks.
-  // Shopify selling plans are configured and verified — the backend attaches
-  // the real selling plan ID when isSubscription is passed to addItem.
-  const subscriptionPrice = product.price * 0.9;
-  const unitPrice = isSubscription ? subscriptionPrice : product.price;
+  // Subscription purchasing is intentionally disabled until the live
+  // Shopify selling-plan checkout has been launched and revalidated.
+  const unitPrice = product.price;
   const imageUrl = getProductImage(product);
   const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
   const galleryImages = [imageUrl, ...GALLERY_EXTRA[product.category].images];
@@ -189,27 +187,6 @@ function RitualPDP({ product }) {
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 2500);
   };
-
-  const OptionRow = ({ active, onClick, title, sub, price, priceColor }) => (
-    <button
-      onClick={onClick}
-      className="text-left transition-all"
-      style={{ background: active ? THEME.card : 'transparent', border: `1.5px solid ${active ? c.accent : THEME.border}`, borderRadius: 10, cursor: 'pointer', padding: '1rem' }}
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="flex items-center justify-center" style={{ width: 18, height: 18, borderRadius: '50%', border: `1.5px solid ${c.accent}` }}>
-            {active && <span style={{ width: 9, height: 9, borderRadius: '50%', background: c.accent }} />}
-          </span>
-          <div>
-            <p className="font-heading text-sm font-bold" style={{ color: THEME.text }}>{title}</p>
-            <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>{sub}</p>
-          </div>
-        </div>
-        <span className="font-mono text-sm font-bold" style={{ color: priceColor }}>{price}</span>
-      </div>
-    </button>
-  );
 
   return (
     <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh', paddingBottom: '7rem' }} className="lg:pb-0">
@@ -260,23 +237,15 @@ function RitualPDP({ product }) {
 
             <div className="flex flex-wrap items-baseline gap-3">
               <span className="font-serif font-bold" style={{ fontSize: '2rem', color: c.deep }}>${unitPrice.toFixed(2)}</span>
-              {isSubscription && <span className="font-mono text-sm line-through" style={{ color: THEME.secondary }}>${product.price.toFixed(2)}</span>}
               <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: THEME.secondary }}>
                 ${(unitPrice / product.servings).toFixed(2)} per cup
               </span>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <OptionRow active={isSubscription} onClick={() => setIsSubscription(true)} title="Subscribe & Save 10%" sub="Delivered every 4 weeks - Pause or cancel anytime" price={`$${subscriptionPrice.toFixed(2)}`} priceColor={THEME.moss} />
-              <OptionRow active={!isSubscription} onClick={() => setIsSubscription(false)} title="One-time purchase" sub="Just this order" price={`$${product.price.toFixed(2)}`} priceColor={THEME.text} />
+            <div className="rounded-lg border p-4" style={{ background: THEME.card, borderColor: THEME.border }}>
+              <p className="font-heading text-sm font-bold" style={{ color: THEME.text }}>One-time purchase</p>
+              <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Subscriptions are coming soon.</p>
             </div>
-
-            {isSubscription && (
-              <p className="font-heading text-xs" style={{ color: THEME.secondary }}>
-                Subscribers earn Torch Republic rewards on every delivery.{' '}
-                <Link to="/torchbearers-rewards" style={{ color: c.accent, textDecoration: 'underline' }}>Learn more</Link>
-              </p>
-            )}
 
             <div className="flex items-center gap-4">
               <span className="font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: THEME.secondary }}>Quantity</span>
