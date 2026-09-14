@@ -37,8 +37,16 @@ const GALLERY_EXTRA = {
     ],
   },
   'classic-coffee': {
-    images: [COFFEE_FLAKES],
-    alts: ['Instant coffee flakes — what is inside the bag'],
+    images: [
+      COFFEE_FLAKES,
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0fdfd9a0b_useclass2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/725f39ba5_useclassic.png',
+    ],
+    alts: [
+      'Instant coffee flakes — what is inside the bag',
+      'Torch Republic Instant Classic Coffee enjoyed at sunset',
+      'Torch Republic Instant Classic Coffee in a tote bag at a cafe',
+    ],
   },
 };
 
