@@ -34,7 +34,7 @@ const ROWS = [
   { label: 'Best For', classic: 'Classic coffee and everyday ritual', mushroom: 'Focused thinking and daily clarity' },
   { label: 'Flavor', classic: 'Bold, smooth, premium Arabica', mushroom: 'Smooth coffee, cocoa, balanced finish' },
   { label: 'Caffeine', classic: 'Higher caffeine', mushroom: 'Medium caffeine' },
-  { label: 'What\u2019s Inside', classic: 'Single-origin Arabica', mushroom: 'Lion\u2019s Mane + Cordyceps + Reishi' },
+  { label: 'What\u2019s Inside', classic: 'Single-origin Arabica', mushroom: 'Lion\u2019s Mane + Chaga' },
   { label: 'Preparation', classic: 'Hot or iced', mushroom: 'Hot or iced' },
 ];
 
