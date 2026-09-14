@@ -25,8 +25,16 @@ const LIFESTYLE_IMAGE = {
 // ONLY single-product shots — no group / lineup / collage images.
 const GALLERY_EXTRA = {
   'mushroom-coffee': {
-    images: [COFFEE_FLAKES],
-    alts: ['Instant coffee flakes — what is inside the bag'],
+    images: [
+      COFFEE_FLAKES,
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e1ff3dcd_usemush2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/02fd00b7d_usemush.png',
+    ],
+    alts: [
+      'Instant coffee flakes — what is inside the bag',
+      'Torch Republic Instant Coffee with Mushrooms poured into a mug at sunset',
+      'Torch Republic Instant Coffee with Mushrooms at a beach sunset ritual',
+    ],
   },
   'classic-coffee': {
     images: [COFFEE_FLAKES],
