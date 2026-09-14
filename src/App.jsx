@@ -259,7 +259,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderConfirmation" queryClient={queryClient}><OrderConfirmation /></LayoutWrapper></Suspense>} />
         <Route path="/restocking" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Restocking" queryClient={queryClient}><Restocking /></LayoutWrapper></Suspense>} />
-        <Route path="/subscription" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Subscription" queryClient={queryClient}><Subscription /></LayoutWrapper></Suspense>} />
+        <Route path="/subscription" element={<Navigate to="/#newsletter" replace />} />
         <Route path="/our-story" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Navigate to="/our-story" replace />} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
@@ -349,7 +349,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
         <Route path="/journal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Journal" queryClient={queryClient}><JournalHub /></LayoutWrapper></Suspense>} />
         <Route path="/journal/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlogPost" queryClient={queryClient}><BlogPost /></LayoutWrapper></Suspense>} />
-        <Route path="/build-your-ritual" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BuildYourRitual" queryClient={queryClient}><BuildYourRitual /></LayoutWrapper></Suspense>} />
+        <Route path="/build-your-ritual" element={<Navigate to="/shop" replace />} />
         <Route path="/shipping-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ShippingPolicy" queryClient={queryClient}><ShippingPolicy /></LayoutWrapper></Suspense>} />
         <Route path="/return-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ReturnPolicy" queryClient={queryClient}><ReturnPolicy /></LayoutWrapper></Suspense>} />
         <Route path="/privacy-policy" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="PrivacyPolicy" queryClient={queryClient}><PrivacyPolicy /></LayoutWrapper></Suspense>} />
