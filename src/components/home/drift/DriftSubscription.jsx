@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
-import { SUBSCRIBE_SAVE_PERCENT, SUBSCRIBE_FREQUENCY } from '@/lib/siteConfig';
 import { useDriftMotion } from './useDriftMotion';
 
 export default function DriftSubscription() {
@@ -31,21 +30,18 @@ export default function DriftSubscription() {
           Make It a Routine
         </p>
         <h2 className="sub-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.cream, margin: '0 0 1.25rem', textWrap: 'balance' }}>
-          Tomorrow&rsquo;s coffee, handled.
+          Subscriptions are coming soon.
         </h2>
         <p className="sub-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: 'rgba(250,247,241,0.75)', margin: '0 0 2rem', maxWidth: '46ch', marginLeft: 'auto', marginRight: 'auto' }}>
-          Choose your coffee and have it delivered {SUBSCRIBE_FREQUENCY.toLowerCase()}. Save {SUBSCRIBE_SAVE_PERCENT}%, pause when needed, or cancel anytime.
+          Join the list for launch updates and be the first to know when recurring coffee delivery becomes available.
         </p>
-        <div className="sub-cta flex flex-col sm:flex-row gap-4 sm:items-center justify-center">
-          <Link to="/subscription" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
-            Learn About Subscriptions <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
-          <Link to="/subscription" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: 'rgba(250,247,241,0.7)', textDecoration: 'none' }}>
-            How Subscriptions Work &rarr;
-          </Link>
+        <div className="sub-cta flex items-center justify-center">
+          <a href="#newsletter" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
+            Join the Update List <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+          </a>
         </div>
         <p className="sub-note" style={{ fontFamily: SANS, fontSize: '0.8125rem', color: 'rgba(250,247,241,0.5)', margin: '2rem 0 0' }}>
-          Subscription checkout launching soon. Subscribers earn Torch Republic rewards.
+          No subscription purchase is available yet. We will email you when it launches.
         </p>
       </div>
     </section>
