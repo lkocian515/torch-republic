@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
 
-// Authentic verified customer reviews (product handles normalized to current catalog).
+// Early customer feedback (product handles normalized to current catalog).
 const REVIEWS = [
   { name: 'Monica V.', rating: 5, text: 'The flavor is gentle, smooth, and easy to mix. I would recommend it to anyone trying mushroom coffee for the first time.', product: 'Instant Mushroom Coffee' },
   { name: 'Erica L.', rating: 4, text: 'It has a gentle coffee flavor and a cozy feel. I especially like that it does not taste artificial or overly sweet.', product: 'Instant Mushroom Coffee' },
@@ -17,7 +17,7 @@ export default function DriftReviews() {
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
         <motion.div {...fadeUp} className="text-center mb-10">
           <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
-            Customer Reviews
+            Early Customer Feedback
           </p>
           <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>
             Your morning, according to you.
@@ -41,7 +41,7 @@ export default function DriftReviews() {
                 &ldquo;{r.text}&rdquo;
               </p>
               <p style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.8125rem', color: D.ink, margin: 0 }}>{r.name}</p>
-              <p style={{ fontFamily: MONO, fontSize: '0.625rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: D.secondary, margin: '0.25rem 0 0' }}>{r.product}</p>
+              <p style={{ fontFamily: MONO, fontSize: '0.625rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: D.secondary, margin: '0.25rem 0 0' }}>{r.product} · Early customer feedback</p>
             </div>
           ))}
         </div>
