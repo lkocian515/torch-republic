@@ -17,8 +17,7 @@ const SHOP_LINKS = [
   ['Shop All', '/shop'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
   ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-  ['Coffee Duo', '/build-your-ritual'],
-  ['Subscriptions', '/subscription'],
+  ['Subscription Updates', '/#newsletter'],
 ];
 
 const COMPANY_LINKS = [
@@ -112,7 +111,7 @@ export default function Footer() {
           <LinkColumn heading="Support" links={SUPPORT_LINKS} />
 
           {/* Column 5 — Newsletter */}
-          <div className="min-w-0">
+          <div id="newsletter" className="min-w-0" style={{ scrollMarginTop: 96 }}>
             <h2 className="font-heading text-sm font-semibold mb-2" style={{ color: THEME.text }}>Stay in the Loop</h2>
             <p className="font-heading text-xs leading-6 mb-4" style={{ color: THEME.secondary }}>
               Get product updates, coffee tips, and occasional offers from Torch Republic.
