@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
 import { useDriftMotion } from './useDriftMotion';
