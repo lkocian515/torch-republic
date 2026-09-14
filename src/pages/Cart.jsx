@@ -7,7 +7,6 @@ import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
 import CartFreeShippingBar from '@/components/cart/CartFreeShippingBar';
 import CartRecommendations from '@/components/cart/CartRecommendations';
-import CartBundleUpsell from '@/components/cart/CartBundleUpsell';
 import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
 import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
 import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
@@ -72,11 +71,7 @@ export default function Cart() {
               style={{ background: ACCENT, color: BTN_TEXT }}>
               Shop Best Sellers →
             </Link>
-            <Link to="/build-your-ritual"
-              className="font-mono text-[9px] tracking-[0.25em] uppercase py-3 px-10 transition-all hover:opacity-70"
-              style={{ border: `1px solid ${BORDER}`, color: ACCENT }}>
-              Build Your Ritual
-            </Link>
+
           </div>
           <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-8" style={{ color: MUTED }}>
             Have a discount code? Enter it at checkout.
@@ -197,9 +192,6 @@ export default function Cart() {
 
               {/* Delivery estimate */}
               <CartDeliveryEstimate />
-
-              {/* Bundle upsell — shown only when both products are in cart */}
-              <CartBundleUpsell cartItems={items} subtotal={subtotal} />
 
               <button
                 onClick={handleCheckout}
