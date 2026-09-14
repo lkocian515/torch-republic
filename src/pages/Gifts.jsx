@@ -21,7 +21,7 @@ const GIFT_FAQS = [
   },
   {
     q: 'Can the recipient swap a blend?',
-    a: 'Yes. Because each kit is made of individual blends rather than a sealed bundle, you can adjust the cart before checkout, and recipients can manage individual items through their order. For help with a specific order, reach us at admin@torchrepublic.com.',
+    a: 'Yes. Because each kit is made of individual blends rather than a sealed bundle, you can adjust the cart before checkout, and recipients can manage individual items through their order. For help with a specific order, reach us at info@torchrepublic.com.',
   },
   {
     q: 'Is gift wrapping or a printed gift card included?',
@@ -29,7 +29,7 @@ const GIFT_FAQS = [
   },
   {
     q: 'Do you offer bulk or corporate gifting?',
-    a: 'For orders of 10 or more kits, contact us at admin@torchrepublic.com and we will help coordinate quantities, shipping, and current availability.',
+    a: 'For orders of 10 or more kits, contact us at info@torchrepublic.com and we will help coordinate quantities, shipping, and current availability.',
   },
 ];
 

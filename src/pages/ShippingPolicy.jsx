@@ -40,7 +40,7 @@ export default function ShippingPolicy() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>International Shipping</h2>
-            <p>At this time, we primarily ship within the United States. If you are interested in international shipping, please contact us at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a> and we will do our best to accommodate your order.</p>
+            <p>At this time, we primarily ship within the United States. If you are interested in international shipping, please contact us at <a href="mailto:info@torchrepublic.com" style={{ color: RG }}>info@torchrepublic.com</a> and we will do our best to accommodate your order.</p>
           </section>
 
           <section>
@@ -50,7 +50,7 @@ export default function ShippingPolicy() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>Lost or Delayed Shipments</h2>
-            <p>If your order appears lost or significantly delayed, please reach out to us at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a>. We will work with the carrier to resolve the issue and make it right for you.</p>
+            <p>If your order appears lost or significantly delayed, please reach out to us at <a href="mailto:info@torchrepublic.com" style={{ color: RG }}>info@torchrepublic.com</a>. We will work with the carrier to resolve the issue and make it right for you.</p>
           </section>
 
           <section>
@@ -64,8 +64,8 @@ export default function ShippingPolicy() {
           <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.4)' }}>
             Questions? Contact us
           </p>
-          <a href="mailto:admin@torchrepublic.com" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.1em' }}>
-            admin@torchrepublic.com
+          <a href="mailto:info@torchrepublic.com" style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.1em' }}>
+            info@torchrepublic.com
           </a>
           <div className="mt-6">
             <Link to="/" className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.45)', textDecoration: 'none' }}>

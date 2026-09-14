@@ -31,7 +31,7 @@ export default function GEOOptimization({ page = 'home' }) {
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        email: 'admin@torchrepublic.com',
+        email: 'info@torchrepublic.com',
         contactType: 'customer support',
       },
       knowsAbout: [

@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: 'What is your satisfaction guarantee?',
-    a: "We want your first Torch Republic ritual to feel easy, enjoyable, and worth coming back to. If something is not right with your order, contact us at admin@torchrepublic.com and we will make it right.",
+    a: "We want your first Torch Republic ritual to feel easy, enjoyable, and worth coming back to. If something is not right with your order, contact us at info@torchrepublic.com and we will make it right.",
   },
   {
     q: 'Are these products FDA approved?',

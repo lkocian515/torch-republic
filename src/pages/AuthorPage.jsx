@@ -83,7 +83,7 @@ export default function AuthorPage() {
                   { label: 'Specialty', value: 'Instant Mushroom Coffee, Classic Coffee' },
                   { label: 'Collection', value: 'Instant coffee and mushroom coffee rituals' },
                   { label: 'Format', value: 'Premium instant powder — no machine required' },
-                  { label: 'Contact', value: 'hello@torchrepublic.com' },
+                  { label: 'Contact', value: 'info@torchrepublic.com' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start justify-between gap-4 py-2" style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
                     <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.45)' }}>{item.label}</span>

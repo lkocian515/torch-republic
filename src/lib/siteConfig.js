@@ -34,7 +34,7 @@ export const SHIP_TIME_DISPLAY = 'Ships in 1-3 business days';
 export const SHIP_NOTE = 'Most orders ship in 1-3 days';
 
 // ── Support ───────────────────────────────────────────────────────────────────
-export const SUPPORT_EMAIL = 'admin@torchrepublic.com';
+export const SUPPORT_EMAIL = 'info@torchrepublic.com';
 
 // ── Convenience helpers ───────────────────────────────────────────────────────
 

@@ -163,7 +163,7 @@ export default function TrustSignalsSection() {
           style={{ textAlign: 'center', marginTop: 'clamp(32px, 4vw, 48px)' }}
         >
           <a
-            href="mailto:hello@torchrepublic.com?subject=COA Request"
+            href="mailto:info@torchrepublic.com?subject=COA Request"
             style={{
               display: 'inline-block',
               fontFamily: 'var(--font-mono)', fontSize: '0.58rem',

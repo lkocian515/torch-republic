@@ -60,12 +60,12 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>Your Rights</h2>
-            <p>Depending on your location, you may have the right to access, correct, or delete your personal data. To exercise these rights, contact us at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a>.</p>
+            <p>Depending on your location, you may have the right to access, correct, or delete your personal data. To exercise these rights, contact us at <a href="mailto:info@torchrepublic.com" style={{ color: RG }}>info@torchrepublic.com</a>.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>Contact</h2>
-            <p>Questions about this policy? Reach out at <a href="mailto:admin@torchrepublic.com" style={{ color: RG }}>admin@torchrepublic.com</a>.</p>
+            <p>Questions about this policy? Reach out at <a href="mailto:info@torchrepublic.com" style={{ color: RG }}>info@torchrepublic.com</a>.</p>
           </section>
 
         </div>

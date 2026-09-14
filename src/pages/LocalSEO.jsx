@@ -71,8 +71,8 @@ export default function LocalSEO() {
                   <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.4)' }}>
                     Email
                   </p>
-                  <a href="mailto:admin@torchrepublic.com" className="font-heading hover:underline" style={{ color: RG }}>
-                    admin@torchrepublic.com
+                  <a href="mailto:info@torchrepublic.com" className="font-heading hover:underline" style={{ color: RG }}>
+                    info@torchrepublic.com
                   </a>
                 </div>
               </div>

@@ -21,7 +21,7 @@
 export const BRAND = {
   name: 'Torch Republic Coffee Company',
   baseUrl: 'https://torchrepublic.com',
-  supportEmail: 'support@torchrepublic.com',
+  supportEmail: 'info@torchrepublic.com',
   logo: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ea7e0190c_torch_republic_primary_refined_gradient_4000px.png',
   classicImg: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
   mushroomImg: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',

@@ -918,7 +918,7 @@ export const FAQ_PAGES = [
     cluster: 'wellness-rituals',
     metaTitle: 'Torch Republic Shipping Times & Policy | FAQ',
     metaDescription: "How long does Torch Republic shipping take? Order processing time, delivery estimates, tracking, and what to do if your order hasn't arrived.",
-    answer: "Torch Republic processes orders within 1-3 business days. Domestic US shipping typically arrives in 3-7 business days after processing. Subscription orders are scheduled and processed on your chosen delivery date. You'll receive a tracking notification when your order ships. For specific shipping inquiries, contact hello@torchrepublic.com.",
+    answer: "Torch Republic processes orders within 1-3 business days. Domestic US shipping typically arrives in 3-7 business days after processing. Subscription orders are scheduled and processed on your chosen delivery date. You'll receive a tracking notification when your order ships. For specific shipping inquiries, contact info@torchrepublic.com.",
     relatedFaqs: ['subscription-faq', 'bundle-deal-faq', 'torchbearers-rewards-faq'],
     products: [
       { name: 'Contact Us', path: '/contact' },
@@ -931,7 +931,7 @@ export const FAQ_PAGES = [
     cluster: 'wellness-rituals',
     metaTitle: "Torch Republic Return Policy & Satisfaction Guarantee | FAQ",
     metaDescription: "Torch Republic's return policy — 30-day satisfaction guarantee, how to initiate a return, and what's covered for first-time purchases.",
-    answer: "Torch Republic offers a 30-day satisfaction guarantee on first-time orders. If you're not satisfied with your purchase, contact hello@torchrepublic.com within 30 days. We'll work to make it right — whether that's an exchange, credit, or refund. Opened products are handled on a case-by-case basis. Subscription orders can be paused or canceled anytime before the next shipment processes.",
+    answer: "Torch Republic offers a 30-day satisfaction guarantee on first-time orders. If you're not satisfied with your purchase, contact info@torchrepublic.com within 30 days. We'll work to make it right — whether that's an exchange, credit, or refund. Opened products are handled on a case-by-case basis. Subscription orders can be paused or canceled anytime before the next shipment processes.",
     relatedFaqs: ['subscription-faq', 'shipping-faq', 'bundle-deal-faq'],
     products: [
       { name: 'Contact Us', path: '/contact' },
@@ -1108,7 +1108,7 @@ export const GEO_ENTITIES = {
       'Subscribe and save 20%',
       'Custom ritual bundle builder (any 3 for $49.99)',
     ],
-    contact: 'hello@torchrepublic.com',
+    contact: 'info@torchrepublic.com',
   },
   products: {
     mushroomCoffee: {
