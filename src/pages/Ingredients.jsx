@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Leaf, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
+import { CheckCircle, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
@@ -30,20 +30,12 @@ const INGREDIENTS = [
     description: "Our classic coffee uses single-origin Arabica coffee, freeze-dried to preserve aroma and flavor. Arabica is known for its smooth, refined profile and naturally occurring caffeine and antioxidants.",
     uses: ['Morning energy', 'Afternoon pick-me-up', 'Traditional coffee ritual'],
   },
-  {
-    name: 'Ceremonial Matcha',
-    scientific: 'Camellia sinensis',
-    icon: Leaf,
-    description: "Our ceremonial grade matcha is made from shade-grown green tea leaves, stone-ground into a fine powder. It contains naturally occurring L-theanine and antioxidants, often studied for calm, sustained focus.",
-    uses: ['Morning meditation', 'Afternoon focus', 'Mindful rituals'],
-  },
 ];
 
-// Transparent overview of which ingredients are in each of the three products.
+// Transparent overview of which ingredients are in the two current products.
 const PRODUCTS = [
   { name: 'Instant Classic Coffee', ingredients: ['Single-origin Arabica coffee'], note: '27 servings · medium roast · high caffeine' },
   { name: 'Instant Mushroom Coffee', ingredients: ['Premium instant coffee', "Lion's Mane extract", 'Chaga extract'], note: '27 servings · medium caffeine' },
-  { name: 'Ceremonial Matcha', ingredients: ['Ceremonial grade matcha'], note: '25 servings · medium caffeine' },
 ];
 
 // Local deep-dive links — kept inline so this page does not depend on a large
@@ -51,15 +43,13 @@ const PRODUCTS = [
 const DEEP_DIVES = [
   { name: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', category: 'Mushroom', color: '#B86543' },
   { name: 'Chaga', slug: 'chaga-mushroom-coffee', category: 'Mushroom', color: '#8A6A3A' },
-  { name: 'Reishi', slug: 'reishi-mushroom-coffee', category: 'Mushroom', color: '#6B4E2E' },
-  { name: 'Ceremonial Matcha', slug: 'ceremonial-matcha', category: 'Tea', color: '#5E7A3E' },
   { name: 'Freeze-Dried Coffee', slug: 'freeze-dried-instant-coffee', category: 'Coffee', color: '#7A5230' },
 ];
 
 export default function Ingredients() {
   useSEO({
     title: 'Our Ingredients | Torch Republic Coffee Company',
-    description: 'An honest overview of the ingredients behind Torch Republic — functional mushrooms, ceremonial matcha, and premium instant coffee — with conservative notes on traditional use and preliminary research.',
+    description: 'An honest overview of Torch Republic ingredients — Lion\u2019s Mane, Chaga, and premium instant coffee — with conservative notes on traditional use and preliminary research.',
     url: '/ingredients',
     type: 'website',
   });
@@ -129,7 +119,7 @@ export default function Ingredients() {
             <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>By Product</p>
             <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>What's in Each Torch Republic Product</h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {PRODUCTS.map((p) => (
               <article key={p.name} className="rounded-[1.5rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}>
                 <h3 className="font-serif text-xl font-bold" style={{ color: theme.text }}>{p.name}</h3>
@@ -167,7 +157,7 @@ export default function Ingredients() {
       <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Selected With Care</h2>
-          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our coffee is single-origin Arabica, our matcha is ceremonial grade, and our mushroom coffee includes Lion's Mane and Chaga extracts. We list every ingredient so you always know what is in your cup.</p>
+          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our classic coffee is single-origin Arabica, and our mushroom coffee includes Lion's Mane and Chaga extracts. We list every ingredient so you always know what is in your cup.</p>
           <Link to="/our-story" className="mt-6 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Read Our Story →</Link>
         </div>
       </section>
@@ -176,7 +166,7 @@ export default function Ingredients() {
       <section className="px-5 py-16 md:px-10">
         <div className="mx-auto max-w-[1100px]">
           <h2 className="mb-8 text-center font-serif text-4xl font-bold" style={{ color: theme.text }}>Ingredient Deep Dives</h2>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
             {DEEP_DIVES.map((ing) => (
               <Link key={ing.slug} to={`/ingredients/${ing.slug}`} className="block rounded-[1rem] border p-5 text-center transition-all hover:opacity-90" style={{ background: theme.card, borderColor: theme.border }}>
                 <p className="font-serif text-base font-bold" style={{ color: ing.color }}>{ing.name}</p>
