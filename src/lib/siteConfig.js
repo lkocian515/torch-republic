@@ -43,7 +43,6 @@ export const TRUST_PILLS = [
   'No Pods',
   'No Machine',
   '27 Servings Per Bag',
-  `Subscribe & Save ${SUBSCRIBE_SAVE_PERCENT}%`,
   `Free Shipping ${FREE_SHIPPING_THRESHOLD_DISPLAY}`,
   `${GUARANTEE_DAYS}-Day Guarantee`,
 ];

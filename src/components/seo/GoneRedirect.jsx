@@ -35,7 +35,7 @@ export default function GoneRedirect() {
         This product is no longer available
       </h1>
       <p className="font-heading text-base mb-8" style={{ color: 'rgba(245,239,230,0.75)', maxWidth: '400px' }}>
-        Torch Republic now focuses on premium instant coffee, mushroom coffee, and matcha. Browse our current collection below.
+        Torch Republic now focuses on premium instant coffee and mushroom coffee. Browse our current collection below.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link

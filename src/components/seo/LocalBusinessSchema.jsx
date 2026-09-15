@@ -10,7 +10,7 @@ export default function LocalBusinessSchema() {
     "@type": "LocalBusiness",
     "name": "Torch Republic Coffee Company",
     "alternateName": "Torch Republic",
-    "description": "Explore thoughtfully crafted instant coffee, functional mushroom blends, and ceremonial matcha made for brighter, more intentional daily rituals.",
+    "description": "Explore thoughtfully crafted instant coffee and functional mushroom coffee made for brighter, more intentional daily rituals.",
     "url": "https://torchrepublic.com",
     "logo": "https://torchrepublic.com/torch-republic-logo-transparent.png",
     "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png",
@@ -67,13 +67,7 @@ export default function LocalBusinessSchema() {
             "name": "Mushroom Coffee"
           }
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "Ceremonial Matcha"
-          }
-        }
+
       ]
     }
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Repeat } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { RITUAL_COLORS } from '@/lib/coreProducts';
 import RitualProductImage from '@/components/products/RitualProductImage';
 import { useCart } from '@/contexts/CartContext';
@@ -75,10 +75,6 @@ export default function RitualCard({ product, index = 0 }) {
             {product.servings} servings
           </span>
         </div>
-
-        <p className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.18em]" style={{ color: '#8A8076' }}>
-          <Repeat size={11} style={{ color: c.accent }} /> Subscription available
-        </p>
 
         <div className="flex-1" />
 

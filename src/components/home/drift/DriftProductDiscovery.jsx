@@ -25,7 +25,7 @@ function ProductInfo({ product, index, addItem, isAdding }) {
         <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', color: D.ink }}>{formatPrice(product.price)}</span>
         <span style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary }}>{product.servings} servings</span>
       </div>
-      <p style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary, margin: '0 0 1.25rem' }}>Subscribe &amp; Save coming soon</p>
+
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
         <button type="button" onClick={() => addItem(product)} disabled={isAdding} className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 48, padding: '0 1.75rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: isAdding ? 'not-allowed' : 'pointer', opacity: isAdding ? 0.6 : 1 }}>
           Add to Cart

@@ -17,7 +17,7 @@ function GonePage() {
       <p className="mb-4 font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: '#B86543' }}>410 · No Longer Available</p>
       <h1 className="mb-3 font-serif text-3xl font-bold" style={{ color: '#292626' }}>This page is no longer available</h1>
       <p className="mb-8 font-heading text-sm" style={{ color: '#5F5145', maxWidth: '420px', lineHeight: 1.7 }}>
-        Torch Republic now focuses entirely on premium instant coffee, mushroom coffee, and ceremonial matcha. The page you're looking for no longer exists.
+        Torch Republic now focuses entirely on premium instant coffee and mushroom coffee. The page you're looking for no longer exists.
       </p>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90" style={{ background: '#B86543', color: '#FBF8F1' }}>Shop All Products →</Link>
@@ -170,30 +170,22 @@ export default function PageNotFound() {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-6" style={{ background: '#FBF8F1' }}>
-      <div className="w-full max-w-2xl text-center">
-        <p className="mb-4 font-mono text-[11px] tracking-[0.3em] uppercase" style={{ color: '#B86543' }}>404 · Page Not Found</p>
-        <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', color: '#292626', letterSpacing: '-0.02em' }}>Page Not Found</h1>
+      <div className="w-full max-w-lg text-center">
+        <p className="mb-4 font-mono text-[11px] tracking-[0.3em] uppercase" style={{ color: '#B86543' }}>404</p>
+        <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', color: '#292622', letterSpacing: '-0.02em' }}>
+          We couldn&rsquo;t find that page.
+        </h1>
         <div className="mx-auto my-6 h-px w-24" style={{ background: 'linear-gradient(90deg, transparent, #E4D8C9, transparent)' }} />
-        <p className="mx-auto mb-10 font-heading text-base" style={{ color: '#5F5145', lineHeight: 1.7, maxWidth: '460px' }}>
-          The page you're looking for doesn't exist or has moved. Torch Republic focuses on premium instant coffee, mushroom coffee, and ceremonial matcha.
+        <p className="mx-auto mb-10 font-heading text-base" style={{ color: '#5F574F', lineHeight: 1.7, maxWidth: '440px' }}>
+          The page may have moved, but your next cup is still close.
         </p>
         <div className="flex flex-col justify-center gap-3 sm:flex-row">
-          <Link to="/" className="inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90" style={{ background: '#B86543', color: '#FBF8F1' }}>Return Home →</Link>
-          <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-75" style={{ border: '1px solid #B86543', color: '#B86543' }}>Shop All Products →</Link>
+          <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90" style={{ background: '#B86543', color: '#FBF8F1', borderRadius: '6px' }}>Shop Coffee</Link>
+          <Link to="/" className="inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold py-4 px-8 transition-all hover:opacity-75" style={{ border: '1px solid #B86543', color: '#B86543', borderRadius: '6px' }}>Return Home</Link>
         </div>
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
-          <Link to="/products/instant-classic-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: '8px' }}>
-            <p className="font-serif text-base font-bold" style={{ color: '#292626' }}>Instant Classic Coffee</p>
-            <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.15em]" style={{ color: '#9A8A7A' }}>Single-Origin Arabica</p>
-          </Link>
-          <Link to="/products/instant-mushroom-coffee" className="p-5 text-center transition-all hover:opacity-90" style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: '8px' }}>
-            <p className="font-serif text-base font-bold" style={{ color: '#292626' }}>Instant Mushroom Coffee</p>
-            <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.15em]" style={{ color: '#9A8A7A' }}>Lion's Mane + Chaga</p>
-          </Link>
-          <Link to="/products/ceremonial-matcha" className="p-5 text-center transition-all hover:opacity-90" style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: '8px' }}>
-            <p className="font-serif text-base font-bold" style={{ color: '#292626' }}>Ceremonial Matcha</p>
-            <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.15em]" style={{ color: '#9A8A7A' }}>Ceremonial Grade</p>
-          </Link>
+        <div className="mt-8 flex justify-center gap-6">
+          <Link to="/faq" className="font-heading text-sm" style={{ color: '#B86543', textDecoration: 'underline' }}>FAQ</Link>
+          <Link to="/contact" className="font-heading text-sm" style={{ color: '#B86543', textDecoration: 'underline' }}>Contact</Link>
         </div>
       </div>
     </div>

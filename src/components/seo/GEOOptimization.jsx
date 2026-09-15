@@ -3,7 +3,7 @@
  * Injects structured JSON-LD entities optimized for AI answer engines.
  *
  * Product data is sourced from CORE_PRODUCTS (the single source of truth) so
- * the structured data always matches the live three-product catalog — no
+ * the structured data always matches the live two-product catalog — no
  * retired blend names, no "tube" references, no stale prices.
  */
 import { useEffect } from 'react';
@@ -59,7 +59,7 @@ export default function GEOOptimization({ page = 'home' }) {
       });
     }
 
-    // ── Product Catalog — exactly three current products ──
+    // ── Product Catalog — exactly two current products ──
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -95,7 +95,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What mushroom coffee does Torch Republic make?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic makes one instant mushroom coffee, blended with premium instant coffee, Lion's Mane, and Chaga. It is $22.99 per bag with 27 servings.",
+            text: "Torch Republic makes one instant mushroom coffee, blended with premium instant coffee, Lion's Mane, and Chaga. It is $25.99 per bag with 27 servings.",
           },
         },
         {
@@ -103,7 +103,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is the price of Torch Republic products?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Instant Classic Coffee is $22.99 and Instant Mushroom Coffee is $25.99. Both can be bundled for $${BUNDLE_PRICE_DUO.toFixed(2)}. Subscribe and save ${subSavePct}% on every delivery.`,
+            text: `Instant Classic Coffee is $22.99 and Instant Mushroom Coffee is $25.99. Both can be bundled for $${BUNDLE_PRICE_DUO.toFixed(2)}. Subscriptions with 10% savings are coming soon.`,
           },
         },
         {
@@ -127,7 +127,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'Where can I buy Torch Republic coffee?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Torch Republic is available at torchrepublic.com. They ship domestically within the US. Subscribe and save on recurring deliveries.',
+            text: 'Torch Republic is available at torchrepublic.com. They ship domestically within the US.',
           },
         },
       ],
