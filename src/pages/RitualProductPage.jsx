@@ -13,6 +13,7 @@ import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanner';
 import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 import RitualProductGallery from '@/components/products/RitualProductGallery';
+import BrewingGuide from '@/components/products/BrewingGuide';
 
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
 
@@ -366,7 +367,14 @@ function RitualPDP({ product }) {
               ))}
             </ul>
           )}
-          {tab === 'How to Prepare' && <p>{PREP}</p>}
+          {tab === 'How to Prepare' && (
+            <div className="flex flex-col gap-3">
+              <p>{PREP}</p>
+              <p className="font-heading text-sm" style={{ color: THEME.secondary }}>
+                See the full brewing guide with step-by-step instructions below.
+              </p>
+            </div>
+          )}
           {tab === 'FAQ' && (
             <div className="flex flex-col gap-5">
               {faqs.map((f, i) => (
@@ -379,6 +387,8 @@ function RitualPDP({ product }) {
           )}
         </div>
       </section>
+
+      <BrewingGuide accent={c.accent} deep={c.deep} productName={product.name} />
 
       <RitualMomentStrip
         image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
