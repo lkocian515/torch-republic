@@ -5,7 +5,7 @@ import { D, SERIF, SANS, MONO } from './driftTheme';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
 import { formatPrice } from '@/lib/pricingConfig';
 import { useCart } from '@/contexts/CartContext';
-import { useDriftMotion } from './useDriftMotion';
+import { useDriftMotion, isMobile } from './useDriftMotion';
 
 function ProductInfo({ product, index, addItem, isAdding }) {
   return (
@@ -42,18 +42,29 @@ export default function DriftProductDiscovery() {
   const { addItem, isAdding } = useCart();
   const [classic, mushroom] = CORE_PRODUCTS;
   const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
-    // Single responsive structure — no pin, no 100vh, no duplicate layouts.
-    // Scoped per-card reveals; triggers use element refs, not root-matching strings.
+    // Commerce content (product info, prices, buttons) must be visible by
+    // default on mobile. Reveal animations are desktop-only progressive
+    // enhancement — they never gate critical shopping content on small screens.
+    const mobileLayout = isMobile();
+
     gsap.utils.toArray('.pd-card').forEach((card) => {
       const img = card.querySelector('.pd-img');
       const info = card.querySelector('.pd-info');
+
+      // Image: fromTo for fail-safety — if ScrollTrigger misses, image
+      // settles at its final (visible) state rather than staying hidden.
       if (img) {
-        gsap.from(img, {
-          scale: 1.06, duration: 1.1, ease: 'power2.out',
-          scrollTrigger: { trigger: card, start: 'top 82%' },
-        });
+        gsap.fromTo(img,
+          { scale: 1.06 },
+          { scale: 1, duration: 1.1, ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 82%' },
+          }
+        );
       }
-      if (info && info.children.length) {
+
+      // Info: desktop-only staggered reveal. On mobile, content is always
+      // visible — no opacity:0, no transform, no IntersectionObserver dependency.
+      if (!mobileLayout && info && info.children.length) {
         gsap.from(info.children, {
           opacity: 0, y: 18, duration: 0.5, stagger: 0.07, ease: 'power3.out',
           scrollTrigger: { trigger: info, start: 'top 78%' },
@@ -63,8 +74,8 @@ export default function DriftProductDiscovery() {
   });
 
   return (
-    <section ref={scope} style={{ background: D.paper }}>
-      <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
+    <section ref={scope} style={{ background: D.paper, scrollMarginTop: '96px' }}>
+      <div className="mx-auto max-w-[1200px] px-6 pt-12 pb-14 md:py-20">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
           <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>Find Your Morning</p>

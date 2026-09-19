@@ -34,6 +34,16 @@ const isExcludedRoute = () => {
   return EXCLUDED_ROUTES.some((r) => path === r || path.startsWith(r + '/') || path.startsWith(r));
 };
 
+// ── Development-only diagnostic logging ──────────────────────────────────────
+// Set SPIN_WHEEL_DEBUG = false before production publication.
+// In Vite production builds, import.meta.env.DEV is false so logs are stripped.
+const SPIN_WHEEL_DEBUG = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV;
+const debug = (label, value) => {
+  if (!SPIN_WHEEL_DEBUG) return;
+  // Never log emails, discount codes, tokens, or customer information
+  console.debug('[SpinWheel] ' + label, value === undefined ? '' : value);
+};
+
 const isValidEmail = (email) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim().toLowerCase());
 
@@ -63,7 +73,17 @@ export default function SpinWheelPopup() {
 
   // ── Trigger logic: 8s timer OR 35% scroll, whichever first ──────────────
   useEffect(() => {
-    if (isSuppressed() || isSessionDismissed() || isExcludedRoute()) return;
+    debug('component mounted');
+    debug('pathname', window.location.pathname);
+
+    const routeEligible = !isExcludedRoute();
+    debug('route eligible', routeEligible);
+    if (!routeEligible) return;
+
+    const suppressed = isSuppressed();
+    const sessionDismissed = isSessionDismissed();
+    debug('suppression record found', suppressed || sessionDismissed);
+    if (suppressed || sessionDismissed) return;
 
     let triggered = false;
 
@@ -71,12 +91,15 @@ export default function SpinWheelPopup() {
       if (triggered) return;
       if (openModalRegistry.hasOpen()) return;
       triggered = true;
+      debug('open condition reached', type);
       setTriggerType(type);
       checkStatusAndShow(type);
     };
 
+    debug('timer trigger registered');
     const timer = setTimeout(() => trigger('timer'), 8000);
 
+    debug('scroll trigger registered');
     const handleScroll = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollable <= 0) return;
@@ -96,7 +119,9 @@ export default function SpinWheelPopup() {
     try {
       const res = await base44.functions.invoke('processSpinWheel', { action: 'status' });
       const data = res.data || res;
+      debug('configuration enabled', data.enabled);
       if (data.enabled) {
+        debug('modal opened');
         setVisible(true);
         trackEvent(
           'wheel_impression',
@@ -104,8 +129,8 @@ export default function SpinWheelPopup() {
           'wheel_impression'
         );
       }
-    } catch (_) {
-      // Fail silently — don't show popup if status check fails
+    } catch (err) {
+      debug('configuration error', 'status check failed');
     }
   };
 
@@ -383,7 +408,7 @@ export default function SpinWheelPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
           style={{ background: 'rgba(45,40,36,0.5)', backdropFilter: 'blur(6px)' }}
           onClick={handleBackdropClick}
         >
@@ -425,7 +450,7 @@ export default function SpinWheelPopup() {
               <div className="flex flex-col md:flex-row">
                 {/* Left: Wheel */}
                 <div
-                  className="flex flex-col items-center justify-center p-6 md:p-8"
+                  className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8"
                   style={{ background: `linear-gradient(180deg, ${CREAM} 0%, #F5EFE6 100%)` }}
                 >
                   <div style={{ width: '100%', maxWidth: '260px' }}>
@@ -434,7 +459,7 @@ export default function SpinWheelPopup() {
                 </div>
 
                 {/* Right: Content */}
-                <div className="flex-1 p-6 md:p-8 flex flex-col justify-center min-h-[280px]">
+                <div className="flex-1 p-4 sm:p-6 md:p-8 flex flex-col justify-center min-h-[280px]">
                   {/* Screen-reader live region */}
                   <div aria-live="polite" className="sr-only">
                     {liveMessage}

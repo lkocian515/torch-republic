@@ -69,8 +69,11 @@ const STORE_URL = 'https://torchrepublic.base44.app';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
-function allEnabled() {
-  return PRIZE_CONFIG.every(function (p) {
+// The wheel appears when at least one prize is fully configured (code + enabled).
+// This allows the wheel to go live with a subset of prizes while remaining
+// codes are created in Shopify. selectPrize() only picks from enabled prizes.
+function hasEnabledPrizes() {
+  return PRIZE_CONFIG.some(function (p) {
     return p.enabled && p.code;
   });
 }
@@ -163,7 +166,7 @@ export default async function (req) {
     // ── STATUS: check if wheel is enabled, return public prize config ───────
     if (action === 'status') {
       return Response.json(
-        { enabled: allEnabled(), prizes: publicPrizes() },
+        { enabled: hasEnabledPrizes(), prizes: publicPrizes() },
         { status: 200 }
       );
     }
@@ -181,7 +184,7 @@ export default async function (req) {
         );
       }
 
-      if (!allEnabled()) {
+      if (!hasEnabledPrizes()) {
         return Response.json(
           { status: 'error', reason: 'not_configured' },
           { status: 200 }
