@@ -13,8 +13,7 @@ import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
-import EmailCapturePopup from './components/mushroom/EmailCapturePopup';
-import ExitIntentPopup from './components/home/ExitIntentPopup';
+import SpinWheelPopup from './components/spinwheel/SpinWheelPopup';
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
@@ -563,8 +562,7 @@ function App() {
               <AuthenticatedApp queryClient={queryClientInstance} />
               <CommerceNotice />
               <AddToCartConfirmation />
-              <EmailCapturePopup />
-              <ExitIntentPopup />
+              <SpinWheelPopup />
             </NavigationProvider>
           </Router>
           <Toaster />
