@@ -6,8 +6,8 @@ import { usePortfolioMotion, isMobile } from './usePortfolioMotion';
 
 const SHOTS = [
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg', title: 'Homepage \u2014 two-product hero and navigation', alt: 'Torch Republic homepage hero with two-product lineup and daily ritual messaging.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg', title: 'Product card \u2014 classic coffee', alt: 'Product card showing Instant Classic Coffee with pricing and subscription option.' },
-  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg', title: 'Product card \u2014 mushroom coffee', alt: 'Product card showing Instant Mushroom Coffee with functional benefits.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg', title: 'Product card \u2014 classic coffee', alt: 'Product card showing Instant Classic Coffee at $22.99 with add-to-cart and view-details actions.' },
+  { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg', title: 'Product card \u2014 mushroom coffee', alt: 'Product card showing Instant Mushroom Coffee at $25.99 with add-to-cart and view-details actions.' },
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg', title: 'Powered by Nature \u2014 benefit grid', alt: 'Feature grid highlighting clean ingredients, no plastic, no machine, and on-the-go convenience.' },
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg', title: 'Lifestyle hero \u2014 ritual in nature', alt: 'Lifestyle hero showing the daily ritual in an outdoor mountain setting.' },
 ];

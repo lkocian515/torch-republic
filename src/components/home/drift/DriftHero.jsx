@@ -7,20 +7,24 @@ import { useDriftMotion, isMobile } from './useDriftMotion';
 const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f0baca98f_file_00000000f01c822fa487ced70d607099.png';
 
 // ── Reusable text block (shared between desktop and mobile layouts) ──
-function HeroText() {
+// isPrimary controls heading level: only the visible layout renders a real <h1>.
+// The duplicate (hidden via display:none) renders an identical <p> so there is
+// exactly one H1 in the DOM and accessibility tree at every breakpoint.
+function HeroText({ isPrimary = true }) {
+  const HeadingTag = isPrimary ? 'h1' : 'p';
   return (
     <>
       <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
         Premium Coffee &middot; Zero Equipment
       </p>
-      <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
+      <HeadingTag style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>Better mornings,</span>
         </span>
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>in an instant.</span>
         </span>
-      </h1>
+      </HeadingTag>
       <p className="hero-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2rem', maxWidth: '40ch' }}>
         Premium coffee made for real mornings. Scoop. Stir. Sip.
       </p>
@@ -165,7 +169,7 @@ export default function DriftHero() {
           style={{ willChange: 'transform', minHeight: 'max(78vh, 650px)', maxHeight: '900px' }}
         >
           <div className="max-w-[480px] px-8 md:px-12 lg:px-16">
-            <HeroText />
+            <HeroText isPrimary={true} />
           </div>
         </div>
       </div>
@@ -176,7 +180,7 @@ export default function DriftHero() {
       <div className="md:hidden">
         {/* Text content */}
         <div className="hero-text px-5 pt-12 pb-6">
-          <HeroText />
+          <HeroText isPrimary={false} />
         </div>
 
         {/* Hero photograph — single layer, preserves both product bags */}

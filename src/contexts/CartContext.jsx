@@ -191,10 +191,7 @@ export function CartProvider({ children }) {
       imageAlt: getProductAltText(product),
     };
 
-    // Save previous state for rollback if Shopify rejects
-    const previousItems = itemsRef.current;
-
-    // Optimistic local update
+    // Optimistic local update — item appears immediately
     setItems(prev => {
       const key = getLineKey(normalizedProduct);
       const existing = prev.find(i => getLineKey(i) === key);
@@ -204,6 +201,22 @@ export function CartProvider({ children }) {
           : i);
       }
       return [...prev, { ...normalizedProduct, qty }];
+    });
+
+    // Show confirmation IMMEDIATELY (optimistic) so the user always sees
+    // feedback. The Shopify sync happens in the background; if it succeeds,
+    // we update the local item with Shopify-confirmed data. If it fails,
+    // the item stays in the local cart and checkout creates a fresh cart.
+    setConfirmation({
+      name: normalizedProduct.name,
+      image: normalizedProduct.image,
+      imageAlt: normalizedProduct.imageAlt,
+      qty,
+      isSubscription: !!normalizedProduct.isSubscription,
+      sellingPlanName: normalizedProduct.isSubscription ? 'Deliver every 4 weeks' : null,
+      shopifyPrice: null,
+      lineTotal: (normalizedProduct.price * qty).toFixed(2),
+      price: normalizedProduct.price,
     });
 
     // Helper: find the matching Shopify line from the cart response.
@@ -219,7 +232,7 @@ export function CartProvider({ children }) {
              sl.isSubscription === !!normalizedProduct.isSubscription;
     });
 
-    // Helper: update local items with Shopify-confirmed data + show confirmation
+    // Helper: update local items with Shopify-confirmed data
     const applyShopifyData = (cart) => {
       const matchedLine = findMatch(cart);
       if (!matchedLine) return false;
@@ -237,9 +250,7 @@ export function CartProvider({ children }) {
         };
       }));
 
-      // Show confirmation ONLY after Shopify confirms the mutation.
-      // lineTotal is ALWAYS computed as unitPrice × qty (one authoritative
-      // price source) so it can never disagree with the cart subtotal.
+      // Update confirmation with Shopify-confirmed price
       const confirmedUnitPrice = matchedLine.unitPrice ? parseFloat(matchedLine.unitPrice) : normalizedProduct.price;
       setConfirmation({
         name: normalizedProduct.name,
@@ -252,7 +263,6 @@ export function CartProvider({ children }) {
         lineTotal: (confirmedUnitPrice * matchedLine.quantity).toFixed(2),
         price: normalizedProduct.price,
       });
-      // Clear any stale error toast now that the add succeeded
       lastErrorToastRef.current?.dismiss();
       lastErrorToastRef.current = null;
       return true;
@@ -268,44 +278,43 @@ export function CartProvider({ children }) {
           let cart;
 
           if (!currentCartId) {
-            // Create a new Shopify cart with this line
             cart = await createShopifyCart([line]);
             if (cart?.cartId) persistShopifyCartId(cart.cartId);
           } else {
-            // Add to existing Shopify cart
             cart = await addShopifyCartLine(currentCartId, line);
           }
 
-          const applied = applyShopifyData(cart);
-          if (!applied) {
-            // Shopify returned a cart but no matching line — rollback
-            setItems(previousItems);
+          // Best-effort: update local item with Shopify data if the match succeeds.
+          // If it fails, the item stays in the local cart — checkout will create
+          // a fresh cart from local state, so the user never loses their selection.
+          if (cart && !cart.error) {
+            applyShopifyData(cart);
+          } else if (cart?.error) {
+            // Shopify API returned an error — show a non-blocking warning
+            // but keep the item in the local cart.
             lastErrorToastRef.current?.dismiss();
-            lastErrorToastRef.current = showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive', duration: 4000 });
+            lastErrorToastRef.current = showToast({
+              title: 'Syncing issue',
+              description: 'Your item was added. We will sync your cart at checkout.',
+              duration: 4000,
+            });
           }
         } catch {
-          // Rollback optimistic update on Shopify failure
-          setItems(previousItems);
+          // Network or SDK error — item stays in local cart.
+          // Checkout creates a fresh cart from local state, so no data is lost.
           lastErrorToastRef.current?.dismiss();
-          lastErrorToastRef.current = showToast({ title: 'Could not add to cart', description: 'Please try again.', variant: 'destructive', duration: 4000 });
+          lastErrorToastRef.current = showToast({
+            title: 'Syncing issue',
+            description: 'Your item was added. We will sync your cart at checkout.',
+            duration: 4000,
+          });
         } finally {
           mutationInFlight.current = false;
           setIsAdding(false);
         }
       })();
     } else {
-      // Commerce disabled — show confirmation with local data
-      setConfirmation({
-        name: normalizedProduct.name,
-        image: normalizedProduct.image,
-        imageAlt: normalizedProduct.imageAlt,
-        qty,
-        isSubscription: !!normalizedProduct.isSubscription,
-        sellingPlanName: normalizedProduct.isSubscription ? 'Deliver every 4 weeks' : null,
-        shopifyPrice: null,
-        lineTotal: (normalizedProduct.price * qty).toFixed(2),
-        price: normalizedProduct.price,
-      });
+      // Commerce disabled — confirmation already shown above.
       setTimeout(() => { mutationInFlight.current = false; setIsAdding(false); }, 300);
     }
   }, [getLineKey, persistShopifyCartId]);

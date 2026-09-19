@@ -147,9 +147,21 @@ function RitualPDP({ product }) {
   const benefits = benefitsFor(product);
   const related = otherRituals(product.ritualKey);
 
+  const SEO_META = {
+    'instant-classic-coffee': {
+      title: 'Instant Classic Coffee | Torch Republic',
+      description: 'Bold, smooth instant Arabica coffee made with single-origin coffee from Papua New Guinea. No pods or equipment required.',
+    },
+    'instant-mushroom-coffee': {
+      title: 'Instant Mushroom Coffee | Torch Republic',
+      description: "Smooth instant coffee blended with Lion's Mane and Chaga for an easy, balanced daily ritual.",
+    },
+  };
+  const seoMeta = SEO_META[product.slug] || { title: `${product.name} | Torch Republic`, description: product.description };
+
   useSEO({
-    title: `${product.name} | ${product.categoryLabel} | Torch Republic`,
-    description: `${product.name} — ${product.description}`.slice(0, 160),
+    title: seoMeta.title,
+    description: seoMeta.description,
     url: product.path,
     type: 'product',
     image: imageUrl,

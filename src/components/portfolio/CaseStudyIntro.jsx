@@ -18,8 +18,8 @@ const SKILLS_DEMONSTRATED = [
 ];
 
 const SECTIONS = [
-  { n: '01', label: 'The Challenge', body: 'Build and refine a differentiated digital commerce experience from the ground up using AI-assisted tools \u2014 then turn generated output into an accurate, consistent, conversion-minded storefront. The work was not \u201Cgenerate a site.\u201D It was continuously evaluating output against business requirements, catching defects, validating fixes, and improving the experience across product, content, navigation and mobile.' },
-  { n: '02', label: 'My Role', body: 'I owned the project end-to-end \u2014 strategy, requirements, architecture decisions, AI-assisted build, prompt iteration, QA, and iteration. AI accelerated execution; human judgment directed requirements, testing, validation, iteration and business decisions.' },
+  { n: '01', label: 'The Challenge', body: 'Build and refine a differentiated digital commerce experience from the ground up using AI-assisted tools \u2014 then turn generated output into an accurate, consistent, conversion-minded storefront. The work was not \u201Cgenerate a site.\u201D It was continuously evaluating output against business requirements, catching defects, validating fixes, and improving the experience across product, content, navigation and mobile. This is a live project under continuous QA and iteration \u2014 not every workflow has been retested as passing, and new issues are documented and resolved as they surface.' },
+  { n: '02', label: 'My Role', body: 'I owned the project end-to-end \u2014 strategy, requirements, architecture decisions, AI-assisted build, prompt iteration, QA, and iteration. AI accelerated execution; human judgment directed requirements, testing, validation, iteration and business decisions. Ongoing work includes cart and checkout regression testing, metadata QA, accessibility auditing, and route cleanup.' },
 ];
 
 export default function CaseStudyIntro() {
@@ -69,6 +69,9 @@ export default function CaseStudyIntro() {
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <span style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.ink, background: P.accentSoft, border: `1px solid ${P.accent}33`, borderRadius: '4px', padding: '0.3rem 0.7rem' }}>
             Project &mdash; Torch Republic Coffee Company
+          </span>
+          <span style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, background: 'rgba(37,99,235,0.06)', border: `1px solid ${P.accent}55`, borderRadius: '4px', padding: '0.3rem 0.7rem' }}>
+            Live Project &middot; Continuous QA and Iteration
           </span>
           <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1" style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', fontWeight: 600, color: P.accent, textDecoration: 'none' }}>
             View live site <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

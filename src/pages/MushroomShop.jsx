@@ -59,8 +59,8 @@ function NewsletterSignup() {
 
 export default function MushroomShop() {
   useSEO({
-    title: 'Shop Instant Coffee & Mushroom Coffee | Torch Republic',
-    description: 'Two simple rituals: instant classic coffee and instant mushroom coffee. Choose the morning you want.',
+    title: 'Shop Instant Coffee | Torch Republic Coffee Company',
+    description: 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee — premium, convenient coffee made for simple daily rituals.',
     url: '/shop',
     type: 'website',
     noindex: false,
@@ -89,10 +89,10 @@ export default function MushroomShop() {
         </div>
       </section>
 
-      {/* Three products */}
+      {/* Two products */}
       <section className="px-6 pb-16 md:px-10">
         <div className="mx-auto max-w-[1240px]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {CORE_PRODUCTS.map((p, i) => (
               <RitualCard key={p.id} product={p} index={i} />
             ))}

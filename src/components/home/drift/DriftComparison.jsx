@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
@@ -70,8 +70,19 @@ function ProductLink({ product }) {
 }
 
 export default function DriftComparison() {
+  // Track viewport to set aria-hidden on the inactive duplicate layout.
+  // display:none already removes it from the a11y tree, but aria-hidden
+  // makes the intent explicit for assistive technologies.
+  const [mobile, setMobile] = useState(typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e) => setMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
-    const mobile = isMobile();
+    const mobileLayout = isMobile();
 
     // ── Entrance: eyebrow + heading ──
     gsap.from('.cmp-eyebrow', {
@@ -87,10 +98,10 @@ export default function DriftComparison() {
 
     // ── Image clip reveals (fromTo for fail-safety: if selector misses, image stays visible) ──
     const imgTl = gsap.timeline({
-      scrollTrigger: { trigger: mobile ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 82%' },
+      scrollTrigger: { trigger: mobileLayout ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 82%' },
     });
 
-    if (mobile) {
+    if (mobileLayout) {
       imgTl
         .fromTo('.cmp-m-img-classic', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' })
         .fromTo('.cmp-m-img-inner-classic', { scale: 1.04 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0)
@@ -105,17 +116,17 @@ export default function DriftComparison() {
     }
 
     // ── Labels + names ──
-    const labelSel = mobile ? '.cmp-m-label' : '.cmp-d-label';
+    const labelSel = mobileLayout ? '.cmp-m-label' : '.cmp-d-label';
     gsap.from(labelSel, {
       opacity: 0, y: 14, duration: 0.5, ease: 'power3.out', stagger: 0.1,
-      scrollTrigger: { trigger: mobile ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 65%' },
+      scrollTrigger: { trigger: mobileLayout ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 65%' },
       delay: 0.3,
     });
 
-    const nameSel = mobile ? '.cmp-m-name' : '.cmp-d-name';
+    const nameSel = mobileLayout ? '.cmp-m-name' : '.cmp-d-name';
     gsap.from(nameSel, {
       opacity: 0, y: 14, duration: 0.5, ease: 'power3.out', stagger: 0.1,
-      scrollTrigger: { trigger: mobile ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 65%' },
+      scrollTrigger: { trigger: mobileLayout ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 65%' },
       delay: 0.4,
     });
 
@@ -128,7 +139,7 @@ export default function DriftComparison() {
     });
 
     // ── Desktop hover + mouse depth ──
-    if (!mobile) {
+    if (!mobileLayout) {
       el.querySelectorAll('.cmp-d-img-wrap').forEach((wrap) => {
         const inner = wrap.querySelector('.cmp-d-img-inner');
         wrap.addEventListener('mouseenter', () => gsap.to(inner, { scale: 1.025, duration: 0.5, ease: 'power2.out' }));
@@ -168,7 +179,7 @@ export default function DriftComparison() {
         </div>
 
         {/* ═══ Desktop layout ═══ */}
-        <div className="hidden md:block">
+        <div className="hidden md:block" aria-hidden={mobile}>
           {/* Product columns */}
           <div className="cmp-d-columns grid grid-cols-2 gap-8 lg:gap-12 mb-12">
             {PRODUCTS.map((p) => (
@@ -211,7 +222,7 @@ export default function DriftComparison() {
         </div>
 
         {/* ═══ Mobile layout ═══ */}
-        <div className="md:hidden">
+        <div className="md:hidden" aria-hidden={!mobile}>
           <div className="cmp-m-columns flex flex-col gap-12">
             {PRODUCTS.map((p) => (
               <div key={p.id}>
