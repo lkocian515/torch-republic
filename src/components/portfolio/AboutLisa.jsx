@@ -22,9 +22,12 @@ export default function AboutLisa() {
       <Lead>{SUMMARY}</Lead>
 
       <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.75, color: P.secondary, marginTop: '0.85rem', maxWidth: '68ch' }}>
-        Hands-on technical experience spans modern full-stack web technologies, APIs, cloud infrastructure, databases, and
-        AI-assisted e-commerce workflows. A psychology background informs qualitative evaluation, language nuance, and
-        human-centered technology — paired with business judgment and direct implementation experience.
+        I build and test functional AI-assisted digital experiences, including a Shopify-integrated
+        e-commerce application developed with Base44 and React. Hands-on technical experience spans
+        modern full-stack web technologies, APIs, cloud infrastructure, databases, and AI-assisted
+        commerce workflows. A psychology background informs qualitative evaluation, language nuance,
+        and human-centered technology &mdash; paired with business judgment and direct implementation
+        experience.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">

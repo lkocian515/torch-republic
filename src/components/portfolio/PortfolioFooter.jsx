@@ -27,7 +27,7 @@ export default function PortfolioFooter() {
             &copy; 2026 Lisa Marie Kocian
           </p>
           <p style={{ fontFamily: FONT_SANS, fontSize: '0.78rem', color: P.muted, margin: 0 }}>
-            Torch Republic is referenced as a case study demonstrating this work.
+            Torch Republic is referenced as a case study demonstrating applied e-commerce application development and QA work.
           </p>
         </div>
       </div>

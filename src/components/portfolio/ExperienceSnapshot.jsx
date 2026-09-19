@@ -14,7 +14,7 @@ const CARDS = [
   {
     icon: ShoppingCart,
     title: 'AI & E-Commerce Product Development',
-    body: 'Built and tested Torch Republic\u2019s e-commerce experience end-to-end: customer journeys, SEO, analytics, integrations, accessibility, content systems, and conversion flows \u2014 with AI-assisted development validated by manual QA.',
+    body: 'Built and tested Torch Republic\u2019s e-commerce application end-to-end: a custom Base44/React storefront integrated with Shopify for live product data, cart behavior, and secure checkout \u2014 with AI-assisted development validated by manual QA across customer journeys, responsive behavior, analytics, and content systems.',
   },
   {
     icon: FileSearch,

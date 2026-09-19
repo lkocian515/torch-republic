@@ -68,7 +68,7 @@ export default function ProjectGallery() {
     <SectionWrap id="gallery" alt>
       <div ref={scope}>
         <Eyebrow>Selected Interface / Project Gallery</Eyebrow>
-        <SectionHeading>The finished storefront</SectionHeading>
+        <SectionHeading>The finished application</SectionHeading>
         <Lead>Real screenshots of the live project. Select any image to open it full-size.</Lead>
 
         {/* Asymmetric grid */}

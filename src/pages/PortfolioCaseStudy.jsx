@@ -5,7 +5,12 @@ import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import CredibilityStrip from '@/components/portfolio/CredibilityStrip';
 import QaMethodology from '@/components/portfolio/QaMethodology';
 import CaseStudyIntro from '@/components/portfolio/CaseStudyIntro';
-import CommerceSystem from '@/components/portfolio/CommerceSystem';
+import MoreThanStorefront from '@/components/portfolio/MoreThanStorefront';
+import ApplicationArchitecture from '@/components/portfolio/ApplicationArchitecture';
+import WhatItDoes from '@/components/portfolio/WhatItDoes';
+import EngineeringQA from '@/components/portfolio/EngineeringQA';
+import ProblemsResolved from '@/components/portfolio/ProblemsResolved';
+import ProjectOutcome from '@/components/portfolio/ProjectOutcome';
 import DevLoop from '@/components/portfolio/DevLoop';
 import QaEvidence from '@/components/portfolio/QaEvidence';
 import DefectCard from '@/components/portfolio/DefectCard';
@@ -90,6 +95,8 @@ export default function PortfolioCaseStudy() {
         'prompt testing', 'prompt iteration', 'e-commerce QA', 'AI commerce',
         'content quality', 'document quality assurance', 'AI implementation',
         'workflow testing', 'user journey testing', 'digital product QA',
+        'e-commerce application development', 'Shopify Storefront API integration',
+        'AI-assisted product development', 'functional QA', 'customer journey testing',
       ],
     };
     const webSite = {
@@ -131,12 +138,17 @@ export default function PortfolioCaseStudy() {
         <CredibilityStrip />
         <QaMethodology />
         <CaseStudyIntro />
-        <CommerceSystem />
+        <MoreThanStorefront />
+        <ApplicationArchitecture />
+        <WhatItDoes />
         <DevLoop />
+        <EngineeringQA />
         <QaEvidence />
         <DefectCard />
+        <ProblemsResolved />
         <AiOutputValidation />
         <ProjectGallery />
+        <ProjectOutcome />
         <SixFrameworks />
         <ProcessDiagram />
         <ExperienceSnapshot />

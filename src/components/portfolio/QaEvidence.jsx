@@ -18,7 +18,7 @@ const EXAMPLES = [
   {
     title: 'Legacy product names at checkout',
     short: 'Legacy Names',
-    problem: 'The cart showed retired product names (for example \u201CSunCap Rise\u201D) instead of the current catalog names.',
+    problem: 'The cart showed retired product names from an earlier catalog version instead of the current two-product lineup.',
     evidence: 'Adding items from collection pages passed legacy catalog data into the cart.',
     hypothesis: 'The collection grids still fed the retired catalog into the cart instead of the current two-product catalog.',
     change: 'Simplified collection grids to the two core products and redirected legacy product links to the current product pages.',

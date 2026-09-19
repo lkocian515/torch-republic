@@ -33,7 +33,7 @@ export const RESUME_URL = 'https://media.base44.com/files/public/69afc77e4c80e5e
 // These are the canonical metadata for lisakocian.com — never inherited
 // from Torch Republic. Coffee terminology may appear inside the case study
 // body text but must NOT define the portfolio's global SEO identity.
-export const PORTFOLIO_TITLE = 'Lisa Kocian | AI QA & E-Commerce Portfolio';
-export const PORTFOLIO_DESC = 'AI QA, content evaluation, prompt testing, e-commerce prototyping, and output validation portfolio showcasing practical AI and digital product quality work.';
+export const PORTFOLIO_TITLE = 'Lisa Kocian | AI QA & E-Commerce Application Portfolio';
+export const PORTFOLIO_DESC = 'AI QA specialist and content evaluator who built and tested a functional Base44 and React commerce application integrated with Shopify, analytics, responsive UX, and real customer workflows.';
 export const PORTFOLIO_CANON = 'https://lisakocian.com';
 export const PORTFOLIO_OG_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e8524676_generated_image.png';
