@@ -27,9 +27,12 @@ const EXCLUDED_ROUTES = [
   '/cart', '/checkout', '/profile', '/loyalty', '/order-status',
   '/login', '/register', '/forgot-password', '/reset-password',
   '/admin', '/email-campaign', '/order-confirmation', '/restocking',
+  '/portfolio',
 ];
 
 const isExcludedRoute = () => {
+  // Never show the spin wheel on the portfolio domain (lisakocian.com)
+  if (typeof window !== 'undefined' && /lisakocian\.com$/.test(window.location.hostname)) return true;
   const path = window.location.pathname;
   return EXCLUDED_ROUTES.some((r) => path === r || path.startsWith(r + '/') || path.startsWith(r));
 };
