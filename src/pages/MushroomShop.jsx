@@ -67,9 +67,9 @@ export default function MushroomShop() {
   });
 
   return (
-    <div style={{ background: '#FBF8F1', minHeight: '100vh' }}>
+    <div style={{ background: '#FBF8F1' }}>
       {/* Hero */}
-      <section className="px-6 pb-10 pt-16 text-center md:px-10 md:pt-24">
+      <section className="px-6 pb-10 pt-8 text-center md:px-10 md:pt-24">
         <div className="mx-auto max-w-3xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: '#A97B32' }}>
             Torch Republic Coffee Company
