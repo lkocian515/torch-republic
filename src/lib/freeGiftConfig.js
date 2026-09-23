@@ -10,7 +10,7 @@ export const FREE_GIFT_THRESHOLD = 0;
 
 // Promotional banner image (all three gifts together)
 export const FREE_GIFT_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/11d8e640b_file_000000006230822fbdd3c26741e68a15.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4b81629e9_file_0000000073508211ab288981a4deb5d4.png';
 
 export const FREE_GIFTS = [
   { id: 'canvas-tote', name: 'Canvas Tote', description: 'Cream canvas tote with Torch Republic logo' },
