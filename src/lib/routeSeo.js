@@ -125,8 +125,8 @@ function dynamicSeo(pathname) {
     return [item?.metaTitle || cleanTitle(parts[1]), item?.metaDescription || `Compare ${cleanTitle(parts[1]).toLowerCase()} by ingredients, price, preparation, flavor, and fit for your daily coffee ritual.`];
   }
   if (parts[0] === 'products' && parts[1]) {
-    const name = cleanTitle(parts[1].replace(/instant|mushroom|coffee|blend/g, '').replace(/\s+/g, ' '));
-    return [`${name} Product Page`, `Shop ${name} from Torch Republic with product details, ingredients, serving guidance, pricing, and options for your daily ritual.`];
+    const name = cleanTitle(parts[1]);
+    return [name, `Shop ${name} from Torch Republic with product details, ingredients, serving guidance, pricing, and options for your daily ritual.`];
   }
   return [cleanTitle(parts.join(' ') || 'Torch Republic'), `Explore Torch Republic\u2019s ${cleanTitle(parts.join(' ')).toLowerCase()} page for coffee, mushroom coffee, ingredients, and daily ritual guidance.`];
 }

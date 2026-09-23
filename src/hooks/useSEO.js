@@ -25,7 +25,7 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
     // Avoid double-branding — only append if not already present
     const fullTitle = title
       ? (title.includes('Torch Republic') ? title : `${title} | ${SITE_NAME}`)
-      : `${SITE_NAME} | Premium Instant Coffee, Mushroom Coffee & Matcha`;
+      : `${SITE_NAME} | Premium Instant Coffee & Mushroom Coffee`;
 
     // Strip tracking params from canonical — canonical must never contain utm_*, gclid, fbclid, srsltid
     const STRIP_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','srsltid','msclkid','ref'];
@@ -44,6 +44,9 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
 
     const prevTitle = document.title;
     document.title = fullTitle;
+    // Sentinel — lets RouteSeoManager know this page set its own SEO,
+    // so it should not overwrite with route-level fallback values.
+    document.documentElement.setAttribute('data-seo-set', 'true');
 
     const setMeta = (selector, attr, value) => {
       let el = document.querySelector(selector);
@@ -201,6 +204,7 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
 
     return () => {
       document.title = prevTitle;
+      document.documentElement.removeAttribute('data-seo-set');
       if (descEl) descEl.setAttribute('content', '');
       if (keywordsEl) keywordsEl.setAttribute('content', '');
       if (robotsEl) robotsEl.setAttribute('content', '');

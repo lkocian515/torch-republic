@@ -34,19 +34,27 @@ export default function RouteSeoManager() {
     const canonicalUrl = `${SITE_URL}${seo.canonicalPath}`;
     const robots = seo.noindex ? 'noindex, follow' : 'index, follow';
 
-    document.title = seo.title;
-    upsertMeta('meta[name="description"]', 'content', seo.description);
+    // If the page component already set its own SEO via useSEO, do not
+    // overwrite the title/description/OG/Twitter values with route-level
+    // fallbacks. Only manage canonical URL and robots directives.
+    const pageHasOwnSeo = document.documentElement.getAttribute('data-seo-set') === 'true';
+
+    if (!pageHasOwnSeo) {
+      document.title = seo.title;
+      upsertMeta('meta[name="description"]', 'content', seo.description);
+      upsertMeta('meta[property="og:title"]', 'content', seo.title);
+      upsertMeta('meta[property="og:description"]', 'content', seo.description);
+      upsertMeta('meta[property="og:image"]', 'content', DEFAULT_IMAGE);
+      upsertMeta('meta[name="twitter:title"]', 'content', seo.title);
+      upsertMeta('meta[name="twitter:description"]', 'content', seo.description);
+      upsertMeta('meta[name="twitter:image"]', 'content', DEFAULT_IMAGE);
+    }
+
     upsertMeta('meta[name="robots"]', 'content', robots);
     upsertMeta('meta[name="googlebot"]', 'content', robots);
     upsertMeta('meta[name="bingbot"]', 'content', robots);
     upsertCanonical(canonicalUrl);
-    upsertMeta('meta[property="og:title"]', 'content', seo.title);
-    upsertMeta('meta[property="og:description"]', 'content', seo.description);
     upsertMeta('meta[property="og:url"]', 'content', canonicalUrl);
-    upsertMeta('meta[property="og:image"]', 'content', DEFAULT_IMAGE);
-    upsertMeta('meta[name="twitter:title"]', 'content', seo.title);
-    upsertMeta('meta[name="twitter:description"]', 'content', seo.description);
-    upsertMeta('meta[name="twitter:image"]', 'content', DEFAULT_IMAGE);
   }, [location.pathname, location.search]);
 
   return null;
