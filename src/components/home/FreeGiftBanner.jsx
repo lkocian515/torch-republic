@@ -15,14 +15,14 @@ export default function FreeGiftBanner() {
         <Link to="/shop" className="block">
           <img
             src={FREE_GIFT_IMAGE}
-            alt="Free gift with purchase — choose from Canvas Tote, Insulated Tumbler, or Dad Cap"
+            alt="Free gift with purchase — choose from Canvas Tote, Insulated Tumbler, Dad Cap, or Heart Keychain"
             className="mx-auto w-full max-w-[640px] rounded-lg"
             style={{ border: '1px solid #E4D8C9' }}
             loading="lazy"
           />
         </Link>
         <p className="mx-auto mt-5 max-w-md font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-          Choose your favorite at checkout &mdash; a Canvas Tote, Insulated Tumbler, or Dad Cap, all featuring the Torch Republic logo.
+          Choose your favorite at checkout &mdash; a Canvas Tote, Insulated Tumbler, Dad Cap, or Heart Keychain, all featuring the Torch Republic logo.
         </p>
         <Link
           to="/shop"

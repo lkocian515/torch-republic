@@ -23,7 +23,11 @@ export function useDriftMotion(setup, deps = []) {
     if (prefersReducedMotion() || !scope.current) return;
     const el = scope.current;
     const ctx = gsap.context(() => setup(gsap, ScrollTrigger, el), scope);
-    return () => ctx.revert();
+    // Recalculate ScrollTrigger positions after images/layout settle —
+    // prevents elements stuck at opacity:0 when triggers were calculated
+    // before lazy images shifted the page height (common on mobile).
+    const refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 600);
+    return () => { clearTimeout(refreshTimer); ctx.revert(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
   return scope;

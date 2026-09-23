@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
+import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 
@@ -99,6 +100,9 @@ export default function MushroomShop() {
           </div>
         </div>
       </section>
+
+      {/* Free gift with purchase */}
+      <FreeGiftBanner />
 
       {/* Comparison */}
       <RitualComparison />
