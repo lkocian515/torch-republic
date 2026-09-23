@@ -417,16 +417,32 @@ function RitualPDP({ product }) {
         </div>
       </section>
 
-      <BrewingGuide accent={c.accent} deep={c.deep} productName={product.name} />
+      {product.format !== 'Whole Bean' && (
+        <BrewingGuide accent={c.accent} deep={c.deep} productName={product.name} />
+      )}
 
-      <RitualMomentStrip
-        image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
-        alt="Instant coffee flakes stirred into a hot cup"
-        accent={c.accent}
-        eyebrow="The Ritual"
-        title="Your ritual, ready in seconds."
-        subtitle="One scoop. A swirl of hot water. A café-quality cup — no machine, no pods, no compromise."
-      />
+      {product.format !== 'Whole Bean' && (
+        <RitualMomentStrip
+          image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
+          alt="Instant coffee flakes stirred into a hot cup"
+          accent={c.accent}
+          eyebrow="The Ritual"
+          title="Your ritual, ready in seconds."
+          subtitle="One scoop. A swirl of hot water. A café-quality cup — no machine, no pods, no compromise."
+        />
+      )}
+
+      {product.format === 'Whole Bean' && (
+        <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10">
+          <div className="text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: c.deep }}>A Seasonal Departure</p>
+            <h2 className="mt-3 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', color: THEME.text }}>From the instant ritual to fresh whole beans.</h2>
+            <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: THEME.secondary, lineHeight: 1.7 }}>
+              Our core lineup is instant — scoop, stir, sip. This limited Halloween drop is a different kind of morning: fresh whole beans, pumpkin spice warmth, and a brewer of your choosing. One batch, one season.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Quiz callout */}
       <section className="px-6 py-10 md:px-10" style={{ background: THEME.cream }}>
