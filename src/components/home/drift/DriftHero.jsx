@@ -15,7 +15,7 @@ function HeroText({ isPrimary = true }) {
   return (
     <>
       <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
-        Premium Coffee &middot; Zero Equipment
+        Premium Coffee &middot; Made for Mornings
       </p>
       <HeadingTag style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
