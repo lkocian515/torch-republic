@@ -1,0 +1,32 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const HERO_IMAGE =
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/eb4f17b1e_file_000000009e688243af2b3098359c61f7.png';
+
+export default function SeasonalHero() {
+  return (
+    <section className="relative w-full overflow-hidden" style={{ background: '#1A0F0A' }} aria-label="Pumpkin Spice Whole Bean Coffee — Halloween Special Edition">
+      <img
+        src={HERO_IMAGE}
+        alt="Pumpkin Spice Whole Bean Coffee — Halloween Special Edition from Torch Republic Coffee Company"
+        className="block w-full"
+        style={{ maxHeight: '82vh', objectFit: 'cover', objectPosition: 'center' }}
+        fetchPriority="high"
+      />
+      {/* Transparent clickable overlay positioned over the "SHOP THE DROP" button in the image */}
+      <Link
+        to="/products/pumpkin-spice-whole-bean-coffee"
+        aria-label="Shop the Pumpkin Spice drop"
+        className="absolute block"
+        style={{
+          left: '7%',
+          top: '57%',
+          width: '28%',
+          height: '11%',
+          zIndex: 5,
+        }}
+      />
+    </section>
+  );
+}

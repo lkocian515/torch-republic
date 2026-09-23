@@ -10,7 +10,7 @@ import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
-import PumpkinSpiceFeature from '../PumpkinSpiceFeature';
+import SeasonalHero from '../SeasonalHero';
 import SeasonalFloatingCard from '../SeasonalFloatingCard';
 import { D } from './driftTheme';
 
@@ -29,8 +29,8 @@ import { D } from './driftTheme';
 export default function DriftHomepage() {
   return (
     <main id="main-content" style={{ background: D.paper, overflowX: 'clip' }}>
+      <SeasonalHero />
       <DriftHero />
-      <PumpkinSpiceFeature />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
       <DriftBrandStory />
