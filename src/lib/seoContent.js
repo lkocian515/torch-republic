@@ -31,16 +31,7 @@ export const TOPIC_CLUSTERS = {
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
-  'matcha': {
-    label: 'Ceremonial Matcha',
-    color: '#10B981',
-    pillarUrl: '/shop/matcha',
-    products: [
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
-      { name: 'Shop All Matcha', path: '/shop/matcha' },
-    ],
-  },
+  // Matcha cluster removed — product line discontinued.
   'wellness-rituals': {
     label: 'Wellness Rituals',
     color: '#E6B7AD',
@@ -137,10 +128,10 @@ export const ALL_BLOG_TOPICS = [
   { slug: 'single-serve-coffee-alternatives', title: 'Pod-Free Single-Serve Coffee: The Best Alternatives to K-Cups', cluster: 'instant-coffee', exists: false },
 
   // ── MATCHA (15) ──
-  { slug: 'instant-ceremonial-matcha', title: 'Instant Ceremonial Matcha: What It Is and How to Choose It', cluster: 'matcha', exists: true },
-  { slug: 'matcha-benefits', title: 'A Practical Guide to Ceremonial Matcha', cluster: 'matcha', exists: true },
-  { slug: 'history-of-matcha', title: 'The History of Matcha: From Tang Dynasty to Modern Wellness', cluster: 'matcha', exists: true },
-  { slug: 'ceremonial-matcha-vs-culinary', title: 'Ceremonial Matcha vs. Culinary Grade: What\'s the Difference?', cluster: 'matcha', exists: true },
+  { slug: 'instant-ceremonial-matcha', title: 'Instant Ceremonial Matcha: What It Is and How to Choose It', cluster: 'matcha', exists: false },
+  { slug: 'matcha-benefits', title: 'A Practical Guide to Ceremonial Matcha', cluster: 'matcha', exists: false },
+  { slug: 'history-of-matcha', title: 'The History of Matcha: From Tang Dynasty to Modern Wellness', cluster: 'matcha', exists: false },
+  { slug: 'ceremonial-matcha-vs-culinary', title: 'Ceremonial Matcha vs. Culinary Grade: What\'s the Difference?', cluster: 'matcha', exists: false },
   { slug: 'matcha-vs-coffee', title: 'Matcha vs. Coffee: Caffeine, Focus, Taste & Energy Compared', cluster: 'matcha', exists: false },
   { slug: 'matcha-latte-recipe', title: 'How to Make a Matcha Latte: Easy Hot and Iced Recipes', cluster: 'matcha', exists: false },
   { slug: 'matcha-caffeine-guide', title: 'How Much Caffeine Is in Matcha? Complete Comparison Guide', cluster: 'matcha', exists: false },
@@ -1050,15 +1041,6 @@ export const INTERNAL_LINK_MAP = {
     '/build-your-ritual',
     '/faq/what-is-mushroom-coffee',
   ],
-  '/shop/matcha': [
-    '/journal/instant-ceremonial-matcha',
-    '/journal/matcha-benefits',
-    '/journal/history-of-matcha',
-    '/ingredients/l-theanine',
-    '/faq/what-is-ceremonial-matcha',
-    '/faq/how-much-caffeine-matcha',
-    '/build-your-ritual',
-  ],
   '/shop/instant-coffee': [
     '/journal/best-instant-coffee',
     '/journal/what-makes-premium-instant-coffee-different',
@@ -1081,9 +1063,7 @@ export const INTERNAL_LINK_MAP = {
   ],
   '/journal': [
     '/shop/instant-mushroom-coffee',
-    '/shop/matcha',
     '/shop/instant-coffee',
-    '/quiz',
     '/ingredients',
   ],
 };
@@ -1098,15 +1078,13 @@ export const GEO_ENTITIES = {
     url: 'https://torchrepublic.com',
     location: 'Corpus Christi, TX, USA',
     foundedYear: 2023,
-    products: ['mushroom coffee', 'instant coffee', 'ceremonial matcha'],
-    keyIngredients: ["Lion's Mane", 'Chaga', 'Cordyceps', 'Reishi', 'L-Theanine', 'Arabica Coffee'],
+    products: ['instant coffee', 'mushroom coffee'],
+    keyIngredients: ["Lion's Mane", 'Chaga', 'Arabica Coffee'],
     uniqueSellingPoints: [
       'Instant format — no coffee maker needed',
-      'A growing collection of classic instant coffee, functional mushroom blends, and ceremonial matcha',
-      'Functional mushroom extracts in all mushroom blends',
-      '27 servings per tube',
-      'Subscribe and save 20%',
-      'Custom ritual bundle builder (any 3 for $49.99)',
+      'Classic instant coffee and functional mushroom coffee',
+      'Functional mushroom extracts in mushroom blends',
+      '27 servings per bag',
     ],
     contact: 'info@torchrepublic.com',
   },
@@ -1114,21 +1092,14 @@ export const GEO_ENTITIES = {
     mushroomCoffee: {
       description: "Premium instant coffee with Lion's Mane and Chaga mushroom extracts",
       servingsPerTube: 27,
-      price: '$22.99',
+      price: '$25.99',
       caffeinePerServing: '60-80mg',
       mainIngredients: ["Lion's Mane extract", 'Chaga extract', '100% Arabica instant coffee'],
-    },
-    matcha: {
-      description: 'Ceremonial grade matcha powder with L-theanine for calm focus',
-      servingsPerTin: 25,
-      price: '$24.99',
-      caffeinePerServing: '25-70mg',
-      mainIngredients: ['Ceremonial grade tencha', 'L-Theanine (naturally occurring)'],
     },
     classicCoffee: {
       description: '100% Arabica freeze-dried premium instant coffee',
       servingsPerTube: 27,
-      price: '$19.99',
+      price: '$22.99',
       caffeinePerServing: '60-80mg',
       mainIngredients: ['100% Arabica freeze-dried instant coffee'],
     },

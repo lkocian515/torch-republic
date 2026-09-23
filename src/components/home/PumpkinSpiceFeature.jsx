@@ -87,7 +87,7 @@ export default function PumpkinSpiceFeature() {
               className="font-mono text-[10px] uppercase tracking-[0.35em]"
               style={{ color: COLORS.terracotta }}
             >
-              The Halloween Drop
+              Limited Seasonal Drop &middot; Whole Bean
             </p>
 
             <h2
@@ -115,8 +115,7 @@ export default function PumpkinSpiceFeature() {
                 marginRight: 'auto',
               }}
             >
-              Warm, spiced and made for crisp mornings. A limited-edition
-              seasonal roast from Torch Republic.
+              A limited whole-bean release for fall. Our Classic and Mushroom instant coffees remain the everyday Torch Republic lineup.
             </p>
 
             <p

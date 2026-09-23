@@ -59,6 +59,9 @@ const SEO_BY_PATH = {
   '/shop/morning-ritual': ['Morning Ritual Coffee', 'Shop Torch Republic blends selected for morning energy, focused starts, smooth flavor, and simple daily preparation.'],
   '/shop/focus-coffee': ['Focus Coffee Collection', 'Shop coffee and mushroom coffee blends selected for concentration, calm energy, and productive work sessions.'],
   '/shop/travel-coffee': ['Travel Coffee Collection', 'Shop travel-friendly instant coffee and mushroom coffee that prepare quickly without machines, pods, or bulky gear.'],
+  '/products/instant-classic-coffee': ['Instant Classic Coffee', 'Bold, smooth instant Arabica coffee made with single-origin coffee from Papua New Guinea. No pods or equipment required. 27 servings per bag.'],
+  '/products/instant-mushroom-coffee': ['Instant Mushroom Coffee', "Smooth instant coffee blended with Lion's Mane and Chaga mushroom extracts for an easy, balanced daily ritual. 27 servings per bag."],
+  '/products/pumpkin-spice-whole-bean-coffee': ['Pumpkin Spice Whole Bean Coffee', 'A limited-edition seasonal whole bean roast with pumpkin spice flavor. Warm, spiced, and made for crisp fall mornings. Here for spooky season only.'],
 };
 
 const CANONICAL_OVERRIDES = {
@@ -75,6 +78,10 @@ const CANONICAL_OVERRIDES = {
   '/hoodies': '/shop',
   '/collections/apparel': '/shop',
   '/collections/t-shirts': '/shop',
+  '/journal/instant-ceremonial-matcha': '/journal',
+  '/journal/matcha-benefits': '/journal',
+  '/journal/history-of-matcha': '/journal',
+  '/journal/ceremonial-matcha-vs-culinary': '/journal',
 };
 
 const NOINDEX_EXACT_PATHS = new Set([
@@ -88,6 +95,9 @@ const NOINDEX_EXACT_PATHS = new Set([
   '/bundle', '/mission', '/classic-coffee', '/mushroom-coffee', '/matcha', '/about', '/products', '/blog', '/blogs/news',
   '/compare',
   '/why-matcha', '/matcha-vs-coffee',
+  '/gifts', '/quiz', '/customer-spotlight', '/spotlight', '/torchbearer', '/torchbearers-rewards',
+  '/recipes', '/research', '/blends',
+  '/journal/instant-ceremonial-matcha', '/journal/matcha-benefits', '/journal/history-of-matcha', '/journal/ceremonial-matcha-vs-culinary',
   '/coffee-pods', '/pods', '/pod', '/patriotic-coffee', '/founders-series', '/founders',
   '/libertees', '/apparel', '/collectibles', '/patriotic', '/lincoln', '/washington', '/jefferson', '/reagan', '/historical', '/liberty', '/freedom',
   '/american-heroes', '/christ-is-king', '/god-family-country', '/faith-over-fear', '/we-the-people', '/freedom-isnt-free',
