@@ -26,6 +26,8 @@ const SECTIONS = [
       ['Shop All', '/shop'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+      ['Whole Bean', '/products/pumpkin-spice-whole-bean-coffee'],
+      ['Seasonal & Special Editions', '/products/pumpkin-spice-whole-bean-coffee'],
     ],
   },
   {
