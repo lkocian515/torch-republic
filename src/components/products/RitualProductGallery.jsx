@@ -36,7 +36,7 @@ export default function RitualProductGallery({ images, alts, accent = '#B7653E' 
             onClick={() => setActive(i)}
             aria-label={`View image ${i + 1}`}
             className="flex-shrink-0 overflow-hidden"
-            style={{ width: 64, height: 64, borderRadius: 8, border: `2px solid ${i === active ? accent : '#E4D8C9'}`, background: '#FFFFFF', cursor: 'pointer', padding: 0 }}
+            style={{ width: 72, height: 72, borderRadius: 10, border: `2px solid ${i === active ? accent : '#E4D8C9'}`, background: '#FFFFFF', cursor: 'pointer', padding: 0, transition: 'border-color .2s ease' }}
           >
             <img
               src={src}

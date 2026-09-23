@@ -255,7 +255,7 @@ function RitualPDP({ product }) {
           </motion.div>
 
           {/* Info + purchase */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="flex flex-col gap-6">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="flex flex-col gap-7">
             <div className="flex flex-wrap items-center gap-2">
               <span className="badge-torch" style={{ background: `${c.accent}14`, color: c.deep, borderColor: `${c.accent}30` }}>{product.categoryLabel}</span>
               <span className="badge-torch">{product.prep}</span>
@@ -285,10 +285,9 @@ function RitualPDP({ product }) {
               </span>
             </div>
 
-            <div className="rounded-lg border p-4" style={{ background: THEME.card, borderColor: THEME.border }}>
-              <p className="font-heading text-sm font-bold" style={{ color: THEME.text }}>One-time purchase</p>
-              <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: THEME.secondary }}>Subscriptions are coming soon.</p>
-            </div>
+            <p className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: THEME.secondary }}>
+              One-time purchase &middot; Subscriptions coming soon
+            </p>
 
             <div className="flex items-center gap-4">
               <span className="font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: THEME.secondary }}>Quantity</span>
@@ -315,22 +314,22 @@ function RitualPDP({ product }) {
               <Gift size={13} style={{ color: c.accent }} /> Earn Torch Republic rewards on this purchase
             </Link>
 
-            <div className="grid grid-cols-3 gap-3 pt-2" style={{ borderTop: `1px solid ${THEME.border}` }}>
+            <div className="grid grid-cols-3 gap-3 pt-4" style={{ borderTop: `1px solid ${THEME.border}` }}>
               {TRUST.map((t) => (
-                <div key={t.title} className="flex flex-col items-center gap-1 pt-3 text-center">
-                  <t.icon size={18} style={{ color: c.accent }} />
+                <div key={t.title} className="flex flex-col items-center gap-1.5 pt-4 text-center">
+                  <t.icon size={22} style={{ color: c.accent }} strokeWidth={1.75} />
                   <p className="font-heading text-xs font-bold" style={{ color: THEME.text }}>{t.title}</p>
-                  <p className="font-mono text-[7px] uppercase tracking-[0.1em]" style={{ color: THEME.secondary }}>{t.body}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>{t.body}</p>
                 </div>
               ))}
             </div>
 
-            <p className="text-center font-mono text-[8px] tracking-[0.08em] pt-1" style={{ color: THEME.secondary }}>
-              Shipping details &middot; Easy subscription changes &middot;{' '}
-              <Link to="/shipping-policy" style={{ color: c.accent, textDecoration: 'underline' }}>See shipping &amp; returns</Link>
-            </p>
-
-            <ShareButtons title={`${product.name} — Torch Republic`} url={product.path} />
+            <div className="flex items-center justify-center gap-3 pt-1">
+              <ShareButtons title={`${product.name} — Torch Republic`} url={product.path} />
+              <Link to="/shipping-policy" className="font-mono text-[9px] uppercase tracking-[0.1em] transition-opacity hover:opacity-70" style={{ color: c.accent }}>
+                Shipping &amp; returns
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -448,21 +447,13 @@ function RitualPDP({ product }) {
       )}
 
       {/* Quiz callout */}
-      <section className="px-6 py-10 md:px-10" style={{ background: THEME.cream }}>
-        <div className="mx-auto max-w-[800px]">
-          <div className="card-torch flex flex-col items-center gap-4 p-6 text-center sm:flex-row sm:text-left">
-            <div className="flex-1">
-              <p className="font-heading text-sm" style={{ color: THEME.text }}>
-                Not sure which ritual fits your morning?
-              </p>
-              <p className="font-mono text-[9px] uppercase tracking-[0.15em] mt-1" style={{ color: THEME.secondary }}>
-                Take the 60-second quiz
-              </p>
-            </div>
-            <Link to="/quiz" className="btn btn-ghost" style={{ flexShrink: 0 }}>
-              Take the Quiz
-            </Link>
-          </div>
+      <section className="px-6 py-14 md:px-10" style={{ background: THEME.cream, borderTop: `1px solid ${THEME.border}`, borderBottom: `1px solid ${THEME.border}` }}>
+        <div className="mx-auto max-w-[800px] text-center">
+          <p className="font-serif font-semibold" style={{ fontSize: '1.35rem', color: THEME.text }}>Not sure which ritual fits your morning?</p>
+          <p className="font-heading text-sm mt-2" style={{ color: THEME.secondary }}>Take the 60-second quiz and find your match.</p>
+          <Link to="/quiz" className="btn btn-ghost mt-5" style={{ flexShrink: 0, color: c.deep, borderColor: `${c.accent}50` }}>
+            Take the Quiz
+          </Link>
         </div>
       </section>
 
