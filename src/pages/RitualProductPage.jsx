@@ -20,6 +20,7 @@ const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': null,
   'classic-coffee': null,
+  'pumpkin-spice': null,
 };
 
 // Extra gallery images per category (the real bag is always image #0).
@@ -49,11 +50,16 @@ const GALLERY_EXTRA = {
       'Torch Republic Instant Classic Coffee in a tote bag at a cafe',
     ],
   },
+  'pumpkin-spice': {
+    images: [],
+    alts: [],
+  },
 };
 
 const LIFESTYLE_COPY = {
   'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane and Chaga meet smooth instant coffee. Just add hot water." },
   'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
+  'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
 };
 import { useSEO } from '@/hooks/useSEO';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
@@ -82,10 +88,17 @@ const INGREDIENTS = {
     '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.',
   'mushroom-coffee':
     "Premium instant coffee, organic Lion's Mane mushroom extract, organic Chaga mushroom extract. No artificial colors, flavors, or preservatives.",
+  'pumpkin-spice':
+    'Whole bean Arabica coffee with natural pumpkin spice flavor. Cinnamon, nutmeg, and cozy autumn spices. No artificial colors or preservatives.',
 };
 
-const PREP =
+const PREP_INSTANT =
   'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
+
+const PREP_WHOLE_BEAN =
+  'Grind beans to your preferred consistency just before brewing. Use 2 tablespoons of ground coffee per 6 oz of water. Brew using your preferred method — drip, French press, pour-over, or espresso. For the best flavor, grind fresh and brew with water just off the boil.';
+
+const prepFor = (p) => (p.format === 'Whole Bean' ? PREP_WHOLE_BEAN : PREP_INSTANT);
 
 const TABS = ['Ingredients', 'Benefits', 'How to Prepare', 'FAQ'];
 
@@ -93,21 +106,33 @@ function benefitsFor(p) {
   const list = [p.positioning];
   if (p.functionalLabel) list.push(p.functionalLabel);
   list.push(`${p.caffeineLabel} caffeine`);
-  list.push(`${p.servings} servings`);
-  list.push('Instant — no machine needed');
+  if (p.seasonal) {
+    list.push(p.weight);
+    list.push('Limited batch release');
+  } else {
+    list.push(`${p.servings} servings`);
+    list.push('Instant — no machine needed');
+  }
   return list;
 }
 
 function faqsFor(p) {
+  if (p.format === 'Whole Bean') {
+    return [
+      { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
+      { q: 'How do I prepare it?', a: prepFor(p) },
+      { q: 'Is it instant?', a: 'No. This is a seasonal whole bean coffee — a departure from our instant ritual. You will need a grinder and brewer for this one.' },
+      { q: 'How much coffee is included?', a: `${p.weight} whole bean. Approximately ${p.servings} cups depending on your brew strength.` },
+      { q: 'Is it limited edition?', a: 'Yes. This is a Halloween Special Edition — available for a limited time during the fall season.' },
+      { q: 'Does it contain caffeine?', a: 'Yes, this is a caffeinated whole bean coffee.' },
+    ];
+  }
   return [
     { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
-    { q: 'How do I prepare it?', a: PREP },
+    { q: 'How do I prepare it?', a: prepFor(p) },
     { q: 'Is it instant?', a: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
     { q: 'How many servings are included?', a: `${p.servings} servings per bag.` },
-    {
-      q: 'Does it contain caffeine?',
-      a: 'Yes, these blends contain caffeine from the premium instant coffee base.',
-    },
+    { q: 'Does it contain caffeine?', a: 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
 }
 
@@ -156,6 +181,10 @@ function RitualPDP({ product }) {
     'instant-mushroom-coffee': {
       title: 'Instant Mushroom Coffee | Torch Republic',
       description: "Smooth instant coffee blended with Lion's Mane and Chaga for an easy, balanced daily ritual.",
+    },
+    'pumpkin-spice-whole-bean-coffee': {
+      title: 'Pumpkin Spice Whole Bean Coffee | Halloween Special Edition | Torch Republic',
+      description: 'A limited-edition seasonal whole bean roast — warm, spiced and made for crisp mornings. Here for spooky season only.',
     },
   };
   const seoMeta = SEO_META[product.slug] || { title: `${product.name} | Torch Republic`, description: product.description };
@@ -334,12 +363,12 @@ function RitualPDP({ product }) {
               <p>{INGREDIENTS[product.category]}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
-                  { label: 'Servings', value: `${product.servings} per pouch` },
-                  { label: 'Serving size', value: '1 scoop' },
+                  { label: product.seasonal ? 'Weight' : 'Servings', value: product.seasonal ? product.weight : `${product.servings} per pouch` },
+                  { label: 'Serving size', value: product.seasonal ? '2 tbsp ground' : '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
-                  { label: 'Format', value: 'Instant - no machine needed' },
+                  { label: 'Format', value: product.seasonal ? 'Whole bean' : 'Instant - no machine needed' },
                   ...(product.mushrooms ? [{ label: 'Functional ingredients', value: product.mushrooms }] : []),
-                  { label: 'Preparation', value: 'Hot or iced' },
+                  { label: 'Preparation', value: product.seasonal ? 'Grind and brew' : 'Hot or iced' },
                 ].map((row) => (
                   <div key={row.label} className="flex items-baseline gap-3">
                     <span className="font-mono text-[9px] uppercase tracking-[0.15em] flex-shrink-0" style={{ color: THEME.secondary, minWidth: '120px' }}>
@@ -369,7 +398,7 @@ function RitualPDP({ product }) {
           )}
           {tab === 'How to Prepare' && (
             <div className="flex flex-col gap-3">
-              <p>{PREP}</p>
+              <p>{prepFor(product)}</p>
               <p className="font-heading text-sm" style={{ color: THEME.secondary }}>
                 See the full brewing guide with step-by-step instructions below.
               </p>

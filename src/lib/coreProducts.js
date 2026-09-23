@@ -31,6 +31,13 @@ export const RITUAL_COLORS = {
     soft: '#E0DDD3',
     deep: '#3D4633',
   },
+  pumpkin_spice: {
+    key: 'pumpkin_spice',
+    name: 'Seasonal Coffee',
+    accent: '#A93E26', // terracotta / burnt orange
+    soft: '#F7EEDD',   // cream label background
+    deep: '#5D2F20',   // dark brown frame
+  },
 };
 
 const build = (p) => {
@@ -105,6 +112,47 @@ export const CORE_PRODUCTS = [
   }),
 ];
 
+// ── Seasonal / limited-edition products ────────────────────────────────────
+// Separate from CORE_PRODUCTS so the homepage product discovery (which uses
+// CORE_PRODUCTS) stays focused on the two instant rituals. The Shop page and
+// product lookup use ALL_PRODUCTS so seasonal items appear and resolve there.
+export const SEASONAL_PRODUCTS = [
+  build({
+    id: 'pumpkin-spice-whole-bean-coffee',
+    name: 'Pumpkin Spice Whole Bean Coffee',
+    slug: 'pumpkin-spice-whole-bean-coffee',
+    shopifyHandle: 'pumpkin-spice-whole-bean-coffee',
+    ritualKey: 'pumpkin_spice',
+    category: 'pumpkin-spice',
+    categoryLabel: 'Halloween Special Edition',
+    price: PRICES['pumpkin-spice'],
+    servings: 24,
+    weight: '12 oz (340g)',
+    format: 'Whole Bean',
+    caffeineLevel: 'medium',
+    caffeineLabel: 'Medium',
+    positioning: 'A seasonal departure from the instant ritual. Fresh whole beans, pumpkin spice flavor, one limited fall release.',
+    description:
+      'Warm, spiced and made for crisp mornings. A limited-edition seasonal whole bean roast from Torch Republic. Here for spooky season only.',
+    flavorNotes: ['Pumpkin', 'Cinnamon', 'Nutmeg', 'Cozy Spice'],
+    flavorLabel: 'Pumpkin, cinnamon, nutmeg, and cozy autumn spice',
+    bestFor: 'Crisp fall mornings',
+    mushrooms: null,
+    functionalLabel: null,
+    prep: 'Whole bean — grind and brew',
+    cta: 'Shop Pumpkin Spice',
+    path: '/products/pumpkin-spice-whole-bean-coffee',
+    collectionPath: '/products/pumpkin-spice-whole-bean-coffee',
+    image:
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/81a11c090_tcr_coffee_blank_final_latest4.jpeg',
+    seasonal: true,
+    limitedEdition: true,
+  }),
+];
+
+// Combined array — use this for Shop page rendering and slug lookups.
+export const ALL_PRODUCTS = [...CORE_PRODUCTS, ...SEASONAL_PRODUCTS];
+
 // ── Legacy slug → canonical slug redirect map ───────────────────────────────
 // Former product URLs (and any stale internal references) resolve to the
 // appropriate current product or /shop. Used by RitualProductPage for <Navigate>
@@ -137,6 +185,6 @@ export const LEGACY_SLUG_REDIRECT = {
   'the-monk-matcha': 'shop',
 };
 
-export const getProductBySlug = (slug) => CORE_PRODUCTS.find((p) => p.slug === slug);
-export const getProductByRitual = (key) => CORE_PRODUCTS.find((p) => p.ritualKey === key);
-export const otherRituals = (key) => CORE_PRODUCTS.filter((p) => p.ritualKey !== key);
+export const getProductBySlug = (slug) => ALL_PRODUCTS.find((p) => p.slug === slug);
+export const getProductByRitual = (key) => ALL_PRODUCTS.find((p) => p.ritualKey === key);
+export const otherRituals = (key) => ALL_PRODUCTS.filter((p) => p.ritualKey !== key);

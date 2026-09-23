@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CORE_PRODUCTS } from '@/lib/coreProducts';
+import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
 import { useSEO } from '@/hooks/useSEO';
@@ -84,7 +84,7 @@ export default function MushroomShop() {
             The lineup.
           </motion.h1>
           <p className="mx-auto mt-5 max-w-xl font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Two rituals. Classic coffee or mushroom coffee. No catalog to get lost in — just the morning you want.
+            Two instant rituals, plus a seasonal whole bean drop for October. No catalog to get lost in — just the morning you want.
           </p>
         </div>
       </section>
@@ -92,8 +92,8 @@ export default function MushroomShop() {
       {/* Two products */}
       <section className="px-6 pb-16 md:px-10">
         <div className="mx-auto max-w-[1240px]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {CORE_PRODUCTS.map((p, i) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {ALL_PRODUCTS.map((p, i) => (
               <RitualCard key={p.id} product={p} index={i} />
             ))}
           </div>

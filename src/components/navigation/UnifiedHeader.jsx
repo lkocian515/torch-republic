@@ -72,7 +72,7 @@ export default function UnifiedHeader() {
   return (
     <>
       <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}>
-        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>Thoughtfully crafted instant coffee and mushroom coffee &middot; Free shipping $50+</p>
+        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>&#x1F383; Pumpkin Spice has entered the Republic &mdash; limited seasonal release &middot; Free shipping $50+</p>
       </div>
       <header className="sticky top-0 z-40" style={{ background: 'rgba(251, 248, 242, 0.97)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)', color: colors.text }}>
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">

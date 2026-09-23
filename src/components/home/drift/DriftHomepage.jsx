@@ -10,6 +10,8 @@ import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
+import PumpkinSpiceFeature from '../PumpkinSpiceFeature';
+import SeasonalFloatingCard from '../SeasonalFloatingCard';
 import { D } from './driftTheme';
 
 // Drift-inspired editorial homepage flow:
@@ -28,6 +30,7 @@ export default function DriftHomepage() {
   return (
     <main id="main-content" style={{ background: D.paper, overflowX: 'clip' }}>
       <DriftHero />
+      <PumpkinSpiceFeature />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
       <DriftBrandStory />
@@ -37,6 +40,7 @@ export default function DriftHomepage() {
       <DriftSubscription />
       <DriftReviews />
       <DriftFounderStory />
+      <SeasonalFloatingCard />
     </main>
   );
 }

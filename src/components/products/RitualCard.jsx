@@ -50,6 +50,14 @@ export default function RitualCard({ product, index = 0 }) {
           <span className="badge-torch absolute left-3 top-3" style={{ background: 'rgba(255,255,255,0.9)', color: c.deep, borderColor: `${c.accent}33` }}>
             {product.categoryLabel}
           </span>
+          {product.seasonal && (
+            <span
+              className="absolute right-3 top-3 font-mono text-[8px] font-bold uppercase tracking-[0.2em]"
+              style={{ background: c.deep, color: c.soft, padding: '4px 10px', borderRadius: '4px' }}
+            >
+              Seasonal
+            </span>
+          )}
         </div>
       </Link>
 
@@ -72,7 +80,7 @@ export default function RitualCard({ product, index = 0 }) {
             ${product.price.toFixed(2)}
           </span>
           <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: '#8A8076' }}>
-            {product.servings} servings
+            {product.seasonal ? product.weight : `${product.servings} servings`}
           </span>
         </div>
 
