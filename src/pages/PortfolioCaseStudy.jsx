@@ -4,6 +4,7 @@ import ScrollProgressBar from '@/components/portfolio/ScrollProgressBar';
 import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import CredibilityStrip from '@/components/portfolio/CredibilityStrip';
 import QaMethodology from '@/components/portfolio/QaMethodology';
+import AlignerrCredential from '@/components/portfolio/AlignerrCredential';
 import CaseStudyIntro from '@/components/portfolio/CaseStudyIntro';
 import MoreThanStorefront from '@/components/portfolio/MoreThanStorefront';
 import ApplicationArchitecture from '@/components/portfolio/ApplicationArchitecture';
@@ -137,6 +138,7 @@ export default function PortfolioCaseStudy() {
         <PortfolioHero />
         <CredibilityStrip />
         <QaMethodology />
+        <AlignerrCredential />
         <CaseStudyIntro />
         <MoreThanStorefront />
         <ApplicationArchitecture />
