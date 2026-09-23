@@ -42,7 +42,7 @@ export default function ExperienceSnapshot() {
 
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {CARDS.map(({ icon: Icon, title, body }) => (
-          <Card key={title} pad="1.5rem">
+          <Card key={title} pad="1.5rem" className="text-center">
             <div
               aria-hidden="true"
               style={{

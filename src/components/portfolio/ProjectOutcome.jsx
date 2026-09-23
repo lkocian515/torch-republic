@@ -27,7 +27,7 @@ export default function ProjectOutcome() {
         systematic QA in one live application.
       </Lead>
 
-      <div className="mt-8 flex flex-wrap gap-2">
+      <div className="mt-8 flex flex-wrap justify-center gap-2">
         {TAGS.map((t) => (
           <span key={t} style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 500, color: P.ink, background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '4px', padding: '0.4rem 0.85rem' }}>
             {t}

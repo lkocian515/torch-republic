@@ -52,19 +52,19 @@ export default function ContactCta() {
         }}
       />
 
-      <div className="mx-auto max-w-[860px] px-6 md:px-10 py-16 md:py-24" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="mx-auto max-w-[860px] px-6 md:px-10 py-16 md:py-24 text-center md:text-left" style={{ position: 'relative', zIndex: 1 }}>
         <p className="contact-eyebrow" style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600, color: '#93C5FD', margin: 0 }}>
           Contact
         </p>
         <h2 className="contact-heading" style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: 'clamp(1.7rem, 3.4vw, 2.4rem)', lineHeight: 1.2, letterSpacing: '-0.01em', color: '#FFFFFF', margin: '0.85rem 0 0', textWrap: 'balance' }}>
           Looking for someone who catches issues before they reach users?
         </h2>
-        <p className="contact-body" style={{ fontFamily: FONT_SANS, fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.78)', margin: '1.25rem 0 0', maxWidth: '56ch' }}>
+        <p className="contact-body mx-auto md:mx-0" style={{ fontFamily: FONT_SANS, fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.78)', margin: '1.25rem 0 0', maxWidth: '56ch' }}>
           I am interested in roles involving AI quality assurance, AI content evaluation,
           prompt testing, e-commerce QA, AI implementation, and digital product quality.
           Let&rsquo;s talk about how I can help your team ship better output.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 items-center sm:items-center">
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="contact-cta group inline-flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.01]"

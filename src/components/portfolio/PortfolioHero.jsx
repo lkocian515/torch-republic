@@ -135,7 +135,7 @@ export default function PortfolioHero() {
       <div className="mx-auto max-w-[1140px] px-6 md:px-10 py-14 md:py-20">
         <div className="grid md:grid-cols-[52fr_48fr] gap-10 md:gap-12 items-center">
           {/* LEFT */}
-          <div>
+          <div className="text-center md:text-left">
             <p className="hero-eyebrow" style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, margin: 0 }}>
               AI Quality Assurance &middot; AI Commerce &middot; Content Evaluation
             </p>
@@ -153,7 +153,7 @@ export default function PortfolioHero() {
               AI Quality Assurance + AI Commerce
             </p>
 
-            <p className="hero-body" style={{ fontFamily: FONT_SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.75rem', maxWidth: '52ch' }}>
+            <p className="hero-body mx-auto md:mx-0" style={{ fontFamily: FONT_SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.75rem', maxWidth: '52ch' }}>
               I test AI output, validate content quality, iterate on prompts, and QA e-commerce
               applications &mdash; catching accuracy issues, inconsistencies, and broken workflows
               before they reach users. My work combines AI output evaluation, document quality
@@ -161,7 +161,7 @@ export default function PortfolioHero() {
               commerce application built with Base44 and React.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-center">
               <a href="#case-study" className="hero-cta group inline-flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.01]" style={{ minHeight: 48, padding: '0.7rem 1.6rem', borderRadius: '6px', background: P.accent, color: '#FFFFFF', fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
                 View My Work <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>

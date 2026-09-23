@@ -73,8 +73,8 @@ export default function QaMethodology() {
         <SectionHeading>How I evaluate quality</SectionHeading>
         <div ref={scope} className="mt-9 flex flex-col gap-5">
           {PILLARS.map((p) => (
-            <div key={p.n} className="pillar-card" style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '8px', padding: '1.75rem 1.5rem' }}>
-              <div className="pillar-reveal flex items-baseline gap-3">
+            <div key={p.n} className="pillar-card text-center" style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '8px', padding: '1.75rem 1.5rem' }}>
+              <div className="pillar-reveal flex items-baseline justify-center gap-3">
                 <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accent }}>{p.n}</span>
                 <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.2rem', color: P.ink, margin: 0 }}>{p.title}</h3>
               </div>

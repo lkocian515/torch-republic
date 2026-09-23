@@ -28,6 +28,7 @@ export function SectionWrap({ id, alt = false, wide = false, children }) {
 export function Eyebrow({ children }) {
   return (
     <p
+      className="text-center md:text-left"
       style={{
         fontFamily: FONT_MONO,
         fontSize: '0.6875rem',
@@ -43,9 +44,10 @@ export function Eyebrow({ children }) {
   );
 }
 
-export function SectionHeading({ children, as: Tag = 'h2', style }) {
+export function SectionHeading({ children, as: Tag = 'h2', style, className }) {
   return (
     <Tag
+      className={`text-center md:text-left ${className || ''}`}
       style={{
         fontFamily: FONT_SANS,
         fontWeight: 700,
@@ -65,6 +67,7 @@ export function SectionHeading({ children, as: Tag = 'h2', style }) {
 export function Lead({ children, center = false, style }) {
   return (
     <p
+      className="text-center md:text-left"
       style={{
         fontFamily: FONT_SANS,
         fontSize: '1.0625rem',
@@ -82,9 +85,10 @@ export function Lead({ children, center = false, style }) {
   );
 }
 
-export function Card({ children, pad = '1.5rem', style }) {
+export function Card({ children, pad = '1.5rem', style, className }) {
   return (
     <div
+      className={className}
       style={{
         background: P.surface,
         border: `1px solid ${P.rule}`,
@@ -142,6 +146,7 @@ export function SubLabel({ children }) {
 export function SubHeading({ children }) {
   return (
     <h3
+      className="text-center md:text-left"
       style={{
         fontFamily: FONT_SANS,
         fontWeight: 700,
@@ -161,7 +166,7 @@ export function SubHeading({ children }) {
 export function BodyText({ children, style, className }) {
   return (
     <p
-      className={className}
+      className={`text-center md:text-left ${className || ''}`}
       style={{
         fontFamily: FONT_SANS,
         fontSize: '0.95rem',

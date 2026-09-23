@@ -80,7 +80,7 @@ export default function CaseStudyIntro() {
         </div>
 
         {/* CTAs */}
-        <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:items-center">
+        <div className="mt-6 flex flex-col sm:flex-row gap-3 items-center sm:items-center">
           <a href={LIVE_STORE} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.01]" style={{ minHeight: 48, padding: '0.7rem 1.6rem', borderRadius: '6px', background: P.accent, color: '#FFFFFF', fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
             Visit Live Application <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </a>
@@ -90,7 +90,7 @@ export default function CaseStudyIntro() {
         </div>
 
         {/* Role items */}
-        <div className="case-roles mt-9 flex flex-wrap gap-x-3 gap-y-1.5" style={{ maxWidth: '70ch' }}>
+        <div className="case-roles mt-9 flex flex-wrap justify-center gap-x-3 gap-y-1.5" style={{ maxWidth: '70ch' }}>
           {ROLE.map((r, i) => (
             <span key={r} className="case-role" style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', color: P.secondary, display: 'inline-flex', alignItems: 'baseline' }}>
               {r}{i < ROLE.length - 1 && <span style={{ color: P.muted, marginLeft: '0.75rem' }} aria-hidden="true">&middot;</span>}
@@ -101,7 +101,7 @@ export default function CaseStudyIntro() {
         {/* Technology tags */}
         <div className="case-tags mt-7">
           <SubHeading>Technology &amp; Capabilities</SubHeading>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
             {TAGS.map((t) => (
               <span key={t} className="case-tag" style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 500, color: P.ink, background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '4px', padding: '0.4rem 0.85rem' }}>{t}</span>
             ))}
@@ -111,7 +111,7 @@ export default function CaseStudyIntro() {
         {/* Skills */}
         <div className="case-skills mt-7">
           <SubHeading>Skills Demonstrated</SubHeading>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
             {SKILLS_DEMONSTRATED.map((s) => (
               <span key={s} className="case-pill" style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 500, color: P.ink, background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '4px', padding: '0.4rem 0.85rem' }}>{s}</span>
             ))}
