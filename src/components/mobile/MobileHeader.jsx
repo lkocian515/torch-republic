@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingBag, User } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ShoppingBag, User, ChevronLeft } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 
@@ -21,6 +21,9 @@ const NAV_LINKS = [
 
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isRoot = location.pathname === '/';
 
   return (
     <>
@@ -50,14 +53,25 @@ export default function MobileHeader() {
         }}
       >
         <div className="h-full flex items-center justify-between px-5">
-          {/* Left logo */}
-          <Link to="/">
-            <img
-              src="/torch-republic-logo-transparent.png"
-              alt="Torch Republic Coffee Company"
-              style={{ height: '42px', width: 'auto', display: 'block' }}
-            />
-          </Link>
+          {/* Left — native back button on child pages, logo on root */}
+          {isRoot ? (
+            <Link to="/">
+              <img
+                src="/torch-republic-logo-transparent.png"
+                alt="Torch Republic Coffee Company"
+                style={{ height: '42px', width: 'auto', display: 'block' }}
+              />
+            </Link>
+          ) : (
+            <button
+              onClick={() => navigate(-1)}
+              aria-label="Go back"
+              style={{ display: 'flex', alignItems: 'center', gap: '2px', color: RG, background: 'transparent', border: 'none', cursor: 'pointer', minHeight: '44px', padding: '0 4px' }}
+            >
+              <ChevronLeft className="w-6 h-6" strokeWidth={2} />
+              <span className="font-heading" style={{ fontSize: '15px', fontWeight: 500 }}>Back</span>
+            </button>
+          )}
           {/* Right icons */}
           <div className="flex items-center gap-1">
             <a href={SHOPIFY_CART_URL}

@@ -86,29 +86,28 @@
   }
 
   .dark {
-    /* Torch Republic storefront is ALWAYS light, even in device dark mode.
-       Dark theme tokens mirror the light (:root) values so that
-       bg-card, bg-background, text-foreground, border, etc. never turn dark.
-       The standalone portfolio uses its own inline styles, not these tokens. */
-    --background: 38 53% 97%;
-    --foreground: 28 11% 16%;
-    --card: 0 0% 100%;
-    --card-foreground: 28 11% 16%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 28 11% 16%;
-    --primary: 17 46% 49%;
-    --primary-foreground: 38 53% 97%;
-    --secondary: 34 39% 92%;
-    --secondary-foreground: 28 11% 16%;
-    --muted: 34 39% 92%;
-    --muted-foreground: 25 15% 20%;
+    /* True dark mode — charcoal backgrounds with warm ivory text.
+       Activated automatically when the device prefers dark mode (App.jsx syncs
+       the .dark class). The standalone portfolio uses its own inline styles. */
+    --background: 30 10% 9%;          /* #1B1815 — warm charcoal */
+    --foreground: 39 36% 88%;         /* #E8DDC9 — warm ivory */
+    --card: 33 12% 13%;              /* #252019 — lifted charcoal */
+    --card-foreground: 39 36% 88%;
+    --popover: 33 12% 13%;
+    --popover-foreground: 39 36% 88%;
+    --primary: 17 50% 55%;            /* lighter terracotta for dark bg contrast */
+    --primary-foreground: 39 36% 88%;
+    --secondary: 30 8% 17%;           /* darker charcoal surface */
+    --secondary-foreground: 39 36% 88%;
+    --muted: 30 8% 17%;
+    --muted-foreground: 33 9% 62%;    /* muted warm gray — AA on charcoal */
     --accent: 95 17% 63%;
-    --accent-foreground: 28 11% 16%;
-    --destructive: 0 72% 47%;
+    --accent-foreground: 30 10% 9%;
+    --destructive: 0 62% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 32 34% 84%;
-    --input: 32 34% 84%;
-    --ring: 17 46% 49%;
+    --border: 30 8% 21%;             /* dark warm border */
+    --input: 30 8% 21%;
+    --ring: 17 50% 55%;
   }
 }
 
