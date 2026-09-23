@@ -158,7 +158,9 @@ export default function PortfolioHero() {
               applications &mdash; catching accuracy issues, inconsistencies, and broken workflows
               before they reach users. My work combines AI output evaluation, document quality
               review, and hands-on digital product implementation, including a Shopify-integrated
-              commerce application built with Base44 and React.
+              commerce application built with Base44 and React. I am currently part of the Alignerr
+              network by Labelbox, a global community of experts who actively research and shape
+              the future of AI.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-center">

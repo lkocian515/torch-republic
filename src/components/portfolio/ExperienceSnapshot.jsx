@@ -9,7 +9,7 @@ const CARDS = [
   {
     icon: ShieldCheck,
     title: 'AI Quality Review & Content Evaluation',
-    body: 'Prompt evaluation, instruction adherence, content review, output validation, and QA documentation. Experienced in identifying hallucinations, unsupported claims, factual errors, and consistency issues across AI-generated content.',
+    body: 'Prompt evaluation, instruction adherence, content review, output validation, and QA documentation. Experienced in identifying hallucinations, unsupported claims, factual errors, and consistency issues across AI-generated content. Currently part of the Alignerr network by Labelbox, a global network of experts who actively research and shape the future of AI.',
   },
   {
     icon: ShoppingCart,
