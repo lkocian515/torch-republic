@@ -32,7 +32,7 @@ export default function SeasonalHero() {
       <div className="text-center" style={{ background: '#1A0F0A', padding: '1.25rem 1.5rem 1.75rem' }}>
         <Link to="/products/pumpkin-spice-whole-bean-coffee" style={{ textDecoration: 'none' }}>
           <p className="font-serif italic" style={{ color: '#E6B7AD', fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', lineHeight: 1.5 }}>
-            Something wicked is brewing. Pumpkin Spice limited seasonal edition. Order now before it sells out!
+            Something wicked is brewing. Pumpkin Spice Limited Seasonal Edition. Order now before it's sold out!
           </p>
         </Link>
       </div>
