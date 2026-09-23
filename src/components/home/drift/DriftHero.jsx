@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
-const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e56a2a991_IMG_20260923_102242.png';
+const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f0baca98f_file_00000000f01c822fa487ced70d607099.png';
 
 // ── Reusable text block (shared between desktop and mobile layouts) ──
 // isPrimary controls heading level: only the visible layout renders a real <h1>.
