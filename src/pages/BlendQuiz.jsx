@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { trackEvent } from '@/lib/analyticsEvents';
+import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Brain, Sparkles, Zap, Book, Coffee, Clock, Leaf, Wind, Flame, Star, Share2, ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
@@ -109,6 +110,8 @@ export default function FindYourRitual() {
   const [step, setStep] = useState(0); // 0 = intro, 1-4 = questions, result when done
   const [selections, setSelections] = useState([]); // [optionIndex, ...] per question
   const [resultKey, setResultKey] = useState(null);
+  const [email, setEmail] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
 
   useSEO({
     title: 'Find Your Blend | Torch Republic Coffee Company',
@@ -159,6 +162,18 @@ export default function FindYourRitual() {
       trackEvent('quiz_completed', { blend: result.product }, `quiz_completed::${Date.now()}`);
     }
   }, [resultKey, result]);
+
+  // Auto-send welcome email when a valid email is entered on the results screen.
+  // No button required — fires as soon as the email passes basic validation.
+  useEffect(() => {
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (isValidEmail && !emailSent && result) {
+      setEmailSent(true);
+      base44.functions
+        .invoke('sendQuizWelcomeEmail', { data: { email, result_blend: result.product } })
+        .catch(() => {});
+    }
+  }, [email, emailSent, result]);
 
   return (
     <section className="px-6 md:px-10 py-16 md:py-20" style={{ background: THEME.page }}>
@@ -310,6 +325,26 @@ export default function FindYourRitual() {
                 <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-6" style={{ color: THEME.secondary }}>
                   Recommended: {result.product}
                 </p>
+
+                <div className="mb-6">
+                  <label htmlFor="quiz-email" className="block font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: THEME.secondary }}>
+                    Get your results + 10% off code
+                  </label>
+                  <input
+                    id="quiz-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full"
+                    style={{ minHeight: 44 }}
+                  />
+                  {emailSent && (
+                    <p className="font-mono text-[8px] tracking-[0.15em] uppercase mt-2" style={{ color: THEME.moss }}>
+                      &#10003; Your results &amp; discount are on the way
+                    </p>
+                  )}
+                </div>
 
                 <div className="flex flex-col gap-3 mb-6">
                   <Link to={result.link} className="btn btn-primary w-full">
