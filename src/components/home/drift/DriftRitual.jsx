@@ -27,7 +27,7 @@ export default function DriftRitual() {
         <div className="grid md:grid-cols-[45fr_55fr] gap-10 md:gap-14 items-center">
           {/* Image */}
           <div className="order-2 md:order-1 overflow-hidden rounded-lg">
-            <img className="ritual-img w-full" src={RITUAL_IMAGE} alt="Instant coffee being stirred into a ceramic cup" style={{ aspectRatio: '4 / 5', objectFit: 'cover' }} />
+            <img className="ritual-img w-full" src={RITUAL_IMAGE} alt="Instant coffee being stirred into a ceramic cup" loading="lazy" style={{ aspectRatio: '4 / 5', objectFit: 'cover' }} />
           </div>
           {/* Copy */}
           <div className="order-1 md:order-2">

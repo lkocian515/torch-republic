@@ -29,7 +29,7 @@ import { D } from './driftTheme';
 // 11. Founder story — editorial quote
 export default function DriftHomepage() {
   return (
-    <main id="main-content" style={{ background: D.paper, overflowX: 'clip' }}>
+    <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
       <SeasonalHero />
       <DriftHero />
       <DriftBenefitStrip />

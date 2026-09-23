@@ -43,7 +43,7 @@ export default function DriftBrandStory() {
         <div className="grid md:grid-cols-[55fr_45fr] gap-10 md:gap-14 items-center">
           {/* Image */}
           <div className="brand-img-wrap order-2 md:order-1 overflow-hidden rounded-lg">
-            <img className="brand-img w-full" src={STORY_IMAGE} alt="Warm morning kitchen scene with ceramic cups and coffee" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
+            <img className="brand-img w-full" src={STORY_IMAGE} alt="Warm morning kitchen scene with ceramic cups and coffee" loading="lazy" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
           </div>
           {/* Copy */}
           <div className="order-1 md:order-2">

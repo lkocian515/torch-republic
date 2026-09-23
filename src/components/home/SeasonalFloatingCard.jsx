@@ -79,6 +79,7 @@ export default function SeasonalFloatingCard() {
             <img
               src={PUMPKIN_SPICE_IMAGE}
               alt=""
+              loading="lazy"
               className="h-14 w-10 flex-shrink-0 object-contain"
               style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }}
             />

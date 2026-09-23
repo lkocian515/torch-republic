@@ -25,7 +25,7 @@ export default function DriftLifestyleCampaign() {
   return (
     <section ref={scope} className="parallax-section relative w-full overflow-hidden">
       <div className="overflow-hidden" style={{ height: '55vh' }}>
-        <img className="parallax-img w-full h-[120%] object-cover" src={CAMPAIGN_IMAGE} alt="Torch Republic Instant Coffee with Mushrooms poured into a mug at sunset" />
+        <img className="parallax-img w-full h-[120%] object-cover" src={CAMPAIGN_IMAGE} alt="Torch Republic Instant Coffee with Mushrooms poured into a mug at sunset" loading="lazy" />
       </div>
       <div className="absolute inset-0 flex items-end" style={{ background: 'linear-gradient(to top, rgba(56,43,36,0.6) 0%, transparent 55%)' }}>
         <div className="campaign-text p-6 md:p-12 lg:p-16 max-w-[560px]">
