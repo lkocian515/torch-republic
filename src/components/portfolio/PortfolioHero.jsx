@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, Check, AlertTriangle, ArrowRight as ArrowRightIcon } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, AlertTriangle, BadgeCheck, ArrowRight as ArrowRightIcon } from 'lucide-react';
 import { P, FONT_SERIF, FONT_MONO, FONT_SANS, LINKEDIN } from './portfolioTheme';
 import { usePortfolioMotion, isMobile } from './usePortfolioMotion';
 
@@ -97,7 +97,8 @@ export default function PortfolioHero() {
       .from('.hero-name-line', { opacity: 0, y: 30, duration: 0.7, stagger: 0.1 }, 0.15)
       .from('.hero-subtitle', { opacity: 0, y: 15, duration: 0.5 }, 0.55)
       .from('.hero-body', { opacity: 0, y: 15, duration: 0.5 }, 0.7)
-      .from('.hero-cta', { opacity: 0, y: 12, duration: 0.4, stagger: 0.08 }, 0.85);
+      .from('.hero-credential', { opacity: 0, y: 10, duration: 0.4 }, 0.8)
+      .from('.hero-cta', { opacity: 0, y: 12, duration: 0.4, stagger: 0.08 }, 0.9);
 
     // ── QA modules stagger ──
     if (!mobile) {
@@ -162,6 +163,19 @@ export default function PortfolioHero() {
               network by Labelbox, a global community of experts who actively research and shape
               the future of AI.
             </p>
+
+            <a
+              href="https://labelbox.com/alignerr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-credential group inline-flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
+              style={{ marginBottom: '1.5rem', padding: '0.5rem 1rem', borderRadius: '8px', background: P.accentSoft, border: `1px solid ${P.accent}30`, textDecoration: 'none' }}
+            >
+              <BadgeCheck size={16} style={{ color: P.accent, flexShrink: 0 }} strokeWidth={2} />
+              <span style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 600, color: P.accentInk }}>Alignerr Network</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', color: P.muted, letterSpacing: '0.08em' }}>&middot;</span>
+              <span style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 500, color: P.secondary }}>Labelbox</span>
+            </a>
 
             <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-center">
               <a href="#case-study" className="hero-cta group inline-flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.01]" style={{ minHeight: 48, padding: '0.7rem 1.6rem', borderRadius: '6px', background: P.accent, color: '#FFFFFF', fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
