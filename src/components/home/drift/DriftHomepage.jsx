@@ -2,6 +2,7 @@ import React from 'react';
 import DriftHero from './DriftHero';
 import DriftBenefitStrip from './DriftBenefitStrip';
 import DriftProductDiscovery from './DriftProductDiscovery';
+import FreeGiftBanner from '../FreeGiftBanner';
 import DriftBrandStory from './DriftBrandStory';
 import DriftRitual from './DriftRitual';
 
@@ -33,6 +34,7 @@ export default function DriftHomepage() {
       <DriftHero />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
+      <FreeGiftBanner />
       <DriftBrandStory />
       <DriftRitual />
       <DriftLifestyleCampaign />

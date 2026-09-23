@@ -56,6 +56,16 @@ export function CartProvider({ children }) {
     }
   });
 
+  // ── Free gift selection (persisted to localStorage) ──
+  const [selectedGift, setSelectedGift] = useState(() => {
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('torch-republic-free-gift') : null;
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+
   // ── Loading state for Shopify operations ──
   const [isSyncing, setIsSyncing] = useState(false);
 
@@ -170,6 +180,21 @@ export function CartProvider({ children }) {
       // localStorage unavailable
     }
   }, [items]);
+
+  // Persist free gift selection to localStorage
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        if (selectedGift) {
+          localStorage.setItem('torch-republic-free-gift', JSON.stringify(selectedGift));
+        } else {
+          localStorage.removeItem('torch-republic-free-gift');
+        }
+      }
+    } catch {
+      // localStorage unavailable
+    }
+  }, [selectedGift]);
 
   // ── Cart line key: separates one-time and subscription versions ──
   // A one-time and subscription version of the same product must remain
@@ -470,7 +495,10 @@ export function CartProvider({ children }) {
         isSubscription: !!i.isSubscription,
       }));
 
-      const cart = await createShopifyCart(lines);
+      const cart = await createShopifyCart(lines, {
+        attributes: selectedGift ? [{ key: 'Free Gift', value: selectedGift.name }] : [],
+        note: selectedGift ? `Free gift selected: ${selectedGift.name}` : undefined,
+      });
 
       // Abort if cart creation failed or returned an error
       if (!cart || cart.error || !cart.cartId) {
@@ -513,11 +541,12 @@ export function CartProvider({ children }) {
       clearTimeout(timeoutId);
       setIsCheckingOut(false);
     }
-  }, [items, persistShopifyCartId, subtotal]);
+  }, [items, persistShopifyCartId, subtotal, selectedGift]);
 
   const clearCart = useCallback(() => {
     setItems([]);
     persistShopifyCartId(null);
+    setSelectedGift(null);
   }, [persistShopifyCartId]);
 
   return (
@@ -528,6 +557,7 @@ export function CartProvider({ children }) {
       shopifyCartId, persistShopifyCartId,
       handleCheckout, isCheckingOut,
       isSyncing,
+      selectedGift, setSelectedGift,
     }}>
       {children}
     </CartContext.Provider>

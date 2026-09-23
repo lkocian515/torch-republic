@@ -62,6 +62,7 @@ const LIFESTYLE_COPY = {
   'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
 };
 import { useSEO } from '@/hooks/useSEO';
+import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
@@ -333,6 +334,8 @@ function RitualPDP({ product }) {
           </motion.div>
         </div>
       </section>
+
+      <FreeGiftBanner />
 
       <RitualLifestyleBanner
         image={LIFESTYLE_IMAGE[product.category]}

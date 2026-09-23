@@ -119,6 +119,16 @@ export default async function (req) {
       const input = {};
       if (cartLines.length > 0) input.lines = cartLines;
 
+      // Pass cart note and custom attributes (e.g., free gift selection)
+      if (typeof body.note === "string" && body.note.trim()) {
+        input.note = body.note.trim();
+      }
+      if (Array.isArray(body.attributes)) {
+        input.attributes = body.attributes
+          .filter((a) => a && typeof a.key === "string" && typeof a.value === "string")
+          .map((a) => ({ key: a.key, value: a.value }));
+      }
+
       const result = await storefrontQuery(CART_CREATE_MUTATION, { input });
       if (!result.ok) {
         return Response.json({

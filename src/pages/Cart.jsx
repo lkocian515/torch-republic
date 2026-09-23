@@ -10,6 +10,7 @@ import CartRecommendations from '@/components/cart/CartRecommendations';
 import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
 import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
 import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
+import FreeGiftSelection from '@/components/cart/FreeGiftSelection';
 import { trackFreeShippingThresholdReached } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
@@ -111,6 +112,9 @@ export default function Cart() {
         {/* First-time customer welcome + Free shipping progress */}
         <CartFirstTimeOffer />
         <CartFreeShippingBar subtotal={subtotal} />
+
+        {/* Free gift selection */}
+        <FreeGiftSelection />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}

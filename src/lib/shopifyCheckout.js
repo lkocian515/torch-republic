@@ -61,9 +61,12 @@ async function invokeCart(payload) {
  * @param {Array<{slug: string, quantity: number, isSubscription?: boolean}>} [lines]
  * @returns {Promise<object|null>} Sanitized cart data or null.
  */
-export async function createShopifyCart(lines) {
+export async function createShopifyCart(lines, options = {}) {
   if (!COMMERCE_ENABLED) return null;
-  const data = await invokeCart({ action: 'create', lines: lines || [] });
+  const payload = { action: 'create', lines: lines || [] };
+  if (options.note) payload.note = options.note;
+  if (options.attributes) payload.attributes = options.attributes;
+  const data = await invokeCart(payload);
   if (data?.error) return data;
   return data?.cart || null;
 }
