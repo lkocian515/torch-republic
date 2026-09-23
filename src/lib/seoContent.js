@@ -15,9 +15,7 @@ export const TOPIC_CLUSTERS = {
     color: '#6CBD5A',
     pillarUrl: '/shop/instant-mushroom-coffee',
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
-      { name: 'SunCap Rise', path: '/products/suncap-rise' },
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
+      { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
       { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
     ],
   },
@@ -26,8 +24,7 @@ export const TOPIC_CLUSTERS = {
     color: '#C4A35A',
     pillarUrl: '/shop/instant-coffee',
     products: [
-      { name: 'Torchbearer', path: '/products/torchbearer' },
-      { name: 'Ember Reserve', path: '/products/ember-reserve' },
+      { name: 'Instant Classic Coffee', path: '/products/instant-classic-coffee' },
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
     ],
   },
@@ -37,9 +34,8 @@ export const TOPIC_CLUSTERS = {
     color: '#E6B7AD',
     pillarUrl: '/how-it-works',
     products: [
-      { name: 'Build Your Ritual Bundle', path: '/build-your-ritual' },
-      { name: 'Take the Blend Quiz', path: '/quiz' },
-      { name: 'Subscribe & Save 20%', path: '/subscription' },
+      { name: 'Shop All Coffee', path: '/shop' },
+      { name: 'How It Works', path: '/how-it-works' },
     ],
   },
   'focus-productivity': {
@@ -47,8 +43,7 @@ export const TOPIC_CLUSTERS = {
     color: '#B88FA8',
     pillarUrl: '/why-mushroom-coffee',
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
+      { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
       { name: 'Ingredients Page', path: '/ingredients' },
     ],
   },
@@ -67,9 +62,9 @@ export const TOPIC_CLUSTERS = {
     color: '#D4A576',
     pillarUrl: '/how-it-works',
     products: [
-      { name: 'SunCap Rise', path: '/products/suncap-rise' },
-      { name: 'Torchbearer', path: '/products/torchbearer' },
-      { name: 'Build Your Ritual', path: '/build-your-ritual' },
+      { name: 'Instant Classic Coffee', path: '/products/instant-classic-coffee' },
+      { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+      { name: 'Shop All Coffee', path: '/shop' },
     ],
   },
   'recipes': {
@@ -78,8 +73,7 @@ export const TOPIC_CLUSTERS = {
     pillarUrl: '/recipes',
     products: [
       { name: 'All Recipes', path: '/recipes' },
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
+      { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
     ],
   },
 };

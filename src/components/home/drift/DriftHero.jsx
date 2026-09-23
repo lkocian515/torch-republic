@@ -6,25 +6,22 @@ import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f0baca98f_file_00000000f01c822fa487ced70d607099.png';
 
-// ── Reusable text block (shared between desktop and mobile layouts) ──
-// isPrimary controls heading level: only the visible layout renders a real <h1>.
-// The duplicate (hidden via display:none) renders an identical <p> so there is
-// exactly one H1 in the DOM and accessibility tree at every breakpoint.
-function HeroText({ isPrimary = true }) {
-  const HeadingTag = isPrimary ? 'h1' : 'p';
+// ── Single text block — rendered ONCE in the DOM (no duplicate for crawlers) ──
+function HeroText() {
   return (
     <>
       <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
         Premium Coffee &middot; Made for Mornings
       </p>
-      <HeadingTag style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
+      <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
-        <span className="hero-line" style={{ display: 'block' }}>Better mornings,&nbsp;</span>
+          <span className="hero-line" style={{ display: 'block' }}>Better mornings,</span>
         </span>
+        {' '}
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>in an instant.</span>
         </span>
-      </HeadingTag>
+      </h1>
       <p className="hero-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2rem', maxWidth: '40ch' }}>
         Premium coffee made for real mornings. Scoop. Stir. Sip.
       </p>
@@ -59,7 +56,6 @@ export default function DriftHero() {
     // ═══════════════════════════════════════════════════
     // AMBIENT — barely perceptible natural life
     // ═══════════════════════════════════════════════════
-    // Warm light drifts across the photograph (extremely slow)
     gsap.to('.hero-light-overlay', {
       x: '+=12', y: '-=4',
       duration: 12, ease: 'sine.inOut',
@@ -81,7 +77,6 @@ export default function DriftHero() {
           .to('.hero-cta', { opacity: 0, ease: 'none' }, 0),
       });
     } else {
-      // Mobile: very light, smooth, no sticky feel
       ScrollTrigger.create({
         trigger: el,
         start: 'top top',
@@ -119,9 +114,36 @@ export default function DriftHero() {
   }, []);
 
   return (
-    <section id="top" ref={scope} style={{ background: D.paper, scrollMarginTop: '72px', overflow: 'hidden' }}>
+    <section id="top" ref={scope} style={{ background: D.paper, scrollMarginTop: '72px', overflow: 'hidden', position: 'relative' }}>
       {/* ════════════════════════════════════════════════
-          DESKTOP — full-width cinematic hero, 78–88vh
+          TEXT — single instance in the DOM
+          Mobile: normal flow, above the image
+          Desktop: absolutely positioned over the image
+          ════════════════════════════════════════════════ */}
+      <div className="hero-text relative z-10 md:absolute md:inset-0 md:flex md:items-center" style={{ willChange: 'transform' }}>
+        <div className="max-w-[480px] px-5 pt-12 pb-6 md:px-12 lg:px-16">
+          <HeroText />
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          MOBILE hero photograph
+          ════════════════════════════════════════════════ */}
+      <div className="md:hidden relative overflow-hidden" style={{ aspectRatio: '3 / 2' }}>
+        <div
+          className="hero-photo absolute inset-0"
+          style={{
+            backgroundColor: D.accentSoft,
+            backgroundImage: `url(${HERO_IMAGE})`,
+            backgroundSize: 'cover',
+            backgroundPosition: '65% center',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          DESKTOP hero photograph — full-width cinematic
           ════════════════════════════════════════════════ */}
       <div
         className="hidden md:block relative overflow-hidden"
@@ -129,7 +151,6 @@ export default function DriftHero() {
       >
         {/* Mouse parallax wrapper */}
         <div className="hero-photo-wrap absolute inset-0" style={{ willChange: 'transform' }}>
-          {/* Hero photograph — single layer, no duplicates */}
           <div
             className="hero-photo absolute inset-0"
             style={{
@@ -140,7 +161,7 @@ export default function DriftHero() {
               willChange: 'transform',
             }}
           />
-          {/* Extremely subtle warm light overlay — barely perceptible drift */}
+          {/* Subtle warm light overlay */}
           <div
             className="hero-light-overlay absolute inset-0"
             style={{
@@ -149,7 +170,6 @@ export default function DriftHero() {
               willChange: 'transform',
             }}
           />
-
         </div>
 
         {/* Left-side cream gradient for text readability */}
@@ -162,48 +182,16 @@ export default function DriftHero() {
             zIndex: 5,
           }}
         />
-
-        {/* Text overlay — positioned over the negative space on the left */}
-        <div
-          className="hero-text relative z-10 flex items-center"
-          style={{ willChange: 'transform', minHeight: 'max(78vh, 650px)', maxHeight: '900px' }}
-        >
-          <div className="max-w-[480px] px-8 md:px-12 lg:px-16">
-            <HeroText isPrimary={true} />
-          </div>
-        </div>
       </div>
 
       {/* ════════════════════════════════════════════════
-          MOBILE — text first, then hero photograph
+          MOBILE compare link — below hero photograph
           ════════════════════════════════════════════════ */}
-      <div className="md:hidden">
-        {/* Text content — aria-hidden so crawlers/AT don't see duplicate of the desktop H1 */}
-        <div className="hero-text px-5 pt-12 pb-6" aria-hidden="true">
-          <HeroText isPrimary={false} />
-        </div>
-
-        {/* Hero photograph — single layer, preserves both product bags */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: '3 / 2' }}>
-          <div
-            className="hero-photo absolute inset-0"
-            style={{
-              backgroundColor: D.accentSoft,
-              backgroundImage: `url(${HERO_IMAGE})`,
-              backgroundSize: 'cover',
-              backgroundPosition: '65% center',
-              willChange: 'transform',
-            }}
-          />
-        </div>
-
-        {/* Secondary compare link — below hero photograph, mobile only */}
-        <div className="hero-compare-link px-5 py-10 text-center">
-          <a href="#comparison" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: D.secondary, textDecoration: 'none' }}>
-            Compare the two
-            <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" style={{ strokeWidth: 1.75 }} />
-          </a>
-        </div>
+      <div className="md:hidden hero-compare-link px-5 py-10 text-center">
+        <a href="#comparison" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: D.secondary, textDecoration: 'none' }}>
+          Compare the two
+          <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" style={{ strokeWidth: 1.75 }} />
+        </a>
       </div>
     </section>
   );

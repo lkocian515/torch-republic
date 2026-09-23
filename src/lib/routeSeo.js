@@ -1,4 +1,5 @@
 import { ALL_BLOG_TOPICS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
+import { getProductBySlug } from '@/lib/coreProducts';
 
 const cleanTitle = (value) => value.replace(/[-_]+/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()).replace(/\s+/g, ' ').trim();
 const stripParams = (search = '') => {
@@ -135,16 +136,20 @@ function dynamicSeo(pathname) {
     return [item?.metaTitle || cleanTitle(parts[1]), item?.metaDescription || `Compare ${cleanTitle(parts[1]).toLowerCase()} by ingredients, price, preparation, flavor, and fit for your daily coffee ritual.`];
   }
   if (parts[0] === 'products' && parts[1]) {
-    const name = cleanTitle(parts[1]);
-    return [name, `Shop ${name} from Torch Republic with product details, ingredients, serving guidance, pricing, and options for your daily ritual.`];
+    const product = getProductBySlug(parts[1]);
+    const name = product?.name || cleanTitle(parts[1]);
+    const desc = product?.description || `Shop ${name} from Torch Republic with product details, ingredients, serving guidance, pricing, and options for your daily ritual.`;
+    return [name, desc];
   }
   return [cleanTitle(parts.join(' ') || 'Torch Republic'), `Explore Torch Republic\u2019s ${cleanTitle(parts.join(' ')).toLowerCase()} page for coffee, mushroom coffee, ingredients, and daily ritual guidance.`];
 }
 
 export function getRouteSeo(pathname, search = '') {
-  const exact = SEO_BY_PATH[pathname] || dynamicSeo(pathname);
+  // Normalize trailing slashes (except root) so /products/foo/ matches /products/foo
+  const normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const exact = SEO_BY_PATH[normalized] || SEO_BY_PATH[pathname] || dynamicSeo(normalized);
   const noindex = isNoIndex(pathname, search);
-  const canonicalPath = CANONICAL_OVERRIDES[pathname] || pathname;
+  const canonicalPath = CANONICAL_OVERRIDES[normalized] || CANONICAL_OVERRIDES[pathname] || normalized;
   return {
     title: exact[0].includes('Torch Republic') ? exact[0] : `${exact[0]} | Torch Republic`,
     description: exact[1],

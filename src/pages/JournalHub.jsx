@@ -11,7 +11,7 @@ import { ALL_BLOG_TOPICS, TOPIC_CLUSTERS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISO
 import GEOOptimization from '@/components/seo/GEOOptimization';
 
 const RG = '#E6B7AD';
-const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'matcha', 'recipes', 'wellness-rituals', 'focus-productivity', 'morning-routines', 'ingredients'];
+const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'recipes', 'wellness-rituals', 'focus-productivity', 'morning-routines', 'ingredients'];
 
 // Maps recipe topic slugs (from seoContent.js) to recipe IDs on the /recipes page
 const RECIPE_SLUG_TO_ID = {
@@ -29,9 +29,9 @@ export default function JournalHub() {
 
   useSEO({
     title: 'Journal | Torch Republic Coffee Company',
-    description: 'Explore research, coffee education, mushroom ingredients, matcha guides, sustainability, and better daily rituals from Torch Republic.',
+    description: 'Explore research-backed guides on mushroom coffee, instant coffee, ingredients, and better daily rituals from Torch Republic.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f081b50f3_generated_image.png',
-    imageAlt: 'Torch Republic Journal cover — coffee, mushroom coffee, and matcha education.',
+    imageAlt: 'Torch Republic Journal cover — coffee and mushroom coffee education.',
     url: '/journal',
     type: 'website',
     breadcrumbs: [
@@ -74,7 +74,7 @@ export default function JournalHub() {
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-6"
             style={{ fontSize: '1.05rem', color: '#6A5A4A', lineHeight: 1.85, fontWeight: 300 }}>
-            Research-backed guides on mushroom coffee, ceremonial matcha, instant coffee, and intentional daily rituals. No guaranteed health claims — just honest education.
+            Research-backed guides on mushroom coffee, instant coffee, and intentional daily rituals. No guaranteed health claims — just honest education.
           </p>
           {/* Quick nav */}
           <div className="flex flex-wrap justify-center gap-3 mt-4">
@@ -401,11 +401,11 @@ export default function JournalHub() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/quiz" className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
             style={{ background: '#B86543', color: '#FBF8F1' }}>
-            Take the Blend Quiz →
+            Take the Coffee Quiz →
           </Link>
           <Link to="/shop" className="font-mono text-[11px] tracking-[0.3em] uppercase font-bold py-4 px-10 transition-opacity hover:opacity-80"
             style={{ border: `1px solid #E6B7AD`, color: '#B86543' }}>
-            Shop All Blends
+            Shop All Coffee
           </Link>
         </div>
       </section>
