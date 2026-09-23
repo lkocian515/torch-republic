@@ -156,7 +156,7 @@ export default function FindYourRitual() {
   // Unique dedupKey allows retakes to count as new completions.
   useEffect(() => {
     if (resultKey && result) {
-      trackEvent('quiz_completed', { recommended_blend: result.product }, `quiz_completed::${Date.now()}`);
+      trackEvent('quiz_completed', { blend: result.product }, `quiz_completed::${Date.now()}`);
     }
   }, [resultKey, result]);
 
