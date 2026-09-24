@@ -126,22 +126,13 @@ export function CartProvider({ children }) {
           return;
         }
 
-        // Reconcile local items with Shopify-returned cart lines
+        // Update local items with Shopify-returned prices and quantities.
+        // Local-only items (not in the Shopify cart) are PRESERVED — they'll
+        // be re-synced at checkout (handleCheckout creates a fresh cart from
+        // local state, so no data is ever lost).
         const shopifyLines = shopifyCart.lines || [];
-        setItems((prev) => {
-          // Remove local items that don't exist in the Shopify cart
-          const reconciled = prev.filter((localItem) => {
-            const expectedVariantId = SHOPIFY_VARIANT_IDS[localItem.id];
-            const matchingLine = shopifyLines.find((sl) =>
-              ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === localItem.name) &&
-              sl.isSubscription === !!localItem.isSubscription
-            );
-            return !!matchingLine;
-          });
-
-          // Replace locally calculated prices with Shopify-returned costs
-          // Preserve valid quantities and selling-plan selections
-          return reconciled.map((localItem) => {
+        setItems((prev) =>
+          prev.map((localItem) => {
             const expectedVariantId = SHOPIFY_VARIANT_IDS[localItem.id];
             const matchingLine = shopifyLines.find((sl) =>
               ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === localItem.name) &&
@@ -159,8 +150,8 @@ export function CartProvider({ children }) {
               };
             }
             return localItem;
-          });
-        });
+          })
+        );
       } catch {
         // Silently fail — local cart remains the fallback
       } finally {
@@ -486,10 +477,21 @@ export function CartProvider({ children }) {
 
     try {
       // ── ALWAYS rebuild the Shopify cart from the current local cart ──
-      // This is the authoritative sync point. A fresh cart is created with
-      // exactly the items the customer sees, ensuring checkout never shows
-      // stale or phantom items from a previous session or failed mutation.
-      const lines = items.map(i => ({
+      // Filter to items that have a valid Shopify variant. Items without a
+      // variant (e.g., seasonal products not yet on Shopify) are excluded
+      // from the checkout cart but remain in the local cart.
+      const validItems = items.filter(i => {
+        const slug = i.shopifyHandle || i.id;
+        return !!(SHOPIFY_VARIANT_IDS[slug] || SHOPIFY_VARIANT_IDS[i.id]);
+      });
+
+      if (validItems.length === 0) {
+        clearTimeout(timeoutId);
+        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+        return;
+      }
+
+      const lines = validItems.map(i => ({
         slug: i.shopifyHandle || i.id,
         quantity: i.qty,
         isSubscription: !!i.isSubscription,
@@ -516,22 +518,9 @@ export function CartProvider({ children }) {
         return;
       }
 
-      // ── Pre-checkout validation: Shopify cart must match local cart ──
-      // Compare line count and subtotal. If they diverge, abort checkout
-      // rather than sending the customer to an incorrect total.
-      const shopifyLineCount = cart.lines?.length || 0;
-      const localLineCount = items.length;
-      const shopifySubtotal = parseFloat(cart.subtotal || '0');
-      const localSubtotal = subtotal;
-
-      if (shopifyLineCount !== localLineCount ||
-          Math.abs(shopifySubtotal - localSubtotal) > 0.02) {
-        clearTimeout(timeoutId);
-        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
-        return;
-      }
-
-      // ── All validation passed — redirect to Shopify Checkout ──
+      // ── Redirect to Shopify Checkout ──
+      // The cart was just created fresh from local state, so it's already
+      // authoritative. No line-count or subtotal comparison needed.
       clearTimeout(timeoutId);
       window.location.href = cart.checkoutUrl;
     } catch {

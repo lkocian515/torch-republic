@@ -157,6 +157,8 @@ export const SHOPIFY_VARIANT_IDS = COMMERCE_ENABLED
   ? {
       'instant-classic-coffee': 'gid://shopify/ProductVariant/51245709623548',
       'instant-mushroom-coffee': 'gid://shopify/ProductVariant/51245706608892',
+      'instant-coffee-1': 'gid://shopify/ProductVariant/51245709623548',
+      'instant-coffee-with-mushroom': 'gid://shopify/ProductVariant/51245706608892',
     }
   : {};
 export const DUO_VARIANT_ID = 'gid://shopify/ProductVariant/51245930217724';
