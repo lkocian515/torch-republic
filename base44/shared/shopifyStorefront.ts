@@ -269,3 +269,100 @@ export const CART_GET_QUERY = `query cart($cartId: ID!) {
     ${CART_FRAGMENT}
   }
 }`;
+
+// ── Product selling-plan query ──
+// Fetches a product by handle with its selling plan groups, variant data,
+// and selling plan allocations (including price adjustments).
+export const PRODUCT_SELLING_PLANS_QUERY = `query productByHandle($handle: String!) {
+  productByHandle(handle: $handle) {
+    id
+    title
+    handle
+    requiresSellingPlan
+    sellingPlanGroups(first: 10) {
+      edges {
+        node {
+          name
+          sellingPlans(first: 20) {
+            edges {
+              node {
+                id
+                name
+                description
+                options { name value }
+              }
+            }
+          }
+        }
+      }
+    }
+    variants(first: 20) {
+      edges {
+        node {
+          id
+          title
+          availableForSale
+          priceV2 { amount currencyCode }
+          compareAtPriceV2 { amount currencyCode }
+          image { url altText }
+          sellingPlanAllocations(first: 10) {
+            edges {
+              node {
+                sellingPlan {
+                  id
+                  name
+                  description
+                }
+                priceAdjustments {
+                  price { amount currencyCode }
+                  compareAtPrice { amount currencyCode }
+                  perDeliveryPrice { amount currencyCode }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+/**
+ * Sanitize a Shopify product node (with selling plans) for frontend return.
+ * Returns the first variant's data and its selling plan allocations.
+ */
+export function sanitizeSellingPlans(productData) {
+  if (!productData) return null;
+
+  const variant = productData.variants?.edges?.[0]?.node;
+  if (!variant) return null;
+
+  const allocations = (variant.sellingPlanAllocations?.edges || [])
+    .map((e) => ({
+      sellingPlanId: e.node?.sellingPlan?.id || null,
+      sellingPlanName: e.node?.sellingPlan?.name || null,
+      sellingPlanDescription: e.node?.sellingPlan?.description || null,
+      price: e.node?.priceAdjustments?.[0]?.price?.amount || null,
+      compareAtPrice: e.node?.priceAdjustments?.[0]?.compareAtPrice?.amount || null,
+      perDeliveryPrice: e.node?.priceAdjustments?.[0]?.perDeliveryPrice?.amount || null,
+      currency: e.node?.priceAdjustments?.[0]?.price?.currencyCode || null,
+    }))
+    .filter((a) => a.sellingPlanId);
+
+  return {
+    productId: productData.id,
+    title: productData.title,
+    handle: productData.handle,
+    requiresSellingPlan: productData.requiresSellingPlan || false,
+    variantId: variant.id,
+    variantTitle: variant.title,
+    availableForSale: variant.availableForSale,
+    oneTimePrice: variant.priceV2?.amount || null,
+    compareAtPrice: variant.compareAtPriceV2?.amount || null,
+    currency: variant.priceV2?.currencyCode || null,
+    image: variant.image?.url || null,
+    imageAlt: variant.image?.altText || null,
+    sellingPlanAllocations: allocations,
+    hasSellingPlans: allocations.length > 0,
+  };
+}

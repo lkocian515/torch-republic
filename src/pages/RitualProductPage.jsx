@@ -14,6 +14,7 @@ import RitualLifestyleBanner from '@/components/home/ritual/RitualLifestyleBanne
 import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 import RitualProductGallery from '@/components/products/RitualProductGallery';
 import BrewingGuide from '@/components/products/BrewingGuide';
+import PurchaseOptionSelector from '@/components/products/PurchaseOptionSelector';
 
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
 
@@ -58,7 +59,7 @@ const GALLERY_EXTRA = {
 
 const LIFESTYLE_COPY = {
   'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: 'Functional mushroom extracts meet smooth instant coffee. Just add hot water.' },
-  'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
+  'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Premium Arabica, in a real cup.', subtitle: 'Smooth instant coffee. Just add hot water.' },
   'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
 };
 import { useSEO } from '@/hooks/useSEO';
@@ -86,7 +87,7 @@ const TRUST = [
 // Verified ingredient lists (matches live BlendDetail copy — no invented claims).
 const INGREDIENTS = {
   'classic-coffee':
-    '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.',
+    'Premium Arabica instant coffee. No artificial colors, flavors, or preservatives.',
   'mushroom-coffee':
     'Premium instant coffee blended with functional mushroom extracts. No artificial colors, flavors, or preservatives.',
   'pumpkin-spice':
@@ -159,13 +160,17 @@ function RitualPDP({ product }) {
   const { addItem } = useCart();
   const c = product.ritual;
   const [qty, setQty] = useState(1);
-  const isSubscription = false;
+  const [purchaseMode, setPurchaseMode] = useState({
+    mode: 'onetime',
+    sellingPlanId: null,
+    price: product.price,
+    sellingPlanName: null,
+  });
+  const isSubscription = purchaseMode.mode === 'subscription';
   const [tab, setTab] = useState('Ingredients');
   const [justAdded, setJustAdded] = useState(false);
 
-  // Subscription purchasing is intentionally disabled until the live
-  // Shopify selling-plan checkout has been launched and revalidated.
-  const unitPrice = product.price;
+  const unitPrice = purchaseMode.price;
   const imageUrl = getProductImage(product);
   const imageAlt = getProductAltText(product, `${product.name} by Torch Republic`);
   const galleryImages = [imageUrl, ...GALLERY_EXTRA[product.category].images];
@@ -177,7 +182,7 @@ function RitualPDP({ product }) {
   const SEO_META = {
     'instant-classic-coffee': {
       title: 'Instant Classic Coffee | Torch Republic',
-      description: 'Bold, smooth instant Arabica coffee made with single-origin coffee from Papua New Guinea. No pods or equipment required.',
+      description: 'Bold, smooth instant Arabica coffee. No pods or equipment required.',
     },
     'instant-mushroom-coffee': {
       title: 'Instant Mushroom Coffee | Torch Republic',
@@ -224,7 +229,7 @@ function RitualPDP({ product }) {
       ctaLocation: cta,
     });
     addItem(
-      { id: product.id, name: product.name, price: unitPrice, image: imageUrl, category: product.category, servings: product.servings, shopifyHandle: product.shopifyHandle, isSubscription },
+      { id: product.id, name: product.name, price: unitPrice, image: imageUrl, category: product.category, servings: product.servings, shopifyHandle: product.shopifyHandle, isSubscription, sellingPlanId: purchaseMode.sellingPlanId, sellingPlanName: purchaseMode.sellingPlanName },
       qty
     );
     setJustAdded(true);
@@ -285,9 +290,7 @@ function RitualPDP({ product }) {
               </span>
             </div>
 
-            <p className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: THEME.secondary }}>
-              One-time purchase &middot; Subscriptions coming soon
-            </p>
+            <PurchaseOptionSelector product={product} onChange={setPurchaseMode} accent={c.accent} />
 
             <div className="flex items-center gap-4">
               <span className="font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: THEME.secondary }}>Quantity</span>

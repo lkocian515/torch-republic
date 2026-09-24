@@ -229,7 +229,7 @@ export function CartProvider({ children }) {
       imageAlt: normalizedProduct.imageAlt,
       qty,
       isSubscription: !!normalizedProduct.isSubscription,
-      sellingPlanName: normalizedProduct.isSubscription ? 'Deliver every 4 weeks' : null,
+      sellingPlanName: normalizedProduct.isSubscription ? (normalizedProduct.sellingPlanName || 'Deliver every 4 weeks') : null,
       shopifyPrice: null,
       lineTotal: (normalizedProduct.price * qty).toFixed(2),
       price: normalizedProduct.price,
@@ -286,7 +286,7 @@ export function CartProvider({ children }) {
 
     if (COMMERCE_ENABLED) {
       const slug = normalizedProduct.shopifyHandle || normalizedProduct.id;
-      const line = { slug, quantity: qty, isSubscription: !!normalizedProduct.isSubscription };
+      const line = { slug, quantity: qty, isSubscription: !!normalizedProduct.isSubscription, sellingPlanId: normalizedProduct.sellingPlanId };
 
       (async () => {
         try {

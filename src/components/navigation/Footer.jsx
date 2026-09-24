@@ -32,6 +32,7 @@ const SUPPORT_LINKS = [
   ['Shipping Policy', '/shipping-policy'],
   ['Return Policy', '/return-policy'],
   ['Account', '/profile'],
+  ['Orders & Subscriptions', 'https://libertees-for-all.myshopify.com/account'],
 ];
 
 const LEGAL_LINKS = [
@@ -54,13 +55,25 @@ function LinkColumn({ heading, links }) {
       <ul className="space-y-1">
         {links.map(([label, href]) => (
           <li key={href}>
-            <Link
-              to={href}
-              className="inline-flex items-center min-h-[44px] font-heading text-sm transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-              style={{ color: THEME.secondary, borderRadius: '4px', paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
-            >
-              {label}
-            </Link>
+            {href.startsWith('http') ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-[44px] font-heading text-sm transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ color: THEME.secondary, borderRadius: '4px', paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                to={href}
+                className="inline-flex items-center min-h-[44px] font-heading text-sm transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ color: THEME.secondary, borderRadius: '4px', paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
+              >
+                {label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
