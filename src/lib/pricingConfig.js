@@ -25,9 +25,12 @@ export const PRICE_CLASSIC_COFFEE = PRICES['classic-coffee'];     // $22.99
 export const PRICE_MUSHROOM_COFFEE = PRICES['mushroom-coffee'];   // $25.99
 
 // ── Bundle pricing ───────────────────────────────────────────────────────────
-// Coffee Duo: Shopify fixed-bundle product. 1 Classic + 1 Mushroom.
-// Shopify variant price must be $43.99 (currently $49.99 in Shopify — flagged).
-export const BUNDLE_PRICE_DUO = 43.99;
+// Morning Duo: 1 Classic + 1 Mushroom.
+// Advertised price $45.00 via Shopify automatic discount or code MORNINGDUO.
+// DUO_VARIANT_ID is a DRAFT product on Shopify — do not enable checkout
+// until the discount is verified to produce exactly $45.00 pre-tax.
+// Compare-at is the sum of individual prices ($22.99 + $25.99 = $48.98).
+export const BUNDLE_PRICE_DUO = 45.00;
 export const DUO_COMPARE_AT = 48.98;
 
 // ── Subscription discount ────────────────────────────────────────────────────

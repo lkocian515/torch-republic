@@ -57,12 +57,12 @@ const GALLERY_EXTRA = {
 };
 
 const LIFESTYLE_COPY = {
-  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: "Lion's Mane and Chaga meet smooth instant coffee. Just add hot water." },
+  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: 'Functional mushroom extracts meet smooth instant coffee. Just add hot water.' },
   'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Single-origin, in a real cup.', subtitle: '100% Arabica Papua New Guinea instant coffee. Just add hot water.' },
   'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
 };
 import { useSEO } from '@/hooks/useSEO';
-import FreeGiftBanner from '@/components/home/FreeGiftBanner';
+// FreeGiftBanner removed — promotion stack cleanup per profit-first audit.
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
@@ -88,7 +88,7 @@ const INGREDIENTS = {
   'classic-coffee':
     '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.',
   'mushroom-coffee':
-    "Premium instant coffee, organic Lion's Mane mushroom extract, organic Chaga mushroom extract. No artificial colors, flavors, or preservatives.",
+    'Premium instant coffee blended with functional mushroom extracts. No artificial colors, flavors, or preservatives.',
   'pumpkin-spice':
     'Whole bean Arabica coffee with natural pumpkin spice flavor. Cinnamon, nutmeg, and cozy autumn spices. No artificial colors or preservatives.',
 };
@@ -181,7 +181,7 @@ function RitualPDP({ product }) {
     },
     'instant-mushroom-coffee': {
       title: 'Instant Mushroom Coffee | Torch Republic',
-      description: "Smooth instant coffee blended with Lion's Mane and Chaga for an easy, balanced daily ritual.",
+      description: 'Smooth instant coffee blended with functional mushroom extracts for an easy, balanced daily ritual.',
     },
     'pumpkin-spice-whole-bean-coffee': {
       title: 'Pumpkin Spice Whole Bean Coffee | Halloween Special Edition | Torch Republic',
@@ -333,8 +333,6 @@ function RitualPDP({ product }) {
           </motion.div>
         </div>
       </section>
-
-      <FreeGiftBanner />
 
       <RitualLifestyleBanner
         image={LIFESTYLE_IMAGE[product.category]}

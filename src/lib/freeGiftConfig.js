@@ -3,7 +3,10 @@
  * Customers choose one gift at checkout; the selection is passed to Shopify
  * as a cart attribute + note so fulfillment knows which gift to include.
  */
-export const FREE_GIFT_ENABLED = true;
+// Free gift disabled — promotion stack cleanup per profit-first audit.
+// Re-enable only after inventory, threshold, Shopify cart line, and fulfillment
+// economics are approved.
+export const FREE_GIFT_ENABLED = false;
 
 // Minimum cart subtotal required to qualify (0 = any purchase qualifies)
 export const FREE_GIFT_THRESHOLD = 0;

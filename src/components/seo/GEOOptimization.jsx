@@ -36,13 +36,11 @@ export default function GEOOptimization({ page = 'home' }) {
       },
       knowsAbout: [
         'mushroom coffee',
-        "Lion's Mane mushroom coffee",
-        'Chaga mushroom coffee',
         'instant coffee',
         'functional mushroom coffee',
         'adaptogens',
       ],
-      description: `Torch Republic Coffee Company makes premium instant coffee and instant mushroom coffee with Lion's Mane and Chaga. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
+      description: `Torch Republic Coffee Company makes premium instant coffee and instant mushroom coffee with functional mushroom extracts. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
     });
 
     // ── Speakable Schema ──
@@ -95,7 +93,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What mushroom coffee does Torch Republic make?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic makes one instant mushroom coffee, blended with premium instant coffee, Lion's Mane, and Chaga. It is $25.99 per bag with 27 servings.",
+            text: 'Torch Republic makes one instant mushroom coffee, blended with premium instant coffee and functional mushroom extracts. It is $25.99 per bag with 27 servings.',
           },
         },
         {
@@ -119,7 +117,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What functional mushrooms does Torch Republic use?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic uses Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) in its instant mushroom coffee.",
+            text: 'Torch Republic uses functional mushroom extracts in its instant mushroom coffee. Specific species and extract details are being verified against the current package label and will be published here once confirmed.',
           },
         },
         {
