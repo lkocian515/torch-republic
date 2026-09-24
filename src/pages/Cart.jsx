@@ -37,6 +37,7 @@ export default function Cart() {
     noindex: true,
   });
   const { items, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed, handleCheckout, isCheckingOut } = useCart();
+  const subscriptionItems = items.filter(i => i.isSubscription && i.sellingPlanName);
   const qtyMutation = useMutation({
     mutationFn: async () => true,
     onMutate: ({ id, delta }) => updateQty(id, delta),
@@ -196,6 +197,30 @@ export default function Cart() {
 
               {/* Delivery estimate */}
               <CartDeliveryEstimate />
+
+              {/* Recurring billing summary — shown when subscription items are in the cart */}
+              {subscriptionItems.length > 0 && (
+                <div className="mb-4 p-3" style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.22)' }}>
+                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: '#0f766e' }}>
+                    Recurring Billing
+                  </p>
+                  <div className="space-y-1.5 mb-2">
+                    {subscriptionItems.map(item => (
+                      <div key={item.id} className="flex items-start justify-between gap-2">
+                        <p className="font-heading text-xs leading-snug" style={{ color: INK_SOFT }}>
+                          {item.name} <span style={{ color: MUTED }}>({item.sellingPlanName})</span>
+                        </p>
+                        <p className="font-mono text-xs font-bold whitespace-nowrap" style={{ color: INK }}>
+                          ${(item.price * item.qty).toFixed(2)}/delivery
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="font-heading text-[11px] leading-relaxed" style={{ color: MUTED_MED }}>
+                    These items renew automatically at the price and interval shown until cancelled. Cancel anytime through your customer account.
+                  </p>
+                </div>
+              )}
 
               <button
                 onClick={handleCheckout}

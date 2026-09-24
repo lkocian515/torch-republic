@@ -173,17 +173,20 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
             {allocation.sellingPlanName || 'Deliver every month'}
           </p>
           <p className="font-mono text-[9px] uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
-            ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` &middot; Save ${savingsPercent}%` : ''} &middot; Renews automatically until cancelled
+            ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` &middot; Save ${savingsPercent}%` : ''} &middot; Renews automatically &middot; Cancel anytime
           </p>
         </div>
       </button>
 
-      {/* Policy copy — shown only when subscription is selected */}
-      {mode === 'subscription' && (
-        <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.6 }}>
-          Renews automatically at the interval and price shown until cancelled. Taxes and shipping are confirmed in Shopify Checkout. Manage or cancel through your customer account.
+      {/* Recurring billing terms — always visible so customers know exactly what they are subscribing to */}
+      <div className="rounded-md p-3" style={{ background: `${accent}06`, border: `1px solid ${accent}20` }}>
+        <p className="font-mono text-[8px] uppercase tracking-[0.2em] mb-1.5" style={{ color: accent }}>
+          Recurring Billing Terms
         </p>
-      )}
+        <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.65 }}>
+          You will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({allocation.sellingPlanName || 'monthly'}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
+        </p>
+      </div>
     </div>
   );
 }
