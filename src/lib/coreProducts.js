@@ -70,10 +70,11 @@ export const CORE_PRODUCTS = [
     caffeineLabel: 'High',
     positioning: 'Bold, straightforward premium coffee - no brewing equipment needed.',
     description:
-      'A classic instant coffee made with single-origin coffee from Papua New Guinea. A straightforward cup with origin character and everyday convenience.',
+      'A classic instant coffee made with premium Arabica coffee. A straightforward cup with everyday convenience.',
     flavorNotes: ['Bold', 'Smooth', 'Premium Arabica'],
     flavorLabel: 'Bold, smooth, premium Arabica',
     bestFor: 'Classic coffee and everyday ritual',
+    origin: null,
     mushrooms: null,
     functionalLabel: null,
     prep: 'Hot or iced',

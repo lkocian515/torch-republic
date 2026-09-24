@@ -33,7 +33,7 @@ export default function ShippingPolicy() {
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.2rem' }}>Domestic Shipping (United States)</h2>
             <ul className="space-y-2 list-disc list-inside">
               <li>Standard Shipping (3–7 business days transit): calculated at checkout</li>
-              <li>Free Standard Shipping on orders $50+</li>
+              <li>Free Standard Shipping on orders $45+</li>
               <li>Expedited options may be available at checkout depending on your location</li>
             </ul>
           </section>

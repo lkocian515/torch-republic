@@ -60,7 +60,7 @@ const SEO_BY_PATH = {
   '/shop/morning-ritual': ['Morning Ritual Coffee', 'Shop Torch Republic blends selected for morning energy, focused starts, smooth flavor, and simple daily preparation.'],
   '/shop/focus-coffee': ['Focus Coffee Collection', 'Shop coffee and mushroom coffee blends selected for concentration, calm energy, and productive work sessions.'],
   '/shop/travel-coffee': ['Travel Coffee Collection', 'Shop travel-friendly instant coffee and mushroom coffee that prepare quickly without machines, pods, or bulky gear.'],
-  '/products/instant-classic-coffee': ['Instant Classic Coffee', 'Bold, smooth instant Arabica coffee made with single-origin coffee from Papua New Guinea. No pods or equipment required. 27 servings per bag.'],
+  '/products/instant-classic-coffee': ['Instant Classic Coffee', 'Bold, smooth instant Arabica coffee. No pods or equipment required.'],
   '/products/instant-mushroom-coffee': ['Instant Mushroom Coffee', 'Smooth instant coffee blended with functional mushroom extracts for an easy, balanced daily ritual. 27 servings per bag.'],
   '/products/pumpkin-spice-whole-bean-coffee': ['Pumpkin Spice Whole Bean Coffee', 'A limited-edition seasonal whole bean roast with pumpkin spice flavor. Warm, spiced, and made for crisp fall mornings. Here for spooky season only.'],
 };
