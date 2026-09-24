@@ -38,6 +38,13 @@ export const RITUAL_COLORS = {
     soft: '#F7EEDD',   // cream label background
     deep: '#5D2F20',   // dark brown frame
   },
+  duo: {
+    key: 'duo',
+    name: 'Coffee Duo',
+    accent: '#7D5E3F', // warm brown — blend of classic + mushroom
+    soft: '#F0E6D9',
+    deep: '#5C3D1F',
+  },
 };
 
 const build = (p) => {
@@ -151,8 +158,44 @@ export const SEASONAL_PRODUCTS = [
   }),
 ];
 
+// ── Bundle products ──────────────────────────────────────────────────────────
+// The Coffee Duo bundles Classic + Mushroom in one purchase. Separate from
+// CORE_PRODUCTS so it does not appear in homepage discovery grids; included
+// in ALL_PRODUCTS so it resolves on /products/torch-republic-coffee-duo and
+// in cart persistence (ACTIVE_CART_IDS).
+export const BUNDLE_PRODUCTS = [
+  build({
+    id: 'torch-republic-coffee-duo',
+    name: 'Torch Republic Coffee Duo',
+    slug: 'torch-republic-coffee-duo',
+    shopifyHandle: 'torch-republic-coffee-duo',
+    ritualKey: 'duo',
+    category: 'bundle',
+    categoryLabel: 'Coffee Duo',
+    price: PRICES['coffee-duo'],
+    servings: 54,
+    caffeineLevel: 'medium',
+    caffeineLabel: 'Medium',
+    positioning: 'Two coffees, one morning. Classic + Mushroom.',
+    description:
+      'The Torch Republic Coffee Duo pairs our Instant Classic Coffee with our Instant Mushroom Coffee. Two complementary rituals in one bundle — bold everyday coffee plus focused clarity.',
+    flavorNotes: ['Bold', 'Smooth', 'Functional Mushroom'],
+    flavorLabel: 'Bold classic plus smooth mushroom focus',
+    bestFor: 'Two-week supply of both rituals',
+    mushrooms: null,
+    functionalLabel: null,
+    prep: 'Hot or iced',
+    cta: 'Shop Duo',
+    path: '/products/torch-republic-coffee-duo',
+    collectionPath: '/products/torch-republic-coffee-duo',
+    image:
+      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/50fe3f8e-f513-4487-a40d-47f78309917e.png?v=1788939236',
+    format: 'Instant',
+  }),
+];
+
 // Combined array — use this for Shop page rendering and slug lookups.
-export const ALL_PRODUCTS = [...CORE_PRODUCTS, ...SEASONAL_PRODUCTS];
+export const ALL_PRODUCTS = [...CORE_PRODUCTS, ...SEASONAL_PRODUCTS, ...BUNDLE_PRODUCTS];
 
 // ── Legacy slug → canonical slug redirect map ───────────────────────────────
 // Former product URLs (and any stale internal references) resolve to the

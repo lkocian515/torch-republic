@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
-import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
+import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
 import { getShopifyCart, createShopifyCart, addShopifyCartLine, getShopifyCheckoutUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
@@ -305,6 +305,23 @@ export function CartProvider({ children }) {
           // a fresh cart from local state, so the user never loses their selection.
           if (cart && !cart.error) {
             applyShopifyData(cart);
+
+            // ── Dev-mode diagnostic logging (redacted) ──
+            // Logs only non-sensitive cart line data for debugging.
+            // Never logs tokens, customer email, address, or payment data.
+            if (import.meta.env.DEV) {
+              const matchedLine = findMatch(cart);
+              const expectedVariantId = SHOPIFY_VARIANT_IDS[slug];
+              console.log('[TR Cart Diagnostic]', {
+                merchandiseId: expectedVariantId || matchedLine?.variantId || null,
+                quantity: qty,
+                selectedSellingPlanId: normalizedProduct.sellingPlanId || null,
+                returnedCartLineId: matchedLine?.lineId || null,
+                returnedSellingPlanId: matchedLine?.sellingPlanId || null,
+                returnedSellingPlanName: matchedLine?.sellingPlanName || null,
+                returnedCheckoutUrlHost: cart.checkoutUrl ? new URL(cart.checkoutUrl).host : null,
+              });
+            }
           } else if (cart?.error) {
             // Shopify API returned an error — show a non-blocking warning
             // but keep the item in the local cart.
@@ -491,6 +508,8 @@ export function CartProvider({ children }) {
         return;
       }
 
+      const hasSubscriptionItems = validItems.some(i => i.isSubscription);
+
       const lines = validItems.map(i => ({
         slug: i.shopifyHandle || i.id,
         quantity: i.qty,
@@ -506,6 +525,18 @@ export function CartProvider({ children }) {
       // Abort if cart creation failed or returned an error
       if (!cart || cart.error || !cart.cartId) {
         clearTimeout(timeoutId);
+        setIsCheckingOut(false);
+        // If subscription items were in the cart and Shopify rejected the cart,
+        // the selling plan is likely not allocated to the product. Show the
+        // specific subscription error instead of the generic fallback.
+        if (hasSubscriptionItems) {
+          showToast({
+            title: 'Subscription not added',
+            description: 'The monthly plan was not added to your Shopify cart. Please reselect the plan or contact support.',
+            duration: 6000,
+          });
+          return;
+        }
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
         return;
       }
@@ -517,6 +548,42 @@ export function CartProvider({ children }) {
         clearTimeout(timeoutId);
         window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
         return;
+      }
+
+      // ── FAIL-CLOSED: verify subscription lines have selling plan allocations ──
+      // If the customer selected subscription but the returned Shopify cart line
+      // has no sellingPlanAllocation or its selling plan ID does not match the
+      // selection, do NOT open checkout. Show an actionable error instead.
+      const subscriptionItems = validItems.filter(i => i.isSubscription);
+      if (subscriptionItems.length > 0) {
+        const cartLines = cart.lines || [];
+        for (const subItem of subscriptionItems) {
+          const expectedVariantId = SHOPIFY_VARIANT_IDS[subItem.shopifyHandle || subItem.id];
+          const matchingLine = cartLines.find(sl =>
+            ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === subItem.name) &&
+            sl.isSubscription === true
+          );
+          if (!matchingLine || !matchingLine.sellingPlanId) {
+            clearTimeout(timeoutId);
+            setIsCheckingOut(false);
+            showToast({
+              title: 'Subscription not added',
+              description: 'The monthly plan was not added to your Shopify cart. Please reselect the plan or contact support.',
+              duration: 6000,
+            });
+            return;
+          }
+          if (subItem.sellingPlanId && matchingLine.sellingPlanId !== subItem.sellingPlanId) {
+            clearTimeout(timeoutId);
+            setIsCheckingOut(false);
+            showToast({
+              title: 'Subscription plan mismatch',
+              description: 'The monthly plan was not added to your Shopify cart. Please reselect the plan or contact support.',
+              duration: 6000,
+            });
+            return;
+          }
+        }
       }
 
       // ── Redirect to Shopify Checkout ──

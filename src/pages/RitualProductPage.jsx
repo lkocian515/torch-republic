@@ -22,6 +22,7 @@ const LIFESTYLE_IMAGE = {
   'mushroom-coffee': null,
   'classic-coffee': null,
   'pumpkin-spice': null,
+  'bundle': null,
 };
 
 // Extra gallery images per category (the real bag is always image #0).
@@ -55,12 +56,17 @@ const GALLERY_EXTRA = {
     images: [],
     alts: [],
   },
+  'bundle': {
+    images: [],
+    alts: [],
+  },
 };
 
 const LIFESTYLE_COPY = {
   'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: 'Functional mushroom extracts meet smooth instant coffee. Just add hot water.' },
   'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Premium Arabica, in a real cup.', subtitle: 'Smooth instant coffee. Just add hot water.' },
   'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
+  'bundle': { eyebrow: 'Two rituals, one morning', title: 'Classic meets Mushroom.', subtitle: 'Two complementary instant coffees in one bundle. Bold everyday ritual plus focused clarity.' },
 };
 import { useSEO } from '@/hooks/useSEO';
 // FreeGiftBanner removed — promotion stack cleanup per profit-first audit.
@@ -92,6 +98,8 @@ const INGREDIENTS = {
     'Premium instant coffee blended with functional mushroom extracts. No artificial colors, flavors, or preservatives.',
   'pumpkin-spice':
     'Whole bean Arabica coffee with natural pumpkin spice flavor. Cinnamon, nutmeg, and cozy autumn spices. No artificial colors or preservatives.',
+  'bundle':
+    'Two bags: Instant Classic Coffee (premium Arabica instant coffee) and Instant Mushroom Coffee (premium instant coffee blended with functional mushroom extracts). No artificial colors, flavors, or preservatives.',
 };
 
 const PREP_INSTANT =
@@ -191,6 +199,10 @@ function RitualPDP({ product }) {
     'pumpkin-spice-whole-bean-coffee': {
       title: 'Pumpkin Spice Whole Bean Coffee | Halloween Special Edition | Torch Republic',
       description: 'A limited-edition seasonal whole bean roast — warm, spiced and made for crisp mornings. Here for spooky season only.',
+    },
+    'torch-republic-coffee-duo': {
+      title: 'Coffee Duo | Torch Republic',
+      description: 'Two complementary instant coffees in one bundle. Classic + Mushroom. Bold everyday ritual plus focused clarity.',
     },
   };
   const seoMeta = SEO_META[product.slug] || { title: `${product.name} | Torch Republic`, description: product.description };

@@ -73,7 +73,7 @@ export default async function (req) {
           continue;
         }
 
-        // Coffee Duo — disabled while Draft
+        // Coffee Duo — supports both one-time and subscription (selling plan)
         if (slug === "coffee-duo" || slug === "torch-republic-coffee-duo") {
           if (!DUO_ENABLED) {
             rejectedLines.push({ slug, reason: "Coffee Duo is not yet available for purchase" });
@@ -81,7 +81,17 @@ export default async function (req) {
           }
           const qty = validateQuantity(line.quantity);
           if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
-          cartLines.push({ merchandiseId: DUO_VARIANT_ID, quantity: qty });
+          const cartLine = { merchandiseId: DUO_VARIANT_ID, quantity: qty };
+          // Attach selling plan only for subscription lines
+          if (line.isSubscription) {
+            const planId = line.sellingPlanId || SELLING_PLAN_IDS[slug];
+            if (!planId) {
+              rejectedLines.push({ slug, reason: "No selling plan configured for this product" });
+              continue;
+            }
+            cartLine.sellingPlanId = planId;
+          }
+          cartLines.push(cartLine);
           continue;
         }
 
@@ -141,9 +151,11 @@ export default async function (req) {
       }
 
       const cartCreate = result.json?.data?.cartCreate;
+      const rawUserErrors = cartCreate?.userErrors || [];
       return Response.json({
         action: "create",
-        cart: sanitizeCart(cartCreate?.cart, cartCreate?.userErrors),
+        cart: sanitizeCart(cartCreate?.cart, rawUserErrors),
+        userErrors: rawUserErrors.map(e => ({ field: e.field, message: e.message, code: e.code })),
         rejectedLines,
       });
     }
@@ -188,7 +200,17 @@ export default async function (req) {
           }
           const qty = validateQuantity(line.quantity);
           if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
-          cartLines.push({ merchandiseId: DUO_VARIANT_ID, quantity: qty });
+          const cartLine = { merchandiseId: DUO_VARIANT_ID, quantity: qty };
+          // Attach selling plan only for subscription lines
+          if (line.isSubscription) {
+            const planId = line.sellingPlanId || SELLING_PLAN_IDS[slug];
+            if (!planId) {
+              rejectedLines.push({ slug, reason: "No selling plan configured for this product" });
+              continue;
+            }
+            cartLine.sellingPlanId = planId;
+          }
+          cartLines.push(cartLine);
           continue;
         }
 

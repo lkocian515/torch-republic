@@ -18,6 +18,7 @@ export const PRICES = {
   'classic-coffee': 22.99,
   'mushroom-coffee': 25.99,
   'pumpkin-spice': 24.99,
+  'coffee-duo': 45.00,
 };
 
 // ── Per-product canonical prices ────────────────────────────────────────────

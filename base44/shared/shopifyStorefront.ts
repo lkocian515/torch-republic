@@ -13,7 +13,7 @@ import { secrets } from "base44:runtime";
  * VERIFIED on 2026-09-09 via Storefront API 2026-07:
  *   - Classic: ProductVariant/51245709623548, SellingPlan/5911216380
  *   - Mushroom: ProductVariant/51245706608892, SellingPlan/5701107964
- *   - Duo: ProductVariant/51245930217724 (DRAFT — not published, disabled)
+ *   - Duo: ProductVariant/51245930217724 (active — supports subscription via SellingPlan/5954666748)
  */
 
 const SHOP_DOMAIN = "libertees-for-all.myshopify.com";
@@ -26,15 +26,22 @@ export const STORE_DOMAIN = SHOP_DOMAIN;
 export const VARIANT_IDS = {
   "instant-classic-coffee": "gid://shopify/ProductVariant/51245709623548",
   "instant-mushroom-coffee": "gid://shopify/ProductVariant/51245706608892",
+  "torch-republic-coffee-duo": "gid://shopify/ProductVariant/51245930217724",
+  "coffee-duo": "gid://shopify/ProductVariant/51245930217724",
   // Shopify handle aliases
   "instant-coffee-1": "gid://shopify/ProductVariant/51245709623548",
   "instant-coffee-with-mushroom": "gid://shopify/ProductVariant/51245706608892",
 };
 
 // ── Verified Shopify Selling Plan global IDs ──
+// Fallback only — the PurchaseOptionSelector fetches live plan IDs from
+// Shopify's Storefront API at runtime. These are used when the frontend
+// does not pass an explicit sellingPlanId (e.g., legacy cart rebuilds).
 export const SELLING_PLAN_IDS = {
   "instant-classic-coffee": "gid://shopify/SellingPlan/5911216380",
   "instant-mushroom-coffee": "gid://shopify/SellingPlan/5701107964",
+  "torch-republic-coffee-duo": "gid://shopify/SellingPlan/5954666748",
+  "coffee-duo": "gid://shopify/SellingPlan/5954666748",
 };
 
 // ── Coffee Duo (VERIFIED ACTIVE 2026-09-09 — available via Storefront API) ──
