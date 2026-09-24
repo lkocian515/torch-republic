@@ -41,28 +41,24 @@ That's when I started thinking about what I actually wanted from a morning coffe
 
 The marketing around functional mushrooms often sounds like pseudoscience dressed up in wellness language. "Unlock your brain's potential." "Activate your focus." I'd seen enough supplement industry hype to distrust anything that promised transformation in a cup.
 
-So I did what I should have done — I read the actual research.
+So I did what I should have done — I read the research.
 
-What I found was more nuanced than either the enthusiastic marketing or the cynical dismissal. Lion's Mane (Hericium erinaceus) has genuine peer-reviewed research behind it — particularly around Nerve Growth Factor stimulation. The Mori et al. 2009 double-blind trial showed measurable cognitive improvement in older adults. The Saitsu et al. 2019 study showed working memory improvements. These aren't dramatic claims. They're modest, real findings.
+What I found was more nuanced than either the enthusiastic marketing or the cynical dismissal. There is genuine peer-reviewed research behind certain functional mushroom species, particularly around cognitive support and antioxidant properties. These are not dramatic claims. They are modest, real findings.
 
-Chaga has documented antioxidant properties — some of the highest ORAC values measured in any natural food. Cordyceps has genuine evidence for oxygen utilization and exercise performance from multiple trials. Reishi has one of the longest traditional use histories of any botanical ingredient.
+None of them are drugs. None of them will replace medical treatment. But as additions to a daily coffee ritual &mdash; for people who already drink coffee? The research was compelling enough that I wanted to try it consistently.
 
-None of them are drugs. None of them will replace medical treatment. But as additions to a daily coffee ritual — for people who already drink coffee? The evidence is compelling enough that I wanted to try it consistently.`
+We are still verifying the exact species, extract types, and amounts in our current formula against the physical package label. Until that verification is complete, we are not publishing specific mushroom names or extract claims on our marketing surfaces.`
   },
   {
     id: 'building',
     heading: 'What We Built — and Why We Built It This Way',
     body: `Torch Republic started from a specific frustration: functional mushroom coffee existed, but it was either expensive, poorly formulated, or came in formats that were inconvenient.
 
-We wanted something with the simplicity of instant coffee — no machine, no cleanup, no pods — combined with functional mushroom extracts at meaningful doses. And we wanted it to taste like coffee. Not like a health supplement. Not like dirt. Like a really good cup of coffee that happened to have Lion's Mane and Chaga in it.
+We wanted something with the simplicity of instant coffee &mdash; no machine, no cleanup, no pods &mdash; combined with functional mushroom extracts. And we wanted it to taste like coffee. Not like a health supplement. Not like dirt. Like a really good cup of coffee that happened to have functional mushroom extracts in it.
 
-The instant format was non-negotiable. Not because it's easier to manufacture — it isn't. But because the entire philosophy of a morning ritual is that it should remove friction, not add it. You shouldn't need to grind beans, calibrate a machine, or clean a portafilter to participate in your own morning.
+The instant format was non-negotiable. Not because it's easier to manufacture &mdash; it isn't. But because the entire philosophy of a morning ritual is that it should remove friction, not add it. You shouldn't need to grind beans, calibrate a machine, or clean a portafilter to participate in your own morning.
 
-We use 100% Arabica beans — freeze-dried, not spray-dried. Freeze-drying preserves volatile aromatic compounds that spray-drying destroys with heat. The difference in taste is real and audible in blind taste tests.
-
-We use dual-extraction mushroom extracts — both hot water and alcohol extraction — to ensure we're getting the full spectrum of bioactive compounds, not just the water-soluble fraction.
-
-And we designed 12 different blends because different rituals need different formulations. A morning focus blend is not the same as an evening restoration blend. A classic coffee drinker who wants simplicity is not the same as someone building a functional wellness practice around their coffee ritual.`
+We started with a focused collection: a classic instant coffee and a mushroom coffee. Two products, made well, instead of a broad catalog that dilutes attention. A classic coffee drinker who wants simplicity is not the same as someone exploring functional mushroom coffee &mdash; both deserve a product built specifically for them.`
   },
   {
     id: 'ritual',
@@ -99,7 +95,7 @@ Torch Republic isn't positioned as an environmental brand. We're a coffee and we
 export default function FounderStory() {
   useSEO({
     title: 'Why I Walked Away From Coffee Pods | Torch Republic Founder Story',
-    description: "The founder story behind Torch Republic — why we walked away from coffee pods, found functional mushroom coffee, and built an instant coffee ritual brand from scratch. Read the full story.",
+    description: 'The founder story behind Torch Republic — why we walked away from coffee pods and built a focused instant coffee ritual brand. Read the full story.',
     url: '/founder-story',
     type: 'article',
     breadcrumbs: [
@@ -191,7 +187,7 @@ export default function FounderStory() {
               No machine. No pods. No compromise.
             </h2>
             <p className="font-heading mb-10" style={{ fontSize: '0.95rem', color: '#5F5145', lineHeight: 1.85, fontWeight: 300 }}>
-              Torch Republic is premium instant coffee, functional mushroom blends, and ceremonial matcha — all in one format. Add hot water. That's it. 27 servings per tube. Free shipping on orders over $50.
+              Torch Republic is premium instant coffee and functional mushroom coffee. Add hot water. That's it. Free shipping on orders over $45.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/build-your-ritual"
@@ -215,10 +211,10 @@ export default function FounderStory() {
           <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#293626' }}>Continue Reading</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { title: "What Is Mushroom Coffee?", path: "/faq/what-is-mushroom-coffee" },
-              { title: "Lion's Mane Ingredient Guide", path: "/ingredients/lions-mane" },
-              { title: "Instant Coffee vs. Coffee Pods", path: "/compare/instant-coffee-vs-pods-comparison" },
-              { title: "Our Ingredients", path: "/ingredients" },
+              { title: 'Our Ingredients', path: '/ingredients' },
+              { title: 'Instant Coffee vs. K-Cups', path: '/compare/instant-coffee-vs-k-cups' },
+              { title: 'How It Works', path: '/how-it-works' },
+              { title: 'Shop Coffee', path: '/shop' },
             ].map((link, i) => (
               <Link key={i} to={link.path}
                 className="p-4 flex items-center justify-between transition-all"
