@@ -495,6 +495,7 @@ export function CartProvider({ children }) {
         slug: i.shopifyHandle || i.id,
         quantity: i.qty,
         isSubscription: !!i.isSubscription,
+        sellingPlanId: i.sellingPlanId,
       }));
 
       const cart = await createShopifyCart(lines, {
