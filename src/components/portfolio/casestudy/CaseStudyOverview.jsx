@@ -15,13 +15,16 @@ export default function CaseStudyOverview() {
     >
       <div className="mx-auto max-w-[820px] px-6 md:px-10">
         <SectionHeading
-          eyebrow="Case study"
+          eyebrow="Project and role"
           heading="Torch Republic commerce application"
         />
-        <p style={{ fontFamily: FONT_SANS, fontSize: '1rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
-          Torch Republic is a direct-to-consumer coffee application developed through AI-assisted
-          implementation, manual review, and iterative QA. The custom Base44/React experience connects
-          to Shopify for live product information, cart creation, and secure checkout.
+        <p style={{ fontFamily: FONT_SANS, fontSize: '0.975rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
+          A direct-to-consumer coffee storefront built with Base44 and React, connected to Shopify
+          for live product information, cart creation, and secure checkout. The application was
+          developed through AI-assisted implementation, manual review, and iterative QA.
+        </p>
+        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', color: P.accentInk, fontWeight: 600, margin: '0 0 1.5rem' }}>
+          Role: Founder &middot; Product builder &middot; E-commerce QA
         </p>
 
         <div style={{ padding: '1.25rem 1.5rem', border: `1px solid ${P.rule}`, borderRadius: '6px', background: P.surface }}>

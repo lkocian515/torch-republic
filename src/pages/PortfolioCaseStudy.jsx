@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import PortfolioNav from '@/components/portfolio/PortfolioNav';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import CaseStudyOverview from '@/components/portfolio/casestudy/CaseStudyOverview';
-import CaseStudyRole from '@/components/portfolio/casestudy/CaseStudyRole';
+import WhatItDoes from '@/components/portfolio/casestudy/WhatItDoes';
 import SystemOverview from '@/components/portfolio/casestudy/SystemOverview';
-import Architecture from '@/components/portfolio/casestudy/Architecture';
+import CaseStudyRole from '@/components/portfolio/casestudy/CaseStudyRole';
 import QaChallenges from '@/components/portfolio/casestudy/QaChallenges';
-import InterfaceGallery from '@/components/portfolio/casestudy/InterfaceGallery';
-import TestingApproach from '@/components/portfolio/casestudy/TestingApproach';
+import Architecture from '@/components/portfolio/casestudy/Architecture';
 import CaseStudyOutcome from '@/components/portfolio/casestudy/CaseStudyOutcome';
 import {
   P, PORTFOLIO_CANON,
@@ -102,12 +101,11 @@ export default function PortfolioCaseStudy() {
       <PortfolioNav />
       <main>
         <CaseStudyOverview />
-        <CaseStudyRole />
+        <WhatItDoes />
         <SystemOverview />
-        <Architecture />
+        <CaseStudyRole />
         <QaChallenges />
-        <InterfaceGallery />
-        <TestingApproach />
+        <Architecture />
         <CaseStudyOutcome />
       </main>
       <PortfolioFooter />

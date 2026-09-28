@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Mail, Linkedin } from 'lucide-react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LINKEDIN } from '../portfolioTheme';
+import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LINKEDIN, caseStudyUrl } from '../portfolioTheme';
 
 export default function Hero() {
   return (
@@ -68,7 +68,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="#work"
+              href={caseStudyUrl()}
               style={{
                 fontFamily: FONT_SANS,
                 fontWeight: 600,
@@ -84,7 +84,7 @@ export default function Hero() {
                 transition: 'background .2s',
               }}
             >
-              View selected work <ArrowRight size={15} />
+              Read case study <ArrowRight size={15} />
             </a>
             <a
               href="#contact"
@@ -126,21 +126,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <p
-          style={{
-            fontFamily: FONT_MONO,
-            fontSize: '0.66rem',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: P.muted,
-            margin: '2.5rem 0 0',
-            paddingTop: '1.5rem',
-            borderTop: `1px solid ${P.rule}`,
-            maxWidth: '620px',
-          }}
-        >
-          AI evaluation &middot; Content QA &middot; Workflow testing &middot; Defect documentation
-        </p>
       </div>
     </section>
   );

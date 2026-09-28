@@ -18,7 +18,7 @@ export default function CaseStudyOutcome() {
         <SectionHeading eyebrow="Outcome" heading="What the project demonstrates" />
         <p style={{ fontFamily: FONT_SERIF, fontWeight: 600, fontSize: 'clamp(1.2rem, 2.2vw, 1.5rem)', lineHeight: 1.4, color: P.ink, margin: '0 0 1.5rem', letterSpacing: '-0.01em' }}>
           Torch Republic demonstrates the ability to move from an ambiguous business concept to a
-          functioning digital product while maintaining responsibility for requirements, output review,
+          live commerce application while maintaining responsibility for requirements, output review,
           customer experience, defect identification, and final quality.
         </p>
         <p style={{ fontFamily: FONT_SANS, fontSize: '0.975rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 2rem' }}>

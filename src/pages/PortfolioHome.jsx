@@ -4,7 +4,6 @@ import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import Hero from '@/components/portfolio/home/Hero';
 import SelectedExpertise from '@/components/portfolio/home/SelectedExpertise';
 import FeaturedProject from '@/components/portfolio/home/FeaturedProject';
-import QaEvidence from '@/components/portfolio/home/QaEvidence';
 import Background from '@/components/portfolio/home/Background';
 import ContactSection from '@/components/portfolio/home/ContactSection';
 import {
@@ -114,7 +113,6 @@ export default function PortfolioHome() {
         <Hero />
         <SelectedExpertise />
         <FeaturedProject />
-        <QaEvidence />
         <Background />
         <ContactSection />
       </main>

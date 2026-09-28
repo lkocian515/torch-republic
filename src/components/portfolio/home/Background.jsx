@@ -104,7 +104,7 @@ export default function Background() {
               lineHeight: 1.3,
             }}
           >
-            AI Content Evaluation &mdash; Alignerr Network by Labelbox
+            Alignerr Network by Labelbox
           </h3>
           <p
             style={{
@@ -115,8 +115,8 @@ export default function Background() {
               margin: 0,
             }}
           >
-            Selected for project-based AI evaluation work involving output review, instruction adherence,
-            error identification, and structured feedback.
+            Member of the Alignerr network for AI content evaluation, including output review,
+            instruction adherence, error identification, and structured feedback.
           </p>
         </div>
 
@@ -175,8 +175,7 @@ export default function Background() {
             lineHeight: 1.6,
           }}
         >
-          Current professional development includes generative AI, responsible evaluation, AI fundamentals,
-          agentic workflows, and AWS AI Practitioner exam preparation.
+          Current professional development includes AWS AI Practitioner exam preparation.
         </p>
       </div>
     </section>
