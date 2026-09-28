@@ -1,184 +1,197 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import { D, SERIF, SANS, MONO, MOTION } from './driftTheme';
+import { ArrowRight } from 'lucide-react';
+import { D, SERIF, SANS, MONO } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f0baca98f_file_00000000f01c822fa487ced70d607099.png';
+
+// ── Single text block — rendered ONCE in the DOM (no duplicate for crawlers) ──
+function HeroText() {
+  return (
+    <>
+      <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
+        Premium Coffee &middot; Made for Mornings
+      </p>
+      <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
+        <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
+          <span className="hero-line" style={{ display: 'block' }}>Better mornings,</span>
+        </span>
+        {' '}
+        <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
+          <span className="hero-line" style={{ display: 'block' }}>in an instant.</span>
+        </span>
+      </h1>
+      <p className="hero-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2rem', maxWidth: '40ch' }}>
+        Premium coffee made for real mornings. Scoop. Stir. Sip.
+      </p>
+      <div className="hero-cta flex flex-col sm:flex-row gap-4 sm:items-center">
+        <Link to="/shop" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', letterSpacing: '0.04em' }}>
+          SHOP COFFEE <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+        </Link>
+        <a href="#comparison" className="group hidden md:inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.espresso, textDecoration: 'none' }}>
+          COMPARE THE TWO <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+        </a>
+      </div>
+    </>
+  );
+}
 
 export default function DriftHero() {
   const scope = useDriftMotion((gsap, ScrollTrigger, el) => {
     const mobile = isMobile();
 
-    // ═══ Cinematic entrance — calm, no bounce ═══
+    // ═══════════════════════════════════════════════════
+    // ENTRANCE — calm, cinematic, no bounce
+    // ═══════════════════════════════════════════════════
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl
-      .set('.hero-photo', { scale: 1.04 })
-      .to('.hero-photo', { scale: 1, duration: MOTION.duration.hero, ease: 'power3.out' }, 0)
-      .from('.hero-eyebrow', { opacity: 0, y: 14, duration: MOTION.duration.slow }, 0.15)
-      .from('.hero-line', { opacity: 0, y: 40, duration: MOTION.duration.cinematic, stagger: 0.08 }, 0.30)
-      .from('.hero-body', { opacity: 0, y: 15, duration: MOTION.duration.slow }, 0.75)
-      .from('.hero-cta', { opacity: 0, y: 15, duration: MOTION.duration.base }, 0.90)
-      .from('.hero-scroll-cue', { opacity: 0, duration: MOTION.duration.slow }, 1.2);
+      .set('.hero-photo', { scale: 1.035 })
+      .to('.hero-photo', { scale: 1, duration: 1.4, ease: 'power3.out' }, 0)
+      .from('.hero-eyebrow', { opacity: 0, y: 12, duration: 0.5 }, 0.15)
+      .from('.hero-line', { opacity: 0, y: 35, duration: 0.8, stagger: 0.1 }, 0.30)
+      .from('.hero-body', { opacity: 0, y: 15, duration: 0.6 }, 0.65)
+      .from('.hero-cta', { opacity: 0, y: 15, duration: 0.5 }, 0.80);
 
-    // ═══ Ambient — barely perceptible product float (desktop only) ═══
+    // ═══════════════════════════════════════════════════
+    // AMBIENT — barely perceptible natural life
+    // ═══════════════════════════════════════════════════
+    gsap.to('.hero-light-overlay', {
+      x: '+=12', y: '-=4',
+      duration: 12, ease: 'sine.inOut',
+      yoyo: true, repeat: -1,
+    });
+
+    // ═══════════════════════════════════════════════════
+    // SCROLL PARALLAX — cinematic transition out of hero
+    // ═══════════════════════════════════════════════════
     if (!mobile) {
-      gsap.to('.hero-photo', {
-        y: '-=10', duration: 5, ease: 'sine.inOut',
-        yoyo: true, repeat: -1,
-      });
-
-      // ═══ Scroll parallax ═══
       ScrollTrigger.create({
         trigger: el,
         start: 'top top',
         end: 'bottom top',
         scrub: 1,
         animation: gsap.timeline()
-          .to('.hero-photo', { scale: 1.06, y: -20, ease: 'none' }, 0)
-          .to('.hero-text', { y: -24, opacity: 0.5, ease: 'none' }, 0)
-          .to('.hero-cta', { opacity: 0, ease: 'none' }, 0)
-          .to('.hero-scroll-cue', { opacity: 0, ease: 'none' }, 0),
+          .to('.hero-photo', { scale: 1.04, y: -12, ease: 'none' }, 0)
+          .to('.hero-text', { y: -20, opacity: 0.55, ease: 'none' }, 0)
+          .to('.hero-cta', { opacity: 0, ease: 'none' }, 0),
       });
+    } else {
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+        animation: gsap.timeline()
+          .to('.hero-photo', { yPercent: 3, ease: 'none' }, 0)
+          .to('.hero-text', { opacity: 0.7, ease: 'none' }, 0),
+      });
+    }
 
-      // ═══ Mouse parallax — extremely subtle ═══
+    // ═══════════════════════════════════════════════════
+    // MOUSE PARALLAX — desktop only, extremely subtle
+    // ═══════════════════════════════════════════════════
+    if (!mobile) {
       const xTo = gsap.quickTo('.hero-photo-wrap', 'x', { duration: 0.8, ease: 'power3' });
       const yTo = gsap.quickTo('.hero-photo-wrap', 'y', { duration: 0.8, ease: 'power3' });
+
       const onMove = (e) => {
         const r = el.getBoundingClientRect();
         const px = (e.clientX - r.left) / r.width - 0.5;
         const py = (e.clientY - r.top) / r.height - 0.5;
-        xTo(px * 5);
+        xTo(px * 4);
         yTo(py * 3);
       };
       const onLeave = () => { xTo(0); yTo(0); };
+
       el.addEventListener('mousemove', onMove);
       el.addEventListener('mouseleave', onLeave);
       return () => {
         el.removeEventListener('mousemove', onMove);
         el.removeEventListener('mouseleave', onLeave);
       };
-    } else {
-      // Mobile: gentle parallax only
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-        animation: gsap.timeline()
-          .to('.hero-photo', { yPercent: 4, ease: 'none' }, 0)
-          .to('.hero-text', { opacity: 0.7, ease: 'none' }, 0),
-      });
     }
   }, []);
 
   return (
-    <section
-      id="top"
-      ref={scope}
-      style={{
-        background: `linear-gradient(165deg, ${D.cream} 0%, ${D.paper} 35%, ${D.accentSoft} 100%)`,
-        scrollMarginTop: '72px',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
-    >
-      {/* ── Atmospheric warm glow ── */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: '-10%',
-          right: '-5%',
-          width: '60%',
-          height: '70%',
-          background: `radial-gradient(ellipse at center, ${D.terracottaSoft} 0%, transparent 60%)`,
-          opacity: 0.35,
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div className="mx-auto max-w-[1280px] px-6 md:px-10">
-        <div className="grid md:grid-cols-[1.1fr_1fr] md:gap-8 lg:gap-12 md:items-center md:min-h-[max(82vh,600px)]">
-          {/* ── Text ── */}
-          <div className="hero-text relative z-10 pt-10 pb-2 md:pt-0 md:pb-0" style={{ willChange: 'transform' }}>
-            <div className="max-w-[500px]">
-              <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.72rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
-                Instant Coffee, Reimagined
-              </p>
-              <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 5.5vw, 4.25rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.5rem', textWrap: 'balance' }}>
-                <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.15em', marginBottom: '-0.15em' }}>
-                  <span className="hero-line" style={{ display: 'block' }}>Coffee for people</span>
-                </span>
-                <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.15em', marginBottom: '-0.15em' }}>
-                  <span className="hero-line" style={{ display: 'block' }}>building something.</span>
-                </span>
-              </h1>
-              <p className="hero-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '42ch' }}>
-                Premium instant coffee created for better mornings, focused work
-                and rituals worth keeping.
-              </p>
-              <div className="hero-cta flex flex-col sm:flex-row gap-4 sm:items-center">
-                <Link
-                  to="/shop"
-                  className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]"
-                  style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', letterSpacing: '0.04em', boxShadow: D.shadowCard }}
-                >
-                  Shop the Coffee <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  to="/quiz"
-                  className="group inline-flex items-center gap-2 transition-opacity hover:opacity-70"
-                  style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.espresso, textDecoration: 'none' }}
-                >
-                  Find Your Ritual <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* ── Product imagery ── */}
-          <div className="hero-photo-wrap relative flex items-center justify-center" style={{ willChange: 'transform', minHeight: '300px' }}>
-            <div
-              className="hero-photo"
-              style={{
-                backgroundImage: `url(${HERO_IMAGE})`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                width: '100%',
-                maxWidth: '520px',
-                aspectRatio: '1 / 1',
-                willChange: 'transform',
-                filter: `drop-shadow(${D.shadowHero})`,
-              }}
-              role="img"
-              aria-label="Torch Republic instant coffee bags — Classic and Mushroom"
-            />
-            {/* Warm atmospheric ring behind product */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '70%',
-                height: '70%',
-                background: `radial-gradient(circle, ${D.sunrise}30 0%, transparent 70%)`,
-                borderRadius: '50%',
-                pointerEvents: 'none',
-                zIndex: -1,
-              }}
-            />
-          </div>
+    <section id="top" ref={scope} style={{ background: D.paper, scrollMarginTop: '72px', overflow: 'hidden', position: 'relative' }}>
+      {/* ════════════════════════════════════════════════
+          TEXT — single instance in the DOM
+          Mobile: normal flow, above the image
+          Desktop: absolutely positioned over the image
+          ════════════════════════════════════════════════ */}
+      <div className="hero-text relative z-10 md:absolute md:inset-0 md:flex md:items-center" style={{ willChange: 'transform' }}>
+        <div className="max-w-[480px] px-5 pt-12 pb-6 md:px-12 lg:px-16">
+          <HeroText />
         </div>
       </div>
 
-      {/* ── Scroll cue ── */}
-      <div className="hero-scroll-cue hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1" style={{ opacity: 0.6 }}>
-        <span style={{ fontFamily: MONO, fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: D.muted }}>Scroll</span>
-        <ChevronDown size={14} style={{ color: D.muted }} />
+      {/* ════════════════════════════════════════════════
+          MOBILE hero photograph
+          ════════════════════════════════════════════════ */}
+      <div className="md:hidden relative overflow-hidden" style={{ aspectRatio: '3 / 2' }}>
+        <div
+          className="hero-photo absolute inset-0"
+          style={{
+            backgroundColor: D.accentSoft,
+            backgroundImage: `url(${HERO_IMAGE})`,
+            backgroundSize: 'cover',
+            backgroundPosition: '65% center',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          DESKTOP hero photograph — full-width cinematic
+          ════════════════════════════════════════════════ */}
+      <div
+        className="hidden md:block relative overflow-hidden"
+        style={{ minHeight: 'max(78vh, 650px)', maxHeight: '900px' }}
+      >
+        {/* Mouse parallax wrapper */}
+        <div className="hero-photo-wrap absolute inset-0" style={{ willChange: 'transform' }}>
+          <div
+            className="hero-photo absolute inset-0"
+            style={{
+              backgroundColor: D.accentSoft,
+              backgroundImage: `url(${HERO_IMAGE})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+              willChange: 'transform',
+            }}
+          />
+          {/* Subtle warm light overlay */}
+          <div
+            className="hero-light-overlay absolute inset-0"
+            style={{
+              background: 'radial-gradient(circle at 30% 40%, rgba(255,245,230,0.035) 0%, transparent 50%)',
+              pointerEvents: 'none',
+              willChange: 'transform',
+            }}
+          />
+        </div>
+
+        {/* Left-side cream gradient for text readability */}
+        <div
+          className="absolute inset-y-0 left-0"
+          style={{
+            width: '52%',
+            background: 'linear-gradient(to right, rgba(241,236,229,0.92) 0%, rgba(241,236,229,0.75) 18%, rgba(241,236,229,0.35) 38%, rgba(241,236,229,0) 58%)',
+            pointerEvents: 'none',
+            zIndex: 5,
+          }}
+        />
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          MOBILE compare link — below hero photograph
+          ════════════════════════════════════════════════ */}
+      <div className="md:hidden hero-compare-link px-5 py-10 text-center">
+        <a href="#comparison" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 500, fontSize: '0.875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: D.secondary, textDecoration: 'none' }}>
+          Compare the two
+          <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" style={{ strokeWidth: 1.75 }} />
+        </a>
       </div>
     </section>
   );

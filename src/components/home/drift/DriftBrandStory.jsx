@@ -51,12 +51,12 @@ export default function DriftBrandStory() {
               Why Torch Republic
             </p>
             <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)', lineHeight: 1.12, color: D.ink, margin: '0 0 1.5rem' }}>
-              <span className="brand-line" style={{ display: 'block' }}>Build the day</span>
-              <span className="brand-line" style={{ display: 'block' }}>before the day</span>
-              <span className="brand-line" style={{ display: 'block' }}>builds you.</span>
+              <span className="brand-line" style={{ display: 'block' }}>Good mornings</span>
+              <span className="brand-line" style={{ display: 'block' }}>don&rsquo;t need to be</span>
+              <span className="brand-line" style={{ display: 'block' }}>complicated.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '44ch' }}>
-              Torch Republic exists for people who want convenience without surrendering intention. Instant coffee, turned into a deliberate daily ritual &mdash; fast enough for real life, considered enough to look forward to.
+              Torch Republic makes two simple daily rituals &mdash; designed to be easy to love and easy to trust.
             </p>
             <div className="brand-principles flex flex-col gap-5">
               {PRINCIPLES.map((p) => (

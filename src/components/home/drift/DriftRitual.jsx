@@ -7,7 +7,7 @@ const RITUAL_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca
 const STEPS = [
   { num: '01', label: 'Scoop' },
   { num: '02', label: 'Add Water' },
-  { num: '03', label: 'Stir + Start' },
+  { num: '03', label: 'Stir + Enjoy' },
 ];
 
 export default function DriftRitual() {
@@ -37,7 +37,7 @@ export default function DriftRitual() {
             <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)', lineHeight: 1.05, color: D.ink, margin: '0 0 1rem' }}>
               <span className="ritual-word" style={{ display: 'inline-block' }}>Scoop.</span>{' '}
               <span className="ritual-word" style={{ display: 'inline-block' }}>Stir.</span>{' '}
-              <span className="ritual-word" style={{ display: 'inline-block' }}>Start.</span>
+              <span className="ritual-word" style={{ display: 'inline-block' }}>Sip.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.5rem', maxWidth: '40ch' }}>
               A premium cup in seconds.

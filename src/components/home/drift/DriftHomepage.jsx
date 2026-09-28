@@ -3,50 +3,45 @@ import DriftHero from './DriftHero';
 import DriftBenefitStrip from './DriftBenefitStrip';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import FreeGiftBanner from '../FreeGiftBanner';
-import DriftComparison from './DriftComparison';
 import DriftBrandStory from './DriftBrandStory';
 import DriftRitual from './DriftRitual';
-import DriftFeaturedProduct from './DriftFeaturedProduct';
+
 import DriftLifestyleCampaign from './DriftLifestyleCampaign';
+import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
-import DriftNewsletter from './DriftNewsletter';
+import SeasonalHero from '../SeasonalHero';
 import SeasonalFloatingCard from '../SeasonalFloatingCard';
 import { D } from './driftTheme';
 
-// Refined editorial homepage flow (13 sections):
-// 1. Announcement bar — in header (seasonal offer, free shipping threshold)
-// 2. Header — transparent over hero, solid on scroll
-// 3. Hero — cinematic product-led hero with atmospheric warmth
-// 4. Trust strip — key value props
-// 5. Product discovery — interactive Classic/Mushroom with atmospheric themes
-// 6. Free gift banner — promotional offer
-// 7. Comparison — editorial comparison table
-// 8. Brand story — "Build the day before the day builds you"
-// 9. Ritual — Scoop. Stir. Start. preparation
-// 10. Featured product — Mushroom Coffee spotlight with qty + expandable details
-// 11. Lifestyle campaign — full-width atmospheric photography
-// 12. Subscription — espresso-section DTC treatment
-// 13. Reviews — authentic customer social proof
-// 14. Founder story — editorial quote
-// 15. Newsletter — "Keep the fire going" editorial email signup
+// Drift-inspired editorial homepage flow:
+// 1. Announcement bar
+// 2. Hero — split-screen editorial with product photography
+// 3. Benefit strip — key value props
+// 4. Product discovery — interactive Classic/Mushroom tabs
+// 5. Brand story — photography-led brand section
+// 6. Ritual — Scoop. Stir. Sip. preparation
+// 7. Lifestyle campaign — full-width atmospheric photography
+// 8. Comparison — Classic vs Mushroom editorial columns
+// 9. Subscription — espresso-section DTC treatment
+// 10. Reviews — authentic customer social proof
+// 11. Founder story — editorial quote
 export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
+      <SeasonalHero />
       <DriftHero />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
       <FreeGiftBanner />
-      <DriftComparison />
       <DriftBrandStory />
       <DriftRitual />
-      <DriftFeaturedProduct />
       <DriftLifestyleCampaign />
+      <DriftComparison />
       <DriftSubscription />
       <DriftReviews />
       <DriftFounderStory />
-      <DriftNewsletter />
       <SeasonalFloatingCard />
     </main>
   );
