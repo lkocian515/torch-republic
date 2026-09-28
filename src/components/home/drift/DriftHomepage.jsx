@@ -12,6 +12,7 @@ import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
 import SeasonalHero from '../SeasonalHero';
+import PumpkinSpiceAdBanner from '../PumpkinSpiceAdBanner';
 import { D } from './driftTheme';
 
 // Drift-inspired editorial homepage flow:
@@ -34,6 +35,7 @@ export default function DriftHomepage() {
       <DriftBenefitStrip />
       <DriftProductDiscovery />
       <FreeGiftBanner />
+      <PumpkinSpiceAdBanner />
       <DriftBrandStory />
       <DriftRitual />
       <DriftLifestyleCampaign />

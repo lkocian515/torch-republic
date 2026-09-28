@@ -4,6 +4,7 @@ import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
 import FreeGiftBanner from '@/components/home/FreeGiftBanner';
+import PumpkinSpiceAdBanner from '@/components/home/PumpkinSpiceAdBanner';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 
@@ -69,6 +70,9 @@ export default function MushroomShop() {
 
   return (
     <div style={{ background: '#FBF8F1' }}>
+      {/* Seasonal drop advertisement */}
+      <PumpkinSpiceAdBanner />
+
       {/* Hero */}
       <section className="px-6 pb-10 pt-8 text-center md:px-10 md:pt-12">
         <div className="mx-auto max-w-3xl">
