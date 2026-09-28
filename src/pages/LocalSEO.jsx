@@ -142,7 +142,7 @@ export default function LocalSEO() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center p-4" style={{ background: 'rgba(230,183,173,0.05)', borderRadius: '4px' }}>
                 <p className="font-serif font-bold text-lg" style={{ color: RG }}>Nationwide</p>
-                <p className="font-mono text-[8px] tracking-[0.15em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Free Shipping $45+</p>
+                <p className="font-mono text-[8px] tracking-[0.15em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>Free Shipping $50+</p>
               </div>
               <div className="text-center p-4" style={{ background: 'rgba(230,183,173,0.05)', borderRadius: '4px' }}>
                 <p className="font-serif font-bold text-lg" style={{ color: RG }}>Secure</p>

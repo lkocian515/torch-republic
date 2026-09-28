@@ -19,9 +19,9 @@ export const SUBSCRIBE_SAVE_RATE = 0.10;            // decimal for price calcula
 export const SUBSCRIBE_FREQUENCY = 'Every 4 weeks'; // delivery frequency
 
 // ── Free Shipping ─────────────────────────────────────────────────────────────
-export const FREE_SHIPPING_THRESHOLD = 45;          // USD — two bags of any product qualifies
-export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$45+';
-export const FREE_SHIPPING_LABEL = `Free Shipping $45+`;
+export const FREE_SHIPPING_THRESHOLD = 50;          // USD — qualifies for free shipping
+export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$50+';
+export const FREE_SHIPPING_LABEL = `Free Shipping $50+`;
 
 // ── Satisfaction Guarantee ────────────────────────────────────────────────────
 export const GUARANTEE_DAYS = 30;

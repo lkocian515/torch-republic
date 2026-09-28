@@ -187,7 +187,7 @@ export default function FounderStory() {
               No machine. No pods. No compromise.
             </h2>
             <p className="font-heading mb-10" style={{ fontSize: '0.95rem', color: '#5F5145', lineHeight: 1.85, fontWeight: 300 }}>
-              Torch Republic is premium instant coffee and functional mushroom coffee. Add hot water. That's it. Free shipping $45+.
+              Torch Republic is premium instant coffee and functional mushroom coffee. Add hot water. That's it. Free shipping $50+.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/build-your-ritual"
