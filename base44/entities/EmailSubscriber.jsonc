@@ -12,7 +12,8 @@
         "timed_popup",
         "exit_intent",
         "welcome_spin_wheel",
-        "spin_wheel"
+        "spin_wheel",
+        "homepage_newsletter"
       ],
       "description": "Which capture source produced this subscriber"
     },

@@ -3,45 +3,44 @@ import DriftHero from './DriftHero';
 import DriftBenefitStrip from './DriftBenefitStrip';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import FreeGiftBanner from '../FreeGiftBanner';
+import DriftComparison from './DriftComparison';
 import DriftBrandStory from './DriftBrandStory';
 import DriftRitual from './DriftRitual';
-
 import DriftLifestyleCampaign from './DriftLifestyleCampaign';
-import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
-import SeasonalHero from '../SeasonalHero';
+import DriftNewsletter from './DriftNewsletter';
 import SeasonalFloatingCard from '../SeasonalFloatingCard';
 import { D } from './driftTheme';
 
-// Drift-inspired editorial homepage flow:
-// 1. Announcement bar
-// 2. Hero — split-screen editorial with product photography
-// 3. Benefit strip — key value props
-// 4. Product discovery — interactive Classic/Mushroom tabs
+// Refined editorial homepage flow:
+// 1. Hero — cinematic product-led hero with atmospheric warmth
+// 2. Trust strip — key value props
+// 3. Product discovery — interactive Classic/Mushroom with atmospheric themes
+// 4. Comparison — editorial comparison table
 // 5. Brand story — photography-led brand section
-// 6. Ritual — Scoop. Stir. Sip. preparation
+// 6. Ritual — Scoop. Stir. Start. preparation
 // 7. Lifestyle campaign — full-width atmospheric photography
-// 8. Comparison — Classic vs Mushroom editorial columns
-// 9. Subscription — espresso-section DTC treatment
-// 10. Reviews — authentic customer social proof
-// 11. Founder story — editorial quote
+// 8. Subscription — espresso-section DTC treatment
+// 9. Reviews — authentic customer social proof
+// 10. Founder story — editorial quote
+// 11. Newsletter — editorial email signup
 export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
-      <SeasonalHero />
       <DriftHero />
       <DriftBenefitStrip />
       <DriftProductDiscovery />
       <FreeGiftBanner />
+      <DriftComparison />
       <DriftBrandStory />
       <DriftRitual />
       <DriftLifestyleCampaign />
-      <DriftComparison />
       <DriftSubscription />
       <DriftReviews />
       <DriftFounderStory />
+      <DriftNewsletter />
       <SeasonalFloatingCard />
     </main>
   );

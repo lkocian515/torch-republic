@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, ShoppingBag, Search, User, Gift, ArrowLeft } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
@@ -64,10 +64,19 @@ const SECTIONS = [
 export default function UnifiedHeader() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { totalItems } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
   const isRoot = location.pathname === '/';
+
+  // Scroll-based header: transparent over hero, solid after scrolling
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const isActive = (to) => !!to && (location.pathname === to || (to !== '/' && location.pathname.startsWith(to)));
 
@@ -76,7 +85,12 @@ export default function UnifiedHeader() {
       <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}>
         <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>&#x1F383; Pumpkin Spice has entered the Republic &mdash; limited seasonal release &middot; Free shipping $45+</p>
       </div>
-      <header className="sticky top-0 z-40" style={{ background: 'rgba(251, 248, 242, 0.97)', borderBottom: `1px solid ${colors.border}`, backdropFilter: 'blur(14px)', color: colors.text }}>
+      <header className="sticky top-0 z-40 transition-all duration-300" style={{
+        background: (isRoot && !scrolled) ? 'transparent' : 'rgba(244, 239, 231, 0.97)',
+        borderBottom: (isRoot && !scrolled) ? '1px solid transparent' : `1px solid ${colors.border}`,
+        backdropFilter: (isRoot && !scrolled) ? 'none' : 'blur(14px)',
+        color: colors.text,
+      }}>
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
           {!isRoot && (
             <button onClick={() => navigate(-1)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Go back" style={{ borderRadius: '4px' }}>
