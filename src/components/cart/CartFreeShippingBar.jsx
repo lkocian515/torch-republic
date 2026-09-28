@@ -17,7 +17,7 @@ export default function CartFreeShippingBar({ subtotal }) {
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="w-full p-4 mb-6"
+      className="w-full p-3"
       style={{
         background: isUnlocked ? 'rgba(16,185,129,0.06)' : 'rgba(184,101,67,0.05)',
         border: `1px solid ${isUnlocked ? 'rgba(16,185,129,0.25)' : BORDER}`,
@@ -39,7 +39,7 @@ export default function CartFreeShippingBar({ subtotal }) {
             <Truck className="w-4 h-4" style={{ color: ACCENT }} />
           </div>
         )}
-        <p className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: isUnlocked ? '#10B981' : INK }}>
+        <p className="font-mono text-xs tracking-[0.08em] uppercase" style={{ color: isUnlocked ? '#10B981' : INK }}>
           {isUnlocked
             ? '✓ You\'ve unlocked FREE shipping'
             : <>You're only <span className="font-bold" style={{ color: ACCENT }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}

@@ -147,7 +147,7 @@ export default function FocusCoffeeCollection() {
       <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Build a focus ritual.</h2>
-          <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping over $50. 30-day satisfaction guarantee.</p>
+          <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping $45+. 30-day satisfaction guarantee.</p>
           <Link to="/build-your-ritual" className="btn btn-primary">
             Build My Focus Bundle <ArrowRight size={14} />
           </Link>

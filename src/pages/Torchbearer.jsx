@@ -318,7 +318,7 @@ export default function Torchbearer() {
 
                 {/* Trust line */}
                 <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: '#9A8A7A' }}>
-                  Free shipping on orders $50+ · 30-day guarantee
+                  Free shipping $45+ · 30-day guarantee
                 </p>
               </div>
             </FadeIn>

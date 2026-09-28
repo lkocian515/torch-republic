@@ -12,7 +12,6 @@ import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
 import SeasonalHero from '../SeasonalHero';
-import SeasonalFloatingCard from '../SeasonalFloatingCard';
 import { D } from './driftTheme';
 
 // Drift-inspired editorial homepage flow:
@@ -42,7 +41,6 @@ export default function DriftHomepage() {
       <DriftSubscription />
       <DriftReviews />
       <DriftFounderStory />
-      <SeasonalFloatingCard />
     </main>
   );
 }

@@ -28,7 +28,7 @@ export default function CartStickyCheckout({ subtotal, totalItems, onCheckout, i
     >
       <div className="flex items-center gap-3">
         <div className="shrink-0">
-          <p className="font-mono text-[8px] tracking-[0.15em] uppercase" style={{ color: MUTED }}>
+          <p className="font-mono text-[11px] tracking-[0.08em] uppercase" style={{ color: MUTED }}>
             {totalItems} {totalItems === 1 ? 'item' : 'items'}
           </p>
           <p className="font-serif font-bold text-lg" style={{ color: INK }}>${subtotal.toFixed(2)}</p>
@@ -37,7 +37,7 @@ export default function CartStickyCheckout({ subtotal, totalItems, onCheckout, i
           onClick={onCheckout}
           disabled={isCheckingOut}
           aria-label="Continue to checkout"
-          className="flex-1 flex items-center justify-center whitespace-nowrap font-mono text-[10px] tracking-[0.15em] uppercase font-bold transition-all hover:opacity-90"
+          className="flex-1 flex items-center justify-center whitespace-nowrap font-mono text-xs tracking-[0.1em] uppercase font-bold transition-all hover:opacity-90"
           style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: isCheckingOut ? 'wait' : 'pointer', borderRadius: '4px', opacity: isCheckingOut ? 0.7 : 1 }}
         >
           {isCheckingOut ? 'Preparing...' : 'Continue to Checkout'}

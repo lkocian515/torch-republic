@@ -42,7 +42,7 @@ const DEPRECATED_PRODUCT_REDIRECTS = {
 const DISCONTINUED_PRODUCT_PATTERN = /(american|patriot|shirt|long-sleeve|tee|hoodie|apparel|liberty|freedom)/i;
 
 const TRUST = [
-  { icon: Truck, label: 'Free shipping over $50' },
+  { icon: Truck, label: 'Free shipping $45+' },
   { icon: RotateCcw, label: '30-day satisfaction guarantee' },
   { icon: ShieldCheck, label: 'Secure checkout' },
 ];
@@ -161,7 +161,7 @@ function BlendDetailInner({ product }) {
 
   const prepText = 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
 
-  const shippingText = 'Ships from Texas within 1–3 business days. Free standard shipping on orders over $50. 30-day satisfaction guarantee — if you’re not happy, reach out and we’ll make it right.';
+  const shippingText = 'Ships from Texas within 1–3 business days. Free standard shipping on orders $45+. 30-day satisfaction guarantee — if you’re not happy, reach out and we’ll make it right.';
 
   const productFAQs = [
     { question: `What does ${product.name} taste like?`, answer: product.tasteDescription || product.description },

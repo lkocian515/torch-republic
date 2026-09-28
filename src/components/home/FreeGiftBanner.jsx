@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FREE_GIFT_IMAGE } from '@/lib/freeGiftConfig';
+import { FREE_GIFT_IMAGE, FREE_GIFT_ENABLED } from '@/lib/freeGiftConfig';
 
 export default function FreeGiftBanner() {
+  if (!FREE_GIFT_ENABLED) return null;
   return (
     <section className="px-6 py-10 md:px-10 md:py-14" style={{ background: '#FBF8F2', borderTop: '1px solid #E4D8C9' }}>
       <div className="mx-auto max-w-[900px] text-center">

@@ -69,13 +69,13 @@ export default function Cart() {
           </p>
           <div className="flex flex-col items-center gap-4">
             <Link to="/shop"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-12 py-4 transition-all hover:opacity-90"
+              className="font-mono text-xs tracking-[0.12em] uppercase font-bold px-12 py-4 transition-all hover:opacity-90"
               style={{ background: ACCENT, color: BTN_TEXT }}>
               Shop Best Sellers →
             </Link>
 
           </div>
-          <p className="font-mono text-[8px] tracking-[0.2em] uppercase mt-8" style={{ color: MUTED }}>
+          <p className="font-mono text-[11px] tracking-[0.1em] uppercase mt-8" style={{ color: MUTED }}>
             Have a discount code? Enter it at checkout.
           </p>
         </div>
@@ -88,11 +88,11 @@ export default function Cart() {
       <div className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
 
         {/* Header — stacks on narrow screens so nothing is clipped */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-10">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
           <h1 className="font-serif font-bold text-xl sm:text-2xl min-w-0" style={{ color: INK }}>
             Your Ritual Is Ready <span className="font-mono text-base font-normal" style={{ color: MUTED }}>({totalItems})</span>
           </h1>
-          <Link to="/shop" className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-70 self-start sm:self-auto whitespace-nowrap" style={{ color: ACCENT }}>
+          <Link to="/shop" className="flex items-center gap-2 font-mono text-xs tracking-[0.1em] uppercase transition-all hover:opacity-70 self-start sm:self-auto whitespace-nowrap" style={{ color: ACCENT }}>
             <ArrowLeft className="w-3.5 h-3.5 flex-shrink-0" />
             Continue Shopping
           </Link>
@@ -101,7 +101,7 @@ export default function Cart() {
         {/* Cart was refreshed to drop retired products */}
         {refreshed && (
           <div className="mb-4 flex items-center justify-between gap-3 p-3" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.25)' }}>
-            <p className="font-mono text-[9px] tracking-[0.12em]" style={{ color: '#0f766e' }}>
+            <p className="font-mono text-xs tracking-[0.12em]" style={{ color: '#0f766e' }}>
               Your cart was refreshed to match the current collection.
             </p>
             <button onClick={dismissRefreshed} aria-label="Dismiss notice" className="shrink-0" style={{ color: '#0f766e' }}>
@@ -110,16 +110,11 @@ export default function Cart() {
           </div>
         )}
 
-        {/* First-time customer welcome + Free shipping progress */}
-        <CartFirstTimeOffer />
-        <CartFreeShippingBar subtotal={subtotal} />
-
-        {/* Free gift selection */}
-        <FreeGiftSelection />
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Items */}
+          {/* Items + shipping progress */}
           <div className="lg:col-span-2 space-y-4">
+            {/* Free shipping progress — compact, above items */}
+            <CartFreeShippingBar subtotal={subtotal} />
             {items.map(item => (
               <motion.div
                 key={item.id}
@@ -133,12 +128,12 @@ export default function Cart() {
                 <img src={getProductImage(item)} alt={item.imageAlt || getProductAltText(item)} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px' }} />
                 <div className="flex-1 min-w-0">
                   <p className="font-serif font-bold text-sm mb-0.5 truncate" style={{ color: INK }}>{item.name}</p>
-                  <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: MUTED }}>
+                  <p className="font-mono text-xs tracking-[0.1em] uppercase mb-2" style={{ color: MUTED }}>
                     {item.category === 'classic-coffee' ? 'Classic Coffee' : item.category === 'pumpkin-spice' ? 'Whole Bean' : 'Mushroom Coffee'}
                     {item.format === 'Whole Bean' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
                   </p>
                   {item.isSubscription && item.sellingPlanName && (
-                    <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-2" style={{ color: '#10B981' }}>
+                    <p className="font-mono text-xs tracking-[0.08em] uppercase mb-2" style={{ color: '#10B981' }}>
                       {item.sellingPlanName}
                     </p>
                   )}
@@ -177,6 +172,9 @@ export default function Cart() {
               </motion.div>
             ))}
 
+            {/* Free gift selection — after items */}
+            <FreeGiftSelection />
+
             {/* Smart product recommendations */}
             <CartRecommendations cartItems={items} />
           </div>
@@ -184,15 +182,16 @@ export default function Cart() {
           {/* Summary */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 p-6" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: ACCENT }}>Order Summary</p>
+              <CartFirstTimeOffer />
+              <p className="font-mono text-xs tracking-[0.12em] uppercase mb-6" style={{ color: ACCENT }}>Order Summary</p>
 
               <div className="flex items-center justify-between mb-2">
-                <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: MUTED_MED }}>Subtotal</span>
+                <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED_MED }}>Subtotal</span>
                 <span className="font-mono font-bold" style={{ color: INK }}>${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: MUTED_MED }}>Shipping</span>
-                <span className="font-mono text-[10px]" style={{ color: '#10B981' }}>Calculated at checkout</span>
+                <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED_MED }}>Shipping</span>
+                <span className="font-mono text-xs" style={{ color: '#10B981' }}>Calculated at checkout</span>
               </div>
 
               {/* Delivery estimate */}
@@ -201,7 +200,7 @@ export default function Cart() {
               {/* Recurring billing summary — shown when subscription items are in the cart */}
               {subscriptionItems.length > 0 && (
                 <div className="mb-4 p-3" style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.22)' }}>
-                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: '#0f766e' }}>
+                  <p className="font-mono text-[11px] tracking-[0.1em] uppercase mb-2" style={{ color: '#0f766e' }}>
                     Recurring Billing
                   </p>
                   <div className="space-y-1.5 mb-2">
@@ -225,22 +224,22 @@ export default function Cart() {
               <button
                 onClick={handleCheckout}
                 disabled={isCheckingOut}
-                className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
+                className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                 style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: isCheckingOut ? 'wait' : 'pointer', opacity: isCheckingOut ? 0.7 : 1 }}
               >
                 {isCheckingOut ? 'Preparing Checkout...' : 'Continue to Checkout'}
               </button>
 
               <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Secure Checkout</span>
+                <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED }}>Secure Checkout</span>
                 <span style={{ color: BORDER }}>•</span>
-                <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: MUTED }}>Ships from the U.S.</span>
+                <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED }}>Ships from the U.S.</span>
                 <span style={{ color: BORDER }}>•</span>
-                <Link to="/shipping-policy" className="font-mono text-[7px] tracking-[0.15em] transition-opacity hover:opacity-70" style={{ color: MUTED }}>Shipping &amp; Returns</Link>
+                <Link to="/shipping-policy" className="font-mono text-xs tracking-[0.08em] transition-opacity hover:opacity-70" style={{ color: MUTED }}>Shipping &amp; Returns</Link>
               </div>
 
               <Link to="/shop"
-                className="w-full block text-center font-mono text-[9px] tracking-[0.25em] uppercase py-3 transition-all hover:opacity-70"
+                className="w-full block text-center font-mono text-xs tracking-[0.1em] uppercase py-3 transition-all hover:opacity-70"
                 style={{ border: `1px solid ${BORDER}`, color: ACCENT }}>
                 ← Continue Shopping
               </Link>

@@ -503,9 +503,29 @@ export function CartProvider({ children }) {
       });
 
       if (validItems.length === 0) {
+        // All items lack a Shopify variant ID — they are not yet published
+        // on Shopify. Show a product-specific message instead of the generic
+        // "commerce unavailable" dialog.
         clearTimeout(timeoutId);
-        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+        setIsCheckingOut(false);
+        const unavailableNames = items.map(i => i.name);
+        window.dispatchEvent(new CustomEvent('tr:checkout-items-unavailable', {
+          detail: { productNames: unavailableNames }
+        }));
         return;
+      }
+
+      // If some items were filtered out, inform the customer which items
+      // are excluded from this checkout. The valid items proceed normally.
+      if (validItems.length < items.length) {
+        const excludedNames = items
+          .filter(i => !validItems.includes(i))
+          .map(i => i.name);
+        showToast({
+          title: 'Some items not available for checkout',
+          description: `${excludedNames.join(', ')} is not yet available for online checkout. Proceeding with your other items.`,
+          duration: 6000,
+        });
       }
 
       const hasSubscriptionItems = validItems.some(i => i.isSubscription);

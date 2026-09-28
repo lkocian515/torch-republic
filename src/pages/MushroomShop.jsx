@@ -49,7 +49,7 @@ function NewsletterSignup() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="px-8 py-3 font-mono text-[9px] font-bold uppercase tracking-[0.3em] transition-all hover:opacity-90 disabled:opacity-50"
+        className="px-8 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] transition-all hover:opacity-90 disabled:opacity-50"
         style={{ background: '#B7653E', color: '#FBF8F1', borderRadius: '6px' }}
       >
         {status === 'loading' ? 'Joining...' : 'Subscribe'}
@@ -70,9 +70,9 @@ export default function MushroomShop() {
   return (
     <div style={{ background: '#FBF8F1' }}>
       {/* Hero */}
-      <section className="px-6 pb-10 pt-8 text-center md:px-10 md:pt-24">
+      <section className="px-6 pb-10 pt-8 text-center md:px-10 md:pt-12">
         <div className="mx-auto max-w-3xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: '#A97B32' }}>
+          <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
             Torch Republic Coffee Company
           </p>
           <motion.h1
@@ -110,7 +110,7 @@ export default function MushroomShop() {
       {/* Newsletter */}
       <section className="px-6 py-16 md:px-10" style={{ borderTop: '1px solid #E4D8C9' }}>
         <div className="mx-auto max-w-[700px] text-center">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
             Stay in the ritual
           </p>
           <h2 className="mb-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#292622' }}>
@@ -125,7 +125,7 @@ export default function MushroomShop() {
 
       {/* Legal */}
       <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid #E4D8C9' }}>
-        <p className="mx-auto max-w-xl font-mono text-[8px] tracking-[0.15em]" style={{ color: '#8A8076', lineHeight: 1.75 }}>
+        <p className="mx-auto max-w-xl font-mono text-[11px] tracking-[0.08em]" style={{ color: '#8A8076', lineHeight: 1.75 }}>
           Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat,
           cure, or prevent any disease.
         </p>

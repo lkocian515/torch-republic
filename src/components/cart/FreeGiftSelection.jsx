@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, Gift } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { FREE_GIFTS, FREE_GIFT_THRESHOLD } from '@/lib/freeGiftConfig';
+import { FREE_GIFTS, FREE_GIFT_THRESHOLD, FREE_GIFT_ENABLED } from '@/lib/freeGiftConfig';
 
 const CARD = '#FFFFFF';
 const INK = '#2D2824';
@@ -13,7 +13,7 @@ const ACCENT_SOFT = 'rgba(184,101,67,0.08)';
 export default function FreeGiftSelection() {
   const { selectedGift, setSelectedGift, subtotal } = useCart();
 
-  const qualifies = subtotal >= FREE_GIFT_THRESHOLD;
+  const qualifies = FREE_GIFT_ENABLED && subtotal >= FREE_GIFT_THRESHOLD;
 
   if (!qualifies) return null;
 

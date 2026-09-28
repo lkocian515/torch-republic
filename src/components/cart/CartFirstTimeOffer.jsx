@@ -20,7 +20,7 @@ export default function CartFirstTimeOffer() {
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="w-full p-4 mb-6"
+      className="w-full p-3 mb-4"
       style={{
         background: 'linear-gradient(135deg, rgba(184,101,67,0.07) 0%, rgba(214,178,122,0.05) 100%)',
         border: `1px solid ${BORDER}`,
@@ -34,7 +34,7 @@ export default function CartFirstTimeOffer() {
           <p className="font-serif font-bold text-sm" style={{ color: INK }}>
             Welcome to Torch Republic
           </p>
-          <p className="font-mono text-[9px] tracking-[0.1em]" style={{ color: MUTED }}>
+          <p className="font-mono text-xs tracking-[0.06em]" style={{ color: MUTED }}>
             Enjoy {WELCOME_DISCOUNT_PERCENT}% off your first order with code{' '}
             <span className="font-bold" style={{ color: ACCENT }}>{WELCOME_DISCOUNT_CODE}</span>
           </p>

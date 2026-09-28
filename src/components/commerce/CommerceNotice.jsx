@@ -7,6 +7,9 @@ import {
   PRODUCT_SOLD_OUT_TITLE,
 } from '@/lib/commerceConfig';
 
+const ITEMS_UNAVAILABLE_TITLE = 'Not Available for Online Checkout';
+const ITEMS_UNAVAILABLE_PREFIX = 'is not yet available for online checkout. We are adding it to our online store — please check back soon, or remove it from your cart to proceed with other items.';
+
 /**
  * Global, single-instance commerce notice. Listens for two events:
  *
@@ -38,11 +41,18 @@ export default function CommerceNotice() {
       setProductTitle(e?.detail?.productTitle || null);
       setOpen(true);
     };
+    const handleItemsUnavailable = (e) => {
+      setMode('items-unavailable');
+      setProductTitle(e?.detail?.productNames?.join(', ') || null);
+      setOpen(true);
+    };
     window.addEventListener('tr:commerce-unavailable', handleCommerceUnavailable);
     window.addEventListener('tr:product-sold-out', handleProductSoldOut);
+    window.addEventListener('tr:checkout-items-unavailable', handleItemsUnavailable);
     return () => {
       window.removeEventListener('tr:commerce-unavailable', handleCommerceUnavailable);
       window.removeEventListener('tr:product-sold-out', handleProductSoldOut);
+      window.removeEventListener('tr:checkout-items-unavailable', handleItemsUnavailable);
     };
   }, []);
 
@@ -63,13 +73,22 @@ export default function CommerceNotice() {
   if (!open) return null;
 
   const isSoldOut = mode === 'sold-out';
-  const title = isSoldOut ? PRODUCT_SOLD_OUT_TITLE : COMMERCE_DISABLED_TITLE;
-  const message = isSoldOut
+  const isItemsUnavailable = mode === 'items-unavailable';
+  const title = isItemsUnavailable
+    ? ITEMS_UNAVAILABLE_TITLE
+    : isSoldOut
+      ? PRODUCT_SOLD_OUT_TITLE
+      : COMMERCE_DISABLED_TITLE;
+  const message = isItemsUnavailable
     ? (productTitle
-      ? `${productTitle} is currently unavailable for purchase. Please check back soon.`
-      : 'This product is currently unavailable for purchase. Please check back soon.')
-    : COMMERCE_DISABLED_REASON;
-  const titleId = isSoldOut ? 'sold-out-title' : 'checkout-unavailable-title';
+      ? `${productTitle} ${ITEMS_UNAVAILABLE_PREFIX}`
+      : `Some items in your cart ${ITEMS_UNAVAILABLE_PREFIX}`)
+    : isSoldOut
+      ? (productTitle
+        ? `${productTitle} is currently unavailable for purchase. Please check back soon.`
+        : 'This product is currently unavailable for purchase. Please check back soon.')
+      : COMMERCE_DISABLED_REASON;
+  const titleId = isItemsUnavailable ? 'items-unavailable-title' : isSoldOut ? 'sold-out-title' : 'checkout-unavailable-title';
 
   return (
     <div
