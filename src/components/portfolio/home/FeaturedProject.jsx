@@ -54,6 +54,29 @@ export default function FeaturedProject() {
               AI-assisted implementations, validating customer workflows, and resolving defects across
               product data, cart behavior, checkout, responsive layouts, content, and metadata.
             </p>
+
+            {/* Reusable commerce structure callout */}
+            <div
+              style={{
+                padding: '1rem 1.25rem',
+                border: `1px solid ${P.rule}`,
+                borderLeft: `3px solid ${P.accent}`,
+                borderRadius: '4px',
+                background: P.accentSoft,
+                marginBottom: '1.5rem',
+              }}
+            >
+              <p style={{ fontFamily: FONT_MONO, fontSize: '0.62rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.accentInk, margin: '0 0 0.4rem' }}>
+                Reusable commerce structure
+              </p>
+              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.6, color: P.secondary, margin: 0 }}>
+                Built on a modular commerce structure that can support new products, catalog changes,
+                and adaptation for other direct-to-consumer storefronts. Reusable product, cart, content,
+                analytics, and Shopify integration patterns reduce the need to rebuild the core customer
+                journey for each new implementation.
+              </p>
+            </div>
+
             <div className="flex flex-wrap gap-3 mb-5">
               <a
                 href={LIVE_STORE}

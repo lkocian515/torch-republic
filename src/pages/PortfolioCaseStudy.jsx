@@ -4,6 +4,7 @@ import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import CaseStudyOverview from '@/components/portfolio/casestudy/CaseStudyOverview';
 import CaseStudyRole from '@/components/portfolio/casestudy/CaseStudyRole';
 import SystemOverview from '@/components/portfolio/casestudy/SystemOverview';
+import Architecture from '@/components/portfolio/casestudy/Architecture';
 import QaChallenges from '@/components/portfolio/casestudy/QaChallenges';
 import InterfaceGallery from '@/components/portfolio/casestudy/InterfaceGallery';
 import TestingApproach from '@/components/portfolio/casestudy/TestingApproach';
@@ -103,6 +104,7 @@ export default function PortfolioCaseStudy() {
         <CaseStudyOverview />
         <CaseStudyRole />
         <SystemOverview />
+        <Architecture />
         <QaChallenges />
         <InterfaceGallery />
         <TestingApproach />
