@@ -17,7 +17,6 @@ export default function CaseStudyOverview() {
         <SectionHeading
           eyebrow="Case study"
           heading="Torch Republic commerce application"
-          intro="A direct-to-consumer coffee application developed through AI-assisted implementation, manual review, and iterative QA."
         />
         <p style={{ fontFamily: FONT_SANS, fontSize: '1rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
           Torch Republic is a direct-to-consumer coffee application developed through AI-assisted
