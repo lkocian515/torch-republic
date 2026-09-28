@@ -138,6 +138,7 @@ const MushroomCoffeeVsCoffeePods = lazy(() => import('./pages/compare/MushroomCo
 const InstantCoffeeVsKCups = lazy(() => import('./pages/compare/InstantCoffeeVsKCups.jsx'));
 const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
+const PortfolioHome = lazy(() => import('./pages/PortfolioHome.jsx'));
 
 const mainPageKey = 'Home';
 
@@ -196,9 +197,13 @@ const AuthenticatedApp = ({ queryClient }) => {
       <AnimatePresence>
       <Routes location={location} key={location.pathname}>
 
-        {/* ── PORTFOLIO DOMAIN: lisakocian.com serves only the portfolio, no storefront chrome ── */}
+        {/* ── PORTFOLIO DOMAIN: lisakocian.com serves the portfolio at root ── */}
         {isPortfolioDomain && (
-          <Route path="/*" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+          <>
+          <Route path="/" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
+          <Route path="/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+          <Route path="/*" element={<Navigate to="/" replace />} />
+          </>
         )}
 
         {/* ── STOREFRONT DOMAIN: torchrepublic.com and all other routes ── */}
@@ -369,9 +374,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/switch-from-pods" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SwitchFromPods" queryClient={queryClient}><SwitchFromPods /></LayoutWrapper></Suspense>} />
 
         {/* ── STANDALONE PROFESSIONAL PORTFOLIO (no storefront chrome) ── */}
-        <Route path="/portfolio" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
-        {/* Legacy portfolio URL kept for back-compat; canonical resolves to lisakocian.com */}
-        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+        <Route path="/portfolio" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
+        <Route path="/portfolio/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+        {/* Legacy portfolio URL → canonical case-study route */}
+        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Navigate to="/portfolio/case-study" replace />} />
 
         {/* ── SEO KEYWORD LANDING PAGES ── */}
         <Route path="/coffee-pod-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodAlternatives" queryClient={queryClient}><CoffeePodAlternatives /></LayoutWrapper></Suspense>} />
