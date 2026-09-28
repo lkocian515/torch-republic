@@ -26,7 +26,7 @@ export default function DriftRitual() {
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
         <div className="grid md:grid-cols-[45fr_55fr] gap-10 md:gap-14 items-center">
           {/* Image */}
-          <div className="order-2 md:order-1 overflow-hidden rounded-lg">
+          <div className="order-2 md:order-1 overflow-hidden rounded-lg" style={{ boxShadow: D.shadowMedium, border: D.borderHairline }}>
             <img className="ritual-img w-full" src={RITUAL_IMAGE} alt="Instant coffee being stirred into a ceramic cup" loading="lazy" style={{ aspectRatio: '4 / 5', objectFit: 'cover' }} />
           </div>
           {/* Copy */}

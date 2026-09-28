@@ -42,7 +42,7 @@ export default function DriftBrandStory() {
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
         <div className="grid md:grid-cols-[55fr_45fr] gap-10 md:gap-14 items-center">
           {/* Image */}
-          <div className="brand-img-wrap order-2 md:order-1 overflow-hidden rounded-lg">
+          <div className="brand-img-wrap order-2 md:order-1 overflow-hidden rounded-lg" style={{ boxShadow: D.shadowMedium, border: D.borderHairline }}>
             <img className="brand-img w-full" src={STORY_IMAGE} alt="Warm morning kitchen scene with ceramic cups and coffee" loading="lazy" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
           </div>
           {/* Copy */}

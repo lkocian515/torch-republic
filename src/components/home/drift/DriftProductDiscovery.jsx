@@ -6,6 +6,7 @@ import { CORE_PRODUCTS } from '@/lib/coreProducts';
 import { formatPrice } from '@/lib/pricingConfig';
 import { useCart } from '@/contexts/CartContext';
 import { useDriftMotion, isMobile } from './useDriftMotion';
+import TiltContainer from './TiltContainer';
 
 function ProductInfo({ product, index, addItem, isAdding }) {
   return (
@@ -27,7 +28,7 @@ function ProductInfo({ product, index, addItem, isAdding }) {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-        <button type="button" onClick={() => addItem(product)} disabled={isAdding} className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 48, padding: '0 1.75rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: isAdding ? 'not-allowed' : 'pointer', opacity: isAdding ? 0.6 : 1 }}>
+        <button type="button" onClick={() => addItem(product)} disabled={isAdding} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 48, padding: '0 1.75rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: isAdding ? 'not-allowed' : 'pointer', opacity: isAdding ? 0.6 : 1, boxShadow: '0 3px 10px rgba(36,26,22,0.12)' }}>
           Add to Cart
         </button>
         <Link to={product.path} className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: D.espresso, textDecoration: 'none' }}>
@@ -85,17 +86,17 @@ export default function DriftProductDiscovery() {
         {/* Balanced two-column grid — one structure for all breakpoints */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
           {[classic, mushroom].map((product, i) => (
-            <div key={product.id} className="pd-card flex flex-col" style={{ minWidth: 0 }}>
+            <div key={product.id} className="pd-card flex flex-col" style={{ minWidth: 0, perspective: '1000px' }}>
               {/* Image — responsive width, reserved aspect ratio to prevent CLS */}
-              <div className="pd-img-wrap flex items-center justify-center mb-6" style={{ padding: 'clamp(1.25rem, 2.5vw, 2.25rem)', borderRadius: '10px', overflow: 'hidden', background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft}40 0%, ${D.cream} 70%)`, minWidth: 0 }}>
+              <TiltContainer className="pd-img-wrap tr-product-card flex items-center justify-center mb-6" style={{ padding: 'clamp(1.25rem, 2.5vw, 2.25rem)', borderRadius: '10px', overflow: 'hidden', background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft}40 0%, ${D.cream} 70%)`, minWidth: 0, border: D.borderHairline, boxShadow: D.shadowSoft }}>
                 <img
                   className="pd-img"
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  style={{ width: 'clamp(220px, 72%, 380px)', aspectRatio: '3 / 4', height: 'auto', objectFit: 'contain', display: 'block' }}
+                  style={{ width: 'clamp(220px, 72%, 380px)', aspectRatio: '3 / 4', height: 'auto', objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(36,26,22,0.12))' }}
                 />
-              </div>
+              </TiltContainer>
               {/* Info */}
               <ProductInfo product={product} index={i + 1} addItem={addItem} isAdding={isAdding} />
             </div>

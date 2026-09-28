@@ -12,6 +12,24 @@ export const D = {
   surface: '#F5F0E8',
   accentSoft: '#F2E2D2',
   terracottaDeep: '#9A4A28',
+
+  // ── Cinematic tokens (derived from Halloween artwork palette) ──
+  // Used selectively for depth, shadows, and controlled dark sections.
+  // Ivory provides breathing room between darker surfaces.
+  obsidian: '#101112',
+  deepEspresso: '#241A16',
+  warmIvory: '#F4EFE7',
+  ember: '#F47735',
+  copper: '#B8734D',
+  copperDeep: '#8A5638',
+
+  // ── Depth utilities ──
+  shadowSoft: '0 2px 8px rgba(36,26,22,0.05), 0 6px 20px rgba(36,26,22,0.04)',
+  shadowMedium: '0 4px 14px rgba(36,26,22,0.07), 0 14px 36px rgba(36,26,22,0.05)',
+  shadowDeep: '0 8px 24px rgba(36,26,22,0.10), 0 24px 56px rgba(36,26,22,0.07)',
+  shadowPackaging: '0 6px 16px rgba(36,26,22,0.08), 0 20px 40px rgba(36,26,22,0.06)',
+  borderHairline: '1px solid rgba(184,115,77,0.10)',
+  borderPrecise: '1px solid rgba(184,115,77,0.14)',
 };
 
 export const SERIF = 'var(--font-serif)';

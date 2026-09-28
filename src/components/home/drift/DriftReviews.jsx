@@ -31,8 +31,8 @@ export default function DriftReviews() {
           {REVIEWS.map((r) => (
             <div
               key={r.name}
-              className="flex-shrink-0 w-[280px] md:w-[300px]"
-              style={{ scrollSnapAlign: 'start' }}
+              className="flex-shrink-0 w-[280px] md:w-[300px] p-5 rounded-lg"
+              style={{ scrollSnapAlign: 'start', background: D.surface, border: `1px solid ${D.rule}`, boxShadow: '0 2px 8px rgba(36,26,22,0.04)' }}
             >
               <div className="flex gap-1 mb-3">
                 {Array.from({ length: 5 }).map((_, i) => (

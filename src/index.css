@@ -536,3 +536,101 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
 
 /* ── Consistent icon stroke weight ── */
 .lucide { stroke-width: 1.75; }
+
+/* ═══════════════════════════════════════════════════════════════
+   TORCH REPUBLIC — Cinematic depth & interaction utilities
+   Premium coffee meets immersive digital product launch.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Depth shadows ── */
+.tr-depth-soft { box-shadow: 0 2px 8px rgba(36,26,22,0.05), 0 6px 20px rgba(36,26,22,0.04); }
+.tr-depth-medium { box-shadow: 0 4px 14px rgba(36,26,22,0.07), 0 14px 36px rgba(36,26,22,0.05); }
+.tr-depth-deep { box-shadow: 0 8px 24px rgba(36,26,22,0.10), 0 24px 56px rgba(36,26,22,0.07); }
+.tr-depth-packaging { box-shadow: 0 6px 16px rgba(36,26,22,0.08), 0 20px 40px rgba(36,26,22,0.06); }
+
+/* ── Hairline borders ── */
+.tr-border-hairline { border: 1px solid rgba(184,115,77,0.10); }
+.tr-border-precise { border: 1px solid rgba(184,115,77,0.14); }
+
+/* ── Warm edge lighting — faint inner glow on dark sections ── */
+.tr-edge-warm {
+  box-shadow: inset 0 1px 0 rgba(255,245,230,0.06), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+/* ── Frosted glass surface — selective, not everywhere ── */
+.tr-glass {
+  background: rgba(251,248,242,0.82);
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+}
+.tr-glass-solid {
+  background: rgba(251,248,242,0.96);
+}
+
+/* ── Surface gradient — subtle depth on light cards ── */
+.tr-surface-gradient {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(241,236,229,0.3) 100%);
+}
+
+/* ── Section divider — fine hairline between sections ── */
+.tr-section-divider {
+  border-top: 1px solid rgba(184,115,77,0.10);
+}
+
+/* ── Light-to-dark transition — controlled gradient between surfaces ── */
+.tr-transition-dark {
+  background: linear-gradient(180deg, rgba(241,236,229,0) 0%, rgba(36,26,22,0.02) 40%, rgba(36,26,22,0.06) 100%);
+}
+
+/* ── Pointer-responsive tilt (desktop only, 2-3 degrees) ── */
+.tr-tilt-perspective {
+  perspective: 1000px;
+}
+.tr-tilt-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.tr-tilt-inner.tr-tilting {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Button hover lift — subtle, not exaggerated ── */
+.tr-btn-lift {
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease;
+}
+.tr-btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(36,26,22,0.12);
+}
+.tr-btn-lift:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(36,26,22,0.10);
+}
+
+/* ── Subtle entrance fade — 8-16px movement, for unprotected elements only ── */
+.tr-fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tr-fade-in.tr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Product card depth — sculptural container ── */
+.tr-product-card {
+  position: relative;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.tr-product-card:hover {
+  box-shadow: 0 8px 24px rgba(36,26,22,0.10), 0 24px 56px rgba(36,26,22,0.07);
+}
+
+/* ── Reduced motion: disable nonessential movement, preserve functionality ── */
+@media (prefers-reduced-motion: reduce) {
+  .tr-tilt-inner { transform: none !important; transition: none !important; }
+  .tr-btn-lift:hover { transform: none !important; box-shadow: none !important; }
+  .tr-fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

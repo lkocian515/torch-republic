@@ -184,7 +184,7 @@ export default function DriftComparison() {
           <div className="cmp-d-columns grid grid-cols-2 gap-8 lg:gap-12 mb-12">
             {PRODUCTS.map((p) => (
               <div key={p.id}>
-                <div className="cmp-d-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface }}>
+                <div className="cmp-d-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface, border: D.borderHairline, boxShadow: D.shadowSoft }}>
                   <div className={`cmp-d-img-inner cmp-d-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
                     <img className={`cmp-d-img cmp-d-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
@@ -227,7 +227,7 @@ export default function DriftComparison() {
             {PRODUCTS.map((p) => (
               <div key={p.id}>
                 {/* Image */}
-                <div className="cmp-m-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface }}>
+                <div className="cmp-m-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface, border: D.borderHairline, boxShadow: D.shadowSoft }}>
                   <div className={`cmp-m-img-inner cmp-m-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
                     <img className={`cmp-m-img cmp-m-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>

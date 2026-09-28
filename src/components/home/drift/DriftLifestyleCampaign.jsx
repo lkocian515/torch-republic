@@ -23,7 +23,7 @@ export default function DriftLifestyleCampaign() {
   });
 
   return (
-    <section ref={scope} className="parallax-section relative w-full overflow-hidden">
+    <section ref={scope} className="parallax-section relative w-full overflow-hidden" style={{ borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="overflow-hidden" style={{ height: '55vh' }}>
         <img className="parallax-img w-full h-[120%] object-cover" src={CAMPAIGN_IMAGE} alt="Torch Republic Instant Coffee with Mushrooms poured into a mug at sunset" loading="lazy" />
       </div>

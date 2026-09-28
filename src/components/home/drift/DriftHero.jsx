@@ -26,7 +26,7 @@ function HeroText() {
         Premium coffee made for real mornings. Scoop. Stir. Sip.
       </p>
       <div className="hero-cta flex flex-col sm:flex-row gap-4 sm:items-center">
-        <Link to="/shop" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', letterSpacing: '0.04em' }}>
+        <Link to="/shop" className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 4px 12px rgba(36,26,22,0.15)' }}>
           SHOP COFFEE <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
         <a href="#comparison" className="group hidden md:inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.espresso, textDecoration: 'none' }}>

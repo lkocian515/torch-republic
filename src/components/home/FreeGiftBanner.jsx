@@ -17,7 +17,7 @@ export default function FreeGiftBanner() {
             src={FREE_GIFT_IMAGE}
             alt="Free gift with purchase — choose from Canvas Tote, Insulated Tumbler, Dad Cap, or Heart Keychain"
             className="mx-auto w-full max-w-[640px] rounded-lg"
-            style={{ border: '1px solid #E4D8C9' }}
+            style={{ border: '1px solid #E4D8C9', boxShadow: '0 6px 20px rgba(36,26,22,0.08)' }}
             loading="lazy"
           />
         </Link>
@@ -26,8 +26,8 @@ export default function FreeGiftBanner() {
         </p>
         <Link
           to="/shop"
-          className="mt-5 inline-block font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-8 py-3 transition-all hover:opacity-90"
-          style={{ background: '#B86543', color: '#FBF8F1', borderRadius: '6px' }}
+          className="mt-5 inline-block tr-btn-lift font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-8 py-3"
+          style={{ background: '#B86543', color: '#FBF8F1', borderRadius: '6px', boxShadow: '0 3px 10px rgba(184,101,67,0.20)' }}
         >
           Shop to Qualify
         </Link>

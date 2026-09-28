@@ -6,7 +6,7 @@ import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
 
 export default function DriftFounderStory() {
   return (
-    <section style={{ background: D.cream }}>
+    <section style={{ background: D.cream, borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="mx-auto max-w-[800px] px-6 py-16 md:py-24 text-center">
         <motion.div {...fadeUp}>
           <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 2rem' }}>

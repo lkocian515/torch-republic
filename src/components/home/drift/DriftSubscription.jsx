@@ -22,7 +22,7 @@ export default function DriftSubscription() {
   });
 
   return (
-    <section ref={scope} className="sub-section" style={{ background: D.espresso }}>
+    <section ref={scope} className="sub-section" style={{ background: D.espresso, borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="mx-auto max-w-[900px] px-6 py-16 md:py-20 text-center">
         <p className="sub-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
           Coming Soon
@@ -34,7 +34,7 @@ export default function DriftSubscription() {
           Soon you&rsquo;ll be able to have your favorite coffee delivered every four weeks and save 10%. One-time purchases are available now.
         </p>
         <div className="sub-cta flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link to="/shop" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.012] active:scale-[0.985]" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
+          <Link to="/shop" className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,91,50,0.25)' }}>
             Shop Coffee <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
           <a href="#newsletter" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:opacity-80" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: 'transparent', color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', border: `1px solid ${D.terracotta}` }}>

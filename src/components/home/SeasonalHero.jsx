@@ -36,6 +36,9 @@ export default function SeasonalHero() {
           </p>
         </Link>
       </div>
+
+      {/* Smooth transition from dark seasonal hero into the light editorial hero */}
+      <div aria-hidden="true" style={{ height: '3rem', background: 'linear-gradient(180deg, #1A0F0A 0%, #3D2A1E 35%, #8A7460 70%, #D8CCBC 90%, #F1ECE5 100%)' }} />
     </section>
   );
 }
