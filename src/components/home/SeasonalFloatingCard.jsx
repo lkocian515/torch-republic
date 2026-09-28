@@ -6,7 +6,7 @@ import { X } from 'lucide-react';
 // Small, non-intrusive floating card on the homepage.
 // Appears after 4 seconds, dismissible, positioned above the mobile bottom nav.
 const PUMPKIN_SPICE_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/81a11c090_tcr_coffee_blank_final_latest4.jpeg';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8390f4ba6_file_00000000333081f6826a284f26569cc8.png';
 
 const STORAGE_KEY = 'tr_seasonal_card_dismissed';
 

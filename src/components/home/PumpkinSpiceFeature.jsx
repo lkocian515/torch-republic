@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 // Dark espresso-brown seasonal feature section — placed directly below the hero.
 // The cream vintage label pops against the warm dark background.
 const PUMPKIN_SPICE_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/81a11c090_tcr_coffee_blank_final_latest4.jpeg';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8390f4ba6_file_00000000333081f6826a284f26569cc8.png';
 
 const COLORS = {
   bg: '#2A1A12',        // dark espresso brown (not pure black)

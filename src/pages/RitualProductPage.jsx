@@ -21,7 +21,8 @@ const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88c
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': null,
   'classic-coffee': null,
-  'pumpkin-spice': null,
+  'pumpkin-spice':
+    'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f9c58b8b7_file_00000000eb7481f68fa2a08c4f327f49.png',
   'bundle': null,
 };
 
@@ -53,8 +54,12 @@ const GALLERY_EXTRA = {
     ],
   },
   'pumpkin-spice': {
-    images: [],
-    alts: [],
+    images: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f9c58b8b7_file_00000000eb7481f68fa2a08c4f327f49.png',
+    ],
+    alts: [
+      'Pumpkin Spice Whole Bean Coffee in an autumn scene with whipped cream coffee, cinnamon, and roasted beans',
+    ],
   },
   'bundle': {
     images: [],

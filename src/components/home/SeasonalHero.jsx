@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HERO_IMAGE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/eb4f17b1e_file_000000009e688243af2b3098359c61f7.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f9c58b8b7_file_00000000eb7481f68fa2a08c4f327f49.png';
 
 export default function SeasonalHero() {
   return (

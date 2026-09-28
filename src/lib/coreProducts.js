@@ -152,7 +152,7 @@ export const SEASONAL_PRODUCTS = [
     path: '/products/pumpkin-spice-whole-bean-coffee',
     collectionPath: '/products/pumpkin-spice-whole-bean-coffee',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/81a11c090_tcr_coffee_blank_final_latest4.jpeg',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8390f4ba6_file_00000000333081f6826a284f26569cc8.png',
     seasonal: true,
     limitedEdition: true,
   }),
