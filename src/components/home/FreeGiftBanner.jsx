@@ -6,7 +6,7 @@ export default function FreeGiftBanner() {
   return (
     <section className="px-6 py-10 md:px-10 md:py-14" style={{ background: '#FBF8F2', borderTop: '1px solid #E4D8C9' }}>
       <div className="mx-auto max-w-[900px] text-center">
-        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+        <p className="mb-1 font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
           Our gift to you
         </p>
         <h2 className="mb-5 font-serif font-bold" style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', color: '#292622' }}>
@@ -22,14 +22,17 @@ export default function FreeGiftBanner() {
           />
         </Link>
         <p className="mx-auto mt-5 max-w-md font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-          Choose your favorite at checkout &mdash; a Canvas Tote, Insulated Tumbler, Dad Cap, or Heart Keychain, all featuring the Torch Republic logo.
+          Choose your favorite in your cart &mdash; a Canvas Tote, Insulated Tumbler, Dad Cap, or Heart Keychain, all featuring the Torch Republic logo.
+        </p>
+        <p className="mx-auto mt-2 max-w-md font-heading text-xs" style={{ color: '#7A6E5F', lineHeight: 1.6 }}>
+          One free gift with any purchase. Select your gift in the cart before checkout &mdash; no code needed.
         </p>
         <Link
           to="/shop"
-          className="mt-5 inline-block tr-btn-lift font-mono text-[10px] tracking-[0.3em] uppercase font-bold px-8 py-3"
+          className="mt-5 inline-block tr-btn-lift font-mono text-xs tracking-[0.12em] uppercase font-bold px-8 py-3"
           style={{ background: '#B86543', color: '#FBF8F1', borderRadius: '6px', boxShadow: '0 3px 10px rgba(184,101,67,0.20)' }}
         >
-          Shop to Qualify
+          Shop Coffee
         </Link>
       </div>
     </section>

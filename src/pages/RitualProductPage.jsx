@@ -116,7 +116,7 @@ function benefitsFor(p) {
   const list = [p.positioning];
   if (p.functionalLabel) list.push(p.functionalLabel);
   list.push(`${p.caffeineLabel} caffeine`);
-  if (p.seasonal) {
+  if (p.format === 'Whole Bean') {
     list.push(p.weight);
     list.push('Limited batch release');
   } else {
@@ -252,7 +252,7 @@ function RitualPDP({ product }) {
     <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh', paddingBottom: '7rem' }} className="lg:pb-0">
       {/* Breadcrumb */}
       <div className="mx-auto max-w-[1100px] px-6 pb-2 pt-7 md:px-10">
-        <nav className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em]" style={{ color: THEME.secondary }}>
+        <nav className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>
           <Link to="/" className="hover:opacity-70">Home</Link>
           <ChevronRight size={11} />
           <Link to="/shop" className="hover:opacity-70">Shop</Link>
@@ -297,7 +297,7 @@ function RitualPDP({ product }) {
 
             <div className="flex flex-wrap items-baseline gap-3">
               <span className="font-serif font-bold" style={{ fontSize: '2rem', color: c.deep }}>${unitPrice.toFixed(2)}</span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: THEME.secondary }}>
+              <span className="font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>
                 ${(unitPrice / product.servings).toFixed(2)} per cup
               </span>
             </div>
@@ -305,7 +305,7 @@ function RitualPDP({ product }) {
             <PurchaseOptionSelector product={product} onChange={setPurchaseMode} accent={c.accent} />
 
             <div className="flex items-center gap-4">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: THEME.secondary }}>Quantity</span>
+              <span className="font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>Quantity</span>
               <div className="flex items-center" style={{ border: `1px solid ${THEME.border}`, borderRadius: 8, overflow: 'hidden' }}>
                 <button onClick={() => setQty((q) => Math.max(1, q - 1))} style={{ width: 44, height: 44, color: THEME.text, background: 'none', border: 'none', cursor: 'pointer' }} aria-label="Decrease quantity"><Minus size={14} /></button>
                 <span className="w-12 text-center font-mono text-base" style={{ color: THEME.text }}>{qty}</span>
@@ -325,7 +325,7 @@ function RitualPDP({ product }) {
               )}
             </div>
 
-            <Link to="/torchbearers-rewards" className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] transition-opacity hover:opacity-70" style={{ color: THEME.secondary }}>
+            <Link to="/torchbearers-rewards" className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] transition-opacity hover:opacity-70" style={{ color: THEME.secondary }}>
               <Gift size={13} style={{ color: c.accent }} /> Earn Torch Republic rewards on this purchase
             </Link>
 
@@ -334,14 +334,14 @@ function RitualPDP({ product }) {
                 <div key={t.title} className="flex flex-col items-center gap-1.5 pt-4 text-center">
                   <t.icon size={22} style={{ color: c.accent }} strokeWidth={1.75} />
                   <p className="font-heading text-xs font-bold" style={{ color: THEME.text }}>{t.title}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>{t.body}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>{t.body}</p>
                 </div>
               ))}
             </div>
 
             <div className="flex items-center justify-center gap-3 pt-1">
               <ShareButtons title={`${product.name} — Torch Republic`} url={product.path} />
-              <Link to="/shipping-policy" className="font-mono text-[9px] uppercase tracking-[0.1em] transition-opacity hover:opacity-70" style={{ color: c.accent }}>
+              <Link to="/shipping-policy" className="font-mono text-xs uppercase tracking-[0.1em] transition-opacity hover:opacity-70" style={{ color: c.accent }}>
                 Shipping &amp; returns
               </Link>
             </div>
@@ -358,7 +358,7 @@ function RitualPDP({ product }) {
         subtitle={LIFESTYLE_COPY[product.category].subtitle}
       />
 
-      <PoweredByNature accent={c.accent} />
+      <PoweredByNature accent={c.accent} format={product.format} />
 
       {/* Tabs */}
       <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
@@ -366,7 +366,7 @@ function RitualPDP({ product }) {
           {TABS.map((t) => {
             const active = tab === t;
             return (
-              <button key={t} onClick={() => setTab(t)} className="whitespace-nowrap pb-3 font-mono text-[10px] uppercase tracking-[0.22em] transition-all" style={{ color: active ? c.deep : THEME.secondary, borderBottom: `2px solid ${active ? c.accent : 'transparent'}`, background: 'none', cursor: 'pointer' }}>
+              <button key={t} onClick={() => setTab(t)} className="whitespace-nowrap pb-3 font-mono text-xs uppercase tracking-[0.1em] transition-all" style={{ color: active ? c.deep : THEME.secondary, borderBottom: `2px solid ${active ? c.accent : 'transparent'}`, background: 'none', cursor: 'pointer' }}>
                 {t}
               </button>
             );
@@ -378,15 +378,15 @@ function RitualPDP({ product }) {
               <p>{INGREDIENTS[product.category]}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
-                  { label: product.seasonal ? 'Weight' : 'Servings', value: product.seasonal ? product.weight : `${product.servings} per pouch` },
-                  { label: 'Serving size', value: product.seasonal ? '2 tbsp ground' : '1 scoop' },
+                  { label: product.format === 'Whole Bean' ? 'Weight' : 'Servings', value: product.format === 'Whole Bean' ? product.weight : `${product.servings} per pouch` },
+                  { label: 'Serving size', value: product.format === 'Whole Bean' ? '2 tbsp ground' : '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
-                  { label: 'Format', value: product.seasonal ? 'Whole bean' : 'Instant - no machine needed' },
+                  { label: 'Format', value: product.format === 'Whole Bean' ? 'Whole bean' : 'Instant - no machine needed' },
                   ...(product.mushrooms ? [{ label: 'Functional ingredients', value: product.mushrooms }] : []),
-                  { label: 'Preparation', value: product.seasonal ? 'Grind and brew' : 'Hot or iced' },
+                  { label: 'Preparation', value: product.format === 'Whole Bean' ? 'Grind and brew' : 'Hot or iced' },
                 ].map((row) => (
                   <div key={row.label} className="flex items-baseline gap-3">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] flex-shrink-0" style={{ color: THEME.secondary, minWidth: '120px' }}>
+                    <span className="font-mono text-xs uppercase tracking-[0.08em] flex-shrink-0" style={{ color: THEME.secondary, minWidth: '120px' }}>
                       {row.label}
                     </span>
                     <span className="font-heading text-sm" style={{ color: THEME.text }}>
@@ -450,7 +450,7 @@ function RitualPDP({ product }) {
       {product.format === 'Whole Bean' && (
         <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10">
           <div className="text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: c.deep }}>A Seasonal Departure</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: c.deep }}>A Seasonal Departure</p>
             <h2 className="mt-3 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', color: THEME.text }}>From the instant ritual to fresh whole beans.</h2>
             <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: THEME.secondary, lineHeight: 1.7 }}>
               Our core lineup is instant — scoop, stir, sip. This limited Halloween drop is a different kind of morning: fresh whole beans, pumpkin spice warmth, and a brewer of your choosing. One batch, one season.
@@ -474,7 +474,7 @@ function RitualPDP({ product }) {
       <section className="px-6 py-14 md:px-10" style={{ borderTop: `1px solid ${THEME.border}` }}>
         <div className="mx-auto max-w-[1100px]">
           <div className="mb-8 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: c.deep }}>Try another ritual</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: c.deep }}>Try another ritual</p>
             <h2 className="mt-2 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', color: THEME.text }}>You may also like</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -494,7 +494,7 @@ function RitualPDP({ product }) {
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
             <p className="truncate font-serif text-sm font-bold" style={{ color: THEME.text }}>{product.name}</p>
-            <p className="font-mono text-[10px]" style={{ color: c.deep }}>${(unitPrice * qty).toFixed(2)}{isSubscription ? ' · Subscribe & Save' : ''}</p>
+            <p className="font-mono text-xs" style={{ color: c.deep }}>${(unitPrice * qty).toFixed(2)}{isSubscription ? ' · Subscribe & Save' : ''}</p>
           </div>
           <div className="flex items-center" style={{ border: `1px solid ${THEME.border}`, borderRadius: 8, overflow: 'hidden', flexShrink: 0 }}>
             <button onClick={() => setQty((q) => Math.max(1, q - 1))} style={{ width: 38, height: 42, color: THEME.text, background: 'none', border: 'none' }} aria-label="Decrease quantity"><Minus size={13} /></button>

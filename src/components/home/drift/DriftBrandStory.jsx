@@ -5,7 +5,7 @@ import { useDriftMotion, isMobile } from './useDriftMotion';
 const STORY_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e56a2a991_IMG_20260923_102242.png';
 
 const PRINCIPLES = [
-  { label: 'Intentionally Simple', body: 'Two products, chosen with care.' },
+  { label: 'Intentionally Simple', body: 'Two signature instant coffees, plus seasonal releases.' },
   { label: 'Real, Clean Ingredients', body: 'Single-origin coffee and clearly listed ingredients.' },
   { label: 'Made for Daily Life', body: 'Premium quality built around everyday routines.' },
 ];
@@ -56,7 +56,7 @@ export default function DriftBrandStory() {
               <span className="brand-line" style={{ display: 'block' }}>complicated.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '44ch' }}>
-              Torch Republic makes two simple daily rituals &mdash; designed to be easy to love and easy to trust.
+              Torch Republic makes two signature instant coffees &mdash; designed to be easy to love and easy to trust. Seasonal releases join the lineup throughout the year.
             </p>
             <div className="brand-principles flex flex-col gap-5">
               {PRINCIPLES.map((p) => (

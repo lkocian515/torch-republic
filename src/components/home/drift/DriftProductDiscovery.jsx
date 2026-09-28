@@ -11,7 +11,7 @@ import TiltContainer from './TiltContainer';
 function ProductInfo({ product, index, addItem, isAdding }) {
   return (
     <div className="pd-info min-w-0">
-      <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 0.75rem' }}>
+      <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 0.75rem' }}>
         0{index} / {product.ritualKey}
       </p>
       <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.5rem, 2.6vw, 2rem)', color: D.ink, margin: '0 0 0.5rem' }}>{product.name}</h3>
@@ -19,7 +19,7 @@ function ProductInfo({ product, index, addItem, isAdding }) {
       <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.65, color: D.secondary, margin: '0 0 1.25rem', maxWidth: '42ch' }}>{product.description}</p>
       <div className="flex flex-wrap gap-2 mb-5">
         {product.flavorNotes.map((tag) => (
-          <span key={tag} style={{ fontFamily: MONO, fontSize: '0.625rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, padding: '0.3rem 0.65rem', borderRadius: '4px', background: D.surface, color: D.ink, border: `1px solid ${D.rule}` }}>{tag}</span>
+          <span key={tag} style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, padding: '0.3rem 0.65rem', borderRadius: '4px', background: D.surface, color: D.ink, border: `1px solid ${D.rule}` }}>{tag}</span>
         ))}
       </div>
       <div className="flex items-baseline gap-3 mb-1">
@@ -79,7 +79,7 @@ export default function DriftProductDiscovery() {
       <div className="mx-auto max-w-[1200px] px-6 pt-12 pb-14 md:py-20">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
-          <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>Find Your Morning</p>
+          <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>Find Your Morning</p>
           <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two rituals. One easy morning.</h2>
         </div>
 

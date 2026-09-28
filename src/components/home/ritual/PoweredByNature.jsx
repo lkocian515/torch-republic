@@ -1,29 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Leaf, Recycle, Coffee, Plane } from 'lucide-react';
+import { Leaf, Recycle, Coffee, Plane, Scale, Sparkles, SlidersHorizontal } from 'lucide-react';
 
-const BENEFITS = [
+const INSTANT_BENEFITS = [
   { icon: Leaf, title: 'Natural ingredients', body: 'Real, clean ingredients in every cup — nothing artificial, ever.' },
   { icon: Recycle, title: 'No pods, no capsules', body: 'No pods, no capsules, no single-use plastic. Just one pouch — nothing to discard but the bag.' },
   { icon: Coffee, title: 'No machine needed', body: 'Just add hot water. No brewer, grinder, or cleanup — ever.' },
   { icon: Plane, title: 'Made for on the go', body: 'Toss it in your bag — your daily ritual travels wherever you do.' },
 ];
 
-export default function PoweredByNature({ accent = '#B7653E' }) {
+const WHOLE_BEAN_BENEFITS = [
+  { icon: Coffee, title: 'Whole-bean format', body: 'Grind before brewing.' },
+  { icon: Scale, title: 'Your preferred brew', body: 'Prepare using equipment suitable for ground coffee.' },
+  { icon: Sparkles, title: 'Seasonal flavor', body: 'A pumpkin spice release for autumn mornings.' },
+  { icon: SlidersHorizontal, title: 'Make it your ritual', body: 'Adjust your grind and brewing method to your taste.' },
+];
+
+export default function PoweredByNature({ accent = '#B7653E', format }) {
+  const isWholeBean = format === 'Whole Bean';
+  const benefits = isWholeBean ? WHOLE_BEAN_BENEFITS : INSTANT_BENEFITS;
+  const eyebrow = isWholeBean ? 'A Seasonal Departure' : 'Powered by Nature';
+  const heading = isWholeBean
+    ? 'Whole beans. Warm spice. Your favorite brew.'
+    : 'Real ingredients. No machine. No plastic.';
+  const body = isWholeBean
+    ? 'Our seasonal Pumpkin Spice coffee comes as whole beans. Grind for your preferred brewing method, then brew and enjoy.'
+    : 'Every cup starts with nature — clean, natural ingredients you can trust. No pods to throw away, no machine to clean, no compromise. Just your ritual, anywhere.';
+
   return (
     <section style={{ background: '#FBF8F1', padding: 'clamp(56px, 8vw, 96px) 24px' }}>
       <div className="mx-auto max-w-[1100px]">
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.4em] sm:text-xs" style={{ color: accent }}>Powered by Nature</p>
+          <p className="font-mono text-xs uppercase tracking-[0.18em]" style={{ color: accent }}>{eyebrow}</p>
           <h2 className="mt-3 font-serif font-bold" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', color: '#292622', lineHeight: 1.12, textWrap: 'balance' }}>
-            Real ingredients. No machine. No plastic.
+            {heading}
           </h2>
           <p className="mx-auto mt-3 max-w-xl font-heading" style={{ fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', color: '#5F574F', lineHeight: 1.7 }}>
-            Every cup starts with nature — clean, natural ingredients you can trust. No pods to throw away, no machine to clean, no compromise. Just your ritual, anywhere.
+            {body}
           </p>
         </motion.div>
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {BENEFITS.map((b, i) => (
+          {benefits.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 16 }}

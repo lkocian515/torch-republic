@@ -100,16 +100,10 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
     );
   }
 
-  // Error state — keep Buy once available
-  if (error) {
-    return (
-      <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: '#5F574F' }}>
-        Monthly delivery is temporarily unavailable. Please try again.
-      </p>
-    );
-  }
-
-  // No selling plans — render nothing (Buy once is the only option)
+  // Error or no selling plans — render nothing (Buy once is the only option).
+  // The parent component defaults to one-time purchase, so no fallback UI is needed.
+  // Do not show misleading "subscription unavailable" messaging — if the API call
+  // fails, the product simply has no subscription option available.
   if (!data?.hasSellingPlans) {
     return null;
   }
@@ -143,7 +137,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         </span>
         <div className="flex-1">
           <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>Buy once</p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
+          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
             ${oneTimePrice.toFixed(2)} &middot; No recurring charge
           </p>
         </div>
@@ -172,7 +166,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
           <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>
             {allocation.sellingPlanName || 'Deliver every month'}
           </p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
+          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
             ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` &middot; Save ${savingsPercent}%` : ''} &middot; Renews automatically &middot; Cancel anytime
           </p>
         </div>
@@ -180,7 +174,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
 
       {/* Recurring billing terms — always visible so customers know exactly what they are subscribing to */}
       <div className="rounded-md p-3" style={{ background: `${accent}06`, border: `1px solid ${accent}20` }}>
-        <p className="font-mono text-[8px] uppercase tracking-[0.2em] mb-1.5" style={{ color: accent }}>
+        <p className="font-mono text-[11px] uppercase tracking-[0.1em] mb-1.5" style={{ color: accent }}>
           Recurring Billing Terms
         </p>
         <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.65 }}>

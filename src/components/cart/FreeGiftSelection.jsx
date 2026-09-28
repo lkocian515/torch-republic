@@ -52,7 +52,7 @@ export default function FreeGiftSelection() {
               <p className="font-heading text-xs font-bold" style={{ color: isSelected ? '#FBF8F1' : INK }}>
                 {gift.name}
               </p>
-              <p className="font-mono text-[7px] tracking-[0.1em] uppercase mt-1" style={{ color: isSelected ? 'rgba(251,248,241,0.8)' : MUTED }}>
+              <p className="font-mono text-[10px] tracking-[0.1em] uppercase mt-1" style={{ color: isSelected ? 'rgba(251,248,241,0.8)' : MUTED }}>
                 Free
               </p>
             </button>
