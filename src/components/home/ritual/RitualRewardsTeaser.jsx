@@ -31,7 +31,7 @@ export default function RitualRewardsTeaser() {
             every recurring order.
           </p>
           <Link to="/torchbearers-rewards" className="btn btn-primary mt-7" style={{ minWidth: '200px' }}>
-            Explore Rewards
+            Explore Torchbearer Rewards
           </Link>
         </motion.div>
       </div>

@@ -24,7 +24,7 @@ const SUB_FAQ = [
   { q: 'Can I change my delivery date?', a: 'Yes — you can move it earlier or later anytime in your account before the shipment processes. Full flexibility, no phone calls needed.' },
   { q: 'Can I skip a shipment?', a: 'Yes. Just skip a delivery instead of canceling. Your subscription stays active and resumes the following cycle.' },
   { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee and classic coffee however you like.' },
-  { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearers Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
+  { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearer Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
   { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
   { q: 'How many bags can I subscribe to?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
 ];

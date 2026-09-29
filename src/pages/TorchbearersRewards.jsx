@@ -11,8 +11,8 @@ const BODY = '#6A5A4A';
 
 export default function TorchbearersRewards() {
   useSEO({
-    title: 'Torchbearers Rewards | Torch Republic',
-    description: 'Torchbearers Rewards program details are being finalized. Join the waitlist to be notified when the program launches.',
+    title: 'Torchbearer Rewards | Torch Republic',
+    description: 'Torchbearer Rewards program details are being finalized. Join the waitlist to be notified when the program launches.',
     url: '/torchbearers-rewards',
   });
 
@@ -30,7 +30,7 @@ export default function TorchbearersRewards() {
           </div>
 
           <p className="font-mono text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: CLAY }}>
-            Torchbearers Rewards
+            Torchbearer Rewards
           </p>
 
           <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: TEXT, lineHeight: 1.15 }}>

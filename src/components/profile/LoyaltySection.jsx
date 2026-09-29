@@ -206,7 +206,7 @@ export default function LoyaltySection({ user }) {
 
         {/* Rewards grid */}
         <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: SECONDARY }}>
-          Redeem Rewards
+          Redeem Torchbearer Rewards
         </p>
         <div className="space-y-2.5">
           {REWARDS.map(reward => {

@@ -19,7 +19,7 @@ const SEO_BY_PATH = {
   '/build-your-ritual': ['Shop Instant Coffee & Mushroom Coffee | Torch Republic', 'Explore Torch Republic\u2019s current two-product coffee collection.'],
   '/how-it-works': ['How Torch Republic Works', 'Learn how Torch Republic instant coffee and mushroom coffee prepare quickly while supporting practical daily routines.'],
   '/reviews': ['Torch Republic Customer Reviews | Coffee & Mushroom Coffee', 'Read customer experiences with Torch Republic instant coffee, mushroom coffee, and everyday beverage rituals.'],
-  '/torchbearers-rewards': ['Torchbearers Rewards Program', 'Learn how Torchbearers Rewards helps customers earn points, redeem discounts, and get more value from daily coffee rituals.'],
+  '/torchbearers-rewards': ['Torchbearer Rewards Program', 'Learn how Torchbearer Rewards helps customers earn points, redeem discounts, and get more value from daily coffee rituals.'],
   '/subscription': ['Coffee Subscription Updates | Torch Republic', 'Join the Torch Republic email list for updates when coffee subscriptions become available.'],
   '/our-story': ['Our Story | Torch Republic Coffee Company', 'Learn why Torch Republic creates premium instant coffee and functional mushroom coffee for more intentional daily rituals.'],
   '/mission': ['Our Story | Torch Republic Coffee Company', 'Learn why Torch Republic creates premium instant coffee and functional mushroom coffee for more intentional daily rituals.'],

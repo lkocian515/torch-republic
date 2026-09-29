@@ -157,7 +157,7 @@ export default function LoyaltyDashboard({ user, pointsData }) {
           className="inline-block font-mono text-[10px] tracking-[0.22em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90"
           style={{ background: RG, color: '#080808' }}
         >
-          View All Rewards
+          View All Torchbearer Rewards
         </a>
       </div>
     </div>

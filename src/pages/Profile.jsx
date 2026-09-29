@@ -167,7 +167,7 @@ export default function Profile() {
               </div>
               <div>
                 <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
-                  Torchbearers Rewards
+                  Torchbearer Rewards
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
                   Learn about loyalty tiers {'&'} benefits

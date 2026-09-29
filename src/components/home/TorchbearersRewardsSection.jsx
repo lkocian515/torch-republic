@@ -19,11 +19,11 @@ export default function TorchbearersRewardsSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <Flame className="w-5 h-5" style={{ color: RG }} />
             <p className="font-mono text-[11px] tracking-[0.3em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
-              Torchbearers Rewards
+              Torchbearer Rewards
             </p>
           </div>
           <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
-            Carry the Flame. Earn the Rewards.
+            Carry the Flame. Earn Torchbearer Rewards.
           </h2>
           <p className="font-heading max-w-2xl mx-auto mb-8"
             style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.7)', fontWeight: 300, lineHeight: 1.85 }}>

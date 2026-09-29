@@ -13,7 +13,7 @@ const groups = [
   },
   {
     title: 'Help',
-    links: [['Contact', '/contact'], ['Shipping Policy', '/shipping-policy'], ['Return Policy', '/return-policy'], ['Torchbearers Rewards', '/torchbearers-rewards']],
+    links: [['Contact', '/contact'], ['Shipping Policy', '/shipping-policy'], ['Return Policy', '/return-policy'], ['Torchbearer Rewards', '/torchbearers-rewards']],
   },
   {
     title: 'Legal',
