@@ -11,26 +11,12 @@ const ENTRIES = [
     title: 'Applied product and e-commerce QA',
     body: 'Built and tested a custom Base44/React storefront integrated with Shopify. Practical work includes customer-journey testing, responsive QA, metadata review, analytics configuration, troubleshooting, and commerce-flow validation.',
   },
-  {
-    title: 'Document quality and legal support',
-    body: 'Former remote freelance paralegal with experience in legal research, document review, source verification, structured documentation, and detail-sensitive work.',
-  },
-  {
-    title: 'Published authorship',
-    body: `Author of "You Can't Fix Them, So Stop Trying." Experience includes long-form research, developmental editing, structural consistency, publishing workflows, and translating complex subjects into accessible language.`,
-  },
-];
-
-const TOOLS = [
-  { label: 'AI evaluation', items: 'Output review \u00b7 Prompt testing \u00b7 Instruction adherence \u00b7 Content evaluation' },
-  { label: 'QA', items: 'Defect documentation \u00b7 Regression testing \u00b7 Source verification \u00b7 Responsive testing' },
-  { label: 'Platforms', items: 'Base44 \u00b7 Shopify \u00b7 React \u00b7 GA4 \u00b7 Google Search Console' },
 ];
 
 export default function Background() {
   return (
     <section
-      id="background"
+      id="experience"
       style={{
         background: P.surface,
         borderTop: `1px solid ${P.rule}`,
@@ -42,8 +28,8 @@ export default function Background() {
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
-          eyebrow="Professional background"
-          heading="Experience built around accuracy, judgment, and clear communication"
+          eyebrow="Experience"
+          heading="Relevant experience and tools"
         />
 
         <div className="grid gap-4 md:grid-cols-2 mb-6">
@@ -115,67 +101,54 @@ export default function Background() {
               margin: 0,
             }}
           >
-            Member of the Alignerr network for AI content evaluation, including output review,
-            instruction adherence, error identification, and structured feedback.
+            Member of the Alignerr network for AI content evaluation, covering output review, instruction
+            adherence, error identification, and structured feedback. Network membership is not an
+            employment relationship and does not confirm specific assignments or completed client work.
           </p>
         </div>
 
-        {/* Tools */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.5rem', marginBottom: '1.5rem' }}>
-          {TOOLS.map((t) => (
-            <div key={t.label}>
-              <p
-                style={{
-                  fontFamily: FONT_MONO,
-                  fontSize: '0.62rem',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  fontWeight: 600,
-                  color: P.muted,
-                  margin: '0 0 0.35rem',
-                }}
-              >
-                {t.label}
-              </p>
-              <p
-                style={{
-                  fontFamily: FONT_SANS,
-                  fontSize: '0.85rem',
-                  color: P.secondary,
-                  margin: 0,
-                  lineHeight: 1.5,
-                }}
-              >
-                {t.items}
-              </p>
-            </div>
-          ))}
+        {/* Tools — one compact section */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <p
+            style={{
+              fontFamily: FONT_MONO,
+              fontSize: '0.62rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              color: P.muted,
+              margin: '0 0 0.4rem',
+            }}
+          >
+            Tools
+          </p>
+          <p
+            style={{
+              fontFamily: FONT_SANS,
+              fontSize: '0.9rem',
+              color: P.secondary,
+              margin: 0,
+              lineHeight: 1.6,
+            }}
+          >
+            Base44 &middot; Shopify &middot; React &middot; GA4 &middot; Google Search Console
+          </p>
         </div>
-
-        <p
-          style={{
-            fontFamily: FONT_SANS,
-            fontSize: '0.82rem',
-            color: P.muted,
-            margin: '0 0 1.5rem',
-            fontStyle: 'italic',
-            maxWidth: '600px',
-          }}
-        >
-          QA and evaluation are my primary strengths. Development technologies reflect practical working
-          knowledge gained through hands-on product implementation.
-        </p>
 
         <p
           style={{
             fontFamily: FONT_SANS,
             fontSize: '0.85rem',
-            color: P.secondary,
+            color: P.muted,
             margin: 0,
             lineHeight: 1.6,
+            fontStyle: 'italic',
           }}
         >
-          Current professional development includes AWS AI Practitioner exam preparation.
+          Development technologies reflect practical working knowledge gained through hands-on product
+          implementation, not advanced software engineering or automated testing certifications.
+          Current professional development includes AWS AI Practitioner exam preparation (exam
+          preparation, not a completed certification).
         </p>
       </div>
     </section>

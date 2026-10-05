@@ -5,25 +5,25 @@ import SectionHeading from './SectionHeading';
 const CARDS = [
   {
     title: 'AI output evaluation',
-    body: 'Reviewing generated content for factual accuracy, instruction adherence, internal consistency, unsupported claims, and user impact.',
-    terms: 'Output review \u00b7 Guideline adherence \u00b7 Error identification',
+    body: 'Reviewing generated content for instruction adherence, factual support, internal consistency, and comparative quality across outputs.',
+    terms: 'Instruction adherence \u00b7 Factual support \u00b7 Consistency \u00b7 Comparative review',
   },
   {
-    title: 'Content and document QA',
-    body: 'Validating source material, terminology, metadata, formatting, and complex documents where accuracy and consistency matter.',
-    terms: 'Source verification \u00b7 Content review \u00b7 Documentation',
+    title: 'Content quality',
+    body: 'Validating source material, clarity, terminology, and unsupported claims where accuracy and consistency matter.',
+    terms: 'Source verification \u00b7 Clarity \u00b7 Terminology \u00b7 Unsupported claims',
   },
   {
-    title: 'Product and workflow testing',
-    body: 'Testing responsive interfaces, cart and checkout behavior, error states, integrations, and complete customer journeys.',
-    terms: 'Functional QA \u00b7 Regression testing \u00b7 E-commerce workflows',
+    title: 'Product QA',
+    body: 'Testing customer journeys, responsive interfaces, cart behavior, error states, and documenting defects with clear evidence.',
+    terms: 'Customer journeys \u00b7 Responsive interfaces \u00b7 Cart behavior \u00b7 Error states \u00b7 Defect documentation',
   },
 ];
 
 export default function SelectedExpertise() {
   return (
     <section
-      id="expertise"
+      id="capabilities"
       style={{
         background: P.surface,
         borderTop: `1px solid ${P.rule}`,
@@ -35,8 +35,9 @@ export default function SelectedExpertise() {
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
-          heading="Selected expertise"
-          intro="Focused quality review across AI-generated content, complex documents, and customer-facing digital products."
+          eyebrow="Core capabilities"
+          heading="What I review and test"
+          intro="Focused quality review across AI-generated content, written material, and customer-facing digital products."
         />
         <div className="grid gap-5 md:grid-cols-3">
           {CARDS.map((c) => (
@@ -79,7 +80,7 @@ export default function SelectedExpertise() {
                   letterSpacing: '0.06em',
                   color: P.muted,
                   margin: 0,
-                  lineHeight: 1.5,
+                  lineHeight: 1.6,
                 }}
               >
                 {c.terms}

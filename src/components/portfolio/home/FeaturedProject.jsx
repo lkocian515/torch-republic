@@ -3,6 +3,24 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LIVE_STORE, caseStudyUrl } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
 
+const PREVIEWS = [
+  {
+    label: 'Cart behavior and customer feedback',
+    body: 'How a silent Add to Cart failure was investigated and the cart flow made to confirm customer actions.',
+    anchor: 'defect-cart',
+  },
+  {
+    label: 'Product-price consistency',
+    body: 'Aligning cart line prices with Shopify selling-plan discounts so customers see one price throughout.',
+    anchor: 'defect-pricing',
+  },
+  {
+    label: 'Portfolio metadata accuracy',
+    body: 'Correcting stale brand references, canonical URLs, and structured-data types in the portfolio head.',
+    anchor: 'defect-metadata',
+  },
+];
+
 export default function FeaturedProject() {
   return (
     <section
@@ -16,10 +34,11 @@ export default function FeaturedProject() {
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
-          eyebrow="Featured project"
+          eyebrow="Selected work"
           heading="Torch Republic commerce application"
-          intro="A custom direct-to-consumer storefront built with Base44 and React and connected to Shopify's commerce infrastructure."
+          intro="A functioning Base44/React application integrated with Shopify, built through AI-assisted implementation, manual review, troubleshooting, and QA."
         />
+
         <div className="grid gap-6 md:grid-cols-[2fr_3fr]">
           {/* Metadata column */}
           <div
@@ -32,7 +51,7 @@ export default function FeaturedProject() {
           >
             <div style={{ marginBottom: '1.25rem' }}>
               <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.muted, margin: '0 0 0.4rem' }}>Role</p>
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', color: P.ink, margin: 0, lineHeight: 1.5 }}>Founder &middot; Product builder &middot; E-commerce QA</p>
+              <p style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', color: P.ink, margin: 0, lineHeight: 1.5 }}>Product owner &middot; Requirements &middot; AI-assisted implementation review &middot; QA</p>
             </div>
             <div style={{ marginBottom: '1.25rem' }}>
               <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.muted, margin: '0 0 0.4rem' }}>Systems</p>
@@ -41,7 +60,7 @@ export default function FeaturedProject() {
             <div>
               <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.muted, margin: '0 0 0.4rem' }}>Scope</p>
               <p style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', color: P.ink, margin: 0, lineHeight: 1.55 }}>
-                Product requirements, AI-assisted implementation, content systems, responsive testing, commerce QA, defect investigation, and iterative improvement.
+                Requirements definition, AI-assisted implementation, review and validation, troubleshooting, defect investigation, and hands-on QA.
               </p>
             </div>
           </div>
@@ -49,39 +68,45 @@ export default function FeaturedProject() {
           {/* Summary column */}
           <div>
             <p style={{ fontFamily: FONT_SANS, fontSize: '0.975rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
-              I developed Torch Republic from an early brand concept into a functioning commerce application.
-              The work required translating business requirements into testable instructions, reviewing
-              AI-assisted implementations, validating customer workflows, and resolving defects across
-              product data, cart behavior, checkout, responsive layouts, content, and metadata.
+              Torch Republic is a direct-to-consumer storefront built with Base44 and React and connected
+              to Shopify&rsquo;s commerce infrastructure. My role covered translating business requirements
+              into testable instructions, reviewing AI-assisted implementations, validating customer
+              workflows, troubleshooting defects, and documenting issues across product data, cart
+              behavior, responsive layouts, content, and metadata.
             </p>
 
-            {/* Reusable commerce structure callout */}
-            <div
-              style={{
-                padding: '1rem 1.25rem',
-                border: `1px solid ${P.rule}`,
-                borderLeft: `3px solid ${P.accent}`,
-                borderRadius: '4px',
-                background: P.accentSoft,
-                marginBottom: '1.5rem',
-              }}
-            >
-              <p style={{ fontFamily: FONT_MONO, fontSize: '0.62rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.accentInk, margin: '0 0 0.4rem' }}>
-                Reusable commerce structure
-              </p>
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.6, color: P.secondary, margin: 0 }}>
-                Built on a modular commerce structure that can support new products, catalog changes,
-                and adaptation for other direct-to-consumer storefronts. Reusable product, cart, content,
-                analytics, and Shopify integration patterns reduce the need to rebuild the core customer
-                journey for each new implementation.
-              </p>
+            {/* Three QA previews */}
+            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: P.muted, margin: '0 0 0.75rem' }}>
+              QA focus areas
+            </p>
+            <div className="flex flex-col gap-3 mb-5">
+              {PREVIEWS.map((p) => (
+                <a
+                  key={p.anchor}
+                  href={`${caseStudyUrl()}#${p.anchor}`}
+                  style={{
+                    display: 'block',
+                    padding: '1rem 1.25rem',
+                    border: `1px solid ${P.rule}`,
+                    borderLeft: `3px solid ${P.accent}`,
+                    borderRadius: '4px',
+                    background: P.surface,
+                    textDecoration: 'none',
+                  }}
+                >
+                  <p style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9rem', color: P.ink, margin: '0 0 0.25rem' }}>
+                    {p.label}
+                  </p>
+                  <p style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', lineHeight: 1.55, color: P.secondary, margin: 0 }}>
+                    {p.body}
+                  </p>
+                </a>
+              ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 mb-5">
+            <div className="flex flex-wrap gap-3">
               <a
-                href={LIVE_STORE}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={caseStudyUrl()}
                 style={{
                   fontFamily: FONT_SANS,
                   fontWeight: 600,
@@ -96,10 +121,12 @@ export default function FeaturedProject() {
                   gap: '0.4rem',
                 }}
               >
-                <ExternalLink size={14} /> View live application
+                View full case study <ArrowRight size={14} />
               </a>
               <a
-                href={caseStudyUrl()}
+                href={LIVE_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontFamily: FONT_SANS,
                   fontWeight: 600,
@@ -114,7 +141,7 @@ export default function FeaturedProject() {
                   gap: '0.4rem',
                 }}
               >
-                Read full case study <ArrowRight size={14} />
+                <ExternalLink size={14} /> Live application
               </a>
             </div>
             <p
@@ -122,7 +149,7 @@ export default function FeaturedProject() {
                 fontFamily: FONT_SANS,
                 fontSize: '0.82rem',
                 color: P.muted,
-                margin: 0,
+                margin: '1rem 0 0',
                 lineHeight: 1.55,
                 fontStyle: 'italic',
                 maxWidth: '500px',
@@ -133,11 +160,6 @@ export default function FeaturedProject() {
             </p>
           </div>
         </div>
-
-        {/* CURRENT SCREENSHOT REQUIRED — lead screenshot + 2-column gallery.
-            Hidden until verified current screenshots are supplied.
-            See InterfaceGallery.jsx (case study) for the full list of
-            required screenshots and recommended dimensions. */}
       </div>
     </section>
   );

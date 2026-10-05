@@ -52,7 +52,7 @@ export default function Hero() {
           >
             AI Quality Assurance &amp; Content Evaluation Specialist
           </p>
-          <p
+          <blockquote
             style={{
               fontFamily: FONT_SANS,
               fontSize: '1.05rem',
@@ -60,12 +60,15 @@ export default function Hero() {
               color: P.secondary,
               margin: '0 0 2.25rem',
               maxWidth: '620px',
+              borderLeft: `3px solid ${P.accent}`,
+              paddingLeft: '1.1rem',
+              fontStyle: 'italic',
             }}
           >
-            I evaluate AI-generated content, test digital workflows, and document defects with clear,
-            actionable evidence. My background combines AI output review, document-intensive legal work,
-            published authorship, and hands-on QA of a Shopify-integrated commerce application.
-          </p>
+            &ldquo;I evaluate AI-generated content, test digital workflows, and document issues with
+            clear, actionable evidence. My work focuses on accuracy, instruction adherence, and reliable
+            user experiences.&rdquo;
+          </blockquote>
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={caseStudyUrl()}
@@ -84,7 +87,7 @@ export default function Hero() {
                 transition: 'background .2s',
               }}
             >
-              Read case study <ArrowRight size={15} />
+              View QA Case Study <ArrowRight size={15} />
             </a>
             <a
               href="#contact"
@@ -104,7 +107,7 @@ export default function Hero() {
                 transition: 'border-color .2s',
               }}
             >
-              <Mail size={15} /> Contact me
+              <Mail size={15} /> Contact Me
             </a>
             <a
               href={LINKEDIN}
@@ -112,17 +115,18 @@ export default function Hero() {
               rel="noopener noreferrer"
               style={{
                 fontFamily: FONT_SANS,
-                fontWeight: 600,
-                fontSize: '0.9rem',
-                color: P.accent,
-                padding: '0.65rem 0.5rem',
+                fontWeight: 500,
+                fontSize: '0.85rem',
+                color: P.muted,
+                padding: '0.65rem 0.4rem',
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.35rem',
+                gap: '0.3rem',
               }}
+              aria-label="LinkedIn profile"
             >
-              <Linkedin size={15} /> LinkedIn
+              <Linkedin size={14} /> LinkedIn
             </a>
           </div>
         </div>

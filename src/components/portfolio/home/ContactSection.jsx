@@ -26,7 +26,7 @@ export default function ContactSection() {
             letterSpacing: '-0.01em',
           }}
         >
-          Looking for someone who catches issues before they reach users?
+          Let&rsquo;s talk about AI quality and content evaluation.
         </h2>
         <p
           style={{
@@ -38,8 +38,7 @@ export default function ContactSection() {
             maxWidth: '560px',
           }}
         >
-          I am interested in opportunities involving AI quality assurance, content evaluation, prompt
-          testing, document quality, e-commerce QA, and digital product review.
+          For opportunities in AI evaluation, content review, and digital product QA, contact me by email.
         </p>
         <div className="flex flex-col items-center gap-3">
           <a
@@ -59,52 +58,38 @@ export default function ContactSection() {
               transition: 'background .2s',
             }}
           >
-            <Mail size={16} /> Contact Lisa
+            <Mail size={16} /> {CONTACT_EMAIL}
           </a>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
+          <p
             style={{
               fontFamily: FONT_SANS,
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              color: P.accent,
-              textDecoration: 'none',
+              fontSize: '0.85rem',
+              color: P.secondary,
+              margin: '0.5rem 0 0',
+              lineHeight: 1.6,
             }}
           >
-            {CONTACT_EMAIL}
-          </a>
+            R&eacute;sum&eacute; available by email.
+          </p>
           <a
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
             style={{
               fontFamily: FONT_SANS,
-              fontWeight: 600,
+              fontWeight: 500,
               fontSize: '0.875rem',
-              color: P.secondary,
+              color: P.muted,
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.4rem',
+              marginTop: '0.25rem',
             }}
           >
-            <Linkedin size={14} /> Connect on LinkedIn
+            <Linkedin size={14} /> LinkedIn
           </a>
         </div>
-        <p
-          style={{
-            fontFamily: FONT_SANS,
-            fontSize: '0.8rem',
-            color: P.muted,
-            margin: '2rem auto 0',
-            maxWidth: '480px',
-            lineHeight: 1.6,
-            fontStyle: 'italic',
-          }}
-        >
-          Complete employment history, education, credentials, and references are available to verified
-          employers and recruiters upon request.
-        </p>
       </div>
     </section>
   );
