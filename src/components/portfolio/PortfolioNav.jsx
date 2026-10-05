@@ -3,13 +3,13 @@ import { Menu, X } from 'lucide-react';
 import { P, FONT_SERIF, FONT_MONO, FONT_SANS, portfolioBase } from './portfolioTheme';
 
 const SECTIONS = [
-  { label: 'Expertise', id: 'expertise' },
   { label: 'Work', id: 'work' },
-  { label: 'Background', id: 'background' },
+  { label: 'Capabilities', id: 'capabilities' },
+  { label: 'Experience', id: 'experience' },
   { label: 'Contact', id: 'contact' },
 ];
 
-const ALL_IDS = ['top', 'expertise', 'work', 'evidence', 'background', 'contact'];
+const ALL_IDS = ['top', 'work', 'capabilities', 'experience', 'contact'];
 
 export default function PortfolioNav() {
   const [open, setOpen] = useState(false);

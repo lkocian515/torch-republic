@@ -21,7 +21,7 @@ export default function CaseStudyOverview() {
         <p style={{ fontFamily: FONT_SANS, fontSize: '0.975rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
           A direct-to-consumer coffee storefront built with Base44 and React, connected to Shopify
           for live product information, cart creation, and secure checkout. The application was
-          developed through AI-assisted implementation, manual review, and iterative QA.
+          built and refined through iterative review and QA.
         </p>
         <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', color: P.accentInk, fontWeight: 600, margin: '0 0 1.5rem' }}>
           Role: Founder &middot; Product builder &middot; E-commerce QA

@@ -3,9 +3,8 @@ import { P, FONT_SERIF, FONT_SANS, FONT_MONO } from '../portfolioTheme';
 import SectionHeading from '../home/SectionHeading';
 
 const FEATURES = [
-  { label: 'Core products', value: 'Two instant coffees: Instant Classic Coffee ($22.99) and Instant Mushroom Coffee ($25.99), each with 27 servings per bag' },
-  { label: 'Seasonal release', value: 'Pumpkin Spice Whole Bean Coffee, a limited seasonal product in whole bean format (not instant)' },
-  { label: 'Shopping flow', value: 'Shop page, product detail pages with pricing and preparation instructions, cart, and Shopify-hosted checkout' },
+  { label: 'Core products', value: 'Two instant coffee products with dedicated detail pages, pricing, and preparation instructions' },
+  { label: 'Shopping flow', value: 'Shop page, product detail pages, cart, and Shopify-hosted checkout' },
   { label: 'Content', value: 'Brand story, product comparison, brewing guide, and customer feedback sections' },
   { label: 'Responsive', value: 'Mobile and desktop layouts with adaptive navigation and touch-friendly controls' },
 ];

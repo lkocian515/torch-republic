@@ -111,8 +111,8 @@ export default function PortfolioHome() {
       <PortfolioNav />
       <main>
         <Hero />
-        <SelectedExpertise />
         <FeaturedProject />
+        <SelectedExpertise />
         <Background />
         <ContactSection />
       </main>
