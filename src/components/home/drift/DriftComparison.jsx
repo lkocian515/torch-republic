@@ -4,11 +4,6 @@ import { ArrowRight } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
-const GRANULE_IMAGES = {
-  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9b4c52b8d_generated_image.png',
-  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1a6da0230_file_0000000083a4822fb57a326137688ece.png',
-};
-
 const PRODUCTS = [
   {
     id: 'instant-classic-coffee',
@@ -96,25 +91,6 @@ export default function DriftComparison() {
       delay: 0.1,
     });
 
-    // ── Image clip reveals (fromTo for fail-safety: if selector misses, image stays visible) ──
-    const imgTl = gsap.timeline({
-      scrollTrigger: { trigger: mobileLayout ? '.cmp-m-columns' : '.cmp-d-columns', start: 'top 82%' },
-    });
-
-    if (mobileLayout) {
-      imgTl
-        .fromTo('.cmp-m-img-classic', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' })
-        .fromTo('.cmp-m-img-inner-classic', { scale: 1.04 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0)
-        .fromTo('.cmp-m-img-mushroom', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.0, ease: 'power3.out' }, 0.15)
-        .fromTo('.cmp-m-img-inner-mushroom', { scale: 1.04 }, { scale: 1, duration: 1.0, ease: 'power3.out' }, 0.15);
-    } else {
-      imgTl
-        .fromTo('.cmp-d-img-classic', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' })
-        .fromTo('.cmp-d-img-inner-classic', { scale: 1.04 }, { scale: 1, duration: 1.1, ease: 'power3.out' }, 0)
-        .fromTo('.cmp-d-img-mushroom', { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.out' }, 0.1)
-        .fromTo('.cmp-d-img-inner-mushroom', { scale: 1.04 }, { scale: 1, duration: 1.1, ease: 'power3.out' }, 0.1);
-    }
-
     // ── Labels + names ──
     const labelSel = mobileLayout ? '.cmp-m-label' : '.cmp-d-label';
     gsap.from(labelSel, {
@@ -138,31 +114,7 @@ export default function DriftComparison() {
       });
     });
 
-    // ── Desktop hover + mouse depth ──
-    if (!mobileLayout) {
-      el.querySelectorAll('.cmp-d-img-wrap').forEach((wrap) => {
-        const inner = wrap.querySelector('.cmp-d-img-inner');
-        wrap.addEventListener('mouseenter', () => gsap.to(inner, { scale: 1.025, duration: 0.5, ease: 'power2.out' }));
-        wrap.addEventListener('mouseleave', () => gsap.to(inner, { scale: 1, duration: 0.5, ease: 'power2.out' }));
-      });
 
-      const xToClassic = gsap.quickTo('.cmp-d-img-inner-classic', 'x', { duration: 0.9, ease: 'power3' });
-      const yToClassic = gsap.quickTo('.cmp-d-img-inner-classic', 'y', { duration: 0.9, ease: 'power3' });
-      const xToMushroom = gsap.quickTo('.cmp-d-img-inner-mushroom', 'x', { duration: 0.9, ease: 'power3' });
-      const yToMushroom = gsap.quickTo('.cmp-d-img-inner-mushroom', 'y', { duration: 0.9, ease: 'power3' });
-
-      const onMove = (e) => {
-        const px = e.clientX / window.innerWidth - 0.5;
-        const py = e.clientY / window.innerHeight - 0.5;
-        xToClassic(px * 3);
-        yToClassic(py * 3);
-        xToMushroom(px * 3);
-        yToMushroom(py * 3);
-      };
-
-      el.addEventListener('mousemove', onMove);
-      return () => el.removeEventListener('mousemove', onMove);
-    }
   });
 
   return (
@@ -181,14 +133,10 @@ export default function DriftComparison() {
         {/* ═══ Desktop layout ═══ */}
         <div className="hidden md:block" aria-hidden={mobile}>
           {/* Product columns */}
-          <div className="cmp-d-columns grid grid-cols-2 gap-8 lg:gap-12 mb-12">
+          <div className="cmp-d-columns grid grid-cols-[120px_1fr_1fr] gap-8 mb-8">
+            <div aria-hidden="true" />
             {PRODUCTS.map((p) => (
               <div key={p.id}>
-                <div className="cmp-d-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface, border: D.borderHairline, boxShadow: D.shadowSoft }}>
-                  <div className={`cmp-d-img-inner cmp-d-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
-                    <img className={`cmp-d-img cmp-d-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                  </div>
-                </div>
                 <p className={`cmp-d-label cmp-d-label-${p.id}`} style={{ ...labelStyle, margin: '1.25rem 0 0.5rem' }}>{p.index} / {p.label}</p>
                 <h3 className={`cmp-d-name cmp-d-name-${p.id}`} style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.35rem', color: D.ink, margin: '0 0 0.375rem' }}>{p.name}</h3>
                 <p style={{ fontFamily: SANS, fontSize: '0.875rem', color: D.secondary, margin: 0 }}>{p.descriptor}</p>
@@ -212,7 +160,8 @@ export default function DriftComparison() {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 gap-8 lg:gap-12 mt-8 pt-2">
+          <div className="grid grid-cols-[120px_1fr_1fr] gap-8 mt-8 pt-2">
+            <div aria-hidden="true" />
             {PRODUCTS.map((p) => (
               <div key={p.id}>
                 <ProductLink product={p} />
@@ -226,14 +175,6 @@ export default function DriftComparison() {
           <div className="cmp-m-columns flex flex-col gap-12">
             {PRODUCTS.map((p) => (
               <div key={p.id}>
-                {/* Image */}
-                <div className="cmp-m-img-wrap" style={{ overflow: 'hidden', borderRadius: '10px', aspectRatio: '5 / 4', position: 'relative', background: D.surface, border: D.borderHairline, boxShadow: D.shadowSoft }}>
-                  <div className={`cmp-m-img-inner cmp-m-img-inner-${p.ritualKey}`} style={{ width: '100%', height: '100%', willChange: 'transform' }}>
-                    <img className={`cmp-m-img cmp-m-img-${p.ritualKey}`} src={GRANULE_IMAGES[p.id]} alt={`Macro photography of ${p.name} granules`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                  </div>
-                </div>
-
-                {/* Label + name */}
                 <p className={`cmp-m-label cmp-m-label-${p.id}`} style={{ ...labelStyle, margin: '1rem 0 0.5rem' }}>{p.index} / {p.label}</p>
                 <h3 className={`cmp-m-name cmp-m-name-${p.id}`} style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.25rem', color: D.ink, margin: '0 0 0.375rem' }}>{p.name}</h3>
                 <p style={{ fontFamily: SANS, fontSize: '0.875rem', color: D.secondary, margin: '0 0 1.5rem' }}>{p.descriptor}</p>
