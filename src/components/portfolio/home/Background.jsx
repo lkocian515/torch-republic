@@ -42,6 +42,7 @@ const CERTIFICATIONS = [
   { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: '' },
   { name: 'Career Essentials in Generative AI', org: 'Microsoft', year: '', status: '' },
   { name: 'AI Fundamentals', org: 'IBM', year: '', status: '' },
+  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '', status: '' },
 ];
 
 const thStyle = {
