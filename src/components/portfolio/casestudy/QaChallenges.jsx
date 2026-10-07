@@ -4,28 +4,36 @@ import SectionHeading from '../home/SectionHeading';
 
 const DEFECTS = [
   {
-    id: 'defect-cart',
-    title: 'Add to Cart failure and silent customer state',
-    observation: 'The Add to Cart action failed without updating the cart count or providing customer confirmation. The interface appeared unresponsive.',
-    action: 'Revised the cart flow to provide immediate visual confirmation and preserve local cart state while Shopify synchronization occurred in the background. If the Shopify sync fails, the item remains in the local cart and checkout creates a fresh cart from local state.',
+    id: 'defect-imagery',
+    title: 'Broken product imagery',
+    observation: 'Stale hardcoded image URLs caused broken product image states across product, collection, and gallery views.',
+    action: 'URLs were removed and standardized to verified-working asset sources. Product, collection, and gallery views were then rechecked.',
     evidenceLabel: 'Implementation evidence',
-    result: 'Code review confirms optimistic local updates, immediate confirmation display, background Shopify synchronization, and a checkout path that rebuilds the cart from local state when needed. This establishes what the implementation contains; it does not confirm that every live customer journey passed testing.',
+    result: 'Code review confirms image URLs were replaced with verified Base44 media and Shopify assets. Visual recheck of key views confirmed images render. This establishes what the code contains; it does not confirm every image across every route was verified.',
   },
   {
-    id: 'defect-pricing',
-    title: 'Product-price consistency after selling-plan discounts',
-    observation: 'Local product prices could differ from Shopify-returned prices after selling-plan discounts or price updates, causing customers to see one price in the cart and a different price at checkout.',
-    action: 'Cart line items now display Shopify-confirmed unit prices and line totals when available. Local prices serve as fallback only. Subscription items are validated against their selling-plan allocations before checkout redirect.',
+    id: 'defect-naming',
+    title: 'Legacy product names at checkout',
+    observation: 'Collection pages passed retired catalog data to the cart, causing legacy product names to appear at checkout instead of current names.',
+    action: 'Grids and routes were simplified, retired catalog references were removed, and items were re-added to the cart to confirm current naming throughout the purchase flow.',
     evidenceLabel: 'Implementation evidence',
-    result: 'Code review confirms Shopify price fields on cart items, subscription selling-plan validation in the checkout flow, and error handling for mismatched plans. This describes the code path; end-to-end checkout testing against live Shopify pricing was not documented as a verified outcome.',
+    result: 'Code review confirms a simplified product data flow from current catalog sources to cart line items. Cart re-add testing confirmed current names display. This describes the code path; exhaustive checkout testing across all products was not documented.',
   },
   {
-    id: 'defect-metadata',
-    title: 'Outdated portfolio metadata and structured data',
-    observation: 'Metadata inspection identified stale coffee-brand references, discontinued terms, incorrect canonical URLs, and inappropriate structured-data types in the professional portfolio. The stale references likely originated during AI-assisted implementation, though the exact source was not definitively traced.',
-    action: 'Updated titles, descriptions, social metadata, canonical URLs, and structured data to represent Lisa Marie Kocian as a professional individual. Removed coffee-company schema and replaced it with Person and WebPage schema.',
-    evidenceLabel: 'Inspection finding',
-    result: 'Metadata inspection of the rendered document head confirmed that coffee-company terminology and schema no longer appear in portfolio-wide metadata. This was a metadata inspection, not a confirmed social-media preview render.',
+    id: 'defect-routes',
+    title: 'Discontinued category routes',
+    observation: 'Retired category URLs produced 404 errors or served stale pages, creating poor user experience and crawl issues.',
+    action: '301 redirects and 410 (Gone) responses were added for discontinued apparel, collectible, and category routes. Legacy URLs were then retested to confirm correct redirect behavior.',
+    evidenceLabel: 'Implementation evidence',
+    result: 'Code review confirms redirect and 410 routes are configured for discontinued paths. Retesting confirmed legacy URLs redirect or return 410 as intended. This verifies route configuration; search-engine reindexing was not confirmed.',
+  },
+  {
+    id: 'defect-mobile',
+    title: 'Mobile product hierarchy',
+    observation: 'On mobile, the primary action and key product information risked being hard to identify due to layout hierarchy and spacing.',
+    action: 'Hierarchy, spacing, and responsive behavior were adjusted across breakpoints. Mobile product pages were retested to confirm the primary action and key information are clearly visible.',
+    evidenceLabel: 'Implementation evidence',
+    result: 'Code review confirms adjusted responsive classes and layout hierarchy for mobile breakpoints. Retesting across mobile widths confirmed improved visibility. This describes the implementation; formal multi-device testing was not documented.',
   },
 ];
 
@@ -56,7 +64,7 @@ export default function QaChallenges() {
       <div className="mx-auto max-w-[820px] px-6 md:px-10">
         <SectionHeading
           eyebrow="Selected defects"
-          heading="Three issues investigated and addressed"
+          heading="Four issues investigated and addressed"
           intro="Each entry shows the observation, the action taken, and the type of evidence reviewed. Code review establishes what the implementation contains; it does not by itself confirm that the live customer journey passed testing."
         />
         <div className="flex flex-col gap-5">

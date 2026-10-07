@@ -19,9 +19,11 @@ export default function CaseStudyOverview() {
           heading="Torch Republic commerce application"
         />
         <p style={{ fontFamily: FONT_SANS, fontSize: '0.975rem', lineHeight: 1.7, color: P.secondary, margin: '0 0 1.5rem' }}>
-          A direct-to-consumer coffee storefront built with Base44 and React, connected to Shopify
-          for live product information, cart creation, and secure checkout. The application was
-          built and refined through iterative review and QA.
+          The flagship case study presents the creation and refinement of an AI-assisted e-commerce
+          system built with Base44 and React, connected to Shopify for live product information, cart
+          creation, and secure checkout. The stated challenge was not simply to generate a storefront,
+          but to continuously evaluate generated output against business requirements, catch defects,
+          validate fixes, and improve product, content, navigation, mobile, and conversion experience.
         </p>
         <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', color: P.accentInk, fontWeight: 600, margin: '0 0 1.5rem' }}>
           Role: Founder &middot; Product builder &middot; E-commerce QA

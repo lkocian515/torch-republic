@@ -4,6 +4,14 @@ import SectionHeading from '../home/SectionHeading';
 
 const CATEGORIES = [
   {
+    label: 'Strategy & architecture',
+    items: [
+      'Strategy, requirements, and architecture decisions',
+      'Product taxonomy and content architecture',
+      'Conversion optimization and iterative redesign',
+    ],
+  },
+  {
     label: 'Product decisions',
     items: [
       'Product line definition and pricing structure',

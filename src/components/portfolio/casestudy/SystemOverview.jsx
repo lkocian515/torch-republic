@@ -3,10 +3,13 @@ import { P, FONT_SERIF, FONT_SANS, FONT_MONO } from '../portfolioTheme';
 import SectionHeading from '../home/SectionHeading';
 
 const STEPS = [
-  { num: '01', title: 'Customer interface', body: 'Mobile and desktop browsing experience' },
-  { num: '02', title: 'Base44/React application', body: 'Custom interface, content, customer interactions, and application state' },
-  { num: '03', title: 'Shopify Storefront API', body: 'Live product data, pricing, availability, and cart services' },
-  { num: '04', title: 'Shopify secure checkout', body: 'Payment and order-processing infrastructure' },
+  { num: '1', title: 'Customer', body: 'The end user browsing and purchasing' },
+  { num: '2', title: 'Storefront / UX', body: 'Mobile and desktop browsing experience' },
+  { num: '3', title: 'Product & Content System', body: 'Custom interface, content, customer interactions, and application state' },
+  { num: '4', title: 'Commerce workflows', body: 'Cart and checkout integration' },
+  { num: '5', title: 'Customer / loyalty / subscription', body: 'Post-purchase experience and recurring commerce' },
+  { num: '6', title: 'Analytics & feedback', body: 'Measurement, interpretation, and reporting' },
+  { num: '7', title: 'QA + iteration', body: 'Testing, defect resolution, and continuous improvement' },
 ];
 
 export default function SystemOverview() {
@@ -22,7 +25,7 @@ export default function SystemOverview() {
     >
       <div className="mx-auto max-w-[820px] px-6 md:px-10">
         <SectionHeading eyebrow="System overview" heading="How the application is structured" />
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-4" style={{ alignItems: 'stretch' }}>
           {STEPS.map((step) => (
             <div
               key={step.num}

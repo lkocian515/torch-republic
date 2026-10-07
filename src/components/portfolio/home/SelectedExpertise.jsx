@@ -2,21 +2,36 @@ import React from 'react';
 import { P, FONT_SERIF, FONT_SANS, FONT_MONO } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
 
-const CARDS = [
+const FRAMEWORKS = [
   {
-    title: 'AI output evaluation',
-    body: 'Reviewing generated content for instruction adherence, factual support, internal consistency, and comparative quality across outputs.',
-    terms: 'Instruction adherence \u00b7 Factual support \u00b7 Consistency \u00b7 Comparative review',
+    num: '01',
+    title: 'AI Output Quality & Evaluation',
+    body: 'Output evaluation, accuracy review, consistency, guideline adherence, error identification, hallucination awareness, edge-case thinking, human review, user-impact evaluation.',
   },
   {
-    title: 'Content quality',
-    body: 'Validating source material, clarity, terminology, and unsupported claims where accuracy and consistency matter.',
-    terms: 'Source verification \u00b7 Clarity \u00b7 Terminology \u00b7 Unsupported claims',
+    num: '02',
+    title: 'Prompt Iteration & Model Behavior',
+    body: 'Prompt refinement, comparison testing, instruction clarity, output evaluation, failure-pattern identification, systematic iteration, feedback loops.',
   },
   {
-    title: 'Product QA',
-    body: 'Testing customer journeys, responsive interfaces, cart behavior, error states, and documenting defects with clear evidence.',
-    terms: 'Customer journeys \u00b7 Responsive interfaces \u00b7 Cart behavior \u00b7 Error states \u00b7 Defect documentation',
+    num: '03',
+    title: 'E-Commerce UX & Conversion QA',
+    body: 'Product discovery, customer journey, navigation, mobile usability, product presentation, cart behavior, checkout friction, conversion thinking, visual QA, information architecture.',
+  },
+  {
+    num: '04',
+    title: 'AI Workflow Implementation',
+    body: 'Identifying repetitive work, AI-assisted workflows, automation opportunities, content/research workflows, operational efficiency, human-in-the-loop review, implementation testing.',
+  },
+  {
+    num: '05',
+    title: 'Systems & Integration Thinking',
+    body: 'Storefront systems, customer data, analytics, AI tools, marketing workflows, product information, user experience, third-party platforms, interconnected processes.',
+  },
+  {
+    num: '06',
+    title: 'Documentation & Continuous Improvement',
+    body: 'Defect identification, reproducible observations, QA documentation, testing notes, before/after comparison, prioritization, troubleshooting, iteration, actionable recommended fixes.',
   },
 ];
 
@@ -36,13 +51,13 @@ export default function SelectedExpertise() {
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
           eyebrow="Core capabilities"
-          heading="What I review and test"
-          intro="Focused quality review across AI-generated content, written material, and customer-facing digital products."
+          heading="Six capability frameworks"
+          intro="The same iterative evaluation loop applied to both AI-output review and digital-commerce testing."
         />
-        <div className="grid gap-5 md:grid-cols-3">
-          {CARDS.map((c) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {FRAMEWORKS.map((f) => (
             <div
-              key={c.title}
+              key={f.num}
               style={{
                 background: P.paper,
                 border: `1px solid ${P.rule}`,
@@ -50,40 +65,14 @@ export default function SelectedExpertise() {
                 padding: '1.5rem',
               }}
             >
-              <h3
-                style={{
-                  fontFamily: FONT_SERIF,
-                  fontWeight: 700,
-                  fontSize: '1.2rem',
-                  color: P.ink,
-                  margin: '0 0 0.75rem',
-                  lineHeight: 1.3,
-                }}
-              >
-                {c.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: FONT_SANS,
-                  fontSize: '0.925rem',
-                  lineHeight: 1.65,
-                  color: P.secondary,
-                  margin: '0 0 1rem',
-                }}
-              >
-                {c.body}
-              </p>
-              <p
-                style={{
-                  fontFamily: FONT_MONO,
-                  fontSize: '0.64rem',
-                  letterSpacing: '0.06em',
-                  color: P.muted,
-                  margin: 0,
-                  lineHeight: 1.6,
-                }}
-              >
-                {c.terms}
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accent, letterSpacing: '0.08em' }}>{f.num}</span>
+                <h3 style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: '1.15rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>
+                  {f.title}
+                </h3>
+              </div>
+              <p style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.65, color: P.secondary, margin: 0 }}>
+                {f.body}
               </p>
             </div>
           ))}

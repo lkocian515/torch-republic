@@ -50,25 +50,34 @@ export default function Hero() {
               margin: '0 0 1.75rem',
             }}
           >
-            AI Quality Assurance &amp; Content Evaluation Specialist
+            AI QA + E-Commerce Implementation Specialist
           </p>
-          <blockquote
+          <p
             style={{
               fontFamily: FONT_SANS,
+              fontWeight: 600,
               fontSize: '1.05rem',
+              lineHeight: 1.5,
+              color: P.accentInk,
+              margin: '0 0 1.25rem',
+            }}
+          >
+            Testing AI systems. Improving digital workflows. Building better commerce experiences.
+          </p>
+          <p
+            style={{
+              fontFamily: FONT_SANS,
+              fontSize: '1rem',
               lineHeight: 1.7,
               color: P.secondary,
               margin: '0 0 2.25rem',
               maxWidth: '620px',
-              borderLeft: `3px solid ${P.accent}`,
-              paddingLeft: '1.1rem',
-              fontStyle: 'italic',
             }}
           >
-            &ldquo;I evaluate AI-generated content, test digital workflows, and document issues with
-            clear, actionable evidence. My work focuses on accuracy, instruction adherence, and reliable
-            user experiences.&rdquo;
-          </blockquote>
+            I work at the intersection of AI quality, implementation, and commerce &mdash; combining AI
+            output evaluation, prompt iteration, hands-on e-commerce development, and human judgment to
+            identify problems, improve workflows, and build more reliable digital experiences.
+          </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={caseStudyUrl()}

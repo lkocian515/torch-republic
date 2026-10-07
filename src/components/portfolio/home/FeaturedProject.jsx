@@ -5,19 +5,19 @@ import SectionHeading from './SectionHeading';
 
 const PREVIEWS = [
   {
-    label: 'Cart behavior and customer feedback',
-    body: 'How a silent Add to Cart failure was investigated and the cart flow made to confirm customer actions.',
-    anchor: 'defect-cart',
+    label: 'Broken product imagery',
+    body: 'Stale hardcoded image URLs caused broken product states. URLs were standardized and views rechecked.',
+    anchor: 'defect-imagery',
   },
   {
-    label: 'Product-price consistency',
-    body: 'Aligning cart line prices with Shopify selling-plan discounts so customers see one price throughout.',
-    anchor: 'defect-pricing',
+    label: 'Legacy product names at checkout',
+    body: 'Collection pages passed retired catalog data to cart. Grids and routes were simplified to confirm current naming.',
+    anchor: 'defect-naming',
   },
   {
-    label: 'Portfolio metadata accuracy',
-    body: 'Correcting stale brand references, canonical URLs, and structured-data types in the portfolio head.',
-    anchor: 'defect-metadata',
+    label: 'Mobile product hierarchy',
+    body: 'Primary action and product information were hard to identify on mobile. Hierarchy and spacing were adjusted and retested.',
+    anchor: 'defect-mobile',
   },
 ];
 
