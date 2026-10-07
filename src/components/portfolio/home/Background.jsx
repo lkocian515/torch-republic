@@ -40,6 +40,8 @@ const CERTIFICATIONS = [
   { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: '' },
   { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: '' },
   { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: '' },
+  { name: 'Career Essentials in Generative AI', org: 'Microsoft', year: '', status: '' },
+  { name: 'AI Fundamentals', org: 'IBM', year: '', status: '' },
 ];
 
 const thStyle = {
