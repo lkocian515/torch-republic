@@ -37,9 +37,9 @@ const CERTIFICATIONS = [
   { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026', status: '' },
   { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026', status: '' },
   { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026', status: '' },
-  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: 'In Progress' },
-  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: 'In Progress' },
-  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: 'In Progress' },
+  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: '' },
+  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: '' },
+  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: '' },
 ];
 
 const thStyle = {
