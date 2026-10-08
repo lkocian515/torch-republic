@@ -1,23 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Truck, RotateCcw } from 'lucide-react';
 import { D, SERIF, SANS, MONO } from './driftTheme';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
 import { formatPrice } from '@/lib/pricingConfig';
+import { FREE_SHIPPING_THRESHOLD_DISPLAY, SHIP_TIME_DISPLAY, GUARANTEE_DISPLAY } from '@/lib/siteConfig';
 import { useCart } from '@/contexts/CartContext';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 import TiltContainer from './TiltContainer';
 
 function ProductInfo({ product, index, addItem, isAdding }) {
+  const perServing = (product.price / product.servings).toFixed(2);
   return (
     <div className="pd-info min-w-0">
       <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 0.75rem' }}>
         0{index} / {product.ritualKey}
       </p>
       <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.5rem, 2.6vw, 2rem)', color: D.ink, margin: '0 0 0.5rem' }}>{product.name}</h3>
-      <p style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.terracotta, margin: '0 0 1rem' }}>{product.flavorLabel}</p>
+      <p style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.terracotta, margin: '0 0 0.75rem' }}>{product.flavorLabel}</p>
       <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.65, color: D.secondary, margin: '0 0 1.25rem', maxWidth: '42ch' }}>{product.description}</p>
-      <div className="flex flex-wrap gap-2 mb-5">
+      <div className="flex flex-wrap gap-2 mb-4">
         {product.flavorNotes.map((tag) => (
           <span key={tag} style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, padding: '0.3rem 0.65rem', borderRadius: '4px', background: D.surface, color: D.ink, border: `1px solid ${D.rule}` }}>{tag}</span>
         ))}
@@ -25,15 +27,28 @@ function ProductInfo({ product, index, addItem, isAdding }) {
       <div className="flex items-baseline gap-3 mb-1">
         <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', color: D.ink }}>{formatPrice(product.price)}</span>
         <span style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary }}>{product.servings} servings</span>
+        <span style={{ fontFamily: MONO, fontSize: '0.75rem', color: D.terracotta }}>= ${perServing} per cup</span>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+      <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
         <button type="button" onClick={() => addItem(product)} disabled={isAdding} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 48, padding: '0 1.75rem', borderRadius: '6px', background: D.espresso, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: isAdding ? 'not-allowed' : 'pointer', opacity: isAdding ? 0.6 : 1, boxShadow: '0 3px 10px rgba(36,26,22,0.12)' }}>
           Add to Cart
         </button>
         <Link to={product.path} className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: D.espresso, textDecoration: 'none' }}>
           View Details <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
+      </div>
+
+      <div className="flex flex-wrap gap-x-4 gap-y-1" style={{ borderTop: `1px solid ${D.rule}`, paddingTop: '0.75rem' }}>
+        <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+          <Truck size={13} style={{ color: D.terracotta }} /> Free shipping {FREE_SHIPPING_THRESHOLD_DISPLAY}
+        </span>
+        <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+          <RotateCcw size={13} style={{ color: D.terracotta }} /> {GUARANTEE_DISPLAY}
+        </span>
+        <span style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+          {SHIP_TIME_DISPLAY}
+        </span>
       </div>
     </div>
   );

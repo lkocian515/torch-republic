@@ -10,7 +10,7 @@ export default function DriftFounderStory() {
       <div className="mx-auto max-w-[800px] px-6 py-16 md:py-24 text-center">
         <motion.div {...fadeUp}>
           <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 2rem' }}>
-            Our Story
+            Founded in Corpus Christi, Texas
           </p>
           <blockquote style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', lineHeight: 1.3, color: D.ink, margin: '0 0 2rem', textWrap: 'balance' }}>
             &ldquo;I wanted a morning ritual that removed friction, not added it. No machine, no pods &mdash; just a better cup, made intentionally.&rdquo;

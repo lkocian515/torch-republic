@@ -115,7 +115,7 @@ const PREP_WHOLE_BEAN =
 
 const prepFor = (p) => (p.format === 'Whole Bean' ? PREP_WHOLE_BEAN : PREP_INSTANT);
 
-const TABS = ['Ingredients', 'Benefits', 'How to Prepare', 'FAQ'];
+const TABS = ["What's in Your Cup", 'Benefits', 'How to Prepare', 'FAQ'];
 
 function benefitsFor(p) {
   const list = [p.positioning];
@@ -378,7 +378,7 @@ function RitualPDP({ product }) {
           })}
         </div>
         <div className="py-6 font-heading text-sm" style={{ color: THEME.secondary, lineHeight: 1.8 }}>
-          {tab === 'Ingredients' && (
+          {tab === "What's in Your Cup" && (
             <div className="flex flex-col gap-5">
               <p>{INGREDIENTS[product.category]}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -78,7 +78,7 @@ export const COMMERCE_SPECS = {
   delivery_window: null,         // e.g. "3-7 business days transit"
   markets_served: null,          // e.g. "United States only"
   international_available: null, // true/false
-  free_shipping_threshold: 45,   // matches siteConfig — update both if changed
+  free_shipping_threshold: 50,   // matches siteConfig — $50 qualifies for free shipping
   free_shipping_active: null,    // true/false — is the Shopify rule live?
   welcome10_active: null,       // true/false — is the code live in Shopify?
   welcome10_exclusions: null,    // What it excludes (string)
