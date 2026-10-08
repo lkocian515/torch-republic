@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { P, FONT_SANS, FONT_MONO, FONT_SERIF, portfolioHomeUrl, caseStudyUrl } from '../portfolioTheme';
+import { Link } from 'react-router-dom';
 import SectionHeading from '../home/SectionHeading';
 
 const SKILLS = [
@@ -111,8 +112,8 @@ export default function LukesLightDemonstrates() {
           }}
           className="md:flex-row md:items-center md:justify-between"
         >
-          <a
-            href={portfolioHomeUrl()}
+          <Link
+            to={portfolioHomeUrl()}
             style={{
               fontFamily: FONT_SANS,
               fontWeight: 600,
@@ -128,9 +129,9 @@ export default function LukesLightDemonstrates() {
             }}
           >
             <ArrowLeft size={14} /> Back to portfolio
-          </a>
-          <a
-            href={caseStudyUrl()}
+          </Link>
+          <Link
+            to={caseStudyUrl()}
             style={{
               fontFamily: FONT_SANS,
               fontWeight: 600,
@@ -146,7 +147,7 @@ export default function LukesLightDemonstrates() {
             }}
           >
             View Torch Republic case study <ArrowRight size={14} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

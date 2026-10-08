@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LIVE_STORE, LUKES_LIGHT_URL, caseStudyUrl, lukesLightCaseStudyUrl } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
+import { Link } from 'react-router-dom';
 
 const PROJECTS = [
   {
@@ -91,8 +92,8 @@ export default function SelectedProjects() {
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
-                  href={project.caseStudyHref}
+                <Link
+                  to={project.caseStudyHref}
                   style={{
                     fontFamily: FONT_SANS,
                     fontWeight: 600,
@@ -109,7 +110,7 @@ export default function SelectedProjects() {
                   }}
                 >
                   View case study <ArrowRight size={13} />
-                </a>
+                </Link>
                 <a
                   href={project.externalHref}
                   target="_blank"

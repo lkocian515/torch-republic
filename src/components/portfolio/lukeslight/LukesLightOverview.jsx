@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, ExternalLink, Mail } from 'lucide-react';
 import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LUKES_LIGHT_URL, CONTACT_EMAIL, portfolioHomeUrl } from '../portfolioTheme';
+import { Link } from 'react-router-dom';
 
 export default function LukesLightOverview() {
   return (
@@ -14,8 +15,8 @@ export default function LukesLightOverview() {
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        <a
-          href={portfolioHomeUrl()}
+        <Link
+          to={portfolioHomeUrl()}
           style={{
             fontFamily: FONT_MONO,
             fontSize: '0.72rem',
@@ -32,7 +33,7 @@ export default function LukesLightOverview() {
           }}
         >
           <ArrowLeft size={14} /> Back to portfolio
-        </a>
+        </Link>
 
         <div style={{ maxWidth: '720px' }}>
           <p
