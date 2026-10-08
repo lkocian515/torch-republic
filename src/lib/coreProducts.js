@@ -129,7 +129,7 @@ export const SEASONAL_PRODUCTS = [
     id: 'pumpkin-spice-whole-bean-coffee',
     name: 'Pumpkin Spice Whole Bean Coffee',
     slug: 'pumpkin-spice-whole-bean-coffee',
-    shopifyHandle: 'pumpkin-spice-1',
+    shopifyHandle: 'pumpkin-spice',
     ritualKey: 'pumpkin_spice',
     category: 'pumpkin-spice',
     categoryLabel: 'Halloween Special Edition',

@@ -31,9 +31,9 @@ export const VARIANT_IDS = {
   // Shopify handle aliases
   "instant-coffee-1": "gid://shopify/ProductVariant/51245709623548",
   "instant-coffee-with-mushroom": "gid://shopify/ProductVariant/51245706608892",
-  // Seasonal — Pumpkin Spice (VERIFIED 2026-10-08)
-  "pumpkin-spice-1": "gid://shopify/ProductVariant/67666906775804",
-  "pumpkin-spice-whole-bean-coffee": "gid://shopify/ProductVariant/67666906775804",
+  // Seasonal — Pumpkin Spice (VERIFIED 2026-10-08 via Storefront API)
+  "pumpkin-spice": "gid://shopify/ProductVariant/51377445372156",
+  "pumpkin-spice-whole-bean-coffee": "gid://shopify/ProductVariant/51377445372156",
   };
 
 // ── Verified Shopify Selling Plan global IDs ──
@@ -45,6 +45,8 @@ export const SELLING_PLAN_IDS = {
   "instant-mushroom-coffee": "gid://shopify/SellingPlan/5701107964",
   "torch-republic-coffee-duo": "gid://shopify/SellingPlan/5954666748",
   "coffee-duo": "gid://shopify/SellingPlan/5954666748",
+  "pumpkin-spice": "gid://shopify/SellingPlan/5954666748",
+  "pumpkin-spice-whole-bean-coffee": "gid://shopify/SellingPlan/5954666748",
 };
 
 // ── Coffee Duo (VERIFIED ACTIVE 2026-09-09 — available via Storefront API) ──
