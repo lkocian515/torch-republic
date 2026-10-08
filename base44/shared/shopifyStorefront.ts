@@ -31,7 +31,10 @@ export const VARIANT_IDS = {
   // Shopify handle aliases
   "instant-coffee-1": "gid://shopify/ProductVariant/51245709623548",
   "instant-coffee-with-mushroom": "gid://shopify/ProductVariant/51245706608892",
-};
+  // Seasonal — Pumpkin Spice (VERIFIED 2026-10-08)
+  "pumpkin-spice-1": "gid://shopify/ProductVariant/67666906775804",
+  "pumpkin-spice-whole-bean-coffee": "gid://shopify/ProductVariant/67666906775804",
+  };
 
 // ── Verified Shopify Selling Plan global IDs ──
 // Fallback only — the PurchaseOptionSelector fetches live plan IDs from
