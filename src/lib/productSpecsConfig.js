@@ -85,8 +85,8 @@ export const COMMERCE_SPECS = {
   morningduo_active: null,       // true/false
   morningduo_type: null,         // 'discount_code' | 'automatic_discount'
   morningduo_price: null,        // Verified final price (number)
-  pumpkin_spice_active: null,    // true/false
-  pumpkin_spice_variant_id: null,// Shopify variant ID
+  pumpkin_spice_active: true,     // Live on Shopify — handle: pumpkin-spice-1
+  pumpkin_spice_variant_id: 'gid://shopify/ProductVariant/67666906775804',
   pumpkin_spice_inventory: null,  // Stock count or 'unlimited'
   verified_reviews_exist: null,  // true/false
   rewards_economics: null,       // Points per dollar, redemption, tiers

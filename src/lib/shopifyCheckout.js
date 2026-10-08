@@ -161,6 +161,8 @@ export const SHOPIFY_VARIANT_IDS = COMMERCE_ENABLED
       'coffee-duo': 'gid://shopify/ProductVariant/51245930217724',
       'instant-coffee-1': 'gid://shopify/ProductVariant/51245709623548',
       'instant-coffee-with-mushroom': 'gid://shopify/ProductVariant/51245706608892',
+      'pumpkin-spice-1': 'gid://shopify/ProductVariant/67666906775804',
+      'pumpkin-spice-whole-bean-coffee': 'gid://shopify/ProductVariant/67666906775804',
     }
   : {};
 export const DUO_VARIANT_ID = 'gid://shopify/ProductVariant/51245930217724';
