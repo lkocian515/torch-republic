@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Mail, Linkedin } from 'lucide-react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LINKEDIN, caseStudyUrl } from '../portfolioTheme';
+import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LINKEDIN } from '../portfolioTheme';
 
 export default function Hero() {
   return (
@@ -50,7 +50,7 @@ export default function Hero() {
               margin: '0 0 1.75rem',
             }}
           >
-            AI QA + E-Commerce Implementation Specialist
+            AI Quality Assurance &amp; Content Evaluation Specialist
           </p>
           <p
             style={{
@@ -62,7 +62,7 @@ export default function Hero() {
               margin: '0 0 1.25rem',
             }}
           >
-            Testing AI systems. Improving digital workflows. Building better commerce experiences.
+            Evaluating AI output. Improving content quality. Building better digital experiences.
           </p>
           <p
             style={{
@@ -74,13 +74,13 @@ export default function Hero() {
               maxWidth: '620px',
             }}
           >
-            I work at the intersection of AI quality, implementation, and commerce &mdash; combining AI
-            output evaluation, prompt iteration, hands-on e-commerce development, and human judgment to
-            identify problems, improve workflows, and build more reliable digital experiences.
+            I work at the intersection of AI quality and content evaluation &mdash; combining AI output
+            evaluation, prompt iteration, content review, and human judgment to identify problems, improve
+            clarity, and build more reliable digital experiences.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={caseStudyUrl()}
+              href="#work"
               style={{
                 fontFamily: FONT_SANS,
                 fontWeight: 600,
@@ -96,7 +96,7 @@ export default function Hero() {
                 transition: 'background .2s',
               }}
             >
-              View QA Case Study <ArrowRight size={15} />
+              View Selected Work <ArrowRight size={15} />
             </a>
             <a
               href="#contact"

@@ -58,7 +58,7 @@ export default function PortfolioFooter() {
             &copy; 2026 Lisa Marie Kocian
           </p>
           <p style={{ fontFamily: FONT_SANS, fontSize: '0.76rem', color: P.muted, margin: 0 }}>
-            Torch Republic is presented as an independent case study in applied e-commerce development and QA.
+            Case studies are presented as independent examples of applied quality assurance and product development.
           </p>
         </div>
       </div>

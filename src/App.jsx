@@ -138,6 +138,7 @@ const MushroomCoffeeVsCoffeePods = lazy(() => import('./pages/compare/MushroomCo
 const InstantCoffeeVsKCups = lazy(() => import('./pages/compare/InstantCoffeeVsKCups.jsx'));
 const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
+const LukesLightCaseStudy = lazy(() => import('./pages/LukesLightCaseStudy.jsx'));
 const PortfolioHome = lazy(() => import('./pages/PortfolioHome.jsx'));
 
 const mainPageKey = 'Home';
@@ -202,6 +203,7 @@ const AuthenticatedApp = ({ queryClient }) => {
           <>
           <Route path="/" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
           <Route path="/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+          <Route path="/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
           <Route path="/*" element={<Navigate to="/" replace />} />
           </>
         )}
@@ -376,6 +378,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── STANDALONE PROFESSIONAL PORTFOLIO (no storefront chrome) ── */}
         <Route path="/portfolio" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
         <Route path="/portfolio/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
+        <Route path="/portfolio/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
         {/* Legacy portfolio URL → canonical case-study route */}
         <Route path="/portfolio/torch-republic-ecommerce-build" element={<Navigate to="/portfolio/case-study" replace />} />
 

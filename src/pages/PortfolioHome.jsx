@@ -3,7 +3,7 @@ import PortfolioNav from '@/components/portfolio/PortfolioNav';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import Hero from '@/components/portfolio/home/Hero';
 import SelectedExpertise from '@/components/portfolio/home/SelectedExpertise';
-import FeaturedProject from '@/components/portfolio/home/FeaturedProject';
+import SelectedProjects from '@/components/portfolio/home/SelectedProjects';
 import Background from '@/components/portfolio/home/Background';
 import ProfessionalProcess from '@/components/portfolio/home/ProfessionalProcess';
 import ContactSection from '@/components/portfolio/home/ContactSection';
@@ -112,7 +112,7 @@ export default function PortfolioHome() {
       <PortfolioNav />
       <main>
         <Hero />
-        <FeaturedProject />
+        <SelectedProjects />
         <SelectedExpertise />
         <ProfessionalProcess />
         <Background />
