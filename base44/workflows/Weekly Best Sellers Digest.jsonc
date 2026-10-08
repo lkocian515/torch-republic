@@ -1,0 +1,44 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "weekly_best_sellers_digest",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "send_digest": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendWeeklyDigest"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Send weekly best-sellers email",
+            "description": "Emails all subscribers and marketing-opted customers"
+          }
+        }
+      }
+    ]
+  },
+  "description": "Sends a weekly best-sellers email to all subscribers and marketing-opted customers every Monday at 8am Central",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 8 * * 1",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "name": "Weekly Best Sellers Digest"
+}

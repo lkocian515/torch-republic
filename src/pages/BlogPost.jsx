@@ -100,43 +100,44 @@ const RELATED_BY_SLUG = {
   ],
 };
 
-// Related product links by content category
+// Related product links by content category — all point to current product pages
+// (no legacy blend names or redirecting URLs, preserving full SEO equity)
 const RELATED_PRODUCTS_BY_SLUG = {
   'mushroom-coffee-vs-regular-coffee': [
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
-    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+    { name: 'Shop Classic Coffee', path: '/products/instant-classic-coffee' },
   ],
   'does-mushroom-coffee-make-you-less-jittery': [
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
     { name: 'Take the Blend Quiz', path: '/quiz' },
   ],
   'what-does-mushroom-coffee-taste-like': [
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
-    { name: 'GlowMind Clarity Blend', path: '/products/glowmind-clarity-blend' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+    { name: 'Shop Classic Coffee', path: '/products/instant-classic-coffee' },
   ],
   'why-coffee-drinkers-are-switching-away-from-pods': [
-    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Shop Classic Coffee', path: '/products/instant-classic-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
   ],
   'matcha-vs-coffee': [
-    { name: 'Shop Ceremonial Matcha', path: '/shop/matcha' },
-    { name: 'The Monk Matcha Blend', path: '/products/the-monk-matcha-blend' },
+    { name: 'Shop All Coffee', path: '/shop' },
+    { name: 'Take the Blend Quiz', path: '/quiz' },
   ],
   'science-of-lions-mane': [
-    { name: 'GlowMind Clarity Blend', path: '/products/glowmind-clarity-blend' },
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+    { name: 'Shop All Coffee', path: '/shop' },
   ],
   'history-of-matcha': [
-    { name: 'Shop Ceremonial Matcha', path: '/shop/matcha' },
-    { name: 'The Monk Matcha Blend', path: '/products/the-monk-matcha-blend' },
+    { name: 'Shop All Coffee', path: '/shop' },
+    { name: 'Take the Blend Quiz', path: '/quiz' },
   ],
   'chaga-mushroom-antioxidant-king': [
-    { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
-    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+    { name: 'Shop Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+    { name: 'Shop All Coffee', path: '/shop' },
   ],
   'what-makes-premium-instant-coffee-different': [
-    { name: 'Torchbearer Classic Coffee', path: '/products/torchbearer-instant-coffee' },
-    { name: 'Shop Classic Instant Coffee', path: '/shop/instant-coffee' },
+    { name: 'Shop Classic Coffee', path: '/products/instant-classic-coffee' },
+    { name: 'Shop All Coffee', path: '/shop' },
   ],
 };
 
