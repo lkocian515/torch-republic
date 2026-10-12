@@ -101,7 +101,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is the price of Torch Republic products?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Instant Classic Coffee is $22.99 and Instant Mushroom Coffee is $25.99. Both can be bundled for $${BUNDLE_PRICE_DUO.toFixed(2)}. Subscriptions with 10% savings are coming soon.`,
+            text: `Instant Classic Coffee is $22.99 and Instant Mushroom Coffee is $25.99. Both can be bundled for $${BUNDLE_PRICE_DUO.toFixed(2)}. Available subscription options, prices, and delivery schedules are shown on the product pages.`,
           },
         },
         {

@@ -34,7 +34,7 @@ const SECTIONS = [
     label: 'Subscriptions',
     to: '/subscription',
     items: [
-      ['Build Your Ritual', '/build-your-ritual'],
+      ['Choose Your Coffee', '/subscription#coffee-options'],
       ['How Subscriptions Work', '/subscription'],
     ],
   },

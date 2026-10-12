@@ -267,7 +267,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/checkout" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Cart" queryClient={queryClient}><Cart /></LayoutWrapper></Suspense>} />
         <Route path="/order-confirmation" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderConfirmation" queryClient={queryClient}><OrderConfirmation /></LayoutWrapper></Suspense>} />
         <Route path="/restocking" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Restocking" queryClient={queryClient}><Restocking /></LayoutWrapper></Suspense>} />
-        <Route path="/subscription" element={<Navigate to="/#newsletter" replace />} />
+        <Route path="/subscription" element={<Subscription />} />
         <Route path="/our-story" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="OurMission" queryClient={queryClient}><OurMission /></LayoutWrapper></Suspense>} />
         <Route path="/mission" element={<Navigate to="/our-story" replace />} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Contact" queryClient={queryClient}><Contact /></LayoutWrapper></Suspense>} />
