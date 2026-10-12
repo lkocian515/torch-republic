@@ -138,7 +138,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         <div className="flex-1">
           <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>Buy once</p>
           <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
-            ${oneTimePrice.toFixed(2)} \u00b7 No recurring charge
+            ${oneTimePrice.toFixed(2)} · No recurring charge
           </p>
         </div>
       </button>
@@ -167,7 +167,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
             {allocation.sellingPlanName || 'Deliver every month'}
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
-            ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` \u00b7 Save ${savingsPercent}%` : ''} \u00b7 Renews automatically \u00b7 Cancel anytime
+            ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` · Save ${savingsPercent}%` : ''} · Renews automatically · Cancel anytime
           </p>
         </div>
       </button>
@@ -178,7 +178,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
           Recurring Billing Terms
         </p>
         <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.65 }}>
-          You will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({allocation.sellingPlanName || 'monthly'}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
+          If you choose a subscription, you will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({allocation.sellingPlanName || 'monthly'}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
         </p>
       </div>
     </div>
