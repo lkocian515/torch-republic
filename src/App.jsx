@@ -197,6 +197,8 @@ const AuthenticatedApp = ({ queryClient }) => {
       <ScrollToTop />
       <AnimatePresence>
       <Routes location={location} key={location.pathname}>
+        <Route path="/_responsive-qa" element={<div><select aria-label="QA page" onChange={e => document.querySelector('#qa-frame').src = e.target.value}><option value="/shop">Shop</option><option value="/subscription">Subscriptions</option><option value="/products/instant-classic-coffee">Product</option><option value="/cart">Cart</option><option value="/our-story">Our story</option><option value="/contact">Contact</option><option value="/faq">FAQ</option></select><select aria-label="QA width" onChange={e => document.querySelector('#qa-frame').style.width = e.target.value + 'px'}><option>390</option><option>320</option><option>414</option></select><iframe id="qa-frame" title="Mobile storefront" src="/shop" style={{display:'block',width:390,height:760,border:'1px solid #ccc'}} /></div>} />
+
 
         {/* ── PORTFOLIO DOMAIN: lisakocian.com serves the portfolio at root ── */}
         {isPortfolioDomain && (
