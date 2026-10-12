@@ -31,15 +31,15 @@ export default function DriftSubscription() {
           Make your next morning easy.
         </h2>
         <p className="sub-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: 'rgba(250,247,241,0.75)', margin: '0 0 2rem', maxWidth: '46ch', marginLeft: 'auto', marginRight: 'auto' }}>
-          Buy once, or choose recurring delivery where offered on the product page. Review the current price and delivery schedule before adding a subscription to your cart.
+          Subscribe to Classic or Mushroom Coffee for delivery every four weeks, or buy once whenever you need a refill. Review your current price and savings on the product page.
         </p>
         <div className="sub-cta flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link to="/shop" className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,91,50,0.25)' }}>
-            Shop Coffee <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+          <Link to="/subscription" className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,91,50,0.25)' }}>
+            Explore Subscriptions <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
-          <a href="#newsletter" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:opacity-80" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: 'transparent', color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', border: `1px solid ${D.terracotta}` }}>
-            Get Coffee Updates
-          </a>
+          <Link to="/shop" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:opacity-80" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: 'transparent', color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', border: `1px solid ${D.terracotta}` }}>
+            Shop One-Time Purchases
+          </Link>
         </div>
         <p className="sub-note" style={{ fontFamily: SANS, fontSize: '0.8125rem', color: 'rgba(250,247,241,0.8)', margin: '2rem 0 0' }}>
           Subscriptions renew automatically until cancelled. One-time purchases are always a separate choice.

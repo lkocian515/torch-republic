@@ -1,14 +1,7 @@
 import React from 'react';
 
-/**
- * SubscribeToggle
- * Subscriptions are not yet live. This component renders a waitlist notice
- * instead of subscription purchase controls. When a Shopify selling plan is
- * verified, replace this with a real subscribe-and-save toggle using the
- * verified savings rate (initially intended as 10%).
- *
- * Never make subscription the preselected/default purchase type.
- */
+// Legacy product pages link to the current, verified coffee plans.
+// One-time purchase remains the default.
 export default function SubscribeToggle({ accent = '#B86543' }) {
   return (
     <div className="mb-6 p-4 rounded-lg border" style={{ borderColor: `${accent}33`, background: `${accent}08` }}>
@@ -16,15 +9,14 @@ export default function SubscribeToggle({ accent = '#B86543' }) {
         Subscriptions
       </p>
       <p className="font-heading text-sm" style={{ color: '#5F5145', lineHeight: 1.7 }}>
-        Subscriptions are coming soon. Join the waitlist to be notified when
-        monthly delivery is available.
+        Coffee subscriptions are available. Choose Classic or Mushroom Coffee and review your delivery plan before checkout.
       </p>
       <a
-        href="/#newsletter"
+        href="/subscription"
         className="inline-block mt-3 font-mono text-[10px] tracking-[0.15em] uppercase font-bold transition-opacity hover:opacity-80"
         style={{ color: accent }}
       >
-        Join the Waitlist &rarr;
+        Explore Coffee Subscriptions &rarr;
       </a>
     </div>
   );

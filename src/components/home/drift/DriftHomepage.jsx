@@ -15,7 +15,7 @@ import { D } from './driftTheme';
 // 4. Product differences — Classic vs Mushroom comparison
 // 5. Preparation — Scoop. Stir. Sip.
 // 6. Founder story — why Torch Republic exists
-// 7. Final shopping CTA — subscription waitlist + shop link
+// 7. Final shopping CTA — active subscription plans + one-time shopping
 export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>

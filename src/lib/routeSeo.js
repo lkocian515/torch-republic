@@ -20,7 +20,7 @@ const SEO_BY_PATH = {
   '/how-it-works': ['How Torch Republic Works', 'Learn how Torch Republic instant coffee and mushroom coffee prepare quickly while supporting practical daily routines.'],
   '/reviews': ['Torch Republic Customer Reviews | Coffee & Mushroom Coffee', 'Read customer experiences with Torch Republic instant coffee, mushroom coffee, and everyday beverage rituals.'],
   '/torchbearers-rewards': ['Torchbearer Rewards Program', 'Learn how Torchbearer Rewards helps customers earn points, redeem discounts, and get more value from daily coffee rituals.'],
-  '/subscription': ['Coffee Subscription Updates | Torch Republic', 'Join the Torch Republic email list for updates when coffee subscriptions become available.'],
+  '/subscription': ['Coffee Subscriptions | Torch Republic', 'Subscribe to Instant Classic Coffee or Instant Mushroom Coffee for delivery every four weeks. Review current prices, savings, and renewal terms before checkout.'],
   '/our-story': ['Our Story | Torch Republic Coffee Company', 'Learn why Torch Republic creates premium instant coffee and functional mushroom coffee for more intentional daily rituals.'],
   '/mission': ['Our Story | Torch Republic Coffee Company', 'Learn why Torch Republic creates premium instant coffee and functional mushroom coffee for more intentional daily rituals.'],
   '/contact': ['Contact Torch Republic', 'Contact Torch Republic Coffee Company for support, product questions, partnerships, wholesale, shipping, and order help.'],

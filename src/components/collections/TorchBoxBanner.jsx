@@ -27,15 +27,15 @@ export default function TorchBoxBanner() {
         </div>
         <div>
           <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: '#C9A24A' }}>
-            Build your collection faster with Torch Box
+            Your coffee, delivered regularly
           </p>
           <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
-            Subscribe and get these blends delivered monthly — save 15% every order.
+            Choose a coffee subscription and review current savings and delivery terms.
           </p>
         </div>
       </div>
       <Link
-        to="/TheTorchBox"
+        to="/subscription"
         className="flex-shrink-0 inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-80 whitespace-nowrap px-5 py-2.5"
         style={{ background: '#C9A24A', color: '#0B0B0B', fontWeight: 800 }}
       >

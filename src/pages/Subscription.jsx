@@ -5,14 +5,14 @@ import { CORE_PRODUCTS } from '@/lib/coreProducts';
 
 const steps = [
   ['Choose your coffee', 'Open a product below to see its available purchase options.'],
-  ['Review your delivery plan', 'Where recurring delivery is offered, review its current price and schedule. Buy once is selected by default.'],
+  ['Review your delivery plan', 'Choose the recurring delivery option and review its current price and four-week schedule. Buy once is selected by default.'],
   ['Confirm at checkout', 'Check the product, quantity, recurring charge, shipping, and taxes before placing your order.'],
 ];
 
 export default function Subscription() {
   useSEO({
     title: 'Coffee Subscriptions | Torch Republic Coffee Company',
-    description: 'Explore recurring coffee delivery. Review available plans, current prices, and renewal terms on each product page.',
+    description: 'Subscribe to Classic or Mushroom Coffee for delivery every four weeks. Review current prices, savings, and renewal terms on each product page.',
     url: '/subscription',
   });
   return (
@@ -21,7 +21,7 @@ export default function Subscription() {
         <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: '#824329' }}>Coffee subscriptions</p>
         <h1 className="font-serif font-bold text-3xl md:text-5xl leading-tight">Your daily ritual.<br />One less thing to remember.</h1>
         <p className="font-heading text-base md:text-lg leading-relaxed mt-3" style={{ color: '#5F574F' }}>
-          Choose recurring delivery where available, or order whenever you need a refill.
+          Coffee subscriptions are available now. Choose Classic or Mushroom Coffee for delivery every four weeks.
           The current price and delivery schedule appear with each product.
         </p>
         <a href="#coffee-options" className="inline-flex items-center justify-center rounded-md px-7 py-3 mt-7 font-heading font-semibold" style={{ background: '#824329', color: '#FFFDF8', minHeight: 48 }}>Choose your coffee</a>
