@@ -36,7 +36,7 @@ export default function Cart() {
     url: '/cart',
     noindex: true,
   });
-  const { items, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed, handleCheckout, isCheckingOut } = useCart();
+  const { items, getLineKey, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed, handleCheckout, isCheckingOut } = useCart();
   const subscriptionItems = items.filter(i => i.isSubscription && i.sellingPlanName);
   const qtyMutation = useMutation({
     mutationFn: async () => true,
@@ -56,7 +56,7 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center" style={{ background: PAGE_BG, color: INK }}>
+      <div className="min-h-[55vh] flex flex-col items-center justify-center px-6 py-10 text-center" style={{ background: PAGE_BG, color: INK }}>
         <div className="max-w-md mx-auto">
           <div className="w-16 h-16 mx-auto mb-8 rounded-full flex items-center justify-center" style={{ background: ACCENT_PANEL, border: `1px solid ${BORDER}` }}>
             <ShoppingBag className="w-7 h-7" style={{ color: ACCENT }} />
@@ -117,7 +117,7 @@ export default function Cart() {
             <CartFreeShippingBar subtotal={subtotal} />
             {items.map(item => (
               <motion.div
-                key={item.id}
+                key={getLineKey(item)}
                 layout
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ export default function Cart() {
                     {/* Qty controls */}
                     <div className="flex items-center gap-2" style={{ border: `1px solid ${BORDER}` }}>
                       <button
-                        onClick={() => item.qty <= 1 ? removeMutation.mutate(item.id) : qtyMutation.mutate({ id: item.id, delta: -1 })}
+                        onClick={() => item.qty <= 1 ? removeMutation.mutate(getLineKey(item)) : qtyMutation.mutate({ id: getLineKey(item), delta: -1 })}
                         className="w-11 h-11 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: INK_SOFT }}
                         aria-label="Decrease quantity"
@@ -150,7 +150,7 @@ export default function Cart() {
                       </button>
                       <span className="font-mono text-xs w-5 text-center" style={{ color: INK }}>{item.qty}</span>
                       <button
-                        onClick={() => qtyMutation.mutate({ id: item.id, delta: 1 })}
+                        onClick={() => qtyMutation.mutate({ id: getLineKey(item), delta: 1 })}
                         className="w-11 h-11 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: INK_SOFT }}
                         aria-label="Increase quantity"
@@ -162,7 +162,7 @@ export default function Cart() {
                   </div>
                 </div>
                 <button
-                  onClick={() => removeMutation.mutate(item.id)}
+                  onClick={() => removeMutation.mutate(getLineKey(item))}
                   className="w-11 h-11 flex items-center justify-center flex-shrink-0 transition-all hover:opacity-70"
                   style={{ color: MUTED }}
                   aria-label="Remove item"
@@ -205,12 +205,12 @@ export default function Cart() {
                   </p>
                   <div className="space-y-1.5 mb-2">
                     {subscriptionItems.map(item => (
-                      <div key={item.id} className="flex items-start justify-between gap-2">
+                      <div key={getLineKey(item)} className="flex items-start justify-between gap-2">
                         <p className="font-heading text-xs leading-snug" style={{ color: INK_SOFT }}>
                           {item.name} <span style={{ color: MUTED }}>({item.sellingPlanName})</span>
                         </p>
                         <p className="font-mono text-xs font-bold whitespace-nowrap" style={{ color: INK }}>
-                          ${(item.price * item.qty).toFixed(2)}/delivery
+                          ${(Number(item.shopifyPrice ?? item.price) * item.qty).toFixed(2)}/delivery
                         </p>
                       </div>
                     ))}

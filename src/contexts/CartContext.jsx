@@ -3,7 +3,7 @@ import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
-import { getShopifyCart, createShopifyCart, addShopifyCartLine, getShopifyCheckoutUrl, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
+import { createShopifyCart, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 
 // Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
@@ -103,63 +103,9 @@ export function CartProvider({ children }) {
     }
   }, []);
 
-  // ── Page-refresh reconciliation ──
-  // When commerce is enabled and we have a Shopify cart ID, retrieve the
-  // Shopify cart and reconcile it with the local display:
-  //   1. Replace locally calculated prices with Shopify-returned costs
-  //   2. Remove local items that Shopify rejects (not in Shopify cart)
-  //   3. Preserve valid quantities and selling-plan selections
-  //   4. Handle expired carts by clearing the stale ID
-  useEffect(() => {
-    if (!COMMERCE_ENABLED || !shopifyCartId) return;
-    let cancelled = false;
-    setIsSyncing(true);
-    (async () => {
-      try {
-        const shopifyCart = await getShopifyCart(shopifyCartId);
-        if (cancelled) return;
-
-        if (!shopifyCart) {
-          // Cart expired — clear stale ID so a new cart is created next time
-          persistShopifyCartId(null);
-          setIsSyncing(false);
-          return;
-        }
-
-        // Update local items with Shopify-returned prices and quantities.
-        // Local-only items (not in the Shopify cart) are PRESERVED — they'll
-        // be re-synced at checkout (handleCheckout creates a fresh cart from
-        // local state, so no data is ever lost).
-        const shopifyLines = shopifyCart.lines || [];
-        setItems((prev) =>
-          prev.map((localItem) => {
-            const expectedVariantId = SHOPIFY_VARIANT_IDS[localItem.id];
-            const matchingLine = shopifyLines.find((sl) =>
-              ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === localItem.name) &&
-              sl.isSubscription === !!localItem.isSubscription
-            );
-            if (matchingLine) {
-              return {
-                ...localItem,
-                qty: matchingLine.quantity,
-                shopifyPrice: matchingLine.unitPrice,
-                shopifyLineTotal: matchingLine.lineSubtotal,
-                isSubscription: matchingLine.isSubscription,
-                sellingPlanName: matchingLine.sellingPlanName,
-                shopifyLineId: matchingLine.lineId,
-              };
-            }
-            return localItem;
-          })
-        );
-      } catch {
-        // Silently fail — local cart remains the fallback
-      } finally {
-        if (!cancelled) setIsSyncing(false);
-      }
-    })();
-    return () => { cancelled = true; };
-  }, [shopifyCartId, persistShopifyCartId]);
+  // Local selections are authoritative; stale remote carts must never overwrite them.
+  const checkoutAttemptRef = useRef(0);
+  const cartRevisionRef = useRef(0);
 
   // Persist local cart to localStorage whenever items change
   useEffect(() => {
@@ -187,270 +133,63 @@ export function CartProvider({ children }) {
     }
   }, [selectedGift]);
 
-  // ── Cart line key: separates one-time and subscription versions ──
-  // A one-time and subscription version of the same product must remain
-  // separate cart lines because their selling-plan allocations differ.
   const getLineKey = useCallback((product) => {
-    const baseKey = product.shopifyHandle || product.id;
-    return product.isSubscription ? `${baseKey}__sub` : `${baseKey}__onetime`;
+    const key = product.shopifyHandle || product.id;
+    return product.isSubscription ? key + '__sub__' + (product.sellingPlanId || 'default') : key + '__onetime';
+  }, []);
+
+  const commitItems = useCallback((next) => {
+    cartRevisionRef.current += 1;
+    itemsRef.current = next;
+    setItems(next);
+    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(next)); } catch {}
   }, []);
 
   const addItem = useCallback((product, qty = 1) => {
-    // Prevent duplicate lines from repeated clicks
-    if (mutationInFlight.current) return;
-    mutationInFlight.current = true;
-    setIsAdding(true);
-
-    const normalizedProduct = {
-      ...product,
-      image: getProductImage(product),
-      imageAlt: getProductAltText(product),
-    };
-
-    // Optimistic local update — item appears immediately
-    setItems(prev => {
-      const key = getLineKey(normalizedProduct);
-      const existing = prev.find(i => getLineKey(i) === key);
-      if (existing) {
-        return prev.map(i => getLineKey(i) === key
-          ? { ...i, qty: i.qty + qty, image: normalizedProduct.image, imageAlt: normalizedProduct.imageAlt }
-          : i);
-      }
-      return [...prev, { ...normalizedProduct, qty }];
-    });
-
-    // Show confirmation IMMEDIATELY (optimistic) so the user always sees
-    // feedback. The Shopify sync happens in the background; if it succeeds,
-    // we update the local item with Shopify-confirmed data. If it fails,
-    // the item stays in the local cart and checkout creates a fresh cart.
-    setConfirmation({
-      name: normalizedProduct.name,
-      image: normalizedProduct.image,
-      imageAlt: normalizedProduct.imageAlt,
-      qty,
-      isSubscription: !!normalizedProduct.isSubscription,
-      sellingPlanName: normalizedProduct.isSubscription ? (normalizedProduct.sellingPlanName || 'Deliver every 4 weeks') : null,
-      shopifyPrice: null,
-      lineTotal: (normalizedProduct.price * qty).toFixed(2),
-      price: normalizedProduct.price,
-    });
-
-    // Helper: find the matching Shopify line from the cart response.
-    // Primary match by verified Shopify variant GID (robust against product
-    // title differences between the local catalog and Shopify); falls back to
-    // exact product-title matching. isSubscription disambiguates one-time vs
-    // subscription lines that share the same variant.
-    const findMatch = (cart) => cart?.lines?.find(sl => {
-      const expectedVariantId = SHOPIFY_VARIANT_IDS[normalizedProduct.id];
-      const variantMatches = !!(expectedVariantId && sl.variantId === expectedVariantId);
-      const titleMatches = sl.productTitle === normalizedProduct.name;
-      return (variantMatches || titleMatches) &&
-             sl.isSubscription === !!normalizedProduct.isSubscription;
-    });
-
-    // Helper: update local items with Shopify-confirmed data
-    const applyShopifyData = (cart) => {
-      const matchedLine = findMatch(cart);
-      if (!matchedLine) return false;
-
-      setItems(prev => prev.map(localItem => {
-        if (localItem.name !== normalizedProduct.name ||
-            !!localItem.isSubscription !== !!normalizedProduct.isSubscription) return localItem;
-        return {
-          ...localItem,
-          qty: matchedLine.quantity,
-          shopifyLineId: matchedLine.lineId,
-          shopifyPrice: matchedLine.unitPrice,
-          shopifyLineTotal: matchedLine.lineSubtotal,
-          sellingPlanName: matchedLine.sellingPlanName,
-        };
-      }));
-
-      // Update confirmation with Shopify-confirmed price
-      const confirmedUnitPrice = matchedLine.unitPrice ? parseFloat(matchedLine.unitPrice) : normalizedProduct.price;
-      setConfirmation({
-        name: normalizedProduct.name,
-        image: normalizedProduct.image,
-        imageAlt: normalizedProduct.imageAlt,
-        qty: matchedLine.quantity,
-        isSubscription: !!normalizedProduct.isSubscription,
-        sellingPlanName: matchedLine.sellingPlanName,
-        shopifyPrice: matchedLine.unitPrice,
-        lineTotal: (confirmedUnitPrice * matchedLine.quantity).toFixed(2),
-        price: normalizedProduct.price,
-      });
-      lastErrorToastRef.current?.dismiss();
-      lastErrorToastRef.current = null;
-      return true;
-    };
-
-    if (COMMERCE_ENABLED) {
-      const slug = normalizedProduct.shopifyHandle || normalizedProduct.id;
-      const line = { slug, quantity: qty, isSubscription: !!normalizedProduct.isSubscription, sellingPlanId: normalizedProduct.sellingPlanId };
-
-      (async () => {
-        try {
-          const currentCartId = shopifyCartIdRef.current;
-          let cart;
-
-          if (!currentCartId) {
-            cart = await createShopifyCart([line]);
-            if (cart?.cartId) persistShopifyCartId(cart.cartId);
-          } else {
-            cart = await addShopifyCartLine(currentCartId, line);
-          }
-
-          // Best-effort: update local item with Shopify data if the match succeeds.
-          // If it fails, the item stays in the local cart — checkout will create
-          // a fresh cart from local state, so the user never loses their selection.
-          if (cart && !cart.error) {
-            applyShopifyData(cart);
-
-            // ── Dev-mode diagnostic logging (redacted) ──
-            // Logs only non-sensitive cart line data for debugging.
-            // Never logs tokens, customer email, address, or payment data.
-            if (import.meta.env.DEV) {
-              const matchedLine = findMatch(cart);
-              const expectedVariantId = SHOPIFY_VARIANT_IDS[slug];
-              console.log('[TR Cart Diagnostic]', {
-                merchandiseId: expectedVariantId || matchedLine?.variantId || null,
-                quantity: qty,
-                selectedSellingPlanId: normalizedProduct.sellingPlanId || null,
-                returnedCartLineId: matchedLine?.lineId || null,
-                returnedSellingPlanId: matchedLine?.sellingPlanId || null,
-                returnedSellingPlanName: matchedLine?.sellingPlanName || null,
-                returnedCheckoutUrlHost: cart.checkoutUrl ? new URL(cart.checkoutUrl).host : null,
-              });
-            }
-          } else if (cart?.error) {
-            // Shopify API returned an error — show a non-blocking warning
-            // but keep the item in the local cart.
-            lastErrorToastRef.current?.dismiss();
-            lastErrorToastRef.current = showToast({
-              title: 'Syncing issue',
-              description: 'Your item was added. We will sync your cart at checkout.',
-              duration: 4000,
-            });
-          }
-        } catch {
-          // Network or SDK error — item stays in local cart.
-          // Checkout creates a fresh cart from local state, so no data is lost.
-          lastErrorToastRef.current?.dismiss();
-          lastErrorToastRef.current = showToast({
-            title: 'Syncing issue',
-            description: 'Your item was added. We will sync your cart at checkout.',
-            duration: 4000,
-          });
-        } finally {
-          mutationInFlight.current = false;
-          setIsAdding(false);
-        }
-      })();
-    } else {
-      // Commerce disabled — confirmation already shown above.
-      setTimeout(() => { mutationInFlight.current = false; setIsAdding(false); }, 300);
+    const amount = Number(qty);
+    if (!ACTIVE_CART_IDS.has(product.id) || !Number.isInteger(amount) || amount < 1 || amount > 999) return;
+    if (product.isSubscription && !product.sellingPlanId) {
+      showToast({ title: 'Choose a delivery plan', description: 'Select an available subscription plan on the product page.' });
+      return;
     }
-  }, [getLineKey, persistShopifyCartId]);
-
-  const clearConfirmation = useCallback(() => {
-    setConfirmation(null);
-  }, []);
-
-  // Optimistic update with rollback support
-  // Saves previous state so it can be restored if Shopify rejects the mutation.
-  const updateQty = useCallback((id, delta) => {
-    if (mutationInFlight.current) return;
-    mutationInFlight.current = true;
-
-    // Save previous state for rollback
-    const previousItems = items;
-
-    setItems(prev =>
-      prev.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)
-    );
-
-    // When commerce is enabled, sync to Shopify and roll back on failure
-    if (COMMERCE_ENABLED && shopifyCartId) {
-      const updatedItem = items.find(i => i.id === id);
-      if (updatedItem?.shopifyLineId) {
-        import('@/lib/shopifyCheckout').then(({ updateShopifyCartLine }) => {
-          updateShopifyCartLine(shopifyCartId, updatedItem.shopifyLineId, Math.max(1, updatedItem.qty + delta))
-            .then(() => { mutationInFlight.current = false; })
-            .catch(() => {
-              // Roll back optimistic update
-              setItems(previousItems);
-              mutationInFlight.current = false;
-            });
-        });
-      } else {
-        mutationInFlight.current = false;
-      }
-    } else {
-      mutationInFlight.current = false;
+    const normalized = { ...product, image: getProductImage(product), imageAlt: getProductAltText(product) };
+    const key = getLineKey(normalized);
+    const existing = itemsRef.current.find(i => getLineKey(i) === key);
+    if ((existing?.qty || 0) + amount > 999) {
+      showToast({ title: 'Quantity limit reached', description: 'You can order up to 999 of each item.' });
+      return;
     }
-  }, [items, shopifyCartId]);
+    commitItems(existing
+      ? itemsRef.current.map(i => getLineKey(i) === key ? { ...i, qty: i.qty + amount } : i)
+      : [...itemsRef.current, { ...normalized, qty: amount }]);
+    setConfirmation({ ...normalized, qty: amount,
+      shopifyPrice: existing?.shopifyPrice || normalized.shopifyPrice || null,
+      sellingPlanName: normalized.isSubscription ? normalized.sellingPlanName : null });
+  }, [commitItems, getLineKey]);
 
-  const removeItem = useCallback((id) => {
-    if (mutationInFlight.current) return;
-    mutationInFlight.current = true;
+  const clearConfirmation = useCallback(() => setConfirmation(null), []);
+  const resolveLineKey = useCallback((key) => {
+    if (itemsRef.current.some(i => getLineKey(i) === key)) return key;
+    const matches = itemsRef.current.filter(i => i.id === key);
+    return matches.length === 1 ? getLineKey(matches[0]) : null;
+  }, [getLineKey]);
 
-    const previousItems = items;
+  const setQty = useCallback((key, quantity) => {
+    const qty = Number(quantity);
+    if (!Number.isInteger(qty) || qty < 0 || qty > 999) return;
+    const lineKey = resolveLineKey(key);
+    if (!lineKey) return;
+    commitItems(qty === 0
+      ? itemsRef.current.filter(i => getLineKey(i) !== lineKey)
+      : itemsRef.current.map(i => getLineKey(i) === lineKey ? { ...i, qty } : i));
+  }, [commitItems, getLineKey, resolveLineKey]);
 
-    // Optimistic remove
-    setItems(prev => prev.filter(i => i.id !== id));
-
-    // When commerce is enabled, sync to Shopify and roll back on failure
-    if (COMMERCE_ENABLED && shopifyCartId) {
-      const removedItem = items.find(i => i.id === id);
-      if (removedItem?.shopifyLineId) {
-        import('@/lib/shopifyCheckout').then(({ removeShopifyCartLine }) => {
-          removeShopifyCartLine(shopifyCartId, removedItem.shopifyLineId)
-            .then(() => { mutationInFlight.current = false; })
-            .catch(() => {
-              // Roll back optimistic remove
-              setItems(previousItems);
-              mutationInFlight.current = false;
-            });
-        });
-      } else {
-        mutationInFlight.current = false;
-      }
-    } else {
-      mutationInFlight.current = false;
-    }
-  }, [items, shopifyCartId]);
-
-  const setQty = useCallback((id, qty) => {
-    if (mutationInFlight.current) return;
-    mutationInFlight.current = true;
-
-    const previousItems = items;
-
-    if (qty < 1) {
-      setItems(prev => prev.filter(i => i.id !== id));
-    } else {
-      setItems(prev => prev.map(i => i.id === id ? { ...i, qty } : i));
-    }
-
-    // When commerce is enabled, sync to Shopify and roll back on failure
-    if (COMMERCE_ENABLED && shopifyCartId) {
-      const updatedItem = items.find(i => i.id === id);
-      if (updatedItem?.shopifyLineId) {
-        import('@/lib/shopifyCheckout').then(({ updateShopifyCartLine }) => {
-          updateShopifyCartLine(shopifyCartId, updatedItem.shopifyLineId, qty)
-            .then(() => { mutationInFlight.current = false; })
-            .catch(() => {
-              setItems(previousItems);
-              mutationInFlight.current = false;
-            });
-        });
-      } else {
-        mutationInFlight.current = false;
-      }
-    } else {
-      mutationInFlight.current = false;
-    }
-  }, [items, shopifyCartId]);
+  const updateQty = useCallback((key, delta) => {
+    const lineKey = resolveLineKey(key);
+    const item = itemsRef.current.find(i => getLineKey(i) === lineKey);
+    if (item) setQty(lineKey, Math.max(0, item.qty + delta));
+  }, [getLineKey, resolveLineKey, setQty]);
+  const removeItem = useCallback((key) => setQty(key, 0), [setQty]);
 
   // Use Shopify-returned prices when available; fall back to local prices
   // Declared before handleCheckout so the memoized callback can reference subtotal
@@ -480,7 +219,10 @@ export function CartProvider({ children }) {
     }
 
     // Do not checkout an empty cart
-    if (items.length === 0) return;
+    if (items.length === 0 || mutationInFlight.current) return;
+    mutationInFlight.current = true;
+    const attempt = ++checkoutAttemptRef.current;
+    const revision = cartRevisionRef.current;
 
     setIsCheckingOut(true);
 
@@ -488,8 +230,10 @@ export function CartProvider({ children }) {
     // or unresponsive. After 20s, show an actionable error and re-enable
     // the checkout button so the customer can retry.
     const timeoutId = setTimeout(() => {
+      checkoutAttemptRef.current += 1;
+      mutationInFlight.current = false;
       setIsCheckingOut(false);
-      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
+      showToast({ title: 'Checkout is taking longer than expected', description: 'Your cart is saved. Please try again.' });
     }, 20000);
 
     try {
@@ -515,17 +259,9 @@ export function CartProvider({ children }) {
         return;
       }
 
-      // If some items were filtered out, inform the customer which items
-      // are excluded from this checkout. The valid items proceed normally.
       if (validItems.length < items.length) {
-        const excludedNames = items
-          .filter(i => !validItems.includes(i))
-          .map(i => i.name);
-        showToast({
-          title: 'Some items not available for checkout',
-          description: `${excludedNames.join(', ')} is not yet available for online checkout. Proceeding with your other items.`,
-          duration: 6000,
-        });
+        showToast({ title: 'Please review unavailable items', description: 'Remove unavailable items before checkout so your order matches your cart.', duration: 6000 });
+        return;
       }
 
       const hasSubscriptionItems = validItems.some(i => i.isSubscription);
@@ -541,6 +277,12 @@ export function CartProvider({ children }) {
         attributes: selectedGift ? [{ key: 'Free Gift', value: selectedGift.name }] : [],
         note: selectedGift ? `Free gift selected: ${selectedGift.name}` : undefined,
       });
+
+      if (attempt !== checkoutAttemptRef.current) return;
+      if (revision !== cartRevisionRef.current) {
+        showToast({ title: 'Your cart changed', description: 'Review your updated cart, then continue to checkout.' });
+        return;
+      }
 
       // Abort if cart creation failed or returned an error
       if (!cart || cart.error || !cart.cartId) {
@@ -623,29 +365,52 @@ export function CartProvider({ children }) {
         }
       }
 
+      let priceChanged = false;
+      const pricedItems = validItems.map(item => {
+        const variant = SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
+        const line = cart.lines.find(line => line.variantId === variant &&
+          Boolean(line.isSubscription) === Boolean(item.isSubscription) &&
+          (!item.isSubscription || line.sellingPlanId === item.sellingPlanId));
+        const price = Number(line?.unitPrice);
+        const displayed = Number(item.shopifyPrice ?? item.price);
+        if (!Number.isFinite(price) || price < 0) throw new Error('Invalid checkout price');
+        if (Math.abs(price - displayed) > 0.005) priceChanged = true;
+        return { ...item, shopifyPrice: price, sellingPlanName: line.sellingPlanName || item.sellingPlanName };
+      });
+      if (priceChanged) {
+        commitItems(pricedItems);
+        showToast({ title: 'Prices updated', description: 'Your cart shows current Shopify prices. Please review it and continue to checkout.', duration: 7000 });
+        return;
+      }
+      if (new URL(cart.checkoutUrl).protocol !== 'https:') throw new Error('Invalid checkout URL');
+
       // ── Redirect to Shopify Checkout ──
       // The cart was just created fresh from local state, so it's already
       // authoritative. No line-count or subtotal comparison needed.
       clearTimeout(timeoutId);
       window.location.href = cart.checkoutUrl;
     } catch {
+      if (attempt !== checkoutAttemptRef.current) return;
       clearTimeout(timeoutId);
       window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
     } finally {
       clearTimeout(timeoutId);
-      setIsCheckingOut(false);
+      if (attempt === checkoutAttemptRef.current) {
+        mutationInFlight.current = false;
+        setIsCheckingOut(false);
+      }
     }
-  }, [items, persistShopifyCartId, subtotal, selectedGift]);
+  }, [items, persistShopifyCartId, subtotal, selectedGift, commitItems]);
 
   const clearCart = useCallback(() => {
-    setItems([]);
+    commitItems([]);
     persistShopifyCartId(null);
     setSelectedGift(null);
-  }, [persistShopifyCartId]);
+  }, [persistShopifyCartId, commitItems]);
 
   return (
     <CartContext.Provider value={{
-      items, addItem, updateQty, setQty, removeItem, clearCart,
+      items, getLineKey, addItem, updateQty, setQty, removeItem, clearCart,
       totalItems, subtotal, drawerOpen, setDrawerOpen, confirmation, clearConfirmation, isAdding,
       refreshed, dismissRefreshed,
       shopifyCartId, persistShopifyCartId,
