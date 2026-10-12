@@ -1,387 +1,65 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useSEO } from '@/hooks/useSEO';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Minus, ChevronDown, ChevronUp, Check, RefreshCw, Calendar, Wallet, Repeat } from 'lucide-react';
-import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../lib/mushroomProducts';
-import { getSubscriptionCheckoutUrl, SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
-import DiscountReminders from '../components/discounts/DiscountReminders';
+import { useSEO } from '@/hooks/useSEO';
+import { CORE_PRODUCTS } from '@/lib/coreProducts';
 
-const THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
-};
-
-const BAG_OPTIONS = [1, 2, 3, 4, 5, 6];
-
-const SUB_FAQ = [
-  { q: 'Can I change my delivery date?', a: 'Yes — you can move it earlier or later anytime in your account before the shipment processes. Full flexibility, no phone calls needed.' },
-  { q: 'Can I skip a shipment?', a: 'Yes. Just skip a delivery instead of canceling. Your subscription stays active and resumes the following cycle.' },
-  { q: 'Can I swap blends between deliveries?', a: 'Yes. You can update your blend selections before each shipment. Mix and match mushroom coffee and classic coffee however you like.' },
-  { q: 'Do I get loyalty points with subscriptions?', a: 'Yes — subscription orders earn Torchbearer Rewards points just like one-time purchases. It\'s the best way to stack savings and rewards.' },
-  { q: 'How do I cancel?', a: 'You can pause or cancel anytime directly from your account in a few clicks. No calls, no forms, no hassle.' },
-  { q: 'How many bags can I subscribe to?', a: 'Choose between 1 and 6 bags per delivery. You can adjust the quantity anytime from your account.' },
+const steps = [
+  ['Choose your coffee', 'Open a product below to see its available purchase options.'],
+  ['Review your delivery plan', 'Where recurring delivery is offered, review its current price and schedule. Buy once is selected by default.'],
+  ['Confirm at checkout', 'Check the product, quantity, recurring charge, shipping, and taxes before placing your order.'],
 ];
-
-const STEPS = [
-  { num: '1', title: 'Pick your blends', body: 'Choose your favorite instant coffee or mushroom coffee. Mix and match up to 6 bags per delivery.' },
-  { num: '2', title: 'Set your delivery', body: 'Your selection ships every 4 weeks on your schedule. Adjust the delivery date, skip a shipment, or swap blends anytime from your account.' },
-  { num: '3', title: 'Save 10% on every order', body: 'The 10% discount applies to every subscription order — not just the first. Pause or cancel in a few clicks, no calls required.' },
-];
-
-const PERKS = [
-  { icon: Wallet, label: '10% off every order' },
-  { icon: Calendar, label: 'Delivered every 4 weeks' },
-  { icon: RefreshCw, label: 'Swap blends anytime' },
-  { icon: Repeat, label: 'Pause, skip, or cancel anytime' },
-];
-
-function FAQItem({ q, a }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div style={{ borderBottom: `1px solid ${THEME.border}` }}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between text-left py-5 gap-4"
-        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-        aria-expanded={open}
-      >
-        <span className="font-serif font-bold" style={{ fontSize: '1rem', color: THEME.text }}>{q}</span>
-        {open ? <ChevronUp className="w-4 h-4 flex-shrink-0" style={{ color: THEME.clay }} /> : <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: THEME.secondary }} />}
-      </button>
-      {open && (
-        <p className="font-heading pb-5" style={{ color: THEME.secondary, lineHeight: 1.8, fontSize: '0.95rem' }}>{a}</p>
-      )}
-    </div>
-  );
-}
 
 export default function Subscription() {
-  const [step, setStep] = useState(1);
-  const [bagCount, setBagCount] = useState(null);
-  const [blendQty, setBlendQty] = useState({});
-  const [isGeneratingCheckout, setIsGeneratingCheckout] = useState(false);
-
   useSEO({
-    title: 'Subscribe & Save | Torch Republic Coffee Company',
-    description: 'Subscribe to your favorite Torch Republic instant coffee or mushroom coffee and save on repeat deliveries. Build your monthly blend selection.',
+    title: 'Coffee Subscriptions | Torch Republic Coffee Company',
+    description: 'Explore recurring coffee delivery. Review available plans, current prices, and renewal terms on each product page.',
     url: '/subscription',
   });
-
-  const totalSelected = Object.values(blendQty).reduce((s, v) => s + v, 0);
-  const remaining = bagCount ? bagCount - totalSelected : 0;
-  const canCheckout = bagCount && totalSelected === bagCount;
-
-  const adjustBlend = (slug, delta) => {
-    setBlendQty(prev => {
-      const cur = prev[slug] || 0;
-      const next = Math.max(0, cur + delta);
-      if (delta > 0 && totalSelected >= bagCount) return prev;
-      return { ...prev, [slug]: next };
-    });
-  };
-
-  const resetSelections = () => { setBlendQty({}); };
-
-  const ALL_SUB_PRODUCTS = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
-  const selectedBlends = ALL_SUB_PRODUCTS.filter(p => (blendQty[p.slug] || 0) > 0);
-  const monthlyPrice = selectedBlends.reduce((s, p) => s + (blendQty[p.slug] || 0) * p.price, 0);
-  const discountedPrice = monthlyPrice * 0.90;
-  const savings = monthlyPrice - discountedPrice;
-
-  const handleCheckout = async () => {
-    if (!canCheckout) return;
-    setIsGeneratingCheckout(true);
-    try {
-      const url = await getSubscriptionCheckoutUrl(blendQty);
-      if (url) {
-        window.location.href = url;
-      } else {
-        setIsGeneratingCheckout(false);
-        window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
-      }
-    } catch {
-      setIsGeneratingCheckout(false);
-      window.dispatchEvent(new CustomEvent('tr:commerce-unavailable'));
-    }
-  };
-
   return (
-    <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh' }}>
-
-      {/* HERO */}
-      <section className="px-6 md:px-10 pt-16 pb-14 text-center">
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto">
-          <p className="eyebrow mb-4" style={{ color: THEME.clay }}>Subscribe &amp; Save</p>
-          <h1 className="h1 mb-4">Save 10% on every order, delivered every 4 weeks.</h1>
-          <p className="body-lg mb-8">
-            Lock in your ritual and skip the reorder stress. The 10% savings apply to every delivery — not just the first. Pause, skip, or cancel anytime from your account.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <a href="#builder" className="btn btn-primary" style={{ minWidth: 260 }}>
-              Build My Subscription
-            </a>
-            <Link to="/shop" className="font-heading text-sm" style={{ color: THEME.secondary, textDecoration: 'none' }}>
-              Prefer a one-time order? <span style={{ color: THEME.clay, textDecoration: 'underline' }}>Shop all blends →</span>
-            </Link>
-          </div>
-        </motion.div>
+    <main id="main-content" style={{ background: '#F7F1E7', color: '#292622', minHeight: '100vh' }}>
+      <section className="max-w-3xl mx-auto px-6 pt-14 pb-10 text-center">
+        <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: '#824329' }}>Coffee subscriptions</p>
+        <h1 className="font-serif font-bold text-4xl md:text-5xl leading-tight">Your daily ritual.<br />One less thing to remember.</h1>
+        <p className="font-heading text-lg leading-relaxed mt-6" style={{ color: '#5F574F' }}>
+          Choose recurring delivery where available, or order whenever you need a refill.
+          The current price and delivery schedule appear with each product.
+        </p>
+        <a href="#coffee-options" className="inline-flex items-center justify-center rounded-md px-7 py-3 mt-7 font-heading font-semibold" style={{ background: '#824329', color: '#FFFDF8', minHeight: 48 }}>Choose your coffee</a>
       </section>
-
-      {/* PERKS STRIP */}
-      <section className="px-6 md:px-10 pb-6">
-        <div className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {PERKS.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-2 p-3" style={{ background: THEME.cream, border: `1px solid ${THEME.border}`, borderRadius: 8 }}>
-              <Icon size={16} style={{ color: THEME.clay, flexShrink: 0 }} />
-              <span className="font-heading text-xs" style={{ color: THEME.secondary, lineHeight: 1.4 }}>{label}</span>
-            </div>
+      <section aria-label="How subscriptions work" className="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
+        {steps.map(([title, body], index) => (
+          <div key={title} className="rounded-xl p-6 border" style={{ background: '#FFFDF8', borderColor: '#E4D8C9' }}>
+            <p className="font-mono text-sm mb-3" style={{ color: '#824329' }}>0{index + 1}</p>
+            <h2 className="font-serif font-bold text-xl mb-3">{title}</h2>
+            <p className="font-heading leading-relaxed" style={{ color: '#5F574F' }}>{body}</p>
+          </div>
+        ))}
+      </section>
+      <section id="coffee-options" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-28">
+        <h2 className="font-serif font-bold text-3xl text-center mb-8">Find your everyday coffee</h2>
+        <div className="grid sm:grid-cols-2 gap-7">
+          {CORE_PRODUCTS.map(product => (
+            <article key={product.id} className="rounded-xl p-6 border flex flex-col" style={{ background: '#FFFDF8', borderColor: '#E4D8C9' }}>
+              <img src={product.image} alt={product.name} className="w-full h-64 object-contain mb-6" loading="lazy" />
+              <h3 className="font-serif font-bold text-2xl">{product.name}</h3>
+              <p className="font-heading mt-3 mb-6 leading-relaxed" style={{ color: '#5F574F' }}>{product.description}</p>
+              <Link to={product.path} className="mt-auto inline-flex items-center justify-center rounded-md px-5 py-3 font-heading font-semibold" style={{ background: '#824329', color: '#FFFDF8', minHeight: 48 }}>View purchase options →</Link>
+            </article>
           ))}
         </div>
       </section>
-
-      {/* HOW IT WORKS */}
-      <section className="px-6 md:px-10 py-14" style={{ background: THEME.cream, borderTop: `1px solid ${THEME.border}`, borderBottom: `1px solid ${THEME.border}` }}>
-        <div className="max-w-[900px] mx-auto">
-          <div className="text-center mb-10">
-            <p className="eyebrow mb-2" style={{ color: THEME.clay }}>How it works</p>
-            <h2 className="h2">Three simple steps</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {STEPS.map(({ num, title, body }) => (
-              <div key={num} className="card-torch p-6">
-                <div className="w-9 h-9 flex items-center justify-center font-serif font-bold mb-4" style={{ background: `${THEME.clay}14`, color: THEME.clay, fontSize: '1.1rem', borderRadius: '50%' }}>{num}</div>
-                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: THEME.text }}>{title}</h3>
-                <p className="font-heading text-sm" style={{ color: THEME.secondary, lineHeight: 1.75 }}>{body}</p>
-              </div>
-            ))}
+      <section className="max-w-3xl mx-auto px-6 pb-16">
+        <div className="rounded-xl border p-6 md:p-8" style={{ background: '#FBF8F1', borderColor: '#E4D8C9' }}>
+          <h2 className="font-serif font-bold text-2xl mb-4">Before you subscribe</h2>
+          <p className="font-heading leading-relaxed mb-4" style={{ color: '#5F574F' }}>Subscriptions renew automatically at the price and interval shown until cancelled. Shipping and taxes are calculated at checkout. Any available savings are shown with the actual product price.</p>
+          <p className="font-heading leading-relaxed mb-6" style={{ color: '#5F574F' }}>Already subscribed? Use your customer account to manage your subscription, or contact us if you need help.</p>
+          <div className="flex flex-wrap gap-5 font-heading font-semibold">
+            <a className="underline underline-offset-4" href="https://libertees-for-all.myshopify.com/account">Manage my subscription</a>
+            <Link className="underline underline-offset-4" to="/contact">Contact support</Link>
+            <Link className="underline underline-offset-4" to="/shop">Shop one-time purchases</Link>
           </div>
         </div>
       </section>
-
-      {/* BUILDER */}
-      <section id="builder" className="px-6 md:px-10 py-16">
-        <div className="max-w-[860px] mx-auto">
-
-          {/* Step indicators */}
-          <div className="flex items-center gap-3 mb-12 justify-center">
-            {[1, 2, 3].map(s => (
-              <React.Fragment key={s}>
-                <div className="flex items-center gap-2 cursor-pointer" onClick={() => { if (s < step || (s === 2 && bagCount) || (s === 3 && canCheckout)) setStep(s); }}>
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center font-mono text-[10px] font-bold transition-all"
-                    style={{
-                      background: step === s ? THEME.clay : step > s ? `${THEME.clay}22` : THEME.cream,
-                      color: step === s ? THEME.cream : step > s ? THEME.clay : THEME.secondary,
-                      border: `1px solid ${step > s ? `${THEME.clay}55` : THEME.border}`,
-                    }}>
-                    {s}
-                  </div>
-                  <span className="font-mono text-[8px] tracking-[0.25em] uppercase hidden sm:block" style={{ color: step === s ? THEME.clay : THEME.secondary }}>
-                    {s === 1 ? 'Bag Count' : s === 2 ? 'Select Blends' : 'Review'}
-                  </span>
-                </div>
-
-                {s < 3 && <div className="flex-1 h-px max-w-[60px]" style={{ background: step > s ? `${THEME.clay}55` : THEME.border }} />}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* STEP 1: Bag Count */}
-          {step === 1 && (
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-              <div className="text-center mb-8">
-                <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 1 of 3</p>
-                <h2 className="h2">Choose how many bags per delivery</h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {BAG_OPTIONS.map(n => (
-                  <button
-                    key={n}
-                    onClick={() => { setBagCount(n); resetSelections(); setStep(2); }}
-                    className="flex flex-col items-center gap-2 py-8 px-4 transition-all"
-                    style={{
-                      background: bagCount === n ? `${THEME.clay}10` : THEME.card,
-                      border: `1.5px solid ${bagCount === n ? THEME.clay : THEME.border}`,
-                      borderRadius: 10, cursor: 'pointer',
-                    }}
-                  >
-                    <span className="font-serif font-bold" style={{ fontSize: '2.2rem', color: bagCount === n ? THEME.clay : THEME.text, lineHeight: 1 }}>{n}</span>
-                    <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: THEME.secondary }}>
-                      {n === 1 ? 'Bag' : 'Bags'} / Delivery
-                    </span>
-                    <span className="font-mono text-[10px]" style={{ color: bagCount === n ? THEME.clay : THEME.secondary }}>
-                      from ${(n * 20.69).toFixed(2)}/delivery after 10% off
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* STEP 2: Select Blends */}
-          {step === 2 && bagCount && (
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-              <div className="text-center mb-2">
-                <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 2 of 3</p>
-                <h2 className="h2 mb-1">Select your blends</h2>
-                <p className="body" style={{ fontSize: '0.95rem' }}>
-                  You're building a <span style={{ color: THEME.clay, fontWeight: 700 }}>{bagCount}-bag</span> subscription. Select {bagCount} total bag{bagCount > 1 ? 's' : ''}.
-                </p>
-              </div>
-
-              <div className="flex items-center justify-center gap-3 my-6">
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: THEME.border, width: '160px' }}>
-                  <div className="h-full rounded-full transition-all" style={{ width: `${(totalSelected / bagCount) * 100}%`, background: totalSelected === bagCount ? THEME.moss : THEME.clay }} />
-                </div>
-                <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: totalSelected === bagCount ? THEME.moss : THEME.clay }}>
-                  {totalSelected}/{bagCount} selected
-                </span>
-              </div>
-
-              {[
-                { label: 'Mushroom Coffee', products: MUSHROOM_PRODUCTS },
-                { label: 'Classic Coffee', products: CLASSIC_COFFEE_PRODUCTS },
-          
-              ].map(group => (
-                <div key={group.label} className="mb-6">
-                  <p className="eyebrow mb-3" style={{ color: THEME.secondary }}>{group.label}</p>
-                  <div className="space-y-3">
-                    {group.products.map(p => {
-                      const qty = blendQty[p.slug] || 0;
-                      return (
-                        <div key={p.id} className="flex flex-col sm:flex-row sm:items-center gap-3 p-4 transition-all"
-                          style={{ background: qty > 0 ? `${p.accent}0A` : THEME.card, border: `1px solid ${qty > 0 ? p.accent + '40' : THEME.border}`, borderRadius: 8 }}>
-                          <div className="flex items-center gap-3 flex-1 min-w-0">
-                            <img src={p.image} alt={p.name} className="w-12 h-12 sm:w-14 sm:h-14 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px', borderRadius: 6 }} />
-                            <div className="flex-1 min-w-0">
-                              <p className="font-serif font-bold text-sm" style={{ color: THEME.text }}>{p.name}</p>
-                              <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{p.roast}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-2 self-end sm:self-auto">
-                            <button onClick={() => adjustBlend(p.slug, -1)} disabled={qty === 0}
-                              className="w-9 h-9 flex items-center justify-center transition-all" style={{ border: `1px solid ${THEME.border}`, color: qty === 0 ? THEME.border : THEME.text, cursor: qty === 0 ? 'not-allowed' : 'pointer', background: 'none' }} aria-label={`Decrease ${p.name}`}>
-                              <Minus className="w-3.5 h-3.5" />
-                            </button>
-                            <span className="font-mono font-bold w-6 text-center" style={{ color: qty > 0 ? THEME.clay : THEME.secondary, fontSize: '0.95rem' }}>{qty}</span>
-                            <button onClick={() => adjustBlend(p.slug, 1)} disabled={totalSelected >= bagCount}
-                              className="w-9 h-9 flex items-center justify-center transition-all" style={{ border: `1px solid ${totalSelected >= bagCount ? THEME.border : THEME.clay}`, color: totalSelected >= bagCount ? THEME.border : THEME.clay, cursor: totalSelected >= bagCount ? 'not-allowed' : 'pointer', background: 'none' }} aria-label={`Increase ${p.name}`}>
-                              <Plus className="w-3.5 h-3.5" />
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-
-              <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                <button onClick={() => setStep(1)} className="btn btn-ghost">← Back</button>
-                <button
-                  onClick={() => canCheckout && setStep(3)}
-                  disabled={!canCheckout}
-                  className="btn btn-primary flex-1"
-                  style={canCheckout ? {} : { opacity: 0.45, cursor: 'not-allowed' }}>
-                  {canCheckout ? 'Review My Subscription →' : `Select ${remaining} more bag${remaining !== 1 ? 's' : ''} to continue`}
-                </button>
-              </div>
-            </motion.div>
-          )}
-
-          {/* STEP 3: Review */}
-          {step === 3 && canCheckout && (
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-              <div className="text-center mb-8">
-                <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Step 3 of 3</p>
-                <h2 className="h2">Review your subscription</h2>
-              </div>
-
-              <div className="card-torch p-6 mb-6">
-                <div className="mb-5">
-                  <DiscountReminders cartSubtotal={monthlyPrice} showAll />
-                </div>
-
-                <div className="flex items-center justify-between mb-5 pb-5" style={{ borderBottom: `1px solid ${THEME.border}` }}>
-                  <div>
-                    <p className="font-serif font-bold mb-1" style={{ color: THEME.text, fontSize: '1rem' }}>Monthly Coffee Subscription</p>
-                    <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: THEME.secondary }}>{bagCount} Bag{bagCount > 1 ? 's' : ''} · Delivered Every 4 Weeks</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-mono text-xs line-through" style={{ color: THEME.secondary }}>${monthlyPrice.toFixed(2)}</p>
-                    <p className="font-mono font-bold" style={{ color: THEME.moss, fontSize: '1.3rem' }}>${discountedPrice.toFixed(2)}</p>
-                    <p className="font-mono text-[8px]" style={{ color: THEME.secondary }}>/month</p>
-                  </div>
-                </div>
-
-                <p className="eyebrow mb-3" style={{ color: THEME.clay }}>Selected blends</p>
-                <div className="space-y-3">
-                  {selectedBlends.map(p => (
-                    <div key={p.id} className="flex items-center gap-3">
-                      <img src={p.image} alt={p.name} className="w-9 h-9 object-contain flex-shrink-0" style={{ background: '#F8F5EF', borderRadius: 6, padding: 2 }} />
-                      <span className="font-heading text-sm flex-1" style={{ color: THEME.text }}>{p.name}</span>
-                      <span className="font-mono text-xs" style={{ color: THEME.secondary }}>×{blendQty[p.slug]}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-5 pt-5 flex flex-wrap gap-2" style={{ borderTop: `1px solid ${THEME.border}` }}>
-                  <span className="badge-torch">Every 4 Weeks</span>
-                  <span className="badge-torch">Shipping Calculated at Checkout</span>
-                  <span className="badge-torch">{bagCount * 27} Total Servings Per Delivery</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button onClick={() => setStep(2)} className="btn btn-ghost">← Edit Selections</button>
-                <button
-                  onClick={handleCheckout}
-                  disabled={!canCheckout || isGeneratingCheckout}
-                  className="btn btn-primary flex-1"
-                  style={isGeneratingCheckout ? { opacity: 0.6, cursor: 'not-allowed' } : {}}>
-                  {isGeneratingCheckout ? 'Preparing Your Discount...' : 'Proceed to Checkout →'}
-                </button>
-              </div>
-              <p className="font-heading text-xs text-center mt-4" style={{ color: THEME.secondary }}>
-                You can pause, skip, or cancel anytime from your account after checkout.
-              </p>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="px-6 md:px-10 py-16" style={{ background: THEME.cream, borderTop: `1px solid ${THEME.border}` }}>
-        <div className="max-w-[700px] mx-auto">
-          <div className="text-center mb-10">
-            <p className="eyebrow mb-2" style={{ color: THEME.clay }}>Questions</p>
-            <h2 className="h2">Subscription FAQ</h2>
-          </div>
-          {SUB_FAQ.map(item => <FAQItem key={item.q} q={item.q} a={item.a} />)}
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="px-6 md:px-10 py-16 text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="h2 mb-4">Ready to make it a ritual?</h2>
-          <p className="body-lg mb-8">Build your subscription in under a minute. Save 10% on every order, cancel anytime.</p>
-          <a href="#builder" className="btn btn-primary" style={{ minWidth: 260 }}>Build My Subscription</a>
-        </div>
-      </section>
-
-      {/* LEGAL */}
-      <div className="px-6 py-8 text-center" style={{ borderTop: `1px solid ${THEME.border}` }}>
-        <p className="font-mono text-[8px] tracking-[0.15em] max-w-xl mx-auto" style={{ color: THEME.secondary, lineHeight: 1.75 }}>
-          Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
-      </div>
-    </div>
+    </main>
   );
 }
