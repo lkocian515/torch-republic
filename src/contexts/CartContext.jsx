@@ -23,7 +23,7 @@ export function CartProvider({ children }) {
       const saved = typeof window !== 'undefined' ? localStorage.getItem(CART_STORAGE_KEY) : null;
       if (!saved) return [];
       const parsed = JSON.parse(saved);
-      return Array.isArray(parsed) ? parsed.filter((i) => ACTIVE_CART_IDS.has(i.id)) : [];
+      return Array.isArray(parsed) ? parsed.filter((i) => i && ACTIVE_CART_IDS.has(i.id) && Number.isInteger(i.qty) && i.qty > 0 && i.qty <= 999) : [];
     } catch {
       return [];
     }
@@ -36,7 +36,7 @@ export function CartProvider({ children }) {
       if (!saved) return false;
       const parsed = JSON.parse(saved);
       if (!Array.isArray(parsed)) return false;
-      return parsed.some((i) => !ACTIVE_CART_IDS.has(i.id));
+      return parsed.some((i) => !i || !ACTIVE_CART_IDS.has(i.id) || !Number.isInteger(i.qty) || i.qty < 1 || i.qty > 999);
     } catch {
       return false;
     }
@@ -340,7 +340,7 @@ export function CartProvider({ children }) {
           const expectedVariantId = SHOPIFY_VARIANT_IDS[subItem.shopifyHandle || subItem.id];
           const matchingLine = cartLines.find(sl =>
             ((expectedVariantId && sl.variantId === expectedVariantId) || sl.productTitle === subItem.name) &&
-            sl.isSubscription === true
+            sl.isSubscription === true && (!subItem.sellingPlanId || sl.sellingPlanId === subItem.sellingPlanId)
           );
           if (!matchingLine || !matchingLine.sellingPlanId) {
             clearTimeout(timeoutId);
