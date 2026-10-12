@@ -70,11 +70,8 @@ export default function MushroomShop() {
 
   return (
     <div style={{ background: '#FBF8F1' }}>
-      {/* Seasonal drop advertisement */}
-      <PumpkinSpiceAdBanner />
-
       {/* Hero */}
-      <section className="px-6 pb-10 pt-8 text-center md:px-10 md:pt-12">
+      <section className="px-5 pb-5 pt-5 text-center md:px-10 md:pt-10 md:pb-8">
         <div className="mx-auto max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
             Torch Republic Coffee Company
@@ -83,13 +80,13 @@ export default function MushroomShop() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-5 font-serif font-semibold"
-            style={{ fontSize: 'clamp(2.4rem,6vw,4rem)', color: '#292622', letterSpacing: '-0.02em', textWrap: 'balance' }}
+            className="mt-2 font-serif font-semibold"
+            style={{ fontSize: 'clamp(2rem,6vw,4rem)', color: '#292622', letterSpacing: '-0.02em', textWrap: 'balance' }}
           >
             The lineup.
           </motion.h1>
-          <p className="mx-auto mt-5 max-w-xl font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Two instant rituals, plus a seasonal whole bean drop for October. No catalog to get lost in — just the morning you want.
+          <p className="mx-auto mt-2 max-w-xl font-heading text-sm md:text-base" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+            Shop instant coffee, the Coffee Duo, and our seasonal whole bean release.
           </p>
         </div>
       </section>
@@ -104,6 +101,9 @@ export default function MushroomShop() {
           </div>
         </div>
       </section>
+
+      {/* Seasonal storytelling follows the shoppable catalog. */}
+      <PumpkinSpiceAdBanner />
 
       {/* Free gift with purchase */}
       <FreeGiftBanner />
