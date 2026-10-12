@@ -371,7 +371,7 @@ export function CartProvider({ children }) {
         const line = cart.lines.find(line => line.variantId === variant &&
           Boolean(line.isSubscription) === Boolean(item.isSubscription) &&
           (!item.isSubscription || line.sellingPlanId === item.sellingPlanId));
-        const price = Number(line?.unitPrice);
+        const price = Number(item.isSubscription ? (line?.subscriptionPrice ?? line?.unitPrice) : line?.unitPrice);
         const displayed = Number(item.shopifyPrice ?? item.price);
         if (!Number.isFinite(price) || price < 0) throw new Error('Invalid checkout price');
         if (Math.abs(price - displayed) > 0.005) priceChanged = true;
