@@ -17,25 +17,16 @@ export default function Subscription() {
   });
   return (
     <main id="main-content" style={{ background: '#F7F1E7', color: '#292622', minHeight: '100vh' }}>
-      <section className="max-w-3xl mx-auto px-6 pt-14 pb-10 text-center">
+      <section className="max-w-3xl mx-auto px-5 pt-6 pb-3 md:pt-12 md:pb-8 text-center">
         <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: '#824329' }}>Coffee subscriptions</p>
-        <h1 className="font-serif font-bold text-4xl md:text-5xl leading-tight">Your daily ritual.<br />One less thing to remember.</h1>
-        <p className="font-heading text-lg leading-relaxed mt-6" style={{ color: '#5F574F' }}>
+        <h1 className="font-serif font-bold text-3xl md:text-5xl leading-tight">Your daily ritual.<br />One less thing to remember.</h1>
+        <p className="font-heading text-base md:text-lg leading-relaxed mt-3" style={{ color: '#5F574F' }}>
           Choose recurring delivery where available, or order whenever you need a refill.
           The current price and delivery schedule appear with each product.
         </p>
         <a href="#coffee-options" className="inline-flex items-center justify-center rounded-md px-7 py-3 mt-7 font-heading font-semibold" style={{ background: '#824329', color: '#FFFDF8', minHeight: 48 }}>Choose your coffee</a>
       </section>
-      <section aria-label="How subscriptions work" className="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
-        {steps.map(([title, body], index) => (
-          <div key={title} className="rounded-xl p-6 border" style={{ background: '#FFFDF8', borderColor: '#E4D8C9' }}>
-            <p className="font-mono text-sm mb-3" style={{ color: '#824329' }}>0{index + 1}</p>
-            <h2 className="font-serif font-bold text-xl mb-3">{title}</h2>
-            <p className="font-heading leading-relaxed" style={{ color: '#5F574F' }}>{body}</p>
-          </div>
-        ))}
-      </section>
-      <section id="coffee-options" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-28">
+      <section id="coffee-options" className="max-w-5xl mx-auto px-5 py-6 md:py-12 scroll-mt-28">
         <h2 className="font-serif font-bold text-3xl text-center mb-8">Find your everyday coffee</h2>
         <div className="grid sm:grid-cols-2 gap-7">
           {CORE_PRODUCTS.map(product => (
@@ -47,6 +38,15 @@ export default function Subscription() {
             </article>
           ))}
         </div>
+      </section>
+      <section aria-label="How subscriptions work" className="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
+        {steps.map(([title, body], index) => (
+          <div key={title} className="rounded-xl p-6 border" style={{ background: '#FFFDF8', borderColor: '#E4D8C9' }}>
+            <p className="font-mono text-sm mb-3" style={{ color: '#824329' }}>0{index + 1}</p>
+            <h2 className="font-serif font-bold text-xl mb-3">{title}</h2>
+            <p className="font-heading leading-relaxed" style={{ color: '#5F574F' }}>{body}</p>
+          </div>
+        ))}
       </section>
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <div className="rounded-xl border p-6 md:p-8" style={{ background: '#FBF8F1', borderColor: '#E4D8C9' }}>

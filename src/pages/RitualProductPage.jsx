@@ -269,15 +269,15 @@ function RitualPDP({ product }) {
       </div>
 
       {/* Main */}
-      <section className="mx-auto max-w-[1100px] px-6 py-8 md:px-10 md:py-12">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
+      <section className="mx-auto max-w-[1100px] px-5 py-4 md:px-10 md:py-12">
+        <div className="grid grid-cols-1 items-start gap-5 lg:gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Gallery — bag product container */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:sticky lg:top-24">
             <RitualProductGallery images={galleryImages} alts={galleryAlts} accent={c.accent} />
           </motion.div>
 
           {/* Info + purchase */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="flex flex-col gap-7">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="flex flex-col gap-4 md:gap-7">
             <div className="flex flex-wrap items-center gap-2">
               <span className="badge-torch" style={{ background: `${c.accent}14`, color: c.deep, borderColor: `${c.accent}30` }}>{product.categoryLabel}</span>
               <span className="badge-torch">{product.prep}</span>

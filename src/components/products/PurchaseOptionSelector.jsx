@@ -107,6 +107,9 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
   // The parent component defaults to one-time purchase, so no fallback UI is needed.
   // Do not show misleading "subscription unavailable" messaging — if the API call
   // fails, the product simply has no subscription option available.
+  if (error) {
+    return <p role="status" className="mb-4 text-sm" style={{ color: '#5F574F' }}>Subscription options could not load. Refresh to try again, or choose a one-time purchase.</p>;
+  }
   if (!data?.hasSellingPlans || !data?.sellingPlanAllocations?.length) {
     return null;
   }

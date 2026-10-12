@@ -17,7 +17,7 @@ const SHOP_LINKS = [
   ['Shop All', '/shop'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
   ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-  ['Subscription Updates', '/#newsletter'],
+  ['Coffee Subscriptions', '/subscription'],
 ];
 
 const COMPANY_LINKS = [

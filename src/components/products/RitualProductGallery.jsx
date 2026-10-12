@@ -15,7 +15,7 @@ export default function RitualProductGallery({ images, alts, accent = '#B7653E' 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="relative flex items-center justify-center overflow-hidden"
+        className="relative mx-auto w-full max-w-[260px] sm:max-w-none flex items-center justify-center overflow-hidden"
         style={{ aspectRatio: '1/1', background: '#FFFFFF', border: `1px solid ${accent}22`, borderRadius: 12 }}
       >
         <img
@@ -35,8 +35,8 @@ export default function RitualProductGallery({ images, alts, accent = '#B7653E' 
             type="button"
             onClick={() => setActive(i)}
             aria-label={`View image ${i + 1}`}
-            className="flex-shrink-0 overflow-hidden"
-            style={{ width: 72, height: 72, borderRadius: 10, border: `2px solid ${i === active ? accent : '#E4D8C9'}`, background: '#FFFFFF', cursor: 'pointer', padding: 0, transition: 'border-color .2s ease' }}
+            className="h-12 w-12 md:h-[72px] md:w-[72px] flex-shrink-0 overflow-hidden"
+            style={{ borderRadius: 10, border: `2px solid ${i === active ? accent : '#E4D8C9'}`, background: '#FFFFFF', cursor: 'pointer', padding: 0, transition: 'border-color .2s ease' }}
           >
             <img
               src={src}
