@@ -145,7 +145,7 @@ function faqsFor(p) {
   return [
     { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
     { q: 'How do I prepare it?', a: prepFor(p) },
-    { q: 'Is it instant?', a: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
+    { q: 'Is it instant?', a: 'Yes. This product is instant — no machine, grinder, or pods needed. Just add hot water and stir.' },
     { q: 'How many servings are included?', a: `${p.servings} servings per bag.` },
     { q: 'Does it contain caffeine?', a: 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
@@ -180,7 +180,7 @@ function RitualPDP({ product }) {
     sellingPlanName: null,
   });
   const isSubscription = purchaseMode.mode === 'subscription';
-  const [tab, setTab] = useState('Ingredients');
+  const [tab, setTab] = useState("What's in Your Cup");
   const [justAdded, setJustAdded] = useState(false);
 
   const unitPrice = purchaseMode.price;
