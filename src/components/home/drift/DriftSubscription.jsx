@@ -25,24 +25,24 @@ export default function DriftSubscription() {
     <section ref={scope} className="sub-section" style={{ background: D.espresso, borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="mx-auto max-w-[900px] px-6 py-16 md:py-20 text-center">
         <p className="sub-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
-          Coming Soon
+          Your coffee, your schedule
         </p>
         <h2 className="sub-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.cream, margin: '0 0 1.25rem', textWrap: 'balance' }}>
-          Subscriptions are on the way.
+          Make your next morning easy.
         </h2>
         <p className="sub-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: 'rgba(250,247,241,0.75)', margin: '0 0 2rem', maxWidth: '46ch', marginLeft: 'auto', marginRight: 'auto' }}>
-          Soon you&rsquo;ll be able to have your favorite coffee delivered every four weeks and save 10%. One-time purchases are available now.
+          Buy once, or choose recurring delivery where offered on the product page. Review the current price and delivery schedule before adding a subscription to your cart.
         </p>
         <div className="sub-cta flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link to="/shop" className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: D.terracotta, color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,91,50,0.25)' }}>
             Shop Coffee <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
           <a href="#newsletter" className="group inline-flex items-center justify-center gap-2 transition-all duration-200 hover:opacity-80" style={{ minHeight: 52, padding: '0 2rem', borderRadius: '6px', background: 'transparent', color: D.cream, fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none', border: `1px solid ${D.terracotta}` }}>
-            Join the Subscription Waitlist
+            Get Coffee Updates
           </a>
         </div>
-        <p className="sub-note" style={{ fontFamily: SANS, fontSize: '0.8125rem', color: 'rgba(250,247,241,0.5)', margin: '2rem 0 0' }}>
-          Be the first to know when recurring delivery launches.
+        <p className="sub-note" style={{ fontFamily: SANS, fontSize: '0.8125rem', color: 'rgba(250,247,241,0.8)', margin: '2rem 0 0' }}>
+          Subscriptions renew automatically until cancelled. One-time purchases are always a separate choice.
         </p>
       </div>
     </section>

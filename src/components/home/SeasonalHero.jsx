@@ -17,12 +17,16 @@ export default function SeasonalHero() {
         />
       </Link>
 
-      {/* Urgency message under the hero */}
+      {/* Live text keeps the seasonal offer readable at every screen size. */}
       <div className="text-center" style={{ background: '#1A0F0A', padding: '1.25rem 1.5rem 1.75rem' }}>
-        <Link to="/products/pumpkin-spice-whole-bean-coffee" style={{ textDecoration: 'none' }}>
-          <p className="font-serif italic" style={{ color: '#E6B7AD', fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', lineHeight: 1.5 }}>
-            Something wicked is brewing. Pumpkin Spice Limited Seasonal Edition. Order now before it's sold out!
-          </p>
+        <h1 className="font-serif font-bold" style={{ color: '#FBF8F1', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: 1.2 }}>
+          Pumpkin Spice, for a cozier morning.
+        </h1>
+        <p className="mt-3 font-heading" style={{ color: '#E6D8CA', fontSize: '1rem', lineHeight: 1.6 }}>
+          Limited seasonal release · Whole bean · 12 oz · $24.99
+        </p>
+        <Link to="/products/pumpkin-spice-whole-bean-coffee" className="inline-flex items-center justify-center mt-5 px-7 py-3 rounded-md font-heading font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" style={{ background: '#FBF8F1', color: '#3D2418', minHeight: 48 }}>
+          Shop Pumpkin Spice →
         </Link>
       </div>
 

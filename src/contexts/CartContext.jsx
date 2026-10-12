@@ -570,6 +570,23 @@ export function CartProvider({ children }) {
         return;
       }
 
+      // Verify the returned variant and quantity before sending a customer to payment.
+      const hasWrongVariant = validItems.some((item) => {
+        const expectedId = SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
+        const matches = (cart.lines || []).filter((line) =>
+          line.variantId === expectedId &&
+          Boolean(line.isSubscription) === Boolean(item.isSubscription) &&
+          (!item.isSubscription || !item.sellingPlanId || line.sellingPlanId === item.sellingPlanId)
+        );
+        return matches.reduce((sum, line) => sum + line.quantity, 0) !== item.qty;
+      });
+      if (hasWrongVariant) {
+        clearTimeout(timeoutId);
+        setIsCheckingOut(false);
+        showToast({ title: 'Please review your cart', description: 'The product options returned by checkout did not match your selection. Please try again or contact support.', duration: 6000 });
+        return;
+      }
+
       // ── FAIL-CLOSED: verify subscription lines have selling plan allocations ──
       // If the customer selected subscription but the returned Shopify cart line
       // has no sellingPlanAllocation or its selling plan ID does not match the

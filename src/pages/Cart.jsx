@@ -21,7 +21,7 @@ const PAGE_BG = '#FBF8F2';
 const CARD = '#FFFFFF';
 const INK = '#2D2824';
 const INK_SOFT = '#5C544C';
-const MUTED = '#9A8A7A';
+const MUTED = '#6A5A4A';
 const MUTED_MED = '#6A5A4A';
 const BORDER = '#E4D8C9';
 const ACCENT = '#B86543';
@@ -85,7 +85,7 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen" style={{ background: PAGE_BG, color: INK }}>
-      <div className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
+      <div className="max-w-[1120px] mx-auto px-5 md:px-8 py-10">
 
         {/* Header — stacks on narrow screens so nothing is clipped */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
@@ -110,9 +110,9 @@ export default function Cart() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
           {/* Items + shipping progress */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="min-w-0 space-y-4">
             {/* Free shipping progress — compact, above items */}
             <CartFreeShippingBar subtotal={subtotal} />
             {items.map(item => (
@@ -127,13 +127,13 @@ export default function Cart() {
               >
                 <img src={getProductImage(item)} alt={item.imageAlt || getProductAltText(item)} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px' }} />
                 <div className="flex-1 min-w-0">
-                  <p className="font-serif font-bold text-sm mb-0.5 truncate" style={{ color: INK }}>{item.name}</p>
+                  <p className="font-serif font-bold text-base mb-1 leading-snug" style={{ color: INK }}>{item.name}</p>
                   <p className="font-mono text-xs tracking-[0.1em] uppercase mb-2" style={{ color: MUTED }}>
-                    {item.category === 'classic-coffee' ? 'Classic Coffee' : item.category === 'pumpkin-spice' ? 'Whole Bean' : 'Mushroom Coffee'}
-                    {item.format === 'Whole Bean' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
+                    {item.category === 'classic-coffee' ? 'Classic Coffee' : item.category === 'pumpkin-spice' ? 'Whole Bean' : item.category === 'bundle' ? 'Coffee Duo' : 'Mushroom Coffee'}
+                    {item.format === 'Whole Bean' || item.category === 'pumpkin-spice' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
                   </p>
                   {item.isSubscription && item.sellingPlanName && (
-                    <p className="font-mono text-xs tracking-[0.08em] uppercase mb-2" style={{ color: '#10B981' }}>
+                    <p className="font-mono text-xs tracking-[0.08em] uppercase mb-2" style={{ color: '#0f766e' }}>
                       {item.sellingPlanName}
                     </p>
                   )}
@@ -142,7 +142,7 @@ export default function Cart() {
                     <div className="flex items-center gap-2" style={{ border: `1px solid ${BORDER}` }}>
                       <button
                         onClick={() => item.qty <= 1 ? removeMutation.mutate(item.id) : qtyMutation.mutate({ id: item.id, delta: -1 })}
-                        className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
+                        className="w-11 h-11 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: INK_SOFT }}
                         aria-label="Decrease quantity"
                       >
@@ -151,7 +151,7 @@ export default function Cart() {
                       <span className="font-mono text-xs w-5 text-center" style={{ color: INK }}>{item.qty}</span>
                       <button
                         onClick={() => qtyMutation.mutate({ id: item.id, delta: 1 })}
-                        className="w-8 h-8 flex items-center justify-center transition-all hover:opacity-70"
+                        className="w-11 h-11 flex items-center justify-center transition-all hover:opacity-70"
                         style={{ color: INK_SOFT }}
                         aria-label="Increase quantity"
                       >
@@ -163,7 +163,7 @@ export default function Cart() {
                 </div>
                 <button
                   onClick={() => removeMutation.mutate(item.id)}
-                  className="w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all hover:opacity-70"
+                  className="w-11 h-11 flex items-center justify-center flex-shrink-0 transition-all hover:opacity-70"
                   style={{ color: MUTED }}
                   aria-label="Remove item"
                 >
@@ -180,7 +180,7 @@ export default function Cart() {
           </div>
 
           {/* Summary */}
-          <div className="lg:col-span-1">
+          <div className="min-w-0">
             <div className="sticky top-24 p-6" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
               <CartFirstTimeOffer />
               <p className="font-mono text-xs tracking-[0.12em] uppercase mb-6" style={{ color: ACCENT }}>Order Summary</p>
@@ -191,7 +191,7 @@ export default function Cart() {
               </div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED_MED }}>Shipping</span>
-                <span className="font-mono text-xs" style={{ color: '#10B981' }}>Calculated at checkout</span>
+                <span className="font-mono text-xs" style={{ color: '#0f766e' }}>Calculated at checkout</span>
               </div>
 
               {/* Delivery estimate */}
@@ -230,7 +230,7 @@ export default function Cart() {
                 {isCheckingOut ? 'Preparing Checkout...' : 'Continue to Checkout'}
               </button>
 
-              <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-4">
                 <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED }}>Secure Checkout</span>
                 <span style={{ color: BORDER }}>•</span>
                 <span className="font-mono text-xs tracking-[0.08em]" style={{ color: MUTED }}>Ships from the U.S.</span>

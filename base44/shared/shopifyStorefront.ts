@@ -32,8 +32,8 @@ export const VARIANT_IDS = {
   "instant-coffee-1": "gid://shopify/ProductVariant/51245709623548",
   "instant-coffee-with-mushroom": "gid://shopify/ProductVariant/51245706608892",
   // Seasonal — Pumpkin Spice (VERIFIED 2026-10-08 via Storefront API)
-  "pumpkin-spice": "gid://shopify/ProductVariant/51377445372156",
-  "pumpkin-spice-whole-bean-coffee": "gid://shopify/ProductVariant/51377445372156",
+  "pumpkin-spice": "gid://shopify/ProductVariant/51377445863676",
+  "pumpkin-spice-whole-bean-coffee": "gid://shopify/ProductVariant/51377445863676",
   };
 
 // ── Verified Shopify Selling Plan global IDs ──
@@ -224,7 +224,7 @@ export function sanitizeCart(cartNode, userErrors) {
         lineTotal: node.cost?.totalAmount?.amount || null,
         isSubscription: !!node.sellingPlanAllocation?.sellingPlan,
         sellingPlanId: node.sellingPlanAllocation?.sellingPlan?.id || null,
-        sellingPlanName: node.sellingPlanAllocation?.sellingPlan?.name || null,
+        sellingPlanName: node.sellingPlanAllocation?.sellingPlan?.name?.replace(/\s*[—–-]?\s*save\s*\d+(?:\.\d+)?%/ig, '').trim() || null,
         sellingPlanDescription: node.sellingPlanAllocation?.sellingPlan?.description || null,
         subscriptionPrice: node.sellingPlanAllocation?.priceAdjustments?.[0]?.price?.amount || null,
         perDeliveryPrice: node.sellingPlanAllocation?.priceAdjustments?.[0]?.perDeliveryPrice?.amount || null,
@@ -341,18 +341,22 @@ export const PRODUCT_SELLING_PLANS_QUERY = `query productByHandle($handle: Strin
 
 /**
  * Sanitize a Shopify product node (with selling plans) for frontend return.
- * Returns the first variant's data and its selling plan allocations.
+ * Returns the configured storefront variant and its selling plan allocations.
  */
 export function sanitizeSellingPlans(productData) {
   if (!productData) return null;
 
-  const variant = productData.variants?.edges?.[0]?.node;
+  const variants = (productData.variants?.edges || []).map((edge) => edge.node);
+  const expectedId = VARIANT_IDS[productData.handle];
+  const variant = expectedId
+    ? variants.find((item) => item.id === expectedId)
+    : variants[0];
   if (!variant) return null;
 
   const allocations = (variant.sellingPlanAllocations?.edges || [])
     .map((e) => ({
       sellingPlanId: e.node?.sellingPlan?.id || null,
-      sellingPlanName: e.node?.sellingPlan?.name || null,
+      sellingPlanName: (e.node?.sellingPlan?.name || 'Subscription').replace(/\s*[—–-]?\s*save\s*\d+(?:\.\d+)?%/ig, '').trim(),
       sellingPlanDescription: e.node?.sellingPlan?.description || null,
       price: e.node?.priceAdjustments?.[0]?.price?.amount || null,
       compareAtPrice: e.node?.priceAdjustments?.[0]?.compareAtPrice?.amount || null,

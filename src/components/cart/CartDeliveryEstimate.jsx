@@ -27,34 +27,34 @@ export default function CartDeliveryEstimate() {
     <div className="mb-4 p-3" style={{ background: '#FBF8F2', border: `1px solid ${BORDER}` }}>
       <div className="flex items-center gap-2 mb-3">
         <Calendar className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ACCENT }} />
-        <p className="font-mono text-[9px] tracking-[0.1em]" style={{ color: MUTED }}>
+        <p className="font-heading text-sm leading-relaxed" style={{ color: MUTED }}>
           <span className="font-bold" style={{ color: INK }}>Processing:</span> 1&ndash;3 business days
         </p>
       </div>
       <div className="space-y-1.5 mb-3">
-        <p className="font-mono text-[8px] tracking-[0.1em] mb-1" style={{ color: MUTED }}>
+        <p className="font-heading text-sm leading-relaxed mb-1" style={{ color: MUTED }}>
           <span style={{ color: INK }}>Transit</span> (varies by location):
         </p>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
-          <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
+          <p className="font-heading text-sm leading-relaxed" style={{ color: MUTED }}>
             <span style={{ color: INK }}>Texas:</span> 2&ndash;4 business days
           </p>
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
-          <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
+          <p className="font-heading text-sm leading-relaxed" style={{ color: MUTED }}>
             <span style={{ color: INK }}>Southern US:</span> 3&ndash;5 business days
           </p>
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: ACCENT }} />
-          <p className="font-mono text-[8px] tracking-[0.1em]" style={{ color: MUTED }}>
+          <p className="font-heading text-sm leading-relaxed" style={{ color: MUTED }}>
             <span style={{ color: INK }}>Nationwide:</span> 3&ndash;7 business days
           </p>
         </div>
       </div>
-      <p className="font-mono text-[8px] tracking-[0.1em] pt-2" style={{ color: MUTED, borderTop: `1px solid ${BORDER}` }}>
+      <p className="font-heading text-sm leading-relaxed pt-2" style={{ color: MUTED, borderTop: `1px solid ${BORDER}` }}>
         Estimated total delivery: {nationwideRange}. Tracking emailed once shipped.
       </p>
     </div>

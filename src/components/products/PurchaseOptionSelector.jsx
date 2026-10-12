@@ -30,6 +30,9 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
     async function fetchPlans() {
       setLoading(true);
       setError(false);
+      setMode('onetime');
+      setData(null);
+      onChange({ mode: 'onetime', sellingPlanId: null, price: product.price, sellingPlanName: null });
       try {
         const response = await base44.functions.invoke('fetchProductSellingPlans', {
           handle: product.shopifyHandle,
@@ -84,7 +87,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         sellingPlanId: allocation.sellingPlanId,
         price: parseFloat(allocation.price),
         perDeliveryPrice: parseFloat(allocation.perDeliveryPrice),
-        sellingPlanName: allocation.sellingPlanName,
+        sellingPlanName: (allocation.sellingPlanName || 'Subscription').replace(/\s*[—–-]?\s*save\s*\d+(?:\.\d+)?%/ig, '').trim(),
         compareAtPrice: allocation.compareAtPrice ? parseFloat(allocation.compareAtPrice) : null,
       });
     }
@@ -104,12 +107,14 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
   // The parent component defaults to one-time purchase, so no fallback UI is needed.
   // Do not show misleading "subscription unavailable" messaging — if the API call
   // fails, the product simply has no subscription option available.
-  if (!data?.hasSellingPlans) {
+  if (!data?.hasSellingPlans || !data?.sellingPlanAllocations?.length) {
     return null;
   }
 
   const allocation = data.sellingPlanAllocations[0];
   const subPrice = parseFloat(allocation.price);
+  if (!Number.isFinite(subPrice) || subPrice <= 0) return null;
+  const planLabel = (allocation.sellingPlanName || 'Subscription').replace(/\s*[—–-]?\s*save\s*\d+(?:\.\d+)?%/ig, '').trim();
   const oneTimePrice = data.oneTimePrice ? parseFloat(data.oneTimePrice) : product.price;
   const savings = oneTimePrice - subPrice;
   const savingsPercent = savings > 0 ? Math.round((savings / oneTimePrice) * 100) : 0;
@@ -120,6 +125,8 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
       <button
         type="button"
         role="radio"
+        tabIndex={mode === 'onetime' ? 0 : -1}
+        onKeyDown={(event) => { if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) { event.preventDefault(); handleSelect('subscription'); event.currentTarget.nextElementSibling?.focus(); } }}
         aria-checked={mode === 'onetime'}
         onClick={() => handleSelect('onetime')}
         className="flex items-center gap-3 rounded-lg border p-3 text-left transition-all"
@@ -147,6 +154,8 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
       <button
         type="button"
         role="radio"
+        tabIndex={mode === 'subscription' ? 0 : -1}
+        onKeyDown={(event) => { if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) { event.preventDefault(); handleSelect('onetime'); event.currentTarget.previousElementSibling?.focus(); } }}
         aria-checked={mode === 'subscription'}
         onClick={() => handleSelect('subscription')}
         className="flex items-center gap-3 rounded-lg border p-3 text-left transition-all"
@@ -164,7 +173,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         </span>
         <div className="flex-1">
           <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>
-            {allocation.sellingPlanName || 'Deliver every month'}
+            {planLabel}
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
             ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` · Save ${savingsPercent}%` : ''} · Renews automatically · Cancel anytime
@@ -178,7 +187,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
           Recurring Billing Terms
         </p>
         <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.65 }}>
-          If you choose a subscription, you will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({allocation.sellingPlanName || 'monthly'}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
+          If you choose a subscription, you will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({planLabel}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
         </p>
       </div>
     </div>
