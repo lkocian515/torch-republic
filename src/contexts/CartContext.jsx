@@ -45,7 +45,8 @@ export function CartProvider({ children }) {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
-  const [isAdding, setIsAdding] = useState(false);
+  // Local additions are synchronous; only checkout waits for Shopify.
+  const isAdding = false;
 
   // ── Shopify cart ID (NOT a secret — identifies the buyer's Shopify cart) ──
   const [shopifyCartId, setShopifyCartId] = useState(() => {
@@ -67,7 +68,7 @@ export function CartProvider({ children }) {
   });
 
   // ── Loading state for Shopify operations ──
-  const [isSyncing, setIsSyncing] = useState(false);
+  const isSyncing = false;
 
   // ── Mutation lock: prevents concurrent mutations on the same cart ──
   // Also prevents duplicate lines from repeated clicks.
@@ -75,11 +76,10 @@ export function CartProvider({ children }) {
 
   // Tracks the last error toast so it can be dismissed immediately when the
   // add ultimately succeeds (never leave a stale failure message visible).
-  const lastErrorToastRef = useRef(null);
+  // Checkout errors are shown at the point of validation.
 
   // Ref mirror of shopifyCartId to avoid stale closures in async callbacks
-  const shopifyCartIdRef = useRef(shopifyCartId);
-  useEffect(() => { shopifyCartIdRef.current = shopifyCartId; }, [shopifyCartId]);
+  // The remote cart ID is retained for compatibility, never used to restore local quantities.
 
   // Ref mirror of items for rollback in addItem without adding items to deps
   const itemsRef = useRef(items);
