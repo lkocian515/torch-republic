@@ -169,6 +169,7 @@ export const BUNDLE_PRODUCTS = [
     name: 'Torch Republic Coffee Duo',
     slug: 'torch-republic-coffee-duo',
     shopifyHandle: 'torch-republic-coffee-duo',
+    sellingPlansHandle: 'torch-republic-coffee-duo-copy',
     ritualKey: 'duo',
     category: 'bundle',
     categoryLabel: 'Coffee Duo',
