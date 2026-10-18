@@ -146,7 +146,7 @@ function faqsFor(p) {
     { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
     { q: 'How do I prepare it?', a: prepFor(p) },
     { q: 'Is it instant?', a: 'Yes. This product is instant — no machine, grinder, or pods needed. Just add hot water and stir.' },
-    { q: 'How many servings are included?', a: `${p.servings} servings per bag.` },
+    { q: 'How many servings are included?', a: p.category === 'bundle' ? `${p.servings} servings total across two bags (27 per bag).` : `${p.servings} servings per bag.` },
     { q: 'Does it contain caffeine?', a: 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
 }
@@ -383,7 +383,7 @@ function RitualPDP({ product }) {
               <p>{INGREDIENTS[product.category]}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
-                  { label: product.format === 'Whole Bean' ? 'Weight' : 'Servings', value: product.format === 'Whole Bean' ? product.weight : `${product.servings} per pouch` },
+                  { label: product.format === 'Whole Bean' ? 'Weight' : 'Servings', value: product.format === 'Whole Bean' ? product.weight : product.category === 'bundle' ? `${product.servings} total across two bags (27 per bag)` : `${product.servings} per pouch` },
                   { label: 'Serving size', value: product.format === 'Whole Bean' ? '2 tbsp ground' : '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
                   { label: 'Format', value: product.format === 'Whole Bean' ? 'Whole bean' : 'Instant - no machine needed' },
@@ -506,7 +506,7 @@ function RitualPDP({ product }) {
             <span className="w-9 text-center font-mono text-sm" style={{ color: THEME.text }}>{qty}</span>
             <button onClick={() => setQty((q) => q + 1)} style={{ width: 38, height: 42, color: THEME.text, background: 'none', border: 'none' }} aria-label="Increase quantity"><Plus size={13} /></button>
           </div>
-          <button onClick={() => handleAdd('product_pdp_sticky')} className="btn" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF', flexShrink: 0, padding: '0.6rem 1.1rem' }}>
+          <button aria-label={justAdded ? 'Added to cart' : `Add ${product.name} to cart`} onClick={() => handleAdd('product_pdp_sticky')} className="btn" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF', flexShrink: 0, padding: '0.6rem 1.1rem' }}>
             {justAdded ? <Check size={16} /> : <ShoppingBag size={16} />}
           </button>
         </div>
