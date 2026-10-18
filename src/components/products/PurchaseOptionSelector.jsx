@@ -35,7 +35,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
       onChange({ mode: 'onetime', sellingPlanId: null, price: product.price, sellingPlanName: null });
       try {
         const response = await base44.functions.invoke('fetchProductSellingPlans', {
-          handle: product.shopifyHandle,
+          handle: product.sellingPlansHandle || product.shopifyHandle,
         });
         if (cancelled) return;
 
@@ -66,7 +66,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
 
     fetchPlans();
     return () => { cancelled = true; };
-  }, [product.shopifyHandle]);
+  }, [product.shopifyHandle, product.sellingPlansHandle]);
 
   const handleSelect = (newMode) => {
     setMode(newMode);
