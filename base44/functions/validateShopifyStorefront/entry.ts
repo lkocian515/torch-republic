@@ -41,7 +41,7 @@ const EXPECTED = {
   },
   duo: {
     handle: "torch-republic-coffee-duo",
-    variantId: "gid://shopify/ProductVariant/51245930217724",
+    variantId: "gid://shopify/ProductVariant/67779008692476",
     price: "43.99",
     compareAtPrice: "48.98",
     status: "draft-or-unpublished",

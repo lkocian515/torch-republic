@@ -13,7 +13,7 @@ import { secrets } from "base44:runtime";
  * VERIFIED on 2026-09-09 via Storefront API 2026-07:
  *   - Classic: ProductVariant/51245709623548, SellingPlan/5911216380
  *   - Mushroom: ProductVariant/51245706608892, SellingPlan/5701107964
- *   - Duo: ProductVariant/51245930217724 (active — supports subscription via SellingPlan/5954666748)
+ *   - Duo: ProductVariant/67779008692476 (active — one-time bundle; no selling plan)
  */
 
 const SHOP_DOMAIN = "libertees-for-all.myshopify.com";
@@ -26,8 +26,8 @@ export const STORE_DOMAIN = SHOP_DOMAIN;
 export const VARIANT_IDS = {
   "instant-classic-coffee": "gid://shopify/ProductVariant/51245709623548",
   "instant-mushroom-coffee": "gid://shopify/ProductVariant/51245706608892",
-  "torch-republic-coffee-duo": "gid://shopify/ProductVariant/51245930217724",
-  "coffee-duo": "gid://shopify/ProductVariant/51245930217724",
+  "torch-republic-coffee-duo": "gid://shopify/ProductVariant/67779008692476",
+  "coffee-duo": "gid://shopify/ProductVariant/67779008692476",
   // Shopify handle aliases
   "instant-coffee-1": "gid://shopify/ProductVariant/51245709623548",
   "instant-coffee-with-mushroom": "gid://shopify/ProductVariant/51245706608892",
@@ -50,7 +50,7 @@ export const SELLING_PLAN_IDS = {
 };
 
 // ── Coffee Duo (VERIFIED ACTIVE 2026-09-09 — available via Storefront API) ──
-export const DUO_VARIANT_ID = "gid://shopify/ProductVariant/51245930217724";
+export const DUO_VARIANT_ID = "gid://shopify/ProductVariant/67779008692476";
 export const DUO_ENABLED = true;
 
 // ── Cart fragment (reused across all cart operations) ──

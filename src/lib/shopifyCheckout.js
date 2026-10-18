@@ -157,15 +157,15 @@ export const SHOPIFY_VARIANT_IDS = COMMERCE_ENABLED
   ? {
       'instant-classic-coffee': 'gid://shopify/ProductVariant/51245709623548',
       'instant-mushroom-coffee': 'gid://shopify/ProductVariant/51245706608892',
-      'torch-republic-coffee-duo': 'gid://shopify/ProductVariant/51245930217724',
-      'coffee-duo': 'gid://shopify/ProductVariant/51245930217724',
+      'torch-republic-coffee-duo': 'gid://shopify/ProductVariant/67779008692476',
+      'coffee-duo': 'gid://shopify/ProductVariant/67779008692476',
       'instant-coffee-1': 'gid://shopify/ProductVariant/51245709623548',
       'instant-coffee-with-mushroom': 'gid://shopify/ProductVariant/51245706608892',
       'pumpkin-spice': 'gid://shopify/ProductVariant/51377445863676',
       'pumpkin-spice-whole-bean-coffee': 'gid://shopify/ProductVariant/51377445863676',
     }
   : {};
-export const DUO_VARIANT_ID = 'gid://shopify/ProductVariant/51245930217724';
+export const DUO_VARIANT_ID = 'gid://shopify/ProductVariant/67779008692476';
 
 export function getShopifyCartUrl() { return null; }
 export function getShopifyBundleUrl() { return null; }

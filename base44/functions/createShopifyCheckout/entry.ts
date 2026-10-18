@@ -13,7 +13,7 @@
  * VERIFIED VARIANTS (2026-09-09):
  *   Classic:  gid://shopify/ProductVariant/51245709623548  ($22.99)
  *   Mushroom: gid://shopify/ProductVariant/51245706608892  ($25.99)
- *   Duo:      gid://shopify/ProductVariant/51245930217724  (DRAFT — disabled)
+ *   Duo:      gid://shopify/ProductVariant/67779008692476  (ACTIVE — one-time bundle)
  *
  * VERIFIED SELLING PLANS:
  *   Classic:  gid://shopify/SellingPlan/5911216380  ($20.69, every 4 weeks)
