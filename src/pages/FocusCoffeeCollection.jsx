@@ -12,20 +12,21 @@ import CollectionIntro from '@/components/collection/CollectionIntro';
 import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import { ritualCards } from '@/lib/collectionRitualProducts';
+import { SUBSCRIBE_SAVE_PERCENT, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 const ACCENT = '#B7653E';
 
 const FOCUS_PRODUCTS = [
-  { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
-  { name: 'The Monk', path: '/products/the-monk-matcha-blend' },
-  { name: 'SunCap Rise', path: '/products/suncap-rise-instant-mushroom-coffee' },
+  { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
+  { name: 'Instant Classic Coffee', path: '/products/instant-classic-coffee' },
+  { name: 'Torch Republic Coffee Duo', path: '/products/torch-republic-coffee-duo' },
 ];
 const FOCUS_CARDS = ritualCards(FOCUS_PRODUCTS);
 
 const FAQS = [
-  { q: 'What is the best coffee for focus and concentration?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion’s Mane and Chaga, made for focused deep-work sessions. No machine required.' },
-  { q: 'Is there a caffeine-free option for focus?', a: 'The Monk is a ceremonial matcha with naturally occurring caffeine and L-theanine for a calmer, steadier kind of focus than coffee.' },
-  { q: 'How many servings are in each tube?', a: 'Coffee blends contain 27 servings per tube; matcha contains 25 servings per tin.' },
+  { q: 'What is the best coffee for focus and concentration?', a: 'Instant Mushroom Coffee combines premium Arabica instant coffee with Lion’s Mane and Chaga, made for focused deep-work sessions. No machine required.' },
+  { q: 'Is there a lower-caffeine option for focus?', a: 'Instant Mushroom Coffee is medium caffeine; Instant Classic Coffee is higher. Both are instant, so no brewing equipment is needed.' },
+  { q: 'How many servings are in each pouch?', a: 'Each pouch contains 27 servings.' },
 ];
 
 export default function FocusCoffeeCollection() {
@@ -33,13 +34,13 @@ export default function FocusCoffeeCollection() {
 
   useSEO({
     title: 'Best Coffee for Focus | Mushroom Coffee for Concentration | Torch Republic',
-    description: "Best coffee for focus and concentration — Lion's Mane mushroom coffee, ceremonial matcha with L-theanine, and premium instant coffee blends designed for deep work and mental clarity.",
+    description: "Best coffee for focus and concentration — Lion's Mane and Chaga mushroom coffee and premium instant coffee, designed for deep work and mental clarity.",
     url: '/shop/focus-coffee',
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Focus Coffee', url: '/shop/focus-coffee' }],
     faq: [
-      { question: 'What is the best coffee for focus and concentration?', answer: "GlowMind Clarity combines premium Arabica instant coffee with Lion's Mane and Chaga — designed for focused deep work sessions." },
-      { question: "Is there a lower-caffeine option for focus?", answer: "The Monk is a ceremonial matcha with naturally occurring caffeine and L-theanine, traditionally associated with a calmer, more focused energy." },
+      { question: 'What is the best coffee for focus and concentration?', answer: "Instant Mushroom Coffee combines premium Arabica instant coffee with Lion's Mane and Chaga — designed for focused deep work sessions." },
+      { question: "Is there a lower-caffeine option for focus?", answer: "Instant Mushroom Coffee is medium caffeine and Instant Classic Coffee is higher. Both are instant, so no brewing equipment is needed." },
     ],
   });
 
@@ -54,7 +55,7 @@ export default function FocusCoffeeCollection() {
           </div>
           <h1 className="h1 mb-5">Coffee Designed for Deep Focus</h1>
           <p className="body-lg mb-8">
-            Not all coffee supports the same kind of work. These blends pair premium instant coffee and ceremonial matcha with Lion’s Mane and Chaga for mornings built around attention and presence.
+            Not all coffee supports the same kind of work. Instant Mushroom Coffee pairs premium instant coffee with Lion’s Mane and Chaga for mornings built around attention and presence.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link to="/build-your-ritual" className="btn btn-primary">
@@ -70,7 +71,7 @@ export default function FocusCoffeeCollection() {
       {/* Trust Strip */}
       <div className="px-6 py-4" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}18` }}>
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          {['Lion’s Mane + Chaga', 'No machine needed', '27 servings per tube', 'Subscribe & save 20%'].map((t, i) => (
+          {['Lion’s Mane + Chaga', 'No machine needed', '27 servings per pouch', `Subscribe & save ${SUBSCRIBE_SAVE_PERCENT}%`].map((t, i) => (
             <div key={i} className="flex items-center gap-2">
               <CheckCircle size={12} style={{ color: ACCENT }} />
               <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{t}</span>
@@ -86,7 +87,7 @@ export default function FocusCoffeeCollection() {
             <CollectionIntro
               eyebrow="The Collection"
               title="Focus Blends"
-              intro="Mushroom coffee and ceremonial matcha made for attention. Coffee blends include Lion’s Mane and Chaga; The Monk offers ceremonial matcha with naturally occurring L-theanine."
+              intro="Instant coffee made for attention. Instant Mushroom Coffee pairs Lion’s Mane and Chaga with premium Arabica; Instant Classic Coffee keeps it simple."
               accent={ACCENT}
             />
           </div>
@@ -105,9 +106,9 @@ export default function FocusCoffeeCollection() {
         <SelectionAid
           accent={ACCENT}
           items={[
-            { if: 'you want focus for deep work', pick: 'GlowMind Clarity', to: '/products/glowmind-clarity-instant-mushroom-coffee' },
-            { if: 'you want calm, present focus', pick: 'The Monk', to: '/products/the-monk-matcha-blend' },
-            { if: 'you want focus with morning energy', pick: 'SunCap Rise', to: '/products/suncap-rise-instant-mushroom-coffee' },
+            { if: 'you want focus for deep work', pick: 'Instant Mushroom Coffee', to: '/products/instant-mushroom-coffee' },
+            { if: 'you want a straightforward classic cup', pick: 'Instant Classic Coffee', to: '/products/instant-classic-coffee' },
+            { if: 'you want both in one order', pick: 'Torch Republic Coffee Duo', to: '/products/torch-republic-coffee-duo' },
           ]}
         />
         <div className="mt-8">
@@ -147,7 +148,7 @@ export default function FocusCoffeeCollection() {
       <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Build a focus ritual.</h2>
-          <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping $50+. 30-day satisfaction guarantee.</p>
+          <p className="body-lg mb-8">Two instant coffees. Free shipping {FREE_SHIPPING_THRESHOLD_DISPLAY}. 30-day satisfaction guarantee.</p>
           <Link to="/build-your-ritual" className="btn btn-primary">
             Build My Focus Bundle <ArrowRight size={14} />
           </Link>

@@ -105,9 +105,9 @@ export default function MushroomCoffeeBenefits() {
       {/* Recommended Ritual */}
       <section style={{ maxWidth: '860px', margin: '0 auto', padding: '0 24px 24px' }}>
         <RecommendedRitualBlock
-          productName="GlowMind Clarity Blend"
-          productSlug="glowmind-clarity-blend"
-          tagline="Lion's Mane + Chaga in every cup. The simplest way to make these functional mushrooms a daily habit — subscribe and save 20%."
+          productName="Instant Mushroom Coffee"
+          productSlug="instant-mushroom-coffee"
+          tagline="Lion's Mane + Chaga in every cup. The simplest way to make these functional mushrooms a daily habit — subscribe and save 10%."
         />
       </section>
 

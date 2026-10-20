@@ -217,9 +217,9 @@ export default function HistoryOfMushroomCoffee() {
 
           {/* Recommended Ritual */}
           <RecommendedRitualBlock
-            productName="GlowMind Clarity Blend"
-            productSlug="glowmind-clarity-blend"
-            tagline="Centuries of mushroom wisdom, in an instant cup. Lion's Mane + Chaga — ready in 30 seconds. Subscribe and save 20%."
+            productName="Instant Mushroom Coffee"
+            productSlug="instant-mushroom-coffee"
+            tagline="Centuries of mushroom wisdom, in an instant cup. Lion's Mane + Chaga — ready in 30 seconds. Subscribe and save 10%."
           />
 
           {/* CTA */}

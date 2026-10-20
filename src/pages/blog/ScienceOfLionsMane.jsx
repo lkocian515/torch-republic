@@ -416,8 +416,8 @@ export default function ScienceOfLionsMane() {
 
           {/* Recommended Ritual */}
           <RecommendedRitualBlock
-            productName="GlowMind Clarity Blend"
-            productSlug="glowmind-clarity-blend"
+            productName="Instant Mushroom Coffee"
+            productSlug="instant-mushroom-coffee"
             tagline="Lion's Mane + Chaga mushroom coffee — the same functional ingredients studied in the research above, in an instant cup you'll actually want to drink every morning."
             accentColor="#6B7FD7"
           />

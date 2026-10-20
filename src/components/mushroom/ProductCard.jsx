@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
+import { SUBSCRIBE_SAVE_PERCENT, SUBSCRIBE_SAVE_RATE } from '@/lib/siteConfig';
 
 const FALLBACK_IMAGE = '/torch-republic-logo-transparent.png';
 
@@ -140,7 +141,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
           </Link>
         </div>
         <p className="font-mono text-[7px] tracking-[0.18em] uppercase mt-1.5" style={{ color: '#8A6F3E' }}>
-          Subscribe &amp; Save 20% — only ${(product.price * 0.8).toFixed(2)}/mo
+          Subscribe &amp; Save {SUBSCRIBE_SAVE_PERCENT}% — only ${(product.price * (1 - SUBSCRIBE_SAVE_RATE)).toFixed(2)}/mo
         </p>
       </div>
 
