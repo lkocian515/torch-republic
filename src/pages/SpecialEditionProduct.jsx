@@ -126,7 +126,7 @@ export default function SpecialEditionProduct() {
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
           {/* Gallery */}
           <div>
-            <div className="product-image-wrap">
+            <div className="product-image-wrap" style={{ background: '#FFFFFF' }}>
               {activeImage ? (
                 <img src={activeImage} alt={`${edition.name} - ${option?.label || ''}`} />
               ) : (
@@ -151,7 +151,7 @@ export default function SpecialEditionProduct() {
                       border: `1px solid ${activeImage === src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
                       borderRadius: 10,
                       overflow: 'hidden',
-                      background: '#F8F5EF',
+                      background: '#FFFFFF',
                     }}
                   >
                     <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />

@@ -19,7 +19,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
 
   return (
     <article className="card-torch flex h-full flex-col overflow-hidden">
-      <div className="product-image-wrap" style={{ borderRadius: 0 }}>
+      <div className="product-image-wrap" style={{ borderRadius: 0, background: '#FFFFFF' }}>
         {image ? (
           <img src={image} alt={`${edition.name}${option?.label ? ` - ${option.label}` : ''}`} loading="lazy" />
         ) : (
