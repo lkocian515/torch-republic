@@ -41,6 +41,44 @@ export default function EditionHero() {
     ? campaign.cta_label_live || 'Shop the collection'
     : campaign.cta_label_prelaunch || 'Preview the collection';
 
+  // Campaign artwork already carries the headline, subhead and product story, so it renders
+  // clean and full-width at its true ratio instead of being overlaid with duplicate text.
+  // The real button sits beneath it, because text baked into an image is not clickable.
+  if (campaign.desktop_hero_image) {
+    return (
+      <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
+        <h1 className="sr-only">{campaign.headline || campaign.name}</h1>
+
+        <picture>
+          {campaign.mobile_hero_image && (
+            <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
+          )}
+          <img
+            src={campaign.desktop_hero_image}
+            alt={`${campaign.name} special edition`}
+            className="block h-auto w-full"
+            fetchPriority="high"
+          />
+        </picture>
+
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-8 md:flex-row md:justify-center md:pb-14">
+          <EditionStatusChip
+            state={isLive ? 'available' : 'pending'}
+            label={isLive ? 'Available now' : 'Coming soon'}
+          />
+          <Link
+            to={href}
+            className="inline-flex items-center justify-center gap-2 font-heading font-semibold"
+            style={{ background: T.terracotta, color: T.cream, minHeight: 48, padding: '0.875rem 2rem', borderRadius: 999 }}
+          >
+            {ctaLabel}
+            <ArrowRight size={16} strokeWidth={2} />
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       className="relative w-full overflow-hidden"
