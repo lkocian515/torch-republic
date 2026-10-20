@@ -19,6 +19,8 @@ const SECTIONS = [
       ['Shop All', '/shop'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+      ['Special Editions', '/special-editions'],
+      ['Halloween Duo', '/special-editions/collections/halloween'],
     ],
   },
   {

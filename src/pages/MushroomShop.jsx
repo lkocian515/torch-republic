@@ -4,7 +4,7 @@ import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
 import FreeGiftBanner from '@/components/home/FreeGiftBanner';
-import PumpkinSpiceAdBanner from '@/components/home/PumpkinSpiceAdBanner';
+import ShopSpecialEditions from '@/components/specialeditions/ShopSpecialEditions';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
 
@@ -95,15 +95,15 @@ export default function MushroomShop() {
       <section className="px-6 pb-16 md:px-10">
         <div className="mx-auto max-w-[1240px]">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {ALL_PRODUCTS.map((p, i) => (
+            {ALL_PRODUCTS.filter((p) => !p.seasonal).map((p, i) => (
               <RitualCard key={p.id} product={p} index={i} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Seasonal storytelling follows the shoppable catalog. */}
-      <PumpkinSpiceAdBanner />
+      {/* Special editions follow the everyday catalog. */}
+      <ShopSpecialEditions />
 
       {/* Free gift with purchase */}
       <FreeGiftBanner />

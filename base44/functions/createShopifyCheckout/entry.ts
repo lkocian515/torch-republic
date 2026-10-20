@@ -34,6 +34,8 @@ import {
   CART_LINES_REMOVE_MUTATION,
   CART_GET_QUERY,
 } from "../../shared/shopifyStorefront.ts";
+import { createClientFromRequest } from "npm:@base44/sdk@0.8.54";
+import { loadApprovedEditionVariantIds } from "../../shared/specialEditions.ts";
 
 // ── Explicitly rejected slugs (Matcha + retired products) ──
 const REJECTED_SLUG_PATTERNS = [
@@ -58,9 +60,11 @@ export default async function (req) {
   try {
     const body = await req.json().catch(() => ({}));
     const action = body.action;
+    const base44 = createClientFromRequest(req);
 
     // ── CREATE ──
     if (action === "create") {
+      const editionVariantIds = await loadApprovedEditionVariantIds(base44);
       const inputLines = Array.isArray(body.lines) ? body.lines : [];
       const cartLines = [];
       const rejectedLines = [];
@@ -101,8 +105,14 @@ export default async function (req) {
           continue;
         }
 
-        // Reject raw variant IDs not in the verified set
-        if (line.variantId && !Object.values(VARIANT_IDS).includes(line.variantId) && line.variantId !== DUO_VARIANT_ID) {
+        // Reject raw variant IDs that are neither in the verified catalog nor an
+        // approved + mapped special-edition variant.
+        if (
+          line.variantId &&
+          !Object.values(VARIANT_IDS).includes(line.variantId) &&
+          line.variantId !== DUO_VARIANT_ID &&
+          !editionVariantIds.has(line.variantId)
+        ) {
           rejectedLines.push({ slug, reason: "Unverified variant ID rejected" });
           continue;
         }
@@ -181,6 +191,7 @@ export default async function (req) {
       const { cartId } = body;
       if (!cartId) return Response.json({ error: "Missing cartId" }, { status: 400 });
 
+      const editionVariantIds = await loadApprovedEditionVariantIds(base44);
       const inputLines = Array.isArray(body.lines) ? body.lines : [];
       const cartLines = [];
       const rejectedLines = [];
@@ -217,6 +228,15 @@ export default async function (req) {
         const resolved = resolveCartLine(line);
         if (!resolved) {
           rejectedLines.push({ slug, reason: "Unknown product or unverified variant" });
+          continue;
+        }
+
+        if (
+          line.variantId &&
+          !Object.values(VARIANT_IDS).includes(line.variantId) &&
+          !editionVariantIds.has(line.variantId)
+        ) {
+          rejectedLines.push({ slug, reason: "Unverified variant ID rejected" });
           continue;
         }
 

@@ -5,11 +5,11 @@ import DriftSubscription from './DriftSubscription';
 import DriftReviews from './DriftReviews';
 import DriftFounderStory from './DriftFounderStory';
 import DriftRitual from './DriftRitual';
-import SeasonalHero from '../SeasonalHero';
+import EditionHero from '../../specialeditions/EditionHero';
 import { D } from './driftTheme';
 
 // Clean editorial homepage flow:
-// 1. Seasonal hero — Halloween Pumpkin Spice drop
+// 1. Special-edition hero — campaign-driven, evergreen fallback when no campaign is live
 // 2. Signature products — Classic + Mushroom with price, servings, Add to Cart
 // 3. Authentic customer proof — early customer feedback
 // 4. Product differences — Classic vs Mushroom comparison
@@ -19,7 +19,7 @@ import { D } from './driftTheme';
 export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
-      <SeasonalHero />
+      <EditionHero />
       <DriftProductDiscovery />
       <DriftReviews />
       <DriftComparison />

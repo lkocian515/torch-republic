@@ -1,0 +1,136 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import useSpecialEditions from '@/hooks/useSpecialEditions';
+import { pickFeaturedCampaign, editionsInCollection, editionState, collectionPath, defaultOption } from '@/lib/specialEditions';
+import EvergreenHero from './EvergreenHero';
+import EditionPlinth from './EditionPlinth';
+import EditionStatusChip from './EditionStatusChip';
+
+const T = {
+  bg: '#1A0F0A',
+  cream: '#F7EEDD',
+  body: '#E6D8CA',
+  terracotta: '#D6743A',
+};
+
+/**
+ * Homepage special-edition hero.
+ *
+ * Driven entirely by the featured campaign record: when no campaign is live
+ * (none configured, or its window has passed) the evergreen hero renders
+ * instead, so the homepage never depends on a code change per release.
+ *
+ * The headline, supporting line and button are real HTML over the artwork,
+ * and the mobile layout keeps both products visible side by side.
+ */
+export default function EditionHero() {
+  const { editions, campaigns, loading } = useSpecialEditions();
+
+  if (loading) {
+    return <section className="w-full" style={{ background: T.bg, minHeight: 380 }} aria-hidden="true" />;
+  }
+
+  const campaign = pickFeaturedCampaign(campaigns);
+  if (!campaign) return <EvergreenHero />;
+
+  const items = editionsInCollection(editions, campaign.collection_slug);
+  const isLive = items.some((edition) => editionState(edition).state === 'available');
+  const href = campaign.collection_slug ? collectionPath(campaign.collection_slug) : '/special-editions';
+  const ctaLabel = isLive
+    ? campaign.cta_label_live || 'Shop the collection'
+    : campaign.cta_label_prelaunch || 'Preview the collection';
+
+  return (
+    <section
+      className="relative w-full overflow-hidden"
+      style={{ background: T.bg }}
+      aria-label={campaign.headline || campaign.name}
+    >
+      {campaign.desktop_hero_image && (
+        <>
+          <img
+            src={campaign.desktop_hero_image}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 hidden h-full w-full object-cover md:block"
+            fetchPriority="high"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden md:block"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(26,15,10,0.96) 0%, rgba(26,15,10,0.86) 40%, rgba(26,15,10,0.42) 72%, rgba(26,15,10,0.2) 100%)',
+            }}
+          />
+        </>
+      )}
+
+      <div className="relative mx-auto max-w-[1200px] px-6 py-12 md:px-10 md:py-20">
+        {campaign.mobile_hero_image && (
+          <img
+            src={campaign.mobile_hero_image}
+            alt=""
+            aria-hidden="true"
+            className="mb-6 block w-full md:hidden"
+            style={{ borderRadius: 12 }}
+          />
+        )}
+
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
+          <div className="text-center md:text-left">
+            {campaign.eyebrow && (
+              <p className="font-mono uppercase" style={{ color: T.terracotta, fontSize: '10px', letterSpacing: '0.35em' }}>
+                {campaign.eyebrow}
+              </p>
+            )}
+
+            <h1
+              className="mt-3 font-serif font-bold"
+              style={{ color: T.cream, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.01em' }}
+            >
+              {campaign.headline}
+            </h1>
+
+            {campaign.supporting_text && (
+              <p
+                className="mx-auto mt-4 font-heading md:mx-0"
+                style={{ color: T.body, fontSize: '1.0625rem', lineHeight: 1.7, maxWidth: 480 }}
+              >
+                {campaign.supporting_text}
+              </p>
+            )}
+
+            <div className="mt-5 flex justify-center md:justify-start">
+              <EditionStatusChip
+                state={isLive ? 'available' : 'pending'}
+                label={isLive ? 'Available now' : 'Coming soon'}
+              />
+            </div>
+
+            <div className="mt-7">
+              <Link
+                to={href}
+                className="inline-flex items-center justify-center gap-2 font-heading font-semibold"
+                style={{ background: T.terracotta, color: T.cream, minHeight: 48, padding: '0.875rem 2rem', borderRadius: 999 }}
+              >
+                {ctaLabel}
+                <ArrowRight size={16} strokeWidth={2} />
+              </Link>
+            </div>
+
+            <p className="mt-4 font-heading" style={{ color: 'rgba(230,216,202,0.75)', fontSize: '0.8125rem' }}>
+              Everyday instant coffee stays available below.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            {items.slice(0, 2).map((edition) => (
+              <EditionPlinth key={edition.id} edition={edition} option={defaultOption(edition)} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

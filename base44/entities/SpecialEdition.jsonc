@@ -1,0 +1,163 @@
+{
+  "name": "SpecialEdition",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Customer-facing product name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug used at /special-editions/<slug>"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Special-edition badge shown on cards and product pages (e.g. Halloween Special Edition)"
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Collection slugs this edition belongs to (e.g. special-editions, halloween)"
+    },
+    "size": {
+      "type": "string",
+      "description": "Package size as confirmed by the supplier (e.g. 12 oz (340 g))"
+    },
+    "format_summary": {
+      "type": "string",
+      "description": "Short format summary for cards (e.g. Ground or Whole Bean)"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "One-line card description"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full product description supplied by the owner"
+    },
+    "promo_copy": {
+      "type": "string",
+      "description": "Optional promotional line shown near the buy box"
+    },
+    "brew_guidance": {
+      "type": "string",
+      "description": "Brewing guidance for brewed (non-instant) products"
+    },
+    "ingredients": {
+      "type": "string",
+      "description": "Ingredient list, only once verified against the approved supplier listing"
+    },
+    "requires_brewing": {
+      "type": "boolean",
+      "default": true,
+      "description": "True for ground/whole bean products that must be brewed"
+    },
+    "is_instant": {
+      "type": "boolean",
+      "default": false,
+      "description": "True only for instant products (just add water)"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Stable option key (e.g. ground, whole-bean)"
+          },
+          "label": {
+            "type": "string",
+            "description": "Customer-facing option label (e.g. Ground)"
+          },
+          "format_label": {
+            "type": "string",
+            "description": "Label text as printed on the packaging (e.g. GROUND COFFEE)"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "Product photo for this exact option"
+          },
+          "approved": {
+            "type": "boolean",
+            "default": false,
+            "description": "Supplier approval for this option. Approval is separate from Shopify stock status."
+          },
+          "shopify_handle": {
+            "type": "string",
+            "description": "Shopify product handle for this option"
+          },
+          "shopify_product_id": {
+            "type": "string",
+            "description": "Shopify product GID for this option"
+          },
+          "shopify_variant_id": {
+            "type": "string",
+            "description": "Shopify ProductVariant GID for this option"
+          },
+          "is_default": {
+            "type": "boolean",
+            "default": false,
+            "description": "Preselect this option on the product page"
+          }
+        }
+      },
+      "description": "Purchasable options (grind/format). Each is approved and mapped separately."
+    },
+    "additional_images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Extra gallery images for this edition"
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Order within its collections (lower first)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "archived"
+      ],
+      "default": "draft",
+      "description": "Only active editions appear on the storefront"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "string"
+    },
+    "social_image": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "slug"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

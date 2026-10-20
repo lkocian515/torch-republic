@@ -140,6 +140,10 @@ const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
 const LukesLightCaseStudy = lazy(() => import('./pages/LukesLightCaseStudy.jsx'));
 const PortfolioHome = lazy(() => import('./pages/PortfolioHome.jsx'));
+const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
+const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
+const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
+const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 
 const mainPageKey = 'Home';
 
@@ -255,6 +259,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/products/the-monk-matcha-blend" element={<Navigate to="/shop" replace />} />
         <Route path="/products/the-ascendant" element={<Navigate to="/shop" replace />} />
         <Route path="/products/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="RitualProductPage" queryClient={queryClient}><RitualProductPage /></LayoutWrapper></Suspense>} />
+
+        {/* ── SPECIAL EDITIONS ── */}
+        <Route path="/special-editions" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditions" queryClient={queryClient}><SpecialEditions /></LayoutWrapper></Suspense>} />
+        <Route path="/special-editions/collections/:collectionSlug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionCollection" queryClient={queryClient}><SpecialEditionCollection /></LayoutWrapper></Suspense>} />
+        <Route path="/special-editions/halloween" element={<Navigate to="/special-editions/collections/halloween" replace />} />
+        <Route path="/special-editions/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionProduct" queryClient={queryClient}><SpecialEditionProduct /></LayoutWrapper></Suspense>} />
+        {/* Legacy whole-bean URL → format-neutral page, keeping the intended selection */}
+        <Route path="/products/pumpkin-spice-whole-bean-coffee" element={<Navigate to="/special-editions/pumpkin-spice?format=whole-bean" replace />} />
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
@@ -285,6 +297,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/admin/keywords" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="KeywordAnalysis" queryClient={queryClient}><KeywordAnalysis /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
         <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
+        <Route path="/admin/special-editions" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminSpecialEditions" queryClient={queryClient}><AdminSpecialEditions /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/Admin" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/Dashboard" element={<Navigate to="/admin/shopify" replace />} />

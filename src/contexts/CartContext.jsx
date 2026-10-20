@@ -10,6 +10,13 @@ import { createShopifyCart, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
 // stale entries never render in the cart.
 const ACTIVE_CART_IDS = new Set(ALL_PRODUCTS.map((p) => p.id));
 
+// Special-edition lines carry an "edition:<slug>:<option>" id and their own
+// Shopify variant ID. The server validates that variant against the approved
+// special-edition allowlist at checkout, so they are cartable here.
+const EDITION_ID_PREFIX = 'edition:';
+const isCartableId = (id) =>
+  ACTIVE_CART_IDS.has(id) || (typeof id === 'string' && id.startsWith(EDITION_ID_PREFIX));
+
 const CartContext = createContext(null);
 
 // localStorage keys
@@ -23,7 +30,7 @@ export function CartProvider({ children }) {
       const saved = typeof window !== 'undefined' ? localStorage.getItem(CART_STORAGE_KEY) : null;
       if (!saved) return [];
       const parsed = JSON.parse(saved);
-      return Array.isArray(parsed) ? parsed.filter((i) => i && ACTIVE_CART_IDS.has(i.id) && Number.isInteger(i.qty) && i.qty > 0 && i.qty <= 999) : [];
+      return Array.isArray(parsed) ? parsed.filter((i) => i && isCartableId(i.id) && Number.isInteger(i.qty) && i.qty > 0 && i.qty <= 999) : [];
     } catch {
       return [];
     }
@@ -36,7 +43,7 @@ export function CartProvider({ children }) {
       if (!saved) return false;
       const parsed = JSON.parse(saved);
       if (!Array.isArray(parsed)) return false;
-      return parsed.some((i) => !i || !ACTIVE_CART_IDS.has(i.id) || !Number.isInteger(i.qty) || i.qty < 1 || i.qty > 999);
+      return parsed.some((i) => !i || !isCartableId(i.id) || !Number.isInteger(i.qty) || i.qty < 1 || i.qty > 999);
     } catch {
       return false;
     }
@@ -147,7 +154,7 @@ export function CartProvider({ children }) {
 
   const addItem = useCallback((product, qty = 1) => {
     const amount = Number(qty);
-    if (!ACTIVE_CART_IDS.has(product.id) || !Number.isInteger(amount) || amount < 1 || amount > 999) return;
+    if (!isCartableId(product.id) || !Number.isInteger(amount) || amount < 1 || amount > 999) return;
     if (product.isSubscription && !product.sellingPlanId) {
       showToast({ title: 'Choose a delivery plan', description: 'Select an available subscription plan on the product page.' });
       return;
@@ -243,7 +250,7 @@ export function CartProvider({ children }) {
       // from the checkout cart but remain in the local cart.
       const validItems = items.filter(i => {
         const slug = i.shopifyHandle || i.id;
-        return !!(SHOPIFY_VARIANT_IDS[slug] || SHOPIFY_VARIANT_IDS[i.id]);
+        return !!(i.variantId || SHOPIFY_VARIANT_IDS[slug] || SHOPIFY_VARIANT_IDS[i.id]);
       });
 
       if (validItems.length === 0) {
@@ -268,6 +275,7 @@ export function CartProvider({ children }) {
 
       const lines = validItems.map(i => ({
         slug: i.shopifyHandle || i.id,
+        variantId: i.variantId,
         quantity: i.qty,
         isSubscription: !!i.isSubscription,
         sellingPlanId: i.sellingPlanId,
@@ -314,7 +322,7 @@ export function CartProvider({ children }) {
 
       // Verify the returned variant and quantity before sending a customer to payment.
       const hasWrongVariant = validItems.some((item) => {
-        const expectedId = SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
+        const expectedId = item.variantId || SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
         const matches = (cart.lines || []).filter((line) =>
           line.variantId === expectedId &&
           Boolean(line.isSubscription) === Boolean(item.isSubscription) &&
@@ -367,7 +375,7 @@ export function CartProvider({ children }) {
 
       let priceChanged = false;
       const pricedItems = validItems.map(item => {
-        const variant = SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
+        const variant = item.variantId || SHOPIFY_VARIANT_IDS[item.shopifyHandle || item.id] || SHOPIFY_VARIANT_IDS[item.id];
         const line = cart.lines.find(line => line.variantId === variant &&
           Boolean(line.isSubscription) === Boolean(item.isSubscription) &&
           (!item.isSubscription || line.sellingPlanId === item.sellingPlanId));

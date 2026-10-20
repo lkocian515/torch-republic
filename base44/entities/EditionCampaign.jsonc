@@ -1,0 +1,93 @@
+{
+  "name": "EditionCampaign",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Internal campaign name (e.g. Halloween Duo)"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Campaign slug"
+    },
+    "eyebrow": {
+      "type": "string",
+      "description": "Small kicker line above the headline"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Hero headline"
+    },
+    "supporting_text": {
+      "type": "string",
+      "description": "Hero supporting line"
+    },
+    "desktop_hero_image": {
+      "type": "string",
+      "description": "Desktop hero artwork. When empty, the hero renders as a styled text panel with the product images."
+    },
+    "mobile_hero_image": {
+      "type": "string",
+      "description": "Optional mobile hero artwork. Used only when supplied."
+    },
+    "collection_slug": {
+      "type": "string",
+      "description": "Collection this campaign promotes (e.g. halloween)"
+    },
+    "cta_label_prelaunch": {
+      "type": "string",
+      "description": "Button label before anything in the collection is purchasable"
+    },
+    "cta_label_live": {
+      "type": "string",
+      "description": "Button label once at least one option is purchasable"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional campaign start. Before this date the campaign is not featured."
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional campaign end. After this date the campaign drops out of the hero automatically."
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this campaign is the featured homepage hero"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false,
+      "description": "Archived campaigns never render"
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Order among featured campaigns (lower first)"
+    }
+  },
+  "required": [
+    "name",
+    "slug"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
