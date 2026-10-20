@@ -47,7 +47,7 @@ export default function SpecialEditionCollection() {
 
   if (items.length === 0) {
     return (
-      <div className="section-torch mx-auto max-w-[1200px] px-6 md:px-10">
+      <div className="section-torch mx-auto max-w-[1200px] px-6 text-center md:px-10">
         <h1 className="h1">Collection not found</h1>
         <p className="body-lg mt-4">This collection has no active products right now.</p>
         <Link to="/special-editions" className="btn btn-ghost mt-6">
@@ -60,7 +60,7 @@ export default function SpecialEditionCollection() {
   return (
     <div className="section-torch">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <header className="max-w-[720px]">
+        <header className="mx-auto max-w-[720px] text-center">
           {campaign?.eyebrow && <p className="eyebrow">{campaign.eyebrow}</p>}
           <h1 className="h1 mt-3">{title}</h1>
           {campaign?.supporting_text && <p className="body-lg mt-4">{campaign.supporting_text}</p>}

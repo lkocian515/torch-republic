@@ -35,12 +35,12 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           {edition.badge && <span className="badge-torch">{edition.badge}</span>}
           <EditionStatusChip state={overall.state} label={overall.label} />
         </div>
 
-        <h3 className="mt-3 font-serif font-bold" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
+        <h3 className="mt-3 text-center font-serif font-bold" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
           {edition.name}
         </h3>
 
