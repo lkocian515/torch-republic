@@ -12,7 +12,6 @@ export default function SeasonalHero() {
           src={HERO_IMAGE}
           alt="Pumpkin Spice Whole Bean Coffee — Halloween Special Edition from Torch Republic Coffee Company. Tap to shop the drop."
           className="block w-full cursor-pointer"
-          style={{ maxHeight: 'min(55vh, 560px)', objectFit: 'cover', objectPosition: 'center' }}
           fetchPriority="high"
         />
       </Link>
