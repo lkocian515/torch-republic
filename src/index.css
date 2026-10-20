@@ -634,3 +634,112 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
   .tr-btn-lift:hover { transform: none !important; box-shadow: none !important; }
   .tr-fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE-WIDE INTERACTION LAYER  (see components/motion/TechLayer.jsx)
+   High-tech motion that every page gets automatically.
+   Strictly additive: the hidden state below is only ever applied by
+   JS, only below the fold, and always with a failsafe reveal.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Scroll progress bar ── */
+.tech-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 80;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, #D6B27A 50%, hsl(var(--primary)) 100%);
+  will-change: transform;
+}
+
+/* ── Scroll reveal ──
+   `transform: none` on the revealed state is deliberate: a lingering transform
+   would turn the section into a containing block and break any fixed-position
+   child inside it. */
+.tech-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+/* The transition lives on the revealed state only. A transition declared on the
+   hidden state would also apply while other animation libraries are driving the
+   same properties, which makes their animations stutter. */
+.tech-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+}
+
+/* ── Staggered grid children inside a revealing section ──
+   `backwards` fill (not `both`) so the animation never keeps a transform
+   applied after it ends — hover transforms on cards stay intact. */
+@keyframes techRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tech-in .grid > * {
+  animation: techRise .5s cubic-bezier(.22,1,.36,1) backwards;
+}
+.tech-in .grid > *:nth-child(1) { animation-delay: .05s; }
+.tech-in .grid > *:nth-child(2) { animation-delay: .10s; }
+.tech-in .grid > *:nth-child(3) { animation-delay: .15s; }
+.tech-in .grid > *:nth-child(4) { animation-delay: .20s; }
+.tech-in .grid > *:nth-child(5) { animation-delay: .25s; }
+.tech-in .grid > *:nth-child(6) { animation-delay: .30s; }
+.tech-in .grid > *:nth-child(7) { animation-delay: .35s; }
+.tech-in .grid > *:nth-child(8) { animation-delay: .40s; }
+
+/* ── Pointer-follow highlight on cards ── */
+.tech-cursor {
+  background-image: radial-gradient(
+    340px circle at var(--tech-x, 50%) var(--tech-y, 0%),
+    rgba(184,101,67,0.10),
+    transparent 62%
+  );
+}
+
+/* ── Sheen sweep across primary buttons ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+}
+.btn-primary:hover::after {
+  transform: translateX(120%);
+}
+
+/* ── Tactile press feedback on every button ── */
+.btn {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease,
+              box-shadow .2s ease, opacity .2s ease, transform .15s ease;
+}
+.btn:active {
+  transform: translateY(1px) scale(.985);
+}
+
+/* ── Reduced motion: keep content, drop the movement ── */
+@media (prefers-reduced-motion: reduce) {
+  .tech-hidden,
+  .tech-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tech-in .grid > * { animation: none !important; }
+  .tech-progress { display: none !important; }
+  .btn-primary::after { display: none !important; }
+  .btn:active { transform: none !important; }
+}

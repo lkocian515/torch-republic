@@ -26,6 +26,7 @@ import NoIndex from './components/seo/NoIndex';
 import GoneRedirect from './components/seo/GoneRedirect';
 import RouteSeoManager from './components/seo/RouteSeoManager';
 import useAnalytics from './hooks/useAnalytics';
+import TechLayer from './components/motion/TechLayer';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
 const Home = lazy(() => import('./pages/Home'));
@@ -585,6 +586,7 @@ function App() {
           <Router>
             <NavigationProvider>
               <AuthenticatedApp queryClient={queryClientInstance} />
+              <TechLayer />
               <CommerceNotice />
               <AddToCartConfirmation />
             </NavigationProvider>
