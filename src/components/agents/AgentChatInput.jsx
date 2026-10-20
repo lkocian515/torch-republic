@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 
-export default function AgentChatInput({ onSend, disabled }) {
+export default function AgentChatInput({ onSend, disabled, placeholder = 'Ask about your order status...' }) {
   const [input, setInput] = useState('');
 
   const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ export default function AgentChatInput({ onSend, disabled }) {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Ask about your order status..."
+        placeholder={placeholder}
         disabled={disabled}
         className="flex-1 rounded-full border border-border bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring/20 disabled:opacity-50"
       />

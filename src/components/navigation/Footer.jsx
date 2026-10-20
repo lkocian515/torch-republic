@@ -17,6 +17,7 @@ const SHOP_LINKS = [
   ['Shop All', '/shop'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
   ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+  ['Blend Advisor', '/blend-advisor'],
   ['Coffee Subscriptions', '/subscription'],
 ];
 

@@ -77,6 +77,7 @@ const ScienceOfLionsMane = lazy(() => import('./pages/blog/ScienceOfLionsMane'))
 const ChagaMushroomAntioxidantKing = lazy(() => import('./pages/blog/ChagaMushroomAntioxidantKing'));
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const BlendQuiz = lazy(() => import('./pages/BlendQuiz'));
+const BlendAdvisor = lazy(() => import('./pages/BlendAdvisor'));
 const Ingredients = lazy(() => import('./pages/Ingredients'));
 const WhyMushroomCoffee = lazy(() => import('./pages/WhyMushroomCoffee'));
 const WhyMatcha = lazy(() => import('./pages/WhyMatcha'));
@@ -367,6 +368,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/recipes" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeeRecipes" queryClient={queryClient}><CoffeeRecipes /></LayoutWrapper></Suspense>} />
         <Route path="/research" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="ResearchHub" queryClient={queryClient}><ResearchHub /></LayoutWrapper></Suspense>} />
         <Route path="/quiz" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="BlendQuiz" queryClient={queryClient}><BlendQuiz /></LayoutWrapper></Suspense>} />
+        <Route path="/blend-advisor" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="BlendAdvisor" queryClient={queryClient}><BlendAdvisor /></LayoutWrapper></Suspense>} />
         <Route path="/customer-spotlight" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CustomerSpotlight" queryClient={queryClient}><CustomerSpotlight /></LayoutWrapper></Suspense>} />
         <Route path="/spotlight" element={<Navigate to="/customer-spotlight" replace />} />
         <Route path="/gifts" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Gifts" queryClient={queryClient}><Gifts /></LayoutWrapper></Suspense>} />
