@@ -49,17 +49,21 @@ export default function EditionHero() {
       <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
         <h1 className="sr-only">{campaign.headline || campaign.name}</h1>
 
-        <picture>
-          {campaign.mobile_hero_image && (
-            <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
-          )}
-          <img
-            src={campaign.desktop_hero_image}
-            alt={`${campaign.name} special edition`}
-            className="block h-auto w-full"
-            fetchPriority="high"
-          />
-        </picture>
+        {/* Source artwork is 1254x1254 with a "torchrepublic.com" line along the bottom edge.
+            Showing it at 1254x1174 clips that line off without touching the artwork itself. */}
+        <div className="w-full overflow-hidden" style={{ aspectRatio: '1254 / 1174' }}>
+          <picture>
+            {campaign.mobile_hero_image && (
+              <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
+            )}
+            <img
+              src={campaign.desktop_hero_image}
+              alt={`${campaign.name} special edition`}
+              className="block h-full w-full object-cover object-top"
+              fetchPriority="high"
+            />
+          </picture>
+        </div>
 
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-8 md:flex-row md:justify-center md:pb-14">
           <EditionStatusChip
