@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
-import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
+import { trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const ACCENT = '#B86543';
@@ -64,14 +64,8 @@ export default function CartRecommendations({ cartItems }) {
       category: product.category,
       shopifyHandle: product.shopifyHandle,
       servings: product.servings,
-    }, 1);
+    }, 1, 'cart_recommendations');
 
-    trackAddToCart(buildItem({
-      id: product.shopifyHandle,
-      name: product.name,
-      category: product.category,
-      price: product.price,
-    }));
     trackUpsellClicked(product.name, 'complete_your_ritual');
   };
 
