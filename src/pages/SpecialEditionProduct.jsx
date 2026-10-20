@@ -17,8 +17,8 @@ import EditionStatusChip from '@/components/specialeditions/EditionStatusChip';
 import GrindSelector from '@/components/specialeditions/GrindSelector';
 import EditionCard from '@/components/specialeditions/EditionCard';
 
-const UNAVAILABLE_NOTE = {
-  pending: 'This option is not available to order yet. No preorders are being taken.',
+const STOCK_NOTE = {
+  pending: 'This option is sold out.',
   soldout: 'This option is sold out.',
   error: 'We cannot confirm availability for this option right now. Please try again shortly.',
 };
@@ -214,9 +214,9 @@ export default function SpecialEditionProduct() {
                 Add to Cart
               </button>
             ) : (
-              UNAVAILABLE_NOTE[state.state] && (
+              STOCK_NOTE[state.state] && (
                 <p className="body mt-6 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
-                  {UNAVAILABLE_NOTE[state.state]}
+                  {STOCK_NOTE[state.state]}
                 </p>
               )
             )}

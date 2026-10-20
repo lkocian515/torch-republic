@@ -42,18 +42,18 @@ export function isMappedVariant(id) {
 
 /**
  * Purchasable only when approved AND mapped to a real Shopify variant AND
- * Shopify confirms it is available. Anything else is unavailable.
+ * Shopify confirms it is available. Anything else reads as sold out.
  */
 export function optionState(option) {
-  // A pending option carries no status label, so nothing is advertised on the
-  // storefront until Shopify can actually take the order.
-  if (!option) return { state: 'pending', purchasable: false, label: null };
-  if (!option.approved) return { state: 'pending', purchasable: false, label: null };
+  // An option Shopify cannot take an order for reads as sold out, so the
+  // storefront never promises a purchase it cannot complete.
+  if (!option) return { state: 'pending', purchasable: false, label: 'Sold out' };
+  if (!option.approved) return { state: 'pending', purchasable: false, label: 'Sold out' };
   if (!isMappedVariant(option.shopify_variant_id)) {
-    return { state: 'pending', purchasable: false, label: null };
+    return { state: 'pending', purchasable: false, label: 'Sold out' };
   }
   if (!option.shopify || option.shopify.error || option.shopify.unavailable) {
-    return { state: 'error', purchasable: false, label: 'Unavailable' };
+    return { state: 'error', purchasable: false, label: 'Sold out' };
   }
   if (!option.shopify.available) {
     return { state: 'soldout', purchasable: false, label: 'Sold out' };
@@ -92,13 +92,13 @@ export function findOption(edition, key) {
 
 export function editionState(edition) {
   const options = editionOptions(edition);
-  if (options.length === 0) return { state: 'pending', label: null };
+  if (options.length === 0) return { state: 'pending', label: 'Sold out' };
   if (options.some((o) => optionState(o).purchasable)) return { state: 'available', label: 'Available' };
-  if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Unavailable' };
+  if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Sold out' };
   if (options.some((o) => o.approved && isMappedVariant(o.shopify_variant_id))) {
     return { state: 'soldout', label: 'Sold out' };
   }
-  return { state: 'pending', label: null };
+  return { state: 'pending', label: 'Sold out' };
 }
 
 export function editionsInCollection(editions, collectionSlug) {
