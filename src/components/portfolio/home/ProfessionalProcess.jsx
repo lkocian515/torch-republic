@@ -15,10 +15,10 @@ export default function ProfessionalProcess() {
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        <p style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, margin: '0 0 1rem' }}>
+        <p className="text-center md:text-left" style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, margin: '0 0 1rem' }}>
           Professional process
         </p>
-        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start md:gap-3 mb-4">
           {STEPS.map((step, i) => (
             <React.Fragment key={step}>
               <span style={{
@@ -42,7 +42,7 @@ export default function ProfessionalProcess() {
             </React.Fragment>
           ))}
         </div>
-        <p style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.65, color: P.secondary, margin: 0, maxWidth: '620px' }}>
+        <p className="mx-auto text-center md:mx-0 md:text-left" style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.65, color: P.secondary, margin: 0, maxWidth: '620px' }}>
           The same iterative loop applied to both AI-output evaluation and digital-commerce testing.
         </p>
       </div>

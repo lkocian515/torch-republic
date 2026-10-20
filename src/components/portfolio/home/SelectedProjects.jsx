@@ -44,6 +44,7 @@ export default function SelectedProjects() {
           {PROJECTS.map((project) => (
             <div
               key={project.name}
+              className="text-center md:text-left"
               style={{
                 background: P.surface,
                 border: `1px solid ${P.rule}`,
@@ -91,7 +92,7 @@ export default function SelectedProjects() {
               >
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center md:justify-start">
                 <Link
                   to={project.caseStudyHref}
                   style={{
@@ -105,6 +106,7 @@ export default function SelectedProjects() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '0.4rem',
                     transition: 'background .2s',
                   }}
@@ -126,6 +128,7 @@ export default function SelectedProjects() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '0.4rem',
                   }}
                 >

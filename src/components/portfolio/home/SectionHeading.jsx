@@ -6,12 +6,11 @@ export default function SectionHeading({ eyebrow, heading, intro, align = 'left'
   const center = align === 'center';
   return (
     <div
+      className="mx-auto text-center md:mx-0 md:text-left"
       style={{
         maxWidth: '640px',
         marginBottom: '2.5rem',
-        textAlign: center ? 'center' : 'left',
-        marginLeft: center ? 'auto' : 0,
-        marginRight: center ? 'auto' : 0,
+        ...(center ? { textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' } : null),
       }}
     >
       {eyebrow && (

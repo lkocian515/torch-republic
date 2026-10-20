@@ -14,7 +14,7 @@ export default function Hero() {
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        <div style={{ maxWidth: '720px' }}>
+        <div className="text-center md:text-left" style={{ maxWidth: '720px' }}>
           <p
             style={{
               fontFamily: FONT_MONO,
@@ -78,7 +78,7 @@ export default function Hero() {
             evaluation, prompt iteration, content review, and human judgment to identify problems, improve
             clarity, and build more reliable digital experiences.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center md:justify-start">
             <a
               href="#work"
               style={{
@@ -92,6 +92,7 @@ export default function Hero() {
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.4rem',
                 transition: 'background .2s',
               }}
@@ -112,6 +113,7 @@ export default function Hero() {
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.4rem',
                 transition: 'border-color .2s',
               }}
@@ -131,6 +133,7 @@ export default function Hero() {
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.3rem',
               }}
               aria-label="LinkedIn profile"

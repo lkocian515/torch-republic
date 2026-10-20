@@ -58,6 +58,7 @@ export default function SelectedExpertise() {
           {FRAMEWORKS.map((f) => (
             <div
               key={f.num}
+              className="text-center md:text-left"
               style={{
                 background: P.paper,
                 border: `1px solid ${P.rule}`,
@@ -65,7 +66,7 @@ export default function SelectedExpertise() {
                 padding: '1.5rem',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <div className="justify-center md:justify-start" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
                 <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accent, letterSpacing: '0.08em' }}>{f.num}</span>
                 <h3 style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: '1.15rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>
                   {f.title}
