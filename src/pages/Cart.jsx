@@ -11,7 +11,7 @@ import CartDeliveryEstimate from '@/components/cart/CartDeliveryEstimate';
 import CartFirstTimeOffer from '@/components/cart/CartFirstTimeOffer';
 import CartStickyCheckout from '@/components/cart/CartStickyCheckout';
 import FreeGiftSelection from '@/components/cart/FreeGiftSelection';
-import { trackFreeShippingThresholdReached } from '@/lib/analytics';
+import { trackFreeShippingThresholdReached, trackCheckoutHandoff } from '@/lib/analytics';
 import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { useMutation } from '@tanstack/react-query';
@@ -37,6 +37,12 @@ export default function Cart() {
     noindex: true,
   });
   const { items, getLineKey, updateQty, removeItem, subtotal, totalItems, refreshed, dismissRefreshed, handleCheckout, isCheckingOut } = useCart();
+
+  // Checkout intent — the last measurable step before the Shopify handoff.
+  const handleCheckoutClick = () => {
+    trackCheckoutHandoff(subtotal, totalItems);
+    handleCheckout();
+  };
   const subscriptionItems = items.filter(i => i.isSubscription && i.sellingPlanName);
   const qtyMutation = useMutation({
     mutationFn: async () => true,
@@ -222,7 +228,7 @@ export default function Cart() {
               )}
 
               <button
-                onClick={handleCheckout}
+                onClick={handleCheckoutClick}
                 disabled={isCheckingOut}
                 className="w-full flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase font-bold transition-all hover:opacity-90 py-4 mb-3"
                 style={{ background: ACCENT, color: BTN_TEXT, minHeight: '52px', border: 'none', cursor: isCheckingOut ? 'wait' : 'pointer', opacity: isCheckingOut ? 0.7 : 1 }}
@@ -250,7 +256,7 @@ export default function Cart() {
       </div>
 
       {/* Mobile sticky checkout bar */}
-      <CartStickyCheckout subtotal={subtotal} totalItems={totalItems} onCheckout={handleCheckout} isCheckingOut={isCheckingOut} />
+      <CartStickyCheckout subtotal={subtotal} totalItems={totalItems} onCheckout={handleCheckoutClick} isCheckingOut={isCheckingOut} />
 
       {/* Bottom spacing so content clears the fixed mobile checkout bar and
           the fixed bottom navigation on every viewport. */}

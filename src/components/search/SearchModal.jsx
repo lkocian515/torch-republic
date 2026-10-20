@@ -5,6 +5,7 @@ import { Search, X, ArrowRight, Coffee, BookOpen, HelpCircle, Leaf, GitCompare }
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { ALL_BLOG_TOPICS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
+import { trackEvent } from '@/lib/analyticsEvents';
 
 const RG = '#E6B7AD';
 
@@ -121,7 +122,25 @@ export default function SearchModal({ isOpen, onClose }) {
     setActiveIndex(0);
   }, [query]);
 
+  // Track searches that return nothing — reveals product/content gaps
+  useEffect(() => {
+    const term = query.trim();
+    if (term.length < 3 || results.length !== 0) return;
+    trackEvent('search', { search_term: term, results_count: 0 }, `search::${term}`);
+  }, [query, results.length]);
+
   const handleSelect = (url) => {
+    const item = results.find(r => r.url === url);
+    const term = query.trim();
+    if (term) {
+      trackEvent('search', { search_term: term, results_count: results.length }, `search::${term}`);
+    }
+    trackEvent('search_result_clicked', {
+      search_term: term || 'browse_by_format',
+      result_type: item?.type || 'format',
+      result_title: item?.title || url,
+      result_url: url,
+    }, `search_result_clicked::${url}`);
     navigate(url);
     onClose();
   };

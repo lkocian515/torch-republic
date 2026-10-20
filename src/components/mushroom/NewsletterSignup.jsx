@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import { Mail, Check, Gift } from 'lucide-react';
+import { trackEvent } from '@/lib/analyticsEvents';
 
 const RG = '#E6B7AD';
 
@@ -24,6 +25,11 @@ export default function NewsletterSignup() {
       });
       
       setIsSubscribed(true);
+      trackEvent(
+        'generate_lead',
+        { source: 'research_recipe_pages', discount_code: 'WELCOME10' },
+        `generate_lead::${Date.now()}`
+      );
       toast.success('Welcome! Check your email for your 10% off code.');
       setEmail('');
     } catch (error) {

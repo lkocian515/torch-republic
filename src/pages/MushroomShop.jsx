@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
@@ -9,6 +9,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { useSearchParams } from 'react-router-dom';
 import { getCoffeeFormat } from '@/lib/coffeeFormats';
 import { base44 } from '@/api/base44Client';
+import { trackViewItemList, buildItem } from '@/lib/analytics';
 
 function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -67,6 +68,24 @@ export default function MushroomShop() {
   // The everyday lineup is instant coffee. Ground and whole bean are only sold
   // as limited releases, so those views show the special editions instead.
   const showEveryday = !activeFormat || activeFormat.key === 'instant';
+
+  // Report the lineup as a product-list impression so which products get seen
+  // (and which get ignored) is measurable.
+  useEffect(() => {
+    if (!showEveryday) return;
+    const items = ALL_PRODUCTS
+      .filter((p) => !p.seasonal)
+      .map((p, i) => buildItem({
+        id: p.slug || p.id,
+        name: p.name,
+        category: p.categoryLabel || p.category,
+        price: p.price,
+        index: i,
+      }));
+    if (items.length > 0) {
+      trackViewItemList(items, { listId: 'shop_lineup', listName: 'Shop Lineup' });
+    }
+  }, [showEveryday]);
 
   useSEO({
     title: activeFormat

@@ -10,8 +10,22 @@
  *   import { trackEvent, trackAddToCart, trackPageView } from '@/lib/analyticsEvents';
  */
 
+import { base44 } from '@/api/base44Client';
+
 // ── Registry: set of "eventName::dedupKey" strings fired this page session ──
 const firedRegistry = new Set();
+
+// Only primitive values are forwarded to the analytics backend — keeps payloads
+// valid and guarantees no objects/arrays/PII are ever transmitted.
+const toSafeProps = (obj) => {
+  const out = {};
+  Object.entries(obj || {}).forEach(([k, v]) => {
+    if (v === null || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') {
+      out[k] = v;
+    }
+  });
+  return out;
+};
 // Debounce timers per key
 const debounceTimers = {};
 const DEBOUNCE_MS = 500;
@@ -45,6 +59,12 @@ export function trackEvent(eventName, properties = {}, dedupKey = '') {
     if (window.gtag) {
       window.gtag('event', eventName, enriched);
     }
+  } catch (_) {}
+
+  // Mirror into the app's own analytics so every event also lands in the
+  // Base44 analytics dashboard / marketing KPIs, not just GA4.
+  try {
+    base44.analytics.track({ eventName, properties: toSafeProps(enriched) });
   } catch (_) {}
 }
 

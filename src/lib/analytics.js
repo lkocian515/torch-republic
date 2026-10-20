@@ -1,7 +1,7 @@
 /**
  * ─────────────────────────────────────────────────────────────────
  *  Torch Republic — Authoritative GA4 Analytics Module
- *  GA4 Measurement ID: G-5QZ4ECWB15 (stored once — here and index.html)
+ *  GA4 Measurement ID: G-8K12DZR59E (stored once — here and index.html)
  *
  *  SPA Page-View Method: MANUAL — index.html sets send_page_view: false
  *  for the initial load AFTER this module fires the first page_view.
@@ -27,8 +27,9 @@ import {
   matomoTrackReviewsViewed, matomoTrackIngredientsViewed, matomoTrackShippingInformationViewed,
   matomoTrackFAQOpened, matomoTrackOutboundSocialClick, matomoTrackCheckoutHandoff,
 } from '@/lib/matomo';
+import { base44 } from '@/api/base44Client';
 
-const GA4_ID = 'G-5QZ4ECWB15';
+const GA4_ID = 'G-8K12DZR59E';
 const BRAND = 'Torch Republic';
 const CURRENCY = 'USD';
 
@@ -92,11 +93,30 @@ const markPurchaseTracked = (transactionId) => {
   sessionStorage.setItem(PURCHASE_DEDUP_KEY, JSON.stringify(tracked.slice(-20)));
 };
 
+// ── Only primitive values reach the analytics backend ──
+// Keeps payloads valid and guarantees no objects/arrays/PII are transmitted.
+const toSafeProps = (obj) => {
+  const out = {};
+  Object.entries(obj || {}).forEach(([k, v]) => {
+    if (v === null || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') {
+      out[k] = v;
+    }
+  });
+  return out;
+};
+
 // ── Core event sender ──
+// Every event goes to GA4 AND to the app's own analytics, so the app's
+// dashboard and marketing KPIs see the same activity — and events are still
+// captured when a browser blocks gtag.
 const send = (eventName, params = {}) => {
-  if (!hasGtag()) return;
-  debug(`Event: ${eventName}`, params);
-  window.gtag('event', eventName, params);
+  if (hasGtag()) {
+    debug(`Event: ${eventName}`, params);
+    window.gtag('event', eventName, params);
+  }
+  try {
+    base44.analytics.track({ eventName, properties: toSafeProps(params) });
+  } catch (_) {}
 };
 
 // ─────────────────────────────────────────────────────────────────

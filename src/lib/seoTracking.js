@@ -26,10 +26,7 @@ export const trackConversion = (eventName, properties = {}) => {
 
     // GA4 Event
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, {
-        ...properties,
-        send_to: 'G-XXXXXXXXXX'
-      });
+      window.gtag('event', eventName, { ...properties });
     }
 
     // Facebook Pixel (if installed)
@@ -168,11 +165,8 @@ export const trackSearch = (searchTerm, resultsCount) => {
 };
 
 // Track newsletter signup
-export const trackNewsletterSignup = (email, source = 'popup') => {
-  trackConversion('newsletter_signup', {
-    email_hash: email, // Consider hashing for privacy
-    source
-  });
+export const trackNewsletterSignup = (source = 'popup') => {
+  trackConversion('newsletter_signup', { source });
 };
 
 // Track cart abandonment (use with timer or on page exit)
