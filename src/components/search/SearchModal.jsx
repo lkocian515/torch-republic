@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ArrowRight, Coffee, BookOpen, HelpCircle, Leaf, GitCompare } from 'lucide-react';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { ALL_BLOG_TOPICS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
+import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
 
 const RG = '#E6B7AD';
 
@@ -190,11 +191,28 @@ export default function SearchModal({ isOpen, onClose }) {
               {/* Results */}
               <div className="max-h-[60vh] overflow-y-auto">
                 {!query.trim() ? (
-                  <div className="px-4 py-12 text-center">
-                    <Search className="w-8 h-8 mx-auto mb-3" style={{ color: '#C2A66E' }} />
-                    <p className="font-heading text-sm" style={{ color: '#655E56' }}>
+                  <div className="px-4 py-8">
+                    <p className="font-heading text-sm text-center" style={{ color: '#655E56' }}>
                       Search for coffee blends, journal articles, ingredients, and more.
                     </p>
+                    <div className="mt-6">
+                      <p className="font-mono text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: '#8A6F3E' }}>
+                        Shop by format
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {COFFEE_FORMATS.map((f) => (
+                          <button
+                            key={f.key}
+                            type="button"
+                            onClick={() => handleSelect(f.path)}
+                            className="inline-flex items-center px-4 py-2 font-heading text-sm transition-colors"
+                            style={{ background: '#F8F5EF', border: '1px solid #E4D8C9', color: '#2D2824', borderRadius: '999px' }}
+                          >
+                            {f.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 ) : results.length === 0 ? (
                   <div className="px-4 py-12 text-center">

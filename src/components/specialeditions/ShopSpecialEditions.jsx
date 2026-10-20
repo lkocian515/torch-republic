@@ -7,10 +7,15 @@ import EditionCard from './EditionCard';
  * Special editions inside Shop All. Renders nothing until an active edition
  * exists, so the everyday catalog is never disrupted.
  */
-export default function ShopSpecialEditions() {
+export default function ShopSpecialEditions({ format = null }) {
   const { editions, loading } = useSpecialEditions();
 
-  if (loading || editions.length === 0) return null;
+  // When a coffee format is active, only editions sold in that format appear.
+  const shown = format
+    ? editions.filter((e) => (e.options || []).some((o) => o.key === format))
+    : editions;
+
+  if (loading || shown.length === 0) return null;
 
   return (
     <section className="px-6 pb-16 md:px-10" aria-label="Special editions">
@@ -30,7 +35,7 @@ export default function ShopSpecialEditions() {
         </header>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {editions.map((edition) => (
+          {shown.map((edition) => (
             <EditionCard key={edition.id} edition={edition} />
           ))}
         </div>

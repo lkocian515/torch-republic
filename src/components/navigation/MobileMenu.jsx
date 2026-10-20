@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ChevronDown, User, Gift, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
 
 const colors = {
   page: 'hsl(var(--background))',
@@ -17,6 +18,7 @@ const SECTIONS = [
     label: 'Shop',
     items: [
       ['Shop All', '/shop'],
+      ...COFFEE_FORMATS.map(({ label, path }) => [label, path]),
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Special Editions', '/special-editions'],

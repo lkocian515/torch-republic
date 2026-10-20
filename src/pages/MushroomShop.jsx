@@ -6,6 +6,8 @@ import RitualComparison from '@/components/home/ritual/RitualComparison';
 import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import ShopSpecialEditions from '@/components/specialeditions/ShopSpecialEditions';
 import { useSEO } from '@/hooks/useSEO';
+import { useSearchParams } from 'react-router-dom';
+import { getCoffeeFormat } from '@/lib/coffeeFormats';
 import { base44 } from '@/api/base44Client';
 
 function NewsletterSignup() {
@@ -60,9 +62,19 @@ function NewsletterSignup() {
 }
 
 export default function MushroomShop() {
+  const [searchParams] = useSearchParams();
+  const activeFormat = getCoffeeFormat(searchParams.get('format'));
+  // The everyday lineup is instant coffee. Ground and whole bean are only sold
+  // as limited releases, so those views show the special editions instead.
+  const showEveryday = !activeFormat || activeFormat.key === 'instant';
+
   useSEO({
-    title: 'Shop Instant Coffee | Torch Republic Coffee Company',
-    description: 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee — premium, convenient coffee made for simple daily rituals.',
+    title: activeFormat
+      ? `${activeFormat.label} Coffee | Torch Republic Coffee Company`
+      : 'Shop Instant Coffee | Torch Republic Coffee Company',
+    description: activeFormat
+      ? `${activeFormat.blurb} Shop Torch Republic ${activeFormat.label.toLowerCase()} coffee.`
+      : 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee — premium, convenient coffee made for simple daily rituals.',
     url: '/shop',
     type: 'website',
     noindex: false,
@@ -83,33 +95,35 @@ export default function MushroomShop() {
             className="mt-2 font-serif font-semibold"
             style={{ fontSize: 'clamp(2rem,6vw,4rem)', color: '#292622', letterSpacing: '-0.02em', textWrap: 'balance' }}
           >
-            The lineup.
+            {activeFormat ? `${activeFormat.label} Coffee` : 'The lineup.'}
           </motion.h1>
           <p className="mx-auto mt-2 max-w-xl font-heading text-sm md:text-base" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            Shop instant coffee, the Coffee Duo, and our seasonal whole bean release.
+            {activeFormat ? activeFormat.blurb : 'Shop instant coffee, the Coffee Duo, and our seasonal whole bean release.'}
           </p>
         </div>
       </section>
 
       {/* Two products */}
-      <section className="px-6 pb-16 md:px-10">
-        <div className="mx-auto max-w-[1240px]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {ALL_PRODUCTS.filter((p) => !p.seasonal).map((p, i) => (
-              <RitualCard key={p.id} product={p} index={i} />
-            ))}
+      {showEveryday && (
+        <section className="px-6 pb-16 md:px-10">
+          <div className="mx-auto max-w-[1240px]">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {ALL_PRODUCTS.filter((p) => !p.seasonal).map((p, i) => (
+                <RitualCard key={p.id} product={p} index={i} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Special editions follow the everyday catalog. */}
-      <ShopSpecialEditions />
+      <ShopSpecialEditions format={activeFormat ? activeFormat.key : null} />
 
       {/* Free gift with purchase */}
       <FreeGiftBanner />
 
-      {/* Comparison */}
-      <RitualComparison />
+      {/* Comparison - covers the two instant rituals, so it only belongs on the instant view */}
+      {showEveryday && <RitualComparison />}
 
       {/* Newsletter */}
       <section className="px-6 py-16 md:px-10" style={{ borderTop: '1px solid #E4D8C9' }}>
