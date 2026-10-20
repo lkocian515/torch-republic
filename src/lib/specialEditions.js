@@ -45,10 +45,12 @@ export function isMappedVariant(id) {
  * Shopify confirms it is available. Anything else is unavailable.
  */
 export function optionState(option) {
-  if (!option) return { state: 'pending', purchasable: false, label: 'Coming soon' };
-  if (!option.approved) return { state: 'pending', purchasable: false, label: 'Coming soon' };
+  // A pending option carries no status label, so nothing is advertised on the
+  // storefront until Shopify can actually take the order.
+  if (!option) return { state: 'pending', purchasable: false, label: null };
+  if (!option.approved) return { state: 'pending', purchasable: false, label: null };
   if (!isMappedVariant(option.shopify_variant_id)) {
-    return { state: 'pending', purchasable: false, label: 'Coming soon' };
+    return { state: 'pending', purchasable: false, label: null };
   }
   if (!option.shopify || option.shopify.error || option.shopify.unavailable) {
     return { state: 'error', purchasable: false, label: 'Unavailable' };
@@ -90,13 +92,13 @@ export function findOption(edition, key) {
 
 export function editionState(edition) {
   const options = editionOptions(edition);
-  if (options.length === 0) return { state: 'pending', label: 'Coming soon' };
+  if (options.length === 0) return { state: 'pending', label: null };
   if (options.some((o) => optionState(o).purchasable)) return { state: 'available', label: 'Available' };
   if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Unavailable' };
   if (options.some((o) => o.approved && isMappedVariant(o.shopify_variant_id))) {
     return { state: 'soldout', label: 'Sold out' };
   }
-  return { state: 'pending', label: 'Coming soon' };
+  return { state: 'pending', label: null };
 }
 
 export function editionsInCollection(editions, collectionSlug) {

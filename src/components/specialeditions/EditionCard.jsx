@@ -27,10 +27,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
             className="flex flex-col items-center justify-center text-center"
             style={{ padding: '1.5rem', border: '1px dashed hsl(var(--border))', borderRadius: 10, margin: '1.5rem' }}
           >
-            <span className="font-mono uppercase" style={{ fontSize: '9px', letterSpacing: '0.2em', color: 'hsl(var(--muted-foreground))' }}>
-              Label coming soon
-            </span>
-            <span className="mt-2 font-heading" style={{ fontSize: '0.875rem', fontWeight: 600 }}>
+            <span className="font-heading" style={{ fontSize: '0.875rem', fontWeight: 600 }}>
               {edition.name}
             </span>
           </div>

@@ -36,7 +36,7 @@ export default function BuyBothBar({ editions = [], selections = {}, onAdd }) {
         <p className="mt-1 body" style={{ fontSize: '0.9375rem', color: 'hsl(var(--muted-foreground))' }}>
           {ready
             ? `Both selections, added together: ${combined}`
-            : 'Both coffees are coming soon. Buying both unlocks once each selection is approved and available.'}
+            : 'Buying both unlocks once both selections are available.'}
         </p>
       </div>
 
@@ -48,7 +48,7 @@ export default function BuyBothBar({ editions = [], selections = {}, onAdd }) {
         style={{ minWidth: 220 }}
       >
         <ShoppingBag size={16} strokeWidth={2} />
-        {ready ? `Buy both - ${combined}` : 'Coming soon'}
+        {ready ? `Buy both - ${combined}` : 'Buy both'}
       </button>
     </div>
   );

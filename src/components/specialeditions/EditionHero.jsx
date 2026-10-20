@@ -68,7 +68,7 @@ export default function EditionHero() {
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-8 md:flex-row md:justify-center md:pb-14">
           <EditionStatusChip
             state={isLive ? 'available' : 'pending'}
-            label={isLive ? 'Available now' : 'Coming soon'}
+            label={isLive ? 'Available now' : null}
           />
           <Link
             to={href}
@@ -146,7 +146,7 @@ export default function EditionHero() {
             <div className="mt-5 flex justify-center md:justify-start">
               <EditionStatusChip
                 state={isLive ? 'available' : 'pending'}
-                label={isLive ? 'Available now' : 'Coming soon'}
+                label={isLive ? 'Available now' : null}
               />
             </div>
 

@@ -9,6 +9,8 @@ const TONE = {
 
 /** Availability label for an option or an edition. Always readable on dark artwork. */
 export default function EditionStatusChip({ state = 'pending', label, className = '' }) {
+  // No label means there is no status worth showing, so the chip stays out of the way.
+  if (!label) return null;
   const tone = TONE[state] || TONE.pending;
   return (
     <span

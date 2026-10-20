@@ -206,7 +206,7 @@ export default function JournalHub() {
                       <div>
                         <h2 className="font-serif font-bold text-xl" style={{ color: '#3F3027' }}>{cluster.label}</h2>
                         <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: cluster.color }}>
-                          {cluster.published.length} articles published · {cluster.topics.length - cluster.published.length} coming soon
+                          {cluster.published.length} articles published · {cluster.topics.length - cluster.published.length} planned
                         </p>
                       </div>
                     </div>
@@ -324,10 +324,10 @@ export default function JournalHub() {
                       })}
                     </div>
 
-                    {/* Coming soon */}
+                    {/* Planned topics */}
                     {cluster.topics.filter(t => !t.exists).length > 0 && (
                       <div className="mt-10">
-                        <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: '#9A8A7A' }}>Coming Soon</p>
+                        <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-4" style={{ color: '#9A8A7A' }}>Planned</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                           {cluster.topics.filter(t => !t.exists).map((t, i) => (
                             <div key={i} className="p-4" style={{ background: '#FBF8F1', border: '1px dashed rgba(230,183,173,0.3)' }}>

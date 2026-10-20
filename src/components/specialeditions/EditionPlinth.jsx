@@ -32,10 +32,7 @@ export default function EditionPlinth({ edition, option }) {
           className="flex w-full flex-col items-center justify-center text-center"
           style={{ minHeight: 170, border: '1px dashed rgba(247,238,221,0.3)', borderRadius: 10, padding: '1.25rem 0.75rem' }}
         >
-          <span className="font-mono uppercase" style={{ color: '#E8A85C', fontSize: '9px', letterSpacing: '0.2em' }}>
-            Label coming soon
-          </span>
-          <span className="mt-2 font-heading" style={{ color: '#F7EEDD', fontSize: '0.8125rem', fontWeight: 600 }}>
+          <span className="font-heading" style={{ color: '#F7EEDD', fontSize: '0.8125rem', fontWeight: 600 }}>
             {edition.name}
           </span>
         </div>

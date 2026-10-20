@@ -18,7 +18,7 @@ import GrindSelector from '@/components/specialeditions/GrindSelector';
 import EditionCard from '@/components/specialeditions/EditionCard';
 
 const UNAVAILABLE_NOTE = {
-  pending: 'This option is coming soon and cannot be purchased yet. No preorders are being taken.',
+  pending: 'This option is not available to order yet. No preorders are being taken.',
   soldout: 'This option is sold out.',
   error: 'We cannot confirm availability for this option right now. Please try again shortly.',
 };
@@ -131,8 +131,7 @@ export default function SpecialEditionProduct() {
                 <img src={activeImage} alt={`${edition.name} - ${option?.label || ''}`} />
               ) : (
                 <div className="flex flex-col items-center justify-center text-center" style={{ padding: '2rem' }}>
-                  <span className="eyebrow">Label coming soon</span>
-                  <span className="mt-3 font-heading font-semibold">{edition.name}</span>
+                  <span className="font-heading font-semibold">{edition.name}</span>
                 </div>
               )}
             </div>
@@ -205,20 +204,21 @@ export default function SpecialEditionProduct() {
               </div>
             )}
 
-            <button
-              type="button"
-              className="btn btn-primary mt-6 w-full"
-              disabled={!state.purchasable}
-              onClick={() => state.purchasable && addItem(toCartProduct(edition, option), 1)}
-            >
-              <ShoppingBag size={16} strokeWidth={2} />
-              {state.purchasable ? 'Add to Cart' : state.label}
-            </button>
-
-            {!state.purchasable && UNAVAILABLE_NOTE[state.state] && (
-              <p className="body mt-3 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
-                {UNAVAILABLE_NOTE[state.state]}
-              </p>
+            {state.purchasable ? (
+              <button
+                type="button"
+                className="btn btn-primary mt-6 w-full"
+                onClick={() => addItem(toCartProduct(edition, option), 1)}
+              >
+                <ShoppingBag size={16} strokeWidth={2} />
+                Add to Cart
+              </button>
+            ) : (
+              UNAVAILABLE_NOTE[state.state] && (
+                <p className="body mt-6 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
+                  {UNAVAILABLE_NOTE[state.state]}
+                </p>
+              )
             )}
 
             {edition.promo_copy && (
