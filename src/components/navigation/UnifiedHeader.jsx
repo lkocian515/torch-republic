@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, ShoppingBag, Search, User, Gift } from 'lucide-react';
-import BackButton from './BackButton';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, ShoppingBag, Search, User, Gift, ArrowLeft } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import SearchModal from '@/components/search/SearchModal';
 import NavDropdown from './NavDropdown';
@@ -69,6 +68,8 @@ export default function UnifiedHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const { totalItems } = useCart();
   const location = useLocation();
+  const navigate = useNavigate();
+  const isRoot = location.pathname === '/';
 
   const isActive = (to) => !!to && (location.pathname === to || (to !== '/' && location.pathname.startsWith(to)));
 
@@ -95,7 +96,11 @@ export default function UnifiedHeader() {
         color: colors.text,
       }}>
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
-          <BackButton className="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ color: colors.text }} />
+          {!isRoot && (
+            <button onClick={() => navigate(-1)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Go back" style={{ borderRadius: '4px' }}>
+              <ArrowLeft className="h-6 w-6" style={{ color: colors.text }} />
+            </button>
+          )}
           <button onClick={() => setOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Open navigation menu" aria-expanded={open} style={{ borderRadius: '4px' }}>
             <Menu className="h-6 w-6" />
           </button>
