@@ -260,9 +260,9 @@ export default function WhyMushroomCoffee() {
       <section className="px-6 md:px-10 pb-4">
         <div className="max-w-[860px] mx-auto">
           <RecommendedRitualBlock
-            productName="Instant Mushroom Coffee"
-            productSlug="instant-mushroom-coffee"
-            tagline="Start your mushroom coffee ritual with Lion's Mane + Chaga. Instant format, premium taste — subscribe and save 10%."
+            productName="GlowMind Clarity Blend"
+            productSlug="glowmind-clarity-blend"
+            tagline="Start your mushroom coffee ritual with Lion's Mane + Chaga. Instant format, premium taste, functional benefits — subscribe and save 20%."
           />
         </div>
       </section>

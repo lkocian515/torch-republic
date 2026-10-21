@@ -20,29 +20,32 @@ const DATA = {
 
   tableRows: [
     { label: 'Coffee base', tr: '100% Arabica freeze-dried', them: 'Mushroom extract + coffee base', trWins: false },
-    { label: 'Caffeine per serving', tr: 'Medium to high — mg not published', them: '~50–60mg', trWins: true },
+    { label: 'Caffeine per serving', tr: '~60–80mg', them: '~50–60mg', trWins: true },
     { label: 'Added collagen', tr: 'No', them: 'Yes — collagen peptides', trWins: false },
-    { label: 'Added L-theanine', tr: 'No', them: 'Added L-theanine supplement', trWins: false },
-    { label: 'Key mushrooms', tr: "Lion's Mane, Chaga", them: "Lion's Mane, Chaga", trWins: false },
-    { label: 'Price per serving', tr: '~$0.85–0.96', them: '~$2.00–2.50', trWins: true },
+    { label: 'Added L-theanine', tr: 'Naturally from matcha blends', them: 'Added L-theanine supplement', trWins: false },
+    { label: 'Key mushrooms', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga", trWins: true },
+    { label: 'Price per serving', tr: '~$0.85', them: '~$2.00–2.50', trWins: true },
     { label: 'Servings per package', tr: '27 per pouch', them: '30 per bag', trWins: false },
-    { label: 'Lineup', tr: '2 instant coffees + seasonal releases', them: '1–2 SKUs', trWins: false },
-    { label: 'Matcha option', tr: 'No', them: 'No', trWins: false },
-    { label: 'Classic coffee', tr: 'Yes — Instant Classic', them: 'No', trWins: true },
-    { label: 'Subscription discount', tr: '10% off', them: '~10–15% off', trWins: false },
+    { label: 'Blend variety', tr: '12 blends', them: '1–2 SKUs', trWins: true },
+    { label: 'Matcha option', tr: 'Yes — 3 blends', them: 'No', trWins: true },
+    { label: 'Classic coffee', tr: 'Yes — 3 blends', them: 'No', trWins: true },
+    { label: 'Subscription discount', tr: '20% off', them: '~10–15% off', trWins: true },
     { label: 'Dietary profile', tr: 'Clean, no additives', them: 'Collagen (not vegan)', trWins: false },
   ],
 
   ourEdge: [
-    "Lower price per serving ($0.85–0.96 vs $2.00–2.50)",
+    "Significantly lower price per serving ($0.85 vs $2.00–2.50)",
     "Pure formula — no added collagen, gums, or fillers",
-    "Instant — no machine, no pods, hot or iced",
+    "12 blends for ritual customization vs. 1–2 SKUs",
+    "Higher caffeine for a coffee-level experience",
     "Vegan-friendly (no collagen from animal sources)",
-    "10% Subscribe & Save option on every order",
+    "More mushroom variety per blend (up to 4 vs. 2)",
+    "Includes matcha and classic coffee options",
+    "20% subscription discount",
   ],
   theirEdge: [
     "Added collagen peptides for hair, skin, nails support",
-    "Pre-added L-theanine for calm focus in the same scoop",
+    "Pre-added L-theanine for calm focus without needing matcha",
     "Creamier, latte-like texture",
     "Smaller, more focused lineup — simpler decision",
     "Popular influencer/wellness community presence",
@@ -55,7 +58,7 @@ const DATA = {
     },
     {
       heading: "L-Theanine: Supplement vs. Natural Source",
-      body: "Everyday Dose adds supplemental L-theanine to its formula for a calmer, steadier lift. Torch Republic's coffees do not contain added L-theanine — the formula is premium instant coffee plus Lion's Mane and Chaga extract, and nothing else.\n\nIf L-theanine matters to you, the straightforward route is a separate L-theanine supplement taken alongside your coffee. That keeps the coffee formula simple and lets you control the dose independently of your cup."
+      body: "Everyday Dose adds supplemental L-theanine to its formula. Torch Republic's matcha blends contain L-theanine naturally from ceremonial grade tea leaves — typically at higher concentrations than supplemental additions. For the coffee blends, L-theanine is not present.\n\nIf L-theanine in your morning coffee is important, Torch Republic's matcha blends (The Monk, The Ascendant, The Alchemist) deliver it in its most bioavailable natural form — whole-leaf matcha with 5x more L-theanine than regular green tea. Alternatively, taking an L-theanine supplement separately alongside Torch Republic coffee gives you the same compound at lower total cost."
     },
     {
       heading: "Taste and Texture",
@@ -63,24 +66,24 @@ const DATA = {
     },
     {
       heading: "Price: The Clearest Differentiator",
-      body: "Everyday Dose typically prices at approximately $2.00–$2.50 per serving. Torch Republic is approximately $0.85 per serving for Instant Classic and $0.96 for Instant Mushroom, or $0.77 and $0.87 respectively on a 10% subscription.\n\nSome of Everyday Dose's premium reflects real ingredient costs (collagen peptides, an added L-theanine supplement). But for users who don't specifically need collagen in their coffee, that premium is hard to justify at more than double the cost per cup."
+      body: "Everyday Dose typically prices at approximately $2.00–$2.50 per serving. Torch Republic is approximately $0.85/serving, or $0.68 on subscription. For a daily ritual, this represents a $473–$665 annual difference vs. Torch Republic's $248/year subscription cost.\n\nSome of Everyday Dose's premium reflects real ingredient costs (collagen peptides, L-theanine supplement). But for users who don't specifically need collagen in their coffee, that premium is hard to justify given the blend variety and ritual tools Torch Republic provides at less than half the price."
     },
   ],
 
-  verdict: "If your priority is a multi-benefit wellness latte that includes collagen peptides and L-theanine in a single convenient serving — and you're comfortable with the $2.00+ price point — Everyday Dose is a well-formulated product. If you want premium instant coffee with functional mushrooms, a lower cost per cup ($0.85–0.96 vs $2.00+), and a clean vegan-friendly formula with nothing added, Torch Republic is the stronger choice.",
+  verdict: "If your priority is a multi-benefit wellness latte that includes collagen peptides and L-theanine in a single convenient serving — and you're comfortable with the $2.00+ price point — Everyday Dose is a well-formulated product. If you want premium coffee with functional mushrooms, significantly lower daily cost ($0.85 vs $2.00+), broader blend variety, and a clean vegan-friendly formula, Torch Republic delivers substantially more value. For most daily ritual users, Torch Republic is the stronger choice.",
 
   products: [
-    { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
-    { name: 'Instant Classic Coffee', path: '/products/instant-classic-coffee' },
-    { name: 'Torch Republic Coffee Duo', path: '/products/torch-republic-coffee-duo' },
-    { name: 'Shop All Coffee', path: '/shop' },
+    { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
+    { name: 'The Monk Matcha (L-Theanine)', path: '/products/the-monk-matcha-blend' },
+    { name: 'Build Your Ritual Bundle', path: '/build-your-ritual' },
+    { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
   ],
 
   faqs: [
     { question: "Does Everyday Dose have more ingredients than Torch Republic?", answer: "Yes. Everyday Dose includes collagen peptides, L-theanine, Lion's Mane, Chaga, and a coffee base. Torch Republic uses 100% Arabica coffee plus up to 4 mushroom extracts per blend, with no added protein or amino acid supplements. Which formula is 'better' depends on whether you specifically want collagen in your coffee." },
     { question: "Is Everyday Dose vegan?", answer: "No. Everyday Dose contains collagen peptides derived from bovine (animal) sources, making it not vegan-friendly. Torch Republic's formulas are vegan — pure Arabica coffee and plant-based mushroom extracts with no animal-derived ingredients." },
-    { question: "How does Everyday Dose compare in price to Torch Republic?", answer: "Everyday Dose costs approximately $2.00–$2.50 per serving. Torch Republic costs approximately $0.85 per serving for Instant Classic and $0.96 for Instant Mushroom, or $0.77 and $0.87 on a 10% subscription." },
-    { question: "Does Torch Republic have L-theanine like Everyday Dose?", answer: "No. Torch Republic's coffees are premium instant coffee plus Lion's Mane and Chaga extract, with no added L-theanine. If you want L-theanine with your coffee, a separate L-theanine supplement is the straightforward option." },
+    { question: "How does Everyday Dose compare in price to Torch Republic?", answer: "Everyday Dose costs approximately $2.00–$2.50 per serving. Torch Republic costs approximately $0.85/serving ($0.68 with 20% subscription discount). Over a year of daily use, Torch Republic saves approximately $473–$665 compared to Everyday Dose." },
+    { question: "Does Torch Republic have L-theanine like Everyday Dose?", answer: "Torch Republic's matcha blends (The Monk, The Ascendant, The Alchemist) contain high natural L-theanine from ceremonial grade tea leaves — typically more L-theanine than supplemental additions. Torch Republic's coffee-only blends do not contain L-theanine. If you want L-theanine in your morning coffee, Torch Republic's matcha blends or a separate L-theanine supplement are the options." },
   ],
 
   relatedComparisons: OTHER_COMPARISONS,
@@ -89,7 +92,7 @@ const DATA = {
 export default function EverydayDoseVsTorchRepublic() {
   useSEO({
     title: 'Everyday Dose vs. Torch Republic Mushroom Coffee: Full Comparison (2025)',
-    description: "Everyday Dose vs. Torch Republic — collagen peptides, added L-theanine, price per serving ($2.00+ vs $0.85–0.96), and who each brand is built for.",
+    description: "Everyday Dose vs. Torch Republic — collagen peptides, L-theanine, price per serving ($2.00 vs $0.85), blend variety, and who each brand is built for.",
     url: '/compare/everyday-dose-vs-torch-republic',
     type: 'article',
     faq: DATA.faqs.map(f => ({ question: f.question, answer: f.answer })),

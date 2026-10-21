@@ -29,8 +29,9 @@ Deno.serve(async (req) => {
       redeemed_codes: [],
     });
 
-    // PointsActivity writes are restricted to trusted server-side code.
-    // Keep the earn event linked to the same authenticated user.
+    // PointsActivity create is open to any authenticated user, but we use the
+    // service role here so a single failure can't leave the points record
+    // without a matching activity log.
     let earnEntry = null;
     try {
       earnEntry = await base44.asServiceRole.entities.PointsActivity.create({

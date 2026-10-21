@@ -14,8 +14,11 @@ const BORDER = '#E4D8C9';
 const GOLD = '#B89535';
 const MOSS = '#566047';
 
-// Redemption will reopen only after unique discounts are verified with Shopify.
-const REWARDS = [];
+const REWARDS = [
+  { points: 100, label: '10% Off',    code: 'LOYALTY10',   icon: '✦' },
+  { points: 250, label: '25% Off',    code: 'LOYALTY25',   icon: '✦✦' },
+  { points: 500, label: 'Free Tube',  code: 'LOYALTYFREE', icon: '✦✦✦' },
+];
 
 // Tier logic
 function getTier(lifetime) {
@@ -179,7 +182,9 @@ export default function LoyaltySection({ user }) {
         >
           <Zap size={13} style={{ color: CLAY, flexShrink: 0, marginTop: '1px' }} />
           <p className="font-mono text-[9px] leading-relaxed" style={{ color: SECONDARY }}>
-            Your 50-point welcome bonus is available after joining. Purchase points and discounts are being finalized; your existing points are preserved.
+            Earn <span style={{ color: CLAY }}>10 pts</span> per order ·{' '}
+            <span style={{ color: CLAY }}>50 pts</span> for subscribing ·{' '}
+            <span style={{ color: CLAY }}>25 pts</span> for a review
           </p>
         </div>
 
@@ -201,9 +206,8 @@ export default function LoyaltySection({ user }) {
 
         {/* Rewards grid */}
         <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: SECONDARY }}>
-          Torchbearer Rewards Redemption
+          Redeem Torchbearer Rewards
         </p>
-        <p className="font-heading text-sm mb-4" style={{ color: SECONDARY }}>Redemption is temporarily unavailable while secure Shopify discount issuance is finalized. No points will be deducted.</p>
         <div className="space-y-2.5">
           {REWARDS.map(reward => {
             const alreadyRedeemed = redeemed.includes(reward.code);
@@ -286,7 +290,7 @@ export default function LoyaltySection({ user }) {
         {!record && (
           <div className="mt-4 p-4 text-center" style={{ background: CREAM, border: `1px solid ${BORDER}`, borderRadius: '4px' }}>
             <p className="font-mono text-[9px] tracking-widest uppercase" style={{ color: SECONDARY }}>
-              Sign in to see your preserved points balance and welcome bonus.
+              Points are awarded after your first order.
             </p>
           </div>
         )}

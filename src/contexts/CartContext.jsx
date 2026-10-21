@@ -4,7 +4,6 @@ import { ALL_PRODUCTS } from '@/lib/coreProducts';
 import { toast as showToast } from '@/components/ui/use-toast';
 import { COMMERCE_ENABLED } from '@/lib/commerceConfig';
 import { createShopifyCart, SHOPIFY_VARIANT_IDS } from '@/lib/shopifyCheckout';
-import { trackAddToCart, buildItem } from '@/lib/analytics';
 
 // Only the current products are valid cart items. Persisted carts
 // containing retired products are filtered against this set on load so
@@ -17,14 +16,6 @@ const ACTIVE_CART_IDS = new Set(ALL_PRODUCTS.map((p) => p.id));
 const EDITION_ID_PREFIX = 'edition:';
 const isCartableId = (id) =>
   ACTIVE_CART_IDS.has(id) || (typeof id === 'string' && id.startsWith(EDITION_ID_PREFIX));
-
-// Attribution for every add-to-cart click. The button's own page is the default
-// source; a caller can pass a more specific label as addItem's third argument.
-const routeSource = () => {
-  if (typeof window === 'undefined') return 'unknown';
-  const path = (window.location.pathname || '/').toLowerCase().replace(/\/$/, '');
-  return path || '/';
-};
 
 const CartContext = createContext(null);
 
@@ -161,7 +152,7 @@ export function CartProvider({ children }) {
     try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(next)); } catch {}
   }, []);
 
-  const addItem = useCallback((product, qty = 1, source = '') => {
+  const addItem = useCallback((product, qty = 1) => {
     const amount = Number(qty);
     if (!isCartableId(product.id) || !Number.isInteger(amount) || amount < 1 || amount > 999) return;
     if (product.isSubscription && !product.sellingPlanId) {
@@ -175,22 +166,6 @@ export function CartProvider({ children }) {
       showToast({ title: 'Quantity limit reached', description: 'You can order up to 999 of each item.' });
       return;
     }
-
-    // Single funnel for every add-to-cart button in the app. Reported after the
-    // guards above, so a rejected add is never counted and no button is missed.
-    // cta_location identifies which button the customer actually used.
-    trackAddToCart(buildItem({
-      id: normalized.shopifyHandle || normalized.id,
-      name: normalized.name,
-      category: normalized.category,
-      variant: normalized.format || normalized.variantLabel,
-      price: normalized.price,
-      quantity: amount,
-    }), {
-      isSubscription: normalized.isSubscription,
-      ctaLocation: source || routeSource(),
-    });
-
     commitItems(existing
       ? itemsRef.current.map(i => getLineKey(i) === key ? { ...i, qty: i.qty + amount } : i)
       : [...itemsRef.current, { ...normalized, qty: amount }]);

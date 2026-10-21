@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { SUBSCRIBE_SAVE_PERCENT, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 const RG = '#E6B7AD';
 
@@ -10,14 +9,14 @@ const RG = '#E6B7AD';
  * Drives users from learn → buy with a subscription CTA.
  *
  * Props:
- *  - productName: display name e.g. "Instant Mushroom Coffee"
- *  - productSlug: e.g. "instant-mushroom-coffee"
+ *  - productName: display name e.g. "GlowMind Clarity Blend"
+ *  - productSlug: e.g. "glowmind-clarity-blend"
  *  - tagline: short benefit line
  *  - accentColor: optional hex, defaults to rose gold
  */
 export default function RecommendedRitualBlock({
-  productName = "Instant Mushroom Coffee",
-  productSlug = "instant-mushroom-coffee",
+  productName = "GlowMind Clarity Blend",
+  productSlug = "glowmind-clarity-blend",
   tagline = "Lion's Mane + Chaga mushroom coffee for focus, clarity, and sustained energy.",
   accentColor = RG,
 }) {
@@ -54,11 +53,11 @@ export default function RecommendedRitualBlock({
           className="font-mono text-[8px] tracking-[0.2em] uppercase transition-all hover:opacity-70"
           style={{ color: `${accentColor}70` }}
         >
-          Subscribe &amp; Save {SUBSCRIBE_SAVE_PERCENT}% →
+          Subscribe &amp; Save 20% →
         </Link>
       </div>
       <p className="font-mono text-[7px] tracking-[0.2em] mt-3" style={{ color: 'rgba(255,255,255,0.2)' }}>
-        30-day satisfaction guarantee · Free shipping {FREE_SHIPPING_THRESHOLD_DISPLAY} · Cancel anytime
+        30-day satisfaction guarantee · Free shipping $50+ · Cancel anytime
       </p>
     </motion.div>
   );

@@ -9,24 +9,20 @@ import { base44 } from '@/api/base44Client';
  */
 
 let cache = null;
-let cacheExpiresAt = 0;
 let inflight = null;
 
 export async function loadSpecialEditions({ force = false } = {}) {
-  if (cache && Date.now() < cacheExpiresAt && !force) return cache;
+  if (cache && !force) return cache;
   if (inflight) return inflight;
   inflight = base44.functions
     .invoke('getSpecialEditions', {})
     .then((res) => {
-      const result = res?.data || { editions: [], campaigns: [], shopifyError: 'unavailable' };
-      cache = result.shopifyError ? null : result;
-      cacheExpiresAt = cache ? Date.now() + 60_000 : 0;
-      return result;
+      cache = res?.data || { editions: [], campaigns: [], shopifyError: null };
+      return cache;
     })
     .catch(() => {
-      cache = null;
-      cacheExpiresAt = 0;
-      return { editions: [], campaigns: [], shopifyError: 'unavailable' };
+      cache = { editions: [], campaigns: [], shopifyError: 'unavailable' };
+      return cache;
     })
     .finally(() => {
       inflight = null;
@@ -46,18 +42,18 @@ export function isMappedVariant(id) {
 
 /**
  * Purchasable only when approved AND mapped to a real Shopify variant AND
- * Shopify confirms it is available. A failed stock check is not a stock-out.
+ * Shopify confirms it is available. Anything else reads as sold out.
  */
 export function optionState(option) {
-  // Keep purchases gated, but never mistake a failed Shopify lookup for
-  // confirmed sold-out inventory.
+  // An option Shopify cannot take an order for reads as sold out, so the
+  // storefront never promises a purchase it cannot complete.
   if (!option) return { state: 'pending', purchasable: false, label: 'Sold out' };
   if (!option.approved) return { state: 'pending', purchasable: false, label: 'Sold out' };
   if (!isMappedVariant(option.shopify_variant_id)) {
     return { state: 'pending', purchasable: false, label: 'Sold out' };
   }
   if (!option.shopify || option.shopify.error || option.shopify.unavailable) {
-    return { state: 'error', purchasable: false, label: 'Check availability' };
+    return { state: 'error', purchasable: false, label: 'Sold out' };
   }
   if (!option.shopify.available) {
     return { state: 'soldout', purchasable: false, label: 'Sold out' };
@@ -98,7 +94,7 @@ export function editionState(edition) {
   const options = editionOptions(edition);
   if (options.length === 0) return { state: 'pending', label: 'Sold out' };
   if (options.some((o) => optionState(o).purchasable)) return { state: 'available', label: 'Available' };
-  if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Check availability' };
+  if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Sold out' };
   if (options.some((o) => o.approved && isMappedVariant(o.shopify_variant_id))) {
     return { state: 'soldout', label: 'Sold out' };
   }

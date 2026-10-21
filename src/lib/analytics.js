@@ -192,14 +192,12 @@ export const trackViewItem = (item) => {
   matomoTrackViewItem(item);
 };
 
-export const trackAddToCart = (item, { coupon, isSubscription, ctaLocation } = {}) => {
+export const trackAddToCart = (item, { coupon } = {}) => {
   const itemWithCoupon = coupon ? { ...item, coupon } : item;
   send('add_to_cart', {
     currency: CURRENCY,
     value: item.price * item.quantity,
     items: [itemWithCoupon],
-    ...(isSubscription ? { is_subscription: true } : {}),
-    ...(ctaLocation ? { cta_location: ctaLocation } : {}),
   });
   matomoTrackAddToCart(item);
 };

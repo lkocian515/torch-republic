@@ -75,7 +75,7 @@ const LIFESTYLE_COPY = {
 };
 import { useSEO } from '@/hooks/useSEO';
 // FreeGiftBanner removed — promotion stack cleanup per profit-first audit.
-import { trackViewItem } from '@/lib/analyticsEvents';
+import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const THEME = {
@@ -236,10 +236,18 @@ function RitualPDP({ product }) {
   }, [product.slug]);
 
   const handleAdd = (cta) => {
+    trackAddToCart({
+      productId: product.slug,
+      productName: product.name,
+      category: product.category,
+      price: unitPrice,
+      quantity: qty,
+      isSubscription,
+      ctaLocation: cta,
+    });
     addItem(
       { id: product.id, name: product.name, price: unitPrice, image: imageUrl, category: product.category, servings: product.servings, shopifyHandle: product.shopifyHandle, isSubscription, sellingPlanId: purchaseMode.sellingPlanId, sellingPlanName: purchaseMode.sellingPlanName },
-      qty,
-      cta
+      qty
     );
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 2500);

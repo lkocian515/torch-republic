@@ -10,7 +10,7 @@ import RecentlyViewed, { addToRecentlyViewed } from '../components/products/Rece
 import GoneRedirect from '@/components/seo/GoneRedirect';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
-import { trackViewItem } from '@/lib/analyticsEvents';
+import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
 
 const THEME = {
@@ -204,6 +204,15 @@ function BlendDetailInner({ product }) {
     if (!inStock) return;
     setCartError(null);
     try {
+      trackAddToCart({
+        productId: product.slug,
+        productName: product.name,
+        category: product.category,
+        price: unitPrice,
+        quantity: qty,
+        isSubscription,
+        ctaLocation,
+      });
       addItem({
         id: product.id || product.slug,
         name: product.name,
@@ -213,7 +222,7 @@ function BlendDetailInner({ product }) {
         servings,
         shopifyHandle: product.shopifyHandle,
         isSubscription,
-      }, qty, ctaLocation);
+      }, qty);
       setJustAdded(true);
       setTimeout(() => setJustAdded(false), 2500);
     } catch (e) {

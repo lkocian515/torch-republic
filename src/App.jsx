@@ -477,29 +477,6 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         {/* ── LEGACY REDIRECTS (301) — coffee/matcha adjacent old URLs → relevant current pages ── */}
         {/* Coffee pods had SEO value — send to instant coffee collection */}
-        {/* ── RETIRED BLENDS → CLOSEST ACTIVE PRODUCT (301) ── */}
-        {/* Mushroom blends that are no longer sold → the one mushroom coffee we carry */}
-        <Route path="/products/glowmind-clarity" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/glowmind-clarity-blend" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/glowmind-clarity-instant-mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/suncap-rise" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/suncap-rise-instant-mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/mooncap-restore" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/dreamcap-blend" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/mystic-bloom-blend" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/products/the-oracle-blend" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        {/* Retired classic-roast names → Instant Classic Coffee */}
-        <Route path="/products/torchbearer" element={<Navigate to="/products/instant-classic-coffee" replace />} />
-        <Route path="/products/ember-rise" element={<Navigate to="/products/instant-classic-coffee" replace />} />
-        <Route path="/products/midnight-watch" element={<Navigate to="/products/instant-classic-coffee" replace />} />
-        {/* Retired matcha line → the shop (matcha is no longer sold) */}
-        <Route path="/products/the-monk-matcha-blend" element={<Navigate to="/shop" replace />} />
-        <Route path="/products/the-ascendant-matcha-blend" element={<Navigate to="/shop" replace />} />
-        <Route path="/products/the-alchemist-matcha-blend" element={<Navigate to="/shop" replace />} />
-        <Route path="/blends/glowmind-clarity" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/blends/suncap-rise" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/blends/mooncap-restore" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
-        <Route path="/blends/the-monk" element={<Navigate to="/shop" replace />} />
         <Route path="/coffee-pods" element={<Navigate to="/shop/instant-coffee" replace />} />
         <Route path="/pods" element={<Navigate to="/shop/instant-coffee" replace />} />
         <Route path="/pod" element={<Navigate to="/shop/instant-coffee" replace />} />
