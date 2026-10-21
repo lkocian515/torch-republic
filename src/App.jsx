@@ -19,6 +19,7 @@ import Footer from './components/navigation/Footer';
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
+import MobileTabViews from './components/mobile/MobileTabViews';
 import AdminGuard from './components/seo/AdminGuard';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -29,9 +30,7 @@ import useAnalytics from './hooks/useAnalytics';
 import TechLayer from './components/motion/TechLayer';
 
 // ── Mushroom Coffee Pages (Lazy Loaded) ──
-const Home = lazy(() => import('./pages/Home'));
-const MushroomShop = lazy(() => import('./pages/MushroomShop'));
-
+// Home / Shop / Profile are mounted persistently by MobileTabViews.
 const MushroomBundle = lazy(() => import('./pages/MushroomBundle'));
 const BlendDetail = lazy(() => import('./pages/BlendDetail'));
 const RitualProductPage = lazy(() => import('./pages/RitualProductPage.jsx'));
@@ -39,7 +38,6 @@ const BlendsCollection = lazy(() => import('./pages/BlendsCollection'));
 const HowItWorks = lazy(() => import('./pages/HowItWorks'));
 const Reviews = lazy(() => import('./pages/Reviews'));
 const Journal = lazy(() => import('./pages/Journal'));
-const Profile = lazy(() => import('./pages/Profile'));
 const LoyaltyPortal = lazy(() => import('./pages/LoyaltyPortal'));
 const OrderStatusAssistant = lazy(() => import('./pages/OrderStatusAssistant.jsx'));
 const TorchbearersRewards = lazy(() => import('./pages/TorchbearersRewards'));
@@ -147,8 +145,6 @@ const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollec
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 
-const mainPageKey = 'Home';
-
 // Loading fallback component
 const PageLoader = () => (
   <motion.div 
@@ -201,6 +197,9 @@ const AuthenticatedApp = ({ queryClient }) => {
       <div className="flex-1 flex flex-col">
       <ErrorBoundary resetKey={location.pathname}>
       <ScrollToTop />
+      {/* Tab views (Home / Shop / Profile) stay mounted across tab switches so each
+          tab keeps its scroll position and UI state — the WebView tab behaviour. */}
+      {!isStandalonePortfolio && <MobileTabViews />}
       <AnimatePresence>
       <Routes location={location} key={location.pathname}>
 
@@ -224,14 +223,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/forgot-password" element={<Suspense fallback={<PageLoader />}><NoIndex /><ForgotPassword /></Suspense>} />
         <Route path="/reset-password" element={<Suspense fallback={<PageLoader />}><NoIndex /><ResetPassword /></Suspense>} />
 
-        {/* ── HOME ── */}
-        <Route path="/" element={
-          <Suspense fallback={<PageLoader />}>
-            <LayoutWrapper currentPageName={mainPageKey} queryClient={queryClient}>
-              <Home />
-            </LayoutWrapper>
-          </Suspense>
-        } />
+        {/* ── HOME ── rendered persistently by MobileTabViews ── */}
+        <Route path="/" element={null} />
 
         {/* ── CART REDIRECT PROTECTION — catches /cart/:variant and redirects to Shopify ── */}
         <Route path="/cart/:cartPermalink" element={
@@ -241,7 +234,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         } />
 
         {/* ── MUSHROOM COFFEE STORE ── */}
-        <Route path="/shop" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="MushroomShop" queryClient={queryClient}><MushroomShop /></LayoutWrapper></Suspense>} />
+        {/* ── SHOP ── rendered persistently by MobileTabViews ── */}
+        <Route path="/shop" element={null} />
         {/* SEO Category Pages */}
         <Route path="/shop/instant-mushroom-coffee" element={<Navigate to="/products/instant-mushroom-coffee" replace />} />
         <Route path="/shop/instant-coffee" element={<Navigate to="/products/instant-classic-coffee" replace />} />
@@ -272,8 +266,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />
         <Route path="/how-it-works" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="HowItWorks" queryClient={queryClient}><HowItWorks /></LayoutWrapper></Suspense>} />
         <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Reviews" queryClient={queryClient}><Reviews /></LayoutWrapper></Suspense>} />
+        {/* ── PROFILE ── rendered persistently by MobileTabViews (auth-gated there) ── */}
+        <Route path="/profile" element={<NoIndex />} />
         <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
-          <Route path="/profile" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="Profile" queryClient={queryClient}><Profile /></LayoutWrapper></Suspense>} />
           <Route path="/loyalty" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="LoyaltyPortal" queryClient={queryClient}><LoyaltyPortal /></LayoutWrapper></Suspense>} />
           <Route path="/order-status" element={<Suspense fallback={<PageLoader />}><NoIndex /><LayoutWrapper currentPageName="OrderStatusAssistant" queryClient={queryClient}><OrderStatusAssistant /></LayoutWrapper></Suspense>} />
         </Route>
