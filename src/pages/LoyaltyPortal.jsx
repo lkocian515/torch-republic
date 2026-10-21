@@ -18,18 +18,11 @@ const SECONDARY = '#5F574F';
 const BORDER = '#E4D8C9';
 const GOLD = '#B89535';
 
-const REWARD_TIERS = [
-  { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
-  { points: 500, discount: '15%', value: '$15 off', label: 'Regular' },
-  { points: 1000, discount: '20%', value: '$20 off', label: 'Devoted' },
-  { points: 2500, discount: '25%', value: '$25 off', label: 'Torchbearer' },
-];
+// Tiers have not been activated or verified. Do not imply a discount is unlocked.
+const REWARD_TIERS = [];
 
 const EARNING_RULES = [
-  { action: 'Make a purchase', points: '1 pt per $1', icon: ShoppingBag },
-  { action: 'Write a review', points: '50 pts', icon: TrendingUp },
-  { action: 'Refer a friend', points: '100 pts', icon: Gift },
-  { action: 'Birthday bonus', points: '100 pts', icon: Clock },
+  { action: 'Welcome bonus', points: '50 points, once per account', icon: Gift },
 ];
 
 function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
@@ -285,7 +278,7 @@ export default function LoyaltyPortal() {
               Welcome to Torchbearer Rewards
             </h1>
             <p className="font-heading mt-4 max-w-2xl" style={{ fontSize: '0.95rem', color: SECONDARY, fontWeight: 300, lineHeight: 1.8 }}>
-              Earn points on every purchase, unlock exclusive discounts, and join the republic of premium coffee lovers.
+              Your existing points remain saved. Purchase earning, tier benefits, and redemption are being finalized and are not yet active.
             </p>
           </motion.div>
 
@@ -343,7 +336,7 @@ export default function LoyaltyPortal() {
 
       <section className="text-center" style={{ padding: '40px 24px' }}>
         <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: SECONDARY, lineHeight: 1.8 }}>
-          <strong style={{ color: INK }}>Terms:</strong> Points are awarded per qualifying purchase. Discount codes are single-use and cannot be combined with other offers. Points expire after 12 months of account inactivity.
+          <strong style={{ color: INK }}>Terms:</strong> The 50-point welcome bonus is available once per account. Existing points are preserved. Purchase earning, discount redemption, tiers, and point expiration rules are not yet active.
         </p>
       </section>
     </div>
