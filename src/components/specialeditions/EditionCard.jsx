@@ -73,7 +73,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
 
         <div className="mt-auto pt-5">
           <p className="font-heading font-semibold" style={{ fontSize: '1.125rem' }}>
-            {price || <span className="text-readable-secondary" style={{ fontSize: '0.9375rem', fontWeight: 500 }}>Price confirmed at launch</span>}
+            {price || <span className="text-readable-secondary" style={{ fontSize: '0.9375rem', fontWeight: 500 }}>{state.state === 'error' ? 'Price temporarily unavailable' : 'Price confirmed at launch'}</span>}
           </p>
 
           <Link
@@ -81,7 +81,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
             className="btn btn-ghost mt-3 w-full"
             aria-label={`View ${edition.name}`}
           >
-            {state.purchasable ? 'View product' : 'Preview product'}
+            {state.purchasable || state.state === 'error' ? 'View product' : 'Preview product'}
             <ArrowRight size={15} strokeWidth={2} />
           </Link>
         </div>

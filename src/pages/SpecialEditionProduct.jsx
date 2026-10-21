@@ -193,7 +193,7 @@ export default function SpecialEditionProduct() {
             <p className="mt-6 font-heading font-semibold" style={{ fontSize: '1.5rem' }}>
               {price || (
                 <span className="text-readable-secondary" style={{ fontSize: '1rem', fontWeight: 500 }}>
-                  Price confirmed at launch
+                  {state.state === 'error' ? 'Price temporarily unavailable' : 'Price confirmed at launch'}
                 </span>
               )}
             </p>
