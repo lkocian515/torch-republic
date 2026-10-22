@@ -1,5 +1,5 @@
 /**
- * FAQ Index Page — lists all 50 FAQ pages organized by cluster
+ * FAQ Index Page — lists every FAQ page organized by cluster
  * Route: /faq
  */
 import React, { useState } from 'react';
@@ -11,14 +11,14 @@ import { FAQ_PAGES, TOPIC_CLUSTERS } from '@/lib/seoContent';
 
 const RG = '#E6B7AD';
 
-const CLUSTER_ORDER = ['mushroom-coffee', 'matcha', 'instant-coffee', 'wellness-rituals', 'focus-productivity'];
+const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'wellness-rituals', 'focus-productivity'];
 
 export default function FAQIndex() {
   const [activeCluster, setActiveCluster] = useState('all');
 
   useSEO({
-    title: 'Frequently Asked Questions | Mushroom Coffee, Matcha & Instant Coffee | Torch Republic',
-    description: 'Find answers to 50+ questions about mushroom coffee, ceremonial matcha, instant coffee, ingredients, subscriptions, and wellness rituals from Torch Republic.',
+    title: 'Frequently Asked Questions | Mushroom Coffee & Instant Coffee | Torch Republic',
+    description: 'Find answers to common questions about mushroom coffee, instant coffee, ingredients, subscriptions, and wellness rituals from Torch Republic.',
     url: '/faq',
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -49,7 +49,7 @@ export default function FAQIndex() {
             Frequently Asked Questions
           </h1>
           <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
-            Honest answers to common questions about mushroom coffee, ceremonial matcha, instant coffee, ingredients, and wellness rituals.
+            Honest answers to common questions about mushroom coffee, instant coffee, ingredients, and wellness rituals.
           </p>
         </motion.div>
       </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 export default function PremiumHero() {
   return (
@@ -136,7 +137,7 @@ export default function PremiumHero() {
           transition={{ duration: 1, delay: 1.3 }}
           className="flex items-center gap-5 mt-12 flex-wrap justify-center"
         >
-          {['🔒 Secure Checkout', '🇺🇸 Proudly American', '↩ 30-Day Returns', '✦ Free Shipping $150+'].map(t => (
+          {['🔒 Secure Checkout', '🇺🇸 Proudly American', '↩ 30-Day Returns', `✦ Free Shipping ${FREE_SHIPPING_THRESHOLD_DISPLAY}`].map(t => (
             <span key={t} className="font-mono text-[8px] uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.2)' }}>{t}</span>
           ))}
         </motion.div>

@@ -659,73 +659,6 @@ export const FAQ_PAGES = [
     ],
   },
 
-  // ── MATCHA FAQs ──
-  {
-    slug: 'what-is-ceremonial-matcha',
-    question: 'What Is Ceremonial Grade Matcha?',
-    cluster: 'matcha',
-    metaTitle: 'What Is Ceremonial Grade Matcha? | Torch Republic FAQ',
-    metaDescription: 'What is ceremonial grade matcha? How it differs from culinary matcha, why grade matters, L-theanine content, and how to choose the right matcha.',
-    answer: "Ceremonial grade matcha is the highest quality matcha powder, made from young tea leaves (tencha) shade-grown to concentrate chlorophyll and L-theanine. It is stone-ground to preserve delicate flavor compounds. Ceremonial matcha has a smooth, naturally sweet flavor with umami depth — suitable for drinking as tea or in lattes without milk. Culinary grade is made from older leaves with a more bitter, astringent flavor — suitable for baking but not ideal for drinking.",
-    relatedFaqs: ['ceremonial-vs-culinary-matcha-faq', 'how-much-caffeine-matcha', 'matcha-vs-coffee-faq'],
-    products: [
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'Shop All Matcha', path: '/shop/matcha' },
-    ],
-  },
-  {
-    slug: 'ceremonial-vs-culinary-matcha-faq',
-    question: 'What Is the Difference Between Ceremonial and Culinary Matcha?',
-    cluster: 'matcha',
-    metaTitle: 'Ceremonial Matcha vs. Culinary Matcha: Key Differences | Torch Republic',
-    metaDescription: "Ceremonial vs culinary matcha — harvest differences, taste quality, L-theanine content, color, and which grade is right for drinking vs. baking.",
-    answer: "Ceremonial matcha uses the youngest spring harvest tea leaves, shade-grown for 3-4 weeks to boost chlorophyll and L-theanine. It's smooth, sweet, and vivid green. Culinary matcha uses mature leaves from multiple harvests — it's more bitter, duller green, and contains less L-theanine. For lattes, morning rituals, and any application where you're drinking the matcha, ceremonial grade is worth the premium. Culinary is only practical for baking where stronger flavors mask bitterness.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'how-much-caffeine-matcha', 'does-matcha-have-health-benefits'],
-    products: [
-      { name: 'Shop Matcha', path: '/shop/matcha' },
-      { name: 'The Alchemist Matcha', path: '/products/the-alchemist-matcha-blend' },
-    ],
-  },
-  {
-    slug: 'how-much-caffeine-matcha',
-    question: 'How Much Caffeine Is in Matcha?',
-    cluster: 'matcha',
-    metaTitle: 'How Much Caffeine Is in Matcha? | Comparison Guide | Torch Republic',
-    metaDescription: 'Exact caffeine content in matcha vs. coffee vs. green tea. Why matcha caffeine feels different, L-theanine synergy, and energy duration.',
-    answer: "A standard serving of ceremonial matcha contains approximately 25-70mg of caffeine, depending on serving size and grade. This is less than a cup of brewed coffee (80-120mg) but more than green tea (25-40mg). The key difference is L-theanine — matcha contains 5x more L-theanine than green tea, which modulates caffeine's stimulant effect to create calmer, more focused alertness without the jitter or crash typical of coffee.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'matcha-vs-coffee-faq', 'does-matcha-have-health-benefits'],
-    products: [
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'Shop All Matcha', path: '/shop/matcha' },
-    ],
-  },
-  {
-    slug: 'matcha-vs-coffee-faq',
-    question: 'Should I Drink Matcha or Coffee in the Morning?',
-    cluster: 'matcha',
-    metaTitle: 'Matcha or Coffee in the Morning? Which Is Better? | Torch Republic',
-    metaDescription: 'Matcha vs. coffee for morning energy — caffeine comparison, energy quality, crash risk, focus benefits, and how to choose what\'s right for you.',
-    answer: "Coffee gives you faster, stronger energy but more jitter risk and sharper crash potential. Matcha gives you calmer, more sustained focus energy via L-theanine, but less total caffeine kick. For early-morning physical energy and work requiring fast activation, coffee often wins. For sustained creative work, focus sessions, or if you're caffeine-sensitive, matcha's L-theanine synergy makes it superior. Many people alternate: coffee for high-output mornings, matcha for focused creative work.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'how-much-caffeine-matcha', 'does-matcha-have-health-benefits'],
-    products: [
-      { name: 'Shop Matcha', path: '/shop/matcha' },
-      { name: 'Take the Blend Quiz', path: '/quiz' },
-    ],
-  },
-  {
-    slug: 'does-matcha-have-health-benefits',
-    question: 'Does Matcha Have Health Benefits?',
-    cluster: 'matcha',
-    metaTitle: 'Does Matcha Have Health Benefits? | Research FAQ | Torch Republic',
-    metaDescription: "Matcha health benefits — L-theanine for focus, EGCG antioxidants, research evidence, and honest limitations. What matcha can and can't do.",
-    answer: "Matcha contains several well-researched bioactive compounds. L-theanine is strongly supported for calm focus and stress reduction. EGCG (epigallocatechin gallate) is one of the most studied antioxidants in green tea research, with evidence for metabolic support. Matcha also contains chlorophyll and vitamin K. Note: matcha is a food/beverage — it is not a medicine and cannot treat, cure, or prevent disease. The evidence for taste and focus benefits is real; more dramatic claims require more research.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'how-much-caffeine-matcha', 'matcha-vs-coffee-faq'],
-    products: [
-      { name: 'Ingredients Page', path: '/ingredients' },
-      { name: 'Ingredient Guide: L-Theanine', path: '/ingredients/l-theanine' },
-    ],
-  },
-
   // ── GENERAL / PRODUCT FAQs ──
   {
     slug: 'no-machine-coffee-options-faq',
@@ -819,29 +752,16 @@ export const FAQ_PAGES = [
     ],
   },
   {
-    slug: 'what-is-l-theanine-faq',
-    question: 'What Is L-Theanine and Why Is It in Matcha?',
-    cluster: 'matcha',
-    metaTitle: 'What Is L-Theanine? How It Works in Matcha | Torch Republic',
-    metaDescription: "What is L-theanine? How it creates calm focus, why it's uniquely concentrated in matcha, caffeine synergy research, and brain wave effects.",
-    answer: "L-theanine is an amino acid found almost exclusively in green tea (Camellia sinensis) — and matcha has 5x more than regular green tea because the shade-growing process concentrates it. L-theanine is naturally found in tea and traditionally associated with mindful tea rituals. It has been studied alongside caffeine, but individual experiences can vary.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'does-matcha-have-health-benefits', 'matcha-vs-coffee-faq'],
-    products: [
-      { name: 'Shop Matcha', path: '/shop/matcha' },
-      { name: 'Ingredient Guide: L-Theanine', path: '/ingredients/l-theanine' },
-    ],
-  },
-  {
     slug: 'can-i-drink-coffee-in-afternoon',
     question: 'Is It Okay to Drink Coffee in the Afternoon?',
     cluster: 'wellness-rituals',
     metaTitle: 'Can You Drink Coffee in the Afternoon? | Sleep Science FAQ',
     metaDescription: "Is afternoon coffee okay? Caffeine half-life explained, best time to stop drinking coffee, and how to minimize sleep disruption from afternoon caffeine.",
-    answer: "Caffeine has a half-life of approximately 5-6 hours — meaning half the caffeine from a 3pm cup is still in your system at 9pm. For most people, cutting off caffeine by 2pm is a reasonable guideline. If you're sensitive to caffeine, noon is safer. Matcha is often better for afternoon energy than coffee due to lower caffeine content and L-theanine's calming effect. If you need afternoon energy, consider half-serving instant coffee or switching to matcha for the second-half of your day.",
-    relatedFaqs: ['how-much-caffeine-instant-coffee', 'matcha-vs-coffee-faq', 'how-much-caffeine-matcha'],
+    answer: "Caffeine has a half-life of approximately 5-6 hours — meaning half the caffeine from a 3pm cup is still in your system at 9pm. For most people, cutting off caffeine by 2pm is a reasonable guideline. If you're sensitive to caffeine, noon is safer. If you need afternoon energy, a half-serving of instant coffee is usually enough to carry you through without disrupting sleep.",
+    relatedFaqs: ['how-much-caffeine-instant-coffee', 'how-much-caffeine-mushroom-coffee', 'freeze-dried-vs-spray-dried-faq'],
     products: [
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'Shop Matcha', path: '/shop/matcha' },
+      { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
+      { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
     ],
   },
   {
@@ -868,19 +788,6 @@ export const FAQ_PAGES = [
     products: [
       { name: 'Shop Classic Coffee', path: '/shop/instant-coffee' },
       { name: 'Ingredient Guide: Arabica', path: '/ingredients/arabica-coffee' },
-    ],
-  },
-  {
-    slug: 'how-to-make-matcha-latte',
-    question: 'How Do You Make a Matcha Latte at Home?',
-    cluster: 'matcha',
-    metaTitle: 'How to Make a Matcha Latte at Home | Easy Recipe FAQ | Torch Republic',
-    metaDescription: 'How to make a matcha latte at home — hot and iced recipes, milk options, sweetener recommendations, and no-whisk instant matcha method.',
-    answer: "Hot matcha latte: 1) Add 1 serving of ceremonial matcha powder to a cup. 2) Add 2 oz of hot water (not boiling — 75-80°C). 3) Stir vigorously or use a small whisk for 30 seconds until dissolved and slightly frothy. 4) Steam or heat 6-8 oz of your preferred milk (oat, almond, or whole milk work best). 5) Pour milk over matcha. Sweeten with honey or maple syrup to taste. Iced version: dissolve matcha in 2 oz hot water, let cool briefly, then pour over ice and add cold milk.",
-    relatedFaqs: ['what-is-ceremonial-matcha', 'ceremonial-vs-culinary-matcha-faq', 'how-much-caffeine-matcha'],
-    products: [
-      { name: 'The Monk Matcha', path: '/products/the-monk-matcha-blend' },
-      { name: 'Shop All Matcha', path: '/shop/matcha' },
     ],
   },
   {
