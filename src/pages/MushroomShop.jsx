@@ -5,6 +5,7 @@ import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
 import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import ShopSpecialEditions from '@/components/specialeditions/ShopSpecialEditions';
+import ShopDuoBanner from '@/components/specialeditions/ShopDuoBanner';
 import { useSEO } from '@/hooks/useSEO';
 import { useSearchParams } from 'react-router-dom';
 import { getCoffeeFormat } from '@/lib/coffeeFormats';
@@ -101,6 +102,9 @@ export default function MushroomShop() {
 
   return (
     <div style={{ background: '#FBF8F1' }}>
+      {/* Seasonal banner — driven by the featured campaign, sits above the everyday lineup */}
+      <ShopDuoBanner />
+
       {/* Hero */}
       <section className="px-5 pb-5 pt-5 text-center md:px-10 md:pt-10 md:pb-8">
         <div className="mx-auto max-w-3xl">
