@@ -86,17 +86,17 @@ const MUSHROOM = product({
   caffeineLevel: 'medium',
   mood: 'Focus · Clarity · Intentional work',
   tagline: 'I see clearly.',
-  description: 'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion’s Mane, and Chaga.',
+  description: 'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee, Lion’s Mane, Cordyceps, and Reishi.',
   flavorNotes: ['Smooth Coffee', 'Cocoa', 'Balanced Finish'],
   tasteDescription: 'Smooth coffee, cocoa, subtle earth, balanced finish.',
   bestFor: 'Focused thinking and daily clarity',
-  mushrooms: 'Lion’s Mane + Chaga',
+  mushrooms: 'Lion’s Mane + Cordyceps + Reishi',
   servings: 27,
   price: 25.99,
   shopifyHandle: 'instant-coffee-with-mushroom',
   accent: '#566047',
   category: 'mushroom-coffee',
-  keyBenefits: ['Focus', 'Lion’s Mane + Chaga', '27 Servings', 'Balanced Coffee'],
+  keyBenefits: ['Focus', 'Lion’s Mane + Cordyceps + Reishi', '27 Servings', 'Balanced Coffee'],
 });
 
 // Matcha product has been retired — MATCHA_PRODUCTS is kept as an empty

@@ -24,7 +24,7 @@ const DATA = {
     { label: 'Preparation time', tr: '~30 seconds', them: '~30–60 seconds', trWins: false },
     { label: 'Coffee quality', tr: 'Single-origin PNG Arabica, freeze-dried', them: 'Pre-ground, stored in plastic cups', trWins: true },
     { label: 'Flavor preservation', tr: 'Freeze-dried at low temperature', them: 'Pre-ground, sealed in plastic for months', trWins: true },
-    { label: 'Single-use waste', tr: 'None — one pouch, no pods', them: 'Plastic/aluminum K-Cup per serving', trWins: true },
+    { label: 'Packaging per serving', tr: 'One pouch per 27 servings', them: 'One K-Cup per serving', trWins: true },
     { label: 'Servings per package', tr: '27 per pouch', them: '10–24 per box', trWins: true },
     { label: 'Cost per serving', tr: '~$0.85', them: '~$0.75–$1.25', trWins: true },
     { label: 'Counter space', tr: 'None', them: 'Machine + K-Cup storage', trWins: true },
@@ -35,7 +35,7 @@ const DATA = {
 
   ourEdge: [
     "No machine required — just hot water and a cup",
-    "Zero single-use K-Cup waste — one pouch",
+    "No pods — one pouch per 27 servings",
     "Premium single-origin Papua New Guinea Arabica, freeze-dried",
     "Better flavor preservation (freeze-dried vs. pre-ground in plastic)",
     "Lower cost per serving (~$0.85 vs $0.75–$1.25 for premium K-Cups)",

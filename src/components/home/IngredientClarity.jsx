@@ -8,12 +8,12 @@ const INGREDIENT_DETAILS = [
     category: "Mushroom Coffee Blends",
     accent: '#10B981',
     items: [
-      { label: "Mushroom Species", value: "Lion's Mane (Hericium erinaceus) + Chaga (Inonotus obliquus)" },
+      { label: "Mushroom Species", value: "Lion's Mane (Hericium erinaceus), Cordyceps (Cordyceps militaris), Reishi (Ganoderma lucidum)" },
       { label: "Caffeine Level", value: "Approx. 50–80mg per serving (half to full cup)" },
       { label: "Servings Per Tube", value: "27 servings (1.9 oz / 54g)" },
       { label: "How to Prepare", value: "Add 1 scoop to 8–12 oz hot water or milk. Stir 10–15 seconds. Ready." },
       { label: "Best For", value: "Morning focus, afternoon clarity, calm sustained energy" },
-      { label: "Ingredients", value: "Instant coffee, Lion's Mane extract, Chaga extract. No fillers, no sweeteners, no artificial flavors." },
+      { label: "Ingredients", value: "Instant coffee, Lion's Mane extract, Cordyceps extract, Reishi extract. No fillers, no sweeteners, no artificial flavors." },
     ],
   },
   {

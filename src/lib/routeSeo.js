@@ -11,7 +11,7 @@ const stripParams = (search = '') => {
 const SEO_BY_PATH = {
   '/': ['Torch Republic | Instant Coffee & Mushroom Coffee', 'Explore thoughtfully crafted instant coffee and functional mushroom coffee made for smooth, convenient, and intentional daily rituals.'],
   '/shop': ['Shop Instant Coffee & Mushroom Coffee | Torch Republic', 'Explore thoughtfully crafted instant coffee and functional mushroom coffee created for simple, intentional daily rituals.'],
-  '/shop/instant-mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Shop instant mushroom coffee with Lion\u2019s Mane and Chaga for focus, energy, and restorative daily rituals.'],
+  '/shop/instant-mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Shop instant mushroom coffee with Lion\u2019s Mane, Cordyceps and Reishi for focus, energy, and restorative daily rituals.'],
   '/shop/instant-coffee': ['Premium Instant Coffee Collection', 'Shop 100% Arabica freeze-dried instant coffee for smooth, bold coffee rituals without pods, machines, or bitter shortcuts.'],
   '/classic-coffee': ['Premium Instant Coffee Collection', 'Explore Torch Republic classic instant coffee with smooth Arabica flavor, quick preparation, and no coffee maker required.'],
   '/mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Explore Torch Republic mushroom coffee blends for focus, energy, calm, and daily wellness rituals with premium Arabica coffee.'],

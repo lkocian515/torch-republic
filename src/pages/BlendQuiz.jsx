@@ -89,7 +89,7 @@ const RESULTS = {
     title: 'Your Ritual: Focused Mushroom Coffee',
     product: 'Instant Mushroom Coffee',
     slug: 'instant-mushroom-coffee',
-    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Chaga) for focus and work sessions — balanced energy without the crash.',
+    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Cordyceps + Reishi) for focus and work sessions — balanced energy without the crash.',
     link: '/products/instant-mushroom-coffee',
     compareLink: '/shop',
     accent: '#2F4A73',

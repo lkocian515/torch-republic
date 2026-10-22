@@ -33,13 +33,13 @@ const BENEFITS = [
   {
     icon: Clock,
     title: 'No Pods. No Machines.',
-    description: 'Instant powder into hot water, milk, or iced — ready in seconds. No plastic waste, no complicated setup, no waiting. Just your ritual, simplified.',
+    description: 'Instant powder into hot water, milk, or iced — ready in seconds. No pods, no complicated setup, no waiting. Just your ritual, simplified.',
     accent: '#D6B27A',
   },
   {
     icon: CheckCircle,
     title: 'Clarity When Life Feels Foggy',
-    description: "Lion's Mane and Chaga blends for focus and mental clarity. Ceremonial matcha for calm energy. Classic coffee for bold, everyday momentum.",
+    description: "Lion's Mane, Cordyceps and Reishi blends for focus and mental clarity. Ceremonial matcha for calm energy. Classic coffee for bold, everyday momentum.",
     accent: '#C98F86',
   },
 ];
@@ -100,7 +100,7 @@ export default function WhyPeopleChoose() {
               fontWeight: 300, lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             }}
           >
-            Not just caffeine. A ritual. Every blend is designed around a daily state: rise, focus, restore, create, ascend. No pods, no plastic waste, no machine, no waiting — just a better cup in seconds.
+            Not just caffeine. A ritual. Every blend is designed around a daily state: rise, focus, restore, create, ascend. No pods, no machine, no waiting — just a better cup in seconds.
           </p>
         </motion.div>
 

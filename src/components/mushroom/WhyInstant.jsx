@@ -17,7 +17,7 @@ const PILLARS = [
   {
     num: '02',
     title: 'Functional by Design',
-    desc: "Lion's Mane and Chaga aren't trends — they're backed by centuries of traditional use and modern research for focus, flow, and immune support.",
+    desc: "Lion's Mane, Cordyceps and Reishi aren't trends — they're backed by centuries of traditional use and modern research for focus, flow, and immune support.",
   },
   {
     num: '03',

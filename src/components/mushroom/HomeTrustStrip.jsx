@@ -7,7 +7,7 @@ const RG = '#E6B7AD';
 const ITEMS = [
   { icon: Sparkles,  label: 'Premium Instant Blends' },
   { icon: Coffee,    label: 'No Machine Needed' },
-  { icon: Recycle,   label: 'No Pods or Plastic Waste' },
+  { icon: Recycle,   label: 'No Pods or Machines' },
   { icon: Leaf,      label: 'Crafted for Daily Ritual' },
   { icon: Zap,       label: 'Ships from the U.S.' },
   { icon: Sparkles,  label: 'Secure Checkout' },

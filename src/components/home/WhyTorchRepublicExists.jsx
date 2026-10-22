@@ -6,7 +6,7 @@ const RG = '#E6B7AD';
 
 const PILLARS = [
   { icon: Settings2, title: 'No Machine', detail: 'No counter-hogging brewer. No descaling. No proprietary hardware to buy or maintain.' },
-  { icon: Trash2, title: 'No Pods', detail: 'No single-use plastic pods. No aluminum waste. No recycling confusion.' },
+  { icon: Trash2, title: 'No Pods', detail: 'No single-use pods. No machine to buy, descale, or replace.' },
   { icon: Zap, title: 'No Complexity', detail: 'No grind, no tamp, no cleanup. Just hot water and a spoon.' },
   { icon: Coffee, title: 'No Compromise', detail: 'Premium single-origin coffee that actually tastes like coffee.' },
 ];

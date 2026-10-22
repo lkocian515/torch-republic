@@ -572,7 +572,7 @@ export default function Torchbearer() {
               className="font-heading mb-8"
               style={{ fontSize: '0.9rem', color: '#6A5A4A', lineHeight: 1.8 }}
             >
-              GlowMind Clarity, SunCap Rise, MoonCap Restore, and more — five functional mushroom coffee blends with Lion's Mane and Chaga, crafted for focus, energy, calm, and daily wellness.
+              GlowMind Clarity, SunCap Rise, MoonCap Restore, and more — five functional mushroom coffee blends with Lion's Mane, Cordyceps and Reishi, crafted for focus, energy, calm, and daily wellness.
             </p>
             <Link
               to="/blends"

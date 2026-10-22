@@ -9,7 +9,7 @@ export default function MushroomCoffeeShowcase() {
     {
       title: 'Energy Rituals',
       subtitle: 'By Roast Profile',
-      description: 'Choose your roast intensity. All infused with Lion\'s Mane + Chaga for sustained energy and cognitive support.',
+      description: 'Choose your roast intensity. All infused with Lion\'s Mane + Cordyceps + Reishi for sustained energy and cognitive support.',
       image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9828412ff_dsaasdas.png',
       blends: ['Mooncap Restore (Dark)', 'Glowmind Clarity (Medium)', 'Suncap Rise (Light)'],
       link: '/mushroom-coffee',

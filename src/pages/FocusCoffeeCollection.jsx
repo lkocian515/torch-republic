@@ -23,7 +23,7 @@ const FOCUS_PRODUCTS = [
 const FOCUS_CARDS = ritualCards(FOCUS_PRODUCTS);
 
 const FAQS = [
-  { q: 'What is the best coffee for focus and concentration?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion’s Mane and Chaga, made for focused deep-work sessions. No machine required.' },
+  { q: 'What is the best coffee for focus and concentration?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion’s Mane, Cordyceps and Reishi, made for focused deep-work sessions. No machine required.' },
   { q: 'Is there a caffeine-free option for focus?', a: 'The Monk is a ceremonial matcha with naturally occurring caffeine and L-theanine for a calmer, steadier kind of focus than coffee.' },
   { q: 'How many servings are in each tube?', a: 'Coffee blends contain 27 servings per tube; matcha contains 25 servings per tin.' },
 ];
@@ -38,7 +38,7 @@ export default function FocusCoffeeCollection() {
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Focus Coffee', url: '/shop/focus-coffee' }],
     faq: [
-      { question: 'What is the best coffee for focus and concentration?', answer: "GlowMind Clarity combines premium Arabica instant coffee with Lion's Mane and Chaga — designed for focused deep work sessions." },
+      { question: 'What is the best coffee for focus and concentration?', answer: "GlowMind Clarity combines premium Arabica instant coffee with Lion's Mane, Cordyceps and Reishi — designed for focused deep work sessions." },
       { question: "Is there a lower-caffeine option for focus?", answer: "The Monk is a ceremonial matcha with naturally occurring caffeine and L-theanine, traditionally associated with a calmer, more focused energy." },
     ],
   });
@@ -54,7 +54,7 @@ export default function FocusCoffeeCollection() {
           </div>
           <h1 className="h1 mb-5">Coffee Designed for Deep Focus</h1>
           <p className="body-lg mb-8">
-            Not all coffee supports the same kind of work. These blends pair premium instant coffee and ceremonial matcha with Lion’s Mane and Chaga for mornings built around attention and presence.
+            Not all coffee supports the same kind of work. These blends pair premium instant coffee and ceremonial matcha with Lion’s Mane, Cordyceps and Reishi for mornings built around attention and presence.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link to="/build-your-ritual" className="btn btn-primary">
@@ -70,7 +70,7 @@ export default function FocusCoffeeCollection() {
       {/* Trust Strip */}
       <div className="px-6 py-4" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}18` }}>
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          {['Lion’s Mane + Chaga', 'No machine needed', '27 servings per tube', 'Subscribe & save 20%'].map((t, i) => (
+          {['Lion’s Mane + Cordyceps + Reishi', 'No machine needed', '27 servings per tube', 'Subscribe & save 20%'].map((t, i) => (
             <div key={i} className="flex items-center gap-2">
               <CheckCircle size={12} style={{ color: ACCENT }} />
               <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{t}</span>
@@ -86,7 +86,7 @@ export default function FocusCoffeeCollection() {
             <CollectionIntro
               eyebrow="The Collection"
               title="Focus Blends"
-              intro="Mushroom coffee and ceremonial matcha made for attention. Coffee blends include Lion’s Mane and Chaga; The Monk offers ceremonial matcha with naturally occurring L-theanine."
+              intro="Mushroom coffee and ceremonial matcha made for attention. Coffee blends include Lion’s Mane, Cordyceps and Reishi; The Monk offers ceremonial matcha with naturally occurring L-theanine."
               accent={ACCENT}
             />
           </div>

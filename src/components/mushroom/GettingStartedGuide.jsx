@@ -35,7 +35,7 @@ const DAYS = [
     focus: 'Mental Clarity',
     blend: 'Instant Mushroom Coffee',
     icon: Brain,
-    instruction: "Switch to Instant Mushroom Coffee today. Lion's Mane and Chaga support cognitive function and focus.",
+    instruction: "Switch to Instant Mushroom Coffee today. Lion's Mane, Cordyceps and Reishi support cognitive function and focus.",
     tip: 'Use this cup before your most important work block of the day.',
   },
   {

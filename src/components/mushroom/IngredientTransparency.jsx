@@ -18,7 +18,7 @@ const TRANSPARENCY_ITEMS = [
   {
     icon: Leaf,
     label: 'Mushroom Types',
-    desc: "Lion's Mane (Hericium erinaceus) for focus and cognitive support. Chaga (Inonotus obliquus) for antioxidants and immune support.",
+    desc: "Lion's Mane (Hericium erinaceus) for focus and cognitive support. Cordyceps (Cordyceps militaris) for natural energy. Reishi (Ganoderma lucidum) for antioxidant and immune support.",
   },
   {
     icon: Clock,

@@ -12,11 +12,18 @@ const SHROOMS = [
     desc: "One of the most well-known functional mushrooms in the world. Lion's Mane has been used for centuries in traditional wellness practices and is widely studied for its potential to support focus and cognitive clarity.",
   },
   {
-    name: 'Chaga',
-    latin: 'Inonotus obliquus',
+    name: 'Cordyceps',
+    latin: 'Cordyceps militaris',
     color: '#A89278',
-    benefits: ['Rich in antioxidants', 'Supports immune resilience', 'High in beta-glucans', 'Harvested from birch trees in cold climates'],
-    desc: "Known as the 'King of Mushrooms,' Chaga has been used in traditional Siberian wellness practices for hundreds of years. It is widely recognized for its rich antioxidant content and is associated with immune and overall daily wellness support.",
+    benefits: ['Traditionally used for energy', 'Supports stamina and daily performance', 'Naturally occurring cordycepin', 'Cultivated on grain-free substrate'],
+    desc: "Cordyceps has a long history of use in traditional East Asian practice, where it was associated with energy and stamina. It is now one of the most widely used functional mushrooms in daily wellness routines.",
+  },
+  {
+    name: 'Reishi',
+    latin: 'Ganoderma lucidum',
+    color: '#C0A184',
+    benefits: ['Rich in antioxidants', 'Supports immune resilience', 'High in beta-glucans', 'Used in traditional Eastern medicine for centuries'],
+    desc: "Reishi is known as the 'Mushroom of Immortality' in traditional practice, where it has been used for hundreds of years. It is valued for its naturally occurring triterpenes and beta-glucans and is associated with balance and overall daily wellness support.",
   },
 ];
 
@@ -40,7 +47,7 @@ export default function MushroomScience() {
             Why Mushroom Coffee?
           </h2>
           <p style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.78)', lineHeight: 1.9, fontWeight: 300, maxWidth: '520px', margin: '0 auto' }}>
-            Lion's Mane and Chaga have been used in traditional wellness practices for centuries. Each Torch Republic blend pairs them with premium instant coffee for a smooth, functional daily ritual.
+            Lion's Mane, Cordyceps and Reishi have been used in traditional wellness practices for centuries. Each Torch Republic blend pairs them with premium instant coffee for a smooth, functional daily ritual.
           </p>
         </motion.div>
 

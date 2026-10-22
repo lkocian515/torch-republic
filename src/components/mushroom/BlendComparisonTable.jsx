@@ -22,7 +22,7 @@ const CATEGORIES = [
     accent: RG,
     bestFor: 'Focus, clarity, restoration, wellness rituals',
     flavor: 'Coffee with functional mushrooms',
-    mushrooms: 'Yes (Lion\'s Mane + Chaga)',
+    mushrooms: 'Yes (Lion\'s Mane + Cordyceps + Reishi)',
     caffeine: 'Coffee',
   },
   {

@@ -117,7 +117,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
         </p>
         {product.category !== 'matcha' && (
           <p className="font-mono text-[7px] tracking-[0.14em] uppercase" style={{ color: '#8A7D72' }}>
-            Lion's Mane + Chaga
+            Lion's Mane + Cordyceps + Reishi
           </p>
         )}
 

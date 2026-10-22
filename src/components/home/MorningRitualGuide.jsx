@@ -18,7 +18,7 @@ const steps = [
     title: 'Measure Your Blend',
     description: 'Use one serving (one tube or packet) of your chosen mushroom coffee or matcha blend.',
     icon: '☕',
-    tip: 'Lion\'s Mane + Chaga for coffee | Ceremonial grade for matcha',
+    tip: 'Lion\'s Mane + Cordyceps + Reishi for coffee | Ceremonial grade for matcha',
   },
   {
     number: '03',

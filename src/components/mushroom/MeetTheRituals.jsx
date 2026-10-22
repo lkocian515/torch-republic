@@ -9,16 +9,16 @@ const GOLD = '#C4A35A';
 
 const PRODUCTS = {
   coffee: [
-    { name: 'Torchbearer', type: 'Instant Coffee · Medium Roast', benefit: 'Bold · Smooth · Intense — the original daily ritual. 100% Arabica + Lion\'s Mane + Chaga.', href: '/torchbearer', accent: GOLD, live: true },
-    { name: 'Ember Reserve', type: 'Instant Coffee · Medium Roast', benefit: 'Rich · Smooth · Bold — ignite your momentum. 100% Arabica + Lion\'s Mane + Chaga.', href: '/shop', accent: GOLD, live: true },
+    { name: 'Torchbearer', type: 'Instant Coffee · Medium Roast', benefit: 'Bold · Smooth · Intense — the original daily ritual. 100% Arabica + Lion\'s Mane + Cordyceps + Reishi.', href: '/torchbearer', accent: GOLD, live: true },
+    { name: 'Ember Reserve', type: 'Instant Coffee · Medium Roast', benefit: 'Rich · Smooth · Bold — ignite your momentum. 100% Arabica + Lion\'s Mane + Cordyceps + Reishi.', href: '/shop', accent: GOLD, live: true },
   ],
   mushroom: [
-    { name: 'SunCap Rise', type: 'Mushroom Coffee · Light Roast', benefit: 'Morning energy + clarity. Lion\'s Mane + Chaga.', href: '/blends/suncap-rise', accent: RG, live: true },
-    { name: 'GlowMind Clarity', type: 'Mushroom Coffee · Medium Roast', benefit: 'Focus, flow, and mental clarity. Lion\'s Mane + Chaga.', href: '/blends/glowmind-clarity', accent: RG, live: true },
-    { name: 'MoonCap Restore', type: 'Mushroom Coffee · Medium Roast', benefit: 'Grounding, restoration, and calm balance. Lion\'s Mane + Chaga.', href: '/blends/mooncap-restore', accent: RG, live: true },
-    { name: 'The Oracle', type: 'Mushroom Coffee · Medium Roast', benefit: 'Intuition, clarity, and deep focus. Lion\'s Mane + Chaga.', href: '/blends/the-oracle', accent: RG, live: true },
-    { name: 'DreamCap', type: 'Mushroom Coffee', benefit: 'Evening calm, recovery, and ritual. Lion\'s Mane + Chaga.', href: '/blends/dreamcap-blend', accent: RG, live: true },
-    { name: 'Mystic Bloom', type: 'Mushroom Coffee', benefit: 'Beauty, balance, and radiant glow. Lion\'s Mane + Chaga.', href: '/blends/mystic-bloom', accent: RG, live: true },
+    { name: 'SunCap Rise', type: 'Mushroom Coffee · Light Roast', benefit: 'Morning energy + clarity. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/suncap-rise', accent: RG, live: true },
+    { name: 'GlowMind Clarity', type: 'Mushroom Coffee · Medium Roast', benefit: 'Focus, flow, and mental clarity. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/glowmind-clarity', accent: RG, live: true },
+    { name: 'MoonCap Restore', type: 'Mushroom Coffee · Medium Roast', benefit: 'Grounding, restoration, and calm balance. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/mooncap-restore', accent: RG, live: true },
+    { name: 'The Oracle', type: 'Mushroom Coffee · Medium Roast', benefit: 'Intuition, clarity, and deep focus. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/the-oracle', accent: RG, live: true },
+    { name: 'DreamCap', type: 'Mushroom Coffee', benefit: 'Evening calm, recovery, and ritual. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/dreamcap-blend', accent: RG, live: true },
+    { name: 'Mystic Bloom', type: 'Mushroom Coffee', benefit: 'Beauty, balance, and radiant glow. Lion\'s Mane + Cordyceps + Reishi.', href: '/blends/mystic-bloom', accent: RG, live: true },
   ],
   matcha: [
     { name: 'The Monk', type: 'Matcha Blend · 100% Instant Matcha', benefit: 'Focus & clarity, calm & balance — a mindful blend for inner calm and steady focus.', href: '/shop', accent: EMERALD, live: true },

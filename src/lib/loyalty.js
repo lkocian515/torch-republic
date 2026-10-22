@@ -1,4 +1,21 @@
 import { base44 } from '@/api/base44Client';
+import { Gift, TrendingUp, ShoppingBag, Clock } from 'lucide-react';
+
+// The published program rules — one source of truth for the rewards page, the
+// member portal, and the homepage preview.
+export const REWARD_TIERS = [
+  { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
+  { points: 500, discount: '15%', value: '$15 off', label: 'Regular' },
+  { points: 1000, discount: '20%', value: '$20 off', label: 'Devoted' },
+  { points: 2500, discount: '25%', value: '$25 off', label: 'Torchbearer' },
+];
+
+export const EARNING_RULES = [
+  { action: 'Make a purchase', points: '1 pt per $1', icon: ShoppingBag },
+  { action: 'Write a review', points: '50 pts', icon: TrendingUp },
+  { action: 'Refer a friend', points: '100 pts', icon: Gift },
+  { action: 'Birthday bonus', points: '100 pts', icon: Clock },
+];
 
 // One-time points awarded when a member first opens their rewards.
 export const WELCOME_BONUS_POINTS = 50;

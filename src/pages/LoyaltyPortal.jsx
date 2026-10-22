@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { base44 } from '@/api/base44Client';
-import { ensureLoyaltyRecord } from '@/lib/loyalty';
+import { ensureLoyaltyRecord, REWARD_TIERS, EARNING_RULES } from '@/lib/loyalty';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Gift, TrendingUp, ShoppingBag, Clock, ChevronRight, Lock, CheckCircle } from 'lucide-react';
@@ -17,20 +17,6 @@ const INK = '#2D2824';
 const SECONDARY = '#5F574F';
 const BORDER = '#E4D8C9';
 const GOLD = '#B89535';
-
-const REWARD_TIERS = [
-  { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
-  { points: 500, discount: '15%', value: '$15 off', label: 'Regular' },
-  { points: 1000, discount: '20%', value: '$20 off', label: 'Devoted' },
-  { points: 2500, discount: '25%', value: '$25 off', label: 'Torchbearer' },
-];
-
-const EARNING_RULES = [
-  { action: 'Make a purchase', points: '1 pt per $1', icon: ShoppingBag },
-  { action: 'Write a review', points: '50 pts', icon: TrendingUp },
-  { action: 'Refer a friend', points: '100 pts', icon: Gift },
-  { action: 'Birthday bonus', points: '100 pts', icon: Clock },
-];
 
 function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
   return (

@@ -68,7 +68,7 @@ export default function TasteProfileCard({ product }) {
               Mushrooms
             </p>
             <p className="font-serif text-white" style={{ fontSize: '1.1rem', lineHeight: 1.4 }}>
-              {product.mushrooms || "Lion's Mane + Chaga"}
+              {product.mushrooms || "Lion's Mane + Cordyceps + Reishi"}
             </p>
           </div>
         </div>

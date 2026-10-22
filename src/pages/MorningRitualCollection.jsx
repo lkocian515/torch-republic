@@ -31,7 +31,7 @@ const RITUAL_STEPS = [
 ];
 
 const FAQS = [
-  { q: 'What is the best coffee for morning focus?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane and Chaga mushroom extracts for a focused morning ritual. No machine or pods required.' },
+  { q: 'What is the best coffee for morning focus?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane, Cordyceps and Reishi mushroom extracts for a focused morning ritual. No machine or pods required.' },
   { q: 'Can I make ritual morning coffee without a machine?', a: 'Yes. Torch Republic instant coffee dissolves in hot water in under a minute — no machine, no pods, no cleanup.' },
   { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings (25 for matcha) — nearly a month of daily rituals.' },
 ];
@@ -46,7 +46,7 @@ export default function MorningRitualCollection() {
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Morning Ritual', url: '/shop/morning-ritual' }],
     faq: [
-      { question: 'What is the best coffee for morning focus?', answer: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane and Chaga — designed for focused morning rituals without jitters.' },
+      { question: 'What is the best coffee for morning focus?', answer: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane, Cordyceps and Reishi — designed for focused morning rituals without jitters.' },
       { question: 'Can I make ritual morning coffee without a machine?', answer: 'Yes. Torch Republic instant coffee dissolves in hot water in under 60 seconds — no machine, no pods, no cleanup required.' },
     ],
   });

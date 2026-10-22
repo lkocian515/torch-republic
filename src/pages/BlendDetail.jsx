@@ -157,7 +157,7 @@ function BlendDetailInner({ product }) {
     ? '100% ceremonial grade matcha. No artificial colors, flavors, or preservatives.'
     : product.category === 'classic-coffee'
     ? '100% single-origin Arabica instant coffee from Papua New Guinea. No artificial colors, flavors, or preservatives.'
-    : "Premium instant coffee, organic Lion's Mane mushroom extract, organic Chaga mushroom extract. No artificial colors, flavors, or preservatives.";
+    : "Premium instant coffee, organic Lion's Mane mushroom extract, organic Cordyceps mushroom extract, organic Reishi mushroom extract. No artificial colors, flavors, or preservatives.";
 
   const prepText = 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
 

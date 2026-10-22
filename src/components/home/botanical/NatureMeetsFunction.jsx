@@ -6,7 +6,7 @@ import { colors } from '@/components/home/editorial/theme';
 
 const ingredients = [
   ['Lion’s Mane', 'A distinctive functional mushroom traditionally used in wellness-focused routines.', Sprout],
-  ['Chaga', 'An earthy mushroom ingredient valued for its deep character and place in traditional preparations.', Trees],
+  ['Reishi', 'An earthy mushroom ingredient valued for its deep character and place in traditional preparations.', Trees],
   ['Ceremonial Matcha', 'Vibrant finely ground tea crafted for a mindful, full-bodied ritual.', Leaf],
   ['Light-Roast Coffee', 'Bright, aromatic coffee selected to preserve nuance, character, and a lighter flavor experience.', Coffee],
 ];

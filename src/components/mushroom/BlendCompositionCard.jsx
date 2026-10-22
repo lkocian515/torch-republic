@@ -13,7 +13,7 @@ const CARDS = [
   {
     icon: Leaf,
     title: 'Functional Mushrooms',
-    text: "Crafted with functional mushrooms such as Lion's Mane and Chaga to support clarity, focus, and daily wellness.",
+    text: "Crafted with functional mushrooms such as Lion's Mane, Cordyceps and Reishi to support clarity, focus, and daily wellness.",
   },
   {
     icon: Coffee,

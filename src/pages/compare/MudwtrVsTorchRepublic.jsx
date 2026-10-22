@@ -22,7 +22,7 @@ const DATA = {
     { label: 'Contains coffee', tr: 'Yes — 100% Arabica', them: 'No — coffee replacement', trWins: false },
     { label: 'Caffeine per serving', tr: '~60–80mg', them: '~35mg (from black tea/Chai)', trWins: true },
     { label: 'Flavor profile', tr: 'Coffee with earthy mushroom notes', them: 'Spiced chai / earthy / no coffee taste', trWins: false },
-    { label: 'Mushroom varieties', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail", trWins: false },
+    { label: 'Mushroom varieties', tr: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi", them: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi, Turkey Tail", trWins: false },
     { label: 'Added spices', tr: 'None', them: 'Turmeric, ginger, cinnamon, cardamom, black pepper', trWins: false },
     { label: 'Price per serving', tr: '~$0.85', them: '~$1.50–2.00', trWins: true },
     { label: 'Servings per package', tr: '27 per pouch', them: '30 per bag', trWins: false },
@@ -62,7 +62,7 @@ const DATA = {
     },
     {
       heading: "Ingredients Deep Dive",
-      body: "MUD/WTR's formula is more complex: Masala Chai, Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail mushrooms, turmeric, ginger, cinnamon, cardamom, black pepper, and cacao. This is essentially a full adaptogen spice blend with mushrooms — a holistic morning wellness product.\n\nTorch Republic's formula is more focused: 100% Arabica freeze-dried coffee plus dual-extracted mushroom concentrates (Lion's Mane, Chaga, and varying functional mushrooms per blend). No added spices, no additives, no sweeteners. The simplicity is intentional — fewer variables, more predictable daily experience, and lower cost.\n\nNeither formula is better — they reflect different philosophies. If you want maximum ingredient complexity and a full adaptogen stack, MUD/WTR delivers that. If you want clean, identifiable ingredients in a coffee-forward format, Torch Republic is the more transparent choice."
+      body: "MUD/WTR's formula is more complex: Masala Chai, Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi, Turkey Tail mushrooms, turmeric, ginger, cinnamon, cardamom, black pepper, and cacao. This is essentially a full adaptogen spice blend with mushrooms — a holistic morning wellness product.\n\nTorch Republic's formula is more focused: 100% Arabica freeze-dried coffee plus dual-extracted mushroom concentrates (Lion's Mane, Cordyceps, Reishi, and varying functional mushrooms per blend). No added spices, no additives, no sweeteners. The simplicity is intentional — fewer variables, more predictable daily experience, and lower cost.\n\nNeither formula is better — they reflect different philosophies. If you want maximum ingredient complexity and a full adaptogen stack, MUD/WTR delivers that. If you want clean, identifiable ingredients in a coffee-forward format, Torch Republic is the more transparent choice."
     },
     {
       heading: "Price and Value Comparison",

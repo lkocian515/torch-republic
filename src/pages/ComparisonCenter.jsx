@@ -97,7 +97,7 @@ export default function ComparisonCenter() {
       bestFor: 'A more intentional coffee ritual with functional mushroom ingredients.',
       points: [
         'Coffee-forward blends',
-        "Lion's Mane + Chaga varieties",
+        "Lion's Mane + Cordyceps + Reishi varieties",
         '27 servings per tube',
         'Instant and convenient',
       ],

@@ -21,7 +21,7 @@ const CATEGORIES = [
     cta: 'Shop Mushroom Coffee',
     accent: '#10B981',
     body: "Coffee-forward blends with functional mushrooms to support clarity, focus, and calm energy. Tastes like coffee, not mushrooms.",
-    detail: "Lion's Mane + Chaga · Coffee-Forward · 27 Servings",
+    detail: "Lion's Mane + Cordyceps + Reishi · Coffee-Forward · 27 Servings",
     productImage: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9a812eb06_bgyvyj.png',
     featured: true,
     shopifyHandle: 'mushroom-coffee',

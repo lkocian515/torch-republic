@@ -55,7 +55,7 @@ const RESULTS = {
     profile: 'The Deep Work Architect',
     protocol: 'The 90-Minute Sprint Protocol',
     description: 'Your ritual may benefit from a smoother, more intentional morning or afternoon routine.',
-    productDescription: "Lion's Mane and Chaga infused coffee to lock you into flow state.",
+    productDescription: "Lion's Mane, Cordyceps and Reishi infused coffee to lock you into flow state.",
     ctaLabel: 'Optimize Your Focus — Shop GlowMind',
     buyUrl: 'https://torchrepublic.com/products/glowmind-clarity-blend',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',

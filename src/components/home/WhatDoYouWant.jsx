@@ -28,7 +28,7 @@ const PATHWAYS = [
     id: 'pods',
     icon: Sparkles,
     title: 'AVOID PODS AND A COFFEE MACHINE',
-    sub: 'Instant, convenient, no single-use waste',
+    sub: 'Instant, convenient, no machine',
     products: 'All instant coffee & mushroom coffee',
     link: '/shop',
     accent: RG,

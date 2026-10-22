@@ -5,11 +5,11 @@ import { Plus, Minus } from 'lucide-react';
 const FAQS = [
   {
     q: 'What is instant mushroom coffee?',
-    a: "Instant mushroom coffee combines premium instant coffee with functional mushroom extracts — such as Lion's Mane and Chaga — into a single convenient powder. You simply stir one scoop into hot water and your ritual is ready. No machine, no pods, no complicated prep.",
+    a: "Instant mushroom coffee combines premium instant coffee with functional mushroom extracts — such as Lion's Mane, Cordyceps and Reishi — into a single convenient powder. You simply stir one scoop into hot water and your ritual is ready. No machine, no pods, no complicated prep.",
   },
   {
     q: 'Does Torch Republic use coffee pods?',
-    a: 'No. Torch Republic was specifically designed as a pod-free alternative. All blends come in reusable tubes as instant powder — just add hot water and stir. No machine required, no single-use plastic capsules.',
+    a: 'No. Torch Republic was specifically designed as a pod-free alternative. All blends come in reusable tubes as instant powder — just add hot water and stir. No machine required, no single-use capsules.',
   },
   {
     q: 'How do I prepare it?',
@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: 'What is the difference between classic coffee, mushroom coffee, and matcha?',
-    a: "Classic instant coffee is bold, clean, and caffeine-forward — no mushrooms, no additives. Mushroom coffee combines instant coffee with Lion's Mane and Chaga to support focus and daily wellness alongside the caffeine. Matcha is a separate category entirely — ceremonial grade matcha with calm, sustained energy and no coffee whatsoever.",
+    a: "Classic instant coffee is bold, clean, and caffeine-forward — no mushrooms, no additives. Mushroom coffee combines instant coffee with Lion's Mane, Cordyceps and Reishi to support focus and daily wellness alongside the caffeine. Matcha is a separate category entirely — ceremonial grade matcha with calm, sustained energy and no coffee whatsoever.",
   },
   {
     q: 'Are the blends sweetened?',
@@ -45,7 +45,7 @@ const FAQS = [
   },
   {
     q: 'What mushrooms are in the mushroom coffee blends?',
-    a: "Every mushroom coffee blend contains Lion's Mane (Hericium erinaceus) and Chaga (Inonotus obliquus). These are two widely used functional mushrooms included to support focus, clarity, and daily wellness as part of your ritual.",
+    a: "Every mushroom coffee blend contains Lion's Mane (Hericium erinaceus), Cordyceps (Cordyceps militaris) and Reishi (Ganoderma lucidum). These are three widely used functional mushrooms included to support focus, clarity, and daily wellness as part of your ritual.",
   },
   {
     q: 'Do I need a coffee machine?',

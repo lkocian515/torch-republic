@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     question: 'Are the mushrooms extracts or powders?',
-    answer: 'We use organic mushroom extract blend (Lion\'s Mane and Chaga). Extracts are more bioavailable than raw powders, meaning your body can absorb and use the beneficial compounds more effectively. Our dual-extraction process ensures you get the full spectrum of benefits.',
+    answer: 'We use organic mushroom extract blend (Lion\'s Mane, Cordyceps and Reishi). Extracts are more bioavailable than raw powders, meaning your body can absorb and use the beneficial compounds more effectively. Our dual-extraction process ensures you get the full spectrum of benefits.',
   },
   {
     question: 'Who should consult a doctor before use?',

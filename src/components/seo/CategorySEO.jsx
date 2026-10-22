@@ -14,8 +14,8 @@ export default function CategorySEO({ category, products, content }) {
       h1: 'Premium Instant Coffee',
     },
     'instant-mushroom-coffee': {
-      title: "Mushroom Coffee with Lion's Mane & Chaga | Focus & Clarity",
-      description: "Torch Republic mushroom coffee blends premium instant coffee with Lion's Mane and Chaga mushrooms for focus, clarity, and sustained energy. No jitters. Free shipping.",
+      title: "Mushroom Coffee with Lion's Mane, Cordyceps & Reishi | Focus & Clarity",
+      description: "Torch Republic mushroom coffee blends premium instant coffee with Lion's Mane, Cordyceps and Reishi mushrooms for focus, clarity, and sustained energy. No jitters. Free shipping.",
       keywords: "mushroom coffee, lion's mane coffee, chaga coffee, coffee for focus, mushroom coffee benefits, adaptogenic coffee, coffee without jitters, functional mushroom coffee",
       h1: 'Mushroom Coffee for Focus & Clarity',
     },

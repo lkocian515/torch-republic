@@ -11,7 +11,7 @@ const FAQ_DATA = [
   },
   {
     question: 'Do all Torch Republic products contain mushrooms?',
-    answer: 'No. Classic Coffee and Matcha products do not contain mushrooms. Only products in the Mushroom Coffee category contain Lion\'s Mane and Chaga mushrooms.',
+    answer: 'No. Classic Coffee and Matcha products do not contain mushrooms. Only products in the Mushroom Coffee category contain Lion\'s Mane, Cordyceps and Reishi mushrooms.',
   },
   {
     question: 'Which products are regular coffee?',
@@ -19,7 +19,7 @@ const FAQ_DATA = [
   },
   {
     question: 'Which products are mushroom coffee?',
-    answer: 'GlowMind Clarity Blend, SunCap Rise, MoonCap Restore, DreamCap Blend, The Oracle Blend, and Mystic Bloom Blend are Mushroom Coffee products with Lion\'s Mane and Chaga.',
+    answer: 'GlowMind Clarity Blend, SunCap Rise, MoonCap Restore, DreamCap Blend, The Oracle Blend, and Mystic Bloom Blend are Mushroom Coffee products with Lion\'s Mane, Cordyceps and Reishi.',
   },
   {
     question: 'Which products are matcha?',

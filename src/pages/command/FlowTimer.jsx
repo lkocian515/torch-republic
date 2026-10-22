@@ -149,7 +149,7 @@ export default function FlowTimer() {
             <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: `${GOLD}60` }}>Fuel Your Session</p>
             <p className="font-serif font-bold text-white mb-1">GlowMind Clarity Blend</p>
             <p className="mb-4" style={{ color: 'rgba(240,235,225,0.45)', fontSize: '0.8rem' }}>
-              Lion's Mane + Chaga mushroom coffee — engineered for deep work.
+              Lion's Mane + Cordyceps + Reishi mushroom coffee — engineered for deep work.
             </p>
             <a
               href="https://torchrepublic.com/products/glowmind-clarity-blend"

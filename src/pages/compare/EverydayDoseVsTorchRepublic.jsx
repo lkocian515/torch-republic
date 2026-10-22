@@ -23,7 +23,7 @@ const DATA = {
     { label: 'Caffeine per serving', tr: '~60–80mg', them: '~50–60mg', trWins: true },
     { label: 'Added collagen', tr: 'No', them: 'Yes — collagen peptides', trWins: false },
     { label: 'Added L-theanine', tr: 'Naturally from matcha blends', them: 'Added L-theanine supplement', trWins: false },
-    { label: 'Key mushrooms', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga", trWins: true },
+    { label: 'Key mushrooms', tr: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi", them: "Lion's Mane, Cordyceps, Reishi", trWins: true },
     { label: 'Price per serving', tr: '~$0.85', them: '~$2.00–2.50', trWins: true },
     { label: 'Servings per package', tr: '27 per pouch', them: '30 per bag', trWins: false },
     { label: 'Blend variety', tr: '12 blends', them: '1–2 SKUs', trWins: true },
@@ -80,7 +80,7 @@ const DATA = {
   ],
 
   faqs: [
-    { question: "Does Everyday Dose have more ingredients than Torch Republic?", answer: "Yes. Everyday Dose includes collagen peptides, L-theanine, Lion's Mane, Chaga, and a coffee base. Torch Republic uses 100% Arabica coffee plus up to 4 mushroom extracts per blend, with no added protein or amino acid supplements. Which formula is 'better' depends on whether you specifically want collagen in your coffee." },
+    { question: "Does Everyday Dose have more ingredients than Torch Republic?", answer: "Yes. Everyday Dose includes collagen peptides, L-theanine, Lion's Mane, Cordyceps, Reishi, and a coffee base. Torch Republic uses 100% Arabica coffee plus up to 4 mushroom extracts per blend, with no added protein or amino acid supplements. Which formula is 'better' depends on whether you specifically want collagen in your coffee." },
     { question: "Is Everyday Dose vegan?", answer: "No. Everyday Dose contains collagen peptides derived from bovine (animal) sources, making it not vegan-friendly. Torch Republic's formulas are vegan — pure Arabica coffee and plant-based mushroom extracts with no animal-derived ingredients." },
     { question: "How does Everyday Dose compare in price to Torch Republic?", answer: "Everyday Dose costs approximately $2.00–$2.50 per serving. Torch Republic costs approximately $0.85/serving ($0.68 with 20% subscription discount). Over a year of daily use, Torch Republic saves approximately $473–$665 compared to Everyday Dose." },
     { question: "Does Torch Republic have L-theanine like Everyday Dose?", answer: "Torch Republic's matcha blends (The Monk, The Ascendant, The Alchemist) contain high natural L-theanine from ceremonial grade tea leaves — typically more L-theanine than supplemental additions. Torch Republic's coffee-only blends do not contain L-theanine. If you want L-theanine in your morning coffee, Torch Republic's matcha blends or a separate L-theanine supplement are the options." },

@@ -49,7 +49,7 @@ export default function OriginCraftsmanshipSection({ product }) {
               </p>
             </div>
             <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(247,241,232,0.55)', fontWeight: 300 }}>
-              Crafted with Lion's Mane and Chaga to support clarity, focus, and daily wellness as part of your everyday ritual.
+              Crafted with Lion's Mane, Cordyceps and Reishi to support clarity, focus, and daily wellness as part of your everyday ritual.
             </p>
           </div>
 

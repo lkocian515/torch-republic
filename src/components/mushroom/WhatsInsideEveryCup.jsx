@@ -9,7 +9,7 @@ const SPECS = [
     icon: Leaf,
     label: 'Mushroom Blend per Serving',
     value: '500mg',
-    note: "Organic dual-extracted Lion's Mane + Chaga — a meaningful, effective dose. Not a trace. Not a sprinkle.",
+    note: "Organic dual-extracted Lion's Mane + Cordyceps + Reishi — a meaningful, effective dose. Not a trace. Not a sprinkle.",
   },
   {
     icon: Coffee,
@@ -21,13 +21,13 @@ const SPECS = [
     icon: Droplet,
     label: 'Servings per Tube',
     value: '27',
-    note: 'A full month of your daily ritual in every tube. Compact, travel-ready, zero waste.',
+    note: 'A full month of your daily ritual in every tube. Compact, travel-ready, ready in seconds.',
   },
   {
     icon: Shield,
     label: 'Functional Mushrooms',
-    value: "Lion's Mane & Chaga",
-    note: "Lion's Mane for cognitive support + NGF. Chaga for antioxidants + immune function. Research-backed, not trendy.",
+    value: "Lion's Mane, Cordyceps & Reishi",
+    note: "Lion's Mane for cognitive support + NGF. Cordyceps for natural energy and stamina. Reishi for balance and antioxidant support. Research-backed, not trendy.",
   },
   {
     icon: Check,

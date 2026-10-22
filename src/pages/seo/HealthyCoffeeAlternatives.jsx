@@ -8,8 +8,8 @@ const DATA = {
     url: '/healthy-coffee-alternatives',
     type: 'article',
     faq: [
-      { question: 'What is a healthy alternative to coffee?', answer: 'Healthy coffee alternatives include mushroom coffee (coffee with functional mushrooms like Lion\'s Mane and Chaga), ceremonial matcha (high in L-theanine and antioxidants), and herbal coffee substitutes. The best choice depends on whether you want caffeine, functional benefits, or a caffeine-free option.' },
-      { question: 'Is mushroom coffee healthier than regular coffee?', answer: 'Mushroom coffee adds functional mushrooms like Lion\'s Mane and Chaga to regular coffee. These mushrooms have been studied for potential cognitive and immune-supporting properties. The coffee base is the same quality Arabica. Whether it\'s "healthier" depends on whether you value the added functional mushrooms.' },
+      { question: 'What is a healthy alternative to coffee?', answer: 'Healthy coffee alternatives include mushroom coffee (coffee with functional mushrooms like Lion\'s Mane, Cordyceps and Reishi), ceremonial matcha (high in L-theanine and antioxidants), and herbal coffee substitutes. The best choice depends on whether you want caffeine, functional benefits, or a caffeine-free option.' },
+      { question: 'Is mushroom coffee healthier than regular coffee?', answer: 'Mushroom coffee adds functional mushrooms like Lion\'s Mane, Cordyceps and Reishi to regular coffee. These mushrooms have been studied for potential cognitive and immune-supporting properties. The coffee base is the same quality Arabica. Whether it\'s "healthier" depends on whether you value the added functional mushrooms.' },
       { question: 'What is the healthiest coffee to drink?', answer: 'The healthiest coffee is one you enjoy consistently. Premium single-origin coffee (like Papua New Guinea Arabica) without added sugar or artificial creamers is a clean choice. Mushroom coffee adds functional mushrooms. Matcha provides L-theanine and antioxidants. All can be part of a healthy routine.' },
     ],
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Healthy Coffee Alternatives', url: '/healthy-coffee-alternatives' }],
@@ -24,7 +24,7 @@ const DATA = {
     {
       heading: 'Mushroom Coffee: Coffee Plus Functional Mushrooms',
       paragraphs: [
-        'Mushroom coffee is exactly what it sounds like: premium coffee with functional mushroom extracts added. The most common mushrooms are Lion\'s Mane (studied for cognitive support) and Chaga (studied for antioxidant properties). The coffee tastes like coffee — the mushrooms add subtle earthiness without dominating the flavor.',
+        'Mushroom coffee is exactly what it sounds like: premium coffee with functional mushroom extracts added. The most common mushrooms are Lion\'s Mane (studied for cognitive support), Cordyceps (studied for energy) and Reishi (studied for antioxidant properties). The coffee tastes like coffee — the mushrooms add subtle earthiness without dominating the flavor.',
         'For people who want their coffee to do more than just provide caffeine, mushroom coffee is the most popular healthy coffee alternative. It\'s still real coffee, so you get the familiar taste and energy, plus the added functional mushrooms.',
       ],
     },
@@ -56,13 +56,13 @@ const DATA = {
     },
   ],
   features: [
-    { title: 'Mushroom Coffee', detail: 'Coffee + Lion\'s Mane & Chaga. For focus and functional benefits.' },
+    { title: 'Mushroom Coffee', detail: 'Coffee + Lion\'s Mane, Cordyceps & Reishi. For focus and functional benefits.' },
     { title: 'Ceremonial Matcha', detail: 'L-theanine + antioxidants. For calm, sustained energy.' },
     { title: 'Pure Instant Coffee', detail: 'Single-origin Arabica, no additives. For clean coffee taste.' },
   ],
   faqs: [
-    { question: 'What is a healthy alternative to coffee?', answer: 'Healthy coffee alternatives include mushroom coffee (coffee with functional mushrooms like Lion\'s Mane and Chaga), ceremonial matcha (high in L-theanine and antioxidants), and herbal coffee substitutes. The best choice depends on whether you want caffeine, functional benefits, or a caffeine-free option.' },
-    { question: 'Is mushroom coffee healthier than regular coffee?', answer: 'Mushroom coffee adds functional mushrooms like Lion\'s Mane and Chaga to regular coffee. These mushrooms have been studied for potential cognitive and immune-supporting properties. The coffee base is the same quality Arabica. Whether it\'s "healthier" depends on whether you value the added functional mushrooms.' },
+    { question: 'What is a healthy alternative to coffee?', answer: 'Healthy coffee alternatives include mushroom coffee (coffee with functional mushrooms like Lion\'s Mane, Cordyceps and Reishi), ceremonial matcha (high in L-theanine and antioxidants), and herbal coffee substitutes. The best choice depends on whether you want caffeine, functional benefits, or a caffeine-free option.' },
+    { question: 'Is mushroom coffee healthier than regular coffee?', answer: 'Mushroom coffee adds functional mushrooms like Lion\'s Mane, Cordyceps and Reishi to regular coffee. These mushrooms have been studied for potential cognitive and immune-supporting properties. The coffee base is the same quality Arabica. Whether it\'s "healthier" depends on whether you value the added functional mushrooms.' },
     { question: 'What is the healthiest coffee to drink?', answer: 'The healthiest coffee is one you enjoy consistently. Premium single-origin coffee (like Papua New Guinea Arabica) without added sugar or artificial creamers is a clean choice. Mushroom coffee adds functional mushrooms. Matcha provides L-theanine and antioxidants. All can be part of a healthy routine.' },
     { question: 'Does matcha have less caffeine than coffee?', answer: 'Yes. Matcha contains approximately 70mg of naturally occurring caffeine per cup, while coffee contains approximately 95–100mg. Matcha also contains L-theanine, which is traditionally associated with mindful tea rituals.' },
   ],

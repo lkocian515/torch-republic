@@ -15,8 +15,8 @@ const ACCENT = '#B7653E';
 const SECTIONS = [
   {
     eyebrow: 'Mushroom Coffee',
-    title: 'Coffee with Lion’s Mane + Chaga',
-    intro: 'Instant coffee blended with Lion’s Mane and Chaga for a daily cup built around focus, reset, and fresh starts. 27 servings per tube.',
+    title: 'Coffee with Lion’s Mane + Cordyceps + Reishi',
+    intro: 'Instant coffee blended with Lion’s Mane, Cordyceps and Reishi for a daily cup built around focus, reset, and fresh starts. 27 servings per tube.',
     products: MUSHROOM_PRODUCTS,
     color: '#B7653E',
   },
@@ -39,7 +39,7 @@ const SECTIONS = [
 export default function BlendsCollection() {
   useSEO({
     title: 'All Blends | Mushroom Coffee, Matcha & Classic Coffee',
-    description: "Explore all Torch Republic blends: mushroom coffee with Lion's Mane + Chaga, ceremonial grade matcha, and classic instant coffee. 27 servings per tube. No machine needed.",
+    description: "Explore all Torch Republic blends: mushroom coffee with Lion's Mane + Cordyceps + Reishi, ceremonial grade matcha, and classic instant coffee. 27 servings per tube. No machine needed.",
     url: '/blends',
   });
 
@@ -69,7 +69,7 @@ export default function BlendsCollection() {
         <SelectionAid
           accent={ACCENT}
           items={[
-            { if: 'you want coffee with Lion’s Mane + Chaga', pick: 'SunCap Rise', to: '/products/suncap-rise' },
+            { if: 'you want coffee with Lion’s Mane + Cordyceps + Reishi', pick: 'SunCap Rise', to: '/products/suncap-rise' },
             { if: 'you want a bold single-origin cup', pick: 'Torchbearer', to: '/products/torchbearer' },
             { if: 'you want a calm matcha ritual', pick: 'The Monk', to: '/products/the-monk-matcha-blend' },
           ]}

@@ -17,7 +17,7 @@ const ARTICLE = {
   ],
   cta: {
     title: 'Try Mushroom Coffee for Yourself',
-    body: 'Torch Republic\'s mushroom coffee blends combine single-origin PNG Arabica with functional mushrooms like Lion\'s Mane and Chaga. No machine needed — just hot water and a cup.',
+    body: 'Torch Republic\'s mushroom coffee blends combine single-origin PNG Arabica with functional mushrooms like Lion\'s Mane, Cordyceps and Reishi. No machine needed — just hot water and a cup.',
     buttonText: 'Shop Mushroom Coffee',
     buttonPath: '/shop/instant-mushroom-coffee',
   },
@@ -43,7 +43,7 @@ const ARTICLE = {
           ['Reishi', 'Calm and balance in traditional practices', 'Bitter, earthy'],
           ['Turkey Tail', 'Immune support in traditional practices', 'Earthy, mild'],
         ]},
-        { type: 'paragraph', text: 'Torch Republic\'s mushroom coffee blends primarily use Lion\'s Mane and Chaga — two of the most widely studied functional mushrooms. Lion\'s Mane is included for its traditional association with cognitive support, and Chaga for its antioxidant content. The combination provides a balanced functional profile without overwhelming the coffee flavor.' },
+        { type: 'paragraph', text: 'Torch Republic\'s mushroom coffee blends primarily use Lion\'s Mane, Cordyceps and Reishi — two of the most widely studied functional mushrooms. Lion\'s Mane is included for its traditional association with cognitive support, and Chaga for its antioxidant content. The combination provides a balanced functional profile without overwhelming the coffee flavor.' },
         { type: 'callout', title: 'Important Note', text: 'The statements about functional mushrooms in this article refer to traditional use and general wellness categories. They are not medical claims. Mushroom coffee is a beverage, not a supplement or medication. If you have specific health concerns, consult a healthcare professional.' },
       ],
     },
@@ -54,7 +54,7 @@ const ARTICLE = {
         { type: 'paragraph', text: 'One of the most common questions about mushroom coffee is: "Does it taste like mushrooms?" The short answer is no — not in the way most people expect.' },
         { type: 'paragraph', text: 'Mushroom coffee is primarily coffee. The mushroom extracts are present in relatively small quantities (typically 250-500mg per serving), and their flavor contribution is subtle. Most people describe mushroom coffee as tasting like coffee with a slightly earthier, more rounded profile. The bitterness of the coffee is often slightly reduced, and the finish may be a touch more savory.' },
         { type: 'paragraph', text: 'If you are using a high-quality mushroom coffee made from premium beans (like Torch Republic\'s single-origin PNG Arabica), the coffee flavor dominates. The mushrooms add depth and complexity rather than a distinct "mushroom" taste. Most people who try mushroom coffee for the first time are surprised by how much it tastes like regular coffee.' },
-        { type: 'paragraph', text: 'The flavor difference is more noticeable with some mushrooms than others. Reishi, for example, is naturally bitter and can add noticeable bitterness. Chaga adds an earthy note. Lion\'s Mane is nearly flavorless in the quantities used. This is why Torch Republic uses Lion\'s Mane and Chaga — they provide functional benefits without significantly altering the coffee\'s taste.' },
+        { type: 'paragraph', text: 'The flavor difference is more noticeable with some mushrooms than others. Reishi, for example, is naturally bitter and can add noticeable bitterness. Chaga adds an earthy note. Lion\'s Mane is nearly flavorless in the quantities used. This is why Torch Republic uses Lion\'s Mane, Cordyceps and Reishi — they provide functional benefits without significantly altering the coffee\'s taste.' },
       ],
     },
     {
@@ -79,7 +79,7 @@ const ARTICLE = {
       content: [
         { type: 'paragraph', text: 'People switch to mushroom coffee for a variety of reasons. Based on customer reports and industry trends, the most common motivations include:' },
         { type: 'numbered', items: [
-          'Functional ingredients — Mushroom coffee provides the bioactive compounds found in functional mushrooms (like Lion\'s Mane and Chaga) in a format people already consume daily. Instead of taking a separate supplement, they get functional mushrooms in their morning coffee.',
+          'Functional ingredients — Mushroom coffee provides the bioactive compounds found in functional mushrooms (like Lion\'s Mane, Cordyceps and Reishi) in a format people already consume daily. Instead of taking a separate supplement, they get functional mushrooms in their morning coffee.',
           'Moderate caffeine — Some people find regular coffee too stimulating. Mushroom coffee\'s slightly lower caffeine content provides a gentler energy experience.',
           'Digestive comfort — Some people report that mushroom coffee is easier on their stomach than regular coffee. This is anecdotal and varies by individual.',
           'Curiosity and trend — Mushroom coffee has received significant media attention, and many people try it out of curiosity.',
@@ -122,14 +122,14 @@ const ARTICLE = {
       content: [
         { type: 'paragraph', text: 'The choice between mushroom coffee and regular coffee comes down to personal preference and goals. If you are happy with your regular coffee and have no interest in functional mushrooms, there is no reason to switch. Regular coffee is excellent, and Torch Republic offers premium freeze-dried instant coffee for those who want pure coffee.' },
         { type: 'paragraph', text: 'If you are curious about functional mushrooms, want a slightly lower caffeine intake, or are interested in the wellness lifestyle, mushroom coffee is worth trying. The best way to decide is to try it for a week and see how you feel.' },
-        { type: 'paragraph', text: 'Torch Republic offers both: premium freeze-dried instant coffee made from single-origin PNG Arabica (for purists) and mushroom coffee blends that combine the same PNG coffee with Lion\'s Mane and Chaga (for those who want functional ingredients). Both require no machine — just hot water and a cup.' },
+        { type: 'paragraph', text: 'Torch Republic offers both: premium freeze-dried instant coffee made from single-origin PNG Arabica (for purists) and mushroom coffee blends that combine the same PNG coffee with Lion\'s Mane, Cordyceps and Reishi (for those who want functional ingredients). Both require no machine — just hot water and a cup.' },
       ],
     },
   ],
   faqs: [
     { question: 'Does mushroom coffee taste like mushrooms?', answer: 'No, not in the way most people expect. Mushroom coffee is primarily coffee, and the mushroom extracts are present in small quantities (typically 250-500mg per serving). Most people describe it as tasting like coffee with a slightly earthier, more rounded profile. The coffee flavor dominates, and the mushrooms add depth rather than a distinct mushroom taste.' },
     { question: 'Does mushroom coffee have caffeine?', answer: 'Yes. Mushroom coffee typically contains 50-100mg of caffeine per serving, which is about 50-70% of the caffeine in a regular cup of coffee. The reduction occurs because some of the coffee is replaced by mushroom extract. Mushroom coffee is not decaf — it still contains enough caffeine to provide energy and focus benefits.' },
-    { question: 'Is mushroom coffee better than regular coffee?', answer: 'Neither is inherently "better" — they serve different purposes. Regular coffee provides more caffeine and pure coffee flavor. Mushroom coffee provides functional mushroom compounds (like Lion\'s Mane and Chaga) in a convenient format, with slightly less caffeine. The best choice depends on your personal goals and preferences.' },
+    { question: 'Is mushroom coffee better than regular coffee?', answer: 'Neither is inherently "better" — they serve different purposes. Regular coffee provides more caffeine and pure coffee flavor. Mushroom coffee provides functional mushroom compounds (like Lion\'s Mane, Cordyceps and Reishi) in a convenient format, with slightly less caffeine. The best choice depends on your personal goals and preferences.' },
     { question: 'Can I drink mushroom coffee every day?', answer: 'Most people who drink mushroom coffee consume it daily, just like regular coffee. However, if you have specific health concerns, are pregnant or nursing, or are taking medications, consult your healthcare provider before adding functional mushrooms to your daily routine. Mushroom coffee is a beverage, not a supplement, but it does contain bioactive compounds.' },
   ],
 };

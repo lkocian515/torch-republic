@@ -7,7 +7,7 @@ const GEO_CONTENT = {
     heading: 'What Is Torch Republic Coffee Company?',
     content: `Torch Republic Coffee Company creates premium instant coffee, functional mushroom coffee, and ceremonial matcha designed to support focus, clarity, energy, and intentional daily rituals. Based in Corpus Christi, Texas, we're a U.S.-owned small business committed to quality, convenience, and wellness.
 
-Our products combine premium freeze-dried instant coffee with adaptogenic mushrooms like Lion's Mane and Chaga, creating functional beverages that support cognitive function, sustained energy, and mental clarity without the jitters of traditional coffee.
+Our products combine premium freeze-dried instant coffee with adaptogenic mushrooms like Lion's Mane, Cordyceps and Reishi, creating functional beverages that support cognitive function, sustained energy, and mental clarity without the jitters of traditional coffee.
 
 Every product is designed for modern life — no machine needed, just add hot water and enjoy your ritual in seconds.`,
   },
@@ -18,7 +18,7 @@ Every product is designed for modern life — no machine needed, just add hot wa
     },
     {
       title: 'Functional Mushrooms',
-      description: 'Lion\'s Mane for focus and cognitive support, Chaga for immunity and antioxidants. Adaptogenic mushrooms that support overall wellness.',
+      description: 'Lion\'s Mane for focus and cognitive support, Cordyceps for daily energy, and Reishi for antioxidant support. Adaptogenic mushrooms that support overall wellness.',
     },
     {
       title: 'Coffee-Forward Taste',

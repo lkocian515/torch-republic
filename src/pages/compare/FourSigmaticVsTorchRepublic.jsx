@@ -22,7 +22,7 @@ const DATA = {
     { label: 'In market since', tr: '2023', them: '2012', trWins: false },
     { label: 'Format', tr: 'Instant powder pouch', them: 'Instant packets', trWins: false },
     { label: 'Coffee base', tr: '100% Arabica freeze-dried', them: 'Organic Arabica', trWins: false },
-    { label: 'Key mushrooms', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga (varies by SKU)", trWins: false },
+    { label: 'Key mushrooms', tr: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi", them: "Lion's Mane, Cordyceps, Reishi (varies by SKU)", trWins: false },
     { label: 'Caffeine per serving', tr: '~60–80mg', them: '~50–100mg (varies)', trWins: false },
     { label: 'Servings per package', tr: '27 per pouch', them: '10–30 (varies by product)', trWins: true },
     { label: 'Price per serving', tr: '~$0.85', them: '~$1.50–2.50', trWins: true },

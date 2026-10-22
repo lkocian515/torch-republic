@@ -13,7 +13,7 @@ const TOPICS = [
 ];
 
 const EVIDENCE = [
-  ['Traditional use', "Lion's Mane, Chaga, and matcha each have long histories of use in traditional practices. Traditional use is not the same as established clinical evidence."],
+  ['Traditional use', "Lion's Mane, Cordyceps, Reishi, and matcha each have long histories of use in traditional practices. Traditional use is not the same as established clinical evidence."],
   ['Preliminary research', "A number of laboratory and small human studies have explored these ingredients. Early findings are promising but limited, and more rigorous, larger studies are needed before drawing firm conclusions."],
   ['Established evidence', "Some properties — such as the caffeine and antioxidant content of coffee and matcha — are better established. Health outcomes beyond that are not proven for Torch Republic products."],
 ];

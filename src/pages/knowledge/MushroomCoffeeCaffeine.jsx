@@ -92,7 +92,7 @@ const ARTICLE = {
       heading: 'Mushroom Coffee vs Decaf',
       content: [
         { type: 'paragraph', text: 'Decaf coffee contains 2-5mg of caffeine per serving — a tiny fraction of the caffeine in regular coffee or mushroom coffee. If you are looking to minimize caffeine intake, decaf is the better choice.' },
-        { type: 'paragraph', text: 'However, decaf does not contain functional mushrooms. If you want the functional mushroom compounds (Lion\'s Mane, Chaga, etc.) without caffeine, you would need a caffeine-free mushroom product — not mushroom coffee. Some brands offer mushroom blends that use chicory or carob instead of coffee, providing the functional mushrooms with zero caffeine.' },
+        { type: 'paragraph', text: 'However, decaf does not contain functional mushrooms. If you want the functional mushroom compounds (Lion\'s Mane, Cordyceps, Reishi, etc.) without caffeine, you would need a caffeine-free mushroom product — not mushroom coffee. Some brands offer mushroom blends that use chicory or carob instead of coffee, providing the functional mushrooms with zero caffeine.' },
         { type: 'paragraph', text: 'For most people, mushroom coffee\'s moderate caffeine level (50-100mg) is appropriate for morning or early afternoon consumption. If you are highly sensitive to caffeine or want an evening beverage, decaf or caffeine-free mushroom blends are better options.' },
       ],
     },

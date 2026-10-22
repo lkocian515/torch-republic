@@ -66,7 +66,7 @@ export default function BundleSection() {
             </h2>
             <p className="font-heading"
               style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
-              The six-blend bundle is the most popular way to start. One tube for each part of your day — focus, morning energy, evening calm, restoration, balance, and flow. Each with 27 servings of clinically-studied Lion's Mane + Chaga. 162 servings total. One ritual that transforms your relationship with energy, clarity, and wellness.
+              The six-blend bundle is the most popular way to start. One tube for each part of your day — focus, morning energy, evening calm, restoration, balance, and flow. Each with 27 servings of clinically-studied Lion's Mane + Cordyceps + Reishi. 162 servings total. One ritual that transforms your relationship with energy, clarity, and wellness.
             </p>
 
             <div className="flex flex-wrap gap-2">

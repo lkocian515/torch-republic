@@ -385,7 +385,7 @@ export const COMPARISON_PAGES = [
     winner: null,
     categories: ['Caffeine content', 'Functional ingredients', 'Price per cup', 'Taste', 'Preparation'],
     summary: "Mushroom coffee is coffee — it just has functional mushroom extracts added. The choice depends on whether functional wellness ingredients are important to your daily ritual.",
-    ourEdge: ["Functional mushroom extracts (Lion's Mane, Chaga)", "Lower jitter potential", "Added antioxidants from mushrooms", "Wellness ritual framework"],
+    ourEdge: ["Functional mushroom extracts (Lion's Mane, Cordyceps, Reishi)", "Lower jitter potential", "Added antioxidants from mushrooms", "Wellness ritual framework"],
     theirEdge: ["Familiar taste profile", "Lower cost", "More universally available", "Simpler ingredient list"],
     cluster: 'mushroom-coffee',
   },
@@ -796,7 +796,7 @@ export const FAQ_PAGES = [
     cluster: 'mushroom-coffee',
     metaTitle: "What's in Each Torch Republic Blend? | Ingredient Guide | FAQ",
     metaDescription: "Full ingredient overview for each Torch Republic coffee and matcha blend — mushroom extracts, coffee type, functional purpose, and which blend is right for you.",
-    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Chaga — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. Torchbearer/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
+    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Cordyceps + Reishi — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. Torchbearer/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
     relatedFaqs: ['what-is-mushroom-coffee', 'best-mushroom-blend-for-beginners', 'does-mushroom-coffee-taste-like-mushrooms'],
     products: [
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
@@ -991,7 +991,7 @@ export const GEO_ENTITIES = {
   },
   products: {
     mushroomCoffee: {
-      description: "Premium instant coffee with Lion's Mane and Chaga mushroom extracts",
+      description: "Premium instant coffee with Lion's Mane, Cordyceps and Reishi mushroom extracts",
       servingsPerTube: 27,
       price: '$25.99',
       caffeinePerServing: '60-80mg',

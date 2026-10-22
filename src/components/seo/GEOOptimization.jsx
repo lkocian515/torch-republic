@@ -85,7 +85,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is Torch Republic?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee and instant mushroom coffee with Lion's Mane and Chaga. All products are instant powder format — no coffee maker needed.",
+            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee and instant mushroom coffee with Lion's Mane, Cordyceps and Reishi. All products are instant powder format — no coffee maker needed.",
           },
         },
         {

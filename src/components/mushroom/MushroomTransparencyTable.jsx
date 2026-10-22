@@ -35,7 +35,7 @@ export default function MushroomTransparencyTable() {
           </p>
           <div className="inline-block px-4 py-2" style={{ background: 'rgba(230,183,173,0.06)', border: '1px solid rgba(230,183,173,0.15)' }}>
             <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.6)' }}>
-              All blends contain: Premium Instant Coffee · Lion's Mane (Hericium erinaceus) · Chaga (Inonotus obliquus)
+              All blends contain: Premium Instant Coffee · Lion's Mane (Hericium erinaceus) · Cordyceps (Cordyceps militaris) · Reishi (Ganoderma lucidum)
             </p>
           </div>
         </motion.div>
@@ -76,7 +76,7 @@ export default function MushroomTransparencyTable() {
                     {p.name}
                   </td>
                   <td className="p-3" style={{ fontSize: '0.78rem', color: 'rgba(240,235,225,0.7)', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
-                    Lion's Mane + Chaga
+                    Lion's Mane + Cordyceps + Reishi
                   </td>
                   <td className="p-3" style={{ fontSize: '0.78rem', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
                     {PLACEHOLDER('Supplier verification needed')}

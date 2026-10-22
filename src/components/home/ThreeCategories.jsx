@@ -23,7 +23,7 @@ const CATEGORIES = [
     accent: '#10B981',
     icon: '🍄',
     body: 'Functional mushroom coffee blends made for focus, clarity, calm energy, and modern wellness rituals.',
-    detail: "Lion's Mane + Chaga · Coffee-forward · 27 servings",
+    detail: "Lion's Mane + Cordyceps + Reishi · Coffee-forward · 27 servings",
     featured: true,
     categoryKey: 'mushroom-coffee',
   },

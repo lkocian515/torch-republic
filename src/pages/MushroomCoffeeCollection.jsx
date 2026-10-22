@@ -36,13 +36,14 @@ const BLEND_RECOMMENDATIONS = [
 // Ingredient data
 const INGREDIENTS = [
   { name: "Lion's Mane", benefit: 'A functional mushroom commonly added to morning rituals for its unique compound profile', blends: 'All mushroom blends' },
-  { name: 'Chaga', benefit: 'Traditionally used in Northern wellness practices as part of a daily routine', blends: 'All mushroom blends' },
+  { name: 'Cordyceps', benefit: 'Traditionally used in East Asian practices for energy and stamina', blends: 'All mushroom blends' },
+  { name: 'Reishi', benefit: 'Traditionally used in East Asian wellness practices as part of a daily routine', blends: 'All mushroom blends' },
   { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient Arabica coffee base — no machine needed', blends: 'All blends' },
 ];
 
 // FAQ data for schema
 const FAQS = [
-  { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium single-origin Papua New Guinea instant coffee with functional mushrooms like Lion\'s Mane and Chaga. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
+  { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium single-origin Papua New Guinea instant coffee with functional mushrooms like Lion\'s Mane, Cordyceps and Reishi. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
   { q: 'Where does the coffee come from?', a: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea — 100% Arabica, grown in rich volcanic soil at high elevations. The region is known for its clean cup profile, complexity, and nuanced sweetness, with heritage connected to Jamaica Blue Mountain stock.' },
   { q: 'What does it taste like?', a: 'It tastes primarily like coffee — dark chocolate, toasted almond, and sweet toffee notes from the Papua New Guinea origin, with a smooth and lightly earthy profile from the mushroom extracts. The coffee flavor is dominant.' },
   { q: 'Is this regular coffee or a supplement?', a: 'It is coffee with functional mushroom ingredients. It is designed as a daily beverage ritual, not a medical product.' },
@@ -72,8 +73,8 @@ export default function MushroomCoffeeCollection() {
   }, []);
 
   useSEO({
-    title: "Instant Mushroom Coffee Blends | Lion's Mane + Chaga | Torch Republic",
-    description: "Shop Torch Republic's instant mushroom coffee blends—premium Arabica coffee with Lion's Mane and Chaga, ready in seconds. No machine required. 27 servings per tube.",
+    title: "Instant Mushroom Coffee Blends | Lion's Mane + Cordyceps + Reishi | Torch Republic",
+    description: "Shop Torch Republic's instant mushroom coffee blends—premium Arabica coffee with Lion's Mane, Cordyceps and Reishi, ready in seconds. No machine required. 27 servings per tube.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [
@@ -103,7 +104,7 @@ export default function MushroomCoffeeCollection() {
                  Premium Coffee Rituals<br />Powered By Nature
                </h1>
                <p className="font-heading max-w-2xl mx-auto lg:mx-0 mb-8" style={{ fontSize: '1.05rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-                 Single-origin Papua New Guinea coffee meets Lion's Mane and Chaga. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
+                 Single-origin Papua New Guinea coffee meets Lion's Mane, Cordyceps and Reishi. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
                 </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
@@ -158,14 +159,14 @@ export default function MushroomCoffeeCollection() {
               Why Add Mushrooms to Your Coffee?
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.9 }}>
-              Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy — less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane and Chaga, traditionally chosen to support focus, balance, and calm clarity.
+              Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy — less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane, Cordyceps and Reishi, traditionally chosen to support focus, balance, and calm clarity.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { title: 'Focus', desc: 'Blends featuring Lion\'s Mane are crafted for mornings when you want clarity and mental presence.', icon: Brain, color: '#E6B7AD' },
-              { title: 'Resilience', desc: 'Mushroom blends with Chaga are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#D6B27A' },
+              { title: 'Resilience', desc: 'Mushroom blends with Reishi are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#D6B27A' },
               { title: 'Ritual', desc: 'Instant format means no grinder, no machine, and no complicated routine. Just scoop, stir, and begin.', icon: Coffee, color: '#C98F86' },
             ].map((card, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
@@ -202,7 +203,7 @@ export default function MushroomCoffeeCollection() {
               Choose Your Ritual
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-              One purpose-built mushroom coffee — premium instant coffee with Lion's Mane and Chaga for a focused morning. Available as a subscription — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
+              One purpose-built mushroom coffee — premium instant coffee with Lion's Mane, Cordyceps and Reishi for a focused morning. Available as a subscription — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
 

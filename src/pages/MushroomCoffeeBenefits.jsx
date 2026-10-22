@@ -15,7 +15,6 @@ const BORDER = 'rgba(230,183,173,0.28)';
 
 const BENEFITS = [
   { icon: Brain, title: "Lion's Mane in Your Morning Ritual", body: "Lion's Mane (Hericium erinaceus) is a unique functional mushroom that has been researched for its compound profile. It is included in our blends as a ritual ingredient for focused mornings—not as a medical treatment. Statements about this product have not been evaluated by the FDA." },
-  { icon: Shield, title: "Chaga as a Daily Addition", body: "Chaga is among the most antioxidant-dense foods measured. It is added to Torch Republic blends as a traditional daily ingredient with a long history of use in Northern wellness practices. Individual experiences vary." },
   { icon: Zap, title: "Cordyceps for Active Mornings", body: "Cordyceps has been used in traditional East Asian practices for centuries and is researched for its compound profile. It is a popular choice for those who prefer an active morning ritual. This product is not intended to diagnose, treat, cure, or prevent any disease." },
   { icon: Moon, title: "Reishi for Calmer Evening Rituals", body: "Reishi is a traditional adaptogenic mushroom with a long history of evening use. It is added to our MoonCap and DreamCap blends as a ritual ingredient for those who prefer a slower, more grounded end to their day. Not a substitute for medical care." },
   { icon: Leaf, title: "Turkey Tail as a Ritual Ingredient", body: "Turkey Tail contains polysaccharides including beta-glucans that are studied for their nutritional profile. It is included in select Torch Republic blends as a traditional wellness ingredient. Individual results vary." },
@@ -31,8 +30,8 @@ const FAQS = [
 
 export default function MushroomCoffeeBenefits() {
   useSEO({
-    title: "Mushroom Coffee Benefits | Lion's Mane & Chaga | Torch Republic Coffee Co.",
-    description: "What does mushroom coffee actually do? Learn how Lion's Mane and Chaga support focus, clarity, and calm energy in Torch Republic instant coffee blends. Science explained simply.",
+    title: "Mushroom Coffee Benefits | Lion's Mane, Cordyceps & Reishi | Torch Republic Coffee Co.",
+    description: "What does mushroom coffee actually do? Learn how Lion's Mane, Cordyceps and Reishi support focus, clarity, and calm energy in Torch Republic instant coffee blends. Science explained simply.",
     url: '/mushroom-coffee-benefits',
     faq: FAQS.map(f => ({ question: f.q, answer: f.a })),
     breadcrumbs: [
@@ -107,7 +106,7 @@ export default function MushroomCoffeeBenefits() {
         <RecommendedRitualBlock
           productName="GlowMind Clarity Blend"
           productSlug="glowmind-clarity-blend"
-          tagline="Lion's Mane + Chaga in every cup. The simplest way to make these functional mushrooms a daily habit — subscribe and save 20%."
+          tagline="Lion's Mane + Cordyceps + Reishi in every cup. The simplest way to make these functional mushrooms a daily habit — subscribe and save 20%."
         />
       </section>
 

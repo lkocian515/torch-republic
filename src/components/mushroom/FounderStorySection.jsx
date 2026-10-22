@@ -69,7 +69,7 @@ export default function FounderStorySection() {
             {[
               'Instant mushroom coffee',
               'No coffee maker needed',
-              'Lion\'s Mane + Chaga',
+              'Lion\'s Mane + Cordyceps + Reishi',
               'Small-batch wellness brand',
               '27 servings per tube',
             ].map(t => (

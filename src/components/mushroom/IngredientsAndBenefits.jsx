@@ -4,7 +4,7 @@ import { Leaf, Zap, Brain, Shield, Heart, Coffee } from 'lucide-react';
 
 const INGREDIENT_ICONS = {
   'Lion\'s Mane': Brain,
-  'Chaga': Shield,
+  'Reishi': Shield,
   'Matcha': Leaf,
   'Coffee': Coffee,
   'L-Theanine': Zap,
@@ -21,8 +21,8 @@ const DEFAULT_INGREDIENTS = {
       accent: '#E6B7AD',
     },
     {
-      name: 'Organic Chaga Mushroom',
-      scientific: 'Inonotus obliquus',
+      name: 'Organic Reishi Mushroom',
+      scientific: 'Ganoderma lucidum',
       benefits: ['Rich in antioxidants for immune support', 'Helps reduce oxidative stress', 'Supports overall wellness and vitality'],
       icon: Shield,
       accent: '#E6B7AD',

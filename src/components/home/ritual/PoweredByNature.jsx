@@ -4,7 +4,7 @@ import { Leaf, Recycle, Coffee, Plane, Scale, Sparkles, SlidersHorizontal } from
 
 const INSTANT_BENEFITS = [
   { icon: Leaf, title: 'Natural ingredients', body: 'Real, clean ingredients in every cup — nothing artificial, ever.' },
-  { icon: Recycle, title: 'No pods, no capsules', body: 'No pods, no capsules, no single-use plastic. Just one pouch — nothing to discard but the bag.' },
+  { icon: Recycle, title: 'No pods, no capsules', body: 'No pods, no capsules, no machine. Just one pouch — nothing to discard but the bag.' },
   { icon: Coffee, title: 'No machine needed', body: 'Just add hot water. No brewer, grinder, or cleanup — ever.' },
   { icon: Plane, title: 'Made for on the go', body: 'Toss it in your bag — your daily ritual travels wherever you do.' },
 ];
@@ -22,7 +22,7 @@ export default function PoweredByNature({ accent = '#B7653E', format }) {
   const eyebrow = isWholeBean ? 'A Seasonal Departure' : 'Powered by Nature';
   const heading = isWholeBean
     ? 'Whole beans. Warm spice. Your favorite brew.'
-    : 'Real ingredients. No machine. No plastic.';
+    : 'Real ingredients. No machine. No compromise.';
   const body = isWholeBean
     ? 'Our seasonal Pumpkin Spice coffee comes as whole beans. Grind for your preferred brewing method, then brew and enjoy.'
     : 'Every cup starts with nature — clean, natural ingredients you can trust. No pods to throw away, no machine to clean, no compromise. Just your ritual, anywhere.';

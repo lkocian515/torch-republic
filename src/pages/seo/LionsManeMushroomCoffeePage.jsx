@@ -33,7 +33,7 @@ const PAA = [
 const PRODUCTS = [
   { name: "GlowMind Clarity", slug: "glowmind-clarity-instant-mushroom-coffee", tagline: "Lion's Mane forward — morning focus ritual" },
   { name: "The Oracle", slug: "the-oracle-instant-mushroom-coffee", tagline: "Deep focus blend with Lion's Mane + Cordyceps" },
-  { name: "SunCap Rise", slug: "suncap-rise-instant-mushroom-coffee", tagline: "Bright energy with Lion's Mane + Chaga" },
+  { name: "SunCap Rise", slug: "suncap-rise-instant-mushroom-coffee", tagline: "Bright energy with Lion's Mane + Cordyceps + Reishi" },
 ];
 
 export default function LionsManeMushroomCoffeePage() {
@@ -153,7 +153,6 @@ export default function LionsManeMushroomCoffeePage() {
         <div className="flex flex-wrap gap-3">
           {[
             { label: 'Mushroom Coffee Benefits', href: '/mushroom-coffee-benefits' },
-            { label: 'Chaga Mushroom Coffee', href: '/ingredients/chaga-mushroom-coffee' },
             { label: 'Why Mushroom Coffee?', href: '/why-mushroom-coffee' },
             { label: "Science of Lion's Mane", href: '/journal/science-of-lions-mane' },
             { label: 'Compare to Ryze', href: '/compare/ryze-vs-torch-republic' },

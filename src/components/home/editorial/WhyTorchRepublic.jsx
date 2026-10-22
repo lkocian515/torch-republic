@@ -4,7 +4,7 @@ import { colors } from './theme';
 const points = [
   { title: 'Instant format', body: 'No machine, no pods, no cleanup. Just add hot water and stir.' },
   { title: 'Single-origin Arabica', body: 'Highland-grown Papua New Guinea coffee, freeze-dried to preserve flavor.' },
-  { title: 'Functional mushroom blends', body: 'Lion’s Mane and Chaga paired with premium instant coffee.' },
+  { title: 'Functional mushroom blends', body: 'Lion’s Mane, Cordyceps and Reishi paired with premium instant coffee.' },
   { title: 'Ceremonial-grade matcha', body: 'Whisked-quality matcha in a convenient instant format.' },
   { title: 'Thoughtful sourcing', body: 'Small-batch crafted with no artificial flavors, fillers, or added sugar.' },
   { title: 'Ships fast from Texas', body: 'Free shipping $50+ and a 30-day satisfaction guarantee.' },

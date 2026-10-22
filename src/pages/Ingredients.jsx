@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Brain, Shield, Coffee, ArrowRight } from 'lucide-react';
+import { CheckCircle, Brain, Shield, Coffee, ArrowRight, Zap, Heart } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
@@ -17,11 +17,18 @@ const INGREDIENTS = [
     uses: ['Daily focus rituals', 'Mental clarity', 'Morning routines'],
   },
   {
-    name: 'Chaga Mushroom',
-    scientific: 'Inonotus obliquus',
-    icon: Shield,
-    description: "Chaga grows on birch trees in cold climates and is a natural source of antioxidants. It has a long history of traditional use; modern research is still preliminary and health outcomes are not proven.",
-    uses: ['Daily wellness support', 'Antioxidant intake', 'General wellness'],
+    name: 'Cordyceps Mushroom',
+    scientific: 'Cordyceps militaris',
+    icon: Zap,
+    description: 'Cordyceps is a functional mushroom traditionally used in East Asian practice, historically associated with energy and stamina. Research has explored compounds such as cordycepin; findings remain ongoing and are not conclusive.',
+    uses: ['Daily energy rituals', 'Stamina', 'Active mornings'],
+  },
+  {
+    name: 'Reishi Mushroom',
+    scientific: 'Ganoderma lucidum',
+    icon: Heart,
+    description: 'Reishi is a functional mushroom with a long history of traditional use, valued for its naturally occurring triterpenes and beta-glucans. Modern research is still preliminary and health outcomes are not proven.',
+    uses: ['Daily wellness support', 'Antioxidant intake', 'Evening wind-down'],
   },
   {
     name: 'Single-Origin Arabica Coffee',
@@ -35,21 +42,21 @@ const INGREDIENTS = [
 // Transparent overview of which ingredients are in the two current products.
 const PRODUCTS = [
   { name: 'Instant Classic Coffee', ingredients: ['Single-origin Arabica coffee'], note: '27 servings · medium roast · high caffeine' },
-  { name: 'Instant Mushroom Coffee', ingredients: ['Premium instant coffee', "Lion's Mane extract", 'Chaga extract'], note: '27 servings · medium caffeine' },
+  { name: 'Instant Mushroom Coffee', ingredients: ['Premium instant coffee', "Lion's Mane extract", 'Cordyceps extract', 'Reishi extract'], note: '27 servings · medium caffeine' },
 ];
 
 // Local deep-dive links — kept inline so this page does not depend on a large
 // shared SEO module that delayed the route's initial render.
 const DEEP_DIVES = [
   { name: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', category: 'Mushroom', color: '#B86543' },
-  { name: 'Chaga', slug: 'chaga-mushroom-coffee', category: 'Mushroom', color: '#8A6A3A' },
+  { name: 'Reishi', slug: 'reishi-mushroom-coffee', category: 'Mushroom', color: '#8A6A3A' },
   { name: 'Freeze-Dried Coffee', slug: 'freeze-dried-instant-coffee', category: 'Coffee', color: '#7A5230' },
 ];
 
 export default function Ingredients() {
   useSEO({
     title: 'Our Ingredients | Torch Republic Coffee Company',
-    description: 'An honest overview of Torch Republic ingredients — Lion\u2019s Mane, Chaga, and premium instant coffee — with conservative notes on traditional use and preliminary research.',
+    description: 'An honest overview of Torch Republic ingredients — Lion\u2019s Mane, Cordyceps, Reishi, and premium instant coffee — with conservative notes on traditional use and preliminary research.',
     url: '/ingredients',
     type: 'website',
   });
@@ -72,7 +79,7 @@ export default function Ingredients() {
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>What Are Functional Mushrooms?</h2>
           <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
             <p>Functional mushrooms are varieties traditionally used beyond basic nutrition. They contain naturally occurring compounds such as beta-glucans, triterpenes, and antioxidants, and have a long history of use in traditional Eastern practices.</p>
-            <p>The two functional mushrooms we use — Lion's Mane and Chaga — have been studied for their potential wellness interest. These mushrooms have been used in traditional practice for centuries and are now the subject of ongoing modern research.</p>
+            <p>The three functional mushrooms we use — Lion's Mane, Cordyceps and Reishi — have been studied for their potential wellness interest. These mushrooms have been used in traditional practice for centuries and are now the subject of ongoing modern research.</p>
             <p><strong>Important:</strong> Torch Republic products are created for daily ritual and general wellness support. They are not intended to diagnose, treat, cure, or prevent any disease. Always consult a healthcare professional before making significant changes to your diet or wellness routine.</p>
           </div>
         </div>
@@ -157,7 +164,7 @@ export default function Ingredients() {
       <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Selected With Care</h2>
-          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our classic coffee is single-origin Arabica, and our mushroom coffee includes Lion's Mane and Chaga extracts. We list every ingredient so you always know what is in your cup.</p>
+          <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our classic coffee is single-origin Arabica, and our mushroom coffee includes Lion's Mane, Cordyceps and Reishi extracts. We list every ingredient so you always know what is in your cup.</p>
           <Link to="/our-story" className="mt-6 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Read Our Story →</Link>
         </div>
       </section>

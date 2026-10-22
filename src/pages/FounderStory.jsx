@@ -30,7 +30,7 @@ At some point I thought: I'm drinking the exact same cup of coffee in every sing
 
 There's something demoralizing about that. Not catastrophically — I'm talking about the small daily disappointment of going through the motions of a ritual that has no substance anymore. I was filling a cup. I wasn't actually doing anything intentional.
 
-I remembered that my grandfather kept a small tin of instant coffee in his kitchen. He made it with a kettle — no machine, no pods, no plastic. He drank it deliberately. Slowly. In the same chair, at the same time, every morning. The ritual was in the intention, not the equipment.
+I remembered that my grandfather kept a small tin of instant coffee in his kitchen. He made it with a kettle — no machine, no pods. He drank it deliberately. Slowly. In the same chair, at the same time, every morning. The ritual was in the intention, not the equipment.
 
 That's when I started thinking about what I actually wanted from a morning coffee ritual.`
   },
@@ -88,7 +88,7 @@ I'm not writing this to make coffee pod users feel guilty. I used them for three
 
 If you drink two cups of coffee a day from a pod machine, switching to premium instant coffee saves approximately $400-600 per year and eliminates roughly 700+ pods from landfill. That's a real number, for one person, per year.
 
-Torch Republic isn't positioned as an environmental brand. We're a coffee and wellness brand. But one of the simplest, most concrete things about our format is this: there is no plastic waste. No pod. No capsule. No foil seal. You add water to a scoop of freeze-dried coffee powder. That's it.`
+Torch Republic isn't positioned as an environmental brand. We're a coffee and wellness brand. But one of the simplest, most concrete things about our format is this: no pod. No capsule. No machine. You add water to a scoop of freeze-dried coffee powder. That's it.`
   },
 ];
 

@@ -21,7 +21,7 @@ const DATA = {
   tableRows: [
     { label: 'Format', tr: 'Instant powder (dissolvable)', them: 'Instant powder (creamy blend)', trWins: false },
     { label: 'Coffee base', tr: '100% Arabica freeze-dried', them: 'Arabica blend', trWins: true },
-    { label: 'Mushroom varieties', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: "Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail, King Trumpet", trWins: false },
+    { label: 'Mushroom varieties', tr: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi", them: "Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi, Turkey Tail, King Trumpet", trWins: false },
     { label: 'Added ingredients', tr: 'None (pure coffee + mushrooms)', them: 'MCT oil, coconut milk powder', trWins: false },
     { label: 'Caffeine per serving', tr: '~60–80mg', them: '~48mg', trWins: true },
     { label: 'Servings per package', tr: '27 per tube', them: '30 per bag', trWins: false },
@@ -82,7 +82,7 @@ const DATA = {
     { question: "Is Ryze mushroom coffee or Torch Republic better?", answer: "It depends on your preference. Ryze makes a creamier, adaptogen-latte-style mushroom coffee. Torch Republic is more coffee-forward, lower priced (~$0.85/serving vs ~$1.17), and offers 12 blend options including classic coffee and ceremonial matcha. For pure coffee drinkers, Torch Republic is a better fit. For people who want a creamy wellness latte format, Ryze suits that preference." },
     { question: "How does Ryze compare to Torch Republic in price per serving?", answer: "Ryze costs approximately $1.17 per serving at standard pricing. Torch Republic costs approximately $0.85 per serving, dropping to ~$0.68 with a 20% subscription discount. Over a year of daily use, Torch Republic saves approximately $179 vs. Ryze on subscription." },
     { question: "Does Ryze mushroom coffee contain MCT oil?", answer: "Yes. Ryze's formula includes coconut milk powder and MCT oil, which creates its creamy texture but adds ~50 calories per serving. Torch Republic's formula is pure 100% Arabica coffee plus mushroom extracts — no added fats, no coconut milk. You control what goes in your cup." },
-    { question: "Which has more mushrooms — Ryze or Torch Republic?", answer: "Ryze uses 6 mushroom varieties (Lion's Mane, Chaga, Cordyceps, Reishi, Turkey Tail, King Trumpet). Torch Republic uses up to 4 per blend (Lion's Mane, Chaga, Cordyceps, Reishi), but each blend is formulated for a specific purpose rather than combining all mushrooms in every product. Torch Republic also offers a growing coffee, mushroom coffee, and matcha collection optimized for different ritual needs." },
+    { question: "Which has more mushrooms — Ryze or Torch Republic?", answer: "Ryze uses 6 mushroom varieties (Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi, Turkey Tail, King Trumpet). Torch Republic uses up to 4 per blend (Lion's Mane, Cordyceps, Reishi, Cordyceps, Reishi), but each blend is formulated for a specific purpose rather than combining all mushrooms in every product. Torch Republic also offers a growing coffee, mushroom coffee, and matcha collection optimized for different ritual needs." },
   ],
 
   relatedComparisons: OTHER_COMPARISONS,

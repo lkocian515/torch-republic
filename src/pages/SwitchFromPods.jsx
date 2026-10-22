@@ -49,7 +49,7 @@ const PATHWAYS = [
     slug: 'suncap-rise',
     name: 'Mushroom Coffee',
     tagline: 'Coffee with functional mushroom ingredients',
-    detail: "Coffee + Lion's Mane + Chaga. Coffee-forward taste with functional ingredients.",
+    detail: "Coffee + Lion's Mane + Cordyceps + Reishi. Coffee-forward taste with functional ingredients.",
     price: PRICES['mushroom-coffee'],
     subPrice: SUBSCRIPTION_PRICES['mushroom-coffee'],
     servings: 27,
@@ -255,7 +255,7 @@ function CostCalculator() {
             <ul className="space-y-1">
               {[
                 'No machine or counter space required',
-                'Fewer single-use components — less pod waste',
+                'No pods, no capsules, no machine to maintain',
                 'Easy preparation at home, work, or while traveling',
                 'Premium ingredients in every cup',
                 `Subscription convenience — save ${SUBSCRIBE_SAVE_PERCENT}% with Subscribe & Save`,
@@ -576,14 +576,14 @@ export default function SwitchFromPods() {
                 SunCap Rise
               </h2>
               <p className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(245,239,230,0.85)', fontWeight: 400, lineHeight: 1.75 }}>
-                Morning mushroom coffee with Lion's Mane and Chaga. Coffee-forward taste, functional ingredients, ready in seconds.
+                Morning mushroom coffee with Lion's Mane, Cordyceps and Reishi. Coffee-forward taste, functional ingredients, ready in seconds.
               </p>
               <div className="flex flex-wrap gap-x-4 gap-y-1 mb-5">
                 {[
                   `${formatPrice(SUNCAP_PRICE)} one-time — $${SUNCAP_PER_SERVING}/serving`,
                   `${formatPrice(SUNCAP_SUB_PRICE)}/mo with Subscribe & Save — $${SUNCAP_SUB_PER_SERVING}/serving`,
                   '27 servings per tube',
-                  "Lion's Mane + Chaga",
+                  "Lion's Mane + Cordyceps + Reishi",
                 ].map(item => (
                   <span key={item} className="flex items-center gap-1.5">
                     <Check className="w-3 h-3 flex-shrink-0" style={{ color: '#10B981' }} />

@@ -46,7 +46,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth coffee, cocoa notes',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'glowmind-clarity',
   },
   {
@@ -57,7 +57,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Bright coffee, light cocoa',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'suncap-rise',
   },
   {
@@ -68,7 +68,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Dark cocoa, earthy, smooth',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'mooncap-restore',
   },
   {
@@ -79,7 +79,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth, dark cocoa, mellow',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'dreamcap-blend',
   },
   {
@@ -90,7 +90,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth coffee, soft cocoa',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'the-oracle',
   },
   {
@@ -101,7 +101,7 @@ const BLENDS = [
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth, soft cocoa, rounded',
     servings: '27',
-    keyIngredient: "Lion's Mane + Chaga",
+    keyIngredient: "Lion's Mane + Cordyceps + Reishi",
     slug: 'mystic-bloom',
   },
   {

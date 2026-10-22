@@ -17,7 +17,7 @@ const RG = '#E6B7AD';
 export default function RecommendedRitualBlock({
   productName = "GlowMind Clarity Blend",
   productSlug = "glowmind-clarity-blend",
-  tagline = "Lion's Mane + Chaga mushroom coffee for focus, clarity, and sustained energy.",
+  tagline = "Lion's Mane + Cordyceps + Reishi mushroom coffee for focus, clarity, and sustained energy.",
   accentColor = RG,
 }) {
   return (

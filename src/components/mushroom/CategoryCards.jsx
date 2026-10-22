@@ -20,7 +20,7 @@ const CATEGORIES = [
     icon: Leaf,
     label: 'Mushroom Coffee',
     type: 'MUSHROOM COFFEE',
-    desc: 'GlowMind · SunCap Rise · MoonCap · DreamCap · The Oracle · Mystic Bloom — functional coffee blends with Lion\'s Mane + Chaga for focus, clarity, and intentional wellness rituals.',
+    desc: 'GlowMind · SunCap Rise · MoonCap · DreamCap · The Oracle · Mystic Bloom — functional coffee blends with Lion\'s Mane + Cordyceps + Reishi for focus, clarity, and intentional wellness rituals.',
     cta: 'Shop Mushroom Coffee',
     href: '/mushroom-coffee',
     accent: RG,

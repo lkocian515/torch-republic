@@ -22,7 +22,7 @@ const PILLARS = [
   {
     icon: MapPin,
     title: 'Ethically Sourced Ingredients',
-    body: "Our mushrooms are grown on their native substrate — wood for Lion's Mane, birch for Chaga — not grain. Our coffee is specialty-grade, direct-trade, single-origin.",
+    body: "Our mushrooms are grown on their native substrate — wood for Lion's Mane and Cordyceps, hardwood for Reishi — not grain. Our coffee is specialty-grade, direct-trade, single-origin.",
     badge: 'Direct Trade',
   },
   {

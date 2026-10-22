@@ -17,14 +17,14 @@ const OTHER_COMPARISONS = [
 const DATA = {
   competitor: 'Coffee Pods',
   title: 'Mushroom Coffee vs. Coffee Pods: Which Is Better? (2025)',
-  intro: "Coffee pods (K-Cups) promised convenience but created billions of pieces of plastic waste. Mushroom coffee delivers the same instant convenience — plus functional mushrooms — without any pods, machines, or waste. This comparison covers convenience, cost, environmental impact, and coffee quality.",
+  intro: "Coffee pods (K-Cups) promised convenience but created billions of pieces of plastic waste. Mushroom coffee delivers the same instant convenience — plus functional mushrooms — without any pods or machines. This comparison covers convenience, cost, environmental impact, and coffee quality.",
 
   tableRows: [
     { label: 'Machine required', tr: 'No — just hot water', them: 'Yes — pod brewer required', trWins: true },
-    { label: 'Single-use waste', tr: 'None — one pouch', them: 'Plastic/aluminum pods per cup', trWins: true },
+    { label: 'Packaging per serving', tr: 'One pouch per 27 servings', them: 'One pod per serving', trWins: true },
     { label: 'Preparation time', tr: '~30 seconds', them: '~30–60 seconds', trWins: false },
     { label: 'Coffee quality', tr: 'Single-origin PNG Arabica, freeze-dried', them: 'Pre-ground, stored in plastic', trWins: true },
-    { label: 'Functional mushrooms', tr: "Lion's Mane, Chaga, Cordyceps, Reishi", them: 'None', trWins: true },
+    { label: 'Functional mushrooms', tr: "Lion's Mane, Cordyceps, Reishi", them: 'None', trWins: true },
     { label: 'Servings per package', tr: '27 per pouch', them: '10–24 per box', trWins: true },
     { label: 'Cost per serving', tr: '~$0.85', them: '~$0.75–$1.25', trWins: true },
     { label: 'Travel friendly', tr: 'Yes — compact pouch', them: 'No — machine required', trWins: true },
@@ -35,8 +35,8 @@ const DATA = {
 
   ourEdge: [
     "No machine required — just hot water and a cup",
-    "Zero single-use pod waste — one pouch",
-    "Functional mushrooms (Lion's Mane, Chaga) for focus and wellness",
+    "No pods — one pouch per 27 servings",
+    "Functional mushrooms (Lion's Mane, Cordyceps, Reishi) for focus and wellness",
     "Premium single-origin Papua New Guinea Arabica, freeze-dried",
     "Lower cost per serving (~$0.85 vs $0.75–$1.25 for premium pods)",
     "Travel friendly — compact pouch, no machine to bring",
@@ -65,7 +65,7 @@ const DATA = {
     },
     {
       heading: "The Functional Advantage",
-      body: "Coffee pods contain coffee. Mushroom coffee contains coffee plus functional mushrooms like Lion's Mane (studied for cognitive support) and Chaga (studied for antioxidant properties). If you're drinking coffee every morning anyway, mushroom coffee lets you add functional mushrooms to your existing ritual without changing the taste significantly.\n\nPods don't offer this. If you want functional mushrooms with a pod system, you'd need a separate supplement — adding cost and complexity to your morning."
+      body: "Coffee pods contain coffee. Mushroom coffee contains coffee plus functional mushrooms like Lion's Mane (studied for cognitive support), Cordyceps (studied for energy) and Reishi (studied for antioxidant properties). If you're drinking coffee every morning anyway, mushroom coffee lets you add functional mushrooms to your existing ritual without changing the taste significantly.\n\nPods don't offer this. If you want functional mushrooms with a pod system, you'd need a separate supplement — adding cost and complexity to your morning."
     },
   ],
 
@@ -79,7 +79,7 @@ const DATA = {
   ],
 
   faqs: [
-    { question: "Is instant mushroom coffee better than coffee pods?", answer: "For most people, yes. Instant mushroom coffee offers the same convenience (under 30 seconds) with better coffee quality (freeze-dried single-origin), zero waste (one pouch vs. plastic pods), functional mushrooms, lower cost per serving, and no machine required. Pods are better only if you already own a machine and prefer the push-button format." },
+    { question: "Is instant mushroom coffee better than coffee pods?", answer: "For most people, yes. Instant mushroom coffee offers the same convenience (under 30 seconds) with better coffee quality (freeze-dried single-origin), no pods (one pouch per 27 servings), functional mushrooms, lower cost per serving, and no machine required. Pods are better only if you already own a machine and prefer the push-button format." },
     { question: "How much waste do coffee pods create vs. instant coffee?", answer: "A year of daily pod coffee generates approximately 365 single-use pods. A year of daily instant coffee generates one one pouch. Even with recycling programs, the majority of pods end up in landfills because they require disassembly to recycle properly." },
     { question: "Does instant coffee taste as good as pod coffee?", answer: "Premium freeze-dried instant coffee can taste as good as or better than pod coffee. Freeze-drying preserves flavor compounds better than the pre-ground coffee stored in plastic pods. The key is choosing freeze-dried coffee from quality beans, not commodity spray-dried instant." },
     { question: "Is instant mushroom coffee cheaper than coffee pods?", answer: "Yes. Instant mushroom coffee costs approximately $0.85 per serving. Premium coffee pods typically cost $0.75–$1.25 per serving. Over a year of daily use, instant mushroom coffee saves approximately $100–$150 compared to premium pods." },

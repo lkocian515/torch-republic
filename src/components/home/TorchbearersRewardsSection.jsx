@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flame, Sparkles, Crown, ChevronRight } from 'lucide-react';
+import { Flame, Sparkles, Crown, ChevronRight, Award } from 'lucide-react';
 
 const RG = '#E6B7AD';
 
+// Mirrors the live program rules in src/lib/loyalty.js so the homepage never
+// promises a tier the program does not have.
 const TIERS = [
-  { name: 'EMBER', icon: Flame, color: '#C98F86', desc: 'Entry tier' },
-  { name: 'BEACON', icon: Sparkles, color: '#E6B7AD', desc: 'Mid tier' },
-  { name: 'FLAMEKEEPER', icon: Crown, color: '#D4AF37', desc: 'VIP tier' },
+  { name: 'WELCOME', icon: Flame, color: '#C98F86', rgb: '201,143,134', desc: '0 points · 10% off' },
+  { name: 'REGULAR', icon: Sparkles, color: '#E6B7AD', rgb: '230,183,173', desc: '500 points · 15% off' },
+  { name: 'DEVOTED', icon: Crown, color: '#D4AF37', rgb: '212,175,55', desc: '1,000 points · 20% off' },
+  { name: 'TORCHBEARER', icon: Award, color: '#F0D77A', rgb: '240,215,122', desc: '2,500 points · 25% off' },
 ];
 
 export default function TorchbearersRewardsSection() {
@@ -41,7 +44,7 @@ export default function TorchbearersRewardsSection() {
         </div>
 
         {/* Tier Preview */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {TIERS.map((tier, i) => {
             const Icon = tier.icon;
             return (
@@ -49,7 +52,7 @@ export default function TorchbearersRewardsSection() {
                 key={i}
                 className="p-6 text-center"
                 style={{
-                  background: `rgba(${tier.color === '#C98F86' ? '201,143,134' : tier.color === '#E6B7AD' ? '230,183,173' : '212,175,55'},0.06)`,
+                  background: `rgba(${tier.rgb},0.06)`,
                   border: `1px solid ${tier.color}30`,
                 }}
               >

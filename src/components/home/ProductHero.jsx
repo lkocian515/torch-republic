@@ -7,7 +7,7 @@ const RG = '#E6B7AD';
 export default function ProductHero() {
   const trustSignals = [
     { icon: '☕', label: '100% Instant Coffee' },
-    { icon: '🍄', label: 'Lion\'s Mane + Chaga' },
+    { icon: '🍄', label: 'Lion\'s Mane + Cordyceps + Reishi' },
     { icon: '📊', label: '27 Servings' },
     { icon: '✨', label: 'No Coffee Maker Needed' },
   ];

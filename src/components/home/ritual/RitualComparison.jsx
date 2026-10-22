@@ -20,10 +20,10 @@ const VALUES = {
     prep: 'Hot or iced',
   },
   mushroom: {
-    for: "Coffee made with Lion's Mane and Chaga.",
+    for: "Coffee made with Lion's Mane, Cordyceps and Reishi.",
     flavor: 'Smooth coffee, cocoa, balanced finish',
     energy: 'Medium caffeine',
-    functional: "Lion's Mane + Chaga",
+    functional: "Lion's Mane + Cordyceps + Reishi",
     prep: 'Hot or iced',
   },
 };

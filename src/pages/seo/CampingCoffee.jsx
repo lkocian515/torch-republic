@@ -44,7 +44,7 @@ const DATA = {
     {
       heading: 'Mushroom Coffee for the Trail',
       paragraphs: [
-        'If you want more than just caffeine on the trail, mushroom coffee adds functional mushrooms like Lion\'s Mane and Chaga to your instant coffee. These adaptogenic mushrooms are designed to support focus and balanced energy — useful for long hikes, early morning starts, and high-altitude adventures.',
+        'If you want more than just caffeine on the trail, mushroom coffee adds functional mushrooms like Lion\'s Mane, Cordyceps and Reishi to your instant coffee. These adaptogenic mushrooms are designed to support focus and balanced energy — useful for long hikes, early morning starts, and high-altitude adventures.',
         'Like the traditional instant coffee, mushroom coffee comes in the same compact tube format — 27 servings, no machine, just hot water.',
       ],
     },

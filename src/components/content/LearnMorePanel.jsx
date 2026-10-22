@@ -7,7 +7,7 @@ const RG = '#E6B7AD';
 const MUSHROOM_COFFEE_GUIDES = [
   { label: 'The Science of Lion\'s Mane', href: '/journal/science-of-lions-mane', desc: 'NGF, neurogenesis, and 100+ studies explained.' },
   { label: 'Coffee & Focus Guide', href: '/journal/coffee-and-focus', desc: 'How caffeine and adaptogens work together.' },
-  { label: 'Mushroom Coffee Benefits', href: '/mushroom-coffee-benefits', desc: 'Lion\'s Mane, Chaga, Cordyceps — honestly explained.' },
+  { label: 'Mushroom Coffee Benefits', href: '/mushroom-coffee-benefits', desc: 'Lion\'s Mane, Cordyceps, Reishi — honestly explained.' },
   { label: 'History of Mushroom Coffee', href: '/journal/history-of-mushroom-coffee', desc: 'From ancient traditions to modern wellness.' },
   { label: 'Why Mushroom Coffee?', href: '/why-mushroom-coffee', desc: 'A plain-language breakdown of what\'s inside.' },
 ];

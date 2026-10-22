@@ -31,25 +31,25 @@ const MUSHROOMS = [
     linkLabel: 'Read the full research',
   },
   {
-    id: 'chaga',
-    name: 'Chaga',
-    latin: 'Inonotus obliquus',
-    tagline: 'The King of Mushrooms',
+    id: 'reishi',
+    name: 'Reishi',
+    latin: 'Ganoderma lucidum',
+    tagline: 'The Balancing Mushroom',
     color: EMERALD,
     glow: 'rgba(16,185,129,0.15)',
     border: 'rgba(16,185,129,0.25)',
     icon: Shield,
-    heroStat: '146,700+',
-    heroStatLabel: 'ORAC units per 100g',
-    description: 'Chaga holds the highest antioxidant value ever recorded for any natural food — 15x wild blueberries. Grown over decades on Siberian birch trees.',
+    heroStat: '100s',
+    heroStatLabel: 'of years of traditional use',
+    description: 'Reishi has been used in traditional East Asian practice for centuries, where it was known as the "Mushroom of Immortality." Valued for its naturally occurring triterpenes and beta-glucans.',
     benefits: [
-      { icon: Shield, label: 'Antioxidant Power', desc: '146,700+ ORAC units — the highest ever recorded for any natural food substance' },
-      { icon: Leaf, label: 'Immune Support', desc: 'Beta-glucans regulate Th1/Th2 cytokine balance — activating without overstimulating' },
-      { icon: Flame, label: 'Cell Defense', desc: '40%+ reduction in DNA fragmentation from oxidative stress in a 2004 clinical study' },
-      { icon: Zap, label: 'Anti-Inflammation', desc: 'Suppresses TNF-alpha, iNOS, and IL-1beta — the inflammatory markers behind chronic fatigue' },
+      { icon: Shield, label: 'Antioxidant Support', desc: 'Naturally occurring triterpenes and polyphenols associated with daily antioxidant support' },
+      { icon: Leaf, label: 'Beta-Glucans', desc: 'Polysaccharides found across the most researched medicinal mushrooms' },
+      { icon: Flame, label: 'Traditional Use', desc: 'Used in East Asian wellness practice for hundreds of years' },
+      { icon: Zap, label: 'Daily Balance', desc: 'A fixture in evening and wind-down routines' },
     ],
-    quote: 'A 2023 peer-reviewed review called Chaga a "super-fungus with countless facets" — the most antioxidant-dense substance in nature.',
-    link: '/journal/chaga-mushroom-coffee',
+    quote: 'Reishi is one of the most widely used functional mushrooms in the world, valued for its naturally occurring triterpenes and beta-glucans.',
+    link: '/ingredients/reishi-mushroom-coffee',
     linkLabel: 'Read the full research',
   },
 ];
@@ -232,7 +232,7 @@ export default function MushroomBenefitsSection() {
           </h2>
           <p className="font-heading text-sm font-light max-w-md mx-auto"
             style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85 }}>
-            Every Torch Republic blend combines Lion's Mane and Chaga — one sharpens the brain, one defends the body. Both in every cup.
+            Every Torch Republic blend combines Lion's Mane, Cordyceps and Reishi — one sharpens the brain, one defends the body. Both in every cup.
           </p>
         </motion.div>
 

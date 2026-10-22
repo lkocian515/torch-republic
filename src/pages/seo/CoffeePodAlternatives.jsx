@@ -36,7 +36,7 @@ const DATA = {
       ],
       bullets: [
         'No machine — just hot water and a cup',
-        'No pods — zero single-use plastic waste',
+        'No pods — no machine needed',
         'No proprietary formats — one tube works anywhere',
         '27 servings per tube — more than a typical pod pack',
         'Premium single-origin coffee that actually tastes great',
@@ -45,13 +45,13 @@ const DATA = {
     {
       heading: 'Mushroom Coffee: A Functional Pod Alternative',
       paragraphs: [
-        'If you\'re exploring coffee pod alternatives for wellness reasons, mushroom coffee adds functional mushrooms like Lion\'s Mane and Chaga to premium instant coffee. You get the same no-machine convenience with the added benefit of adaptogenic mushrooms designed to support focus and balanced energy.',
+        'If you\'re exploring coffee pod alternatives for wellness reasons, mushroom coffee adds functional mushrooms like Lion\'s Mane, Cordyceps and Reishi to premium instant coffee. You get the same no-machine convenience with the added benefit of adaptogenic mushrooms designed to support focus and balanced energy.',
         'Torch Republic offers both traditional instant coffee and mushroom coffee in the same convenient tube format — so you can choose based on what your morning needs.',
       ],
     },
   ],
   features: [
-    { title: 'Zero Waste', detail: 'No plastic pods, no aluminum, no machine to eventually replace.' },
+    { title: 'No Pods', detail: 'No pods, no aluminum, no machine to eventually replace.' },
     { title: 'Better Coffee', detail: 'Premium single-origin Arabica, freeze-dried to preserve flavor.' },
     { title: 'More Affordable', detail: 'Approximately $0.85 per serving vs. $0.75–$1.25 per K-Cup.' },
   ],

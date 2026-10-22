@@ -21,7 +21,7 @@ const BENEFITS = [
   {
     icon: Shield,
     title: 'Immune Support',
-    description: "Chaga mushroom is rich in antioxidants and has been used for centuries to support overall immune system health and wellness.",
+    description: "Reishi mushroom is rich in naturally occurring triterpenes and beta-glucans, and has been used for centuries to support overall wellness.",
   },
   {
     icon: Leaf,
@@ -43,8 +43,8 @@ const COMPARISON = [
 
 export default function WhyMushroomCoffee() {
   useSEO({
-    title: "Why Mushroom Coffee? | Benefits of Lion's Mane & Chaga Coffee",
-    description: "Discover the benefits of mushroom coffee with Lion's Mane and Chaga. Enhanced focus, sustained energy, immune support, and adaptogenic wellness without compromising coffee taste.",
+    title: "Why Mushroom Coffee? | Benefits of Lion's Mane, Cordyceps & Reishi Coffee",
+    description: "Discover the benefits of mushroom coffee with Lion's Mane, Cordyceps and Reishi. Enhanced focus, sustained energy, immune support, and adaptogenic wellness without compromising coffee taste.",
     url: '/why-mushroom-coffee',
     type: 'article',
   });
@@ -78,7 +78,7 @@ export default function WhyMushroomCoffee() {
               What Is Mushroom Coffee?
             </h2>
             <p className="font-heading text-base leading-relaxed" style={{ color: '#6A5A4A', fontWeight: 300 }}>
-              Mushroom coffee is exactly what it sounds like: premium coffee enhanced with functional mushrooms. But don't worry—it still tastes like coffee. At Torch Republic, we blend high-quality instant coffee with Lion's Mane and Chaga mushrooms to create a functional beverage that supports your daily wellness goals.
+              Mushroom coffee is exactly what it sounds like: premium coffee enhanced with functional mushrooms. But don't worry—it still tastes like coffee. At Torch Republic, we blend high-quality instant coffee with Lion's Mane, Cordyceps and Reishi mushrooms to create a functional beverage that supports your daily wellness goals.
             </p>
             <p className="font-heading text-base leading-relaxed" style={{ color: '#6A5A4A', fontWeight: 300 }}>
               The result? A smooth, rich coffee experience with added benefits for focus, energy, and overall well-being. No mushroom taste, no compromise—just better coffee for your ritual.
@@ -142,11 +142,11 @@ export default function WhyMushroomCoffee() {
               </div>
             </div>
 
-            {/* Chaga */}
+            {/* Reishi */}
             <div className="p-6" style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.28)' }}>
-              <h3 className="font-serif font-bold text-[#3F3027] mb-3 text-xl">Chaga Mushroom</h3>
+              <h3 className="font-serif font-bold text-[#3F3027] mb-3 text-xl">Reishi Mushroom</h3>
               <p className="font-heading text-sm leading-relaxed mb-4" style={{ color: '#6A5A4A', fontWeight: 300 }}>
-                Chaga (Inonotus obliquus) is one of nature's most potent sources of antioxidants. This mushroom grows on birch trees in cold climates and has been traditionally used to support immune function, reduce oxidative stress, and promote overall wellness.
+                Reishi (Ganoderma lucidum) has been used in traditional East Asian practice for centuries, where it earned the name "Mushroom of Immortality." It is valued for its naturally occurring triterpenes and beta-glucans and is a traditional daily wellness ingredient.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Antioxidants', 'Immune Support', 'Wellness', 'Vitality'].map((tag) => (
@@ -262,7 +262,7 @@ export default function WhyMushroomCoffee() {
           <RecommendedRitualBlock
             productName="GlowMind Clarity Blend"
             productSlug="glowmind-clarity-blend"
-            tagline="Start your mushroom coffee ritual with Lion's Mane + Chaga. Instant format, premium taste, functional benefits — subscribe and save 20%."
+            tagline="Start your mushroom coffee ritual with Lion's Mane + Cordyceps + Reishi. Instant format, premium taste, functional benefits — subscribe and save 20%."
           />
         </div>
       </section>

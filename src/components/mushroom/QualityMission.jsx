@@ -6,7 +6,7 @@ const RG = '#E6B7AD';
 export default function QualityMission() {
   const COMMITMENTS = [
     'Premium instant mushroom coffee powder',
-    'Lion\'s Mane + Chaga in every blend',
+    'Lion\'s Mane + Cordyceps + Reishi in every blend',
     '27 servings per tube',
     'No coffee maker, grinder, or pods needed',
     'Ships from the U.S.',

@@ -29,9 +29,9 @@ const COMPARISON_DATA = {
       },
       {
         category: 'Ingredients',
-        label: 'Chaga included',
+        label: 'Reishi & Cordyceps included',
         values: {
-          torch: { type: 'yes', note: 'Full Chaga extract' },
+          torch: { type: 'yes', note: 'Full Reishi + Cordyceps extract' },
           mudwtr: { type: 'yes', note: 'Included' },
           ryze: { type: 'yes', note: 'Included' },
           foursig: { type: 'partial', note: 'Select SKUs only' },

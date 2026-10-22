@@ -7,10 +7,10 @@ import { MUSHROOM_COLLECTION_IMAGE, CLASSIC_COLLECTION_IMAGE, MATCHA_COLLECTION_
 const cards = [
   {
     title: 'Mushroom Coffee',
-    copy: 'Instant coffee blended with Lion’s Mane and Chaga for focused daily rituals.',
+    copy: 'Instant coffee blended with Lion’s Mane, Cordyceps and Reishi for focused daily rituals.',
     to: routes.mushroom,
     image: MUSHROOM_COLLECTION_IMAGE,
-    alt: 'Torch Republic mushroom coffee featuring Lion’s Mane and Chaga',
+    alt: 'Torch Republic mushroom coffee featuring Lion’s Mane, Cordyceps and Reishi',
   },
   {
     title: 'Classic Coffee',

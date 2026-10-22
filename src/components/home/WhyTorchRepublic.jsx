@@ -7,7 +7,7 @@ const RG = '#E6B7AD';
 const COMPARISON_ROWS = [
   { feature: 'No machine or pods needed', tr: true, generic: false },
   { feature: 'Premium freeze-dried Arabica', tr: true, generic: false },
-  { feature: "Lion's Mane + Chaga mushrooms", tr: true, generic: false },
+  { feature: "Lion's Mane + Cordyceps + Reishi mushrooms", tr: true, generic: false },
   { feature: 'Ceremonial grade matcha', tr: true, generic: false },
   { feature: '27 servings per tube', tr: true, generic: false },
   { feature: 'Subscribe & Save 20%', tr: true, generic: false },
@@ -25,7 +25,7 @@ const PILLARS = [
   {
     icon: '🍄',
     title: "Functional Mushrooms",
-    body: "Every mushroom blend includes Lion's Mane and Chaga — two of the most studied functional mushrooms for daily wellness and focus support.",
+    body: "Every mushroom blend includes Lion's Mane, Cordyceps and Reishi — two of the most studied functional mushrooms for daily wellness and focus support.",
   },
   {
     icon: '🍵',

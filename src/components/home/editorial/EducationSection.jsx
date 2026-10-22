@@ -12,7 +12,7 @@ const cards = [
   },
   {
     title: 'Ingredients & Research',
-    copy: 'Explore the ingredients behind Torch Republic blends — Lion’s Mane, Chaga, Arabica coffee, and matcha.',
+    copy: 'Explore the ingredients behind Torch Republic blends — Lion’s Mane, Cordyceps, Reishi, Arabica coffee, and matcha.',
     to: '/ingredients',
     cta: 'Explore Ingredients',
   },

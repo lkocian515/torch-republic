@@ -6,7 +6,7 @@ const RG = '#E6B7AD';
 
 const MUSHROOM_BENEFITS = [
   { icon: Brain, title: "Lion's Mane", description: 'Supports cognitive function, memory, and mental clarity', color: '#A8D5BA' },
-  { icon: Shield, title: 'Chaga', description: 'Rich in antioxidants, supports immune health and wellness', color: '#D4A574' },
+  { icon: Shield, title: 'Reishi', description: 'Rich in antioxidants, supports immune health and wellness', color: '#D4A574' },
   { icon: Zap, title: 'Clean Energy', description: 'Sustained focus without jitters or afternoon crash', color: '#E6B7AD' },
 ];
 
@@ -49,7 +49,7 @@ export default function FunctionalBenefits({ product }) {
           >
             {isMatcha
               ? `${product.name} is a smooth, convenient addition to an intentional morning or afternoon ritual. It contains naturally occurring caffeine and L-theanine.`
-              : `${product.name} combines the cognitive benefits of Lion's Mane with the immune support of Chaga — all in a delicious instant ritual.`}
+              : `${product.name} combines the cognitive benefits of Lion's Mane with the antioxidant support of Reishi — all in a delicious instant ritual.`}
           </p>
         </motion.div>
 
