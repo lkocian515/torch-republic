@@ -52,6 +52,15 @@ export default function ShopDuoBanner() {
         </div>
       </div>
 
+      {campaign.supporting_text && (
+        <p
+          className="mx-auto max-w-[640px] px-6 pt-8 text-center font-heading"
+          style={{ color: 'rgba(230,216,202,0.85)', fontSize: '0.9375rem', lineHeight: 1.6 }}
+        >
+          {campaign.supporting_text}
+        </p>
+      )}
+
       <div className="flex justify-center px-6 pb-10 pt-8">
         <Link
           to={href}

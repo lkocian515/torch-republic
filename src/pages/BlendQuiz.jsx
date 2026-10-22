@@ -328,7 +328,7 @@ export default function FindYourRitual() {
 
                 <div className="mb-6">
                   <label htmlFor="quiz-email" className="block font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: THEME.secondary }}>
-                    Get your results + 10% off code
+                    Get your 10% off code
                   </label>
                   <input
                     id="quiz-email"

@@ -65,7 +65,20 @@ export default function EditionHero() {
           </picture>
         </div>
 
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-8 md:flex-row md:justify-center md:pb-14">
+        {/* The artwork promotes both editions, so the campaign's availability line is
+            stated in real text beneath it rather than being left to the picture. */}
+        {campaign.supporting_text && (
+          <div className="mx-auto max-w-[1200px] px-6 pt-8">
+            <p
+              className="text-center font-heading"
+              style={{ color: 'rgba(230,216,202,0.85)', fontSize: '1rem', lineHeight: 1.6 }}
+            >
+              {campaign.supporting_text}
+            </p>
+          </div>
+        )}
+
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-5 md:flex-row md:justify-center md:pb-14">
           <EditionStatusChip
             state={isLive ? 'available' : 'pending'}
             label={isLive ? 'Available now' : null}
