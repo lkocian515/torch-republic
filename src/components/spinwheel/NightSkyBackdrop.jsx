@@ -1,7 +1,7 @@
 import React from 'react';
 import { BRAND_COLORS } from '@/lib/brandAssets';
 
-const { gold, goldLight, navyDeep } = BRAND_COLORS;
+const { goldLight, goldAntique, green, navyDeep } = BRAND_COLORS;
 
 /** Deterministic star field — built once, so it never re-shuffles on render. */
 const STARS = (() => {
@@ -30,7 +30,9 @@ const PINES =
 
 /**
  * Night-sky artwork for the spin wheel popup: stars, star bursts, a glowing
- * moon, and a pine treeline. Decorative only — never intercepts clicks.
+ * moon, a pine treeline, and a delicate botanical accent in each lower corner.
+ *
+ * Decorative only — it sits behind the content and never intercepts clicks.
  */
 export default function NightSkyBackdrop() {
   return (
@@ -114,6 +116,44 @@ export default function NightSkyBackdrop() {
         style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 70, opacity: 0.75 }}
       >
         <polygon points={PINES} fill={navyDeep} />
+      </svg>
+
+      {/* Delicate botanical accents in the lower corners — kept faint so they
+          never compete with the headline or the form. */}
+      <svg
+        viewBox="0 0 60 60"
+        className="w-11 h-11 sm:w-14 sm:h-14"
+        style={{ position: 'absolute', bottom: 4, left: 8, opacity: 0.34 }}
+      >
+        <path d="M18 44 C18 36 22 30 30 30 C38 30 42 36 42 44 Z" fill={green} />
+        <rect x="27" y="43" width="6" height="13" rx="3" fill={goldAntique} />
+        <circle cx="24" cy="37" r="1.4" fill={goldLight} />
+        <circle cx="34" cy="35" r="1.1" fill={goldLight} />
+        <path d="M46 47 C48 41 52 37 57 36 C55 42 51 46 46 47 Z" fill={green} opacity="0.8" />
+      </svg>
+
+      <svg
+        viewBox="0 0 60 60"
+        className="w-10 h-10 sm:w-12 sm:h-12"
+        style={{ position: 'absolute', bottom: 4, right: 8, opacity: 0.3 }}
+      >
+        <path d="M12 52 C22 44 34 36 48 30" fill="none" stroke={goldAntique} strokeWidth="0.9" />
+        <circle cx="48" cy="30" r="3" fill={goldAntique} />
+        <circle cx="38" cy="35" r="2.2" fill={green} />
+        <circle cx="27" cy="42" r="1.9" fill={green} />
+        <circle cx="17" cy="48" r="1.6" fill={green} />
+      </svg>
+
+      {/* A single quiet sprig in the upper right, inside the frame */}
+      <svg
+        viewBox="0 0 40 40"
+        className="w-8 h-8 sm:w-10 sm:h-10"
+        style={{ position: 'absolute', top: 14, right: 62, opacity: 0.26 }}
+      >
+        <path d="M6 34 C14 28 22 20 32 10" fill="none" stroke={goldAntique} strokeWidth="0.9" />
+        <path d="M20 22 C24 22 27 19 28 15 C23 15 20 18 20 22 Z" fill={green} />
+        <path d="M13 29 C17 29 20 26 21 22 C16 22 13 25 13 29 Z" fill={green} opacity="0.85" />
+        <circle cx="32" cy="10" r="2.4" fill={goldAntique} />
       </svg>
     </div>
   );

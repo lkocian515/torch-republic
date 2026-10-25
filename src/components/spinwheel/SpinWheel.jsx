@@ -4,17 +4,35 @@ import { BRAND_COLORS } from '@/lib/brandAssets';
 
 const SIZE = 260;
 const CX = SIZE / 2;
-const R = SIZE / 2 - 10;
+const R = 114;
 const SLICE_DEG = 90;
+const TICKS = 60;
 
-const { navy, navyDeep, navyLight, gold, goldLight, cream } = BRAND_COLORS;
+const { navy, navyDeep, navyLight, gold, goldLight, goldAntique, cream } = BRAND_COLORS;
+
+/** The gold tick track that runs between the two rim rules. */
+const TICK_MARKS = Array.from({ length: TICKS }, (_, i) => {
+  const angle = ((i * (360 / TICKS) - 90) * Math.PI) / 180;
+  const major = i % 5 === 0;
+  const inner = R + (major ? 3.5 : 5);
+  const outer = R + (major ? 9 : 7);
+  return {
+    x1: CX + inner * Math.cos(angle),
+    y1: CX + inner * Math.sin(angle),
+    x2: CX + outer * Math.cos(angle),
+    y2: CX + outer * Math.sin(angle),
+    major,
+  };
+});
 
 /**
- * Prize wheel in the night-sky palette: midnight navy slices under gold rules,
- * with the coffee cup and flame at the hub.
+ * Prize wheel in the night-sky palette: midnight navy quadrants under fine gold
+ * rules, with the coffee cup and flame at the hub.
  *
- * The wheel rotates via the `rotation` prop (degrees). The pointer is fixed at
- * the top (12 o'clock) and does NOT rotate.
+ * Labels run along the radius and are flipped on the left half, so every prize
+ * reads the right way up however the wheel comes to rest. The wheel rotates via
+ * the `rotation` prop (degrees); the pointer is fixed at the top (12 o'clock)
+ * and does NOT rotate.
  */
 export default function SpinWheel({ prizes, rotation }) {
   return (
@@ -24,16 +42,16 @@ export default function SpinWheel({ prizes, rotation }) {
         aria-hidden="true"
         style={{
           position: 'absolute',
-          top: -6,
+          top: -4,
           left: '50%',
           transform: 'translateX(-50%)',
           width: 0,
           height: 0,
-          borderLeft: '10px solid transparent',
-          borderRight: '10px solid transparent',
-          borderTop: `18px solid ${gold}`,
+          borderLeft: '11px solid transparent',
+          borderRight: '11px solid transparent',
+          borderTop: `19px solid ${gold}`,
           zIndex: 10,
-          filter: 'drop-shadow(0 2px 6px rgba(5,10,18,0.6))',
+          filter: 'drop-shadow(0 2px 6px rgba(5,10,18,0.7))',
         }}
       />
 
@@ -49,7 +67,7 @@ export default function SpinWheel({ prizes, rotation }) {
       >
         <defs>
           <radialGradient id="wheelGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={gold} stopOpacity="0.22" />
+            <stop offset="0%" stopColor={gold} stopOpacity="0.20" />
             <stop offset="100%" stopColor={gold} stopOpacity="0" />
           </radialGradient>
           {prizes.map((prize, i) => (
@@ -60,11 +78,27 @@ export default function SpinWheel({ prizes, rotation }) {
           ))}
         </defs>
 
-        {/* Outer glow + gold rules */}
-        <circle cx={CX} cy={CX} r={R + 10} fill="url(#wheelGlow)" />
-        <circle cx={CX} cy={CX} r={R + 9} fill="none" stroke={navyDeep} strokeWidth="6" />
-        <circle cx={CX} cy={CX} r={R + 6} fill="none" stroke={gold} strokeWidth="1.5" opacity="0.5" />
-        <circle cx={CX} cy={CX} r={R + 3} fill="none" stroke={goldLight} strokeWidth="2" opacity="0.8" />
+        {/* Outer glow, then the fine double gold track */}
+        <circle cx={CX} cy={CX} r={R + 13} fill="url(#wheelGlow)" />
+        <circle cx={CX} cy={CX} r={R + 11} fill="none" stroke={navyDeep} strokeWidth="5" />
+        <circle cx={CX} cy={CX} r={R + 10.5} fill="none" stroke={goldAntique} strokeWidth="0.9" opacity="0.75" />
+        <circle cx={CX} cy={CX} r={R + 3.5} fill="none" stroke={goldAntique} strokeWidth="0.9" opacity="0.75" />
+
+        {/* Tick marks between the two rules */}
+        <g>
+          {TICK_MARKS.map((t, i) => (
+            <line
+              key={i}
+              x1={t.x1}
+              y1={t.y1}
+              x2={t.x2}
+              y2={t.y2}
+              stroke={t.major ? goldLight : goldAntique}
+              strokeWidth={t.major ? 1.2 : 0.7}
+              opacity={t.major ? 0.85 : 0.5}
+            />
+          ))}
+        </g>
 
         {prizes.map((prize, i) => {
           const startAngle = ((i * SLICE_DEG - 90) * Math.PI) / 180;
@@ -73,20 +107,26 @@ export default function SpinWheel({ prizes, rotation }) {
           const y1 = CX + R * Math.sin(startAngle);
           const x2 = CX + R * Math.cos(endAngle);
           const y2 = CX + R * Math.sin(endAngle);
-          const midAngle = (((i + 0.5) * SLICE_DEG - 90) * Math.PI) / 180;
-          const textR = R * 0.62;
-          const tx = CX + textR * Math.cos(midAngle);
-          const ty = CX + textR * Math.sin(midAngle);
-          const textAngle = (i + 0.5) * SLICE_DEG;
+
+          // The label sits at the middle of its quadrant and runs along the
+          // radius. Quadrants on the left half are turned through 180° so the
+          // text is never upside down.
+          const midDeg = i * SLICE_DEG - 45;
+          const midRad = (midDeg * Math.PI) / 180;
+          const textR = R * 0.66;
+          const tx = CX + textR * Math.cos(midRad);
+          const ty = CX + textR * Math.sin(midRad);
+          const upsideDown = midDeg > 90 && midDeg < 270;
+          const textAngle = upsideDown ? midDeg + 180 : midDeg;
 
           return (
             <g key={prize.id}>
               <path
                 d={`M${CX},${CX} L${x1},${y1} A${R},${R} 0 0,1 ${x2},${y2} Z`}
                 fill={`url(#slice${i})`}
-                stroke={gold}
+                stroke={goldAntique}
                 strokeWidth="1"
-                strokeOpacity="0.45"
+                strokeOpacity="0.55"
               />
               <text
                 x={tx}
@@ -94,10 +134,10 @@ export default function SpinWheel({ prizes, rotation }) {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fill={cream}
-                fontSize="11"
-                fontWeight="900"
+                fontSize="15"
+                fontWeight="700"
                 fontFamily="'JetBrains Mono', monospace"
-                letterSpacing="0.8"
+                letterSpacing="0.5"
                 transform={`rotate(${textAngle}, ${tx}, ${ty})`}
               >
                 {prize.label}
@@ -107,8 +147,8 @@ export default function SpinWheel({ prizes, rotation }) {
         })}
 
         {/* Center hub */}
-        <circle cx={CX} cy={CX} r={34} fill="#061B31" stroke={gold} strokeWidth="2" />
-        <circle cx={CX} cy={CX} r={29} fill="none" stroke={goldLight} strokeWidth="0.8" opacity="0.5" />
+        <circle cx={CX} cy={CX} r={34} fill="#061B31" stroke={goldAntique} strokeWidth="1.2" />
+        <circle cx={CX} cy={CX} r={29} fill="none" stroke={goldLight} strokeWidth="0.7" opacity="0.5" />
       </svg>
 
       {/* The supplied cup-and-flame mark, above the wheel so it stays upright

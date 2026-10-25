@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { X, Check, ShoppingBag, Loader2, Mail, AlertCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -15,6 +15,7 @@ import {
 } from '@/lib/spinWheel/spinWheelStorage';
 import SpinWheel from '@/components/spinwheel/SpinWheel';
 import NightSkyBackdrop from '@/components/spinwheel/NightSkyBackdrop';
+import PanelFrame from '@/components/spinwheel/PanelFrame';
 import BrandLockup from '@/components/spinwheel/BrandLockup';
 import { BRAND_COLORS } from '@/lib/brandAssets';
 
@@ -61,6 +62,9 @@ const deviceCategory = () =>
 
 export default function SpinWheelPopup() {
   const navigate = useNavigate();
+  // Entrance motion is the only animation the panel adds; the spin itself is
+  // handled separately in animateSpin.
+  const reduceMotion = useReducedMotion();
   const [visible, setVisible] = useState(false);
   const [triggerType, setTriggerType] = useState(null);
   const [email, setEmail] = useState('');
@@ -429,10 +433,10 @@ export default function SpinWheelPopup() {
             aria-labelledby="spinwheel-title"
             aria-describedby="spinwheel-desc"
             tabIndex={-1}
-            initial={{ opacity: 0, scale: 0.96, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 16 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 16 }}
+            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 16 }}
+            transition={{ duration: reduceMotion ? 0.15 : 0.3, ease: 'easeOut' }}
             className="relative w-full overflow-hidden flex flex-col"
             style={{
               maxWidth: '900px',
@@ -444,17 +448,18 @@ export default function SpinWheelPopup() {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Night sky — stars, moon and a pine treeline behind everything */}
+            {/* Night sky — stars, moon, treeline and botanical corners */}
             <NightSkyBackdrop />
 
-            {/* Close button — always functional */}
+            {/* Close button — always functional, and above the frame so the
+                top-right flourish never covers the control */}
             <button
               ref={closeModalRef}
               onClick={dismiss}
               aria-label="Close spin to win"
-              className="absolute top-3 right-3 z-20 w-9 h-9 flex items-center justify-center rounded-full transition-all hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+              className="absolute top-3 right-3 z-30 flex h-11 w-11 items-center justify-center rounded-full transition-all hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796] sm:h-10 sm:w-10"
               style={{
-                background: 'rgba(5,10,18,0.6)',
+                background: 'rgba(5,10,18,0.72)',
                 color: GOLD,
                 border: `1px solid ${BORDER}`,
                 backdropFilter: 'blur(6px)',
@@ -463,36 +468,31 @@ export default function SpinWheelPopup() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* Gold rules top and bottom — the previous wheel's signature frame */}
-            <div
-              className="pointer-events-none absolute top-0 left-0 right-0 z-10"
-              style={{ height: '3px', background: GOLD, boxShadow: '0 0 12px rgba(217,160,74,0.5)' }}
-            />
-            <div
-              className="pointer-events-none absolute bottom-0 left-0 right-0 z-10"
-              style={{ height: '3px', background: GOLD, boxShadow: '0 0 12px rgba(217,160,74,0.5)' }}
-            />
+            {/* Fine double gold frame with an ornate flourish at each corner */}
+            <PanelFrame />
 
             {/* Scrollable content */}
             <div className="relative z-10 overflow-y-auto overscroll-contain" style={{ maxHeight: '90vh' }}>
-              <BrandLockup />
               <div className="flex flex-col md:flex-row">
-                {/* Left: Wheel */}
+                {/* Left: the wheel — just over half the panel on desktop,
+                    stacked above the form and sized down on narrow screens */}
                 <div
-                  className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8"
+                  className="flex flex-col items-center justify-center px-4 pb-2 pt-12 sm:px-6 sm:pt-14 md:w-[52%] md:px-8 md:py-10"
                   style={{ background: 'radial-gradient(circle at 50% 45%, rgba(217,160,74,0.10) 0%, rgba(5,10,18,0.35) 70%)' }}
                 >
-                  <div style={{ width: '100%', maxWidth: '260px' }}>
+                  <div className="w-full max-w-[215px] sm:max-w-[250px] md:max-w-[290px]">
                     <SpinWheel prizes={PRIZES} rotation={rotation} />
                   </div>
                 </div>
 
-                {/* Right: Content */}
-                <div className="flex-1 p-4 sm:p-6 md:p-8 flex flex-col justify-center min-h-[280px]">
+                {/* Right: brand mark, headline, offer form */}
+                <div className="flex min-h-[280px] flex-1 flex-col justify-center px-5 pb-8 pt-2 sm:px-7 md:px-8 md:py-10">
                   {/* Screen-reader live region */}
                   <div aria-live="polite" className="sr-only">
                     {liveMessage}
                   </div>
+
+                  <BrandLockup />
 
                   {step === 'idle' && (
                     <>
@@ -563,10 +563,11 @@ export default function SpinWheelPopup() {
                           className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                           style={{
                             fontSize: '11px',
-                            background: CLAY,
+                            background: INK,
                             color: CREAM,
                             borderRadius: '999px',
-                            filter: 'drop-shadow(0 6px 16px rgba(217,160,74,0.28))',
+                            border: `1px solid ${GOLD_LIGHT}`,
+                            filter: 'drop-shadow(0 6px 16px rgba(5,10,18,0.5))',
                           }}
                         >
                           Unlock My Spin
