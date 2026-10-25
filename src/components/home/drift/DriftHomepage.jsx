@@ -11,7 +11,7 @@ import { D } from './driftTheme';
 
 // Clean editorial homepage flow:
 // 1. Special-edition hero — campaign-driven, evergreen fallback when no campaign is live
-// 2. Upcoming releases — announced seasonal roasts, previews only (no purchase controls)
+// 2. Upcoming releases — dark hero banners for announced seasonal roasts, previews only
 // 3. Signature products — Classic + Mushroom with price, servings, Add to Cart
 // 4. Authentic customer proof — early customer feedback
 // 5. Product differences — Classic vs Mushroom comparison
