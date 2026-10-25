@@ -76,21 +76,27 @@ export function editionOptions(edition) {
 /**
  * The format a special edition is sold in, in plain customer words.
  *
- * Every special edition is brewed coffee sold ground, so the label stays
- * "Ground" even where a second grind was previously offered — a release is
- * never presented as two formats. An edition with no ground option at all
- * falls back to naming the options it does sell.
+ * The label is read from the edition's own options, which mirror the Shopify
+ * variants, so the headline can never disagree with the grind selector beneath
+ * it. An edition with no confirmed option yet — an unreleased coffee — returns
+ * null rather than naming a format nobody has confirmed.
  */
 export function editionFormatLabel(edition) {
-  const options = editionOptions(edition);
-  if (options.length === 0 || options.some((o) => o.key === 'ground')) return 'Ground';
-  return options.map((o) => o.label).join(' or ');
+  const labels = editionOptions(edition)
+    .map((o) => o.label)
+    .filter(Boolean);
+  return labels.length > 0 ? labels.join(' or ') : null;
 }
 
-/** The format across a group of editions, e.g. "Ground". */
+/** The formats across a group of editions, e.g. "Ground or Whole Bean". */
 export function editionsFormatLabel(editions) {
-  const labels = [...new Set((editions || []).map(editionFormatLabel))];
-  return labels.length === 0 ? 'Ground' : labels.join(' or ');
+  const labels = [];
+  for (const edition of editions || []) {
+    for (const option of editionOptions(edition)) {
+      if (option.label && !labels.includes(option.label)) labels.push(option.label);
+    }
+  }
+  return labels.length > 0 ? labels.join(' or ') : null;
 }
 
 export function purchasableOptions(edition) {

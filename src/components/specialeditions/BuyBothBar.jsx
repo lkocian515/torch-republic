@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingBag } from 'lucide-react';
 import { optionState, defaultOption, findOption, formatMoney } from '@/lib/specialEditions';
+import { FREE_SHIPPING_THRESHOLD, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 /**
  * "Buy both" for a campaign collection.
@@ -17,9 +18,20 @@ export default function BuyBothBar({ editions = [], selections = {}, onAdd }) {
 
   const ready = editions.length > 1 && resolved.every((entry) => entry.state.purchasable);
   const currency = resolved.find((entry) => entry.state.currency)?.state.currency || 'USD';
-  const combined = ready
-    ? formatMoney(resolved.reduce((sum, entry) => sum + Number(entry.state.price || 0), 0), currency)
+  const combinedValue = ready
+    ? resolved.reduce((sum, entry) => sum + Number(entry.state.price || 0), 0)
     : null;
+  const combined = combinedValue === null ? null : formatMoney(combinedValue, currency);
+
+  // The real requirement is stated before checkout: whether this exact total
+  // reaches the store's advertised free-shipping threshold, or how far short it
+  // falls. No shipping promise is made beyond that.
+  const shippingNote =
+    combinedValue === null
+      ? null
+      : combinedValue >= FREE_SHIPPING_THRESHOLD
+      ? `This total qualifies for free standard shipping (${FREE_SHIPPING_THRESHOLD_DISPLAY}).`
+      : `${formatMoney(FREE_SHIPPING_THRESHOLD - combinedValue, currency)} more reaches the ${FREE_SHIPPING_THRESHOLD_DISPLAY} free-shipping threshold. Shipping is calculated at checkout.`;
 
   return (
     <div
@@ -38,6 +50,11 @@ export default function BuyBothBar({ editions = [], selections = {}, onAdd }) {
             ? `Both selections, added together: ${combined}`
             : 'Buying both unlocks once both selections are available.'}
         </p>
+        {shippingNote && (
+          <p className="mt-1 body" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>
+            {shippingNote}
+          </p>
+        )}
       </div>
 
       <button

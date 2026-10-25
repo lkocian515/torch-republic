@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { pickFeaturedCampaign, editionsInCollection, editionState, collectionPath } from '@/lib/specialEditions';
+import { pickFeaturedCampaign, editionsInCollection, editionState, editionsFormatLabel, collectionPath } from '@/lib/specialEditions';
 
 // 941 x 1672. The framed "shop at torchrepublic.com" panel runs from 86.7% of the
 // height down, so the artwork is shown at 941 x 1429 to clip that panel off.
@@ -29,6 +29,7 @@ export default function ShopDuoBanner() {
   if (!campaign) return null;
 
   const items = editionsInCollection(editions, campaign.collection_slug);
+  const bannerFormat = editionsFormatLabel(items);
   const isLive = items.some((edition) => editionState(edition).state === 'available');
   const href = campaign.collection_slug ? collectionPath(campaign.collection_slug) : '/special-editions';
   const ctaLabel = isLive
@@ -61,12 +62,16 @@ export default function ShopDuoBanner() {
         </p>
       )}
 
-      <p
-        className="mx-auto max-w-[640px] px-6 pt-6 text-center font-mono uppercase"
-        style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700 }}
-      >
-        Ground &middot; brewed, not instant
-      </p>
+      {/* Formats come from the collection's own editions, so the banner can never
+          advertise a grind the products do not actually sell. */}
+      {bannerFormat && (
+        <p
+          className="mx-auto max-w-[640px] px-6 pt-6 text-center font-mono uppercase"
+          style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700 }}
+        >
+          {bannerFormat} &middot; brewed, not instant
+        </p>
+      )}
 
       <div className="flex justify-center px-6 pb-10 pt-8">
         <Link

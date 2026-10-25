@@ -82,9 +82,11 @@ export default function EditionHero() {
               textWrap: 'balance',
             }}
           />
-          <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1rem 0 0' }}>
-            {editionsFormatLabel(items)} &middot; brewed, not instant
-          </p>
+          {editionsFormatLabel(items) && (
+            <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1rem 0 0' }}>
+              {editionsFormatLabel(items)} &middot; brewed, not instant
+            </p>
+          )}
         </div>
 
         {/* The artwork promotes both editions, so the campaign's availability line is

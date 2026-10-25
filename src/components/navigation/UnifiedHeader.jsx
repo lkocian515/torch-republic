@@ -96,24 +96,36 @@ export default function UnifiedHeader() {
         transition: 'background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
         color: colors.text,
       }}>
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-8">
-          {!isRoot && (
-            <button onClick={() => navigate(-1)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Go back" style={{ borderRadius: '4px' }}>
-              <ArrowLeft className="h-6 w-6" style={{ color: colors.text }} />
+        {/* Three columns on mobile (leading controls / wordmark / actions) so the
+            logo stays centred and the row can never overflow a narrow screen. */}
+        <div className="mx-auto grid max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center gap-1 px-3 py-3 sm:gap-2 sm:px-4 md:flex md:justify-between md:px-8">
+          {/* Mobile leading controls — grouped so they count as a single item */}
+          <div className="flex min-w-0 items-center md:hidden">
+            {!isRoot && (
+              <button onClick={() => navigate(-1)} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Go back" style={{ borderRadius: '4px' }}>
+                <ArrowLeft className="h-6 w-6" style={{ color: colors.text }} />
+              </button>
+            )}
+            <button onClick={() => setOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Open navigation menu" aria-expanded={open} style={{ borderRadius: '4px' }}>
+              <Menu className="h-6 w-6" />
             </button>
-          )}
-          <button onClick={() => setOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Open navigation menu" aria-expanded={open} style={{ borderRadius: '4px' }}>
-            <Menu className="h-6 w-6" />
-          </button>
-          <Link to="/" className="flex items-center" aria-label="Torch Republic home">
-            <img src={BRAND_LOGO} alt="Torch Republic Coffee Company" width="220" height="72" className="h-10 w-auto max-w-[125px] sm:max-w-none sm:h-12 object-contain lg:h-14" />
+          </div>
+          <Link to="/" className="flex min-w-0 items-center justify-center" aria-label="Torch Republic home">
+            <img
+              src={BRAND_LOGO}
+              alt="Torch Republic Coffee Company"
+              width="220"
+              height="72"
+              className="h-9 w-auto object-contain sm:h-12 lg:h-14"
+              style={{ maxWidth: 'clamp(88px, 30vw, 190px)' }}
+            />
           </Link>
           <nav className="hidden items-center gap-5 md:ml-6 lg:ml-10 lg:gap-7 md:flex" aria-label="Primary navigation">
             {SECTIONS.map(({ label, items, to }) => (
               <NavDropdown key={label} label={label} items={items} to={to} active={isActive(to)} colors={colors} />
             ))}
           </nav>
-          <div className="flex items-center gap-1 md:gap-2">
+          <div className="flex min-w-0 items-center justify-end gap-1 md:gap-2">
             <button type="button" onClick={() => setSearchOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Search site" style={{ borderRadius: '4px' }}>
               <Search className="h-5 w-5" style={{ color: colors.text }} />
             </button>

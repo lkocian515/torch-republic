@@ -126,7 +126,7 @@ export default function DriftProductCard({
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
           {disabled ? (
             <Link to={path} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={btnStyle}>
-              View Product
+              Coming Soon
             </Link>
           ) : (
             <button
@@ -147,17 +147,21 @@ export default function DriftProductCard({
           )}
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-1" style={{ borderTop: `1px solid ${D.rule}`, paddingTop: '0.75rem' }}>
-          <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
-            <Truck size={13} style={{ color: D.terracotta }} /> Free shipping {FREE_SHIPPING_THRESHOLD_DISPLAY}
-          </span>
-          <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
-            <RotateCcw size={13} style={{ color: D.terracotta }} /> {GUARANTEE_DISPLAY}
-          </span>
-          <span style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
-            {SHIP_TIME_DISPLAY}
-          </span>
-        </div>
+        {/* Shipping, returns and delivery promises only apply to something that can
+            actually be ordered, so they stay off an unreleased seasonal coffee. */}
+        {!disabled && (
+          <div className="flex flex-wrap gap-x-4 gap-y-1" style={{ borderTop: `1px solid ${D.rule}`, paddingTop: '0.75rem' }}>
+            <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+              <Truck size={13} style={{ color: D.terracotta }} /> Free shipping {FREE_SHIPPING_THRESHOLD_DISPLAY}
+            </span>
+            <span className="inline-flex items-center gap-1.5" style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+              <RotateCcw size={13} style={{ color: D.terracotta }} /> {GUARANTEE_DISPLAY}
+            </span>
+            <span style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.06em', color: D.secondary }}>
+              {SHIP_TIME_DISPLAY}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

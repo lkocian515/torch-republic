@@ -42,7 +42,8 @@ export default function SpecialEditionProduct() {
     const params = new URLSearchParams(window.location.search);
     return params.get('format') || params.get('grind') || null;
   });
-  const [activeImage, setActiveImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageFailed, setImageFailed] = useState(false);
 
   const edition = editions.find((e) => e.slug === slug) || upcoming.find((e) => e.slug === slug) || null;
   const isUpcoming = isUpcomingEdition(edition);
@@ -52,12 +53,20 @@ export default function SpecialEditionProduct() {
   const state = isUpcoming
     ? { state: 'pending', purchasable: false, label: 'Coming Soon' }
     : optionState(option);
+  const formatLabel = editionFormatLabel(edition);
 
   const primaryImage = option?.image_url || edition?.image_url || null;
+  // The main image is derived, so it is never blank on a direct visit or refresh.
+  const shownImage = selectedImage || primaryImage;
+
+  // A newly selected grind or edition starts from its own main image again.
+  useEffect(() => {
+    setSelectedImage(null);
+  }, [option?.key, primaryImage]);
 
   useEffect(() => {
-    setActiveImage(primaryImage);
-  }, [option?.key, primaryImage]);
+    setImageFailed(false);
+  }, [shownImage]);
 
   const gallery = useMemo(
     () => [primaryImage, ...(edition?.additional_images || []), edition?.lifestyle_image].filter(Boolean),
@@ -139,20 +148,22 @@ export default function SpecialEditionProduct() {
           {/* Gallery */}
           <div>
             <div className="product-image-wrap" style={{ background: '#FFFFFF' }}>
-              {activeImage ? (
+              {shownImage && !imageFailed ? (
                 <img
-                  src={activeImage}
+                  src={shownImage}
                   alt={
-                    activeImage === primaryImage
-                      ? option?.label
-                        ? `${edition.name} - ${option.label}`
-                        : `Torch Republic ${edition.name} seasonal coffee pouch`
-                      : `Torch Republic ${edition.name} coffee pouch styled for the seasonal release`
+                    option?.label
+                      ? `Torch Republic ${edition.name} ${option.label} coffee pouch`
+                      : `Torch Republic ${edition.name} seasonal coffee pouch`
                   }
+                  onError={() => setImageFailed(true)}
                 />
               ) : (
-                <div className="flex flex-col items-center justify-center text-center" style={{ padding: '2rem' }}>
+                <div className="flex flex-col items-center justify-center gap-2 text-center" style={{ padding: '2rem' }}>
                   <span className="font-heading font-semibold">{edition.name}</span>
+                  <span className="font-mono uppercase" style={{ fontSize: '10px', letterSpacing: '0.16em', color: 'hsl(var(--muted-foreground))' }}>
+                    Image unavailable
+                  </span>
                 </div>
               )}
             </div>
@@ -163,19 +174,23 @@ export default function SpecialEditionProduct() {
                   <button
                     key={src}
                     type="button"
-                    onClick={() => setActiveImage(src)}
-                    aria-label="View image"
-                    aria-pressed={activeImage === src}
+                    onClick={() => setSelectedImage(src)}
+                    aria-label={`View image ${gallery.indexOf(src) + 1} of ${gallery.length}`}
+                    aria-pressed={shownImage === src}
                     style={{
                       width: 72,
                       height: 72,
-                      border: `1px solid ${activeImage === src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
+                      border: `1px solid ${shownImage === src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
                       borderRadius: 10,
                       overflow: 'hidden',
                       background: '#FFFFFF',
                     }}
                   >
-                    <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    <img
+                      src={src}
+                      alt={`Torch Republic ${edition.name} alternate view`}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
                   </button>
                 ))}
               </div>
@@ -191,11 +206,13 @@ export default function SpecialEditionProduct() {
 
             <h1 className="h1 mt-4">{edition.name}</h1>
 
-            {/* Special editions are brewed coffee — stated here so the format is
-                never something the customer has to work out. */}
-            <p className="mt-2 font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.16em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
-              {editionFormatLabel(edition)} &middot; brewed, not instant
-            </p>
+            {/* The format is read from the edition's own options, so it always
+                matches the grind selector below it. */}
+            {formatLabel && (
+              <p className="mt-2 font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.16em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
+                {formatLabel} &middot; brewed, not instant
+              </p>
+            )}
 
             {edition.short_description && <p className="body-lg mt-3">{edition.short_description}</p>}
 
@@ -217,7 +234,7 @@ export default function SpecialEditionProduct() {
               )}
               {edition.release_month && (
                 <div className="flex gap-2">
-                  <dt>Release</dt>
+                  <dt>Planned</dt>
                   <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.release_month}</dd>
                 </div>
               )}
@@ -309,7 +326,7 @@ export default function SpecialEditionProduct() {
             <div className="mt-6 overflow-hidden" style={{ borderRadius: 12 }}>
               <img
                 src={edition.lifestyle_image}
-                alt={`Torch Republic ${edition.name} coffee pouch styled for the seasonal release`}
+                alt={`Torch Republic ${edition.name} coffee lifestyle photo`}
                 className="w-full"
                 style={{ display: 'block', height: 'auto' }}
                 loading="lazy"

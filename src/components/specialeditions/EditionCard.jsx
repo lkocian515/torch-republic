@@ -19,6 +19,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
     : `Torch Republic ${edition.name} seasonal coffee pouch`;
   const price = state.purchasable ? formatMoney(state.price, state.currency) : null;
   const showSelector = (edition.options || []).length > 1 && typeof onSelectOption === 'function';
+  const formatLabel = editionFormatLabel(edition);
 
   return (
     <article className="card-torch flex h-full flex-col overflow-hidden">
@@ -47,11 +48,13 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
           {edition.name}
         </h3>
 
-        {/* Every special edition is brewed coffee, so the format is stated on the
-            card rather than left to the product page. */}
-        <p className="mt-2 text-center font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.14em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
-          {editionFormatLabel(edition)} &middot; brewed, not instant
-        </p>
+        {/* The format is read from the edition's own options, so it always matches
+            the grind selector below. An unreleased coffee has none yet. */}
+        {formatLabel && (
+          <p className="mt-2 text-center font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.14em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
+            {formatLabel} &middot; brewed, not instant
+          </p>
+        )}
 
         {edition.short_description && (
           <p className="mt-2 body" style={{ color: 'hsl(var(--muted-foreground))', fontSize: '0.9375rem' }}>
@@ -74,7 +77,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
           )}
           {edition.release_month && (
             <div className="flex gap-2">
-              <dt>Release</dt>
+              <dt>Planned</dt>
               <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.release_month}</dd>
             </div>
           )}
