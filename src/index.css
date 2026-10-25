@@ -439,6 +439,8 @@ button, a, [role="button"], nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  white-space: nowrap;
   gap: 0.5rem;
   min-height: 44px;
   padding: 0.625rem 1.5rem;
@@ -452,6 +454,14 @@ button, a, [role="button"], nav {
   text-decoration: none;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
+/* Every custom CTA (anchors/buttons built with flex centering, whether or not
+   they use .btn) keeps its label centered on a single line. */
+a[class*="justify-center"],
+button[class*="justify-center"] {
+  text-align: center;
+  white-space: nowrap;
+}
+
 .btn:disabled { opacity: 0.55; cursor: not-allowed; }
 .btn-primary { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 .btn-primary:hover { background: hsl(17 46% 43%); }
