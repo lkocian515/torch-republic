@@ -130,6 +130,17 @@ export default function RitualReviewHighlights() {
             Read All Reviews <ArrowRight size={16} />
           </Link>
         </div>
+
+        {/* Small feedback invitation */}
+        <div className="mt-4 text-center">
+          <Link
+            to="/reviews"
+            className="btn btn-ghost inline-flex items-center gap-1.5"
+            style={{ minHeight: 38, padding: '0 1.15rem', fontSize: '0.8rem' }}
+          >
+            Share your feedback <ArrowRight size={13} />
+          </Link>
+        </div>
       </div>
     </section>
   );
