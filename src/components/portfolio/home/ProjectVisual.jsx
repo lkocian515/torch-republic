@@ -1,17 +1,17 @@
 import React from 'react';
 import OrbitalField from '../OrbitalField';
 import ScreenshotSlot from '../ScreenshotSlot';
-import { TORCH_SHOTS, LUKES_LIGHT_IMAGE } from '../portfolioTheme';
+import { TORCH_PRODUCT_IMAGE, LUKES_LIGHT_IMAGE } from '../portfolioTheme';
 
-// One presentation frame for both projects, so the two live sites read as a
-// matched pair: same panel, same proportion, same caption treatment. Both
-// images are real assets from the site they represent.
+// One presentation frame for both projects, so the two sites read as a matched
+// pair: same panel, same proportion, same caption treatment. Both images are
+// real assets from the brand they represent.
 const SHOTS = {
   torch: {
-    src: TORCH_SHOTS.ritual,
-    alt: 'Torch Republic Coffee Company mobile storefront: the lifestyle section, with a hiker resting at sunrise beside a pouch of coffee under the heading "Your cup in nature, before the trail begins".',
+    src: TORCH_PRODUCT_IMAGE,
+    alt: 'Torch Republic Coffee Company: two resealable pouches, Instant Classic Coffee and Instant Coffee with Mushrooms, standing on a marble kitchen counter beside two mugs, a bowl of roasted beans, and fresh mushrooms.',
     caption: 'torchrepublic.com',
-    objectPosition: 'top center',
+    objectPosition: 'center',
   },
   lukes: {
     src: LUKES_LIGHT_IMAGE,

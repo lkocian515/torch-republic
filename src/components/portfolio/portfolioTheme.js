@@ -47,6 +47,11 @@ export const TORCH_SHOTS = {
   ingredients: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg',
 };
 
+// Torch Republic's own product photography: the Instant Classic Coffee and
+// Instant Coffee with Mushrooms pouches. Used to present the project itself,
+// as distinct from the application captures above.
+export const TORCH_PRODUCT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a3b1aca53_torch-republic-duo-lifestyle-1600.png';
+
 // Luke's Light's own published artwork, copied into this app's media library
 // so the portfolio does not depend on another app's storage.
 export const LUKES_LIGHT_IMAGE = 'https://base44.app/api/apps/69afc77e4c80e5e88ca6e3ec/files/mp/public/69afc77e4c80e5e88ca6e3ec/6b6586cbc_lukes-light-lighthouse.png';
