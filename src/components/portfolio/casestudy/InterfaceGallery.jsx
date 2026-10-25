@@ -9,39 +9,18 @@ import ScreenshotSlot from '../ScreenshotSlot';
 // same view, and keep the caption accurate to what is visible.
 
 const LEAD = {
-  src: TORCH_SHOTS.home,
-  alt: 'Torch Republic mobile homepage: utility bar, brand header, hero with three product pouches, the brand promise, and the two shop calls to action.',
-  caption: 'Homepage',
+  src: TORCH_SHOTS.ritual,
+  alt: 'Torch Republic mobile storefront: the lifestyle section, showing a hiker resting at sunrise beside a pouch of coffee under the heading "Your cup in nature, before the trail begins".',
+  caption: 'Lifestyle section',
   aspectRatio: '9 / 16',
   objectPosition: 'top center',
 };
 
 const GALLERY = [
   {
-    src: TORCH_SHOTS.classic,
-    alt: 'Instant Classic Coffee product card with pricing and add-to-cart actions.',
-    caption: 'Product card — Instant Classic Coffee',
-    aspectRatio: '9 / 16',
-    objectPosition: 'top center',
-  },
-  {
-    src: TORCH_SHOTS.mushroom,
-    alt: 'Instant Mushroom Coffee product card with pricing and add-to-cart actions.',
-    caption: 'Product card — Instant Mushroom Coffee',
-    aspectRatio: '9 / 16',
-    objectPosition: 'top center',
-  },
-  {
-    src: TORCH_SHOTS.benefits,
-    alt: 'Benefit grid describing clean ingredients, sustained energy, focus and clarity, and immune support.',
-    caption: 'Benefit grid',
-    aspectRatio: '9 / 16',
-    objectPosition: 'top center',
-  },
-  {
-    src: TORCH_SHOTS.lifestyle,
-    alt: 'Lifestyle section showing the daily ritual in an outdoor mountain setting.',
-    caption: 'Lifestyle section',
+    src: TORCH_SHOTS.ingredients,
+    alt: 'Feature grid titled "Real ingredients. No machine. No plastic." with four cards: natural ingredients, no plastic waste, no machine needed, and made for on the go.',
+    caption: 'Ingredients and convenience',
     aspectRatio: '9 / 16',
     objectPosition: 'top center',
   },
@@ -89,7 +68,7 @@ export default function InterfaceGallery() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+        <div className="grid grid-cols-2 gap-4 md:gap-5">
           {GALLERY.map((s) => (
             <ScreenshotSlot
               key={s.src}

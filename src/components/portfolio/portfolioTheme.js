@@ -38,13 +38,13 @@ export const RESUME_URL = `mailto:${CONTACT_EMAIL}?subject=R%C3%A9sum%C3%A9%20re
 // Brand assets for the project visuals. Real marks and real captures only.
 export const TORCH_LOGO = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e723899d_logo.png';
 
-// Real mobile captures of the live Torch Republic storefront.
+// Real mobile captures of the live Torch Republic storefront. Only captures
+// verified against the current store belong here. The September 2026 hero and
+// product-card captures were retired: Ceremonial Matcha has since left the
+// lineup, the hero was redesigned, and both coffee prices changed.
 export const TORCH_SHOTS = {
-  home: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg',
-  classic: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg',
-  mushroom: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg',
-  benefits: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg',
-  lifestyle: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg',
+  ritual: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg',
+  ingredients: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg',
 };
 
 // Luke's Light's own published artwork, copied into this app's media library

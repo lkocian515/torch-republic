@@ -8,8 +8,8 @@ import { TORCH_SHOTS, LUKES_LIGHT_IMAGE } from '../portfolioTheme';
 // images are real assets from the site they represent.
 const SHOTS = {
   torch: {
-    src: TORCH_SHOTS.home,
-    alt: 'Torch Republic Coffee Company mobile storefront: the utility bar, the brand header, the hero with three product pouches, and the shop calls to action.',
+    src: TORCH_SHOTS.ritual,
+    alt: 'Torch Republic Coffee Company mobile storefront: the lifestyle section, with a hiker resting at sunrise beside a pouch of coffee under the heading "Your cup in nature, before the trail begins".',
     caption: 'torchrepublic.com',
     objectPosition: 'top center',
   },
