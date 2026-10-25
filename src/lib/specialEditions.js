@@ -91,7 +91,19 @@ export function findOption(edition, key) {
   return editionOptions(edition).find((o) => o.key === key) || null;
 }
 
+/**
+ * An upcoming release is announced but not yet produced. It is never
+ * purchasable and never carries an unconfirmed price, format or stock state.
+ */
+export function isUpcomingEdition(edition) {
+  return edition?.status === 'coming_soon';
+}
+
+export const COMING_SOON_COPY =
+  'This seasonal release is in preparation. Product details and ordering will be available after production and Shopify setup are complete.';
+
 export function editionState(edition) {
+  if (isUpcomingEdition(edition)) return { state: 'pending', label: 'Coming Soon' };
   const options = editionOptions(edition);
   if (options.length === 0) return { state: 'pending', label: 'Coming soon' };
   if (options.some((o) => optionState(o).purchasable)) return { state: 'available', label: 'Available' };

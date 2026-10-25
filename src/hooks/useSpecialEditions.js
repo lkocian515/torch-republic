@@ -21,8 +21,13 @@ export default function useSpecialEditions() {
     };
   }, []);
 
+  const all = data?.editions || [];
+
   return {
-    editions: data?.editions || [],
+    // Upcoming releases never enter the purchasable catalog. Only the
+    // dedicated preview sections read them.
+    editions: all.filter((edition) => edition.status !== 'coming_soon'),
+    upcoming: all.filter((edition) => edition.status === 'coming_soon'),
     campaigns: data?.campaigns || [],
     shopifyError: data?.shopifyError || null,
     loading,

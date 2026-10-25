@@ -59,6 +59,18 @@
       "default": false,
       "description": "True only for instant products (just add water)"
     },
+    "image_url": {
+      "type": "string",
+      "description": "Primary product photo. Used by editions that have no purchasable options yet, such as an upcoming release."
+    },
+    "lifestyle_image": {
+      "type": "string",
+      "description": "Lifestyle photo. Appears as the second gallery image and in the page's lifestyle section."
+    },
+    "release_month": {
+      "type": "string",
+      "description": "Planned release month shown on coming-soon previews (e.g. August 2027). Leave empty once the release is live."
+    },
     "options": {
       "type": "array",
       "items": {
@@ -104,7 +116,7 @@
           }
         }
       },
-      "description": "Purchasable options (grind/format). Each is approved and mapped separately."
+      "description": "Purchasable options (grind/format). Each is approved and mapped separately. An upcoming release has none."
     },
     "additional_images": {
       "type": "array",
@@ -122,11 +134,12 @@
       "type": "string",
       "enum": [
         "draft",
+        "coming_soon",
         "active",
         "archived"
       ],
       "default": "draft",
-      "description": "Only active editions appear on the storefront"
+      "description": "Only active editions appear in the purchasable storefront. coming_soon editions appear as previews only, with no purchase controls."
     },
     "seo_title": {
       "type": "string"

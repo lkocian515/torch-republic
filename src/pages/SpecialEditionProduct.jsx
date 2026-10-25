@@ -12,6 +12,8 @@ import {
   editionsInCollection,
   toCartProduct,
   purchasableOptions,
+  isUpcomingEdition,
+  COMING_SOON_COPY,
 } from '@/lib/specialEditions';
 import EditionStatusChip from '@/components/specialeditions/EditionStatusChip';
 import GrindSelector from '@/components/specialeditions/GrindSelector';
@@ -32,7 +34,7 @@ const STOCK_NOTE = {
  */
 export default function SpecialEditionProduct() {
   const { slug } = useParams();
-  const { editions, loading } = useSpecialEditions();
+  const { editions, upcoming, loading } = useSpecialEditions();
   const { addItem } = useCart();
 
   const [optionKey, setOptionKey] = useState(() => {
@@ -41,21 +43,30 @@ export default function SpecialEditionProduct() {
   });
   const [activeImage, setActiveImage] = useState(null);
 
-  const edition = editions.find((e) => e.slug === slug) || null;
+  const edition = editions.find((e) => e.slug === slug) || upcoming.find((e) => e.slug === slug) || null;
+  const isUpcoming = isUpcomingEdition(edition);
   const option = edition ? findOption(edition, optionKey) || defaultOption(edition) : null;
-  const state = optionState(option);
+  // An upcoming release has no purchasable option, no confirmed price and no
+  // confirmed format, so it never renders a purchase control.
+  const state = isUpcoming
+    ? { state: 'pending', purchasable: false, label: 'Coming Soon' }
+    : optionState(option);
+
+  const primaryImage = option?.image_url || edition?.image_url || null;
 
   useEffect(() => {
-    setActiveImage(option?.image_url || null);
-  }, [option?.key, option?.image_url]);
+    setActiveImage(primaryImage);
+  }, [option?.key, primaryImage]);
 
   const gallery = useMemo(
-    () => [option?.image_url, ...(edition?.additional_images || [])].filter(Boolean),
-    [option?.image_url, edition?.additional_images],
+    () => [primaryImage, ...(edition?.additional_images || []), edition?.lifestyle_image].filter(Boolean),
+    [primaryImage, edition?.additional_images, edition?.lifestyle_image],
   );
 
   const related = useMemo(() => {
-    if (!edition) return [];
+    // An upcoming release belongs to no collection yet, so it has no siblings
+    // to link to.
+    if (!edition || isUpcomingEdition(edition)) return [];
     const primary = (edition.collections || [])[0];
     return editionsInCollection(editions, primary).filter((e) => e.slug !== edition.slug);
   }, [editions, edition]);
@@ -128,7 +139,16 @@ export default function SpecialEditionProduct() {
           <div>
             <div className="product-image-wrap" style={{ background: '#FFFFFF' }}>
               {activeImage ? (
-                <img src={activeImage} alt={`${edition.name} - ${option?.label || ''}`} />
+                <img
+                  src={activeImage}
+                  alt={
+                    activeImage === primaryImage
+                      ? option?.label
+                        ? `${edition.name} - ${option.label}`
+                        : `Torch Republic ${edition.name} seasonal coffee pouch`
+                      : `Torch Republic ${edition.name} coffee pouch styled for the seasonal release`
+                  }
+                />
               ) : (
                 <div className="flex flex-col items-center justify-center text-center" style={{ padding: '2rem' }}>
                   <span className="font-heading font-semibold">{edition.name}</span>
@@ -188,6 +208,12 @@ export default function SpecialEditionProduct() {
                   <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.size}</dd>
                 </div>
               )}
+              {edition.release_month && (
+                <div className="flex gap-2">
+                  <dt>Release</dt>
+                  <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.release_month}</dd>
+                </div>
+              )}
             </dl>
 
             <p className="mt-6 font-heading font-semibold" style={{ fontSize: '1.5rem' }}>
@@ -214,9 +240,9 @@ export default function SpecialEditionProduct() {
                 Add to Cart
               </button>
             ) : (
-              STOCK_NOTE[state.state] && (
+              (isUpcoming || STOCK_NOTE[state.state]) && (
                 <p className="body mt-6 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
-                  {STOCK_NOTE[state.state]}
+                  {isUpcoming ? COMING_SOON_COPY : STOCK_NOTE[state.state]}
                 </p>
               )
             )}
@@ -245,7 +271,7 @@ export default function SpecialEditionProduct() {
               </div>
             )}
 
-            {edition.requires_brewing && !edition.is_instant && (
+            {!isUpcoming && edition.requires_brewing && !edition.is_instant && (
               <p className="body mt-4 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
                 Brewed coffee, not instant.
               </p>
@@ -261,6 +287,21 @@ export default function SpecialEditionProduct() {
             )}
           </div>
         </div>
+
+        {edition.lifestyle_image && (
+          <section className="mt-16 tr-section-divider pt-10">
+            <h2 className="h2">The Ritual</h2>
+            <div className="mt-6 overflow-hidden" style={{ borderRadius: 12 }}>
+              <img
+                src={edition.lifestyle_image}
+                alt={`Torch Republic ${edition.name} coffee pouch styled for the seasonal release`}
+                className="w-full"
+                style={{ display: 'block', height: 'auto' }}
+                loading="lazy"
+              />
+            </div>
+          </section>
+        )}
 
         {related.length > 0 && (
           <section className="mt-16">

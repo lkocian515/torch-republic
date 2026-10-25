@@ -25,7 +25,12 @@ export default async function (req) {
     const base44 = createClientFromRequest(req);
 
     const [editions, campaigns] = await Promise.all([
-      safePage(base44.entities.SpecialEdition.filter({ status: "active" }, { sort: "display_order", limit: 100 })),
+      safePage(
+        base44.entities.SpecialEdition.filter(
+          { status: { $in: ["active", "coming_soon"] } },
+          { sort: "display_order", limit: 100 },
+        ),
+      ),
       safePage(base44.entities.EditionCampaign.filter({ archived: false }, { sort: "display_order", limit: 50 })),
     ]);
 

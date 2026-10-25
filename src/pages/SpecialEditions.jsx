@@ -4,6 +4,7 @@ import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { useSEO } from '@/hooks/useSEO';
 import { collectionPath } from '@/lib/specialEditions';
 import EditionCard from '@/components/specialeditions/EditionCard';
+import UpcomingReleases from '@/components/specialeditions/UpcomingReleases';
 
 /**
  * Permanent Special Editions destination. Every active special edition lives
@@ -66,6 +67,8 @@ export default function SpecialEditions() {
           Pumpkin Spice is offered as Ground or Whole Bean, subject to availability. Ground is a standard grind and
           needs brewing. Whole Bean needs grinding before brewing.
         </p>
+
+        <UpcomingReleases />
       </div>
     </div>
   );

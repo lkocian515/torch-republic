@@ -5,6 +5,7 @@ import RitualCard from '@/components/products/RitualCard';
 import RitualComparison from '@/components/home/ritual/RitualComparison';
 import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import ShopSpecialEditions from '@/components/specialeditions/ShopSpecialEditions';
+import UpcomingReleases from '@/components/specialeditions/UpcomingReleases';
 import ShopDuoBanner from '@/components/specialeditions/ShopDuoBanner';
 import { useSEO } from '@/hooks/useSEO';
 import { useSearchParams } from 'react-router-dom';
@@ -141,6 +142,9 @@ export default function MushroomShop() {
 
       {/* Special editions follow the everyday catalog. */}
       <ShopSpecialEditions format={activeFormat ? activeFormat.key : null} />
+
+      {/* Upcoming releases preview — previews only, no purchase controls. */}
+      <UpcomingReleases variant="shop" format={activeFormat ? activeFormat.key : null} />
 
       {/* Free gift with purchase */}
       <FreeGiftBanner />
