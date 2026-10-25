@@ -4,10 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { pickFeaturedCampaign, editionsInCollection, editionState, editionsFormatLabel, collectionPath } from '@/lib/specialEditions';
 
-// 941 x 1672. The framed "shop at torchrepublic.com" panel runs from 86.7% of the
-// height down, so the artwork is shown at 941 x 1429 to clip that panel off.
-const ART = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/04f8c2f90_file_00000000c1d4822fac0f0a987a0bc722.png';
-const ART_RATIO = '941 / 1429';
+// 1254 x 1254 seasonal artwork, shown whole at its own square ratio.
+const ART = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1faec6950_file_0000000067a0820d99981f5d62fc96af.png';
+const ART_RATIO = '1 / 1';
 
 /**
  * Seasonal banner at the top of the shop page.
@@ -47,7 +46,7 @@ export default function ShopDuoBanner() {
           <img
             src={ART}
             alt={`${campaign.name} special edition`}
-            className="block h-full w-full object-cover object-top"
+            className="block h-full w-full object-cover"
             fetchPriority="high"
           />
         </div>
