@@ -10,9 +10,9 @@ import TiltContainer from './TiltContainer';
  * The homepage product card, shared by the everyday lineup and the upcoming
  * seasonal releases so both grids are styled identically.
  *
- * A product with no confirmed price renders "Price confirmed at launch" in the
- * price slot, and `disabled` turns the cart button into a non-purchasable
- * "Coming Soon" state.
+ * `disabled` marks a product that isn't purchasable yet: its cart button
+ * becomes a "View Product" link to the product page, where the Coming Soon
+ * state is shown.
  */
 export default function DriftProductCard({
   eyebrow,
@@ -31,7 +31,20 @@ export default function DriftProductCard({
   isAdding = false,
 }) {
   const perServing = price != null && servings ? (price / servings).toFixed(2) : null;
-  const blocked = disabled || isAdding;
+
+  // A product that isn't purchasable yet links out to its page instead of adding to the cart.
+  const btnStyle = {
+    minHeight: 48,
+    padding: '0 1.75rem',
+    borderRadius: '6px',
+    background: D.espresso,
+    color: D.cream,
+    fontFamily: SANS,
+    fontWeight: 600,
+    fontSize: '0.875rem',
+    border: 'none',
+    boxShadow: '0 3px 10px rgba(36,26,22,0.12)',
+  };
 
   return (
     <div className="pd-card flex flex-col" style={{ minWidth: 0, perspective: '1000px' }}>
@@ -88,45 +101,40 @@ export default function DriftProductCard({
           </div>
         )}
 
-        <div className="flex items-baseline gap-3 mb-1">
-          {price != null ? (
-            <>
-              <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', color: D.ink }}>{formatPrice(price)}</span>
-              <span style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary }}>{servings} servings</span>
-              <span style={{ fontFamily: MONO, fontSize: '0.75rem', color: D.terracotta }}>= ${perServing} per cup</span>
-            </>
-          ) : (
-            <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: '1rem', color: D.secondary }}>Price confirmed at launch</span>
-          )}
-        </div>
+        {price != null && (
+          <div className="flex items-baseline gap-3 mb-1">
+            <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', color: D.ink }}>{formatPrice(price)}</span>
+            {servings ? (
+              <>
+                <span style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary }}>{servings} servings</span>
+                <span style={{ fontFamily: MONO, fontSize: '0.75rem', color: D.terracotta }}>= ${perServing} per cup</span>
+              </>
+            ) : null}
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
-          <button
-            type="button"
-            onClick={disabled ? undefined : onAdd}
-            disabled={blocked}
-            className="group tr-btn-lift inline-flex items-center justify-center gap-2"
-            style={{
-              minHeight: 48,
-              padding: '0 1.75rem',
-              borderRadius: '6px',
-              background: D.espresso,
-              color: D.cream,
-              fontFamily: SANS,
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              border: 'none',
-              cursor: blocked ? 'not-allowed' : 'pointer',
-              opacity: blocked ? 0.6 : 1,
-              boxShadow: '0 3px 10px rgba(36,26,22,0.12)',
-            }}
-          >
-            {disabled ? 'Coming Soon' : 'Add to Cart'}
-          </button>
+          {disabled ? (
+            <Link to={path} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={btnStyle}>
+              View Product
+            </Link>
+          ) : (
+            <button
+              type="button"
+              onClick={onAdd}
+              disabled={isAdding}
+              className="group tr-btn-lift inline-flex items-center justify-center gap-2"
+              style={{ ...btnStyle, cursor: isAdding ? 'not-allowed' : 'pointer', opacity: isAdding ? 0.6 : 1 }}
+            >
+              Add to Cart
+            </button>
+          )}
 
-          <Link to={path} className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: D.espresso, textDecoration: 'none' }}>
-            View Details <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
+          {!disabled && (
+            <Link to={path} className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: D.espresso, textDecoration: 'none' }}>
+              View Details <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-x-4 gap-y-1" style={{ borderTop: `1px solid ${D.rule}`, paddingTop: '0.75rem' }}>

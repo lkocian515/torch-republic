@@ -1,16 +1,21 @@
 import React from 'react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { editionPath } from '@/lib/specialEditions';
+import { PRICES } from '@/lib/pricingConfig';
 import { D } from './driftTheme';
 import useProductCardMotion from './useProductCardMotion';
 import DriftProductCard from './DriftProductCard';
+
+// Seasonal releases are priced with the seasonal coffee price.
+const SEASONAL_PRICE = PRICES['pumpkin-spice'];
 
 /**
  * Upcoming seasonal releases, shown in the same product card as the everyday
  * lineup above the classic and mushroom coffee.
  *
- * These are announced but not produced, so purchasing stays disabled: the cart
- * button reads "Coming Soon" and does nothing until the release is live.
+ * These are announced but not produced, so purchasing stays disabled: the card
+ * shows the price and a "View Product" link, and the product page carries the
+ * Coming Soon state until the release is live.
  */
 export default function DriftUpcomingReleases() {
   const { upcoming, loading } = useSpecialEditions();
@@ -32,6 +37,7 @@ export default function DriftUpcomingReleases() {
               alt={`Torch Republic ${edition.name} seasonal coffee pouch`}
               path={editionPath(edition)}
               ritualSoft={D.accentSoft}
+              price={SEASONAL_PRICE}
               disabled
             />
           ))}
