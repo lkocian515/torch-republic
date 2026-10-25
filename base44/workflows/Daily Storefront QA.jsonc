@@ -1,0 +1,44 @@
+{
+  "name": "Daily Storefront QA",
+  "description": "Runs the daily storefront smoke test at 8:00am America/Chicago and emails the report to the app's admins",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 8 * * *",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "daily_storefront_qa",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_daily_qa": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "dailyStorefrontQA"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Run the daily storefront check",
+            "description": "Checks the shopping path and emails the report"
+          }
+        }
+      }
+    ]
+  }
+}
