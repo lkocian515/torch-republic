@@ -68,18 +68,45 @@ export default function NightSkyBackdrop() {
         </svg>
       ))}
 
-      <div
+      {/* Crescent moon — bright gold edge over a faint earthshine orb */}
+      <svg
+        viewBox="0 0 64 64"
         style={{
           position: 'absolute',
           top: '7%',
           right: '7%',
-          width: 52,
-          height: 52,
-          borderRadius: '50%',
-          background: `radial-gradient(circle at 38% 35%, ${goldLight} 0%, ${gold} 62%, rgba(217,160,74,0.18) 100%)`,
-          boxShadow: '0 0 40px rgba(244,196,120,0.35)',
+          width: 56,
+          height: 56,
+          filter: 'drop-shadow(0 0 22px rgba(251,192,93,0.45))',
         }}
-      />
+      >
+        <defs>
+          <clipPath id="moonCrescent">
+            <path d="M32 6 A26 26 0 0 1 32 58 A28.4 28.4 0 0 1 32 6 Z" />
+          </clipPath>
+          <radialGradient id="moonEarthshine" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#1B3A5A" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#1B3A5A" stopOpacity="0.22" />
+          </radialGradient>
+          <linearGradient id="moonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#F8D99E" />
+            <stop offset="100%" stopColor="#FBC05D" />
+          </linearGradient>
+        </defs>
+
+        {/* Earthshine — the faint, dark remainder of the orb */}
+        <circle cx="32" cy="32" r="26" fill="url(#moonEarthshine)" />
+
+        {/* The lit crescent */}
+        <path d="M32 6 A26 26 0 0 1 32 58 A28.4 28.4 0 0 1 32 6 Z" fill="url(#moonGlow)" />
+
+        {/* Mottled surface texture, clipped to the crescent */}
+        <g clipPath="url(#moonCrescent)" opacity="0.35">
+          <ellipse cx="52" cy="22" rx="6" ry="4.5" fill="#D89A4A" />
+          <ellipse cx="50" cy="42" rx="5" ry="6" fill="#D89A4A" />
+          <ellipse cx="56" cy="33" rx="4" ry="3" fill="#E8B76E" />
+        </g>
+      </svg>
 
       <svg
         viewBox="0 0 400 70"
