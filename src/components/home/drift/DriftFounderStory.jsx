@@ -13,7 +13,7 @@ export default function DriftFounderStory() {
             Founded in Corpus Christi, Texas
           </p>
           <blockquote style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', lineHeight: 1.3, color: D.ink, margin: '0 0 2rem', textWrap: 'balance' }}>
-            &ldquo;I wanted a morning ritual that removed friction, not added it. No machine, no pods &mdash; just a better cup, made intentionally.&rdquo;
+            &ldquo;I wanted a good cup in the morning without buying another machine. That was the whole idea.&rdquo;
           </blockquote>
           <Link
             to="/our-story"

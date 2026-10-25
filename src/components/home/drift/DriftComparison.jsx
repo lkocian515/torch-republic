@@ -122,12 +122,12 @@ export default function DriftComparison() {
     <section id="comparison" ref={scope} style={{ background: D.cream, scrollMarginTop: '80px' }}>
       <div className="mx-auto max-w-[1080px] px-6 py-16 md:py-24">
         {/* ═══ Header ═══ */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="mb-12 md:mb-16">
           <p className="cmp-eyebrow" style={{ ...labelStyle, fontSize: '0.7rem', letterSpacing: '0.28em', margin: '0 0 1rem' }}>
-            Which One&rsquo;s Your Morning?
+            Side by Side
           </p>
           <h2 className="cmp-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>
-            Same simplicity.<br />Different ritual.
+            What actually differs between them
           </h2>
         </div>
 

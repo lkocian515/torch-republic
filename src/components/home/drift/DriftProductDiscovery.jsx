@@ -15,12 +15,9 @@ export default function DriftProductDiscovery() {
     <section ref={scope} style={{ background: D.paper, scrollMarginTop: '96px' }}>
       <div className="mx-auto max-w-[1200px] px-6 pt-12 pb-14 md:py-20">
         {/* Heading */}
-        <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
-          <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>Find Your Morning</p>
-          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two rituals. One easy morning.</h2>
-          <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: D.terracottaDeep, margin: '1rem 0 0' }}>
-            Instant Coffee
-          </p>
+        <div className="mb-10 md:mb-14 max-w-2xl">
+          <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>The Lineup</p>
+          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two coffees, and neither one needs a machine.</h2>
         </div>
 
         {/* Balanced two-column grid — one structure for all breakpoints */}

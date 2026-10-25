@@ -6,32 +6,32 @@ const FRAMEWORKS = [
   {
     num: '01',
     title: 'AI Output Quality & Evaluation',
-    body: 'Output evaluation, accuracy review, consistency, guideline adherence, error identification, hallucination awareness, edge-case thinking, human review, user-impact evaluation.',
+    body: 'Reading AI output the way a user would. Is it accurate, is it consistent, does it follow the brief, and does it hold up at the edges? I flag hallucinations, unsupported claims, and anything that could mislead someone.',
   },
   {
     num: '02',
     title: 'Prompt Iteration & Model Behavior',
-    body: 'Prompt refinement, comparison testing, instruction clarity, output evaluation, failure-pattern identification, systematic iteration, feedback loops.',
+    body: 'Rewriting prompts to remove ambiguity, comparing outputs across versions, and tracing a failure back to the instruction that caused it.',
   },
   {
     num: '03',
     title: 'E-Commerce UX & Conversion QA',
-    body: 'Product discovery, customer journey, navigation, mobile usability, product presentation, cart behavior, checkout friction, conversion thinking, visual QA, information architecture.',
+    body: 'Testing product discovery, navigation, cart, and checkout on real devices, then reporting the friction points that cost a sale.',
   },
   {
     num: '04',
     title: 'AI Workflow Implementation',
-    body: 'Identifying repetitive work, AI-assisted workflows, automation opportunities, content/research workflows, operational efficiency, human-in-the-loop review, implementation testing.',
+    body: 'Finding the repetitive parts of a workflow, deciding which ones AI should handle and which ones a person should, and checking the result either way.',
   },
   {
     num: '05',
     title: 'Systems & Integration Thinking',
-    body: 'Storefront systems, customer data, analytics, AI tools, marketing workflows, product information, user experience, third-party platforms, interconnected processes.',
+    body: 'Looking at how the storefront, product data, analytics, and third-party tools connect, because most defects live in the seams between them.',
   },
   {
     num: '06',
     title: 'Documentation & Continuous Improvement',
-    body: 'Defect identification, reproducible observations, QA documentation, testing notes, before/after comparison, prioritization, troubleshooting, iteration, actionable recommended fixes.',
+    body: 'Writing up a defect so someone else can reproduce it, with the steps, the expected result, the actual result, and a recommended fix.',
   },
 ];
 
@@ -51,8 +51,8 @@ export default function SelectedExpertise() {
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
           eyebrow="Skills"
-          heading="Six capability frameworks"
-          intro="The same iterative evaluation loop applied to both AI-output review and digital-commerce testing."
+          heading="Six areas I work in"
+          intro="The same review loop, run the same way, whether the output is a model response or a checkout flow."
         />
         <div className="grid gap-5 md:grid-cols-2">
           {FRAMEWORKS.map((f) => (

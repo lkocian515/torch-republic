@@ -25,10 +25,10 @@ export default function DriftSubscription() {
     <section ref={scope} className="sub-section" style={{ background: D.espresso, borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="mx-auto max-w-[900px] px-6 py-16 md:py-20 text-center">
         <p className="sub-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
-          Your coffee, your schedule
+          Subscriptions
         </p>
         <h2 className="sub-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.cream, margin: '0 0 1.25rem', textWrap: 'balance' }}>
-          Make your next morning easy.
+          Have it show up before you run out.
         </h2>
         <p className="sub-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: 'rgba(250,247,241,0.75)', margin: '0 0 2rem', maxWidth: '46ch', marginLeft: 'auto', marginRight: 'auto' }}>
           Subscribe to Classic or Mushroom Coffee for delivery every four weeks, or buy once whenever you need a refill. Review your current price and savings on the product page.

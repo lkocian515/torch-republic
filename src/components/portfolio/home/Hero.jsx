@@ -46,21 +46,8 @@ export default function Hero() {
                 overflowWrap: 'break-word',
               }}
             >
-              AI Quality Portfolio
-            </h1>
-
-            <p
-              style={{
-                fontFamily: FONT_SERIF,
-                fontWeight: 700,
-                fontSize: 'clamp(1.2rem, 3vw, 1.6rem)',
-                lineHeight: 1.2,
-                color: P.ink,
-                margin: '0.9rem 0 0.35rem',
-              }}
-            >
               Lisa Marie Kocian
-            </p>
+            </h1>
 
             <p
               style={{
@@ -69,7 +56,7 @@ export default function Hero() {
                 fontSize: 'clamp(0.98rem, 2.2vw, 1.15rem)',
                 lineHeight: 1.45,
                 color: P.accentInk,
-                margin: '0 0 1.5rem',
+                margin: '0.9rem 0 1.5rem',
               }}
             >
               AI Quality Assurance &amp; Content Evaluation Specialist
@@ -85,7 +72,7 @@ export default function Hero() {
                 margin: '0 0 1.25rem',
               }}
             >
-              Evaluating AI output. Improving content quality. Building better digital experiences.
+              I review AI output for accuracy, clarity, and consistency before it reaches real users.
             </p>
 
             <p
@@ -98,9 +85,9 @@ export default function Hero() {
                 maxWidth: '620px',
               }}
             >
-              I work at the intersection of AI quality and content evaluation &mdash; combining AI output
-              evaluation, prompt iteration, content review, and human judgment to identify problems, improve
-              clarity, and build more reliable digital experiences.
+              My work sits between AI output and the person who reads it. I evaluate responses against the
+              brief, test prompts and instructions, review content for accuracy, and document what needs to
+              change in language a team can act on.
             </p>
 
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">

@@ -35,12 +35,13 @@ export default function DriftRitual() {
               The Ritual
             </p>
             <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)', lineHeight: 1.05, color: D.ink, margin: '0 0 1rem' }}>
-              <span className="ritual-word" style={{ display: 'inline-block' }}>Scoop.</span>{' '}
-              <span className="ritual-word" style={{ display: 'inline-block' }}>Stir.</span>{' '}
-              <span className="ritual-word" style={{ display: 'inline-block' }}>Sip.</span>
+              <span className="ritual-word" style={{ display: 'inline-block' }}>Ready</span>{' '}
+              <span className="ritual-word" style={{ display: 'inline-block' }}>before</span>{' '}
+              <span className="ritual-word" style={{ display: 'inline-block' }}>the kettle</span>{' '}
+              <span className="ritual-word" style={{ display: 'inline-block' }}>stops.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.5rem', maxWidth: '40ch' }}>
-              A premium cup in seconds.
+              One scoop, hot water, a quick stir. That is the entire method.
             </p>
             <div className="flex flex-col gap-4 mb-8">
               {STEPS.map((s) => (
@@ -51,7 +52,7 @@ export default function DriftRitual() {
               ))}
             </div>
             <p className="ritual-note" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.8125rem', letterSpacing: '0.08em', color: D.secondary, margin: 0, lineHeight: 1.8 }}>
-              NO MACHINE. NO PODS. NO MORNING PRODUCTION.
+              No machine, no pods, nothing to clean up afterward.
             </p>
           </div>
         </div>

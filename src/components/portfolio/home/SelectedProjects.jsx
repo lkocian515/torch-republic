@@ -50,7 +50,7 @@ export default function SelectedProjects() {
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
           eyebrow="Selected work"
-          heading="Real products. Real people."
+          heading="Projects I have tested end to end"
           intro="A selection of projects where I have contributed to AI quality, content evaluation, and digital product QA, from e-commerce experiences to mission-driven resources."
         />
 

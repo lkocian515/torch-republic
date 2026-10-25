@@ -44,7 +44,7 @@ export default function DriftReviews() {
               textWrap: 'balance',
             }}
           >
-            Your morning, according to you.
+            Real reviews only.
           </h2>
 
           <p
@@ -57,8 +57,8 @@ export default function DriftReviews() {
               maxWidth: '52ch',
             }}
           >
-            We are gathering feedback from the first Torch Republic customers. Reviews appear once a
-            customer has shared one, so we never publish a testimonial we cannot stand behind.
+            We are still collecting feedback from our first customers. A review only appears here once
+            someone has actually written one, so nothing on this page is invented.
           </p>
 
           <Link

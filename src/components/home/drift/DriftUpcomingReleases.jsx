@@ -49,7 +49,7 @@ export default function DriftUpcomingReleases() {
               textWrap: 'balance',
             }}
           >
-            Coming soon
+            What&rsquo;s coming next
           </h2>
         </div>
 

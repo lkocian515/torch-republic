@@ -71,7 +71,7 @@ export default function ProfessionalProcess() {
             maxWidth: '620px',
           }}
         >
-          The same iterative loop applied to both AI-output evaluation and digital-commerce testing.
+          The same loop, run the same way, whether I am reviewing a model response or a checkout flow.
         </p>
       </div>
     </section>

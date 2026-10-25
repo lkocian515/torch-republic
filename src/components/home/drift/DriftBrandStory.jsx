@@ -56,7 +56,7 @@ export default function DriftBrandStory() {
               <span className="brand-line" style={{ display: 'block' }}>complicated.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '44ch' }}>
-              Torch Republic makes two signature instant coffees &mdash; designed to be easy to love and easy to trust. Seasonal releases join the lineup throughout the year.
+              Torch Republic makes two signature instant coffees, both built to be easy to love and easy to trust. Seasonal releases join the lineup through the year.
             </p>
             <div className="brand-principles flex flex-col gap-5">
               {PRINCIPLES.map((p) => (
