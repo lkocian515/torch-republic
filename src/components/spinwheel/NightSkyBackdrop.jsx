@@ -68,16 +68,16 @@ export default function NightSkyBackdrop() {
         </svg>
       ))}
 
-      {/* Crescent moon — bright gold edge over a faint earthshine orb */}
+      {/* Crescent moon — bright gold edge over a faint earthshine orb. It sits
+          in the open sky at the top left, clear of the close button and logo. */}
       <svg
         viewBox="0 0 64 64"
+        className="w-9 h-9 sm:w-14 sm:h-14"
         style={{
           position: 'absolute',
-          top: '7%',
-          right: '7%',
-          width: 56,
-          height: 56,
-          filter: 'drop-shadow(0 0 22px rgba(251,192,93,0.45))',
+          top: 10,
+          left: 12,
+          filter: 'drop-shadow(0 0 18px rgba(251,192,93,0.45))',
         }}
       >
         <defs>
@@ -111,7 +111,7 @@ export default function NightSkyBackdrop() {
       <svg
         viewBox="0 0 400 70"
         preserveAspectRatio="none"
-        style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 70, opacity: 0.92 }}
+        style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 70, opacity: 0.75 }}
       >
         <polygon points={PINES} fill={navyDeep} />
       </svg>

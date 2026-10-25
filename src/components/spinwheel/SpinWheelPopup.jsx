@@ -66,6 +66,7 @@ export default function SpinWheelPopup() {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
+  const [emailFocused, setEmailFocused] = useState(false);
   const [step, setStep] = useState('idle');
   const [result, setResult] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -451,8 +452,13 @@ export default function SpinWheelPopup() {
               ref={closeModalRef}
               onClick={dismiss}
               aria-label="Close spin to win"
-              className="absolute top-3 right-3 z-20 w-9 h-9 flex items-center justify-center rounded-full transition-all hover:opacity-70"
-              style={{ background: 'rgba(217,160,74,0.12)', color: GOLD, border: `1px solid ${BORDER}` }}
+              className="absolute top-3 right-3 z-20 w-9 h-9 flex items-center justify-center rounded-full transition-all hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+              style={{
+                background: 'rgba(5,10,18,0.6)',
+                color: GOLD,
+                border: `1px solid ${BORDER}`,
+                backdropFilter: 'blur(6px)',
+              }}
             >
               <X className="w-4 h-4" />
             </button>
@@ -468,7 +474,7 @@ export default function SpinWheelPopup() {
             />
 
             {/* Scrollable content */}
-            <div className="relative z-10 overflow-y-auto" style={{ maxHeight: '90vh' }}>
+            <div className="relative z-10 overflow-y-auto overscroll-contain" style={{ maxHeight: '90vh' }}>
               <BrandLockup />
               <div className="flex flex-col md:flex-row">
                 {/* Left: Wheel */}
@@ -512,16 +518,25 @@ export default function SpinWheelPopup() {
                             setEmail(e.target.value);
                             setEmailError(null);
                           }}
+                          onFocus={() => setEmailFocused(true)}
+                          onBlur={() => setEmailFocused(false)}
                           placeholder="Your email address"
                           required
                           aria-invalid={!!emailError}
                           aria-describedby={emailError ? 'spinwheel-email-error' : undefined}
-                          className="w-full px-4 py-3 text-sm outline-none placeholder:text-[#8A7048]"
+                          className="w-full px-4 py-3 text-sm outline-none placeholder:text-[#8A7048] transition-all"
                           style={{
                             background: CARD,
-                            border: `1px solid ${emailError ? CLAY : BORDER}`,
+                            border: `1px solid ${
+                              emailError ? CLAY : emailFocused ? GOLD_LIGHT : BORDER
+                            }`,
                             color: INK,
                             borderRadius: '10px',
+                            boxShadow: emailError
+                              ? '0 0 0 3px rgba(217,160,74,0.14)'
+                              : emailFocused
+                              ? '0 0 0 3px rgba(234,199,150,0.16)'
+                              : 'none',
                           }}
                         />
                         {emailError && (
@@ -545,8 +560,14 @@ export default function SpinWheelPopup() {
 
                         <button
                           type="submit"
-                          className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85"
-                          style={{ fontSize: '11px', background: CLAY, color: CREAM, borderRadius: '999px' }}
+                          className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          style={{
+                            fontSize: '11px',
+                            background: CLAY,
+                            color: CREAM,
+                            borderRadius: '999px',
+                            filter: 'drop-shadow(0 6px 16px rgba(217,160,74,0.28))',
+                          }}
                         >
                           Unlock My Spin
                         </button>
@@ -587,11 +608,24 @@ export default function SpinWheelPopup() {
                         Your offer is ready for your next coffee order.
                       </p>
 
-                      <div className="mb-4" style={{ background: CARD, border: `1px dashed ${CLAY}`, borderRadius: '10px', padding: '14px 16px' }}>
-                        <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1" style={{ color: CLAY }}>
+                      <div
+                        className="mb-4 text-center"
+                        style={{
+                          background:
+                            'linear-gradient(180deg, rgba(234,199,150,0.10) 0%, rgba(5,10,18,0.75) 100%)',
+                          border: `1px dashed ${GOLD_LIGHT}`,
+                          borderRadius: '12px',
+                          padding: '16px',
+                          boxShadow: '0 0 0 1px rgba(5,10,18,0.9), 0 0 28px rgba(217,160,74,0.18)',
+                        }}
+                      >
+                        <p className="font-mono text-[9px] tracking-[0.24em] uppercase mb-1.5" style={{ color: GOLD_LIGHT }}>
                           Your code
                         </p>
-                        <p className="font-mono font-bold tracking-[0.15em]" style={{ fontSize: '1.3rem', color: INK }}>
+                        <p
+                          className="font-mono font-bold tracking-[0.18em]"
+                          style={{ fontSize: '1.45rem', color: INK, textShadow: '0 0 24px rgba(217,160,74,0.35)' }}
+                        >
                           {result.code}
                         </p>
                       </div>
@@ -608,7 +642,7 @@ export default function SpinWheelPopup() {
                       <div className="flex flex-col sm:flex-row gap-2 mb-3">
                         <button
                           onClick={copyCode}
-                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85"
+                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                           style={{ fontSize: '10px', background: CARD, color: INK, border: `1px solid ${BORDER}`, borderRadius: '999px' }}
                         >
                           {copied ? (
@@ -621,7 +655,7 @@ export default function SpinWheelPopup() {
                         </button>
                         <button
                           onClick={handleShopClick}
-                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85"
+                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                           style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                         >
                           <ShoppingBag className="inline w-3.5 h-3.5 mr-1" /> Shop Coffee
@@ -667,7 +701,7 @@ export default function SpinWheelPopup() {
                       </p>
                       <button
                         onClick={dismiss}
-                        className="mt-5 py-3 px-6 font-mono font-bold uppercase tracking-[0.15em]"
+                        className="mt-5 py-3 px-6 font-mono font-bold uppercase tracking-[0.15em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                         style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Continue Shopping
@@ -689,7 +723,7 @@ export default function SpinWheelPopup() {
                           setStep('idle');
                           setEmailError(null);
                         }}
-                        className="py-3 px-6 font-mono font-bold uppercase tracking-[0.15em]"
+                        className="py-3 px-6 font-mono font-bold uppercase tracking-[0.15em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                         style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Try Again
