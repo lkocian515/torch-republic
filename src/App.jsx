@@ -146,6 +146,7 @@ const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
 const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
+const AdminReleases = lazy(() => import('./pages/AdminReleases'));
 
 const mainPageKey = 'Home';
 
@@ -300,6 +301,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/admin/traffic" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><TrafficGrowthCenter /></AdminGuard></Suspense>} />
         <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/admin/special-editions" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminSpecialEditions" queryClient={queryClient}><AdminSpecialEditions /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/releases" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminReleases" queryClient={queryClient}><AdminReleases /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/Admin" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/Dashboard" element={<Navigate to="/admin/shopify" replace />} />

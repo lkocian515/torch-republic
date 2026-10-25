@@ -1,0 +1,44 @@
+{
+  "name": "Seasonal Release Reminders",
+  "description": "Checks the 2027 seasonal release plan every morning at 9am Central and emails the reminders due that day: the Monday review of tasks due in the next 90 days, the 21-day preparation check, the 7-day readiness check, preview, launch and campaign reminder dates, and the results follow-up two days after each window closes",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 9 * * *",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "seasonal_release_reminders",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "check_release_reminders": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "releaseReminders"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Check today's release reminders",
+            "description": "Emails only the reminders due today, never twice"
+          }
+        }
+      }
+    ]
+  }
+}

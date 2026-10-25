@@ -1,0 +1,187 @@
+{
+  "name": "SeasonalRelease",
+  "type": "object",
+  "properties": {
+    "release_name": {
+      "type": "string",
+      "description": "Release name, e.g. Cinnamon Hearth"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Stable slug for linking drafts and tasks to this release"
+    },
+    "month": {
+      "type": "string",
+      "description": "Release month and year, e.g. January 2027"
+    },
+    "supplier_flavor": {
+      "type": "string",
+      "description": "Flavor concept as supplied by the owner. Not a confirmed supplier SKU."
+    },
+    "sale_window_label": {
+      "type": "string",
+      "description": "Human-readable sale window, e.g. Jan 1-31"
+    },
+    "sale_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Sale window start date"
+    },
+    "sale_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Sale window end date"
+    },
+    "preview_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the product is previewed to customers"
+    },
+    "reminder_dates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Campaign reminder dates in YYYY-MM-DD form"
+    },
+    "grind_options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Grind or format options requested for this release. Ground and Whole Bean only when the supplier confirms support for this exact coffee."
+    },
+    "grind_options_verified": {
+      "type": "boolean",
+      "default": false,
+      "description": "True only once a supplier or store source confirmed which grind options are supported"
+    },
+    "availability_verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date availability was last verified against a named source"
+    },
+    "availability_source": {
+      "type": "string",
+      "description": "Where availability was checked, e.g. Shopify Admin API or the supplier's listing"
+    },
+    "label_status": {
+      "type": "string",
+      "description": "Label artwork and copy status"
+    },
+    "page_status": {
+      "type": "string",
+      "description": "Product page draft status"
+    },
+    "image_status": {
+      "type": "string",
+      "description": "Product image status"
+    },
+    "pricing_status": {
+      "type": "string",
+      "description": "Price and margin status"
+    },
+    "shopify_status": {
+      "type": "string",
+      "description": "Shopify product and variant status"
+    },
+    "shopify_link": {
+      "type": "string",
+      "description": "Shopify product URL or handle once a product exists"
+    },
+    "campaign_status": {
+      "type": "string",
+      "description": "Campaign draft status"
+    },
+    "approvals": {
+      "type": "string",
+      "description": "What the owner has approved and what is still pending"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Person accountable for this release"
+    },
+    "next_action": {
+      "type": "string",
+      "description": "The single next action for this release"
+    },
+    "next_action_due": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date for the next action"
+    },
+    "existing_edition_slug": {
+      "type": "string",
+      "description": "Slug of the matching SpecialEdition record when this release already exists in the store, so nothing is duplicated"
+    },
+    "results_orders": {
+      "type": "number",
+      "description": "Orders recorded after the sale window closed"
+    },
+    "results_revenue": {
+      "type": "number",
+      "description": "Revenue recorded after the sale window closed"
+    },
+    "results_lessons": {
+      "type": "string",
+      "description": "Lessons learned, recorded after launch"
+    },
+    "results_recorded_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date results were recorded"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Concept",
+        "Supplier Check Needed",
+        "In Preparation",
+        "Awaiting Supplier Approval",
+        "Ready for Review",
+        "Approved",
+        "Scheduled",
+        "Live",
+        "Complete",
+        "Paused"
+      ],
+      "default": "Concept",
+      "description": "Current stage of this release"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Working notes, flags, and conflicts to resolve"
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Calendar order, lower first"
+    }
+  },
+  "required": [
+    "release_name",
+    "slug"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

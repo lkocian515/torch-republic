@@ -1,0 +1,89 @@
+{
+  "name": "ReleaseDraft",
+  "type": "object",
+  "properties": {
+    "release_slug": {
+      "type": "string",
+      "description": "Slug of the SeasonalRelease this draft belongs to"
+    },
+    "release_name": {
+      "type": "string",
+      "description": "Release name for readable lists"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "product_title",
+        "product_description",
+        "product_page_copy",
+        "seo_title",
+        "seo_meta_description",
+        "social_teaser",
+        "social_launch",
+        "social_reminder",
+        "email",
+        "label_brief",
+        "image_brief",
+        "checklist"
+      ],
+      "description": "What kind of draft this is"
+    },
+    "title": {
+      "type": "string",
+      "description": "Draft label"
+    },
+    "body": {
+      "type": "string",
+      "description": "Draft content. Always unpublished until the owner approves it."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "approved"
+      ],
+      "default": "draft",
+      "description": "Nothing publishes or sends while this reads draft"
+    },
+    "approved_by": {
+      "type": "string",
+      "description": "Who approved this draft"
+    },
+    "approved_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When this draft was approved"
+    },
+    "notes": {
+      "type": "string",
+      "description": "What still needs verification before this draft can be used"
+    }
+  },
+  "required": [
+    "release_slug",
+    "kind",
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

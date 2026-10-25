@@ -1,0 +1,106 @@
+{
+  "name": "ReleaseTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Task description"
+    },
+    "release_slug": {
+      "type": "string",
+      "description": "Slug of the SeasonalRelease this task belongs to. Empty for build-ahead milestones that span releases."
+    },
+    "release_name": {
+      "type": "string",
+      "description": "Release name at the time the task was created"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "Lineup",
+        "Label",
+        "Product Page",
+        "Images",
+        "Pricing",
+        "Shipping",
+        "Testing",
+        "Campaign",
+        "Reminder",
+        "Results",
+        "Admin"
+      ],
+      "description": "Which part of the release workflow this task belongs to"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "todo",
+        "in_progress",
+        "done"
+      ],
+      "default": "todo",
+      "description": "Task status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "description": "Priority"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Person accountable for this task"
+    },
+    "source": {
+      "type": "string",
+      "description": "Where this task came from, e.g. 2027 plan or the release reminder engine"
+    },
+    "dedupe_key": {
+      "type": "string",
+      "description": "Unique key for reminders the scheduler has already issued, so no reminder is ever sent twice"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the task was completed"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
