@@ -69,7 +69,7 @@ export default function EditionHero() {
             rises in word by word. */}
         <div className="mx-auto max-w-[900px] px-6 pt-10 text-center">
           <AnimatedHeadline
-            as="h1"
+            as="h2"
             text={campaign.headline || campaign.name}
             style={{
               fontFamily: 'var(--font-serif)',
@@ -164,12 +164,12 @@ export default function EditionHero() {
               </p>
             )}
 
-            <h1
+            <h2
               className="mt-3 font-serif font-bold"
               style={{ color: T.cream, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.01em' }}
             >
               {campaign.headline}
-            </h1>
+            </h2>
 
             {campaign.supporting_text && (
               <p

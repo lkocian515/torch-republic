@@ -9,7 +9,7 @@ const stripParams = (search = '') => {
 };
 
 const SEO_BY_PATH = {
-  '/': ['Torch Republic | Instant Coffee & Mushroom Coffee', 'Explore thoughtfully crafted instant coffee and functional mushroom coffee made for smooth, convenient, and intentional daily rituals.'],
+  '/': ['Torch Republic | Instant Coffee & Mushroom Coffee', 'Torch Republic makes two instant coffees: Instant Classic Coffee, $22.99, and Instant Mushroom Coffee, $25.99. Just add water, no brewer or pods needed.'],
   '/shop': ['Shop Instant Coffee & Mushroom Coffee | Torch Republic', 'Explore thoughtfully crafted instant coffee and functional mushroom coffee created for simple, intentional daily rituals.'],
   '/shop/instant-mushroom-coffee': ['Instant Mushroom Coffee Blends', 'Shop instant mushroom coffee with Lion\u2019s Mane, Cordyceps and Reishi for focus, energy, and restorative daily rituals.'],
   '/shop/instant-coffee': ['Premium Instant Coffee Collection', 'Shop 100% Arabica freeze-dried instant coffee for smooth, bold coffee rituals without pods, machines, or bitter shortcuts.'],

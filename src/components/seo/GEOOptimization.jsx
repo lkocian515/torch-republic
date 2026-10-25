@@ -40,7 +40,7 @@ export default function GEOOptimization({ page = 'home' }) {
         'functional mushroom coffee',
         'adaptogens',
       ],
-      description: `Torch Republic Coffee Company makes premium instant coffee and instant mushroom coffee with functional mushroom extracts. All products are instant powder format — no coffee maker required. Located in Corpus Christi, TX.`,
+      description: `Torch Republic Coffee Company makes premium instant coffee and instant mushroom coffee with functional mushroom extracts. The everyday lineup is instant powder format, no coffee maker required. Seasonal special editions are brewed coffee sold ground or whole bean. Located in Corpus Christi, TX.`,
     });
 
     // ── Speakable Schema ──
@@ -85,7 +85,7 @@ export default function GEOOptimization({ page = 'home' }) {
           name: 'What is Torch Republic?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee and instant mushroom coffee with Lion's Mane, Cordyceps and Reishi. All products are instant powder format — no coffee maker needed.",
+            text: "Torch Republic Coffee Company is a specialty functional beverage brand based in Corpus Christi, TX. They make premium instant coffee and instant mushroom coffee with Lion's Mane, Cordyceps and Reishi. The everyday lineup is instant powder format, no coffee maker needed. Seasonal special editions are brewed coffee sold ground or whole bean.",
           },
         },
         {

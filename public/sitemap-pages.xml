@@ -9,8 +9,8 @@
   <url><loc>https://torchrepublic.com/products/instant-mushroom-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- Collections -->
-  <url><loc>https://torchrepublic.com/shop/instant-mushroom-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://torchrepublic.com/shop/instant-coffee</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- /shop/instant-mushroom-coffee and /shop/instant-coffee are redirect-only
+       aliases for the two product pages above, so they are not listed here. -->
   <url><loc>https://torchrepublic.com/shop/morning-ritual</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://torchrepublic.com/shop/focus-coffee</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://torchrepublic.com/shop/travel-coffee</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

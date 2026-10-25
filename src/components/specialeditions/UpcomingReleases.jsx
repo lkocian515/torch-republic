@@ -44,9 +44,9 @@ export default function UpcomingReleases({ variant = 'editorial', format = null 
   }
 
   return (
-    <section className="mt-20 tr-section-divider pt-12" aria-label="Upcoming 2027 releases">
+    <section className="mt-20 tr-section-divider pt-12" aria-label="Upcoming seasonal releases">
       <p className="eyebrow">In preparation</p>
-      <h2 className="h2 mt-3">Upcoming 2027 Releases</h2>
+      <h2 className="h2 mt-3">Coming soon</h2>
       <p className="body mt-4 text-readable-secondary" style={{ maxWidth: '62ch' }}>
         {COMING_SOON_COPY}
       </p>

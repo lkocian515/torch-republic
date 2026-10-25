@@ -8,7 +8,7 @@ import DriftHomepage from '../components/home/drift/DriftHomepage';
 export default function Home() {
   useSEO({
     title: 'Torch Republic | Instant Coffee & Mushroom Coffee',
-    description: 'Explore thoughtfully crafted instant coffee and functional mushroom coffee made for smooth, convenient, and intentional daily rituals.',
+    description: 'Torch Republic makes two instant coffees: Instant Classic Coffee, $22.99, and Instant Mushroom Coffee, $25.99. Just add water, no brewer or pods needed.',
     url: '/',
     type: 'website',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png',

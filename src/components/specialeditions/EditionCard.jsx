@@ -75,12 +75,8 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
               <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.size}</dd>
             </div>
           )}
-          {edition.release_month && (
-            <div className="flex gap-2">
-              <dt>Planned</dt>
-              <dd style={{ color: 'hsl(var(--foreground))' }}>{edition.release_month}</dd>
-            </div>
-          )}
+          {/* No "planned" release month is published: the month on the release
+              record is an internal planning value, not a confirmed date. */}
         </dl>
 
         {showSelector && (

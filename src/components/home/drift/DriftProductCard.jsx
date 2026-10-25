@@ -10,9 +10,10 @@ import TiltContainer from './TiltContainer';
  * The homepage product card, shared by the everyday lineup and the upcoming
  * seasonal releases so both grids are styled identically.
  *
- * `disabled` marks a product that isn't purchasable yet: its cart button
- * becomes a "Shop Coffee" link to the shop, so the card still leads a visitor
- * to something they can buy today.
+ * `disabled` marks a product that isn't purchasable yet: the cart button is
+ * replaced by a non-interactive availability chip, so an unreleased coffee never
+ * carries a purchase control or a "Shop" call to action. The card image and its
+ * title still open the release preview.
  */
 export default function DriftProductCard({
   eyebrow,
@@ -29,8 +30,7 @@ export default function DriftProductCard({
   price = null,
   servings = null,
   disabled = false,
-  ctaPath = null,
-  ctaLabel = 'Shop Coffee',
+  ctaLabel = 'Coming soon',
   onAdd,
   isAdding = false,
 }) {
@@ -127,9 +127,21 @@ export default function DriftProductCard({
 
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
           {disabled ? (
-            <Link to={ctaPath || path} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={btnStyle}>
+            /* Nothing here can be ordered, so the card states that instead of
+               offering a button that would only lead somewhere else. */
+            <span
+              role="status"
+              className="inline-flex items-center justify-center gap-2"
+              style={{
+                ...btnStyle,
+                background: D.surface,
+                color: D.secondary,
+                border: `1px solid ${D.rule}`,
+                boxShadow: 'none',
+              }}
+            >
               {ctaLabel}
-            </Link>
+            </span>
           ) : (
             <button
               type="button"
