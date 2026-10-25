@@ -34,21 +34,21 @@ const QA_METHODS = [
   'Evidence-based corrective feedback',
 ];
 
-// Status follows the project's own résumé record. Only the three 2026
-// credentials are completed; coursework and exam preparation are labelled as
-// such and never presented as awarded certifications.
+// Follows the project's own résumé record. A year is listed only for programs
+// that are complete; the rest are still in progress or in preparation, which
+// the section note states in plain language rather than a per-row badge.
 const CERTIFICATIONS = [
-  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026', status: 'Completed' },
-  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026', status: 'Completed' },
-  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026', status: 'Completed' },
-  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: 'In progress' },
-  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: 'In progress' },
-  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: 'In progress' },
-  { name: 'Career Essentials in Generative AI', org: 'Microsoft & LinkedIn', year: '', status: 'In progress' },
-  { name: 'AI Fundamentals', org: 'IBM SkillsBuild', year: '', status: 'In progress' },
-  { name: 'AI Essentials', org: 'Google', year: '', status: 'In progress' },
-  { name: 'Agentic AI', org: 'DeepLearning.AI', year: '', status: 'In progress' },
-  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '', status: 'Exam preparation' },
+  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026' },
+  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026' },
+  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026' },
+  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '' },
+  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '' },
+  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '' },
+  { name: 'Career Essentials in Generative AI', org: 'Microsoft & LinkedIn', year: '' },
+  { name: 'AI Fundamentals', org: 'IBM SkillsBuild', year: '' },
+  { name: 'AI Essentials', org: 'Google', year: '' },
+  { name: 'Agentic AI', org: 'DeepLearning.AI', year: '' },
+  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '' },
 ];
 
 const rowLabel = {
@@ -173,7 +173,11 @@ export default function Background() {
         </div>
 
         {/* ── Certifications ── */}
-        <SectionHeading eyebrow="Credentials" heading="Certifications & professional development" />
+        <SectionHeading
+          eyebrow="Credentials"
+          heading="Certifications & professional development"
+          intro="Programs shown with a year are completed; the rest are in progress or in preparation."
+        />
         <Disclosure
           title="Certifications & professional development"
           meta={`${CERTIFICATIONS.length} programs`}
@@ -194,27 +198,9 @@ export default function Background() {
                 <span style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', fontWeight: 600, color: P.ink }}>
                   {c.name}
                 </span>
-                <span className="flex flex-wrap items-center gap-2">
-                  <span style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.secondary }}>
-                    {c.org}
-                    {c.year ? `, ${c.year}` : ''}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: FONT_SANS,
-                      fontSize: '0.68rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      color: c.status === 'Completed' ? P.accentInk : P.muted,
-                      border: `1px solid ${P.rule}`,
-                      borderRadius: '999px',
-                      padding: '0.2rem 0.6rem',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {c.status}
-                  </span>
+                <span style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.secondary }}>
+                  {c.org}
+                  {c.year ? `, ${c.year}` : ''}
                 </span>
               </div>
             ))}
