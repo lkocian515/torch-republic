@@ -48,9 +48,9 @@ export default function EditionHero() {
   if (campaign.desktop_hero_image) {
     return (
       <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
-        {/* Source artwork is 1254x1254 with a "torchrepublic.com" line along the bottom edge.
-            Showing it at 1254x1174 clips that line off without touching the artwork itself. */}
-        <div className="w-full overflow-hidden" style={{ aspectRatio: '1254 / 1174' }}>
+        {/* Artwork is supplied per campaign, so the hero renders it at whatever ratio the
+            designer delivered — square or wide — rather than cropping it into a fixed frame. */}
+        <div className="w-full">
           <picture>
             {campaign.mobile_hero_image && (
               <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
@@ -58,7 +58,7 @@ export default function EditionHero() {
             <img
               src={campaign.desktop_hero_image}
               alt={`${campaign.name} special edition`}
-              className="block h-full w-full object-cover object-top"
+              className="block h-auto w-full"
               fetchPriority="high"
             />
           </picture>
