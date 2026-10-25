@@ -88,7 +88,7 @@ function DecisionCard({ decision, index }) {
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 fontWeight: 600,
-                color: P.accent,
+                color: P.accentInk,
                 margin: '0 0 0.3rem',
               }}
             >

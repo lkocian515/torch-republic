@@ -112,7 +112,7 @@ export default function ProjectGallery() {
               </button>
               <figcaption className="mt-2 flex items-center gap-1" style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.85rem', color: P.ink }}>
                 {s.title}
-                <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5" style={{ color: P.accent }} aria-hidden="true" />
+                <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5" style={{ color: P.accentInk }} aria-hidden="true" />
               </figcaption>
             </figure>
           ))}

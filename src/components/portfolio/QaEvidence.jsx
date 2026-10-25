@@ -103,7 +103,7 @@ export default function QaEvidence() {
                     <dl className="m-0 flex flex-col gap-2.5">
                       {ROWS.map(({ label, key }) => (
                         <div key={label} style={{ display: 'flex', gap: '0.85rem' }}>
-                          <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, flexShrink: 0, width: '5rem', paddingTop: '0.1rem' }}>{label}</dt>
+                          <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, flexShrink: 0, width: '5rem', paddingTop: '0.1rem' }}>{label}</dt>
                           <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.55, color: P.secondary }}>{ex[key]}</dd>
                         </div>
                       ))}
@@ -174,7 +174,7 @@ export default function QaEvidence() {
                       background: P.rule, border: `2px solid ${P.surface}`, flexShrink: 0, zIndex: 1,
                       transition: 'background .3s',
                     }} aria-hidden="true" />
-                    <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, flexShrink: 0, width: '5.5rem', paddingTop: '0.1rem' }}>
+                    <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, flexShrink: 0, width: '5.5rem', paddingTop: '0.1rem' }}>
                       {row.label}
                     </dt>
                     <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.6, color: P.secondary, flex: 1 }}>

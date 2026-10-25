@@ -59,7 +59,7 @@ export default function LukesLightReview() {
                   fontFamily: FONT_MONO,
                   fontSize: '0.8rem',
                   fontWeight: 600,
-                  color: P.accent,
+                  color: P.accentInk,
                   margin: 0,
                   flexShrink: 0,
                   minWidth: '1.5rem',

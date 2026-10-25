@@ -36,13 +36,13 @@ export default function EngineeringQA() {
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-5">
         {GROUPS.map((g) => (
           <div key={g.title} style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '8px', padding: '1.35rem' }}>
-            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: '0 0 0.85rem', paddingBottom: '0.5rem', borderBottom: `1px solid ${P.rule}` }}>
+            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, margin: '0 0 0.85rem', paddingBottom: '0.5rem', borderBottom: `1px solid ${P.rule}` }}>
               {g.title}
             </p>
             <ul className="m-0 p-0 list-none flex flex-col gap-2">
               {g.items.map((it) => (
                 <li key={it} style={{ fontFamily: FONT_SANS, fontSize: '0.86rem', color: P.ink, display: 'flex', gap: '0.5rem', alignItems: 'baseline', lineHeight: 1.4 }}>
-                  <span style={{ color: P.accent, fontSize: '0.7rem', flexShrink: 0 }} aria-hidden="true">&bull;</span>
+                  <span style={{ color: P.accentInk, fontSize: '0.7rem', flexShrink: 0 }} aria-hidden="true">&bull;</span>
                   <span>{it}</span>
                 </li>
               ))}

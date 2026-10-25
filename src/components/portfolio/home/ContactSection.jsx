@@ -7,10 +7,11 @@ export default function ContactSection() {
     <section
       id="contact"
       style={{
-        background: P.paper,
+        background: P.surfaceAlt,
+        borderTop: `1px solid ${P.rule}`,
         paddingTop: 'clamp(3.5rem, 7vw, 5.5rem)',
         paddingBottom: 'clamp(3.5rem, 7vw, 5.5rem)',
-        scrollMarginTop: 70,
+        scrollMarginTop: 72,
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10 text-center">
@@ -18,12 +19,12 @@ export default function ContactSection() {
           style={{
             fontFamily: FONT_SERIF,
             fontWeight: 700,
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            lineHeight: 1.25,
+            fontSize: 'clamp(1.6rem, 4.6vw, 2.2rem)',
+            lineHeight: 1.2,
             color: P.ink,
             margin: '0 auto 1.25rem',
             maxWidth: '640px',
-            letterSpacing: '-0.01em',
+            letterSpacing: '-0.015em',
           }}
         >
           Let&rsquo;s talk about AI quality and content evaluation.
@@ -47,14 +48,18 @@ export default function ContactSection() {
               fontFamily: FONT_SANS,
               fontWeight: 600,
               fontSize: '0.925rem',
-              color: P.surface,
+              color: P.onAccent,
               background: P.accent,
-              padding: '0.75rem 1.75rem',
+              padding: '0.8rem 1.75rem',
               borderRadius: '4px',
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '0.5rem',
+              minHeight: 48,
+              maxWidth: '100%',
+              overflowWrap: 'anywhere',
               transition: 'background .2s',
             }}
           >
@@ -79,12 +84,13 @@ export default function ContactSection() {
               fontFamily: FONT_SANS,
               fontWeight: 500,
               fontSize: '0.875rem',
-              color: P.muted,
+              color: P.accentInk,
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.4rem',
               marginTop: '0.25rem',
+              minHeight: 44,
             }}
           >
             <Linkedin size={14} /> LinkedIn

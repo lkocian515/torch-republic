@@ -126,17 +126,17 @@ function ExperienceCard({ job }) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mb-0.5">
               <span style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '0.95rem', color: P.ink }}>{job.title}</span>
               {job.link && (
-                <a href={job.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} style={{ color: P.accent, display: 'inline-flex', alignItems: 'center' }}>
+                <a href={job.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} style={{ color: P.accentInk, display: 'inline-flex', alignItems: 'center' }}>
                   <ExternalLink size={12} />
                 </a>
               )}
             </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accent, fontWeight: 600 }}>{job.company}</span>
+              <span style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accentInk, fontWeight: 600 }}>{job.company}</span>
               <span style={{ fontFamily: FONT_MONO, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: P.muted }}>{job.period} · {job.type}</span>
             </div>
           </div>
-          <span style={{ color: P.accent, flexShrink: 0, marginTop: 2 }}>
+          <span style={{ color: P.accentInk, flexShrink: 0, marginTop: 2 }}>
             {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </span>
         </div>
@@ -145,7 +145,7 @@ function ExperienceCard({ job }) {
         <ul style={{ margin: 0, padding: '1rem 1.35rem 1.25rem', listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', borderTop: `1px solid ${P.rule}` }}>
           {job.bullets.map((b, i) => (
             <li key={i} style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.7, color: P.secondary, display: 'flex', gap: '0.65rem', alignItems: 'flex-start' }}>
-              <span style={{ color: P.accent, fontSize: '0.7rem', marginTop: '0.35rem', flexShrink: 0 }} aria-hidden="true">▸</span>
+              <span style={{ color: P.accentInk, fontSize: '0.7rem', marginTop: '0.35rem', flexShrink: 0 }} aria-hidden="true">▸</span>
               <span>{b}</span>
             </li>
           ))}
@@ -157,7 +157,7 @@ function ExperienceCard({ job }) {
 
 function SubHeading({ children }) {
   return (
-    <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, marginBottom: '1rem', marginTop: '2.5rem' }}>
+    <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, marginBottom: '1rem', marginTop: '2.5rem' }}>
       {children}
     </p>
   );
@@ -198,7 +198,7 @@ export default function ResumeExperience() {
       <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6" style={{ borderBottom: `1px solid ${P.rule}`, paddingBottom: '1.25rem' }}>
         {CONTACT.map(({ icon: Icon, label, href }) =>
           href ? (
-            <a key={label} href={href} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accent, textDecoration: 'none' }}>
+            <a key={label} href={href} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accentInk, textDecoration: 'none' }}>
               <Icon size={13} style={{ flexShrink: 0 }} /> {label}
             </a>
           ) : (
@@ -238,10 +238,10 @@ export default function ResumeExperience() {
           className="flex items-center gap-2"
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
-          <span style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accent }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk }}>
             Additional Experience
           </span>
-          {showAdditional ? <ChevronUp size={14} style={{ color: P.accent }} /> : <ChevronDown size={14} style={{ color: P.accent }} />}
+          {showAdditional ? <ChevronUp size={14} style={{ color: P.accentInk }} /> : <ChevronDown size={14} style={{ color: P.accentInk }} />}
         </button>
         {showAdditional && (
           <div className="mt-4 flex flex-col gap-3">
@@ -249,7 +249,7 @@ export default function ResumeExperience() {
               <div key={job.title} style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: 10, padding: '1rem 1.35rem' }}>
                 <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
                   <span style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '0.88rem', color: P.ink }}>{job.title}</span>
-                  <span style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', color: P.accent, fontWeight: 600 }}>· {job.company}</span>
+                  <span style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', color: P.accentInk, fontWeight: 600 }}>· {job.company}</span>
                   <span style={{ fontFamily: FONT_MONO, fontSize: '0.63rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: P.muted }}>{job.period}</span>
                 </div>
                 <p style={{ fontFamily: FONT_SANS, fontSize: '0.83rem', color: P.secondary, lineHeight: 1.6, margin: 0 }}>{job.note}</p>
@@ -266,10 +266,10 @@ export default function ResumeExperience() {
           className="flex items-center gap-2"
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
-          <span style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accent }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk }}>
             Technical &amp; Engineering Stack
           </span>
-          {showStack ? <ChevronUp size={14} style={{ color: P.accent }} /> : <ChevronDown size={14} style={{ color: P.accent }} />}
+          {showStack ? <ChevronUp size={14} style={{ color: P.accentInk }} /> : <ChevronDown size={14} style={{ color: P.accentInk }} />}
         </button>
         {showStack && (
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
@@ -298,7 +298,7 @@ export default function ResumeExperience() {
       <div className="flex flex-col gap-2">
         {CERTS.map((c) => (
           <div key={c} className="flex items-start gap-2">
-            <span style={{ color: P.accent, fontSize: '0.7rem', marginTop: '0.3rem', flexShrink: 0 }} aria-hidden="true">▸</span>
+            <span style={{ color: P.accentInk, fontSize: '0.7rem', marginTop: '0.3rem', flexShrink: 0 }} aria-hidden="true">▸</span>
             <span style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', color: P.secondary, lineHeight: 1.65 }}>{c}</span>
           </div>
         ))}
@@ -310,7 +310,7 @@ export default function ResumeExperience() {
         {EDUCATION.map((e) => (
           <div key={e.degree} style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: 10, padding: '1rem 1.35rem' }}>
             <p style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '0.9rem', color: P.ink, margin: '0 0 0.2rem' }}>{e.degree}</p>
-            <p style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accent, fontWeight: 600, margin: 0 }}>{e.school}</p>
+            <p style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.accentInk, fontWeight: 600, margin: 0 }}>{e.school}</p>
             <p style={{ fontFamily: FONT_MONO, fontSize: '0.63rem', letterSpacing: '0.12em', color: P.muted, textTransform: 'uppercase', margin: '0.2rem 0 0' }}>{e.year}</p>
           </div>
         ))}

@@ -55,7 +55,7 @@ export default function AiOutputValidation() {
         <ul className="mt-2.5 m-0 p-0 list-none flex flex-col gap-1.5">
           {CASE.tested.map((t) => (
             <li key={t} style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.6, color: P.secondary, display: 'flex', gap: '0.6rem' }}>
-              <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">&mdash;</span>
+              <span style={{ color: P.accentInk, flexShrink: 0 }} aria-hidden="true">&mdash;</span>
               <span>{t}</span>
             </li>
           ))}

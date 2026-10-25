@@ -12,7 +12,7 @@ export default function ProcessDiagram() {
     });
 
     STEPS.forEach((_, i) => {
-      tl.to(`.process-node-${i}`, { borderColor: P.accent, color: P.accent, duration: 0.3, ease: 'power2.out' }, i * 0.13)
+      tl.to(`.process-node-${i}`, { borderColor: P.accent, color: P.accentInk, duration: 0.3, ease: 'power2.out' }, i * 0.13)
         .fromTo(`.process-connector-${i}`, { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: 'power2.out' }, i * 0.13 + 0.15);
     });
 
@@ -50,7 +50,7 @@ export default function ProcessDiagram() {
                 </div>
                 {i < STEPS.length - 1 && (
                   <>
-                    <span className="md:hidden" style={{ color: P.accent, fontSize: '1rem' }} aria-hidden="true">&darr;</span>
+                    <span className="md:hidden" style={{ color: P.accentInk, fontSize: '1rem' }} aria-hidden="true">&darr;</span>
                     <div className={`process-connector-${i} hidden md:block`} style={{ height: 2, background: P.accent, flex: 1, margin: '0 0.25rem', transformOrigin: 'left center', opacity: 0.5 }} aria-hidden="true" />
                   </>
                 )}

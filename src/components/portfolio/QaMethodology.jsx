@@ -75,7 +75,7 @@ export default function QaMethodology() {
           {PILLARS.map((p) => (
             <div key={p.n} className="pillar-card text-center" style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: '8px', padding: '1.75rem 1.5rem' }}>
               <div className="pillar-reveal flex items-baseline justify-center gap-3">
-                <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accent }}>{p.n}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accentInk }}>{p.n}</span>
                 <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.2rem', color: P.ink, margin: 0 }}>{p.title}</h3>
               </div>
               <p className="pillar-reveal" style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9rem', color: P.accentInk, margin: '0.85rem 0 0.65rem', lineHeight: 1.4 }}>{p.question}</p>

@@ -28,7 +28,7 @@ export default function DefectCard() {
         <dl className="m-0 flex flex-col gap-3">
           {ROWS.map((key) => (
             <div key={key} style={{ display: 'flex', gap: '1rem' }}>
-              <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, flexShrink: 0, width: '5.5rem', paddingTop: '0.12rem' }}>
+              <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, flexShrink: 0, width: '5.5rem', paddingTop: '0.12rem' }}>
                 {key}
               </dt>
               <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.925rem', lineHeight: 1.6, color: key === 'priority' ? P.accentInk : P.ink, fontWeight: key === 'priority' ? 600 : 400 }}>

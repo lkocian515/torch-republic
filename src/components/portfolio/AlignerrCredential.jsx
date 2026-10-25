@@ -65,7 +65,7 @@ export default function AlignerrCredential() {
               textDecoration: 'none',
             }}
           >
-            <BadgeCheck size={18} style={{ color: P.accent, flexShrink: 0 }} strokeWidth={2} />
+            <BadgeCheck size={18} style={{ color: P.accentInk, flexShrink: 0 }} strokeWidth={2} />
             <span style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 600, color: P.accentInk }}>
               Alignerr Network
             </span>
@@ -106,7 +106,7 @@ export default function AlignerrCredential() {
                 padding: '1.25rem 1.35rem',
               }}
             >
-              <Icon size={20} style={{ color: P.accent, marginBottom: '0.6rem' }} strokeWidth={1.75} />
+              <Icon size={20} style={{ color: P.accentInk, marginBottom: '0.6rem' }} strokeWidth={1.75} />
               <h3
                 style={{
                   fontFamily: FONT_SANS,

@@ -54,7 +54,7 @@ export default function CaseStudyIntro() {
           <span style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.ink, background: P.accentSoft, border: `1px solid ${P.accent}33`, borderRadius: '4px', padding: '0.3rem 0.7rem' }}>
             E-commerce Application &middot; Product Design &middot; QA
           </span>
-          <span style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, background: 'rgba(37,99,235,0.06)', border: `1px solid ${P.accent}55`, borderRadius: '4px', padding: '0.3rem 0.7rem' }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: P.accentInk, background: 'rgba(37,99,235,0.06)', border: `1px solid ${P.accent}55`, borderRadius: '4px', padding: '0.3rem 0.7rem' }}>
             Live Project &middot; Continuous QA and Iteration
           </span>
         </div>
@@ -72,7 +72,7 @@ export default function CaseStudyIntro() {
           <dl className="m-0 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
             {SUMMARY.map((s) => (
               <div key={s.label}>
-                <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: '0 0 0.3rem' }}>{s.label}</dt>
+                <dt style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, margin: '0 0 0.3rem' }}>{s.label}</dt>
                 <dd style={{ margin: 0, fontFamily: FONT_SANS, fontSize: '0.88rem', lineHeight: 1.55, color: P.ink }}>{s.value}</dd>
               </div>
             ))}

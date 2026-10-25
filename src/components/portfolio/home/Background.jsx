@@ -1,6 +1,7 @@
 import React from 'react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO } from '../portfolioTheme';
+import { P, FONT_SANS, FONT_MONO } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
+import Disclosure from './Disclosure';
 
 const EXPERIENCE = [
   { role: 'AI Quality Review Contractor', org: 'Alignerr', period: '2026 to Present', location: 'Remote' },
@@ -34,25 +35,32 @@ const QA_METHODS = [
 ];
 
 const CERTIFICATIONS = [
-  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026', status: '' },
-  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026', status: '' },
-  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026', status: '' },
-  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: '' },
-  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: '' },
-  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: '' },
-  { name: 'Career Essentials in Generative AI', org: 'Microsoft', year: '', status: '' },
-  { name: 'AI Fundamentals', org: 'IBM', year: '', status: '' },
-  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '', status: '' },
+  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026' },
+  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026' },
+  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026' },
+  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '' },
+  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '' },
+  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '' },
+  { name: 'Career Essentials in Generative AI', org: 'Microsoft', year: '' },
+  { name: 'AI Fundamentals', org: 'IBM', year: '' },
+  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '' },
 ];
 
-const thStyle = {
-  fontFamily: FONT_MONO,
-  fontSize: '0.64rem',
-  letterSpacing: '0.1em',
-  textTransform: 'uppercase',
+const rowLabel = {
+  fontFamily: FONT_SANS,
+  fontSize: '0.9rem',
   fontWeight: 600,
-  color: '#FFFFFF',
+  color: P.ink,
   margin: 0,
+  lineHeight: 1.5,
+};
+
+const rowValue = {
+  fontFamily: FONT_SANS,
+  fontSize: '0.9rem',
+  color: P.secondary,
+  margin: 0,
+  lineHeight: 1.55,
 };
 
 export default function Background() {
@@ -60,93 +68,131 @@ export default function Background() {
     <section
       id="experience"
       style={{
-        background: P.surface,
+        background: P.paper,
         borderTop: `1px solid ${P.rule}`,
-        borderBottom: `1px solid ${P.rule}`,
         paddingTop: 'clamp(3rem, 6vw, 5rem)',
         paddingBottom: 'clamp(3rem, 6vw, 5rem)',
-        scrollMarginTop: 70,
+        scrollMarginTop: 72,
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        {/* Professional Experience */}
+        {/* ── Professional experience ── */}
         <SectionHeading eyebrow="Experience" heading="Professional experience" />
-        <div style={{ marginBottom: '3rem', border: `1px solid ${P.rule}`, borderRadius: '6px', overflow: 'hidden' }}>
-          <div className="grid grid-cols-1 md:grid-cols-2" style={{ background: '#596773', padding: '0.75rem 1.25rem' }}>
-            <p style={thStyle}>Role</p>
-            <p style={thStyle}>Organization / Period</p>
-          </div>
+        <div
+          style={{
+            marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)',
+            border: `1px solid ${P.rule}`,
+            borderRadius: '8px',
+            overflow: 'hidden',
+          }}
+        >
           {EXPERIENCE.map((e, i) => (
             <div
-              key={i}
-              className="grid grid-cols-1 md:grid-cols-2"
-              style={{ padding: '0.85rem 1.25rem', background: i % 2 === 0 ? P.paper : P.surface, borderTop: i > 0 ? `1px solid ${P.rule}` : 'none' }}
+              key={e.role}
+              className="grid gap-1 md:grid-cols-2 md:gap-6"
+              style={{
+                padding: '1rem 1.25rem',
+                background: i % 2 === 0 ? P.surface : P.surfaceAlt,
+                borderTop: i > 0 ? `1px solid ${P.rule}` : 'none',
+              }}
             >
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', fontWeight: 600, color: P.ink, margin: 0, lineHeight: 1.5 }}>{e.role}</p>
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', color: P.secondary, margin: 0, lineHeight: 1.5 }}>
+              <p style={rowLabel}>{e.role}</p>
+              <p style={rowValue}>
                 {e.org} &middot; {e.period} &middot; {e.location}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Tools & Platforms */}
+        {/* ── Tools & platforms ── */}
         <SectionHeading eyebrow="Tools" heading="Tools & platforms" />
-        <div style={{ marginBottom: '3rem', border: `1px solid ${P.rule}`, borderRadius: '6px', overflow: 'hidden' }}>
-          <div className="grid grid-cols-1 md:grid-cols-[200px_1fr]" style={{ background: '#596773', padding: '0.75rem 1.25rem' }}>
-            <p style={thStyle}>Area</p>
-            <p style={thStyle}>Tools / Skills</p>
-          </div>
-          {TOOLS.map((t, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-1 md:grid-cols-[200px_1fr]"
-              style={{ padding: '0.85rem 1.25rem', background: i % 2 === 0 ? P.paper : P.surface, borderTop: i > 0 ? `1px solid ${P.rule}` : 'none' }}
-            >
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', fontWeight: 600, color: P.ink, margin: 0, lineHeight: 1.5 }}>{t.area}</p>
-              <p style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', color: P.secondary, margin: 0, lineHeight: 1.5 }}>{t.items}</p>
+        <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
+          <Disclosure title="Tools & platforms" meta="Five areas" count={`${TOOLS.length}`} defaultOpen>
+            <div style={{ border: `1px solid ${P.rule}`, borderRadius: '8px', overflow: 'hidden' }}>
+              {TOOLS.map((t, i) => (
+                <div
+                  key={t.area}
+                  className="grid gap-1 md:grid-cols-[190px_1fr] md:gap-6"
+                  style={{
+                    padding: '0.95rem 1.1rem',
+                    background: i % 2 === 0 ? P.surfaceAlt : P.surface,
+                    borderTop: i > 0 ? `1px solid ${P.rule}` : 'none',
+                  }}
+                >
+                  <p style={rowLabel}>{t.area}</p>
+                  <p style={rowValue}>{t.items}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </Disclosure>
         </div>
 
-        {/* QA Methods */}
+        {/* ── QA methods ── */}
         <SectionHeading eyebrow="Methods" heading="Quality assurance methods" />
-        <div style={{ marginBottom: '3rem' }}>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.5rem', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
-            {QA_METHODS.map((m) => (
-              <li key={m} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
-                <span style={{ width: 4, height: 4, borderRadius: '50%', background: P.accent, marginTop: '0.55rem', flexShrink: 0 }} aria-hidden="true" />
-                <span style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.55, color: P.secondary }}>{m}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Certifications */}
-        <SectionHeading eyebrow="Credentials" heading="Certifications & professional development" />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          {CERTIFICATIONS.map((c, i) => (
-            <div
-              key={i}
+        <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
+          <Disclosure title="Quality assurance methods" meta="Applied on every project" count={`${QA_METHODS.length}`}>
+            <ul
               style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '0.7rem 1rem',
-                border: `1px solid ${P.rule}`,
-                borderRadius: '4px',
-                background: P.paper,
-                flexWrap: 'wrap',
-                gap: '0.5rem',
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                display: 'grid',
+                gap: '0.55rem',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
               }}
             >
-              <span style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', fontWeight: 600, color: P.ink }}>{c.name}</span>
-              <span style={{ fontFamily: FONT_SANS, fontSize: '0.825rem', color: P.secondary }}>
-                {c.org}{c.year ? `, ${c.year}` : ''}{c.status ? ` (${c.status})` : ''}
-              </span>
-            </div>
-          ))}
+              {QA_METHODS.map((m) => (
+                <li key={m} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      width: 4,
+                      height: 4,
+                      borderRadius: '50%',
+                      background: P.accentInk,
+                      marginTop: '0.6rem',
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.55, color: P.secondary }}>
+                    {m}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Disclosure>
         </div>
+
+        {/* ── Certifications ── */}
+        <SectionHeading eyebrow="Credentials" heading="Certifications & professional development" />
+        <Disclosure
+          title="Certifications & professional development"
+          meta="Nine credentials"
+          count={`${CERTIFICATIONS.length}`}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {CERTIFICATIONS.map((c) => (
+              <div
+                key={c.name}
+                className="flex flex-wrap items-center justify-between gap-2"
+                style={{
+                  padding: '0.7rem 1rem',
+                  border: `1px solid ${P.rule}`,
+                  borderRadius: '4px',
+                  background: P.surfaceAlt,
+                }}
+              >
+                <span style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', fontWeight: 600, color: P.ink }}>
+                  {c.name}
+                </span>
+                <span style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', color: P.secondary }}>
+                  {c.org}
+                  {c.year ? `, ${c.year}` : ''}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Disclosure>
       </div>
     </section>
   );

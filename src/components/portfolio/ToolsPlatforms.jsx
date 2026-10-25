@@ -67,13 +67,13 @@ export default function ToolsPlatforms() {
       <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {GROUPS.map((g) => (
           <div key={g.heading}>
-            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, margin: '0 0 0.85rem', paddingBottom: '0.5rem', borderBottom: `1px solid ${P.rule}` }}>
+            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, margin: '0 0 0.85rem', paddingBottom: '0.5rem', borderBottom: `1px solid ${P.rule}` }}>
               {g.heading}
             </p>
             <ul className="m-0 p-0 list-none flex flex-col gap-2">
               {g.items.map((it) => (
                 <li key={it} style={{ fontFamily: FONT_SANS, fontSize: '0.86rem', color: P.ink, display: 'flex', gap: '0.5rem', alignItems: 'baseline', lineHeight: 1.4 }}>
-                  <span style={{ color: P.accent, fontSize: '0.7rem', flexShrink: 0 }} aria-hidden="true">&bull;</span>
+                  <span style={{ color: P.accentInk, fontSize: '0.7rem', flexShrink: 0 }} aria-hidden="true">&bull;</span>
                   <span>{it}</span>
                 </li>
               ))}
@@ -101,7 +101,7 @@ export default function ToolsPlatforms() {
           {AI_TRAINING.map((item) => (
             <article key={item.provider + item.program} style={{ background: P.surface, border: `1px solid ${P.rule}`, borderRadius: 10, padding: '1.15rem 1.25rem' }}>
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                <span style={{ fontFamily: FONT_MONO, fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accent }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk }}>
                   {item.provider}
                 </span>
                 <span style={{ fontFamily: FONT_MONO, fontSize: '0.58rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, background: P.accentSoft, borderRadius: 999, padding: '0.22rem 0.55rem' }}>

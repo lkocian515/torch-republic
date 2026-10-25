@@ -53,7 +53,7 @@ export default function ExperienceSnapshot() {
                 height: 40,
                 borderRadius: 8,
                 background: P.accentSoft,
-                color: P.accent,
+                color: P.accentInk,
                 marginBottom: '0.9rem',
               }}
             >

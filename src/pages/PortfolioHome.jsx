@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import '@/components/portfolio/home/portfolioHome.css';
 import PortfolioNav from '@/components/portfolio/PortfolioNav';
 import PortfolioFooter from '@/components/portfolio/PortfolioFooter';
 import Hero from '@/components/portfolio/home/Hero';
-import SelectedExpertise from '@/components/portfolio/home/SelectedExpertise';
 import SelectedProjects from '@/components/portfolio/home/SelectedProjects';
-import Background from '@/components/portfolio/home/Background';
+import SelectedExpertise from '@/components/portfolio/home/SelectedExpertise';
 import ProfessionalProcess from '@/components/portfolio/home/ProfessionalProcess';
+import Background from '@/components/portfolio/home/Background';
 import ContactSection from '@/components/portfolio/home/ContactSection';
 import {
   P, LINKEDIN,
@@ -30,6 +31,7 @@ export default function PortfolioHome() {
 
     setOrCreate('meta[name="description"]', 'content', PORTFOLIO_DESC);
     setOrCreate('meta[name="robots"]', 'content', 'index, follow');
+    setOrCreate('meta[name="theme-color"]', 'content', P.paper);
 
     let canon = document.querySelector('link[rel="canonical"]');
     if (!canon) {
@@ -94,17 +96,21 @@ export default function PortfolioHome() {
   }, []);
 
   return (
-    <div className="portfolio-scope" style={{ background: P.paper, color: P.ink, minHeight: '100vh' }}>
+    <div
+      className="portfolio-scope"
+      style={{ background: P.paper, color: P.ink, minHeight: '100vh', colorScheme: 'dark' }}
+    >
       <style>{`
         .portfolio-scope a:focus-visible,
         .portfolio-scope button:focus-visible,
+        .portfolio-scope summary:focus-visible,
         .portfolio-scope [role="button"]:focus-visible,
         .portfolio-scope [tabindex]:focus-visible {
-          outline: 2px solid ${P.accent};
-          outline-offset: 2px;
+          outline: 2px solid ${P.accentInk};
+          outline-offset: 3px;
           border-radius: 4px;
         }
-        .portfolio-scope section[id] { scroll-margin-top: 70px; }
+        .portfolio-scope section[id] { scroll-margin-top: 72px; }
         @media (prefers-reduced-motion: reduce) {
           .portfolio-scope * { transition-duration: 0.01ms !important; }
         }

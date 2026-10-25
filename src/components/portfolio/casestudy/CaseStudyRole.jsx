@@ -73,7 +73,7 @@ export default function CaseStudyRole() {
             >
               <h3 style={{
                 fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em',
-                textTransform: 'uppercase', fontWeight: 600, color: P.accent,
+                textTransform: 'uppercase', fontWeight: 600, color: P.accentInk,
                 margin: '0 0 0.75rem',
               }}>
                 {cat.label}

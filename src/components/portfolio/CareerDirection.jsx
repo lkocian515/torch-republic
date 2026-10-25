@@ -33,8 +33,8 @@ export default function CareerDirection() {
               </span>
               {i < PATH.length - 1 && (
                 <>
-                  <span className="md:hidden" style={{ color: P.accent }} aria-hidden="true">↓</span>
-                  <span className="hidden md:inline" style={{ color: P.accent, fontSize: '0.85rem' }} aria-hidden="true">→</span>
+                  <span className="md:hidden" style={{ color: P.accentInk }} aria-hidden="true">↓</span>
+                  <span className="hidden md:inline" style={{ color: P.accentInk, fontSize: '0.85rem' }} aria-hidden="true">→</span>
                 </>
               )}
             </li>

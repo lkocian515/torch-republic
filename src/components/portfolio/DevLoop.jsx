@@ -46,7 +46,7 @@ export default function DevLoop() {
                 </span>
                 {i < STEPS.length - 1 && (
                   <>
-                    <span className="md:hidden" style={{ color: P.accent }} aria-hidden="true">&darr;</span>
+                    <span className="md:hidden" style={{ color: P.accentInk }} aria-hidden="true">&darr;</span>
                     <div className={`dl-connector-${i} hidden md:block`} style={{ width: 20, height: 2, background: P.accent, transformOrigin: 'left center', opacity: 0.5 }} aria-hidden="true" />
                   </>
                 )}

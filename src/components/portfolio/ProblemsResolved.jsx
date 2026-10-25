@@ -27,7 +27,7 @@ export default function ProblemsResolved() {
       <ul className="mt-8 m-0 p-0 list-none flex flex-col gap-3">
         {PROBLEMS.map((p, i) => (
           <li key={i} style={{ display: 'flex', gap: '0.85rem', alignItems: 'baseline' }}>
-            <span style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', fontWeight: 700, color: P.accent, flexShrink: 0, minWidth: '1.5rem' }}>
+            <span style={{ fontFamily: FONT_SANS, fontSize: '0.8rem', fontWeight: 700, color: P.accentInk, flexShrink: 0, minWidth: '1.5rem' }}>
               {String(i + 1).padStart(2, '0')}
             </span>
             <span style={{ fontFamily: FONT_SANS, fontSize: '0.92rem', lineHeight: 1.65, color: P.ink }}>

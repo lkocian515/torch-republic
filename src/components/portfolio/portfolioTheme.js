@@ -1,23 +1,28 @@
 // Professional portfolio design system for Lisa Marie Kocian.
-// Editorial, restrained, technology-consultancy aesthetic.
-// Soft ivory background, charcoal text, one controlled blue accent.
+// Editorial, restrained, technology-forward.
+// Deep charcoal canvas, crisp off-white text, one controlled indigo accent,
+// restrained orbital linework. Two type families only: serif display + sans.
 
 export const P = {
-  paper: '#F7F7F5',       // soft ivory / warm white
-  surface: '#FFFFFF',
-  ink: '#111827',          // charcoal — primary text
-  secondary: '#475569',    // slate — secondary text
-  muted: '#94A3B8',         // light slate — tertiary / labels
-  rule: '#E2E8F0',          // soft border
-  accent: '#2563EB',        // controlled blue accent
-  accentInk: '#1E40AF',    // darker blue — emphasis text
-  accentSoft: 'rgba(37,99,235,0.08)',
-  accentHover: '#1D4ED8',
+  paper: '#0A0A0C',        // deep charcoal — page canvas
+  surface: '#121218',      // raised panel
+  surfaceAlt: '#0E0E13',   // sunken panel
+  ink: '#F8FAFC',          // primary text
+  secondary: '#A3AEC0',    // secondary text
+  muted: '#7C8AA0',        // tertiary text / small labels
+  rule: '#1E293B',         // hairline dividers
+  accent: '#4F46E5',       // electric indigo — fills, linework, signal points
+  accentInk: '#A5B4FC',    // indigo text that stays readable on charcoal
+  accentSoft: 'rgba(79,70,229,0.16)',
+  accentHover: '#6366F1',
+  onAccent: '#FFFFFF',     // text placed on an accent fill
+  glow: 'rgba(99,102,241,0.40)',
 };
 
 export const FONT_SERIF = 'var(--font-serif)';  // Cormorant Garamond — display headings
-export const FONT_SANS = 'var(--font-heading)'; // Inter — body text
-export const FONT_MONO = 'var(--font-mono)';     // JetBrains Mono — labels
+export const FONT_SANS = 'var(--font-heading)'; // Inter — body text and labels
+// Labels share the sans family: the portfolio uses two families, never three.
+export const FONT_MONO = FONT_SANS;
 
 export const SECTION = {
   paddingTop: 'clamp(3rem, 6vw, 5rem)',
@@ -27,6 +32,22 @@ export const SECTION = {
 export const LIVE_STORE = 'https://torchrepublic.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/lisamariekocian';
 export const CONTACT_EMAIL = 'lisakocian@outlook.com';
+// The résumé is shared by email on request, as stated in the contact section.
+export const RESUME_URL = `mailto:${CONTACT_EMAIL}?subject=R%C3%A9sum%C3%A9%20request`;
+
+// Brand assets for the project visuals. The real marks, never re-drawn type.
+export const TORCH_LOGO = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e723899d_logo.png';
+export const LUKES_LIGHT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b6513d7ad_generated_image.png';
+
+// Torch Republic storefront palette, taken from the live brand.
+export const TORCH_BRAND = {
+  paper: '#FBF8F3',
+  surface: '#F1ECE5',
+  ink: '#382B24',
+  muted: '#6B5D54',
+  accent: '#B66443',
+  rule: '#E5E7EB',
+};
 
 // ── Portfolio SEO (lisakocian.com global identity) ──
 export const PORTFOLIO_TITLE = 'Lisa Kocian | AI Quality Assurance & Content Evaluation';

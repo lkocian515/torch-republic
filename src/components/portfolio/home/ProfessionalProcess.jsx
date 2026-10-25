@@ -11,38 +11,66 @@ export default function ProfessionalProcess() {
         background: P.paper,
         paddingTop: 'clamp(3rem, 6vw, 5rem)',
         paddingBottom: 'clamp(3rem, 6vw, 5rem)',
-        scrollMarginTop: 70,
+        scrollMarginTop: 72,
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        <p className="text-center md:text-left" style={{ fontFamily: FONT_MONO, fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, margin: '0 0 1rem' }}>
+        <p
+          className="pf-label"
+          style={{
+            fontFamily: FONT_MONO,
+            fontSize: '0.68rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            fontWeight: 600,
+            color: P.accentInk,
+            margin: '0 0 1.35rem',
+          }}
+        >
           Professional process
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start md:gap-3 mb-4">
+        <ol
+          style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: '0 0 1.5rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: '0.4rem 0.65rem',
+          }}
+        >
           {STEPS.map((step, i) => (
-            <React.Fragment key={step}>
-              <span style={{
-                fontFamily: FONT_SERIF,
-                fontWeight: 700,
-                fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
-                color: P.ink,
-              }}>
+            <li key={step} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <span
+                style={{
+                  fontFamily: FONT_SERIF,
+                  fontWeight: 700,
+                  fontSize: 'clamp(1.05rem, 3.6vw, 1.5rem)',
+                  color: P.ink,
+                  whiteSpace: 'nowrap',
+                }}
+              >
                 {step}
               </span>
               {i < STEPS.length - 1 && (
-                <span style={{
-                  fontFamily: FONT_SANS,
-                  color: P.accent,
-                  fontSize: '1.2rem',
-                  fontWeight: 600,
-                }}>
+                <span aria-hidden="true" style={{ color: P.accentInk, fontSize: '1.1rem', fontWeight: 600 }}>
                   &rarr;
                 </span>
               )}
-            </React.Fragment>
+            </li>
           ))}
-        </div>
-        <p className="mx-auto text-center md:mx-0 md:text-left" style={{ fontFamily: FONT_SANS, fontSize: '0.95rem', lineHeight: 1.65, color: P.secondary, margin: 0, maxWidth: '620px' }}>
+        </ol>
+        <p
+          style={{
+            fontFamily: FONT_SANS,
+            fontSize: '0.95rem',
+            lineHeight: 1.7,
+            color: P.secondary,
+            margin: 0,
+            maxWidth: '620px',
+          }}
+        >
           The same iterative loop applied to both AI-output evaluation and digital-commerce testing.
         </p>
       </div>

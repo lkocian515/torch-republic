@@ -49,7 +49,7 @@ export default function CommerceSystem() {
                   <span style={{ fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.95rem', color: P.ink }}>{l.label}</span>
                 </div>
                 {l.ai && (
-                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accent, background: P.accentSoft, borderRadius: '4px', padding: '0.3rem 0.6rem', flexShrink: 0, whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: P.accentInk, background: P.accentSoft, borderRadius: '4px', padding: '0.3rem 0.6rem', flexShrink: 0, whiteSpace: 'nowrap' }}>
                     AI-assisted
                   </span>
                 )}

@@ -11,7 +11,16 @@ export default function PortfolioFooter() {
             <p style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: '1.05rem', color: P.ink, margin: 0 }}>
               Lisa Marie Kocian
             </p>
-            <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: P.muted, margin: '0.35rem 0 0' }}>
+            <p
+              style={{
+                fontFamily: FONT_MONO,
+                fontSize: '0.64rem',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: P.muted,
+                margin: '0.35rem 0 0',
+              }}
+            >
               AI quality assurance &amp; content evaluation
             </p>
           </div>
@@ -24,11 +33,12 @@ export default function PortfolioFooter() {
                 fontFamily: FONT_SANS,
                 fontSize: '0.85rem',
                 fontWeight: 600,
-                color: P.accent,
+                color: P.accentInk,
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
+                minHeight: 40,
               }}
             >
               <Linkedin size={14} /> LinkedIn
@@ -39,11 +49,12 @@ export default function PortfolioFooter() {
                 fontFamily: FONT_SANS,
                 fontSize: '0.85rem',
                 fontWeight: 600,
-                color: P.accent,
+                color: P.accentInk,
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
+                minHeight: 40,
               }}
             >
               <Mail size={14} /> Email
@@ -54,7 +65,16 @@ export default function PortfolioFooter() {
           className="mt-8 pt-5 flex flex-col items-center gap-2 md:flex-row md:items-center md:justify-between text-center md:text-left"
           style={{ borderTop: `1px solid ${P.rule}` }}
         >
-          <p style={{ fontFamily: FONT_MONO, fontSize: '0.64rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: P.muted, margin: 0 }}>
+          <p
+            style={{
+              fontFamily: FONT_MONO,
+              fontSize: '0.64rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: P.muted,
+              margin: 0,
+            }}
+          >
             &copy; 2026 Lisa Marie Kocian
           </p>
           <p style={{ fontFamily: FONT_SANS, fontSize: '0.76rem', color: P.muted, margin: 0 }}>

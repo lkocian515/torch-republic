@@ -29,7 +29,7 @@ export default function WhatItDoes() {
       <ul className="mt-8 m-0 p-0 list-none grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
         {ITEMS.map((item, i) => (
           <li key={i} style={{ fontFamily: FONT_SANS, fontSize: '0.92rem', lineHeight: 1.6, color: P.ink, display: 'flex', gap: '0.65rem' }}>
-            <span style={{ color: P.accent, flexShrink: 0, fontWeight: 700 }} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <span style={{ color: P.accentInk, flexShrink: 0, fontWeight: 700 }} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             <span>{item}</span>
           </li>
         ))}

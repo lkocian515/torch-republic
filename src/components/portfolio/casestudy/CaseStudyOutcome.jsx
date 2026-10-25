@@ -31,7 +31,7 @@ export default function CaseStudyOutcome() {
             fontFamily: FONT_SANS,
             fontWeight: 600,
             fontSize: '0.875rem',
-            color: P.accent,
+            color: P.accentInk,
             textDecoration: 'none',
             display: 'inline-flex',
             alignItems: 'center',

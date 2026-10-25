@@ -67,7 +67,7 @@ export default function LukesLightDemonstrates() {
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   fontWeight: 600,
-                  color: P.accent,
+                  color: P.accentInk,
                   margin: '0 0 0.5rem',
                 }}
               >
@@ -136,7 +136,7 @@ export default function LukesLightDemonstrates() {
               fontFamily: FONT_SANS,
               fontWeight: 600,
               fontSize: '0.875rem',
-              color: P.surface,
+              color: P.onAccent,
               background: P.accent,
               padding: '0.6rem 1.25rem',
               borderRadius: '4px',

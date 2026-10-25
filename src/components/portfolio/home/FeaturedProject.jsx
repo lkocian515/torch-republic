@@ -111,7 +111,7 @@ export default function FeaturedProject() {
                   fontFamily: FONT_SANS,
                   fontWeight: 600,
                   fontSize: '0.875rem',
-                  color: P.surface,
+                  color: P.onAccent,
                   background: P.accent,
                   padding: '0.6rem 1.25rem',
                   borderRadius: '4px',

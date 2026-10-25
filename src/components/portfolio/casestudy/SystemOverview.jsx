@@ -36,7 +36,7 @@ export default function SystemOverview() {
                 background: P.surface,
               }}
             >
-              <p style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accent, margin: '0 0 0.6rem', letterSpacing: '0.08em' }}>
+              <p style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accentInk, margin: '0 0 0.6rem', letterSpacing: '0.08em' }}>
                 {step.num}
               </p>
               <h3 style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: '1rem', color: P.ink, margin: '0 0 0.4rem', lineHeight: 1.3 }}>

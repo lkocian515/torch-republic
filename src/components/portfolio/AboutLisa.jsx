@@ -82,7 +82,7 @@ export default function AboutLisa() {
             padding: '0.6rem 1.25rem',
             borderRadius: '999px',
             background: 'transparent',
-            color: P.accent,
+            color: P.accentInk,
             border: `1px solid ${P.accent}50`,
             fontFamily: FONT_SANS,
             fontWeight: 600,

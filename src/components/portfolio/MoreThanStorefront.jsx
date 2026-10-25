@@ -46,7 +46,7 @@ export default function MoreThanStorefront() {
               style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 width: 40, height: 40, borderRadius: 8,
-                background: P.accentSoft, color: P.accent, marginBottom: '0.9rem',
+                background: P.accentSoft, color: P.accentInk, marginBottom: '0.9rem',
               }}
             >
               <Icon size={20} strokeWidth={1.75} />

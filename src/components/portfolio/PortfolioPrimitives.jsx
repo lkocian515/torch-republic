@@ -35,7 +35,7 @@ export function Eyebrow({ children }) {
         letterSpacing: '0.22em',
         textTransform: 'uppercase',
         fontWeight: 600,
-        color: P.accent,
+        color: P.accentInk,
         margin: 0,
       }}
     >
@@ -133,7 +133,7 @@ export function SubLabel({ children }) {
         letterSpacing: '0.16em',
         textTransform: 'uppercase',
         fontWeight: 700,
-        color: P.accent,
+        color: P.accentInk,
         margin: 0,
       }}
     >

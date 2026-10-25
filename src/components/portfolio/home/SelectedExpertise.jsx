@@ -38,19 +38,19 @@ const FRAMEWORKS = [
 export default function SelectedExpertise() {
   return (
     <section
-      id="capabilities"
+      id="skills"
       style={{
-        background: P.surface,
+        background: P.surfaceAlt,
         borderTop: `1px solid ${P.rule}`,
         borderBottom: `1px solid ${P.rule}`,
         paddingTop: 'clamp(3rem, 6vw, 5rem)',
         paddingBottom: 'clamp(3rem, 6vw, 5rem)',
-        scrollMarginTop: 70,
+        scrollMarginTop: 72,
       }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
         <SectionHeading
-          eyebrow="Core capabilities"
+          eyebrow="Skills"
           heading="Six capability frameworks"
           intro="The same iterative evaluation loop applied to both AI-output review and digital-commerce testing."
         />
@@ -58,17 +58,35 @@ export default function SelectedExpertise() {
           {FRAMEWORKS.map((f) => (
             <div
               key={f.num}
-              className="text-center md:text-left"
               style={{
-                background: P.paper,
+                background: P.surface,
                 border: `1px solid ${P.rule}`,
-                borderRadius: '6px',
-                padding: '1.5rem',
+                borderRadius: '8px',
+                padding: 'clamp(1.25rem, 3vw, 1.6rem)',
               }}
             >
-              <div className="justify-center md:justify-start" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accent, letterSpacing: '0.08em' }}>{f.num}</span>
-                <h3 style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: '1.15rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.8rem', marginBottom: '0.6rem' }}>
+                <span
+                  style={{
+                    fontFamily: FONT_MONO,
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: P.accentInk,
+                    letterSpacing: '0.08em',
+                  }}
+                >
+                  {f.num}
+                </span>
+                <h3
+                  style={{
+                    fontFamily: FONT_SERIF,
+                    fontWeight: 700,
+                    fontSize: 'clamp(1.1rem, 2.6vw, 1.25rem)',
+                    color: P.ink,
+                    margin: 0,
+                    lineHeight: 1.3,
+                  }}
+                >
                   {f.title}
                 </h3>
               </div>

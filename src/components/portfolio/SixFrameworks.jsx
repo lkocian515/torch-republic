@@ -85,7 +85,7 @@ export default function SixFrameworks() {
                     textAlign: 'left',
                   }}
                 >
-                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accent }}>{f.n}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.72rem', fontWeight: 700, color: P.accentInk }}>{f.n}</span>
                   <span style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1rem', color: P.ink, flex: 1 }}>{f.title}</span>
                   <span style={{ color: P.muted, fontSize: '1.1rem' }} aria-hidden="true">{mobileOpen === i ? '\u2212' : '+'}</span>
                 </button>
@@ -94,7 +94,7 @@ export default function SixFrameworks() {
                     <ul className="m-0 p-0 list-none flex flex-col gap-1.5">
                       {f.points.map((pt) => (
                         <li key={pt} style={{ fontFamily: FONT_SANS, fontSize: '0.875rem', lineHeight: 1.55, color: P.secondary, display: 'flex', gap: '0.5rem' }}>
-                          <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">&bull;</span>
+                          <span style={{ color: P.accentInk, flexShrink: 0 }} aria-hidden="true">&bull;</span>
                           <span>{pt}</span>
                         </li>
                       ))}
@@ -147,13 +147,13 @@ export default function SixFrameworks() {
             {FRAMEWORKS.map((f, i) => (
               <div key={f.n} style={{ display: active === i ? 'block' : 'none' }}>
                 <div className="fw-detail-reveal flex items-baseline gap-3">
-                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accent }}>{f.n}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: '0.78rem', fontWeight: 700, color: P.accentInk }}>{f.n}</span>
                   <h3 style={{ fontFamily: FONT_SANS, fontWeight: 700, fontSize: '1.3rem', color: P.ink, margin: 0, lineHeight: 1.3 }}>{f.title}</h3>
                 </div>
                 <ul className="fw-detail-reveal mt-4 m-0 p-0 list-none flex flex-col gap-1.5">
                   {f.points.map((pt) => (
                     <li key={pt} style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', lineHeight: 1.55, color: P.secondary, display: 'flex', gap: '0.5rem' }}>
-                      <span style={{ color: P.accent, flexShrink: 0 }} aria-hidden="true">&bull;</span>
+                      <span style={{ color: P.accentInk, flexShrink: 0 }} aria-hidden="true">&bull;</span>
                       <span>{pt}</span>
                     </li>
                   ))}

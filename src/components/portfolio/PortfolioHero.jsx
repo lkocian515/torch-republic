@@ -14,7 +14,7 @@ const QA_MODULES = [
 const STATUS_STYLES = {
   pass: { color: '#059669', icon: Check },
   warn: { color: '#D97706', icon: AlertTriangle },
-  info: { color: P.accent, icon: ArrowRightIcon },
+  info: { color: P.accentInk, icon: ArrowRightIcon },
 };
 
 function QaPanel() {
@@ -137,7 +137,7 @@ export default function PortfolioHero() {
         <div className="grid md:grid-cols-[52fr_48fr] gap-10 md:gap-12 items-center">
           {/* LEFT */}
           <div className="text-center md:text-left">
-            <p className="hero-eyebrow" style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: P.accent, margin: 0 }}>
+            <p className="hero-eyebrow" style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: P.accentInk, margin: 0 }}>
               AI Quality Assurance &middot; AI Commerce &middot; Content Evaluation
             </p>
 
@@ -171,7 +171,7 @@ export default function PortfolioHero() {
               className="hero-credential group inline-flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
               style={{ marginBottom: '1.5rem', padding: '0.5rem 1rem', borderRadius: '8px', background: P.accentSoft, border: `1px solid ${P.accent}30`, textDecoration: 'none' }}
             >
-              <BadgeCheck size={16} style={{ color: P.accent, flexShrink: 0 }} strokeWidth={2} />
+              <BadgeCheck size={16} style={{ color: P.accentInk, flexShrink: 0 }} strokeWidth={2} />
               <span style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 600, color: P.accentInk }}>Alignerr Network</span>
               <span style={{ fontFamily: FONT_MONO, fontSize: '0.6rem', color: P.muted, letterSpacing: '0.08em' }}>&middot;</span>
               <span style={{ fontFamily: FONT_SANS, fontSize: '0.8125rem', fontWeight: 500, color: P.secondary }}>Labelbox</span>
@@ -184,7 +184,7 @@ export default function PortfolioHero() {
               <a href="#contact" className="hero-cta group inline-flex items-center justify-center gap-2 transition-colors duration-200" style={{ minHeight: 48, padding: '0.7rem 1.6rem', borderRadius: '6px', background: 'transparent', color: P.ink, border: `1px solid ${P.rule}`, fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
                 Contact Me <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="hero-cta group inline-flex items-center justify-center gap-2" style={{ minHeight: 48, padding: '0.7rem 1rem', color: P.accent, fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="hero-cta group inline-flex items-center justify-center gap-2" style={{ minHeight: 48, padding: '0.7rem 1rem', color: P.accentInk, fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.9375rem', textDecoration: 'none' }}>
                 LinkedIn <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
