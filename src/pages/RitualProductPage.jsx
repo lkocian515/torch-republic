@@ -273,11 +273,11 @@ function RitualPDP({ product }) {
         <nav className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>
           <Link to="/" className="hover:opacity-70">Home</Link>
           <ChevronRight size={11} />
-          <Link to="/shop" className="hover:opacity-70">Shop</Link>
-          <ChevronRight size={11} />
-          <Link to={product.collectionPath} className="hover:opacity-70">{product.categoryLabel}</Link>
-          <ChevronRight size={11} />
-          <span style={{ color: c.deep }}>{product.name}</span>
+          <Link to="/shop" className="hidden hover:opacity-70 sm:block">Shop</Link>
+          <ChevronRight size={11} className="hidden sm:block" />
+          <Link to={product.collectionPath} className="hidden hover:opacity-70 sm:block">{product.categoryLabel}</Link>
+          <ChevronRight size={11} className="hidden sm:block" />
+          <span className="min-w-0 truncate" style={{ color: c.deep }}>{product.name}</span>
         </nav>
       </div>
 
@@ -297,7 +297,7 @@ function RitualPDP({ product }) {
             </div>
 
             <div>
-              <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem,4vw,2.6rem)', color: THEME.text, lineHeight: 1.1 }}>{product.name}</h1>
+              <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem,4vw,2.6rem)', color: THEME.text, lineHeight: 1.18 }}>{product.name}</h1>
               {/* The everyday lineup is instant and nothing else — stated on the
                   product page as well as on every card. */}
               <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.14em]" style={{ color: c.deep }}>

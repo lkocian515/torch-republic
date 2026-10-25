@@ -243,11 +243,11 @@ function BlendDetailInner({ product }) {
         <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: THEME.secondary }}>
           <Link to="/" className="hover:opacity-70">Home</Link>
           <ChevronRight size={11} />
-          <Link to="/shop" className="hover:opacity-70">Shop</Link>
-          <ChevronRight size={11} />
-          <Link to={product.category === 'matcha' ? '/shop/matcha' : product.category === 'classic-coffee' ? '/shop/instant-coffee' : '/shop/instant-mushroom-coffee'} className="hover:opacity-70">{categoryLabel}</Link>
-          <ChevronRight size={11} />
-          <span style={{ color: THEME.clay }}>{product.name}</span>
+          <Link to="/shop" className="hidden hover:opacity-70 sm:block">Shop</Link>
+          <ChevronRight size={11} className="hidden sm:block" />
+          <Link to={product.category === 'matcha' ? '/shop/matcha' : product.category === 'classic-coffee' ? '/shop/instant-coffee' : '/shop/instant-mushroom-coffee'} className="hidden hover:opacity-70 sm:block">{categoryLabel}</Link>
+          <ChevronRight size={11} className="hidden sm:block" />
+          <span className="min-w-0 truncate" style={{ color: THEME.clay }}>{product.name}</span>
         </nav>
       </div>
 
