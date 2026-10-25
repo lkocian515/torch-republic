@@ -128,13 +128,6 @@ export default function ProductCard({ product, index = 0 }) {
             </div>
           )}
 
-          {/* Out of stock badge — never show for coffee (availability checked live at checkout) */}
-          {!product.in_stock && product.category !== 'coffee' && (
-            <div className="absolute top-3 left-3 bg-destructive text-destructive-foreground px-3 py-1 text-xs font-mono tracking-wider">
-              SOLD OUT
-            </div>
-          )}
-
           {/* Top rated badge */}
           {product.rating >= 4.8 && (
             <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 text-xs font-mono font-bold tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #1B5060)', border: '1px solid rgba(200,164,77,0.5)', color: '#C8A44D' }}>

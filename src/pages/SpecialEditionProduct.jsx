@@ -22,8 +22,8 @@ import EditionCard from '@/components/specialeditions/EditionCard';
 
 const STOCK_NOTE = {
   pending: 'This option is coming soon.',
-  soldout: 'This option is sold out.',
-  error: 'We cannot confirm availability for this option right now. Please try again shortly.',
+  soldout: 'This option is coming soon.',
+  error: 'We cannot confirm this option right now. Please try again shortly.',
 };
 
 /**

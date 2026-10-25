@@ -27,7 +27,7 @@ function normalizeError(error) {
   let customerMessage = 'Something went wrong. Please try again.';
 
   if (originalMessage.includes('not available') || originalMessage.includes('sold out') || originalMessage.includes('unavailable')) {
-    customerMessage = 'This product is currently unavailable.';
+    customerMessage = 'We could not add this item to your order. Please refresh and try again.';
   } else if (originalMessage.includes('cart') || originalMessage.includes('Cart')) {
     customerMessage = 'Your cart could not be updated. Please try again.';
   } else if (originalMessage.includes('token') || originalMessage.includes('auth') || originalMessage.includes('401')) {

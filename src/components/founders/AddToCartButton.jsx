@@ -77,7 +77,6 @@ export default function AddToCartButton({ shopifyHandle, accent, label = 'Get Yo
               disabled={!v.availableForSale}
             >
               {v.title}
-              {!v.availableForSale && ' (sold out)'}
             </button>
           ))}
         </div>
@@ -89,7 +88,7 @@ export default function AddToCartButton({ shopifyHandle, accent, label = 'Get Yo
         className="w-full py-4 font-mono font-black text-[11px] tracking-[0.3em] uppercase transition-all disabled:opacity-60 btn-glow"
         style={{ background: isUnavailable ? 'rgba(100,100,100,0.3)' : accent, color: '#080808' }}
       >
-        {loading ? 'Opening Checkout...' : isUnavailable ? 'Sold Out' : label}
+        {loading ? 'Opening Checkout...' : label}
       </button>
 
       {error && <p className="font-mono text-xs mt-2" style={{ color: '#ff6b6b' }}>{error}</p>}

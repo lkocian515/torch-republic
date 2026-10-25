@@ -361,11 +361,6 @@ function BlendDetailInner({ product }) {
               >
                 {justAdded ? <><Check size={16} /> Added to cart</> : <><ShoppingBag size={16} /> Add to Cart</>}
               </button>
-              {!inStock && (
-                <p className="font-mono text-[9px] tracking-[0.12em] uppercase text-center" style={{ color: THEME.clay }}>
-                  Currently unavailable — check back soon
-                </p>
-              )}
               {justAdded && (
                 <p className="font-heading text-sm text-center" style={{ color: THEME.moss }}>
                   Added to your cart. <Link to="/cart" style={{ color: THEME.clay, textDecoration: 'underline' }}>View cart →</Link>

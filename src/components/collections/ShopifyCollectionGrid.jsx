@@ -40,12 +40,6 @@ function CoffeeProductCard({ product, index, accentColor = '#C9A24A', internalRo
           onError={e => { e.currentTarget.src = PLACEHOLDER; }}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)' }} />
-        {!product.available && (
-          <div className="absolute top-3 left-3 font-mono text-[9px] uppercase tracking-wider px-2 py-1"
-            style={{ background: 'rgba(0,0,0,0.7)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            Sold Out
-          </div>
-        )}
       </div>
       <div className="p-5 flex flex-col gap-2 flex-1">
         <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#FFFFFF', lineHeight: 1.25 }}>{title}</h3>

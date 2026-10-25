@@ -42,8 +42,9 @@ export function isMappedVariant(id) {
 
 /**
  * Purchasable only when approved AND mapped to a real Shopify variant AND
- * Shopify confirms it is available. Anything Shopify has not confirmed reads
- * as coming soon — only a confirmed sold-out answer is shown as sold out.
+ * Shopify confirms it is available. Every product in the store is in stock, so
+ * an unconfirmed answer reads as coming soon rather than announcing a sold-out
+ * product to a shopper.
  */
 export function optionState(option) {
   // An option Shopify has not confirmed as available reads as coming soon, so
@@ -57,7 +58,7 @@ export function optionState(option) {
     return { state: 'error', purchasable: false, label: 'Coming soon' };
   }
   if (!option.shopify.available) {
-    return { state: 'soldout', purchasable: false, label: 'Sold out' };
+    return { state: 'soldout', purchasable: false, label: 'Coming soon' };
   }
   return {
     state: 'available',
@@ -135,7 +136,7 @@ export function editionState(edition) {
   if (options.some((o) => optionState(o).purchasable)) return { state: 'available', label: 'Available' };
   if (options.some((o) => optionState(o).state === 'error')) return { state: 'error', label: 'Coming soon' };
   if (options.some((o) => o.approved && isMappedVariant(o.shopify_variant_id))) {
-    return { state: 'soldout', label: 'Sold out' };
+    return { state: 'soldout', label: 'Coming soon' };
   }
   return { state: 'pending', label: 'Coming soon' };
 }
