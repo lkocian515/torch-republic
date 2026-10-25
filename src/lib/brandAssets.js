@@ -22,7 +22,8 @@ export const BRAND_COLORS = {
   navyDeep: '#050A12',
   navy: '#0A1424',
   navyLight: '#16233B',
-  gold: '#D9A04A',
-  goldLight: '#F4C478',
+  gold: '#EAC796',
+  goldLight: '#F3DCBB',
+  goldDeep: '#C89965',
   cream: '#F8F6F2',
 };
