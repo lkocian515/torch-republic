@@ -13,8 +13,8 @@
 import { COMMERCE_ENABLED } from './commerceConfig';
 
 export const FINAL_PRODUCT_IMAGE_URLS = {
-  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
-  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
+  'instant-classic-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f146fdba6_torch-republic-classic-coffee-1600-2.png',
+  'instant-mushroom-coffee': 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f04a19318_torch-republic-mushroom-coffee-1600-1.png',
 };
 
 const product = ({ id, name, slug, roast, roastIntensity, caffeineLevel, mood, tagline, description, flavorNotes, tasteDescription, bestFor, mushrooms, servings, price, shopifyHandle, accent, category, keyBenefits }) => {

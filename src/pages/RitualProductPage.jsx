@@ -18,6 +18,23 @@ import PurchaseOptionSelector from '@/components/products/PurchaseOptionSelector
 
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
 
+// Current bag photography supplied for the storefront refresh (1600×1600).
+const CLASSIC_LIFESTYLE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/620fb687d_torch-republic-classic-lifestyle-1600.png';
+const MUSHROOM_LIFESTYLE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7b9372bd1_torch-republic-mushroom-lifestyle-1600.png';
+
+// "Your ritual, ready in seconds." imagery — the current bag in a real home
+// ritual setting for the two core coffees; flakes for every other product.
+const RITUAL_MOMENT = {
+  'classic-coffee': {
+    src: CLASSIC_LIFESTYLE,
+    alt: 'Torch Republic Instant Classic Coffee pouch beside a steaming mug of black coffee on a rustic kitchen table',
+  },
+  'mushroom-coffee': {
+    src: MUSHROOM_LIFESTYLE,
+    alt: 'Torch Republic Instant Mushroom Coffee pouch beside a mug of coffee, books and a notebook on a wooden table',
+  },
+};
+
 const LIFESTYLE_IMAGE = {
   'mushroom-coffee': null,
   'classic-coffee': null,
@@ -31,26 +48,22 @@ const LIFESTYLE_IMAGE = {
 const GALLERY_EXTRA = {
   'mushroom-coffee': {
     images: [
+      MUSHROOM_LIFESTYLE,
       COFFEE_FLAKES,
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e1ff3dcd_usemush2.png',
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/02fd00b7d_usemush.png',
     ],
     alts: [
+      'Torch Republic Instant Mushroom Coffee pouch beside a mug of coffee, books and a notebook on a wooden table',
       'Instant coffee flakes — what is inside the bag',
-      'Torch Republic Instant Coffee with Mushrooms poured into a mug at sunset',
-      'Torch Republic Instant Coffee with Mushrooms at a beach sunset ritual',
     ],
   },
   'classic-coffee': {
     images: [
+      CLASSIC_LIFESTYLE,
       COFFEE_FLAKES,
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0fdfd9a0b_useclass2.png',
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/725f39ba5_useclassic.png',
     ],
     alts: [
+      'Torch Republic Instant Classic Coffee pouch beside a steaming mug of black coffee on a rustic kitchen table',
       'Instant coffee flakes — what is inside the bag',
-      'Torch Republic Instant Classic Coffee enjoyed at sunset',
-      'Torch Republic Instant Classic Coffee in a tote bag at a cafe',
     ],
   },
   'pumpkin-spice': {
@@ -443,8 +456,8 @@ function RitualPDP({ product }) {
 
       {product.format !== 'Whole Bean' && (
         <RitualMomentStrip
-          image="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png"
-          alt="Instant coffee flakes stirred into a hot cup"
+          image={RITUAL_MOMENT[product.category]?.src || COFFEE_FLAKES}
+          alt={RITUAL_MOMENT[product.category]?.alt || 'Instant coffee flakes stirred into a hot cup'}
           accent={c.accent}
           eyebrow="The Ritual"
           title="Your ritual, ready in seconds."

@@ -102,16 +102,19 @@ export default function DriftProductDiscovery() {
         <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
           {[classic, mushroom].map((product, i) => (
             <div key={product.id} className="pd-card flex flex-col" style={{ minWidth: 0, perspective: '1000px' }}>
-              {/* Image — responsive width, reserved aspect ratio to prevent CLS */}
-              <TiltContainer className="pd-img-wrap tr-product-card flex items-center justify-center mb-6" style={{ padding: 'clamp(1.25rem, 2.5vw, 2.25rem)', borderRadius: '10px', overflow: 'hidden', background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft}40 0%, ${D.cream} 70%)`, minWidth: 0, border: D.borderHairline, boxShadow: D.shadowSoft }}>
-                <img
-                  className="pd-img"
-                  src={product.image}
-                  alt={product.alt}
-                  loading="lazy"
-                  style={{ width: 'clamp(220px, 72%, 380px)', aspectRatio: '3 / 4', height: 'auto', objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(36,26,22,0.12))' }}
-                />
-              </TiltContainer>
+              {/* Image — responsive width, reserved aspect ratio to prevent CLS.
+                  The whole image panel links to its own product page. */}
+              <Link to={product.path} aria-label={`View ${product.name}`} className="block" style={{ textDecoration: 'none' }}>
+                <TiltContainer className="pd-img-wrap tr-product-card flex items-center justify-center mb-6" style={{ padding: 'clamp(1.25rem, 2.5vw, 2.25rem)', borderRadius: '10px', overflow: 'hidden', background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft}40 0%, ${D.cream} 70%)`, minWidth: 0, border: D.borderHairline, boxShadow: D.shadowSoft }}>
+                  <img
+                    className="pd-img"
+                    src={product.image}
+                    alt={product.alt}
+                    loading="lazy"
+                    style={{ width: 'clamp(220px, 72%, 380px)', aspectRatio: '3 / 4', height: 'auto', objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(36,26,22,0.12))' }}
+                  />
+                </TiltContainer>
+              </Link>
               {/* Info */}
               <ProductInfo product={product} index={i + 1} addItem={addItem} isAdding={isAdding} />
             </div>

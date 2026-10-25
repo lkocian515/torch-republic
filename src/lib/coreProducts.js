@@ -88,8 +88,9 @@ export const CORE_PRODUCTS = [
     cta: 'Shop Coffee',
     path: '/products/instant-classic-coffee',
     collectionPath: '/products/instant-classic-coffee',
+    alt: 'Instant Classic Coffee — matte black 3 oz stand-up pouch with the cream Torch Republic classic label.',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f146fdba6_torch-republic-classic-coffee-1600-2.png',
   }),
   build({
     id: 'instant-mushroom-coffee',
@@ -115,8 +116,9 @@ export const CORE_PRODUCTS = [
     cta: 'Shop Mushroom Coffee',
     path: '/products/instant-mushroom-coffee',
     collectionPath: '/products/instant-mushroom-coffee',
+    alt: 'Instant Mushroom Coffee — matte black 3 oz stand-up pouch with the navy Torch Republic mushroom label.',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f04a19318_torch-republic-mushroom-coffee-1600-1.png',
   }),
 ];
 
@@ -189,8 +191,9 @@ export const BUNDLE_PRODUCTS = [
     cta: 'Shop Duo',
     path: '/products/torch-republic-coffee-duo',
     collectionPath: '/products/torch-republic-coffee-duo',
+    alt: 'Torch Republic Coffee Duo — the Instant Classic and Instant Mushroom pouches together on a kitchen counter.',
     image:
-      'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/50fe3f8e-f513-4487-a40d-47f78309917e.png?v=1788939236',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/04a98e90c_torch-republic-duo-lifestyle-1600.png',
     format: 'Instant',
   }),
 ];
