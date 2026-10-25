@@ -1,5 +1,5 @@
 import React from 'react';
-import { D, MONO } from './driftTheme';
+import { D, MONO, TYPE } from './driftTheme';
 import { useDriftMotion } from './useDriftMotion';
 
 const ITEMS = [
@@ -15,7 +15,7 @@ function MarqueeSet() {
     <div className="flex items-center flex-shrink-0" aria-hidden="true">
       {ITEMS.map((item) => (
         <span key={item} className="flex items-center">
-          <span style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600, color: D.ink, whiteSpace: 'nowrap', padding: '0 1.5rem' }}>
+          <span style={{ ...TYPE.eyebrow, color: D.ink, whiteSpace: 'nowrap', padding: '0 1.5rem' }}>
             {item}
           </span>
           <span style={{ color: D.terracotta, fontSize: '0.7rem' }}>&bull;</span>

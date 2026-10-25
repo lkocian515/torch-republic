@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, RotateCcw } from 'lucide-react';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, SERIF, SANS, MONO, TYPE } from './driftTheme';
 import { formatPrice } from '@/lib/pricingConfig';
 import { FREE_SHIPPING_THRESHOLD_DISPLAY, SHIP_TIME_DISPLAY, GUARANTEE_DISPLAY } from '@/lib/siteConfig';
 import TiltContainer from './TiltContainer';
@@ -83,32 +83,32 @@ export default function DriftProductCard({
       </Link>
 
       <div className="pd-info min-w-0">
-        <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 0.75rem' }}>
+        <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 0.75rem' }}>
           {eyebrow}
         </p>
 
-        <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.5rem, 2.6vw, 2rem)', color: D.ink, margin: '0 0 0.5rem' }}>{name}</h3>
+        <h3 style={{ ...TYPE.title, color: D.ink, margin: '0 0 0.5rem' }}>{name}</h3>
 
         {/* How the coffee is prepared — stated on every card, never implied. */}
         {formatLabel && (
-          <p style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: D.terracottaDeep, margin: '0 0 0.6rem', lineHeight: 1.6 }}>
+          <p style={{ ...TYPE.meta, fontWeight: 700, color: D.terracottaDeep, margin: '0 0 0.6rem' }}>
             {formatLabel}
             {formatNote ? ` · ${formatNote}` : ''}
           </p>
         )}
 
         {flavorLabel && (
-          <p style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.terracotta, margin: '0 0 0.75rem' }}>{flavorLabel}</p>
+          <p style={{ ...TYPE.body, fontWeight: 600, color: D.terracotta, margin: '0 0 0.75rem' }}>{flavorLabel}</p>
         )}
 
         {description && (
-          <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.65, color: D.secondary, margin: '0 0 1.25rem', maxWidth: '42ch' }}>{description}</p>
+          <p style={{ ...TYPE.body, color: D.secondary, margin: '0 0 1.25rem', maxWidth: '42ch' }}>{description}</p>
         )}
 
         {flavorNotes.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {flavorNotes.map((tag) => (
-              <span key={tag} style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, padding: '0.3rem 0.65rem', borderRadius: '4px', background: D.surface, color: D.ink, border: `1px solid ${D.rule}` }}>{tag}</span>
+              <span key={tag} style={{ ...TYPE.meta, padding: '0.3rem 0.65rem', borderRadius: '4px', background: D.surface, color: D.ink, border: `1px solid ${D.rule}` }}>{tag}</span>
             ))}
           </div>
         )}

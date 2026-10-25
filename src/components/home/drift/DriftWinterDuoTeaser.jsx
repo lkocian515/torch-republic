@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { WINTER_DUO, winterDuoEditions } from '@/lib/winterDuo';
-import { D, SERIF, SANS } from './driftTheme';
+import { D, TYPE } from './driftTheme';
 
 /**
  * Compact Winter Duo reminder near the bottom of the homepage.
@@ -42,19 +42,11 @@ export default function DriftWinterDuoTeaser() {
           <div className="min-w-0">
             <h2
               id="winter-duo-teaser-heading"
-              style={{
-                fontFamily: SERIF,
-                fontWeight: 700,
-                fontSize: 'clamp(1.35rem, 2.6vw, 1.75rem)',
-                lineHeight: 1.2,
-                color: D.ink,
-                margin: 0,
-                textWrap: 'balance',
-              }}
+              style={{ ...TYPE.title, fontSize: 'clamp(1.35rem, 2.6vw, 1.75rem)', color: D.ink, margin: 0 }}
             >
               {WINTER_DUO.teaserHeading}
             </h2>
-            <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.65, color: D.secondary, margin: '0.6rem 0 0' }}>
+            <p style={{ ...TYPE.body, color: D.secondary, margin: '0.6rem 0 0' }}>
               {WINTER_DUO.teaserText}
             </p>
             <Link

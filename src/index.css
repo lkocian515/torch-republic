@@ -134,6 +134,31 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Even line breaks site-wide.
+     Headings balance their lines instead of leaving one short word stranded on
+     the last line; paragraphs use the browser's prettier wrap so they avoid
+     single-word final lines too. Both are progressive enhancements — a browser
+     that doesn't support them renders the text exactly as before. */
+  h1, h2, h3, h4, h5, h6, blockquote {
+    text-wrap: balance;
+  }
+
+  p, li, dd, figcaption {
+    text-wrap: pretty;
+  }
+
+  /* Consistent glyph spacing and numeral alignment. Tabular figures keep
+     prices, quantities and step numbers sitting on an even grid rather than
+     shifting width from digit to digit. */
+  h1, h2, h3, h4, h5, h6 {
+    font-kerning: normal;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  table, [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+
   ::placeholder {
     color: hsl(var(--muted-foreground));
     opacity: 0.82;

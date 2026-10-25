@@ -2,7 +2,7 @@ import React, { useState, useRef, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, SERIF, SANS, MONO, TYPE } from './driftTheme';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
 import { useDriftMotion, prefersReducedMotion } from './useDriftMotion';
 
@@ -79,13 +79,13 @@ export default function DriftRitualBuilder() {
       <div className="mx-auto max-w-[900px] px-6 py-16 md:py-20">
         {/* Header */}
         <div className="text-center mb-10">
-          <p className="br-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
+          <p className="br-eyebrow" style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 1rem' }}>
             Build Your Ritual
           </p>
-          <h2 className="br-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: '0 0 0.75rem', textWrap: 'balance' }}>
+          <h2 className="br-heading" style={{ ...TYPE.heading, color: D.ink, margin: '0 0 0.75rem' }}>
             Your morning, your way.
           </h2>
-          <p className="br-sub" style={{ fontFamily: SANS, fontSize: '1rem', lineHeight: 1.6, color: D.secondary, margin: 0, maxWidth: '44ch', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p className="br-sub" style={{ ...TYPE.lead, color: D.secondary, margin: 0, maxWidth: '44ch', marginLeft: 'auto', marginRight: 'auto' }}>
             Pick your blend, choose your method, and follow a simple guide.
           </p>
         </div>

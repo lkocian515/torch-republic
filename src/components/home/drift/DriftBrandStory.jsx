@@ -1,5 +1,5 @@
 import React from 'react';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, SERIF, SANS, MONO, TYPE } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const STORY_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e56a2a991_IMG_20260923_102242.png';
@@ -47,22 +47,22 @@ export default function DriftBrandStory() {
           </div>
           {/* Copy */}
           <div className="order-1 md:order-2">
-            <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>
+            <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 1rem' }}>
               Why Torch Republic
             </p>
-            <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)', lineHeight: 1.12, color: D.ink, margin: '0 0 1.5rem' }}>
+            <h2 style={{ ...TYPE.heading, color: D.ink, margin: '0 0 1.5rem' }}>
               <span className="brand-line" style={{ display: 'block' }}>Good mornings</span>
               <span className="brand-line" style={{ display: 'block' }}>don&rsquo;t need to be</span>
               <span className="brand-line" style={{ display: 'block' }}>complicated.</span>
             </h2>
-            <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '44ch' }}>
+            <p style={{ ...TYPE.lead, color: D.secondary, margin: '0 0 2.25rem', maxWidth: '44ch' }}>
               Torch Republic makes two signature instant coffees, both built to be easy to love and easy to trust. Seasonal releases join the lineup through the year.
             </p>
             <div className="brand-principles flex flex-col gap-5">
               {PRINCIPLES.map((p) => (
                 <div className="brand-principle" key={p.label}>
-                  <p style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700, color: D.ink, margin: '0 0 0.35rem' }}>{p.label}</p>
-                  <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.6, color: D.secondary, margin: 0 }}>{p.body}</p>
+                  <p style={{ ...TYPE.meta, fontWeight: 700, color: D.ink, margin: '0 0 0.35rem' }}>{p.label}</p>
+                  <p style={{ ...TYPE.body, color: D.secondary, margin: 0 }}>{p.body}</p>
                 </div>
               ))}
             </div>

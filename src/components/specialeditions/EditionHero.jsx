@@ -7,6 +7,7 @@ import AnimatedHeadline from '@/components/motion/AnimatedHeadline';
 import EvergreenHero from './EvergreenHero';
 import EditionPlinth from './EditionPlinth';
 import EditionStatusChip from './EditionStatusChip';
+import { TYPE } from '@/components/home/drift/driftTheme';
 
 const T = {
   bg: '#1A0F0A',
@@ -71,23 +72,14 @@ export default function EditionHero() {
           <AnimatedHeadline
             as="h1"
             text={campaign.headline || campaign.name}
-            style={{
-              fontFamily: 'var(--font-serif)',
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 5.2vw, 3.25rem)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.01em',
-              color: T.cream,
-              margin: 0,
-              textWrap: 'balance',
-            }}
+            style={{ ...TYPE.hero, color: T.cream, margin: 0 }}
           />
           {/* What the shop actually sells, said plainly and up front, so a first-time
               visitor knows the offering before they reach the lineup further down. */}
           {campaign.supporting_text && (
             <p
               className="font-heading"
-              style={{ color: 'rgba(230,216,202,0.92)', fontSize: '1.0625rem', lineHeight: 1.6, margin: '1.25rem 0 0' }}
+              style={{ ...TYPE.lead, color: 'rgba(230,216,202,0.92)', margin: '1.25rem 0 0' }}
             >
               {campaign.supporting_text}
             </p>
@@ -96,7 +88,7 @@ export default function EditionHero() {
           {/* Named for the campaign, so the brewed seasonal pair reads as its own
               thing rather than contradicting the instant lineup above it. */}
           {editionsFormatLabel(items) && (
-            <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1.25rem 0 0' }}>
+            <p style={{ ...TYPE.meta, color: 'rgba(230,216,202,0.9)', margin: '1.25rem 0 0' }}>
               {campaign.name} &middot; {editionsFormatLabel(items)} &middot; brewed, not instant
             </p>
           )}
@@ -159,14 +151,14 @@ export default function EditionHero() {
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
           <div className="text-center md:text-left">
             {campaign.eyebrow && (
-              <p className="font-mono uppercase" style={{ color: T.terracotta, fontSize: '10px', letterSpacing: '0.35em' }}>
+              <p style={{ ...TYPE.eyebrow, color: T.terracotta }}>
                 {campaign.eyebrow}
               </p>
             )}
 
             <h1
               className="mt-3 font-serif font-bold"
-              style={{ color: T.cream, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.01em' }}
+              style={{ ...TYPE.hero, color: T.cream }}
             >
               {campaign.headline}
             </h1>
@@ -174,7 +166,7 @@ export default function EditionHero() {
             {campaign.supporting_text && (
               <p
                 className="mx-auto mt-4 font-heading md:mx-0"
-                style={{ color: T.body, fontSize: '1.0625rem', lineHeight: 1.7, maxWidth: 480 }}
+                style={{ ...TYPE.lead, color: T.body, maxWidth: 480 }}
               >
                 {campaign.supporting_text}
               </p>
@@ -198,7 +190,7 @@ export default function EditionHero() {
               </Link>
             </div>
 
-            <p className="mt-4 font-heading" style={{ color: 'rgba(230,216,202,0.75)', fontSize: '0.8125rem' }}>
+            <p className="mt-4 font-heading" style={{ ...TYPE.body, color: 'rgba(230,216,202,0.75)' }}>
               Everyday instant coffee stays available below.
             </p>
           </div>

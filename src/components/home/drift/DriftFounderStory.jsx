@@ -2,17 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
+import { D, SANS, TYPE, fadeUp } from './driftTheme';
 
 export default function DriftFounderStory() {
   return (
     <section style={{ background: D.cream, borderTop: '1px solid rgba(184,115,77,0.10)' }}>
       <div className="mx-auto max-w-[800px] px-6 py-16 md:py-24 text-center">
         <motion.div {...fadeUp}>
-          <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 2rem' }}>
+          <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 2rem' }}>
             Founded in Corpus Christi, Texas
           </p>
-          <blockquote style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', lineHeight: 1.3, color: D.ink, margin: '0 0 2rem', textWrap: 'balance' }}>
+          <blockquote style={{ ...TYPE.heading, fontWeight: 600, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', lineHeight: 1.28, color: D.ink, margin: '0 0 2rem' }}>
             &ldquo;I wanted a good cup in the morning without buying another machine. That was the whole idea.&rdquo;
           </blockquote>
           <Link

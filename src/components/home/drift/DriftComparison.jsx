@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, TYPE } from './driftTheme';
 import { useDriftMotion } from './useDriftMotion';
 
 const PRODUCTS = [
@@ -48,19 +48,14 @@ const ROWS = [
 ];
 
 const labelStyle = {
-  fontFamily: MONO,
+  ...TYPE.eyebrow,
   fontSize: '0.625rem',
-  letterSpacing: '0.22em',
-  textTransform: 'uppercase',
-  fontWeight: 600,
   color: D.terracotta,
   margin: 0,
 };
 
 const valueStyle = {
-  fontFamily: SANS,
-  fontSize: '0.875rem',
-  lineHeight: 1.5,
+  ...TYPE.body,
   color: D.ink,
   margin: 0,
 };
@@ -70,7 +65,7 @@ function ProductLink({ product }) {
     <Link
       to={product.path}
       className="group inline-flex items-center gap-2"
-      style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.8125rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: D.espresso, textDecoration: 'none' }}
+      style={{ ...TYPE.meta, fontSize: '0.8125rem', letterSpacing: '0.08em', color: D.espresso, textDecoration: 'none' }}
     >
       View {product.label}
       <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" style={{ strokeWidth: 1.75 }} />
@@ -126,10 +121,10 @@ export default function DriftComparison() {
           <p className="cmp-eyebrow" style={{ ...labelStyle, fontSize: '0.7rem', letterSpacing: '0.28em', margin: '0 0 1rem' }}>
             Side by Side
           </p>
-          <h2 className="cmp-heading" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>
+          <h2 className="cmp-heading" style={{ ...TYPE.heading, color: D.ink, margin: 0 }}>
             What actually differs between them
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: '0.9375rem', lineHeight: 1.6, color: D.secondary, margin: '1rem 0 0', maxWidth: '52ch' }}>
+          <p style={{ ...TYPE.body, color: D.secondary, margin: '1rem 0 0', maxWidth: '52ch' }}>
             Both are instant, both work hot or iced, and both are ready in seconds.
           </p>
         </div>
@@ -140,8 +135,8 @@ export default function DriftComparison() {
           {PRODUCTS.map((p) => (
             <div key={p.id}>
               <p className="cmp-label" style={labelStyle}>{p.index} / {p.label}</p>
-              <h3 className="cmp-name" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.0625rem, 3.5vw, 1.35rem)', color: D.ink, margin: '0.5rem 0 0.375rem' }}>{p.name}</h3>
-              <p style={{ fontFamily: SANS, fontSize: '0.8125rem', color: D.secondary, margin: 0 }}>{p.descriptor}</p>
+              <h3 className="cmp-name" style={{ ...TYPE.title, fontSize: 'clamp(1.0625rem, 3.5vw, 1.35rem)', color: D.ink, margin: '0.5rem 0 0.375rem' }}>{p.name}</h3>
+              <p style={{ ...TYPE.body, fontSize: '0.8125rem', color: D.secondary, margin: 0 }}>{p.descriptor}</p>
             </div>
           ))}
         </div>

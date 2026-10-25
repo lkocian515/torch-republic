@@ -1,5 +1,5 @@
 import React from 'react';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, SERIF, TYPE } from './driftTheme';
 import { useDriftMotion } from './useDriftMotion';
 
 const RITUAL_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/976716136_generated_image.png';
@@ -31,27 +31,27 @@ export default function DriftRitual() {
           </div>
           {/* Copy */}
           <div className="order-1 md:order-2">
-            <p style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.25rem' }}>
+            <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 1.25rem' }}>
               The Ritual
             </p>
-            <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)', lineHeight: 1.05, color: D.ink, margin: '0 0 1rem' }}>
+            <h2 style={{ ...TYPE.heading, color: D.ink, margin: '0 0 1rem' }}>
               <span className="ritual-word" style={{ display: 'inline-block' }}>Ready</span>{' '}
               <span className="ritual-word" style={{ display: 'inline-block' }}>before</span>{' '}
               <span className="ritual-word" style={{ display: 'inline-block' }}>the kettle</span>{' '}
               <span className="ritual-word" style={{ display: 'inline-block' }}>stops.</span>
             </h2>
-            <p style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2.5rem', maxWidth: '40ch' }}>
+            <p style={{ ...TYPE.lead, color: D.secondary, margin: '0 0 2.5rem', maxWidth: '40ch' }}>
               One scoop, hot water, a quick stir. That is the entire method.
             </p>
             <div className="flex flex-col gap-4 mb-8">
               {STEPS.map((s) => (
                 <div key={s.num} className="ritual-step flex items-center gap-4">
-                  <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', color: D.terracotta, minWidth: '2.5rem' }}>{s.num}</span>
-                  <span style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600, color: D.ink }}>{s.label}</span>
+                  <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', lineHeight: 1, letterSpacing: '-0.01em', color: D.terracotta, minWidth: '2.5rem' }}>{s.num}</span>
+                  <span style={{ ...TYPE.meta, color: D.ink }}>{s.label}</span>
                 </div>
               ))}
             </div>
-            <p className="ritual-note" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.8125rem', letterSpacing: '0.08em', color: D.secondary, margin: 0, lineHeight: 1.8 }}>
+            <p className="ritual-note" style={{ ...TYPE.body, fontWeight: 600, fontSize: '0.8125rem', color: D.secondary, margin: 0 }}>
               No machine, no pods, nothing to clean up afterward.
             </p>
           </div>

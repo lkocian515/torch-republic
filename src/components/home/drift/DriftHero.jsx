@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { D, SERIF, SANS, MONO } from './driftTheme';
+import { D, SANS, TYPE } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f0baca98f_file_00000000f01c822fa487ced70d607099.png';
@@ -10,10 +10,10 @@ const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e
 function HeroText() {
   return (
     <>
-      <p className="hero-eyebrow" style={{ fontFamily: MONO, fontSize: '0.7rem', letterSpacing: '0.28em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1.5rem' }}>
+      <p className="hero-eyebrow" style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 1.5rem' }}>
         Premium Coffee &middot; Made for Mornings
       </p>
-      <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', lineHeight: 1.02, letterSpacing: '-0.02em', color: D.ink, margin: '0 0 1.25rem', textWrap: 'balance' }}>
+      <h1 style={{ ...TYPE.hero, color: D.ink, margin: '0 0 1.25rem' }}>
         <span style={{ overflow: 'hidden', display: 'block', paddingBottom: '0.18em', marginBottom: '-0.18em' }}>
           <span className="hero-line" style={{ display: 'block' }}>Better mornings,</span>
         </span>
@@ -22,7 +22,7 @@ function HeroText() {
           <span className="hero-line" style={{ display: 'block' }}>in an instant.</span>
         </span>
       </h1>
-      <p className="hero-body" style={{ fontFamily: SANS, fontSize: '1.0625rem', lineHeight: 1.7, color: D.secondary, margin: '0 0 2rem', maxWidth: '40ch' }}>
+      <p className="hero-body" style={{ ...TYPE.lead, color: D.secondary, margin: '0 0 2rem', maxWidth: '40ch' }}>
         Premium coffee made for real mornings. Scoop. Stir. Sip.
       </p>
       <div className="hero-cta flex flex-col sm:flex-row gap-4 sm:items-center">

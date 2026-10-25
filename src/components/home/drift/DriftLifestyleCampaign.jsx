@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { D, SERIF, SANS } from './driftTheme';
+import { D, SANS, TYPE } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const CAMPAIGN_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e1ff3dcd_usemush2.png';
@@ -29,10 +29,10 @@ export default function DriftLifestyleCampaign() {
       </div>
       <div className="absolute inset-0 flex items-end" style={{ background: 'linear-gradient(to top, rgba(56,43,36,0.6) 0%, transparent 55%)' }}>
         <div className="campaign-text p-6 md:p-12 lg:p-16 max-w-[560px]">
-          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', lineHeight: 1.1, color: '#FAF7F1', margin: '0 0 0.75rem', textWrap: 'balance' }}>
+          <h2 style={{ ...TYPE.heading, color: '#FAF7F1', margin: '0 0 0.75rem' }}>
             Made for real mornings.
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: '1rem', lineHeight: 1.6, color: 'rgba(250,247,241,0.85)', margin: '0 0 1.5rem', maxWidth: '38ch' }}>
+          <p style={{ ...TYPE.lead, color: 'rgba(250,247,241,0.85)', margin: '0 0 1.5rem', maxWidth: '38ch' }}>
             From the desk to the trail and everywhere between.
           </p>
           <Link to="/shop" className="group inline-flex items-center gap-2" style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.875rem', color: '#FAF7F1', textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase' }}>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { editionState } from '@/lib/specialEditions';
 import { WINTER_DUO, winterDuoEditions } from '@/lib/winterDuo';
-import { SERIF, SANS, MONO, fadeUp } from './driftTheme';
+import { SANS, TYPE, fadeUp } from './driftTheme';
 
 // Deep winter band — the homepage's editorial rhythm, lit for a cold evening
 // instead of a bright morning.
@@ -39,58 +39,19 @@ export default function DriftWinterDuo() {
     <section style={{ background: W.night }} aria-labelledby="winter-duo-heading">
       <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
         <motion.div {...fadeUp} className="mx-auto max-w-2xl text-center">
-          <p
-            style={{
-              fontFamily: MONO,
-              fontSize: '0.7rem',
-              letterSpacing: '0.28em',
-              textTransform: 'uppercase',
-              fontWeight: 600,
-              color: W.ember,
-              margin: '0 0 1.25rem',
-            }}
-          >
+          <p style={{ ...TYPE.eyebrow, color: W.ember, margin: '0 0 1.25rem' }}>
             {WINTER_DUO.eyebrow}
           </p>
 
-          <h2
-            id="winter-duo-heading"
-            style={{
-              fontFamily: SERIF,
-              fontWeight: 700,
-              fontSize: 'clamp(2.1rem, 4.5vw, 3.25rem)',
-              lineHeight: 1.05,
-              color: W.cream,
-              margin: 0,
-              textWrap: 'balance',
-            }}
-          >
+          <h2 id="winter-duo-heading" style={{ ...TYPE.heading, color: W.cream, margin: 0 }}>
             {WINTER_DUO.name}
           </h2>
 
-          <p
-            style={{
-              fontFamily: MONO,
-              fontSize: '0.8125rem',
-              letterSpacing: '0.08em',
-              fontWeight: 600,
-              color: W.ember,
-              margin: '1.25rem 0 0',
-            }}
-          >
+          <p style={{ ...TYPE.meta, fontSize: '0.8125rem', letterSpacing: '0.08em', color: W.ember, margin: '1.25rem 0 0' }}>
             {WINTER_DUO.flavorLine}
           </p>
 
-          <p
-            style={{
-              fontFamily: SANS,
-              fontSize: '1.0625rem',
-              lineHeight: 1.7,
-              color: W.body,
-              margin: '1.25rem auto 0',
-              maxWidth: '46ch',
-            }}
-          >
+          <p style={{ ...TYPE.lead, color: W.body, margin: '1.25rem auto 0', maxWidth: '46ch' }}>
             {WINTER_DUO.supporting}
           </p>
 
@@ -106,15 +67,7 @@ export default function DriftWinterDuo() {
                 <span style={{ fontFamily: SANS, fontSize: '0.8125rem', fontWeight: 600, color: W.cream }}>
                   {edition.name}
                 </span>
-                <span
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: '0.625rem',
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    color: W.ember,
-                  }}
-                >
+                <span style={{ ...TYPE.meta, fontSize: '0.625rem', color: W.ember }}>
                   {editionState(edition).label}
                 </span>
               </li>

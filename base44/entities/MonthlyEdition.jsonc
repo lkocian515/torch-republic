@@ -1,0 +1,146 @@
+{
+  "name": "MonthlyEdition",
+  "type": "object",
+  "properties": {
+    "edition_name": {
+      "type": "string",
+      "description": "Customer-facing name of this month's special edition"
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Flavor or tasting profile of the edition"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "One or two sentences describing what arrives this month"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Primary product photo for the homepage club section"
+    },
+    "label_image_url": {
+      "type": "string",
+      "description": "Label artwork for the edition, shown beside the product photo"
+    },
+    "shopify_product_handle": {
+      "type": "string",
+      "description": "Shopify product handle for this exact edition. Used to verify the edition against the live store."
+    },
+    "shopify_product_id": {
+      "type": "string",
+      "description": "Shopify Product GID for this edition"
+    },
+    "shopify_variant_id": {
+      "type": "string",
+      "description": "Shopify ProductVariant GID that the subscription bills every month. Must belong to the product above."
+    },
+    "shopify_selling_plan_id": {
+      "type": "string",
+      "description": "Shopify SellingPlan GID attached to the variant above. Without this the club cannot bill monthly."
+    },
+    "fulfillment_provider": {
+      "type": "string",
+      "description": "Supplier or fulfillment partner that produces this edition, e.g. Roastify. Leave empty until confirmed."
+    },
+    "fulfillment_sku": {
+      "type": "string",
+      "description": "The supplier's own SKU or product mapping for this edition. Never inferred from the Shopify SKU."
+    },
+    "expected_price": {
+      "type": "string",
+      "description": "Admin's expected one-time price for reference only. Never displayed to customers; the storefront always reads the live Shopify price."
+    },
+    "subscription_available": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this edition can be subscribed to monthly. Only set true once the variant and selling plan are verified."
+    },
+    "one_time_available": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this edition can also be bought once. Only set true when the variant is actually purchasable."
+    },
+    "launch_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the edition goes on sale"
+    },
+    "order_cutoff_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Last date an order for this edition can be accepted"
+    },
+    "expected_fulfillment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the edition is expected to ship"
+    },
+    "inventory_status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "in_stock",
+        "low_stock",
+        "sold_out"
+      ],
+      "default": "unknown",
+      "description": "Availability of this edition"
+    },
+    "intended_month": {
+      "type": "string",
+      "description": "The month this edition is intended for, e.g. November 2026"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "scheduled",
+        "live",
+        "sold_out",
+        "archived"
+      ],
+      "default": "draft",
+      "description": "Only scheduled, live and sold_out editions appear on the storefront. Draft and archived editions never do."
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": false,
+      "description": "Marks the edition the club is currently featuring"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set true only once the Shopify product, variant, selling plan and fulfillment mapping have all been confirmed to refer to the same edition. The storefront refuses to show a price or a subscribe button until this is true and Shopify agrees."
+    },
+    "verification_notes": {
+      "type": "string",
+      "description": "What has been confirmed and what is still outstanding for this edition"
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Order among editions, lower first"
+    }
+  },
+  "required": [
+    "edition_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
