@@ -240,11 +240,19 @@ export default function SpecialEditionProduct() {
                 Add to Cart
               </button>
             ) : (
-              (isUpcoming || STOCK_NOTE[state.state]) && (
-                <p className="body mt-6 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
-                  {isUpcoming ? COMING_SOON_COPY : STOCK_NOTE[state.state]}
-                </p>
-              )
+              <>
+                {isUpcoming && (
+                  <button type="button" className="btn btn-primary mt-6 w-full" disabled>
+                    <ShoppingBag size={16} strokeWidth={2} />
+                    Coming Soon
+                  </button>
+                )}
+                {(isUpcoming || STOCK_NOTE[state.state]) && (
+                  <p className="body mt-4 text-readable-secondary" style={{ fontSize: '0.875rem' }}>
+                    {isUpcoming ? COMING_SOON_COPY : STOCK_NOTE[state.state]}
+                  </p>
+                )}
+              </>
             )}
 
             {edition.promo_copy && (
