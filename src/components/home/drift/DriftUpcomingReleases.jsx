@@ -10,8 +10,9 @@ import DriftProductCard from './DriftProductCard';
  * lineup above the classic and mushroom coffee.
  *
  * These are announced but not produced, so nothing here is confirmed: no price,
- * no format, and no shipping, returns or delivery promise is shown. The card and
- * the product page both read Coming Soon until the release is live in Shopify.
+ * no format, and no shipping, returns or delivery promise is shown. The card
+ * image and title open the release preview, while the button sends the visitor
+ * to the shop so the section still leads to coffee they can buy today.
  */
 export default function DriftUpcomingReleases() {
   const { upcoming, loading } = useSpecialEditions();
@@ -34,6 +35,7 @@ export default function DriftUpcomingReleases() {
               path={editionPath(edition)}
               ritualSoft={D.accentSoft}
               disabled
+              ctaPath="/shop"
             />
           ))}
         </div>

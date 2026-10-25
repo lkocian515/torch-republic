@@ -11,8 +11,8 @@ import TiltContainer from './TiltContainer';
  * seasonal releases so both grids are styled identically.
  *
  * `disabled` marks a product that isn't purchasable yet: its cart button
- * becomes a "View Product" link to the product page, where the Coming Soon
- * state is shown.
+ * becomes a "Shop Coffee" link to the shop, so the card still leads a visitor
+ * to something they can buy today.
  */
 export default function DriftProductCard({
   eyebrow,
@@ -29,6 +29,8 @@ export default function DriftProductCard({
   price = null,
   servings = null,
   disabled = false,
+  ctaPath = null,
+  ctaLabel = 'Shop Coffee',
   onAdd,
   isAdding = false,
 }) {
@@ -125,8 +127,8 @@ export default function DriftProductCard({
 
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
           {disabled ? (
-            <Link to={path} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={btnStyle}>
-              Coming Soon
+            <Link to={ctaPath || path} className="group tr-btn-lift inline-flex items-center justify-center gap-2" style={btnStyle}>
+              {ctaLabel}
             </Link>
           ) : (
             <button
