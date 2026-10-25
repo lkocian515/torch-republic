@@ -7,6 +7,7 @@ import FreeGiftBanner from '@/components/home/FreeGiftBanner';
 import ShopSpecialEditions from '@/components/specialeditions/ShopSpecialEditions';
 import UpcomingReleases from '@/components/specialeditions/UpcomingReleases';
 import ShopDuoBanner from '@/components/specialeditions/ShopDuoBanner';
+import WinterDuoShopCard from '@/components/specialeditions/WinterDuoShopCard';
 import { useSEO } from '@/hooks/useSEO';
 import { useSearchParams } from 'react-router-dom';
 import { getCoffeeFormat } from '@/lib/coffeeFormats';
@@ -141,6 +142,10 @@ export default function MushroomShop() {
           </div>
         </section>
       )}
+
+      {/* Winter Duo feature, directly beneath the everyday lineup. Instant view
+          only: no format has been confirmed for these two releases yet. */}
+      {showEveryday && <WinterDuoShopCard />}
 
       {/* Special editions follow the everyday catalog. */}
       <ShopSpecialEditions format={activeFormat ? activeFormat.key : null} />

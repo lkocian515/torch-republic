@@ -19,6 +19,7 @@ import {
 import EditionStatusChip from '@/components/specialeditions/EditionStatusChip';
 import GrindSelector from '@/components/specialeditions/GrindSelector';
 import EditionCard from '@/components/specialeditions/EditionCard';
+import WinterDuoCrossLink from '@/components/specialeditions/WinterDuoCrossLink';
 
 const STOCK_NOTE = {
   pending: 'This option is coming soon.',
@@ -278,6 +279,9 @@ export default function SpecialEditionProduct() {
                 )}
               </>
             )}
+
+            {/* Cross-link to the duo, only on the two Winter Duo coffees. */}
+            <WinterDuoCrossLink edition={edition} />
 
             {edition.promo_copy && (
               <p className="body mt-4" style={{ fontSize: '0.9375rem', color: 'hsl(var(--primary))' }}>

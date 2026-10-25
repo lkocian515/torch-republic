@@ -146,6 +146,7 @@ const PortfolioNotFound = lazy(() => import('./pages/PortfolioNotFound.jsx'));
 const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
 const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
+const WinterDuo = lazy(() => import('./pages/WinterDuo'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 const AdminReleases = lazy(() => import('./pages/AdminReleases'));
 
@@ -270,6 +271,9 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/special-editions/collections/:collectionSlug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionCollection" queryClient={queryClient}><SpecialEditionCollection /></LayoutWrapper></Suspense>} />
         <Route path="/special-editions/halloween" element={<Navigate to="/special-editions/collections/halloween" replace />} />
         <Route path="/special-editions/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionProduct" queryClient={queryClient}><SpecialEditionProduct /></LayoutWrapper></Suspense>} />
+
+        {/* ── WINTER DUO — seasonal pairing landing page ── */}
+        <Route path="/winter-duo" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WinterDuo" queryClient={queryClient}><WinterDuo /></LayoutWrapper></Suspense>} />
         {/* Legacy whole-bean URL → format-neutral page, keeping the intended selection */}
         <Route path="/products/pumpkin-spice-whole-bean-coffee" element={<Navigate to="/special-editions/pumpkin-spice?format=whole-bean" replace />} />
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />
