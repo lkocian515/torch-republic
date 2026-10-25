@@ -21,7 +21,7 @@ export default function DriftProductDiscovery() {
 
         {/* Balanced two-column grid — one structure for all breakpoints */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
-          {[classic, mushroom].map((product, i) => (
+          {[mushroom, classic].map((product, i) => (
             <DriftProductCard
               key={product.id}
               eyebrow={`0${i + 1} / ${product.ritualKey}`}

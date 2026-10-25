@@ -19,8 +19,8 @@ const SECTIONS = [
     items: [
       ['Shop All', '/shop'],
       ...COFFEE_FORMATS.map(({ label, path }) => [label, path]),
-      ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+      ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Special Editions', '/special-editions'],
       ['Halloween Duo', '/special-editions/collections/halloween'],
     ],
