@@ -484,13 +484,13 @@ export default function SpinWheelPopup() {
                   className="flex flex-col items-center justify-center px-4 pb-2 pt-12 sm:px-6 sm:pt-14 md:w-[52%] md:px-8 md:py-10"
                   style={{ background: 'radial-gradient(circle at 50% 45%, rgba(217,160,74,0.10) 0%, rgba(5,10,18,0.35) 70%)' }}
                 >
-                  <div className="w-full max-w-[215px] sm:max-w-[250px] md:max-w-[290px]">
+                  <div className="w-full max-w-[215px] sm:max-w-[260px] md:max-w-[330px]">
                     <SpinWheel prizes={PRIZES} rotation={rotation} />
                   </div>
                 </div>
 
                 {/* Right: brand mark, headline, offer form */}
-                <div className="flex min-h-[280px] flex-1 flex-col justify-center px-5 pb-8 pt-2 sm:px-7 md:px-8 md:py-10">
+                <div className="flex min-h-[280px] flex-1 flex-col items-center justify-center px-5 pb-8 pt-2 text-center sm:px-7 md:px-8 md:py-10">
                   {/* Screen-reader live region */}
                   <div aria-live="polite" className="sr-only">
                     {liveMessage}
@@ -506,11 +506,11 @@ export default function SpinWheelPopup() {
                       <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 1.2rem + 1.2vw, 2rem)', lineHeight: 1.15, color: INK, textShadow: '0 0 30px rgba(217,160,74,0.30)' }}>
                         Spin for a little something extra
                       </h2>
-                      <p id="spinwheel-desc" className="font-heading text-sm mb-6" style={{ color: BODY, lineHeight: 1.7 }}>
-                        Enter your email, spin the wheel, and reveal an offer for your next Torch Republic coffee order.
+                      <p id="spinwheel-desc" className="font-serif text-lg mb-6" style={{ color: BODY, lineHeight: 1.55 }}>
+                        Enter your email to reveal a coffee offer.
                       </p>
 
-                      <form onSubmit={handleSpin} className="flex flex-col gap-3">
+                      <form onSubmit={handleSpin} className="flex w-full flex-col gap-3">
                         <label htmlFor="spinwheel-email" className="sr-only">
                           Your email address
                         </label>
@@ -569,7 +569,7 @@ export default function SpinWheelPopup() {
                             fontSize: '11px',
                             background: INK,
                             color: CREAM,
-                            borderRadius: '999px',
+                            borderRadius: '6px',
                             border: `1px solid ${GOLD_LIGHT}`,
                             filter: 'drop-shadow(0 6px 16px rgba(5,10,18,0.5))',
                           }}
@@ -602,7 +602,7 @@ export default function SpinWheelPopup() {
                   )}
 
                   {step === 'result' && result && (
-                    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+                    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="w-full">
                       <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-2" style={{ color: CLAY }}>
                         You won
                       </p>

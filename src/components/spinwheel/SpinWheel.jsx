@@ -8,7 +8,7 @@ const R = 114;
 const SLICE_DEG = 90;
 const TICKS = 60;
 
-const { navy, navyDeep, navyLight, gold, goldLight, goldAntique, cream } = BRAND_COLORS;
+const { navy, navyDeep, navyLight, gold, goldLight, goldAntique, green, cream } = BRAND_COLORS;
 
 /** The gold tick track that runs between the two rim rules. */
 const TICK_MARKS = Array.from({ length: TICKS }, (_, i) => {
@@ -24,6 +24,17 @@ const TICK_MARKS = Array.from({ length: TICKS }, (_, i) => {
     major,
   };
 });
+
+/** A delicate leafy sprig with a small flower, drawn centred on the origin. */
+const SPRIG = (
+  <>
+    <path d="M-7 1 C-3 -3 2 -4 7 -2" fill="none" stroke={goldAntique} strokeWidth="0.7" opacity="0.75" />
+    <path d="M-4 -0.6 C-3 -3.4 0 -4.8 3 -4.4 C1.8 -1.6 -1 -0.2 -4 -0.6 Z" fill={green} opacity="0.7" />
+    <path d="M-1 0.4 C0 -2 2.6 -3.2 5.2 -2.8 C4.2 -0.5 1.8 0.7 -1 0.4 Z" fill={green} opacity="0.55" />
+    <circle cx="7.6" cy="-1.9" r="1.6" fill={cream} opacity="0.8" />
+    <circle cx="7.6" cy="-1.9" r="0.6" fill={goldAntique} />
+  </>
+);
 
 /**
  * Prize wheel in the night-sky palette: midnight navy quadrants under fine gold
@@ -134,14 +145,29 @@ export default function SpinWheel({ prizes, rotation }) {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fill={cream}
-                fontSize="15"
+                fontSize="18"
                 fontWeight="700"
-                fontFamily="'JetBrains Mono', monospace"
-                letterSpacing="0.5"
+                fontFamily="'Cormorant Garamond', 'Playfair Display', Georgia, serif"
+                letterSpacing="0.8"
                 transform={`rotate(${textAngle}, ${tx}, ${ty})`}
               >
                 {prize.label}
               </text>
+            </g>
+          );
+        })}
+
+        {/* A leafy sprig and small flower in each quadrant, just inside the rim */}
+        {prizes.map((prize, i) => {
+          const midDeg = i * SLICE_DEG - 45;
+          const midRad = (midDeg * Math.PI) / 180;
+          const sr = R * 0.85;
+          return (
+            <g
+              key={`sprig-${prize.id}`}
+              transform={`translate(${CX + sr * Math.cos(midRad)}, ${CX + sr * Math.sin(midRad)}) rotate(${midDeg + 90})`}
+            >
+              {SPRIG}
             </g>
           );
         })}
