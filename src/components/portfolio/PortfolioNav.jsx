@@ -129,7 +129,6 @@ export default function PortfolioNav() {
               borderRadius: '4px',
               minHeight: 44,
               minWidth: 44,
-              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
