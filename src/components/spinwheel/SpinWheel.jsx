@@ -1,5 +1,5 @@
 import React from 'react';
-import CupFlameMark from '@/components/spinwheel/CupFlameMark';
+import LogoArtwork from '@/components/spinwheel/LogoArtwork';
 import { BRAND_COLORS } from '@/lib/brandAssets';
 
 const SIZE = 260;
@@ -106,11 +106,24 @@ export default function SpinWheel({ prizes, rotation }) {
           );
         })}
 
-        {/* Center hub with the coffee cup */}
-        <circle cx={CX} cy={CX} r={34} fill={navyDeep} stroke={gold} strokeWidth="2" />
+        {/* Center hub */}
+        <circle cx={CX} cy={CX} r={34} fill="#061B31" stroke={gold} strokeWidth="2" />
         <circle cx={CX} cy={CX} r={29} fill="none" stroke={goldLight} strokeWidth="0.8" opacity="0.5" />
-        <CupFlameMark x={CX - 24} y={CX - 24} size={48} />
       </svg>
+
+      {/* The supplied cup-and-flame mark, above the wheel so it stays upright
+          while the wheel spins */}
+      <LogoArtwork
+        crop="mark"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '19%',
+          transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none',
+        }}
+      />
     </div>
   );
 }
