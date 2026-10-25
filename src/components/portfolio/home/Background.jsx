@@ -12,8 +12,8 @@ const EXPERIENCE = [
 
 const TOOLS = [
   { area: 'AI & Evaluation', items: 'LLM output evaluation; prompt/instruction testing; AI performance QA; NLP-aware review; hallucination detection.' },
-  { area: 'Engineering Stack', items: 'React / Redux / TypeScript; Node.js / Python; GraphQL & API QA; GCP / Kubernetes; MySQL / PostgreSQL.' },
-  { area: 'Commerce & Analytics', items: 'Shopify; Base44; Google Analytics; Google Search Console; Klaviyo.' },
+  { area: 'Product & Commerce', items: 'Shopify; Base44; GA4; Google Search Console; customer-journey, cart, and checkout QA.' },
+  { area: 'Working Technical Knowledge', items: 'React / JavaScript; APIs and GraphQL; Node.js / Python; GCP / Kubernetes; MySQL / PostgreSQL.' },
   { area: 'QA Methods', items: 'Defect reproduction/docs; regression & revalidation; direct-route testing; access-control review; privacy / PII review.' },
   { area: 'Dev Practices', items: 'GitHub version control; Agile workflows; Jira; UiPath Automation.' },
 ];
@@ -34,16 +34,21 @@ const QA_METHODS = [
   'Evidence-based corrective feedback',
 ];
 
+// Status follows the project's own résumé record. Only the three 2026
+// credentials are completed; coursework and exam preparation are labelled as
+// such and never presented as awarded certifications.
 const CERTIFICATIONS = [
-  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026' },
-  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026' },
-  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026' },
-  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '' },
-  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '' },
-  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '' },
-  { name: 'Career Essentials in Generative AI', org: 'Microsoft', year: '' },
-  { name: 'AI Fundamentals', org: 'IBM', year: '' },
-  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '' },
+  { name: 'Jira Fundamentals Badge', org: 'Atlassian University', year: '2026', status: 'Completed' },
+  { name: 'Introduction to Automation Diploma', org: 'UiPath Academy', year: '2026', status: 'Completed' },
+  { name: 'Google Analytics Certification', org: 'Google Skillshop', year: '2026', status: 'Completed' },
+  { name: 'Intro to Machine Learning', org: 'Kaggle', year: '', status: 'In progress' },
+  { name: 'Intermediate Machine Learning', org: 'Kaggle', year: '', status: 'In progress' },
+  { name: 'Responsive Web Design', org: 'freeCodeCamp', year: '', status: 'In progress' },
+  { name: 'Career Essentials in Generative AI', org: 'Microsoft & LinkedIn', year: '', status: 'In progress' },
+  { name: 'AI Fundamentals', org: 'IBM SkillsBuild', year: '', status: 'In progress' },
+  { name: 'AI Essentials', org: 'Google', year: '', status: 'In progress' },
+  { name: 'Agentic AI', org: 'DeepLearning.AI', year: '', status: 'In progress' },
+  { name: 'AWS Certified AI Practitioner', org: 'Amazon Web Services', year: '', status: 'Exam preparation' },
 ];
 
 const rowLabel = {
@@ -105,7 +110,11 @@ export default function Background() {
         </div>
 
         {/* ── Tools & platforms ── */}
-        <SectionHeading eyebrow="Tools" heading="Tools & platforms" />
+        <SectionHeading
+          eyebrow="Tools"
+          heading="Tools & platforms"
+          intro="Technologies listed reflect practical working knowledge gained through applied projects, not expert engineering experience in every tool."
+        />
         <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
           <Disclosure title="Tools & platforms" meta="Five areas" count={`${TOOLS.length}`} defaultOpen>
             <div style={{ border: `1px solid ${P.rule}`, borderRadius: '8px', overflow: 'hidden' }}>
@@ -167,14 +176,14 @@ export default function Background() {
         <SectionHeading eyebrow="Credentials" heading="Certifications & professional development" />
         <Disclosure
           title="Certifications & professional development"
-          meta="Nine credentials"
+          meta={`${CERTIFICATIONS.length} programs`}
           count={`${CERTIFICATIONS.length}`}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {CERTIFICATIONS.map((c) => (
               <div
                 key={c.name}
-                className="flex flex-wrap items-center justify-between gap-2"
+                className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1"
                 style={{
                   padding: '0.7rem 1rem',
                   border: `1px solid ${P.rule}`,
@@ -185,9 +194,27 @@ export default function Background() {
                 <span style={{ fontFamily: FONT_SANS, fontSize: '0.9rem', fontWeight: 600, color: P.ink }}>
                   {c.name}
                 </span>
-                <span style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', color: P.secondary }}>
-                  {c.org}
-                  {c.year ? `, ${c.year}` : ''}
+                <span className="flex flex-wrap items-center gap-2">
+                  <span style={{ fontFamily: FONT_SANS, fontSize: '0.82rem', color: P.secondary }}>
+                    {c.org}
+                    {c.year ? `, ${c.year}` : ''}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: FONT_SANS,
+                      fontSize: '0.68rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      color: c.status === 'Completed' ? P.accentInk : P.muted,
+                      border: `1px solid ${P.rule}`,
+                      borderRadius: '999px',
+                      padding: '0.2rem 0.6rem',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {c.status}
+                  </span>
                 </span>
               </div>
             ))}

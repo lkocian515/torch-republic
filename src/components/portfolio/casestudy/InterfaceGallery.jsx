@@ -1,54 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { P, FONT_SANS, FONT_MONO } from '../portfolioTheme';
+import { P, FONT_MONO, TORCH_SHOTS } from '../portfolioTheme';
 import SectionHeading from '../home/SectionHeading';
 import ScreenshotSlot from '../ScreenshotSlot';
 
-// CURRENT SCREENSHOT REQUIRED — populate the `src` fields below with verified
-// current screenshots from torchrepublic.com. Until src values are provided,
-// this entire section stays hidden (no empty spacing on the live page).
-//
-// Required screenshots and recommended dimensions:
-//   1. Desktop homepage hero — 16:9 landscape, 1920×1080 or similar
-//   2. Mobile homepage — 9:16 portrait, 390×844 or similar
-//   3. Shop / Shop All page — 16:9 landscape
-//   4. Product detail — Instant Classic Coffee — 3:2 landscape
-//   5. Product detail — Instant Mushroom Coffee — 3:2 landscape
-//   6. Cart or cart drawer with one valid item — 3:2 landscape
-//   7. Responsive navigation — 16:9 landscape (mobile menu open)
-//   8. Content, offer, or feature section — 3:2 landscape
-//
-// Before adding a screenshot:
-//   1. Open the current live page on torchrepublic.com
-//   2. Confirm it reflects the current published version
-//   3. Confirm product names, prices, packaging, navigation, and layout are current
-//   4. Confirm no loading errors, broken images, admin controls, or unfinished states
-//   5. Confirm the screenshot is sharp and properly cropped
-//   6. Confirm the caption accurately describes what is visible
+// Real captures of the live application — every image is a mobile viewport of
+// torchrepublic.com. Replace a src only with a newer verified capture of the
+// same view, and keep the caption accurate to what is visible.
 
 const LEAD = {
-  src: null,
-  alt: 'Torch Republic desktop homepage hero section showing the current brand messaging and product imagery',
-  caption: 'Desktop homepage hero',
-  aspectRatio: '16 / 10',
+  src: TORCH_SHOTS.home,
+  alt: 'Torch Republic mobile homepage: utility bar, brand header, hero with three product pouches, the brand promise, and the two shop calls to action.',
+  caption: 'Homepage',
+  aspectRatio: '9 / 16',
+  objectPosition: 'top center',
 };
 
 const GALLERY = [
-  { src: null, alt: 'Torch Republic mobile homepage on a smartphone viewport', caption: 'Mobile homepage', aspectRatio: '9 / 16' },
-  { src: null, alt: 'Torch Republic shop page showing all current products', caption: 'Shop page', aspectRatio: '16 / 10' },
-  { src: null, alt: 'Instant Classic Coffee product detail page with current pricing and imagery', caption: 'Product detail — Instant Classic Coffee', aspectRatio: '3 / 2' },
-  { src: null, alt: 'Instant Mushroom Coffee product detail page with current pricing and imagery', caption: 'Product detail — Instant Mushroom Coffee', aspectRatio: '3 / 2' },
-  { src: null, alt: 'Cart drawer showing one selected item with current pricing', caption: 'Cart with selected item', aspectRatio: '3 / 2' },
-  { src: null, alt: 'Responsive navigation menu open on mobile', caption: 'Responsive navigation', aspectRatio: '16 / 10' },
-  { src: null, alt: 'Homepage content section demonstrating the customer experience', caption: 'Customer experience section', aspectRatio: '3 / 2' },
+  {
+    src: TORCH_SHOTS.classic,
+    alt: 'Instant Classic Coffee product card with pricing and add-to-cart actions.',
+    caption: 'Product card — Instant Classic Coffee',
+    aspectRatio: '9 / 16',
+    objectPosition: 'top center',
+  },
+  {
+    src: TORCH_SHOTS.mushroom,
+    alt: 'Instant Mushroom Coffee product card with pricing and add-to-cart actions.',
+    caption: 'Product card — Instant Mushroom Coffee',
+    aspectRatio: '9 / 16',
+    objectPosition: 'top center',
+  },
+  {
+    src: TORCH_SHOTS.benefits,
+    alt: 'Benefit grid describing clean ingredients, sustained energy, focus and clarity, and immune support.',
+    caption: 'Benefit grid',
+    aspectRatio: '9 / 16',
+    objectPosition: 'top center',
+  },
+  {
+    src: TORCH_SHOTS.lifestyle,
+    alt: 'Lifestyle section showing the daily ritual in an outdoor mountain setting.',
+    caption: 'Lifestyle section',
+    aspectRatio: '9 / 16',
+    objectPosition: 'top center',
+  },
 ];
 
 export default function InterfaceGallery() {
   const [expanded, setExpanded] = useState(null);
-
-  const hasLead = !!LEAD.src;
-  const hasGallery = GALLERY.some((s) => s.src);
-  const hasAny = hasLead || hasGallery;
 
   useEffect(() => {
     if (!expanded) return;
@@ -61,9 +61,6 @@ export default function InterfaceGallery() {
     };
   }, [expanded]);
 
-  // Section stays hidden until at least one screenshot is provided.
-  if (!hasAny) return null;
-
   return (
     <section
       id="gallery"
@@ -71,41 +68,42 @@ export default function InterfaceGallery() {
         background: P.paper,
         paddingTop: 'clamp(3rem, 6vw, 5rem)',
         paddingBottom: 'clamp(3rem, 6vw, 5rem)',
-        scrollMarginTop: 70,
+        scrollMarginTop: 72,
       }}
     >
-      <div className="mx-auto max-w-[820px] px-6 md:px-10">
-        <SectionHeading eyebrow="Current interface gallery" heading="Verified screenshots from the live application" />
+      <div className="mx-auto max-w-[980px] px-6 md:px-10">
+        <SectionHeading
+          eyebrow="Interface gallery"
+          heading="Captures from the live application"
+          intro="Mobile views of the published storefront. Select any image to open it full size."
+        />
 
-        {hasLead && (
-          <div style={{ marginBottom: '1.5rem' }}>
+        <div style={{ marginBottom: '1.75rem', maxWidth: '420px' }}>
+          <ScreenshotSlot
+            src={LEAD.src}
+            alt={LEAD.alt}
+            caption={LEAD.caption}
+            aspectRatio={LEAD.aspectRatio}
+            objectPosition={LEAD.objectPosition}
+            onClick={() => setExpanded(LEAD)}
+          />
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+          {GALLERY.map((s) => (
             <ScreenshotSlot
-              src={LEAD.src}
-              alt={LEAD.alt}
-              caption={LEAD.caption}
-              aspectRatio={LEAD.aspectRatio}
-              onClick={() => setExpanded(LEAD)}
+              key={s.src}
+              src={s.src}
+              alt={s.alt}
+              caption={s.caption}
+              aspectRatio={s.aspectRatio}
+              objectPosition={s.objectPosition}
+              onClick={() => setExpanded(s)}
             />
-          </div>
-        )}
-
-        {hasGallery && (
-          <div className="grid gap-5 md:grid-cols-2">
-            {GALLERY.filter((s) => s.src).map((s, i) => (
-              <ScreenshotSlot
-                key={i}
-                src={s.src}
-                alt={s.alt}
-                caption={s.caption}
-                aspectRatio={s.aspectRatio}
-                onClick={() => setExpanded(s)}
-              />
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
       </div>
 
-      {/* Lightbox */}
       {expanded && (
         <div
           onClick={() => setExpanded(null)}
@@ -113,7 +111,7 @@ export default function InterfaceGallery() {
             position: 'fixed',
             inset: 0,
             zIndex: 100,
-            background: 'rgba(17,24,39,0.9)',
+            background: 'rgba(10,10,12,0.94)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -121,6 +119,7 @@ export default function InterfaceGallery() {
           }}
         >
           <button
+            type="button"
             onClick={() => setExpanded(null)}
             aria-label="Close image"
             style={{
@@ -130,8 +129,8 @@ export default function InterfaceGallery() {
               background: 'rgba(255,255,255,0.1)',
               border: 'none',
               borderRadius: '50%',
-              width: 40,
-              height: 40,
+              width: 44,
+              height: 44,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -145,10 +144,27 @@ export default function InterfaceGallery() {
             <img
               src={expanded.src}
               alt={expanded.alt}
-              style={{ maxWidth: '100%', maxHeight: '85vh', objectFit: 'contain', display: 'block', borderRadius: '4px' }}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '78vh',
+                objectFit: 'contain',
+                display: 'block',
+                margin: '0 auto',
+                borderRadius: '6px',
+              }}
             />
             {expanded.caption && (
-              <p style={{ fontFamily: FONT_MONO, fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', margin: '0.75rem 0 0', textAlign: 'center' }}>
+              <p
+                style={{
+                  fontFamily: FONT_MONO,
+                  fontSize: '0.68rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.75)',
+                  margin: '0.9rem 0 0',
+                  textAlign: 'center',
+                }}
+              >
                 {expanded.caption}
               </p>
             )}

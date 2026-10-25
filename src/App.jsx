@@ -142,6 +142,7 @@ const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
 const LukesLightCaseStudy = lazy(() => import('./pages/LukesLightCaseStudy.jsx'));
 const PortfolioHome = lazy(() => import('./pages/PortfolioHome.jsx'));
+const PortfolioNotFound = lazy(() => import('./pages/PortfolioNotFound.jsx'));
 const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
 const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
@@ -212,7 +213,8 @@ const AuthenticatedApp = ({ queryClient }) => {
           <Route path="/" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
           <Route path="/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
           <Route path="/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
-          <Route path="/*" element={<Navigate to="/" replace />} />
+          {/* Unknown portfolio paths get a real portfolio-branded 404 — never a silent redirect home */}
+          <Route path="*" element={<Suspense fallback={<PageLoader />}><PortfolioNotFound /></Suspense>} />
           </>
         )}
 
@@ -400,6 +402,8 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/portfolio/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
         {/* Legacy portfolio URL → canonical case-study route */}
         <Route path="/portfolio/torch-republic-ecommerce-build" element={<Navigate to="/portfolio/case-study" replace />} />
+        {/* Unknown portfolio paths → portfolio 404 (not the storefront 404) */}
+        <Route path="/portfolio/*" element={<Suspense fallback={<PageLoader />}><PortfolioNotFound /></Suspense>} />
 
         {/* ── SEO KEYWORD LANDING PAGES ── */}
         <Route path="/coffee-pod-alternatives" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="CoffeePodAlternatives" queryClient={queryClient}><CoffeePodAlternatives /></LayoutWrapper></Suspense>} />

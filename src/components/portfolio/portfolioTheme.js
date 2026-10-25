@@ -35,9 +35,22 @@ export const CONTACT_EMAIL = 'lisakocian@outlook.com';
 // The résumé is shared by email on request, as stated in the contact section.
 export const RESUME_URL = `mailto:${CONTACT_EMAIL}?subject=R%C3%A9sum%C3%A9%20request`;
 
-// Brand assets for the project visuals. The real marks, never re-drawn type.
+// Brand assets for the project visuals. Real marks and real captures only.
 export const TORCH_LOGO = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e723899d_logo.png';
-export const LUKES_LIGHT_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b6513d7ad_generated_image.png';
+
+// Real mobile captures of the live Torch Republic storefront.
+export const TORCH_SHOTS = {
+  home: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg',
+  classic: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c1f338aac_IMG_20260905_225446.jpg',
+  mushroom: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0007b22b_IMG_20260905_225510.jpg',
+  benefits: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e85725ddd_IMG_20260905_225523.jpg',
+  lifestyle: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b07e1fa30_IMG_20260905_225532.jpg',
+};
+
+// Luke's Light's own published artwork, copied into this app's media library
+// so the portfolio does not depend on another app's storage.
+export const LUKES_LIGHT_IMAGE = 'https://base44.app/api/apps/69afc77e4c80e5e88ca6e3ec/files/mp/public/69afc77e4c80e5e88ca6e3ec/6b6586cbc_lukes-light-lighthouse.png';
+export const LUKES_LIGHT_MARK = 'https://base44.app/api/apps/69afc77e4c80e5e88ca6e3ec/files/mp/public/69afc77e4c80e5e88ca6e3ec/35ff4b7a2_lukes-light-brand.png';
 
 // Torch Republic storefront palette, taken from the live brand.
 export const TORCH_BRAND = {

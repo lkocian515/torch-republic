@@ -1,31 +1,40 @@
 import React from 'react';
 import OrbitalField from '../OrbitalField';
-import SitePreview from './SitePreview';
-import CoffeeBag from './CoffeeBag';
+import ScreenshotSlot from '../ScreenshotSlot';
+import { TORCH_SHOTS, LUKES_LIGHT_IMAGE } from '../portfolioTheme';
 
-const LABELS = {
-  torch: 'A laptop showing the Torch Republic Coffee Company storefront, with a Torch Republic coffee bag standing beside it.',
-  lukes: "A laptop showing the Luke's Light resource site, with a lighthouse at dusk.",
+// One presentation frame for both projects, so the two live sites read as a
+// matched pair: same panel, same proportion, same caption treatment. Both
+// images are real assets from the site they represent.
+const SHOTS = {
+  torch: {
+    src: TORCH_SHOTS.home,
+    alt: 'Torch Republic Coffee Company mobile storefront: the utility bar, the brand header, the hero with three product pouches, and the shop calls to action.',
+    caption: 'torchrepublic.com',
+    objectPosition: 'top center',
+  },
+  lukes: {
+    src: LUKES_LIGHT_IMAGE,
+    alt: "Luke's Light artwork: an illustrated lighthouse with its beam lit, standing on a dark shoreline.",
+    caption: 'lukeslight.org',
+    objectPosition: 'center',
+  },
 };
 
-/**
- * Project visual: a laptop presenting a real site preview, on a dark stage with
- * restrained orbital linework. The Torch Republic project adds the coffee bag
- * beside the laptop.
- */
 export default function ProjectVisual({ variant }) {
-  const isTorch = variant === 'torch';
+  const shot = SHOTS[variant] || SHOTS.torch;
 
   return (
-    <div className="pv-stage" role="img" aria-label={LABELS[variant]}>
+    <div className="pv-stage">
       <OrbitalField className="pv-stage-arc" opacity={0.5} />
-      {isTorch && <CoffeeBag />}
-      <div className="pv-device">
-        <div className="pv-screen">
-          <SitePreview variant={variant} />
-        </div>
-        <div className="pv-notch" />
-        <div className="pv-base" />
+      <div className="pv-shot">
+        <ScreenshotSlot
+          src={shot.src}
+          alt={shot.alt}
+          caption={shot.caption}
+          aspectRatio="4 / 5"
+          objectPosition={shot.objectPosition}
+        />
       </div>
     </div>
   );

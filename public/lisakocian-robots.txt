@@ -1,0 +1,14 @@
+# Lisa Marie Kocian — portfolio robots.txt
+#
+# READY TO USE. This is the portfolio host's own robots.txt, prepared for the
+# dedicated lisakocian.com app. It is NOT served at /robots.txt while the
+# portfolio shares a project with the Torch Republic storefront — this app
+# serves one robots.txt for every domain it is connected to.
+#
+# To activate: move this file into the portfolio project's public/ directory
+# as robots.txt.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://lisakocian.com/sitemap.xml

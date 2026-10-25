@@ -11,6 +11,21 @@ const SECTIONS = [
 
 const ALL_IDS = ['top', 'work', 'skills', 'experience', 'contact'];
 
+// The nav's own responsive rules, kept here so every portfolio page gets them
+// without depending on Tailwind utility ordering. Below 768px only the toggle
+// shows; at 768px and up only the full navigation and the CTA show.
+const NAV_CSS = `
+  .pf-nav-links { display: none; }
+  .pf-nav-cta { display: none; }
+  .pf-nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  @media (min-width: 768px) {
+    .pf-nav-links { display: flex; }
+    .pf-nav-cta { display: inline-flex; }
+    .pf-nav-toggle { display: none; }
+    .pf-nav-panel { display: none !important; }
+  }
+`;
+
 export default function PortfolioNav() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState('top');
@@ -56,6 +71,7 @@ export default function PortfolioNav() {
         borderBottom: `1px solid ${P.rule}`,
       }}
     >
+      <style>{NAV_CSS}</style>
       <div className="mx-auto max-w-[1100px] px-5 sm:px-6 md:px-10">
         <div className="flex items-center justify-between gap-3" style={{ minHeight: 62 }}>
           <a
@@ -73,7 +89,7 @@ export default function PortfolioNav() {
             Lisa Marie Kocian
           </a>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Portfolio sections">
+          <nav className="pf-nav-links items-center gap-6 lg:gap-8" aria-label="Portfolio sections">
             {SECTIONS.map((s) => (
               <a
                 key={s.id}
@@ -98,7 +114,7 @@ export default function PortfolioNav() {
 
           <a
             href={hrefFor('contact')}
-            className="hidden md:inline-flex"
+            className="pf-nav-cta"
             style={{
               fontFamily: FONT_SANS,
               fontSize: '0.82rem',
@@ -117,7 +133,7 @@ export default function PortfolioNav() {
 
           <button
             type="button"
-            className="md:hidden"
+            className="pf-nav-toggle"
             aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={open}
             aria-controls="portfolio-mobile-nav"
@@ -129,8 +145,6 @@ export default function PortfolioNav() {
               borderRadius: '4px',
               minHeight: 44,
               minWidth: 44,
-              alignItems: 'center',
-              justifyContent: 'center',
               flexShrink: 0,
             }}
           >
@@ -140,7 +154,7 @@ export default function PortfolioNav() {
       </div>
 
       {open && (
-        <div id="portfolio-mobile-nav" className="md:hidden" style={{ background: P.surfaceAlt, borderTop: `1px solid ${P.rule}` }}>
+        <div id="portfolio-mobile-nav" className="pf-nav-panel" style={{ background: P.surfaceAlt, borderTop: `1px solid ${P.rule}` }}>
           <nav className="mx-auto max-w-[1100px] px-5 sm:px-6 py-2" aria-label="Portfolio sections, mobile">
             {SECTIONS.map((s) => (
               <a

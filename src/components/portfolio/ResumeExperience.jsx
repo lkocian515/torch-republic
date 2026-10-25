@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink, Download, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { ChevronDown, ChevronUp, ExternalLink, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 import { SectionWrap, Eyebrow, SectionHeading } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS, LIVE_STORE, RESUME_URL, LINKEDIN, CONTACT_EMAIL } from './portfolioTheme';
 
@@ -323,12 +323,10 @@ export default function ResumeExperience() {
       <div className="mt-9 flex flex-wrap gap-3" style={{ borderTop: `1px solid ${P.rule}`, paddingTop: '2rem' }}>
         <a
           href={RESUME_URL}
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center gap-2"
           style={{ minHeight: 44, padding: '0.6rem 1.4rem', borderRadius: '999px', background: P.accent, color: '#FFFFFF', fontFamily: FONT_SANS, fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none' }}
         >
-          <Download size={14} /> Download Full Résumé (PDF)
+          <Mail size={14} /> Request Full Résumé by Email
         </a>
         <a
           href={LINKEDIN}

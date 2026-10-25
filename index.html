@@ -81,7 +81,7 @@
     </script>
     <!-- Matomo removed — GA4 (above) is the single analytics system. lib/matomo.js
          calls are inert no-ops while window._paq is absent, so no references break. -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" data-torch-brand-schema="true">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -112,7 +112,7 @@
       ]
     }
     </script>
-    <script type="application/ld+json">
+    <script type="application/ld+json" data-torch-brand-schema="true">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -127,6 +127,103 @@
         "query-input": "required name=search_term_string"
       }
     }
+    </script>
+    <!-- ── Portfolio host: correct the initial HTML on lisakocian.com ────────────
+         This index.html is shared by every domain connected to this app, so the
+         Torch Republic tags above are also served on the portfolio host. This
+         block runs before anything renders and, ONLY on lisakocian.com:
+           • writes the portfolio title, description, canonical, and social tags
+             for the route actually being requested
+           • disables the Torch Republic Organization / WebSite JSON-LD above, so
+             no coffee structured data reaches a crawler that runs JavaScript
+         torchrepublic.com returns on the first line and is completely untouched.
+         Route copy mirrors src/components/portfolio/portfolioTheme.js.
+         NOTE: this is still client-side. True static per-host HTML requires the
+         portfolio to run as its own app — see lisakocian-robots.txt. -->
+    <script>
+      (function () {
+        if (!/lisakocian\.com$/i.test(location.hostname)) return;
+
+        var ORIGIN = 'https://lisakocian.com';
+        var OG_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8e8524676_generated_image.png';
+        var OG_ALT = 'Lisa Marie Kocian, AI quality assurance and content evaluation portfolio.';
+        var HOME_DESC = 'Portfolio of Lisa Marie Kocian, an AI quality assurance and content evaluation specialist focused on output validation, document quality, workflow testing, defect documentation, and e-commerce QA.';
+
+        var ROUTES = {
+          '/': {
+            title: 'Lisa Kocian | AI Quality Assurance & Content Evaluation',
+            description: HOME_DESC,
+            canonical: ORIGIN + '/',
+            type: 'website'
+          },
+          '/case-study': {
+            title: 'Torch Republic Case Study | Lisa Marie Kocian',
+            description: 'Case study of the Torch Republic commerce application: AI-assisted development with Base44 and React, Shopify integration, QA challenges, testing approach, and demonstrated capabilities.',
+            canonical: ORIGIN + '/case-study',
+            type: 'article'
+          },
+          '/case-study/lukes-light': {
+            title: "Luke's Light Case Study | Lisa Marie Kocian",
+            description: "Case study of Luke's Light, an educational youth safety resource: content quality review, AI-assisted development, usability evaluation, and careful communication of platform limitations.",
+            canonical: ORIGIN + '/case-study/lukes-light',
+            type: 'article'
+          }
+        };
+
+        var path = location.pathname.replace(/\/+$/, '') || '/';
+        var route = ROUTES[path];
+        var robots = 'index, follow';
+        if (!route) {
+          route = { title: 'Page not found | Lisa Marie Kocian', description: HOME_DESC, canonical: ORIGIN + '/', type: 'website' };
+          robots = 'noindex, follow';
+        }
+
+        document.title = route.title;
+
+        var setMeta = function (attr, key, value) {
+          var el = document.head.querySelector('meta[' + attr + '="' + key + '"]');
+          if (!el) {
+            el = document.createElement('meta');
+            el.setAttribute(attr, key);
+            document.head.appendChild(el);
+          }
+          el.setAttribute('content', value);
+        };
+
+        var canon = document.head.querySelector('link[rel="canonical"]');
+        if (!canon) {
+          canon = document.createElement('link');
+          canon.setAttribute('rel', 'canonical');
+          document.head.appendChild(canon);
+        }
+        canon.setAttribute('href', route.canonical);
+
+        setMeta('name', 'description', route.description);
+        setMeta('name', 'robots', robots);
+        setMeta('name', 'googlebot', robots);
+        setMeta('name', 'keywords', '');
+        setMeta('name', 'theme-color', '#0A0A0C');
+        setMeta('property', 'og:title', route.title);
+        setMeta('property', 'og:description', route.description);
+        setMeta('property', 'og:url', route.canonical);
+        setMeta('property', 'og:type', route.type);
+        setMeta('property', 'og:site_name', 'Lisa Marie Kocian');
+        setMeta('property', 'og:image', OG_IMAGE);
+        setMeta('property', 'og:image:secure_url', OG_IMAGE);
+        setMeta('property', 'og:image:alt', OG_ALT);
+        setMeta('name', 'twitter:card', 'summary_large_image');
+        setMeta('name', 'twitter:title', route.title);
+        setMeta('name', 'twitter:description', route.description);
+        setMeta('name', 'twitter:image', OG_IMAGE);
+        setMeta('name', 'twitter:image:alt', OG_ALT);
+        setMeta('name', 'twitter:site', '');
+        setMeta('name', 'twitter:creator', '');
+
+        var brand = document.head.querySelectorAll('script[data-torch-brand-schema]');
+        for (var i = 0; i < brand.length; i++) {
+          brand[i].setAttribute('type', 'application/x-torch-disabled');
+        }
+      })();
     </script>
   </head>
   <body>

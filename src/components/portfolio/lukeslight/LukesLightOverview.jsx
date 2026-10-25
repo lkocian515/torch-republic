@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeft, ExternalLink, Mail } from 'lucide-react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LUKES_LIGHT_URL, CONTACT_EMAIL, portfolioHomeUrl } from '../portfolioTheme';
+import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LUKES_LIGHT_URL, LUKES_LIGHT_MARK, CONTACT_EMAIL, portfolioHomeUrl } from '../portfolioTheme';
 import { Link } from 'react-router-dom';
 
 export default function LukesLightOverview() {
@@ -180,6 +180,39 @@ export default function LukesLightOverview() {
             understand that support exists and how to reach it.
           </p>
         </div>
+
+        {/* Luke's Light's own published brand artwork, shown at its natural
+            proportion so nothing in the lockup is cropped. */}
+        <figure style={{ margin: '3rem 0 0', maxWidth: '720px' }}>
+          <div
+            style={{
+              border: `1px solid ${P.rule}`,
+              borderRadius: '6px',
+              overflow: 'hidden',
+              background: P.surface,
+            }}
+          >
+            <img
+              src={LUKES_LIGHT_MARK}
+              alt="Luke's Light brand artwork: the site name with an illustrated lighthouse, the line 'Guiding young people toward safety', and the dedication 'In loving memory of Luke Andrew Rogers'."
+              loading="lazy"
+              decoding="async"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
+          <figcaption
+            style={{
+              fontFamily: FONT_MONO,
+              fontSize: '0.66rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: P.muted,
+              marginTop: '0.6rem',
+            }}
+          >
+            lukeslight.org
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
