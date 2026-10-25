@@ -106,7 +106,7 @@ export const CORE_PRODUCTS = [
     caffeineLabel: 'Medium',
     positioning: 'Smooth coffee made with functional mushroom extracts.',
     description:
-      'A focused instant mushroom coffee made for worktables, notebooks, and routines that deserve your attention. Blended with premium instant coffee and functional mushroom extracts.',
+      'Premium instant coffee blended with Lion\u2019s Mane, Cordyceps and Reishi mushroom extracts. Smooth and cocoa-forward with a balanced finish, made for worktables, notebooks, and routines that deserve your attention.',
     flavorNotes: ['Smooth Coffee', 'Cocoa', 'Balanced Finish'],
     flavorLabel: 'Smooth coffee, cocoa, balanced finish',
     bestFor: 'Focused thinking and daily clarity',

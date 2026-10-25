@@ -82,25 +82,25 @@ export default function EditionHero() {
               textWrap: 'balance',
             }}
           />
-          {editionsFormatLabel(items) && (
-            <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1rem 0 0' }}>
-              {editionsFormatLabel(items)} &middot; brewed, not instant
-            </p>
-          )}
-        </div>
-
-        {/* The artwork promotes both editions, so the campaign's availability line is
-            stated in real text beneath it rather than being left to the picture. */}
-        {campaign.supporting_text && (
-          <div className="mx-auto max-w-[1200px] px-6 pt-8">
+          {/* What the shop actually sells, said plainly and up front, so a first-time
+              visitor knows the offering before they reach the lineup further down. */}
+          {campaign.supporting_text && (
             <p
-              className="text-center font-heading"
-              style={{ color: 'rgba(230,216,202,0.85)', fontSize: '1rem', lineHeight: 1.6 }}
+              className="font-heading"
+              style={{ color: 'rgba(230,216,202,0.92)', fontSize: '1.0625rem', lineHeight: 1.6, margin: '1.25rem 0 0' }}
             >
               {campaign.supporting_text}
             </p>
-          </div>
-        )}
+          )}
+
+          {/* Named for the campaign, so the brewed seasonal pair reads as its own
+              thing rather than contradicting the instant lineup above it. */}
+          {editionsFormatLabel(items) && (
+            <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1.25rem 0 0' }}>
+              {campaign.name} &middot; {editionsFormatLabel(items)} &middot; brewed, not instant
+            </p>
+          )}
+        </div>
 
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-5 md:flex-row md:justify-center md:pb-14">
           <EditionStatusChip
