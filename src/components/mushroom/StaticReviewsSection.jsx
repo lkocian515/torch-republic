@@ -133,7 +133,7 @@ export default function StaticReviewsSection() {
               <p className="font-serif font-bold text-white text-sm leading-snug">"{r.headline}"</p>
 
               {/* Body */}
-              <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: 'rgba(247,241,232,0.5)', fontWeight: 300 }}>
+              <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: '#F5EFE6', fontWeight: 300 }}>
                 {r.body}
               </p>
 

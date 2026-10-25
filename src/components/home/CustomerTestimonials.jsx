@@ -128,7 +128,7 @@ export default function CustomerTestimonials() {
                   </div>
 
                   {/* Testimonial */}
-                  <p className="font-heading text-sm mb-4 flex-1" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.7 }}>
+                  <p className="font-heading text-sm mb-4 flex-1" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.7 }}>
                     "{review.body}"
                   </p>
 

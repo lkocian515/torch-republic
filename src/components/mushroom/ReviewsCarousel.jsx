@@ -85,7 +85,7 @@ export default function ReviewsCarousel({ reviews }) {
                 {/* Review text */}
                 <blockquote
                   className="font-heading mb-6 flex-1"
-                  style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.7)', lineHeight: 1.7 }}
+                  style={{ fontSize: '0.95rem', color: '#F5EFE6', lineHeight: 1.7 }}
                 >
                   "{review.body}"
                 </blockquote>

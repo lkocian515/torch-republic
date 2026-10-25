@@ -109,7 +109,7 @@ export default function ReviewCard({ review, featured = false, index = 0 }) {
 
       {/* Body */}
       <p className="font-heading leading-relaxed flex-1"
-        style={{ fontSize: featured ? '0.975rem' : '0.875rem', color: 'rgba(234,234,234,0.72)', lineHeight: 1.9, fontStyle: 'italic', fontWeight: 300 }}>
+        style={{ fontSize: featured ? '0.975rem' : '0.875rem', color: '#F5EFE6', lineHeight: 1.9, fontStyle: 'italic', fontWeight: 300 }}>
         {review.body}
       </p>
 

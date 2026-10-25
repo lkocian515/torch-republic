@@ -121,7 +121,7 @@ export default function ReviewsSection() {
             >
               <StarRating rating={reviews[currentIdx]?.rating || 5} />
               <p className="font-heading text-base mt-5 mb-5"
-                style={{ color: 'rgba(240,235,225,0.95)', fontWeight: 400, lineHeight: 1.85, fontStyle: 'italic' }}>
+                style={{ color: '#F5EFE6', fontWeight: 400, lineHeight: 1.85, fontStyle: 'italic' }}>
                 "{reviews[currentIdx]?.body}"
               </p>
               <div>

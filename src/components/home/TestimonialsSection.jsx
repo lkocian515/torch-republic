@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
             className="flex flex-col items-center gap-8"
           >
             <Stars count={r.rating} />
-            <blockquote className="font-serif" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', color: 'rgba(240,235,225,0.85)', lineHeight: 1.65, fontStyle: 'italic', fontWeight: 500, maxWidth: '720px' }}>
+            <blockquote className="font-serif" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', color: '#F5EFE6', lineHeight: 1.65, fontStyle: 'italic', fontWeight: 500, maxWidth: '720px' }}>
               "{r.text}"
             </blockquote>
             <div className="flex flex-col items-center gap-1">

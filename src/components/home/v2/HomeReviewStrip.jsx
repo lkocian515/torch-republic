@@ -75,7 +75,7 @@ export default function HomeReviewStrip() {
               style={{ background: '#0E0E0E', border: '1px solid rgba(201,162,74,0.1)' }}
             >
               <Stars n={r.rating} />
-              <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: 'rgba(240,235,225,0.72)', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
+              <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
                 "{r.text}"
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>

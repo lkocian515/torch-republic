@@ -109,7 +109,7 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
                   </div>
 
                   {/* Review text */}
-                  <p className="font-heading text-sm mb-6" style={{ color: 'rgba(245,239,230,0.75)', lineHeight: 1.8, fontStyle: 'italic' }}>
+                  <p className="font-heading text-sm mb-6" style={{ color: '#F5EFE6', lineHeight: 1.8, fontStyle: 'italic' }}>
                     "{displayReviews[currentIndex].body}"
                   </p>
 

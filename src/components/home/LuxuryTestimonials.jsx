@@ -93,7 +93,7 @@ export default function LuxuryTestimonials() {
                   fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)',
                   fontStyle: 'italic',
                   fontWeight: 400,
-                  color: 'rgba(255,255,255,0.75)',
+                  color: '#F5EFE6',
                   lineHeight: 1.65,
                 }}
               >

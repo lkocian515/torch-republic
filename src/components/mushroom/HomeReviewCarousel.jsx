@@ -113,7 +113,7 @@ export default function HomeReviewCarousel() {
                   className="font-heading mb-8"
                   style={{ 
                     fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', 
-                    color: 'rgba(240,235,225,0.85)', 
+                    color: '#F5EFE6', 
                     lineHeight: 1.8,
                     maxWidth: '800px',
                     margin: '0 auto 2rem',

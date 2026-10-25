@@ -75,7 +75,7 @@ export default function SocialProof() {
                   "{rev.headline}"
                 </p>
               )}
-              <p className="font-heading text-xs flex-1 leading-relaxed" style={{ color: 'rgba(234,234,234,0.6)', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.8 }}>
+              <p className="font-heading text-xs flex-1 leading-relaxed" style={{ color: '#F5EFE6', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.8 }}>
                 {rev.text.length > 120 ? rev.text.slice(0, 117) + '…' : rev.text}
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
@@ -99,7 +99,7 @@ export default function SocialProof() {
                   "{r.headline}"
                 </p>
               )}
-              <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(234,234,234,0.65)', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.9 }}>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: '#F5EFE6', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.9 }}>
                 {r.text}
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>

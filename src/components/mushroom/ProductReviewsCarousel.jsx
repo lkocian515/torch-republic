@@ -122,7 +122,7 @@ export default function ProductReviewsCarousel({ productSlug }) {
                 {/* Review text */}
                 <blockquote
                   className="font-heading mb-4 md:mb-5 flex-1"
-                  style={{ fontSize: '0.8rem', md: '0.9rem', color: 'rgba(240,235,225,0.75)', lineHeight: 1.6 }}
+                  style={{ fontSize: '0.8rem', md: '0.9rem', color: '#F5EFE6', lineHeight: 1.6 }}
                 >
                   "{review.body.length > 150 ? review.body.substring(0, 150) + '...' : review.body}"
                 </blockquote>

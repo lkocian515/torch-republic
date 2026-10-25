@@ -22,7 +22,7 @@ export default function ReviewSummaryBar({ rating = 4.9, count = 127, snippet, a
         </span>
       </div>
       {snippet && (
-        <p className="font-heading text-sm italic" style={{ color: 'rgba(247,241,232,0.65)', fontWeight: 300, lineHeight: 1.65 }}>
+        <p className="font-heading text-sm italic" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.65 }}>
           "{snippet}"
         </p>
       )}

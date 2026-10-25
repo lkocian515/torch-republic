@@ -55,7 +55,7 @@ export default function SocialProof() {
               </div>
 
               {/* Review */}
-              <p className="font-serif leading-relaxed flex-1" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontStyle: 'italic', lineHeight: 1.75 }}>
+              <p className="font-serif leading-relaxed flex-1" style={{ fontSize: '1rem', color: '#F5EFE6', fontStyle: 'italic', lineHeight: 1.75 }}>
                 "{r.text}"
               </p>
 
