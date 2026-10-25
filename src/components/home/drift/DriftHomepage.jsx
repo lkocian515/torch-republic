@@ -13,9 +13,9 @@ import DriftWinterDuoTeaser from './DriftWinterDuoTeaser';
 import { D } from './driftTheme';
 
 // Clean editorial homepage flow:
-// 1. The offer — what Torch Republic sells, both coffees and both prices, in the first screen
-// 2. Signature products — Classic + Mushroom with price, servings, Add to Cart
-// 3. Special-edition campaign — seasonal, secondary to the everyday coffee above
+// 1. Special-edition campaign — the seasonal banner leads the page
+// 2. The offer — what Torch Republic sells, both coffees, both images, both prices
+// 3. Signature products — Classic + Mushroom with price, servings, Add to Cart
 // 4. Upcoming releases — announced seasonal roasts, purchasing disabled
 // 5. Winter Duo — the seasonal pairing, featured once the everyday lineup has been seen
 // 6. Customer proof — real submitted feedback only, never invented testimonials
@@ -27,9 +27,9 @@ import { D } from './driftTheme';
 export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
+      <EditionHero />
       <DriftOfferHero />
       <DriftProductDiscovery />
-      <EditionHero />
       <DriftUpcomingReleases />
       <DriftWinterDuo />
       <DriftReviews />

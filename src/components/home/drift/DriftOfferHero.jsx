@@ -10,10 +10,9 @@ import { D, SERIF, SANS, MONO, fadeUp } from './driftTheme';
 /**
  * The homepage opening statement.
  *
- * Torch Republic sells two instant coffees. A first-time visitor has to learn
- * that — and what each one costs — before any seasonal campaign appears, so the
- * offer, both products, both prices and both calls to action sit in the first
- * screen at every width.
+ * Torch Republic sells two instant coffees. This section states the offer — both
+ * products, both product images, both prices and both calls to action — directly
+ * beneath the seasonal campaign banner.
  *
  * Prices come from the canonical pricing config (verified against Shopify), so
  * the hero can never quote a number the product page disagrees with.
@@ -39,7 +38,7 @@ export default function DriftOfferHero() {
             Torch Republic Coffee Company
           </p>
 
-          <h1
+          <h2
             id="offer-heading"
             style={{
               fontFamily: SERIF,
@@ -52,8 +51,8 @@ export default function DriftOfferHero() {
               textWrap: 'balance',
             }}
           >
-            Instant coffee, made for every morning.
-          </h1>
+            Two instant coffees. Just add water.
+          </h2>
 
           <p
             style={{
@@ -65,8 +64,8 @@ export default function DriftOfferHero() {
               maxWidth: '52ch',
             }}
           >
-            Two coffees, both instant powder: a bold Classic and a smooth Mushroom. Just add water —
-            no grinder, no brewer, no pods.
+            A bold Classic and a smooth Mushroom, both instant powder — no grinder, no brewer, no
+            pods.
           </p>
         </motion.div>
 
@@ -84,6 +83,37 @@ export default function DriftOfferHero() {
                 boxShadow: D.shadowSoft,
               }}
             >
+              <Link
+                to={product.path}
+                aria-label={`View ${product.name}`}
+                className="mb-5 block"
+                style={{ textDecoration: 'none' }}
+              >
+                <div
+                  className="flex items-center justify-center"
+                  style={{
+                    padding: 'clamp(0.75rem, 2vw, 1.25rem)',
+                    borderRadius: 8,
+                    background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${product.ritual.soft}40 0%, ${D.cream} 70%)`,
+                    border: D.borderHairline,
+                  }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.alt}
+                    loading="lazy"
+                    style={{
+                      width: 'clamp(110px, 44%, 170px)',
+                      aspectRatio: '3 / 4',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      display: 'block',
+                      filter: 'drop-shadow(0 8px 20px rgba(36,26,22,0.12))',
+                    }}
+                  />
+                </div>
+              </Link>
+
               <p
                 style={{
                   fontFamily: MONO,
@@ -98,7 +128,7 @@ export default function DriftOfferHero() {
                 {product.categoryLabel}
               </p>
 
-              <h2
+              <h3
                 style={{
                   fontFamily: SERIF,
                   fontWeight: 700,
@@ -109,7 +139,7 @@ export default function DriftOfferHero() {
                 }}
               >
                 {product.name}
-              </h2>
+              </h3>
 
               <p
                 style={{
