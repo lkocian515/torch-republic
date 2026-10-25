@@ -43,18 +43,18 @@ export default function TorchbearersRewards() {
               purchases, reviews and referrals, then turn them into real discounts on your next order.
             </p>
 
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Link
                 to="/loyalty"
-                className="inline-flex items-center justify-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-90"
-                style={{ background: CLAY, color: BG, padding: '14px 32px', borderRadius: '999px' }}
+                className="inline-flex w-full items-center justify-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-90 sm:w-auto"
+                style={{ background: CLAY, color: BG, border: '1px solid transparent', padding: '14px 32px', borderRadius: '999px' }}
               >
                 View your rewards
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/shop"
-                className="inline-flex items-center justify-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-80"
+                className="inline-flex w-full items-center justify-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-80 sm:w-auto"
                 style={{ border: `1px solid ${CLAY}`, color: CLAY, padding: '14px 32px', borderRadius: '999px' }}
               >
                 Start shopping

@@ -17,7 +17,7 @@ export default function DriftProductDiscovery() {
         {/* Heading */}
         <div className="mb-10 md:mb-14 max-w-2xl">
           <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 1rem' }}>The Lineup</p>
-          <h2 style={{ ...TYPE.heading, color: D.ink, margin: 0 }}>Two coffees, and all you need is hot water.</h2>
+          <h2 style={{ ...TYPE.heading, color: D.ink, margin: 0 }}>Coffee. In an Instant.</h2>
         </div>
 
         {/* Balanced two-column grid — one structure for all breakpoints */}
