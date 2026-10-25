@@ -22,9 +22,9 @@
  * permanently blocks the wheel — it returns false (not suppressed).
  */
 
+const COMPONENT_VERSION = 2;
 const STORAGE_KEY = 'torchRepublic.spinWheel.v1';
-const SESSION_KEY = 'torchRepublic.spinWheel.sessionDismissed';
-const COMPONENT_VERSION = 1;
+const SESSION_KEY = `torchRepublic.spinWheel.sessionDismissed.v${COMPONENT_VERSION}`;
 
 const DISMISS_SUPPRESSION_MS = 14 * 24 * 60 * 60 * 1000;
 const COMPLETED_SUPPRESSION_MS = 30 * 24 * 60 * 60 * 1000;

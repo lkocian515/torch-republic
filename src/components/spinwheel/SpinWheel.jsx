@@ -59,12 +59,12 @@ export default function SpinWheel({ prizes, rotation }) {
       />
 
       <svg
-        width="100%"
-        height="auto"
         viewBox={`0 0 ${SIZE} ${SIZE}`}
         style={{
-          transform: `rotate(${rotation}deg)`,
           display: 'block',
+          width: '100%',
+          height: 'auto',
+          transform: `rotate(${rotation}deg)`,
           filter: 'drop-shadow(0 0 18px rgba(194,103,58,0.25))',
         }}
       >

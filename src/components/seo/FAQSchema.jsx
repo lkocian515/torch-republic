@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { BRAND_LOGO } from '@/lib/brandAssets';
+import { BRAND_LOGO_URL } from '@/lib/brandAssets';
 
 /**
  * FAQ Schema Markup for SEO
@@ -49,7 +49,7 @@ export function ArticleSchema({ article }) {
       "name": "Torch Republic Coffee Company",
       "logo": {
         "@type": "ImageObject",
-        "url": BRAND_LOGO
+        "url": BRAND_LOGO_URL
       }
     },
     "datePublished": article.published_date,

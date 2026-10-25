@@ -1,20 +1,23 @@
 /**
  * Brand assets — the single source of truth for the Torch Republic logo.
  *
- * Change a URL here and every surface picks it up: the site header, product
+ * Change the logo here and every surface picks it up: the site header, product
  * image fallbacks, structured data, and transactional email.
  *
- *   BRAND_LOGO          horizontal lockup on white — the website wordmark
- *   BRAND_LOGO_STACKED  stacked lockup, transparent — narrow or dark surfaces
+ *   BRAND_LOGO      the wordmark, served from the app — used in <img> tags
+ *   BRAND_LOGO_URL  the same wordmark as an absolute URL — structured data and email
  */
 
-const BASE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec';
+const SITE_URL = 'https://torchrepublic.com';
+const LOGO_PATH = '/torch-republic-logo-transparent.png';
 
-export const BRAND_LOGO = `${BASE}/0d88c4bb9_Torch-Republic-Website-Logo-White.png`;
+/** The site wordmark. Relative, so it resolves on every host. */
+export const BRAND_LOGO = LOGO_PATH;
 
-export const BRAND_LOGO_STACKED = `${BASE}/63195e832_Torch-Republic-Original-Style-Transparent.png`;
+/** The same wordmark as an absolute URL, for structured data and email. */
+export const BRAND_LOGO_URL = `${SITE_URL}${LOGO_PATH}`;
 
-/** Logo palette, taken from the wordmark itself. */
+/** Palette used by the spin wheel. */
 export const BRAND_COLORS = {
   brown: '#4B2C20',
   brownDeep: '#2A1813',

@@ -447,7 +447,7 @@ export default async function (req) {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;margin:0 auto;background:#fbf8f3;">
     <tr>
       <td style="background:#b66443;padding:18px 24px;">
-        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/63195e832_Torch-Republic-Original-Style-Transparent.png" alt="Torch Republic Coffee Company" height="48" style="height:48px;vertical-align:middle;" />
+        <img src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e723899d_logo.png" alt="Torch Republic Coffee Company" height="34" style="height:34px;vertical-align:middle;" />
         <span style="font-size:16px;font-weight:700;color:#000000;margin-left:10px;vertical-align:middle;">Torch Republic Coffee Company</span>
       </td>
     </tr>
