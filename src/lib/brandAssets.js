@@ -1,30 +1,23 @@
 /**
- * Torch Republic — Central Brand Asset Registry
- * All generated brand images in one place for easy swapping.
+ * Brand assets — the single source of truth for the Torch Republic logo.
+ *
+ * Change a URL here and every surface picks it up: the site header, product
+ * image fallbacks, structured data, and transactional email.
+ *
+ *   BRAND_LOGO          horizontal lockup on white — the website wordmark
+ *   BRAND_LOGO_STACKED  stacked lockup, transparent — narrow or dark surfaces
  */
 
-export const BRAND_IMAGES = {
-  // Hero images — cinematic coffee scenes
-  hero: {
-    main: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/fa3d3fe8d_ChatGPTImageAug2202607_23_10AM.png',
-    secondary: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5b60912f0_generated_image.png',
-  },
+const BASE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec';
 
-  // Product shots — premium black bg, gold tones
-  product: {
-    single: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/053b77352_generated_image.png',
-    flatlay: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5a35c9646_generated_image.png',
-  },
+export const BRAND_LOGO = `${BASE}/0d88c4bb9_Torch-Republic-Website-Logo-White.png`;
 
-  // Bundle imagery — grouped products
-  bundle: {
-    trio: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/24258672a_generated_image.png',
-    quad: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7271bca3f_generated_image.png',
-  },
+export const BRAND_LOGO_STACKED = `${BASE}/63195e832_Torch-Republic-Original-Style-Transparent.png`;
 
-  // Collection banners
-  collections: {
-    founders: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5455ef981_generated_image.png',
-    libertyIcons: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/22b58bc3c_generated_image.png',
-  },
+/** Logo palette, taken from the wordmark itself. */
+export const BRAND_COLORS = {
+  brown: '#4B2C20',
+  brownDeep: '#2A1813',
+  terracotta: '#C2673A',
+  tan: '#E5A870',
 };

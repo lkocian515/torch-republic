@@ -1,4 +1,5 @@
 import React from 'react';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
 /**
  * Organization Schema for Torch Republic Coffee Company
@@ -12,7 +13,7 @@ export default function OrganizationSchema() {
     "alternateName": "Torch Republic",
     "legalName": "LiberTees For All Apparel LLC DBA Torch Republic Coffee Company",
     "url": "https://torchrepublic.com",
-    "logo": "https://torchrepublic.com/torch-republic-logo-transparent.png",
+    "logo": BRAND_LOGO,
     "description": "Explore thoughtfully crafted instant coffee and functional mushroom coffee made for brighter, more intentional daily rituals.",
     "foundingDate": "2020",
     "founder": {
@@ -41,7 +42,7 @@ export default function OrganizationSchema() {
     "brand": {
       "@type": "Brand",
       "name": "Torch Republic",
-      "logo": "https://torchrepublic.com/torch-republic-logo-transparent.png",
+      "logo": BRAND_LOGO,
       "tagline": "Premium Instant Coffee & Functional Mushroom Coffee for Your Daily Ritual"
     },
     "knowsAbout": [

@@ -1,3 +1,5 @@
+import { BRAND_LOGO } from '@/lib/brandAssets';
+
 // Canonical active product catalog — exactly TWO current products.
 //
 // Matcha has been fully retired from the catalog. Any component that imports
@@ -108,7 +110,7 @@ export const ALL_PRODUCTS = [CLASSIC, MUSHROOM];
 
 export const HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/423d68cdd_hhbiiui.png';
 export const BUNDLE_IMAGE = HERO_IMAGE;
-export const LOGO_URL = '/torch-republic-logo-transparent.png';
+export const LOGO_URL = BRAND_LOGO;
 
 export const MUSHROOM_COLLECTION_IMAGE = FINAL_PRODUCT_IMAGE_URLS['instant-mushroom-coffee'];
 export const CLASSIC_COLLECTION_IMAGE = FINAL_PRODUCT_IMAGE_URLS['instant-classic-coffee'];

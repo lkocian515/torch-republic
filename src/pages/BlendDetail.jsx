@@ -9,6 +9,7 @@ import MushroomProductCard from '../components/mushroom/ProductCard';
 import RecentlyViewed, { addToRecentlyViewed } from '../components/products/RecentlyViewed';
 import GoneRedirect from '@/components/seo/GoneRedirect';
 import { useSEO } from '@/hooks/useSEO';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 import { base44 } from '@/api/base44Client';
 import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
@@ -94,7 +95,7 @@ function Gallery({ product, alt }) {
           draggable={false}
           className="w-full h-full"
           style={{ objectFit: 'contain', padding: 20, WebkitUserDrag: 'none', userSelect: 'none' }}
-          onError={(e) => { e.currentTarget.src = '/torch-republic-logo-transparent.png'; }}
+          onError={(e) => { e.currentTarget.src = BRAND_LOGO; }}
         />
       </div>
 

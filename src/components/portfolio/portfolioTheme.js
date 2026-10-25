@@ -36,7 +36,7 @@ export const CONTACT_EMAIL = 'lisakocian@outlook.com';
 export const RESUME_URL = `mailto:${CONTACT_EMAIL}?subject=R%C3%A9sum%C3%A9%20request`;
 
 // Brand assets for the project visuals. Real marks and real captures only.
-export const TORCH_LOGO = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e723899d_logo.png';
+export const TORCH_LOGO = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/63195e832_Torch-Republic-Original-Style-Transparent.png';
 
 // Real mobile captures of the live Torch Republic storefront. Only captures
 // verified against the current store belong here. The September 2026 hero and

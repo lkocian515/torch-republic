@@ -1,7 +1,8 @@
 import React from 'react';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
-const FALLBACK = '/torch-republic-logo-transparent.png';
+const FALLBACK = BRAND_LOGO;
 
 /**
  * Flexible product media container.

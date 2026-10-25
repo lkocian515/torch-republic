@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Star } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { getProductImage, getProductAltText, getImageLoadingProps } from '@/lib/productImageHelpers';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
-const FALLBACK_IMAGE = '/torch-republic-logo-transparent.png';
+const FALLBACK_IMAGE = BRAND_LOGO;
 
 const BEST_FOR = {
   'torchbearer':          'Bold mornings & deep work',

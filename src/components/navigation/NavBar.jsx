@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ShoppingBag } from 'lucide-react';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
 const NAV_LINKS = [
   { label: 'Shop All', href: '/shop' },
@@ -59,7 +60,7 @@ export default function NavBar() {
           <div className="flex-shrink-0 md:mx-6">
             <Link to="/" className="flex items-center justify-center">
               <img
-                src="/torch-republic-logo-transparent.png"
+                src={BRAND_LOGO}
                 alt="Torch Republic Coffee Company"
                 style={{ height: '42px', width: 'auto' }}
               />

@@ -14,18 +14,19 @@ import {
   markCompleted,
 } from '@/lib/spinWheel/spinWheelStorage';
 import SpinWheel from '@/components/spinwheel/SpinWheel';
+import { BRAND_COLORS } from '@/lib/brandAssets';
 
-// Palette matched to the previous Torch Republic wheel: deep navy ground,
-// gold rules, and gold buttons carrying dark text.
-const GOLD = '#D4AF5A';
-const GOLD_LIGHT = '#F0D080';
-const NAVY = '#071520';
-const CLAY = GOLD; // accent + button fill
-const INK = '#FFFFFF'; // headings + input text
-const BODY = 'rgba(212,175,90,0.62)'; // muted body copy
-const CARD = '#0F0F0F'; // input + code surfaces
-const CREAM = NAVY; // modal ground + text on gold buttons
-const BORDER = 'rgba(212,175,90,0.25)';
+// Palette taken straight from the Torch Republic wordmark: deep coffee-brown
+// ground, terracotta accent, golden-tan highlights, cream lettering.
+const { brown, brownDeep, terracotta, tan } = BRAND_COLORS;
+const TERRA = terracotta;
+const TAN = tan;
+const CLAY = TERRA; // accent + button fill
+const INK = '#F7F1E8'; // headings + input text
+const BODY = 'rgba(209,160,115,0.75)'; // muted body copy
+const CARD = '#1E120D'; // input + code surfaces
+const CREAM = '#FBF8F2'; // text on terracotta buttons
+const BORDER = 'rgba(194,103,58,0.28)';
 
 const EXCLUDED_ROUTES = [
   '/cart', '/checkout', '/profile', '/loyalty', '/order-status',
@@ -416,7 +417,7 @@ export default function SpinWheelPopup() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[200] flex items-center justify-center p-4"
-          style={{ background: 'rgba(2,12,18,0.85)', backdropFilter: 'blur(6px)' }}
+          style={{ background: 'rgba(20,11,8,0.86)', backdropFilter: 'blur(6px)' }}
           onClick={handleBackdropClick}
         >
           <motion.div
@@ -434,10 +435,10 @@ export default function SpinWheelPopup() {
             style={{
               maxWidth: '900px',
               maxHeight: '90vh',
-              background: 'linear-gradient(175deg, #04111a 0%, #071e2a 25%, #0a2535 50%, #071520 75%, #020c12 100%)',
-              border: '1px solid rgba(212,175,90,0.6)',
+              background: `linear-gradient(175deg, ${brownDeep} 0%, #33201A 30%, ${brown} 65%, ${brownDeep} 100%)`,
+              border: '1px solid rgba(194,103,58,0.6)',
               borderRadius: '20px',
-              boxShadow: '0 0 0 1px rgba(14,42,47,0.9), 0 0 0 3px rgba(212,175,90,0.06), 0 0 120px rgba(14,42,47,0.8), 0 0 80px rgba(212,175,90,0.2), 0 50px 140px rgba(0,0,0,0.9)',
+              boxShadow: '0 0 0 1px rgba(42,24,19,0.9), 0 0 0 3px rgba(194,103,58,0.08), 0 0 120px rgba(20,11,8,0.8), 0 0 80px rgba(194,103,58,0.22), 0 50px 140px rgba(0,0,0,0.9)',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -447,7 +448,7 @@ export default function SpinWheelPopup() {
               onClick={dismiss}
               aria-label="Close spin to win"
               className="absolute top-3 right-3 z-20 w-9 h-9 flex items-center justify-center rounded-full transition-all hover:opacity-70"
-              style={{ background: 'rgba(212,175,90,0.10)', color: GOLD, border: `1px solid ${BORDER}` }}
+              style={{ background: 'rgba(194,103,58,0.14)', color: TERRA, border: `1px solid ${BORDER}` }}
             >
               <X className="w-4 h-4" />
             </button>
@@ -455,11 +456,11 @@ export default function SpinWheelPopup() {
             {/* Gold rules top and bottom — the previous wheel's signature frame */}
             <div
               className="pointer-events-none absolute top-0 left-0 right-0 z-10"
-              style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }}
+              style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${TERRA} 30%, ${TAN} 50%, ${TERRA} 70%, transparent 100%)` }}
             />
             <div
               className="pointer-events-none absolute bottom-0 left-0 right-0 z-10"
-              style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${GOLD} 30%, ${GOLD_LIGHT} 50%, ${GOLD} 70%, transparent 100%)` }}
+              style={{ height: '3px', background: `linear-gradient(90deg, transparent 0%, ${TERRA} 30%, ${TAN} 50%, ${TERRA} 70%, transparent 100%)` }}
             />
 
             {/* Scrollable content */}
@@ -468,7 +469,7 @@ export default function SpinWheelPopup() {
                 {/* Left: Wheel */}
                 <div
                   className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8"
-                  style={{ background: 'radial-gradient(circle at 50% 45%, rgba(14,42,47,0.85) 0%, rgba(4,17,26,0.5) 70%)' }}
+                  style={{ background: 'radial-gradient(circle at 50% 45%, rgba(75,44,32,0.9) 0%, rgba(30,18,13,0.55) 70%)' }}
                 >
                   <div style={{ width: '100%', maxWidth: '260px' }}>
                     <SpinWheel prizes={PRIZES} rotation={rotation} />
@@ -487,7 +488,7 @@ export default function SpinWheelPopup() {
                       <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-3" style={{ color: CLAY }}>
                         A Better Morning Awaits
                       </p>
-                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 1.2rem + 1.2vw, 2rem)', lineHeight: 1.15, color: INK, textShadow: '0 0 30px rgba(212,175,90,0.3)' }}>
+                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 1.2rem + 1.2vw, 2rem)', lineHeight: 1.15, color: INK, textShadow: '0 0 30px rgba(194,103,58,0.35)' }}>
                         Spin for a little something extra
                       </h2>
                       <p id="spinwheel-desc" className="font-heading text-sm mb-6" style={{ color: BODY, lineHeight: 1.7 }}>
@@ -510,7 +511,7 @@ export default function SpinWheelPopup() {
                           required
                           aria-invalid={!!emailError}
                           aria-describedby={emailError ? 'spinwheel-email-error' : undefined}
-                          className="w-full px-4 py-3 text-sm outline-none placeholder:text-[#8A7A66]"
+                          className="w-full px-4 py-3 text-sm outline-none placeholder:text-[#9A7A63]"
                           style={{
                             background: CARD,
                             border: `1px solid ${emailError ? CLAY : BORDER}`,
@@ -652,7 +653,7 @@ export default function SpinWheelPopup() {
 
                   {step === 'already_participated' && (
                     <div className="text-center py-6">
-                      <Mail className="w-8 h-8 mx-auto mb-3" style={{ color: GOLD }} />
+                      <Mail className="w-8 h-8 mx-auto mb-3" style={{ color: TAN }} />
                       <h2 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: INK }}>
                         You've already spun!
                       </h2>

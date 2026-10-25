@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CATEGORY_IMAGES } from '@/lib/homepageFeaturedProducts';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
 const RG = '#E6B7AD';
 
@@ -98,14 +99,14 @@ export default function ThreeCategories() {
                   {/* Category Image */}
                   <div className="mb-6 product-image-wrap" style={{ aspectRatio: '4/3', background: '#141414', borderRadius: '8px', overflow: 'hidden' }}>
                     <img
-                      src={categoryImage?.imageUrl || '/torch-republic-logo-transparent.png'}
+                      src={categoryImage?.imageUrl || BRAND_LOGO}
                       alt={categoryImage?.alt || `${cat.label} collection`}
                       loading="lazy"
                       width="400"
                       height="300"
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src = '/torch-republic-logo-transparent.png';
+                        e.currentTarget.src = BRAND_LOGO;
                       }}
                     />
                   </div>

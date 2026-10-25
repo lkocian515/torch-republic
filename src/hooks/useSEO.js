@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
 const BASE_URL = 'https://torchrepublic.com';
 const SITE_NAME = 'Torch Republic';
@@ -122,7 +123,7 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
         publisher: {
           '@type': 'Organization',
           name: SITE_NAME,
-          logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE },
+          logo: { '@type': 'ImageObject', url: BRAND_LOGO },
         },
         datePublished: article?.datePublished || new Date().toISOString(),
         dateModified: article?.dateModified || article?.datePublished || new Date().toISOString(),

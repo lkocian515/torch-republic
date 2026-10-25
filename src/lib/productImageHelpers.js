@@ -1,3 +1,5 @@
+import { BRAND_LOGO } from '@/lib/brandAssets';
+
 export const PRODUCT_IMAGE_DRAG_PREVENTION_STYLE = {
   WebkitUserDrag: 'none',
   userSelect: 'none',
@@ -62,7 +64,7 @@ export function withApprovedProductImage(product) {
  * Checks all likely Shopify/Base44 image fields in priority order
  * Never returns undefined/null - always provides a valid image URL
  */
-export function getProductImage(product, fallbackImage = '/torch-republic-logo-transparent.png') {
+export function getProductImage(product, fallbackImage = BRAND_LOGO) {
   if (!product) return fallbackImage;
 
   const approvedImage = getApprovedProductImage(product);

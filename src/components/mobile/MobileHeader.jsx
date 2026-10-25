@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingBag, User, ChevronLeft } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
+import { BRAND_LOGO } from '@/lib/brandAssets';
 
 const RG = '#E6B7AD';
 const RG_DEEP = '#C98F86';
@@ -57,7 +58,7 @@ export default function MobileHeader() {
           {isRoot ? (
             <Link to="/">
               <img
-                src="/torch-republic-logo-transparent.png"
+                src={BRAND_LOGO}
                 alt="Torch Republic Coffee Company"
                 style={{ height: '42px', width: 'auto', display: 'block' }}
               />
