@@ -17,10 +17,12 @@ export const BRAND_LOGO = LOGO_PATH;
 /** The same wordmark as an absolute URL, for structured data and email. */
 export const BRAND_LOGO_URL = `${SITE_URL}${LOGO_PATH}`;
 
-/** Palette used by the spin wheel. */
+/** Night-sky palette — the spin wheel, its popup, and the brand lockup. */
 export const BRAND_COLORS = {
-  brown: '#4B2C20',
-  brownDeep: '#2A1813',
-  terracotta: '#C2673A',
-  tan: '#E5A870',
+  navyDeep: '#050A12',
+  navy: '#0A1424',
+  navyLight: '#16233B',
+  gold: '#D9A04A',
+  goldLight: '#F4C478',
+  cream: '#F8F6F2',
 };
