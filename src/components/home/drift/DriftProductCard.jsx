@@ -24,6 +24,8 @@ export default function DriftProductCard({
   alt,
   path,
   ritualSoft,
+  formatLabel = null,
+  formatNote = null,
   price = null,
   servings = null,
   disabled = false,
@@ -84,6 +86,14 @@ export default function DriftProductCard({
         </p>
 
         <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(1.5rem, 2.6vw, 2rem)', color: D.ink, margin: '0 0 0.5rem' }}>{name}</h3>
+
+        {/* How the coffee is prepared — stated on every card, never implied. */}
+        {formatLabel && (
+          <p style={{ fontFamily: MONO, fontSize: '0.6875rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: D.terracottaDeep, margin: '0 0 0.6rem', lineHeight: 1.6 }}>
+            {formatLabel}
+            {formatNote ? ` · ${formatNote}` : ''}
+          </p>
+        )}
 
         {flavorLabel && (
           <p style={{ fontFamily: SANS, fontWeight: 600, fontSize: '0.9375rem', color: D.terracotta, margin: '0 0 0.75rem' }}>{flavorLabel}</p>

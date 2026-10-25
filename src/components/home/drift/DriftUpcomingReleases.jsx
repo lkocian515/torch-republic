@@ -1,6 +1,7 @@
 import React from 'react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { editionPath } from '@/lib/specialEditions';
+import { editionFormatLabel, editionPath } from '@/lib/specialEditions';
+import { GROUND_EDITION } from '@/lib/coffeeFormats';
 import { PRICES } from '@/lib/pricingConfig';
 import { D } from './driftTheme';
 import useProductCardMotion from './useProductCardMotion';
@@ -37,6 +38,8 @@ export default function DriftUpcomingReleases() {
               alt={`Torch Republic ${edition.name} seasonal coffee pouch`}
               path={editionPath(edition)}
               ritualSoft={D.accentSoft}
+              formatLabel={editionFormatLabel(edition)}
+              formatNote={GROUND_EDITION.note}
               price={SEASONAL_PRICE}
               disabled
             />

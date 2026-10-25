@@ -72,6 +72,10 @@ export default function RitualCard({ product, index = 0 }) {
 
         </div>
 
+        <p className="font-mono text-[9px] font-bold uppercase tracking-[0.15em]" style={{ color: c.deep }}>
+          {product.seasonal ? 'Ground · brewed, not instant' : 'Instant only · just add water'}
+        </p>
+
         <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.6 }}>
           {product.positioning}
         </p>

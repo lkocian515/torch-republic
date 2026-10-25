@@ -15,7 +15,7 @@ import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
 // Spin wheel disabled — promotion stack cleanup per profit-first audit.
 // Re-enable only after discount codes, prize logic, and stacking rules are verified.
-// import SpinWheelPopup from './components/spinwheel/SpinWheelPopup';
+import SpinWheelPopup from './components/spinwheel/SpinWheelPopup';
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
@@ -597,6 +597,7 @@ function App() {
               <TechLayer />
               <CommerceNotice />
               <AddToCartConfirmation />
+              <SpinWheelPopup />
             </NavigationProvider>
           </Router>
           <Toaster />

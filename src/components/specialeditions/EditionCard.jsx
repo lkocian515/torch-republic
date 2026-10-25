@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { optionState, editionState, defaultOption, findOption, editionPath, formatMoney } from '@/lib/specialEditions';
+import { optionState, editionState, defaultOption, findOption, editionPath, editionFormatLabel, formatMoney } from '@/lib/specialEditions';
 import EditionStatusChip from './EditionStatusChip';
 import GrindSelector from './GrindSelector';
 
@@ -46,6 +46,12 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
         <h3 className="mt-3 text-center font-serif font-bold" style={{ fontSize: '1.25rem', lineHeight: 1.2 }}>
           {edition.name}
         </h3>
+
+        {/* Every special edition is brewed coffee, so the format is stated on the
+            card rather than left to the product page. */}
+        <p className="mt-2 text-center font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.14em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
+          {editionFormatLabel(edition)} &middot; brewed, not instant
+        </p>
 
         {edition.short_description && (
           <p className="mt-2 body" style={{ color: 'hsl(var(--muted-foreground))', fontSize: '0.9375rem' }}>

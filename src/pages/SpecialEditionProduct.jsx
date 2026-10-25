@@ -8,6 +8,7 @@ import {
   optionState,
   defaultOption,
   findOption,
+  editionFormatLabel,
   formatMoney,
   editionsInCollection,
   toCartProduct,
@@ -189,6 +190,12 @@ export default function SpecialEditionProduct() {
             </div>
 
             <h1 className="h1 mt-4">{edition.name}</h1>
+
+            {/* Special editions are brewed coffee — stated here so the format is
+                never something the customer has to work out. */}
+            <p className="mt-2 font-mono uppercase" style={{ fontSize: '11px', letterSpacing: '0.16em', fontWeight: 700, color: 'hsl(var(--primary))' }}>
+              {editionFormatLabel(edition)} &middot; brewed, not instant
+            </p>
 
             {edition.short_description && <p className="body-lg mt-3">{edition.short_description}</p>}
 

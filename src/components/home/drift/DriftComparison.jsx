@@ -26,6 +26,7 @@ const PRODUCTS = [
 ];
 
 const ROWS = [
+  { label: 'Format', classic: 'Instant only, just add water', mushroom: 'Instant only, just add water' },
   { label: 'Best For', classic: 'Classic coffee and everyday ritual', mushroom: 'Daily ritual with functional mushrooms' },
   { label: 'Flavor', classic: 'Bold, smooth, premium Arabica', mushroom: 'Smooth coffee, cocoa, balanced finish' },
   { label: 'Caffeine', classic: 'Full-strength coffee caffeine', mushroom: 'Moderate coffee caffeine' },

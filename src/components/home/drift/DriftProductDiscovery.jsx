@@ -1,6 +1,7 @@
 import React from 'react';
 import { D, SERIF, MONO } from './driftTheme';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
+import { INSTANT_LINEUP } from '@/lib/coffeeFormats';
 import { useCart } from '@/contexts/CartContext';
 import useProductCardMotion from './useProductCardMotion';
 import DriftProductCard from './DriftProductCard';
@@ -17,6 +18,9 @@ export default function DriftProductDiscovery() {
         <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
           <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>Find Your Morning</p>
           <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two rituals. One easy morning.</h2>
+          <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: D.terracottaDeep, margin: '1rem 0 0' }}>
+            Instant Coffee
+          </p>
         </div>
 
         {/* Balanced two-column grid — one structure for all breakpoints */}
@@ -33,6 +37,8 @@ export default function DriftProductDiscovery() {
               alt={product.alt}
               path={product.path}
               ritualSoft={product.ritual.soft}
+              formatLabel={INSTANT_LINEUP.label}
+              formatNote={INSTANT_LINEUP.note}
               price={product.price}
               servings={product.servings}
               onAdd={() => addItem(product)}

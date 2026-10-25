@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { pickFeaturedCampaign, editionsInCollection, editionState, collectionPath, defaultOption } from '@/lib/specialEditions';
+import { pickFeaturedCampaign, editionsInCollection, editionState, editionsFormatLabel, collectionPath, defaultOption } from '@/lib/specialEditions';
+import AnimatedHeadline from '@/components/motion/AnimatedHeadline';
 import EvergreenHero from './EvergreenHero';
 import EditionPlinth from './EditionPlinth';
 import EditionStatusChip from './EditionStatusChip';
@@ -47,8 +48,6 @@ export default function EditionHero() {
   if (campaign.desktop_hero_image) {
     return (
       <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
-        <h1 className="sr-only">{campaign.headline || campaign.name}</h1>
-
         {/* Source artwork is 1254x1254 with a "torchrepublic.com" line along the bottom edge.
             Showing it at 1254x1174 clips that line off without touching the artwork itself. */}
         <div className="w-full overflow-hidden" style={{ aspectRatio: '1254 / 1174' }}>
@@ -63,6 +62,29 @@ export default function EditionHero() {
               fetchPriority="high"
             />
           </picture>
+        </div>
+
+        {/* A headline painted into artwork cannot animate, be selected, or be read
+            aloud, so the hero also carries the campaign headline as real text that
+            rises in word by word. */}
+        <div className="mx-auto max-w-[900px] px-6 pt-10 text-center">
+          <AnimatedHeadline
+            as="h1"
+            text={campaign.headline || campaign.name}
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 700,
+              fontSize: 'clamp(2rem, 5.2vw, 3.25rem)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+              color: T.cream,
+              margin: 0,
+              textWrap: 'balance',
+            }}
+          />
+          <p className="font-mono uppercase" style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, margin: '1rem 0 0' }}>
+            {editionsFormatLabel(items)} &middot; brewed, not instant
+          </p>
         </div>
 
         {/* The artwork promotes both editions, so the campaign's availability line is

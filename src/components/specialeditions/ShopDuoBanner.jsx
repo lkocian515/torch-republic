@@ -61,6 +61,13 @@ export default function ShopDuoBanner() {
         </p>
       )}
 
+      <p
+        className="mx-auto max-w-[640px] px-6 pt-6 text-center font-mono uppercase"
+        style={{ color: 'rgba(230,216,202,0.9)', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700 }}
+      >
+        Ground &middot; brewed, not instant
+      </p>
+
       <div className="flex justify-center px-6 pb-10 pt-8">
         <Link
           to={href}

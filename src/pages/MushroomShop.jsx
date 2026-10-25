@@ -122,7 +122,9 @@ export default function MushroomShop() {
             {activeFormat ? `${activeFormat.label} Coffee` : 'The lineup.'}
           </motion.h1>
           <p className="mx-auto mt-2 max-w-xl font-heading text-sm md:text-base" style={{ color: '#5F574F', lineHeight: 1.7 }}>
-            {activeFormat ? activeFormat.blurb : 'Shop instant coffee, the Coffee Duo, and our seasonal whole bean release.'}
+            {activeFormat
+              ? activeFormat.blurb
+              : 'The everyday lineup is instant only, just add water. Special editions are ground, brewed rather than instant.'}
           </p>
         </div>
       </section>

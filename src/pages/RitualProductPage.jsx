@@ -298,6 +298,11 @@ function RitualPDP({ product }) {
 
             <div>
               <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem,4vw,2.6rem)', color: THEME.text, lineHeight: 1.1 }}>{product.name}</h1>
+              {/* The everyday lineup is instant and nothing else — stated on the
+                  product page as well as on every card. */}
+              <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.14em]" style={{ color: c.deep }}>
+                Instant only &middot; just add water
+              </p>
             </div>
 
             <p className="font-heading" style={{ color: THEME.secondary, lineHeight: 1.7 }}>{product.description}</p>

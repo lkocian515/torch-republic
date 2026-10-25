@@ -73,6 +73,26 @@ export function editionOptions(edition) {
   return edition?.options || [];
 }
 
+/**
+ * The format a special edition is sold in, in plain customer words.
+ *
+ * Every special edition is brewed coffee sold ground, so the label stays
+ * "Ground" even where a second grind was previously offered — a release is
+ * never presented as two formats. An edition with no ground option at all
+ * falls back to naming the options it does sell.
+ */
+export function editionFormatLabel(edition) {
+  const options = editionOptions(edition);
+  if (options.length === 0 || options.some((o) => o.key === 'ground')) return 'Ground';
+  return options.map((o) => o.label).join(' or ');
+}
+
+/** The format across a group of editions, e.g. "Ground". */
+export function editionsFormatLabel(editions) {
+  const labels = [...new Set((editions || []).map(editionFormatLabel))];
+  return labels.length === 0 ? 'Ground' : labels.join(' or ');
+}
+
 export function purchasableOptions(edition) {
   return editionOptions(edition).filter((o) => optionState(o).purchasable);
 }

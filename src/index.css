@@ -212,6 +212,21 @@
   animation: glowPulse 1.5s ease-in-out infinite;
 }
 
+/* Word-by-word headline rise — used by the animated hero headline.
+   Real text nodes with CSS-only motion, so the words stay selectable, readable
+   by assistive technology, and are never hidden if scripting fails. */
+@keyframes trWordRise {
+  from { opacity: 0; transform: translateY(0.45em); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tr-word {
+  display: inline-block;
+  animation: trWordRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tr-word { animation: none; }
+}
+
 /* Gold nav link */
 .nav-link {
   position: relative;

@@ -84,8 +84,8 @@ export default function SpecialEditionCollection() {
         )}
 
         <p className="body mt-10 text-readable-secondary" style={{ fontSize: '0.9375rem' }}>
-          Pumpkin Spice is offered as Ground or Whole Bean, subject to availability. Both coffees are brewed, not
-          instant: ground needs brewing, whole bean needs grinding first.
+          Both coffees are ground and brewed, not instant. Our everyday Instant Classic and Instant Mushroom coffees
+          are instant only, just add water.
         </p>
 
         <Link to="/special-editions" className="btn btn-ghost mt-8">

@@ -24,7 +24,8 @@ export default function EvergreenHero() {
           Two rituals. One easy morning.
         </h1>
         <p className="mt-4 font-heading mx-auto" style={{ color: '#E0D3C4', fontSize: '1.0625rem', lineHeight: 1.7, maxWidth: '560px' }}>
-          Instant Classic Coffee and Instant Mushroom Coffee. No machine, no pods, no morning production.
+          Instant Classic Coffee and Instant Mushroom Coffee, both instant only — just add water. No grinder, no pods,
+          no morning production.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <Link
