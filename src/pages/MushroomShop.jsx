@@ -96,7 +96,7 @@ export default function MushroomShop() {
       : 'Shop Instant Coffee | Torch Republic Coffee Company',
     description: activeFormat
       ? `${activeFormat.blurb} Shop Torch Republic ${activeFormat.label.toLowerCase()} coffee.`
-      : 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee — premium, convenient coffee made for simple daily rituals.',
+      : 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee,  premium, convenient coffee made for simple daily rituals.',
     url: '/shop',
     type: 'website',
     noindex: false,
@@ -104,7 +104,7 @@ export default function MushroomShop() {
 
   return (
     <div style={{ background: '#FBF8F1' }}>
-      {/* Seasonal banner — driven by the featured campaign, sits above the everyday lineup */}
+      {/* Seasonal banner,  driven by the featured campaign, sits above the everyday lineup */}
       <ShopDuoBanner />
 
       {/* Hero */}
@@ -150,7 +150,7 @@ export default function MushroomShop() {
       {/* Special editions follow the everyday catalog. */}
       <ShopSpecialEditions format={activeFormat ? activeFormat.key : null} />
 
-      {/* Upcoming releases preview — previews only, no purchase controls. */}
+      {/* Upcoming releases preview,  previews only, no purchase controls. */}
       <UpcomingReleases variant="shop" format={activeFormat ? activeFormat.key : null} />
 
       {/* Free gift with purchase */}

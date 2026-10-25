@@ -24,7 +24,7 @@ const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5
 const FAQS = [
   { q: 'What is ceremonial matcha?', a: 'Ceremonial matcha is the highest grade of matcha powder, made from shade-grown tea leaves that are stone-ground into a fine powder. It has a smooth, naturally sweet flavor and vibrant green color.' },
   { q: 'How is matcha different from coffee?', a: 'Matcha provides calm, focused energy through L-theanine and caffeine working together. Unlike coffee quick spike, matcha offers steady energy without jitters or crash.' },
-  { q: 'How do I prepare Torch Republic matcha?', a: 'Add one serving to hot or cold water/milk, stir or shake until dissolved, and enjoy. No whisk needed—our instant format dissolves easily.' },
+  { q: 'How do I prepare Torch Republic matcha?', a: 'Add one serving to hot or cold water/milk, stir or shake until dissolved, and enjoy. No whisk needed, our instant format dissolves easily.' },
   { q: 'Does matcha have caffeine?', a: 'Yes, ceremonial matcha contains caffeine (typically 30–70mg per serving). The L-theanine in matcha creates a calmer, more focused energy compared to coffee.' },
   { q: 'How many servings are in each tin?', a: 'Each tin contains 25 servings of ceremonial grade matcha powder.' },
   { q: 'Can I drink matcha daily?', a: 'Yes, matcha is designed for daily ritual use. Many people enjoy it as a morning or afternoon alternative to coffee.' },
@@ -70,7 +70,7 @@ export default function MatchaCollection() {
 
   useSEO({
     title: 'Ceremonial Matcha Blends for Daily Rituals | Torch Republic',
-    description: 'Shop Torch Republic ceremonial grade matcha blends—smooth, vibrant, and easy to prepare at home or on the go. 25 servings per tin. No equipment needed.',
+    description: 'Shop Torch Republic ceremonial grade matcha blends, smooth, vibrant, and easy to prepare at home or on the go. 25 servings per tin. No equipment needed.',
     url: '/shop/matcha',
     type: 'website',
     breadcrumbs: [
@@ -93,13 +93,13 @@ export default function MatchaCollection() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
-              Torch Republic Coffee Co. — Ceremonial Matcha
+              Torch Republic Coffee Co.,  Ceremonial Matcha
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Ceremonial Matcha Powder<br />for Calm Focus & Instant Matcha Lattes
             </h1>
             <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-              Two ceremonial matcha blends for calm daily ritual and versatile preparation. Dissolves instantly — hot or iced. No whisk needed.
+              Two ceremonial matcha blends for calm daily ritual and versatile preparation. Dissolves instantly,  hot or iced. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.7 }}>
@@ -153,7 +153,7 @@ export default function MatchaCollection() {
               The Calm Energy Alternative
             </h2>
             <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.8 }}>
-              Matcha offers a different kind of energy—calm, focused, and sustained. The L-theanine in ceremonial matcha works with caffeine to create alert relaxation without jitters or crash.
+              Matcha offers a different kind of energy, calm, focused, and sustained. The L-theanine in ceremonial matcha works with caffeine to create alert relaxation without jitters or crash.
             </p>
           </motion.div>
           
@@ -198,7 +198,7 @@ export default function MatchaCollection() {
         accent={MATCHA_GREEN}
         eyebrow="The Ritual"
         title="Whisked. Sipped. Savored."
-        subtitle="Ceremonial matcha that dissolves instantly — calm, focused energy with no whisk required."
+        subtitle="Ceremonial matcha that dissolves instantly,  calm, focused energy with no whisk required."
       />
 
       {/* Selection aid + cross-link */}
@@ -210,7 +210,7 @@ export default function MatchaCollection() {
           ]}
         />
         <div className="mt-8">
-          <CollectionCrossLink to="/ingredients/ceremonial-matcha" label="Learn about ceremonial matcha" sub="What makes ceremonial grade different — and how to prepare it." accent={MATCHA_GREEN} />
+          <CollectionCrossLink to="/ingredients/ceremonial-matcha" label="Learn about ceremonial matcha" sub="What makes ceremonial grade different,  and how to prepare it." accent={MATCHA_GREEN} />
         </div>
       </section>
 

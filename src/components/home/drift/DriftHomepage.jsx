@@ -2,7 +2,7 @@ import React from 'react';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import DriftComparison from './DriftComparison';
 import DriftSubscription from './DriftSubscription';
-import DriftReviews from './DriftReviews';
+import RitualReviewHighlights from '../ritual/RitualReviewHighlights';
 import DriftFounderStory from './DriftFounderStory';
 import DriftRitual from './DriftRitual';
 import EditionHero from '../../specialeditions/EditionHero';
@@ -29,7 +29,7 @@ export default function DriftHomepage() {
       <DriftProductDiscovery />
       <DriftUpcomingReleases />
       <DriftWinterDuo />
-      <DriftReviews />
+      <RitualReviewHighlights />
       <DriftComparison />
       <DriftRitual />
       <DriftFounderStory />

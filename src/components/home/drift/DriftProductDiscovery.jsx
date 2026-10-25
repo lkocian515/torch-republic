@@ -17,7 +17,7 @@ export default function DriftProductDiscovery() {
         {/* Heading */}
         <div className="mb-10 md:mb-14 max-w-2xl">
           <p style={{ fontFamily: MONO, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: D.terracotta, margin: '0 0 1rem' }}>The Lineup</p>
-          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two coffees, and neither one needs a machine.</h2>
+          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, color: D.ink, margin: 0, textWrap: 'balance' }}>Two coffees, and all you need is hot water.</h2>
         </div>
 
         {/* Balanced two-column grid — one structure for all breakpoints */}

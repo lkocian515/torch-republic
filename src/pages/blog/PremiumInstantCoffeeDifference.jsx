@@ -16,7 +16,7 @@ export default function PremiumInstantCoffeeDifference() {
       keywords: ['premium instant coffee', 'freeze dried coffee vs spray dried', 'best instant coffee', 'instant coffee quality', 'specialty instant coffee', 'arabica instant coffee'],
     },
     faq: [
-      { question: 'Is premium instant coffee as good as brewed coffee?', answer: 'Premium freeze-dried instant coffee preserves most of the flavor compounds found in freshly brewed coffee. For most people, the taste difference is minimal — especially in a well-sourced Arabica blend. The convenience advantage is significant.' },
+      { question: 'Is premium instant coffee as good as brewed coffee?', answer: 'Premium freeze-dried instant coffee preserves most of the flavor compounds found in freshly brewed coffee. For most people, the taste difference is minimal,  especially in a well-sourced Arabica blend. The convenience advantage is significant.' },
       { question: 'What is freeze-dried instant coffee?', answer: 'Freeze-drying brews coffee first, then rapidly freezes it and removes moisture through a vacuum process. This preserves flavor compounds better than spray-drying. The result is a higher-quality instant that tastes closer to fresh-brewed.' },
       { question: 'What is Arabica instant coffee?', answer: 'Arabica is the premium species of coffee bean, known for smoother, more complex flavor with lower bitterness. Lower-quality instant coffee often uses Robusta beans, which are cheaper but harsher-tasting.' },
       { question: 'Why does cheap instant coffee taste bad?', answer: 'Cheap instant coffee typically uses Robusta beans, spray-drying (which uses heat that damages flavor), and filler ingredients. Premium instant uses Arabica, freeze-drying, and no additives.' },
@@ -44,7 +44,7 @@ export default function PremiumInstantCoffeeDifference() {
         </h1>
 
         <p className="font-heading mb-8" style={{ fontSize: '1.1rem', color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-          Instant coffee has a reputation problem. Most of it deserves that reputation. But premium instant coffee — made from specialty Arabica and freeze-dried correctly — is a completely different product. Here's what separates them.
+          Instant coffee has a reputation problem. Most of it deserves that reputation. But premium instant coffee,  made from specialty Arabica and freeze-dried correctly,  is a completely different product. Here's what separates them.
         </p>
 
         <div className="h-px w-full mb-10" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.3), transparent)' }} />
@@ -53,8 +53,8 @@ export default function PremiumInstantCoffeeDifference() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>It Starts with the Bean</h2>
-            <p>Most cheap instant coffee starts with Robusta beans — a lower-cost species that is high in caffeine but has a harsher, more bitter flavor profile. Robusta is easier to grow at scale, which is why it dominates commercial instant.</p>
-            <p className="mt-3">Premium instant coffee uses <strong style={{ color: '#F7F1E8' }}>Arabica</strong> — the same species used in specialty café coffee. Arabica has a smoother, more nuanced flavor with natural sweetness and lower bitterness. It's the difference between a $1 diner coffee and a good pour-over.</p>
+            <p>Most cheap instant coffee starts with Robusta beans,  a lower-cost species that is high in caffeine but has a harsher, more bitter flavor profile. Robusta is easier to grow at scale, which is why it dominates commercial instant.</p>
+            <p className="mt-3">Premium instant coffee uses <strong style={{ color: '#F7F1E8' }}>Arabica</strong>,  the same species used in specialty café coffee. Arabica has a smoother, more nuanced flavor with natural sweetness and lower bitterness. It's the difference between a $1 diner coffee and a good pour-over.</p>
           </section>
 
           <section>
@@ -70,33 +70,33 @@ export default function PremiumInstantCoffeeDifference() {
                 <p className="text-sm" style={{ color: 'rgba(247,241,232,0.5)' }}>Brewed coffee is sprayed as a fine mist into hot air. Fast and cheap. The heat degrades flavor compounds. Result: flat, stale-tasting coffee.</p>
               </div>
             </div>
-            <p className="mt-4">Torch Republic uses premium freeze-dried instant Arabica. The brewing step and the drying process are both handled with quality as the priority — not cost reduction.</p>
+            <p className="mt-4">Torch Republic uses premium freeze-dried instant Arabica. The brewing step and the drying process are both handled with quality as the priority,  not cost reduction.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>No Fillers, No Additives</h2>
-            <p>Inexpensive instant coffee often contains anti-caking agents, stabilizers, or artificial flavoring — ingredients designed to improve shelf life or mask the taste of lower-quality coffee.</p>
+            <p>Inexpensive instant coffee often contains anti-caking agents, stabilizers, or artificial flavoring,  ingredients designed to improve shelf life or mask the taste of lower-quality coffee.</p>
             <p className="mt-3">Premium instant is just coffee. Torch Republic blends contain no artificial colors, no artificial flavors, and no preservatives. What's on the label is what's in the tube.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>The Convenience Isn't a Compromise</h2>
             <p>The old assumption was: if it's instant, it's a compromise. That was true in the era of cheap Robusta + spray-drying. It's no longer true.</p>
-            <p className="mt-3">With premium freeze-dried Arabica, you get a genuinely great cup of coffee in 30 seconds. No machine, no pods, no grinder, no wait, no cleanup. A daily ritual that actually lowers the barrier to showing up — instead of adding friction to it.</p>
+            <p className="mt-3">With premium freeze-dried Arabica, you get a genuinely great cup of coffee in 30 seconds. No machine, no pods, no grinder, no wait, no cleanup. A daily ritual that actually lowers the barrier to showing up,  instead of adding friction to it.</p>
             <p className="mt-3">For anyone who has ever skipped their morning coffee because they didn't have time to brew it: this is the format that removes that excuse.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>The Cost-Per-Cup Reality</h2>
-            <p>Torch Republic classic coffee blends are $19.99 for 27 servings. That's <strong style={{ color: '#E6B7AD' }}>$0.74 per cup</strong> — for premium freeze-dried Arabica instant coffee.</p>
+            <p>Torch Republic classic coffee blends are $19.99 for 27 servings. That's <strong style={{ color: '#E6B7AD' }}>$0.74 per cup</strong>,  for premium freeze-dried Arabica instant coffee.</p>
             <p className="mt-3">A typical café drip coffee runs $3–5. A specialty espresso drink runs $5–8. Even home-brewed specialty coffee, once you factor in beans, equipment, and maintenance, costs more per cup than $0.74.</p>
             <p className="mt-3">Premium instant isn't the cheap option. It's the smart option.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Classic Coffee vs Mushroom Coffee</h2>
-            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start — <Link to="/products/torchbearer" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-reserve" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Ember Reserve</Link>. Premium Arabica, instant format, nothing added.</p>
-            <p className="mt-3">If you want everything premium instant offers plus functional mushrooms, the <Link to="/shop/instant-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Mushroom Coffee Collection</Link> adds Lion's Mane and Chaga to the same premium base — for $3 more per tube.</p>
+            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start,  <Link to="/products/torchbearer" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-reserve" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Ember Reserve</Link>. Premium Arabica, instant format, nothing added.</p>
+            <p className="mt-3">If you want everything premium instant offers plus functional mushrooms, the <Link to="/shop/instant-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Mushroom Coffee Collection</Link> adds Lion's Mane and Chaga to the same premium base,  for $3 more per tube.</p>
           </section>
 
         </div>

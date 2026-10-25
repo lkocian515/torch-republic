@@ -71,7 +71,7 @@ export default function HistoryOfMatcha() {
                 Today, matcha is celebrated around the world for its vibrant green color, smooth energy, and impressive nutritional profile. You'll find it in cafés, wellness shops, smoothies, and morning routines everywhere.
               </p>
               <p>
-                Through centuries of refinement, matcha evolved into one of the world's most cherished beverages—a symbol of mindfulness, focus, and intentional living.
+                Through centuries of refinement, matcha evolved into one of the world's most cherished beverages, a symbol of mindfulness, focus, and intentional living.
               </p>
             </motion.div>
           </section>
@@ -94,7 +94,7 @@ export default function HistoryOfMatcha() {
                     Tang Dynasty (618–907 CE)
                   </p>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7 }}>
-                    Tea leaves were steamed, compressed into bricks, and transported along major trade routes including the Silk Road. To prepare tea, portions of these bricks were roasted, ground into powder, and boiled with water—marking the beginning of powdered tea culture.
+                    Tea leaves were steamed, compressed into bricks, and transported along major trade routes including the Silk Road. To prepare tea, portions of these bricks were roasted, ground into powder, and boiled with water, marking the beginning of powdered tea culture.
                   </p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function HistoryOfMatcha() {
                   Long meditation sessions demanded sustained concentration and mental clarity. Matcha provided steady energy while encouraging a calm, focused state of mind.
                 </p>
                 <p>
-                  For many monks, preparing and drinking tea became a mindfulness practice itself. Every movement—from heating water to whisking the tea—was performed with intention and awareness. These principles would eventually become central to the Japanese tea ceremony.
+                  For many monks, preparing and drinking tea became a mindfulness practice itself. Every movement, from heating water to whisking the tea, was performed with intention and awareness. These principles would eventually become central to the Japanese tea ceremony.
                 </p>
               </div>
             </motion.div>

@@ -33,12 +33,12 @@ export default function FocusCoffeeCollection() {
 
   useSEO({
     title: 'Best Coffee for Focus | Mushroom Coffee for Concentration | Torch Republic',
-    description: "Best coffee for focus and concentration — Lion's Mane mushroom coffee, ceremonial matcha with L-theanine, and premium instant coffee blends designed for deep work and mental clarity.",
+    description: "Best coffee for focus and concentration,  Lion's Mane mushroom coffee, ceremonial matcha with L-theanine, and premium instant coffee blends designed for deep work and mental clarity.",
     url: '/shop/focus-coffee',
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Focus Coffee', url: '/shop/focus-coffee' }],
     faq: [
-      { question: 'What is the best coffee for focus and concentration?', answer: "GlowMind Clarity combines premium Arabica instant coffee with Lion's Mane, Cordyceps and Reishi — designed for focused deep work sessions." },
+      { question: 'What is the best coffee for focus and concentration?', answer: "GlowMind Clarity combines premium Arabica instant coffee with Lion's Mane, Cordyceps and Reishi,  designed for focused deep work sessions." },
       { question: "Is there a lower-caffeine option for focus?", answer: "The Monk is a ceremonial matcha with naturally occurring caffeine and L-theanine, traditionally associated with a calmer, more focused energy." },
     ],
   });

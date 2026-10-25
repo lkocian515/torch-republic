@@ -30,7 +30,7 @@ export default function ChagaMushroomAntioxidantKing() {
 
   const BENEFITS = [
     { icon: Shield, title: 'Immune Support', body: 'Beta-glucans and polysaccharides support healthy immune function', color: '#E67F8A' },
-    { icon: Heart, title: 'Antioxidant Power', body: 'Highest ORAC value of any superfood—combats oxidative stress', color: '#C98F86' },
+    { icon: Heart, title: 'Antioxidant Power', body: 'Highest ORAC value of any superfood, combats oxidative stress', color: '#C98F86' },
     { icon: Moon, title: 'Evening Restoration', body: 'Supports calm, relaxation, and the body\'s natural recovery processes', color: '#6B7FD7' },
     { icon: Droplet, title: 'Adaptogenic Balance', body: 'Helps the body adapt to stress and maintain homeostasis', color: '#6CBD5A' },
   ];
@@ -85,7 +85,7 @@ export default function ChagaMushroomAntioxidantKing() {
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-heading space-y-5" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
               <p>
-                In the frozen forests of Siberia, Northern Europe, and North America, a remarkable fungus grows on the bark of birch trees. Dark, charred-looking, and unassuming—Chaga mushroom (Inonotus obliquus) has been treasured for centuries as a symbol of longevity and vitality.
+                In the frozen forests of Siberia, Northern Europe, and North America, a remarkable fungus grows on the bark of birch trees. Dark, charred-looking, and unassuming, Chaga mushroom (Inonotus obliquus) has been treasured for centuries as a symbol of longevity and vitality.
               </p>
               <p>
                 Traditional healers across cold climates recognized Chaga's extraordinary properties long before modern science could explain them. Today, research confirms what ancestral wisdom taught: Chaga is one of nature's most powerful antioxidants.
@@ -139,14 +139,14 @@ export default function ChagaMushroomAntioxidantKing() {
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
                 <p>
-                  Antioxidants are compounds that neutralize free radicals—unstable molecules that damage cells and contribute to aging and disease.
+                  Antioxidants are compounds that neutralize free radicals, unstable molecules that damage cells and contribute to aging and disease.
                 </p>
                 <p>
                   Chaga's exceptional antioxidant capacity comes from its dense concentration of superoxide dismutase (SOD), melanin, polyphenols, and triterpenes. These compounds work synergistically to protect cells from oxidative stress.
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(230,127,138,0.06)', border: '1px solid rgba(230,127,138,0.15)', borderRadius: '4px' }}>
                   <p className="font-serif font-bold text-lg mb-2" style={{ color: '#E67F8A' }}>
-                    Chaga's ORAC value exceeds 146,000 units per 100 grams—far surpassing most fruits, vegetables, and supplements.
+                    Chaga's ORAC value exceeds 146,000 units per 100 grams, far surpassing most fruits, vegetables, and supplements.
                   </p>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7 }}>
                     This extraordinary antioxidant density makes Chaga a powerful ally for cellular health and longevity.
@@ -188,7 +188,7 @@ export default function ChagaMushroomAntioxidantKing() {
                 </div>
 
                 <p>
-                  These compounds work together, creating effects greater than any single compound alone—a phenomenon known as the "entourage effect."
+                  These compounds work together, creating effects greater than any single compound alone, a phenomenon known as the "entourage effect."
                 </p>
               </div>
             </motion.div>
@@ -212,7 +212,7 @@ export default function ChagaMushroomAntioxidantKing() {
                     Incorporating Chaga into your evening ritual signals to your body that it's time to restore, recover, and prepare for renewal.
                   </p>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7 }}>
-                    Many find that Chaga promotes a sense of calm without drowsiness—ideal for winding down while maintaining mental clarity.
+                    Many find that Chaga promotes a sense of calm without drowsiness, ideal for winding down while maintaining mental clarity.
                   </p>
                 </div>
               </div>
@@ -291,7 +291,7 @@ export default function ChagaMushroomAntioxidantKing() {
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}>
                   <p className="font-serif font-bold text-lg" style={{ color: RG }}>
-                    We believe in honoring ancient wisdom while embracing modern convenience—creating rituals that support both body and mind.
+                    We believe in honoring ancient wisdom while embracing modern convenience, creating rituals that support both body and mind.
                   </p>
                 </div>
               </div>

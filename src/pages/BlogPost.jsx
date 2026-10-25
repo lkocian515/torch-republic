@@ -480,7 +480,7 @@ export default function BlogPostPage() {
             <div className="max-w-[900px] mx-auto overflow-hidden rounded-sm">
               <img
                 src={post.featured_image}
-                alt={`${post.title} — Torch Republic Coffee Company`}
+                alt={`${post.title} | Torch Republic Coffee Company`}
                 className="w-full h-auto object-cover"
                 style={{ maxHeight: '500px' }}
               />
@@ -584,14 +584,14 @@ export default function BlogPostPage() {
               </div>
             ) : (
               <div className="mt-8 p-8 text-center" style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20` }}>
-                <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>Ready to Start Your Ritual?</p>
+                <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>Try either coffee.</p>
                 <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
-                  Explore our collection of mushroom coffee and matcha blends.
+                  Classic and Mushroom are both instant. Pick one, or keep both in the cupboard.
                 </p>
                 <Link to="/shop"
                   className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
                   style={{ background: RG, color: '#050505' }}>
-                  Shop Blends →
+                  Shop the coffees →
                 </Link>
               </div>
             )}

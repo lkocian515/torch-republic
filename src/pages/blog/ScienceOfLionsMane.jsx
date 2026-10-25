@@ -10,7 +10,7 @@ const RG = '#E6B7AD';
 const LIONSMANE_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg';
 
 const ARTICLE_CONTENT = {
-  introduction: `Lion's Mane mushroom (Hericium erinaceus) stands out in the fungal kingdom. Its distinctive appearance—cascading white spines resembling a lion's mane—hints at something extraordinary. For centuries, this mushroom has been valued in traditional Asian medicine for supporting digestive health, cognitive function, and overall vitality. Today, modern science is uncovering the mechanisms behind these traditional uses.
+  introduction: `Lion's Mane mushroom (Hericium erinaceus) stands out in the fungal kingdom. Its distinctive appearance, cascading white spines resembling a lion's mane, hints at something extraordinary. For centuries, this mushroom has been valued in traditional Asian medicine for supporting digestive health, cognitive function, and overall vitality. Today, modern science is uncovering the mechanisms behind these traditional uses.
 
 Over 100 peer-reviewed studies now document Lion's Mane effects on the brain and nervous system. Research suggests this mushroom may support cognitive function, nerve regeneration, mood, and immune health through unique bioactive compounds.`,
 
@@ -19,9 +19,9 @@ Over 100 peer-reviewed studies now document Lion's Mane effects on the brain and
       title: "The Unique Chemistry of Lion's Mane",
       content: `What makes Lion's Mane so special? The answer lies in its extraordinary chemical composition. This mushroom contains two groups of potent bioactive compounds: hericenones and erinacines.
 
-**Hericenones** are aromatic compounds found in the fruiting body (the visible mushroom). **Erinacines** are cyathane diterpenoids concentrated in the mycelium (the root-like structure). Both groups have demonstrated remarkable abilities to cross the blood-brain barrier—a protective shield that keeps most substances out of the brain.
+**Hericenones** are aromatic compounds found in the fruiting body (the visible mushroom). **Erinacines** are cyathane diterpenoids concentrated in the mycelium (the root-like structure). Both groups have demonstrated remarkable abilities to cross the blood-brain barrier, a protective shield that keeps most substances out of the brain.
 
-Once inside the brain, these compounds stimulate the production of Nerve Growth Factor (NGF), a protein essential for the growth, maintenance, and survival of neurons. Think of NGF as fertilizer for your brain cells—it helps them grow stronger, form new connections, and repair damage.
+Once inside the brain, these compounds stimulate the production of Nerve Growth Factor (NGF), a protein essential for the growth, maintenance, and survival of neurons. Think of NGF as fertilizer for your brain cells, it helps them grow stronger, form new connections, and repair damage.
 
 But that's not all. Lion's Mane also contains:
 - **Beta-glucans**: Polysaccharides that modulate immune function
@@ -33,14 +33,14 @@ But that's not all. Lion's Mane also contains:
       title: "Nerve Growth Factor: The Brain's Fertilizer",
       content: `To understand why Lion's Mane has captured scientists' attention, we need to understand Nerve Growth Factor (NGF).
 
-Discovered in the 1950s by Nobel Prize-winning neurobiologist Rita Levi-Montalcini, NGF is a protein that plays a crucial role in the development and maintenance of the nervous system. It's particularly important for cholinergic neurons—the brain cells responsible for learning, memory, and cognitive flexibility.
+Discovered in the 1950s by Nobel Prize-winning neurobiologist Rita Levi-Montalcini, NGF is a protein that plays a crucial role in the development and maintenance of the nervous system. It's particularly important for cholinergic neurons, the brain cells responsible for learning, memory, and cognitive flexibility.
 
 Here's the problem: NGF levels naturally decline with age. This decline is associated with age-related cognitive impairment and neurodegenerative conditions. Low NGF levels have been observed in patients with Alzheimer's disease, Parkinson's disease, and other neurological disorders.
 
 This is where Lion's Mane becomes fascinating. Multiple studies have shown that compounds in Lion's Mane can:
 
 1. **Stimulate NGF synthesis**: Erinacines and hericenones trigger brain cells to produce more NGF
-2. **Enhance neurite outgrowth**: NGF promotes the growth of neurites—tiny projections that allow neurons to communicate
+2. **Enhance neurite outgrowth**: NGF promotes the growth of neurites, tiny projections that allow neurons to communicate
 3. **Protect existing neurons**: NGF helps prevent neuron death and maintains healthy brain function
 
 In laboratory studies, Lion's Mane extract increased NGF production by up to 230%. In animal studies, mice given Lion's Mane showed improved memory, faster nerve regeneration after injury, and better performance on cognitive tasks.`
@@ -52,7 +52,7 @@ In laboratory studies, Lion's Mane extract increased NGF production by up to 230
 **Cognitive Function in Older Adults (2009)**
 A landmark double-blind, placebo-controlled study published in Phytotherapy Research examined 30 Japanese men and women aged 50-80 with mild cognitive impairment. Participants took 3 grams of Lion's Mane powder daily for 16 weeks.
 
-Results: The Lion's Mane group showed significant improvements in cognitive function tests compared to placebo. Benefits began appearing at week 8 and continued throughout the study. When participants stopped taking Lion's Mane, scores gradually declined—suggesting ongoing supplementation may be necessary for sustained benefits.
+Results: The Lion's Mane group showed significant improvements in cognitive function tests compared to placebo. Benefits began appearing at week 8 and continued throughout the study. When participants stopped taking Lion's Mane, scores gradually declined, suggesting ongoing supplementation may be necessary for sustained benefits.
 
 **Memory and Concentration (2020)**
 A study of healthy adults found that 4 weeks of Lion's Mane supplementation improved visual-spatial memory, short-term memory, and concentration. Participants also reported better focus during complex tasks.
@@ -70,7 +70,7 @@ A clinical trial examined Lion's Mane's effects on peripheral nerve recovery. Pa
       content: `Lion's Mane appears to support brain health through multiple mechanisms:
 
 **1. Neurogenesis**
-Emerging research suggests Lion's Mane may promote neurogenesis—the birth of new brain cells. This occurs primarily in the hippocampus, the brain's memory and learning center. Enhanced neurogenesis is associated with better memory formation and cognitive resilience.
+Emerging research suggests Lion's Mane may promote neurogenesis, the birth of new brain cells. This occurs primarily in the hippocampus, the brain's memory and learning center. Enhanced neurogenesis is associated with better memory formation and cognitive resilience.
 
 **2. Myelin Repair**
 Myelin is the protective sheath surrounding nerve fibers, essential for rapid signal transmission. Lion's Mane has been shown to accelerate myelin repair after injury, potentially improving nerve conduction speed and cognitive processing.
@@ -123,7 +123,7 @@ While more large-scale human trials are needed, the existing evidence is compell
 
 Whether you're looking to enhance cognitive performance, support long-term brain health, or simply optimize your daily mental clarity, Lion's Mane offers a natural, well-tolerated option backed by both ancient wisdom and cutting-edge science.
 
-At Torch Republic, we've incorporated Lion's Mane into our GlowMind blend because we believe in the power of evidence-based functional ingredients. Our morning ritual isn't just about caffeine—it's about nurturing your brain, supporting your focus, and setting yourself up for a day of clarity and purpose.`
+At Torch Republic, we've incorporated Lion's Mane into our GlowMind blend because we believe in the power of evidence-based functional ingredients. Our morning ritual isn't just about caffeine, it's about nurturing your brain, supporting your focus, and setting yourself up for a day of clarity and purpose.`
     }
   ]
 };
@@ -205,7 +205,7 @@ export default function ScienceOfLionsMane() {
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-heading space-y-5" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
               <p>
-                Lion's Mane mushroom (Hericium erinaceus) stands out in the fungal kingdom. Its distinctive appearance—cascading white spines resembling a lion's mane—hints at something extraordinary.
+                Lion's Mane mushroom (Hericium erinaceus) stands out in the fungal kingdom. Its distinctive appearance, cascading white spines resembling a lion's mane, hints at something extraordinary.
               </p>
               <p>
                 For centuries, this mushroom has been valued in traditional Asian medicine for supporting digestive health, cognitive function, and overall vitality. Today, modern science is uncovering the mechanisms behind these traditional uses.
@@ -262,7 +262,7 @@ export default function ScienceOfLionsMane() {
                   One of Lion's Mane most remarkable properties is its ability to stimulate the production of nerve growth factor (NGF).
                 </p>
                 <p>
-                  NGF is a protein essential for the growth, maintenance, and survival of neurons. It plays a critical role in neuroplasticity—the brain's ability to adapt, learn, and form new neural connections throughout life.
+                  NGF is a protein essential for the growth, maintenance, and survival of neurons. It plays a critical role in neuroplasticity, the brain's ability to adapt, learn, and form new neural connections throughout life.
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(232,184,109,0.06)', border: '1px solid rgba(232,184,109,0.15)', borderRadius: '4px' }}>
                   <p className="font-serif font-bold text-lg mb-2" style={{ color: '#E8B86D' }}>
@@ -334,7 +334,7 @@ export default function ScienceOfLionsMane() {
                   </p>
                 </div>
                 <p>
-                  Additional research has examined Lion's Mane potential for supporting mood, reducing anxiety, and improving sleep quality—factors that indirectly influence cognitive performance.
+                  Additional research has examined Lion's Mane potential for supporting mood, reducing anxiety, and improving sleep quality, factors that indirectly influence cognitive performance.
                 </p>
               </div>
             </motion.div>
@@ -418,7 +418,7 @@ export default function ScienceOfLionsMane() {
           <RecommendedRitualBlock
             productName="GlowMind Clarity Blend"
             productSlug="glowmind-clarity-blend"
-            tagline="Lion's Mane + Chaga mushroom coffee — the same functional ingredients studied in the research above, in an instant cup you'll actually want to drink every morning."
+            tagline="Lion's Mane + Chaga mushroom coffee,  the same functional ingredients studied in the research above, in an instant cup you'll actually want to drink every morning."
             accentColor="#6B7FD7"
           />
 

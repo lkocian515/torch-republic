@@ -219,7 +219,7 @@ export default function HistoryOfMushroomCoffee() {
           <RecommendedRitualBlock
             productName="GlowMind Clarity Blend"
             productSlug="glowmind-clarity-blend"
-            tagline="Centuries of mushroom wisdom, in an instant cup. Lion's Mane + Chaga — ready in 30 seconds. Subscribe and save 20%."
+            tagline="Centuries of mushroom wisdom, in an instant cup. Lion's Mane + Chaga,  ready in 30 seconds. Subscribe and save 20%."
           />
 
           {/* CTA */}

@@ -28,10 +28,10 @@ const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e
 // FAQ data for schema
 const FAQS = [
   { q: 'What makes Papua New Guinea coffee special?', a: 'Papua New Guinea coffee is grown in the mountainous highlands in rich volcanic soil at high elevations. It is highly regarded for its clean cup profile, complexity, smooth character, and nuanced sweetness. Many PNG coffees trace their heritage to Jamaica Blue Mountain stock, giving the region a reputation for exceptionally balanced and refined coffees.' },
-  { q: 'What does Torch Republic instant coffee taste like?', a: 'Our single-origin Papua New Guinea coffee highlights notes of dark chocolate, toasted almond, and sweet toffee with a smooth, aromatic finish. The body is smooth and rich with balanced acidity — a flavor profile that stands apart from typical commodity instant coffee.' },
+  { q: 'What does Torch Republic instant coffee taste like?', a: 'Our single-origin Papua New Guinea coffee highlights notes of dark chocolate, toasted almond, and sweet toffee with a smooth, aromatic finish. The body is smooth and rich with balanced acidity,  a flavor profile that stands apart from typical commodity instant coffee.' },
   { q: 'What is freeze-dried coffee?', a: 'Freeze-dried coffee is made by brewing specialty coffee to full concentration, then freeze-drying it to preserve the natural flavor compounds, aroma, and freshness. The freeze-drying process removes water through sublimation while locking in the complex flavors. The result dissolves instantly in hot water with no brewing equipment required.' },
   { q: 'Do I need a coffee machine?', a: 'No. Torch Republic instant coffee just needs hot water. Add one serving to 8–10 oz of hot water, stir, and enjoy. No machine, pods, or grinder needed. It is designed for home, office, travel, and camping.' },
-  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings of premium single-origin Papua New Guinea instant coffee — nearly a month of daily rituals.' },
+  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings of premium single-origin Papua New Guinea instant coffee,  nearly a month of daily rituals.' },
   { q: 'Is Torch Republic instant coffee single-origin?', a: 'Yes. Our coffee is single-origin from Papua New Guinea, 100% Arabica, and freeze-dried to preserve the flavor compounds that make this region respected among specialty coffee drinkers.' },
   { q: 'Can I drink instant coffee daily?', a: 'Yes, instant coffee is designed for daily ritual use. Many people prefer it for its convenience, consistent taste, and the fact that it requires no machine or cleanup.' },
 ];
@@ -99,13 +99,13 @@ export default function ClassicCoffeeCollection() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: GOLD }}>
-              Torch Republic Coffee Co. — Classic Instant Coffee
+              Torch Republic Coffee Co.,  Classic Instant Coffee
             </p>
             <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                Premium Coffee Rituals<br />Powered By Nature
              </h1>
              <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-               Single-origin Papua New Guinea coffee — 100% Arabica, freeze-dried to preserve dark chocolate, toasted almond, and sweet toffee notes. No machine, no pods, no compromise. Just add hot water.
+               Single-origin Papua New Guinea coffee,  100% Arabica, freeze-dried to preserve dark chocolate, toasted almond, and sweet toffee notes. No machine, no pods, no compromise. Just add hot water.
              </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
               <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.7 }}>
@@ -168,7 +168,7 @@ export default function ClassicCoffeeCollection() {
         accent={GOLD}
         eyebrow="The Ritual"
         title="Just add hot water."
-        subtitle="Single-origin instant coffee that blooms into a rich, smooth cup in seconds — no machine, no pods."
+        subtitle="Single-origin instant coffee that blooms into a rich, smooth cup in seconds,  no machine, no pods."
       />
 
       {/* Selection aid + cross-link */}
@@ -180,7 +180,7 @@ export default function ClassicCoffeeCollection() {
           ]}
         />
         <div className="mt-8">
-          <CollectionCrossLink to="/subscription" label="Subscribe & Save 20%" sub="Keep your daily ritual stocked — skip or cancel anytime." accent={GOLD} />
+          <CollectionCrossLink to="/subscription" label="Subscribe & Save 20%" sub="Keep your daily ritual stocked,  skip or cancel anytime." accent={GOLD} />
         </div>
       </section>
 
@@ -214,7 +214,7 @@ export default function ClassicCoffeeCollection() {
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>Premium Coffee Rituals Powered By Nature</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: '#5F574F' }}>Single-origin Papua New Guinea coffee — freeze-dried to preserve dark chocolate, toasted almond, and toffee notes. A daily ritual that fits real life. No machine, no pods, no compromise. Just add hot water and begin.</p>
+            <p className="font-heading text-sm mb-8" style={{ color: '#5F574F' }}>Single-origin Papua New Guinea coffee,  freeze-dried to preserve dark chocolate, toasted almond, and toffee notes. A daily ritual that fits real life. No machine, no pods, no compromise. Just add hot water and begin.</p>
             <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFDF8', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Products <ArrowRight className="w-4 h-4" />
             </Link>

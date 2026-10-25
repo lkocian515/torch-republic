@@ -23,14 +23,14 @@ const SECTIONS = [
   {
     eyebrow: 'Classic Instant Coffee',
     title: 'Single-Origin Coffee, No Machine',
-    intro: 'Pure 100% Arabica instant coffee — no mushrooms, no pods. Single-origin and freeze-dried to keep the origin character. 27 servings per tube.',
+    intro: 'Pure 100% Arabica instant coffee,  no mushrooms, no pods. Single-origin and freeze-dried to keep the origin character. 27 servings per tube.',
     products: CLASSIC_COFFEE_PRODUCTS,
     color: '#B86543',
   },
   {
     eyebrow: 'Ceremonial Matcha',
     title: 'Matcha for Calm, Focused Rituals',
-    intro: 'Ceremonial grade matcha that dissolves instantly — hot or iced, no whisk needed. 25 servings per tin.',
+    intro: 'Ceremonial grade matcha that dissolves instantly,  hot or iced, no whisk needed. 25 servings per tin.',
     products: MATCHA_PRODUCTS,
     color: '#566047',
   },
@@ -51,7 +51,7 @@ export default function BlendsCollection() {
           <p className="eyebrow mb-4" style={{ color: ACCENT }}>All Blends</p>
           <h1 className="h1 mb-5">Fuel the Person You’re Becoming</h1>
           <p className="body-lg mb-8">
-            Torch Republic makes premium instant coffee, mushroom coffee, and ceremonial matcha for daily rituals. No machine, no pods — just add hot water.
+            Torch Republic makes premium instant coffee, mushroom coffee, and ceremonial matcha for daily rituals. No machine, no pods,  just add hot water.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/shop" className="btn btn-primary">
@@ -101,7 +101,7 @@ export default function BlendsCollection() {
 
       {/* Cross-link */}
       <section className="px-6 md:px-10 py-12" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
-        <CollectionCrossLink to="/build-your-ritual" label="Can’t choose just one? Build Your Ritual" sub="Any 3 blends for $49.99 — mix mushroom coffee, classic coffee, and matcha." accent={ACCENT} />
+        <CollectionCrossLink to="/build-your-ritual" label="Can’t choose just one? Build Your Ritual" sub="Any 3 blends for $49.99,  mix mushroom coffee, classic coffee, and matcha." accent={ACCENT} />
       </section>
 
       {/* Comparison */}

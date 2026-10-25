@@ -66,26 +66,26 @@ const FAQ = [
   },
   {
     question: 'Is instant coffee as good as brewed coffee?',
-    answer: 'High-quality instant coffee today is remarkably close to brewed coffee — especially freeze-dried varieties made from specialty-grade Arabica beans. The gap that existed 20 years ago has largely closed. For daily ritual purposes, the best instant coffees are indistinguishable from good drip coffee to most palates.',
+    answer: 'High-quality instant coffee today is remarkably close to brewed coffee,  especially freeze-dried varieties made from specialty-grade Arabica beans. The gap that existed 20 years ago has largely closed. For daily ritual purposes, the best instant coffees are indistinguishable from good drip coffee to most palates.',
   },
   {
     question: 'What is the healthiest instant coffee?',
-    answer: "The healthiest instant coffees are those with no additives, made from quality Arabica beans, and ideally enhanced with functional ingredients like mushroom extracts. Mushroom instant coffees add meaningful nutritional value beyond caffeine — particularly Lion's Mane for cognitive health and Chaga for antioxidants.",
+    answer: "The healthiest instant coffees are those with no additives, made from quality Arabica beans, and ideally enhanced with functional ingredients like mushroom extracts. Mushroom instant coffees add meaningful nutritional value beyond caffeine,  particularly Lion's Mane for cognitive health and Chaga for antioxidants.",
   },
   {
     question: 'How much caffeine does instant coffee have?',
-    answer: 'Standard instant coffee contains between 60–120 mg of caffeine per serving, depending on the brand and serving size. Mushroom instant coffees typically contain 40–60 mg — deliberately lower to reduce jitters and allow the adaptogenic compounds to work without overstimulation.',
+    answer: 'Standard instant coffee contains between 60–120 mg of caffeine per serving, depending on the brand and serving size. Mushroom instant coffees typically contain 40–60 mg,  deliberately lower to reduce jitters and allow the adaptogenic compounds to work without overstimulation.',
   },
   {
     question: 'Is instant coffee bad for you?',
-    answer: "Plain instant coffee carries the same general health profile as brewed coffee — moderate consumption (2–4 cups/day) is associated with positive outcomes in multiple large studies. The primary concern with low-quality instant is the use of Robusta beans (which have higher acrylamide) and spray-drying (which reduces antioxidant content). Choose Arabica-based, freeze-dried products for the best nutritional profile.",
+    answer: "Plain instant coffee carries the same general health profile as brewed coffee,  moderate consumption (2–4 cups/day) is associated with positive outcomes in multiple large studies. The primary concern with low-quality instant is the use of Robusta beans (which have higher acrylamide) and spray-drying (which reduces antioxidant content). Choose Arabica-based, freeze-dried products for the best nutritional profile.",
   },
 ];
 
 export default function BestInstantCoffee() {
   useSEO({
     title: 'Best Instant Coffee of 2025: Honest Reviews & Complete Buyer\'s Guide',
-    description: 'The most thorough instant coffee guide online — taste, caffeine, ingredients, and value compared. Plus why mushroom instant coffee is the category to know.',
+    description: 'The most thorough instant coffee guide online,  taste, caffeine, ingredients, and value compared. Plus why mushroom instant coffee is the category to know.',
     url: '/journal/best-instant-coffee',
     type: 'article',
     faq: FAQ,
@@ -129,12 +129,12 @@ export default function BestInstantCoffee() {
               What Makes Instant Coffee Good (or Bad)?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Not all instant coffee is created equal. The quality gap between a supermarket jar of generic instant and a premium freeze-dried single-origin is enormous — and it comes down to three factors: bean quality, processing method, and what else is in the can.</p>
+              <p>Not all instant coffee is created equal. The quality gap between a supermarket jar of generic instant and a premium freeze-dried single-origin is enormous,  and it comes down to three factors: bean quality, processing method, and what else is in the can.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-8">
                 {[
                   { title: 'Bean Quality', body: 'Arabica beans produce smoother, more nuanced flavor. Robusta is cheaper, higher in caffeine, and harsher. Many budget instants blend heavily toward Robusta. Always check the label.', color: '#C4A35A' },
                   { title: 'Processing Method', body: 'Freeze-drying preserves far more flavor compounds than spray-drying. Look for "freeze-dried" on the label. It costs more but the difference is audible in the flavor.', color: RG },
-                  { title: 'Added Ingredients', body: 'Quality instant coffee should be coffee — or coffee plus clean functional extracts. Avoid products with added sugars, creamers, artificial flavors, or mystery "natural flavors" on the label.', color: '#6CBD5A' },
+                  { title: 'Added Ingredients', body: 'Quality instant coffee should be coffee,  or coffee plus clean functional extracts. Avoid products with added sugars, creamers, artificial flavors, or mystery "natural flavors" on the label.', color: '#6CBD5A' },
                 ].map((f, i) => (
                   <div key={f.title} className="p-6" style={{ background: '#0E0C0B', border: `1px solid ${f.color}30` }}>
                     <h3 className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: f.color }}>{f.title}</h3>
@@ -187,9 +187,9 @@ export default function BestInstantCoffee() {
               Why Mushroom Instant Coffee Is the Category to Know in 2025
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>The instant coffee market has been flat for decades. The same brands, the same formats, the same limitations. Then functional mushroom coffee entered the picture — and it's the most meaningful category development since single-serve pods.</p>
+              <p>The instant coffee market has been flat for decades. The same brands, the same formats, the same limitations. Then functional mushroom coffee entered the picture,  and it's the most meaningful category development since single-serve pods.</p>
               <p>The reason isn't marketing. It's because Lion's Mane, Chaga, and adaptogens address something regular instant coffee simply can't: the gap between "woken up" and "cognitively operational." Anyone who's had a cup of good coffee and still felt foggy for an hour afterward knows what that gap feels like.</p>
-              <p>Mushroom instant coffee closes that gap — not with more caffeine, but with compounds that work on neurological and adaptogenic pathways caffeine doesn't touch.</p>
+              <p>Mushroom instant coffee closes that gap,  not with more caffeine, but with compounds that work on neurological and adaptogenic pathways caffeine doesn't touch.</p>
             </div>
           </section>
 

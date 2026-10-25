@@ -17,7 +17,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
     },
     faq: [
       { question: 'Does mushroom coffee taste like mushrooms?', answer: 'No. Mushroom coffee tastes like coffee. The mushroom extract blends into the background, adding a subtle earthiness but not a mushroom flavor.' },
-      { question: 'Is mushroom coffee better than regular coffee?', answer: 'Mushroom coffee offers everything regular coffee does — energy from caffeine — plus functional mushroom extracts that support focus, wellness, and balanced energy. Whether it\'s "better" depends on your personal wellness goals.' },
+      { question: 'Is mushroom coffee better than regular coffee?', answer: 'Mushroom coffee offers everything regular coffee does,  energy from caffeine,  plus functional mushroom extracts that support focus, wellness, and balanced energy. Whether it\'s "better" depends on your personal wellness goals.' },
       { question: 'Does mushroom coffee have less caffeine?', answer: 'Mushroom coffee typically contains slightly less caffeine than regular coffee of the same serving size, since some of the blend is mushroom extract. Torch Republic blends are designed to feel balanced, not under-caffeinated.' },
       { question: 'What mushrooms are in Torch Republic coffee?', answer: 'Torch Republic mushroom blends use Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) mushroom extracts, both well-studied functional mushrooms in wellness traditions.' },
     ],
@@ -47,7 +47,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
         </h1>
 
         <p className="font-heading mb-8" style={{ fontSize: '1.1rem', color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-          Mushroom coffee has gone from niche wellness trend to mainstream ritual. But what exactly makes it different from the coffee you've been drinking for years — and is it worth trying?
+          Mushroom coffee has gone from niche wellness trend to mainstream ritual. But what exactly makes it different from the coffee you've been drinking for years,  and is it worth trying?
         </p>
 
         <div className="h-px w-full mb-10" style={{ background: 'linear-gradient(90deg, rgba(230,183,173,0.3), transparent)' }} />
@@ -57,13 +57,13 @@ export default function MushroomCoffeeVsRegularCoffee() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What Is Mushroom Coffee?</h2>
-            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane and Chaga mushroom extracts</Link> — no synthetic additives, no artificial flavors.</p>
+            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane and Chaga mushroom extracts</Link>,  no synthetic additives, no artificial flavors.</p>
             <p className="mt-3">The result looks and tastes like coffee. It dissolves in hot water. It gives you caffeine. The difference is what's alongside the caffeine: functional mushroom compounds that have been used in wellness traditions for centuries.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What's in Regular Coffee?</h2>
-            <p>Regular coffee — whether drip, espresso, French press, or instant — is simply brewed coffee beans. It delivers caffeine, antioxidants from the coffee itself, and flavor. Nothing more.</p>
+            <p>Regular coffee,  whether drip, espresso, French press, or instant,  is simply brewed coffee beans. It delivers caffeine, antioxidants from the coffee itself, and flavor. Nothing more.</p>
             <p className="mt-3">Premium regular coffee can be excellent. Torch Republic's classic blends use that same premium freeze-dried Arabica base. The mushroom blends just add another layer on top.</p>
           </section>
 
@@ -81,10 +81,10 @@ export default function MushroomCoffeeVsRegularCoffee() {
                 <tbody>
                   {[
                     ['Caffeine', '✓', '✓'],
-                    ["Lion's Mane mushroom", '✓', '—'],
-                    ['Chaga mushroom', '✓', '—'],
+                    ["Lion's Mane mushroom", '✓', ', '],
+                    ['Chaga mushroom', '✓', ', '],
                     ['Antioxidants from coffee', '✓', '✓'],
-                    ['Functional wellness layer', '✓', '—'],
+                    ['Functional wellness layer', '✓', ', '],
                     ['Instant format available', '✓', '✓'],
                     ['Tastes like coffee', '✓', '✓'],
                   ].map(([feature, m, r]) => (
@@ -102,18 +102,18 @@ export default function MushroomCoffeeVsRegularCoffee() {
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Lion's Mane: The Focus Mushroom</h2>
             <p><Link to="/journal/lions-mane-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane (Hericium erinaceus)</Link> is one of the most researched functional mushrooms for cognitive support. It has been used in Eastern wellness traditions for centuries and is known for supporting focus, mental clarity, and daily brain wellness.</p>
-            <p className="mt-3">When you drink a Torch Republic mushroom blend, you're not just getting caffeine — you're supporting your morning ritual with intention.</p>
+            <p className="mt-3">When you drink a Torch Republic mushroom blend, you're not just getting caffeine,  you're supporting your morning ritual with intention.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Chaga: The Daily Wellness Mushroom</h2>
-            <p><Link to="/journal/chaga-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Chaga (Inonotus obliquus)</Link> is known in wellness traditions as the "King of Mushrooms." It's prized for its antioxidant profile and support for daily resilience. Paired with coffee, it adds depth — not just to the flavor, but to the ritual itself.</p>
+            <p><Link to="/journal/chaga-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Chaga (Inonotus obliquus)</Link> is known in wellness traditions as the "King of Mushrooms." It's prized for its antioxidant profile and support for daily resilience. Paired with coffee, it adds depth,  not just to the flavor, but to the ritual itself.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Does Mushroom Coffee Taste Different?</h2>
-            <p>Honestly? Barely. Mushroom coffee tastes like coffee. The mushroom extract blends into the background, adding subtle earthiness — but most people who try it just say "this tastes like good coffee."</p>
-            <p className="mt-3">If you're worried about flavor, start with <Link to="/products/suncap-rise" style={{ color: '#E6B7AD', textDecoration: 'none' }}>SunCap Rise</Link> — our lighter-roast mushroom blend with a bright, clean finish. It's the most approachable entry point.</p>
+            <p>Honestly? Barely. Mushroom coffee tastes like coffee. The mushroom extract blends into the background, adding subtle earthiness,  but most people who try it just say "this tastes like good coffee."</p>
+            <p className="mt-3">If you're worried about flavor, start with <Link to="/products/suncap-rise" style={{ color: '#E6B7AD', textDecoration: 'none' }}>SunCap Rise</Link>,  our lighter-roast mushroom blend with a bright, clean finish. It's the most approachable entry point.</p>
           </section>
 
           <section>
@@ -137,7 +137,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>The Bottom Line</h2>
             <p>Regular coffee is great. Mushroom coffee is regular coffee with a wellness layer on top. If you're already building a daily coffee ritual, adding functional mushrooms to that ritual is a simple, low-friction upgrade.</p>
-            <p className="mt-3">Torch Republic mushroom blends start at $22.99 for 27 servings — about $0.85 per cup. That's less than a quarter of what you'd pay at a café for something that actively supports your daily wellness.</p>
+            <p className="mt-3">Torch Republic mushroom blends start at $22.99 for 27 servings,  about $0.85 per cup. That's less than a quarter of what you'd pay at a café for something that actively supports your daily wellness.</p>
           </section>
 
         </div>
@@ -151,7 +151,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
         <div className="mt-10 p-6" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)' }}>
           <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>Ready to Try Mushroom Coffee?</p>
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
-            Explore Torch Republic mushroom coffee blends — Lion's Mane + Chaga in instant format. No machine needed.
+            Explore Torch Republic mushroom coffee blends,  Lion's Mane + Chaga in instant format. No machine needed.
           </p>
           <Link to="/shop/instant-mushroom-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#E6B7AD', color: '#080808' }}>
             Shop Mushroom Coffee →

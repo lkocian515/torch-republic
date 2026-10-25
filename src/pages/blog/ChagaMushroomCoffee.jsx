@@ -36,7 +36,7 @@ const BIOACTIVE_COMPOUNDS = [
   },
   {
     name: 'Phenolic Acids',
-    function: 'Gallic, protocatechuic, p-hydroxybenzoic — antioxidant and anti-inflammatory',
+    function: 'Gallic, protocatechuic, p-hydroxybenzoic,  antioxidant and anti-inflammatory',
   },
 ];
 
@@ -47,7 +47,7 @@ const RESEARCH_FINDINGS = [
   },
   {
     category: 'Immune Modulation',
-    finding: 'Regulates Th1/Th2 cytokine balance and stimulates antigen-specific antibody production — two fundamental immune mechanisms.',
+    finding: 'Regulates Th1/Th2 cytokine balance and stimulates antigen-specific antibody production,  two fundamental immune mechanisms.',
   },
   {
     category: 'Anti-Inflammation',
@@ -55,7 +55,7 @@ const RESEARCH_FINDINGS = [
   },
   {
     category: 'Anti-Fatigue',
-    finding: 'Polysaccharides increased exercise endurance and glycogen content in liver and muscle tissue, while decreasing lactic acid and urea nitrogen — markers of physical fatigue.',
+    finding: 'Polysaccharides increased exercise endurance and glycogen content in liver and muscle tissue, while decreasing lactic acid and urea nitrogen,  markers of physical fatigue.',
   },
   {
     category: 'Cognitive Support',
@@ -67,12 +67,12 @@ const WHAT_CHANGES = [
   {
     icon: Shield,
     title: 'Antioxidant Reinforcement',
-    text: 'From the world\'s most potent natural antioxidant source — fighting free radical damage at cellular level with every cup',
+    text: 'From the world\'s most potent natural antioxidant source,  fighting free radical damage at cellular level with every cup',
   },
   {
     icon: Zap,
     title: 'Immune Activation',
-    text: 'Beta-glucans signal immune cells without overstimulating — supporting resilience without inducing inflammation',
+    text: 'Beta-glucans signal immune cells without overstimulating,  supporting resilience without inducing inflammation',
   },
   {
     icon: Droplet,
@@ -82,7 +82,7 @@ const WHAT_CHANGES = [
   {
     icon: TrendingUp,
     title: 'Prebiotic Fiber',
-    text: 'Mushroom polysaccharides feed beneficial bacteria — supporting gut-brain axis, one of neuroscience\'s most active research areas',
+    text: 'Mushroom polysaccharides feed beneficial bacteria,  supporting gut-brain axis, one of neuroscience\'s most active research areas',
   },
 ];
 
@@ -128,13 +128,13 @@ export default function ChagaMushroomCoffee() {
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
             <p>
-              Chaga (<em>Inonotus obliquus</em>) is a parasitic fungus that grows primarily on birch trees (<em>Betula</em> species) in cold northern climates — Siberia, Russia, northern Canada, Scandinavia, and Alaska. It presents not as a typical mushroom cap but as a dark, hard, charcoal-black mass on the outside of the birch tree, with a golden-orange interior. It looks less like a mushroom and more like a piece of charred wood — which is partly how it earned the name "cinder conk".
+              Chaga (<em>Inonotus obliquus</em>) is a parasitic fungus that grows primarily on birch trees (<em>Betula</em> species) in cold northern climates,  Siberia, Russia, northern Canada, Scandinavia, and Alaska. It presents not as a typical mushroom cap but as a dark, hard, charcoal-black mass on the outside of the birch tree, with a golden-orange interior. It looks less like a mushroom and more like a piece of charred wood,  which is partly how it earned the name "cinder conk".
             </p>
             <p>
-              Chaga grows slowly, spending decades absorbing compounds from the birch tree it inhabits. This extended growth cycle is one reason for its extraordinary concentration of bioactive compounds — it has more time to accumulate them than almost any other fungus.
+              Chaga grows slowly, spending decades absorbing compounds from the birch tree it inhabits. This extended growth cycle is one reason for its extraordinary concentration of bioactive compounds,  it has more time to accumulate them than almost any other fungus.
             </p>
             <p>
-              Traditional use spans Siberian shamanic practices, Russian folk medicine (where it was used to treat cancer, stomach disease, and heart conditions), and Northern European herbalism. It was typically consumed as a brewed tea — boiled or steeped in water — because raw Chaga is far too bitter to eat directly.
+              Traditional use spans Siberian shamanic practices, Russian folk medicine (where it was used to treat cancer, stomach disease, and heart conditions), and Northern European herbalism. It was typically consumed as a brewed tea,  boiled or steeped in water,  because raw Chaga is far too bitter to eat directly.
             </p>
           </div>
         </section>
@@ -152,7 +152,7 @@ export default function ChagaMushroomCoffee() {
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
             <p>
-              ORAC stands for Oxygen Radical Absorbance Capacity — a measure of how effectively a substance neutralizes free radicals, the unstable molecules that cause cellular damage, inflammation, and accelerated aging. The higher the ORAC value, the more antioxidant power.
+              ORAC stands for Oxygen Radical Absorbance Capacity,  a measure of how effectively a substance neutralizes free radicals, the unstable molecules that cause cellular damage, inflammation, and accelerated aging. The higher the ORAC value, the more antioxidant power.
             </p>
             <p className="font-bold" style={{ color: RG }}>
               Chaga mushroom holds the highest ORAC value ever recorded for any natural food substance.
@@ -187,7 +187,7 @@ export default function ChagaMushroomCoffee() {
             </div>
 
             <p>
-              A landmark 2004 study in <em>Biofactors</em> demonstrated this directly: human lymphocytes (immune cells) pretreated with Chaga extract showed over a 40% reduction in DNA fragmentation when exposed to hydrogen peroxide-induced oxidative stress. This is cellular-level evidence of Chaga's protective capacity — guarding your DNA against the damage that accumulates with every stressor your body experiences.
+              A landmark 2004 study in <em>Biofactors</em> demonstrated this directly: human lymphocytes (immune cells) pretreated with Chaga extract showed over a 40% reduction in DNA fragmentation when exposed to hydrogen peroxide-induced oxidative stress. This is cellular-level evidence of Chaga's protective capacity,  guarding your DNA against the damage that accumulates with every stressor your body experiences.
             </p>
           </div>
         </section>
@@ -219,7 +219,7 @@ export default function ChagaMushroomCoffee() {
                 >
                   <span style={{ color: RG }}>•</span>
                   <div>
-                    <strong style={{ color: RG }}>{compound.name}</strong> — {compound.function}
+                    <strong style={{ color: RG }}>{compound.name}</strong>,  {compound.function}
                   </div>
                 </motion.li>
               ))}
@@ -243,7 +243,7 @@ export default function ChagaMushroomCoffee() {
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
             <p>
-              Memorial Sloan Kettering Cancer Center — one of the world's leading cancer research institutions — maintains a comprehensive review of Chaga in its integrative medicine database. Their documented preclinical evidence includes:
+              Memorial Sloan Kettering Cancer Center,  one of the world's leading cancer research institutions,  maintains a comprehensive review of Chaga in its integrative medicine database. Their documented preclinical evidence includes:
             </p>
 
             <div className="space-y-4 my-8">
@@ -381,7 +381,7 @@ export default function ChagaMushroomCoffee() {
               Every Torch Republic mushroom coffee blend combines Chaga and Lion's Mane for a precise reason: they operate on entirely different systems and create a stack that's more complete than either alone.
             </p>
             <p className="font-bold" style={{ color: RG }}>
-              Lion's Mane works on the brain — NGF synthesis, neuronal protection, cognitive sharpness. Chaga works on the body — antioxidant defense, immune modulation, cellular protection. One sharpens the instrument. The other protects it.
+              Lion's Mane works on the brain,  NGF synthesis, neuronal protection, cognitive sharpness. Chaga works on the body,  antioxidant defense, immune modulation, cellular protection. One sharpens the instrument. The other protects it.
             </p>
             <p>
               This is what a purposeful blend means.

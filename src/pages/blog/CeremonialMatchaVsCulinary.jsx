@@ -16,9 +16,9 @@ export default function CeremonialMatchaVsCulinary() {
       keywords: ['ceremonial matcha vs culinary matcha', 'what is ceremonial matcha', 'ceremonial grade matcha', 'matcha grades explained', 'best matcha for drinking', 'instant ceremonial matcha'],
     },
     faq: [
-      { question: 'What is ceremonial grade matcha?', answer: 'Ceremonial grade matcha is the highest quality matcha, made from the youngest shade-grown tea leaves that are stone-milled into a fine powder. It is smooth, naturally sweet, and designed for drinking — not baking or cooking.' },
+      { question: 'What is ceremonial grade matcha?', answer: 'Ceremonial grade matcha is the highest quality matcha, made from the youngest shade-grown tea leaves that are stone-milled into a fine powder. It is smooth, naturally sweet, and designed for drinking,  not baking or cooking.' },
       { question: 'Can you drink culinary grade matcha?', answer: 'You can, but culinary grade matcha has a more bitter, astringent taste. It\'s optimized for use in recipes where other flavors mask it. For a smooth daily matcha ritual, ceremonial grade is the better choice.' },
-      { question: 'Is ceremonial matcha worth the extra cost?', answer: 'If you are drinking matcha straight — with just water or milk — yes. The quality difference is noticeable in taste and color. Torch Republic matcha products use ceremonial grade at $24.99 for 25 servings, which is about $1.00 per serving.' },
+      { question: 'Is ceremonial matcha worth the extra cost?', answer: 'If you are drinking matcha straight,  with just water or milk,  yes. The quality difference is noticeable in taste and color. Torch Republic matcha products use ceremonial grade at $24.99 for 25 servings, which is about $1.00 per serving.' },
       { question: 'What does shade-grown mean for matcha?', answer: 'Shade-growing means the tea plants are covered before harvest, limiting sunlight. This slows growth and increases chlorophyll production, resulting in deeper green color, higher L-Theanine content, and a sweeter, smoother flavor.' },
     ],
   });
@@ -44,7 +44,7 @@ export default function CeremonialMatchaVsCulinary() {
         </h1>
 
         <p className="font-heading mb-8" style={{ fontSize: '1.1rem', color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
-          If you've shopped for matcha, you've seen two grades: ceremonial and culinary. The difference is significant — and it explains why premium matcha costs more than the green powder at your grocery store.
+          If you've shopped for matcha, you've seen two grades: ceremonial and culinary. The difference is significant,  and it explains why premium matcha costs more than the green powder at your grocery store.
         </p>
 
         <div className="h-px w-full mb-10" style={{ background: 'linear-gradient(90deg, rgba(107,189,90,0.4), transparent)' }} />
@@ -53,13 +53,13 @@ export default function CeremonialMatchaVsCulinary() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What Is Ceremonial Grade Matcha?</h2>
-            <p>Ceremonial grade matcha is the highest quality matcha available. It's made exclusively from the youngest, most tender tea leaves harvested at the top of the plant — then stone-milled into a fine, vibrant powder.</p>
-            <p className="mt-3">The word "ceremonial" comes from the traditional Japanese tea ceremony (chado), where only the finest matcha was served. Today, ceremonial grade means matcha that is smooth, naturally sweet, and designed for drinking straight — just whisked with hot water.</p>
+            <p>Ceremonial grade matcha is the highest quality matcha available. It's made exclusively from the youngest, most tender tea leaves harvested at the top of the plant,  then stone-milled into a fine, vibrant powder.</p>
+            <p className="mt-3">The word "ceremonial" comes from the traditional Japanese tea ceremony (chado), where only the finest matcha was served. Today, ceremonial grade means matcha that is smooth, naturally sweet, and designed for drinking straight,  just whisked with hot water.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What Is Culinary Grade Matcha?</h2>
-            <p>Culinary grade matcha is produced from older, more mature leaves — often from the lower parts of the plant. It's a more robust, more bitter powder designed to hold up in recipes: lattes with lots of milk, baked goods, smoothies, ice cream.</p>
+            <p>Culinary grade matcha is produced from older, more mature leaves,  often from the lower parts of the plant. It's a more robust, more bitter powder designed to hold up in recipes: lattes with lots of milk, baked goods, smoothies, ice cream.</p>
             <p className="mt-3">In those uses, the other ingredients mask the bitterness. But if you try to drink culinary matcha straight? You'll notice the difference immediately.</p>
           </section>
 
@@ -97,33 +97,33 @@ export default function CeremonialMatchaVsCulinary() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Why Shade-Growing Matters</h2>
-            <p>About three to four weeks before harvest, ceremonial matcha tea plants are covered to block direct sunlight. This forces the plant to produce more chlorophyll (giving it that deep green color) and increases L-Theanine — the amino acid responsible for matcha's famous calm-focus effect.</p>
+            <p>About three to four weeks before harvest, ceremonial matcha tea plants are covered to block direct sunlight. This forces the plant to produce more chlorophyll (giving it that deep green color) and increases L-Theanine,  the amino acid responsible for matcha's famous calm-focus effect.</p>
             <p className="mt-3">Shade-growing is labor-intensive. It requires careful timing and monitoring. That's part of why ceremonial matcha costs more.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Why Stone-Milling Matters</h2>
-            <p>Ceremonial matcha is ground on traditional granite stone mills — a slow, cool process that preserves flavor compounds, enzymes, and nutrients. Industrial grinding generates heat that can degrade these compounds.</p>
-            <p className="mt-3">Stone-milling also produces a finer, more uniform powder — one reason ceremonial matcha dissolves so smoothly and froths so beautifully when whisked.</p>
+            <p>Ceremonial matcha is ground on traditional granite stone mills,  a slow, cool process that preserves flavor compounds, enzymes, and nutrients. Industrial grinding generates heat that can degrade these compounds.</p>
+            <p className="mt-3">Stone-milling also produces a finer, more uniform powder,  one reason ceremonial matcha dissolves so smoothly and froths so beautifully when whisked.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>L-Theanine: The Calm Focus Compound</h2>
-            <p>L-Theanine is an amino acid found naturally in green tea — and in higher concentrations in shade-grown, ceremonial matcha. It's known for supporting calm, focused energy without jitters or the crash you might get from caffeine alone.</p>
-            <p className="mt-3">This is why matcha drinkers often describe the energy as "smooth" or "focused" — it's the L-Theanine and caffeine working together. Ceremonial grade maximizes this effect. Culinary grade delivers less of it.</p>
+            <p>L-Theanine is an amino acid found naturally in green tea,  and in higher concentrations in shade-grown, ceremonial matcha. It's known for supporting calm, focused energy without jitters or the crash you might get from caffeine alone.</p>
+            <p className="mt-3">This is why matcha drinkers often describe the energy as "smooth" or "focused",  it's the L-Theanine and caffeine working together. Ceremonial grade maximizes this effect. Culinary grade delivers less of it.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Torch Republic Matcha: Ceremonial Grade, Instant Format</h2>
-            <p>Both Torch Republic matcha blends — <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Monk</Link> and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Alchemist</Link> — use 100% ceremonial grade matcha in instant format.</p>
-            <p className="mt-3">That means you get the smooth, vibrant taste and full L-Theanine content of ceremonial matcha — without needing a bamboo whisk, a chawan, or any equipment at all. Just add water and stir.</p>
+            <p>Both Torch Republic matcha blends,  <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Monk</Link> and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Alchemist</Link>,  use 100% ceremonial grade matcha in instant format.</p>
+            <p className="mt-3">That means you get the smooth, vibrant taste and full L-Theanine content of ceremonial matcha,  without needing a bamboo whisk, a chawan, or any equipment at all. Just add water and stir.</p>
             <p className="mt-3">25 servings per tin. $24.99. About $1.00 per ceremonial-grade serving.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>The Bottom Line</h2>
-            <p>If you're drinking matcha for the ritual — the calm, focused energy, the intention, the taste — choose ceremonial grade. Culinary grade is for cooking.</p>
-            <p className="mt-3">The price difference is real but reasonable. At $1.00 per serving, ceremonial matcha from Torch Republic costs a fraction of what you'd pay at a café — and delivers a better, more consistent cup every time.</p>
+            <p>If you're drinking matcha for the ritual,  the calm, focused energy, the intention, the taste,  choose ceremonial grade. Culinary grade is for cooking.</p>
+            <p className="mt-3">The price difference is real but reasonable. At $1.00 per serving, ceremonial matcha from Torch Republic costs a fraction of what you'd pay at a café,  and delivers a better, more consistent cup every time.</p>
           </section>
 
         </div>
@@ -135,7 +135,7 @@ export default function CeremonialMatchaVsCulinary() {
         <div className="mt-10 p-6" style={{ background: 'rgba(107,189,90,0.04)', border: '1px solid rgba(107,189,90,0.15)' }}>
           <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(107,189,90,0.6)' }}>Ready for Ceremonial Matcha?</p>
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
-            Explore our ceremonial grade matcha blends — instant format, no equipment needed.
+            Explore our ceremonial grade matcha blends,  instant format, no equipment needed.
           </p>
           <Link to="/shop/matcha" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#6CBD5A', color: '#080808' }}>
             Shop Ceremonial Matcha →

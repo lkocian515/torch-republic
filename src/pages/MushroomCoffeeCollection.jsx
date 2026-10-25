@@ -38,14 +38,14 @@ const INGREDIENTS = [
   { name: "Lion's Mane", benefit: 'A functional mushroom commonly added to morning rituals for its unique compound profile', blends: 'All mushroom blends' },
   { name: 'Cordyceps', benefit: 'Traditionally used in East Asian practices for energy and stamina', blends: 'All mushroom blends' },
   { name: 'Reishi', benefit: 'Traditionally used in East Asian wellness practices as part of a daily routine', blends: 'All mushroom blends' },
-  { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient Arabica coffee base — no machine needed', blends: 'All blends' },
+  { name: 'Premium Instant Coffee', benefit: 'Smooth, convenient Arabica coffee base,  no machine needed', blends: 'All blends' },
 ];
 
 // FAQ data for schema
 const FAQS = [
   { q: 'What is mushroom coffee?', a: 'Mushroom coffee combines premium single-origin Papua New Guinea instant coffee with functional mushrooms like Lion\'s Mane, Cordyceps and Reishi. Torch Republic blends create an easy daily ritual for focus, clarity, and intention.' },
-  { q: 'Where does the coffee come from?', a: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea — 100% Arabica, grown in rich volcanic soil at high elevations. The region is known for its clean cup profile, complexity, and nuanced sweetness, with heritage connected to Jamaica Blue Mountain stock.' },
-  { q: 'What does it taste like?', a: 'It tastes primarily like coffee — dark chocolate, toasted almond, and sweet toffee notes from the Papua New Guinea origin, with a smooth and lightly earthy profile from the mushroom extracts. The coffee flavor is dominant.' },
+  { q: 'Where does the coffee come from?', a: 'Our coffee is single-origin from the mountainous highlands of Papua New Guinea,  100% Arabica, grown in rich volcanic soil at high elevations. The region is known for its clean cup profile, complexity, and nuanced sweetness, with heritage connected to Jamaica Blue Mountain stock.' },
+  { q: 'What does it taste like?', a: 'It tastes primarily like coffee,  dark chocolate, toasted almond, and sweet toffee notes from the Papua New Guinea origin, with a smooth and lightly earthy profile from the mushroom extracts. The coffee flavor is dominant.' },
   { q: 'Is this regular coffee or a supplement?', a: 'It is coffee with functional mushroom ingredients. It is designed as a daily beverage ritual, not a medical product.' },
   { q: 'Does it have caffeine?', a: 'Yes, all mushroom coffee blends contain caffeine from the premium single-origin Papua New Guinea instant coffee base.' },
   { q: 'How do I make it?', a: 'Add one serving to hot water, stir, and enjoy. It works with milk, creamer, or iced preparations too. No machine, no pods, no grinder needed.' },
@@ -74,7 +74,7 @@ export default function MushroomCoffeeCollection() {
 
   useSEO({
     title: "Instant Mushroom Coffee Blends | Lion's Mane + Cordyceps + Reishi | Torch Republic",
-    description: "Shop Torch Republic's instant mushroom coffee blends—premium Arabica coffee with Lion's Mane, Cordyceps and Reishi, ready in seconds. No machine required. 27 servings per tube.",
+    description: "Shop Torch Republic's instant mushroom coffee blends, premium Arabica coffee with Lion's Mane, Cordyceps and Reishi, ready in seconds. No machine required. 27 servings per tube.",
     url: '/shop/instant-mushroom-coffee',
     type: 'website',
     breadcrumbs: [
@@ -98,13 +98,13 @@ export default function MushroomCoffeeCollection() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center mb-12">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center lg:text-left">
               <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
-                Torch Republic Coffee Co. — Mushroom Coffee
+                Torch Republic Coffee Co.,  Mushroom Coffee
               </p>
               <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                  Premium Coffee Rituals<br />Powered By Nature
                </h1>
                <p className="font-heading max-w-2xl mx-auto lg:mx-0 mb-8" style={{ fontSize: '1.05rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-                 Single-origin Papua New Guinea coffee meets Lion's Mane, Cordyceps and Reishi. Three premium instant mushroom coffee blends — coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
+                 Single-origin Papua New Guinea coffee meets Lion's Mane, Cordyceps and Reishi. Three premium instant mushroom coffee blends,  coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
                 </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
@@ -154,12 +154,12 @@ export default function MushroomCoffeeCollection() {
       <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>01 — The Ritual Upgrade</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>01,  The Ritual Upgrade</p>
             <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
               Why Add Mushrooms to Your Coffee?
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.9 }}>
-              Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy — less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane, Cordyceps and Reishi, traditionally chosen to support focus, balance, and calm clarity.
+              Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy,  less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane, Cordyceps and Reishi, traditionally chosen to support focus, balance, and calm clarity.
             </p>
           </motion.div>
 
@@ -186,7 +186,7 @@ export default function MushroomCoffeeCollection() {
       <div className="px-6 md:px-10 py-4" style={{ background: 'rgba(230,183,173,0.06)', borderTop: `1px solid ${RG}20`, borderBottom: `1px solid ${RG}20` }}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-heading text-sm text-center sm:text-left" style={{ color: '#5F574F' }}>
-            <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20% and never run out of focus fuel.</span> All blends available as subscriptions — build a daily ritual that supports your brain, not just your caffeine habit.
+            <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20% and never run out of focus fuel.</span> All blends available as subscriptions,  build a daily ritual that supports your brain, not just your caffeine habit.
           </p>
           <Link to="/subscription" className="flex-shrink-0 font-mono text-[9px] tracking-[0.25em] uppercase font-bold px-5 py-2.5 transition-all hover:opacity-90 whitespace-nowrap" style={{ background: RG, color: '#F7F1E7', borderRadius: '2px' }}>
             Subscribe &amp; Save →
@@ -198,12 +198,12 @@ export default function MushroomCoffeeCollection() {
       <section className="px-6 md:px-10 py-20" style={{ background: '#F7F1E7' }}>
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>02 — The Collection</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>02,  The Collection</p>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
               Choose Your Ritual
             </h2>
             <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-              One purpose-built mushroom coffee — premium instant coffee with Lion's Mane, Cordyceps and Reishi for a focused morning. Available as a subscription — <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
+              One purpose-built mushroom coffee,  premium instant coffee with Lion's Mane, Cordyceps and Reishi for a focused morning. Available as a subscription,  <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
 
@@ -219,7 +219,7 @@ export default function MushroomCoffeeCollection() {
         accent={RG}
         eyebrow="The Ritual"
         title="Scoop. Stir. Sip."
-        subtitle="Coffee-forward, functional, and ready in seconds — no machine, no pods, no compromise."
+        subtitle="Coffee-forward, functional, and ready in seconds,  no machine, no pods, no compromise."
       />
 
       {/* ── COMPARISON CHART ── */}
@@ -229,7 +229,7 @@ export default function MushroomCoffeeCollection() {
       <section className="px-6 md:px-10 py-20" style={{ background: DEEP_CHARCOAL, borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>04 — Transparency</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>04,  Transparency</p>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
               What's Inside Each Cup?
             </h2>
@@ -265,7 +265,7 @@ export default function MushroomCoffeeCollection() {
       <section className="px-6 md:px-10 py-20" style={{ background: '#F7F1E7', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>05 — Questions</p>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>05,  Questions</p>
             <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
               Frequently Asked Questions
             </h2>
@@ -300,7 +300,7 @@ export default function MushroomCoffeeCollection() {
             Premium Coffee Rituals Powered By Nature
           </h2>
           <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
-            Single-origin Papua New Guinea coffee. Functional mushrooms. A clearer morning — powered by nature, crafted for your daily ritual.
+            Single-origin Papua New Guinea coffee. Functional mushrooms. A clearer morning,  powered by nature, crafted for your daily ritual.
           </p>
           <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
             Shop Mushroom Coffee →

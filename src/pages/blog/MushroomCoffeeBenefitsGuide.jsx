@@ -11,50 +11,50 @@ const BENEFITS = [
   {
     icon: Brain,
     title: 'Sharper Focus & Mental Clarity',
-    body: "Lion's Mane mushroom stimulates Nerve Growth Factor (NGF) — the protein your brain uses to maintain and repair neurons. Daily use builds toward clearer thinking, less fog, and more sustained attention without the caffeine spike-and-crash cycle.",
+    body: "Lion's Mane mushroom stimulates Nerve Growth Factor (NGF),  the protein your brain uses to maintain and repair neurons. Daily use builds toward clearer thinking, less fog, and more sustained attention without the caffeine spike-and-crash cycle.",
   },
   {
     icon: Shield,
     title: 'Powerful Antioxidant Defense',
-    body: "Chaga holds the highest ORAC antioxidant score ever recorded in a natural food — higher than blueberries, acai, and green tea combined. Every cup delivers a concentrated dose of antioxidants your immune system and cells can use immediately.",
+    body: "Chaga holds the highest ORAC antioxidant score ever recorded in a natural food,  higher than blueberries, acai, and green tea combined. Every cup delivers a concentrated dose of antioxidants your immune system and cells can use immediately.",
   },
   {
     icon: Heart,
     title: 'Adaptogenic Stress Support',
-    body: "Reishi and Cordyceps act as adaptogens — compounds that help your body regulate cortisol and the HPA (stress) axis. Regular consumption is associated with lower subjective stress, better sleep quality, and more stable mood.",
+    body: "Reishi and Cordyceps act as adaptogens,  compounds that help your body regulate cortisol and the HPA (stress) axis. Regular consumption is associated with lower subjective stress, better sleep quality, and more stable mood.",
   },
   {
     icon: Zap,
     title: 'Sustained Energy Without Jitters',
-    body: 'Mushroom coffee typically contains 40–60 mg of caffeine versus 95 mg in a standard cup. The lower caffeine, combined with adaptogenic buffering, creates a cleaner energy curve — no spike, no crash, no 2pm wall.',
+    body: 'Mushroom coffee typically contains 40–60 mg of caffeine versus 95 mg in a standard cup. The lower caffeine, combined with adaptogenic buffering, creates a cleaner energy curve,  no spike, no crash, no 2pm wall.',
   },
   {
     icon: Clock,
     title: 'Long-Term Cognitive Protection',
-    body: 'Research shows Lion\'s Mane benefits are cumulative — they build over weeks and months of consistent use. The 2009 Mori trial showed progressive improvement over 16 weeks, with washout upon discontinuation. This is a ritual, not a one-time boost.',
+    body: 'Research shows Lion\'s Mane benefits are cumulative,  they build over weeks and months of consistent use. The 2009 Mori trial showed progressive improvement over 16 weeks, with washout upon discontinuation. This is a ritual, not a one-time boost.',
   },
 ];
 
 const FAQ = [
   {
     question: 'What does mushroom coffee actually taste like?',
-    answer: "Mushroom coffee tastes like coffee — specifically, a slightly earthier, smoother version of your regular brew. The mushroom extracts are neutral in flavor and complement rather than compete with the coffee base. Most people describe it as 'a better cup of coffee,' not 'coffee with mushrooms.'",
+    answer: "Mushroom coffee tastes like coffee,  specifically, a slightly earthier, smoother version of your regular brew. The mushroom extracts are neutral in flavor and complement rather than compete with the coffee base. Most people describe it as 'a better cup of coffee,' not 'coffee with mushrooms.'",
   },
   {
     question: 'Is mushroom coffee safe to drink every day?',
-    answer: 'Yes. The mushrooms used in quality blends — Lion\'s Mane, Chaga, Reishi, Cordyceps — have centuries of safe use in traditional medicine and a strong safety profile in modern research. People with mushroom allergies, those on blood-thinning medications, or those with kidney disease should consult a physician first.',
+    answer: 'Yes. The mushrooms used in quality blends,  Lion\'s Mane, Chaga, Reishi, Cordyceps,  have centuries of safe use in traditional medicine and a strong safety profile in modern research. People with mushroom allergies, those on blood-thinning medications, or those with kidney disease should consult a physician first.',
   },
   {
     question: 'How long does it take to feel the benefits of mushroom coffee?',
-    answer: 'The adaptogenic and antioxidant effects begin immediately. The cognitive benefits of Lion\'s Mane, however, are cumulative — most people notice a difference at around 2–4 weeks of consistent daily use. The 2009 Mori trial showed progressive improvement over 16 weeks.',
+    answer: 'The adaptogenic and antioxidant effects begin immediately. The cognitive benefits of Lion\'s Mane, however, are cumulative,  most people notice a difference at around 2–4 weeks of consistent daily use. The 2009 Mori trial showed progressive improvement over 16 weeks.',
   },
   {
     question: 'Does mushroom coffee have caffeine?',
-    answer: 'Yes — mushroom coffee is still coffee and contains caffeine. Most quality blends contain 40–60 mg per serving, compared to 95 mg in a standard cup. The lower caffeine level, combined with adaptogenic compounds, creates a smoother energy experience.',
+    answer: 'Yes,  mushroom coffee is still coffee and contains caffeine. Most quality blends contain 40–60 mg per serving, compared to 95 mg in a standard cup. The lower caffeine level, combined with adaptogenic compounds, creates a smoother energy experience.',
   },
   {
     question: 'Can mushroom coffee help with anxiety?',
-    answer: 'Many people who experience anxiety from regular coffee find mushroom coffee gentler. The lower caffeine, combined with the adaptogenic effects of Reishi and Lion\'s Mane on the stress response, reduces the overstimulation that triggers anxiety in sensitive individuals. This is not a medical claim — if you have diagnosed anxiety, consult your physician.',
+    answer: 'Many people who experience anxiety from regular coffee find mushroom coffee gentler. The lower caffeine, combined with the adaptogenic effects of Reishi and Lion\'s Mane on the stress response, reduces the overstimulation that triggers anxiety in sensitive individuals. This is not a medical claim,  if you have diagnosed anxiety, consult your physician.',
   },
   {
     question: 'What is the best mushroom coffee brand?',
@@ -65,7 +65,7 @@ const FAQ = [
 export default function MushroomCoffeeBenefitsGuide() {
   useSEO({
     title: 'Mushroom Coffee Benefits: The Complete Science-Backed Guide (2025)',
-    description: 'Everything you need to know about mushroom coffee benefits — Lion\'s Mane for focus, Chaga for immunity, adaptogens for stress. Science-backed, honest, comprehensive.',
+    description: 'Everything you need to know about mushroom coffee benefits,  Lion\'s Mane for focus, Chaga for immunity, adaptogens for stress. Science-backed, honest, comprehensive.',
     url: '/journal/mushroom-coffee-benefits',
     type: 'article',
     faq: FAQ,
@@ -95,7 +95,7 @@ export default function MushroomCoffeeBenefitsGuide() {
             Mushroom Coffee Benefits: The Complete Science-Backed Guide
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Your morning cup can do more than wake you up. Here's what the research actually says about functional mushrooms — and why millions of people have permanently switched.
+            Your morning cup can do more than wake you up. Here's what the research actually says about functional mushrooms,  and why millions of people have permanently switched.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
             {['8 min read', 'Science-backed', 'No hype'].map(tag => (
@@ -148,8 +148,8 @@ export default function MushroomCoffeeBenefitsGuide() {
               What Makes Mushroom Coffee Different From Regular Coffee?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Regular coffee delivers caffeine. That's valuable — we won't pretend otherwise. Caffeine is one of the most well-researched cognitive compounds on the planet, with documented benefits for focus, alertness, and short-term performance.</p>
-              <p>But caffeine is a stimulant with a hard ceiling. It works by blocking adenosine receptors — the brain's "tiredness" signal — for a few hours, then wears off. The bigger your dose, the more likely you are to experience jitters, anxiety, crashes, and diminishing tolerance over time.</p>
+              <p>Regular coffee delivers caffeine. That's valuable,  we won't pretend otherwise. Caffeine is one of the most well-researched cognitive compounds on the planet, with documented benefits for focus, alertness, and short-term performance.</p>
+              <p>But caffeine is a stimulant with a hard ceiling. It works by blocking adenosine receptors,  the brain's "tiredness" signal,  for a few hours, then wears off. The bigger your dose, the more likely you are to experience jitters, anxiety, crashes, and diminishing tolerance over time.</p>
               <p>Mushroom coffee adds a layer that regular coffee simply can't deliver: <strong style={{ color: RG }}>functional compounds that work on completely different biological pathways</strong>. Instead of just blocking tiredness, they actively support the mechanisms behind focus, stress resilience, and long-term brain health.</p>
 
               <div className="my-8 p-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
@@ -222,14 +222,14 @@ export default function MushroomCoffeeBenefitsGuide() {
               Who Benefits Most From Mushroom Coffee?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Mushroom coffee isn't for everyone — it's for a specific type of person who's outgrown what regular coffee offers. You'll get the most from it if any of these sound like you:</p>
+              <p>Mushroom coffee isn't for everyone,  it's for a specific type of person who's outgrown what regular coffee offers. You'll get the most from it if any of these sound like you:</p>
               <ul className="space-y-3 my-6">
                 {[
                   'You drink regular coffee and experience anxiety, jitters, or a harsh crash afterward',
                   'You want more sustained focus, not just a 45-minute spike followed by fog',
                   'You\'re interested in long-term brain health and prevention',
                   'You want to reduce overall caffeine intake without losing your morning ritual',
-                  'You\'re a high-performer — entrepreneur, creator, athlete — who needs clean, reliable energy',
+                  'You\'re a high-performer,  entrepreneur, creator, athlete,  who needs clean, reliable energy',
                   'You\'ve tried regular supplements and prefer getting functional compounds through food',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -274,7 +274,7 @@ export default function MushroomCoffeeBenefitsGuide() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Ready to Try It?</p>
             <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Mushroom Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Instant. No equipment. Lion's Mane + Chaga in every blend — ready in 30 seconds. Your ritual shouldn't require a ceremony to prepare.
+              Instant. No equipment. Lion's Mane + Chaga in every blend,  ready in 30 seconds. Your ritual shouldn't require a ceremony to prepare.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: RG, color: '#080808' }}>

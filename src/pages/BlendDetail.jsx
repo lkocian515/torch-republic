@@ -79,14 +79,14 @@ function Gallery({ product, alt }) {
 
   return (
     <div>
-      {/* Main image — fixed aspect ratio prevents layout shift */}
+      {/* Main image,  fixed aspect ratio prevents layout shift */}
       <div
         className="relative w-full overflow-hidden flex items-center justify-center"
         style={{ aspectRatio: '1 / 1', background: THEME.cream, border: `1px solid ${THEME.border}`, borderRadius: 12 }}
       >
         <img
           src={images[active]}
-          alt={hasMultiple ? `${alt} — view ${active + 1}` : alt}
+          alt={hasMultiple ? `${alt},  view ${active + 1}` : alt}
           width={800}
           height={800}
           loading="eager"
@@ -162,17 +162,17 @@ function BlendDetailInner({ product }) {
 
   const prepText = 'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
 
-  const shippingText = 'Ships from Texas within 1–3 business days. Free standard shipping on orders $50+. 30-day satisfaction guarantee — if you’re not happy, reach out and we’ll make it right.';
+  const shippingText = 'Ships from Texas within 1–3 business days. Free standard shipping on orders $50+. 30-day satisfaction guarantee,  if you’re not happy, reach out and we’ll make it right.';
 
   const productFAQs = [
     { question: `What does ${product.name} taste like?`, answer: product.tasteDescription || product.description },
     { question: 'How do I prepare this blend?', answer: prepText },
-    { question: 'Is this product instant?', answer: 'Yes. All Torch Republic blends are instant format — no machine, grinder, or pods needed. Just add hot water and stir.' },
+    { question: 'Is this product instant?', answer: 'Yes. All Torch Republic blends are instant format,  no machine, grinder, or pods needed. Just add hot water and stir.' },
     { question: 'How many servings are included?', answer: `${servings} servings per ${product.category === 'matcha' ? 'tin' : 'tube'}.` },
     { question: 'Does it contain caffeine?', answer: product.category === 'matcha' ? 'Yes, ceremonial matcha contains naturally occurring caffeine.' : 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
 
-  const seoDesc = `${product.name} — ${product.tasteDescription || product.description} ${servings} servings. ${categoryLabel} for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`;
+  const seoDesc = `${product.name},  ${product.tasteDescription || product.description} ${servings} servings. ${categoryLabel} for ${product.bestFor}. No machine needed. Torch Republic Coffee Company.`;
 
   useSEO({
     title: `${product.name} | ${categoryLabel} | Torch Republic Coffee Company`,
@@ -272,7 +272,7 @@ function BlendDetailInner({ product }) {
             <p className="font-mono text-[9px] tracking-[0.22em] uppercase" style={{ color: THEME.clay }}>{product.mood}</p>
 
             {/* Share */}
-            <ShareButtons title={`${product.name} — Torch Republic Coffee`} url={`/products/${product.slug}`} />
+            <ShareButtons title={`${product.name},  Torch Republic Coffee`} url={`/products/${product.slug}`} />
 
             {/* Price */}
             <div className="flex items-baseline gap-3 flex-wrap">

@@ -8,7 +8,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { MUSHROOM_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductImage, getProductAltText, getProductImageDragProps } from '@/lib/productImageHelpers';
 
-// Single source of truth — only the two current products.
+// Single source of truth,  only the two current products.
 const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS]
   .reduce((acc, p) => {
     [p.shopifyHandle, p.slug, p.id, p.name].filter(Boolean).forEach(key => { acc[key] = p; });
@@ -80,7 +80,7 @@ const RESULTS = {
     title: 'Your Ritual: Classic Coffee Energy',
     product: 'Instant Classic Coffee',
     slug: 'instant-classic-coffee',
-    desc: 'A traditional instant coffee with bold flavor and higher caffeine — straightforward energy, ready in seconds with no machine.',
+    desc: 'A traditional instant coffee with bold flavor and higher caffeine,  straightforward energy, ready in seconds with no machine.',
     link: '/products/instant-classic-coffee',
     compareLink: '/shop',
     accent: '#B86543',
@@ -89,7 +89,7 @@ const RESULTS = {
     title: 'Your Ritual: Focused Mushroom Coffee',
     product: 'Instant Mushroom Coffee',
     slug: 'instant-mushroom-coffee',
-    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Cordyceps + Reishi) for focus and work sessions — balanced energy without the crash.',
+    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Cordyceps + Reishi) for focus and work sessions,  balanced energy without the crash.',
     link: '/products/instant-mushroom-coffee',
     compareLink: '/shop',
     accent: '#2F4A73',
@@ -164,7 +164,7 @@ export default function FindYourRitual() {
   }, [resultKey, result]);
 
   // Auto-send welcome email when a valid email is entered on the results screen.
-  // No button required — fires as soon as the email passes basic validation.
+  // No button required,  fires as soon as the email passes basic validation.
   useEffect(() => {
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (isValidEmail && !emailSent && result) {
@@ -220,7 +220,7 @@ export default function FindYourRitual() {
             <motion.div key="intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="text-center">
               <div className="card-torch p-8 mb-8 text-left">
                 <p className="font-heading mb-4" style={{ color: THEME.text, lineHeight: 1.75, fontSize: '1rem' }}>
-                  This quick quiz helps you choose the Torch Republic ritual that fits your day — a classic instant coffee for bold energy or a mushroom coffee for focus.
+                  This quick quiz helps you choose the Torch Republic ritual that fits your day,  a classic instant coffee for bold energy or a mushroom coffee for focus.
                 </p>
                 <div className="flex flex-col gap-3 pt-4" style={{ borderTop: `1px solid ${THEME.border}` }}>
                   {[

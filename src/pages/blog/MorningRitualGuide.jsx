@@ -8,25 +8,25 @@ import ShareButtons from '../../components/social/ShareButtons';
 const RG = '#E6B7AD';
 
 const RITUAL_STEPS = [
-  { time: '0:00', step: 'Wake — No Phone', desc: "Your cortisol peaks within 30-45 minutes of waking (the Cortisol Awakening Response). This is your brain's natural alert signal. Don't override it with social media anxiety — use it." },
+  { time: '0:00', step: 'Wake,  No Phone', desc: "Your cortisol peaks within 30-45 minutes of waking (the Cortisol Awakening Response). This is your brain's natural alert signal. Don't override it with social media anxiety,  use it." },
   { time: '0:15', step: 'Hydrate First', desc: "500ml of water before anything else. You've been fasting and dehydrating for 7-9 hours. Cognitive performance is measurably impaired at just 1-2% dehydration." },
-  { time: '0:30', step: 'Natural Light', desc: 'Get outside or sit by a window. Morning sunlight triggers serotonin production and sets your circadian rhythm — directly affecting sleep quality 16 hours later.' },
-  { time: '0:45', step: 'Make Your Coffee or Matcha', desc: "Now — not before. Waiting 45-90 minutes after waking before caffeine means you're working with your cortisol curve, not against it. The result is a longer, more effective caffeine window." },
-  { time: '1:00', step: 'Focused Work Block Begins', desc: "Start your most cognitively demanding task while you're in peak alertness. This is your brain's highest-performance window — protect it from meetings, email, and passive tasks." },
+  { time: '0:30', step: 'Natural Light', desc: 'Get outside or sit by a window. Morning sunlight triggers serotonin production and sets your circadian rhythm,  directly affecting sleep quality 16 hours later.' },
+  { time: '0:45', step: 'Make Your Coffee or Matcha', desc: "Now,  not before. Waiting 45-90 minutes after waking before caffeine means you're working with your cortisol curve, not against it. The result is a longer, more effective caffeine window." },
+  { time: '1:00', step: 'Focused Work Block Begins', desc: "Start your most cognitively demanding task while you're in peak alertness. This is your brain's highest-performance window,  protect it from meetings, email, and passive tasks." },
 ];
 
 const FAQ = [
   { question: 'What is the best morning ritual for productivity?', answer: "Research consistently points to three elements: consistent wake time, morning light exposure, and strategic caffeine timing (45-90 min after waking to avoid cortisol stacking). Adding a focused deep-work block before checking email or social media multiplies the effect of all three." },
-  { question: 'When is the best time to drink coffee in the morning?', answer: "The peak of your Cortisol Awakening Response (CAR) is within 30-45 minutes of waking. Consuming caffeine during this window means you're adding stimulation on top of peak cortisol — which increases anxiety and builds tolerance faster. Waiting until 9:30-10:00 am (for most people) uses caffeine to extend alertness after your natural peak begins to drop." },
-  { question: 'Is mushroom coffee good for a morning ritual?', answer: "Yes — particularly for people who want a ritual that supports focus rather than just stimulation. The combination of lower caffeine (40-60 mg), Lion's Mane for NGF stimulation, and adaptogenic mushrooms for cortisol moderation creates a morning energy profile that sustains focus through late morning and early afternoon as part of a balanced routine." },
-  { question: 'How do I start a healthy morning routine?', answer: "Start with one change, not ten. The highest-leverage first change is consistent wake time — your circadian rhythm is the foundation everything else builds on. Once that's stable, add hydration, then light exposure, then strategic caffeine timing. Don't try to install a complex 10-step routine overnight; it won't stick." },
+  { question: 'When is the best time to drink coffee in the morning?', answer: "The peak of your Cortisol Awakening Response (CAR) is within 30-45 minutes of waking. Consuming caffeine during this window means you're adding stimulation on top of peak cortisol,  which increases anxiety and builds tolerance faster. Waiting until 9:30-10:00 am (for most people) uses caffeine to extend alertness after your natural peak begins to drop." },
+  { question: 'Is mushroom coffee good for a morning ritual?', answer: "Yes,  particularly for people who want a ritual that supports focus rather than just stimulation. The combination of lower caffeine (40-60 mg), Lion's Mane for NGF stimulation, and adaptogenic mushrooms for cortisol moderation creates a morning energy profile that sustains focus through late morning and early afternoon as part of a balanced routine." },
+  { question: 'How do I start a healthy morning routine?', answer: "Start with one change, not ten. The highest-leverage first change is consistent wake time,  your circadian rhythm is the foundation everything else builds on. Once that's stable, add hydration, then light exposure, then strategic caffeine timing. Don't try to install a complex 10-step routine overnight; it won't stick." },
   { question: 'What should I drink in the morning for energy and focus?', answer: "For most people, water first, then 45-90 minutes later either coffee or matcha. If you experience anxiety, jitters, or crashes from regular coffee, mushroom coffee (40-60 mg caffeine plus Lion's Mane plus adaptogens) tends to produce cleaner energy. If you want a lower-caffeine option, ceremonial matcha is excellent." },
 ];
 
 export default function MorningRitualGuide() {
   useSEO({
     title: 'The Science-Backed Morning Ritual for Focus and Energy (2025 Guide)',
-    description: 'Build a morning ritual that actually works — cortisol timing, strategic caffeine, light exposure, and why your morning coffee order matters for all-day performance.',
+    description: 'Build a morning ritual that actually works,  cortisol timing, strategic caffeine, light exposure, and why your morning coffee order matters for all-day performance.',
     url: '/journal/morning-ritual-for-focus',
     type: 'article',
     faq: FAQ,
@@ -69,8 +69,8 @@ export default function MorningRitualGuide() {
               Why Your Morning Determines the Rest of Your Day
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Your circadian rhythm governs the timing of nearly every physiological and cognitive process in your body. Cortisol, melatonin, body temperature, working memory, reaction time, emotional regulation — all follow a predictable 24-hour pattern. The first 90 minutes after waking are where that pattern is set.</p>
-              <p>Get those 90 minutes right, and you're working with a biological system designed to make you alert, focused, and effective. Get them wrong — phone immediately, coffee before cortisol peaks, artificial light instead of sunlight — and you're fighting that system for the rest of the day.</p>
+              <p>Your circadian rhythm governs the timing of nearly every physiological and cognitive process in your body. Cortisol, melatonin, body temperature, working memory, reaction time, emotional regulation,  all follow a predictable 24-hour pattern. The first 90 minutes after waking are where that pattern is set.</p>
+              <p>Get those 90 minutes right, and you're working with a biological system designed to make you alert, focused, and effective. Get them wrong,  phone immediately, coffee before cortisol peaks, artificial light instead of sunlight,  and you're fighting that system for the rest of the day.</p>
               <p>The Cortisol Awakening Response (CAR) is one of the most replicated findings in chronobiology. Morning light exposure is the most powerful zeitgeber (time signal) for your circadian clock. Caffeine timing has been studied extensively by sleep researchers including Dr. Matthew Walker and Andrew Huberman's lab at Stanford.</p>
             </div>
           </section>
@@ -101,7 +101,7 @@ export default function MorningRitualGuide() {
               Why Caffeine Timing Is the Most Underrated Variable
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Most people drink coffee the moment they wake up. This is the least effective time to consume it — your cortisol is already peaking. Adding stimulation on top of stimulation doesn't multiply the effect: it accelerates tolerance and worsens the crash.</p>
+              <p>Most people drink coffee the moment they wake up. This is the least effective time to consume it,  your cortisol is already peaking. Adding stimulation on top of stimulation doesn't multiply the effect: it accelerates tolerance and worsens the crash.</p>
               <p>Use caffeine to extend alertness after your natural cortisol peak, not to spike it before it peaks. For most people with a 6-7 am wake time, this means waiting until 9:30-10:30 am for coffee. The result is a longer focus window (3-4 hours vs 1.5-2 hours), less tolerance buildup, and a softer afternoon transition.</p>
               <div className="my-8 p-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
                 <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.8)', lineHeight: 1.85 }}>

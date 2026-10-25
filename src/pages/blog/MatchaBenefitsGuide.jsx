@@ -9,26 +9,26 @@ const RG = '#E6B7AD';
 const MATCHA_GREEN = '#6CBD5A';
 
 const BENEFITS = [
-  { icon: Brain, title: 'Naturally Occurring L-Theanine', body: 'Matcha contains caffeine and L-theanine together — a pairing that has been studied in tea research and is traditionally associated with mindful rituals.' },
+  { icon: Brain, title: 'Naturally Occurring L-Theanine', body: 'Matcha contains caffeine and L-theanine together,  a pairing that has been studied in tea research and is traditionally associated with mindful rituals.' },
   { icon: Shield, title: 'EGCG Antioxidant Power', body: 'Matcha contains 137x more EGCG (epigallocatechin gallate) than standard green tea. EGCG is one of the most studied antioxidant compounds in nutrition science, linked to cardiovascular health, metabolic support, and cellular protection.' },
   { icon: Zap, title: 'Smooth Ritual Appeal', body: 'Matcha contains naturally occurring caffeine and L-theanine, and may feel different from traditional coffee for some drinkers.' },
   { icon: Heart, title: 'Metabolism & Fat Oxidation', body: 'Multiple studies show matcha increases thermogenesis (calorie burning) and fat oxidation by 17–43% during moderate exercise. It\'s one of the most evidence-backed metabolic support compounds available.' },
-  { icon: Leaf, title: 'Chlorophyll & Detox Support', body: 'Matcha\'s deep green color comes from high chlorophyll content — a result of shade-growing that also increases L-theanine. Chlorophyll supports natural detoxification pathways and alkalinity.' },
+  { icon: Leaf, title: 'Chlorophyll & Detox Support', body: 'Matcha\'s deep green color comes from high chlorophyll content,  a result of shade-growing that also increases L-theanine. Chlorophyll supports natural detoxification pathways and alkalinity.' },
 ];
 
 const FAQ = [
-  { question: 'What does ceremonial grade matcha taste like?', answer: 'Ceremonial grade matcha is smooth, subtly sweet, and umami-rich. It should have no bitterness — bitterness in matcha signals culinary grade quality or improper preparation. Quality ceremonial matcha tastes like a refined, earthy green tea with a creamy texture.' },
-  { question: 'What is the difference between ceremonial and culinary grade matcha?', answer: "Ceremonial grade is made from the youngest tea leaves, shade-grown and stone-ground, with the highest L-theanine, chlorophyll, and EGCG content. Culinary grade uses older, more mature leaves and is best for baking and smoothies. For drinking — especially instant matcha — always use ceremonial grade." },
+  { question: 'What does ceremonial grade matcha taste like?', answer: 'Ceremonial grade matcha is smooth, subtly sweet, and umami-rich. It should have no bitterness,  bitterness in matcha signals culinary grade quality or improper preparation. Quality ceremonial matcha tastes like a refined, earthy green tea with a creamy texture.' },
+  { question: 'What is the difference between ceremonial and culinary grade matcha?', answer: "Ceremonial grade is made from the youngest tea leaves, shade-grown and stone-ground, with the highest L-theanine, chlorophyll, and EGCG content. Culinary grade uses older, more mature leaves and is best for baking and smoothies. For drinking,  especially instant matcha,  always use ceremonial grade." },
   { question: 'How much caffeine is in matcha?', answer: 'A standard serving of ceremonial matcha contains approximately 35–70 mg of caffeine, depending on serving size and quality. Crucially, this caffeine is accompanied by L-theanine, which modulates the caffeine effect into a smoother, longer-lasting energy curve.' },
-  { question: 'Is matcha better than coffee for focus?', answer: "It depends on what you need. Matcha provides calmer, more sustained focus without anxiety — ideal for deep work, writing, or detailed tasks. Coffee provides a stronger, faster stimulant effect better suited to high-energy, short-duration tasks. Many people use both strategically: matcha for morning deep work, coffee pre-workout or before high-intensity tasks." },
+  { question: 'Is matcha better than coffee for focus?', answer: "It depends on what you need. Matcha provides calmer, more sustained focus without anxiety,  ideal for deep work, writing, or detailed tasks. Coffee provides a stronger, faster stimulant effect better suited to high-energy, short-duration tasks. Many people use both strategically: matcha for morning deep work, coffee pre-workout or before high-intensity tasks." },
   { question: 'What is instant ceremonial matcha?', answer: "Instant ceremonial matcha uses the same stone-ground ceremonial grade leaf as traditional matcha but in a pre-dissolved format that mixes instantly with hot or cold water. The highest quality versions preserve the full L-theanine and EGCG profile. Torch Republic's instant matcha uses single-origin Uji ceremonial grade." },
-  { question: 'Can you drink matcha every day?', answer: 'Yes. Matcha is safe for daily consumption for most people. Research on daily green tea consumption consistently shows long-term cardiovascular and cognitive benefits. The main caution is for people sensitive to caffeine or those taking certain medications — consult your physician if unsure.' },
+  { question: 'Can you drink matcha every day?', answer: 'Yes. Matcha is safe for daily consumption for most people. Research on daily green tea consumption consistently shows long-term cardiovascular and cognitive benefits. The main caution is for people sensitive to caffeine or those taking certain medications,  consult your physician if unsure.' },
 ];
 
 export default function MatchaBenefitsGuide() {
   useSEO({
     title: 'Matcha Benefits: The Complete Guide to Ceremonial Grade Matcha (2025)',
-    description: 'Everything you need to know about matcha benefits — L-theanine, EGCG, metabolism, focus, and how ceremonial grade instant matcha fits your morning ritual.',
+    description: 'Everything you need to know about matcha benefits,  L-theanine, EGCG, metabolism, focus, and how ceremonial grade instant matcha fits your morning ritual.',
     url: '/journal/matcha-benefits',
     type: 'article',
     faq: FAQ,
@@ -58,7 +58,7 @@ export default function MatchaBenefitsGuide() {
             Matcha Benefits: The Complete Ceremonial Grade Guide
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            Why hundreds of millions of people have made matcha their daily ritual — and why the science backs them up more than you might expect.
+            Why hundreds of millions of people have made matcha their daily ritual,  and why the science backs them up more than you might expect.
           </p>
         </motion.div>
       </section>
@@ -92,9 +92,9 @@ export default function MatchaBenefitsGuide() {
               Why Matcha Is Different From Every Other Green Tea
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Standard green tea is brewed from loose or bagged leaves — you steep the leaves, absorb some of the compounds, and discard the rest. Matcha changes this entirely: you're consuming the entire leaf, stone-ground into a fine powder.</p>
+              <p>Standard green tea is brewed from loose or bagged leaves,  you steep the leaves, absorb some of the compounds, and discard the rest. Matcha changes this entirely: you're consuming the entire leaf, stone-ground into a fine powder.</p>
               <p>This matters because it multiplies the concentration of every active compound. A 2003 study published in the Journal of Chromatography found that matcha contains <strong style={{ color: MATCHA_GREEN }}>137 times more EGCG</strong> than standard green tea. The L-theanine concentration is similarly elevated.</p>
-              <p>The shade-growing process amplifies this further. In the 3–4 weeks before harvest, matcha plants are covered — blocking 90% of sunlight. This stresses the plant, triggering a survival response that dramatically increases chlorophyll, L-theanine, and amino acid production. It's the reason ceremonial grade matcha is deep emerald green, not yellowish-green like lower grades.</p>
+              <p>The shade-growing process amplifies this further. In the 3–4 weeks before harvest, matcha plants are covered,  blocking 90% of sunlight. This stresses the plant, triggering a survival response that dramatically increases chlorophyll, L-theanine, and amino acid production. It's the reason ceremonial grade matcha is deep emerald green, not yellowish-green like lower grades.</p>
               <div className="my-8 p-6" style={{ background: 'rgba(108,189,90,0.06)', border: `1px solid ${MATCHA_GREEN}40` }}>
                 <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.8)', lineHeight: 1.85 }}>
                   <strong style={{ color: MATCHA_GREEN }}>Key principle:</strong> You're not drinking tea brewed from a leaf. You're consuming the entire leaf. Every benefit is concentrated, not steeped.
@@ -108,8 +108,8 @@ export default function MatchaBenefitsGuide() {
               The L-Theanine + Caffeine Combination: Why It Works
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>The most clinically significant property of matcha is the simultaneous presence of caffeine and L-theanine. Both compounds are well-studied individually — together, they produce an effect that neither creates alone.</p>
-              <p>Caffeine alone creates stimulation. L-theanine alone creates relaxation (it's the compound in chamomile tea that makes you feel calm). Together, they produce what researchers describe as "relaxed alertness" — focus without tension, energy without anxiety.</p>
+              <p>The most clinically significant property of matcha is the simultaneous presence of caffeine and L-theanine. Both compounds are well-studied individually,  together, they produce an effect that neither creates alone.</p>
+              <p>Caffeine alone creates stimulation. L-theanine alone creates relaxation (it's the compound in chamomile tea that makes you feel calm). Together, they produce what researchers describe as "relaxed alertness",  focus without tension, energy without anxiety.</p>
               <p>A 2008 study in Nutritional Neuroscience found that the caffeine-L-theanine combination improved speed and accuracy on attention-switching tasks while reducing susceptibility to distracting information. A 2010 study found the combination superior to caffeine alone on sustained attention, memory, and mood.</p>
               <p>This is why matcha drinkers consistently describe their energy differently than coffee drinkers: <em>"Calm energy." "Focused but not wired." "Like being in flow."</em></p>
             </div>
@@ -176,7 +176,7 @@ export default function MatchaBenefitsGuide() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: `${MATCHA_GREEN}90` }}>Try Ceremonial Grade</p>
             <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Instant Matcha</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Single-origin ceremonial grade Uji matcha. Stone-ground. Instant. No whisking required — just mix and your ritual begins.
+              Single-origin ceremonial grade Uji matcha. Stone-ground. Instant. No whisking required,  just mix and your ritual begins.
             </p>
             <Link to="/shop/matcha" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: MATCHA_GREEN, color: '#080808' }}>
               Shop Ceremonial Matcha →

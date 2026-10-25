@@ -24,16 +24,16 @@ const MORNING_PRODUCTS = [
 const MORNING_CARDS = ritualCards(MORNING_PRODUCTS);
 
 const RITUAL_STEPS = [
-  { step: '01', title: 'Heat your water', body: 'Bring water to 85–90°C — just off boiling. Overheating dulls the coffee aromatics.' },
-  { step: '02', title: 'Measure your blend', body: 'Add one serving to your cup. Take a moment to breathe in the dry aroma — this is part of the ritual.' },
+  { step: '01', title: 'Heat your water', body: 'Bring water to 85–90°C,  just off boiling. Overheating dulls the coffee aromatics.' },
+  { step: '02', title: 'Measure your blend', body: 'Add one serving to your cup. Take a moment to breathe in the dry aroma,  this is part of the ritual.' },
   { step: '03', title: 'Stir with intention', body: 'Pour the water and stir for about 30 seconds. Watch the powder dissolve. This short pause is where the ritual begins.' },
   { step: '04', title: 'Set your intention', body: 'Before the first sip, decide on one thing you want to accomplish today. The cup in your hands is a signal: this is your time.' },
 ];
 
 const FAQS = [
   { q: 'What is the best coffee for morning focus?', a: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane, Cordyceps and Reishi mushroom extracts for a focused morning ritual. No machine or pods required.' },
-  { q: 'Can I make ritual morning coffee without a machine?', a: 'Yes. Torch Republic instant coffee dissolves in hot water in under a minute — no machine, no pods, no cleanup.' },
-  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings (25 for matcha) — nearly a month of daily rituals.' },
+  { q: 'Can I make ritual morning coffee without a machine?', a: 'Yes. Torch Republic instant coffee dissolves in hot water in under a minute,  no machine, no pods, no cleanup.' },
+  { q: 'How many servings are in each tube?', a: 'Each tube contains 27 servings (25 for matcha),  nearly a month of daily rituals.' },
 ];
 
 export default function MorningRitualCollection() {
@@ -41,13 +41,13 @@ export default function MorningRitualCollection() {
 
   useSEO({
     title: 'Morning Ritual Coffee | Best Coffee for Morning Focus | Torch Republic',
-    description: 'The best instant coffee for morning rituals — mushroom coffee for focus, classic Arabica for bold starts. No machine needed. Premium instant, 27 servings per tube.',
+    description: 'The best instant coffee for morning rituals,  mushroom coffee for focus, classic Arabica for bold starts. No machine needed. Premium instant, 27 servings per tube.',
     url: '/shop/morning-ritual',
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Morning Ritual', url: '/shop/morning-ritual' }],
     faq: [
-      { question: 'What is the best coffee for morning focus?', answer: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane, Cordyceps and Reishi — designed for focused morning rituals without jitters.' },
-      { question: 'Can I make ritual morning coffee without a machine?', answer: 'Yes. Torch Republic instant coffee dissolves in hot water in under 60 seconds — no machine, no pods, no cleanup required.' },
+      { question: 'What is the best coffee for morning focus?', answer: 'GlowMind Clarity combines premium Arabica instant coffee with Lion\u2019s Mane, Cordyceps and Reishi,  designed for focused morning rituals without jitters.' },
+      { question: 'Can I make ritual morning coffee without a machine?', answer: 'Yes. Torch Republic instant coffee dissolves in hot water in under 60 seconds,  no machine, no pods, no cleanup required.' },
     ],
   });
 
@@ -62,7 +62,7 @@ export default function MorningRitualCollection() {
           </div>
           <h1 className="h1 mb-5">Coffee Built for Morning Rituals</h1>
           <p className="body-lg mb-8">
-            The best mornings start with intention — one cup, made simply. Premium instant coffee and mushroom coffee blends that meet you where you are. No pods. No cleanup. Just add hot water.
+            The best mornings start with intention,  one cup, made simply. Premium instant coffee and mushroom coffee blends that meet you where you are. No pods. No cleanup. Just add hot water.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link to="/build-your-ritual" className="btn btn-primary">
@@ -94,7 +94,7 @@ export default function MorningRitualCollection() {
             <CollectionIntro
               eyebrow="The Collection"
               title="Morning Ritual Blends"
-              intro="Instant coffee and mushroom coffee made for the first cup of the day. Add hot water, stir, and begin — no machine, no pods. 27 servings per tube."
+              intro="Instant coffee and mushroom coffee made for the first cup of the day. Add hot water, stir, and begin,  no machine, no pods. 27 servings per tube."
               accent={ACCENT}
             />
           </div>

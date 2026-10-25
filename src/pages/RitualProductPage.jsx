@@ -53,7 +53,7 @@ const GALLERY_EXTRA = {
     ],
     alts: [
       'Torch Republic Instant Mushroom Coffee pouch beside a mug of coffee, books and a notebook on a wooden table',
-      'Instant coffee flakes — what is inside the bag',
+      'Instant coffee flakes, shown close up',
     ],
   },
   'classic-coffee': {
@@ -63,7 +63,7 @@ const GALLERY_EXTRA = {
     ],
     alts: [
       'Torch Republic Instant Classic Coffee pouch beside a steaming mug of black coffee on a rustic kitchen table',
-      'Instant coffee flakes — what is inside the bag',
+      'Instant coffee flakes, shown close up',
     ],
   },
   'pumpkin-spice': {
@@ -81,10 +81,10 @@ const GALLERY_EXTRA = {
 };
 
 const LIFESTYLE_COPY = {
-  'mushroom-coffee': { eyebrow: 'Brewed for focus', title: 'Your daily ritual, in a real cup.', subtitle: 'Functional mushroom extracts meet smooth instant coffee. Just add hot water.' },
-  'classic-coffee': { eyebrow: 'Brewed for smooth mornings', title: 'Premium Arabica, in a real cup.', subtitle: 'Smooth instant coffee. Just add hot water.' },
-  'pumpkin-spice': { eyebrow: 'A seasonal departure', title: 'Fresh whole beans. Cozy spice.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
-  'bundle': { eyebrow: 'Two rituals, one morning', title: 'Classic meets Mushroom.', subtitle: 'Two complementary instant coffees in one bundle. Bold everyday ritual plus focused clarity.' },
+  'mushroom-coffee': { eyebrow: 'For focus', title: 'Mushrooms, blended into real coffee.', subtitle: 'Functional mushroom extracts in a smooth instant coffee. Just add hot water.' },
+  'classic-coffee': { eyebrow: 'Straight coffee', title: 'Premium Arabica, nothing added.', subtitle: 'Smooth instant coffee. Just add hot water.' },
+  'pumpkin-spice': { eyebrow: 'Seasonal, for a short while', title: 'Whole beans, pumpkin spice, one batch.', subtitle: 'A limited-edition whole bean roast for crisp fall mornings. Here for spooky season only.' },
+  'bundle': { eyebrow: 'Both coffees', title: 'Keep one of each in the cupboard.', subtitle: 'Two complementary instant coffees in one bundle. The everyday cup, plus the one with mushrooms.' },
 };
 import { useSEO } from '@/hooks/useSEO';
 // FreeGiftBanner removed — promotion stack cleanup per profit-first audit.
@@ -124,7 +124,7 @@ const PREP_INSTANT =
   'Add one serving to 8–12 oz of hot water, milk, or your preferred creamer. Stir until fully dissolved. For iced: dissolve in 2–3 oz hot water first, then pour over ice.';
 
 const PREP_WHOLE_BEAN =
-  'Grind beans to your preferred consistency just before brewing. Use 2 tablespoons of ground coffee per 6 oz of water. Brew using your preferred method — drip, French press, pour-over, or espresso. For the best flavor, grind fresh and brew with water just off the boil.';
+  'Grind beans to your preferred consistency just before brewing. Use 2 tablespoons of ground coffee per 6 oz of water. Brew it however you normally brew: drip, French press, pour-over, or espresso. For the best flavor, grind fresh and brew with water just off the boil.';
 
 const prepFor = (p) => (p.format === 'Whole Bean' ? PREP_WHOLE_BEAN : PREP_INSTANT);
 
@@ -139,7 +139,7 @@ function benefitsFor(p) {
     list.push('Limited batch release');
   } else {
     list.push(`${p.servings} servings`);
-    list.push('Instant — no machine needed');
+    list.push('Instant, no machine needed');
   }
   return list;
 }
@@ -149,16 +149,16 @@ function faqsFor(p) {
     return [
       { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
       { q: 'How do I prepare it?', a: prepFor(p) },
-      { q: 'Is it instant?', a: 'No. This is a seasonal whole bean coffee — a departure from our instant ritual. You will need a grinder and brewer for this one.' },
+      { q: 'Is it instant?', a: 'No. This is a seasonal whole bean coffee, a departure from our instant lineup. You will need a grinder and a brewer for this one.' },
       { q: 'How much coffee is included?', a: `${p.weight} whole bean. Approximately ${p.servings} cups depending on your brew strength.` },
-      { q: 'Is it limited edition?', a: 'Yes. This is a Halloween Special Edition — available for a limited time during the fall season.' },
+      { q: 'Is it limited edition?', a: 'Yes. This is a Halloween Special Edition, available for a limited time during the fall season.' },
       { q: 'Does it contain caffeine?', a: 'Yes, this is a caffeinated whole bean coffee.' },
     ];
   }
   return [
     { q: `What does ${p.name} taste like?`, a: `${p.flavorLabel}.` },
     { q: 'How do I prepare it?', a: prepFor(p) },
-    { q: 'Is it instant?', a: 'Yes. This product is instant — no machine, grinder, or pods needed. Just add hot water and stir.' },
+    { q: 'Is it instant?', a: 'Yes. This product is instant. No machine, grinder, or pods needed. Just add hot water and stir.' },
     { q: 'How many servings are included?', a: p.category === 'bundle' ? `${p.servings} servings total across two bags (27 per bag).` : `${p.servings} servings per bag.` },
     { q: 'Does it contain caffeine?', a: 'Yes, these blends contain caffeine from the premium instant coffee base.' },
   ];
@@ -216,7 +216,7 @@ function RitualPDP({ product }) {
     },
     'pumpkin-spice-whole-bean-coffee': {
       title: 'Pumpkin Spice Whole Bean Coffee | Halloween Special Edition | Torch Republic',
-      description: 'A limited-edition seasonal whole bean roast — warm, spiced and made for crisp mornings. Here for spooky season only.',
+      description: 'A limited-edition seasonal whole bean roast, warm and spiced for crisp mornings. Here for spooky season only.',
     },
     'torch-republic-coffee-duo': {
       title: 'Coffee Duo | Torch Republic',
@@ -363,7 +363,7 @@ function RitualPDP({ product }) {
             </div>
 
             <div className="flex items-center justify-center gap-3 pt-1">
-              <ShareButtons title={`${product.name} — Torch Republic`} url={product.path} />
+              <ShareButtons title={`${product.name} | Torch Republic`} url={product.path} />
               <Link to="/shipping-policy" className="font-mono text-xs uppercase tracking-[0.1em] transition-opacity hover:opacity-70" style={{ color: c.accent }}>
                 Shipping &amp; returns
               </Link>
@@ -404,7 +404,7 @@ function RitualPDP({ product }) {
                   { label: product.format === 'Whole Bean' ? 'Weight' : 'Servings', value: product.format === 'Whole Bean' ? product.weight : product.category === 'bundle' ? `${product.servings} total across two bags (27 per bag)` : `${product.servings} per pouch` },
                   { label: 'Serving size', value: product.format === 'Whole Bean' ? '2 tbsp ground' : '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
-                  { label: 'Format', value: product.format === 'Whole Bean' ? 'Whole bean' : 'Instant - no machine needed' },
+                  { label: 'Format', value: product.format === 'Whole Bean' ? 'Whole bean' : 'Instant, no machine needed' },
                   ...(product.mushrooms ? [{ label: 'Functional ingredients', value: product.mushrooms }] : []),
                   { label: 'Preparation', value: product.format === 'Whole Bean' ? 'Grind and brew' : 'Hot or iced' },
                 ].map((row) => (
@@ -465,8 +465,8 @@ function RitualPDP({ product }) {
           alt={RITUAL_MOMENT[product.category]?.alt || 'Instant coffee flakes stirred into a hot cup'}
           accent={c.accent}
           eyebrow="The Ritual"
-          title="Your ritual, ready in seconds."
-          subtitle="One scoop. A swirl of hot water. A café-quality cup — no machine, no pods, no compromise."
+          title="Ready in about ten seconds."
+          subtitle="One scoop, hot water, a quick stir. No machine, no pods, nothing to clean up."
         />
       )}
 
@@ -474,9 +474,9 @@ function RitualPDP({ product }) {
         <section className="mx-auto max-w-[1100px] px-6 py-10 md:px-10">
           <div className="text-center">
             <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: c.deep }}>A Seasonal Departure</p>
-            <h2 className="mt-3 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', color: THEME.text }}>From the instant ritual to fresh whole beans.</h2>
+            <h2 className="mt-3 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', color: THEME.text }}>This one is not instant.</h2>
             <p className="mx-auto mt-4 max-w-xl font-heading" style={{ color: THEME.secondary, lineHeight: 1.7 }}>
-              Our core lineup is instant — scoop, stir, sip. This limited Halloween drop is a different kind of morning: fresh whole beans, pumpkin spice warmth, and a brewer of your choosing. One batch, one season.
+              Everything else we make is a scoop and hot water. This Halloween drop is a different kind of morning: whole beans, pumpkin spice, and whatever brewer you already own. One batch, one season.
             </p>
           </div>
         </section>

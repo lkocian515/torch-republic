@@ -54,13 +54,13 @@ export default function BuildYourRitual() {
   const setQtyFor = (slug, delta) =>
     setQty((prev) => ({ ...prev, [slug]: Math.max(0, (prev[slug] || 0) + delta) }));
 
-  // Start My Ritual — adds exactly the three current products (one each).
+  // Start My Ritual,  adds exactly the three current products (one each).
   const startStarterRitual = () => {
     CORE_PRODUCTS.forEach((p) => addItem(p, 1));
     navigate('/cart');
   };
 
-  // Add Bundle to Cart — adds the custom selection.
+  // Add Bundle to Cart,  adds the custom selection.
   const addCustomBundle = () => {
     if (bagCount === 0) return;
     CORE_PRODUCTS.forEach((p) => {

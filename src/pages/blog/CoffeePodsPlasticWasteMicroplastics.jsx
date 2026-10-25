@@ -8,7 +8,7 @@
  * life-cycle assessments. Does NOT make health claims or describe laboratory
  * findings as proof of human health outcomes.
  *
- * Author: Lisa Marie Kocian — Founder, Torch Republic Coffee Company
+ * Author: Lisa Marie Kocian,  Founder, Torch Republic Coffee Company
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ import ArticleShareBar from '@/components/social/ArticleShareBar';
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';
 
-// Published 2026-06-23 (actual publication date — not backdated)
+// Published 2026-06-23 (actual publication date,  not backdated)
 const PUB_DATE = '2026-06-23T09:00:00Z';
 const MOD_DATE = PUB_DATE;
 const AUTHOR_NAME = 'Lisa Marie Kocian';
@@ -34,7 +34,7 @@ const META = {
   metaDescription:
     'Are coffee pods bad for the environment, and can hot plastic release microplastics? Explore what recycling, life-cycle, and health research actually shows.',
   excerpt:
-    'Coffee pods offer undeniable convenience, but their waste, recyclability, and contact with hot liquids raise reasonable questions. Here is what current research can—and cannot—tell us.',
+    'Coffee pods offer undeniable convenience, but their waste, recyclability, and contact with hot liquids raise reasonable questions. Here is what current research can, and cannot, tell us.',
 };
 
 // ── References (official / peer-reviewed sources only) ──────────────────────
@@ -90,7 +90,7 @@ const REFERENCES = [
   },
 ];
 
-// ── Inline citation — clickable, links to #references ──────────────────────
+// ── Inline citation,  clickable, links to #references ──────────────────────
 function Cite({ n }) {
   return (
     <a
@@ -141,7 +141,7 @@ const CONTINUE_READING = [
     title: 'Coffee Without a Coffee Maker: The Complete Guide',
     slug: 'best-coffee-without-coffee-maker',
     category: 'Brewing Alternatives',
-    excerpt: 'Every way to make great coffee without a machine — including instant, pour-over, and more.',
+    excerpt: 'Every way to make great coffee without a machine,  including instant, pour-over, and more.',
     readTime: '8 min',
     path: '/knowledge/best-coffee-without-coffee-maker',
   },
@@ -251,7 +251,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </div>
         </div>
 
-        {/* Share Bar — Top (after meta row) */}
+        {/* Share Bar,  Top (after meta row) */}
         <div className="mt-8">
           <ArticleShareBar
             title={META.seoTitle}
@@ -278,7 +278,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
             className="font-mono text-[8px] tracking-[0.2em] uppercase mt-3"
             style={{ color: 'rgba(240,235,225,0.35)' }}
           >
-            Illustrative editorial photo — used pods beside a reusable mug and a scoop of instant coffee.
+            Illustrative editorial photo,  used pods beside a reusable mug and a scoop of instant coffee.
           </figcaption>
         </figure>
 
@@ -396,7 +396,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
             automatically create the infrastructure needed to collect and process it.
           </p>
 
-          {/* Section 4 — first internal educational link in the first third */}
+          {/* Section 4,  first internal educational link in the first third */}
           <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             The Environmental Picture Is More Complicated Than Packaging Alone
           </h2>
@@ -489,8 +489,8 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
             <Cite n={4} />
           </p>
           <p style={{ marginBottom: '1.5rem' }}>
-            The researchers also observed differences between domestic coffee machines. The oldest machine tested —
-            eight years old and equipped with a plastic water tank — produced more detected particles per cup than two
+            The researchers also observed differences between domestic coffee machines. The oldest machine tested, 
+            eight years old and equipped with a plastic water tank,  produced more detected particles per cup than two
             newer machines. This suggests that the potential source is not limited to the capsule. Plastic-lined cups,
             water tanks, tubing, seals, packaging, the water itself, and environmental contamination can all contribute.
           </p>
@@ -566,7 +566,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
             <li style={{ marginBottom: '0.5rem' }}>Will the consumer realistically follow those steps every day?</li>
           </ul>
 
-          {/* Section 9 — gentle product CTA around the middle/end */}
+          {/* Section 9,  gentle product CTA around the middle/end */}
           <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             A Simpler Way to Keep the Convenience
           </h2>
@@ -730,7 +730,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </ol>
         </div>
 
-        {/* Share Bar — Bottom (after references) */}
+        {/* Share Bar,  Bottom (after references) */}
         <div className="mt-12 pt-8" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
           <ArticleShareBar
             title={META.seoTitle}
@@ -743,7 +743,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
         </div>
       </div>
 
-      {/* Conversion Section — after conclusion and references */}
+      {/* Conversion Section,  after conclusion and references */}
       <section
         className="px-6 py-16 text-center"
         style={{ background: '#0A0908', borderTop: '1px solid rgba(230,183,173,0.1)' }}
@@ -765,7 +765,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
             className="font-heading mb-8"
             style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.85, fontSize: '1rem' }}
           >
-            Premium instant coffee and mushroom coffee give you the speed and convenience of a pod-based routine—without
+            Premium instant coffee and mushroom coffee give you the speed and convenience of a pod-based routine, without
             requiring one single-use capsule for every cup.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

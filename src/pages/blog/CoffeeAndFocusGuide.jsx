@@ -8,11 +8,11 @@ import ShareButtons from '../../components/social/ShareButtons';
 const RG = '#E6B7AD';
 
 const FAQ = [
-  { question: 'Does coffee actually help with focus and concentration?', answer: "Yes — caffeine is one of the most well-researched cognitive enhancers available. It works by blocking adenosine receptors, which reduces the sensation of tiredness and increases dopamine and norepinephrine activity. The result is improved alertness, concentration, and reaction time. The catch: the effect is temporary, tolerance builds quickly, and high doses often impair focus through anxiety and overstimulation." },
-  { question: 'How much coffee should I drink for focus?', answer: "Research consistently shows that lower to moderate caffeine doses (40–100 mg, or roughly ½–1 cup) produce better cognitive outcomes than high doses. Beyond about 200 mg, anxiety and jitteriness begin to interfere with the focus benefit. The optimal dose for most people is around 50–75 mg — which is below the amount in a standard coffee cup." },
-  { question: 'Why does coffee sometimes make me more anxious and less focused?', answer: "Caffeine triggers cortisol release — the same stress hormone your body uses in 'fight or flight' situations. In moderate doses, this creates alertness. In high doses, especially in people with anxiety sensitivity, it creates jitteriness, racing thoughts, and difficulty concentrating. Mushroom coffee addresses this by lowering the base caffeine dose and adding adaptogens that moderate the cortisol response." },
-  { question: 'What is the best time to drink coffee for focus?', answer: "Cortisol is naturally highest between 6–9 am for most people — making that the worst time for caffeine (since you're already alert and you're increasing tolerance). Research suggests waiting until 9:30–11:30 am produces better focus benefits and less afternoon tolerance. If you use instant coffee that takes 30 seconds to prepare, this timing strategy is easy to implement." },
-  { question: 'Does mushroom coffee help with focus more than regular coffee?', answer: "For most people, yes — because it combines caffeine with Lion's Mane, which stimulates Nerve Growth Factor production and improves cognitive function through a completely different pathway. The combination of lower caffeine + NGF stimulation tends to produce cleaner, less anxious focus than high-dose regular coffee." },
+  { question: 'Does coffee actually help with focus and concentration?', answer: "Yes,  caffeine is one of the most well-researched cognitive enhancers available. It works by blocking adenosine receptors, which reduces the sensation of tiredness and increases dopamine and norepinephrine activity. The result is improved alertness, concentration, and reaction time. The catch: the effect is temporary, tolerance builds quickly, and high doses often impair focus through anxiety and overstimulation." },
+  { question: 'How much coffee should I drink for focus?', answer: "Research consistently shows that lower to moderate caffeine doses (40–100 mg, or roughly ½–1 cup) produce better cognitive outcomes than high doses. Beyond about 200 mg, anxiety and jitteriness begin to interfere with the focus benefit. The optimal dose for most people is around 50–75 mg,  which is below the amount in a standard coffee cup." },
+  { question: 'Why does coffee sometimes make me more anxious and less focused?', answer: "Caffeine triggers cortisol release,  the same stress hormone your body uses in 'fight or flight' situations. In moderate doses, this creates alertness. In high doses, especially in people with anxiety sensitivity, it creates jitteriness, racing thoughts, and difficulty concentrating. Mushroom coffee addresses this by lowering the base caffeine dose and adding adaptogens that moderate the cortisol response." },
+  { question: 'What is the best time to drink coffee for focus?', answer: "Cortisol is naturally highest between 6–9 am for most people,  making that the worst time for caffeine (since you're already alert and you're increasing tolerance). Research suggests waiting until 9:30–11:30 am produces better focus benefits and less afternoon tolerance. If you use instant coffee that takes 30 seconds to prepare, this timing strategy is easy to implement." },
+  { question: 'Does mushroom coffee help with focus more than regular coffee?', answer: "For most people, yes,  because it combines caffeine with Lion's Mane, which stimulates Nerve Growth Factor production and improves cognitive function through a completely different pathway. The combination of lower caffeine + NGF stimulation tends to produce cleaner, less anxious focus than high-dose regular coffee." },
 ];
 
 export default function CoffeeAndFocusGuide() {
@@ -61,14 +61,14 @@ export default function CoffeeAndFocusGuide() {
               How Caffeine Actually Creates Focus
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Caffeine's primary mechanism is adenosine receptor antagonism. Adenosine is a neurotransmitter that accumulates throughout the day and creates the sensation of tiredness — it's your brain's "time to sleep" signal. Caffeine has the same molecular shape as adenosine and slots into the same receptors, blocking them without activating them.</p>
-              <p>The result: adenosine can't bind. Your brain doesn't register tiredness. Dopamine and norepinephrine — both associated with alertness, motivation, and executive function — become more active. You feel awake, focused, and motivated.</p>
+              <p>Caffeine's primary mechanism is adenosine receptor antagonism. Adenosine is a neurotransmitter that accumulates throughout the day and creates the sensation of tiredness,  it's your brain's "time to sleep" signal. Caffeine has the same molecular shape as adenosine and slots into the same receptors, blocking them without activating them.</p>
+              <p>The result: adenosine can't bind. Your brain doesn't register tiredness. Dopamine and norepinephrine,  both associated with alertness, motivation, and executive function,  become more active. You feel awake, focused, and motivated.</p>
               <div className="my-8 p-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
                 <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.8)', lineHeight: 1.85 }}>
-                  <strong style={{ color: RG }}>Important nuance:</strong> caffeine doesn't create energy. It borrows alertness by blocking the signal that would otherwise tell you to rest. The adenosine is still accumulating — the debt doesn't disappear, it's deferred. This is why the crash happens.
+                  <strong style={{ color: RG }}>Important nuance:</strong> caffeine doesn't create energy. It borrows alertness by blocking the signal that would otherwise tell you to rest. The adenosine is still accumulating,  the debt doesn't disappear, it's deferred. This is why the crash happens.
                 </p>
               </div>
-              <p>This mechanism is elegant and effective for short-term performance. The challenge comes with dose and timing — both of which most coffee drinkers get wrong.</p>
+              <p>This mechanism is elegant and effective for short-term performance. The challenge comes with dose and timing,  both of which most coffee drinkers get wrong.</p>
             </div>
           </section>
 
@@ -77,8 +77,8 @@ export default function CoffeeAndFocusGuide() {
               The Inverted U: Why More Coffee Isn't Better for Focus
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>The relationship between caffeine and cognitive performance follows an inverted-U curve — a classic Yerkes-Dodson pattern. As dose increases from zero, performance improves. But beyond a threshold, additional caffeine begins to impair performance.</p>
-              <p>The reason: caffeine's secondary mechanism is cortisol stimulation. It triggers the HPA axis (your stress response system), raising cortisol and adrenaline. In moderate doses, this creates alertness. In high doses, it creates anxiety, racing thoughts, reduced working memory, and impaired decision-making — all of which directly undermine focus.</p>
+              <p>The relationship between caffeine and cognitive performance follows an inverted-U curve,  a classic Yerkes-Dodson pattern. As dose increases from zero, performance improves. But beyond a threshold, additional caffeine begins to impair performance.</p>
+              <p>The reason: caffeine's secondary mechanism is cortisol stimulation. It triggers the HPA axis (your stress response system), raising cortisol and adrenaline. In moderate doses, this creates alertness. In high doses, it creates anxiety, racing thoughts, reduced working memory, and impaired decision-making,  all of which directly undermine focus.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
                 {[
                   { dose: '40–80 mg', effect: 'Sweet Spot', desc: 'Improved alertness, focus, and reaction time. Minimal anxiety. Best for deep work.', color: '#6EBD8E' },
@@ -101,11 +101,11 @@ export default function CoffeeAndFocusGuide() {
               Where Mushroom Coffee Changes the Equation
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              <p>Mushroom coffee is specifically engineered around this problem. By reducing base caffeine to 40–60 mg and adding functional compounds — particularly Lion's Mane for NGF stimulation and adaptogenic mushrooms for cortisol moderation — it addresses the two main failure modes of regular coffee:</p>
+              <p>Mushroom coffee is specifically engineered around this problem. By reducing base caffeine to 40–60 mg and adding functional compounds,  particularly Lion's Mane for NGF stimulation and adaptogenic mushrooms for cortisol moderation,  it addresses the two main failure modes of regular coffee:</p>
               <ul className="space-y-3 my-6">
                 {[
                   { issue: 'Too much caffeine causing anxiety', solution: "Lower base caffeine keeps you in the 'sweet spot' without overshooting into anxiety territory" },
-                  { issue: 'Caffeine only blocking tiredness (not creating focus)', solution: "Lion's Mane stimulates Nerve Growth Factor — directly supporting the neurological architecture of focus, not just masking tiredness" },
+                  { issue: 'Caffeine only blocking tiredness (not creating focus)', solution: "Lion's Mane stimulates Nerve Growth Factor,  directly supporting the neurological architecture of focus, not just masking tiredness" },
                   { issue: 'Adaptogens missing from regular coffee', solution: 'Reishi and Chaga moderate cortisol response, smoothing the adrenal spike that caffeine creates' },
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 p-4" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.08)' }}>

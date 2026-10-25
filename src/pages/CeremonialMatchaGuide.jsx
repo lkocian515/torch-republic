@@ -1,5 +1,5 @@
 /**
- * Ceremonial Matcha Guide — SEO Educational Landing Page
+ * Ceremonial Matcha Guide,  SEO Educational Landing Page
  * Route: /ceremonial-matcha
  * Target keywords: ceremonial matcha, ceremonial grade matcha, instant ceremonial matcha, buy ceremonial matcha
  */
@@ -15,11 +15,11 @@ const DIM = 'rgba(240,232,220,0.58)';
 
 const FACTS = [
   "Ceremonial grade matcha is made from the youngest tea leaves, shade-grown for 3–4 weeks before harvest",
-  "Contains 5x more L-Theanine than regular green tea — the amino acid responsible for calm, focused energy",
+  "Contains 5x more L-Theanine than regular green tea,  the amino acid responsible for calm, focused energy",
   "EGCG (epigallocatechin gallate) in matcha is one of the most studied antioxidant compounds in plant medicine",
   "Traditional Japanese tea ceremonies have used ceremonial matcha for over 800 years",
   "Ceremonial matcha provides caffeine (~30–50mg per serving) paired with L-Theanine for a smoother energy experience than coffee",
-  "Torch Republic sources ceremonial-grade matcha for all three matcha blends — no culinary-grade fillers",
+  "Torch Republic sources ceremonial-grade matcha for all three matcha blends,  no culinary-grade fillers",
 ];
 
 const GRADES = [
@@ -29,17 +29,17 @@ const GRADES = [
 ];
 
 const FAQS = [
-  { q: "What is ceremonial grade matcha?", a: "Ceremonial grade matcha is the highest quality category of matcha, made from the youngest, shade-grown tea leaves of the first spring harvest. It's characterized by a bright vibrant green color, smooth umami flavor with natural sweetness, and higher L-Theanine content than lower-grade matchas. It's designed to be consumed with just hot water — no milk or sweetener required to taste good." },
-  { q: "What is the difference between ceremonial and culinary matcha?", a: "Ceremonial matcha is made from younger leaves and processed more carefully, resulting in a sweeter, smoother flavor and brighter color. Culinary matcha uses older, lower leaves and is more bitter and duller in color — it's designed to be blended with strong flavors in baking or smoothies. Using culinary matcha as a drinking tea produces a bitter, unpleasant experience. Always use ceremonial grade for drinking." },
+  { q: "What is ceremonial grade matcha?", a: "Ceremonial grade matcha is the highest quality category of matcha, made from the youngest, shade-grown tea leaves of the first spring harvest. It's characterized by a bright vibrant green color, smooth umami flavor with natural sweetness, and higher L-Theanine content than lower-grade matchas. It's designed to be consumed with just hot water,  no milk or sweetener required to taste good." },
+  { q: "What is the difference between ceremonial and culinary matcha?", a: "Ceremonial matcha is made from younger leaves and processed more carefully, resulting in a sweeter, smoother flavor and brighter color. Culinary matcha uses older, lower leaves and is more bitter and duller in color,  it's designed to be blended with strong flavors in baking or smoothies. Using culinary matcha as a drinking tea produces a bitter, unpleasant experience. Always use ceremonial grade for drinking." },
   { q: "Does ceremonial matcha have caffeine?", a: "Yes. Ceremonial matcha contains approximately 30–50mg of naturally occurring caffeine per serving. Its L-theanine content is traditionally associated with mindful tea rituals, and individual experiences can vary." },
   { q: "What does L-Theanine do in matcha?", a: "L-Theanine is an amino acid naturally found in tea. It is traditionally associated with mindful tea rituals and has been studied alongside caffeine, but individual experiences can vary." },
-  { q: "Is instant ceremonial matcha as good as traditional matcha?", a: "High-quality instant ceremonial matcha preserves the L-Theanine and antioxidant profile of traditionally whisked matcha. The difference is in ritual — traditional matcha requires careful whisking technique and specific water temperature. Instant ceremonial matcha (like Torch Republic's blends) delivers the same active compounds in 30 seconds without equipment. If you value the ceremonial aspect, traditional preparation is irreplaceable. For a daily functional habit, instant ceremonial matcha is nutritionally equivalent." },
+  { q: "Is instant ceremonial matcha as good as traditional matcha?", a: "High-quality instant ceremonial matcha preserves the L-Theanine and antioxidant profile of traditionally whisked matcha. The difference is in ritual,  traditional matcha requires careful whisking technique and specific water temperature. Instant ceremonial matcha (like Torch Republic's blends) delivers the same active compounds in 30 seconds without equipment. If you value the ceremonial aspect, traditional preparation is irreplaceable. For a daily functional habit, instant ceremonial matcha is nutritionally equivalent." },
 ];
 
 export default function CeremonialMatchaGuide() {
   useSEO({
     title: "Ceremonial Matcha: Grades, Benefits & How to Choose | Torch Republic",
-    description: "Everything about ceremonial grade matcha — what it is, how it differs from culinary grade, naturally occurring L-theanine, and Torch Republic's instant ceremonial matcha blends.",
+    description: "Everything about ceremonial grade matcha,  what it is, how it differs from culinary grade, naturally occurring L-theanine, and Torch Republic's instant ceremonial matcha blends.",
     url: '/ceremonial-matcha',
     type: 'website',
     faq: FAQS.map(f => ({ question: f.q, answer: f.a })),
@@ -79,7 +79,7 @@ export default function CeremonialMatchaGuide() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.14 }}
           className="font-heading mb-8"
           style={{ fontSize: '1rem', color: DIM, fontWeight: 300, lineHeight: 1.85 }}>
-          Ceremonial matcha is the highest quality grade of matcha — shade-grown, hand-harvested, stone-ground, and naturally rich in L-theanine. Here's everything you need to know before you buy.
+          Ceremonial matcha is the highest quality grade of matcha,  shade-grown, hand-harvested, stone-ground, and naturally rich in L-theanine. Here's everything you need to know before you buy.
         </motion.p>
         <div className="flex gap-3 justify-center flex-wrap">
           <Link to="/shop/matcha"
@@ -124,7 +124,7 @@ export default function CeremonialMatchaGuide() {
           </table>
         </div>
         <p className="font-heading text-sm mt-4" style={{ color: 'rgba(230,183,173,0.55)', fontWeight: 300 }}>
-          ↑ All Torch Republic matcha blends use ceremonial grade — the only grade worth drinking straight.
+          ↑ All Torch Republic matcha blends use ceremonial grade,  the only grade worth drinking straight.
         </p>
       </section>
 

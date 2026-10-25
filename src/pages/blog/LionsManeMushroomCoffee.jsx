@@ -49,7 +49,7 @@ const HUMAN_TRIALS = [
   {
     year: '2009',
     study: 'Mori Trial (Foundational)',
-    finding: 'Progressive cognitive score improvements over 16 weeks — scores declined after discontinuation, consistent with stimulus-driven NGF mechanism',
+    finding: 'Progressive cognitive score improvements over 16 weeks,  scores declined after discontinuation, consistent with stimulus-driven NGF mechanism',
   },
   {
     year: '2020',
@@ -69,17 +69,17 @@ const HUMAN_TRIALS = [
 ];
 
 const BENEFITS = [
-  'Clearer, less foggy mornings — thoughts assemble more easily',
-  'Sustained focus without the spike — ~40–60 mg caffeine vs. ~95 mg in regular coffee',
-  'Reduced mid-morning jitters — lower caffeine + higher adaptogens significantly reduce cortisol-driven overstimulation',
-  'Improved mood baseline — consistent with Lion\'s Mane effect on serotonin and BDNF pathways',
-  'Long-term cognitive support — NGF stimulation builds over weeks, not days',
+  'Clearer, less foggy mornings,  thoughts assemble more easily',
+  'Sustained focus without the spike,  ~40–60 mg caffeine vs. ~95 mg in regular coffee',
+  'Reduced mid-morning jitters,  lower caffeine + higher adaptogens significantly reduce cortisol-driven overstimulation',
+  'Improved mood baseline,  consistent with Lion\'s Mane effect on serotonin and BDNF pathways',
+  'Long-term cognitive support,  NGF stimulation builds over weeks, not days',
 ];
 
 export default function LionsManeMushroomCoffee() {
   useSEO({
     title: 'Lion\'s Mane Mushroom Coffee: Benefits, Research & Morning Ritual Guide | Torch Republic',
-    description: 'Discover the science behind Lion\'s Mane mushroom coffee — how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual.',
+    description: 'Discover the science behind Lion\'s Mane mushroom coffee,  how NGF stimulation, Chaga antioxidants, and half the caffeine of regular coffee create the ultimate morning ritual.',
     url: '/journal/lions-mane-mushroom-coffee',
     type: 'article',
   });
@@ -99,7 +99,7 @@ export default function LionsManeMushroomCoffee() {
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg"
             style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
-            What if your morning cup did more than wake you up — what if it actively rebuilt your brain while you drank it? That's not marketing language. That's the science.
+            What if your morning cup did more than wake you up,  what if it actively rebuilt your brain while you drank it? That's not marketing language. That's the science.
           </p>
         </motion.div>
       </section>
@@ -150,7 +150,7 @@ export default function LionsManeMushroomCoffee() {
               That's not marketing language. That's the science behind Lion's Mane mushroom coffee, and it's why this category has gone from health-food-store obscurity to a $300-million-per-year phenomenon in less than a decade. At Torch Republic, we built our mushroom coffee line around Lion's Mane for one reason: nothing else in the functional food world touches this compound's relationship with the human brain.
             </p>
             <p className="font-heading text-lg" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
-              Here's everything you need to know — the history, the science, the benefits, and how to make it part of your daily ritual.
+              Here's everything you need to know,  the history, the science, the benefits, and how to make it part of your daily ritual.
             </p>
           </motion.div>
 
@@ -167,13 +167,13 @@ export default function LionsManeMushroomCoffee() {
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
               <p>
-                Lion's Mane (<em style={{ color: RG }}>Hericium erinaceus</em>) is a culinary and medicinal mushroom native to North America, Europe, and Asia. It's named for its distinctive appearance — long, cascading white tendrils that resemble a lion's mane. It has been used in traditional Asian medicine for over 2,000 years, valued for brain health, digestive function, and nerve regeneration long before Western science had the tools to understand why.
+                Lion's Mane (<em style={{ color: RG }}>Hericium erinaceus</em>) is a culinary and medicinal mushroom native to North America, Europe, and Asia. It's named for its distinctive appearance,  long, cascading white tendrils that resemble a lion's mane. It has been used in traditional Asian medicine for over 2,000 years, valued for brain health, digestive function, and nerve regeneration long before Western science had the tools to understand why.
               </p>
               <p>
-                What makes it genuinely unique — not just among mushrooms, but among all foods — is that it contains two classes of bioactive compounds found nowhere else in nature: <strong style={{ color: RG }}>hericenones</strong> (from the fruiting body) and <strong style={{ color: RG }}>erinacines</strong> (from the mycelium). These molecules do something remarkable: they stimulate the production of Nerve Growth Factor (NGF) directly inside the central nervous system.
+                What makes it genuinely unique,  not just among mushrooms, but among all foods,  is that it contains two classes of bioactive compounds found nowhere else in nature: <strong style={{ color: RG }}>hericenones</strong> (from the fruiting body) and <strong style={{ color: RG }}>erinacines</strong> (from the mycelium). These molecules do something remarkable: they stimulate the production of Nerve Growth Factor (NGF) directly inside the central nervous system.
               </p>
               <p>
-                This matters because NGF is the protein your brain depends on to maintain and repair neurons. And NGF declines with age — measurably, progressively — and that decline is associated in research with Alzheimer's disease, Parkinson's disease, and the slow-motion memory fade most people attribute simply to "getting older".
+                This matters because NGF is the protein your brain depends on to maintain and repair neurons. And NGF declines with age,  measurably, progressively,  and that decline is associated in research with Alzheimer's disease, Parkinson's disease, and the slow-motion memory fade most people attribute simply to "getting older".
               </p>
               <div className="my-8 p-6 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
                 <p className="font-heading text-base" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85 }}>
@@ -277,7 +277,7 @@ export default function LionsManeMushroomCoffee() {
             </motion.h3>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
               <p>
-                The cognitive effects of Lion's Mane are subtle on day one and cumulative over weeks — unlike caffeine, which is acutely noticeable. Most consistent users report:
+                The cognitive effects of Lion's Mane are subtle on day one and cumulative over weeks,  unlike caffeine, which is acutely noticeable. Most consistent users report:
               </p>
               <ul className="space-y-3 my-6">
                 {BENEFITS.map((benefit, i) => (
@@ -295,7 +295,7 @@ export default function LionsManeMushroomCoffee() {
                 ))}
               </ul>
               <p>
-                The effects build. The Mori trial found progressive improvement over 16 weeks, with a washout when supplementation stopped. This isn't a one-cup miracle — it's a ritual.
+                The effects build. The Mori trial found progressive improvement over 16 weeks, with a washout when supplementation stopped. This isn't a one-cup miracle,  it's a ritual.
               </p>
             </div>
           </section>
@@ -321,7 +321,7 @@ export default function LionsManeMushroomCoffee() {
                     Lion's Mane
                   </h4>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>
-                    Operates on the <strong>neurological system</strong> — NGF, BDNF, cognitive repair, and nerve regeneration.
+                    Operates on the <strong>neurological system</strong>,  NGF, BDNF, cognitive repair, and nerve regeneration.
                   </p>
                 </div>
                 <div className="p-6 rounded-lg" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}40` }}>
@@ -329,7 +329,7 @@ export default function LionsManeMushroomCoffee() {
                     Chaga
                   </h4>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>
-                    Operates on the <strong>immune and cellular system</strong> — holds the highest ORAC antioxidant value ever recorded, with demonstrated anti-inflammatory, immunomodulatory, and cellular-protective effects.
+                    Operates on the <strong>immune and cellular system</strong>,  holds the highest ORAC antioxidant value ever recorded, with demonstrated anti-inflammatory, immunomodulatory, and cellular-protective effects.
                   </p>
                 </div>
               </div>
@@ -374,7 +374,7 @@ export default function LionsManeMushroomCoffee() {
                 ))}
               </div>
               <p>
-                The flavor profile depends on the blend you choose. Our Dark Roast blends (MoonCap Restore) bring forward the bold, chocolatey depth of the Arabica base. Our Medium Roast options (Glowmind Clarity, Torchbearer) run smooth and slightly sweet, with the earthiness of the mushroom extracts complementing rather than competing with the coffee. None of our blends taste like "mushroom" in any culinary sense — the extract is neutral, and what you taste is premium coffee with an added depth.
+                The flavor profile depends on the blend you choose. Our Dark Roast blends (MoonCap Restore) bring forward the bold, chocolatey depth of the Arabica base. Our Medium Roast options (Glowmind Clarity, Torchbearer) run smooth and slightly sweet, with the earthiness of the mushroom extracts complementing rather than competing with the coffee. None of our blends taste like "mushroom" in any culinary sense,  the extract is neutral, and what you taste is premium coffee with an added depth.
               </p>
             </div>
           </section>
@@ -396,7 +396,7 @@ export default function LionsManeMushroomCoffee() {
                 {[
                   'Anyone who wants to reduce caffeine intake without sacrificing the morning ritual',
                   'People experiencing mid-morning crashes or afternoon brain fog after regular coffee',
-                  'Those interested in long-term cognitive health — especially anyone with a family history of memory decline',
+                  'Those interested in long-term cognitive health,  especially anyone with a family history of memory decline',
                   'Anyone who finds regular coffee causes anxiety, jitters, or digestive discomfort',
                   'Entrepreneurs, creatives, and deep-focus workers who need sustained concentration, not a 45-minute spike',
                 ].map((item, i) => (
@@ -437,7 +437,7 @@ export default function LionsManeMushroomCoffee() {
                 Lion's Mane isn't a trend. It's the only food known to actively stimulate your brain's own nerve repair mechanisms while you drink your morning coffee. The science spans three decades, multiple clinical trials, and a peer-reviewed mechanism that's understood to the molecular level.
               </p>
               <p>
-                Whether you're protecting what you have, sharpening what's already sharp, or building a morning ritual with actual purpose behind it — this is where you start.
+                Whether you're protecting what you have, sharpening what's already sharp, or building a morning ritual with actual purpose behind it,  this is where you start.
               </p>
             </div>
           </section>
@@ -462,7 +462,7 @@ export default function LionsManeMushroomCoffee() {
               Torch Republic Mushroom Coffee
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Each blend is crafted around the Lion's Mane + Chaga combination, in instant format that's ready in seconds — no maker, no fuss, just the ritual.
+              Each blend is crafted around the Lion's Mane + Chaga combination, in instant format that's ready in seconds,  no maker, no fuss, just the ritual.
             </p>
             <Link to="/mushroom-coffee"
               className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
