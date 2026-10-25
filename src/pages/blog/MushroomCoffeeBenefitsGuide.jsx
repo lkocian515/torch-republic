@@ -16,7 +16,7 @@ const BENEFITS = [
   {
     icon: Shield,
     title: 'Powerful Antioxidant Defense',
-    body: "Chaga holds the highest ORAC antioxidant score ever recorded in a natural food,  higher than blueberries, acai, and green tea combined. Every cup delivers a concentrated dose of antioxidants your immune system and cells can use immediately.",
+    body: "Reishi is the mushroom in our blends most associated with antioxidant compounds, bringing naturally occurring triterpenes and beta-glucans to every cup. The coffee base contributes its own antioxidants, so a daily cup delivers both.",
   },
   {
     icon: Heart,
@@ -274,7 +274,7 @@ export default function MushroomCoffeeBenefitsGuide() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Ready to Try It?</p>
             <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Mushroom Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Instant. No equipment. Lion's Mane + Chaga in every blend,  ready in 30 seconds. Your ritual shouldn't require a ceremony to prepare.
+              Instant. No equipment. Lion's Mane + Cordyceps + Reishi in every blend,  ready in 30 seconds. Your ritual shouldn't require a ceremony to prepare.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: RG, color: '#080808' }}>

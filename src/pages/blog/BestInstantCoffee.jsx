@@ -11,7 +11,7 @@ const COMPARISON = [
     brand: 'Torch Republic',
     type: 'Functional Instant Coffee',
     caffeine: '40–60 mg',
-    mushrooms: 'Yes (Lion\'s Mane + Chaga)',
+    mushrooms: 'Yes (Lion\'s Mane + Cordyceps + Reishi)',
     process: 'Freeze-dried + dual-extract',
     taste: '⭐⭐⭐⭐⭐',
     clean: true,
@@ -213,7 +213,7 @@ export default function BestInstantCoffee() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Try The Best</p>
             <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Instant Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Freeze-dried Arabica base. Lion's Mane + Chaga in every mushroom blend. Classic and matcha options available. No equipment. No waiting. Just great coffee.
+              Freeze-dried Arabica base. Lion's Mane + Cordyceps + Reishi in every mushroom blend. Classic and matcha options available. No equipment. No waiting. Just great coffee.
             </p>
             <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: RG, color: '#080808' }}>
               Shop All Blends →

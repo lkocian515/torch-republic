@@ -241,7 +241,7 @@ export const INGREDIENT_PAGES = [
     category: 'Functional Mushroom',
     color: '#C4A35A',
     tagline: 'The antioxidant mushroom — traditionally used for resilience and balance.',
-    description: "Chaga (Inonotus obliquus) grows on birch trees in cold climates and has been used in Russian and Eastern European folk medicine for centuries. It has one of the highest ORAC (antioxidant) scores of any natural food. Torch Republic uses Chaga extract in all three mushroom coffee blends for its antioxidant richness.",
+    description: "Chaga (Inonotus obliquus) grows on birch trees in cold climates and has been used in Russian and Eastern European folk medicine for centuries. It has one of the highest ORAC (antioxidant) scores of any natural food. It is not one of the mushrooms in Torch Republic's blends, which use Lion's Mane, Cordyceps and Reishi, but it is a functional mushroom worth understanding.",
     benefits: [
       { title: 'Antioxidant Richness', detail: "Among the highest ORAC values of any food, driven by melanin complexes, phenols, and beta-glucans." },
       { title: 'Immune Balance Support', detail: "Beta-glucans in Chaga may help modulate immune activity. Used in traditional wellness for resilience." },
@@ -250,10 +250,11 @@ export const INGREDIENT_PAGES = [
     ],
     activeCompounds: ["Beta-glucans", "Melanin", "Betulinic acid", "Polyphenols", "Triterpenoids"],
     researchSummary: "Well-documented for antioxidant content. Most human research focuses on immune modulation. Fewer cognitive studies than Lion's Mane. More controlled trials needed.",
+    productsHeading: 'Where to Go Next',
     products: [
-      { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
-      { name: 'MoonCap Restore', path: '/products/mooncap-restore' },
-      { name: 'Shop All Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+      { name: 'What Is In Our Blends', path: '/ingredients' },
+      { name: 'Shop Mushroom Coffee', path: '/shop/instant-mushroom-coffee' },
+      { name: 'Research Hub', path: '/research' },
     ],
     relatedSlugs: ['chaga-mushroom-coffee', 'chaga-mushroom-antioxidant-king', 'mushroom-coffee-benefits', 'adaptogens-guide'],
     metaTitle: 'Chaga Mushroom: Ingredient Guide & Antioxidant Research | Torch Republic',
@@ -796,7 +797,7 @@ export const FAQ_PAGES = [
     cluster: 'mushroom-coffee',
     metaTitle: "What's in Each Torch Republic Blend? | Ingredient Guide | FAQ",
     metaDescription: "Full ingredient overview for each Torch Republic coffee and matcha blend — mushroom extracts, coffee type, functional purpose, and which blend is right for you.",
-    answer: "GlowMind Clarity: premium Arabica instant coffee + Lion's Mane + Cordyceps + Reishi — for morning focus. SunCap Rise: premium Arabica instant coffee + Lion's Mane + Cordyceps — for morning energy and vitality. MoonCap Restore: premium Arabica instant coffee + Reishi + Chaga — for evening calm and recovery. Torchbearer/Ember Reserve: pure 100% Arabica classic coffee — no mushrooms.",
+    answer: "Every Torch Republic mushroom blend, GlowMind Clarity, SunCap Rise and MoonCap Restore, is premium Arabica instant coffee with the same three functional mushrooms: organic Lion's Mane, Cordyceps and Reishi. The blends differ in roast and flavor, not in which mushrooms they contain. Instant Classic Coffee and Ember Reserve are pure 100% Arabica with no mushrooms.",
     relatedFaqs: ['what-is-mushroom-coffee', 'best-mushroom-blend-for-beginners', 'does-mushroom-coffee-taste-like-mushrooms'],
     products: [
       { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-blend' },
@@ -880,8 +881,8 @@ export const INGREDIENT_LONG_FORM = {
         body: "Chaga has been used in Russian and Siberian folk medicine for centuries, most commonly as a tea made from ground Chaga in hot water. It was documented in 17th-century Russian herbalism for digestive complaints and general wellness. Alexander Solzhenitsyn's 1968 novel 'Cancer Ward' included references to Chaga as a folk remedy, bringing it to wider Western awareness.\n\nModern research has focused primarily on immunomodulation, antioxidant activity, and anti-inflammatory properties. Human clinical trials specifically for Chaga are limited — most of the strongest evidence comes from in vitro and animal studies. This is an honest limitation to acknowledge: we know a lot about what Chaga's compounds can do in laboratory settings, less about the exact mechanisms and dose-response in humans."
       },
       {
-        heading: "Chaga in Torch Republic Blends",
-        body: "Torch Republic uses Chaga extract in its mushroom coffee blends as a complementary ingredient to Lion's Mane. Where Lion's Mane is the cognitive-focused ingredient, Chaga brings antioxidant richness and immune-supportive beta-glucans.\n\nThe combination matters: the oxidative stress that caffeine creates in the body is partially offset by Chaga's antioxidant properties, creating a more balanced functional profile than coffee alone. This is one reason mushroom coffee can feel different from standard coffee for some people — it's not just caffeine, it's caffeine in a biochemically richer context.\n\nWho should be cautious: people on blood-thinning medications (Chaga may have anticoagulant properties), people with autoimmune conditions (immune modulation may be inappropriate), and anyone scheduled for surgery. Always consult a healthcare provider if you have existing medical conditions."
+        heading: "Is Chaga in Torch Republic Blends?",
+        body: "No. Torch Republic mushroom coffee is made with organic Lion's Mane, Cordyceps and Reishi extracts, and those three are the only functional mushrooms on the label. We publish this Chaga guide because it is one of the most interesting functional mushrooms to understand, not because it is in the cup.\n\nIf you want to check exactly what is in a blend, our ingredients page lists every component of every product in plain language.\n\nWho should be cautious: people on blood-thinning medications (Chaga may have anticoagulant properties), people with autoimmune conditions (immune modulation may be inappropriate), and anyone scheduled for surgery. Always consult a healthcare provider if you have existing medical conditions."
       },
     ],
   },

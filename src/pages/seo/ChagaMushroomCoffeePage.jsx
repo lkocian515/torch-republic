@@ -16,21 +16,21 @@ const SCIENCE_POINTS = [
   { heading: "Beta-Glucans and Immune Function", body: "Chaga is rich in beta-glucans — complex polysaccharides that interact with immune receptors (particularly Dectin-1) to modulate immune response. This doesn't mean Chaga 'boosts' immunity in the way marketing claims often suggest; instead, it supports immune system regulation — helping it respond appropriately without overactivation." },
   { heading: "Adaptogenic Properties", body: "As an adaptogen, Chaga helps the body maintain homeostasis under stress. Research suggests its triterpenes and polyphenols support healthy cortisol response, making it a useful daily ingredient for anyone managing chronic stress. Unlike stimulant adaptogens (like Rhodiola), Chaga is calming rather than activating." },
   { heading: "Betulinic Acid from Birch Trees", body: "Authentic Chaga grows on birch trees and absorbs betulin and betulinic acid from its host. These compounds are unique to wild-harvested Chaga and are not present in lab-grown versions. Torch Republic sources birch-grown Chaga to preserve this component of the traditional nutritional profile." },
-  { heading: "500mg Per Serving, Dual Extracted", body: "Chaga's water-soluble beta-glucans require hot-water extraction; its triterpenes require alcohol extraction. Torch Republic uses dual extraction on all functional mushrooms to capture both fractions. Each serving contains 500mg of organic dual-extracted Chaga alongside other mushroom extracts — no proprietary blend obscuring actual dosage." },
+  { heading: "Dual Extraction Matters", body: "Chaga's water-soluble beta-glucans require hot-water extraction; its triterpenes require alcohol extraction. A good Chaga product states which method it uses. Torch Republic dual-extracts the mushrooms in our own blends, Lion's Mane, Cordyceps and Reishi, for exactly the same reason." },
 ];
 
 const PAA = [
   { q: "What does Chaga mushroom coffee do?", a: "Chaga is one of the most antioxidant-dense foods ever measured, with ORAC scores 10–50x higher than blueberries. In mushroom coffee, it supports immune regulation via beta-glucans, provides adaptogenic stress support through triterpenes and polyphenols, and adds subtle earthy depth to coffee flavor. Most users report improved daily resilience and reduced inflammation markers with consistent daily use." },
   { q: "Does Chaga coffee give you energy?", a: "Not directly — Chaga is not a stimulant. The energy in Chaga coffee comes from its coffee base. Chaga's contribution is adaptogenic: it helps reduce the physiological response to stress and supports healthier cortisol levels, which can improve subjective energy and resilience over time." },
-  { q: "How much Chaga should be in mushroom coffee?", a: "Look for at least 250–500mg of dual-extracted Chaga fruiting body per serving. Unextracted Chaga powder has very low bioavailability. Torch Republic blends contain 500mg of organic dual-extracted Chaga per serving, listed transparently on the label." },
+  { q: "How much Chaga should be in mushroom coffee?", a: "Look for at least 250–500mg of dual-extracted Chaga fruiting body per serving, and a label that names the extraction method. Unextracted Chaga powder has very low bioavailability. Chaga is not one of the mushrooms in Torch Republic blends, but we do list every ingredient we use, so you always know exactly what is in a cup." },
   { q: "What does Chaga taste like in coffee?", a: "Very subtle. Chaga has a naturally earthy, slightly vanilla-like flavor that blends seamlessly with coffee. In a well-formulated mushroom coffee, you taste rich coffee with a hint of earthiness — you would not identify Chaga as a separate flavor without knowing it was present." },
   { q: "Is Chaga mushroom coffee good for you?", a: "For most healthy adults, yes. Chaga has a long traditional use history in Siberian and Finnish folk medicine and a clean modern safety record. Its antioxidant and immune-modulating properties are among the best-documented in the functional mushroom category. Note: Chaga contains oxalates, so people with kidney issues should consult a doctor before daily use." },
 ];
 
 const PRODUCTS = [
-  { name: "GlowMind Clarity", slug: "glowmind-clarity-instant-mushroom-coffee", tagline: "Lion's Mane + Chaga — morning focus ritual" },
-  { name: "MoonCap Restore", slug: "mooncap-restore-instant-mushroom-coffee", tagline: "Chaga + Reishi — evening recovery blend" },
-  { name: "SunCap Rise", slug: "suncap-rise-instant-mushroom-coffee", tagline: "Chaga + Cordyceps — sustained daily energy" },
+  { name: "Instant Mushroom Coffee", slug: "instant-mushroom-coffee", tagline: "Lion's Mane + Cordyceps + Reishi, our functional blend" },
+  { name: "Instant Classic Coffee", slug: "instant-classic-coffee", tagline: "100% Arabica, no mushrooms" },
+  { name: "Torch Republic Coffee Duo", slug: "torch-republic-coffee-duo", tagline: "Both coffees, one bundle" },
 ];
 
 export default function ChagaMushroomCoffeePage() {
@@ -79,7 +79,7 @@ export default function ChagaMushroomCoffeePage() {
             Chaga (Inonotus obliquus) has one of the highest antioxidant scores ever measured in a food source — 10–50x higher than blueberries. Here's what that actually means for your daily coffee ritual.
           </p>
           <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-3.5 px-7 transition-all hover:opacity-90" style={{ background: RG, color: '#080808' }}>
-            Shop Chaga Blends <ArrowRight size={11} />
+            Shop Mushroom Coffee <ArrowRight size={11} />
           </Link>
         </motion.div>
       </section>
@@ -97,7 +97,7 @@ export default function ChagaMushroomCoffeePage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-10" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
-        <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.4)' }}>Chaga Blends</p>
+        <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.4)' }}>Our Mushroom Coffee</p>
         <div className="space-y-3">
           {PRODUCTS.map(p => (
             <Link key={p.slug} to={`/products/${p.slug}`} className="flex items-center justify-between gap-4 p-5 block transition-all"

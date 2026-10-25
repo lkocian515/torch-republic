@@ -19,7 +19,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
       { question: 'Does mushroom coffee taste like mushrooms?', answer: 'No. Mushroom coffee tastes like coffee. The mushroom extract blends into the background, adding a subtle earthiness but not a mushroom flavor.' },
       { question: 'Is mushroom coffee better than regular coffee?', answer: 'Mushroom coffee offers everything regular coffee does,  energy from caffeine,  plus functional mushroom extracts that support focus, wellness, and balanced energy. Whether it\'s "better" depends on your personal wellness goals.' },
       { question: 'Does mushroom coffee have less caffeine?', answer: 'Mushroom coffee typically contains slightly less caffeine than regular coffee of the same serving size, since some of the blend is mushroom extract. Torch Republic blends are designed to feel balanced, not under-caffeinated.' },
-      { question: 'What mushrooms are in Torch Republic coffee?', answer: 'Torch Republic mushroom blends use Lion\'s Mane (Hericium erinaceus) and Chaga (Inonotus obliquus) mushroom extracts, both well-studied functional mushrooms in wellness traditions.' },
+      { question: 'What mushrooms are in Torch Republic coffee?', answer: 'Torch Republic mushroom blends use Lion\'s Mane (Hericium erinaceus), Cordyceps (Cordyceps militaris) and Reishi (Ganoderma lucidum) extracts, three well-studied functional mushrooms in wellness traditions.' },
     ],
   });
 
@@ -57,7 +57,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What Is Mushroom Coffee?</h2>
-            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane and Chaga mushroom extracts</Link>,  no synthetic additives, no artificial flavors.</p>
+            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane, Cordyceps and Reishi mushroom extracts</Link>,  no synthetic additives, no artificial flavors.</p>
             <p className="mt-3">The result looks and tastes like coffee. It dissolves in hot water. It gives you caffeine. The difference is what's alongside the caffeine: functional mushroom compounds that have been used in wellness traditions for centuries.</p>
           </section>
 
@@ -151,7 +151,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
         <div className="mt-10 p-6" style={{ background: 'rgba(230,183,173,0.05)', border: '1px solid rgba(230,183,173,0.15)' }}>
           <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>Ready to Try Mushroom Coffee?</p>
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
-            Explore Torch Republic mushroom coffee blends,  Lion's Mane + Chaga in instant format. No machine needed.
+            Explore Torch Republic mushroom coffee blends,  Lion's Mane + Cordyceps + Reishi in instant format. No machine needed.
           </p>
           <Link to="/shop/instant-mushroom-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#E6B7AD', color: '#080808' }}>
             Shop Mushroom Coffee →

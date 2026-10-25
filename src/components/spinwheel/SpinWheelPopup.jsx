@@ -111,14 +111,18 @@ export default function SpinWheelPopup() {
     };
 
     debug('timer trigger registered');
-    const timer = setTimeout(() => trigger('timer'), 8000);
+    // Give shoppers a long, uninterrupted stretch of browsing before the offer
+    // appears. 45s is deliberately well past the point where a page feels read.
+    const timer = setTimeout(() => trigger('timer'), 45000);
 
     debug('scroll trigger registered');
     const handleScroll = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollable <= 0) return;
       const scrollPct = (window.scrollY / scrollable) * 100;
-      if (scrollPct >= 35) trigger('scroll');
+      // Only once the shopper has reached the very end of the page, so the
+      // offer never lands mid-browse.
+      if (scrollPct >= 85) trigger('scroll');
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 

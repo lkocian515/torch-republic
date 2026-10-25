@@ -24,7 +24,7 @@ const TOPIC_MAP = [
   {
     keywords: ['mushroom', 'lions-mane', 'lion', 'chaga', 'adaptogen', 'functional', 'reishi'],
     collection: 'Mushroom Coffee',
-    description: 'Premium instant mushroom coffee with Lion\'s Mane and Chaga — coffee-forward taste, functional ritual, no machine needed.',
+    description: 'Premium instant mushroom coffee with Lion\'s Mane, Cordyceps and Reishi. Coffee-forward taste, functional ritual, no machine needed.',
     primaryLabel: 'Shop Mushroom Coffee',
     primaryPath: '/shop/instant-mushroom-coffee',
     image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=480&q=75&auto=format',

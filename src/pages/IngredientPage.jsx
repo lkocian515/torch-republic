@@ -165,7 +165,7 @@ export default function IngredientPage() {
           <div className="space-y-6">
             {/* Products */}
             <div className="p-5 sticky top-24" style={{ background: '#0F0E0D', border: `1px solid ${ingredient.color}20` }}>
-              <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: ingredient.color }}>Products with {ingredient.name}</p>
+              <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: ingredient.color }}>{ingredient.productsHeading || `Products with ${ingredient.name}`}</p>
               <div className="space-y-2">
                 {ingredient.products.map((p, i) => (
                   <Link key={i} to={p.path}

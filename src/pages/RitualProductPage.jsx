@@ -104,7 +104,7 @@ const THEME = {
 
 const TRUST = [
   { icon: Truck, title: 'Free shipping', body: '$50+' },
-  { icon: RotateCcw, title: '30-day returns', body: 'Love it or return it' },
+  { icon: RotateCcw, title: 'First Cup Guarantee', body: '30 days on your first order' },
   { icon: ShieldCheck, title: 'Secure checkout', body: 'Shop with confidence' },
 ];
 
@@ -113,7 +113,7 @@ const INGREDIENTS = {
   'classic-coffee':
     'Premium Arabica instant coffee. No artificial colors, flavors, or preservatives.',
   'mushroom-coffee':
-    'Premium instant coffee blended with functional mushroom extracts. No artificial colors, flavors, or preservatives.',
+    "Premium instant coffee with organic Lion's Mane, Cordyceps and Reishi mushroom extracts. No artificial colors, flavors, or preservatives.",
   'pumpkin-spice':
     'Whole bean Arabica coffee with natural pumpkin spice flavor. Cinnamon, nutmeg, and cozy autumn spices. No artificial colors or preservatives.',
   'bundle':

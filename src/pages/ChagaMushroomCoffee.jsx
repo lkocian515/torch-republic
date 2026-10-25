@@ -17,7 +17,7 @@ const FACTS = [
   "Has one of the highest ORAC (antioxidant capacity) scores ever measured in a natural food source",
   "Contains beta-glucans — immune-modulating polysaccharides studied in multiple human trials",
   "Used for centuries in Siberian and Northern European folk medicine as a daily health tonic",
-  "Torch Republic uses dual-extracted Chaga — water extraction for beta-glucans, alcohol extraction for betulinic acid compounds",
+  "Quality Chaga is dual-extracted: water extraction for beta-glucans, alcohol extraction for betulinic acid compounds",
   "Best consumed consistently over weeks — most users report improved daily resilience within 2–3 weeks",
 ];
 
@@ -40,8 +40,8 @@ const BENEFITS = [
 ];
 
 const FAQS = [
-  { q: "What does Chaga coffee taste like?", a: "Chaga adds a subtle earthy, slightly vanilla-like depth to coffee without dominating the flavor. In Torch Republic's blends, the coffee is the primary taste — Chaga is a background note that makes the cup feel richer and more grounded." },
-  { q: "How much Chaga is in each serving?", a: "Each Torch Republic blend contains 500mg of organic dual-extracted Chaga per serving. Dual extraction ensures you get both the water-soluble beta-glucans and the alcohol-soluble bioactive compounds in every cup." },
+  { q: "What does Chaga coffee taste like?", a: "Chaga adds a subtle earthy, slightly vanilla-like depth to coffee without dominating the flavor. In a well-made mushroom coffee the coffee is the primary taste, and the mushroom is a background note that makes the cup feel richer and more grounded." },
+  { q: "Is Chaga in Torch Republic coffee?", a: "No. Torch Republic mushroom coffee is made with organic Lion's Mane, Cordyceps and Reishi extracts, and every ingredient is listed on our ingredients page. We publish this Chaga guide because it is a genuinely interesting functional mushroom to understand, not because it is in the cup." },
   { q: "Can I drink Chaga coffee every day?", a: "Yes. Chaga has centuries of daily-use history as a tonic. For healthy adults, daily consumption is how the adaptogenic benefits accumulate. As always, consult a healthcare provider if you have conditions affecting blood clotting, are on blood thinners, or are immunocompromised." },
   { q: "Does Chaga coffee have caffeine?", a: "Yes — the caffeine comes from the Arabica coffee base (~60–80mg per serving), not the Chaga itself. Chaga mushroom extract contains no caffeine. The combination gives you the alertness of coffee with the adaptogenic support of Chaga." },
   { q: "Is Chaga safe?", a: "For most healthy adults, Chaga has a strong safety profile supported by centuries of use. Rare interactions exist with blood thinners (warfarin) and diabetes medications due to Chaga's natural compounds. Consult a physician if you take any of these medications." },
@@ -90,13 +90,13 @@ export default function ChagaMushroomCoffee() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.14 }}
           className="font-heading mb-8"
           style={{ fontSize: '1rem', color: DIM, fontWeight: 300, lineHeight: 1.85 }}>
-          Chaga is called the "King of Mushrooms" for its unmatched antioxidant density and immune-supporting beta-glucans. Torch Republic pairs organic dual-extracted Chaga with premium instant Arabica coffee for a daily ritual that protects as much as it energizes.
+          Chaga is called the "King of Mushrooms" for its unmatched antioxidant density and immune-supporting beta-glucans. This guide covers what it is and why it is studied. Torch Republic's own blends are built on Lion's Mane, Cordyceps and Reishi.
         </motion.p>
         <div className="flex gap-3 justify-center flex-wrap">
           <Link to="/shop/instant-mushroom-coffee"
             className="font-mono text-[10px] tracking-[0.24em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-90"
             style={{ background: RG, color: '#040404', textDecoration: 'none' }}>
-            Shop Chaga Blends
+            Shop Mushroom Coffee
           </Link>
           <Link to="/mushroom-coffee-benefits"
             className="font-mono text-[10px] tracking-[0.24em] uppercase font-bold px-8 py-3.5 transition-all hover:opacity-80"
@@ -196,7 +196,7 @@ export default function ChagaMushroomCoffee() {
           <Link to="/shop/instant-mushroom-coffee"
             className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3.5 px-8 transition-all hover:opacity-90"
             style={{ background: RG, color: '#040404' }}>
-            Try Chaga Coffee — 30-Day Guarantee <ArrowRight size={13} />
+            Try Mushroom Coffee <ArrowRight size={13} />
           </Link>
         </div>
       </section>

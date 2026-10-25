@@ -174,7 +174,7 @@ export default function AdaptogensGuide() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Adaptogens in Every Cup</p>
             <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Mushroom Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
-              Lion's Mane, Chaga, and adaptogenic mushrooms in every mushroom blend. No pills, no powders to mix separately. One cup covers it all.
+              Lion's Mane, Cordyceps, Reishi, and adaptogenic mushrooms in every mushroom blend. No pills, no powders to mix separately. One cup covers it all.
             </p>
             <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: RG, color: '#080808' }}>
               Shop Mushroom Coffee →
