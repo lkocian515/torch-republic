@@ -6,7 +6,7 @@ import SearchModal from '@/components/search/SearchModal';
 import NavDropdown from './NavDropdown';
 import MobileMenu from './MobileMenu';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
-import { BRAND_LOGO } from '@/lib/brandAssets';
+import { BRAND_MARK } from '@/lib/brandAssets';
 
 // Pinned to the warm light storefront theme so the brown logo wordmark and
 // dark icons stay readable regardless of OS dark-mode (the storefront is
@@ -113,11 +113,11 @@ export default function UnifiedHeader() {
           </div>
           <Link to="/" className="flex min-w-0 items-center justify-center" aria-label="Torch Republic home">
             <img
-              src={BRAND_LOGO}
+              src={BRAND_MARK}
               alt="Torch Republic Coffee Company"
-              width="220"
-              height="72"
-              className="h-9 w-auto object-contain sm:h-12 lg:h-14"
+              width="339"
+              height="499"
+              className="h-11 w-auto object-contain sm:h-14 lg:h-16"
               style={{ maxWidth: 'clamp(88px, 30vw, 190px)' }}
             />
           </Link>
