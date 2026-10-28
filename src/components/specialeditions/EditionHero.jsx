@@ -43,70 +43,73 @@ export default function EditionHero() {
     ? campaign.cta_label_live || 'Shop the collection'
     : campaign.cta_label_prelaunch || 'Preview the collection';
 
-  // Campaign artwork already carries the headline, subhead and product story, so it renders
-  // clean and full-width at its true ratio instead of being overlaid with duplicate text.
-  // The real button sits beneath it, because text baked into an image is not clickable.
+  // The campaign artwork is a poster with the headline and product story baked in, so the
+  // hero pairs it with live HTML instead of stacking the two: at its true ratio the artwork
+  // is taller than a screen on its own, which buried the shop button below the fold.
   if (campaign.desktop_hero_image) {
     return (
       <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
-        {/* Artwork is supplied per campaign, so the hero renders it at whatever ratio the
-            designer delivered — square or wide — rather than cropping it into a fixed frame. */}
-        <div className="w-full">
-          <picture>
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 px-5 pb-10 pt-8 md:grid-cols-2 md:gap-12 md:px-8 md:pb-14 md:pt-12">
+          {/* Headline and shop button first, so the offer is on screen immediately on
+              every device — text painted into an image cannot be clicked or read aloud. */}
+          <div className="text-center md:text-left">
+            {campaign.eyebrow && (
+              <p style={{ ...TYPE.eyebrow, color: T.terracotta }}>{campaign.eyebrow}</p>
+            )}
+
+            <AnimatedHeadline
+              as="h1"
+              text={campaign.headline || campaign.name}
+              style={{ ...TYPE.hero, color: T.cream, margin: '0.75rem 0 0' }}
+            />
+
+            {campaign.supporting_text && (
+              <p
+                className="mx-auto font-heading md:mx-0"
+                style={{ ...TYPE.lead, color: 'rgba(230,216,202,0.92)', margin: '1rem auto 0', maxWidth: 460 }}
+              >
+                {campaign.supporting_text}
+              </p>
+            )}
+
+            <div className="mt-6 flex flex-col items-center gap-3 md:flex-row md:items-center">
+              <Link
+                to={href}
+                className="inline-flex items-center justify-center gap-2 font-heading font-semibold"
+                style={{ background: T.terracotta, color: T.cream, minHeight: 48, padding: '0.875rem 2rem', borderRadius: 999 }}
+              >
+                {ctaLabel}
+                <ArrowRight size={16} strokeWidth={2} />
+              </Link>
+              <EditionStatusChip
+                state={isLive ? 'available' : 'pending'}
+                label={isLive ? 'Available now' : null}
+              />
+            </div>
+
+            {/* Named for the campaign, so the brewed seasonal pair reads as its own
+                thing rather than contradicting the instant lineup below it. */}
+            {editionsFormatLabel(items) && (
+              <p style={{ ...TYPE.meta, color: 'rgba(230,216,202,0.86)', margin: '1rem 0 0' }}>
+                {campaign.name} &middot; {editionsFormatLabel(items)} &middot; brewed, not instant
+              </p>
+            )}
+          </div>
+
+          {/* The artwork, contained at its true ratio: nothing cropped and the bags,
+              names and baked-in lettering all survive, capped so it never fills a screen. */}
+          <picture className="mx-auto block w-full" style={{ maxWidth: 520 }}>
             {campaign.mobile_hero_image && (
               <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
             )}
             <img
               src={campaign.desktop_hero_image}
               alt={`${campaign.name} special edition`}
-              className="block h-auto w-full"
+              className="mx-auto block h-auto w-auto max-w-full"
+              style={{ maxHeight: 'min(46vh, 480px)' }}
               fetchPriority="high"
             />
           </picture>
-        </div>
-
-        {/* A headline painted into artwork cannot animate, be selected, or be read
-            aloud, so the hero also carries the campaign headline as real text that
-            rises in word by word. */}
-        <div className="mx-auto max-w-[900px] px-6 pt-10 text-center">
-          <AnimatedHeadline
-            as="h1"
-            text={campaign.headline || campaign.name}
-            style={{ ...TYPE.hero, color: T.cream, margin: 0 }}
-          />
-          {/* What the shop actually sells, said plainly and up front, so a first-time
-              visitor knows the offering before they reach the lineup further down. */}
-          {campaign.supporting_text && (
-            <p
-              className="font-heading"
-              style={{ ...TYPE.lead, color: 'rgba(230,216,202,0.92)', margin: '1.25rem 0 0' }}
-            >
-              {campaign.supporting_text}
-            </p>
-          )}
-
-          {/* Named for the campaign, so the brewed seasonal pair reads as its own
-              thing rather than contradicting the instant lineup above it. */}
-          {editionsFormatLabel(items) && (
-            <p style={{ ...TYPE.meta, color: 'rgba(230,216,202,0.9)', margin: '1.25rem 0 0' }}>
-              {campaign.name} &middot; {editionsFormatLabel(items)} &middot; brewed, not instant
-            </p>
-          )}
-        </div>
-
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 pb-10 pt-5 md:flex-row md:justify-center md:pb-14">
-          <EditionStatusChip
-            state={isLive ? 'available' : 'pending'}
-            label={isLive ? 'Available now' : null}
-          />
-          <Link
-            to={href}
-            className="inline-flex items-center justify-center gap-2 font-heading font-semibold"
-            style={{ background: T.terracotta, color: T.cream, minHeight: 48, padding: '0.875rem 2rem', borderRadius: 999 }}
-          >
-            {ctaLabel}
-            <ArrowRight size={16} strokeWidth={2} />
-          </Link>
         </div>
       </section>
     );

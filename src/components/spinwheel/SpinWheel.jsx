@@ -73,7 +73,7 @@ export default function SpinWheel({ prizes, rotation }) {
           width: '100%',
           height: 'auto',
           transform: `rotate(${rotation}deg)`,
-          filter: 'drop-shadow(0 0 20px rgba(217,160,74,0.22))',
+          filter: 'drop-shadow(0 0 12px rgba(217,160,74,0.16))',
         }}
       >
         <defs>
@@ -177,18 +177,19 @@ export default function SpinWheel({ prizes, rotation }) {
         <circle cx={CX} cy={CX} r={29} fill="none" stroke={goldLight} strokeWidth="0.7" opacity="0.5" />
       </svg>
 
-      {/* The supplied cup-and-flame mark, above the wheel so it stays upright
-          while the wheel spins */}
+      {/* The standalone cup-and-flame mark, above the wheel so it stays upright
+          while the wheel spins. Sized to sit comfortably inside the hub. */}
       <LogoArtwork
-        crop="mark"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          width: '19%',
-          transform: 'translate(-50%, -50%)',
-          pointerEvents: 'none',
-        }}
+      crop="mark"
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        width: '17.5%',
+        height: 'auto',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+      }}
       />
     </div>
   );

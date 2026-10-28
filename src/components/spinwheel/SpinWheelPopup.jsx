@@ -25,7 +25,8 @@ const GOLD = gold;
 const GOLD_LIGHT = goldLight;
 const CLAY = GOLD; // accent + button fill
 const INK = cream; // headings + input text
-const BODY = 'rgba(244,196,120,0.72)'; // muted body copy
+const BODY = 'rgba(244,196,120,0.78)'; // body copy
+const BODY_STRONG = 'rgba(248,222,180,0.92)'; // supporting + consent copy
 const CARD = 'rgba(5,10,18,0.72)'; // input + code surfaces
 const CREAM = navyDeep; // text on gold buttons
 const BORDER = 'rgba(217,160,74,0.28)';
@@ -444,11 +445,11 @@ export default function SpinWheelPopup() {
             className="relative w-full overflow-hidden flex flex-col"
             style={{
               maxWidth: '900px',
-              maxHeight: '90vh',
+              maxHeight: '90dvh',
               background: `linear-gradient(180deg, ${navyLight} 0%, ${navy} 45%, ${navyDeep} 100%)`,
               border: '1px solid rgba(217,160,74,0.5)',
               borderRadius: '20px',
-              boxShadow: '0 0 0 1px rgba(5,10,18,0.9), 0 0 0 3px rgba(217,160,74,0.06), 0 0 120px rgba(5,10,18,0.85), 0 0 80px rgba(217,160,74,0.18), 0 50px 140px rgba(0,0,0,0.9)',
+              boxShadow: '0 0 0 1px rgba(5,10,18,0.9), 0 24px 80px rgba(0,0,0,0.72)',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -476,21 +477,21 @@ export default function SpinWheelPopup() {
             <PanelFrame />
 
             {/* Scrollable content */}
-            <div className="relative z-10 overflow-y-auto overscroll-contain" style={{ maxHeight: '90vh' }}>
+            <div className="relative z-10 overflow-y-auto overscroll-contain" style={{ maxHeight: '90dvh' }}>
               <div className="flex flex-col md:flex-row">
                 {/* Left: the wheel — just over half the panel on desktop,
                     stacked above the form and sized down on narrow screens */}
                 <div
-                  className="flex flex-col items-center justify-center px-4 pb-2 pt-12 sm:px-6 sm:pt-14 md:w-[52%] md:px-8 md:py-10"
-                  style={{ background: 'radial-gradient(circle at 50% 45%, rgba(217,160,74,0.10) 0%, rgba(5,10,18,0.35) 70%)' }}
+                  className="flex flex-col items-center justify-center px-4 pb-2 pt-12 sm:px-6 sm:pt-14 md:w-[46%] md:px-8 md:py-10"
+                  style={{ background: 'radial-gradient(circle at 50% 45%, rgba(217,160,74,0.08) 0%, rgba(5,10,18,0.35) 70%)' }}
                 >
-                  <div className="w-full max-w-[215px] sm:max-w-[260px] md:max-w-[330px]">
+                  <div className="w-full max-w-[210px] sm:max-w-[250px] md:max-w-[320px]">
                     <SpinWheel prizes={PRIZES} rotation={rotation} />
                   </div>
                 </div>
 
                 {/* Right: brand mark, headline, offer form */}
-                <div className="flex min-h-[280px] flex-1 flex-col items-center justify-center px-5 pb-8 pt-2 text-center sm:px-7 md:px-8 md:py-10">
+                <div className="flex flex-1 flex-col items-center justify-center px-5 pb-8 pt-2 text-center sm:px-6 md:px-8 md:py-10">
                   {/* Screen-reader live region */}
                   <div aria-live="polite" className="sr-only">
                     {liveMessage}
@@ -500,18 +501,22 @@ export default function SpinWheelPopup() {
 
                   {step === 'idle' && (
                     <>
-                      <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-3" style={{ color: CLAY }}>
+                      <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3" style={{ color: GOLD_LIGHT }}>
                         A Better Morning Awaits
                       </p>
-                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 1.2rem + 1.2vw, 2rem)', lineHeight: 1.15, color: INK, textShadow: '0 0 30px rgba(217,160,74,0.30)' }}>
+                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 1.15rem + 1.1vw, 1.9rem)', lineHeight: 1.2, color: INK }}>
                         Spin for a little something extra
                       </h2>
-                      <p id="spinwheel-desc" className="font-serif text-lg mb-6" style={{ color: BODY, lineHeight: 1.55 }}>
+                      <p id="spinwheel-desc" className="font-heading text-base mb-6 max-w-[34ch]" style={{ color: BODY, lineHeight: 1.6 }}>
                         Enter your email to reveal a coffee offer.
                       </p>
 
                       <form onSubmit={handleSpin} className="flex w-full flex-col gap-3">
-                        <label htmlFor="spinwheel-email" className="sr-only">
+                        <label
+                          htmlFor="spinwheel-email"
+                          className="self-start font-mono text-[11px] uppercase tracking-[0.16em]"
+                          style={{ color: GOLD_LIGHT }}
+                        >
                           Your email address
                         </label>
                         <input
@@ -524,11 +529,11 @@ export default function SpinWheelPopup() {
                           }}
                           onFocus={() => setEmailFocused(true)}
                           onBlur={() => setEmailFocused(false)}
-                          placeholder="Your email address"
+                          placeholder="you@example.com"
                           required
                           aria-invalid={!!emailError}
                           aria-describedby={emailError ? 'spinwheel-email-error' : undefined}
-                          className="w-full px-4 py-3 text-sm outline-none placeholder:text-[#8A7048] transition-all"
+                          className="w-full min-h-[48px] px-4 py-3 text-base outline-none placeholder:text-[#B79C74] transition-all"
                           style={{
                             background: CARD,
                             border: `1px solid ${
@@ -544,29 +549,29 @@ export default function SpinWheelPopup() {
                           }}
                         />
                         {emailError && (
-                          <p id="spinwheel-email-error" className="text-xs" style={{ color: CLAY }} role="alert">
+                          <p id="spinwheel-email-error" className="text-left text-[13px]" style={{ color: '#F6C08A' }} role="alert">
                             {emailError}
                           </p>
                         )}
 
-                        <label className="flex items-start gap-2 cursor-pointer">
+                        <label className="flex min-h-11 cursor-pointer items-start gap-2.5 py-1 text-left">
                           <input
                             type="checkbox"
                             checked={consent}
                             onChange={(e) => setConsent(e.target.checked)}
-                            className="mt-0.5"
+                            className="mt-0.5 h-4 w-4 shrink-0"
                             style={{ accentColor: CLAY }}
                           />
-                          <span className="font-heading text-xs" style={{ color: BODY, lineHeight: 1.5 }}>
+                          <span className="font-heading text-[13px]" style={{ color: BODY_STRONG, lineHeight: 1.5 }}>
                             Send me occasional Torch Republic offers and coffee updates.
                           </span>
                         </label>
 
                         <button
                           type="submit"
-                          className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          className="w-full min-h-12 px-4 py-3.5 font-mono font-bold uppercase tracking-[0.16em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
                           style={{
-                            fontSize: '11px',
+                            fontSize: '12px',
                             background: INK,
                             color: CREAM,
                             borderRadius: '6px',
@@ -578,7 +583,7 @@ export default function SpinWheelPopup() {
                         </button>
                       </form>
 
-                      <p className="font-mono text-[9px] mt-4" style={{ color: BODY, lineHeight: 1.6, opacity: 0.8 }}>
+                      <p className="mt-4 max-w-[38ch] font-heading text-xs" style={{ color: BODY_STRONG, lineHeight: 1.6 }}>
                         We'll email your prize so you don't lose it. Joining our coffee notes is optional.
                       </p>
                     </>
@@ -586,8 +591,10 @@ export default function SpinWheelPopup() {
 
                   {step === 'loading' && (
                     <div className="flex flex-col items-center justify-center py-8">
+                      <h2 id="spinwheel-title" className="sr-only">Preparing your spin</h2>
+                      <p id="spinwheel-desc" className="sr-only">We are checking your offer. This only takes a moment.</p>
                       <Loader2 className="w-6 h-6 animate-spin mb-3" style={{ color: CLAY }} />
-                      <p className="font-mono text-xs tracking-[0.15em] uppercase" style={{ color: BODY }}>
+                      <p className="font-mono text-xs tracking-[0.15em] uppercase" style={{ color: BODY_STRONG }}>
                         Preparing your spin...
                       </p>
                     </div>
@@ -595,7 +602,9 @@ export default function SpinWheelPopup() {
 
                   {step === 'spinning' && (
                     <div className="flex flex-col items-center justify-center py-8">
-                      <p className="font-mono text-xs tracking-[0.15em] uppercase animate-pulse" style={{ color: CLAY }}>
+                      <h2 id="spinwheel-title" className="sr-only">The wheel is spinning</h2>
+                      <p id="spinwheel-desc" className="sr-only">Your prize will appear here in a moment.</p>
+                      <p className="font-mono text-xs tracking-[0.15em] uppercase animate-pulse" style={{ color: GOLD_LIGHT }}>
                         Spinning...
                       </p>
                     </div>
@@ -603,13 +612,13 @@ export default function SpinWheelPopup() {
 
                   {step === 'result' && result && (
                     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="w-full">
-                      <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-2" style={{ color: CLAY }}>
+                      <p className="font-mono text-xs tracking-[0.2em] uppercase mb-2" style={{ color: GOLD_LIGHT }}>
                         You won
                       </p>
-                      <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem)', lineHeight: 1.1, color: INK }}>
+                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem)', lineHeight: 1.15, color: INK }}>
                         {result.label}
                       </h2>
-                      <p className="font-heading text-sm mb-5" style={{ color: BODY, lineHeight: 1.7 }}>
+                      <p id="spinwheel-desc" className="font-heading text-[15px] mb-5" style={{ color: BODY, lineHeight: 1.7 }}>
                         Your offer is ready for your next coffee order.
                       </p>
 
@@ -624,7 +633,7 @@ export default function SpinWheelPopup() {
                           boxShadow: '0 0 0 1px rgba(5,10,18,0.9), 0 0 28px rgba(217,160,74,0.18)',
                         }}
                       >
-                        <p className="font-mono text-[9px] tracking-[0.24em] uppercase mb-1.5" style={{ color: GOLD_LIGHT }}>
+                        <p className="font-mono text-[11px] tracking-[0.2em] uppercase mb-1.5" style={{ color: GOLD_LIGHT }}>
                           Your code
                         </p>
                         <p
@@ -636,19 +645,19 @@ export default function SpinWheelPopup() {
                       </div>
 
                       {result.minPurchase && (
-                        <p className="font-heading text-xs mb-2" style={{ color: BODY }}>
+                        <p className="font-heading text-[13px] mb-2" style={{ color: BODY_STRONG }}>
                           Minimum order of ${result.minPurchase} required.
                         </p>
-                      )}
-                      <p className="font-heading text-xs mb-4" style={{ color: BODY }}>
-                        {result.expiresText}. Enter this code at Shopify checkout. Cannot be combined with other offers.
-                      </p>
+                        )}
+                        <p className="font-heading text-[13px] mb-4" style={{ color: BODY_STRONG, lineHeight: 1.6 }}>
+                          {result.expiresText}. Enter this code at checkout. Cannot be combined with other offers.
+                        </p>
 
                       <div className="flex flex-col sm:flex-row gap-2 mb-3">
                         <button
                           onClick={copyCode}
-                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
-                          style={{ fontSize: '10px', background: CARD, color: INK, border: `1px solid ${BORDER}`, borderRadius: '999px' }}
+                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          style={{ fontSize: '12px', background: CARD, color: INK, border: `1px solid ${BORDER}`, borderRadius: '999px' }}
                         >
                           {copied ? (
                             <>
@@ -660,26 +669,26 @@ export default function SpinWheelPopup() {
                         </button>
                         <button
                           onClick={handleShopClick}
-                          className="flex-1 py-3 font-mono font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
-                          style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
+                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                         >
                           <ShoppingBag className="inline w-3.5 h-3.5 mr-1" /> Shop Coffee
                         </button>
                       </div>
 
                       {result.emailSent ? (
-                        <p className="font-mono text-[9px]" style={{ color: BODY }}>
-                          <Check className="inline w-3 h-3 mr-1" /> We emailed your code to {email}.
+                        <p className="font-heading text-xs" style={{ color: BODY_STRONG }}>
+                          <Check className="inline w-3.5 h-3.5 mr-1" /> We emailed your code to {email}.
                         </p>
                       ) : (
                         <div className="mt-2">
-                          <p className="font-heading text-xs mb-2" style={{ color: BODY }}>
+                          <p className="font-heading text-[13px] mb-1" style={{ color: BODY_STRONG }}>
                             We couldn't email your code right now.
                           </p>
                           <button
                             onClick={handleResendEmail}
                             disabled={resendStatus === 'sending'}
-                            className="font-mono text-[10px] uppercase tracking-[0.15em] underline transition-opacity hover:opacity-70 disabled:opacity-50"
+                            className="inline-flex min-h-11 items-center px-2 font-mono text-xs uppercase tracking-[0.12em] underline transition-opacity hover:opacity-70 disabled:opacity-50"
                             style={{ color: CLAY }}
                           >
                             {resendStatus === 'sending'
@@ -698,16 +707,16 @@ export default function SpinWheelPopup() {
                   {step === 'already_participated' && (
                     <div className="text-center py-6">
                       <Mail className="w-8 h-8 mx-auto mb-3" style={{ color: GOLD_LIGHT }} />
-                      <h2 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: INK }}>
+                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: '1.5rem', color: INK }}>
                         You've already spun!
                       </h2>
-                      <p className="font-heading text-sm" style={{ color: BODY, lineHeight: 1.7 }}>
+                      <p id="spinwheel-desc" className="font-heading text-[15px]" style={{ color: BODY, lineHeight: 1.7 }}>
                         Looks like you've already spun. Check your inbox for your Torch Republic offer.
                       </p>
                       <button
                         onClick={dismiss}
-                        className="mt-5 py-3 px-6 font-mono font-bold uppercase tracking-[0.15em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
-                        style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
+                        className="mt-5 min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                        style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Continue Shopping
                       </button>
@@ -717,10 +726,10 @@ export default function SpinWheelPopup() {
                   {step === 'error' && (
                     <div className="text-center py-6">
                       <AlertCircle className="w-8 h-8 mx-auto mb-3" style={{ color: CLAY }} />
-                      <h2 className="font-serif font-bold mb-3" style={{ fontSize: '1.3rem', color: INK }}>
+                      <h2 id="spinwheel-title" className="font-serif font-bold mb-3" style={{ fontSize: '1.5rem', color: INK }}>
                         Something went wrong
                       </h2>
-                      <p className="font-heading text-sm mb-5" style={{ color: BODY, lineHeight: 1.7 }}>
+                      <p id="spinwheel-desc" className="font-heading text-[15px] mb-5" style={{ color: BODY, lineHeight: 1.7 }}>
                         We couldn't process your spin. Please try again.
                       </p>
                       <button
@@ -728,8 +737,8 @@ export default function SpinWheelPopup() {
                           setStep('idle');
                           setEmailError(null);
                         }}
-                        className="py-3 px-6 font-mono font-bold uppercase tracking-[0.15em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
-                        style={{ fontSize: '10px', background: CLAY, color: CREAM, borderRadius: '999px' }}
+                        className="min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                        style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Try Again
                       </button>
