@@ -444,7 +444,7 @@ export default function SpinWheelPopup() {
             transition={{ duration: reduceMotion ? 0.15 : 0.3, ease: 'easeOut' }}
             className="relative w-full overflow-hidden flex flex-col"
             style={{
-              maxWidth: '900px',
+              maxWidth: '1060px',
               maxHeight: '90dvh',
               background: `linear-gradient(180deg, ${navyLight} 0%, ${navy} 45%, ${navyDeep} 100%)`,
               border: '1px solid rgba(217,160,74,0.5)',
@@ -481,17 +481,14 @@ export default function SpinWheelPopup() {
               <div className="flex flex-col md:flex-row">
                 {/* Left: the wheel — just over half the panel on desktop,
                     stacked above the form and sized down on narrow screens */}
-                <div
-                  className="flex flex-col items-center justify-center px-4 pb-2 pt-12 sm:px-6 sm:pt-14 md:w-[46%] md:px-8 md:py-10"
-                  style={{ background: 'radial-gradient(circle at 50% 45%, rgba(217,160,74,0.08) 0%, rgba(5,10,18,0.35) 70%)' }}
-                >
-                  <div className="w-full max-w-[210px] sm:max-w-[250px] md:max-w-[320px]">
+                <div className="flex flex-col items-center justify-center px-4 pb-2 pt-10 sm:px-6 sm:pt-12 md:w-[56%] md:px-10 md:py-14">
+                  <div className="w-full max-w-[240px] sm:max-w-[258px] md:max-w-[500px]">
                     <SpinWheel prizes={PRIZES} rotation={rotation} />
                   </div>
                 </div>
 
                 {/* Right: brand mark, headline, offer form */}
-                <div className="flex flex-1 flex-col items-center justify-center px-5 pb-8 pt-2 text-center sm:px-6 md:px-8 md:py-10">
+                <div className="flex flex-1 flex-col items-center justify-center px-5 pb-8 pt-2 text-center sm:px-6 md:px-10 md:py-14">
                   {/* Screen-reader live region */}
                   <div aria-live="polite" className="sr-only">
                     {liveMessage}

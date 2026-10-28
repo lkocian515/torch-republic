@@ -27,7 +27,16 @@ export default function PanelFrame() {
           inset: 6,
           border: `1px solid ${goldAntique}`,
           borderRadius: 14,
-          opacity: 0.45,
+          opacity: 0.55,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 12,
+          border: `1px solid ${goldAntique}`,
+          borderRadius: 10,
+          opacity: 0.32,
         }}
       />
       {CORNERS.map((c, i) => (
