@@ -185,7 +185,7 @@ export default function SpinWheel({ prizes, rotation }) {
         position: 'absolute',
         top: '50%',
         left: '50%',
-        width: '17.5%',
+        width: '20%',
         height: 'auto',
         transform: 'translate(-50%, -50%)',
         pointerEvents: 'none',

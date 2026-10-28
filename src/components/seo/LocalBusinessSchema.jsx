@@ -1,5 +1,5 @@
 import React from 'react';
-import { BRAND_LOGO_URL } from '@/lib/brandAssets';
+import { BRAND_BADGE_URL } from '@/lib/brandAssets';
 
 /**
  * LocalBusiness Schema for Torch Republic Coffee Company
@@ -13,7 +13,7 @@ export default function LocalBusinessSchema() {
     "alternateName": "Torch Republic",
     "description": "Explore thoughtfully crafted instant coffee and functional mushroom coffee made for brighter, more intentional daily rituals.",
     "url": "https://torchrepublic.com",
-    "logo": BRAND_LOGO_URL,
+    "logo": BRAND_BADGE_URL,
     "image": "https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9db0758e5_file_00000000a44881fba5d3d3bed2575d44.png",
     "telephone": "+1-361-360-1931",
     "email": "info@torchrepublic.com",

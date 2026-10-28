@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import FooterNewsletter from './FooterNewsletter';
+import { BRAND } from '@/lib/brandAssets';
 
 const THEME = {
   page: '#FBF8F2',
@@ -92,8 +93,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           {/* Column 1 — Brand */}
           <div className="lg:col-span-1">
-            <p className="font-serif font-bold tracking-wide" style={{ color: THEME.text, fontSize: '1.1rem', lineHeight: 1.2 }}>TORCH REPUBLIC</p>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1" style={{ color: THEME.clay }}>Coffee Company</p>
+            <Link to="/" aria-label="Torch Republic home" className="inline-flex min-h-[44px] items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ borderRadius: '4px' }}>
+              <img
+                src={BRAND.horizontalLight}
+                alt="Torch Republic Coffee Company"
+                width="900"
+                height="300"
+                loading="lazy"
+                className="h-auto w-[228px] object-contain sm:w-[244px] lg:w-[268px]"
+              />
+            </Link>
             <p className="mt-4 font-heading text-sm leading-7" style={{ color: THEME.secondary }}>
               Thoughtfully crafted instant coffee and mushroom coffee for smooth, convenient, and intentional daily rituals.
             </p>

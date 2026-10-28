@@ -6,7 +6,7 @@ import SearchModal from '@/components/search/SearchModal';
 import NavDropdown from './NavDropdown';
 import MobileMenu from './MobileMenu';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
-import { BRAND_MARK } from '@/lib/brandAssets';
+import { BRAND } from '@/lib/brandAssets';
 
 // Pinned to the warm light storefront theme so the brown logo wordmark and
 // dark icons stay readable regardless of OS dark-mode (the storefront is
@@ -111,15 +111,20 @@ export default function UnifiedHeader() {
               <Menu className="h-6 w-6" />
             </button>
           </div>
-          <Link to="/" className="flex min-w-0 items-center justify-center" aria-label="Torch Republic home">
-            <img
-              src={BRAND_MARK}
-              alt="Torch Republic Coffee Company"
-              width="339"
-              height="499"
-              className="h-11 w-auto object-contain sm:h-14 lg:h-16"
-              style={{ maxWidth: 'clamp(88px, 30vw, 190px)' }}
-            />
+          {/* The full lockup once the row can carry it (md+); the cup-and-flame
+              mark on phones, where the wordmark would shrink past readability.
+              <picture> means only one file is ever downloaded. */}
+          <Link to="/" className="flex min-w-0 shrink-0 items-center justify-center" aria-label="Torch Republic home">
+            <picture>
+              <source media="(min-width: 768px)" srcSet={BRAND.horizontalLight} width="900" height="300" />
+              <img
+                src={BRAND.mark}
+                alt="Torch Republic Coffee Company"
+                width="512"
+                height="512"
+                className="h-11 w-11 object-contain md:h-auto md:w-[190px] lg:w-[254px] xl:w-[274px]"
+              />
+            </picture>
           </Link>
           <nav className="hidden items-center gap-5 md:ml-6 lg:ml-10 lg:gap-7 md:flex" aria-label="Primary navigation">
             {SECTIONS.map(({ label, items, to }) => (

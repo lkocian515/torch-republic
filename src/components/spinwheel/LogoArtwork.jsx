@@ -1,4 +1,5 @@
 import React from 'react';
+import { BRAND } from '@/lib/brandAssets';
 
 /**
  * The Torch Republic brand artwork, as standalone transparent PNGs.
@@ -12,15 +13,15 @@ import React from 'react';
  */
 const ART = {
   lockup: {
-    src: '/torch-republic-lockup.png',
-    width: 1014,
-    height: 470,
+    src: BRAND.popupLockup,
+    width: 900,
+    height: 300,
     alt: 'Torch Republic Coffee Company',
   },
   mark: {
-    src: '/torch-republic-mark-gold.png',
-    width: 254,
-    height: 274,
+    src: BRAND.mark,
+    width: 512,
+    height: 512,
     alt: 'Torch Republic cup and flame',
   },
 };

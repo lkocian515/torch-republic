@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { X, ChevronDown, User, Gift, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
+import { BRAND } from '@/lib/brandAssets';
 
 const colors = {
   page: 'hsl(var(--background))',
@@ -79,7 +80,15 @@ export default function MobileMenu({ open, onClose }) {
   return (
     <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation" style={{ background: colors.page, overflowY: 'auto' }}>
       <div className="flex items-center justify-between border-b px-5 py-4" style={{ borderColor: colors.border }}>
-        <span className="font-serif text-2xl" style={{ color: colors.text }}>Menu</span>
+        <Link to="/" onClick={onClose} aria-label="Torch Republic home" className="inline-flex min-h-[44px] items-center pr-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ borderRadius: '4px' }}>
+          <img
+            src={BRAND.horizontalLight}
+            alt="Torch Republic Coffee Company"
+            width="900"
+            height="300"
+            className="h-auto w-[220px] max-w-[calc(100vw_-_116px)] object-contain"
+          />
+        </Link>
         <button onClick={onClose} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Close navigation menu" style={{ borderRadius: '4px' }}>
           <X className="h-6 w-6" />
         </button>
