@@ -36,25 +36,7 @@ import {
 } from "../../shared/shopifyStorefront.ts";
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.54";
 import { loadApprovedEditionVariantIds } from "../../shared/specialEditions.ts";
-
-// ── Explicitly rejected slugs (Matcha + retired products) ──
-const REJECTED_SLUG_PATTERNS = [
-  "matcha", "alchemist", "monk", "ascendant",
-  "ceremonial", "the-alchemist", "the-monk",
-];
-
-function isRejectedSlug(slug) {
-  if (!slug) return false;
-  const lower = String(slug).toLowerCase();
-  return REJECTED_SLUG_PATTERNS.some((p) => lower.includes(p));
-}
-
-// ── Quantity validation: positive safe integer, 1–999 ──
-function validateQuantity(qty) {
-  const n = Number(qty);
-  if (!Number.isInteger(n) || n < 1 || n > 999) return null;
-  return n;
-}
+import { buildCartLines, isRejectedSlug, validateQuantity } from "../../shared/cartLines.ts";
 
 export default async function (req) {
   try {
@@ -66,74 +48,7 @@ export default async function (req) {
     if (action === "create") {
       const editionVariantIds = await loadApprovedEditionVariantIds(base44);
       const inputLines = Array.isArray(body.lines) ? body.lines : [];
-      const cartLines = [];
-      const rejectedLines = [];
-
-      for (const line of inputLines) {
-        const slug = line.slug || line.handle;
-
-        if (isRejectedSlug(slug)) {
-          rejectedLines.push({ slug, reason: "Matcha and retired products are not available" });
-          continue;
-        }
-
-        // Coffee Duo — supports both one-time and subscription (selling plan)
-        if (slug === "coffee-duo" || slug === "torch-republic-coffee-duo") {
-          if (!DUO_ENABLED) {
-            rejectedLines.push({ slug, reason: "Coffee Duo is not yet available for purchase" });
-            continue;
-          }
-          const qty = validateQuantity(line.quantity);
-          if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
-          const cartLine = { merchandiseId: DUO_VARIANT_ID, quantity: qty };
-          // Attach selling plan only for subscription lines
-          if (line.isSubscription) {
-            const planId = line.sellingPlanId || SELLING_PLAN_IDS[slug];
-            if (!planId) {
-              rejectedLines.push({ slug, reason: "No selling plan configured for this product" });
-              continue;
-            }
-            cartLine.sellingPlanId = planId;
-          }
-          cartLines.push(cartLine);
-          continue;
-        }
-
-        const variantId = line.variantId || VARIANT_IDS[slug];
-        if (!variantId) {
-          rejectedLines.push({ slug, reason: "Unknown product — not in verified catalog" });
-          continue;
-        }
-
-        // Reject raw variant IDs that are neither in the verified catalog nor an
-        // approved + mapped special-edition variant.
-        if (
-          line.variantId &&
-          !Object.values(VARIANT_IDS).includes(line.variantId) &&
-          line.variantId !== DUO_VARIANT_ID &&
-          !editionVariantIds.has(line.variantId)
-        ) {
-          rejectedLines.push({ slug, reason: "Unverified variant ID rejected" });
-          continue;
-        }
-
-        const qty = validateQuantity(line.quantity);
-        if (!qty) { rejectedLines.push({ slug, reason: "Invalid quantity" }); continue; }
-
-        const cartLine = { merchandiseId: variantId, quantity: qty };
-
-        // Attach selling plan only for subscription lines
-        if (line.isSubscription) {
-          const planId = line.sellingPlanId || SELLING_PLAN_IDS[slug];
-          if (!planId) {
-            rejectedLines.push({ slug, reason: "No selling plan configured for this product" });
-            continue;
-          }
-          cartLine.sellingPlanId = planId;
-        }
-
-        cartLines.push(cartLine);
-      }
+      const { cartLines, rejectedLines } = buildCartLines(inputLines, editionVariantIds);
 
       // Allow empty cart creation
       const input = {};
