@@ -25,6 +25,7 @@ const SHOP_LINKS = [
 const COMPANY_LINKS = [
   ['About', '/our-story'],
   ['Our Ingredients', '/ingredients'],
+  ['Customer Spotlight', '/customer-spotlight'],
   ['Journal', '/journal'],
 ];
 

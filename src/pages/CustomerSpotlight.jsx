@@ -34,6 +34,7 @@ export default function CustomerSpotlight() {
   const submitStory = async (e) => {
     e.preventDefault();
     if (!form.permission_to_publish) { setMessage('Please confirm permission before submitting your story.'); return; }
+    if (!form.favorite_product) { setMessage('Please choose the product your story is about.'); return; }
     setSubmitting(true);
     setMessage('');
     try {
