@@ -33,6 +33,7 @@ export default function LoyaltySection({ user }) {
   const [activity, setActivity] = useState([]);
   const [loading, setLoading] = useState(true);
   const [redeeming, setRedeeming] = useState(null);
+  const [redeemError, setRedeemError] = useState(null);
   const [copied, setCopied] = useState(null);
 
   useEffect(() => {
@@ -58,14 +59,40 @@ export default function LoyaltySection({ user }) {
   const handleRedeem = async (reward) => {
     if (!record || record.points < reward.points) return;
     if (record.redeemed_codes?.includes(reward.code)) return;
+
+    // Optimistic: the balance drops and the code is marked redeemed on touch,
+    // before the request resolves. The exact pre-tap record and activity are
+    // held so a failed request can put everything back.
+    const previousRecord = record;
+    const previousActivity = activity;
+    const optimisticId = `optimistic-${reward.code}-${Date.now()}`;
+    const optimisticActivity = {
+      id: optimisticId,
+      type: 'redeem',
+      points: reward.points,
+      label: `Redeemed ${reward.label}`,
+      created_date: new Date().toISOString(),
+    };
+
+    setRedeemError(null);
     setRedeeming(reward.code);
+    setRecord({
+      ...previousRecord,
+      points: previousRecord.points - reward.points,
+      redeemed_codes: [...(previousRecord.redeemed_codes || []), reward.code],
+    });
+    setActivity(prev => [optimisticActivity, ...prev].slice(0, 10));
+
     try {
-      const { record: updated, activity: newActivity } = await redeemReward(user, record, reward);
+      const { record: updated, activity: newActivity } = await redeemReward(user, previousRecord, reward);
       setRecord(updated);
-      setActivity(prev => [newActivity, ...prev].slice(0, 10));
+      setActivity(prev => [newActivity, ...prev.filter(a => a.id !== optimisticId)].slice(0, 10));
       copyCode(reward.code);
     } catch (err) {
-      // Redemption failed — keep the current record unchanged.
+      // Roll back to the exact state before the tap.
+      setRecord(previousRecord);
+      setActivity(previousActivity);
+      setRedeemError("We couldn't complete that redemption. Your points are unchanged — please try again.");
     }
     setRedeeming(null);
   };
@@ -208,6 +235,13 @@ export default function LoyaltySection({ user }) {
         <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: SECONDARY }}>
           Redeem Torchbearer Rewards
         </p>
+        {redeemError && (
+          <div className="mb-4 px-3 py-2.5" style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}40`, borderRadius: '4px' }}>
+            <p className="font-mono text-[9px] leading-relaxed" style={{ color: CLAY }}>
+              {redeemError}
+            </p>
+          </div>
+        )}
         <div className="space-y-2.5">
           {REWARDS.map(reward => {
             const alreadyRedeemed = redeemed.includes(reward.code);

@@ -50,7 +50,10 @@ export default function Profile() {
     setIsDeleting(true);
     setDeleteError(null);
     try {
-      await base44.auth.deleteUser();
+      const response = await base44.functions.invoke('deleteAccount', {});
+      if (response?.data?.error) {
+        throw new Error(response.data.error);
+      }
       // Clear any locally-stored session/preferences before logout
       try {
         localStorage.clear();
@@ -63,10 +66,13 @@ export default function Profile() {
         window.location.href = '/';
       }
     } catch (error) {
-      console.error('Delete account error:', error);
       setIsDeleting(false);
+      // The endpoint refuses to delete anything it could not fully clean up
+      // (for example an active subscription it could not cancel), and explains
+      // why — show that reason rather than a generic failure.
       setDeleteError(
-        'We could not complete your request right now. Please try again, or contact support if the issue persists.'
+        error?.response?.data?.error ||
+          'We could not complete your request right now. Please try again, or contact support if the issue persists.'
       );
     }
   };
@@ -226,9 +232,10 @@ export default function Profile() {
                       </p>
                       <ul className="space-y-1.5 pl-1">
                         {[
+                          'Cancel every active subscription immediately — you will not be billed again',
+                          'Delete all loyalty points, redeemed codes and Torchbearer rewards history',
                           'Permanently erase your account record and login credentials',
-                          'Delete all loyalty points and Torchbearer rewards history',
-                          'Remove your saved preferences and order history',
+                          'Remove your saved preferences',
                           'Sign you out across all devices immediately',
                         ].map((item, i) => (
                           <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: '#5F574F' }}>
@@ -259,7 +266,7 @@ export default function Profile() {
                         />
                       </div>
                       <p className="font-mono text-xs tracking-wide" style={{ color: '#8A8076' }}>
-                        If you just want a break, you can simply sign out instead. Active Shopify subscriptions may need to be cancelled in your Shopify account.
+                        If you just want a break, you can simply sign out instead. Subscriptions and rewards cannot be restored once your account is deleted.
                       </p>
                     </>
                   ) : (
@@ -268,7 +275,7 @@ export default function Profile() {
                         You typed <strong style={{ color: '#2D2824' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
                       </p>
                       <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
-                        If you proceed, your account and all associated personal data will be <strong style={{ color: '#2D2824' }}>permanently deleted</strong> — we cannot recover it afterward.
+                        If you proceed, your subscriptions will be cancelled and your account, loyalty points and Torchbearer rewards will be <strong style={{ color: '#2D2824' }}>permanently deleted</strong> — we cannot recover them afterward.
                       </p>
                       {deleteError && (
                         <p className="font-mono text-xs" style={{ color: 'hsl(var(--destructive))' }}>
