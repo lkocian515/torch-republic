@@ -241,7 +241,7 @@ export default function Profile() {
                       </p>
                       <ul className="space-y-1.5 pl-1">
                         {[
-                          'Cancel every active subscription immediately — you will not be billed again',
+                          'Cancel any recurring coffee subscription immediately — you will not be billed again',
                           'Delete all loyalty points, redeemed codes and Torchbearer rewards history',
                           'Permanently erase your account record and login credentials',
                           'Remove your saved preferences',
