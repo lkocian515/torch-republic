@@ -6,6 +6,7 @@ import RitualReviewHighlights from '../ritual/RitualReviewHighlights';
 import DriftFounderStory from './DriftFounderStory';
 import DriftRitual from './DriftRitual';
 import EditionHero from '../../specialeditions/EditionHero';
+import DriftSeasonalEditions from './DriftSeasonalEditions';
 import DriftUpcomingReleases from './DriftUpcomingReleases';
 import DriftWinterDuo from './DriftWinterDuo';
 import DriftWinterDuoTeaser from './DriftWinterDuoTeaser';
@@ -27,6 +28,7 @@ export default function DriftHomepage() {
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
       <EditionHero />
       <DriftProductDiscovery />
+      <DriftSeasonalEditions />
       <DriftUpcomingReleases />
       <DriftWinterDuo />
       <RitualReviewHighlights />

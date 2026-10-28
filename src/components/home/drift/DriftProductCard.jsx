@@ -51,7 +51,7 @@ export default function DriftProductCard({
   };
 
   return (
-    <div className="pd-card flex flex-col" style={{ minWidth: 0, perspective: '1000px' }}>
+    <div className="pd-card flex h-full flex-col" style={{ minWidth: 0, perspective: '1000px' }}>
       <Link to={path} aria-label={`View ${name}`} className="block" style={{ textDecoration: 'none' }}>
         <TiltContainer
           className="pd-img-wrap tr-product-card flex items-center justify-center mb-6"
@@ -82,7 +82,7 @@ export default function DriftProductCard({
         </TiltContainer>
       </Link>
 
-      <div className="pd-info min-w-0">
+      <div className="pd-info flex flex-1 flex-col min-w-0">
         <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 0.75rem' }}>
           {eyebrow}
         </p>
@@ -125,7 +125,7 @@ export default function DriftProductCard({
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
+        <div className="mt-auto flex flex-col sm:flex-row gap-3 sm:items-center mb-3">
           {disabled ? (
             /* Nothing here can be ordered, so the card states that instead of
                offering a button that would only lead somewhere else. */

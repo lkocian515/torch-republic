@@ -21,7 +21,15 @@ export default function useSpecialEditions() {
     };
   }, []);
 
-  const all = data?.editions || [];
+  // One record per edition: a duplicated catalog entry must never render the
+  // same coffee twice in a lineup.
+  const seen = new Set();
+  const all = (data?.editions || []).filter((edition) => {
+    const key = edition.slug || edition.id;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 
   return {
     // Upcoming releases never enter the purchasable catalog. Only the
