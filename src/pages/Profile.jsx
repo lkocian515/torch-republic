@@ -5,6 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
+import { useToast } from '@/components/ui/use-toast';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';
 import {
@@ -28,6 +29,7 @@ export default function Profile() {
   });
 
   const { user, logout, isLoadingAuth } = useAuth();
+  const { toast } = useToast();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [deleteStep, setDeleteStep] = useState(1); // 1 = explainer + type-to-confirm, 2 = final confirmation
@@ -60,11 +62,18 @@ export default function Profile() {
         sessionStorage.clear();
       } catch (e) { /* ignore storage errors */ }
       setIsDeleteDialogOpen(false);
-      // Hard redirect to homepage after account is deleted + auth cleared
-      logout('/');
-      if (typeof window !== 'undefined') {
+
+      toast({
+        title: 'Account deleted',
+        description: 'Your account has been permanently deleted. You have been signed out.',
+      });
+
+      // Show the confirmation briefly, then clear the session and hard-redirect
+      // home so the auth provider re-initializes with no signed-in user.
+      window.setTimeout(() => {
+        logout(false); // clear token without the SDK's own redirect
         window.location.href = '/';
-      }
+      }, 1400);
     } catch (error) {
       setIsDeleting(false);
       // The endpoint refuses to delete anything it could not fully clean up
