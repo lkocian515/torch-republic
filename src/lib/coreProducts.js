@@ -90,7 +90,7 @@ export const CORE_PRODUCTS = [
     collectionPath: '/products/instant-classic-coffee',
     alt: 'Instant Classic Coffee — matte black 3 oz stand-up pouch with the cream Torch Republic classic label.',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f146fdba6_torch-republic-classic-coffee-1600-2.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/d17b24779_torch-republic-classic-coffee-1600-2.png',
   }),
   build({
     id: 'instant-mushroom-coffee',
@@ -118,7 +118,7 @@ export const CORE_PRODUCTS = [
     collectionPath: '/products/instant-mushroom-coffee',
     alt: 'Instant Mushroom Coffee — matte black 3 oz stand-up pouch with the navy Torch Republic mushroom label.',
     image:
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f04a19318_torch-republic-mushroom-coffee-1600-1.png',
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/35ac29b4a_torch-republic-mushroom-coffee-1600-1.png',
   }),
 ];
 

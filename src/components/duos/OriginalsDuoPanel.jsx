@@ -4,6 +4,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import useProductAvailability from '@/hooks/useProductAvailability';
 import { ORIGINALS_DUO } from '@/lib/duos';
 import { formatMoney } from '@/lib/specialEditions';
+import { FINAL_PRODUCT_IMAGE_URLS } from '@/lib/mushroomProducts';
 
 /**
  * The Originals Duo is a real Shopify product, so its price, stock and the
@@ -50,12 +51,23 @@ export default function OriginalsDuoPanel() {
 
       <ul className="mt-5 flex flex-col gap-3" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {componentPrices.map((item) => (
-          <li key={item.slug} className="flex flex-wrap items-baseline justify-between gap-2" style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '0.75rem' }}>
-            <span className="body" style={{ fontSize: '0.9375rem' }}>
-              <strong style={{ fontWeight: 600 }}>{item.qty} ×</strong> {item.name}
-              {item.size ? <span style={{ color: 'hsl(var(--muted-foreground))' }}> · {item.size}</span> : null}
-            </span>
-            <span className="body" style={{ fontSize: '0.9375rem', fontVariantNumeric: 'tabular-nums' }}>
+          <li key={item.slug} className="flex items-center justify-between gap-3" style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '0.75rem' }}>
+            <div className="flex min-w-0 items-center gap-3">
+              {FINAL_PRODUCT_IMAGE_URLS[item.slug] && (
+                <img
+                  src={FINAL_PRODUCT_IMAGE_URLS[item.slug]}
+                  alt={`${item.name} bag`}
+                  loading="lazy"
+                  className="shrink-0"
+                  style={{ width: 44, height: 44, objectFit: 'contain', background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 6 }}
+                />
+              )}
+              <span className="body" style={{ fontSize: '0.9375rem' }}>
+                <strong style={{ fontWeight: 600 }}>{item.qty} ×</strong> {item.name}
+                {item.size ? <span style={{ color: 'hsl(var(--muted-foreground))' }}> · {item.size}</span> : null}
+              </span>
+            </div>
+            <span className="body shrink-0" style={{ fontSize: '0.9375rem', fontVariantNumeric: 'tabular-nums' }}>
               {loading ? '—' : formatMoney(item.price) || '—'}
             </span>
           </li>

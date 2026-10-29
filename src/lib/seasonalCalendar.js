@@ -38,7 +38,7 @@ export const SEASONAL_WINDOWS = [
   { slug: 'cinnamon-hearth', name: 'Cinnamon Hearth', flavor: 'Cinnamon Hazelnut', start: '2027-01-01', end: '2027-02-28' },
   { slug: 'velvet-heart', name: 'Velvet Heart', flavor: 'Mocha', start: '2027-02-01', end: '2027-02-28' },
   { slug: 'lucky-clover', name: 'Lucky Clover', flavor: 'Mint', start: '2027-03-01', end: '2027-03-17' },
-  { slug: 'bunny-trail', name: 'Bunny Trail', flavor: 'Cinnamon roll', flavorPending: true, start: '2027-03-01', end: '2027-03-28' },
+  { slug: 'bunny-trail', name: 'Bunny Trail', flavor: 'Cinnamon Roll', start: '2027-03-01', end: '2027-03-28' },
   { slug: 'bluebonnet-bloom', name: 'Bluebonnet Bloom', flavor: 'French Vanilla', start: '2027-04-01', end: '2027-06-30' },
   { slug: 'coastal-caramel', name: 'Coastal Caramel', flavor: 'Caramel', start: '2027-05-01', end: '2027-07-31' },
   { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavor: 'Turtle', flavorPending: true, start: '2027-06-01', end: '2027-08-31' },
@@ -97,6 +97,18 @@ export const SEASONAL_ARTWORK = {
   'stars-stripes-spice': {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f1ffc794e_file_00000000b740820e9411b25a7e2f6c73.png',
     alt: 'Stars, Stripes & Spice Cinnamon Hazelnut seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with hazelnuts and cinnamon sticks under fireworks and a draped American flag',
+  },
+  'bunny-trail': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/752a33df1_file_000000005f4c822f80e12ccd2158aec6.png',
+    alt: 'Bunny Trail Cinnamon Roll seasonal reserve: a black coffee pouch with a cream label showing a bunny, a steaming mug and a frosted cinnamon roll in a spring field',
+  },
+  'harvest-moon-pecan': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/1e5871031_harvest-moon-pecan-product-1600.png',
+    alt: 'Harvest Moon Pecan Pecan Pie seasonal reserve: a black coffee pouch with a cream label showing a slice of pecan pie with whipped cream under a glowing harvest moon over an autumn orchard',
+  },
+  'fireside-smores': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e5cdd5116_fireside-smores-product-1600.png',
+    alt: 'Fireside S\u2019mores seasonal reserve: a black coffee pouch with a cream label showing a s\u2019more on a wooden surface beside a campfire by a lake at sunset',
   },
 };
 
