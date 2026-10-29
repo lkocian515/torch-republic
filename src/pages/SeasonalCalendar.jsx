@@ -82,9 +82,6 @@ export default function SeasonalCalendar() {
               On sale today
             </span>
           </div>
-          <p className="body mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
-            In stock in Shopify and inside their selling window — price and availability are read live.
-          </p>
 
           {loading ? (
             <p className="body mt-6" style={{ color: 'hsl(var(--muted-foreground))' }}>Checking Shopify…</p>
