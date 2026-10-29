@@ -31,7 +31,7 @@ export default function JournalHub() {
     title: 'Journal | Torch Republic Coffee Company',
     description: 'Explore research-backed guides on mushroom coffee, instant coffee, ingredients, and better daily rituals from Torch Republic.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f081b50f3_generated_image.png',
-    imageAlt: 'Torch Republic Journal cover,  coffee and mushroom coffee education.',
+    imageAlt: 'Torch Republic Journal cover: coffee and mushroom coffee guides.',
     url: '/journal',
     type: 'website',
     breadcrumbs: [
@@ -74,7 +74,7 @@ export default function JournalHub() {
           </h1>
           <p className="font-heading max-w-xl mx-auto mb-6"
             style={{ fontSize: '1.05rem', color: '#6A5A4A', lineHeight: 1.85, fontWeight: 300 }}>
-            Research-backed guides on mushroom coffee, instant coffee, and intentional daily rituals. No guaranteed health claims,  just honest education.
+            Research-backed guides on mushroom coffee, instant coffee, and intentional daily rituals. No guaranteed health claims, just honest education.
           </p>
           {/* Quick nav */}
           <div className="flex flex-wrap justify-center gap-3 mt-4">

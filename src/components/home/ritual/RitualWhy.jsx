@@ -14,7 +14,7 @@ const PILLARS = [
   {
     icon: Leaf,
     title: 'Real, clean ingredients',
-    body: 'Single-origin coffee and functional mushrooms - listed clearly, with nothing artificial.',
+    body: 'Single-origin coffee and functional mushrooms, listed clearly, with nothing artificial.',
   },
   {
     icon: Mountain,

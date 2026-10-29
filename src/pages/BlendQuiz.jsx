@@ -56,8 +56,8 @@ const QUESTIONS = [
     q: "What's your current relationship with caffeine?",
     options: [
       { label: 'The more the better', icon: Flame, weights: { classic: 3 } },
-      { label: 'Moderate - I like balance', icon: Leaf, weights: { mushroom: 2 } },
-      { label: 'Sensitive - I want less jitter', icon: Wind, weights: { mushroom: 3 } },
+      { label: 'Moderate, I like balance', icon: Leaf, weights: { mushroom: 2 } },
+      { label: 'Sensitive, I want less jitter', icon: Wind, weights: { mushroom: 3 } },
       { label: 'I prefer a slow burn', icon: Coffee, weights: { mushroom: 2 } },
       { label: 'I love the ritual more than the buzz', icon: Book, weights: { mushroom: 2, classic: 1 } },
     ],
@@ -65,11 +65,11 @@ const QUESTIONS = [
   {
     q: 'How would you describe your morning vibe right now?',
     options: [
-      { label: "Fire me up - I'm ready to execute", icon: Flame, weights: { classic: 3 } },
-      { label: 'Lock me in - I have deep work to do', icon: Brain, weights: { mushroom: 3 } },
-      { label: 'Slow it down - I need to reset', icon: Wind, weights: { mushroom: 3 } },
-      { label: 'Inspire me - I want flow and ideas', icon: Sparkles, weights: { mushroom: 2 } },
-      { label: 'Steady and smooth - no drama', icon: Clock, weights: { classic: 2, mushroom: 1 } },
+      { label: "Fire me up, I'm ready to execute", icon: Flame, weights: { classic: 3 } },
+      { label: 'Lock me in, I have deep work to do', icon: Brain, weights: { mushroom: 3 } },
+      { label: 'Slow it down, I need to reset', icon: Wind, weights: { mushroom: 3 } },
+      { label: 'Inspire me, I want flow and ideas', icon: Sparkles, weights: { mushroom: 2 } },
+      { label: 'Steady and smooth, no drama', icon: Clock, weights: { classic: 2, mushroom: 1 } },
     ],
   },
 ];
@@ -80,7 +80,7 @@ const RESULTS = {
     title: 'Your Ritual: Classic Coffee Energy',
     product: 'Instant Classic Coffee',
     slug: 'instant-classic-coffee',
-    desc: 'A traditional instant coffee with bold flavor and higher caffeine,  straightforward energy, ready in seconds with no machine.',
+    desc: 'A traditional instant coffee with bold flavor and higher caffeine, straightforward energy, ready in seconds with no machine.',
     link: '/products/instant-classic-coffee',
     compareLink: '/shop',
     accent: '#B86543',
@@ -89,7 +89,7 @@ const RESULTS = {
     title: 'Your Ritual: Focused Mushroom Coffee',
     product: 'Instant Mushroom Coffee',
     slug: 'instant-mushroom-coffee',
-    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane + Cordyceps + Reishi) for focus and work sessions,  balanced energy without the crash.',
+    desc: 'Coffee plus functional mushrooms (Lion\u2019s Mane, Cordyceps and Reishi) for focus and work sessions, balanced energy without the crash.',
     link: '/products/instant-mushroom-coffee',
     compareLink: '/shop',
     accent: '#2F4A73',
@@ -220,7 +220,7 @@ export default function FindYourRitual() {
             <motion.div key="intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="text-center">
               <div className="card-torch p-8 mb-8 text-left">
                 <p className="font-heading mb-4" style={{ color: THEME.text, lineHeight: 1.75, fontSize: '1rem' }}>
-                  This quick quiz helps you choose the Torch Republic ritual that fits your day,  a classic instant coffee for bold energy or a mushroom coffee for focus.
+                  This quick quiz helps you choose the Torch Republic ritual that fits your day: a classic instant coffee for bold energy, or a mushroom coffee for focus.
                 </p>
                 <div className="flex flex-col gap-3 pt-4" style={{ borderTop: `1px solid ${THEME.border}` }}>
                   {[

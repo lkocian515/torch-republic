@@ -23,18 +23,18 @@ const TRAVEL_PRODUCTS = [
 const TRAVEL_CARDS = ritualCards(TRAVEL_PRODUCTS);
 
 const TRAVEL_SCENARIOS = [
-  { icon: '✈️', title: 'Air Travel', tip: 'Powder format,  no liquids. One tube fits in a carry-on pocket.' },
-  { icon: '🏕️', title: 'Camping & Outdoors', tip: 'Works with any hot water source,  camp stove, jetboil, or thermos. Zero cleanup.' },
-  { icon: '🏨', title: 'Hotels', tip: 'Skip the in-room pod machine. Your tube delivers 27 cups for about $0.85 each.' },
+  { icon: '✈️', title: 'Air Travel', tip: 'Powder format, no liquids. One pouch fits in a carry-on pocket.' },
+  { icon: '🏕️', title: 'Camping & Outdoors', tip: 'Works with any hot water source: camp stove, jetboil, or thermos. Zero cleanup.' },
+  { icon: '🏨', title: 'Hotels', tip: 'Skip the in-room pod machine. Your pouch makes 27 cups for about $0.85 each.' },
   { icon: '🚗', title: 'Road Trips', tip: 'Gas station hot water, your travel mug, your own ritual anywhere on the road.' },
-  { icon: '💼', title: 'Office & Work', tip: 'Desk drawer and kitchen hot water,  better than the office pod machine, no extra gear.' },
+  { icon: '💼', title: 'Office & Work', tip: 'Desk drawer and kitchen hot water. Better than the office pod machine, with no extra gear.' },
   { icon: '🎒', title: 'Backpacking', tip: 'Weighs grams, takes no space. The only coffee format that makes sense in a pack.' },
 ];
 
 const FAQS = [
-  { q: 'What is the best coffee to travel with?', a: 'Premium instant coffee is ideal for travel,  no machine, TSA-friendly powder format, lightweight, and works with any hot water. Torch Republic tubes hold 27 servings at about $0.85 per cup.' },
-  { q: 'Can you take instant coffee through airport security?', a: 'Yes. Instant coffee powder is a dry solid and is not subject to TSA liquid restrictions. A tube can go in your carry-on.' },
-  { q: 'How many cups are in a tube?', a: 'Each tube contains 27 servings of instant coffee (25 for matcha).' },
+  { q: 'What is the best coffee to travel with?', a: 'Premium instant coffee is ideal for travel: no machine, a TSA-friendly powder format, lightweight, and it works with any hot water. Torch Republic pouches hold 27 servings at about $0.85 per cup.' },
+  { q: 'Can you take instant coffee through airport security?', a: 'Yes. Instant coffee powder is a dry solid and is not subject to TSA liquid restrictions. A pouch can go in your carry-on.' },
+  { q: 'How many cups are in a pouch?', a: 'Each pouch contains 27 servings of instant coffee.' },
 ];
 
 export default function TravelCoffeeCollection() {
@@ -42,13 +42,13 @@ export default function TravelCoffeeCollection() {
 
   useSEO({
     title: 'Best Travel Coffee | No-Machine Instant Coffee for Trips | Torch Republic',
-    description: 'The best coffee for travel,  premium instant coffee that works in hotels, camping, airports, and road trips. No machine, no pods, no cleanup. 27 servings per tube.',
+    description: 'The best coffee for travel: premium instant coffee that works in hotels, campsites, airports, and road trips. No machine, no pods, no cleanup. 27 servings per pouch.',
     url: '/shop/travel-coffee',
     type: 'website',
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Shop', url: '/shop' }, { name: 'Travel Coffee', url: '/shop/travel-coffee' }],
     faq: [
-      { question: 'What is the best coffee to travel with?', answer: 'Premium instant coffee is the ideal travel coffee,  no machine required, TSA-friendly powder format, lightweight, and works with any hot water source. Torch Republic tubes deliver 27 servings at about $0.85/cup.' },
-      { question: 'Can you take instant coffee through airport security?', answer: 'Yes. Instant coffee powder is a solid/dry material and is not subject to TSA liquid restrictions. A tube of Torch Republic instant coffee can go in your carry-on.' },
+      { question: 'What is the best coffee to travel with?', answer: 'Premium instant coffee is the ideal travel coffee: no machine required, a TSA-friendly powder format, lightweight, and it works with any hot water. Torch Republic pouches deliver 27 servings at about $0.85 a cup.' },
+      { question: 'Can you take instant coffee through airport security?', answer: 'Yes. Instant coffee powder is a solid/dry material and is not subject to TSA liquid restrictions. A pouch of Torch Republic instant coffee can go in your carry-on.' },
     ],
   });
 
@@ -63,7 +63,7 @@ export default function TravelCoffeeCollection() {
           </div>
           <h1 className="h1 mb-5">Your Ritual Doesn’t Stop When You Travel</h1>
           <p className="body-lg mb-8">
-            Instant powder. No machine. No pods. Works in any hotel room, campsite, car, or airport with nothing but hot water. TSA-friendly. 27 cups per tube.
+            Instant powder. No machine. No pods. Works in any hotel room, campsite, car, or airport with nothing but hot water. TSA-friendly. 27 cups per pouch.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link to="/shop" className="btn btn-primary">
@@ -103,7 +103,7 @@ export default function TravelCoffeeCollection() {
             <CollectionIntro
               eyebrow="The Collection"
               title="Best Travel Blends"
-              intro="Premium instant coffee that dissolves in any hot water. Pick the profile that fits how you move,  smooth and versatile, bold, or focused."
+              intro="Premium instant coffee that dissolves in any hot water. Pick the profile that fits how you move: smooth and versatile, bold, or focused."
               accent={ACCENT}
             />
           </div>
@@ -138,7 +138,7 @@ export default function TravelCoffeeCollection() {
           <div className="card-torch p-6">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>TSA Compliant</p>
             <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.75 }}>
-              Instant coffee powder is a solid,  not subject to the 3-1-1 liquids rule. Your tube travels in carry-on with no restrictions.
+              Instant coffee powder is a dry solid, not subject to the 3-1-1 liquids rule. Your pouch travels in carry-on with no restrictions.
             </p>
           </div>
           <div className="card-torch p-6">

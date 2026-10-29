@@ -96,7 +96,7 @@ export default function MushroomShop() {
       : 'Shop Instant Coffee | Torch Republic Coffee Company',
     description: activeFormat
       ? `${activeFormat.blurb} Shop Torch Republic ${activeFormat.label.toLowerCase()} coffee.`
-      : 'Shop Torch Republic Instant Classic Coffee and Instant Mushroom Coffee,  premium, convenient coffee made for simple daily rituals.',
+      : 'Shop Instant Classic Coffee and Instant Mushroom Coffee, two premium coffees made for a simple daily ritual.',
     url: '/shop',
     type: 'website',
     noindex: false,

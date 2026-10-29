@@ -108,8 +108,12 @@ export function getProductAltText(product, defaultAlt = 'Torch Republic premium 
   const name = product?.title || product?.name || product?.label || 'Product';
   const category = product?.category?.includes('mushroom') ? 'mushroom coffee' :
                    product?.category === 'classic-coffee' ? 'instant coffee' : 'product';
-  
-  return `${name} ${category} by Torch Republic`;
+
+  // Product names already say what the product is; repeat the category only
+  // when the name doesn't, so alt text never reads "Coffee ... coffee".
+  return name.toLowerCase().includes(category)
+    ? `${name} by Torch Republic`
+    : `${name}, ${category} by Torch Republic`;
 }
 
 /**

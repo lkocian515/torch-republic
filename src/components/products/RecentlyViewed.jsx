@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
 import { getProductBySlug } from '@/lib/coreProducts';
 
 // Versioned storage key — previous caches (which held stale tube imagery and
@@ -17,8 +16,11 @@ const MAX_ITEMS = 4;
  * Render <RecentlyViewed currentSlug={product.slug} /> on product pages.
  *
  * Only the product slug is persisted. Everything shown (name, price, image,
- * category, accent) is rehydrated from the canonical three-product catalog on
- * read, so a cached stale image or retired name can never be restored.
+ * category, accent) is rehydrated from the canonical product catalog on read,
+ * so a cached stale image or retired name can never be restored.
+ *
+ * Styled on the storefront's warm cream palette so it reads as part of the
+ * page rather than a dark panel.
  */
 export function addToRecentlyViewed(product) {
   try {
@@ -60,55 +62,73 @@ export default function RecentlyViewed({ currentSlug }) {
   if (items.length === 0) return null;
 
   const categoryLabel = (cat) => {
-    if (cat === 'matcha') return 'Ceremonial Matcha';
     if (cat === 'classic-coffee') return 'Instant Coffee';
+    if (cat === 'bundle') return 'Coffee Duo';
     return 'Mushroom Coffee';
   };
 
   return (
-    <section className="py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.07)' }}>
-      <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.4)' }}>
+    <section className="py-12" style={{ borderTop: '1px solid #E4D8C9' }}>
+      <p className="font-mono text-[9px] uppercase tracking-[0.4em] mb-6" style={{ color: '#5F574F' }}>
         Recently Viewed
       </p>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {items.map((item, i) => (
-          <motion.div
-            key={item.slug}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05 }}
-          >
-            <Link to={`/products/${item.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-              <div style={{ background: '#181818', border: '1px solid rgba(230,183,173,0.08)', transition: 'border-color 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.25)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}
-              >
-                {item.image && (
-                  <div style={{ aspectRatio: '1/1', background: '#111', overflow: 'hidden' }}>
-                    <img src={item.image} alt={item.alt || item.name} className="w-full h-full object-contain p-3"
-                      style={{ transition: 'transform 0.3s' }}
-                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
-                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                    />
-                  </div>
-                )}
-                <div className="p-3">
-                  <p className="font-serif font-bold text-white text-xs mb-0.5 truncate">{item.name}</p>
-                  <p className="font-mono text-[7px] tracking-[0.15em] uppercase mb-1" style={{ color: `${item.ritual?.accent}70` || 'rgba(230,183,173,0.5)' }}>
-                    {categoryLabel(item.category)}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold" style={{ color: '#E6B7AD' }}>${item.price?.toFixed(2)}</span>
-                    <div className="flex items-center gap-0.5">
-                      <Star className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
-                      <span className="font-mono text-[7px]" style={{ color: 'rgba(255,255,255,0.4)' }}>4.9</span>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {items.map((item, i) => {
+          const accent = item.ritual?.accent || '#B7653E';
+          return (
+            <motion.div
+              key={item.slug}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+            >
+              <Link to={item.path || `/products/${item.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+                <div
+                  style={{
+                    background: '#FFFDF8',
+                    border: '1px solid #E4D8C9',
+                    borderRadius: 10,
+                    overflow: 'hidden',
+                    transition: 'border-color 0.2s, box-shadow 0.2s',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = `${accent}66`;
+                    e.currentTarget.style.boxShadow = '0 4px 14px rgba(45,40,36,0.06)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#E4D8C9';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  {item.image && (
+                    <div style={{ aspectRatio: '1/1', background: '#FFFFFF', overflow: 'hidden' }}>
+                      <img
+                        src={item.image}
+                        alt={item.alt || item.name}
+                        loading="lazy"
+                        className="w-full h-full object-contain p-3"
+                        style={{ transition: 'transform 0.3s' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.04)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                      />
                     </div>
+                  )}
+                  <div className="p-3">
+                    <p className="font-serif font-bold text-xs mb-0.5 truncate" style={{ color: '#292622' }}>
+                      {item.name}
+                    </p>
+                    <p className="font-mono text-[7px] uppercase tracking-[0.15em] mb-1" style={{ color: accent }}>
+                      {categoryLabel(item.category)}
+                    </p>
+                    <span className="font-mono text-xs font-bold" style={{ color: item.ritual?.deep || '#292622' }}>
+                      ${item.price?.toFixed(2)}
+                    </span>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+              </Link>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

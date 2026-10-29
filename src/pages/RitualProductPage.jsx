@@ -301,7 +301,7 @@ function RitualPDP({ product }) {
               {/* The everyday lineup is instant and nothing else — stated on the
                   product page as well as on every card. */}
               <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.14em]" style={{ color: c.deep }}>
-                Instant only &middot; just add water
+                Instant coffee &middot; just add water
               </p>
             </div>
 
