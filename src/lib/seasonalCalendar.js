@@ -110,6 +110,10 @@ export const SEASONAL_ARTWORK = {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e5cdd5116_fireside-smores-product-1600.png',
     alt: 'Fireside S\u2019mores seasonal reserve: a black coffee pouch with a cream label showing a s\u2019more on a wooden surface beside a campfire by a lake at sunset',
   },
+  'peppermint-parade': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a71d208c4_file_00000000f3a8820aa3f8bf5795a420b6.png',
+    alt: 'Peppermint Parade Candy Cane seasonal reserve: a black coffee pouch with a cream label showing a mug topped with whipped cream, chocolate shavings and peppermint pieces beside candy canes, chocolate chunks and pine sprigs',
+  },
 };
 
 /** The label shot for a release, or null when it has none. */
