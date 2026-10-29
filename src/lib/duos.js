@@ -20,7 +20,7 @@ export const ORIGINALS_DUO = {
   prep: 'Instant — just add water.',
   contents: [
     { slug: 'instant-classic-coffee', name: 'Instant Classic Coffee', shopifyHandle: 'instant-coffee-1', qty: 1 },
-    { slug: 'instant-mushroom-coffee', name: 'Instant Coffee with Mushrooms', shopifyHandle: 'instant-coffee-with-mushroom', qty: 1 },
+    { slug: 'instant-mushroom-coffee', name: 'Instant Mushroom Coffee', shopifyHandle: 'instant-coffee-with-mushroom', qty: 1 },
   ],
 };
 
