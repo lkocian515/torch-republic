@@ -41,7 +41,7 @@ const SUPPORT_LINKS = [
   ['Shipping Policy', '/shipping-policy'],
   ['Return Policy', '/return-policy'],
   ['Account', '/profile'],
-  ['Orders & Subscriptions', '/profile'],
+  ['Orders & Subscriptions', 'https://libertees-for-all.myshopify.com/account'],
 ];
 
 const LEGAL_LINKS = [
