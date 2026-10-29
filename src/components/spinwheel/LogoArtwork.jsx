@@ -18,8 +18,10 @@ const ART = {
     height: 300,
     alt: 'Torch Republic Coffee Company',
   },
+  /* The gold cup and flame: the wheel hub sits on navy, where the espresso
+     artwork of the header mark would all but disappear. */
   mark: {
-    src: BRAND.mark,
+    src: '/brand/torch-republic-cup-flame.png',
     width: 512,
     height: 512,
     alt: 'Torch Republic cup and flame',
