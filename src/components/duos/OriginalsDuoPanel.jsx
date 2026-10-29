@@ -46,7 +46,7 @@ export default function OriginalsDuoPanel() {
       <p className="eyebrow">Year-round</p>
       <h2 id="originals-duo" className="h2 mt-2">{ORIGINALS_DUO.name}</h2>
       <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
-        One Instant Classic Coffee and one Instant Coffee with Mushrooms. {ORIGINALS_DUO.prep}
+        One Instant Classic Coffee and one Instant Mushroom Coffee. {ORIGINALS_DUO.prep}
       </p>
 
       <ul className="mt-5 flex flex-col gap-3" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
