@@ -108,18 +108,25 @@ export default function EditionHero() {
               names and baked-in lettering all survive. It runs nearly the full width
               of its column and takes the majority of a phone screen, because the
               seasonal art is the strongest thing on the page. */}
-          <picture className="mx-auto block w-full" style={{ maxWidth: 660 }}>
-            {campaign.mobile_hero_image && (
-              <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
-            )}
-            <img
-              src={campaign.desktop_hero_image}
-              alt={`${campaign.name} special edition`}
-              className="mx-auto block h-auto w-auto max-w-full max-h-[54vh] md:max-h-[min(68vh,680px)]"
-              style={{ objectFit: 'contain', width: '100%' }}
-              fetchPriority="high"
-            />
-          </picture>
+          <Link
+            to={href}
+            aria-label={`Shop the ${campaign.name}`}
+            className="mx-auto block w-full overflow-hidden"
+            style={{ maxWidth: 660 }}
+          >
+            <picture className="block w-full">
+              {campaign.mobile_hero_image && (
+                <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
+              )}
+              <img
+                src={campaign.desktop_hero_image}
+                alt={`${campaign.name} special edition`}
+                className="mx-auto block h-auto w-auto max-w-full max-h-[54vh] md:max-h-[min(68vh,680px)]"
+                style={{ objectFit: 'contain', width: '100%', transform: 'scale(1.07)' }}
+                fetchPriority="high"
+              />
+            </picture>
+          </Link>
         </div>
       </section>
     );
