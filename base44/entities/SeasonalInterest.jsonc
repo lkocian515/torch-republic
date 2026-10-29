@@ -1,0 +1,63 @@
+{
+  "name": "SeasonalInterest",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Customer email address for this notification request"
+    },
+    "product_slug": {
+      "type": "string",
+      "description": "Slug of the specific release this request is about. Empty for the club waitlist."
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Readable name of the release at the time of the request"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "notify",
+        "return_list",
+        "club_waitlist"
+      ],
+      "description": "notify = upcoming release, return_list = archived release, club_waitlist = Torchbearer Club enrollment waitlist"
+    },
+    "marketing_consent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Separate, opt-in consent to receive marketing email. Never implied by a notification request."
+    },
+    "source": {
+      "type": "string",
+      "description": "Where the request came from, e.g. seasonal-calendar, home-preview, duos"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional internal notes"
+    }
+  },
+  "required": [
+    "email",
+    "kind"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

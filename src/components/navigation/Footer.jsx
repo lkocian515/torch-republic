@@ -16,10 +16,13 @@ const THEME = {
 
 const SHOP_LINKS = [
   ['Shop All', '/shop'],
-  ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+  ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
+  ['Seasonal Calendar', '/seasonal-calendar'],
+  ['Duos', '/duos'],
+  ['Torchbearer Club', '/torchbearer-club'],
+  ['Republic Rewards', '/torchbearers-rewards'],
   ['Blend Advisor', '/blend-advisor'],
-  ['Coffee Subscriptions', '/subscription'],
 ];
 
 const COMPANY_LINKS = [

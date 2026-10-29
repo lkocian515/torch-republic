@@ -10,6 +10,8 @@ import DriftSeasonalEditions from './DriftSeasonalEditions';
 import DriftUpcomingReleases from './DriftUpcomingReleases';
 import DriftWinterDuo from './DriftWinterDuo';
 import DriftWinterDuoTeaser from './DriftWinterDuoTeaser';
+import DriftSeasonalPreview from './DriftSeasonalPreview';
+import DriftDuos from './DriftDuos';
 import { D } from './driftTheme';
 
 // Clean editorial homepage flow:
@@ -29,8 +31,10 @@ export default function DriftHomepage() {
       <EditionHero />
       <DriftProductDiscovery />
       <DriftSeasonalEditions />
+      <DriftSeasonalPreview />
       <DriftUpcomingReleases />
       <DriftWinterDuo />
+      <DriftDuos />
       <RitualReviewHighlights />
       <DriftComparison />
       <DriftRitual />

@@ -21,40 +21,28 @@ const colors = {
   coffeeText: '#FBF8F1',
 };
 
+// Five primary destinations. Account, cart and rewards stay in the action
+// group on the right so the shop never hides them behind a menu.
 const SECTIONS = [
   {
     label: 'Shop',
     items: [
       ['Shop All', '/shop'],
       ...COFFEE_FORMATS.map(({ label, path }) => [label, path]),
-      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Special Editions', '/special-editions'],
       ['Winter Duo', '/winter-duo'],
-      ['Halloween Duo', '/special-editions/collections/halloween'],
-    ],
-  },
-  {
-    label: 'Subscriptions',
-    to: '/subscription',
-    items: [
-      ['Choose Your Coffee', '/subscription#coffee-options'],
-      ['How Subscriptions Work', '/subscription'],
-    ],
-  },
-  {
-    label: 'Learn',
-    items: [
-      ['Find Your Ritual', '/quiz'],
       ['Journal', '/journal'],
       ['Coffee Recipes', '/recipes'],
-      ['Ingredients', '/ingredients'],
       ['FAQ', '/faq'],
     ],
   },
+  { label: 'Seasonal Calendar', to: '/seasonal-calendar' },
+  { label: 'Duos', to: '/duos' },
+  { label: 'Torchbearer Club', to: '/torchbearer-club' },
   {
     label: 'Our Story',
-    to: '/our-story',
     items: [
       ['Our Story', '/our-story'],
       ['Founder Story', '/founder-story'],
@@ -127,9 +115,21 @@ export default function UnifiedHeader() {
             </picture>
           </Link>
           <nav className="hidden items-center gap-5 md:ml-6 lg:ml-10 lg:gap-7 md:flex" aria-label="Primary navigation">
-            {SECTIONS.map(({ label, items, to }) => (
-              <NavDropdown key={label} label={label} items={items} to={to} active={isActive(to)} colors={colors} />
-            ))}
+            {SECTIONS.map(({ label, items, to }) =>
+              items ? (
+                <NavDropdown key={label} label={label} items={items} to={to} active={isActive(to)} colors={colors} />
+              ) : (
+                <Link
+                  key={label}
+                  to={to}
+                  className="inline-flex min-h-[44px] items-center font-heading text-sm transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{ color: isActive(to) ? colors.text : colors.secondary, borderRadius: '4px' }}
+                  aria-current={isActive(to) ? 'page' : undefined}
+                >
+                  {label}
+                </Link>
+              ),
+            )}
           </nav>
           <div className="flex min-w-0 items-center justify-end gap-1 md:gap-2">
             <button type="button" onClick={() => setSearchOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Search site" style={{ borderRadius: '4px' }}>

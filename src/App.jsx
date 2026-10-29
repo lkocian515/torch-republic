@@ -147,6 +147,9 @@ const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
 const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
 const WinterDuo = lazy(() => import('./pages/WinterDuo'));
+const SeasonalCalendar = lazy(() => import('./pages/SeasonalCalendar'));
+const Duos = lazy(() => import('./pages/Duos'));
+const TorchbearerClub = lazy(() => import('./pages/TorchbearerClub'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 const AdminReleases = lazy(() => import('./pages/AdminReleases'));
 
@@ -274,6 +277,11 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         {/* ── WINTER DUO — seasonal pairing landing page ── */}
         <Route path="/winter-duo" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WinterDuo" queryClient={queryClient}><WinterDuo /></LayoutWrapper></Suspense>} />
+
+        {/* ── SEASONAL CALENDAR, DUOS, TORCHBEARER CLUB ── */}
+        <Route path="/seasonal-calendar" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SeasonalCalendar" queryClient={queryClient}><SeasonalCalendar /></LayoutWrapper></Suspense>} />
+        <Route path="/duos" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Duos" queryClient={queryClient}><Duos /></LayoutWrapper></Suspense>} />
+        <Route path="/torchbearer-club" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearerClub" queryClient={queryClient}><TorchbearerClub /></LayoutWrapper></Suspense>} />
         {/* Legacy whole-bean URL → format-neutral page, keeping the intended selection */}
         <Route path="/products/pumpkin-spice-whole-bean-coffee" element={<Navigate to="/special-editions/pumpkin-spice?format=whole-bean" replace />} />
         <Route path="/bundle" element={<Navigate to="/build-your-ritual" replace />} />

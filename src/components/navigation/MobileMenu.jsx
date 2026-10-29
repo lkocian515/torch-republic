@@ -14,38 +14,26 @@ const colors = {
   coffee: 'hsl(var(--primary))',
 };
 
+// Same five primary destinations as the desktop header. A section with `items`
+// expands in place; a section with only `to` is a single link.
 const SECTIONS = [
   {
     label: 'Shop',
     items: [
       ['Shop All', '/shop'],
       ...COFFEE_FORMATS.map(({ label, path }) => [label, path]),
-      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
+      ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Special Editions', '/special-editions'],
-      ['Halloween Duo', '/special-editions/collections/halloween'],
-    ],
-  },
-  {
-    label: 'Build Your Ritual',
-    items: [
-      ['Build Your Ritual', '/build-your-ritual'],
-      ['Find Your Blend Quiz', '/quiz'],
-      ['Subscription', '/subscription'],
-      ['How It Works', '/how-it-works'],
-    ],
-  },
-  {
-    label: 'Learn',
-    items: [
+      ['Winter Duo', '/winter-duo'],
       ['Journal', '/journal'],
       ['Coffee Recipes', '/recipes'],
-      ['Ingredients', '/ingredients'],
       ['FAQ', '/faq'],
-      ['Research Hub', '/research'],
-      ['Reviews', '/reviews'],
     ],
   },
+  { label: 'Seasonal Calendar', to: '/seasonal-calendar' },
+  { label: 'Duos', to: '/duos' },
+  { label: 'Torchbearer Club', to: '/torchbearer-club' },
   {
     label: 'Our Story',
     items: [
@@ -54,15 +42,8 @@ const SECTIONS = [
       ['Our Team', '/about/torch-republic-team'],
       ['Customer Spotlight', '/customer-spotlight'],
       ['Contact', '/contact'],
-    ],
-  },
-  {
-    label: 'Support',
-    items: [
       ['Shipping Policy', '/shipping-policy'],
       ['Return Policy', '/return-policy'],
-      ['Privacy Policy', '/privacy-policy'],
-      ['Terms of Service', '/terms-of-service'],
     ],
   },
 ];
@@ -104,7 +85,21 @@ export default function MobileMenu({ open, onClose }) {
       </div>
 
       <nav className="px-5 py-2" aria-label="Mobile navigation sections">
-        {SECTIONS.map(({ label, items }) => {
+        {SECTIONS.map(({ label, items, to }) => {
+          if (!items) {
+            return (
+              <div key={label} style={{ borderBottom: `1px solid ${colors.border}` }}>
+                <Link
+                  to={to}
+                  onClick={onClose}
+                  className="flex min-h-[52px] w-full items-center font-heading text-base font-semibold transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{ color: colors.text, borderRadius: '4px' }}
+                >
+                  {label}
+                </Link>
+              </div>
+            );
+          }
           const isOpen = openSection === label;
           return (
             <div key={label} style={{ borderBottom: `1px solid ${colors.border}` }}>
