@@ -41,7 +41,7 @@ export const SEASONAL_WINDOWS = [
   { slug: 'bunny-trail', name: 'Bunny Trail', flavor: 'Cinnamon Roll', start: '2027-03-01', end: '2027-03-28' },
   { slug: 'bluebonnet-bloom', name: 'Bluebonnet Bloom', flavor: 'French Vanilla', start: '2027-04-01', end: '2027-06-30' },
   { slug: 'coastal-caramel', name: 'Coastal Caramel', flavor: 'Caramel', start: '2027-05-01', end: '2027-07-31' },
-  { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavor: 'Chocolate, Caramel & Hazelnut', start: '2027-06-01', end: '2027-08-31' },
+  { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavorPending: true, start: '2027-06-01', end: '2027-08-31' },
   { slug: 'stars-stripes-spice', name: 'Stars, Stripes & Spice', flavor: 'Cinnamon Hazelnut', start: '2027-07-01', end: '2027-07-31' },
   { slug: 'harvest-moon-pecan', name: 'Harvest Moon Pecan', flavor: 'Pecan Pie', start: '2027-08-01', end: '2027-11-30' },
   {
