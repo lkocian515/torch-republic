@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Gift, TrendingUp, Crown, Package, Coffee, ShoppingBag } from 'lucide-react';
+import { Check, Gift, TrendingUp, Crown } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Coffee, Clock, Edit2, CheckCircle, ArrowRight, Loader2, AlertCircle, Play, Pause, RefreshCw } from 'lucide-react';
+import { Calendar, Coffee, Clock, Edit2, Loader2, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const RG = '#E6B7AD';

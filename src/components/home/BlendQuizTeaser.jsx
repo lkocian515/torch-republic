@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sun, Brain, Moon, Sparkles, Zap, Book, Coffee, ArrowRight } from 'lucide-react';
+import { Sun, Brain, Moon, Sparkles, Zap, Coffee, ArrowRight } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

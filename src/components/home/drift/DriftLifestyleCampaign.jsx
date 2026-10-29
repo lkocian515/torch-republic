@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { D, SANS, TYPE } from './driftTheme';
+import { SANS, TYPE } from './driftTheme';
 import { useDriftMotion, isMobile } from './useDriftMotion';
 
 const CAMPAIGN_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7e1ff3dcd_usemush2.png';

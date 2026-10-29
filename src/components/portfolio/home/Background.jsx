@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, FONT_SANS, FONT_MONO } from '../portfolioTheme';
+import { P, FONT_SANS } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
 import Disclosure from './Disclosure';
 

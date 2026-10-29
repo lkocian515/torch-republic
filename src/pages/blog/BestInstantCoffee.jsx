@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import { CheckCircle, X, Star } from 'lucide-react';
+import { CheckCircle, X } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

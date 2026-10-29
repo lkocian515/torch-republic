@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Search } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { Helmet } from 'react-helmet';
 import { KNOWLEDGE_CATEGORIES, KNOWLEDGE_ARTICLES, getArticlesByCategory } from '@/lib/knowledgeArticles';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AddToCartButton from '../founders/AddToCartButton';
-import { ChevronRight, Flame, Star, Check, Lock, ShieldCheck, Truck, Zap } from 'lucide-react';
+import { ChevronRight, Flame, Star, Check, Lock, ShieldCheck, Zap } from 'lucide-react';
 
 const TRUST_ITEMS = [
   { Icon: Flame, label: 'Small Batch Roasted', sub: 'Fresh sealed pods' },

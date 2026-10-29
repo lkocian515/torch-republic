@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead, Card } from './PortfolioPrimitives';
-import { P, FONT_SANS, FONT_MONO } from './portfolioTheme';
+import { P, FONT_SANS } from './portfolioTheme';
 import { ShoppingCart, Layers, Smartphone, BarChart3 } from 'lucide-react';
 
 const CARDS = [

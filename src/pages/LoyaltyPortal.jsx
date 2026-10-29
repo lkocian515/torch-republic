@@ -4,7 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { ensureLoyaltyRecord, REWARD_TIERS, EARNING_RULES } from '@/lib/loyalty';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Gift, TrendingUp, ShoppingBag, Clock, ChevronRight, Lock, CheckCircle } from 'lucide-react';
+import { ChevronRight, Lock, CheckCircle } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { Link } from 'react-router-dom';
 

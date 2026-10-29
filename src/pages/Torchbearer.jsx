@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReserveDifferenceSection from '../components/reserve/ReserveDifferenceSection';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';

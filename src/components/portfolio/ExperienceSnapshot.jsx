@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, ShoppingCart, FileSearch, BookOpen } from 'lucide-react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead, Card } from './PortfolioPrimitives';
-import { P, FONT_SANS, FONT_MONO } from './portfolioTheme';
+import { P, FONT_SANS } from './portfolioTheme';
 
 // Short, scannable experience summary — not a full résumé. The downloadable
 // résumé (see ResumeAccess) holds the complete employment history.

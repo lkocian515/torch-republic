@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Droplet, X, Briefcase, MapPin, CheckCircle } from 'lucide-react';
 
 const RG = '#E6B7AD';
 const GOLD = '#C4A35A';

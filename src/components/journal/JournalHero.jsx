@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Coffee, Brain, Sparkles } from 'lucide-react';
+import { Coffee, Brain, Sparkles } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

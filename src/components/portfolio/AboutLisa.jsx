@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Download, Linkedin } from 'lucide-react';
+import { Download, Linkedin } from 'lucide-react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS, LINKEDIN, RESUME_URL } from './portfolioTheme';
 

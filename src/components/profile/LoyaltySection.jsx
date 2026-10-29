@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
 import { ensureLoyaltyRecord, redeemReward } from '@/lib/loyalty';
-import { Flame, Gift, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, TrendingDown, Clock } from 'lucide-react';
+import { Flame, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, TrendingDown, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const RG = '#E6B7AD';

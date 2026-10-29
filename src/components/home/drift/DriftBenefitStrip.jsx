@@ -1,5 +1,5 @@
 import React from 'react';
-import { D, MONO, TYPE } from './driftTheme';
+import { D, TYPE } from './driftTheme';
 import { useDriftMotion } from './useDriftMotion';
 
 const ITEMS = [

@@ -5,11 +5,9 @@ import { Check, ShoppingBag } from 'lucide-react';
 import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
-import NoIndex from '@/components/seo/NoIndex';
 import {
   PRICES,
   SUBSCRIPTION_PRICES,
-  SUBSCRIPTION_DISCOUNT,
   formatPrice,
 } from '@/lib/pricingConfig';
 import {

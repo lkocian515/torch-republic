@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, HelpCircle, ArrowRight } from 'lucide-react';
+import { ChevronRight, HelpCircle } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { FAQ_PAGES, TOPIC_CLUSTERS } from '@/lib/seoContent';
 

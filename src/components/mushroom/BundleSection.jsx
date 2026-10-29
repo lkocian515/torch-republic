@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HERO_IMAGE } from '@/lib/mushroomProducts';
-import { getFullBundleUrl, getAllClassicBundleUrl, getAllMatchaBundleUrl } from '@/lib/shopifyCheckout';
+import { getFullBundleUrl } from '@/lib/shopifyCheckout';
 
 export default function BundleSection() {
   return (

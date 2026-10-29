@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
-import { usePortfolioMotion, isMobile } from './usePortfolioMotion';
+import { usePortfolioMotion } from './usePortfolioMotion';
 
 const STEPS = ['Observe', 'Test', 'Identify', 'Iterate', 'Validate', 'Measure'];
 

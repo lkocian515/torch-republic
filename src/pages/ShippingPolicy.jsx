@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';

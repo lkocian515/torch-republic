@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Leaf, Zap, Brain, Heart, Sparkles } from 'lucide-react';
+import { Leaf, Zap, Brain, Heart } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

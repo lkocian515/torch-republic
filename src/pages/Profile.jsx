@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 import { LogOut, Trash2, Gift } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import useNoIndex from '@/hooks/useNoIndex';
 import { useToast } from '@/components/ui/use-toast';
 import SubscriptionManager from '@/components/profile/SubscriptionManager';
 import LoyaltySection from '@/components/profile/LoyaltySection';

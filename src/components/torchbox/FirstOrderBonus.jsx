@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Zap, Gift, Flame } from 'lucide-react';
+import { Zap, Gift } from 'lucide-react';
 
 export default function FirstOrderBonus() {
   return (

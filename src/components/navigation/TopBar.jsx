@@ -1,5 +1,5 @@
 import React from 'react';
-import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
+import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 
 export default function TopBar() {
   return (

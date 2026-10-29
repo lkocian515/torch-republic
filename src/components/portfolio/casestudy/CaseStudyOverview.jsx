@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO } from '../portfolioTheme';
+import { P, FONT_SANS, FONT_MONO } from '../portfolioTheme';
 import SectionHeading from '../home/SectionHeading';
 
 export default function CaseStudyOverview() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Snowflake, Zap, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { COFFEE_ORIGIN } from '@/lib/coffeeOrigin';
 
 export default function WhyFreezeDriedSection({ accent = '#E6B7AD' }) {

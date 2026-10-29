@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
+import { SectionWrap, Eyebrow, SectionHeading } from './PortfolioPrimitives';
 import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
 
 const PATH = ['AI Quality', 'AI Implementation', 'Intelligent Commerce', 'AI Commerce Architecture'];

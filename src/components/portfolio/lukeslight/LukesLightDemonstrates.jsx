@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
-import { P, FONT_SANS, FONT_MONO, FONT_SERIF, portfolioHomeUrl, caseStudyUrl } from '../portfolioTheme';
+import { P, FONT_SANS, FONT_MONO, portfolioHomeUrl, caseStudyUrl } from '../portfolioTheme';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../home/SectionHeading';
 

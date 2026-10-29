@@ -7,7 +7,6 @@ import { MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductByRitual } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
 import { withApprovedProductImage } from '@/lib/productImageHelpers';
-import MushroomProductCard from '../components/mushroom/ProductCard';
 import CollectionReviewCarousel from '../components/mushroom/CollectionReviewCarousel';
 import { base44 } from '@/api/base44Client';
 import CategorySEO from '@/components/seo/CategorySEO';

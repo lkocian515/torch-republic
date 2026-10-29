@@ -13,7 +13,7 @@ import {
   formatMoney,
 } from '@/lib/specialEditions';
 import { trackEvent } from '@/lib/analyticsEvents';
-import { D, TYPE, SERIF, SANS, MONO, fadeUp } from './driftTheme';
+import { D, TYPE, SERIF, MONO, fadeUp } from './driftTheme';
 
 const CLUB_PATH = '/torchbearer-club';
 const IVORY = '#F4EFE7';

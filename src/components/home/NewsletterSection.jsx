@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useMutation } from '@tanstack/react-query';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowRight, Check, Loader } from 'lucide-react';
+import { Check, Loader } from 'lucide-react';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');

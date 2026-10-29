@@ -9,7 +9,6 @@ import { PRIZES, SLICE_DEG, getSliceIndexById } from '@/lib/spinWheel/prizeConfi
 import {
   isSuppressed,
   isSessionDismissed,
-  markSessionDismissed,
   markDismissed,
   markCompleted,
 } from '@/lib/spinWheel/spinWheelStorage';

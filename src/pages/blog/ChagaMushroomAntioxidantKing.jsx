@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, Heart, Clock, Droplet, Leaf, Moon } from 'lucide-react';
+import { Shield, Heart, Droplet, Moon } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';

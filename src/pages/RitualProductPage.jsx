@@ -5,7 +5,6 @@ import { Minus, Plus, Check, ShoppingBag, Truck, ShieldCheck, RotateCcw, Chevron
 import { useCart } from '@/contexts/CartContext';
 import { getProductBySlug, otherRituals, LEGACY_SLUG_REDIRECT } from '@/lib/coreProducts';
 import RitualCard from '@/components/products/RitualCard';
-import RitualProductImage from '@/components/products/RitualProductImage';
 import RecentlyViewed, { addToRecentlyViewed } from '@/components/products/RecentlyViewed';
 import ShareButtons from '@/components/social/ShareButtons';
 import BlendDetail from '@/pages/BlendDetail';

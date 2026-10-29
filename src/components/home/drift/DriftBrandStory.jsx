@@ -1,6 +1,6 @@
 import React from 'react';
-import { D, SERIF, SANS, MONO, TYPE } from './driftTheme';
-import { useDriftMotion, isMobile } from './useDriftMotion';
+import { D, TYPE } from './driftTheme';
+import { useDriftMotion } from './useDriftMotion';
 
 const STORY_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e56a2a991_IMG_20260923_102242.png';
 

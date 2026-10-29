@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import {
-  TrendingUp, Search, MousePointer, Eye, BarChart2, Globe, Mail, Share2,
-  FileText, ShoppingBag, AlertCircle, CheckCircle, Loader2, ExternalLink,
-  ArrowUp, ArrowDown, Minus, RefreshCw, BookOpen, Map, Link2
+  TrendingUp, Search, MousePointer, Eye, BarChart2, Globe, ShoppingBag, AlertCircle, CheckCircle, Loader2, ExternalLink,
+  ArrowUp, ArrowDown, Minus, RefreshCw, BookOpen, Map
 } from 'lucide-react';
 import UTMLinkBuilder from '@/components/admin/UTMLinkBuilder';
 

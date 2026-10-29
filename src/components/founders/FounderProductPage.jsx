@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton';
 import ProductImage from '../products/ProductImage';
-import { ChevronRight, Flame, Star, Check, Coffee, Leaf, ShieldCheck, Truck, Lock } from 'lucide-react';
+import { ChevronRight, Flame, Star, Check, ShieldCheck, Truck, Lock } from 'lucide-react';
 import FoundersStarterPack from '../bundles/FoundersStarterPack';
 import ReviewsSection from '../reviews/ReviewsSection';
 import { GoldStars } from '../reviews/ReviewCard';
 import BrewGuide from './BrewGuide';
 import SubscribeToggle from '../products/SubscribeToggle';
-import FoundersCollectionProgress from './FoundersCollectionProgress';
-import BundleSection from './BundleSection';
 import NextStepBridge from './NextStepBridge';
 
 const FLAVOR_ICONS = {

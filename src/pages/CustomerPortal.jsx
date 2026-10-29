@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { useSEO } from '@/hooks/useSEO';
-import useNoIndex from '@/hooks/useNoIndex';
 
 import SubscriptionTracker from '../components/portal/SubscriptionTracker';
 import {
@@ -16,12 +15,6 @@ import {
   Clock,
   CheckCircle,
   ChevronRight,
-  RefreshCw,
-  Pause,
-  Play,
-  SkipForward,
-  Loader2,
-  AlertCircle,
   ExternalLink,
   Star,
   ArrowRight

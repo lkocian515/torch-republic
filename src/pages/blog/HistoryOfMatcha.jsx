@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Leaf, Coffee, MapPin, Book, Heart, Clock } from 'lucide-react';
+import { Leaf, MapPin, Book, Heart, Clock } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
 const RG = '#E6B7AD';

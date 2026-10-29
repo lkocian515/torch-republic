@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Heart, Coffee, Sun, Book, Laptop, Music, Mountain } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Heart, Coffee, Sun, Book, Laptop, Music, Mountain } from 'lucide-react';
 
 const RG = '#E6B7AD';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import { P, FONT_SERIF, FONT_SANS, FONT_MONO, LIVE_STORE, caseStudyUrl } from '../portfolioTheme';
+import { P, FONT_SANS, FONT_MONO, LIVE_STORE, caseStudyUrl } from '../portfolioTheme';
 import SectionHeading from './SectionHeading';
 
 const PREVIEWS = [

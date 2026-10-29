@@ -7,7 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
-import { Brain, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
+import { Brain, ArrowRight, BookOpen } from 'lucide-react';
 
 const RG = '#E6B7AD';
 const DIM = 'rgba(240,232,220,0.58)';

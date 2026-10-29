@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, X, ChevronDown, Scale } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown, Scale } from 'lucide-react';
 
 const RG = '#E6B7AD';
 const EMERALD = '#10B981';

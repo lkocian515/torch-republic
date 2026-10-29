@@ -1,8 +1,8 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
-import { P, FONT_SANS, FONT_MONO } from './portfolioTheme';
+import { P, FONT_SANS } from './portfolioTheme';
 import { ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { usePortfolioMotion, isMobile } from './usePortfolioMotion';
+import { usePortfolioMotion } from './usePortfolioMotion';
 
 const SHOTS = [
   { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d7a32fce_IMG_20260905_225433.jpg', title: 'Homepage \u2014 two-product hero and navigation', alt: 'Torch Republic homepage hero with two-product lineup and daily ritual messaging.' },

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Coffee, Leaf, Brain, Shield, Zap, Moon } from 'lucide-react';
+import { Brain, Shield, Zap, Moon } from 'lucide-react';
 import RecommendedRitualBlock from '../../components/content/RecommendedRitualBlock';
 
 const RG = '#E6B7AD';

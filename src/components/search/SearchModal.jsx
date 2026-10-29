@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, ArrowRight, Coffee, BookOpen, HelpCircle, Leaf, GitCompare } from 'lucide-react';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
-import { ALL_BLOG_TOPICS, FAQ_PAGES, INGREDIENT_PAGES, COMPARISON_PAGES } from '@/lib/seoContent';
+import { ALL_BLOG_TOPICS, INGREDIENT_PAGES } from '@/lib/seoContent';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
 import { trackEvent } from '@/lib/analyticsEvents';
 

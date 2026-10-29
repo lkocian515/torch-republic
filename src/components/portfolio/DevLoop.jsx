@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionWrap, Eyebrow, SectionHeading, Lead } from './PortfolioPrimitives';
-import { P, FONT_MONO, FONT_SANS } from './portfolioTheme';
+import { P, FONT_MONO } from './portfolioTheme';
 import { usePortfolioMotion } from './usePortfolioMotion';
 
 const STEPS = [

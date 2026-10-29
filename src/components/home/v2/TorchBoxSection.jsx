@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Check, Flame, Zap, Shield, Package, Zap as ZapIcon } from 'lucide-react';
+import { Check, Zap } from 'lucide-react';
 
 const TIERS = [
   {

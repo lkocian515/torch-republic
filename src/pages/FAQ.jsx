@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import FAQItem from '../components/mushroom/FAQItem';
 
 const FAQ_DATA = [

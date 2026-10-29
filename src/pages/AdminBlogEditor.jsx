@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { ArrowLeft, Save, Eye, Image as ImageIcon, Calendar, Clock, User, Tag, Globe } from 'lucide-react';
+import { ArrowLeft, Save, Eye, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import MobileSelectDrawer from '@/components/forms/MobileSelectDrawer';
 

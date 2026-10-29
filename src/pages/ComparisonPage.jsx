@@ -5,7 +5,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, X, ChevronRight } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { COMPARISON_PAGES, TOPIC_CLUSTERS, ALL_BLOG_TOPICS } from '@/lib/seoContent';
 

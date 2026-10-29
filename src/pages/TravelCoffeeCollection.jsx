@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowRight, CheckCircle, Plane } from 'lucide-react';
+import { ArrowRight, Plane } from 'lucide-react';
 import MushroomProductCard from '@/components/mushroom/ProductCard';
 import CollectionIntro from '@/components/collection/CollectionIntro';
 import SelectionAid from '@/components/collection/SelectionAid';

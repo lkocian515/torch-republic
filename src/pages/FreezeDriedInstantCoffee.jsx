@@ -7,7 +7,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Coffee, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 
 const RG = '#E6B7AD';
 const DIM = 'rgba(240,232,220,0.58)';

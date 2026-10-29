@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Brain, Zap, Shield, Microscope, Leaf, Clock } from 'lucide-react';
+import { Brain, Zap, Shield, Microscope } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 import RecommendedRitualBlock from '../../components/content/RecommendedRitualBlock';
 

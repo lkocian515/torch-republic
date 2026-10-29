@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { RefreshCw, ExternalLink, TrendingUp, Users, Eye, Globe } from 'lucide-react';
+import { RefreshCw, ExternalLink, TrendingUp, Eye, Globe } from 'lucide-react';
 
 const CHANNEL_COLORS = {
   'Organic Search': '#4ADE80',

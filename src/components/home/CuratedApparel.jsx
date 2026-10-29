@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
-import { Star } from 'lucide-react';
 
 const CURATED_HANDLES = [
   'unapologetic-patriot-hoodie',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Brain, Shield, Coffee, ArrowRight, Zap, Heart } from 'lucide-react';
+import { CheckCircle, Brain, Coffee, ArrowRight, Zap, Heart } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
