@@ -34,10 +34,16 @@ export default function Duos() {
   const withStatus = all.map((p) => ({ ...p, status: duoStatus(p, catalog) }));
   const featured = featuredPairing();
   const current = withStatus.find((p) => p.slug === featured?.slug && p.status === 'available') || null;
+  // The Christmas Duo always leads the upcoming list; everything else follows in
+  // calendar order.
+  const CHRISTMAS_DUO = 'peppermint-fireside';
   const previews = withStatus
     .filter((p) => p.status === 'upcoming' && p.slug !== current?.slug)
-    .sort((a, b) => a.window.start.localeCompare(b.window.start))
-    .slice(0, 2);
+    .sort((a, b) => {
+      if (a.slug === CHRISTMAS_DUO) return -1;
+      if (b.slug === CHRISTMAS_DUO) return 1;
+      return a.window.start.localeCompare(b.window.start);
+    });
   const closed = withStatus.filter((p) => p.status === 'closed');
 
   const card = (p) => (
@@ -77,8 +83,16 @@ export default function Duos() {
 
         {previews.length > 0 ? (
           <section className="mt-12" aria-labelledby="duos-soon">
-            <h2 id="duos-soon" className="h2">Coming soon</h2>
-            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">{previews.map(card)}</div>
+            <h2 id="duos-soon" className="h2">What’s coming next</h2>
+            <p className="body mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
+              Previews only. Nothing here can be ordered until its own checkout window opens.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">{previews.map(card)}</div>
+            <p className="mt-4">
+              <Link to="/duo-calendar/2027" className="body" style={{ color: 'hsl(var(--primary))', fontSize: '0.9375rem' }}>
+                See the full 2027 duo calendar
+              </Link>
+            </p>
           </section>
         ) : null}
 

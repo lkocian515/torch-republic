@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { editionState } from '@/lib/specialEditions';
-import { WINTER_DUO, winterDuoEditions } from '@/lib/winterDuo';
+import { WINTER_DUO, THANKSGIVING_BAGS, winterDuoEditions } from '@/lib/winterDuo';
+import DuoScene from '@/components/duos/DuoScene';
 
 /**
  * Winter Duo feature card inside Shop All, placed directly beneath the everyday
@@ -24,15 +25,12 @@ export default function WinterDuoShopCard() {
     <section className="px-6 pb-16 md:px-10" aria-labelledby="winter-duo-shop-heading">
       <div className="mx-auto max-w-[1240px]">
         <article className="overflow-hidden" style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: 8 }}>
-          <div style={{ aspectRatio: WINTER_DUO.imageRatio, background: '#FBF8F1' }}>
-            <img
-              src={WINTER_DUO.image}
-              alt={WINTER_DUO.imageAlt}
-              className="block h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <DuoScene
+            scene={WINTER_DUO.scene}
+            bags={THANKSGIVING_BAGS}
+            ratio={WINTER_DUO.imageRatio}
+            style={{ borderRadius: 0 }}
+          />
 
           <div className="px-6 py-8 text-center md:px-10 md:py-10">
             <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>

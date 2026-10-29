@@ -107,11 +107,17 @@ export const DUOS = [
   },
   {
     slug: 'harvest-fireside',
-    name: 'Harvest Fireside Duo',
+    name: 'Thanksgiving Fireside Duo',
     monthlyName: 'Thanksgiving Duo',
     month: 10,
     components: ['harvest-moon-pecan', 'fireside-smores'],
-    intro: 'Harvest Moon Pecan and Fireside S\u2019mores, the Thanksgiving Duo for the November table.',
+    intro: 'Harvest Moon Pecan and Fireside S\u2019mores, the Thanksgiving Duo: one for the table after the plates are cleared, and one for the quiet hours that follow.',
+    // A late-autumn Thanksgiving scene used only as a backdrop. The bags in
+    // front of it are the real package images pulled from each coffee's record.
+    scene: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d87efb73_file_000000002bb081f697b675868e830273.png',
+      alt: 'A weathered wooden harvest table at sunset with two mugs of coffee, a pecan pie and scattered autumn leaves, with a lit stone fireplace and lanterns behind.',
+    },
   },
   {
     slug: 'peppermint-fireside',
@@ -172,7 +178,7 @@ export const HOLIDAY_ENTRIES = [
   { key: 'independence-day', kicker: 'Independence Day \u00b7 Jul 4', start: '2027-07-01', end: '2027-07-04', duoSlug: 'stars-stripes-summer', campaign: 'Stars & Stripes Summer Duo', note: 'Dates are checkout windows, not arrival dates.' },
   { key: 'labor-day', kicker: 'Labor Day \u00b7 Sep 6', start: '2027-09-01', end: '2027-09-06', duoSlug: 'autumn-pecan', campaign: 'Autumn Pecan Duo' },
   { key: 'halloween', kicker: 'Halloween \u00b7 Oct 31', start: '2027-10-01', end: '2027-10-31', duoSlug: 'midnight-treats', campaign: 'Midnight Treats Duo' },
-  { key: 'thanksgiving', kicker: 'Thanksgiving \u00b7 Nov 25', start: '2027-11-01', end: '2027-11-25', duoSlug: 'harvest-fireside', campaign: 'Harvest Fireside Duo', note: 'Checkout may continue through November 30 while Harvest Moon Pecan is in stock.' },
+  { key: 'thanksgiving', kicker: 'Thanksgiving \u00b7 Nov 25', start: '2027-11-01', end: '2027-11-25', duoSlug: 'harvest-fireside', campaign: 'Thanksgiving Fireside Duo', note: 'Checkout may continue through November 30 while Harvest Moon Pecan is in stock.' },
   { key: 'christmas', kicker: 'Christmas \u00b7 Dec 25', start: '2027-12-01', end: '2027-12-25', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo' },
   { key: 'new-years-eve', kicker: 'New Year\u2019s Eve \u00b7 Dec 31', start: '2027-12-26', end: '2027-12-31', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo', note: 'Open only while both coffees remain available.' },
 ];

@@ -11,26 +11,32 @@
  * they can never be hard-coded into marketing copy here.
  */
 
+import { seasonalArtwork, seasonalEntry } from './seasonalCalendar';
+
 export const WINTER_DUO = {
   slug: 'winter-duo',
   path: '/duos/harvest-fireside',
 
-  eyebrow: 'Seasonal Pairing',
+  eyebrow: 'Thanksgiving',
   name: 'The Thanksgiving Duo',
-  flavorLine: 'Fireside S\u2019mores + Harvest Moon Pecan',
-  supporting: 'Two cozy flavored coffees for fireside evenings and cold-weather mornings.',
+  flavorLine: 'Harvest Moon Pecan + Fireside S\u2019mores',
+  supporting: 'Two coffees for a late-autumn table: one for the hosting hours, one for the quiet ones after the plates are cleared.',
   ctaLabel: 'Explore the Duo',
 
-  teaserHeading: 'Cozy season is coming',
-  teaserText: 'Meet Fireside S\u2019mores and Harvest Moon Pecan.',
+  teaserHeading: 'For the Thanksgiving table',
+  teaserText: 'Harvest Moon Pecan and Fireside S\u2019mores, poured from afternoon into the evening.',
   teaserLinkLabel: 'See the Thanksgiving Duo',
 
-  // 1774 x 887 wide landscape. Rendered at its own ratio so both pouches and
-  // their package labels stay complete at every breakpoint.
+  // A late-autumn scene, used only as a backdrop. The two package images are
+  // placed in front of it separately, so no label is ever redrawn.
+  scene: {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d87efb73_file_000000002bb081f697b675868e830273.png',
+    alt: 'A weathered wooden harvest table at sunset with two mugs of coffee, a pecan pie and scattered autumn leaves, with a lit stone fireplace and lanterns behind.',
+  },
   image:
-    'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ed4ea0239_file_00000000f010820da8ae9117e93df19c.png',
-  imageAlt: 'Torch Republic Fireside S\u2019mores and Harvest Moon Pecan coffee bags in a winter setting.',
-  imageRatio: '1774 / 887',
+    'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2d87efb73_file_000000002bb081f697b675868e830273.png',
+  imageAlt: 'A weathered wooden harvest table at sunset with two mugs of coffee, a pecan pie and scattered autumn leaves, with a lit stone fireplace and lanterns behind.',
+  imageRatio: '3 / 2',
 
   // Ad creatives for paid social only. They carry their own baked-in headline
   // and button, so they are never used as a page image.
@@ -52,6 +58,16 @@ export const WINTER_DUO = {
  * Reads the combined catalog so a coffee that goes live simply moves from the
  * upcoming list into the active one without the pair losing a member.
  */
+/**
+ * The two approved package images, in the order the pair is presented. These
+ * are the real label shots from the seasonal artwork library, never a redraw.
+ */
+export const THANKSGIVING_BAGS = ['harvest-moon-pecan', 'fireside-smores'].map((slug) => {
+  const art = seasonalArtwork(slug);
+  const name = seasonalEntry(slug)?.name || slug;
+  return { slug, name, art: art ? { src: art.src, alt: `Torch Republic ${name} coffee bag` } : null };
+});
+
 export function winterDuoEditions(editions, upcoming) {
   const bySlug = new Map([...(editions || []), ...(upcoming || [])].map((e) => [e.slug, e]));
   return WINTER_DUO.productSlugs.map((slug) => bySlug.get(slug)).filter(Boolean);

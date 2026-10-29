@@ -6,13 +6,28 @@ import { editionPath } from '@/lib/specialEditions';
  * Large, stacked bag images for the top of a duo page. Each bag links to that
  * coffee's own product page; nothing is hidden in a carousel.
  */
-export default function DuoBagGallery({ bags = [] }) {
+export default function DuoBagGallery({ bags = [], scene = null }) {
   const slots = bags.flatMap((bag) =>
     Array.from({ length: bag.qty || 1 }, (_, i) => ({ ...bag, key: `${bag.slug}-${i}` })),
   );
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div
+      className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+      style={
+        scene
+          ? {
+              backgroundImage: `url(${scene.src})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 12,
+              padding: '1rem',
+            }
+          : undefined
+      }
+      role={scene ? 'group' : undefined}
+      aria-label={scene ? scene.alt : undefined}
+    >
       {slots.map((slot) => {
         const picture = slot.art ? (
           <img
@@ -34,7 +49,13 @@ export default function DuoBagGallery({ bags = [] }) {
             ) : null}
           </div>
         );
-        const frame = { aspectRatio: '1 / 1', background: '#F5F0E8', borderRadius: 8 };
+        const frame = {
+          aspectRatio: '1 / 1',
+          background: scene ? 'rgba(251,248,242,0.95)' : '#F5F0E8',
+          borderRadius: 8,
+          overflow: 'hidden',
+          boxShadow: scene ? '0 8px 22px rgba(36,26,22,0.22)' : undefined,
+        };
         return (
           <figure key={slot.key} style={{ margin: 0 }}>
             {slot.edition ? (
