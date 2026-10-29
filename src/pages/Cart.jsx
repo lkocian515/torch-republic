@@ -135,8 +135,11 @@ export default function Cart() {
                 <div className="flex-1 min-w-0">
                   <p className="font-serif font-bold text-base mb-1 leading-snug" style={{ color: INK }}>{item.name}</p>
                   <p className="font-mono text-xs tracking-[0.1em] uppercase mb-2" style={{ color: MUTED }}>
-                    {item.category === 'classic-coffee' ? 'Classic Coffee' : item.category === 'pumpkin-spice' ? 'Whole Bean' : item.category === 'bundle' ? 'Coffee Duo' : 'Mushroom Coffee'}
-                    {item.format === 'Whole Bean' || item.category === 'pumpkin-spice' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
+                    {item.category === 'classic-coffee' ? 'Classic Coffee'
+                      : item.category === 'pumpkin-spice' ? 'Seasonal Coffee'
+                      : item.category === 'special-edition' ? 'Seasonal Special Edition'
+                      : item.category === 'bundle' ? 'Coffee Duo' : 'Mushroom Coffee'}
+                    {item.format === 'Whole Bean' || item.format === 'Ground or Whole Bean' || item.category === 'pumpkin-spice' || item.category === 'special-edition' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
                   </p>
                   {item.isSubscription && item.sellingPlanName && (
                     <p className="font-mono text-xs tracking-[0.08em] uppercase mb-2" style={{ color: '#0f766e' }}>

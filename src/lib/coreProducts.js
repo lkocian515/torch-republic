@@ -129,7 +129,7 @@ export const CORE_PRODUCTS = [
 export const SEASONAL_PRODUCTS = [
   build({
     id: 'pumpkin-spice-whole-bean-coffee',
-    name: 'Pumpkin Spice Whole Bean Coffee',
+    name: 'Pumpkin Spice Coffee',
     slug: 'pumpkin-spice-whole-bean-coffee',
     shopifyHandle: 'pumpkin-spice',
     ritualKey: 'pumpkin_spice',
@@ -138,18 +138,20 @@ export const SEASONAL_PRODUCTS = [
     price: PRICES['pumpkin-spice'],
     servings: 24,
     weight: '12 oz (340g)',
-    format: 'Whole Bean',
+    // Both grinds are live on Shopify, so the record names both. The grind is
+    // chosen on the edition page and carried into the cart line by name.
+    format: 'Ground or Whole Bean',
     caffeineLevel: 'medium',
     caffeineLabel: 'Medium',
-    positioning: 'A seasonal departure from the instant ritual. Fresh whole beans, pumpkin spice flavor, one limited fall release.',
+    positioning: 'A seasonal departure from the instant ritual. A pumpkin spice roast in ground or whole bean, one limited fall release.',
     description:
-      'Warm, spiced and made for crisp mornings. A limited-edition seasonal whole bean roast from Torch Republic. Here for spooky season only.',
+      'Warm, spiced and made for crisp mornings. A limited-edition seasonal roast from Torch Republic, ground or whole bean. Here for spooky season only.',
     flavorNotes: ['Pumpkin', 'Cinnamon', 'Nutmeg', 'Cozy Spice'],
     flavorLabel: 'Pumpkin, cinnamon, nutmeg, and cozy autumn spice',
     bestFor: 'Crisp fall mornings',
     mushrooms: null,
     functionalLabel: null,
-    prep: 'Whole bean — grind and brew',
+    prep: 'Ground or whole bean — brew your way',
     cta: 'Shop Pumpkin Spice',
     path: '/products/pumpkin-spice-whole-bean-coffee',
     collectionPath: '/products/pumpkin-spice-whole-bean-coffee',

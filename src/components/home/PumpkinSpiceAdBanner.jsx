@@ -20,8 +20,8 @@ export default function PumpkinSpiceAdBanner({
   image = DEFAULT_IMAGE,
   link = '/products/pumpkin-spice-whole-bean-coffee',
   ctaText = 'Shop the Drop',
-  alt = 'Torch Republic Pumpkin Spice Whole Bean Coffee — Halloween Special Edition',
-  ariaLabel = 'Shop Pumpkin Spice Whole Bean Coffee',
+  alt = 'Torch Republic Pumpkin Spice coffee pouch — Halloween Special Edition',
+  ariaLabel = 'Shop Pumpkin Spice coffee',
 }) {
   return (
     <section className="w-full" aria-label={ariaLabel}>

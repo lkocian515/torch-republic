@@ -94,7 +94,7 @@ export default function SeasonalFloatingCard() {
                 className="font-heading text-sm font-semibold"
                 style={{ color: '#F7EEDD', lineHeight: 1.3 }}
               >
-                Meet our limited Pumpkin Spice whole bean coffee.
+                Meet our limited Pumpkin Spice coffee, ground or whole bean.
               </p>
               <p
                 className="mt-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em]"

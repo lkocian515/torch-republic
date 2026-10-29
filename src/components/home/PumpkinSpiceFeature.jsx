@@ -67,7 +67,7 @@ export default function PumpkinSpiceFeature() {
 
               <img
                 src={PUMPKIN_SPICE_IMAGE}
-                alt="Torch Republic Pumpkin Spice Whole Bean Coffee — Halloween Special Edition"
+                alt="Torch Republic Pumpkin Spice coffee pouch — Halloween Special Edition"
                 className="h-auto w-full max-w-[380px] object-contain mx-auto"
                 style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))' }}
                 loading="lazy"
@@ -87,7 +87,7 @@ export default function PumpkinSpiceFeature() {
               className="font-mono text-[10px] uppercase tracking-[0.35em]"
               style={{ color: COLORS.terracotta }}
             >
-              Limited Seasonal Drop &middot; Whole Bean
+              Limited Seasonal Drop &middot; Ground or Whole Bean
             </p>
 
             <h2
@@ -101,7 +101,7 @@ export default function PumpkinSpiceFeature() {
             >
               Pumpkin Spice
               <br />
-              Whole Bean Coffee
+              Seasonal Roast
             </h2>
 
             <p
@@ -115,7 +115,7 @@ export default function PumpkinSpiceFeature() {
                 marginRight: 'auto',
               }}
             >
-              A limited whole-bean release for fall. Our Classic and Mushroom instant coffees remain the everyday Torch Republic lineup.
+              A limited release for fall, available ground or whole bean. Our Classic and Mushroom instant coffees remain the everyday Torch Republic lineup.
             </p>
 
             <p
@@ -130,7 +130,7 @@ export default function PumpkinSpiceFeature() {
                 className="font-mono text-[10px] uppercase tracking-[0.18em]"
                 style={{ color: `${COLORS.cream}99` }}
               >
-                12 oz &middot; Whole Bean &middot; Limited Batch
+                12 oz &middot; Ground or Whole Bean &middot; Limited Batch
               </span>
             </div>
 

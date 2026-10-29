@@ -6,11 +6,11 @@ const HERO_IMAGE =
 
 export default function SeasonalHero() {
   return (
-    <section className="relative w-full overflow-hidden" style={{ background: '#1A0F0A' }} aria-label="Pumpkin Spice Whole Bean Coffee — Halloween Special Edition">
+    <section className="relative w-full overflow-hidden" style={{ background: '#1A0F0A' }} aria-label="Pumpkin Spice coffee pouch — Halloween Special Edition">
       <Link to="/products/pumpkin-spice-whole-bean-coffee" aria-label="Shop the Pumpkin Spice drop" className="block w-full">
         <img
           src={HERO_IMAGE}
-          alt="Pumpkin Spice Whole Bean Coffee — Halloween Special Edition from Torch Republic Coffee Company. Tap to shop the drop."
+          alt="Pumpkin Spice coffee pouch, Halloween Special Edition from Torch Republic Coffee Company. Tap to shop the drop."
           className="block w-full cursor-pointer"
           fetchPriority="high"
         />
@@ -22,7 +22,7 @@ export default function SeasonalHero() {
           Pumpkin Spice, for a cozier morning.
         </h1>
         <p className="mt-3 font-heading" style={{ color: '#E6D8CA', fontSize: '1rem', lineHeight: 1.6 }}>
-          Limited seasonal release · Whole bean · 12 oz · $24.99
+          Limited seasonal release · Ground or whole bean · 12 oz · $24.99
         </p>
         <Link to="/products/pumpkin-spice-whole-bean-coffee" className="inline-flex items-center justify-center mt-5 px-7 py-3 rounded-md font-heading font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" style={{ background: '#FBF8F1', color: '#3D2418', minHeight: 48 }}>
           Shop Pumpkin Spice →

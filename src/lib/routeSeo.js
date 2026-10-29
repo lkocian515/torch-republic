@@ -66,7 +66,7 @@ const SEO_BY_PATH = {
   '/shop/travel-coffee': ['Travel Coffee Collection', 'Shop travel-friendly instant coffee and mushroom coffee that prepare quickly without machines, pods, or bulky gear.'],
   '/products/instant-classic-coffee': ['Instant Classic Coffee', 'Bold, smooth instant Arabica coffee. No pods or equipment required.'],
   '/products/instant-mushroom-coffee': ['Instant Mushroom Coffee', 'Smooth instant coffee blended with functional mushroom extracts for an easy, balanced daily ritual. 27 servings per bag.'],
-  '/products/pumpkin-spice-whole-bean-coffee': ['Pumpkin Spice Whole Bean Coffee', 'A limited-edition seasonal whole bean roast with pumpkin spice flavor. Warm, spiced, and made for crisp fall mornings. Here for spooky season only.'],
+  '/products/pumpkin-spice-whole-bean-coffee': ['Pumpkin Spice Coffee', 'A limited-edition seasonal roast with pumpkin spice flavor, in Ground or Whole Bean. Warm, spiced, and made for crisp fall mornings. Here for spooky season only.'],
 };
 
 const CANONICAL_OVERRIDES = {

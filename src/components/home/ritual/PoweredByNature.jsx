@@ -17,14 +17,14 @@ const WHOLE_BEAN_BENEFITS = [
 ];
 
 export default function PoweredByNature({ accent = '#B7653E', format }) {
-  const isWholeBean = format === 'Whole Bean';
-  const benefits = isWholeBean ? WHOLE_BEAN_BENEFITS : INSTANT_BENEFITS;
-  const eyebrow = isWholeBean ? 'A Seasonal Departure' : 'Powered by Nature';
-  const heading = isWholeBean
-    ? 'Whole beans. Warm spice. Your favorite brew.'
+  const isSeasonal = format === 'Whole Bean' || format === 'Ground or Whole Bean';
+  const benefits = isSeasonal ? WHOLE_BEAN_BENEFITS : INSTANT_BENEFITS;
+  const eyebrow = isSeasonal ? 'A Seasonal Departure' : 'Powered by Nature';
+  const heading = isSeasonal
+    ? 'Ground or whole bean. Warm spice. Your favorite brew.'
     : 'Real ingredients. No machine. No compromise.';
-  const body = isWholeBean
-    ? 'Our seasonal Pumpkin Spice coffee comes as whole beans. Grind for your preferred brewing method, then brew and enjoy.'
+  const body = isSeasonal
+    ? 'Our seasonal Pumpkin Spice coffee comes ground or whole bean, so you can brew it your way. Whole bean? Grind it fresh just before brewing.'
     : 'Every cup starts with nature — clean, natural ingredients you can trust. No pods to throw away, no machine to clean, no compromise. Just your ritual, anywhere.';
 
   return (

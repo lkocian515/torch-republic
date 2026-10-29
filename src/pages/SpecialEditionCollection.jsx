@@ -84,8 +84,8 @@ export default function SpecialEditionCollection() {
         )}
 
         <p className="body mt-10 text-readable-secondary" style={{ fontSize: '0.9375rem' }}>
-          Both coffees are ground and brewed, not instant. Our everyday Instant Classic and Instant Mushroom coffees
-          are instant only, just add water.
+          Both coffees are brewed, not instant: Pumpkin Spice comes ground or whole bean, Midnight Hex comes ground.
+          Our everyday Instant Classic and Instant Mushroom coffees are instant only, just add water.
         </p>
 
         <Link to="/special-editions" className="btn btn-ghost mt-8">
