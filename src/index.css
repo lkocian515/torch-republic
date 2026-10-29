@@ -145,9 +145,9 @@
     font-family: var(--font-heading);
     font-size: 18px;
     line-height: 1.7;
-    /* No scroll chaining or browser pull-to-refresh — the app supplies its own
-       refresh gesture and should feel native when installed. */
-    overscroll-behavior-y: none;
+    /* Scroll chaining must stay enabled on the root scroller: disabling it
+       stops the page from scrolling at all when the app is embedded (preview
+       panel, or any iframe), because the gesture can never reach the parent. */
   }
 
   p, li, span, label, input, textarea, select {
@@ -308,7 +308,6 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
-  overscroll-behavior: none;
 }
 
 /* Respect reduced motion — disable transitions and animations */
