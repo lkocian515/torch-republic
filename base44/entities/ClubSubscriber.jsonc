@@ -1,0 +1,96 @@
+{
+  "name": "ClubSubscriber",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Subscriber email address. Matched exactly when syncing from Shopify."
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Subscriber name as supplied by them or by Shopify"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "waitlist",
+        "active",
+        "paused",
+        "cancelled"
+      ],
+      "default": "waitlist",
+      "description": "Where this person stands: waitlist = asked to join before enrollment opened, active = billing on a selling plan, paused or cancelled = no longer receiving an edition."
+    },
+    "plan_title": {
+      "type": "string",
+      "description": "What they subscribe to, e.g. Classic \u00b7 every 4 weeks"
+    },
+    "edition_name": {
+      "type": "string",
+      "description": "The edition currently being sent for this subscription, once one is assigned"
+    },
+    "shopify_contract_id": {
+      "type": "string",
+      "description": "Shopify SubscriptionContract GID. The identity used to match a contract to this record, so a re-sync never duplicates a subscriber."
+    },
+    "shopify_customer_id": {
+      "type": "string",
+      "description": "Shopify Customer GID that owns the subscription contract"
+    },
+    "joined_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the subscription started, or the date the waitlist request was made"
+    },
+    "next_delivery_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Next billing or delivery date reported by Shopify"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "shopify",
+        "waitlist",
+        "manual"
+      ],
+      "default": "shopify",
+      "description": "Where this record came from"
+    },
+    "last_synced_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time this record was confirmed against Shopify"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this subscriber"
+    }
+  },
+  "required": [
+    "email"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

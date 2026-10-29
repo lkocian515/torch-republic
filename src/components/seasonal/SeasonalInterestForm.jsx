@@ -42,6 +42,17 @@ export default function SeasonalInterestForm({
         marketing_consent: consent,
         source,
       });
+
+      // A club waitlist join also belongs on the club roster; the request above
+      // stays the source of truth, so a roster miss never fails the signup.
+      if (kind === 'club_waitlist') {
+        try {
+          await base44.functions.invoke('trackClubSubscriber', { email: value, source });
+        } catch {
+          // Roster entry is a convenience; the stored request already stands.
+        }
+      }
+
       const done =
         kind === 'return_list'
           ? `We'll email ${value} if ${productName} returns.`

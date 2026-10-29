@@ -154,6 +154,7 @@ const Duos = lazy(() => import('./pages/Duos'));
 const TorchbearerClub = lazy(() => import('./pages/TorchbearerClub'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 const AdminReleases = lazy(() => import('./pages/AdminReleases'));
+const AdminClubSubscribers = lazy(() => import('./pages/AdminClubSubscribers'));
 
 const mainPageKey = 'Home';
 
@@ -320,6 +321,7 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/admin/blog" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/admin/special-editions" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminSpecialEditions" queryClient={queryClient}><AdminSpecialEditions /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/releases" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminReleases" queryClient={queryClient}><AdminReleases /></LayoutWrapper></AdminGuard></Suspense>} />
+        <Route path="/admin/club-subscribers" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><LayoutWrapper currentPageName="AdminClubSubscribers" queryClient={queryClient}><AdminClubSubscribers /></LayoutWrapper></AdminGuard></Suspense>} />
         <Route path="/admin/blog/:slug" element={<Suspense fallback={<PageLoader />}><NoIndex /><AdminGuard><AdminBlogEditor /></AdminGuard></Suspense>} />
         <Route path="/Admin" element={<Navigate to="/admin/shopify" replace />} />
         <Route path="/Dashboard" element={<Navigate to="/admin/shopify" replace />} />

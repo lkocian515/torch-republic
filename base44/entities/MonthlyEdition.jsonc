@@ -120,6 +120,11 @@
       "type": "number",
       "default": 0,
       "description": "Order among editions, lower first"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this edition"
     }
   },
   "required": [

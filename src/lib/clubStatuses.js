@@ -1,0 +1,1 @@
+export const STATUSES = ['waitlist', 'active', 'paused', 'cancelled'];
