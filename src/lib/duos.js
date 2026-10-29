@@ -1,13 +1,14 @@
 /**
- * DUOS — the permanent Originals Duo plus the 2027 seasonal pairing schedule.
+ * DUOS — the permanent Originals Duo plus the 2027 seasonal and holiday duos.
  *
- * Nothing here invents a bundle price or a bundle SKU. The Originals Duo is a
- * real Shopify product (verified live at $45.00 against $22.99 + $25.99
- * component prices), and a seasonal pairing only counts as available when both
- * of its coffees are individually purchasable in the same grind.
+ * One canonical record per unique two-bag pairing. Seasons and holidays are
+ * only labels that point at a canonical record (see SEASON_ENTRIES and
+ * HOLIDAY_ENTRIES), so a repeated pair never creates a second page, listing or
+ * cart. Nothing here invents a price, SKU, discount or delivery promise: a duo
+ * is only orderable when both coffees are individually purchasable.
  */
 
-import { SEASONAL_WINDOWS, seasonalEntry, seasonalArtwork, todayInChicago, CALENDAR_YEAR } from './seasonalCalendar';
+import { SEASONAL_WINDOWS, seasonalEntry, seasonalArtwork, todayInChicago, CALENDAR_YEAR, MONTH_NAMES } from './seasonalCalendar';
 import { optionState } from './specialEditions';
 
 export const ORIGINALS_DUO = {
@@ -24,46 +25,163 @@ export const ORIGINALS_DUO = {
   ],
 };
 
-/** Slowest-first order: January through December 2027. */
-export const DUO_SCHEDULE = [
-  // January has no duo by design: Cinnamon Hearth is featured on its own.
-  // Only pairings the owner has confirmed appear here — nothing is inferred.
+/**
+ * The eleven unique two-bag offers. `month` is the 0-based month the offer
+ * opens in. Windows are the overlap of the two coffees' own windows, trimmed
+ * by any pairing-specific start/end.
+ */
+export const DUOS = [
   {
-    slug: 'winter-hearts',
-    name: 'Winter Hearts Duo',
+    slug: 'velvet-hearts',
+    name: 'Velvet Hearts Duo',
+    monthlyName: 'Winter Hearts Duo',
     month: 1,
-    holiday: 'Valentine\u2019s',
     components: ['velvet-heart', 'cinnamon-hearth'],
+    intro: 'Velvet Heart and Cinnamon Hearth, paired for the sweetest stretch of winter.',
   },
-  { slug: 'lucky-clover-bunny-trail', month: 2, components: ['lucky-clover', 'bunny-trail'], endOverride: '2027-03-17' },
-  { slug: 'bluebonnet-bloom-two-pack', month: 3, components: ['bluebonnet-bloom', 'bluebonnet-bloom'], twoPack: true },
-  { slug: 'coastal-caramel-bluebonnet-bloom', month: 4, components: ['coastal-caramel', 'bluebonnet-bloom'] },
-  { slug: 'gulf-coast-turtle-coastal-caramel', month: 5, components: ['gulf-coast-turtle', 'coastal-caramel'] },
-  { slug: 'stars-stripes-spice-gulf-coast-turtle', month: 6, components: ['stars-stripes-spice', 'gulf-coast-turtle'] },
-  { slug: 'harvest-moon-pecan-gulf-coast-turtle', month: 7, components: ['harvest-moon-pecan', 'gulf-coast-turtle'] },
-  { slug: 'pumpkin-spice-harvest-moon-pecan', month: 8, components: ['pumpkin-spice', 'harvest-moon-pecan'] },
   {
-    slug: 'halloween',
-    name: 'Halloween Duo',
+    slug: 'lucky-bunny',
+    name: 'Lucky Bunny Duo',
+    month: 2,
+    components: ['lucky-clover', 'bunny-trail'],
+    endOverride: '2027-03-17',
+    extension: {
+      end: '2027-03-28',
+      note: 'Checkout is not extended past March 17 unless Lucky Clover stock is confirmed through March 28.',
+    },
+    intro: 'Lucky Clover and Bunny Trail, the two March releases in one pairing.',
+  },
+  {
+    slug: 'bluebonnet-refill',
+    name: 'Bluebonnet Bloom Refill Pair',
+    month: 3,
+    components: ['bluebonnet-bloom', 'bluebonnet-bloom'],
+    twoPack: true,
+    startOverride: '2027-04-01',
+    endOverride: '2027-04-30',
+    intro: 'Two bags of Bluebonnet Bloom, for the household that does not want to run out.',
+  },
+  {
+    slug: 'bluebonnet-caramel',
+    name: 'Bluebonnet & Caramel Duo',
+    month: 4,
+    components: ['bluebonnet-bloom', 'coastal-caramel'],
+    endOverride: '2027-05-31',
+    intro: 'Bluebonnet Bloom beside Coastal Caramel, a spring pairing worth sharing.',
+  },
+  {
+    slug: 'coastal-summer',
+    name: 'Coastal Summer Duo',
+    month: 5,
+    components: ['gulf-coast-turtle', 'coastal-caramel'],
+    endOverride: '2027-06-30',
+    intro: 'Gulf Coast Turtle and Coastal Caramel, two coastal-minded coffees for summer mornings.',
+  },
+  {
+    slug: 'stars-stripes-summer',
+    name: 'Stars & Stripes Summer Duo',
+    month: 6,
+    components: ['stars-stripes-spice', 'gulf-coast-turtle'],
+    intro: 'Stars, Stripes & Spice with Gulf Coast Turtle, a pairing for summer gatherings.',
+  },
+  {
+    slug: 'summer-to-harvest',
+    name: 'Summer to Harvest Duo',
+    month: 7,
+    components: ['harvest-moon-pecan', 'gulf-coast-turtle'],
+    intro: 'Harvest Moon Pecan with Gulf Coast Turtle, a late-summer bridge into fall.',
+  },
+  {
+    slug: 'autumn-pecan',
+    name: 'Autumn Pecan Duo',
+    month: 8,
+    components: ['pumpkin-spice', 'harvest-moon-pecan'],
+    intro: 'Pumpkin Spice and Harvest Moon Pecan, the two coffees of the fall season side by side.',
+  },
+  {
+    slug: 'midnight-treats',
+    name: 'Midnight Treats Duo',
     month: 9,
-    holiday: 'Halloween',
-    components: ['pumpkin-spice', 'midnight-hex'],
+    components: ['midnight-hex', 'pumpkin-spice'],
+    intro: 'Midnight Hex and Pumpkin Spice, a Halloween pairing for October.',
   },
-  { slug: 'fireside-smores-harvest-moon-pecan', month: 10, components: ['fireside-smores', 'harvest-moon-pecan'] },
   {
-    slug: 'christmas',
-    name: 'Christmas Duo',
+    slug: 'harvest-fireside',
+    name: 'Harvest Fireside Duo',
+    monthlyName: 'Thanksgiving Duo',
+    month: 10,
+    components: ['harvest-moon-pecan', 'fireside-smores'],
+    intro: 'Harvest Moon Pecan and Fireside S\u2019mores, the Thanksgiving Duo for the November table.',
+  },
+  {
+    slug: 'peppermint-fireside',
+    name: 'Peppermint Fireside Duo',
     month: 11,
-    holiday: 'Christmas',
     components: ['peppermint-parade', 'fireside-smores'],
+    intro: 'Peppermint Parade and Fireside S\u2019mores, the December pairing for the holidays and winter.',
   },
 ];
 
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const DUO_SCHEDULE = DUOS;
+
+/** Old duo URLs keep working and land on the canonical page. */
+export const DUO_ALIASES = {
+  'winter-hearts': 'velvet-hearts',
+  'lucky-clover-bunny-trail': 'lucky-bunny',
+  'bluebonnet-bloom-two-pack': 'bluebonnet-refill',
+  'coastal-caramel-bluebonnet-bloom': 'bluebonnet-caramel',
+  'gulf-coast-turtle-coastal-caramel': 'coastal-summer',
+  'stars-stripes-spice-gulf-coast-turtle': 'stars-stripes-summer',
+  'harvest-moon-pecan-gulf-coast-turtle': 'summer-to-harvest',
+  'pumpkin-spice-harvest-moon-pecan': 'autumn-pecan',
+  halloween: 'midnight-treats',
+  'fireside-smores-harvest-moon-pecan': 'harvest-fireside',
+  christmas: 'peppermint-fireside',
+  'winter-duo': 'harvest-fireside',
+};
+
+export function resolveDuoSlug(slug) {
+  return DUO_ALIASES[slug] || slug;
+}
+
+/** The four seasonal collections, in calendar order. */
+export const SEASON_ENTRIES = [
+  { key: 'winter', kicker: 'Winter', start: '2027-12-01', end: '2027-12-31', duoSlug: 'peppermint-fireside', note: 'The Christmas and New Year\u2019s campaigns link to this same pair.' },
+  { key: 'spring', kicker: 'Spring', start: '2027-04-01', end: '2027-05-31', duoSlug: 'bluebonnet-caramel', note: 'Both coffees are available together from May 1. Mother\u2019s Day and Memorial Day link to this same pair.' },
+  { key: 'summer', kicker: 'Summer', start: '2027-06-01', end: '2027-06-30', duoSlug: 'coastal-summer', note: 'Father\u2019s Day links to this same pair.' },
+  { key: 'fall', kicker: 'Fall', start: '2027-09-01', end: '2027-10-31', duoSlug: 'autumn-pecan', note: 'Labor Day links to this same pair.' },
+];
+
+/** Holiday moments, chronological. Dates refer to 2027. */
+export const HOLIDAY_ENTRIES = [
+  { key: 'valentines', kicker: 'Valentine\u2019s Day \u00b7 Feb 14', start: '2027-02-01', end: '2027-02-14', duoSlug: 'velvet-hearts', campaign: 'Velvet Hearts Duo' },
+  { key: 'st-patricks', kicker: 'St. Patrick\u2019s Day \u00b7 Mar 17', start: '2027-03-01', end: '2027-03-17', duoSlug: 'lucky-bunny', campaign: 'Lucky Bunny Duo' },
+  {
+    key: 'easter',
+    kicker: 'Easter \u00b7 Mar 28',
+    start: '2027-03-18',
+    end: '2027-03-28',
+    duoSlug: 'lucky-bunny',
+    campaign: 'Lucky Bunny Duo',
+    gated: true,
+    note: 'Checkout is open for Easter only if Lucky Clover stock is confirmed through March 28. Otherwise the duo stays closed after March 17.',
+  },
+  { key: 'mothers-day', kicker: 'Mother\u2019s Day \u00b7 May 9', start: '2027-05-01', end: '2027-05-09', duoSlug: 'bluebonnet-caramel', campaign: 'Bluebonnet & Caramel Duo' },
+  { key: 'memorial-day', kicker: 'Memorial Day \u00b7 May 31', start: '2027-05-21', end: '2027-05-31', duoSlug: 'bluebonnet-caramel', campaign: 'Bluebonnet & Caramel Duo' },
+  { key: 'fathers-day', kicker: 'Father\u2019s Day \u00b7 Jun 20', start: '2027-06-01', end: '2027-06-20', duoSlug: 'coastal-summer', campaign: 'Coastal Father\u2019s Day Duo' },
+  { key: 'independence-day', kicker: 'Independence Day \u00b7 Jul 4', start: '2027-07-01', end: '2027-07-04', duoSlug: 'stars-stripes-summer', campaign: 'Stars & Stripes Summer Duo', note: 'Dates are checkout windows, not arrival dates.' },
+  { key: 'labor-day', kicker: 'Labor Day \u00b7 Sep 6', start: '2027-09-01', end: '2027-09-06', duoSlug: 'autumn-pecan', campaign: 'Autumn Pecan Duo' },
+  { key: 'halloween', kicker: 'Halloween \u00b7 Oct 31', start: '2027-10-01', end: '2027-10-31', duoSlug: 'midnight-treats', campaign: 'Midnight Treats Duo' },
+  { key: 'thanksgiving', kicker: 'Thanksgiving \u00b7 Nov 25', start: '2027-11-01', end: '2027-11-25', duoSlug: 'harvest-fireside', campaign: 'Harvest Fireside Duo', note: 'Checkout may continue through November 30 while Harvest Moon Pecan is in stock.' },
+  { key: 'christmas', kicker: 'Christmas \u00b7 Dec 25', start: '2027-12-01', end: '2027-12-25', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo' },
+  { key: 'new-years-eve', kicker: 'New Year\u2019s Eve \u00b7 Dec 31', start: '2027-12-26', end: '2027-12-31', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo', note: 'Open only while both coffees remain available.' },
+];
+
+const MONTHS = MONTH_NAMES;
 
 /**
  * The window a pairing can actually be sold in is the overlap of its coffees'
- * windows, trimmed by any pairing-specific cutoff (March runs 1–17 only).
+ * windows, trimmed by any pairing-specific cutoff.
  */
 export function pairWindow(pairing) {
   if (!pairing) return null;
@@ -82,7 +200,6 @@ export function pairingLabel(pairing) {
   return `${names[0]} + ${names[1]}`;
 }
 
-/** A confirmed duo keeps its own name; everything else is named by its coffees. */
 export function duoName(pairing) {
   return pairing?.name || pairingLabel(pairing);
 }
@@ -92,10 +209,11 @@ export function duoPath(pairing) {
 }
 
 export function duoBySlug(slug) {
-  return DUO_SCHEDULE.find((pairing) => pairing.slug === slug) || null;
+  const resolved = resolveDuoSlug(slug);
+  return DUOS.find((pairing) => pairing.slug === resolved) || null;
 }
 
-/** Two coffees only: the flags each card and detail page needs. */
+/** Distinct coffees in a duo, with the number of bags of each. */
 export function duoContents(pairing) {
   if (!pairing) return [];
   const seen = new Set();
@@ -113,7 +231,6 @@ export function duoContents(pairing) {
     }));
 }
 
-/** The confirmed flavor descriptors, in the order the pair is presented. */
 export function duoFlavorLine(pairing) {
   return duoContents(pairing)
     .map((item) => item.flavor)
@@ -121,7 +238,6 @@ export function duoFlavorLine(pairing) {
     .join(' + ');
 }
 
-/** One factual line: the two confirmed flavors and the month they are paired for. */
 export function duoPairingNote(pairing) {
   const items = duoContents(pairing);
   const month = monthLabelFor(pairing);
@@ -137,9 +253,8 @@ export function duoPairingNote(pairing) {
 }
 
 /**
- * The approved shot for one coffee in a duo: its own edition photo first, then
- * an approved option photo (the live Halloween coffees carry theirs there), then
- * the supplier label artwork. Returns null when no approved image exists.
+ * The approved shot for one coffee: its own edition photo first, then an
+ * approved option photo, then the supplier label artwork. Null when none exists.
  */
 export function duoArtworkFor(slug, edition) {
   const entry = seasonalEntry(slug);
@@ -147,38 +262,51 @@ export function duoArtworkFor(slug, edition) {
   const optionImage = (edition?.options || []).find((option) => option.image_url)?.image_url || null;
   const src = edition?.image_url || optionImage;
   if (src) {
-    return { src, alt: `Torch Republic ${name}${entry?.flavor ? ` ${entry.flavor}` : ''} coffee bag` };
+    return { src, alt: `Torch Republic ${name} coffee bag` };
   }
   const art = seasonalArtwork(slug);
-  return art ? { src: art.src, alt: art.alt } : null;
+  return art ? { src: art.src, alt: `Torch Republic ${name} coffee bag` } : null;
 }
 
-/** Month plus the holiday it is paired for, when the owner has named one. */
+/** The coffees of a duo with their edition record and approved image. */
+export function duoBags(pairing, bySlug = new Map()) {
+  return duoContents(pairing).map((item) => {
+    const edition = bySlug.get(item.slug) || null;
+    return { ...item, name: edition?.name || item.name, edition, art: duoArtworkFor(item.slug, edition) };
+  });
+}
+
+/** Seasons and holidays that point at one canonical duo. */
+export function occasionsFor(pairing) {
+  if (!pairing) return { seasons: [], holidays: [] };
+  return {
+    seasons: SEASON_ENTRIES.filter((e) => e.duoSlug === pairing.slug),
+    holidays: HOLIDAY_ENTRIES.filter((e) => e.duoSlug === pairing.slug),
+  };
+}
+
 export function duoSeasonLabel(pairing) {
-  const month = monthLabelFor(pairing);
-  return pairing?.holiday ? `${month} \u00b7 ${pairing.holiday}` : month;
+  const { seasons, holidays } = occasionsFor(pairing);
+  const names = [
+    ...seasons.map((e) => e.kicker),
+    ...holidays.filter((e) => !e.gated).map((e) => e.kicker.split(' \u00b7 ')[0]),
+  ];
+  return [monthLabelFor(pairing), ...names].join(' \u00b7 ');
+}
+
+export function monthLabelFor(pairing) {
+  return pairing ? MONTHS[pairing.month] : '';
+}
+
+function afterCalendarYear(today) {
+  return String(today).slice(0, 10) > `${CALENDAR_YEAR}-12-31`;
 }
 
 /**
- * The pairing of the day: open one wins, otherwise the next one ahead.
- * Returns null once every 2027 pairing is behind us.
+ * A pairing is only orderable when both coffees are purchasable in the same
+ * grind, so a missing half can never be sold as a bundle.
  */
-export function featuredPairing(today = new Date().toISOString().slice(0, 10)) {
-  const yearApplies = String(today).slice(0, 4) === String(CALENDAR_YEAR);
-  const withWindows = DUO_SCHEDULE.map((pairing) => ({ ...pairing, window: pairWindow(pairing) }));
-
-  if (yearApplies) {
-    const open = withWindows.find((p) => p.window && today >= p.window.start && today <= p.window.end);
-    if (open) return open;
-  }
-  return withWindows.find((p) => p.window && p.window.start > today) || null;
-}
-
-/**
- * A seasonal pairing is only orderable when both coffees are purchasable in
- * the same grind, so a missing half can never be sold as a bundle.
- */
-export function pairAvailability(pairing, editions = [], today = new Date().toISOString().slice(0, 10)) {
+export function pairAvailability(pairing, editions = [], today = todayInChicago()) {
   if (!pairing) return { state: 'none' };
   const window = pairing.window || pairWindow(pairing);
   if (!window) return { state: 'none' };
@@ -191,28 +319,62 @@ export function pairAvailability(pairing, editions = [], today = new Date().toIS
   });
 
   const yearApplies = String(today).slice(0, 4) === String(CALENDAR_YEAR);
-  const planned = yearApplies
-    ? (today < window.start ? 'upcoming' : today > window.end ? 'past' : 'open')
-    : 'upcoming';
+  let planned = 'upcoming';
+  if (afterCalendarYear(today)) planned = 'past';
+  else if (yearApplies) planned = today < window.start ? 'upcoming' : today > window.end ? 'past' : 'open';
 
   if (planned === 'past') return { state: 'past', window, parts };
   if (planned === 'upcoming') return { state: 'upcoming', window, parts };
   if (parts.some((part) => !part.option)) return { state: 'coming_soon', window, parts };
 
-  // Same grind for both bags until combined fulfillment is tested otherwise.
-  const grinds = parts.map((part) => part.option.key);
-  if (new Set(grinds).size > 1) return { state: 'coming_soon', window, parts, reason: 'grind' };
-
   return { state: 'available', window, parts };
 }
 
-export function monthLabelFor(pairing) {
-  return pairing ? MONTHS[pairing.month] : '';
+/** Customer-facing state: available | upcoming | closed. */
+export function duoStatus(pairing, editions = [], today = todayInChicago()) {
+  const { state } = pairAvailability(pairing, editions, today);
+  if (state === 'available') return 'available';
+  if (state === 'past') return 'closed';
+  return 'upcoming';
 }
 
-/** The whole 2027 pairing calendar, for the Duos page. */
+/** Status of a season or holiday entry, against its own dates and the duo's stock. */
+export function entryStatus(entry, pairing, editions = [], today = todayInChicago()) {
+  const day = String(today).slice(0, 10);
+  if (day > `${CALENDAR_YEAR}-12-31`) return 'closed';
+  if (day < `${CALENDAR_YEAR}-01-01`) return 'upcoming';
+  if (day < entry.start) return 'upcoming';
+  if (day > entry.end) return 'closed';
+  if (entry.gated) return 'closed';
+  return duoStatus(pairing, editions, today) === 'available' ? 'available' : 'upcoming';
+}
+
+export const STATUS_LABEL = {
+  available: 'Available now',
+  upcoming: 'Coming soon',
+  closed: 'Closed',
+};
+
+/**
+ * One duo is featured at a time: the open one (the most recently opened if two
+ * overlap), otherwise the next one ahead. Null once the year is behind us.
+ */
+export function featuredPairing(today = todayInChicago()) {
+  const withWindows = DUOS.map((pairing) => ({ ...pairing, window: pairWindow(pairing) })).filter((p) => p.window);
+  const yearApplies = String(today).slice(0, 4) === String(CALENDAR_YEAR);
+
+  if (yearApplies) {
+    const open = withWindows
+      .filter((p) => today >= p.window.start && today <= p.window.end)
+      .sort((a, b) => b.window.start.localeCompare(a.window.start));
+    if (open.length) return open[0];
+  }
+  return [...withWindows].sort((a, b) => a.window.start.localeCompare(b.window.start)).find((p) => p.window.start > today) || null;
+}
+
+/** All duos with their windows, in opening order. */
 export function duoCalendar() {
-  return DUO_SCHEDULE.map((pairing) => ({
+  return DUOS.map((pairing) => ({
     ...pairing,
     window: pairWindow(pairing),
     label: duoName(pairing),
@@ -221,6 +383,13 @@ export function duoCalendar() {
     monthLabel: MONTHS[pairing.month],
     seasonLabel: duoSeasonLabel(pairing),
   }));
+}
+
+/** The duo that opens after this one, for the archived state. */
+export function nextDuoAfter(pairing) {
+  const ordered = duoCalendar().filter((p) => p.window).sort((a, b) => a.window.start.localeCompare(b.window.start));
+  const index = ordered.findIndex((p) => p.slug === pairing?.slug);
+  return index >= 0 ? ordered[index + 1] || null : null;
 }
 
 export { SEASONAL_WINDOWS };

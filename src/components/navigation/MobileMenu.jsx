@@ -25,14 +25,21 @@ const SECTIONS = [
       ['Instant Classic Coffee', '/products/instant-classic-coffee'],
       ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
       ['Special Editions', '/special-editions'],
-      ['Winter Duo', '/winter-duo'],
       ['Journal', '/journal'],
       ['Coffee Recipes', '/recipes'],
       ['FAQ', '/faq'],
     ],
   },
   { label: 'Seasonal Calendar', to: '/seasonal-calendar' },
-  { label: 'Duos', to: '/duos' },
+  {
+    label: 'Duos',
+    items: [
+      ['All Duos', '/duos'],
+      ['Seasonal Duos', '/duos/seasonal'],
+      ['Holiday Duos', '/duos/holidays'],
+      ['Duo Calendar', '/duo-calendar/2027'],
+    ],
+  },
   { label: 'Torchbearer Club', to: '/torchbearer-club' },
   {
     label: 'Our Story',

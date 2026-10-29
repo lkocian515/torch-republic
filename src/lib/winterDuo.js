@@ -13,17 +13,17 @@
 
 export const WINTER_DUO = {
   slug: 'winter-duo',
-  path: '/winter-duo',
+  path: '/duos/harvest-fireside',
 
   eyebrow: 'Seasonal Pairing',
-  name: 'The Winter Duo',
+  name: 'The Thanksgiving Duo',
   flavorLine: 'Fireside S\u2019mores + Harvest Moon Pecan',
   supporting: 'Two cozy flavored coffees for fireside evenings and cold-weather mornings.',
   ctaLabel: 'Explore the Duo',
 
   teaserHeading: 'Cozy season is coming',
   teaserText: 'Meet Fireside S\u2019mores and Harvest Moon Pecan.',
-  teaserLinkLabel: 'See the Winter Duo',
+  teaserLinkLabel: 'See the Thanksgiving Duo',
 
   // 1774 x 887 wide landscape. Rendered at its own ratio so both pouches and
   // their package labels stay complete at every breakpoint.

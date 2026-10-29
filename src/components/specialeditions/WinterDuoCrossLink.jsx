@@ -19,7 +19,7 @@ export default function WinterDuoCrossLink({ edition }) {
       style={{ borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))' }}
     >
       <span className="font-heading text-sm font-semibold" style={{ color: 'hsl(var(--foreground))' }}>
-        Part of the Winter Duo
+        Part of the Thanksgiving Duo
       </span>
       <span
         className="inline-flex items-center gap-1 font-mono uppercase"

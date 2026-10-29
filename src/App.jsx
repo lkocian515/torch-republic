@@ -148,10 +148,12 @@ const PortfolioNotFound = lazy(() => import('./pages/PortfolioNotFound.jsx'));
 const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
 const SpecialEditionCollection = lazy(() => import('./pages/SpecialEditionCollection'));
 const SpecialEditionProduct = lazy(() => import('./pages/SpecialEditionProduct'));
-const WinterDuo = lazy(() => import('./pages/WinterDuo'));
 const SeasonalCalendar = lazy(() => import('./pages/SeasonalCalendar'));
 const Duos = lazy(() => import('./pages/Duos'));
 const DuoDetail = lazy(() => import('./pages/DuoDetail'));
+const DuoSeasons = lazy(() => import('./pages/DuoSeasons'));
+const DuoHolidays = lazy(() => import('./pages/DuoHolidays'));
+const DuoCalendar = lazy(() => import('./pages/DuoCalendar'));
 const TorchbearerClub = lazy(() => import('./pages/TorchbearerClub'));
 const AdminSpecialEditions = lazy(() => import('./pages/AdminSpecialEditions'));
 const AdminReleases = lazy(() => import('./pages/AdminReleases'));
@@ -283,11 +285,15 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/special-editions/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionProduct" queryClient={queryClient}><SpecialEditionProduct /></LayoutWrapper></Suspense>} />
 
         {/* ── WINTER DUO — seasonal pairing landing page ── */}
-        <Route path="/winter-duo" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="WinterDuo" queryClient={queryClient}><WinterDuo /></LayoutWrapper></Suspense>} />
+        <Route path="/winter-duo" element={<Navigate to="/duos/harvest-fireside" replace />} />
 
         {/* ── SEASONAL CALENDAR, DUOS, TORCHBEARER CLUB ── */}
         <Route path="/seasonal-calendar" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SeasonalCalendar" queryClient={queryClient}><SeasonalCalendar /></LayoutWrapper></Suspense>} />
         <Route path="/duos" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Duos" queryClient={queryClient}><Duos /></LayoutWrapper></Suspense>} />
+        <Route path="/duos/seasonal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoSeasons" queryClient={queryClient}><DuoSeasons /></LayoutWrapper></Suspense>} />
+        <Route path="/duos/holidays" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoHolidays" queryClient={queryClient}><DuoHolidays /></LayoutWrapper></Suspense>} />
+        <Route path="/duo-calendar/2027" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoCalendar" queryClient={queryClient}><DuoCalendar /></LayoutWrapper></Suspense>} />
+        <Route path="/duo-calendar" element={<Navigate to="/duo-calendar/2027" replace />} />
         <Route path="/duos/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoDetail" queryClient={queryClient}><DuoDetail /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearer-club" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearerClub" queryClient={queryClient}><TorchbearerClub /></LayoutWrapper></Suspense>} />
         {/* Legacy whole-bean URL → format-neutral page, keeping the intended selection */}

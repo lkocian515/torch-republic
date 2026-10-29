@@ -65,8 +65,20 @@
   <url><loc>https://torchrepublic.com/duos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Seasonal pages — only the calendar and the two currently active editions are purchasable/indexable -->
-  <url><loc>https://torchrepublic.com/duos/halloween</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://torchrepublic.com/duos/christmas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/duos/seasonal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/duos/holidays</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/duo-calendar/2027</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/duos/velvet-hearts</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/lucky-bunny</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/bluebonnet-refill</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/bluebonnet-caramel</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/coastal-summer</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/stars-stripes-summer</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/summer-to-harvest</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/autumn-pecan</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/midnight-treats</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/harvest-fireside</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://torchrepublic.com/duos/peppermint-fireside</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://torchrepublic.com/seasonal-calendar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torchrepublic.com/special-editions/collections/halloween</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torchrepublic.com/special-editions/pumpkin-spice</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
