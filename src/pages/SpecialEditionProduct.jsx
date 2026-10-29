@@ -162,6 +162,7 @@ export default function SpecialEditionProduct() {
                       : `Torch Republic ${edition.name} seasonal coffee pouch`
                   }
                   onError={() => setImageFailed(true)}
+                  style={edition.slug === 'midnight-hex' ? { transform: 'scale(0.88)' } : undefined}
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center gap-2 text-center" style={{ padding: '2rem' }}>
