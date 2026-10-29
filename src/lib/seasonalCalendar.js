@@ -41,7 +41,7 @@ export const SEASONAL_WINDOWS = [
   { slug: 'bunny-trail', name: 'Bunny Trail', flavor: 'Cinnamon Roll', start: '2027-03-01', end: '2027-03-28' },
   { slug: 'bluebonnet-bloom', name: 'Bluebonnet Bloom', flavor: 'French Vanilla', start: '2027-04-01', end: '2027-06-30' },
   { slug: 'coastal-caramel', name: 'Coastal Caramel', flavor: 'Caramel', start: '2027-05-01', end: '2027-07-31' },
-  { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavor: 'Turtle', flavorPending: true, start: '2027-06-01', end: '2027-08-31' },
+  { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavor: 'Chocolate, Caramel & Hazelnut', start: '2027-06-01', end: '2027-08-31' },
   { slug: 'stars-stripes-spice', name: 'Stars, Stripes & Spice', flavor: 'Cinnamon Hazelnut', start: '2027-07-01', end: '2027-07-31' },
   { slug: 'harvest-moon-pecan', name: 'Harvest Moon Pecan', flavor: 'Pecan Pie', start: '2027-08-01', end: '2027-11-30' },
   {
@@ -91,8 +91,8 @@ export const SEASONAL_ARTWORK = {
     alt: 'Coastal Caramel seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with salted caramels on driftwood against a coastal sunset',
   },
   'gulf-coast-turtle': {
-    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2bf0172f6_file_00000000bfec81fdb72b14b71fa8a0d2.png',
-    alt: 'Gulf Coast Turtle seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with chocolate-covered pecans beside a sea turtle in turquoise water',
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a8393f15_file_000000006c5881f5bb054bc3f91d15a5.png',
+    alt: 'Gulf Coast Turtle seasonal reserve: a matte black coffee pouch with a parchment label showing a sea turtle in turquoise water beside a sandy beach at sunset, with a mug of coffee, chocolate squares, caramel and hazelnuts',
   },
   'stars-stripes-spice': {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f1ffc794e_file_00000000b740820e9411b25a7e2f6c73.png',
