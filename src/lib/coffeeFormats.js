@@ -28,9 +28,9 @@ export const getCoffeeFormat = (key) => COFFEE_FORMATS.find((f) => f.key === key
 
 // ── The lineup rule, stated the same way everywhere ─────────────────────────
 // The two everyday coffees (Instant Classic and Instant Mushroom) are instant
-// and nothing else. Every special edition is brewed coffee sold ground. These
-// strings keep that distinction identical on every surface that shows a
-// product, so a customer never has to guess how it is prepared.
+// and nothing else. Special editions are brewed coffee and may be sold
+// ground, whole bean, or in both formats, depending on the release. These
+// strings keep that distinction clear wherever a product appears.
 export const INSTANT_LINEUP = {
   label: 'Instant only',
   note: 'Just add water. No grinder, no brewer, no pods.',
