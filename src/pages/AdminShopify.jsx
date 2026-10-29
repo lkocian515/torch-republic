@@ -263,7 +263,7 @@ export default function AdminShopify() {
         </div>
 
         {/* Admin Quick Nav */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
           <div className="p-5" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.15)', borderRadius: '6px' }}>
             <div className="flex items-center gap-2 mb-3">
               <Users size={16} style={{ color: RG }} />
@@ -310,6 +310,19 @@ export default function AdminShopify() {
             </p>
             <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: '#10B981' }}>
               View Report →
+            </span>
+          </Link>
+
+          <Link to="/admin/club-subscribers" className="block p-5 transition-all hover:opacity-80" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '6px', textDecoration: 'none' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Users size={16} style={{ color: RG }} />
+              <h3 className="font-serif font-bold text-white">Club Subscribers</h3>
+            </div>
+            <p className="font-heading text-xs mb-4" style={{ color: 'rgba(240,230,215,0.45)' }}>
+              The Monthly Special Edition Club roster: waitlist joins, member status, and plan.
+            </p>
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: RG }}>
+              Open Roster →
             </span>
           </Link>
         </div>
