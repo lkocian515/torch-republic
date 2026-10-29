@@ -64,8 +64,7 @@ export default function SpecialEditions() {
         )}
 
         <p className="body mt-12 text-readable-secondary" style={{ fontSize: '0.9375rem' }}>
-          Every special edition is ground coffee, brewed rather than instant. Our everyday Instant Classic and
-          Instant Mushroom coffees are instant only, just add water.
+          Special editions are brewed coffee, not instant. Available formats vary by release: Pumpkin Spice is offered Ground or Whole Bean, while Midnight Hex is Ground. Our everyday Instant Classic and Instant Mushroom coffees are instant only, just add water.
         </p>
 
         <UpcomingReleases />
