@@ -1,17 +1,25 @@
 import React from 'react';
 import { Progress } from "@/components/ui/progress";
 import { Truck, PartyPopper } from 'lucide-react';
-import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
+import { FREE_SHIPPING_THRESHOLD, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
+/**
+ * Shipping progress on the cart.
+ *
+ * The threshold comes from the same configured policy checkout uses. When the
+ * order is a few cents short the bar stays quiet rather than turning the gap
+ * into a nudge — the shortfall is never advertised as a penny chase.
+ */
 export default function FreeShippingProgress({ subtotal }) {
-  const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
-  const progress = Math.min((subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
-
   if (subtotal === null || typeof subtotal === 'undefined') {
     return null;
   }
 
+  const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+  const progress = Math.min((subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
   const isUnlocked = remaining <= 0;
+  // Under a dollar short: state the policy, don't count pennies.
+  const isNearlyThere = !isUnlocked && remaining < 1;
 
   return (
     <div className="w-full bg-card rounded-lg p-4 my-4 transition-all" style={{ border: isUnlocked ? '1px solid #10B981' : '1px solid hsl(var(--border))' }}>
@@ -21,7 +29,9 @@ export default function FreeShippingProgress({ subtotal }) {
           <span>
             {isUnlocked
               ? "You've unlocked free shipping!"
-              : <>You're <span className="font-bold">${remaining.toFixed(2)}</span> away from free shipping!</>}
+              : isNearlyThere
+              ? `Free standard shipping on orders of ${FREE_SHIPPING_THRESHOLD_DISPLAY}.`
+              : <>You're <span className="font-bold">${Math.ceil(remaining)}</span> away from free shipping!</>}
           </span>
         </div>
       </div>

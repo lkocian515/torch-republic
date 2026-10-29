@@ -34,8 +34,25 @@ export default async function (req) {
       safePage(base44.entities.EditionCampaign.filter({ archived: false }, { sort: "display_order", limit: 50 })),
     ]);
 
+    // A slug is unique on the storefront, so a repeated record must never
+    // appear twice on a page. Keep the newest record for each slug.
+    const newestFirst = (a, b) => String(b.created_date || '').localeCompare(String(a.created_date || ''));
+    const bySlug = (list) => {
+      const seen = new Set();
+      return [...list].sort(newestFirst).filter((record) => {
+        const key = record.slug;
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    };
+    const uniqueEditions = bySlug(editions).sort(
+      (a, b) => (a.display_order || 0) - (b.display_order || 0),
+    );
+    const uniqueCampaigns = bySlug(campaigns);
+
     const variantIds = [];
-    for (const edition of editions) {
+    for (const edition of uniqueEditions) {
       for (const option of edition.options || []) {
         if (option?.shopify_variant_id) variantIds.push(option.shopify_variant_id);
       }
@@ -43,7 +60,7 @@ export default async function (req) {
 
     const shopify = await fetchEditionVariantData(variantIds);
 
-    const editionsOut = editions.map((edition) => ({
+    const editionsOut = uniqueEditions.map((edition) => ({
       ...edition,
       options: (edition.options || []).map((option) => {
         if (!option?.shopify_variant_id) return { ...option, shopify: null };
@@ -55,7 +72,7 @@ export default async function (req) {
 
     return Response.json({
       editions: editionsOut,
-      campaigns,
+      campaigns: uniqueCampaigns,
       shopifyError: shopify.ok ? null : shopify.error,
       fetchedAt: new Date().toISOString(),
     });

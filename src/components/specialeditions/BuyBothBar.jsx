@@ -23,15 +23,14 @@ export default function BuyBothBar({ editions = [], selections = {}, onAdd }) {
     : null;
   const combined = combinedValue === null ? null : formatMoney(combinedValue, currency);
 
-  // The real requirement is stated before checkout: whether this exact total
-  // reaches the store's advertised free-shipping threshold, or how far short it
-  // falls. No shipping promise is made beyond that.
+  // The store's configured policy, stated plainly. No "just short" nudge and no
+  // shipping promise: the exact amount needs an address, so checkout decides it.
   const shippingNote =
     combinedValue === null
       ? null
       : combinedValue >= FREE_SHIPPING_THRESHOLD
       ? `This total qualifies for free standard shipping (${FREE_SHIPPING_THRESHOLD_DISPLAY}).`
-      : `${formatMoney(FREE_SHIPPING_THRESHOLD - combinedValue, currency)} more reaches the ${FREE_SHIPPING_THRESHOLD_DISPLAY} free-shipping threshold. Shipping is calculated at checkout.`;
+      : `Free standard shipping is available on orders of ${FREE_SHIPPING_THRESHOLD_DISPLAY}. Shipping for this order is calculated at checkout.`;
 
   return (
     <div
