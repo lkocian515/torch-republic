@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Truck, Check } from 'lucide-react';
-import { FREE_SHIPPING_THRESHOLD } from '@/lib/siteConfig';
+import { FREE_SHIPPING_THRESHOLD, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
 const ACCENT = '#B86543';
 const INK = '#2D2824';
@@ -40,9 +40,15 @@ export default function CartFreeShippingBar({ subtotal }) {
           </div>
         )}
         <p className="font-mono text-xs tracking-[0.08em] uppercase" style={{ color: isUnlocked ? '#10B981' : INK }}>
-          {isUnlocked
-            ? '✓ You\'ve unlocked FREE shipping'
-            : <>You're only <span className="font-bold" style={{ color: ACCENT }}>${remaining.toFixed(2)}</span> away from FREE shipping</>}
+          {isUnlocked ? (
+            '✓ Free standard shipping applied'
+          ) : remaining < 1 ? (
+            /* A few cents short states the policy and stops there — the gap is
+               never turned into a penny count. */
+            <>Free standard shipping on orders {FREE_SHIPPING_THRESHOLD_DISPLAY}</>
+          ) : (
+            <>Add <span className="font-bold" style={{ color: ACCENT }}>${Math.ceil(remaining)}</span> for free standard shipping</>
+          )}
         </p>
       </div>
 

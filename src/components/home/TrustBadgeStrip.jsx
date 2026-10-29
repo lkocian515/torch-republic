@@ -21,7 +21,7 @@ const BADGES = [
   {
     icon: Truck,
     title: 'Free Shipping',
-    description: 'Orders $50+',
+    description: 'Orders $45+',
   },
 ];
 

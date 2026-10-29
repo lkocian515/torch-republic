@@ -174,6 +174,36 @@ export function CartProvider({ children }) {
       sellingPlanName: normalized.isSubscription ? normalized.sellingPlanName : null });
   }, [commitItems, getLineKey]);
 
+  // Adding a set (both bags of a duo) is one action: every line is committed
+  // together and the confirmation carries the whole set, so a pair can never be
+  // confirmed as a single bag.
+  const addItems = useCallback((entries) => {
+    const valid = (Array.isArray(entries) ? entries : [])
+      .map(({ product, qty = 1 }) => ({ product, amount: Number(qty) }))
+      .filter(({ product, amount }) =>
+        product && isCartableId(product.id) && Number.isInteger(amount) && amount >= 1 && amount <= 999);
+
+    if (!valid.length) return;
+
+    let next = [...itemsRef.current];
+    const confirmed = [];
+
+    for (const { product, amount } of valid) {
+      const normalized = { ...product, image: getProductImage(product), imageAlt: getProductAltText(product) };
+      const key = getLineKey(normalized);
+      const index = next.findIndex((i) => getLineKey(i) === key);
+      if (index >= 0) {
+        next[index] = { ...next[index], qty: Math.min(next[index].qty + amount, 999) };
+      } else {
+        next = [...next, { ...normalized, qty: amount }];
+      }
+      confirmed.push({ ...normalized, qty: amount });
+    }
+
+    commitItems(next);
+    setConfirmation({ items: confirmed });
+  }, [commitItems, getLineKey]);
+
   const clearConfirmation = useCallback(() => setConfirmation(null), []);
   const resolveLineKey = useCallback((key) => {
     if (itemsRef.current.some(i => getLineKey(i) === key)) return key;
@@ -418,7 +448,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider value={{
-      items, getLineKey, addItem, updateQty, setQty, removeItem, clearCart,
+      items, getLineKey, addItem, addItems, updateQty, setQty, removeItem, clearCart,
       totalItems, subtotal, drawerOpen, setDrawerOpen, confirmation, clearConfirmation, isAdding,
       refreshed, dismissRefreshed,
       shopifyCartId, persistShopifyCartId,

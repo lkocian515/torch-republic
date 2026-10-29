@@ -19,9 +19,15 @@ export const SUBSCRIBE_SAVE_RATE = 0.10;            // decimal for price calcula
 export const SUBSCRIBE_FREQUENCY = 'Every 4 weeks'; // delivery frequency
 
 // ── Free Shipping ─────────────────────────────────────────────────────────────
-export const FREE_SHIPPING_THRESHOLD = 50;          // USD — qualifies for free shipping
-export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$50+';
-export const FREE_SHIPPING_LABEL = `Free Shipping $50+`;
+// Deliberate policy: free standard shipping is earned at $45, not $50.
+//
+// The two-bag seasonal set totals $49.98. At $50 that order sat two cents short,
+// so the cart counted pennies instead of selling coffee. At $45 every two-bag
+// order ships free while a single-bag order still pays shipping, which keeps
+// the giveaway inside the order sizes that carry it comfortably.
+export const FREE_SHIPPING_THRESHOLD = 45;          // USD — qualifies for free shipping
+export const FREE_SHIPPING_THRESHOLD_DISPLAY = '$45+';
+export const FREE_SHIPPING_LABEL = `Free Shipping $45+`;
 
 // ── Satisfaction Guarantee ────────────────────────────────────────────────────
 export const GUARANTEE_DAYS = 30;

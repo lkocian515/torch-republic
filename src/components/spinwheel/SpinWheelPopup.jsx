@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { X, Check, ShoppingBag, Loader2, Mail, AlertCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { trackEvent, getStoredUTM } from '@/lib/analyticsEvents';
@@ -62,6 +62,9 @@ const deviceCategory = () =>
 
 export default function SpinWheelPopup() {
   const navigate = useNavigate();
+  // The offer is re-evaluated on every route change: a timer that started on a
+  // product page must never fire after the shopper has moved to the cart.
+  const location = useLocation();
   // Entrance motion is the only animation the panel adds; the spin itself is
   // handled separately in animateSpin.
   const reduceMotion = useReducedMotion();
@@ -103,6 +106,9 @@ export default function SpinWheelPopup() {
 
     const trigger = (type) => {
       if (triggered) return;
+      // Re-checked here, not only on mount: the path may have changed while the
+      // timer was running, and the cart or checkout must never be interrupted.
+      if (isExcludedRoute()) return;
       if (openModalRegistry.hasOpen()) return;
       triggered = true;
       debug('open condition reached', type);
@@ -130,8 +136,10 @@ export default function SpinWheelPopup() {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
+    // Keyed on the route so moving to the cart clears the pending timer instead
+    // of letting it open the offer over checkout.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.pathname]);
 
   const checkStatusAndShow = async (type) => {
     try {

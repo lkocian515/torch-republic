@@ -7,7 +7,7 @@ const points = [
   { title: 'Functional mushroom blends', body: 'Lion’s Mane, Cordyceps and Reishi paired with premium instant coffee.' },
   { title: 'Ceremonial-grade matcha', body: 'Whisked-quality matcha in a convenient instant format.' },
   { title: 'Thoughtful sourcing', body: 'Small-batch crafted with no artificial flavors, fillers, or added sugar.' },
-  { title: 'Ships fast from Texas', body: 'Free shipping $50+ and a 30-day satisfaction guarantee.' },
+  { title: 'Ships fast from Texas', body: 'Free shipping $45+ and a 30-day satisfaction guarantee.' },
 ];
 
 export default function WhyTorchRepublic() {

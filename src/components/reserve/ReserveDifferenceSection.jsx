@@ -196,7 +196,7 @@ export default function ReserveDifferenceSection() {
                 className="font-mono text-[7px] tracking-[0.15em] uppercase text-center mt-5"
                 style={{ color: `${GOLD}35` }}
               >
-                $24.99 · 27 servings · Free shipping $50+
+                $24.99 · 27 servings · Free shipping $45+
               </p>
             </div>
           </motion.div>

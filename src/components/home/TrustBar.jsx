@@ -4,7 +4,7 @@ import { Shield, RotateCcw, Truck, Award } from 'lucide-react';
 const ITEMS = [
   { icon: Shield, label: 'Secure Checkout', sub: 'SSL · All major cards' },
   { icon: RotateCcw, label: '30-Day Returns', sub: 'No questions asked' },
-  { icon: Truck, label: 'Free Shipping $50+', sub: 'Fast, tracked delivery' },
+  { icon: Truck, label: 'Free Shipping $45+', sub: 'Fast, tracked delivery' },
   { icon: Award, label: 'Flame Guarantee', sub: 'Quality or your money back' },
 ];
 

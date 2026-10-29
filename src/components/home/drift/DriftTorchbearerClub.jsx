@@ -117,26 +117,29 @@ export default function DriftTorchbearerClub() {
                 we’ll email you when it opens. No payment required.
               </p>
 
-              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              {/* Joining sits directly under the introduction, before anything
+                  else in the panel: it is the one action open today. */}
+              <Link
+                to={`${CLUB_PATH}#waitlist`}
+                onClick={() => trackCta('join_waitlist')}
+                className="mt-5 inline-flex items-center justify-center gap-2 font-heading font-semibold"
+                style={{ background: D.terracotta, color: '#FFF7E8', minHeight: 48, padding: '0.875rem 1.75rem', borderRadius: 999 }}
+              >
+                Join the waitlist
+                <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+              </Link>
+
+              <div className="mt-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-5">
                 <Link
                   to={current ? editionPath(current) : '/special-editions'}
                   onClick={() => trackCta('see_this_month_coffee')}
-                  className="inline-flex items-center justify-center gap-2 font-heading font-semibold"
-                  style={{ background: D.terracotta, color: '#FFF7E8', minHeight: 48, padding: '0.875rem 1.75rem', borderRadius: 999 }}
-                >
-                  See this month’s coffee
-                  <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
-                </Link>
-                <Link
-                  to={`${CLUB_PATH}#waitlist`}
-                  onClick={() => trackCta('join_waitlist')}
                   className="inline-flex min-h-[44px] items-center gap-1.5 font-heading text-sm font-semibold"
                   style={{ color: IVORY, textDecoration: 'underline', textUnderlineOffset: 4 }}
                 >
-                  Join the waitlist
+                  See this month’s coffee
                 </Link>
                 <Link
-                  to={`${CLUB_PATH}#club-rhythm`}
+                  to={`${CLUB_PATH}#club-experience`}
                   onClick={() => trackCta('how_the_club_works')}
                   className="inline-flex min-h-[44px] items-center gap-1.5 font-heading text-sm font-semibold"
                   style={{ color: IVORY, textDecoration: 'underline', textUnderlineOffset: 4 }}

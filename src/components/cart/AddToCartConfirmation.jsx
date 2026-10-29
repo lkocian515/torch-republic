@@ -76,8 +76,21 @@ export default function AddToCartConfirmation() {
 
   // One authoritative price source: unitPrice × quantity — never trust a
   // pre-computed line total that could disagree with the cart subtotal.
-  const unitPrice = confirmation?.shopifyPrice ? parseFloat(confirmation.shopifyPrice) : (confirmation?.price || 0);
-  const lineTotal = (unitPrice * (confirmation?.qty || 1)).toFixed(2);
+  // A set (e.g. both bags of a duo) arrives as { items: [...] } so every line
+  // added is confirmed and the combined subtotal is what is shown.
+  const lines = confirmation?.items?.length ? confirmation.items : confirmation ? [confirmation] : [];
+  const priceOf = (line) => (line.shopifyPrice ? parseFloat(line.shopifyPrice) : line.price || 0);
+  const totalQty = lines.reduce((sum, line) => sum + (line.qty || 1), 0);
+  const subtotal = lines.reduce((sum, line) => sum + priceOf(line) * (line.qty || 1), 0).toFixed(2);
+  const isSet = lines.length > 1;
+
+  // The grind and size are what the shopper chose, so they are what the card
+  // repeats back rather than an internal category name.
+  const detailOf = (line) => {
+    if (line.isSubscription) return line.sellingPlanName || 'Deliver every 4 weeks';
+    const detail = [line.format, line.weight].filter(Boolean).join(' · ');
+    return detail || 'One-time purchase';
+  };
 
   return (
     <AnimatePresence>
@@ -123,28 +136,43 @@ export default function AddToCartConfirmation() {
             </button>
           </div>
 
-          {/* Product info */}
-          <div className="flex items-center gap-3 px-4 py-3">
-            <img
-              src={confirmation.image}
-              alt={confirmation.imageAlt || confirmation.name}
-              className="w-14 h-14 object-contain rounded-md flex-shrink-0"
-              style={{ background: '#F8F5EF', padding: 2 }}
-            />
-            <div className="flex-1 min-w-0">
-              <p className="font-heading font-bold truncate" style={{ color: THEME.text, fontSize: '0.875rem' }}>{confirmation.name}</p>
-              {confirmation.isSubscription ? (
-                <p className="font-mono tracking-[0.15em] uppercase mt-0.5" style={{ color: THEME.clay, fontSize: '0.5625rem' }}>
-                  {confirmation.sellingPlanName || 'Deliver every 4 weeks'}
+          {/* Every line that was just added, so a duo confirms as two bags */}
+          <div className="flex flex-col gap-3 px-4 py-3">
+            {lines.map((line, index) => (
+              <div key={`${line.id || line.name}-${index}`} className="flex items-center gap-3">
+                <img
+                  src={line.image}
+                  alt={line.imageAlt || line.name}
+                  className="w-12 h-12 object-contain rounded-md flex-shrink-0"
+                  style={{ background: '#F8F5EF', padding: 2 }}
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="font-heading font-bold truncate" style={{ color: THEME.text, fontSize: '0.875rem' }}>{line.name}</p>
+                  <p
+                    className="font-mono tracking-[0.15em] uppercase mt-0.5"
+                    style={{ color: line.isSubscription ? THEME.clay : THEME.secondary, fontSize: '0.5625rem' }}
+                  >
+                    {detailOf(line)}
+                  </p>
+                </div>
+                <p className="font-mono flex-shrink-0" style={{ color: THEME.secondary, fontSize: '0.75rem' }}>
+                  Qty {line.qty || 1} &middot; ${(priceOf(line) * (line.qty || 1)).toFixed(2)}
                 </p>
-              ) : (
-                <p className="font-mono tracking-[0.15em] uppercase mt-0.5" style={{ color: THEME.secondary, fontSize: '0.5625rem' }}>One-time purchase</p>
-              )}
-              <p className="font-mono mt-1" style={{ color: THEME.secondary, fontSize: '0.75rem' }}>
-                Qty {confirmation.qty} &middot; ${lineTotal}
-              </p>
-            </div>
+              </div>
+            ))}
           </div>
+
+          {isSet && (
+            <div
+              className="flex items-center justify-between px-4 py-2.5"
+              style={{ borderTop: `1px solid ${THEME.border}`, background: '#FBF8F2' }}
+            >
+              <span className="font-mono tracking-[0.15em] uppercase" style={{ color: THEME.secondary, fontSize: '0.625rem' }}>
+                {totalQty} items subtotal
+              </span>
+              <span className="font-heading font-bold" style={{ color: THEME.text, fontSize: '0.875rem' }}>${subtotal}</span>
+            </div>
+          )}
 
           {/* Actions */}
           <div className="flex gap-2 px-4 pb-4">

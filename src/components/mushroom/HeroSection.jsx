@@ -8,7 +8,7 @@ const RG   = '#E6B7AD';
 const PROMO_MESSAGES = [
   'One-time: 10% off code WELCOME10',
   'Get 20% off subscriptions — Code SUBSCRIBE20',
-  'FREE SHIPPING on orders $50+',
+  'FREE SHIPPING on orders $45+',
 ];
 
 const HERO_IMG        = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/134aeb9a2_LIVEFREESTAYREADY_20260606_001446_0000.png';

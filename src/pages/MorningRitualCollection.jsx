@@ -78,7 +78,7 @@ export default function MorningRitualCollection() {
       {/* Trust Strip */}
       <div className="px-6 py-4" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}18` }}>
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          {['No machine needed', '27 servings per tube', 'Ships free over $50', '30-day guarantee'].map((t, i) => (
+          {['No machine needed', '27 servings per tube', 'Ships free over $45', '30-day guarantee'].map((t, i) => (
             <div key={i} className="flex items-center gap-2">
               <CheckCircle size={12} style={{ color: ACCENT }} />
               <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{t}</span>
@@ -175,7 +175,7 @@ export default function MorningRitualCollection() {
       <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#F7F1E7', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Your morning ritual, upgraded.</h2>
-          <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping $50+. 30-day satisfaction guarantee.</p>
+          <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping $45+. 30-day satisfaction guarantee.</p>
           <Link to="/build-your-ritual" className="btn btn-primary">
             Build My Morning Bundle <ArrowRight size={14} />
           </Link>

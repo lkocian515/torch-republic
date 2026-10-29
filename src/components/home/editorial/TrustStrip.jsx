@@ -3,7 +3,7 @@ import { colors } from './theme';
 
 const items = [
   'Single-Origin Arabica',
-  'Free Shipping $50+',
+  'Free Shipping $45+',
   'Ships Fast from Texas',
   '30-Day Guarantee',
 ];

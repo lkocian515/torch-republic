@@ -102,7 +102,7 @@ const THEME = {
 };
 
 const TRUST = [
-  { icon: Truck, title: 'Free shipping', body: '$50+' },
+  { icon: Truck, title: 'Free shipping', body: '$45+' },
   { icon: RotateCcw, title: 'First Cup Guarantee', body: '30 days on your first order' },
   { icon: ShieldCheck, title: 'Secure checkout', body: 'Shop with confidence' },
 ];

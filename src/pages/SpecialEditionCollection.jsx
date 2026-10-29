@@ -20,7 +20,7 @@ import DuoPurchasePanel from '@/components/specialeditions/DuoPurchasePanel';
 export default function SpecialEditionCollection() {
   const { collectionSlug } = useParams();
   const { editions, campaigns, loading } = useSpecialEditions();
-  const { addItem } = useCart();
+  const { addItems } = useCart();
   const [selections, setSelections] = useState({});
 
   const items = useMemo(() => editionsInCollection(editions, collectionSlug), [editions, collectionSlug]);
@@ -39,8 +39,10 @@ export default function SpecialEditionCollection() {
 
   const setSelection = (slug, optionKey) => setSelections((prev) => ({ ...prev, [slug]: optionKey }));
 
+  // Both bags are added as one set so the confirmation can show the pair and
+  // the combined subtotal instead of only the last bag added.
   const addSelection = (entries, qty) => {
-    entries.forEach(({ edition, option }) => addItem(toCartProduct(edition, option), qty));
+    addItems(entries.map(({ edition, option }) => ({ product: toCartProduct(edition, option), qty })));
   };
 
   if (loading) {

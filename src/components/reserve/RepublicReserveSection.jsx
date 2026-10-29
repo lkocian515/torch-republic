@@ -187,7 +187,7 @@ export default function RepublicReserveSection() {
 
               {/* Price hint */}
               <p className="mt-5 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(196,163,90,0.4)' }}>
-                $24.99 · 54g · 27 servings · Free shipping $50+
+                $24.99 · 54g · 27 servings · Free shipping $45+
               </p>
             </motion.div>
           </div>

@@ -28,6 +28,19 @@ const ACCENT = '#B86543';
 const ACCENT_PANEL = 'rgba(184,101,67,0.06)';
 const BTN_TEXT = '#FBF8F1';
 
+// What the shopper is actually buying: the grind they chose and the package
+// size for brewed coffee, servings for instant. "Ground · 12 oz (340 g)" reads
+// as a decision; a bare size does not.
+const lineDetail = (item) => {
+  const brewed = item.category === 'special-edition'
+    || item.category === 'pumpkin-spice'
+    || item.format === 'Whole Bean'
+    || item.format === 'Ground or Whole Bean'
+    || item.format === 'Ground';
+  if (!brewed) return `${item.servings || 27} servings`;
+  return [item.format, item.weight || '12 oz'].filter(Boolean).join(' · ');
+};
+
 export default function Cart() {
   useNoIndex();
   useSEO({
@@ -139,7 +152,8 @@ export default function Cart() {
                       : item.category === 'pumpkin-spice' ? 'Seasonal Coffee'
                       : item.category === 'special-edition' ? 'Seasonal Special Edition'
                       : item.category === 'bundle' ? 'Coffee Duo' : 'Mushroom Coffee'}
-                    {item.format === 'Whole Bean' || item.format === 'Ground or Whole Bean' || item.category === 'pumpkin-spice' || item.category === 'special-edition' ? ` · ${item.weight || '12 oz'}` : ` · ${item.servings || 27} servings`}
+                    {' · '}
+                    {lineDetail(item)}
                   </p>
                   {item.isSubscription && item.sellingPlanName && (
                     <p className="font-mono text-xs tracking-[0.08em] uppercase mb-2" style={{ color: '#0f766e' }}>

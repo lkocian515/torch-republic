@@ -9,7 +9,7 @@ export default function CategorySEO({ category, products, content }) {
   const categoryData = {
     'instant-coffee': {
       title: 'Premium Instant Coffee | Single Origin & Specialty Grade',
-      description: 'Torch Republic premium instant coffee — specialty Arabica, single origin, no machine needed. Bold flavors for intentional daily rituals. Free shipping $50+.',
+      description: 'Torch Republic premium instant coffee — specialty Arabica, single origin, no machine needed. Bold flavors for intentional daily rituals. Free shipping $45+.',
       keywords: 'premium instant coffee, specialty instant coffee, single origin instant coffee, arabica instant coffee, gourmet instant coffee, coffee without machine, instant coffee for travel',
       h1: 'Premium Instant Coffee',
     },

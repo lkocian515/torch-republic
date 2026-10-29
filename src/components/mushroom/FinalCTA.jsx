@@ -60,7 +60,7 @@ export default function FinalCTA() {
         {/* Trust micro-line */}
         <p className="font-mono mt-8 text-[8px] tracking-[0.2em] uppercase"
           style={{ color: 'rgba(230,183,173,0.3)' }}>
-          30-Day Money-Back Guarantee · Free Shipping $50+ · Small-Batch · No Machine Needed
+          30-Day Money-Back Guarantee · Free Shipping $45+ · Small-Batch · No Machine Needed
         </p>
       </div>
     </section>

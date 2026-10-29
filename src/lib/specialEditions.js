@@ -193,5 +193,9 @@ export function toCartProduct(edition, option) {
     price: Number(option.shopify?.price || 0),
     shopifyPrice: option.shopify?.price || null,
     category: 'special-edition',
+    // The grind the shopper actually chose travels with the line, so the cart
+    // and the checkout summary read "Ground · 12 oz", not an internal label.
+    format: option.label || '',
+    weight: edition.size || '',
   };
 }

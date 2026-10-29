@@ -134,7 +134,7 @@ export default function WhyTorchRepublic() {
         <div className="flex flex-wrap justify-center gap-8">
           {[
             { label: '30-Day Satisfaction Guarantee', sub: 'Not right? We make it right.' },
-            { label: 'Free Shipping $50+', sub: 'Ships in 1–3 business days.' },
+            { label: 'Free Shipping $45+', sub: 'Ships in 1–3 business days.' },
             { label: 'Subscribe & Save 20%', sub: 'Cancel or pause anytime.' },
             { label: 'Texas-Based Small Business', sub: 'Corpus Christi, TX.' },
           ].map(item => (
