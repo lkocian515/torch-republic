@@ -103,6 +103,9 @@ export default function PortfolioNav() {
                   fontWeight: 600,
                   color: activeId === s.id ? P.ink : P.muted,
                   textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  minHeight: 48,
                   padding: '0.55rem 0',
                   transition: 'color .2s',
                 }}
@@ -124,6 +127,9 @@ export default function PortfolioNav() {
               padding: '0.55rem 1.15rem',
               borderRadius: '4px',
               textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              minHeight: 48,
               whiteSpace: 'nowrap',
               transition: 'background .2s',
             }}
@@ -143,8 +149,8 @@ export default function PortfolioNav() {
               background: 'none',
               border: `1px solid ${P.rule}`,
               borderRadius: '4px',
-              minHeight: 44,
-              minWidth: 44,
+              minHeight: 48,
+              minWidth: 48,
               flexShrink: 0,
             }}
           >

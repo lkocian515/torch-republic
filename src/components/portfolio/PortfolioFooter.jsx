@@ -38,7 +38,7 @@ export default function PortfolioFooter() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
-                minHeight: 40,
+                minHeight: 48,
               }}
             >
               <Linkedin size={14} /> LinkedIn
@@ -54,7 +54,7 @@ export default function PortfolioFooter() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
-                minHeight: 40,
+                minHeight: 48,
               }}
             >
               <Mail size={14} /> Email

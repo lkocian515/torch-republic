@@ -195,6 +195,8 @@ export default function LukesLightOverview() {
             <img
               src={LUKES_LIGHT_MARK}
               alt="Luke's Light brand artwork: the site name with an illustrated lighthouse, the line 'Guiding young people toward safety', and the dedication 'In loving memory of Luke Andrew Rogers'."
+              width={1942}
+              height={809}
               loading="lazy"
               decoding="async"
               style={{ width: '100%', height: 'auto', display: 'block' }}

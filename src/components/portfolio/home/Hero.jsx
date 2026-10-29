@@ -106,7 +106,7 @@ export default function Hero() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.45rem',
-                  minHeight: 46,
+                  minHeight: 48,
                   transition: 'background .2s',
                 }}
               >
@@ -128,7 +128,7 @@ export default function Hero() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.45rem',
-                  minHeight: 46,
+                  minHeight: 48,
                   transition: 'border-color .2s',
                 }}
               >
@@ -149,7 +149,7 @@ export default function Hero() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.35rem',
-                  minHeight: 46,
+                  minHeight: 48,
                 }}
               >
                 <Linkedin size={14} /> LinkedIn

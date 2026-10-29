@@ -104,6 +104,8 @@ export default function ProjectGallery() {
                 <img
                   src={s.src}
                   alt={s.alt}
+                  width={1440}
+                  height={2970}
                   loading="lazy"
                   decoding="async"
                   className="transition-transform duration-500 group-hover:scale-[1.02]"
@@ -151,8 +153,8 @@ export default function ProjectGallery() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               borderRadius: '50%',
               border: 'none',
               background: 'rgba(255,255,255,0.12)',
@@ -176,8 +178,8 @@ export default function ProjectGallery() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               borderRadius: '50%',
               border: 'none',
               background: 'rgba(255,255,255,0.1)',
@@ -201,8 +203,8 @@ export default function ProjectGallery() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               borderRadius: '50%',
               border: 'none',
               background: 'rgba(255,255,255,0.1)',

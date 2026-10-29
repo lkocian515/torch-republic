@@ -7,7 +7,7 @@ import { P, FONT_MONO } from './portfolioTheme';
 // When uploading, set the `src` prop on each ScreenshotSlot and the gallery
 // will automatically appear. Until then, the gallery section stays hidden
 // so no empty spacing appears on the live page.
-export default function ScreenshotSlot({ src, alt, caption, aspectRatio = '16 / 10', objectPosition = 'center', onClick }) {
+export default function ScreenshotSlot({ src, alt, caption, aspectRatio = '16 / 10', objectPosition = 'center', width = 1600, height = 1000, onClick }) {
   if (!src) return null;
 
   const interactive = !!onClick;
@@ -35,6 +35,8 @@ export default function ScreenshotSlot({ src, alt, caption, aspectRatio = '16 / 
         <img
           src={src}
           alt={alt}
+          width={width}
+          height={height}
           loading="lazy"
           decoding="async"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block' }}

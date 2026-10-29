@@ -18,6 +18,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- LCP: preload the above-the-fold brand lockup, before the app bundle is
+         parsed. UnifiedHeader renders a <picture> that serves exactly one of
+         these two files per breakpoint, and the preload carries the same media
+         query, so only the file that will actually paint is ever fetched.
+         Priority is left at auto on purpose: the homepage hero image declares
+         fetchpriority="high" itself, and it must not be overtaken by the logo.
+         Skipped on the portfolio host, whose header is text-only. -->
+    <script>
+      (function () {
+        if (/lisakocian\.com$/i.test(location.hostname)) return;
+        [
+          ['(max-width: 767px)', 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/cd6b3dcc3_file_00000000c82881f4b2dcfad60fc1aff8.png'],
+          ['(min-width: 768px)', 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c8e6a4e64_file_00000000d348820daddb24ee1836e9be.png']
+        ].forEach(function (pair) {
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.as = 'image';
+          l.href = pair[1];
+          l.media = pair[0];
+          document.head.appendChild(l);
+        });
+      })();
+    </script>
+
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <title>Torch Republic | Instant Coffee &amp; Mushroom Coffee</title>
     <meta name="theme-color" content="#F8F5EF" />

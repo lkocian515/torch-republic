@@ -15,7 +15,10 @@ import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
 // Spin wheel disabled — promotion stack cleanup per profit-first audit.
 // Re-enable only after discount codes, prize logic, and stacking rules are verified.
-import SpinWheelPopup from './components/spinwheel/SpinWheelPopup';
+import PortfolioLoading from './components/portfolio/PortfolioLoading';
+// The spin-wheel popup is a heavy tree (SVG wheel + motion). It is split into
+// its own chunk so it never sits on the main-thread critical path.
+const SpinWheelPopup = lazy(() => import('./components/spinwheel/SpinWheelPopup'));
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
@@ -214,11 +217,11 @@ const AuthenticatedApp = ({ queryClient }) => {
         {/* ── PORTFOLIO DOMAIN: lisakocian.com serves the portfolio at root ── */}
         {isPortfolioDomain && (
           <>
-          <Route path="/" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
-          <Route path="/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
-          <Route path="/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
+          <Route path="/" element={<Suspense fallback={<PortfolioLoading />}><PortfolioHome /></Suspense>} />
+          <Route path="/case-study" element={<Suspense fallback={<PortfolioLoading />}><PortfolioCaseStudy /></Suspense>} />
+          <Route path="/case-study/lukes-light" element={<Suspense fallback={<PortfolioLoading />}><LukesLightCaseStudy /></Suspense>} />
           {/* Unknown portfolio paths get a real portfolio-branded 404 — never a silent redirect home */}
-          <Route path="*" element={<Suspense fallback={<PageLoader />}><PortfolioNotFound /></Suspense>} />
+          <Route path="*" element={<Suspense fallback={<PortfolioLoading />}><PortfolioNotFound /></Suspense>} />
           </>
         )}
 
@@ -609,7 +612,9 @@ function App() {
               <TechLayer />
               <CommerceNotice />
               <AddToCartConfirmation />
-              <SpinWheelPopup />
+              <Suspense fallback={null}>
+                <SpinWheelPopup />
+              </Suspense>
             </NavigationProvider>
           </Router>
           <Toaster />

@@ -341,8 +341,8 @@ button, a, [role="button"], nav {
 /* Touch target minimum size for mobile */
 @media (max-width: 640px) {
   button, a, [role="button"] {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 48px;
+    min-height: 48px;
   }
 }
 
@@ -568,7 +568,7 @@ input[type="url"],
 input[type="number"],
 textarea,
 select {
-  min-height: 44px;
+  min-height: 48px;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
   background: hsl(var(--card));
