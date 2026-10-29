@@ -65,7 +65,7 @@ export default function Subscription() {
           <p className="font-heading leading-relaxed mb-4" style={{ color: '#5F574F' }}>Subscriptions renew automatically at the price and interval shown until cancelled. Shipping and taxes are calculated at checkout. Any available savings are shown with the actual product price.</p>
           <p className="font-heading leading-relaxed mb-6" style={{ color: '#5F574F' }}>Already subscribed? Use your customer account to manage your subscription, or contact us if you need help.</p>
           <div className="flex flex-wrap gap-5 font-heading font-semibold">
-            <Link className="underline underline-offset-4" to="/profile">Manage my subscription</Link>
+            <a className="underline underline-offset-4" href="https://libertees-for-all.myshopify.com/account">Manage my subscription</a>
             <Link className="underline underline-offset-4" to="/contact">Contact support</Link>
             <Link className="underline underline-offset-4" to="/shop">Shop one-time purchases</Link>
           </div>
