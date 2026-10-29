@@ -45,7 +45,7 @@ So I did what I should have done — I read the research.
 
 What I found was more nuanced than either the enthusiastic marketing or the cynical dismissal. There is genuine peer-reviewed research behind certain functional mushroom species, particularly around cognitive support and antioxidant properties. These are not dramatic claims. They are modest, real findings.
 
-None of them are drugs. None of them will replace medical treatment. But as additions to a daily coffee ritual &mdash; for people who already drink coffee? The research was compelling enough that I wanted to try it consistently.
+None of them are drugs. None of them will replace medical treatment. But as additions to a daily coffee ritual — for people who already drink coffee? The research was compelling enough that I wanted to try it consistently.
 
 We are still verifying the exact species, extract types, and amounts in our current formula against the physical package label. Until that verification is complete, we are not publishing specific mushroom names or extract claims on our marketing surfaces.`
   },
@@ -54,11 +54,11 @@ We are still verifying the exact species, extract types, and amounts in our curr
     heading: 'What We Built — and Why We Built It This Way',
     body: `Torch Republic started from a specific frustration: functional mushroom coffee existed, but it was either expensive, poorly formulated, or came in formats that were inconvenient.
 
-We wanted something with the simplicity of instant coffee &mdash; no machine, no cleanup, no pods &mdash; combined with functional mushroom extracts. And we wanted it to taste like coffee. Not like a health supplement. Not like dirt. Like a really good cup of coffee that happened to have functional mushroom extracts in it.
+We wanted something with the simplicity of instant coffee — no machine, no cleanup, no pods — combined with functional mushroom extracts. And we wanted it to taste like coffee. Not like a health supplement. Not like dirt. Like a really good cup of coffee that happened to have functional mushroom extracts in it.
 
-The instant format was non-negotiable. Not because it's easier to manufacture &mdash; it isn't. But because the entire philosophy of a morning ritual is that it should remove friction, not add it. You shouldn't need to grind beans, calibrate a machine, or clean a portafilter to participate in your own morning.
+The instant format was non-negotiable. Not because it's easier to manufacture — it isn't. But because the entire philosophy of a morning ritual is that it should remove friction, not add it. You shouldn't need to grind beans, calibrate a machine, or clean a portafilter to participate in your own morning.
 
-We started with a focused collection: a classic instant coffee and a mushroom coffee. Two products, made well, instead of a broad catalog that dilutes attention. A classic coffee drinker who wants simplicity is not the same as someone exploring functional mushroom coffee &mdash; both deserve a product built specifically for them.`
+We started with a focused collection: a classic instant coffee and a mushroom coffee. Two products, made well, instead of a broad catalog that dilutes attention. A classic coffee drinker who wants simplicity is not the same as someone exploring functional mushroom coffee — both deserve a product built specifically for them.`
   },
   {
     id: 'ritual',
