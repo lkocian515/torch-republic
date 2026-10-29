@@ -3,8 +3,6 @@ const STOREFRONT_TOKEN = Deno.env.get('SHOPIFY_STOREFRONT_TOKEN');
 const SHOP_DOMAIN = 'libertees-for-all.myshopify.com';
 
 Deno.serve(async (_req) => {
-  const tokenPreview = STOREFRONT_TOKEN ? `${STOREFRONT_TOKEN.substring(0, 8)}...` : 'NOT SET';
-  
   const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-10/graphql.json`, {
     method: 'POST',
     headers: {
@@ -19,5 +17,5 @@ Deno.serve(async (_req) => {
   const status = res.status;
   const json = await res.json();
 
-  return Response.json({ tokenPreview, status, response: json });
+  return Response.json({ status, response: json });
 });
