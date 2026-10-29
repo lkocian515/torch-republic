@@ -29,7 +29,6 @@ Deno.serve(async (_req) => {
     return Response.json({
       status,
       data,
-      tokenPreview: SHOPIFY_ADMIN_TOKEN ? `${SHOPIFY_ADMIN_TOKEN.substring(0, 10)}...` : 'NOT SET',
       timestamp: new Date().toISOString(),
     });
 
