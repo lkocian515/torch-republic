@@ -26,7 +26,9 @@ export const ORIGINALS_DUO = {
 
 /** Slowest-first order: January through December 2027. */
 export const DUO_SCHEDULE = [
-  { month: 0, components: ['cinnamon-hearth', 'cinnamon-hearth'], twoPack: true },
+  // January pairs two different coffees, so its window is set here rather than
+  // derived: the components' own sale windows fall in February and November.
+  { month: 0, components: ['velvet-heart', 'fireside-smores'], startOverride: '2027-01-01', endOverride: '2027-01-31' },
   { month: 1, components: ['velvet-heart', 'cinnamon-hearth'] },
   { month: 2, components: ['lucky-clover', 'bunny-trail'], endOverride: '2027-03-17' },
   { month: 3, components: ['bluebonnet-bloom', 'bluebonnet-bloom'], twoPack: true },
@@ -50,7 +52,7 @@ export function pairWindow(pairing) {
   if (!pairing) return null;
   const windows = pairing.components.map((slug) => seasonalEntry(slug)).filter(Boolean);
   if (windows.length === 0) return null;
-  const start = windows.map((w) => w.start).sort().pop();
+  const start = [pairing.startOverride, ...windows.map((w) => w.start)].filter(Boolean).sort().pop();
   const end = [pairing.endOverride, ...windows.map((w) => w.end)].filter(Boolean).sort()[0];
   if (!start || !end || start > end) return null;
   return { start, end };
