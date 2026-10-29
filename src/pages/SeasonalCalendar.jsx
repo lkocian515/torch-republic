@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { useSEO } from '@/hooks/useSEO';
 import { editionState } from '@/lib/specialEditions';
@@ -15,6 +16,7 @@ import {
 import EditionCard from '@/components/specialeditions/EditionCard';
 import SeasonalReleaseCard from '@/components/seasonal/SeasonalReleaseCard';
 import PreparationLegend from '@/components/seasonal/PreparationLegend';
+import { duoBySlug, duoContents, duoArtworkFor, duoPath } from '@/lib/duos';
 
 /**
  * The full seasonal calendar. The year plan and the coffees on sale are shown
@@ -42,6 +44,11 @@ export default function SeasonalCalendar() {
   );
 
   const monthIndexes = view === 'short' ? upcomingMonthIndexes(3) : MONTH_NAMES.map((_, index) => index);
+  const christmasDuo = duoBySlug('christmas');
+  const christmasComponents = duoContents(christmasDuo).map((item) => ({
+    ...item,
+    artwork: duoArtworkFor(item.slug, null),
+  }));
 
   return (
     <div className="section-torch">
@@ -156,6 +163,49 @@ export default function SeasonalCalendar() {
                       />
                     ))}
                   </div>
+                  {monthIndex === 11 && christmasDuo ? (
+                    <article
+                      className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+                      style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 8, padding: '1.25rem' }}
+                      aria-labelledby="christmas-duo-calendar"
+                    >
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                        <div className="flex items-center gap-3">
+                          {christmasComponents.map((item) => item.artwork ? (
+                            <figure key={item.slug} className="flex items-center gap-2" style={{ margin: 0 }}>
+                              <img
+                                src={item.artwork.src}
+                                alt={item.artwork.alt}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-14 w-14 object-contain"
+                                style={{ background: '#F5F0E8', borderRadius: 4 }}
+                              />
+                              <figcaption className="font-heading" style={{ fontSize: '0.75rem', lineHeight: 1.2 }}>
+                                {item.name}
+                              </figcaption>
+                            </figure>
+                          ) : null)}
+                        </div>
+                        <div>
+                          <p className="eyebrow" style={{ margin: 0 }}>December · Christmas</p>
+                          <h4 id="christmas-duo-calendar" className="font-heading mt-1" style={{ fontSize: '1.25rem' }}>
+                            Christmas Duo
+                          </h4>
+                          <p className="body mt-1" style={{ marginBottom: 0, color: 'hsl(var(--muted-foreground))' }}>
+                            Peppermint Parade + Fireside S’mores
+                          </p>
+                        </div>
+                      </div>
+                      <Link
+                        to={duoPath(christmasDuo)}
+                        className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                        style={{ borderRadius: 999, border: '1px solid hsl(var(--primary))', color: 'hsl(var(--primary))' }}
+                      >
+                        View Christmas Duo <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    </article>
+                  ) : null}
                 </div>
               );
             })}
