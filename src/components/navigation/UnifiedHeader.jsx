@@ -104,15 +104,16 @@ export default function UnifiedHeader() {
               <picture> means only one file is ever downloaded. */}
           <Link to="/" className="flex min-w-0 shrink-0 items-center justify-center" aria-label="Torch Republic home">
             <picture>
-              <source media="(min-width: 768px)" srcSet={BRAND.horizontalLight} width="900" height="300" />
+              <source media="(min-width: 768px)" srcSet={BRAND.horizontalLight} width="2092" height="752" />
               <img
                 src={BRAND.mark}
                 alt="Torch Republic Coffee Company"
-                width="512"
-                height="512"
-                className="h-11 w-11 object-contain md:h-auto md:w-[190px] lg:w-[254px] xl:w-[274px]"
+                width="1194"
+                height="1317"
+                className="h-11 w-11 object-contain md:h-[63px] md:w-[175px] lg:h-[70px] lg:w-[195px] xl:h-[76px] xl:w-[212px]"
               />
             </picture>
+            <span className="sr-only">Torch Republic Coffee Company</span>
           </Link>
           <nav className="hidden items-center gap-5 md:ml-6 lg:ml-10 lg:gap-7 md:flex" aria-label="Primary navigation">
             {SECTIONS.map(({ label, items, to }) =>

@@ -65,8 +65,8 @@ export default function MobileMenu({ open, onClose }) {
           <img
             src={BRAND.horizontalLight}
             alt="Torch Republic Coffee Company"
-            width="900"
-            height="300"
+            width="2092"
+            height="752"
             className="h-auto w-[220px] max-w-[calc(100vw_-_116px)] object-contain"
           />
         </Link>

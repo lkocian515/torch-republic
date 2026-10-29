@@ -101,8 +101,8 @@ export default function Footer() {
               <img
                 src={BRAND.horizontalLight}
                 alt="Torch Republic Coffee Company"
-                width="900"
-                height="300"
+                width="2092"
+                height="752"
                 loading="lazy"
                 className="h-auto w-[228px] object-contain sm:w-[244px] lg:w-[268px]"
               />
