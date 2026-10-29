@@ -64,6 +64,13 @@
   <url><loc>https://torchrepublic.com/subscription</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torchrepublic.com/duos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Seasonal pages — only the calendar and the two currently active editions are purchasable/indexable -->
+  <url><loc>https://torchrepublic.com/duos/halloween</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/seasonal-calendar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/special-editions/collections/halloween</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/special-editions/pumpkin-spice</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/special-editions/midnight-hex</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
   <!-- Policy pages -->
   <url><loc>https://torchrepublic.com/shipping-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://torchrepublic.com/return-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>

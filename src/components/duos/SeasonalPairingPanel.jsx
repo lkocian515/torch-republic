@@ -47,6 +47,14 @@ export default function SeasonalPairingPanel() {
     qty: pairing.twoPack ? 2 : 1,
     edition: availability.parts?.find((part) => part.slug === slug)?.edition || null,
   }));
+  // Each coffee carries its own grind options — a duo never shares one setting.
+  const formats = contents.map((item) => {
+    const labels = (item.edition?.options || []).map((option) => option.label).filter(Boolean);
+    return {
+      name: item.name,
+      label: labels.length > 0 ? labels.join(' or ') : 'grind options shown on its product page',
+    };
+  });
 
   return (
     <section
@@ -90,8 +98,9 @@ export default function SeasonalPairingPanel() {
       </ul>
 
       <p className="body mt-4" style={{ fontSize: '0.875rem', color: 'hsl(var(--muted-foreground))', margin: 0 }}>
-        Grind: ground or whole bean, the same grind for both bags. Availability is only confirmed when both bags are
-        verified and in stock.
+        Grind is set per coffee, not shared:{' '}
+        {formats.map((format) => `${format.name} (${format.label})`).join(' · ')}. Availability is only confirmed when
+        both bags are verified and in stock.
         {availability.window ? ` Selling window ${windowLabel({ start: availability.window.start, end: availability.window.end })}.` : ''}
       </p>
 
@@ -111,7 +120,7 @@ export default function SeasonalPairingPanel() {
               ))}
             </div>
             <p className="body" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))', margin: 0 }}>
-              Each bag is ordered separately in the grind you choose, so nothing is sold that cannot be fulfilled.
+              Each bag is ordered separately on its own product page, in that coffee&rsquo;s available grind, so nothing is sold that cannot be fulfilled.
             </p>
           </div>
         ) : availability.state === 'past' ? (

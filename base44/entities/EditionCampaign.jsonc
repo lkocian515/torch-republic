@@ -34,6 +34,10 @@
       "type": "string",
       "description": "Collection this campaign promotes (e.g. halloween)"
     },
+    "cta_href": {
+      "type": "string",
+      "description": "Optional in-app path the hero button should open, e.g. /duos/halloween. When empty the button opens the collection page for this campaign."
+    },
     "cta_label_prelaunch": {
       "type": "string",
       "description": "Button label before anything in the collection is purchasable"

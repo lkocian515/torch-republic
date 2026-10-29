@@ -30,7 +30,7 @@ export default function ShopDuoBanner() {
   const items = editionsInCollection(editions, campaign.collection_slug);
   const bannerFormat = editionsFormatLabel(items);
   const isLive = items.some((edition) => editionState(edition).state === 'available');
-  const href = campaign.collection_slug ? collectionPath(campaign.collection_slug) : '/special-editions';
+  const href = campaign.cta_href || (campaign.collection_slug ? collectionPath(campaign.collection_slug) : '/special-editions');
   const ctaLabel = isLive
     ? campaign.cta_label_live || 'Shop the collection'
     : campaign.cta_label_prelaunch || 'Preview the collection';

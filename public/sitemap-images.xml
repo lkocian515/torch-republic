@@ -24,6 +24,24 @@
   </url>
 
   <url>
+    <loc>https://torchrepublic.com/special-editions/pumpkin-spice</loc>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e6bf7c119_IMG_20261020_162122.jpg</image:loc>
+      <image:title>Pumpkin Spice Ground Coffee — Torch Republic</image:title>
+      <image:caption>Pumpkin Spice special edition, ground</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://torchrepublic.com/special-editions/midnight-hex</loc>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/9ab9104b4_IMG_20261020_163509.jpg</image:loc>
+      <image:title>Midnight Hex Mexican Chocolate Ground Coffee — Torch Republic</image:title>
+      <image:caption>Midnight Hex special edition, ground</image:caption>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://torchrepublic.com/journal/science-of-lions-mane</loc>
     <image:image>
       <image:loc>https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg</image:loc>
