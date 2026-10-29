@@ -10,15 +10,15 @@ const OFFERS = [
     name: 'Torchbearer Single',
     status: 'Waitlist',
     detail:
-      'One featured seasonal bag each calendar month, ground or whole bean where the release confirms it. Twelve monthly shipment slots — not thirteen automatic shipments.',
+      'One featured seasonal bag each calendar month, ground or whole bean wherever the release confirms it. Twelve monthly shipment slots, not thirteen automatic shipments — and this is the tier that opens first.',
     note: 'March is planned as Lucky Clover, with Bunny Trail as a same-price swap.',
   },
   {
     name: 'Torchbearer Duo',
     status: 'Phase two — not open',
     detail:
-      'Two bags using the monthly pairing. January and April would be two bags of the same coffee, both in the selected grind.',
-    note: 'Opens only after recurring fulfillment and combined shipping have been tested.',
+      'Two bags each month from the same pairing, for houses that go through a bag faster. January and April would be two bags of the same coffee, both in the selected grind.',
+    note: 'Next in line: opens once recurring fulfillment and combined shipping have been tested.',
   },
   {
     name: 'Originals Replenishment',
@@ -64,9 +64,8 @@ export default function TorchbearerClub() {
           <p className="eyebrow">Torchbearer Club</p>
           <h1 className="h1 mt-3">A seasonal coffee to look forward to, delivered once each calendar month.</h1>
           <p className="body-lg mt-4">
-            One featured seasonal coffee a month, chosen from the releases that are actually verified and in stock. The
-            club is not billing yet — enrollment is on a waitlist while the monthly billing and rotating fulfillment are
-            finished.
+            One featured seasonal coffee a month, chosen from the releases that are actually verified and in stock.
+            Enrollment is on a waitlist, and joining it costs nothing.
           </p>
         </header>
 
@@ -79,10 +78,8 @@ export default function TorchbearerClub() {
             Enrollment status: waitlist
           </p>
           <p className="body" style={{ margin: 0 }}>
-            Our Shopify subscription plans currently bill one fixed product on a four-week interval. A rotating monthly
-            coffee needs calendar-month anchors, a deferred first charge and one-per-month shipment slots, so the club
-            stays closed until those are supported end to end. No membership fee is charged, and joining the waitlist
-            never collects payment details.
+            The club opens as soon as monthly billing and rotating fulfillment are ready. No membership fee is charged,
+            and joining the waitlist never collects payment details.
           </p>
           <div>
             <SeasonalInterestForm
@@ -94,6 +91,20 @@ export default function TorchbearerClub() {
             />
           </div>
         </div>
+
+        <details
+          className="mt-4"
+          style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: '0.875rem 1.25rem' }}
+        >
+          <summary className="font-heading" style={{ cursor: 'pointer', fontSize: '0.9375rem', fontWeight: 600 }}>
+            Why is enrollment still on waitlist?
+          </summary>
+          <p className="body" style={{ fontSize: '0.9375rem', color: 'hsl(var(--muted-foreground))', margin: '0.75rem 0 0' }}>
+            Our Shopify subscription plans currently bill one fixed product on a four-week interval. A rotating monthly
+            coffee needs calendar-month anchors, a deferred first charge and one-per-month shipment slots, so the club
+            stays closed until those are supported end to end.
+          </p>
+        </details>
 
         <section className="mt-12" aria-labelledby="club-offers">
           <h2 id="club-offers" className="h2">The three offers</h2>

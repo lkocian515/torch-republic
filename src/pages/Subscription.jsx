@@ -38,6 +38,13 @@ export default function Subscription() {
             </article>
           ))}
         </div>
+        <p className="font-heading text-center mt-8 mx-auto max-w-xl leading-relaxed" style={{ color: '#5F574F', fontSize: '0.9375rem' }}>
+          Looking for monthly seasonal coffee instead? The Torchbearer Club is taking{' '}
+          <Link to="/torchbearer-club" className="underline underline-offset-4 font-semibold" style={{ color: '#824329' }}>
+            waitlist names
+          </Link>
+          {' '}for one featured Seasonal Reserve bag each calendar month.
+        </p>
       </section>
       <section aria-label="How subscriptions work" className="max-w-6xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6">
         {steps.map(([title, body], index) => (

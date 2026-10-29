@@ -9,6 +9,7 @@ import {
   MONTH_NAMES,
   entriesForMonth,
   releaseState,
+  sensoryNote,
   upcomingMonthIndexes,
 } from '@/lib/seasonalCalendar';
 import EditionCard from '@/components/specialeditions/EditionCard';
@@ -46,8 +47,8 @@ export default function SeasonalCalendar() {
     <div className="section-torch">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <header className="max-w-[760px]">
-          <p className="eyebrow">Seasonal Reserve</p>
-          <h1 className="h1 mt-3">{CALENDAR_YEAR} seasonal calendar</h1>
+          <p className="eyebrow">Brewed seasonal coffee</p>
+          <h1 className="h1 mt-3">Seasonal Reserve Calendar</h1>
           <p className="body-lg mt-4">
             Seasonal coffees are brewed, not instant. Each one has its own selling window, and windows overlap as the
             year turns — so the shelf changes month by month while the two instant Originals stay available year round.
@@ -60,9 +61,29 @@ export default function SeasonalCalendar() {
 
         {/* ── What Shopify confirms is buyable today ── */}
         <section className="mt-12" aria-labelledby="available-now">
-          <h2 id="available-now" className="h2">Available now</h2>
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 id="available-now" className="h2">Available now</h2>
+            <span
+              className="font-mono uppercase"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.625rem',
+                letterSpacing: '0.16em',
+                fontWeight: 700,
+                padding: '0.375rem 0.75rem',
+                borderRadius: 999,
+                background: 'hsl(var(--primary))',
+                color: 'hsl(var(--primary-foreground))',
+              }}
+            >
+              <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: 999, background: 'currentColor' }} />
+              On sale today
+            </span>
+          </div>
           <p className="body mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
-            Verified in Shopify, in stock, and inside their selling window.
+            In stock in Shopify and inside their selling window — price and availability are read live.
           </p>
 
           {loading ? (
@@ -75,7 +96,7 @@ export default function SeasonalCalendar() {
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {availableNow.map((edition) => (
-                <EditionCard key={edition.id} edition={edition} />
+                <EditionCard key={edition.id} edition={edition} note={sensoryNote(edition.slug)} />
               ))}
             </div>
           )}

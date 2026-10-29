@@ -44,8 +44,22 @@ export const SEASONAL_WINDOWS = [
   { slug: 'gulf-coast-turtle', name: 'Gulf Coast Turtle', flavor: 'Turtle', flavorPending: true, start: '2027-06-01', end: '2027-08-31' },
   { slug: 'stars-stripes-spice', name: 'Stars, Stripes & Spice', flavor: 'Cinnamon Hazelnut', start: '2027-07-01', end: '2027-07-31' },
   { slug: 'harvest-moon-pecan', name: 'Harvest Moon Pecan', flavor: 'Pecan Pie', start: '2027-08-01', end: '2027-11-30' },
-  { slug: 'pumpkin-spice', name: 'Pumpkin Spice', flavor: 'Pumpkin Spice', start: '2027-09-01', end: '2027-10-31' },
-  { slug: 'midnight-hex', name: 'Midnight Hex', flavor: 'Mexican Chocolate', start: '2027-10-01', end: '2027-10-31' },
+  {
+    slug: 'pumpkin-spice',
+    name: 'Pumpkin Spice',
+    flavor: 'Pumpkin Spice',
+    start: '2027-09-01',
+    end: '2027-10-31',
+    sensory: 'Cinnamon, nutmeg and clove over a soft, gently sweet pumpkin finish.',
+  },
+  {
+    slug: 'midnight-hex',
+    name: 'Midnight Hex',
+    flavor: 'Mexican Chocolate',
+    start: '2027-10-01',
+    end: '2027-10-31',
+    sensory: 'Deep cocoa with warm cinnamon, finishing smooth and a little bittersweet.',
+  },
   { slug: 'fireside-smores', name: 'Fireside S\u2019mores', flavor: 'S\u2019mores', start: '2027-11-01', end: '2027-12-31' },
   { slug: 'peppermint-parade', name: 'Peppermint Parade', flavor: 'Candy Cane', start: '2027-12-01', end: '2027-12-31' },
 ];
@@ -55,6 +69,11 @@ export const INSTANT_PREP_LABEL = 'Instant Originals — just add water.';
 
 export function seasonalEntry(slug) {
   return SEASONAL_WINDOWS.find((entry) => entry.slug === slug) || null;
+}
+
+/** One short tasting line for a release, when the calendar has one written. */
+export function sensoryNote(slug) {
+  return seasonalEntry(slug)?.sensory || null;
 }
 
 /** Only the calendar's own year is planned; other years are never implied. */

@@ -9,7 +9,7 @@ import GrindSelector from './GrindSelector';
  * Special-edition product card. Availability, format and price all follow the
  * selected option; unconfirmed prices are never shown.
  */
-export default function EditionCard({ edition, selectedOptionKey, onSelectOption }) {
+export default function EditionCard({ edition, selectedOptionKey, onSelectOption, note }) {
   const option = findOption(edition, selectedOptionKey) || defaultOption(edition);
   const state = optionState(option);
   const overall = editionState(edition);
@@ -59,6 +59,13 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
         {edition.short_description && (
           <p className="mt-2 body" style={{ color: 'hsl(var(--muted-foreground))', fontSize: '0.9375rem' }}>
             {edition.short_description}
+          </p>
+        )}
+
+        {/* An optional tasting line. Nothing else about the card changes when it is absent. */}
+        {note && (
+          <p className="mt-2 body" style={{ color: 'hsl(var(--foreground))', fontSize: '0.9375rem', fontStyle: 'italic' }}>
+            {note}
           </p>
         )}
 
