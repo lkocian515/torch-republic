@@ -14,9 +14,9 @@ const BORDER = '#E4D8C9';
 
 export default function TorchbearersRewards() {
   useSEO({
-    title: 'Torchbearer Rewards | Torch Republic',
+    title: 'Republic Rewards | Torch Republic',
     description:
-      'Torchbearer Rewards: earn 1 point per $1 spent, 50 points for a review and 100 points for a referral. Redeem points for 10% to 25% off. Points expire after 12 months of inactivity.',
+      'Republic Rewards: earn 1 point per $1 spent, 50 points for a review and 100 points for a referral. Redeem points for 10% to 25% off. Points expire after 12 months of inactivity.',
     url: '/torchbearers-rewards',
   });
 
@@ -30,12 +30,12 @@ export default function TorchbearersRewards() {
               style={{ background: `${CLAY}12`, border: `1px solid ${CLAY}30`, borderRadius: '999px' }}>
               <Sparkles className="h-3.5 w-3.5" style={{ color: CLAY }} />
               <span className="font-mono text-[10px] tracking-[0.28em] uppercase" style={{ color: CLAY }}>
-                Torchbearer Rewards
+                Republic Rewards
               </span>
             </div>
 
             <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: TEXT, lineHeight: 1.12 }}>
-              Carry the Flame. Earn Torchbearer Rewards.
+              Carry the Flame. Earn Republic Rewards.
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl font-heading" style={{ fontSize: '1.05rem', color: BODY, lineHeight: 1.85 }}>

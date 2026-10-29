@@ -49,7 +49,7 @@ export default function EditionHero() {
   if (campaign.desktop_hero_image) {
     return (
       <section className="w-full" style={{ background: T.bg }} aria-label={campaign.headline || campaign.name}>
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 px-5 pb-10 pt-8 md:grid-cols-2 md:gap-12 md:px-8 md:pb-14 md:pt-12">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-5 px-5 pb-8 pt-5 md:grid-cols-2 md:gap-12 md:px-8 md:pb-14 md:pt-12">
           {/* Headline and shop button first, so the offer is on screen immediately on
               every device — text painted into an image cannot be clicked or read aloud. */}
           <div className="text-center md:text-left">
@@ -57,16 +57,24 @@ export default function EditionHero() {
               <p style={{ ...TYPE.eyebrow, color: T.terracotta }}>{campaign.eyebrow}</p>
             )}
 
+            {/* The hero headline steps down on phones so the artwork below it
+                stays on the first screen; tablet and desktop keep the full size. */}
             <AnimatedHeadline
               as="h1"
               text={campaign.headline || campaign.name}
-              style={{ ...TYPE.hero, color: T.cream, margin: '0.75rem 0 0' }}
+              style={{
+                ...TYPE.hero,
+                fontSize: 'clamp(1.75rem, 5.6vw, 4.25rem)',
+                lineHeight: 1.1,
+                color: T.cream,
+                margin: '0.625rem 0 0',
+              }}
             />
 
             {campaign.supporting_text && (
               <p
                 className="mx-auto font-heading md:mx-0"
-                style={{ ...TYPE.lead, color: 'rgba(230,216,202,0.92)', margin: '1rem auto 0', maxWidth: 460 }}
+                style={{ ...TYPE.lead, color: 'rgba(230,216,202,0.92)', margin: '0.75rem auto 0', maxWidth: 460 }}
               >
                 {campaign.supporting_text}
               </p>
@@ -105,8 +113,8 @@ export default function EditionHero() {
             <img
               src={campaign.desktop_hero_image}
               alt={`${campaign.name} special edition`}
-              className="mx-auto block h-auto w-auto max-w-full"
-              style={{ maxHeight: 'min(46vh, 480px)' }}
+              className="mx-auto block h-auto w-auto max-w-full max-h-[36vh] md:max-h-[min(46vh,480px)]"
+              style={{ objectFit: 'contain' }}
               fetchPriority="high"
             />
           </picture>

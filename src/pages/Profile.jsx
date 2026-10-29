@@ -182,7 +182,7 @@ export default function Profile() {
               </div>
               <div>
                 <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
-                  Torchbearer Rewards
+                  Republic Rewards
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
                   Learn about loyalty tiers {'&'} benefits
@@ -242,7 +242,7 @@ export default function Profile() {
                       <ul className="space-y-1.5 pl-1">
                         {[
                           'Cancel any recurring coffee subscription immediately — you will not be billed again',
-                          'Delete all loyalty points, redeemed codes and Torchbearer rewards history',
+                          'Delete all loyalty points, redeemed codes and Republic Rewards history',
                           'Permanently erase your account record and login credentials',
                           'Remove your saved preferences',
                           'Sign you out across all devices immediately',
@@ -284,7 +284,7 @@ export default function Profile() {
                         You typed <strong style={{ color: 'hsl(var(--foreground))' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
                       </p>
                       <p className="font-heading text-sm leading-relaxed" style={{ color: 'hsl(var(--muted-foreground))' }}>
-                        If you proceed, your subscriptions will be cancelled and your account, loyalty points and Torchbearer rewards will be <strong style={{ color: 'hsl(var(--foreground))' }}>permanently deleted</strong> — we cannot recover them afterward.
+                        If you proceed, your subscriptions will be cancelled and your account, loyalty points and Republic Rewards will be <strong style={{ color: 'hsl(var(--foreground))' }}>permanently deleted</strong> — we cannot recover them afterward.
                       </p>
                       {deleteError && (
                         <p className="font-mono text-xs" style={{ color: 'hsl(var(--destructive))' }}>

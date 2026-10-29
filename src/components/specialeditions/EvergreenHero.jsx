@@ -19,7 +19,7 @@ export default function EvergreenHero() {
         </p>
         <h1
           className="font-serif font-bold mt-4"
-          style={{ color: '#FBF8F1', fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', lineHeight: 1.1 }}
+          style={{ color: '#FBF8F1', fontSize: 'clamp(1.625rem, 4.5vw, 3.25rem)', lineHeight: 1.1 }}
         >
           Two rituals. One easy morning.
         </h1>

@@ -43,11 +43,14 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
     const ogImageAlt = imageAlt
       || (title ? `${title.replace(/\s*\|\s*Torch Republic.*$/i, '')} — ${SITE_NAME}` : 'Torch Republic Coffee Company');
 
-    const prevTitle = document.title;
     document.title = fullTitle;
     // Sentinel — lets RouteSeoManager know this page set its own SEO,
-    // so it should not overwrite with route-level fallback values.
+    // so it should not overwrite with route-level fallback values. The route is
+    // stored with it so a leaving page can never unset or overwrite the SEO of
+    // the page that replaced it (that produced stale titles after navigation).
+    const seoRoute = window.location.pathname;
     document.documentElement.setAttribute('data-seo-set', 'true');
+    document.documentElement.setAttribute('data-seo-path', seoRoute);
 
     const setMeta = (selector, attr, value) => {
       let el = document.querySelector(selector);
@@ -204,8 +207,12 @@ export function useSEO({ title, description, image, imageAlt, imageType = 'image
     });
 
     return () => {
-      document.title = prevTitle;
-      document.documentElement.removeAttribute('data-seo-set');
+      // Never write the previous page's title back: only clear the sentinel when
+      // it still belongs to this route, so the next page keeps its own title.
+      if (document.documentElement.getAttribute('data-seo-path') === seoRoute) {
+        document.documentElement.removeAttribute('data-seo-set');
+        document.documentElement.removeAttribute('data-seo-path');
+      }
       if (descEl) descEl.setAttribute('content', '');
       if (keywordsEl) keywordsEl.setAttribute('content', '');
       if (robotsEl) robotsEl.setAttribute('content', '');

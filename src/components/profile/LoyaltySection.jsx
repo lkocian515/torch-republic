@@ -143,7 +143,7 @@ export default function LoyaltySection({ user }) {
         <div className="flex items-center gap-2.5 mb-6">
           <Flame size={16} style={{ color: CLAY }} />
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase" style={{ color: CLAY }}>
-            Torchbearer Rewards
+            Republic Rewards
           </p>
         </div>
 
@@ -233,7 +233,7 @@ export default function LoyaltySection({ user }) {
 
         {/* Rewards grid */}
         <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: SECONDARY }}>
-          Redeem Torchbearer Rewards
+          Redeem Republic Rewards
         </p>
         {redeemError && (
           <div className="mb-4 px-3 py-2.5" style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}40`, borderRadius: '4px' }}>

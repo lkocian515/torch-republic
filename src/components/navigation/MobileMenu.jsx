@@ -77,7 +77,7 @@ export default function MobileMenu({ open, onClose }) {
 
       <div className="flex gap-3 px-5 py-4" style={{ borderBottom: `1px solid ${colors.border}` }}>
         <Link to="/torchbearers-rewards" onClick={onClose} className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-md px-4 font-heading text-sm font-semibold transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ background: colors.card, border: `1px solid ${colors.border}`, color: colors.text }}>
-          <Gift className="h-4 w-4" aria-hidden="true" /> Torchbearer Rewards
+          <Gift className="h-4 w-4" aria-hidden="true" /> Republic Rewards
         </Link>
         <Link to="/profile" onClick={onClose} className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-md px-4 font-heading text-sm font-semibold transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" style={{ background: colors.card, border: `1px solid ${colors.border}`, color: colors.text }}>
           <User className="h-4 w-4" aria-hidden="true" /> Account

@@ -367,7 +367,7 @@ export default function CustomerPortal() {
                     className="flex items-center justify-center gap-2 py-3 px-4 rounded-sm transition-all font-mono text-[9px] tracking-[0.25em] uppercase"
                     style={{ background: `${CLAY}10`, border: `1px solid ${CLAY}30`, color: CLAY }}
                   >
-                    <Gift size={14} /> Redeem Torchbearer Rewards
+                    <Gift size={14} /> Redeem Republic Rewards
                   </Link>
                   <a
                     href="https://torchrepublic.com/account/subscriptions"

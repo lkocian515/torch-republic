@@ -37,7 +37,11 @@ export default function RouteSeoManager() {
     // If the page component already set its own SEO via useSEO, do not
     // overwrite the title/description/OG/Twitter values with route-level
     // fallbacks. Only manage canonical URL and robots directives.
-    const pageHasOwnSeo = document.documentElement.getAttribute('data-seo-set') === 'true';
+    // A sentinel left behind by the route we are leaving does not count as this
+    // page's own SEO, so navigation always lands on the right title.
+    const seoRoute = document.documentElement.getAttribute('data-seo-path');
+    const pageHasOwnSeo =
+      document.documentElement.getAttribute('data-seo-set') === 'true' && seoRoute === location.pathname;
 
     if (!pageHasOwnSeo) {
       document.title = seo.title;

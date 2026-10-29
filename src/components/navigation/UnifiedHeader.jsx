@@ -137,8 +137,8 @@ export default function UnifiedHeader() {
             <button type="button" onClick={() => setSearchOpen(true)} className="flex min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2" aria-label="Search site" style={{ borderRadius: '4px' }}>
               <Search className="h-5 w-5" style={{ color: colors.text }} />
             </button>
-            <Link to="/torchbearers-rewards" className="hidden min-h-[44px] items-center gap-1.5 px-2 font-heading text-sm font-semibold transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 lg:flex" style={{ color: colors.secondary, borderRadius: '4px' }} aria-label="Torchbearer Rewards">
-              <Gift className="h-4 w-4" aria-hidden="true" /> Torchbearer Rewards
+            <Link to="/torchbearers-rewards" className="hidden min-h-[44px] items-center gap-1.5 px-2 font-heading text-sm font-semibold transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 lg:flex" style={{ color: colors.secondary, borderRadius: '4px' }} aria-label="Republic Rewards">
+              <Gift className="h-4 w-4" aria-hidden="true" /> Republic Rewards
             </Link>
             <Link to="/profile" className="hidden min-h-[44px] min-w-[44px] items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 md:flex" aria-label="Account" style={{ borderRadius: '4px' }}>
               <User className="h-5 w-5" style={{ color: colors.text }} />

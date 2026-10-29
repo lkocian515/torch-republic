@@ -15,7 +15,7 @@ export default function TorchbearersBanner({ variant = 'default' }) {
       >
         <Flame className="w-3.5 h-3.5" style={{ color: RG }} />
         <span className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>
-          Torchbearer Rewards
+          Republic Rewards
         </span>
         <ChevronRight className="w-3.5 h-3.5" style={{ color: RG }} />
       </Link>
@@ -33,7 +33,7 @@ export default function TorchbearersBanner({ variant = 'default' }) {
         <div className="flex items-center gap-2.5 mb-3">
           <Flame className="w-4 h-4" style={{ color: RG }} />
           <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: RG }}>
-            Torchbearer Rewards
+            Republic Rewards
           </p>
         </div>
         <p className="font-heading text-xs mb-3" style={{ color: 'rgba(245,239,230,0.6)', lineHeight: 1.7 }}>
@@ -65,11 +65,11 @@ export default function TorchbearersBanner({ variant = 'default' }) {
       <div className="flex items-center justify-center gap-2 mb-3">
         <Flame className="w-5 h-5" style={{ color: RG }} />
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase font-bold" style={{ color: RG }}>
-          Torchbearer Rewards
+          Republic Rewards
         </p>
       </div>
       <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>
-        Carry the Flame. Earn Torchbearer Rewards.
+        Carry the Flame. Earn Republic Rewards.
       </h3>
       <p className="font-heading text-sm md:text-base mb-5 max-w-xl mx-auto"
         style={{ color: 'rgba(245,239,230,0.65)', fontWeight: 300, lineHeight: 1.8 }}>

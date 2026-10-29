@@ -171,7 +171,7 @@ function EarningRule({ rule, index }) {
 export default function LoyaltyPortal() {
   useNoIndex();
   useSEO({
-    title: 'Torchbearer Rewards | Torch Republic Coffee Co.',
+    title: 'Republic Rewards | Torch Republic Coffee Co.',
     description: 'Track your Torch Republic loyalty points and unlock exclusive discounts.',
     url: '/loyalty',
     noindex: true,
@@ -265,10 +265,10 @@ export default function LoyaltyPortal() {
         <div className="max-w-[1100px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
-              Torchbearer Rewards
+              Republic Rewards
             </p>
             <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: INK, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              Welcome to Torchbearer Rewards
+              Welcome to Republic Rewards
             </h1>
             <p className="font-heading mt-4 max-w-2xl" style={{ fontSize: '0.95rem', color: SECONDARY, fontWeight: 300, lineHeight: 1.8 }}>
               Earn points on every purchase, unlock exclusive discounts, and join the republic of premium coffee lovers.
@@ -283,7 +283,7 @@ export default function LoyaltyPortal() {
         <div className="max-w-[1100px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: CLAY }}>
-              Unlock Torchbearer Rewards
+              Unlock Republic Rewards
             </p>
             <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: INK, lineHeight: 1.2 }}>
               Your Path to Savings
@@ -305,7 +305,7 @@ export default function LoyaltyPortal() {
               Earn Points
             </p>
             <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: INK, lineHeight: 1.2 }}>
-              How to Earn Torchbearer Rewards
+              How to Earn Republic Rewards
             </h2>
           </motion.div>
 

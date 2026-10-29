@@ -349,7 +349,7 @@ function RitualPDP({ product }) {
             </div>
 
             <Link to="/torchbearers-rewards" className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] transition-opacity hover:opacity-70" style={{ color: THEME.secondary }}>
-              <Gift size={13} style={{ color: c.accent }} /> Earn Torch Republic rewards on this purchase
+              <Gift size={13} style={{ color: c.accent }} /> Earn Republic Rewards on this purchase
             </Link>
 
             <div className="grid grid-cols-3 gap-3 pt-4" style={{ borderTop: `1px solid ${THEME.border}` }}>
