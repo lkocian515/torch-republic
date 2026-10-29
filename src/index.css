@@ -799,7 +799,100 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
   transform: translateY(1px) scale(.985);
 }
 
-/* ── Reduced motion: keep content, drop the movement ── */
+/* ═══════════════════════════════════════════════════════════════
+   TORCH REPUBLIC — MOTION SYSTEM
+   One timing scale and one easing family for the whole site, so every
+   reveal, hover, tap and parallax reads as the same warm, unhurried
+   gesture. Components reference these tokens instead of own numbers.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --motion-tap: 120ms;      /* press feedback — immediate */
+  --motion-fast: 180ms;     /* hovers on small controls */
+  --motion-base: 280ms;     /* cards, links, tabs */
+  --motion-slow: 560ms;     /* section reveals, image settles */
+  --motion-ambient: 900ms;  /* hero-scale entrances */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Section reveal uses the shared scale ── */
+.tech-in {
+  transition: opacity var(--motion-slow) var(--ease-out), transform var(--motion-slow) var(--ease-out);
+}
+.tech-in .grid > * {
+  animation-duration: var(--motion-slow);
+  animation-timing-function: var(--ease-out);
+}
+
+/* ── Product, edition and duo cards: lift + image settle ──
+   The lift is 2px and the image moves 3% — enough to feel responsive,
+   never enough to shift the reader's eye off the label. */
+.card-torch,
+.tr-card {
+  transition: transform var(--motion-base) var(--ease-out),
+              box-shadow var(--motion-base) var(--ease-out),
+              border-color var(--motion-base) var(--ease-out);
+}
+@media (hover: hover) {
+  .card-torch:hover,
+  .tr-card:hover,
+  .card-torch:focus-within,
+  .tr-card:focus-within {
+    transform: translateY(-2px);
+  }
+}
+.card-torch img,
+.tr-card img {
+  transition: transform var(--motion-slow) var(--ease-out), opacity var(--motion-base) var(--ease-soft);
+}
+@media (hover: hover) {
+  .card-torch a:hover img,
+  .card-torch a:focus-visible img,
+  .tr-card a:hover img,
+  .tr-card a:focus-visible img {
+    transform: scale(1.03);
+  }
+}
+
+/* ── Warmer hover/focus on links and small controls ── */
+.nav-link {
+  transition: color var(--motion-fast) var(--ease-soft);
+}
+.nav-link::after {
+  transition: transform var(--motion-base) var(--ease-out);
+}
+a, button, [role="button"], summary, input, select, textarea {
+  transition: color var(--motion-fast) var(--ease-soft),
+              background-color var(--motion-base) var(--ease-soft),
+              border-color var(--motion-fast) var(--ease-soft),
+              box-shadow var(--motion-fast) var(--ease-soft);
+}
+
+/* ── Tap feedback on touch — no layout shift, no movement of text ── */
+@media (hover: none) {
+  .tr-tap:active,
+  .card-torch:active,
+  .tr-card:active {
+    transform: scale(0.995);
+  }
+}
+
+/* ── Parallax layer ──
+   Only ever driven by JS, only on fine pointers, only on marked elements.
+   The scale hides the edge the translate would otherwise expose. */
+[data-parallax] {
+  will-change: transform;
+  transform: scale(1.06);
+  backface-visibility: hidden;
+}
+
+/* ── Gallery frames: cross-fade when the image swaps ── */
+.tr-frame img { transition: opacity var(--motion-base) var(--ease-soft); }
+
+/* ── Reduced motion: keep content, drop the movement ──
+   Parallax and parallax scaling are removed entirely (not just slowed),
+   so an image never sits zoomed or offset for a reduced-motion reader. */
 @media (prefers-reduced-motion: reduce) {
   .tech-hidden,
   .tech-in {
@@ -811,4 +904,16 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
   .tech-progress { display: none !important; }
   .btn-primary::after { display: none !important; }
   .btn:active { transform: none !important; }
+  .card-torch,
+  .tr-card,
+  .card-torch img,
+  .tr-card img,
+  .tr-tap:active {
+    transition: none !important;
+    transform: none !important;
+  }
+  [data-parallax] {
+    transform: none !important;
+    will-change: auto;
+  }
 }

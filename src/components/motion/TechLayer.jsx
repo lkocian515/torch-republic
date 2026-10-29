@@ -126,6 +126,59 @@ export default function TechLayer() {
     };
   }, [pathname]);
 
+  // ── 4. Parallax on marked lifestyle imagery ──
+  // Only elements that opt in with `data-parallax` (value = travel in px) move,
+  // and only on a fine pointer with motion allowed. The travel is a fraction of
+  // the scroll delta, so a full-page scroll never drags an image more than its
+  // own strength — the crop stays inside the scale that [data-parallax] sets.
+  useEffect(() => {
+    if (reduced()) return;
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const items = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (items.length === 0) return;
+
+    const live = new Set();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) live.add(entry.target);
+          else live.delete(entry.target);
+        });
+      },
+      { rootMargin: '15% 0px 15% 0px' }
+    );
+    items.forEach((el) => io.observe(el));
+
+    let raf = null;
+    const paint = () => {
+      raf = null;
+      const vh = window.innerHeight;
+      live.forEach((el) => {
+        const strength = Number(el.dataset.parallax) || 30;
+        const rect = el.getBoundingClientRect();
+        // -1 when the element's middle is at the top of the viewport, +1 at the bottom.
+        const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2);
+        const offset = Math.max(-1, Math.min(1, progress)) * strength;
+        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.06)`;
+      });
+    };
+    const schedule = () => { if (raf === null) raf = requestAnimationFrame(paint); };
+
+    paint();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      io.disconnect();
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      items.forEach((el) => { el.style.transform = ''; });
+    };
+  }, [pathname]);
+
   return (
     <div ref={barRef} aria-hidden="true" className="tech-progress" />
   );
