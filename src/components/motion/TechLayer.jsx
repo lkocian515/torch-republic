@@ -161,7 +161,7 @@ export default function TechLayer() {
         // -1 when the element's middle is at the top of the viewport, +1 at the bottom.
         const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2);
         const offset = Math.max(-1, Math.min(1, progress)) * strength;
-        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.06)`;
+        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.08)`;
       });
     };
     const schedule = () => { if (raf === null) raf = requestAnimationFrame(paint); };

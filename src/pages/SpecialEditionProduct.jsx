@@ -335,6 +335,7 @@ export default function SpecialEditionProduct() {
                 className="w-full"
                 style={{ display: 'block', height: 'auto' }}
                 loading="lazy"
+                data-parallax="24"
               />
             </div>
           </section>

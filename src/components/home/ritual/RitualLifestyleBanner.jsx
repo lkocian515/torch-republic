@@ -15,17 +15,19 @@ export default function RitualLifestyleBanner({
   if (!image) return null;
   return (
     <section className="relative w-full overflow-hidden" style={{ background: '#1A1612' }}>
-      <motion.img
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7 }}
-        src={image}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        className="block h-[78vh] max-h-[680px] min-h-[460px] w-full object-cover object-center"
-      />
+      <div data-parallax="32">
+        <motion.img
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7 }}
+          src={image}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className="block h-[78vh] max-h-[680px] min-h-[460px] w-full object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(20,16,14,0.15) 0%, rgba(20,16,14,0) 38%, rgba(20,16,14,0.78) 100%)' }} />
       <div className="absolute inset-x-0 bottom-0">
         <div className="mx-auto max-w-[1100px] px-6 pb-12 pt-24 text-center md:pb-16">

@@ -883,7 +883,7 @@ a, button, [role="button"], summary, input, select, textarea {
    The scale hides the edge the translate would otherwise expose. */
 [data-parallax] {
   will-change: transform;
-  transform: scale(1.06);
+  transform: scale(1.08);
   backface-visibility: hidden;
 }
 
