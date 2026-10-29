@@ -82,6 +82,22 @@ export const SEASONAL_ARTWORK = {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ce10b87f8_file_00000000446c81f5b526f3030ca0fedb.png',
     alt: 'Lucky Clover Mint seasonal reserve: a black coffee pouch with a cream label showing a green clover mug on a wooden table surrounded by white clover flowers, mint leaves and coffee beans',
   },
+  'bluebonnet-bloom': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b175650ec_file_0000000090f8820daafe2753d123de09.png',
+    alt: 'Bluebonnet Bloom French Vanilla seasonal reserve: a black coffee pouch with a cream label showing a steaming mug beside vanilla beans and flowers in a bluebonnet field at sunset',
+  },
+  'coastal-caramel': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7d25ee690_file_000000003838822f8593d9e067977ac3.png',
+    alt: 'Coastal Caramel seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with salted caramels on driftwood against a coastal sunset',
+  },
+  'gulf-coast-turtle': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2bf0172f6_file_00000000bfec81fdb72b14b71fa8a0d2.png',
+    alt: 'Gulf Coast Turtle seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with chocolate-covered pecans beside a sea turtle in turquoise water',
+  },
+  'stars-stripes-spice': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f1ffc794e_file_00000000b740820e9411b25a7e2f6c73.png',
+    alt: 'Stars, Stripes & Spice Cinnamon Hazelnut seasonal reserve: a black coffee pouch with a cream label showing a steaming mug with hazelnuts and cinnamon sticks under fireworks and a draped American flag',
+  },
 };
 
 /** The label shot for a release, or null when it has none. */
