@@ -16,6 +16,7 @@ import {
   isUpcomingEdition,
   COMING_SOON_COPY,
 } from '@/lib/specialEditions';
+import { seasonalArtwork } from '@/lib/seasonalCalendar';
 import EditionStatusChip from '@/components/specialeditions/EditionStatusChip';
 import GrindSelector from '@/components/specialeditions/GrindSelector';
 import EditionCard from '@/components/specialeditions/EditionCard';
@@ -56,7 +57,10 @@ export default function SpecialEditionProduct() {
     : optionState(option);
   const formatLabel = editionFormatLabel(edition);
 
-  const primaryImage = option?.image_url || edition?.image_url || null;
+  // The edition's own photo first, then the approved label shot kept for this
+  // seasonal coffee, so a release never opens on a blank frame.
+  const primaryImage =
+    option?.image_url || edition?.image_url || seasonalArtwork(edition?.slug)?.src || null;
   // The main image is derived, so it is never blank on a direct visit or refresh.
   const shownImage = selectedImage || primaryImage;
 
@@ -100,7 +104,7 @@ export default function SpecialEditionProduct() {
       edition?.seo_description ||
       edition?.short_description ||
       'A limited Torch Republic special edition coffee release.',
-    image: edition?.social_image || option?.image_url || undefined,
+    image: edition?.social_image || primaryImage || undefined,
     url: `/special-editions/${slug}`,
     type: 'product',
     product: productSchema,
