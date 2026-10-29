@@ -86,7 +86,7 @@ export const ALL_BLOG_TOPICS = [
   { slug: 'what-does-mushroom-coffee-taste-like', title: 'What Does Mushroom Coffee Actually Taste Like?', cluster: 'mushroom-coffee', exists: false },
   { slug: 'does-mushroom-coffee-make-you-less-jittery', title: 'Does Mushroom Coffee Make You Less Jittery?', cluster: 'mushroom-coffee', exists: false },
   { slug: 'lions-mane-mushroom-coffee', title: "Lion's Mane Mushroom Coffee: Benefits, Taste & How It Works", cluster: 'mushroom-coffee', exists: true },
-  { slug: 'chaga-mushroom-coffee', title: 'Chaga Mushroom Coffee: What Is It and Why Drink It?', cluster: 'mushroom-coffee', exists: true },
+  { slug: 'chaga-mushroom-coffee', title: 'Chaga Mushroom: What Research Actually Shows', cluster: 'mushroom-coffee', exists: true },
   { slug: 'history-of-mushroom-coffee', title: 'The History of Mushroom Coffee: From Finland to Your Cup', cluster: 'mushroom-coffee', exists: true },
   { slug: 'mushroom-coffee-benefits', title: 'Mushroom Coffee Benefits: What the Research Actually Says', cluster: 'mushroom-coffee', exists: true },
   { slug: 'science-of-lions-mane', title: "Lion’s Mane: Tradition, Research and Modern Coffee Blends", cluster: 'mushroom-coffee', exists: true },
