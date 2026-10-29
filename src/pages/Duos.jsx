@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { duoCalendar } from '@/lib/duos';
-import { windowLabel, seasonalArtwork } from '@/lib/seasonalCalendar';
+import { windowLabel, seasonalArtwork, seasonalEntry } from '@/lib/seasonalCalendar';
 import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 import OriginalsDuoPanel from '@/components/duos/OriginalsDuoPanel';
 import PreparationLegend from '@/components/seasonal/PreparationLegend';
@@ -33,10 +33,16 @@ export default function Duos() {
 
   // Which coffees in a pairing have an approved label shot, deduped so a
   // two-pack of the same coffee never shows the same photo twice.
-  const calendar = duoCalendar().map((pairing) => ({
-    ...pairing,
-    artworkSlugs: [...new Set(pairing.components)].filter((slug) => seasonalArtwork(slug)),
-  }));
+  const calendar = duoCalendar().map((pairing) => {
+    const counts = new Map();
+    pairing.components.forEach((slug) => counts.set(slug, (counts.get(slug) || 0) + 1));
+    return {
+      ...pairing,
+      artwork: [...counts.entries()]
+        .filter(([slug]) => seasonalArtwork(slug))
+        .map(([slug, qty]) => ({ slug, qty, name: seasonalEntry(slug)?.name || slug })),
+    };
+  });
 
   return (
     <div className="section-torch">
@@ -132,10 +138,23 @@ export default function Duos() {
                           ) : null}
                         </div>
 
-                        {pairing.artworkSlugs.length > 0 && (
-                          <div className="mt-4 flex items-center gap-2">
-                            {pairing.artworkSlugs.map((slug) => (
-                              <SeasonalArtwork key={slug} slug={slug} className="h-14 w-14" />
+                        {pairing.artwork.length > 0 && (
+                          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
+                            {pairing.artwork.map((item) => (
+                              <figure key={item.slug} className="flex min-w-0 items-center gap-2.5" style={{ margin: 0 }}>
+                                <SeasonalArtwork slug={item.slug} className="h-14 w-14" />
+                                <figcaption
+                                  className="font-heading"
+                                  style={{ fontSize: '0.8125rem', lineHeight: 1.25, color: 'hsl(var(--foreground))' }}
+                                >
+                                  {item.name}
+                                  {item.qty > 1 ? (
+                                    <span style={{ display: 'block', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
+                                      Two bags
+                                    </span>
+                                  ) : null}
+                                </figcaption>
+                              </figure>
                             ))}
                           </div>
                         )}

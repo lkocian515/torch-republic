@@ -78,6 +78,10 @@ export const SEASONAL_ARTWORK = {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/37afd7991_file_00000000996c820d81a8c84217726535.png',
     alt: 'Velvet Heart Mocha seasonal reserve: a black coffee pouch with a cream label showing a mug of mocha topped with whipped cream, chocolate pieces and red rose petals',
   },
+  'lucky-clover': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ce10b87f8_file_00000000446c81f5b526f3030ca0fedb.png',
+    alt: 'Lucky Clover Mint seasonal reserve: a black coffee pouch with a cream label showing a green clover mug on a wooden table surrounded by white clover flowers, mint leaves and coffee beans',
+  },
 };
 
 /** The label shot for a release, or null when it has none. */
