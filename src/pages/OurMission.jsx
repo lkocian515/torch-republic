@@ -96,14 +96,13 @@ export default function OurMission() {
       {/* Founder callout */}
       <section className="px-5 py-16 md:px-10" style={{ background: theme.section }}>
         <div className="mx-auto max-w-4xl rounded-[2rem] border p-8 md:p-10" style={{ background: theme.card, borderColor: theme.border }}>
-          <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>Founder Note</p>
+          <p className="mb-3 font-heading text-sm uppercase tracking-[0.3em]" style={{ color: theme.accent }}>A Note from the Founder</p>
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>One cup. One ritual. One intentional step forward.</h2>
           <div className="mt-6 space-y-5 font-heading leading-8" style={{ color: theme.body }}>
-            <p>We believe wellness is not about perfection. It is built through small, consistent choices repeated day after day.</p>
+            <p>We believe a good routine is not about perfection. It is built through small, consistent choices repeated day after day.</p>
             <p>The torch in our name represents awareness — the quiet light that reminds us growth is always possible.</p>
           </div>
-          <p className="mt-6 font-heading font-semibold" style={{ color: theme.text }}>Lisa Marie Kocian, Founder</p>
-          <Link to="/founder-story" className="mt-6 inline-flex min-h-[44px] items-center rounded-full border px-6 py-2 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Read the full Founder Story →</Link>
+          <Link to="/founder-story" className="mt-6 inline-flex min-h-[44px] items-center rounded-full border px-6 py-2 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Read the Founder Story →</Link>
         </div>
       </section>
 

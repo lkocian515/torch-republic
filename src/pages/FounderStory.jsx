@@ -1,7 +1,8 @@
 /**
  * Founder Story Page
  * Route: /founder-story
- * "Why I Walked Away From Coffee Pods"
+ * A concise, first-person note on why Torch Republic exists.
+ * The founder's name appears once, as an understated signature at the bottom.
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -13,89 +14,50 @@ const RG = '#B86543';
 
 const SECTIONS = [
   {
-    id: 'pods',
-    heading: 'The Pod Problem Nobody Talks About',
-    body: `It started with a simple calculation. I was going through two boxes of K-Cups a week — about 20 pods. At roughly $0.70-$1.00 per pod, that was $14-$20 a week, or nearly $80 a month, just for the convenience of not having to deal with a coffee maker. And every single one of those pods — those tiny, non-recyclable plastic cups — went straight into a landfill. Not some of them. All of them.
+    id: 'habit',
+    heading: 'The Habit I Stopped Questioning',
+    body: `I used a pod machine for about three years. Two boxes of pods a week, one cup after another, and every empty pod went straight into the trash. I never did the math until I finally did.
 
-I'd been using a pod machine for three years without doing that math. When I finally did, I felt genuinely embarrassed. Not performatively — just the quiet embarrassment of realizing I'd been sleepwalking through a habit that wasn't actually serving me.
+What bothered me wasn't really the money. It was noticing how automatic the whole thing had become. Wake up. Press the button. Drink. I wasn't making a cup of coffee so much as going through the motions of one.
 
-But here's the thing: I didn't stop using pods right away. Because the ritual had become automatic. Wake up, press a button, get coffee. It was frictionless. And friction-reduction is how most bad habits survive — not because they're secretly good, but because removing them requires energy you don't have at 6am.`
+It's an easy habit to keep, because it asks nothing of you. That's exactly what makes it hard to notice.`,
   },
   {
-    id: 'travel',
-    heading: 'The Hotel Room That Changed Everything',
-    body: `In early 2023, I was traveling for work — three cities in four days. Every hotel room had a machine that took pods. And every pod made the same mediocre coffee. Hotel lobby. Airport gate. Conference room.
+    id: 'looking-for',
+    heading: 'What I Was Actually Looking For',
+    body: `What I wanted was simple: a cup I could make in about a minute that still felt worth slowing down for. No machine to clean, no pods to buy, no ritual built around equipment I'd have to maintain.
 
-At some point I thought: I'm drinking the exact same cup of coffee in every single place I go, and none of them are good.
+The more I thought about it, the clearer the idea became. The part of a morning coffee that matters isn't the machinery. It's the two quiet minutes you give it — a warm cup in your hands, and the decision to start the day on purpose instead of on autopilot.
 
-There's something demoralizing about that. Not catastrophically — I'm talking about the small daily disappointment of going through the motions of a ritual that has no substance anymore. I was filling a cup. I wasn't actually doing anything intentional.
-
-I remembered that my grandfather kept a small tin of instant coffee in his kitchen. He made it with a kettle — no machine, no pods. He drank it deliberately. Slowly. In the same chair, at the same time, every morning. The ritual was in the intention, not the equipment.
-
-That's when I started thinking about what I actually wanted from a morning coffee ritual.`
+That's the reason Torch Republic exists. Not to add another step to your morning, but to make the step you already take a better one.`,
   },
   {
-    id: 'mushrooms',
-    heading: 'Finding Functional Mushrooms (And Why I Was Skeptical)',
-    body: `I want to be honest about this: I was deeply skeptical of mushroom coffee when I first encountered it.
+    id: 'format',
+    heading: 'Why Instant',
+    body: `Instant coffee made the most sense, and it still does. Add water, stir, done — hot or iced, at home or in a hotel room, with no pods and nothing to descale or replace.
 
-The marketing around functional mushrooms often sounds like pseudoscience dressed up in wellness language. "Unlock your brain's potential." "Activate your focus." I'd seen enough supplement industry hype to distrust anything that promised transformation in a cup.
-
-So I did what I should have done — I read the research.
-
-What I found was more nuanced than either the enthusiastic marketing or the cynical dismissal. There is genuine peer-reviewed research behind certain functional mushroom species, particularly around cognitive support and antioxidant properties. These are not dramatic claims. They are modest, real findings.
-
-None of them are drugs. None of them will replace medical treatment. But as additions to a daily coffee ritual — for people who already drink coffee? The research was compelling enough that I wanted to try it consistently.
-
-We are still verifying the exact species, extract types, and amounts in our current formula against the physical package label. Until that verification is complete, we are not publishing specific mushroom names or extract claims on our marketing surfaces.`
+It also had to taste like coffee. Not like a supplement, not like health food, not like a compromise. A really good cup that happens to be easy. If a convenience product doesn't taste good, you stop using it, and then it isn't convenient at all.`,
   },
   {
-    id: 'building',
-    heading: 'What We Built — and Why We Built It This Way',
-    body: `Torch Republic started from a specific frustration: functional mushroom coffee existed, but it was either expensive, poorly formulated, or came in formats that were inconvenient.
+    id: 'collection',
+    heading: 'Two Products, Chosen Carefully',
+    body: `Rather than build a crowded catalog, we started with two: a classic instant coffee and an instant mushroom coffee. One is for the person who wants a straightforward cup. The other is for someone curious about functional mushrooms in the coffee they already drink. Both deserve to be made well on their own terms.
 
-We wanted something with the simplicity of instant coffee — no machine, no cleanup, no pods — combined with functional mushroom extracts. And we wanted it to taste like coffee. Not like a health supplement. Not like dirt. Like a really good cup of coffee that happened to have functional mushroom extracts in it.
-
-The instant format was non-negotiable. Not because it's easier to manufacture — it isn't. But because the entire philosophy of a morning ritual is that it should remove friction, not add it. You shouldn't need to grind beans, calibrate a machine, or clean a portafilter to participate in your own morning.
-
-We started with a focused collection: a classic instant coffee and a mushroom coffee. Two products, made well, instead of a broad catalog that dilutes attention. A classic coffee drinker who wants simplicity is not the same as someone exploring functional mushroom coffee — both deserve a product built specifically for them.`
+We keep the descriptions on the product pages specific and the ingredient information in one place, so you can see what's in the cup without sorting through vague language. We don't make health claims about our coffee, and we don't describe it as anything more than what it is: a good cup, made simple.`,
   },
   {
-    id: 'ritual',
-    heading: 'Why "Ritual" Is the Right Word',
-    body: `I've been asked why we use the word "ritual" so much. It sounds spiritual — or worse, pretentious.
+    id: 'simpler',
+    heading: 'A Simpler Way to Start the Day',
+    body: `The torch in our name is about awareness — a small, steady light rather than a spotlight. The Republic is the everyday part: ordinary mornings, repeated quietly, made a little more deliberate.
 
-Here's the practical reason: a ritual is a habit with intention attached. You can drink coffee mindlessly (I did, for years) or you can drink coffee as a deliberate signal to yourself that a particular kind of time is beginning.
-
-The research on morning routines consistently shows that the quality of a morning ritual affects productivity, mood, and cognitive performance for hours after. Not because the ritual is magic — but because it creates a psychological boundary between sleep and work, between passive and active states of mind.
-
-Coffee is already a ritual trigger for hundreds of millions of people. The smell, the warmth, the routine of preparation — these are sensory anchors that the brain associates with waking up, getting focused, beginning.
-
-Mushroom coffee doesn't change that. It just adds functional ingredients to a ritual that was already happening. For people who already drink coffee every morning, that's a genuinely intelligent addition — not a disruption.
-
-That's the idea behind Torch Republic. Not a supplement brand. Not just a coffee company. A framework for morning intention — where the simplest possible preparation leads to the most considered start to the day.`
-  },
-  {
-    id: 'plastic',
-    heading: 'The Pod Count',
-    body: `Here's a number I think about sometimes.
-
-An estimated 56 billion K-Cup pods were used in 2019 alone. If you lined them up, they would circle the Earth more than 10 times. The vast majority are not recyclable in standard municipal systems. Most go directly to landfill.
-
-John Sylvan, who invented the K-Cup, has publicly said he regrets the invention specifically because of the waste.
-
-I'm not writing this to make coffee pod users feel guilty. I used them for three years. Guilt isn't a useful driver of behavior change — but awareness is.
-
-If you drink two cups of coffee a day from a pod machine, switching to premium instant coffee saves approximately $400-600 per year and eliminates roughly 700+ pods from landfill. That's a real number, for one person, per year.
-
-Torch Republic isn't positioned as an environmental brand. We're a coffee and wellness brand. But one of the simplest, most concrete things about our format is this: no pod. No capsule. No machine. You add water to a scoop of freeze-dried coffee powder. That's it.`
+That's what I hope the coffee does for you. Not a transformation. Just a better couple of minutes at the start of your day, and a cup you actually look forward to.`,
   },
 ];
 
 export default function FounderStory() {
   useSEO({
-    title: 'Why I Walked Away From Coffee Pods | Torch Republic Founder Story',
-    description: 'The founder story behind Torch Republic — why we walked away from coffee pods and built a focused instant coffee ritual brand. Read the full story.',
+    title: 'The Story Behind Torch Republic | A Note from the Founder',
+    description: 'Why Torch Republic exists: a simple, intentional instant coffee ritual without pods or machines, told by the founder.',
     url: '/founder-story',
     type: 'article',
     breadcrumbs: [
@@ -117,7 +79,7 @@ export default function FounderStory() {
               Why I Walked Away<br />From Coffee Pods
             </h1>
             <p className="font-heading" style={{ fontSize: '1.1rem', color: '#5F5145', lineHeight: 1.9, fontWeight: 300, maxWidth: '600px', margin: '0 auto' }}>
-              On convenience, waste, functional mushrooms, and why a better morning ritual doesn't require a machine.
+              On convenience, waste, and why a better morning cup doesn't need a machine.
             </p>
             <div className="flex items-center justify-center gap-3 mt-8">
               <div className="w-8 h-px" style={{ background: `${RG}40` }} />
@@ -137,7 +99,7 @@ export default function FounderStory() {
             className="flex items-start gap-5">
             <Quote size={28} style={{ color: `${RG}40`, flexShrink: 0, marginTop: 4 }} />
             <p className="font-serif italic" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#5F5145', lineHeight: 1.65 }}>
-              I was going through 20 pods a week. Every one went to a landfill. When I finally did the math, I felt the quiet embarrassment of realizing I'd been sleepwalking through a habit that wasn't serving me.
+              I was going through twenty pods a week, and every one of them went in the trash. When I finally did the math, the habit had already stopped serving me.
             </p>
           </motion.div>
         </div>
@@ -187,13 +149,13 @@ export default function FounderStory() {
               No machine. No pods. No compromise.
             </h2>
             <p className="font-heading mb-10" style={{ fontSize: '0.95rem', color: '#5F5145', lineHeight: 1.85, fontWeight: 300 }}>
-              Torch Republic is premium instant coffee and functional mushroom coffee. Add hot water. That's it. Free shipping $45+.
+              Torch Republic is premium instant coffee and functional mushroom coffee. Add hot or cold water. That's it. Free shipping $45+.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/build-your-ritual"
+              <Link to="/shop"
                 className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-4 px-8 transition-all hover:opacity-90"
                 style={{ background: RG, color: '#FBF8F1' }}>
-                Build Your Ritual Bundle <ArrowRight size={13} />
+                Shop the Collection <ArrowRight size={13} />
               </Link>
               <Link to="/quiz"
                 className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase py-4 px-8 transition-all hover:opacity-80"
@@ -206,7 +168,7 @@ export default function FounderStory() {
       </section>
 
       {/* Related Reading */}
-      <section className="px-6 md:px-10 pb-16" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
+      <section className="px-6 md:px-10" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-3xl mx-auto pt-14">
           <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#293626' }}>Continue Reading</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -226,6 +188,18 @@ export default function FounderStory() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Signature */}
+      <section className="px-6 md:px-10 py-14">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="font-serif italic" style={{ fontSize: 'clamp(1.45rem, 4vw, 1.9rem)', color: '#293626', lineHeight: 1.4, letterSpacing: '0.02em' }}>
+            Lisa Marie Kocian
+          </p>
+          <p className="font-mono text-[8px] tracking-[0.3em] uppercase mt-2" style={{ color: '#5F5145' }}>
+            Founder
+          </p>
         </div>
       </section>
 
