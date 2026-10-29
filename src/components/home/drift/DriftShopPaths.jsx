@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { CORE_PRODUCTS, SEASONAL_PRODUCTS } from '@/lib/coreProducts';
-import { D, TYPE, SANS } from './driftTheme';
+import { D, TYPE } from './driftTheme';
 
 /**
  * The two ways to shop, side by side.
@@ -82,14 +82,11 @@ export default function DriftShopPaths() {
                 </p>
                 <Link
                   to={path.to}
-                  className="mt-5 inline-flex min-h-[48px] items-center justify-center gap-2 self-start px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  className="mt-auto inline-flex min-h-[48px] items-center justify-center gap-2 self-start px-5 pt-3 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{
                     borderRadius: '6px',
                     background: D.terracotta,
                     color: '#FFF7E8',
-                    fontFamily: SANS,
-                    marginTop: 'auto',
-                    paddingTop: '0.75rem',
                   }}
                 >
                   {path.cta}

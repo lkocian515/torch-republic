@@ -113,8 +113,8 @@ export default function DriftTorchbearerClub() {
                 Meet the Torchbearer Club
               </h2>
               <p style={{ ...TYPE.lead, color: MUTED_ON_DARK, margin: '0.875rem 0 0', maxWidth: 460 }}>
-                One featured seasonal coffee, delivered each month. Preview what’s coming, choose your grind, and
-                manage your membership from your account.
+                One featured seasonal coffee, chosen each month. Enrollment is coming soon — join the waitlist and
+                we’ll email you when it opens. No payment required.
               </p>
 
               <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -126,6 +126,14 @@ export default function DriftTorchbearerClub() {
                 >
                   See this month’s coffee
                   <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                </Link>
+                <Link
+                  to={`${CLUB_PATH}#waitlist`}
+                  onClick={() => trackCta('join_waitlist')}
+                  className="inline-flex min-h-[44px] items-center gap-1.5 font-heading text-sm font-semibold"
+                  style={{ color: IVORY, textDecoration: 'underline', textUnderlineOffset: 4 }}
+                >
+                  Join the waitlist
                 </Link>
                 <Link
                   to={`${CLUB_PATH}#club-rhythm`}
