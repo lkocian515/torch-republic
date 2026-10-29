@@ -78,6 +78,16 @@
     --ivory: 38 53% 97%;
     --border-rose: 32 34% 84%;
 
+    /* Brand plate — the approved light surface for the wordmark. Identical in
+       both themes on purpose: no dark-surface cup-and-flame mark exists, and the
+       espresso lettering must never sit on a dark ground. Components that carry
+       the logo (UnifiedHeader) read these instead of hardcoded hex. */
+    --brand-plate: 38 53% 97%;
+    --brand-plate-solid: 0 0% 100%;
+    --brand-ink: 28 11% 16%;
+    --brand-ink-muted: 30 8% 33%;
+    --brand-rule: 32 34% 84%;
+
     --chart-1: 7 52% 79%;
     --chart-2: 36 52% 65%;
     --chart-3: 0 0% 60%;
@@ -108,6 +118,13 @@
     --border: 30 8% 21%;             /* dark warm border */
     --input: 30 8% 21%;
     --ring: 17 50% 55%;
+
+    /* Brand plate stays light in dark mode — see the :root note. */
+    --brand-plate: 38 53% 97%;
+    --brand-plate-solid: 0 0% 100%;
+    --brand-ink: 28 11% 16%;
+    --brand-ink-muted: 30 8% 33%;
+    --brand-rule: 32 34% 84%;
   }
 }
 
@@ -128,6 +145,9 @@
     font-family: var(--font-heading);
     font-size: 18px;
     line-height: 1.7;
+    /* No scroll chaining or browser pull-to-refresh — the app supplies its own
+       refresh gesture and should feel native when installed. */
+    overscroll-behavior-y: none;
   }
 
   p, li, span, label, input, textarea, select {
@@ -330,8 +350,8 @@ header.sticky.top-0 {
   .footer-mobile-clearance { padding-bottom: 0; }
 }
 
-/* User select none for buttons and nav */
-button, a, [role="button"], nav {
+/* User select none for buttons, links and every interactive surface */
+button, a, [role="button"], [role="menuitem"], [role="tab"], summary, nav {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -227,17 +227,17 @@ export default function Profile() {
 
         {/* Delete Account Confirmation Dialog — two-step, App Store / Google Play compliant */}
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={closeDeleteDialog}>
-          <AlertDialogContent style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', maxWidth: '460px' }}>
+          <AlertDialogContent className="bg-card border-border" style={{ maxWidth: '460px' }}>
             <AlertDialogHeader>
-              <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm" style={{ color: '#2D2824' }}>
+              <AlertDialogTitle className="font-mono tracking-widest uppercase text-sm text-card-foreground">
                 Permanently Delete Account
               </AlertDialogTitle>
               <AlertDialogDescription asChild>
                 <div className="space-y-3 mt-2">
                   {deleteStep === 1 ? (
                     <>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
-                        This action is <strong style={{ color: '#2D2824' }}>permanent and cannot be undone.</strong> In accordance with app store data-privacy requirements, deleting your account will:
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                        This action is <strong style={{ color: 'hsl(var(--foreground))' }}>permanent and cannot be undone.</strong> In accordance with app store data-privacy requirements, deleting your account will:
                       </p>
                       <ul className="space-y-1.5 pl-1">
                         {[
@@ -247,15 +247,15 @@ export default function Profile() {
                           'Remove your saved preferences',
                           'Sign you out across all devices immediately',
                         ].map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: '#5F574F' }}>
-                            <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#B7653E', marginTop: '6px' }} />
+                          <li key={i} className="flex items-start gap-2 font-heading text-xs" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                            <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ background: 'hsl(var(--primary))', marginTop: '6px' }} />
                             {item}
                           </li>
                         ))}
                       </ul>
                       <div className="pt-1">
-                        <p className="font-heading text-xs mb-1.5" style={{ color: '#5F574F' }}>
-                          To continue, type <strong style={{ color: '#2D2824' }}>"{DELETE_PHRASE}"</strong> below to confirm.
+                        <p className="font-heading text-xs mb-1.5" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                          To continue, type <strong style={{ color: 'hsl(var(--foreground))' }}>"{DELETE_PHRASE}"</strong> below to confirm.
                         </p>
                         <input
                           type="text"
@@ -264,9 +264,9 @@ export default function Profile() {
                           placeholder={DELETE_PHRASE}
                           className="w-full px-3 py-2 font-mono text-sm uppercase tracking-widest"
                           style={{
-                            background: '#FFFFFF',
-                            border: '1px solid #E4D8C9',
-                            color: '#2D2824',
+                            background: 'hsl(var(--card))',
+                            border: '1px solid hsl(var(--border))',
+                            color: 'hsl(var(--foreground))',
                             borderRadius: '4px',
                             outline: 'none',
                           }}
@@ -274,17 +274,17 @@ export default function Profile() {
                           autoComplete="off"
                         />
                       </div>
-                      <p className="font-mono text-xs tracking-wide" style={{ color: '#8A8076' }}>
+                      <p className="font-mono text-xs tracking-wide" style={{ color: 'hsl(var(--muted-foreground))' }}>
                         If you just want a break, you can simply sign out instead. Subscriptions and rewards cannot be restored once your account is deleted.
                       </p>
                     </>
                   ) : (
                     <>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
-                        You typed <strong style={{ color: '#2D2824' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                        You typed <strong style={{ color: 'hsl(var(--foreground))' }}>"{DELETE_PHRASE}"</strong>. This is your final chance to cancel.
                       </p>
-                      <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F' }}>
-                        If you proceed, your subscriptions will be cancelled and your account, loyalty points and Torchbearer rewards will be <strong style={{ color: '#2D2824' }}>permanently deleted</strong> — we cannot recover them afterward.
+                      <p className="font-heading text-sm leading-relaxed" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                        If you proceed, your subscriptions will be cancelled and your account, loyalty points and Torchbearer rewards will be <strong style={{ color: 'hsl(var(--foreground))' }}>permanently deleted</strong> — we cannot recover them afterward.
                       </p>
                       {deleteError && (
                         <p className="font-mono text-xs" style={{ color: 'hsl(var(--destructive))' }}>
@@ -303,14 +303,14 @@ export default function Profile() {
                   onClick={resetToDeleteStep1}
                   disabled={isDeleting}
                   className="font-mono text-xs tracking-widest uppercase"
-                  style={{ background: 'transparent', border: '1px solid #E4D8C9', color: '#5F574F', minHeight: '44px', borderRadius: '4px' }}
+                  style={{ background: 'transparent', border: '1px solid hsl(var(--border))', color: 'hsl(var(--muted-foreground))', minHeight: '48px', borderRadius: '4px' }}
                 >
                   Back
                 </button>
               ) : (
                 <AlertDialogCancel
                   className="font-mono text-xs tracking-widest uppercase"
-                  style={{ background: 'transparent', border: '1px solid #E4D8C9', color: '#5F574F', minHeight: '44px' }}
+                  style={{ background: 'transparent', border: '1px solid hsl(var(--border))', color: 'hsl(var(--muted-foreground))', minHeight: '48px' }}
                   disabled={isDeleting}
                 >
                   Keep My Account
@@ -325,8 +325,8 @@ export default function Profile() {
                   disabled={!canProceedToFinal}
                   className="font-mono text-xs tracking-widest uppercase"
                   style={{
-                    background: canProceedToFinal ? 'hsl(var(--destructive))' : '#F0EAE0',
-                    color: canProceedToFinal ? '#fff' : '#9C948A',
+                    background: canProceedToFinal ? 'hsl(var(--destructive))' : 'hsl(var(--muted))',
+                    color: canProceedToFinal ? 'hsl(var(--destructive-foreground))' : 'hsl(var(--muted-foreground))',
                     minHeight: '44px',
                     cursor: canProceedToFinal ? 'pointer' : 'not-allowed',
                   }}

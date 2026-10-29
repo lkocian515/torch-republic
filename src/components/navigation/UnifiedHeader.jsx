@@ -8,17 +8,18 @@ import MobileMenu from './MobileMenu';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
 import { BRAND } from '@/lib/brandAssets';
 
-// Pinned to the warm light storefront theme so the brown logo wordmark and
-// dark icons stay readable regardless of OS dark-mode (the storefront is
-// always light; only the standalone portfolio uses a dark surface).
+// Every value reads from the theme instead of a hardcoded hex. The header sits
+// on the brand plate (the approved light surface for the wordmark), which the
+// token layer keeps light in both themes; fills and accents use the live
+// --primary so they still adapt.
 const colors = {
-  page: '#FBF8F2',
-  card: '#FFFFFF',
-  text: '#2D2824',
-  secondary: '#5C544C',
-  border: '#E4D8C9',
-  coffee: '#B86543',
-  coffeeText: '#FBF8F1',
+  page: 'hsl(var(--brand-plate))',
+  card: 'hsl(var(--brand-plate-solid))',
+  text: 'hsl(var(--brand-ink))',
+  secondary: 'hsl(var(--brand-ink-muted))',
+  border: 'hsl(var(--brand-rule))',
+  coffee: 'hsl(var(--primary))',
+  coffeeText: 'hsl(var(--primary-foreground))',
 };
 
 // Five primary destinations. Account, cart and rewards stay in the action
@@ -77,11 +78,11 @@ export default function UnifiedHeader() {
         <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>&#x1F383; Pumpkin Spice has entered the Republic. Limited seasonal release &middot; Free shipping $50+</p>
       </div>
       <header className="sticky top-0 z-40" style={{
-        background: scrolled ? 'rgba(251, 248, 242, 0.95)' : 'rgba(251, 248, 242, 0.85)',
-        borderBottom: `1px solid ${scrolled ? colors.border : 'rgba(228, 216, 201, 0.6)'}`,
+        background: scrolled ? 'hsl(var(--brand-plate) / 0.95)' : 'hsl(var(--brand-plate) / 0.85)',
+        borderBottom: `1px solid ${scrolled ? colors.border : 'hsl(var(--brand-rule) / 0.6)'}`,
         backdropFilter: 'blur(16px) saturate(1.1)',
         WebkitBackdropFilter: 'blur(16px) saturate(1.1)',
-        boxShadow: scrolled ? '0 2px 12px rgba(36,26,22,0.04)' : 'none',
+        boxShadow: scrolled ? '0 2px 12px hsl(var(--brand-ink) / 0.04)' : 'none',
         transition: 'background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
         color: colors.text,
       }}>

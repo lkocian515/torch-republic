@@ -4,14 +4,17 @@ import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import FooterNewsletter from './FooterNewsletter';
 import { BRAND } from '@/lib/brandAssets';
 
+// Theme variables instead of hardcoded hex. The footer carries the espresso
+// wordmark, so it sits on the brand plate, which the token layer keeps light in
+// both themes; clay reads --primary so accents still adapt.
 const THEME = {
-  page: '#FBF8F2',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
+  page: 'hsl(var(--brand-plate))',
+  card: 'hsl(var(--brand-plate-solid))',
+  text: 'hsl(var(--brand-ink))',
+  secondary: 'hsl(var(--brand-ink-muted))',
+  border: 'hsl(var(--brand-rule))',
+  clay: 'hsl(var(--primary))',
+  moss: 'hsl(var(--accent))',
 };
 
 const SHOP_LINKS = [
