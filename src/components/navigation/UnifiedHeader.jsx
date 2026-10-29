@@ -88,7 +88,7 @@ export default function UnifiedHeader() {
       }}>
         {/* Three columns on mobile (leading controls / wordmark / actions) so the
             logo stays centred and the row can never overflow a narrow screen. */}
-        <div className="mx-auto grid max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center gap-1 px-3 py-3 sm:gap-2 sm:px-4 md:flex md:justify-between md:px-8">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center gap-1 px-3 py-1.5 sm:gap-2 sm:px-4 md:flex md:justify-between md:px-8 md:py-3">
           {/* Mobile leading controls — grouped so they count as a single item */}
           <div className="flex min-w-0 items-center md:hidden">
             {!isRoot && (
@@ -100,18 +100,20 @@ export default function UnifiedHeader() {
               <Menu className="h-6 w-6" />
             </button>
           </div>
-          {/* The full lockup once the row can carry it (md+); the cup-and-flame
-              mark on phones, where the wordmark would shrink past readability.
-              <picture> means only one file is ever downloaded. */}
+          {/* The horizontal lockup once the row can carry it (md+); the full
+              stacked lockup on phones, where the icon alone left the wordmark
+              unread. Its width follows the viewport so the mark can never run
+              into the menu button on the left or the search and cart buttons
+              on the right. <picture> means only one file is ever downloaded. */}
           <Link to="/" className="flex min-w-0 shrink-0 items-center justify-center" aria-label="Torch Republic home">
             <picture>
               <source media="(min-width: 768px)" srcSet={BRAND.horizontalLight} width="2092" height="752" />
               <img
-                src={BRAND.mark}
+                src={BRAND.stackedMobile}
                 alt="Torch Republic Coffee Company"
-                width="1194"
-                height="1317"
-                className="h-11 w-11 object-contain md:h-[63px] md:w-[175px] lg:h-[70px] lg:w-[195px] xl:h-[76px] xl:w-[212px]"
+                width="1214"
+                height="1295"
+                className="block h-auto w-[calc(100vw-228px)] min-w-[74px] max-w-[104px] shrink-0 object-contain md:h-[63px] md:w-[175px] lg:h-[70px] lg:w-[195px] xl:h-[76px] xl:w-[212px]"
               />
             </picture>
             <span className="sr-only">Torch Republic Coffee Company</span>
