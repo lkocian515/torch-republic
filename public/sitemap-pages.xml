@@ -66,6 +66,7 @@
 
   <!-- Seasonal pages — only the calendar and the two currently active editions are purchasable/indexable -->
   <url><loc>https://torchrepublic.com/duos/halloween</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://torchrepublic.com/duos/christmas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://torchrepublic.com/seasonal-calendar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torchrepublic.com/special-editions/collections/halloween</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torchrepublic.com/special-editions/pumpkin-spice</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

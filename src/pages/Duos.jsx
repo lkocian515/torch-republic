@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { duoCalendar, duoPath, duoArtworkFor } from '@/lib/duos';
-import { windowLabel } from '@/lib/seasonalCalendar';
+import { duoCalendar, duoPath, duoArtworkFor, pairAvailability } from '@/lib/duos';
+import { windowLabel, seasonalEntry } from '@/lib/seasonalCalendar';
 import OriginalsDuoPanel from '@/components/duos/OriginalsDuoPanel';
 import PreparationLegend from '@/components/seasonal/PreparationLegend';
 
@@ -35,14 +35,19 @@ export default function Duos() {
   });
 
   const { editions, upcoming, loading } = useSpecialEditions();
-  const bySlug = new Map([...(editions || []), ...(upcoming || [])].map((edition) => [edition.slug, edition]));
+  const catalog = [...(editions || []), ...(upcoming || [])];
+  const bySlug = new Map(catalog.map((edition) => [edition.slug, edition]));
 
   const duos = loading
     ? []
     : duoCalendar()
-        .filter((pairing) => pairing.components.every((slug) => bySlug.has(slug)))
+        // A confirmed pairing is listed once its coffees are known — either as a
+        // catalog record or on the approved release calendar. A pairing whose
+        // coffees are not yet confirmed anywhere is still left out.
+        .filter((pairing) => pairing.components.every((slug) => bySlug.has(slug) || seasonalEntry(slug)))
         .map((pairing) => ({
           ...pairing,
+          state: pairAvailability(pairing, catalog).state,
           art: pairing.contents.map((item) => ({ ...item, art: duoArtworkFor(item.slug, bySlug.get(item.slug)) })),
         }));
 
@@ -133,6 +138,9 @@ export default function Duos() {
                             <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'hsl(var(--muted-foreground))' }}>
                               {windowLabel(pairing.window)}
                             </span>
+                          ) : null}
+                          {pairing.state !== 'available' ? (
+                            <span className="badge-torch">Coming soon</span>
                           ) : null}
                         </div>
 

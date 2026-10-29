@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { duoBySlug, duoName, duoPairingNote, duoSeasonLabel, duoFlavorLine, duoArtworkFor } from '@/lib/duos';
+import { duoBySlug, duoName, duoPairingNote, duoSeasonLabel, duoFlavorLine, duoArtworkFor, pairAvailability } from '@/lib/duos';
 import { windowLabel, seasonalEntry } from '@/lib/seasonalCalendar';
 import { editionPath, formatMoney, optionState } from '@/lib/specialEditions';
 import PreparationLegend from '@/components/seasonal/PreparationLegend';
@@ -22,7 +22,11 @@ export default function DuoDetail() {
   const pairing = duoBySlug(slug);
   const { editions, upcoming, loading } = useSpecialEditions();
 
-  const bySlug = new Map([...(editions || []), ...(upcoming || [])].map((e) => [e.slug, e]));
+  const catalog = [...(editions || []), ...(upcoming || [])];
+  const bySlug = new Map(catalog.map((e) => [e.slug, e]));
+  // Both coffees must be purchasable before the duo is orderable — until then
+  // the page reads as coming soon and no price is shown.
+  const availability = pairAvailability(pairing, catalog);
   const contents = (pairing?.components || [])
     .filter((value, index, list) => list.indexOf(value) === index)
     .map((value) => {
@@ -35,6 +39,7 @@ export default function DuoDetail() {
         name: edition?.name || entry?.name || value,
         flavor: entry?.flavor || null,
         edition,
+        purchasable: Boolean(purchasableOption),
         art: duoArtworkFor(value, edition),
         price: Number.isFinite(price) ? formatMoney(price) : null,
       };
@@ -105,6 +110,12 @@ export default function DuoDetail() {
           <p className="eyebrow">{duoSeasonLabel(pairing)}</p>
           <h1 className="h1 mt-3">{duoName(pairing)}</h1>
           <p className="body-lg mt-4">{duoPairingNote(pairing)}</p>
+          {!loading && availability.state !== 'available' ? (
+            <p className="body mt-3 flex flex-wrap items-center gap-2" style={{ fontSize: '0.875rem', color: 'hsl(var(--muted-foreground))' }}>
+              <span className="badge-torch">Coming soon</span>
+              Price, grind options and ordering for both coffees are added once they are confirmed.
+            </p>
+          ) : null}
           <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
             <div>
               <dt className="font-mono uppercase" style={{ fontSize: '0.5625rem', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground))' }}>
@@ -188,7 +199,7 @@ export default function DuoDetail() {
                         className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                         style={{ borderRadius: 999, background: 'hsl(var(--primary))', color: 'hsl(var(--primary-foreground))' }}
                       >
-                        Shop {item.name} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        {item.purchasable ? 'Shop' : 'View'} {item.name} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                       </Link>
                     ) : null}
                   </div>
@@ -223,7 +234,7 @@ export default function DuoDetail() {
                   className="inline-flex min-h-[48px] items-center justify-center gap-2 px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{ borderRadius: 999, background: 'hsl(var(--primary))', color: 'hsl(var(--primary-foreground))' }}
                 >
-                  Shop {item.name} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  {item.purchasable ? 'Shop' : 'View'} {item.name} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               ) : null
             )}
