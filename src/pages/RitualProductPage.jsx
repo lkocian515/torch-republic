@@ -14,6 +14,7 @@ import PoweredByNature from '@/components/home/ritual/PoweredByNature';
 import RitualProductGallery from '@/components/products/RitualProductGallery';
 import BrewingGuide from '@/components/products/BrewingGuide';
 import PurchaseOptionSelector from '@/components/products/PurchaseOptionSelector';
+import DesktopStickyCartBar from '@/components/products/DesktopStickyCartBar';
 
 const COFFEE_FLAKES = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/634eeca77_generated_image.png';
 
@@ -266,7 +267,7 @@ function RitualPDP({ product }) {
   };
 
   return (
-    <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh', paddingBottom: '7rem' }} className="lg:pb-0">
+    <div style={{ backgroundColor: THEME.page, color: THEME.text, minHeight: '100vh', paddingBottom: '7rem' }}>
       {/* Breadcrumb */}
       <div className="mx-auto max-w-[1100px] px-6 pb-2 pt-7 md:px-10">
         <nav className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em]" style={{ color: THEME.secondary }}>
@@ -510,6 +511,23 @@ function RitualPDP({ product }) {
       <section className="mx-auto max-w-[1100px] px-6 pb-16 md:px-10">
         <RecentlyViewed currentSlug={product.slug} />
       </section>
+
+      {/* Desktop sticky purchase bar */}
+      <DesktopStickyCartBar
+        product={product}
+        accent={c.accent}
+        deep={c.deep}
+        card={THEME.card}
+        border={THEME.border}
+        text={THEME.text}
+        qty={qty}
+        onDecrease={() => setQty((q) => Math.max(1, q - 1))}
+        onIncrease={() => setQty((q) => q + 1)}
+        total={unitPrice * qty}
+        isSubscription={isSubscription}
+        justAdded={justAdded}
+        onAdd={() => handleAdd('product_pdp_desktop_sticky')}
+      />
 
       {/* Mobile sticky purchase bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden" style={{ background: THEME.card, borderTop: `1px solid ${THEME.border}`, padding: '12px 16px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))', boxShadow: '0 -8px 24px rgba(45,40,36,0.08)' }}>
