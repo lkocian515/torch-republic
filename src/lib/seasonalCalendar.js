@@ -128,6 +128,28 @@ export function seasonalEntry(slug) {
   return SEASONAL_WINDOWS.find((entry) => entry.slug === slug) || null;
 }
 
+/**
+ * The date a release goes on sale, as YYYY-MM-DD. The calendar's own window
+ * start is authoritative; when a release is not in the calendar its edition
+ * record's `release_month` is read; anything undated sorts last rather than
+ * being guessed into the middle of the list.
+ */
+export function releaseSortDate(edition) {
+  const entry = seasonalEntry(edition?.slug);
+  if (entry?.start) return entry.start;
+  const month = edition?.release_month;
+  if (month) {
+    const parsed = Date.parse(`${month} 1`);
+    if (!Number.isNaN(parsed)) return new Date(parsed).toISOString().slice(0, 10);
+  }
+  return '9999-12-31';
+}
+
+/** Seasonal products in the order they release. */
+export function sortByReleaseDate(editions = []) {
+  return [...editions].sort((a, b) => releaseSortDate(a).localeCompare(releaseSortDate(b)));
+}
+
 /** One short tasting line for a release, when the calendar has one written. */
 export function sensoryNote(slug) {
   return seasonalEntry(slug)?.sensory || null;

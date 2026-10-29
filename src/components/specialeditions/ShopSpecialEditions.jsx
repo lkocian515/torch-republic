@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
+import { sortByReleaseDate } from '@/lib/seasonalCalendar';
 import EditionCard from './EditionCard';
 
 /**
@@ -11,9 +12,10 @@ export default function ShopSpecialEditions({ format = null }) {
   const { editions, loading } = useSpecialEditions();
 
   // When a coffee format is active, only editions sold in that format appear.
-  const shown = format
-    ? editions.filter((e) => (e.options || []).some((o) => o.key === format))
-    : editions;
+  // Release order, earliest first, so the lineup follows the calendar.
+  const shown = sortByReleaseDate(
+    format ? editions.filter((e) => (e.options || []).some((o) => o.key === format)) : editions
+  );
 
   if (loading || shown.length === 0) return null;
 

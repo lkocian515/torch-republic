@@ -1,6 +1,7 @@
 import React from 'react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { COMING_SOON_COPY } from '@/lib/specialEditions';
+import { sortByReleaseDate } from '@/lib/seasonalCalendar';
 import EditionCard from './EditionCard';
 
 /**
@@ -16,7 +17,10 @@ export default function UpcomingReleases({ variant = 'editorial', format = null 
 
   if (loading || format || upcoming.length === 0) return null;
 
-  const cards = upcoming.map((edition) => <EditionCard key={edition.id} edition={edition} />);
+  // Listed in release order, earliest first.
+  const cards = sortByReleaseDate(upcoming).map((edition) => (
+    <EditionCard key={edition.id} edition={edition} />
+  ));
 
   if (variant === 'shop') {
     return (

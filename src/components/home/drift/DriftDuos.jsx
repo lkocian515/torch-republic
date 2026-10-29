@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import useProductAvailability from '@/hooks/useProductAvailability';
-import { ORIGINALS_DUO, featuredPairing, pairingLabel, monthLabelFor } from '@/lib/duos';
+import { ORIGINALS_DUO, featuredPairing, pairingLabel, monthLabelFor, duoPath } from '@/lib/duos';
 import { seasonalArtwork } from '@/lib/seasonalCalendar';
 import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 import { formatMoney } from '@/lib/specialEditions';
@@ -85,7 +85,7 @@ export default function DriftDuos() {
               Brewing required. A pairing opens once both coffees are verified and in stock — never before.
             </p>
             <Link
-              to="/duos"
+              to={pairing ? duoPath(pairing) : '/duos'}
               className="mt-5 inline-flex min-h-[48px] items-center gap-2 px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
               style={{ borderRadius: 999, border: `1px solid ${D.terracotta}`, color: D.terracotta }}
             >
