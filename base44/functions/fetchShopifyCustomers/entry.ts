@@ -14,7 +14,6 @@ Deno.serve(async (req) => {
         const SHOPIFY_STORE = 'torch-republic-coffee-company.myshopify.com';
         
         console.log('Store:', SHOPIFY_STORE);
-        console.log('Token prefix:', SHOPIFY_TOKEN?.substring(0, 10));
         
         // Fetch all customers from Shopify using latest stable API
         const url = `https://${SHOPIFY_STORE}/admin/api/2024-10/customers.json?limit=250`;
@@ -35,7 +34,6 @@ Deno.serve(async (req) => {
         const customers = data.customers || [];
 
         console.log('Shopify customers fetched:', customers.length);
-        console.log('First customer:', customers[0]);
 
         // Segment customers
         const segmented = {
