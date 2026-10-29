@@ -6,6 +6,7 @@ import { editionPath } from '@/lib/specialEditions';
 import { featuredPairing, pairAvailability, pairingLabel, monthLabelFor } from '@/lib/duos';
 import { seasonalEntry, windowLabel, SEASONAL_PREP_LABEL } from '@/lib/seasonalCalendar';
 import SeasonalInterestForm from '@/components/seasonal/SeasonalInterestForm';
+import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 
 const BADGE = {
   available: { text: 'Available now', color: 'hsl(var(--primary))', bg: 'rgba(184,101,67,0.1)' },
@@ -74,9 +75,12 @@ export default function SeasonalPairingPanel() {
 
       <ul className="mt-5 flex flex-col gap-2" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {contents.map((item) => (
-          <li key={`${item.slug}-${item.qty}`} className="flex flex-wrap items-baseline justify-between gap-2" style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '0.6rem' }}>
-            <span className="body" style={{ fontSize: '0.9375rem' }}>
-              <strong style={{ fontWeight: 600 }}>{item.qty} ×</strong> {item.name}
+          <li key={`${item.slug}-${item.qty}`} className="flex flex-wrap items-center justify-between gap-2" style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '0.6rem' }}>
+            <span className="flex min-w-0 items-center gap-2.5">
+              <SeasonalArtwork slug={item.slug} className="h-12 w-12" />
+              <span className="body" style={{ fontSize: '0.9375rem' }}>
+                <strong style={{ fontWeight: 600 }}>{item.qty} ×</strong> {item.name}
+              </span>
             </span>
             <span className="body" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>
               {loading ? 'Checking…' : item.edition ? 'Verified in Shopify' : 'Not yet verified'}

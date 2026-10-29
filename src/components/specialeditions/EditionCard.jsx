@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { optionState, editionState, defaultOption, findOption, editionPath, editionFormatLabel, formatMoney } from '@/lib/specialEditions';
+import { seasonalArtwork } from '@/lib/seasonalCalendar';
 import EditionStatusChip from './EditionStatusChip';
 import GrindSelector from './GrindSelector';
 
@@ -13,7 +14,9 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
   const option = findOption(edition, selectedOptionKey) || defaultOption(edition);
   const state = optionState(option);
   const overall = editionState(edition);
-  const image = option?.image_url || edition.image_url || null;
+  // The edition's own photo first, then the approved label shot the seasonal
+  // calendar holds for this coffee, so a card never shows an empty frame.
+  const image = option?.image_url || edition.image_url || seasonalArtwork(edition.slug)?.src || null;
   const imageAlt = option?.label
     ? `${edition.name} - ${option.label}`
     : `Torch Republic ${edition.name} seasonal coffee pouch`;

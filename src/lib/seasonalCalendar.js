@@ -64,6 +64,27 @@ export const SEASONAL_WINDOWS = [
   { slug: 'peppermint-parade', name: 'Peppermint Parade', flavor: 'Candy Cane', start: '2027-12-01', end: '2027-12-31' },
 ];
 
+/**
+ * Supplier label artwork for the two reserves that have an approved shot.
+ * Only slugs listed here get a picture; every other release renders exactly as
+ * it did before, so nothing is invented for a coffee we have no artwork for.
+ */
+export const SEASONAL_ARTWORK = {
+  'cinnamon-hearth': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ef232185f_file_000000005d44820c936035b3a56729c4.png',
+    alt: 'Cinnamon Hearth seasonal reserve: a black coffee pouch with a cream label showing a mug of coffee beside cinnamon sticks and hazelnuts',
+  },
+  'velvet-heart': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/37afd7991_file_00000000996c820d81a8c84217726535.png',
+    alt: 'Velvet Heart Mocha seasonal reserve: a black coffee pouch with a cream label showing a mug of mocha topped with whipped cream, chocolate pieces and red rose petals',
+  },
+};
+
+/** The label shot for a release, or null when it has none. */
+export function seasonalArtwork(slug) {
+  return SEASONAL_ARTWORK[slug] || null;
+}
+
 export const SEASONAL_PREP_LABEL = 'Seasonal Reserve — ground or whole bean; brewing required.';
 export const INSTANT_PREP_LABEL = 'Instant Originals — just add water.';
 

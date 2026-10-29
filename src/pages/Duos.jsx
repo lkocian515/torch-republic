@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { duoCalendar } from '@/lib/duos';
-import { windowLabel } from '@/lib/seasonalCalendar';
+import { windowLabel, seasonalArtwork } from '@/lib/seasonalCalendar';
+import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 import OriginalsDuoPanel from '@/components/duos/OriginalsDuoPanel';
 import PreparationLegend from '@/components/seasonal/PreparationLegend';
 
@@ -30,7 +31,12 @@ export default function Duos() {
     ],
   });
 
-  const calendar = duoCalendar();
+  // Which coffees in a pairing have an approved label shot, deduped so a
+  // two-pack of the same coffee never shows the same photo twice.
+  const calendar = duoCalendar().map((pairing) => ({
+    ...pairing,
+    artworkSlugs: [...new Set(pairing.components)].filter((slug) => seasonalArtwork(slug)),
+  }));
 
   return (
     <div className="section-torch">
@@ -125,6 +131,14 @@ export default function Duos() {
                             </span>
                           ) : null}
                         </div>
+
+                        {pairing.artworkSlugs.length > 0 && (
+                          <div className="mt-4 flex items-center gap-2">
+                            {pairing.artworkSlugs.map((slug) => (
+                              <SeasonalArtwork key={slug} slug={slug} className="h-14 w-14" />
+                            ))}
+                          </div>
+                        )}
 
                         <h4 className="font-heading mt-4" style={{ fontSize: '1.125rem', lineHeight: 1.3 }}>
                           {pairing.label}

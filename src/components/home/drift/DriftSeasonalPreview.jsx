@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { nextReleases, windowLabel, SEASONAL_PREP_LABEL } from '@/lib/seasonalCalendar';
 import SeasonalInterestForm from '@/components/seasonal/SeasonalInterestForm';
+import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 import { D, TYPE, SERIF, SANS, fadeUp } from './driftTheme';
 
 /**
@@ -46,9 +47,11 @@ export default function DriftSeasonalPreview() {
           {preview.map(({ entry, state, edition }) => (
             <article
               key={entry.slug}
-              className="flex flex-col gap-3"
-              style={{ background: '#FFFFFF', border: `1px solid ${D.rule}`, borderRadius: 4, padding: '1.25rem' }}
+              className="flex flex-col"
+              style={{ background: '#FFFFFF', border: `1px solid ${D.rule}`, borderRadius: 4, overflow: 'hidden' }}
             >
+              <SeasonalArtwork slug={entry.slug} className="h-[150px] w-full" />
+              <div className="flex flex-1 flex-col gap-3" style={{ padding: '1.25rem' }}>
               <div className="flex items-start justify-between gap-3">
                 <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.375rem', lineHeight: 1.2, margin: 0, color: D.espresso }}>
                   {entry.name}
@@ -87,6 +90,7 @@ export default function DriftSeasonalPreview() {
                     source="home-preview"
                   />
                 )}
+              </div>
               </div>
             </article>
           ))}

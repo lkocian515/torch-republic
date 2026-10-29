@@ -4,6 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import useProductAvailability from '@/hooks/useProductAvailability';
 import { ORIGINALS_DUO, featuredPairing, pairingLabel, monthLabelFor } from '@/lib/duos';
+import { seasonalArtwork } from '@/lib/seasonalCalendar';
+import SeasonalArtwork from '@/components/seasonal/SeasonalArtwork';
 import { formatMoney } from '@/lib/specialEditions';
 import { D, TYPE, SERIF, SANS, fadeUp } from './driftTheme';
 
@@ -26,6 +28,7 @@ export default function DriftDuos() {
   const saving = duoPrice !== null && componentTotal > 0 && componentTotal > duoPrice ? componentTotal - duoPrice : null;
 
   const pairing = featuredPairing();
+  const pairingArtwork = pairing ? [...new Set(pairing.components)].filter((slug) => seasonalArtwork(slug)) : [];
 
   return (
     <section aria-labelledby="duos-heading" style={{ background: D.paper }}>
@@ -66,6 +69,13 @@ export default function DriftDuos() {
             <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', margin: 0, color: D.espresso }}>
               Seasonal pairing
             </h3>
+            {pairingArtwork.length > 0 ? (
+              <div className="mt-3 flex items-center gap-2">
+                {pairingArtwork.map((slug) => (
+                  <SeasonalArtwork key={slug} slug={slug} className="h-14 w-14" />
+                ))}
+              </div>
+            ) : null}
             <p style={{ fontFamily: SANS, fontSize: '0.9375rem', color: D.secondary, margin: '0.5rem 0 0' }}>
               {pairing
                 ? `${pairingLabel(pairing)} · ${monthLabelFor(pairing)}`

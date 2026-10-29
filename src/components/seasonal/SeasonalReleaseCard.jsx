@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { editionPath } from '@/lib/specialEditions';
-import { windowLabel, SEASONAL_PREP_LABEL } from '@/lib/seasonalCalendar';
+import { windowLabel, seasonalArtwork, SEASONAL_PREP_LABEL } from '@/lib/seasonalCalendar';
 import SeasonalInterestForm from './SeasonalInterestForm';
 
 const BADGE = {
@@ -22,6 +22,14 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
   const edition = release?.edition || null;
   const badge = BADGE[state] || BADGE.coming_soon;
   const flavor = entry.flavorPending ? 'Flavor confirmed before release' : entry.flavor;
+  // A verified edition photo wins; otherwise the approved label shot, if the
+  // coffee has one. A release with neither keeps its text-only card.
+  const artwork = edition?.image_url
+    ? { src: edition.image_url, alt: `${entry.name} coffee by Torch Republic`, fit: 'cover' }
+    : (() => {
+        const seasonal = seasonalArtwork(entry.slug);
+        return seasonal ? { ...seasonal, fit: 'contain' } : null;
+      })();
 
   return (
     <article
@@ -34,13 +42,13 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
       }}
       aria-labelledby={`release-${entry.slug}`}
     >
-      {edition?.image_url ? (
+      {artwork ? (
         <div style={{ aspectRatio: '4 / 3', background: '#F5F0E8' }}>
           <img
-            src={edition.image_url}
-            alt={`${entry.name} coffee by Torch Republic`}
+            src={artwork.src}
+            alt={artwork.alt}
             loading="lazy"
-            className="h-full w-full object-cover"
+            className={artwork.fit === 'cover' ? 'h-full w-full object-cover' : 'h-full w-full object-contain p-3'}
           />
         </div>
       ) : null}
