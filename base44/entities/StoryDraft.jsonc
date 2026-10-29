@@ -1,0 +1,73 @@
+{
+  "name": "StoryDraft",
+  "type": "object",
+  "properties": {
+    "section": {
+      "type": "string",
+      "enum": [
+        "our-story",
+        "product-story",
+        "dispatches"
+      ],
+      "description": "Which part of the Story World this draft belongs to"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Stable slug. Product stories use the product's own slug; dispatches use the article slug."
+    },
+    "title": {
+      "type": "string",
+      "description": "Headline or product name this draft is written for"
+    },
+    "body": {
+      "type": "string",
+      "description": "The draft copy exactly as written. Nothing here renders on the public site."
+    },
+    "notes": {
+      "type": "string",
+      "description": "What is verified, and what still needs confirmation, before this draft can be published"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "approved"
+      ],
+      "default": "draft",
+      "description": "Approval means the copy is signed off. It never publishes anything on its own."
+    },
+    "display_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Order within its section, lower first"
+    }
+  },
+  "required": [
+    "section",
+    "slug",
+    "title",
+    "body"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
