@@ -65,6 +65,9 @@ export default function PortfolioNav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
+        // Keeps the wordmark clear of a notch / status area on mobile, where a
+        // sticky header pinned at 0 would otherwise clip the top of the text.
+        paddingTop: 'env(safe-area-inset-top)',
         background: 'rgba(10,10,12,0.88)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
@@ -79,11 +82,13 @@ export default function PortfolioNav() {
             style={{
               fontFamily: FONT_SERIF,
               fontWeight: 700,
-              fontSize: 'clamp(0.98rem, 3.4vw, 1.1rem)',
+              fontSize: 'clamp(0.88rem, 3.6vw, 1.1rem)',
+              lineHeight: 1.25,
               color: P.ink,
               letterSpacing: '-0.01em',
               textDecoration: 'none',
               whiteSpace: 'nowrap',
+              paddingBlock: '0.15rem',
             }}
           >
             Lisa Marie Kocian

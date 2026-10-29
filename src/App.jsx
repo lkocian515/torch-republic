@@ -142,8 +142,7 @@ const PapuaNewGuineaCoffee = lazy(() => import('./pages/seo/PapuaNewGuineaCoffee
 const MushroomCoffeeVsCoffeePods = lazy(() => import('./pages/compare/MushroomCoffeeVsCoffeePods.jsx'));
 const InstantCoffeeVsKCups = lazy(() => import('./pages/compare/InstantCoffeeVsKCups.jsx'));
 const SwitchFromPods = lazy(() => import('./pages/SwitchFromPods.jsx'));
-const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy.jsx'));
-const LukesLightCaseStudy = lazy(() => import('./pages/LukesLightCaseStudy.jsx'));
+const CaseStudy = lazy(() => import('./pages/CaseStudy.jsx'));
 const PortfolioHome = lazy(() => import('./pages/PortfolioHome.jsx'));
 const PortfolioNotFound = lazy(() => import('./pages/PortfolioNotFound.jsx'));
 const SpecialEditions = lazy(() => import('./pages/SpecialEditions'));
@@ -218,8 +217,10 @@ const AuthenticatedApp = ({ queryClient }) => {
         {isPortfolioDomain && (
           <>
           <Route path="/" element={<Suspense fallback={<PortfolioLoading />}><PortfolioHome /></Suspense>} />
-          <Route path="/case-study" element={<Suspense fallback={<PortfolioLoading />}><PortfolioCaseStudy /></Suspense>} />
-          <Route path="/case-study/lukes-light" element={<Suspense fallback={<PortfolioLoading />}><LukesLightCaseStudy /></Suspense>} />
+          <Route path="/case-studies/:slug" element={<Suspense fallback={<PortfolioLoading />}><CaseStudy /></Suspense>} />
+          {/* Legacy case-study paths → the canonical deep-dive routes */}
+          <Route path="/case-study" element={<Navigate to="/case-studies/torch-republic" replace />} />
+          <Route path="/case-study/lukes-light" element={<Navigate to="/case-studies/lukes-light" replace />} />
           {/* Unknown portfolio paths get a real portfolio-branded 404 — never a silent redirect home */}
           <Route path="*" element={<Suspense fallback={<PortfolioLoading />}><PortfolioNotFound /></Suspense>} />
           </>
@@ -413,10 +414,11 @@ const AuthenticatedApp = ({ queryClient }) => {
 
         {/* ── STANDALONE PROFESSIONAL PORTFOLIO (no storefront chrome) ── */}
         <Route path="/portfolio" element={<Suspense fallback={<PageLoader />}><PortfolioHome /></Suspense>} />
-        <Route path="/portfolio/case-study" element={<Suspense fallback={<PageLoader />}><PortfolioCaseStudy /></Suspense>} />
-        <Route path="/portfolio/case-study/lukes-light" element={<Suspense fallback={<PageLoader />}><LukesLightCaseStudy /></Suspense>} />
-        {/* Legacy portfolio URL → canonical case-study route */}
-        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Navigate to="/portfolio/case-study" replace />} />
+        <Route path="/portfolio/case-studies/:slug" element={<Suspense fallback={<PageLoader />}><CaseStudy /></Suspense>} />
+        {/* Legacy case-study URLs → the canonical deep-dive routes */}
+        <Route path="/portfolio/case-study" element={<Navigate to="/portfolio/case-studies/torch-republic" replace />} />
+        <Route path="/portfolio/case-study/lukes-light" element={<Navigate to="/portfolio/case-studies/lukes-light" replace />} />
+        <Route path="/portfolio/torch-republic-ecommerce-build" element={<Navigate to="/portfolio/case-studies/torch-republic" replace />} />
         {/* Unknown portfolio paths → portfolio 404 (not the storefront 404) */}
         <Route path="/portfolio/*" element={<Suspense fallback={<PageLoader />}><PortfolioNotFound /></Suspense>} />
 

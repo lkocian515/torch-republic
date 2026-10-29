@@ -78,13 +78,13 @@ export const PORTFOLIO_OG_IMAGE = 'https://media.base44.com/images/public/69afc7
 // ── Case study SEO ──
 export const CASE_STUDY_TITLE = 'Torch Republic Case Study | Lisa Marie Kocian';
 export const CASE_STUDY_DESC = 'Case study of the Torch Republic commerce application: AI-assisted development with Base44 and React, Shopify integration, QA challenges, testing approach, and demonstrated capabilities.';
-export const CASE_STUDY_CANON = 'https://lisakocian.com/case-study';
+export const CASE_STUDY_CANON = 'https://lisakocian.com/case-studies/torch-republic';
 
 // ── Luke's Light case study SEO ──
 export const LUKES_LIGHT_URL = 'https://lukeslight.org';
 export const LUKES_LIGHT_TITLE = "Luke's Light Case Study | Lisa Marie Kocian";
 export const LUKES_LIGHT_DESC = "Case study of Luke's Light, an educational youth safety resource: content quality review, AI-assisted development, usability evaluation, and careful communication of platform limitations.";
-export const LUKES_LIGHT_CANON = 'https://lisakocian.com/case-study/lukes-light';
+export const LUKES_LIGHT_CANON = 'https://lisakocian.com/case-studies/lukes-light';
 
 // ── Path helpers for cross-domain routing ──
 // lisakocian.com serves the portfolio at root; storefront serves at /portfolio.
@@ -96,11 +96,11 @@ export function portfolioBase() {
 }
 
 export function caseStudyUrl() {
-  return `${portfolioBase() || ''}/case-study`;
+  return `${portfolioBase() || ''}/case-studies/torch-republic`;
 }
 
 export function lukesLightCaseStudyUrl() {
-  return `${portfolioBase() || ''}/case-study/lukes-light`;
+  return `${portfolioBase() || ''}/case-studies/lukes-light`;
 }
 
 export function portfolioHomeUrl() {

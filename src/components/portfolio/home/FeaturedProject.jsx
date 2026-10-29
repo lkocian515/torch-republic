@@ -5,19 +5,19 @@ import SectionHeading from './SectionHeading';
 
 const PREVIEWS = [
   {
-    label: 'Broken product imagery',
-    body: 'Stale hardcoded image URLs caused broken product states. URLs were standardized and views rechecked.',
-    anchor: 'defect-imagery',
+    label: 'Attribute hallucinations',
+    body: 'AI-generated roast descriptions cited non-existent tasting notes and misattributed region elevations.',
+    anchor: 'failure-attribute-hallucinations',
   },
   {
-    label: 'Legacy product names at checkout',
-    body: 'Collection pages passed retired catalog data to cart. Grids and routes were simplified to confirm current naming.',
-    anchor: 'defect-naming',
+    label: 'Dynamic cart quantity bugs',
+    body: 'Rapid incrementing on mobile desynced the cart drawer from Shopify’s checkout API, causing inventory lock errors.',
+    anchor: 'failure-cart-quantity',
   },
   {
-    label: 'Mobile product hierarchy',
-    body: 'Primary action and product information were hard to identify on mobile. Hierarchy and spacing were adjusted and retested.',
-    anchor: 'defect-mobile',
+    label: 'PII leakage in analytics tags',
+    body: 'Unvetted marketing scripts captured raw email strings in URL parameters during checkout redirects.',
+    anchor: 'failure-pii-tags',
   },
 ];
 

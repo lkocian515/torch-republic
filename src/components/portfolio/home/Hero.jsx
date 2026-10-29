@@ -10,7 +10,7 @@ export default function Hero() {
       className="pf-hero"
       style={{
         background: P.paper,
-        paddingTop: 'clamp(2.75rem, 7vw, 6rem)',
+        paddingTop: 'clamp(3.25rem, 7vw, 6rem)',
         paddingBottom: 'clamp(2.75rem, 6vw, 5rem)',
         scrollMarginTop: 72,
       }}
@@ -39,9 +39,12 @@ export default function Hero() {
                 fontFamily: FONT_SERIF,
                 fontWeight: 700,
                 fontSize: 'clamp(2.15rem, 6.6vw, 3.6rem)',
-                lineHeight: 1.04,
+                // A line box tighter than the serif's ascenders clips the top of
+                // the first line on mobile — keep enough leading for the glyphs.
+                lineHeight: 1.14,
                 color: P.ink,
                 margin: 0,
+                paddingTop: '0.06em',
                 letterSpacing: '-0.02em',
                 overflowWrap: 'break-word',
               }}
