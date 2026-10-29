@@ -12,6 +12,7 @@ import DriftWinterDuo from './DriftWinterDuo';
 import DriftWinterDuoTeaser from './DriftWinterDuoTeaser';
 import DriftSeasonalPreview from './DriftSeasonalPreview';
 import DriftDuos from './DriftDuos';
+import DriftTorchbearerClub from './DriftTorchbearerClub';
 import { D } from './driftTheme';
 
 // Clean editorial homepage flow:
@@ -19,7 +20,8 @@ import { D } from './driftTheme';
 // 2. Signature products — Classic + Mushroom with price, servings, Add to Cart
 // 3. Upcoming releases — announced seasonal roasts, purchasing disabled
 // 4. Winter Duo — the seasonal pairing, featured below the everyday lineup
-// 5. Customer proof — real submitted feedback only, never invented testimonials
+// 5. Torchbearer Club — the monthly seasonal coffee, apart from the four-week refills
+// 6. Customer proof — real submitted feedback only, never invented testimonials
 // 6. Product differences — Classic vs Mushroom comparison
 // 7. Preparation — Scoop. Stir. Sip.
 // 8. Founder story — why Torch Republic exists
@@ -35,6 +37,7 @@ export default function DriftHomepage() {
       <DriftUpcomingReleases />
       <DriftWinterDuo />
       <DriftDuos />
+      <DriftTorchbearerClub />
       <RitualReviewHighlights />
       <DriftComparison />
       <DriftRitual />

@@ -58,6 +58,12 @@
   <url><loc>https://torchrepublic.com/compare/mushroom-coffee-vs-coffee-pods</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://torchrepublic.com/compare/instant-coffee-vs-k-cups</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <!-- Club, seasonal and subscription commerce pages -->
+  <url><loc>https://torchrepublic.com/torchbearer-club</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/special-editions</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://torchrepublic.com/subscription</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://torchrepublic.com/duos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
   <!-- Policy pages -->
   <url><loc>https://torchrepublic.com/shipping-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://torchrepublic.com/return-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>

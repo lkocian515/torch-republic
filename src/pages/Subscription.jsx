@@ -25,6 +25,10 @@ export default function Subscription() {
           The current price and delivery schedule appear with each product.
         </p>
         <a href="#coffee-options" className="inline-flex items-center justify-center rounded-md px-7 py-3 mt-7 font-heading font-semibold" style={{ background: '#824329', color: '#FFFDF8', minHeight: 48 }}>Choose your coffee</a>
+        <p className="font-heading text-sm mt-5 leading-relaxed" style={{ color: '#5F574F' }}>
+          After a different seasonal coffee every month? That is the separate{' '}
+          <Link to="/torchbearer-club" className="underline" style={{ color: '#824329' }}>Torchbearer Club</Link>, not a four-week refill plan.
+        </p>
       </section>
       <section id="coffee-options" className="max-w-5xl mx-auto px-5 py-6 md:py-12 scroll-mt-28">
         <h2 className="font-serif font-bold text-3xl text-center mb-8">Find your everyday coffee</h2>

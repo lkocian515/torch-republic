@@ -105,16 +105,18 @@ export default function EditionHero() {
           </div>
 
           {/* The artwork, contained at its true ratio: nothing cropped and the bags,
-              names and baked-in lettering all survive, capped so it never fills a screen. */}
-          <picture className="mx-auto block w-full" style={{ maxWidth: 520 }}>
+              names and baked-in lettering all survive. It runs nearly the full width
+              of its column and takes the majority of a phone screen, because the
+              seasonal art is the strongest thing on the page. */}
+          <picture className="mx-auto block w-full" style={{ maxWidth: 660 }}>
             {campaign.mobile_hero_image && (
               <source media="(max-width: 767px)" srcSet={campaign.mobile_hero_image} />
             )}
             <img
               src={campaign.desktop_hero_image}
               alt={`${campaign.name} special edition`}
-              className="mx-auto block h-auto w-auto max-w-full max-h-[36vh] md:max-h-[min(46vh,480px)]"
-              style={{ objectFit: 'contain' }}
+              className="mx-auto block h-auto w-auto max-w-full max-h-[54vh] md:max-h-[min(68vh,680px)]"
+              style={{ objectFit: 'contain', width: '100%' }}
               fetchPriority="high"
             />
           </picture>

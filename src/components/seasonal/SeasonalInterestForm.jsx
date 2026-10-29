@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { trackEvent } from '@/lib/analyticsEvents';
 
 /**
  * A real notification request. Every submission is stored against the exact
@@ -47,6 +48,8 @@ export default function SeasonalInterestForm({
           : kind === 'club_waitlist'
             ? `You're on the waitlist. We'll email ${value} when enrollment opens.`
             : `We'll email ${value} when ${productName} is available.`;
+      // The stored request is the truth; this only measures how it was reached.
+      trackEvent('interest_submit', { kind, source }, `interest-${kind}-${value}`);
       setStatus({ type: 'success', message: done });
       setEmail('');
       setConsent(false);
