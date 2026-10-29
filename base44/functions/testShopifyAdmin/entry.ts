@@ -29,6 +29,5 @@ Deno.serve(async (_req) => {
     adminShopName: adminData?.shop?.name,
     storefrontStatus: sfRes.status,
     storefrontData: sfData,
-    storefrontTokenPreview: STOREFRONT_TOKEN ? STOREFRONT_TOKEN.substring(0, 10) : 'NOT SET',
   });
 });
