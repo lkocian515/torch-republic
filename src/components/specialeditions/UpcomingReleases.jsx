@@ -1,7 +1,7 @@
 import React from 'react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { COMING_SOON_COPY } from '@/lib/specialEditions';
-import { sortByReleaseDate } from '@/lib/seasonalCalendar';
+import { sortPriorityUpcoming } from '@/lib/seasonalCalendar';
 import EditionCard from './EditionCard';
 
 /**
@@ -17,8 +17,8 @@ export default function UpcomingReleases({ variant = 'editorial', format = null 
 
   if (loading || format || upcoming.length === 0) return null;
 
-  // Listed in release order, earliest first.
-  const cards = sortByReleaseDate(upcoming).map((edition) => (
+  // Fireside S'mores and Peppermint Parade lead; remaining previews follow release order.
+  const cards = sortPriorityUpcoming(upcoming).map((edition) => (
     <EditionCard key={edition.id} edition={edition} />
   ));
 
