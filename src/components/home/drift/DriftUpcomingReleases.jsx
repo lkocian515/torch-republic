@@ -1,6 +1,7 @@
 import React from 'react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { editionPath } from '@/lib/specialEditions';
+import { sortPriorityUpcoming } from '@/lib/seasonalCalendar';
 import { D, TYPE } from './driftTheme';
 import useProductCardMotion from './useProductCardMotion';
 import DriftProductCard from './DriftProductCard';
@@ -17,8 +18,9 @@ import DriftProductCard from './DriftProductCard';
 export default function DriftUpcomingReleases() {
   const { upcoming, loading } = useSpecialEditions();
   const scope = useProductCardMotion();
+  const orderedUpcoming = sortPriorityUpcoming(upcoming);
 
-  if (loading || upcoming.length === 0) return null;
+  if (loading || orderedUpcoming.length === 0) return null;
 
   return (
     <section ref={scope} style={{ background: D.paper }} aria-labelledby="upcoming-heading">
@@ -33,7 +35,7 @@ export default function DriftUpcomingReleases() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
-          {upcoming.map((edition, i) => (
+          {orderedUpcoming.map((edition, i) => (
             <DriftProductCard
               key={edition.id}
               eyebrow={`0${i + 1} / Seasonal Release`}
