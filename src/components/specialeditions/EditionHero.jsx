@@ -49,7 +49,7 @@ export default function EditionHero() {
     return (
       <section className="w-full overflow-hidden" style={{ background: '#071326' }} aria-label="Torch Republic Instant Mushroom Coffee">
         <Link
-          to={href || '/shop/instant-mushroom-coffee'}
+          to={href || '/products/instant-mushroom-coffee'}
           aria-label="Shop Torch Republic Instant Mushroom Coffee"
           className="mx-auto block w-full"
         >
