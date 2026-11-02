@@ -5,6 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { useCart } from '@/contexts/CartContext';
 import { editionsInCollection, toCartProduct, findOption, defaultOption, optionState } from '@/lib/specialEditions';
 import EditionCard from '@/components/specialeditions/EditionCard';
+import { sortByReleaseDate } from '@/lib/seasonalCalendar';
 import DuoPurchasePanel from '@/components/specialeditions/DuoPurchasePanel';
 
 /**
@@ -23,7 +24,10 @@ export default function SpecialEditionCollection() {
   const { addItems } = useCart();
   const [selections, setSelections] = useState({});
 
-  const items = useMemo(() => editionsInCollection(editions, collectionSlug), [editions, collectionSlug]);
+  const items = useMemo(
+    () => sortByReleaseDate(editionsInCollection(editions, collectionSlug)),
+    [editions, collectionSlug],
+  );
   const campaign = campaigns.find((c) => c.collection_slug === collectionSlug && !c.archived) || null;
 
   const title = campaign?.headline || `${collectionSlug?.replace(/-/g, ' ') || 'Collection'}`;
