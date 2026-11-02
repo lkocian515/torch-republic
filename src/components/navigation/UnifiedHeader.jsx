@@ -82,8 +82,10 @@ export default function UnifiedHeader() {
 
   return (
     <>
-      <div className="px-4 py-2 text-center" style={{ background: colors.coffee, color: colors.coffeeText }}>
-        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word' }}>&#x1F383; Pumpkin Spice has entered the Republic. Limited seasonal release &middot; Free shipping $45+</p>
+      <div className="px-4 py-2 text-center" style={{ background: '#382B24', color: '#F7EEDD', borderBottom: '1px solid rgba(201,162,74,0.65)' }}>
+        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word', fontWeight: 600 }}>
+          Fireside S&rsquo;mores has entered the Republic.
+        </p>
       </div>
       <header className="sticky top-0 z-40" style={{
         background: scrolled ? 'hsl(var(--brand-plate) / 0.95)' : 'hsl(var(--brand-plate) / 0.85)',
