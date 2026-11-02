@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
+import { sortByReleaseDate } from '@/lib/seasonalCalendar';
 import { useSEO } from '@/hooks/useSEO';
 import { collectionPath } from '@/lib/specialEditions';
 import EditionCard from '@/components/specialeditions/EditionCard';
@@ -26,6 +27,7 @@ export default function SpecialEditions() {
 
   const collectionLabel = (slug) =>
     campaigns.find((c) => c.collection_slug === slug)?.name || slug.replace(/-/g, ' ');
+  const orderedEditions = sortByReleaseDate(editions);
 
   return (
     <div className="section-torch">
@@ -57,7 +59,7 @@ export default function SpecialEditions() {
           </p>
         ) : (
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {editions.map((edition) => (
+            {orderedEditions.map((edition) => (
               <EditionCard key={edition.id} edition={edition} />
             ))}
           </div>
