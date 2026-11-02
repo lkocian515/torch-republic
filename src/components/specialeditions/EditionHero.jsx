@@ -43,6 +43,28 @@ export default function EditionHero() {
     ? campaign.cta_label_live || 'Shop the collection'
     : campaign.cta_label_prelaunch || 'Preview the collection';
 
+  // The mushroom-morning campaign artwork is a complete, square homepage banner.
+  // Show it on its own so the retired Halloween copy and a duplicate headline do not appear.
+  if (campaign.slug === 'mushroom-morning') {
+    return (
+      <section className="w-full overflow-hidden" style={{ background: '#071326' }} aria-label="Torch Republic Instant Mushroom Coffee">
+        <Link
+          to={href || '/shop/instant-mushroom-coffee'}
+          aria-label="Shop Torch Republic Instant Mushroom Coffee"
+          className="mx-auto block w-full"
+        >
+          <img
+            src={campaign.desktop_hero_image}
+            alt="A little magic in your morning: Torch Republic instant mushroom coffee beside a steaming cup at sunrise."
+            className="mx-auto block h-auto max-w-full"
+            style={{ width: 'min(100%, calc(100svh - 76px))', maxWidth: 1500, objectFit: 'contain' }}
+            fetchPriority="high"
+          />
+        </Link>
+      </section>
+    );
+  }
+
   // The campaign artwork is a poster with the headline and product story baked in, so the
   // hero pairs it with live HTML instead of stacking the two: at its true ratio the artwork
   // is taller than a screen on its own, which buried the shop button below the fold.
