@@ -43,24 +43,31 @@ export default function EditionHero() {
     ? campaign.cta_label_live || 'Shop the collection'
     : campaign.cta_label_prelaunch || 'Preview the collection';
 
-  // The mushroom-morning campaign artwork is a complete, square homepage banner.
-  // Show it on its own so the retired Halloween copy and a duplicate headline do not appear.
+  // This artwork already contains its headline and product branding. Keep
+  // the exact square image intact, then place only the requested copy and CTA below it.
   if (campaign.slug === 'mushroom-morning') {
     return (
-      <section className="w-full overflow-hidden" style={{ background: '#071326' }} aria-label="Torch Republic Instant Mushroom Coffee">
-        <Link
-          to={href || '/products/instant-mushroom-coffee'}
-          aria-label="Shop Torch Republic Instant Mushroom Coffee"
-          className="mx-auto block w-full"
-        >
-          <img
-            src={campaign.desktop_hero_image}
-            alt="A little magic in your morning: Torch Republic instant mushroom coffee beside a steaming cup at sunrise."
-            className="mx-auto block h-auto max-w-full"
-            style={{ width: 'min(100%, calc(100svh - 76px))', maxWidth: 1500, objectFit: 'contain' }}
-            fetchPriority="high"
-          />
-        </Link>
+      <section className="w-full overflow-hidden" style={{ background: '#F7EEDD' }} aria-label="Torch Republic Instant Mushroom Coffee">
+        <img
+          src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d172a36b_01-15013.png"
+          alt="Torch Republic mushroom instant coffee pouch and a steaming cup at sunrise beneath a moonlit sky."
+          className="mx-auto block h-auto max-w-full"
+          style={{ width: 'min(100%, 94svh, 1180px)', objectFit: 'contain' }}
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="mx-auto flex max-w-[760px] flex-col items-center px-5 py-6 text-center sm:py-7">
+          <p className="font-heading" style={{ color: '#071326', fontSize: 'clamp(1rem, 2.2vw, 1.25rem)', lineHeight: 1.6, margin: '0 0 1.25rem' }}>
+            A warm, easy coffee ritual for slow starts and brighter days.
+          </p>
+          <Link
+            to="/products/instant-mushroom-coffee"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-md px-7 font-heading font-semibold transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{ background: '#071326', color: '#F7EEDD', border: '1px solid #C9A24A', fontSize: '1rem', textDecoration: 'none' }}
+          >
+            Shop Mushroom Coffee
+          </Link>
+        </div>
       </section>
     );
   }
