@@ -25,7 +25,7 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
   // A verified edition photo wins; otherwise the approved label shot, if the
   // coffee has one. A release with neither keeps its text-only card.
   const artwork = edition?.image_url
-    ? { src: edition.image_url, alt: `${entry.name} coffee by Torch Republic`, fit: 'cover' }
+    ? { src: edition.image_url, alt: `${entry.name} coffee by Torch Republic`, fit: entry.slug === 'midnight-hex' ? 'contain' : 'cover' }
     : (() => {
         const seasonal = seasonalArtwork(entry.slug);
         return seasonal ? { ...seasonal, fit: 'contain' } : null;
