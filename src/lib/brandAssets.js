@@ -1,17 +1,16 @@
 /**
  * Brand assets — the single source of truth for the Torch Republic logo.
  *
- * All artwork comes from the approved Torch Republic logo package, exported as
- * standalone transparent PNGs. Nothing is cropped, masked, recolored or
- * re-created with text: every surface points at the file drawn for the surface
- * it sits on.
+ * Shared Torch Republic brand assets. The supplied transparent cup-and-flame
+ * mark is used for the main logo, compact mark, and mobile header. Legacy
+ * alternates remain available for surfaces that explicitly request them.
  *
- *   BRAND.horizontalLight   espresso lettering, burnt-orange flame — cream/ivory surfaces
- *   BRAND.horizontalDark    ivory lettering, gold outline — navy/charcoal
- *   BRAND.stackedLight/Dark tall lockup — larger brand placements only
- *   BRAND.badgeLight/Dark   circular badge — social/sharing and large badges
- *   BRAND.mark              cup and flame alone — tight spots (mobile header, favicon, wheel hub)
- *   BRAND.popupLockup       original gold-and-ivory lockup — celestial popup
+ *   BRAND.horizontalLight   current cup-and-flame mark
+ *   BRAND.horizontalDark    legacy ivory-and-gold logo
+ *   BRAND.stackedLight/Dark legacy stacked lockups
+ *   BRAND.badgeLight/Dark   legacy circular badges
+ *   BRAND.mark              current cup-and-flame mark
+ *   BRAND.popupLockup       original gold-and-ivory popup lockup
  *   BRAND.shareImage        1200×630 sharing card
  */
 
