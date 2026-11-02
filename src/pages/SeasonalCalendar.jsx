@@ -39,7 +39,7 @@ export default function SeasonalCalendar() {
   });
 
   const availableNow = useMemo(
-    () => (editions || []).filter((edition) => editionState(edition).state === 'available'),
+    () => (editions || []).filter((edition) => editionState(edition).state === 'available' && edition.slug !== 'pumpkin-spice'),
     [editions],
   );
 
@@ -66,7 +66,32 @@ export default function SeasonalCalendar() {
           <PreparationLegend />
         </div>
 
-        {/* ── What Shopify confirms is buyable today ── */}
+        <section className="mt-10" aria-labelledby="this-month-feature">
+          <article
+            className="grid grid-cols-1 items-center gap-6 rounded-lg border p-5 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-8 md:p-8"
+            style={{ background: '#F7F1E8', borderColor: 'hsl(var(--border))' }}
+          >
+            <img
+              src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e5cdd5116_fireside-smores-product-1600.png"
+              alt="Fireside S’mores seasonal coffee pouch"
+              className="mx-auto max-h-[360px] w-full max-w-[360px] object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <p className="eyebrow" style={{ margin: 0 }}>November feature · Coming soon</p>
+              <h2 id="this-month-feature" className="h2 mt-2">Fireside S’mores</h2>
+              <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                Fireside S’mores is the featured seasonal release for this month. Product details and ordering will appear when the release is ready.
+              </p>
+              <Link to="/special-editions/fireside-smores" className="mt-4 inline-flex min-h-[44px] items-center font-heading text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>
+                View Fireside S’mores <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </article>
+        </section>
+
+        {/* ── What Shopify confirms is buyable today, excluding the expired Pumpkin Spice monthly feature ── */}
         <section className="mt-12" aria-labelledby="available-now">
           <div className="flex flex-wrap items-center gap-3">
             <h2 id="available-now" className="h2">Available now</h2>
