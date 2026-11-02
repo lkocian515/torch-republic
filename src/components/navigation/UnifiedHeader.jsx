@@ -82,10 +82,16 @@ export default function UnifiedHeader() {
 
   return (
     <>
-      <div className="px-4 py-2 text-center" style={{ background: '#382B24', color: '#F7EEDD', borderBottom: '1px solid rgba(201,162,74,0.65)' }}>
-        <p className="font-heading text-[0.8125rem] sm:text-sm leading-snug" style={{ maxWidth: '100%', wordBreak: 'break-word', fontWeight: 600 }}>
-          Fireside S&rsquo;mores has entered the Republic.
-        </p>
+      <div className="px-4 py-2.5" style={{ background: '#382B24', color: '#F7EEDD', borderBottom: '1px solid rgba(201,162,74,0.65)' }}>
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
+          <p className="font-heading text-xs sm:text-sm leading-snug" style={{ margin: 0, fontWeight: 600 }}>
+            Fireside S&rsquo;mores has entered the Republic.
+          </p>
+          <span aria-hidden="true" className="hidden sm:block" style={{ width: 1, height: 14, background: 'rgba(201,162,74,0.7)' }} />
+          <p className="font-heading text-xs sm:text-sm leading-snug" style={{ margin: 0, color: '#EAC796', fontWeight: 500 }}>
+            Free shipping on orders $45+
+          </p>
+        </div>
       </div>
       <header className="sticky top-0 z-40" style={{
         background: scrolled ? 'hsl(var(--brand-plate) / 0.95)' : 'hsl(var(--brand-plate) / 0.85)',
