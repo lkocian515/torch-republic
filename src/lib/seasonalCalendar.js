@@ -154,6 +154,17 @@ export function sortByReleaseDate(editions = []) {
   return [...editions].sort((a, b) => releaseSortDate(a).localeCompare(releaseSortDate(b)));
 }
 
+/** Feature the next two planned winter coffees first, then keep the rest chronological. */
+export function sortPriorityUpcoming(editions = []) {
+  const priority = { 'fireside-smores': 0, 'peppermint-parade': 1 };
+  return [...editions].sort((a, b) => {
+    const rankA = priority[a?.slug] ?? Number.MAX_SAFE_INTEGER;
+    const rankB = priority[b?.slug] ?? Number.MAX_SAFE_INTEGER;
+    if (rankA !== rankB) return rankA - rankB;
+    return releaseSortDate(a).localeCompare(releaseSortDate(b));
+  });
+}
+
 /** One short tasting line for a release, when the calendar has one written. */
 export function sensoryNote(slug) {
   return seasonalEntry(slug)?.sensory || null;
