@@ -50,7 +50,7 @@ export default function EditionHero() {
       <section className="w-full overflow-hidden" style={{ background: '#F7EEDD' }} aria-label="Torch Republic Instant Mushroom Coffee">
         <img
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d172a36b_01-15013.png"
-          alt="Torch Republic mushroom instant coffee pouch and a steaming cup at sunrise beneath a moonlit sky."
+          alt="Square image reading ‘A little magic in your morning’ and ‘Mushroom Instant Coffee,’ with a Torch Republic pouch and steaming cup at sunrise."
           className="mx-auto block h-auto max-w-full"
           style={{ width: 'min(100%, 94svh, 1180px)', objectFit: 'contain' }}
           fetchPriority="high"
