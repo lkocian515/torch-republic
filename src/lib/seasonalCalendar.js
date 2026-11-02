@@ -70,6 +70,10 @@ export const SEASONAL_WINDOWS = [
  * it did before, so nothing is invented for a coffee we have no artwork for.
  */
 export const SEASONAL_ARTWORK = {
+  'midnight-hex': {
+    src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2907cf746_01-15433.png',
+    alt: 'Midnight Hex Mexican Chocolate ground flavored coffee: a black pouch with its updated Día de los Muertos label.',
+  },
   'cinnamon-hearth': {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/ef232185f_file_000000005d44820c936035b3a56729c4.png',
     alt: 'Cinnamon Hearth seasonal reserve: a black coffee pouch with a cream label showing a mug of coffee beside cinnamon sticks and hazelnuts',
