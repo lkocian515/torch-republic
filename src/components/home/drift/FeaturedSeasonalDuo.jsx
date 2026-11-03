@@ -19,7 +19,7 @@ export default function FeaturedSeasonalDuo() {
           src={AUTUMN_ARTWORK}
           alt="Torch Republic Autumn Coffee Duo featuring Harvest Moon Pecan and Cinnamon Hearth."
           width="1536"
-          height="1024"
+          height="864"
           loading="lazy"
           decoding="async"
           className="mx-auto block h-auto w-full"
