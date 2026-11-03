@@ -75,7 +75,7 @@ const ALL_DUOS = [
     month: 3,
     components: ['bluebonnet-bloom', 'bunny-trail'],
     scheduleNeedsConfirmation: true,
-    intro: 'Bluebonnet Bloom + Bunny Trail Cinnamon Roll. Availability and release timing must be confirmed before this duo can be ordered.'
+    intro: 'Bluebonnet Bloom + Bunny Trail Cinnamon Roll. Availability and release timing must be confirmed before this duo can be ordered.',
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2df743515_03-15447.png',
       alt: 'Torch Republic Easter Coffee Duo featuring Bluebonnet Bloom and Bunny Trail Cinnamon Roll.',
