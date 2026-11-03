@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import DriftShopPaths from './DriftShopPaths';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import FeaturedSeasonalDuo from './FeaturedSeasonalDuo';
@@ -27,6 +29,23 @@ export default function DriftHomepage() {
   return (
     <main id="main-content" className="perf-home-main" style={{ background: D.paper, overflowX: 'clip' }}>
       <EditionHero />
+      <section aria-label="Blend Advisor" style={{ background: D.paper }}>
+        <div className="mx-auto max-w-[1200px] px-6 pb-8 pt-4 md:px-10 md:pb-10">
+          <div className="flex flex-col gap-4 rounded-md border p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7"
+            style={{ background: D.cream, borderColor: D.rule }}>
+            <div>
+              <p style={{ ...TYPE.eyebrow, color: D.terracotta, margin: '0 0 0.45rem' }}>Find your fit</p>
+              <h2 className="font-serif font-semibold" style={{ color: D.ink, fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', margin: 0 }}>
+                Not sure which coffee fits your routine?
+              </h2>
+            </div>
+            <Link to="/quiz" className="inline-flex min-h-[48px] items-center justify-center gap-2 px-5 font-heading text-sm font-semibold"
+              style={{ borderRadius: 6, background: D.terracotta, color: D.cream, textDecoration: 'none' }}>
+              Try the Blend Advisor <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
       <DriftShopPaths />
       <DriftProductDiscovery />
       <FeaturedSeasonalDuo />
