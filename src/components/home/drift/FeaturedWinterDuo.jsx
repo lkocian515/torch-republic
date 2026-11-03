@@ -13,7 +13,7 @@ export default function FeaturedWinterDuo() {
     <section aria-labelledby="featured-winter-duo-heading" style={{ background: D.cream }}>
       <div className="mx-auto max-w-[1200px] px-5 py-10 sm:py-12 md:px-6 md:py-16">
         <h2 id="featured-winter-duo-heading" className="sr-only">
-          Featured Winter Seasonal Duo
+          Featured Christmas Coffee Duo
         </h2>
         <img
           src={WINTER_ARTWORK}
@@ -27,11 +27,11 @@ export default function FeaturedWinterDuo() {
         />
         <div className="mt-5 flex justify-center sm:mt-6">
           <Link
-            to={winterDuo ? duoPath(winterDuo) : '/duos/seasonal'}
+            to={winterDuo ? duoPath(winterDuo) : '/duos/holidays'}
             className="inline-flex min-h-[52px] w-full max-w-[340px] items-center justify-center gap-2 rounded-md px-6 py-3 font-heading text-base font-semibold transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{ background: D.terracotta, color: '#FFF7E8', textDecoration: 'none' }}
           >
-            Shop the Winter Duo
+            View Christmas Duo
             <ArrowRight size={17} strokeWidth={2} aria-hidden="true" />
           </Link>
         </div>
