@@ -401,7 +401,8 @@ function RitualPDP({ product }) {
               <p>{INGREDIENTS[product.category]}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
-                  { label: product.format === 'Whole Bean' ? 'Weight' : 'Servings', value: product.format === 'Whole Bean' ? product.weight : product.category === 'bundle' ? `${product.servings} total across two bags (27 per bag)` : `${product.servings} per pouch` },
+                  ...(product.weight ? [{ label: 'Package size', value: product.weight }] : []),
+                  { label: 'Servings', value: product.category === 'bundle' ? `${product.servings} total across two bags (27 per bag)` : product.format === 'Whole Bean' ? `Approximately ${product.servings} cups` : `${product.servings} per pouch` },
                   { label: 'Serving size', value: product.format === 'Whole Bean' ? '2 tbsp ground' : '1 scoop' },
                   { label: 'Caffeine', value: `${product.caffeineLabel} caffeine` },
                   { label: 'Format', value: product.format === 'Whole Bean' ? 'Whole bean' : 'Instant, no machine needed' },
