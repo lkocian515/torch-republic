@@ -163,7 +163,7 @@ export default function SpecialEditionProduct() {
                   }
                   onError={() => setImageFailed(true)}
                   className="product-art-image"
-                  style={{ '--product-art-scale': edition.slug === 'midnight-hex' && shownImage === primaryImage ? 1.18 : 1 }}
+                  style={{ '--product-art-scale': edition.slug === 'midnight-hex' && shownImage === primaryImage ? 1.06 : 1 }}
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center gap-2 text-center" style={{ padding: '2rem' }}>
