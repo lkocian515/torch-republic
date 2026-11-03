@@ -173,7 +173,7 @@ export default function DriftTorchbearerClub() {
                       borderRadius: 999,
                     }}
                   >
-                    This month · ${monthLabel}
+                    This month · {monthLabel}
                   </span>
                   <img
                     src={image}
@@ -262,7 +262,6 @@ export default function DriftTorchbearerClub() {
                 <p style={{ ...TYPE.meta, color: COPPER_LABEL, margin: 0 }}>Next release preview</p>
                 <p style={{ ...TYPE.body, color: IVORY, margin: '0.25rem 0 0' }}>
                   <span style={{ fontFamily: SERIF, fontWeight: 700 }}>{next.name}</span>
-                  
                 </p>
                 <p style={{ fontFamily: MONO, fontSize: '0.6875rem', color: MUTED_ON_DARK, margin: '0.3rem 0 0' }}>
                   Preview only — not for sale
