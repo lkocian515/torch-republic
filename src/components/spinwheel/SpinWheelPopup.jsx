@@ -31,7 +31,7 @@ const CREAM = navyDeep; // text on gold buttons
 const BORDER = 'rgba(217,160,74,0.28)';
 
 const EXCLUDED_ROUTES = [
-  '/cart', '/checkout', '/profile', '/loyalty', '/order-status',
+  '/cart', '/checkout', '/checkouts', '/profile', '/loyalty', '/order-status',
   '/login', '/register', '/forgot-password', '/reset-password',
   '/admin', '/email-campaign', '/order-confirmation', '/restocking',
   '/portfolio',
