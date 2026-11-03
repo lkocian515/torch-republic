@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { CORE_PRODUCTS, SEASONAL_PRODUCTS } from '@/lib/coreProducts';
+import { CORE_PRODUCTS } from '@/lib/coreProducts';
+import useSpecialEditions from '@/hooks/useSpecialEditions';
+import { defaultOption, editionPath } from '@/lib/specialEditions';
 import { D, TYPE } from './driftTheme';
 
 /**
@@ -26,11 +28,37 @@ const PATHS = [
     body: 'Limited seasonal coffees. Ground or whole bean where available. Brewing required.',
     cta: 'Explore Seasonal Coffee',
     to: '/special-editions',
-    images: SEASONAL_PRODUCTS.map((product) => ({ src: product.image, alt: product.alt })),
+    images: [],
   },
 ];
 
 export default function DriftShopPaths() {
+  const { editions, upcoming } = useSpecialEditions();
+  const monthlyEdition = [...editions, ...upcoming].find(
+    (edition) =>
+      edition.monthly_featured &&
+      edition.status !== 'draft' &&
+      edition.status !== 'archived',
+  );
+  const monthlyOption = defaultOption(monthlyEdition);
+  const monthlyImage = monthlyOption?.image_url || monthlyEdition?.image_url;
+  const paths = PATHS.map((path) => {
+    if (path.title !== 'Seasonal Reserve') return path;
+    return {
+      ...path,
+      eyebrow: monthlyEdition ? 'Monthly edition' : path.eyebrow,
+      title: monthlyEdition?.name || path.title,
+      cta: monthlyEdition ? `View ${monthlyEdition.name}` : path.cta,
+      to: monthlyEdition ? editionPath(monthlyEdition) : path.to,
+      images: monthlyImage
+        ? [{
+            src: monthlyImage,
+            alt: `Torch Republic ${monthlyEdition.name} coffee pouch, featured as this month’s Seasonal Reserve.`,
+          }]
+        : [],
+    };
+  });
+
   return (
     <section aria-labelledby="shop-paths" style={{ background: D.paper }}>
       <div className="mx-auto max-w-[1200px] px-6 pb-14 pt-12 md:pb-20 md:pt-16">
@@ -42,7 +70,7 @@ export default function DriftShopPaths() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          {PATHS.map((path) => (
+          {paths.map((path) => (
             <article
               key={path.title}
               className="flex flex-col"
