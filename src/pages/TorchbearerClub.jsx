@@ -82,7 +82,7 @@ export default function TorchbearerClub() {
               alt={WINTER_DUO.imageAlt}
               className="block h-auto w-full"
               loading="lazy"
-              style={{ aspectRatio: WINTER_DUO.imageRatio, objectFit: 'cover' }}
+              style={{ aspectRatio: WINTER_DUO.imageRatio, objectFit: 'contain' }}
             />
           </div>
         </figure>
