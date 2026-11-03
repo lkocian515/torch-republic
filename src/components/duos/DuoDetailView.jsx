@@ -75,7 +75,7 @@ export default function DuoDetailView({ pairing }) {
         </header>
 
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_1fr]">
-          <DuoBagGallery bags={bags} scene={pairing.scene || null} />
+          <DuoBagGallery bags={bags} scene={pairing.scene || null} lifestyleArt={pairing.lifestyleArt || null} />
           <div className="flex flex-col gap-4">
             {loading ? (
               <p className="body" style={{ color: 'hsl(var(--muted-foreground))' }}>Checking current availability…</p>
