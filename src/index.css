@@ -52,7 +52,7 @@
     --primary: 17 53% 40%; /* Torch Ember #9B4E2F */
     --primary-foreground: 39 47% 94%;
 
-    --secondary: 36 35% 57%; /* Mushroom Taupe #B89A6D */
+    --secondary: 42 65% 92%;
     --secondary-foreground: 17 54% 13%;
 
     --muted: 42 65% 92%;
@@ -187,48 +187,42 @@
   }
 }
 
-/* Brand gradient utilities — Emerald-Dark Blue Primary */
+/* Torch Republic palette utilities — warm cream, midnight blue, ember, forest and gold */
 .gradient-brand {
-  background: linear-gradient(135deg, #0B2D2A 0%, #10B981 35%, #047857 70%, #08101A 100%);
+  background: linear-gradient(135deg, #09243A 0%, #264A35 55%, #32190F 100%);
 }
 .gradient-brand-border {
-  background: linear-gradient(90deg, transparent 0%, #047857 20%, #10B981 50%, #0B3D35 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #264A35 24%, #E6AC45 52%, #09243A 78%, transparent 100%);
 }
 
-/* Emerald-Teal gradient — premium primary */
 .gradient-emerald-primary {
-  background: linear-gradient(135deg, #10B981 0%, #06B6D4 50%, #047857 100%);
+  background: linear-gradient(135deg, #264A35 0%, #09243A 55%, #9B4E2F 100%);
 }
 
-/* Dark Blue-Emerald gradient — deep accent */
 .gradient-dark-emerald {
-  background: linear-gradient(135deg, #08101A 0%, #0B5345 50%, #047857 100%);
+  background: linear-gradient(135deg, #09243A 0%, #264A35 60%, #32190F 100%);
 }
 
-/* Metallic rose gold gradient */
 .gradient-gold-metallic {
-  background: linear-gradient(135deg, #C98F86 0%, #E6B7AD 50%, #C98F86 100%);
+  background: linear-gradient(135deg, #9B4E2F 0%, #E6AC45 50%, #9B4E2F 100%);
 }
 
-/* Emerald-Navy gradient accent — for dividers, borders, subtle overlays */
 .gradient-teal-navy-champagne {
-  background: linear-gradient(90deg, #0B2D2A 0%, #047857 30%, #08101A 60%, #10B981 100%);
+  background: linear-gradient(90deg, #09243A 0%, #264A35 30%, #E6AC45 65%, #9B4E2F 100%);
 }
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #047857 15%, #06B6D4 40%, #0B3D35 70%, #E6B7AD 88%, transparent 100%);
-  opacity: 0.6;
+  background: linear-gradient(90deg, transparent 0%, #B89A6D 18%, #E6AC45 48%, #264A35 76%, transparent 100%);
+  opacity: 0.65;
 }
 
-/* Atmospheric emerald-teal glow — soft section halos */
 .section-glow-teal {
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.2) 0%, rgba(4,120,87,0.12) 50%, transparent 100%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(230,172,69,0.14) 0%, rgba(38,74,53,0.08) 50%, transparent 100%);
   pointer-events: none;
 }
 
-/* Premium gradient border — emerald-navy with rose accent */
 .border-gradient-premium {
-  background: linear-gradient(135deg, rgba(4,120,87,0.5) 0%, rgba(6,182,212,0.3) 50%, rgba(230,183,173,0.15) 100%);
+  background: linear-gradient(135deg, rgba(38,74,53,0.42) 0%, rgba(9,36,58,0.30) 50%, rgba(230,172,69,0.22) 100%);
 }
 
 /* Shimmer animation */
@@ -237,7 +231,7 @@
   100% { background-position: 200% center; }
 }
 .badge-shimmer {
-  background: linear-gradient(90deg, #C98F86 0%, #E6B7AD 40%, #C98F86 60%, #A8726A 100%);
+  background: linear-gradient(90deg, #9B4E2F 0%, #E6AC45 40%, #9B4E2F 60%, #7A3B24 100%);
   background-size: 200% auto;
   animation: shimmer 3s linear 1s 1 forwards;
   -webkit-background-clip: text;
@@ -285,7 +279,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #E6B7AD;
+  background: #E6AC45;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
@@ -304,7 +298,7 @@
 /* Selection */
 ::selection {
   background: hsl(7 52% 79% / 0.3);
-  color: hsl(0 0% 95%);
+  color: #32190F;
 }
 
 /* Smooth scroll */
@@ -402,7 +396,7 @@ button, a, [role="button"], [role="menuitem"], [role="tab"], summary, nav {
 .product-image-wrap {
   aspect-ratio: 1 / 1;
   width: 100%;
-  background: #F8F5EF;
+  background: #F7F2E9;
   border-radius: 16px;
   overflow: hidden;
   display: flex;
@@ -451,7 +445,7 @@ button, a, [role="button"], [role="menuitem"], [role="tab"], summary, nav {
 .category-image-wrap {
   aspect-ratio: 4 / 3;
   width: 100%;
-  background: #F8F5EF;
+  background: #F7F2E9;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -476,8 +470,8 @@ button, a, [role="button"], [role="menuitem"], [role="tab"], summary, nav {
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgba(45,40,36,0.04), 0 8px 24px rgba(45,40,36,0.06);
-  --shadow-card-hover: 0 4px 12px rgba(45,40,36,0.08), 0 16px 40px rgba(45,40,36,0.10);
+  --shadow-card: 0 1px 2px rgba(50,25,15,0.04), 0 8px 24px rgba(50,25,15,0.06);
+  --shadow-card-hover: 0 4px 12px rgba(50,25,15,0.08), 0 16px 40px rgba(50,25,15,0.10);
   --focus-ring: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
 }
 
@@ -535,7 +529,9 @@ button[class*="justify-center"] {
 
 .btn:disabled { opacity: 0.55; cursor: not-allowed; }
 .btn-primary { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
-.btn-primary:hover { background: hsl(17 46% 43%); }
+.btn-primary:hover { background: #7A3B24; }
+.btn-gold { background: #E6AC45; color: #32190F; border-color: #E6AC45; }
+.btn-gold:hover { background: #D59A32; border-color: #D59A32; color: #32190F; }
 .btn-secondary { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); border-color: hsl(var(--border)); }
 .btn-secondary:hover { background: hsl(var(--secondary) / 0.7); }
 .btn-ghost { background: transparent; color: hsl(var(--primary)); border-color: hsl(var(--primary) / 0.4); }
@@ -640,22 +636,22 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
 
 /* ── Frosted glass surface — selective, not everywhere ── */
 .tr-glass {
-  background: rgba(251,248,242,0.82);
+  background: rgba(247,242,233,0.84);
   backdrop-filter: blur(16px) saturate(1.1);
   -webkit-backdrop-filter: blur(16px) saturate(1.1);
 }
 .tr-glass-solid {
-  background: rgba(251,248,242,0.96);
+  background: rgba(247,242,233,0.97);
 }
 
 /* ── Surface gradient — subtle depth on light cards ── */
 .tr-surface-gradient {
-  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(241,236,229,0.3) 100%);
+  background: linear-gradient(180deg, rgba(255,252,247,0.78) 0%, rgba(247,242,233,0.58) 100%);
 }
 
 /* ── Section divider — fine hairline between sections ── */
 .tr-section-divider {
-  border-top: 1px solid rgba(184,115,77,0.10);
+  border-top: 1px solid rgba(184,154,109,0.28);
 }
 
 /* ── Light-to-dark transition — controlled gradient between surfaces ── */
