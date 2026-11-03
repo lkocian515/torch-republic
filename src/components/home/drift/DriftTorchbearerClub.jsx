@@ -53,8 +53,13 @@ export default function DriftTorchbearerClub() {
   const campaign = pickFeaturedCampaign(campaigns);
   const featured = campaign?.collection_slug ? editionsInCollection(editions, campaign.collection_slug) : [];
   const pool = [...featured, ...editions];
+  const catalog = [...editions, ...upcoming];
   const current =
-    pool.find((edition) => optionState(defaultOption(edition)).purchasable) || pool[0] || null;
+    catalog.find((edition) => edition.slug === 'fireside-smores' && edition.monthly_featured) ||
+    catalog.find((edition) => edition.slug === 'fireside-smores') ||
+    pool.find((edition) => optionState(defaultOption(edition)).purchasable) ||
+    pool[0] ||
+    null;
 
   const option = current ? defaultOption(current) : null;
   const price = optionState(option).price;
@@ -63,9 +68,12 @@ export default function DriftTorchbearerClub() {
   const monthLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   // The next release is only previewed when approved artwork actually exists.
-  const next = (upcoming || [])
-    .filter((edition) => edition.image_url)
-    .sort((a, b) => monthOrder(a.release_month) - monthOrder(b.release_month))[0] || null;
+  const next =
+    (upcoming || []).find((edition) => edition.slug === 'peppermint-parade' && edition.image_url) ||
+    (upcoming || [])
+      .filter((edition) => edition.image_url && edition.slug !== current?.slug)
+      .sort((a, b) => monthOrder(a.release_month) - monthOrder(b.release_month))[0] ||
+    null;
 
   // How much of the club's reach comes from the homepage, and which promise
   // pulls people through: the coffee itself, the mechanics, or the waitlist.
@@ -165,7 +173,7 @@ export default function DriftTorchbearerClub() {
                       borderRadius: 999,
                     }}
                   >
-                    This month
+                    This month · ${monthLabel}
                   </span>
                   <img
                     src={image}
@@ -174,7 +182,7 @@ export default function DriftTorchbearerClub() {
                     width={640}
                     height={640}
                     className="block h-auto w-full"
-                    style={{ objectFit: 'cover', aspectRatio: '4 / 3' }}
+                    style={{ objectFit: 'contain', aspectRatio: '1 / 1', background: IVORY }}
                   />
                 </div>
                 <figcaption style={{ ...TYPE.body, color: IVORY, margin: '0.75rem 0 0' }}>
@@ -248,13 +256,13 @@ export default function DriftTorchbearerClub() {
                 loading="lazy"
                 width={96}
                 height={96}
-                style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: 4, flexShrink: 0 }}
+                style={{ width: 72, height: 72, objectFit: 'contain', background: IVORY, borderRadius: 4, flexShrink: 0 }}
               />
               <div>
                 <p style={{ ...TYPE.meta, color: COPPER_LABEL, margin: 0 }}>Next release preview</p>
                 <p style={{ ...TYPE.body, color: IVORY, margin: '0.25rem 0 0' }}>
                   <span style={{ fontFamily: SERIF, fontWeight: 700 }}>{next.name}</span>
-                  {next.release_month ? ` · planned for ${next.release_month}` : ''}
+                  
                 </p>
                 <p style={{ fontFamily: MONO, fontSize: '0.6875rem', color: MUTED_ON_DARK, margin: '0.3rem 0 0' }}>
                   Preview only — not for sale
