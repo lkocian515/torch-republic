@@ -33,7 +33,7 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
             alt={imageAlt}
             loading="lazy"
             className="product-art-image"
-            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.18 : 1 }}
+            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.06 : 1 }}
           />
         ) : (
           <div
