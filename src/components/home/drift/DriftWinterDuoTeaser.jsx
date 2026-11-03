@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
-import { WINTER_DUO, THANKSGIVING_BAGS, winterDuoEditions } from '@/lib/winterDuo';
-import DuoScene from '@/components/duos/DuoScene';
+import { WINTER_DUO, winterDuoEditions } from '@/lib/winterDuo';
 import { D, TYPE } from './driftTheme';
 
 /**
@@ -28,7 +27,7 @@ export default function DriftWinterDuoTeaser() {
           style={{ background: D.surface, border: `1px solid ${D.rule}`, boxShadow: D.shadowSoft }}
         >
           <div className="w-full flex-shrink-0 sm:w-[260px]">
-            <DuoScene scene={WINTER_DUO.scene} bags={THANKSGIVING_BAGS} ratio={WINTER_DUO.imageRatio} />
+            <img src={WINTER_DUO.image} alt={WINTER_DUO.imageAlt} width="1536" height="864" className="block h-auto w-full" style={{ objectFit: 'contain' }} loading="lazy" decoding="async" />
           </div>
 
           <div className="min-w-0">
