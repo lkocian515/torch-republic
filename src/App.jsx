@@ -13,12 +13,8 @@ import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
-// Spin wheel disabled — promotion stack cleanup per profit-first audit.
-// Re-enable only after discount codes, prize logic, and stacking rules are verified.
+// Spin wheel promotion removed from the storefront until discount and prize rules are verified.
 import PortfolioLoading from './components/portfolio/PortfolioLoading';
-// The spin-wheel popup is a heavy tree (SVG wheel + motion). It is split into
-// its own chunk so it never sits on the main-thread critical path.
-const SpinWheelPopup = lazy(() => import('./components/spinwheel/SpinWheelPopup'));
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
@@ -626,9 +622,6 @@ function App() {
               <TechLayer />
               <CommerceNotice />
               <AddToCartConfirmation />
-              <Suspense fallback={null}>
-                <SpinWheelPopup />
-              </Suspense>
             </NavigationProvider>
           </Router>
           <Toaster />
