@@ -95,12 +95,14 @@ export default function SpecialEditionCollection() {
                   const image = option?.image_url || edition.image_url;
                   return (
                     <figure key={edition.id} style={{ margin: 0, minWidth: 0 }}>
-                      <div className="product-image-wrap" style={{ background: '#FFFFFF' }}>
+                      <div className="product-image-wrap" style={{ background: '#F8F5EF' }}>
                         {image ? (
                           <img
                             src={image}
                             alt={`Torch Republic ${edition.name}${option?.label ? ` ${option.label}` : ''} coffee bag`}
                             loading="lazy"
+                            className="product-art-image"
+                            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.18 : 1 }}
                           />
                         ) : (
                           <span className="font-heading" style={{ fontSize: '0.875rem', padding: '1rem', textAlign: 'center' }}>
