@@ -152,7 +152,7 @@ export default function SpecialEditionProduct() {
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
           {/* Gallery */}
           <div>
-            <div className="product-image-wrap" style={{ background: '#FFFFFF' }}>
+            <div className="product-image-wrap" style={{ background: '#F8F5EF' }}>
               {shownImage && !imageFailed ? (
                 <img
                   src={shownImage}
@@ -162,8 +162,8 @@ export default function SpecialEditionProduct() {
                       : `Torch Republic ${edition.name} seasonal coffee pouch`
                   }
                   onError={() => setImageFailed(true)}
-                  style={edition.slug === 'midnight-hex' ? { transform: 'scale(0.88)' } : undefined}
-                  style={edition.slug === 'midnight-hex' ? { transform: 'scale(0.88)' } : undefined}
+                  className="product-art-image"
+                  style={{ '--product-art-scale': edition.slug === 'midnight-hex' && shownImage === primaryImage ? 1.18 : 1 }}
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center gap-2 text-center" style={{ padding: '2rem' }}>
