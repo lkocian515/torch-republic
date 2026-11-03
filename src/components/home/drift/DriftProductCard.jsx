@@ -72,7 +72,7 @@ export default function DriftProductCard({
             loading="lazy"
             style={{
               width: 'clamp(220px, 72%, 380px)',
-              '--product-art-scale': path?.includes('midnight-hex') ? 1.18 : 1,
+              '--product-art-scale': path?.includes('midnight-hex') ? 1.06 : 1,
               aspectRatio: '3 / 4',
               height: 'auto',
               objectFit: 'contain',
