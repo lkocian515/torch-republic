@@ -28,6 +28,20 @@ const STOCK_NOTE = {
   error: 'We cannot confirm this option right now. Please try again shortly.',
 };
 
+// Supplied, flavor-specific lifestyle scenes for existing special-edition pages.
+const SPECIAL_EDITION_LIFESTYLE = {
+  'pumpkin-spice': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14b580e7d_08-15481.png', alt: 'A mug of coffee with cinnamon and pumpkin bread beside a small pumpkin.' },
+  'midnight-hex': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/314c77d86_07-15480.png', alt: 'Mexican chocolate coffee beside marigolds, cinnamon, and dark chocolate.' },
+  'fireside-smores': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4f51c0610_05-15469.png', alt: 'A mug of coffee beside graham crackers, chocolate, and toasted marshmallows at a blue-hour campfire.' },
+  'peppermint-parade': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/20efb857a_08-15472.png', alt: 'A mug of coffee beside peppermint candies and evergreen sprigs on a winter table.' },
+  'cinnamon-hearth': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14239a00a_09-15463.png', alt: 'A mug of coffee beside a slice of cinnamon coffee cake and cinnamon sticks.' },
+  'bunny-trail': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/009c21359_07-15471.png', alt: 'A mug of coffee beside a glazed cinnamon roll on a sunny table.' },
+  'bluebonnet-bloom': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/236e9ed7d_06-15479.png', alt: 'A mug of coffee with vanilla beans beside bluebonnets in a Texas field.' },
+  'gulf-coast-turtle': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f27660792_10-15464.png', alt: 'A mug of coffee beside chocolate, caramel, hazelnuts, and the Gulf Coast.' },
+  'stars-stripes-spice': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/10badde80_03-15476.png', alt: 'A mug of coffee with cinnamon and hazelnut pastries beside a lake.' },
+  'harvest-moon-pecan': { src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/bfa219577_01-15474.png', alt: 'A mug of coffee beside pecan pie and a bowl of pecans on an autumn table.' },
+};
+
 /**
  * Reusable special-edition product template.
  *
@@ -63,6 +77,7 @@ export default function SpecialEditionProduct() {
     option?.image_url || edition?.image_url || seasonalArtwork(edition?.slug)?.src || null;
   // The main image is derived, so it is never blank on a direct visit or refresh.
   const shownImage = selectedImage || primaryImage;
+  const lifestyleArt = edition ? SPECIAL_EDITION_LIFESTYLE[edition.slug] || null : null;
 
   // A newly selected grind or edition starts from its own main image again.
   useEffect(() => {
@@ -73,10 +88,21 @@ export default function SpecialEditionProduct() {
     setImageFailed(false);
   }, [shownImage]);
 
-  const gallery = useMemo(
-    () => [primaryImage, ...(edition?.additional_images || []), edition?.lifestyle_image].filter(Boolean),
-    [primaryImage, edition?.additional_images, edition?.lifestyle_image],
-  );
+  const gallery = useMemo(() => {
+    const items = [
+      primaryImage ? { src: primaryImage, alt: option?.label ? `Torch Republic ${edition?.name} ${option.label} coffee pouch` : `Torch Republic ${edition?.name} seasonal coffee pouch` } : null,
+      lifestyleArt,
+      ...(edition?.additional_images || []).map((src, index) => ({
+        src,
+        alt: edition?.additional_image_alts?.[index] || `Additional view of ${edition?.name}`,
+      })),
+      edition?.lifestyle_image ? {
+        src: edition.lifestyle_image,
+        alt: edition.lifestyle_image_alt || `Lifestyle scene for ${edition?.name}`,
+      } : null,
+    ].filter((item) => item?.src);
+    return items.filter((item, index) => items.findIndex((candidate) => candidate.src === item.src) === index);
+  }, [primaryImage, option?.label, edition?.name, edition?.additional_images, edition?.additional_image_alts, edition?.lifestyle_image, edition?.lifestyle_image_alt, lifestyleArt]);
 
   const related = useMemo(() => {
     // An upcoming release belongs to no collection yet, so it has no siblings
@@ -156,11 +182,7 @@ export default function SpecialEditionProduct() {
               {shownImage && !imageFailed ? (
                 <img
                   src={shownImage}
-                  alt={
-                    option?.label
-                      ? `Torch Republic ${edition.name} ${option.label} coffee pouch`
-                      : `Torch Republic ${edition.name} seasonal coffee pouch`
-                  }
+                  alt={gallery.find((item) => item.src === shownImage)?.alt || `Torch Republic ${edition.name} seasonal coffee pouch`}
                   onError={() => setImageFailed(true)}
                   className="product-art-image"
                   style={{ '--product-art-scale': edition.slug === 'midnight-hex' && shownImage === primaryImage ? 1.06 : 1 }}
@@ -177,25 +199,25 @@ export default function SpecialEditionProduct() {
 
             {gallery.length > 1 && (
               <div className="mt-4 flex flex-wrap gap-3">
-                {gallery.map((src) => (
+                {gallery.map((item, index) => (
                   <button
-                    key={src}
+                    key={item.src}
                     type="button"
-                    onClick={() => setSelectedImage(src)}
-                    aria-label={`View image ${gallery.indexOf(src) + 1} of ${gallery.length}`}
-                    aria-pressed={shownImage === src}
+                    onClick={() => setSelectedImage(item.src)}
+                    aria-label={`View image ${index + 1} of ${gallery.length}: ${item.alt}`}
+                    aria-pressed={shownImage === item.src}
                     style={{
                       width: 72,
                       height: 72,
-                      border: `1px solid ${shownImage === src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
+                      border: `1px solid ${shownImage === item.src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
                       borderRadius: 10,
                       overflow: 'hidden',
                       background: '#FFFCF7',
                     }}
                   >
                     <img
-                      src={src}
-                      alt={`Torch Republic ${edition.name} alternate view`}
+                      src={item.src}
+                      alt=""
                       style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                     />
                   </button>
