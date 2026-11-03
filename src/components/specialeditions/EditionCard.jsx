@@ -26,9 +26,15 @@ export default function EditionCard({ edition, selectedOptionKey, onSelectOption
 
   return (
     <article className="card-torch flex h-full flex-col overflow-hidden">
-      <div className="product-image-wrap" style={{ borderRadius: 0, background: '#FFFFFF' }}>
+      <div className="product-image-wrap" style={{ borderRadius: 0, background: '#F8F5EF' }}>
         {image ? (
-          <img src={image} alt={imageAlt} loading="lazy" style={edition.slug === 'midnight-hex' ? { transform: 'scale(0.88)' } : undefined} />
+          <img
+            src={image}
+            alt={imageAlt}
+            loading="lazy"
+            className="product-art-image"
+            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.18 : 1 }}
+          />
         ) : (
           <div
             className="flex flex-col items-center justify-center text-center"
