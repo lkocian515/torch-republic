@@ -24,7 +24,7 @@ export const SPIN_WHEEL_VERSION = 2;
 export const PRIZES = [
   {
     id: 'fifteen_percent',
-    label: '15% OFF',
+    label: '10% OFF',
     sublabel: 'Your next coffee order',
     weight: 25,
     minPurchase: null,
@@ -35,7 +35,7 @@ export const PRIZES = [
   },
   {
     id: 'twenty_percent',
-    label: '20% OFF',
+    label: '10% OFF',
     sublabel: 'Your next coffee order',
     weight: 5,
     minPurchase: null,
@@ -46,8 +46,8 @@ export const PRIZES = [
   },
   {
     id: 'five_off_40',
-    label: '$5 OFF',
-    sublabel: 'Orders $40+',
+    label: '10% OFF',
+    sublabel: 'Your next coffee order',
     weight: 10,
     minPurchase: 40,
     minPurchaseDisplay: '$40+',
