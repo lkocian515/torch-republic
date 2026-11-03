@@ -26,7 +26,7 @@ const colors = {
 // group on the right so the shop never hides them behind a menu.
 const SECTIONS = [
   {
-    label: 'Shop',
+    label: 'Shop Coffee',
     items: [
       ['Shop All', '/shop'],
       ...COFFEE_FORMATS.map(({ label, path }) => [label, path]),
@@ -38,18 +38,19 @@ const SECTIONS = [
       ['FAQ', '/faq'],
     ],
   },
-  { label: 'Seasonal Calendar', to: '/seasonal-calendar' },
+  { label: 'Monthly Edition', to: '/seasonal-calendar' }
   {
-    label: 'Duos',
-    to: '/duos',
+    label: 'Holiday Duos',
+    to: '/duos/holidays',
     items: [
-      ['All Duos', '/duos'],
-      ['Seasonal Duos', '/duos/seasonal'],
-      ['Holiday Duos', '/duos/holidays'],
-      ['Duo Calendar', '/duo-calendar/2027'],
+      ['All Holiday Duos', '/duos/holidays'],
+      ['Halloween Duo', '/duos/midnight-treats'],
+      ['Christmas Duo', '/duos/peppermint-fireside'],
+      ['Easter Duo', '/duos/spring-bluebonnet-bunny'],
+      ['Thanksgiving Duo', '/duos/autumn-coffee-duo'],
     ],
   },
-  { label: 'Torchbearer Club', to: '/torchbearer-club' },
+  { label: 'Subscriptions', to: '/subscription' }
   {
     label: 'Our Story',
     items: [
