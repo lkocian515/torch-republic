@@ -10,13 +10,11 @@
  * Weights are included for documentation; prize selection is performed
  * securely on the backend using its own copy of the weights.
  *
- * ORDER IS VISUAL ONLY. Slices are drawn clockwise from 12 o'clock, so this
- * array reads as: upper right, lower right, lower left, upper left. The order
- * below places 10% OFF upper left, 15% OFF upper right, $5 OFF lower left and
- * 20% OFF lower right to match the approved artwork. Prizes, weights, minimum
- * purchases and code assignment are unchanged — both the drawn slice and the
- * rotation needed to land it under the pointer are derived from this same
- * index, so the pointer always settles on the prize the server returned.
+ * The active wheel configuration currently awards 10% off on every slice.
+ * Keeping all four visible slices identical matches the only enabled server
+ * prize, so the visual result always agrees with the award. The server remains
+ * the source of truth for whether an email has already spun and which code is
+ * issued.
  */
 
 export const SPIN_WHEEL_VERSION = 2;
@@ -59,7 +57,7 @@ export const PRIZES = [
     id: 'ten_percent',
     label: '10% OFF',
     sublabel: 'Your next coffee order',
-    weight: 60,
+    weight: 25,
     minPurchase: null,
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
