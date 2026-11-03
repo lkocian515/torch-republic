@@ -48,29 +48,35 @@ const LIFESTYLE_IMAGE = {
 const GALLERY_EXTRA = {
   'mushroom-coffee': {
     images: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/72b02aba7_01-15465.png',
       MUSHROOM_LIFESTYLE,
       COFFEE_FLAKES,
     ],
     alts: [
+      'A mug of coffee beside reishi, lion’s mane, chaga, and coffee beans on a wooden table',
       'Torch Republic Instant Mushroom Coffee pouch beside a mug of coffee, books and a notebook on a wooden table',
       'Instant coffee flakes, shown close up',
     ],
   },
   'classic-coffee': {
     images: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0d560cc5a_06-15470.png',
       CLASSIC_LIFESTYLE,
       COFFEE_FLAKES,
     ],
     alts: [
+      'A hand stirs a mug of black coffee beside a jar of instant coffee granules',
       'Torch Republic Instant Classic Coffee pouch beside a steaming mug of black coffee on a rustic kitchen table',
       'Instant coffee flakes, shown close up',
     ],
   },
   'pumpkin-spice': {
     images: [
+      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14b580e7d_08-15481.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f9c58b8b7_file_00000000eb7481f68fa2a08c4f327f49.png',
     ],
     alts: [
+      'A mug of coffee with cinnamon and pumpkin bread beside a small pumpkin',
       'Pumpkin Spice Whole Bean Coffee in an autumn scene with whipped cream coffee, cinnamon, and roasted beans',
     ],
   },
