@@ -91,6 +91,12 @@ Deno.serve(async (req) => {
     const recipientMap = new Map();
 
     for (const sub of subscribers) {
+      // Spin-wheel entries receive the prize email regardless of marketing
+      // consent, but only explicit opt-ins may receive the weekly marketing digest.
+      // Older records stored consent in description before the dedicated field existed.
+      const legacyConsent = /(?:^|\\|\\s*)consent:true(?:\\s*(?:\\||$))/i.test(sub.description || '');
+      const isSpinWheelEntry = sub.source === 'spin_wheel';
+      if (isSpinWheelEntry && sub.marketing_consent !== true && !legacyConsent) continue;
       if (sub.email && !recipientMap.has(sub.email.toLowerCase())) {
         recipientMap.set(sub.email.toLowerCase(), { email: sub.email, name: '' });
       }
