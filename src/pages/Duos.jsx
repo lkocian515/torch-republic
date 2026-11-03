@@ -34,14 +34,18 @@ export default function Duos() {
   const withStatus = all.map((p) => ({ ...p, status: duoStatus(p, catalog) }));
   const featured = featuredPairing();
   const current = withStatus.find((p) => p.slug === featured?.slug && p.status === 'available') || null;
-  // The Christmas Duo always leads the upcoming list; everything else follows in
+  // Lead with the owner-prioritized Fireside release, then Peppermint Parade.
+  // The published checkout windows remain unchanged; later previews stay in
   // calendar order.
-  const CHRISTMAS_DUO = 'peppermint-fireside';
+  const RELEASE_PRIORITY = ['harvest-fireside', 'peppermint-fireside'];
   const previews = withStatus
     .filter((p) => p.status === 'upcoming' && p.slug !== current?.slug)
     .sort((a, b) => {
-      if (a.slug === CHRISTMAS_DUO) return -1;
-      if (b.slug === CHRISTMAS_DUO) return 1;
+      const rankA = RELEASE_PRIORITY.indexOf(a.slug);
+      const rankB = RELEASE_PRIORITY.indexOf(b.slug);
+      const priorityA = rankA < 0 ? Number.MAX_SAFE_INTEGER : rankA;
+      const priorityB = rankB < 0 ? Number.MAX_SAFE_INTEGER : rankB;
+      if (priorityA !== priorityB) return priorityA - priorityB;
       return a.window.start.localeCompare(b.window.start);
     });
   const closed = withStatus.filter((p) => p.status === 'closed');
