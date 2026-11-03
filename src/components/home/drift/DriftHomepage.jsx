@@ -2,6 +2,7 @@ import React from 'react';
 import DriftShopPaths from './DriftShopPaths';
 import DriftProductDiscovery from './DriftProductDiscovery';
 import FeaturedSeasonalDuo from './FeaturedSeasonalDuo';
+import FeaturedWinterDuo from './FeaturedWinterDuo';
 import DriftComparison from './DriftComparison';
 import RitualReviewHighlights from '../ritual/RitualReviewHighlights';
 import DriftFounderStory from './DriftFounderStory';
@@ -29,6 +30,7 @@ export default function DriftHomepage() {
       <DriftShopPaths />
       <DriftProductDiscovery />
       <FeaturedSeasonalDuo />
+      <FeaturedWinterDuo />
       <DriftSeasonalEditions />
       <DriftDuos />
       <DriftTorchbearerClub />
