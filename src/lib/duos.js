@@ -134,7 +134,7 @@ const ALL_DUOS = [
     scheduleNeedsConfirmation: true,
     intro: 'Pumpkin Spice + Midnight Hex (Mexican chocolate). Availability and release timing must be confirmed before this duo can be ordered.',
     heroArt: {
-      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4d184ce0b_TorchRepublicHalloweencoffeeduo.png',
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6090d5041_01-15454.png',
       alt: 'Torch Republic Halloween Coffee Duo featuring Pumpkin Spice and Midnight Hex Mexican chocolate.',
     },
   },
