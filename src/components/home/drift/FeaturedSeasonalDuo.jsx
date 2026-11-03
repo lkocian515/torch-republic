@@ -31,7 +31,7 @@ export default function FeaturedSeasonalDuo() {
             className="inline-flex min-h-[52px] w-full max-w-[340px] items-center justify-center gap-2 rounded-md px-6 py-3 font-heading text-base font-semibold transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{ background: D.terracotta, color: '#FFF7E8', textDecoration: 'none' }}
           >
-            Shop the Autumn Duo
+            View Thanksgiving Duo
             <ArrowRight size={17} strokeWidth={2} aria-hidden="true" />
           </Link>
         </div>
