@@ -88,7 +88,7 @@ export default function SpinWheelPopup() {
   const stepRef = useRef('idle');
   stepRef.current = step;
 
-  // ── Trigger logic: 8s timer OR 35% scroll, whichever first ──────────────
+  // ── Trigger logic: 45s timer OR 85% scroll, whichever first ─────────────
   useEffect(() => {
     debug('component mounted');
     debug('pathname', window.location.pathname);
@@ -512,7 +512,7 @@ export default function SpinWheelPopup() {
                         Spin for a little something extra
                       </h2>
                       <p id="spinwheel-desc" className="font-heading text-base mb-6 max-w-[34ch]" style={{ color: BODY, lineHeight: 1.6 }}>
-                        Enter your email to reveal a coffee offer.
+                        Every spin wins 10% off your next coffee order.
                       </p>
 
                       <form onSubmit={handleSpin} className="flex w-full flex-col gap-3">
@@ -567,7 +567,7 @@ export default function SpinWheelPopup() {
                             style={{ accentColor: CLAY }}
                           />
                           <span className="font-heading text-[13px]" style={{ color: BODY_STRONG, lineHeight: 1.5 }}>
-                            Send me occasional Torch Republic offers and coffee updates.
+                            Yes, send me occasional marketing emails and coffee updates. I can unsubscribe anytime.
                           </span>
                         </label>
 
@@ -588,7 +588,7 @@ export default function SpinWheelPopup() {
                       </form>
 
                       <p className="mt-4 max-w-[38ch] font-heading text-xs" style={{ color: BODY_STRONG, lineHeight: 1.6 }}>
-                        We'll email your prize so you don't lose it. Joining our coffee notes is optional.
+                        Your email is required to deliver your prize. Marketing emails are optional.
                       </p>
                     </>
                   )}
