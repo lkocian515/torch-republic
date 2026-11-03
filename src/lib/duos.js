@@ -30,7 +30,7 @@ export const ORIGINALS_DUO = {
  * opens in. Windows are the overlap of the two coffees' own windows, trimmed
  * by any pairing-specific start/end.
  */
-export const DUOS = [
+const ALL_DUOS = [
   {
     slug: 'velvet-hearts',
     name: 'Velvet Hearts Duo',
@@ -128,10 +128,15 @@ export const DUOS = [
   },
   {
     slug: 'midnight-treats',
-    name: 'Midnight Treats Duo',
+    name: 'Halloween Coffee Duo',
     month: 9,
-    components: ['midnight-hex', 'pumpkin-spice'],
-    intro: 'Midnight Hex and Pumpkin Spice, a Halloween pairing for October.',
+    components: ['pumpkin-spice', 'midnight-hex'],
+    scheduleNeedsConfirmation: true,
+    intro: 'Pumpkin Spice + Midnight Hex (Mexican chocolate). Availability and release timing must be confirmed before this duo can be ordered.',
+    heroArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/4d184ce0b_TorchRepublicHalloweencoffeeduo.png',
+      alt: 'Torch Republic Halloween Coffee Duo featuring Pumpkin Spice and Midnight Hex Mexican chocolate.',
+    },
   },
   {
     slug: 'harvest-fireside',
@@ -149,10 +154,11 @@ export const DUOS = [
   },
   {
     slug: 'peppermint-fireside',
-    name: 'Winter Coffee Duo',
+    name: 'Christmas Coffee Duo',
     month: 11,
     components: ['peppermint-parade', 'fireside-smores'],
-    intro: 'Peppermint Parade and Fireside S\u2019mores.',
+    scheduleNeedsConfirmation: true,
+    intro: 'Peppermint Parade + Fireside S’mores. Availability and release timing must be confirmed before this duo can be ordered.'
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
       alt: 'Torch Republic Winter Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
@@ -160,6 +166,10 @@ export const DUOS = [
   },
 ];
 
+// Only the four fixed holiday pairings are marketed as holiday duos. Legacy
+// combinations remain available to their old routes, but not to current lists.
+const FIXED_HOLIDAY_SLUGS = new Set(['midnight-treats', 'peppermint-fireside', 'spring-bluebonnet-bunny', 'autumn-coffee-duo']);
+export const DUOS = ALL_DUOS.filter((pairing) => FIXED_HOLIDAY_SLUGS.has(pairing.slug));
 export const DUO_SCHEDULE = DUOS;
 
 /** Old duo URLs keep working and land on the canonical page. */
@@ -173,9 +183,10 @@ export const DUO_ALIASES = {
   'harvest-moon-pecan-gulf-coast-turtle': 'summer-to-harvest',
   'pumpkin-spice-harvest-moon-pecan': 'autumn-pecan',
   halloween: 'midnight-treats',
-  'fireside-smores-harvest-moon-pecan': 'harvest-fireside',
+  'fireside-smores-harvest-moon-pecan': 'autumn-coffee-duo',
+  'harvest-fireside': 'autumn-coffee-duo',
   christmas: 'peppermint-fireside',
-  'winter-duo': 'harvest-fireside',
+  'winter-duo': 'peppermint-fireside',
 };
 
 export function resolveDuoSlug(slug) {
@@ -191,7 +202,7 @@ export const SEASON_ENTRIES = [
 ];
 
 /** Holiday moments, chronological. Dates refer to 2027. */
-export const HOLIDAY_ENTRIES = [
+const ALL_HOLIDAY_ENTRIES = [
   { key: 'valentines', kicker: 'Valentine\u2019s Day \u00b7 Feb 14', start: '2027-02-01', end: '2027-02-14', duoSlug: 'velvet-hearts', campaign: 'Velvet Hearts Duo' },
   { key: 'st-patricks', kicker: 'St. Patrick\u2019s Day \u00b7 Mar 17', start: '2027-03-01', end: '2027-03-17', duoSlug: 'lucky-bunny', campaign: 'Lucky Bunny Duo' },
   {
@@ -199,21 +210,23 @@ export const HOLIDAY_ENTRIES = [
     kicker: 'Easter \u00b7 Mar 28',
     start: '2027-03-18',
     end: '2027-03-28',
-    duoSlug: 'lucky-bunny',
-    campaign: 'Lucky Bunny Duo',
+    duoSlug: 'spring-bluebonnet-bunny',
+    campaign: 'Easter Coffee Duo',
     gated: true,
-    note: 'Checkout is open for Easter only if Lucky Clover stock is confirmed through March 28. Otherwise the duo stays closed after March 17.',
+    note: 'Availability and selling dates require confirmation.'
   },
   { key: 'mothers-day', kicker: 'Mother\u2019s Day \u00b7 May 9', start: '2027-05-01', end: '2027-05-09', duoSlug: 'bluebonnet-caramel', campaign: 'Bluebonnet & Caramel Duo' },
   { key: 'memorial-day', kicker: 'Memorial Day \u00b7 May 31', start: '2027-05-21', end: '2027-05-31', duoSlug: 'bluebonnet-caramel', campaign: 'Bluebonnet & Caramel Duo' },
   { key: 'fathers-day', kicker: 'Father\u2019s Day \u00b7 Jun 20', start: '2027-06-01', end: '2027-06-20', duoSlug: 'coastal-summer', campaign: 'Coastal Father\u2019s Day Duo' },
   { key: 'independence-day', kicker: 'Independence Day \u00b7 Jul 4', start: '2027-07-01', end: '2027-07-04', duoSlug: 'stars-stripes-summer', campaign: 'Stars & Stripes Summer Duo', note: 'Dates are checkout windows, not arrival dates.' },
   { key: 'labor-day', kicker: 'Labor Day \u00b7 Sep 6', start: '2027-09-01', end: '2027-09-06', duoSlug: 'autumn-pecan', campaign: 'Autumn Pecan Duo' },
-  { key: 'halloween', kicker: 'Halloween \u00b7 Oct 31', start: '2027-10-01', end: '2027-10-31', duoSlug: 'midnight-treats', campaign: 'Midnight Treats Duo' },
-  { key: 'thanksgiving', kicker: 'Thanksgiving \u00b7 Nov 25', start: '2027-11-01', end: '2027-11-25', duoSlug: 'harvest-fireside', campaign: 'Thanksgiving Fireside Duo', note: 'Checkout may continue through November 30 while Harvest Moon Pecan is in stock.' },
-  { key: 'christmas', kicker: 'Christmas \u00b7 Dec 25', start: '2027-12-01', end: '2027-12-25', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo' },
-  { key: 'new-years-eve', kicker: 'New Year\u2019s Eve \u00b7 Dec 31', start: '2027-12-26', end: '2027-12-31', duoSlug: 'peppermint-fireside', campaign: 'Peppermint Fireside Duo', note: 'Open only while both coffees remain available.' },
+  { key: 'halloween', kicker: 'Halloween \u00b7 Oct 31', start: '2027-10-01', end: '2027-10-31', duoSlug: 'midnight-treats', campaign: 'Halloween Coffee Duo', note: 'Availability and selling dates require confirmation.' },
+  { key: 'thanksgiving', kicker: 'Thanksgiving \u00b7 Nov 25', start: '2027-11-01', end: '2027-11-25', duoSlug: 'autumn-coffee-duo', campaign: 'Thanksgiving Coffee Duo', note: 'Availability and selling dates require confirmation.' },
+  { key: 'christmas', kicker: 'Christmas \u00b7 Dec 25', start: '2027-12-01', end: '2027-12-25', duoSlug: 'peppermint-fireside', campaign: 'Christmas Coffee Duo' },
+  { key: 'new-years-eve', kicker: 'New Year\u2019s Eve \u00b7 Dec 31', start: '2027-12-26', end: '2027-12-31', duoSlug: 'peppermint-fireside', campaign: 'Christmas Coffee Duo', note: 'Open only while both coffees remain available.' },
 ];
+
+export const HOLIDAY_ENTRIES = ALL_HOLIDAY_ENTRIES.filter((entry) => ['easter', 'halloween', 'thanksgiving', 'christmas'].includes(entry.key));
 
 const MONTHS = MONTH_NAMES;
 
@@ -223,6 +236,7 @@ const MONTHS = MONTH_NAMES;
  */
 export function pairWindow(pairing) {
   if (!pairing) return null;
+  if (pairing.legacy || !FIXED_HOLIDAY_SLUGS.has(pairing.slug)) return null;
   const windows = pairing.components.map((slug) => seasonalEntry(slug)).filter(Boolean);
   if (windows.length === 0) return null;
   const start = [pairing.startOverride, ...windows.map((w) => w.start)].filter(Boolean).sort().pop();
@@ -248,7 +262,7 @@ export function duoPath(pairing) {
 
 export function duoBySlug(slug) {
   const resolved = resolveDuoSlug(slug);
-  return DUOS.find((pairing) => pairing.slug === resolved) || null;
+  return ALL_DUOS.find((pairing) => pairing.slug === resolved) || null;
 }
 
 /** Distinct coffees in a duo, with the number of bags of each. */
@@ -348,7 +362,8 @@ function afterCalendarYear(today) {
 export function pairAvailability(pairing, editions = [], today = todayInChicago()) {
   if (!pairing) return { state: 'none' };
   const window = pairing.window || pairWindow(pairing);
-  if (!window) return { state: 'none' };
+  if (!window) return { state: pairing.legacy || !FIXED_HOLIDAY_SLUGS.has(pairing.slug) ? 'past' : 'none' };
+  if (pairing.scheduleNeedsConfirmation) return { state: 'upcoming', window, parts: [] };
 
   const bySlug = new Map((editions || []).map((e) => [e.slug, e]));
   const parts = pairing.components.map((slug) => {
