@@ -80,6 +80,10 @@ const ALL_DUOS = [
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2df743515_03-15447.png',
       alt: 'Torch Republic Easter Coffee Duo featuring Bluebonnet Bloom and Bunny Trail Cinnamon Roll.',
     },
+    lifestyleArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/baf5caed3_04-15477.png',
+      alt: 'Two mugs of coffee with bluebonnets, vanilla flowers and beans, and a cinnamon roll on a sunny porch table.',
+    },
   },
   {
     slug: 'coastal-summer',
@@ -117,6 +121,10 @@ const ALL_DUOS = [
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b8e1fec7c_01-15443.png',
       alt: 'Torch Republic Thanksgiving Coffee Duo featuring Harvest Moon Pecan and Cinnamon Hearth.',
+    },
+    lifestyleArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/560d06aa1_02-15475.png',
+      alt: 'Two mugs beside pecan pie, pecans, and cinnamon sticks on a warm autumn table.',
     },
   },
   {
@@ -162,6 +170,10 @@ const ALL_DUOS = [
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
       alt: 'Torch Republic Christmas Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
+    },
+    lifestyleArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a0080045f_02-15466.png',
+      alt: 'Peppermint-topped and toasted-marshmallow coffee mugs with candy cane, chocolate, and graham crackers.',
     },
   },
 ];
