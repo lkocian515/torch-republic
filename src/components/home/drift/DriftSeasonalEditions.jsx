@@ -60,7 +60,7 @@ export default function DriftSeasonalEditions() {
                         loading="lazy"
                         className="product-art-image"
                         style={{
-                          '--product-art-scale': edition.slug === 'midnight-hex' ? 1.06 : 1,
+                          '--product-art-scale': edition.slug === 'midnight-hex' ? 0.75 : 1,
                           width: 'clamp(220px, 72%, 380px)',
                           aspectRatio: '3 / 4',
                           height: 'auto',
