@@ -20,15 +20,15 @@ const DIR = '/brand';
 /* The two approved master files (transparent PNG, espresso + burnt orange).
    2092×752 horizontal lockup · 1194×1317 cup-and-flame icon. */
 const HORIZONTAL_LIGHT =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2e2c8c900_01-15073.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ea4e9465_02-15439.png';
 const MARK =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2e2c8c900_01-15073.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ea4e9465_02-15439.png';
 
 /* Approved stacked lockup for the phone header — cup and flame above the
    TORCH REPUBLIC wordmark, with COFFEE COMPANY ruled beneath. Transparent PNG,
    1214×1295, artwork inset on the canvas (see BRAND_ASPECT.stackedMobile). */
 const STACKED_MOBILE =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2e2c8c900_01-15073.png';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2ea4e9465_02-15439.png';
 
 export const BRAND = {
   horizontalLight: HORIZONTAL_LIGHT,
