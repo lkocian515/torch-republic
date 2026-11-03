@@ -24,14 +24,14 @@ export const WINTER_DUO = {
   ctaLabel: 'View Christmas Duo',
 
   teaserHeading: 'The Christmas Coffee Duo',
-  teaserText: 'Peppermint Parade + Fireside S’mores.'
+  teaserText: 'Peppermint Parade + Fireside S’mores.',
   teaserLinkLabel: 'View Christmas Duo',
 
-  // A late-autumn scene, used only as a backdrop. The two package images are
-  // placed in front of it separately, so no label is ever redrawn.
+  // Kept for legacy scene-based components; current merchandising uses the
+  // complete supplied image directly so its built-in labels stay intact.
   scene: {
     src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
-    alt: 'A weathered wooden harvest table at sunset with two mugs of coffee, a pecan pie and scattered autumn leaves, with a lit stone fireplace and lanterns behind.',
+    alt: 'Torch Republic Christmas Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
   },
   image:
     'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
