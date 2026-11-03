@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Shield, Sparkles, Leaf, Zap, Moon } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const MUSHROOMS = [
   {
@@ -10,7 +10,7 @@ const MUSHROOMS = [
     name: "Lion's Mane",
     scientific: 'Hericium erinaceus',
     icon: Brain,
-    color: '#E6B7AD',
+    color: '#E6AC45',
     shortBenefit: 'Focus and Mental Clarity',
     history: "Lion's Mane has been used in Traditional Chinese Medicine for centuries, particularly by Buddhist monks to enhance concentration during meditation.",
     benefits: [
@@ -26,7 +26,7 @@ const MUSHROOMS = [
     name: 'Reishi',
     scientific: 'Ganoderma lucidum',
     icon: Shield,
-    color: '#D6B27A',
+    color: '#E6AC45',
     shortBenefit: 'Resilience and Balance',
     history: 'Reishi has been used in traditional East Asian practice for centuries, where it earned the name "Mushroom of Immortality." It is a foundational mushroom in daily wellness routines.',
     benefits: [
@@ -42,7 +42,7 @@ const MUSHROOMS = [
     name: 'Cordyceps',
     scientific: 'Cordyceps militaris',
     icon: Zap,
-    color: '#C98F86',
+    color: '#9B4E2F',
     shortBenefit: 'Energy and Performance',
     history: 'Cordyceps was discovered by Tibetan herders who noticed their yaks became more energetic after grazing on pastures where the mushroom grew.',
     benefits: [
@@ -86,7 +86,7 @@ export default function MeetTheMushrooms() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Ancient Wisdom, Modern Ritual
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             Meet the Mushrooms
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -128,7 +128,7 @@ export default function MeetTheMushrooms() {
                     <mushroom.icon size={22} style={{ color: mushroom.color }} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: selectedMushroom.id === mushroom.id ? '#F5EFE6' : 'rgba(245,239,230,0.6)' }}>
+                    <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: selectedMushroom.id === mushroom.id ? '#F7F2E9' : 'rgba(245,239,230,0.6)' }}>
                       {mushroom.name}
                     </h3>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: mushroom.color }}>
@@ -179,7 +179,7 @@ export default function MeetTheMushrooms() {
                     <selectedMushroom.icon size={28} style={{ color: selectedMushroom.color }} />
                   </div>
                   <div>
-                    <h3 className="font-serif font-bold text-2xl" style={{ color: '#F5EFE6' }}>
+                    <h3 className="font-serif font-bold text-2xl" style={{ color: '#F7F2E9' }}>
                       {selectedMushroom.name}
                     </h3>
                     <p className="font-mono text-[9px] tracking-[0.3em] uppercase italic" style={{ color: `${selectedMushroom.color}70` }}>
@@ -225,7 +225,7 @@ export default function MeetTheMushrooms() {
                 <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: `${selectedMushroom.color}90` }}>
                   When to Use
                 </p>
-                <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 400, lineHeight: 1.6 }}>
+                <p className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 400, lineHeight: 1.6 }}>
                   {selectedMushroom.ritual}
                 </p>
               </div>

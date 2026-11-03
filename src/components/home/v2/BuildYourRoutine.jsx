@@ -11,7 +11,7 @@ const STEPS = [
     cta: 'Shop Pods',
     href: 'https://torch-republic.com/products/washington-blend-coffee-pods',
     external: true,
-    accent: '#C9A24A',
+    accent: '#E6AC45',
   },
   {
     icon: '⚗️',
@@ -51,7 +51,7 @@ export default function BuildYourRoutine() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.45)' }}>
             Find Your Fit
           </p>
-          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.03em' }}>
             Build Your Routine
           </h2>
         </motion.div>

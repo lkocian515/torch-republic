@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // All preset bundles are exactly $49.99 — any 3 tubes.
 const BUNDLES = [
@@ -14,7 +14,7 @@ const BUNDLES = [
     servings: '3 tubes · ~81 servings total',
     perServing: '~$0.62 per serving',
     price: '$49.99',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
     tag: 'Great for First-Timers',
     href: '/build-your-ritual',
   },
@@ -26,7 +26,7 @@ const BUNDLES = [
     servings: '3 tubes · ~81 servings total',
     perServing: '~$0.62 per serving',
     price: '$49.99',
-    accent: '#10B981',
+    accent: '#264A35',
     tag: 'Most Popular',
     featured: true,
     href: '/build-your-ritual',
@@ -51,7 +51,7 @@ const BUNDLES = [
     servings: '3 tubes · up to ~81 servings',
     perServing: '~$0.62 per serving',
     price: '$49.99',
-    accent: '#E6B7AD',
+    accent: '#E6AC45',
     tag: 'Fully Custom',
     href: '/build-your-ritual',
   },
@@ -73,7 +73,7 @@ export default function BundleSection() {
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
             Build Your Ritual
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Choose Your Bundle
           </h2>
           <p className="font-heading mx-auto mb-4" style={{ fontSize: '1.1rem', color: 'rgba(245,239,230,0.95)', fontWeight: 400, lineHeight: 1.85, maxWidth: '580px' }}>
@@ -97,7 +97,7 @@ export default function BundleSection() {
               }}
             >
               {bundle.tag && (
-                <div className="px-3 py-1.5" style={{ background: bundle.featured ? '#10B981' : `rgba(230,183,173,0.1)`, borderBottom: bundle.featured ? 'none' : '1px solid rgba(230,183,173,0.1)' }}>
+                <div className="px-3 py-1.5" style={{ background: bundle.featured ? '#264A35' : `rgba(230,183,173,0.1)`, borderBottom: bundle.featured ? 'none' : '1px solid rgba(230,183,173,0.1)' }}>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold text-center" style={{ color: bundle.featured ? '#080808' : RG }}>
                     {bundle.tag}
                   </p>
@@ -142,7 +142,7 @@ export default function BundleSection() {
                   to={bundle.href}
                   className="block text-center font-mono text-[11px] tracking-[0.2em] uppercase font-bold transition-all hover:opacity-80 py-3.5"
                   style={{
-                    background: bundle.featured ? '#10B981' : 'transparent',
+                    background: bundle.featured ? '#264A35' : 'transparent',
                     color: bundle.featured ? '#080808' : RG,
                     border: bundle.featured ? 'none' : `1px solid rgba(230,183,173,0.3)`,
                   }}

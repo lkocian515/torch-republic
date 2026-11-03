@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function RitualLifestyleBanner({
   image,
   alt,
-  accent = '#B7653E',
+  accent = '#9B4E2F',
   eyebrow = 'Brewed for daily ritual',
   title = 'Your daily ritual, in a real cup.',
   subtitle = 'Just add hot water. No machine, no pods, no compromise.',
@@ -47,7 +47,7 @@ export default function RitualLifestyleBanner({
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
             className="mt-3 font-serif font-bold"
-            style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', color: '#FBF8F1', lineHeight: 1.12, textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', color: '#F7F2E9', lineHeight: 1.12, textWrap: 'balance' }}
           >
             {title}
           </motion.h2>

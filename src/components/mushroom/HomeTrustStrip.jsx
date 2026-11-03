@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Leaf, Zap, Recycle, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const ITEMS = [
   { icon: Sparkles,  label: 'Premium Instant Blends' },

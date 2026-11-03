@@ -76,7 +76,7 @@ export default function TorchbearerClub() {
         </header>
 
         <figure className="mt-8" style={{ margin: '2rem 0 0' }}>
-          <div style={{ overflow: 'hidden', borderRadius: 10, background: '#FFFFFF', border: '1px solid hsl(var(--border))' }}>
+          <div style={{ overflow: 'hidden', borderRadius: 10, background: '#FFFCF7', border: '1px solid hsl(var(--border))' }}>
             <img
               src={WINTER_DUO.image}
               alt={WINTER_DUO.imageAlt}
@@ -91,7 +91,7 @@ export default function TorchbearerClub() {
         <section
           id="waitlist"
           className="mt-8"
-          style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: '1.25rem', scrollMarginTop: 96 }}
+          style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: '1.25rem', scrollMarginTop: 96 }}
           aria-labelledby="club-status"
         >
           <p className="eyebrow">Coming soon</p>
@@ -129,7 +129,7 @@ export default function TorchbearerClub() {
           <h2 id="club-plans" className="h2">The plan</h2>
           <article
             className="mt-5"
-            style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 1.75rem)' }}
+            style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 1.75rem)' }}
           >
             <p className="eyebrow">Planned · waitlist</p>
             <h3 className="h3 mt-2">Torchbearer Single</h3>
@@ -199,7 +199,7 @@ export default function TorchbearerClub() {
             {FAQS.map((item) => (
               <details
                 key={item.q}
-                style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: '0.875rem 1.25rem' }}
+                style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: '0.875rem 1.25rem' }}
               >
                 <summary className="font-heading" style={{ cursor: 'pointer', fontSize: '0.9375rem', fontWeight: 600 }}>
                   {item.q}

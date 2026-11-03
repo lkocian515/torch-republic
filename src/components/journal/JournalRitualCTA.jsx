@@ -7,7 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { trackJournalCTA } from '@/lib/analyticsEvents';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // Topic map: keywords in slug/category → collection config
 const TOPIC_MAP = [
@@ -105,7 +105,7 @@ export default function JournalRitualCTA({ slug, category }) {
           {/* Headline */}
           <h3
             className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.15rem, 3vw, 1.5rem)', color: '#F5EFE6', lineHeight: 1.25 }}
+            style={{ fontSize: 'clamp(1.15rem, 3vw, 1.5rem)', color: '#F7F2E9', lineHeight: 1.25 }}
           >
             Ready to Upgrade Your Daily Ritual?
           </h3>

@@ -131,7 +131,7 @@ export default function DriftTorchbearerClub() {
                 to={`${CLUB_PATH}#waitlist`}
                 onClick={() => trackCta('join_waitlist')}
                 className="mt-5 inline-flex items-center justify-center gap-2 font-heading font-semibold"
-                style={{ background: D.terracotta, color: '#FFF7E8', minHeight: 48, padding: '0.875rem 1.75rem', borderRadius: 999 }}
+                style={{ background: D.terracotta, color: '#F7F2E9', minHeight: 48, padding: '0.875rem 1.75rem', borderRadius: 999 }}
               >
                 Join the waitlist
                 <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
@@ -168,7 +168,7 @@ export default function DriftTorchbearerClub() {
                       left: '0.75rem',
                       zIndex: 1,
                       background: D.terracotta,
-                      color: '#FFF7E8',
+                      color: '#F7F2E9',
                       padding: '0.35rem 0.6rem',
                       borderRadius: 999,
                     }}

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { BUNDLE_PRICE_DUO, DUO_COMPARE_AT } from '@/lib/pricingConfig';
 
-const ACCENT = '#B86543';
-const INK = '#2D2824';
-const MUTED = '#6A5A4A';
-const BORDER = '#E4D8C9';
+const ACCENT = '#9B4E2F';
+const INK = '#32190F';
+const MUTED = '#5E4639';
+const BORDER = '#B89A6D';
 
 export default function CartBundleUpsell({ cartItems, subtotal }) {
   // Show if cart has fewer than 2 items (the Coffee Duo is 1 of each)

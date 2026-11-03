@@ -16,7 +16,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
-const MATCHA_GREEN = '#566047';
+const MATCHA_GREEN = '#264A35';
 const MATCHA_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg';
 
 // FAQ data for schema
@@ -81,32 +81,32 @@ export default function MatchaCollection() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F7F1E7' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F7F2E9' }}>
       {/* SEO Components */}
       <GlobalSEOHead page={{ url: '/shop/matcha', type: 'product.group' }} />
       <CategorySEO category="matcha" products={products} />
       <FAQSchema faqs={FAQS} />
 
       {/* Hero */}
-      <section style={{ background: '#FBF8F1', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${MATCHA_GREEN}25` }}>
+      <section style={{ background: '#F7F2E9', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${MATCHA_GREEN}25` }}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
               Torch Republic Coffee Co.,  Ceremonial Matcha
             </p>
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#32190F', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Ceremonial Matcha Powder<br />for Calm Focus & Instant Matcha Lattes
             </h1>
-            <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
               Two ceremonial matcha blends for calm daily ritual and versatile preparation. Dissolves instantly,  hot or iced. No whisk needed.
             </p>
             <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: '6px', padding: '16px' }}>
-              <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+              <p className="font-heading text-xs" style={{ color: '#5E4639', lineHeight: 1.7 }}>
                 <strong>Note:</strong> These are matcha blends, not mushroom coffee.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
-              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#FFFDF8', padding: '14px 36px', borderRadius: '4px' }}>
+              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#FFFCF7', padding: '14px 36px', borderRadius: '4px' }}>
                 Shop Matcha
               </Link>
               <Link to="/quiz" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-75" style={{ border: `1px solid ${MATCHA_GREEN}`, color: MATCHA_GREEN, padding: '14px 36px', borderRadius: '4px' }}>
@@ -114,7 +114,7 @@ export default function MatchaCollection() {
               </Link>
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${MATCHA_GREEN}30` }}>
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFCF7', border: `1px solid ${MATCHA_GREEN}30` }}>
             <img src={MATCHA_HERO_IMAGE} alt="Torch Republic The Monk and The Alchemist ceremonial matcha blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
           </motion.div>
         </div>
@@ -122,7 +122,7 @@ export default function MatchaCollection() {
 
 
       {/* Benefits */}
-      <section style={{ background: '#FBF8F1', padding: '20px 24px', borderBottom: `1px solid ${MATCHA_GREEN}15` }}>
+      <section style={{ background: '#F7F2E9', padding: '20px 24px', borderBottom: `1px solid ${MATCHA_GREEN}15` }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {[
@@ -136,7 +136,7 @@ export default function MatchaCollection() {
                 <div style={{ width: 40, height: 40, borderRadius: '50%', background: `${MATCHA_GREEN}15`, border: `1px solid ${MATCHA_GREEN}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <item.icon size={16} style={{ color: MATCHA_GREEN }} />
                 </div>
-                <p className="font-heading text-[10px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{item.label}</p>
+                <p className="font-heading text-[10px] tracking-[0.2em] uppercase" style={{ color: '#5E4639' }}>{item.label}</p>
               </div>
             ))}
           </div>
@@ -144,14 +144,14 @@ export default function MatchaCollection() {
       </section>
 
       {/* Why Matcha */}
-      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#FBF8F1' }}>
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#F7F2E9' }}>
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>Why Matcha</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>
               The Calm Energy Alternative
             </h2>
-            <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.8 }}>
+            <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.8 }}>
               Matcha offers a different kind of energy, calm, focused, and sustained. The L-theanine in ceremonial matcha works with caffeine to create alert relaxation without jitters or crash.
             </p>
           </motion.div>
@@ -163,9 +163,9 @@ export default function MatchaCollection() {
               { title: 'Antioxidants', desc: 'Rich in catechins, especially EGCG. One cup of matcha equals approximately 10 cups of green tea in antioxidant content.' },
             ].map((card, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-5" style={{ background: '#FFFDF8', border: `1px solid ${MATCHA_GREEN}20`, borderRadius: '6px' }}>
+                className="p-5" style={{ background: '#FFFCF7', border: `1px solid ${MATCHA_GREEN}20`, borderRadius: '6px' }}>
                 <h3 className="font-serif font-bold  mb-2" style={{ fontSize: '1.1rem' }}>{card.title}</h3>
-                <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>{card.desc}</p>
+                <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>{card.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -177,10 +177,10 @@ export default function MatchaCollection() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>The Collection</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>
               Choose Your Matcha Ritual
             </h2>
-            <p className="font-heading text-sm" style={{ color: '#5F574F' }}>
+            <p className="font-heading text-sm" style={{ color: '#5E4639' }}>
               One ceremonial matcha, crafted for calm focus and everyday ritual.
             </p>
           </motion.div>
@@ -201,7 +201,7 @@ export default function MatchaCollection() {
       />
 
       {/* Selection aid + cross-link */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9' }}>
         <SelectionAid
           accent={MATCHA_GREEN}
           items={[
@@ -217,11 +217,11 @@ export default function MatchaCollection() {
       <CollectionReviewCarousel category="matcha" />
 
       {/* FAQ Section */}
-      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#FBF8F1' }}>
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#F7F2E9' }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: MATCHA_GREEN }}>FAQ</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -229,9 +229,9 @@ export default function MatchaCollection() {
           <div className="space-y-3">
             {FAQS.map((faq, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="p-5" style={{ background: '#FFFDF8', border: `1px solid ${MATCHA_GREEN}15`, borderRadius: '6px' }}>
+                className="p-5" style={{ background: '#FFFCF7', border: `1px solid ${MATCHA_GREEN}15`, borderRadius: '6px' }}>
                 <h3 className="font-serif font-bold  mb-2" style={{ fontSize: '1.05rem' }}>{faq.q}</h3>
-                <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>{faq.a}</p>
+                <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>{faq.a}</p>
               </motion.div>
             ))}
           </div>
@@ -242,9 +242,9 @@ export default function MatchaCollection() {
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>Calm Energy. Clear Focus.</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: '#5F574F' }}>Ceremonial matcha designed for smooth, steady energy without the spike. An intentional daily ritual you can look forward to.</p>
-            <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#FFFDF8', padding: '14px 36px', borderRadius: '999px' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>Calm Energy. Clear Focus.</h2>
+            <p className="font-heading text-sm mb-8" style={{ color: '#5E4639' }}>Ceremonial matcha designed for smooth, steady energy without the spike. An intentional daily ritual you can look forward to.</p>
+            <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: MATCHA_GREEN, color: '#FFFCF7', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Matcha <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>

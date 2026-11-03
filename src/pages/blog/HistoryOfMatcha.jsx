@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Leaf, MapPin, Book, Heart, Clock } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function HistoryOfMatcha() {
   useSEO({
@@ -40,7 +40,7 @@ export default function HistoryOfMatcha() {
   ];
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -48,7 +48,7 @@ export default function HistoryOfMatcha() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Journal · Matcha History
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             The History of Matcha:<br />From Ancient China to Modern Wellness Rituals
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -79,7 +79,7 @@ export default function HistoryOfMatcha() {
           {/* Ancient Origins */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Ancient Origins of Powdered Tea
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -104,7 +104,7 @@ export default function HistoryOfMatcha() {
           {/* Song Dynasty */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Song Dynasty and the Birth of Whisked Tea
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -118,7 +118,7 @@ export default function HistoryOfMatcha() {
                   This preparation method became immensely popular among scholars, nobles, and the imperial court. Tea competitions emerged throughout China, where participants evaluated the quality, texture, and appearance of whisked tea. The ability to create a perfect foam became an admired skill.
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(108,190,90,0.06)', border: '1px solid rgba(108,190,90,0.15)', borderRadius: '4px' }}>
-                  <p className="font-serif font-bold text-lg mb-2" style={{ color: '#6CBD5A' }}>
+                  <p className="font-serif font-bold text-lg mb-2" style={{ color: '#264A35' }}>
                     Buddhist monks adopted powdered tea as part of their spiritual practice.
                   </p>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7 }}>
@@ -132,7 +132,7 @@ export default function HistoryOfMatcha() {
           {/* Timeline */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Matcha Through the Centuries
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -152,7 +152,7 @@ export default function HistoryOfMatcha() {
                       </div>
                       <span className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{t.era}</span>
                     </div>
-                    <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{t.title}</h3>
+                    <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{t.title}</h3>
                     <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.6 }}>{t.body}</p>
                   </motion.div>
                 ))}
@@ -163,7 +163,7 @@ export default function HistoryOfMatcha() {
           {/* Japan */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 How Matcha Arrived in Japan
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -183,7 +183,7 @@ export default function HistoryOfMatcha() {
           {/* Zen Buddhism */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Matcha and Zen Buddhism
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -203,7 +203,7 @@ export default function HistoryOfMatcha() {
           {/* Tea Ceremony */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Rise of the Japanese Tea Ceremony
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -230,7 +230,7 @@ export default function HistoryOfMatcha() {
           {/* Uji */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Why Uji Became the Home of Premium Matcha
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -252,9 +252,9 @@ export default function HistoryOfMatcha() {
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(108,190,90,0.1)', border: '1px solid rgba(108,190,90,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <f.icon size={14} style={{ color: '#6CBD5A' }} />
+                          <f.icon size={14} style={{ color: '#264A35' }} />
                         </div>
-                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{f.title}</h3>
+                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{f.title}</h3>
                       </div>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.6 }}>{f.body}</p>
                     </motion.div>
@@ -271,7 +271,7 @@ export default function HistoryOfMatcha() {
           {/* Modern Renaissance */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Matcha's Modern Renaissance
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -285,7 +285,7 @@ export default function HistoryOfMatcha() {
                   Matcha quickly moved beyond the tea room. Today it appears in lattes, smoothies, protein shakes, desserts, baking recipes, and wellness beverages.
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(108,190,90,0.06)', border: '1px solid rgba(108,190,90,0.15)', borderRadius: '4px' }}>
-                  <p className="font-serif font-bold text-lg" style={{ color: '#6CBD5A' }}>
+                  <p className="font-serif font-bold text-lg" style={{ color: '#264A35' }}>
                     Yet despite its modern popularity, the essence of matcha remains unchanged. It continues to represent balance, intention, and mindful living.
                   </p>
                 </div>
@@ -296,7 +296,7 @@ export default function HistoryOfMatcha() {
           {/* Torch Republic Perspective */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Torch Republic Perspective
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -331,13 +331,13 @@ export default function HistoryOfMatcha() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(108,190,90,0.6)' }}>
               Begin Your Matcha Ritual
             </p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>
               Explore Torch Republic Ceremonial Matcha
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Premium ceremonial-grade matcha blends inspired by centuries of tradition and crafted for modern life.
             </p>
-            <Link to="/matcha" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: '#6CBD5A', color: '#080808' }}>
+            <Link to="/matcha" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: '#264A35', color: '#080808' }}>
               Shop Matcha →
             </Link>
           </motion.div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sun, Brain, Moon, Book, Sparkles, Flame } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const RITUALS = [
   {
@@ -11,7 +11,7 @@ const RITUALS = [
     desc: 'For energy, momentum, and starting strong.',
     products: 'SunCap Rise · Torchbearer · Ember Reserve',
     icon: Sun,
-    color: '#D6B27A',
+    color: '#E6AC45',
     link: '/shop'
   },
   {
@@ -19,7 +19,7 @@ const RITUALS = [
     desc: 'For deep work, creativity, and mental clarity.',
     products: 'GlowMind Clarity · The Ascendant',
     icon: Brain,
-    color: '#E6B7AD',
+    color: '#E6AC45',
     link: '/mushroom-coffee'
   },
   {
@@ -27,7 +27,7 @@ const RITUALS = [
     desc: 'For calm, grounding, and slower mornings.',
     products: 'MoonCap Restore · DreamCap',
     icon: Moon,
-    color: '#C98F86',
+    color: '#9B4E2F',
     link: '/mushroom-coffee'
   },
   {
@@ -35,7 +35,7 @@ const RITUALS = [
     desc: 'For steady focus and intentional structure.',
     products: 'The Monk',
     icon: Flame,
-    color: '#10B981',
+    color: '#264A35',
     link: '/matcha'
   },
   {
@@ -72,7 +72,7 @@ export default function ShopByRitual() {
           </p>
           <h2 className="font-serif font-bold mb-4" style={{
             fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
-            color: '#FFFFFF'
+            color: '#FFFCF7'
           }}>
             Choose the Ritual You Need Today
           </h2>

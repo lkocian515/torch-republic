@@ -22,7 +22,7 @@ export default function RitualBrandBreak() {
           </p>
           <h2
             className="mx-auto mt-5 max-w-2xl font-serif font-semibold"
-            style={{ fontSize: 'clamp(1.6rem,3.5vw,2.3rem)', color: '#F5EFE6', lineHeight: 1.25, textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(1.6rem,3.5vw,2.3rem)', color: '#F7F2E9', lineHeight: 1.25, textWrap: 'balance' }}
           >
             Premium coffee, made simple &mdash; so your morning stays yours.
           </h2>

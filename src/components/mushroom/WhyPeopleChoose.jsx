@@ -3,44 +3,44 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Brain, Zap, Leaf, Coffee, Clock, CheckCircle } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BENEFITS = [
   {
     icon: Brain,
     title: 'Ritual, Not Routine',
     description: 'Every blend is designed around a daily state: rise, focus, restore, create, ascend. This is coffee for the part of you that refuses to go out.',
-    accent: '#E6B7AD',
+    accent: '#E6AC45',
   },
   {
     icon: Zap,
     title: 'Energy When You Feel Drained',
     description: 'Premium instant coffee and functional blends for clean, sustained energy — no crash, no jitters, just the fuel to carry your morning flame forward.',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
   },
   {
     icon: Leaf,
     title: 'Functional, Not Overcomplicated',
     description: 'Mushroom coffee and matcha blends crafted for clarity, energy, and daily momentum. No wellness cult vibe. Just real ingredients for real mornings.',
-    accent: '#C98F86',
+    accent: '#9B4E2F',
   },
   {
     icon: Coffee,
     title: 'A Brand with Meaning',
     description: 'The torch represents self-leadership, resilience, and the light you carry forward. Coffee for people rebuilding their energy and reclaiming their focus.',
-    accent: '#E6B7AD',
+    accent: '#E6AC45',
   },
   {
     icon: Clock,
     title: 'No Pods. No Machines.',
     description: 'Instant powder into hot water, milk, or iced — ready in seconds. No pods, no complicated setup, no waiting. Just your ritual, simplified.',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
   },
   {
     icon: CheckCircle,
     title: 'Clarity When Life Feels Foggy',
     description: "Lion's Mane, Cordyceps and Reishi blends for focus and mental clarity. Ceremonial matcha for calm energy. Classic coffee for bold, everyday momentum.",
-    accent: '#C98F86',
+    accent: '#9B4E2F',
   },
 ];
 
@@ -85,7 +85,7 @@ export default function WhyPeopleChoose() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -147,7 +147,7 @@ export default function WhyPeopleChoose() {
               <div>
                 <h3
                   className="font-serif font-bold"
-                  style={{ fontSize: '1.05rem', color: '#F5EFE6', marginBottom: '8px', lineHeight: 1.3 }}
+                  style={{ fontSize: '1.05rem', color: '#F7F2E9', marginBottom: '8px', lineHeight: 1.3 }}
                 >
                   {benefit.title}
                 </h3>

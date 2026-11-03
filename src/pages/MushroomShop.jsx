@@ -49,13 +49,13 @@ function NewsletterSignup() {
         required
         disabled={status === 'loading'}
         className="flex-1 px-4 py-3 font-heading text-base focus:outline-none"
-        style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', color: '#292622', borderRadius: '6px' }}
+        style={{ background: '#FFFCF7', border: '1px solid #B89A6D', color: '#32190F', borderRadius: '6px' }}
       />
       <button
         type="submit"
         disabled={status === 'loading'}
         className="px-8 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] transition-all hover:opacity-90 disabled:opacity-50"
-        style={{ background: '#B7653E', color: '#FBF8F1', borderRadius: '6px' }}
+        style={{ background: '#9B4E2F', color: '#F7F2E9', borderRadius: '6px' }}
       >
         {status === 'loading' ? 'Joining...' : 'Subscribe'}
       </button>
@@ -101,14 +101,14 @@ export default function MushroomShop() {
   });
 
   return (
-    <div style={{ background: '#FBF8F1' }}>
+    <div style={{ background: '#F7F2E9' }}>
       {/* Seasonal banner,  driven by the featured campaign, sits above the everyday lineup */}
       <ShopDuoBanner />
 
       {/* Hero */}
       <section className="px-5 pb-5 pt-5 text-center md:px-10 md:pt-10 md:pb-8">
         <div className="mx-auto max-w-3xl">
-          <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
+          <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#E6AC45' }}>
             Torch Republic Coffee Company
           </p>
           <motion.h1
@@ -116,11 +116,11 @@ export default function MushroomShop() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mt-2 font-serif font-semibold"
-            style={{ fontSize: 'clamp(2rem,6vw,4rem)', color: '#292622', letterSpacing: '-0.02em', textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(2rem,6vw,4rem)', color: '#32190F', letterSpacing: '-0.02em', textWrap: 'balance' }}
           >
             {activeFormat ? `${activeFormat.label} Coffee` : 'The lineup.'}
           </motion.h1>
-          <p className="mx-auto mt-2 max-w-xl font-heading text-sm md:text-base" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+          <p className="mx-auto mt-2 max-w-xl font-heading text-sm md:text-base" style={{ color: '#5E4639', lineHeight: 1.7 }}>
             {activeFormat
               ? activeFormat.blurb
               : 'The everyday lineup is instant only, just add water. Special editions are ground, brewed rather than instant.'}
@@ -151,15 +151,15 @@ export default function MushroomShop() {
       {showEveryday && <RitualComparison />}
 
       {/* Newsletter */}
-      <section className="px-6 py-16 md:px-10" style={{ borderTop: '1px solid #E4D8C9' }}>
+      <section className="px-6 py-16 md:px-10" style={{ borderTop: '1px solid #B89A6D' }}>
         <div className="mx-auto max-w-[700px] text-center">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#E6AC45' }}>
             Stay in the ritual
           </p>
-          <h2 className="mb-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#292622' }}>
+          <h2 className="mb-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#32190F' }}>
             Get a welcome offer on your first order
           </h2>
-          <p className="mb-8 font-heading" style={{ color: '#5F574F' }}>
+          <p className="mb-8 font-heading" style={{ color: '#5E4639' }}>
             Join the list for new releases and member offers.
           </p>
           <NewsletterSignup />
@@ -167,8 +167,8 @@ export default function MushroomShop() {
       </section>
 
       {/* Legal */}
-      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid #E4D8C9' }}>
-        <p className="mx-auto max-w-xl font-mono text-[11px] tracking-[0.08em]" style={{ color: '#8A8076', lineHeight: 1.75 }}>
+      <div className="px-6 py-8 text-center" style={{ borderTop: '1px solid #B89A6D' }}>
+        <p className="mx-auto max-w-xl font-mono text-[11px] tracking-[0.08em]" style={{ color: '#5E4639', lineHeight: 1.75 }}>
           Statements on this site have not been evaluated by the FDA. This product is not intended to diagnose, treat,
           cure, or prevent any disease.
         </p>

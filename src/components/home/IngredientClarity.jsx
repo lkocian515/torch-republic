@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const INGREDIENT_DETAILS = [
   {
     category: "Mushroom Coffee Blends",
-    accent: '#10B981',
+    accent: '#264A35',
     items: [
       { label: "Mushroom Species", value: "Lion's Mane (Hericium erinaceus), Cordyceps (Cordyceps militaris), Reishi (Ganoderma lucidum)" },
       { label: "Caffeine Level", value: "Approx. 50–80mg per serving (half to full cup)" },
@@ -18,7 +18,7 @@ const INGREDIENT_DETAILS = [
   },
   {
     category: "Classic Instant Coffee Blends",
-    accent: '#C4A35A',
+    accent: '#E6AC45',
     items: [
       { label: "Contains Mushrooms?", value: "No. Classic blends are premium instant coffee only." },
       { label: "Caffeine Level", value: "Approx. 80–100mg per serving" },
@@ -30,7 +30,7 @@ const INGREDIENT_DETAILS = [
   },
   {
     category: "Ceremonial Matcha Blends",
-    accent: '#6EE7B7',
+    accent: '#264A35',
     items: [
       { label: "Matcha Type", value: "Ceremonial-grade matcha powder, instant blend" },
       { label: "Caffeine Level", value: "Approx. 25–40mg per serving (lower than coffee, longer lasting)" },
@@ -90,7 +90,7 @@ export default function IngredientClarity() {
           <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Ingredient Transparency
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Clear Ingredients. Clear Purpose.
           </h2>
           <p className="font-heading mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85, maxWidth: '540px' }}>

@@ -21,7 +21,7 @@ const STEPS = [
 ];
 
 const POWDER_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png';
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function WhatInsideTube() {
   return (
@@ -60,7 +60,7 @@ export default function WhatInsideTube() {
 
             {/* Title */}
             <h2 className="font-serif font-bold leading-tight"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', textAlign: 'center' }}>
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', textAlign: 'center' }}>
               What's Inside the Tube?
             </h2>
 
@@ -158,7 +158,7 @@ export default function WhatInsideTube() {
                   {step.num}
                 </span>
                 <h3 className="font-serif font-bold"
-                  style={{ fontSize: '1.15rem', color: '#E6B7AD' }}>
+                  style={{ fontSize: '1.15rem', color: '#E6AC45' }}>
                   {step.title}
                 </h3>
                 <p className="font-heading"

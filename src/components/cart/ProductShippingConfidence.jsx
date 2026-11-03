@@ -1,7 +1,7 @@
 import React from 'react';
 import { Truck, Package, Lock, Leaf } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const ITEMS = [
   { icon: Truck, label: 'Fast Shipping', sub: 'Ships from the USA' },

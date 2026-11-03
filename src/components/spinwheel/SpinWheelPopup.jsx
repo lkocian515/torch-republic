@@ -469,7 +469,7 @@ export default function SpinWheelPopup() {
               ref={closeModalRef}
               onClick={dismiss}
               aria-label="Close spin to win"
-              className="absolute top-3 right-3 z-30 flex h-11 w-11 items-center justify-center rounded-full transition-all hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796] sm:h-10 sm:w-10"
+              className="absolute top-3 right-3 z-30 flex h-11 w-11 items-center justify-center rounded-full transition-all hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45] sm:h-10 sm:w-10"
               style={{
                 background: 'rgba(5,10,18,0.72)',
                 color: GOLD,
@@ -573,7 +573,7 @@ export default function SpinWheelPopup() {
 
                         <button
                           type="submit"
-                          className="w-full min-h-12 px-4 py-3.5 font-mono font-bold uppercase tracking-[0.16em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          className="w-full min-h-12 px-4 py-3.5 font-mono font-bold uppercase tracking-[0.16em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45]"
                           style={{
                             fontSize: '12px',
                             background: INK,
@@ -660,7 +660,7 @@ export default function SpinWheelPopup() {
                       <div className="flex flex-col sm:flex-row gap-2 mb-3">
                         <button
                           onClick={copyCode}
-                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45]"
                           style={{ fontSize: '12px', background: CARD, color: INK, border: `1px solid ${BORDER}`, borderRadius: '999px' }}
                         >
                           {copied ? (
@@ -673,7 +673,7 @@ export default function SpinWheelPopup() {
                         </button>
                         <button
                           onClick={handleShopClick}
-                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                          className="flex-1 min-h-11 px-4 py-3 font-mono font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45]"
                           style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                         >
                           <ShoppingBag className="inline w-3.5 h-3.5 mr-1" /> Shop Coffee
@@ -719,7 +719,7 @@ export default function SpinWheelPopup() {
                       </p>
                       <button
                         onClick={dismiss}
-                        className="mt-5 min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                        className="mt-5 min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45]"
                         style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Continue Shopping
@@ -741,7 +741,7 @@ export default function SpinWheelPopup() {
                           setStep('idle');
                           setEmailError(null);
                         }}
-                        className="min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAC796]"
+                        className="min-h-11 px-6 py-3 font-mono font-bold uppercase tracking-[0.12em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6AC45]"
                         style={{ fontSize: '12px', background: CLAY, color: CREAM, borderRadius: '999px' }}
                       >
                         Try Again

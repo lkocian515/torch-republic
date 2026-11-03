@@ -5,7 +5,7 @@ const ART = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/0dc
 
 export default function ShopDuoBanner() {
   return (
-    <section className="w-full px-4 py-5 sm:px-6 md:py-8" style={{ background: '#FBF8F1' }} aria-label="Autumn Coffee Duo">
+    <section className="w-full px-4 py-5 sm:px-6 md:py-8" style={{ background: '#F7F2E9' }} aria-label="Autumn Coffee Duo">
       <div className="mx-auto max-w-[1240px] overflow-hidden rounded-lg" style={{ background: '#F7F2E9' }}>
         <img
           src={ART}

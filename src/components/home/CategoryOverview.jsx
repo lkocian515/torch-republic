@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Coffee, Leaf, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORIES = [
   {
@@ -12,7 +12,7 @@ const CATEGORIES = [
     desc: 'Smooth, premium instant coffee for mornings when simplicity is enough. No machine, no grinder, no complication — just a clean cup and a clear beginning.',
     products: 'Torchbearer · Ember Reserve',
     icon: Coffee,
-    color: '#D6B27A',
+    color: '#E6AC45',
     link: '/classic-coffee',
     cta: 'Shop Instant Coffee'
   },
@@ -22,7 +22,7 @@ const CATEGORIES = [
     desc: 'Premium instant coffee blended with functional mushrooms for focus, clarity, energy, restoration, and daily resilience.',
     products: 'SunCap Rise · GlowMind Clarity · MoonCap Restore · DreamCap · The Oracle · Mystic Bloom',
     icon: Leaf,
-    color: '#E6B7AD',
+    color: '#E6AC45',
     link: '/mushroom-coffee',
     cta: 'Shop Mushroom Coffee'
   },
@@ -32,7 +32,7 @@ const CATEGORIES = [
     desc: 'Matcha blends inspired by discipline, transformation, creativity, and the quiet power of daily devotion.',
     products: 'The Monk · The Ascendant · The Alchemist',
     icon: Sparkles,
-    color: '#10B981',
+    color: '#264A35',
     link: '/matcha',
     cta: 'Shop Matcha'
   }
@@ -54,7 +54,7 @@ export default function CategoryOverview() {
           </p>
           <h2 className="font-serif font-bold" style={{
             fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
-            color: '#FFFFFF'
+            color: '#FFFCF7'
           }}>
             Choose Your Foundation
           </h2>

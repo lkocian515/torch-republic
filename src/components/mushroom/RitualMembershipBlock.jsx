@@ -55,7 +55,7 @@ export default function RitualMembershipBlock() {
           <p className="font-mono text-[8px] tracking-[0.45em] uppercase mb-1" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Coffee Ritual Membership
           </p>
-          <h3 className="font-serif font-bold" style={{ color: '#F7F1E8', fontSize: '1.05rem' }}>
+          <h3 className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1.05rem' }}>
             Why Members Never Look Back
           </h3>
         </div>
@@ -63,7 +63,7 @@ export default function RitualMembershipBlock() {
           <p className="font-mono text-[8px] tracking-[0.2em] line-through" style={{ color: 'rgba(255,255,255,0.2)' }}>
             One-time
           </p>
-          <p className="font-mono font-bold text-sm" style={{ color: '#10B981' }}>
+          <p className="font-mono font-bold text-sm" style={{ color: '#264A35' }}>
             Save 20% /mo
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function RitualMembershipBlock() {
           >
             <span className="text-base flex-shrink-0 mt-0.5">{b.icon}</span>
             <div>
-              <p className="font-mono text-[8px] tracking-[0.15em] uppercase font-bold mb-0.5" style={{ color: '#E6B7AD' }}>
+              <p className="font-mono text-[8px] tracking-[0.15em] uppercase font-bold mb-0.5" style={{ color: '#E6AC45' }}>
                 {b.title}
               </p>
               <p className="font-heading text-[11px] leading-relaxed" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>

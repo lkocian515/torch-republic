@@ -24,7 +24,7 @@ export default function PremiumInstantCoffeeDifference() {
   });
 
   return (
-    <article style={{ background: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+    <article style={{ background: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       <div className="max-w-[740px] mx-auto px-6 py-16 md:py-24">
 
         <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase mb-10" style={{ color: 'rgba(255,255,255,0.28)' }}>
@@ -32,14 +32,14 @@ export default function PremiumInstantCoffeeDifference() {
           <span>›</span>
           <Link to="/journal" style={{ color: 'inherit', textDecoration: 'none' }} className="hover:text-white transition-colors">Journal</Link>
           <span>›</span>
-          <span style={{ color: '#E6B7AD' }}>Premium Instant Coffee</span>
+          <span style={{ color: '#E6AC45' }}>Premium Instant Coffee</span>
         </nav>
 
-        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(196,163,90,0.1)', color: '#C4A35A', border: '1px solid rgba(196,163,90,0.25)' }}>
+        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(196,163,90,0.1)', color: '#E6AC45', border: '1px solid rgba(196,163,90,0.25)' }}>
           Instant Coffee
         </span>
 
-        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           What Makes Premium Instant Coffee Different?
         </h1>
 
@@ -54,7 +54,7 @@ export default function PremiumInstantCoffeeDifference() {
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>It Starts with the Bean</h2>
             <p>Most cheap instant coffee starts with Robusta beans,  a lower-cost species that is high in caffeine but has a harsher, more bitter flavor profile. Robusta is easier to grow at scale, which is why it dominates commercial instant.</p>
-            <p className="mt-3">Premium instant coffee uses <strong style={{ color: '#F7F1E8' }}>Arabica</strong>,  the same species used in specialty café coffee. Arabica has a smoother, more nuanced flavor with natural sweetness and lower bitterness. It's the difference between a $1 diner coffee and a good pour-over.</p>
+            <p className="mt-3">Premium instant coffee uses <strong style={{ color: '#F7F2E9' }}>Arabica</strong>,  the same species used in specialty café coffee. Arabica has a smoother, more nuanced flavor with natural sweetness and lower bitterness. It's the difference between a $1 diner coffee and a good pour-over.</p>
           </section>
 
           <section>
@@ -62,7 +62,7 @@ export default function PremiumInstantCoffeeDifference() {
             <p>There are two ways to turn brewed coffee into instant powder: spray-drying and freeze-drying. The method matters enormously for the final taste.</p>
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4" style={{ background: 'rgba(196,163,90,0.06)', border: '1px solid rgba(196,163,90,0.2)' }}>
-                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: '#C4A35A' }}>Freeze-Drying</p>
+                <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-2" style={{ color: '#E6AC45' }}>Freeze-Drying</p>
                 <p className="text-sm" style={{ color: 'rgba(247,241,232,0.7)' }}>Brewed coffee is frozen, then moisture is removed in a vacuum. No heat involved. Flavor compounds are preserved. Result: coffee that tastes like coffee.</p>
               </div>
               <div className="p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -88,15 +88,15 @@ export default function PremiumInstantCoffeeDifference() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>The Cost-Per-Cup Reality</h2>
-            <p>Torch Republic classic coffee blends are $19.99 for 27 servings. That's <strong style={{ color: '#E6B7AD' }}>$0.74 per cup</strong>,  for premium freeze-dried Arabica instant coffee.</p>
+            <p>Torch Republic classic coffee blends are $19.99 for 27 servings. That's <strong style={{ color: '#E6AC45' }}>$0.74 per cup</strong>,  for premium freeze-dried Arabica instant coffee.</p>
             <p className="mt-3">A typical café drip coffee runs $3–5. A specialty espresso drink runs $5–8. Even home-brewed specialty coffee, once you factor in beans, equipment, and maintenance, costs more per cup than $0.74.</p>
             <p className="mt-3">Premium instant isn't the cheap option. It's the smart option.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Classic Coffee vs Mushroom Coffee</h2>
-            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start,  <Link to="/products/torchbearer" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-reserve" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Ember Reserve</Link>. Premium Arabica, instant format, nothing added.</p>
-            <p className="mt-3">If you want everything premium instant offers plus functional mushrooms, the <Link to="/shop/instant-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Mushroom Coffee Collection</Link> adds Lion's Mane, Cordyceps and Reishi to the same premium base,  for $3 more per tube.</p>
+            <p>If you want premium instant coffee at its most straightforward, Torch Republic's <Link to="/shop/instant-coffee" style={{ color: '#E6AC45', textDecoration: 'none' }}>Classic Coffee Collection</Link> is the place to start,  <Link to="/products/torchbearer" style={{ color: '#E6AC45', textDecoration: 'none' }}>Torchbearer</Link>, <Link to="/products/ember-reserve" style={{ color: '#E6AC45', textDecoration: 'none' }}>Ember Reserve</Link>. Premium Arabica, instant format, nothing added.</p>
+            <p className="mt-3">If you want everything premium instant offers plus functional mushrooms, the <Link to="/shop/instant-mushroom-coffee" style={{ color: '#E6AC45', textDecoration: 'none' }}>Mushroom Coffee Collection</Link> adds Lion's Mane, Cordyceps and Reishi to the same premium base,  for $3 more per tube.</p>
           </section>
 
         </div>
@@ -110,7 +110,7 @@ export default function PremiumInstantCoffeeDifference() {
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
             Freeze-dried Arabica. No machine needed. 27 servings. $0.74 per cup.
           </p>
-          <Link to="/shop/instant-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#C4A35A', color: '#080808' }}>
+          <Link to="/shop/instant-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#E6AC45', color: '#080808' }}>
             Shop Classic Coffee →
           </Link>
         </div>
@@ -123,7 +123,7 @@ export default function PremiumInstantCoffeeDifference() {
               { to: '/journal/mushroom-coffee-vs-regular-coffee', label: 'Mushroom Coffee vs Regular Coffee' },
               { to: '/journal/morning-ritual-for-focus', label: 'How to Build a Better Morning Ritual' },
             ].map(({ to, label }) => (
-              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6B7AD', textDecoration: 'none' }}>→ {label}</Link>
+              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6AC45', textDecoration: 'none' }}>→ {label}</Link>
             ))}
           </div>
         </div>

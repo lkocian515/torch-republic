@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RG = '#B48A4A';
+const RG = '#E6AC45';
 
 const ITEMS = [
   { icon: '⚡', text: 'Ready in Seconds' },
@@ -29,7 +29,7 @@ export default function HomeTrustRow() {
               <span style={{ fontSize: '0.75rem' }}>{item.icon}</span>
               <span
                 className="font-mono text-[11px] tracking-[0.12em] uppercase"
-                style={{ color: '#655E56' }}
+                style={{ color: '#5E4639' }}
               >
                 {item.text}
               </span>

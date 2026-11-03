@@ -50,8 +50,8 @@ export default function CartRedirect() {
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ background: '#080808' }}>
       <div className="text-center">
-        <div className="w-10 h-10 border-2 border-[#E6B7AD] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>
+        <div className="w-10 h-10 border-2 border-[#E6AC45] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6AC45' }}>
           Redirecting to secure checkout...
         </p>
       </div>

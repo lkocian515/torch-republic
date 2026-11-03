@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Percent, Gift } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const DISCOUNTS = [
   {
@@ -11,7 +11,7 @@ const DISCOUNTS = [
     title: 'First Order Discount',
     code: 'WELCOME10',
     description: '10% off your first one-time order',
-    color: '#E6B7AD',
+    color: '#E6AC45',
     bgColor: 'rgba(230,183,173,0.08)',
     borderColor: 'rgba(230,183,173,0.3)',
   },
@@ -21,7 +21,7 @@ const DISCOUNTS = [
     title: 'Subscribe & Save',
     code: null,
     description: '10% off every recurring subscription order',
-    color: '#6EBD8E',
+    color: '#264A35',
     bgColor: 'rgba(110,189,142,0.08)',
     borderColor: 'rgba(110,189,142,0.3)',
   },

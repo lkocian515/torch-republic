@@ -8,7 +8,7 @@ const COLLECTIONS = [
     description: 'Six small-batch blends. Six men who shaped a nation. Each one retires when it\'s gone.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/576e1d934_hero.jpg',
     route: '/CoffeeCollection',
-    accent: '#C8A44D',
+    accent: '#E6AC45',
   },
   {
     title: 'Liberty Icons',
@@ -22,7 +22,7 @@ const COLLECTIONS = [
     description: 'A curated ritual delivered monthly. New blends, limited drops, archived before the world catches on.',
     image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80',
     route: '/TheTorchBox',
-    accent: '#C9A24A',
+    accent: '#E6AC45',
   },
 ];
 
@@ -42,8 +42,8 @@ export default function CollectionHighlight() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: '#C9A24A' }}>Collections</p>
-          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.015em' }}>
+          <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: '#E6AC45' }}>Collections</p>
+          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.015em' }}>
             Every Legacy Has a Blend.
           </h2>
         </motion.div>

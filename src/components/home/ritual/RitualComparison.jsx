@@ -30,13 +30,13 @@ const VALUES = {
 
 export default function RitualComparison() {
   return (
-    <section style={{ background: '#FBF8F1' }}>
+    <section style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#9B4E2F' }}>
             Not sure where to start?
           </p>
-          <h2 className="mt-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622' }}>
+          <h2 className="mt-4 font-serif font-semibold" style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#32190F' }}>
             Classic Coffee vs Mushroom Coffee
           </h2>
         </div>
@@ -59,7 +59,7 @@ export default function RitualComparison() {
               <React.Fragment key={r.key}>
                 <div
                   className="p-4 font-mono text-[9px] uppercase tracking-[0.2em]"
-                  style={{ color: '#8A8076', background: ri % 2 ? '#FBF8F1' : '#FFFDF8', borderTop: '1px solid #E4D8C9' }}
+                  style={{ color: '#5E4639', background: ri % 2 ? '#F7F2E9' : '#FFFCF7', borderTop: '1px solid #B89A6D' }}
                 >
                   {r.label}
                 </div>
@@ -67,7 +67,7 @@ export default function RitualComparison() {
                   <div
                     key={p.id}
                     className="p-4 text-center font-heading text-sm"
-                    style={{ color: '#292622', background: ri % 2 ? '#FBF8F1' : '#FFFDF8', borderTop: '1px solid #E4D8C9' }}
+                    style={{ color: '#32190F', background: ri % 2 ? '#F7F2E9' : '#FFFCF7', borderTop: '1px solid #B89A6D' }}
                   >
                     {VALUES[p.ritualKey][r.key]}
                   </div>
@@ -90,11 +90,11 @@ export default function RitualComparison() {
                 </div>
                 <div>
                   {ROWS.map((r, ri) => (
-                    <div key={r.key} className="flex gap-3 p-3" style={{ borderTop: ri === 0 ? 'none' : '1px solid #E4D8C9' }}>
-                      <span className="w-20 flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.18em]" style={{ color: '#8A8076' }}>
+                    <div key={r.key} className="flex gap-3 p-3" style={{ borderTop: ri === 0 ? 'none' : '1px solid #B89A6D' }}>
+                      <span className="w-20 flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.18em]" style={{ color: '#5E4639' }}>
                         {r.label}
                       </span>
-                      <span className="font-heading text-sm" style={{ color: '#292622' }}>
+                      <span className="font-heading text-sm" style={{ color: '#32190F' }}>
                         {VALUES[p.ritualKey][r.key]}
                       </span>
                     </div>

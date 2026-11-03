@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import { KNOWLEDGE_CATEGORIES, KNOWLEDGE_ARTICLES, getArticlesByCategory } from '@/lib/knowledgeArticles';
 import KnowledgeArticleCard from '@/components/knowledge/KnowledgeArticleCard';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_ICONS = {
   'Coffee Origins': '🌍',
@@ -62,7 +62,7 @@ export default function KnowledgeCenter() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="font-serif font-bold mb-6"
-              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#F5EFE6', lineHeight: 1.15, letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#F7F2E9', lineHeight: 1.15, letterSpacing: '-0.02em' }}
             >
               Everything Worth Knowing About Premium Coffee
             </motion.h1>
@@ -130,7 +130,7 @@ export default function KnowledgeCenter() {
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <span style={{ fontSize: '1.5rem' }}>{category.icon}</span>
-                    <h2 className="font-serif font-bold" style={{ fontSize: '1.8rem', color: '#F5EFE6', letterSpacing: '-0.01em' }}>
+                    <h2 className="font-serif font-bold" style={{ fontSize: '1.8rem', color: '#F7F2E9', letterSpacing: '-0.01em' }}>
                       {category.name}
                     </h2>
                     <span className="font-mono text-[8px] tracking-[0.2em] uppercase ml-auto" style={{ color: 'rgba(230,183,173,0.3)' }}>
@@ -155,7 +155,7 @@ export default function KnowledgeCenter() {
         {/* Bottom CTA */}
         <section className="px-6 md:px-10 py-16 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
           <div className="max-w-xl mx-auto">
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.8rem', color: '#F5EFE6' }}>Ready to Find Your Ritual?</h2>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.8rem', color: '#F7F2E9' }}>Ready to Find Your Ritual?</h2>
             <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.8 }}>
               Take our 60-second blend quiz and we'll match you to the right premium coffee ritual — no machine needed.
             </p>

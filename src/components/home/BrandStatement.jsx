@@ -12,11 +12,11 @@ export default function BrandStatement() {
           transition={{ duration: 0.9 }}
         >
           {/* Rule */}
-          <div className="w-12 h-px mx-auto mb-14" style={{ background: '#C9A24A' }} />
+          <div className="w-12 h-px mx-auto mb-14" style={{ background: '#E6AC45' }} />
 
           <p
             className="font-serif mb-6"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', color: '#F0EBE1', lineHeight: 1.35, fontWeight: 600 }}
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', color: '#F7F2E9', lineHeight: 1.35, fontWeight: 600 }}
           >
             More than coffee.
           </p>

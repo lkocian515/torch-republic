@@ -49,7 +49,7 @@ export default function SocialProof() {
           </h2>
           <div className="flex items-center justify-center gap-2">
             <GoldStars rating={5} size="lg" />
-            <span className="font-mono font-bold" style={{ color: '#C9A24A' }}>4.8</span>
+            <span className="font-mono font-bold" style={{ color: '#E6AC45' }}>4.8</span>
             <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>· Verified Torchbearers</span>
           </div>
         </motion.div>
@@ -75,7 +75,7 @@ export default function SocialProof() {
                   "{rev.headline}"
                 </p>
               )}
-              <p className="font-heading text-xs flex-1 leading-relaxed" style={{ color: '#F5EFE6', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.8 }}>
+              <p className="font-heading text-xs flex-1 leading-relaxed" style={{ color: '#F7F2E9', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.8 }}>
                 {rev.text.length > 120 ? rev.text.slice(0, 117) + '…' : rev.text}
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
@@ -99,7 +99,7 @@ export default function SocialProof() {
                   "{r.headline}"
                 </p>
               )}
-              <p className="font-heading text-sm leading-relaxed" style={{ color: '#F5EFE6', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.9 }}>
+              <p className="font-heading text-sm leading-relaxed" style={{ color: '#F7F2E9', fontStyle: 'italic', fontWeight: 300, lineHeight: 1.9 }}>
                 {r.text}
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.08)' }}>
@@ -126,7 +126,7 @@ export default function SocialProof() {
             {REVIEWS.map((_, i) => (
               <button key={i} onClick={() => { clearInterval(timerRef.current); setActive(i); startTimer(); }}
                 className="rounded-full transition-all"
-                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#C9A24A' : 'rgba(201,162,74,0.2)' }} />
+                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#E6AC45' : 'rgba(201,162,74,0.2)' }} />
             ))}
           </div>
         </div>

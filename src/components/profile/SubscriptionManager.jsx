@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Package, ChevronDown, Pause, Play, SkipForward, RefreshCw, Check, Loader2, AlertCircle, ExternalLink } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
-const CLAY = '#B7653E';
-const RG = '#E6B7AD';
-const CARD = '#FFFFFF';
-const CREAM = '#FBF8F1';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
+const CLAY = '#9B4E2F';
+const RG = '#E6AC45';
+const CARD = '#FFFCF7';
+const CREAM = '#F7F2E9';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
 
 const FREQUENCIES = [
   { label: 'Every Week', interval: 'week', intervalCount: 1 },

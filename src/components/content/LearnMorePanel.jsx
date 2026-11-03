@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const MUSHROOM_COFFEE_GUIDES = [
   { label: 'The Science of Lion\'s Mane', href: '/journal/science-of-lions-mane', desc: 'NGF, neurogenesis, and 100+ studies explained.' },

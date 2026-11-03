@@ -39,7 +39,7 @@ function ApparelCard({ product, index }) {
           {product.title}
         </h3>
         <div className="flex items-center justify-between">
-          <span className="font-mono font-bold text-sm" style={{ color: '#C8A44D' }}>${product.price?.toFixed(2)}</span>
+          <span className="font-mono font-bold text-sm" style={{ color: '#E6AC45' }}>${product.price?.toFixed(2)}</span>
           {product.compare_at_price > product.price && (
             <span className="font-mono text-xs text-gray-600 line-through">${product.compare_at_price?.toFixed(2)}</span>
           )}
@@ -75,8 +75,8 @@ export default function CuratedApparel() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Coffee Rituals</span>
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>Coffee Rituals</span>
             </div>
             <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
               Carry the Ritual.
@@ -86,7 +86,7 @@ export default function CuratedApparel() {
           <a
             href="/shop"
             className="font-mono text-xs tracking-widest uppercase self-start md:self-end pb-1"
-            style={{ color: '#C8A44D', borderBottom: '1px solid rgba(200,164,77,0.3)' }}
+            style={{ color: '#E6AC45', borderBottom: '1px solid rgba(200,164,77,0.3)' }}
           >
             View All Products →
           </a>

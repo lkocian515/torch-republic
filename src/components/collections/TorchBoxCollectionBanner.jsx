@@ -24,15 +24,15 @@ export default function TorchBoxCollectionBanner() {
 
       <div className="flex items-center gap-3 relative z-10">
         <div className="relative">
-          <Flame className="w-4 h-4 flex-shrink-0" style={{ color: '#C9A24A' }} />
+          <Flame className="w-4 h-4 flex-shrink-0" style={{ color: '#E6AC45' }} />
           <div className="absolute inset-0 animate-pulse" style={{ background: 'rgba(201,162,74,0.4)', borderRadius: '50%', filter: 'blur(4px)' }} />
         </div>
         <div>
           <div className="flex items-center gap-2 mb-0.5">
-            <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: '#C9A24A' }}>
+            <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold" style={{ color: '#E6AC45' }}>
               Step 2: Build Your Collection
             </p>
-            <span className="font-mono text-[8px] font-black px-1.5 py-0.5 rounded" style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.4)' }}>
+            <span className="font-mono text-[8px] font-black px-1.5 py-0.5 rounded" style={{ background: 'rgba(201,162,74,0.2)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.4)' }}>
               Limited Spots
             </span>
           </div>
@@ -43,7 +43,7 @@ export default function TorchBoxCollectionBanner() {
       </div>
       <Link to="/TheTorchBox"
         className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase font-black transition-all hover:opacity-85 flex-shrink-0 relative z-10"
-        style={{ background: '#C9A24A', color: '#000', padding: '10px 22px', boxShadow: '0 4px 12px rgba(201,162,74,0.2)' }}>
+        style={{ background: '#E6AC45', color: '#000', padding: '10px 22px', boxShadow: '0 4px 12px rgba(201,162,74,0.2)' }}>
         <Zap className="w-3 h-3" />
         Upgrade to Membership <ArrowRight className="w-3 h-3" />
       </Link>

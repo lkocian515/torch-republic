@@ -29,7 +29,7 @@ export default function FeaturedSeasonalDuo() {
           <Link
             to={autumnDuo ? duoPath(autumnDuo) : '/duos'}
             className="inline-flex min-h-[52px] w-full max-w-[340px] items-center justify-center gap-2 rounded-md px-6 py-3 font-heading text-base font-semibold transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{ background: D.terracotta, color: '#FFF7E8', textDecoration: 'none' }}
+            style={{ background: D.terracotta, color: '#F7F2E9', textDecoration: 'none' }}
           >
             View Thanksgiving Duo
             <ArrowRight size={17} strokeWidth={2} aria-hidden="true" />

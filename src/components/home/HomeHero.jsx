@@ -28,7 +28,7 @@ export default function HomeHero() {
           <p className="font-mono text-[10px] tracking-[0.6em] uppercase mb-6" style={{ color: 'rgba(196,163,90,0.7)' }}>
             Torch Republic
           </p>
-          <h1 className="font-serif mb-6" style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', fontWeight: 800, color: '#F0EBE1', lineHeight: 1.0, letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif mb-6" style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', fontWeight: 800, color: '#F7F2E9', lineHeight: 1.0, letterSpacing: '-0.02em' }}>
             Carry the Flame.
           </h1>
           <p className="font-heading mb-10 leading-relaxed" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)', color: 'rgba(240,235,225,0.6)', maxWidth: '480px', fontWeight: 300 }}>
@@ -37,9 +37,9 @@ export default function HomeHero() {
           <Link
             to="/CoffeeCollection"
             className="inline-flex items-center px-10 py-4 font-mono text-xs tracking-[0.3em] uppercase transition-all"
-            style={{ background: '#C9A24A', color: '#000', fontWeight: 700 }}
+            style={{ background: '#E6AC45', color: '#000', fontWeight: 700 }}
             onMouseEnter={e => e.currentTarget.style.background = '#E4C46A'}
-            onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
+            onMouseLeave={e => e.currentTarget.style.background = '#E6AC45'}
           >
             Shop Coffee
           </Link>

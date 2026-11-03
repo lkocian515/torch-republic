@@ -31,8 +31,8 @@ export default function BestSellersSection() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Bestsellers</span>
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #09243A, #E6AC45)' }} />
+              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#E6AC45' }}>Bestsellers</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
               Best Sellers & New Arrivals
@@ -42,7 +42,7 @@ export default function BestSellersSection() {
           <Link
             to={createPageUrl('BestSellers')}
             className="hidden md:flex items-center gap-2 font-mono text-sm tracking-wider hover:gap-3 transition-all"
-            style={{ color: '#C8A44D' }}
+            style={{ color: '#E6AC45' }}
           >
             View All <ArrowRight className="w-4 h-4" />
           </Link>
@@ -53,7 +53,7 @@ export default function BestSellersSection() {
         <Link
           to={createPageUrl('BestSellers')}
           className="md:hidden flex items-center justify-center gap-2 font-mono text-sm tracking-wider mt-8 hover:gap-3 transition-all"
-          style={{ color: '#C8A44D' }}
+          style={{ color: '#E6AC45' }}
         >
           View All <ArrowRight className="w-4 h-4" />
         </Link>

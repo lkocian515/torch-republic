@@ -27,7 +27,7 @@ export default function HomeSectionBridge({ label, heading, body, ctaLabel, ctaH
             </div>
           )}
 
-          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             {heading}
           </h2>
 
@@ -41,7 +41,7 @@ export default function HomeSectionBridge({ label, heading, body, ctaLabel, ctaH
             <Link
               to={ctaHref}
               className="inline-flex items-center gap-2 font-mono font-black text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 btn-glow"
-              style={{ background: '#C9A24A', color: '#080808', padding: '16px 36px' }}
+              style={{ background: '#E6AC45', color: '#080808', padding: '16px 36px' }}
             >
               <Flame className="w-3.5 h-3.5" />
               {ctaLabel}

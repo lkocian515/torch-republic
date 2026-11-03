@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, FlaskConical, ChevronDown, Award, BookOpen } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const GREEN = '#10B981';
+const RG = '#E6AC45';
+const GREEN = '#264A35';
 
 // ─── Research Data ────────────────────────────────────────────────────────────
 
@@ -100,7 +100,7 @@ const RESEARCH = {
       {
         name: 'L-Theanine + Caffeine',
         latin: 'The Focus Synergy',
-        color: '#6CBD5A',
+        color: '#264A35',
         benefits: [
           'Improves sustained attention and reaction time',
           'Reduces caffeine-induced jitters and anxiety',
@@ -200,7 +200,7 @@ const RESEARCH = {
       {
         name: 'Coffee Polyphenols',
         latin: 'Chlorogenic acids & antioxidants',
-        color: '#C4A35A',
+        color: '#E6AC45',
         benefits: [
           'Largest dietary antioxidant source in Western populations',
           'Chlorogenic acids slow glucose absorption',
@@ -231,24 +231,24 @@ const RESEARCH = {
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 const STUDY_TYPE_COLORS = {
-  'Randomized Double-Blind Trial': '#10B981',
-  'Randomized Controlled Trial': '#10B981',
-  'Randomized Crossover Trial': '#10B981',
-  'Human Study': '#6CBD5A',
-  'EEG Study': '#6CBD5A',
-  'Longitudinal Study': '#6CBD5A',
+  'Randomized Double-Blind Trial': '#264A35',
+  'Randomized Controlled Trial': '#264A35',
+  'Randomized Crossover Trial': '#264A35',
+  'Human Study': '#264A35',
+  'EEG Study': '#264A35',
+  'Longitudinal Study': '#264A35',
   'Meta-Analysis': '#4AAF7C',
-  'Comprehensive Review': '#A8D5BA',
-  'Review Article': '#A8D5BA',
+  'Comprehensive Review': '#264A35',
+  'Review Article': '#264A35',
   'Mechanistic Study': '#C8A96E',
-  'Preclinical Study': '#D6B27A',
-  'Analytical Study': '#C4A35A',
+  'Preclinical Study': '#E6AC45',
+  'Analytical Study': '#E6AC45',
   'In Vitro Study': '#9B9B7A',
-  'Dietary Analysis Study': '#C4A35A',
+  'Dietary Analysis Study': '#E6AC45',
 };
 
 function StudyTypeBadge({ type }) {
-  const color = STUDY_TYPE_COLORS[type] || '#A8D5BA';
+  const color = STUDY_TYPE_COLORS[type] || '#264A35';
   return (
     <span
       className="font-mono text-[6.5px] tracking-[0.2em] uppercase px-2 py-1 flex-shrink-0"
@@ -275,7 +275,7 @@ function StudyCard({ study, accent }) {
       }}
     >
       <div className="flex items-start justify-between gap-3 mb-2">
-        <p className="font-heading text-xs font-semibold leading-snug" style={{ color: '#F7F1E8', flex: 1 }}>
+        <p className="font-heading text-xs font-semibold leading-snug" style={{ color: '#F7F2E9', flex: 1 }}>
           {study.title}
         </p>
         <ExternalLink
@@ -331,7 +331,7 @@ export default function IngredientResearch({ product }) {
           </div>
           <h2
             className="font-serif font-bold mb-2"
-            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F1E8', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.15 }}
           >
             {data.headline}
           </h2>

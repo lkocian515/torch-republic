@@ -38,7 +38,7 @@ function Wheel({ rotation }) {
     >
       <defs>
         <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1B5060" stopOpacity="0.3" />
+          <stop offset="0%" stopColor="#09243A" stopOpacity="0.3" />
           <stop offset="100%" stopColor="transparent" stopOpacity="0" />
         </radialGradient>
         <clipPath id="hubClip">
@@ -48,7 +48,7 @@ function Wheel({ rotation }) {
 
       {/* Outer glow ring */}
       <circle cx={cx} cy={cx} r={r + 10} fill="url(#bgGlow)" />
-      <circle cx={cx} cy={cx} r={r + 9} fill="none" stroke="#0E2A2F" strokeWidth="6" />
+      <circle cx={cx} cy={cx} r={r + 9} fill="none" stroke="#09243A" strokeWidth="6" />
       <circle cx={cx} cy={cx} r={r + 6} fill="none" stroke={GOLD} strokeWidth="1.5" opacity="0.4" />
       <circle cx={cx} cy={cx} r={r + 3} fill="none" stroke={GOLD_LIGHT} strokeWidth="2" opacity="0.7" />
       <circle cx={cx} cy={cx} r={r + 1} fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.3" />
@@ -346,7 +346,7 @@ export default function SpinWheelPopup() {
                       whileTap={{ scale: 0.98 }}
                       className="w-full py-4 font-mono font-black text-sm tracking-[0.3em] uppercase relative overflow-hidden"
                       style={{
-                        background: `linear-gradient(135deg, #C8A44D 0%, ${GOLD_LIGHT} 50%, #C8A44D 100%)`,
+                        background: `linear-gradient(135deg, #E6AC45 0%, ${GOLD_LIGHT} 50%, #E6AC45 100%)`,
                         color: '#000',
                         boxShadow: `0 4px 30px rgba(212,175,90,0.4)`,
                       }}
@@ -419,7 +419,7 @@ export default function SpinWheelPopup() {
                           onClick={dismiss}
                           className="w-full py-4 font-mono font-black text-sm tracking-[0.3em] uppercase"
                           style={{
-                            background: `linear-gradient(135deg, #C8A44D 0%, ${GOLD_LIGHT} 50%, #C8A44D 100%)`,
+                            background: `linear-gradient(135deg, #E6AC45 0%, ${GOLD_LIGHT} 50%, #E6AC45 100%)`,
                             color: '#000',
                             boxShadow: `0 4px 30px rgba(212,175,90,0.4)`,
                           }}
@@ -434,7 +434,7 @@ export default function SpinWheelPopup() {
                         <button
                           onClick={dismiss}
                           className="w-full py-3 font-mono font-bold text-sm tracking-[0.25em] uppercase"
-                          style={{ background: `linear-gradient(135deg, #C8A44D, ${GOLD_LIGHT}, #C8A44D)`, color: '#000' }}
+                          style={{ background: `linear-gradient(135deg, #E6AC45, ${GOLD_LIGHT}, #E6AC45)`, color: '#000' }}
                         >
                           SHOP ANYWAY →
                         </button>

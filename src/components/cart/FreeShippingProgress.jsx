@@ -22,9 +22,9 @@ export default function FreeShippingProgress({ subtotal }) {
   const isNearlyThere = !isUnlocked && remaining < 1;
 
   return (
-    <div className="w-full bg-card rounded-lg p-4 my-4 transition-all" style={{ border: isUnlocked ? '1px solid #10B981' : '1px solid hsl(var(--border))' }}>
+    <div className="w-full bg-card rounded-lg p-4 my-4 transition-all" style={{ border: isUnlocked ? '1px solid #264A35' : '1px solid hsl(var(--border))' }}>
       <div className="flex items-center justify-between mb-2 text-sm">
-        <div className="flex items-center gap-2 font-mono" style={{ color: isUnlocked ? '#10B981' : 'hsl(var(--foreground))'}}>
+        <div className="flex items-center gap-2 font-mono" style={{ color: isUnlocked ? '#264A35' : 'hsl(var(--foreground))'}}>
           {isUnlocked ? <PartyPopper className="w-4 h-4" /> : <Truck className="w-4 h-4" />}
           <span>
             {isUnlocked

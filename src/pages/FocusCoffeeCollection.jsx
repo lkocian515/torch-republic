@@ -13,7 +13,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import { ritualCards } from '@/lib/collectionRitualProducts';
 
-const ACCENT = '#B7653E';
+const ACCENT = '#9B4E2F';
 
 const FOCUS_PRODUCTS = [
   { name: 'GlowMind Clarity', path: '/products/glowmind-clarity-instant-mushroom-coffee' },
@@ -44,9 +44,9 @@ export default function FocusCoffeeCollection() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: '#F7F1E7' }}>
+    <div className="min-h-screen" style={{ background: '#F7F2E9' }}>
       {/* Hero */}
-      <section className="px-6 md:px-10 pt-16 pb-12 text-center" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}22` }}>
+      <section className="px-6 md:px-10 pt-16 pb-12 text-center" style={{ background: '#F7F2E9', borderBottom: `1px solid ${ACCENT}22` }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5" style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}30` }}>
             <Brain size={12} style={{ color: ACCENT }} />
@@ -68,12 +68,12 @@ export default function FocusCoffeeCollection() {
       </section>
 
       {/* Trust Strip */}
-      <div className="px-6 py-4" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}18` }}>
+      <div className="px-6 py-4" style={{ background: '#F7F2E9', borderBottom: `1px solid ${ACCENT}18` }}>
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-10">
           {['Lion’s Mane + Cordyceps + Reishi', 'No machine needed', '27 servings per tube', 'Subscribe & save 20%'].map((t, i) => (
             <div key={i} className="flex items-center gap-2">
               <CheckCircle size={12} style={{ color: ACCENT }} />
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{t}</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5E4639' }}>{t}</span>
             </div>
           ))}
         </div>
@@ -101,7 +101,7 @@ export default function FocusCoffeeCollection() {
       </section>
 
       {/* Selection aid + cross-link */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9' }}>
         <SelectionAid
           accent={ACCENT}
           items={[
@@ -116,7 +116,7 @@ export default function FocusCoffeeCollection() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F1E7', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>Questions</p>
@@ -126,12 +126,12 @@ export default function FocusCoffeeCollection() {
             {FAQS.map((faq, i) => (
               <div key={i} className="card-torch p-5">
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-                  <span className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#292622' }}>{faq.q}</span>
+                  <span className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#32190F' }}>{faq.q}</span>
                   <span className="font-mono text-lg" style={{ color: ACCENT }}>{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-4 pt-4" style={{ borderTop: `1px solid ${ACCENT}18` }}>
-                    <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.8 }}>{faq.a}</p>
+                    <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.8 }}>{faq.a}</p>
                   </motion.div>
                 )}
               </div>
@@ -144,7 +144,7 @@ export default function FocusCoffeeCollection() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Build a focus ritual.</h2>
           <p className="body-lg mb-8">Any 3 blends for $49.99. Free shipping $45+. 30-day satisfaction guarantee.</p>

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Truck, Check } from 'lucide-react';
 import { FREE_SHIPPING_THRESHOLD, FREE_SHIPPING_THRESHOLD_DISPLAY } from '@/lib/siteConfig';
 
-const ACCENT = '#B86543';
-const INK = '#2D2824';
-const BORDER = '#E4D8C9';
+const ACCENT = '#9B4E2F';
+const INK = '#32190F';
+const BORDER = '#B89A6D';
 
 export default function CartFreeShippingBar({ subtotal }) {
   const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
@@ -32,14 +32,14 @@ export default function CartFreeShippingBar({ subtotal }) {
             className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
             style={{ background: 'rgba(16,185,129,0.15)' }}
           >
-            <Check className="w-4 h-4" style={{ color: '#10B981' }} />
+            <Check className="w-4 h-4" style={{ color: '#264A35' }} />
           </motion.div>
         ) : (
           <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(184,101,67,0.1)' }}>
             <Truck className="w-4 h-4" style={{ color: ACCENT }} />
           </div>
         )}
-        <p className="font-mono text-xs tracking-[0.08em] uppercase" style={{ color: isUnlocked ? '#10B981' : INK }}>
+        <p className="font-mono text-xs tracking-[0.08em] uppercase" style={{ color: isUnlocked ? '#264A35' : INK }}>
           {isUnlocked ? (
             '✓ Free standard shipping applied'
           ) : remaining < 1 ? (
@@ -53,13 +53,13 @@ export default function CartFreeShippingBar({ subtotal }) {
       </div>
 
       {/* Progress bar */}
-      <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ background: '#F3ECE2' }}>
+      <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ background: '#F7F2E9' }}>
         <motion.div
           className="h-full rounded-full"
           style={{
             background: isUnlocked
-              ? 'linear-gradient(90deg, #10B981, #34D399)'
-              : `linear-gradient(90deg, ${ACCENT}, #D6B27A)`,
+              ? 'linear-gradient(90deg, #264A35, #34D399)'
+              : `linear-gradient(90deg, ${ACCENT}, #E6AC45)`,
           }}
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}

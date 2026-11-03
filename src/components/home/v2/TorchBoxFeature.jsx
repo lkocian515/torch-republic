@@ -41,13 +41,13 @@ export default function TorchBoxFeature() {
           className="text-center mb-18"
           style={{ marginBottom: '5rem' }}
         >
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: '#C9A24A' }}>
+          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: '#E6AC45' }}>
             Subscription
           </p>
-          <h2 className="font-serif leading-none mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif leading-none mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             The Torch Box
           </h2>
-          <div className="h-px w-16 mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, #C9A24A60, transparent)' }} />
+          <div className="h-px w-16 mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, #E6AC4560, transparent)' }} />
           <p className="font-heading" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.85)', fontWeight: 400, maxWidth: '440px', margin: '0 auto', lineHeight: 2 }}>
             A monthly ritual for those who carry the flame.<br />Not a subscription — a movement.
           </p>
@@ -69,21 +69,21 @@ export default function TorchBoxFeature() {
               }}
             >
               {tier.featured && (
-                <div className="absolute -top-px left-0 right-0 h-px" style={{ background: '#C9A24A' }} />
+                <div className="absolute -top-px left-0 right-0 h-px" style={{ background: '#E6AC45' }} />
               )}
               {tier.featured && (
                 <div className="absolute top-5 right-5">
                   <span className="font-mono text-[9px] tracking-[0.25em] uppercase px-2.5 py-1"
-                    style={{ background: 'rgba(201,162,74,0.12)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.3)' }}>
+                    style={{ background: 'rgba(201,162,74,0.12)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.3)' }}>
                     Most Popular
                   </span>
                 </div>
               )}
 
-              <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: '#C9A24A' }}>
+              <p className="font-mono text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: '#E6AC45' }}>
                 {tier.name}
               </p>
-              <p className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 700, color: '#F0EBE1' }}>
+              <p className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 700, color: '#F7F2E9' }}>
                 {tier.price}
               </p>
               <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.8 }}>
@@ -93,7 +93,7 @@ export default function TorchBoxFeature() {
               <div className="flex-1 space-y-3 mb-8">
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-3">
-                    <span style={{ color: '#C9A24A', flexShrink: 0, fontSize: '0.7rem', marginTop: '3px' }}>✦</span>
+                    <span style={{ color: '#E6AC45', flexShrink: 0, fontSize: '0.7rem', marginTop: '3px' }}>✦</span>
                     <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.78)', fontWeight: 400, lineHeight: 1.7 }}>{item}</span>
                   </div>
                 ))}
@@ -103,8 +103,8 @@ export default function TorchBoxFeature() {
                 to="/TheTorchBox"
                 className="flex items-center justify-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase py-4 transition-all hover:opacity-80"
                 style={tier.featured
-                  ? { background: '#C9A24A', color: '#0B0B0B', fontWeight: 700 }
-                  : { border: '1px solid rgba(201,162,74,0.45)', color: '#C9A24A' }
+                  ? { background: '#E6AC45', color: '#0B0B0B', fontWeight: 700 }
+                  : { border: '1px solid rgba(201,162,74,0.45)', color: '#E6AC45' }
                 }
               >
                 Choose {tier.name} →
@@ -124,7 +124,7 @@ export default function TorchBoxFeature() {
           <Link
             to="/TheTorchBox"
             className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-80 btn-glow"
-            style={{ background: '#C9A24A', color: '#0B0B0B', fontWeight: 700, padding: '18px 48px' }}
+            style={{ background: '#E6AC45', color: '#0B0B0B', fontWeight: 700, padding: '18px 48px' }}
           >
             Join the Torchbearers →
           </Link>

@@ -6,7 +6,7 @@ import { Brain, Zap, Shield, Microscope } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 import RecommendedRitualBlock from '../../components/content/RecommendedRitualBlock';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const LIONSMANE_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6163f307e_msn-slide-image-2025-10-31T164055834.jpg';
 
 const ARTICLE_CONTENT = {
@@ -152,7 +152,7 @@ export default function ScienceOfLionsMane() {
   const BENEFITS = [
     { icon: Brain, title: 'Cognitive Function', body: 'Supports memory, focus, and mental clarity through enhanced neural connectivity', color: '#6B7FD7' },
     { icon: Zap, title: 'Nerve Growth Factor', body: 'Stimulates production of NGF, essential for neuron growth and maintenance', color: '#E8B86D' },
-    { icon: Shield, title: 'Neuroprotection', body: 'Antioxidant compounds protect brain cells from oxidative stress and aging', color: '#6CBD5A' },
+    { icon: Shield, title: 'Neuroprotection', body: 'Antioxidant compounds protect brain cells from oxidative stress and aging', color: '#264A35' },
     { icon: Microscope, title: 'Clinical Research', body: 'Over 100 peer-reviewed studies document cognitive and neurological benefits', color: '#E67F8A' },
   ];
 
@@ -164,7 +164,7 @@ export default function ScienceOfLionsMane() {
   ];
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -172,7 +172,7 @@ export default function ScienceOfLionsMane() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Journal · Mushroom Science
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             The Science of Lion's Mane:<br />Research-Backed Benefits for Brain & Body
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -224,7 +224,7 @@ export default function ScienceOfLionsMane() {
           {/* Key Benefits */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Key Scientific Benefits
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -242,7 +242,7 @@ export default function ScienceOfLionsMane() {
                       <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: `${b.color}15`, border: `1px solid ${b.color}40`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <b.icon size={14} style={{ color: b.color }} />
                       </div>
-                      <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{b.title}</h3>
+                      <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{b.title}</h3>
                     </div>
                     <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.6 }}>{b.body}</p>
                   </motion.div>
@@ -254,7 +254,7 @@ export default function ScienceOfLionsMane() {
           {/* NGF Section */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Nerve Growth Factor (NGF) Stimulation
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -279,7 +279,7 @@ export default function ScienceOfLionsMane() {
           {/* Bioactive Compounds */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Bioactive Compounds
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -300,7 +300,7 @@ export default function ScienceOfLionsMane() {
                       style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}
                     >
                       <div className="flex justify-between items-center mb-2">
-                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{c.name}</h3>
+                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{c.name}</h3>
                         <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{c.source}</span>
                       </div>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{c.action}</p>
@@ -318,7 +318,7 @@ export default function ScienceOfLionsMane() {
           {/* Cognitive Research */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Cognitive Function Research
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -343,7 +343,7 @@ export default function ScienceOfLionsMane() {
           {/* Neuroprotection */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Neuroprotective Properties
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -354,7 +354,7 @@ export default function ScienceOfLionsMane() {
                   Animal studies suggest the mushroom may help protect against neurodegenerative conditions by reducing inflammation, combating oxidative stress, and supporting neuronal health.
                 </p>
                 <div className="my-8 p-6" style={{ background: 'rgba(108,190,90,0.06)', border: '1px solid rgba(108,190,90,0.15)', borderRadius: '4px' }}>
-                  <p className="font-serif font-bold text-lg" style={{ color: '#6CBD5A' }}>
+                  <p className="font-serif font-bold text-lg" style={{ color: '#264A35' }}>
                     Antioxidant compounds in Lion's Mane help neutralize free radicals that contribute to cellular aging and neurological decline.
                   </p>
                 </div>
@@ -365,7 +365,7 @@ export default function ScienceOfLionsMane() {
           {/* How to Use */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 How to Incorporate Lion's Mane
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -380,7 +380,7 @@ export default function ScienceOfLionsMane() {
                     { title: 'Tinctures', body: 'Liquid extracts for rapid absorption and flexible dosing.' },
                   ].map((item, i) => (
                     <div key={item.title} className="p-4" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}>
-                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{item.title}</h3>
+                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{item.title}</h3>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{item.body}</p>
                     </div>
                   ))}
@@ -395,7 +395,7 @@ export default function ScienceOfLionsMane() {
           {/* Torch Republic */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Torch Republic Approach
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -432,7 +432,7 @@ export default function ScienceOfLionsMane() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(107,127,215,0.6)' }}>
               Experience the Science
             </p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>
               Try Torch Republic Lion's Mane Blends
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>

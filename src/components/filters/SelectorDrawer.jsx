@@ -29,9 +29,9 @@ export default function SelectorDrawer({
                 style={{
                   background:
                     value === key
-                      ? 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)'
+                      ? 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)'
                       : 'transparent',
-                  color: value === key ? '#fff' : '#C8A44D',
+                  color: value === key ? '#fff' : '#E6AC45',
                   border: value === key ? '1px solid rgba(212,175,90,0.4)' : '1px solid rgba(212,175,90,0.2)',
                 }}
               >

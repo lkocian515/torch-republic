@@ -42,7 +42,7 @@ function GoldStars({ rating = 5, size = 'sm' }) {
   return (
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map(i => (
-        <Star key={i} className={sz} fill={i <= rating ? '#C9A24A' : 'none'} stroke={i <= rating ? '#C9A24A' : 'rgba(255,255,255,0.12)'} />
+        <Star key={i} className={sz} fill={i <= rating ? '#E6AC45' : 'none'} stroke={i <= rating ? '#E6AC45' : 'rgba(255,255,255,0.12)'} />
       ))}
     </div>
   );
@@ -76,7 +76,7 @@ export default function ReviewCard({ review, featured = false, index = 0 }) {
         <div className="flex items-center gap-3 flex-wrap">
           {featured && (
             <span className="font-mono text-[9px] tracking-[0.3em] uppercase px-2.5 py-1 rounded-sm"
-              style={{ background: 'rgba(201,162,74,0.12)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.25)' }}>
+              style={{ background: 'rgba(201,162,74,0.12)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.25)' }}>
               ✦ Top Review
             </span>
           )}
@@ -109,7 +109,7 @@ export default function ReviewCard({ review, featured = false, index = 0 }) {
 
       {/* Body */}
       <p className="font-heading leading-relaxed flex-1"
-        style={{ fontSize: featured ? '0.975rem' : '0.875rem', color: '#F5EFE6', lineHeight: 1.9, fontStyle: 'italic', fontWeight: 300 }}>
+        style={{ fontSize: featured ? '0.975rem' : '0.875rem', color: '#F7F2E9', lineHeight: 1.9, fontStyle: 'italic', fontWeight: 300 }}>
         {review.body}
       </p>
 

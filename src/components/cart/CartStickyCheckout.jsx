@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ACCENT = '#B86543';
-const BTN_TEXT = '#FBF8F1';
-const INK = '#2D2824';
+const ACCENT = '#9B4E2F';
+const BTN_TEXT = '#F7F2E9';
+const INK = '#32190F';
 const MUTED = '#9A8A7A';
-const BORDER = '#E4D8C9';
+const BORDER = '#B89A6D';
 
 /**
  * Mobile sticky checkout bar. Positioned above the fixed bottom navigation

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Zap, Trash2, Settings2 } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PILLARS = [
   { icon: Settings2, title: 'No Machine', detail: 'No counter-hogging brewer. No descaling. No proprietary hardware to buy or maintain.' },
@@ -25,7 +25,7 @@ export default function WhyTorchRepublicExists() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
             Why Torch Republic Exists
           </p>
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F5EFE6', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F7F2E9', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
             The Convenience of a Pod.<br />Without the Pod.
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
@@ -48,7 +48,7 @@ export default function WhyTorchRepublicExists() {
                 <item.icon size={20} style={{ color: RG }} />
               </div>
               <div>
-                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: '#F5EFE6' }}>{item.title}</h3>
+                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: '#F7F2E9' }}>{item.title}</h3>
                 <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.7 }}>{item.detail}</p>
               </div>
             </motion.div>

@@ -18,7 +18,7 @@ export default function TorchBoxFeature() {
             <span className="font-mono text-[9px] tracking-[0.5em] uppercase block mb-8" style={{ color: 'rgba(201,162,74,0.5)' }}>
               Monthly Subscription
             </span>
-            <h2 className="font-serif mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#F0EBE1', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.01em' }}>
+            <h2 className="font-serif mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#F7F2E9', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.01em' }}>
               Join the<br />Torchbearers.
             </h2>
             <p className="mb-10" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.4)', lineHeight: 1.9, fontWeight: 300, maxWidth: '400px' }}>
@@ -28,7 +28,7 @@ export default function TorchBoxFeature() {
             <div className="space-y-4 mb-12">
               {['Exclusive monthly coffee drops', 'Limited-edition collector items', 'Early access before the public'].map((item) => (
                 <div key={item} className="flex items-center gap-4">
-                  <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#C9A24A' }} />
+                  <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#E6AC45' }} />
                   <span className="font-mono text-xs" style={{ color: 'rgba(240,235,225,0.45)' }}>{item}</span>
                 </div>
               ))}
@@ -37,7 +37,7 @@ export default function TorchBoxFeature() {
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center gap-3 px-8 py-4 font-mono text-xs tracking-[0.3em] uppercase transition-all duration-200"
-              style={{ background: '#C9A24A', color: '#0B0B0B', fontWeight: 700 }}
+              style={{ background: '#E6AC45', color: '#0B0B0B', fontWeight: 700 }}
               onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
               onMouseLeave={e => e.currentTarget.style.opacity = '1'}
             >
@@ -61,7 +61,7 @@ export default function TorchBoxFeature() {
                 style={{ opacity: 0.9 }}
               />
               {/* Subtle glow behind box */}
-              <div className="absolute inset-0 -z-10 rounded-full blur-3xl opacity-20" style={{ background: '#C9A24A', transform: 'scale(0.7)' }} />
+              <div className="absolute inset-0 -z-10 rounded-full blur-3xl opacity-20" style={{ background: '#E6AC45', transform: 'scale(0.7)' }} />
             </div>
           </motion.div>
         </div>

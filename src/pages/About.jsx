@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, Shield, Coffee, Users, Target, Flame } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const VALUES = [
   { icon: Flame, title: 'Ignition', desc: 'We believe in the inner fire that drives every person forward.' },
@@ -24,14 +24,14 @@ export default function About() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-16 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl mx-auto">
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             About Torch Republic
           </p>
-          <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             A Movement for People Who Refuse to Dim Their Light
           </h1>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300 }}>
@@ -135,7 +135,7 @@ export default function About() {
       {/* CTA */}
       <section className="px-6 md:px-10 py-20 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto">
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F7F2E9', lineHeight: 1.2 }}>
             Ready to Carry the Torch?
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

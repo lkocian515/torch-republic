@@ -42,7 +42,7 @@ export default function OriginalsDuoPanel() {
   const purchasable = available && bothComponentsAvailable;
 
   return (
-    <section aria-labelledby="originals-duo" style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
+    <section aria-labelledby="originals-duo" style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
       <p className="eyebrow">Year-round</p>
       <h2 id="originals-duo" className="h2 mt-2">{ORIGINALS_DUO.name}</h2>
       <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
@@ -59,7 +59,7 @@ export default function OriginalsDuoPanel() {
                   alt={`${item.name} bag`}
                   loading="lazy"
                   className="shrink-0"
-                  style={{ width: 44, height: 44, objectFit: 'contain', background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 6 }}
+                  style={{ width: 44, height: 44, objectFit: 'contain', background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 6 }}
                 />
               )}
               <span className="body" style={{ fontSize: '0.9375rem' }}>

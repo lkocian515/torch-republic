@@ -23,7 +23,7 @@ export default function WinterDuoShopCard() {
   return (
     <section className="px-6 pb-16 md:px-10" aria-labelledby="winter-duo-shop-heading">
       <div className="mx-auto max-w-[1240px]">
-        <article className="overflow-hidden" style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: 8 }}>
+        <article className="overflow-hidden" style={{ background: '#FFFCF7', border: '1px solid #B89A6D', borderRadius: 8 }}>
           <img
             src={WINTER_DUO.image}
             alt={WINTER_DUO.imageAlt}
@@ -36,23 +36,23 @@ export default function WinterDuoShopCard() {
           />
 
           <div className="px-6 py-8 text-center md:px-10 md:py-10">
-            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
+            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#E6AC45' }}>
               {WINTER_DUO.eyebrow}
             </p>
             <h2
               id="winter-duo-shop-heading"
               className="mt-2 font-serif font-semibold"
-              style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#292622' }}
+              style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#32190F' }}
             >
               {WINTER_DUO.name}
             </h2>
             <p
               className="mt-3 font-mono"
-              style={{ fontSize: '12px', letterSpacing: '0.06em', fontWeight: 600, color: '#B7653E' }}
+              style={{ fontSize: '12px', letterSpacing: '0.06em', fontWeight: 600, color: '#9B4E2F' }}
             >
               {WINTER_DUO.flavorLine}
             </p>
-            <p className="mx-auto mt-3 max-w-xl font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+            <p className="mx-auto mt-3 max-w-xl font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>
               {WINTER_DUO.supporting}
             </p>
 
@@ -63,14 +63,14 @@ export default function WinterDuoShopCard() {
                 <li
                   key={edition.id}
                   className="inline-flex items-center gap-2 px-3 py-1"
-                  style={{ border: '1px solid #E4D8C9', borderRadius: 999 }}
+                  style={{ border: '1px solid #B89A6D', borderRadius: 999 }}
                 >
-                  <span className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>
+                  <span className="font-heading text-sm font-semibold" style={{ color: '#32190F' }}>
                     {edition.name}
                   </span>
                   <span
                     className="font-mono uppercase"
-                    style={{ fontSize: '10px', letterSpacing: '0.14em', color: '#A97B32' }}
+                    style={{ fontSize: '10px', letterSpacing: '0.14em', color: '#E6AC45' }}
                   >
                     {editionState(edition).label}
                   </span>
@@ -81,10 +81,10 @@ export default function WinterDuoShopCard() {
             <div className="mt-7 flex justify-center">
               <Link
                 to={WINTER_DUO.path}
-                className="inline-flex items-center justify-center gap-2 font-heading font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B7653E]"
+                className="inline-flex items-center justify-center gap-2 font-heading font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#9B4E2F]"
                 style={{
-                  border: '1px solid #B7653E',
-                  color: '#B7653E',
+                  border: '1px solid #9B4E2F',
+                  color: '#9B4E2F',
                   minHeight: 48,
                   padding: '0.875rem 2rem',
                   borderRadius: 999,

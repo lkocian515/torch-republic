@@ -5,7 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Coffee, Zap, Sun, Clock, Heart, TrendingUp } from 'lucide-react';
 import NewsletterSignup from '../components/mushroom/NewsletterSignup';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const RECIPES = [
   {
@@ -144,7 +144,7 @@ export default function CoffeeRecipes() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -153,7 +153,7 @@ export default function CoffeeRecipes() {
             Morning Rituals
           </p>
           <h1 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             How to Enjoy Your Mushroom Coffee
           </h1>
           <p className="font-heading max-w-2xl mx-auto"
@@ -204,7 +204,7 @@ export default function CoffeeRecipes() {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className="font-serif font-bold mb-2" style={{ fontSize: '1.8rem', color: '#FFFFFF' }}>
+            <h2 className="font-serif font-bold mb-2" style={{ fontSize: '1.8rem', color: '#FFFCF7' }}>
               Table of Contents
             </h2>
             <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)' }}>
@@ -274,7 +274,7 @@ export default function CoffeeRecipes() {
                           {recipe.time} • {recipe.difficulty}
                         </span>
                       </div>
-                      <h2 className="font-serif font-bold text-2xl md:text-3xl mb-2" style={{ color: '#FFFFFF' }}>
+                      <h2 className="font-serif font-bold text-2xl md:text-3xl mb-2" style={{ color: '#FFFCF7' }}>
                         {recipe.title}
                       </h2>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.7 }}>

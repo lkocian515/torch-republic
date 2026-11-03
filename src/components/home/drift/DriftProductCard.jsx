@@ -59,7 +59,7 @@ export default function DriftProductCard({
             padding: 'clamp(1.25rem, 2.5vw, 2.25rem)',
             borderRadius: '10px',
             overflow: 'hidden',
-            background: '#F8F5EF',
+            background: '#F7F2E9',
             minWidth: 0,
             border: D.borderHairline,
             boxShadow: D.shadowSoft,

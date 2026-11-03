@@ -27,16 +27,16 @@ export default function UpcomingReleases({ variant = 'editorial', format = null 
       <section className="px-6 pb-16 md:px-10" aria-label="Upcoming releases">
         <div className="mx-auto max-w-[1240px]">
           <header className="mb-8">
-            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
+            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#E6AC45' }}>
               In preparation
             </p>
             <h2
               className="mt-2 font-serif font-semibold"
-              style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#292622' }}
+              style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#32190F' }}
             >
               Upcoming Releases
             </h2>
-            <p className="mt-3 max-w-2xl font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+            <p className="mt-3 max-w-2xl font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>
               {COMING_SOON_COPY}
             </p>
           </header>

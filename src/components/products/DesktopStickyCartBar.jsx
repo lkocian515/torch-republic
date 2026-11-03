@@ -69,7 +69,7 @@ export default function DesktopStickyCartBar({
           <button
             onClick={onAdd}
             className="btn"
-            style={{ background: accent, borderColor: accent, color: '#FFFFFF', flexShrink: 0, padding: '0.7rem 1.75rem', minWidth: 190 }}
+            style={{ background: accent, borderColor: accent, color: '#FFFCF7', flexShrink: 0, padding: '0.7rem 1.75rem', minWidth: 190 }}
             aria-label={justAdded ? 'Added to cart' : `Add ${product.name} to cart`}
           >
             {justAdded ? (<><Check size={16} /> Added to cart</>) : (<><ShoppingBag size={16} /> Add to Cart</>)}

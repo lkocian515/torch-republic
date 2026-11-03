@@ -17,8 +17,8 @@ import { ArrowLeft, Calendar, Clock, User, ArrowRight, ExternalLink, BookOpen } 
 import { useSEO } from '@/hooks/useSEO';
 import ArticleShareBar from '@/components/social/ArticleShareBar';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 // Published 2026-06-23 (actual publication date,  not backdated)
 const PUB_DATE = '2026-06-23T09:00:00Z';
@@ -177,7 +177,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
   });
 
   return (
-    <article style={{ background: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+    <article style={{ background: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       <div className="max-w-[780px] mx-auto px-6 py-12 md:py-16">
         {/* Back Link */}
         <Link
@@ -203,7 +203,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           className="font-serif font-bold mb-6"
           style={{
             fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-            color: '#F5EFE6',
+            color: '#F7F2E9',
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
           }}
@@ -318,7 +318,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           <p style={{ marginBottom: '1.5rem' }}>Here is what the research actually says.</p>
 
           {/* Section 1 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             One Cup Can Mean One More Piece of Waste
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>Most conventional coffee capsules combine several materials:</p>
@@ -343,7 +343,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 2 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             “Recyclable” Does Not Always Mean It Gets Recycled
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -376,7 +376,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 3 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             Are Compostable Pods the Answer?
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -397,7 +397,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 4,  first internal educational link in the first third */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             The Environmental Picture Is More Complicated Than Packaging Alone
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -443,7 +443,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 5 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             What Are Microplastics?
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -472,7 +472,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 6 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             Have Microplastics Been Found in Coffee?
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -506,7 +506,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 7 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             What Do We Know About the Health Effects?
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>This is where accuracy matters most.</p>
@@ -544,7 +544,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 8 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             Not Every Coffee Capsule Is the Same
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -567,7 +567,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </ul>
 
           {/* Section 9,  gentle product CTA around the middle/end */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             A Simpler Way to Keep the Convenience
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -601,7 +601,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
 
           {/* Section 10 */}
-          <h2 style={{ fontSize: '1.55rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '1.55rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>
             The Bottom Line
           </h2>
           <p style={{ marginBottom: '1.5rem' }}>
@@ -691,7 +691,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           {/* References */}
           <h2
             id="references"
-            style={{ fontSize: '1.4rem', color: '#F5EFE6', marginTop: '2.5rem', marginBottom: '1.25rem', fontFamily: 'var(--font-serif)', fontWeight: 700, scrollMarginTop: '2rem' }}
+            style={{ fontSize: '1.4rem', color: '#F7F2E9', marginTop: '2.5rem', marginBottom: '1.25rem', fontFamily: 'var(--font-serif)', fontWeight: 700, scrollMarginTop: '2rem' }}
           >
             References
           </h2>
@@ -757,7 +757,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
           </p>
           <h2
             className="font-serif font-bold mb-5"
-            style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             Ready to Leave the Pods Behind?
           </h2>
@@ -823,7 +823,7 @@ export default function CoffeePodsPlasticWasteMicroplastics() {
                   </p>
                   <h3
                     className="font-serif font-bold mb-2"
-                    style={{ fontSize: '0.95rem', color: '#F5EFE6', lineHeight: 1.3 }}
+                    style={{ fontSize: '0.95rem', color: '#F7F2E9', lineHeight: 1.3 }}
                   >
                     {article.title}
                   </h3>

@@ -9,7 +9,7 @@ const TILES = [
     cta: 'Shop Coffee',
     href: '/CoffeeCollection',
     image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80',
-    accent: '#C8A44D',
+    accent: '#E6AC45',
   },
   {
     title: 'Wear What You Stand For',

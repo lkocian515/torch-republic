@@ -6,10 +6,10 @@ import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 import { trackAddToCart, buildItem, trackUpsellViewed, trackUpsellClicked } from '@/lib/analytics';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const ACCENT = '#B86543';
-const INK = '#2D2824';
+const ACCENT = '#9B4E2F';
+const INK = '#32190F';
 const MUTED = '#9A8A7A';
-const BORDER = '#E4D8C9';
+const BORDER = '#B89A6D';
 
 // Recommendation rules — what to suggest based on what's in the cart
 const RULES = {
@@ -96,9 +96,9 @@ export default function CartRecommendations({ cartItems }) {
           <div
             key={product.id}
             className="flex items-center gap-3 p-3 transition-all"
-            style={{ background: '#FFFFFF', border: `1px solid ${BORDER}` }}
+            style={{ background: '#FFFCF7', border: `1px solid ${BORDER}` }}
           >
-            <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: '#F8F5EF' }}>
+            <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: '#F7F2E9' }}>
               <img src={getProductImage(product)} alt={getProductAltText(product)} className="w-full h-full object-contain p-1" />
             </div>
             <div className="flex-1 min-w-0">

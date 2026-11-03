@@ -9,8 +9,8 @@ import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { COMPARISON_PAGES, TOPIC_CLUSTERS, ALL_BLOG_TOPICS } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 
 export default function ComparisonPage() {
   const { slug } = useParams();
@@ -68,7 +68,7 @@ export default function ComparisonPage() {
                 <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: cluster.color }}>Comparison Guide</span>
               </div>
             )}
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.15 }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', lineHeight: 1.15 }}>
               {comparison.title}
             </h1>
             <p className="font-heading max-w-2xl" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.85 }}>
@@ -87,7 +87,7 @@ export default function ComparisonPage() {
               className="p-6" style={{ background: '#0F0E0D', border: `2px solid ${RG}30` }}>
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-2 h-2 rounded-full" style={{ background: EMERALD }} />
-                <h2 className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.1rem' }}>Torch Republic</h2>
+                <h2 className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1.1rem' }}>Torch Republic</h2>
                 {comparison.winner === 'mushroom-coffee' || comparison.winner === 'instant' || comparison.winner === 'ceremonial' ? (
                   <span className="font-mono text-[7px] tracking-[0.25em] uppercase px-2 py-1" style={{ background: `${EMERALD}15`, color: EMERALD, border: `1px solid ${EMERALD}30` }}>Our Pick</span>
                 ) : null}
@@ -107,7 +107,7 @@ export default function ComparisonPage() {
               className="p-6" style={{ background: '#0F0E0D', border: '1px solid rgba(255,255,255,0.08)' }}>
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(255,255,255,0.2)' }} />
-                <h2 className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.1rem' }}>{comparison.competitor}</h2>
+                <h2 className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1.1rem' }}>{comparison.competitor}</h2>
               </div>
               <ul className="space-y-3">
                 {comparison.theirEdge.map((point, i) => (
@@ -146,7 +146,7 @@ export default function ComparisonPage() {
       {relatedArticles.length > 0 && (
         <section className="px-6 md:px-10 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>Deep-Dive Reading</h2>
+            <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>Deep-Dive Reading</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {relatedArticles.map((a, i) => (
                 <Link key={i} to={`/journal/${a.slug}`}
@@ -154,7 +154,7 @@ export default function ComparisonPage() {
                   style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
                   onMouseEnter={e => e.currentTarget.style.borderColor = `${RG}30`}
                   onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                  <p className="font-heading text-sm mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{a.title}</p>
+                  <p className="font-heading text-sm mb-2" style={{ color: '#F7F2E9', lineHeight: 1.35 }}>{a.title}</p>
                   <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}60` }}>Read →</span>
                 </Link>
               ))}

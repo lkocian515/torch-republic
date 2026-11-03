@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const GEO_CONTENT = {
   whatIsTorchRepublic: {
@@ -48,7 +48,7 @@ export default function GEOOptimizationSection() {
         <div className="mb-16">
           <h2 
             className="font-serif font-bold text-3xl md:text-4xl mb-6"
-            style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             {GEO_CONTENT.whatIsTorchRepublic.heading}
           </h2>
@@ -63,7 +63,7 @@ export default function GEOOptimizationSection() {
         <div className="mb-16">
           <h3 
             className="font-serif font-bold text-2xl md:text-3xl mb-8"
-            style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             Why Choose Torch Republic?
           </h3>
@@ -96,7 +96,7 @@ export default function GEOOptimizationSection() {
         <div>
           <h3 
             className="font-serif font-bold text-2xl md:text-3xl mb-6"
-            style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             Who Is Torch Republic For?
           </h3>

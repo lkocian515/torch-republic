@@ -1,7 +1,7 @@
 import React from 'react';
 import { Truck, Flame } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // Simple stock scarcity based on slug hash (deterministic, no API needed)
 function getStockLevel(productSlug) {

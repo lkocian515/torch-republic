@@ -9,7 +9,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { ArrowRight, Scale, Coffee, Leaf, Zap } from 'lucide-react';
 import { trackCompareCTA } from '@/lib/analyticsEvents';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const COMPARISONS = [
   {
@@ -18,7 +18,7 @@ const COMPARISONS = [
     headline: 'Ryze vs. Torch Republic',
     tagline: 'Blend variety, value, and ritual — compared.',
     badge: 'Most Searched',
-    badgeColor: '#E6B7AD',
+    badgeColor: '#E6AC45',
   },
   {
     slug: 'four-sigmatic-vs-torch-republic',
@@ -86,7 +86,7 @@ export default function ComparisonCenter() {
       ],
       buttonLabel: 'Shop Classic Coffee',
       path: '/shop/instant-coffee',
-      accent: '#E6B7AD',
+      accent: '#E6AC45',
       ctaLocation: 'compare_classic_card',
       image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=70&auto=format',
       imageAlt: 'Classic instant coffee',
@@ -103,7 +103,7 @@ export default function ComparisonCenter() {
       ],
       buttonLabel: 'Shop Mushroom Coffee',
       path: '/shop/instant-mushroom-coffee',
-      accent: '#10B981',
+      accent: '#264A35',
       ctaLocation: 'compare_mushroom_card',
       image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=70&auto=format',
       imageAlt: 'Mushroom coffee blends',
@@ -135,7 +135,7 @@ export default function ComparisonCenter() {
             <Scale size={12} style={{ color: RG }} />
             <span className="font-mono text-[8px] tracking-[0.4em] uppercase" style={{ color: RG }}>Comparison Center</span>
           </div>
-          <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#F5EFE6', lineHeight: 1.1 }}>
+          <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#F7F2E9', lineHeight: 1.1 }}>
             How Torch Republic<br />Compares to Every Brand
           </h1>
           <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.55)', lineHeight: 1.9, fontWeight: 300 }}>
@@ -150,7 +150,7 @@ export default function ComparisonCenter() {
           <p className="font-mono text-[8px] tracking-[0.45em] uppercase text-center mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>
             Choose Your Collection
           </p>
-          <h2 className="font-serif font-bold text-center mb-10" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', color: '#F5EFE6', lineHeight: 1.15 }}>
+          <h2 className="font-serif font-bold text-center mb-10" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', color: '#F7F2E9', lineHeight: 1.15 }}>
             Which Ritual Is Right for You?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -213,7 +213,7 @@ export default function ComparisonCenter() {
 
           {/* Still Deciding? */}
           <div className="mt-12 p-8 text-center" style={{ background: 'rgba(230,183,173,0.04)', border: '1px solid rgba(230,183,173,0.1)' }}>
-            <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.35rem', color: '#F5EFE6' }}>Still Deciding?</h3>
+            <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.35rem', color: '#F7F2E9' }}>Still Deciding?</h3>
             <p className="font-heading mb-6 text-sm" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.8 }}>
               Start with the ritual that best matches how you want your morning to feel.
             </p>
@@ -261,7 +261,7 @@ export default function ComparisonCenter() {
                     </span>
                   )}
                 </div>
-                <h2 className="font-serif font-bold mb-2" style={{ color: '#F5EFE6', fontSize: '1.15rem' }}>{c.headline}</h2>
+                <h2 className="font-serif font-bold mb-2" style={{ color: '#F7F2E9', fontSize: '1.15rem' }}>{c.headline}</h2>
                 <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300, lineHeight: 1.6 }}>{c.tagline}</p>
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: `${RG}70` }}>Read Comparison</span>

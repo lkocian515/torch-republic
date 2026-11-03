@@ -32,7 +32,7 @@ export default function ChooseYourBlend() {
             Blend Guide
           </p>
           <h2 className="font-serif font-bold mb-3"
-            style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Find Your Ritual
           </h2>
           <p className="font-heading max-w-md mx-auto"
@@ -63,7 +63,7 @@ export default function ChooseYourBlend() {
                     {need}
                   </p>
                   <p className="font-heading font-semibold text-sm mb-0.5"
-                    style={{ color: '#F0EBE1' }}>
+                    style={{ color: '#F7F2E9' }}>
                     {blend}
                   </p>
                   <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase"
@@ -81,7 +81,7 @@ export default function ChooseYourBlend() {
           <Link
             to="/shop"
             className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
-            style={{ background: '#E6B7AD', color: '#080808' }}
+            style={{ background: '#E6AC45', color: '#080808' }}
           >
             Shop All Six Blends →
           </Link>

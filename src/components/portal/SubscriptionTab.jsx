@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { AlertCircle, RefreshCw, Pause, Play, Loader2, Check } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const FREQUENCIES = [
   { label: 'Every Week', interval: 'week', intervalCount: 1 },

@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { Calendar, Coffee, Clock, Edit2, Loader2, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const CLAY = '#B7653E';
-const CARD = '#FFFFFF';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
-const MOSS = '#566047';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const CARD = '#FFFCF7';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
+const MOSS = '#264A35';
 
 export default function SubscriptionTracker({ sub, subLoading, actionLoading, selectedFreq, onFrequencyChange, onPauseResume, showToast }) {
   if (subLoading) {
@@ -30,7 +30,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
         <Link
           to="/subscription"
           className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
-          style={{ background: CLAY, color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
+          style={{ background: CLAY, color: '#FFFCF7', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '2px' }}
         >
           Start Subscription
         </Link>
@@ -73,7 +73,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
       {/* Tracker Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {/* Next Delivery Date */}
-        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#F7F2E9', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
             <Clock size={16} style={{ color: CLAY }} />
             <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
@@ -91,7 +91,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
         </div>
 
         {/* Next Blend */}
-        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#F7F2E9', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
             <Coffee size={16} style={{ color: CLAY }} />
             <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
@@ -107,7 +107,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
         </div>
 
         {/* Frequency Edit */}
-        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#F7F2E9', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <div className="flex items-center gap-2 mb-3">
             <Edit2 size={16} style={{ color: CLAY }} />
             <p className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: SECONDARY }}>
@@ -125,7 +125,7 @@ export default function SubscriptionTracker({ sub, subLoading, actionLoading, se
 
       {/* Visual Timeline */}
       {!isPaused && (
-        <div className="p-4" style={{ background: '#FBF8F1', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
+        <div className="p-4" style={{ background: '#F7F2E9', border: `1px solid ${BORDER}`, borderRadius: '3px' }}>
           <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-4" style={{ color: SECONDARY }}>
             Upcoming Deliveries
           </p>

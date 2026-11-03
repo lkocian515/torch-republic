@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-const GOLD = '#C4A35A';
-const RG = '#E6B7AD';
+const GOLD = '#E6AC45';
+const RG = '#E6AC45';
 
 const PERKS = [
   'Just add hot water — no equipment',

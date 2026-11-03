@@ -6,7 +6,7 @@ import { Zap, Clock, Coffee, CheckCircle } from 'lucide-react';
 import { CLASSIC_COFFEE_PRODUCTS } from '@/lib/mushroomProducts';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const DIM = 'rgba(240,232,220,0.55)';
 
 const VS = [
@@ -41,7 +41,7 @@ export default function InstantCoffeeForEnergy() {
         <motion.h1
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
           className="font-serif font-bold"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F7F2E9', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
         >
           Instant Coffee for Energy<br />
           <span style={{ color: RG }}>That Lasts All Day</span>
@@ -100,13 +100,13 @@ export default function InstantCoffeeForEnergy() {
       <section style={{ background: 'rgba(230,183,173,0.03)', borderTop: '1px solid rgba(230,183,173,0.07)', padding: 'clamp(48px, 6vw, 80px) 24px' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.45)', marginBottom: '12px', textAlign: 'center' }}>Ready in 30 Seconds</p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F5EFE6', marginBottom: '40px', textAlign: 'center' }}>No Machine. No Pods. No Waste.</h2>
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F7F2E9', marginBottom: '40px', textAlign: 'center' }}>No Machine. No Pods. No Waste.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
             {STEPS.map(s => (
               <div key={s.step} style={{ padding: '24px', border: '1px solid rgba(230,183,173,0.1)', position: 'relative' }}>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(230,183,173,0.3)', marginBottom: '12px' }}>{s.step}</p>
                 <s.icon size={20} style={{ color: RG, marginBottom: '12px' }} />
-                <h3 className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1rem', marginBottom: '8px' }}>{s.title}</h3>
+                <h3 className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1rem', marginBottom: '8px' }}>{s.title}</h3>
                 <p className="font-heading" style={{ color: DIM, fontSize: '0.87rem', fontWeight: 300, lineHeight: 1.7, margin: 0 }}>{s.body}</p>
               </div>
             ))}

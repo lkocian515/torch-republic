@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Gift, TrendingUp, Crown } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TIERS = [
   {
@@ -108,7 +108,7 @@ export default function LoyaltyTierCalculator() {
           onChange={(e) => setMonthsActive(parseInt(e.target.value))}
           className="w-full h-2 rounded-lg appearance-none cursor-pointer"
           style={{
-            background: 'linear-gradient(90deg, #E6B7AD 0%, #E6B7AD ' + (monthsActive / 12 * 100) + '%, rgba(230,183,173,0.1) ' + (monthsActive / 12 * 100) + '%, rgba(230,183,173,0.1) 100%)',
+            background: 'linear-gradient(90deg, #E6AC45 0%, #E6AC45 ' + (monthsActive / 12 * 100) + '%, rgba(230,183,173,0.1) ' + (monthsActive / 12 * 100) + '%, rgba(230,183,173,0.1) 100%)',
           }}
         />
         

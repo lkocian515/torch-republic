@@ -92,14 +92,14 @@ import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
 const THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
+  page: '#F7F2E9',
+  cream: '#F7F2E9',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  clay: '#9B4E2F',
+  moss: '#264A35',
 };
 
 const TRUST = [
@@ -338,7 +338,7 @@ function RitualPDP({ product }) {
             </div>
 
             <div className="flex flex-col gap-2">
-              <button onClick={() => handleAdd(isSubscription ? 'product_pdp_subscribe' : 'product_pdp_onetime')} className="btn w-full" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF' }}>
+              <button onClick={() => handleAdd(isSubscription ? 'product_pdp_subscribe' : 'product_pdp_onetime')} className="btn w-full" style={{ background: c.accent, borderColor: c.accent, color: '#FFFCF7' }}>
                 {justAdded ? (<><Check size={16} /> Added to cart</>) : (<><ShoppingBag size={16} /> Add to Cart</>)}
               </button>
               {justAdded && (
@@ -542,7 +542,7 @@ function RitualPDP({ product }) {
             <span className="w-9 text-center font-mono text-sm" style={{ color: THEME.text }}>{qty}</span>
             <button onClick={() => setQty((q) => q + 1)} style={{ width: 38, height: 42, color: THEME.text, background: 'none', border: 'none' }} aria-label="Increase quantity"><Plus size={13} /></button>
           </div>
-          <button aria-label={justAdded ? 'Added to cart' : `Add ${product.name} to cart`} onClick={() => handleAdd('product_pdp_sticky')} className="btn" style={{ background: c.accent, borderColor: c.accent, color: '#FFFFFF', flexShrink: 0, padding: '0.6rem 1.1rem' }}>
+          <button aria-label={justAdded ? 'Added to cart' : `Add ${product.name} to cart`} onClick={() => handleAdd('product_pdp_sticky')} className="btn" style={{ background: c.accent, borderColor: c.accent, color: '#FFFCF7', flexShrink: 0, padding: '0.6rem 1.1rem' }}>
             {justAdded ? <Check size={16} /> : <ShoppingBag size={16} />}
           </button>
         </div>

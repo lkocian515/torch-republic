@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
-const MATCHA_GREEN = '#10B981';
+const RG = '#E6AC45';
+const MATCHA_GREEN = '#264A35';
 
 const HISTORY_MILESTONES = [
   { year: '7th–10th Century', event: 'Tang Dynasty China,  tea leaves steamed and pressed into bricks' },
@@ -72,7 +72,7 @@ export default function InstantCeremonialMatcha() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -81,7 +81,7 @@ export default function InstantCeremonialMatcha() {
             800 Years of Tradition
           </p>
           <h1 className="font-serif font-bold mb-6"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Instant Ceremonial Matcha: What It Is, Why It Matters, and How to Find Your Ritual
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg"
@@ -138,7 +138,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               The History: 800 Years of Intentional Drinking
             </motion.h2>
@@ -165,7 +165,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               What Makes Ceremonial Grade Different
             </motion.h2>
@@ -211,7 +211,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Ceremonial vs. Culinary Grade at a Glance
             </motion.h3>
@@ -251,7 +251,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               The L-Theanine Effect: Calm Focus Without the Crash
             </motion.h2>
@@ -301,7 +301,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               The Antioxidant Argument
             </motion.h2>
@@ -328,7 +328,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Matcha vs. Coffee: The Honest Comparison
             </motion.h2>
@@ -342,7 +342,7 @@ export default function InstantCeremonialMatcha() {
                   <thead>
                     <tr style={{ borderBottom: `1px solid ${MATCHA_GREEN}40` }}>
                       <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Feature</th>
-                      <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: '#C98F86' }}>Coffee</th>
+                      <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: '#9B4E2F' }}>Coffee</th>
                       <th className="text-left py-3 px-4 font-mono text-[7px] tracking-[0.3em] uppercase" style={{ color: MATCHA_GREEN }}>Matcha</th>
                     </tr>
                   </thead>
@@ -367,7 +367,7 @@ export default function InstantCeremonialMatcha() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                 <div className="p-6 rounded-lg" style={{ background: 'rgba(201,143,134,0.06)', border: '1px solid rgba(201,143,134,0.3)' }}>
-                  <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: '#C98F86' }}>
+                  <h3 className="font-mono text-[8px] tracking-[0.35em] uppercase mb-3" style={{ color: '#9B4E2F' }}>
                     Choose Coffee When
                   </h3>
                   <p style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -393,7 +393,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Instant Matcha: Does It Work?
             </motion.h2>
@@ -417,7 +417,7 @@ export default function InstantCeremonialMatcha() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Finding Your Torch Republic Matcha Ritual
             </motion.h2>
@@ -437,7 +437,7 @@ export default function InstantCeremonialMatcha() {
                     className="p-6 rounded-lg text-center"
                     style={{ background: 'rgba(16,185,129,0.04)', border: `1px solid ${MATCHA_GREEN}20` }}
                   >
-                    <h3 className="font-serif font-bold text-xl mb-2" style={{ color: '#FFFFFF' }}>
+                    <h3 className="font-serif font-bold text-xl mb-2" style={{ color: '#FFFCF7' }}>
                       {blend.name}
                     </h3>
                     <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-4" style={{ color: MATCHA_GREEN }}>
@@ -473,7 +473,7 @@ export default function InstantCeremonialMatcha() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(16,185,129,0.6)' }}>
               Explore the Collection
             </p>
-            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFFFF' }}>
+            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFCF7' }}>
               Torch Republic Matcha
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>

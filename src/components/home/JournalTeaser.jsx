@@ -83,7 +83,7 @@ export default function JournalTeaser() {
                 <div className="flex items-center justify-between mt-auto pt-4">
                   <span className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{a.date}</span>
                   <span className="font-mono text-[10px] tracking-wider uppercase transition-opacity group-hover:opacity-100 opacity-50"
-                    style={{ color: '#C8A44D' }}>Read →</span>
+                    style={{ color: '#E6AC45' }}>Read →</span>
                 </div>
               </div>
             </motion.div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Flame, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function TorchbearersBanner({ variant = 'default' }) {
   if (variant === 'compact') {
@@ -68,7 +68,7 @@ export default function TorchbearersBanner({ variant = 'default' }) {
           Republic Rewards
         </p>
       </div>
-      <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>
+      <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>
         Carry the Flame. Earn Republic Rewards.
       </h3>
       <p className="font-heading text-sm md:text-base mb-5 max-w-xl mx-auto"

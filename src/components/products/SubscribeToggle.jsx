@@ -2,13 +2,13 @@ import React from 'react';
 
 // Legacy product pages link to the current, verified coffee plans.
 // One-time purchase remains the default.
-export default function SubscribeToggle({ accent = '#B86543' }) {
+export default function SubscribeToggle({ accent = '#9B4E2F' }) {
   return (
     <div className="mb-6 p-4 rounded-lg border" style={{ borderColor: `${accent}33`, background: `${accent}08` }}>
       <p className="font-mono text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: accent }}>
         Subscriptions
       </p>
-      <p className="font-heading text-sm" style={{ color: '#5F5145', lineHeight: 1.7 }}>
+      <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>
         Coffee subscriptions are available. Choose Classic or Mushroom Coffee and review your delivery plan before checkout.
       </p>
       <a

@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 import { Brain, Zap, Leaf, Coffee, Moon } from 'lucide-react';
 import RecommendedRitualBlock from '../components/content/RecommendedRitualBlock';
 
-const RG = '#E6B7AD';
-const CLAY = '#B86543';
-const PAGE = '#F8F5EF';
-const CARD = '#FFFFFF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const PAGE = '#F7F2E9';
+const CARD = '#FFFCF7';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
 const BORDER = 'rgba(230,183,173,0.28)';
 
 const BENEFITS = [
@@ -70,7 +70,7 @@ export default function MushroomCoffeeBenefits() {
         <Link
           to="/shop"
           style={{
-            display: 'inline-block', background: CLAY, color: '#FBF8F1',
+            display: 'inline-block', background: CLAY, color: '#F7F2E9',
             fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.24em',
             textTransform: 'uppercase', fontWeight: 700, padding: '14px 32px', textDecoration: 'none', borderRadius: '4px',
           }}

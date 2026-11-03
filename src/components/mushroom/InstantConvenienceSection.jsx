@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 const BENEFITS = [
   'Ready in seconds',
@@ -87,7 +87,7 @@ export default function InstantConvenienceSection() {
             className="font-serif font-bold mb-3"
             style={{
               fontSize: 'clamp(2rem, 5vw, 3.4rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               letterSpacing: '0.06em',
               lineHeight: 1.0,
             }}
@@ -98,7 +98,7 @@ export default function InstantConvenienceSection() {
             className="font-serif font-bold mb-3"
             style={{
               fontSize: 'clamp(2rem, 5vw, 3.4rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               letterSpacing: '0.06em',
               lineHeight: 1.0,
             }}

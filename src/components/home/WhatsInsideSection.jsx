@@ -35,7 +35,7 @@ export default function WhatsInsideSection() {
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>What You Get</span>
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>What You Get</span>
             <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white mb-4">
@@ -79,7 +79,7 @@ export default function WhatsInsideSection() {
           <Link
             to={createPageUrl('BestSellers')}
             className="inline-flex items-center gap-3 font-heading font-black text-sm tracking-widest uppercase px-10 py-4 transition-all duration-200"
-            style={{ backgroundColor: '#C8A44D', color: '#000' }}
+            style={{ backgroundColor: '#E6AC45', color: '#000' }}
           >
             Browse the Full Store <ArrowRight className="w-4 h-4" />
           </Link>

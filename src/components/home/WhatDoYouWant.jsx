@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Coffee, Leaf, Zap, Moon, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PATHWAYS = [
   {
@@ -13,7 +13,7 @@ const PATHWAYS = [
     sub: 'Same bold taste, no machine needed',
     products: 'Republic Reserve & Torchbearer',
     link: '/shop/instant-coffee',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
   },
   {
     id: 'functional',
@@ -22,7 +22,7 @@ const PATHWAYS = [
     sub: 'Coffee with added focus support',
     products: 'SunCap Rise & mushroom morning blends',
     link: '/products/suncap-rise',
-    accent: '#10B981',
+    accent: '#264A35',
   },
   {
     id: 'pods',
@@ -49,7 +49,7 @@ const PATHWAYS = [
     sub: 'Smooth, ceremonial-grade matcha',
     products: 'Ceremonial Matcha collection',
     link: '/shop/matcha',
-    accent: '#6EE7B7',
+    accent: '#264A35',
   },
 ];
 
@@ -71,7 +71,7 @@ export default function WhatDoYouWant() {
           </p>
           <h2
             className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F5EFE6', letterSpacing: '-0.01em', lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F7F2E9', letterSpacing: '-0.01em', lineHeight: 1.2 }}
           >
             What do you want to change about your coffee?
           </h2>
@@ -111,7 +111,7 @@ export default function WhatDoYouWant() {
                   <div className="flex flex-col gap-1.5 flex-1">
                     <p
                       className="font-mono text-[9px] tracking-[0.15em] uppercase font-bold leading-tight"
-                      style={{ color: isActive ? p.accent : '#F5EFE6' }}
+                      style={{ color: isActive ? p.accent : '#F7F2E9' }}
                     >
                       {p.title}
                     </p>

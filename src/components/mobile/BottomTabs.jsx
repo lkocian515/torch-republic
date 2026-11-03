@@ -4,7 +4,7 @@ import { Home, ShoppingBag, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigationStack } from '@/contexts/NavigationContext';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TABS = [
   { path: '/', icon: Home, label: 'Home' },
@@ -85,14 +85,14 @@ export default function BottomTabs() {
                     className="w-5 h-5"
                     strokeWidth={active ? 2.5 : 1.8}
                     style={{
-                      color: active ? '#6F4A32' : '#655E56',
+                      color: active ? '#6F4A32' : '#5E4639',
                       transition: 'color 0.2s ease',
                     }}
                   />
                   <span
                     className="font-mono text-[9px] tracking-[0.15em] uppercase"
                     style={{
-                      color: active ? '#6F4A32' : '#655E56',
+                      color: active ? '#6F4A32' : '#5E4639',
                       fontWeight: active ? 700 : 400,
                     }}
                   >

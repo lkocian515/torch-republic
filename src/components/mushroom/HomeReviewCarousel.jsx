@@ -4,8 +4,8 @@ import { Star } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 // Energy and focus focused keywords
 const ENERGY_FOCUS_KEYWORDS = ['energy', 'focus', 'clear', 'alert', 'concentrate', 'productive', 'morning', 'routine', 'boost', 'sharp', 'clarity'];
@@ -70,7 +70,7 @@ export default function HomeReviewCarousel() {
             className="font-serif font-bold"
             style={{ 
               fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', 
-              color: '#F5EFE6', 
+              color: '#F7F2E9', 
               letterSpacing: '-0.02em',
               lineHeight: 1.2
             }}
@@ -113,7 +113,7 @@ export default function HomeReviewCarousel() {
                   className="font-heading mb-8"
                   style={{ 
                     fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', 
-                    color: '#F5EFE6', 
+                    color: '#F7F2E9', 
                     lineHeight: 1.8,
                     maxWidth: '800px',
                     margin: '0 auto 2rem',

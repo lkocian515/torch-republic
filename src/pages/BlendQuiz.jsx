@@ -16,14 +16,14 @@ const PRODUCT_LOOKUP = [...MUSHROOM_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS]
   }, {});
 
 const THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
+  page: '#F7F2E9',
+  cream: '#F7F2E9',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  clay: '#9B4E2F',
+  moss: '#264A35',
 };
 
 // Each option contributes weight to one of two result keys:
@@ -83,7 +83,7 @@ const RESULTS = {
     desc: 'A traditional instant coffee with bold flavor and higher caffeine, straightforward energy, ready in seconds with no machine.',
     link: '/products/instant-classic-coffee',
     compareLink: '/shop',
-    accent: '#B86543',
+    accent: '#9B4E2F',
   },
   mushroom: {
     title: 'Your Ritual: Focused Mushroom Coffee',

@@ -5,20 +5,20 @@ import { useSEO } from '@/hooks/useSEO';
 import { CheckCircle } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const ADAPTOGENS = [
   {
     name: 'Reishi (Ganoderma lucidum)',
     nickname: 'The Calming Adaptogen',
-    color: '#C98F86',
+    color: '#9B4E2F',
     effects: ['HPA axis modulation (stress response)', 'Improved sleep quality and duration', 'Immune system regulation', 'Anti-anxiety effects via GABA modulation'],
     evidence: 'Strongest evidence for sleep quality improvement. 2019 study in SLEEP Medicine showed significant reduction in fatigue and depression after 8 weeks.',
   },
   {
     name: 'Cordyceps (C. militaris)',
     nickname: 'The Energy Adaptogen',
-    color: '#C4A35A',
+    color: '#E6AC45',
     effects: ['Increased cellular ATP production', 'Improved VO2 max and endurance', 'Reduced exercise-induced fatigue', 'Mitochondrial support'],
     evidence: '2017 meta-analysis (Journal of Dietary Supplements) confirmed significant improvements in aerobic performance across 5 clinical trials.',
   },
@@ -75,14 +75,14 @@ export default function AdaptogensGuide() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Wellness Science · Updated June 2025
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Adaptogens: What They Are, What Works, and What Doesn't
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -95,7 +95,7 @@ export default function AdaptogensGuide() {
         <div className="max-w-[900px] mx-auto space-y-16">
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               What an Adaptogen Actually Is
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -115,7 +115,7 @@ export default function AdaptogensGuide() {
 
           {/* The 5 Adaptogens */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               5 Adaptogens With Real Evidence
             </motion.h2>
             <div className="space-y-6">
@@ -151,7 +151,7 @@ export default function AdaptogensGuide() {
 
           {/* FAQ */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Frequently Asked Questions
             </motion.h2>
             <div className="space-y-5">
@@ -172,7 +172,7 @@ export default function AdaptogensGuide() {
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Adaptogens in Every Cup</p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Mushroom Coffee</h3>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>Torch Republic Mushroom Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Lion's Mane, Cordyceps, Reishi, and adaptogenic mushrooms in every mushroom blend. No pills, no powders to mix separately. One cup covers it all.
             </p>

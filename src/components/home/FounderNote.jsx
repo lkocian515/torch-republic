@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TRUST_DETAILS = [
   { label: 'U.S.-Based Small Business', sub: 'Corpus Christi, TX' },

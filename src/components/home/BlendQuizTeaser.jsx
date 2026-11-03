@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sun, Brain, Moon, Sparkles, Zap, Coffee, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const QUICK_OPTIONS = [
   { label: 'Energy', icon: Sun, desc: 'Morning momentum', link: '/quiz?result=energy' },
@@ -30,7 +30,7 @@ export default function BlendQuizTeaser() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Personalized Recommendations
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             Find Your Perfect Blend
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -75,7 +75,7 @@ export default function BlendQuizTeaser() {
                 }}>
                   <Icon size={22} style={{ color: RG }} />
                 </div>
-                <span className="font-heading text-xs tracking-[0.2em] uppercase mb-1" style={{ color: '#F5EFE6' }}>
+                <span className="font-heading text-xs tracking-[0.2em] uppercase mb-1" style={{ color: '#F7F2E9' }}>
                   {opt.label}
                 </span>
                 <span className="font-mono text-[7px] tracking-[0.15em]" style={{ color: 'rgba(240,235,225,0.4)' }}>

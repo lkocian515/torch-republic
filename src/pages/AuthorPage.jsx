@@ -9,7 +9,7 @@ import { ArrowRight, BookOpen, Star, Shield, Mail } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { TORCH_AUTHOR, ALL_BLOG_TOPICS } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function AuthorPage() {
   const publishedTopics = ALL_BLOG_TOPICS.filter(t => t.exists);
@@ -33,7 +33,7 @@ export default function AuthorPage() {
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>Content & Research Policy</p>
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
               {TORCH_AUTHOR.name}
             </h1>
             <p className="font-heading max-w-2xl mb-6" style={{ fontSize: '1.05rem', color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.85 }}>
@@ -55,7 +55,7 @@ export default function AuthorPage() {
       <section className="px-6 md:px-10 py-14">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>Our Content Philosophy</h2>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>Our Content Philosophy</h2>
             <div className="space-y-4">
               {[
                 { icon: Shield, title: 'No Exaggerated Health Claims', detail: 'We never state that our products treat, cure, or prevent disease. All content about functional mushrooms and matcha reflects the current state of peer-reviewed research — with honest caveats about limitations.' },
@@ -74,7 +74,7 @@ export default function AuthorPage() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>About Torch Republic</h2>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>About Torch Republic</h2>
             <div className="p-6" style={{ background: '#0F0E0D', border: `1px solid ${RG}20` }}>
               <div className="space-y-4">
                 {[
@@ -109,7 +109,7 @@ export default function AuthorPage() {
       {/* Published Articles */}
       <section className="px-6 md:px-10 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>Published Articles</h2>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>Published Articles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {publishedTopics.map((topic, i) => (
               <Link key={i} to={`/journal/${topic.slug}`}

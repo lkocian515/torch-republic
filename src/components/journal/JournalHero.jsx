@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Brain, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function JournalHero() {
   return (
@@ -17,7 +17,7 @@ export default function JournalHero() {
         <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: `${RG}60` }}>
           Torch Republic Coffee Company
         </p>
-        <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+        <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
           The Ritual Journal
         </h1>
         <p

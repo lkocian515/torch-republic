@@ -24,7 +24,7 @@ export default function GuaranteeBlock() {
               className="flex flex-col items-center text-center gap-3"
             >
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #070F1E, #0B3D35)', border: '1px solid rgba(212,175,90,0.3)' }}>
-                <Icon className="w-4 h-4" style={{ color: '#C8A44D' }} />
+                <Icon className="w-4 h-4" style={{ color: '#E6AC45' }} />
               </div>
               <div>
                 <p className="font-heading font-bold text-sm uppercase tracking-wide text-white">{item.title}</p>

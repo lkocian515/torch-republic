@@ -24,7 +24,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
   });
 
   return (
-    <article style={{ background: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+    <article style={{ background: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       <div className="max-w-[740px] mx-auto px-6 py-16 md:py-24">
 
         {/* Breadcrumb */}
@@ -33,16 +33,16 @@ export default function MushroomCoffeeVsRegularCoffee() {
           <span>›</span>
           <Link to="/journal" style={{ color: 'inherit', textDecoration: 'none' }} className="hover:text-white transition-colors">Journal</Link>
           <span>›</span>
-          <span style={{ color: '#E6B7AD' }}>Mushroom Coffee vs Regular Coffee</span>
+          <span style={{ color: '#E6AC45' }}>Mushroom Coffee vs Regular Coffee</span>
         </nav>
 
         {/* Category */}
-        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)' }}>
+        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(230,183,173,0.1)', color: '#E6AC45', border: '1px solid rgba(230,183,173,0.2)' }}>
           Mushroom Coffee
         </span>
 
         {/* Title */}
-        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           Mushroom Coffee vs Regular Coffee: What's the Difference?
         </h1>
 
@@ -57,7 +57,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>What Is Mushroom Coffee?</h2>
-            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane, Cordyceps and Reishi mushroom extracts</Link>,  no synthetic additives, no artificial flavors.</p>
+            <p>Mushroom coffee is a blend of premium instant coffee and dried, powdered functional mushroom extracts. At Torch Republic, that means real freeze-dried Arabica coffee combined with <Link to="/ingredients" style={{ color: '#E6AC45', textDecoration: 'none' }}>Lion's Mane, Cordyceps and Reishi mushroom extracts</Link>,  no synthetic additives, no artificial flavors.</p>
             <p className="mt-3">The result looks and tastes like coffee. It dissolves in hot water. It gives you caffeine. The difference is what's alongside the caffeine: functional mushroom compounds that have been used in wellness traditions for centuries.</p>
           </section>
 
@@ -74,7 +74,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
                 <thead>
                   <tr style={{ borderBottom: '1px solid rgba(230,183,173,0.2)' }}>
                     <th className="text-left py-3 font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}></th>
-                    <th className="py-3 font-mono text-[8px] tracking-[0.3em] uppercase text-center" style={{ color: '#E6B7AD' }}>Mushroom Coffee</th>
+                    <th className="py-3 font-mono text-[8px] tracking-[0.3em] uppercase text-center" style={{ color: '#E6AC45' }}>Mushroom Coffee</th>
                     <th className="py-3 font-mono text-[8px] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>Regular Coffee</th>
                   </tr>
                 </thead>
@@ -90,8 +90,8 @@ export default function MushroomCoffeeVsRegularCoffee() {
                   ].map(([feature, m, r]) => (
                     <tr key={feature} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                       <td className="py-2.5 pr-4" style={{ color: 'rgba(247,241,232,0.7)' }}>{feature}</td>
-                      <td className="py-2.5 text-center" style={{ color: m === '✓' ? '#10B981' : 'rgba(255,255,255,0.25)' }}>{m}</td>
-                      <td className="py-2.5 text-center" style={{ color: r === '✓' ? '#10B981' : 'rgba(255,255,255,0.25)' }}>{r}</td>
+                      <td className="py-2.5 text-center" style={{ color: m === '✓' ? '#264A35' : 'rgba(255,255,255,0.25)' }}>{m}</td>
+                      <td className="py-2.5 text-center" style={{ color: r === '✓' ? '#264A35' : 'rgba(255,255,255,0.25)' }}>{r}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -101,19 +101,19 @@ export default function MushroomCoffeeVsRegularCoffee() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Lion's Mane: The Focus Mushroom</h2>
-            <p><Link to="/journal/lions-mane-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Lion's Mane (Hericium erinaceus)</Link> is one of the most researched functional mushrooms for cognitive support. It has been used in Eastern wellness traditions for centuries and is known for supporting focus, mental clarity, and daily brain wellness.</p>
+            <p><Link to="/journal/lions-mane-mushroom-coffee" style={{ color: '#E6AC45', textDecoration: 'none' }}>Lion's Mane (Hericium erinaceus)</Link> is one of the most researched functional mushrooms for cognitive support. It has been used in Eastern wellness traditions for centuries and is known for supporting focus, mental clarity, and daily brain wellness.</p>
             <p className="mt-3">When you drink a Torch Republic mushroom blend, you're not just getting caffeine,  you're supporting your morning ritual with intention.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Chaga: The Daily Wellness Mushroom</h2>
-            <p><Link to="/journal/chaga-mushroom-coffee" style={{ color: '#E6B7AD', textDecoration: 'none' }}>Chaga (Inonotus obliquus)</Link> is known in wellness traditions as the "King of Mushrooms." It's prized for its antioxidant profile and support for daily resilience. Paired with coffee, it adds depth,  not just to the flavor, but to the ritual itself.</p>
+            <p><Link to="/journal/chaga-mushroom-coffee" style={{ color: '#E6AC45', textDecoration: 'none' }}>Chaga (Inonotus obliquus)</Link> is known in wellness traditions as the "King of Mushrooms." It's prized for its antioxidant profile and support for daily resilience. Paired with coffee, it adds depth,  not just to the flavor, but to the ritual itself.</p>
           </section>
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Does Mushroom Coffee Taste Different?</h2>
             <p>Honestly? Barely. Mushroom coffee tastes like coffee. The mushroom extract blends into the background, adding subtle earthiness,  but most people who try it just say "this tastes like good coffee."</p>
-            <p className="mt-3">If you're worried about flavor, start with <Link to="/products/suncap-rise" style={{ color: '#E6B7AD', textDecoration: 'none' }}>SunCap Rise</Link>,  our lighter-roast mushroom blend with a bright, clean finish. It's the most approachable entry point.</p>
+            <p className="mt-3">If you're worried about flavor, start with <Link to="/products/suncap-rise" style={{ color: '#E6AC45', textDecoration: 'none' }}>SunCap Rise</Link>,  our lighter-roast mushroom blend with a bright, clean finish. It's the most approachable entry point.</p>
           </section>
 
           <section>
@@ -127,7 +127,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
                 'Values clean, transparent ingredients in what they consume daily',
               ].map((point) => (
                 <li key={point} className="flex items-start gap-2">
-                  <span style={{ color: '#E6B7AD', marginTop: '4px', fontSize: '0.5rem', flexShrink: 0 }}>◆</span>
+                  <span style={{ color: '#E6AC45', marginTop: '4px', fontSize: '0.5rem', flexShrink: 0 }}>◆</span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -153,7 +153,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
             Explore Torch Republic mushroom coffee blends,  Lion's Mane + Cordyceps + Reishi in instant format. No machine needed.
           </p>
-          <Link to="/shop/instant-mushroom-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#E6B7AD', color: '#080808' }}>
+          <Link to="/shop/instant-mushroom-coffee" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#E6AC45', color: '#080808' }}>
             Shop Mushroom Coffee →
           </Link>
         </div>
@@ -167,7 +167,7 @@ export default function MushroomCoffeeVsRegularCoffee() {
               { to: '/journal/chaga-mushroom-coffee', label: 'Chaga Mushroom Coffee: Benefits & Uses' },
               { to: '/journal/mushroom-coffee-benefits', label: 'Mushroom Coffee Benefits Guide' },
             ].map(({ to, label }) => (
-              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6B7AD', textDecoration: 'none' }}>
+              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6AC45', textDecoration: 'none' }}>
                 → {label}
               </Link>
             ))}

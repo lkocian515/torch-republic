@@ -17,9 +17,9 @@ export default function FirstTimeCTA() {
       }}
     >
       <div className="flex items-start gap-4 flex-1">
-        <Lightbulb className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A24A' }} />
+        <Lightbulb className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#E6AC45' }} />
         <div>
-          <h3 className="font-serif text-lg font-bold mb-1" style={{ color: '#FFFFFF' }}>
+          <h3 className="font-serif text-lg font-bold mb-1" style={{ color: '#FFFCF7' }}>
             First Time Here?
           </h3>
           <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.6 }}>
@@ -31,7 +31,7 @@ export default function FirstTimeCTA() {
         to="/WashingtonBlend"
         className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase transition-all hover:opacity-90 flex-shrink-0 whitespace-nowrap"
         style={{
-          background: '#C9A24A',
+          background: '#E6AC45',
           color: '#080808',
           padding: '12px 20px',
           fontWeight: 700,

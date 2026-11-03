@@ -34,7 +34,7 @@ export default function LifestyleValueSection() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>
             Why Torch Republic Drinkware
           </p>
-          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             More Than a Cup
           </h2>
           <p className="font-heading mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.7, maxWidth: '520px' }}>
@@ -56,9 +56,9 @@ export default function LifestyleValueSection() {
                 className="flex flex-col items-center text-center"
               >
                 <div className="mb-6 p-4" style={{ background: 'rgba(201,162,74,0.08)', border: '1px solid rgba(201,162,74,0.15)' }}>
-                  <Icon className="w-6 h-6" style={{ color: '#C9A24A' }} />
+                  <Icon className="w-6 h-6" style={{ color: '#E6AC45' }} />
                 </div>
-                <h3 className="font-serif mb-2" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F0EBE1' }}>
+                <h3 className="font-serif mb-2" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F7F2E9' }}>
                   {value.label}
                 </h3>
                 <p className="font-heading" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.6 }}>

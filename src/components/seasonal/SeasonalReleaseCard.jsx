@@ -35,7 +35,7 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
     <article
       className="flex h-full flex-col"
       style={{
-        background: '#FFFFFF',
+        background: '#FFFCF7',
         border: '1px solid hsl(var(--border))',
         borderRadius: 4,
         overflow: 'hidden',
@@ -43,7 +43,7 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
       aria-labelledby={`release-${entry.slug}`}
     >
       {artwork ? (
-        <div style={{ aspectRatio: '4 / 3', background: '#F8F5EF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <div style={{ aspectRatio: '4 / 3', background: '#F7F2E9', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <img
             src={artwork.src}
             alt={artwork.alt}

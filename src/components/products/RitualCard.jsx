@@ -41,7 +41,7 @@ export default function RitualCard({ product, index = 0 }) {
       className="card-torch flex h-full flex-col overflow-hidden"
     >
       <Link to={product.path} className="group block" style={{ textDecoration: 'none' }}>
-        <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: '#FFFFFF' }}>
+        <div className="relative flex items-center justify-center overflow-hidden" style={{ aspectRatio: '1/1', background: '#FFFCF7' }}>
           <RitualProductImage
             product={product}
             alt={product.alt}
@@ -65,7 +65,7 @@ export default function RitualCard({ product, index = 0 }) {
       <div className="flex flex-1 flex-col gap-2 px-5 pt-5 pb-5">
         <div>
           <Link to={product.path} style={{ textDecoration: 'none' }}>
-            <h3 className="font-serif font-bold" style={{ fontSize: '1.4rem', color: '#292622', lineHeight: 1.15 }}>
+            <h3 className="font-serif font-bold" style={{ fontSize: '1.4rem', color: '#32190F', lineHeight: 1.15 }}>
               {product.name}
             </h3>
           </Link>
@@ -76,7 +76,7 @@ export default function RitualCard({ product, index = 0 }) {
           {product.seasonal ? 'Ground or Whole Bean · brewed, not instant' : 'Instant coffee · just add water'}
         </p>
 
-        <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.6 }}>
+        <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.6 }}>
           {product.positioning}
         </p>
 
@@ -84,14 +84,14 @@ export default function RitualCard({ product, index = 0 }) {
           <span className="font-serif font-bold" style={{ fontSize: '1.3rem', color: c.deep }}>
             ${product.price.toFixed(2)}
           </span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: '#8A8076' }}>
+          <span className="font-mono text-[9px] uppercase tracking-[0.15em]" style={{ color: '#5E4639' }}>
             {product.seasonal ? product.weight : `${product.servings} servings`}
           </span>
         </div>
 
         <div className="flex-1" />
 
-        <div className="pt-3" style={{ borderTop: '1px solid #E4D8C9' }}>
+        <div className="pt-3" style={{ borderTop: '1px solid #B89A6D' }}>
           <button onClick={handleAdd} aria-label={`Add ${product.name} to cart`} className="btn btn-primary w-full" style={{ background: c.accent, borderColor: c.accent }}>
             <ShoppingBag className="h-4 w-4" /> Add to Cart
           </button>

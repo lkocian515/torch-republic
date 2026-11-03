@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function FounderSection() {
   return (
@@ -50,7 +50,7 @@ export default function FounderSection() {
                 "Torch Republic was created from the belief that coffee can be more than a quick source of energy. It can be a small daily ritual — a moment to pause, reset, and step into the day with more clarity and intention."
               </p>
               <div className="mt-6">
-                <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>Lisa Kocian</p>
+                <p className="font-serif font-bold text-sm" style={{ color: '#F7F2E9' }}>Lisa Kocian</p>
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Founder, Torch Republic Coffee Company</p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function FounderSection() {
               className="font-serif font-bold mb-6"
               style={{
                 fontSize: 'clamp(1.9rem, 3.8vw, 2.6rem)',
-                color: '#F5EFE6',
+                color: '#F7F2E9',
                 lineHeight: 1.1,
                 letterSpacing: '-0.02em',
               }}

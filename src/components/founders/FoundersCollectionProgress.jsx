@@ -10,7 +10,7 @@ const FOUNDERS = [
   { code: 'TR-006', name: 'Adams', to: '/AdamsBlend', handle: 'adams-blend' },
 ];
 
-export default function FoundersCollectionProgress({ currentHandle, accent = '#C9A24A' }) {
+export default function FoundersCollectionProgress({ currentHandle, accent = '#E6AC45' }) {
   return (
     <div className="mt-4 p-5" style={{ background: '#0A0A0A', border: `1px solid ${accent}15` }}>
       <div className="flex items-center justify-between mb-4">

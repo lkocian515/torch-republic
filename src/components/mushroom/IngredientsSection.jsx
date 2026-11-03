@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Shield, Zap, Leaf, Droplet, Heart } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const MUSHROOMS = [
   {
     name: "Lion's Mane",
     latin: 'Hericium erinaceus',
     icon: Brain,
-    color: '#E6B7AD',
+    color: '#E6AC45',
     benefits: [
       'Supports cognitive function & mental clarity',
       'Promotes nerve growth factor (NGF) production',
@@ -22,7 +22,7 @@ const MUSHROOMS = [
     name: 'Cordyceps',
     latin: 'Cordyceps militaris',
     icon: Zap,
-    color: '#C98F86',
+    color: '#9B4E2F',
     benefits: [
       'Traditionally used for daily energy',
       'Supports stamina and physical performance',
@@ -35,7 +35,7 @@ const MUSHROOMS = [
     name: 'Reishi',
     latin: 'Ganoderma lucidum',
     icon: Heart,
-    color: '#D6B27A',
+    color: '#E6AC45',
     benefits: [
       'Promotes relaxation & stress management',
       'Supports restful sleep & calm',
@@ -76,7 +76,7 @@ export default function IngredientsSection() {
             Our Ingredients
           </p>
           <h2 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Premium Functional Mushrooms
           </h2>
           <p className="font-heading max-w-2xl mx-auto"
@@ -117,7 +117,7 @@ export default function IngredientsSection() {
 
               {/* Name & Latin */}
               <h3 className="font-serif font-bold mb-1"
-                style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>
+                style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>
                 {mushroom.name}
               </h3>
               <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-4"

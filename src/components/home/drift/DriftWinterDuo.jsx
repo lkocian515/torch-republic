@@ -11,7 +11,7 @@ import { SANS, TYPE, fadeUp } from './driftTheme';
 // instead of a bright morning.
 const W = {
   night: '#0F1A21',
-  cream: '#F7EEDD',
+  cream: '#F7F2E9',
   body: '#D9CFC1',
   ember: '#D6743A',
   hairline: 'rgba(214,116,58,0.28)',

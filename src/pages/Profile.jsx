@@ -151,10 +151,10 @@ export default function Profile() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
-                <Gift size={18} style={{ color: '#E6B7AD' }} />
+                <Gift size={18} style={{ color: '#E6AC45' }} />
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
+                <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6AC45' }}>
                   Customer Portal
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
@@ -165,7 +165,7 @@ export default function Profile() {
             <Link
               to="/loyalty"
               className="font-mono uppercase tracking-[0.2em] text-xs px-4 py-2 transition-all hover:opacity-90"
-              style={{ background: '#E6B7AD', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
+              style={{ background: '#E6AC45', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
             >
               Open →
             </Link>
@@ -177,10 +177,10 @@ export default function Profile() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
-                <Gift size={18} style={{ color: '#E6B7AD' }} />
+                <Gift size={18} style={{ color: '#E6AC45' }} />
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6B7AD' }}>
+                <p className="font-mono text-xs tracking-widest uppercase mb-1" style={{ color: '#E6AC45' }}>
                   Republic Rewards
                 </p>
                 <p className="text-muted-foreground font-mono text-sm">
@@ -191,7 +191,7 @@ export default function Profile() {
             <Link
               to="/torchbearers-rewards"
               className="font-mono uppercase tracking-[0.2em] text-xs px-4 py-2 transition-all hover:opacity-90"
-              style={{ background: '#E6B7AD', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
+              style={{ background: '#E6AC45', color: '#050505', borderRadius: '2px', fontWeight: 700 }}
             >
               Learn More →
             </Link>

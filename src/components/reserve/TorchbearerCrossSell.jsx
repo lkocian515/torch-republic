@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-const GOLD = '#C4A35A';
+const GOLD = '#E6AC45';
 const IMG = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png';
 
 const NOTES = [

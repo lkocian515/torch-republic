@@ -15,7 +15,7 @@ const CROSS_SELL_BLENDS = CORE_PRODUCTS.map((p) => ({
   tag: p.categoryLabel,
 }));
 
-const GOLD = '#C9A24A';
+const GOLD = '#E6AC45';
 
 export default function CartCrossSell({ existingHandles = [] }) {
   const suggestions = CROSS_SELL_BLENDS.filter(
@@ -48,7 +48,7 @@ export default function CartCrossSell({ existingHandles = [] }) {
             className="flex items-center gap-4 px-5 py-4 transition-all hover:bg-white/[0.02]"
             style={{ borderBottom: i < suggestions.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none', textDecoration: 'none' }}
           >
-            <div className="flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ width: 56, height: 64, background: '#FFFFFF' }}>
+            <div className="flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ width: 56, height: 64, background: '#FFFCF7' }}>
               <img src={blend.image} alt={blend.name} className="w-full h-full object-contain p-1" style={{ opacity: 0.95 }} />
             </div>
             <div className="flex-1 min-w-0">

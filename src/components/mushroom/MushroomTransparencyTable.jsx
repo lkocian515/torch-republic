@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PRODUCTS = [
   { name: 'GlowMind Clarity',  bestFor: 'Deep work & daily focus',     time: 'Morning / Midday', functional: 'Focus & clarity' },
@@ -26,7 +26,7 @@ export default function MushroomTransparencyTable() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>
             Ingredient Transparency
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
             What's Inside Every Mushroom Blend
           </h2>
           <p className="font-heading max-w-2xl mx-auto mb-4" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.85 }}>
@@ -72,7 +72,7 @@ export default function MushroomTransparencyTable() {
             <tbody>
               {PRODUCTS.map((p, i) => (
                 <tr key={p.name} style={{ background: i % 2 === 0 ? '#0F0E0D' : '#111' }}>
-                  <td className="p-3" style={{ color: '#F5EFE6', fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '0.9rem', borderBottom: '1px solid rgba(230,183,173,0.07)', whiteSpace: 'nowrap' }}>
+                  <td className="p-3" style={{ color: '#F7F2E9', fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '0.9rem', borderBottom: '1px solid rgba(230,183,173,0.07)', whiteSpace: 'nowrap' }}>
                     {p.name}
                   </td>
                   <td className="p-3" style={{ fontSize: '0.78rem', color: 'rgba(240,235,225,0.7)', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
@@ -104,7 +104,7 @@ export default function MushroomTransparencyTable() {
 
         <div className="mt-8 p-5" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}>
           <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: 'rgba(16,185,129,0.65)', lineHeight: 1.85 }}>
-            <strong style={{ color: '#10B981' }}>Transparency Note:</strong> We are actively working to publish exact mushroom species dosage (mg per serving), extract type (fruiting body, mycelium, or blend), supplier name, and third-party testing documentation for each blend. Placeholders above indicate information that requires supplier verification before publishing.
+            <strong style={{ color: '#264A35' }}>Transparency Note:</strong> We are actively working to publish exact mushroom species dosage (mg per serving), extract type (fruiting body, mycelium, or blend), supplier name, and third-party testing documentation for each blend. Placeholders above indicate information that requires supplier verification before publishing.
             <br /><br />
             These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
           </p>

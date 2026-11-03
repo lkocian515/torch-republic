@@ -4,11 +4,11 @@ import { trackHeroCTAClick } from '@/lib/analytics';
 import { TRUST_PILLS, WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 
 const ESPRESSO = '#26231F';
-const CHARCOAL = '#655E56';
-const PARCHMENT = '#F8F5EF';
+const CHARCOAL = '#5E4639';
+const PARCHMENT = '#F7F2E9';
 const IVORY = '#FFFDFC';
 const OAT = '#DED8CF';
-const GOLD = '#B48A4A';
+const GOLD = '#E6AC45';
 const SAGE = '#8A9D78';
 
 export default function HeroSection() {
@@ -101,7 +101,7 @@ export default function HeroSection() {
       <div
         className="px-5 py-3"
         style={{
-          background: '#FBF8F1',
+          background: '#F7F2E9',
           borderTop: `1px solid ${OAT}`,
           borderBottom: `1px solid ${OAT}`,
         }}

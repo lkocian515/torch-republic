@@ -4,19 +4,19 @@ import { CORE_PRODUCTS } from '@/lib/coreProducts';
 
 export default function ChooseYourRitual() {
   return (
-    <section id="choose-ritual" style={{ background: '#FBF8F1' }}>
+    <section id="choose-ritual" style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1240px] px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto mb-12 max-w-2xl text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#9B4E2F' }}>
             The Lineup
           </p>
           <h2
             className="mt-4 font-serif font-semibold"
-            style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', color: '#292622', textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', color: '#32190F', textWrap: 'balance' }}
           >
             Choose your ritual.
           </h2>
-          <p className="mt-4 font-heading" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+          <p className="mt-4 font-heading" style={{ color: '#5E4639', lineHeight: 1.7 }}>
             Better mornings, two ways.<br />
             Classic coffee for smooth, bold energy. Mushroom coffee for focus with added function.
           </p>

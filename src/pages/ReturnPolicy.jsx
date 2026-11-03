@@ -2,7 +2,7 @@ import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function ReturnPolicy() {
   useSEO({
@@ -12,13 +12,13 @@ export default function ReturnPolicy() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
       <div style={{ maxWidth: '720px', margin: '0 auto' }}>
 
         <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
           Legal
         </p>
-        <h1 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+        <h1 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
           Return &amp; Refund Policy
         </h1>
 

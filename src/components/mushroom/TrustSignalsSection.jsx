@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FlaskConical, MapPin, Shield, Package, Heart, Leaf } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const WARM = 'rgba(240,232,220,0.72)';
 const DIM  = 'rgba(240,232,220,0.38)';
 
@@ -81,7 +81,7 @@ export default function TrustSignalsSection() {
           </p>
           <h2 className="font-serif font-bold" style={{
             fontSize: 'clamp(1.7rem, 3.2vw, 2.5rem)',
-            color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '14px',
+            color: '#F7F2E9', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '14px',
           }}>
             You Deserve to Know What's in Your Cup
           </h2>
@@ -137,7 +137,7 @@ export default function TrustSignalsSection() {
               </div>
 
               <h3 className="font-serif font-bold" style={{
-                fontSize: '1.05rem', color: '#F5EFE6', lineHeight: 1.3, margin: 0,
+                fontSize: '1.05rem', color: '#F7F2E9', lineHeight: 1.3, margin: 0,
               }}>
                 {p.title}
               </h3>

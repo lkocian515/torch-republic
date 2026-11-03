@@ -22,7 +22,7 @@ export default function TorchbearerCTA() {
         >
           {/* Decorative flame */}
           <div className="flex justify-center mb-10">
-            <div className="w-px h-16" style={{ background: 'linear-gradient(to bottom, transparent, #C8A44D, transparent)' }} />
+            <div className="w-px h-16" style={{ background: 'linear-gradient(to bottom, transparent, #E6AC45, transparent)' }} />
           </div>
 
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-6" style={{ color: 'rgba(196,163,90,0.5)' }}>
@@ -42,7 +42,7 @@ export default function TorchbearerCTA() {
           {submitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-3">
               <div className="w-10 h-10 flex items-center justify-center rounded-full" style={{ background: 'rgba(196,163,90,0.15)', border: '1px solid rgba(196,163,90,0.3)' }}>
-                <span style={{ color: '#C8A44D' }}>✓</span>
+                <span style={{ color: '#E6AC45' }}>✓</span>
               </div>
               <p className="font-mono text-sm" style={{ color: 'rgba(196,163,90,0.8)' }}>You're in. The flame is lit.</p>
               <p className="font-mono text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>Check your inbox for your welcome offer.</p>
@@ -66,7 +66,7 @@ export default function TorchbearerCTA() {
               />
               <button type="submit"
                 className="flex items-center justify-center gap-2 px-7 py-4 font-mono font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85"
-                style={{ fontSize: '11px', background: '#C8A44D', color: '#000', flexShrink: 0 }}>
+                style={{ fontSize: '11px', background: '#E6AC45', color: '#000', flexShrink: 0 }}>
                 Join <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </form>

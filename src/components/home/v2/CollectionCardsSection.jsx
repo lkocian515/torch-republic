@@ -27,7 +27,7 @@ export default function CollectionCardsSection() {
           <p style={{ fontSize: '9px', letterSpacing: '0.5em', textTransform: 'uppercase', marginBottom: '16px', color: 'rgba(201,162,74,0.6)' }}>
             Extended Collection
           </p>
-          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             Complete Your Lifestyle
           </h2>
         </motion.div>
@@ -96,10 +96,10 @@ export default function CollectionCardsSection() {
               {/* Content */}
               <div style={{ padding: '32px 24px', display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
                 <div>
-                  <p style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '8px', color: '#C9A24A' }}>
+                  <p style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '8px', color: '#E6AC45' }}>
                     Collection
                   </p>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#F0EBE1', marginBottom: '8px', lineHeight: 1.2 }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#F7F2E9', marginBottom: '8px', lineHeight: 1.2 }}>
                     {collection.title}
                   </h3>
                   <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.6 }}>
@@ -117,7 +117,7 @@ export default function CollectionCardsSection() {
                     fontSize: '10px',
                     letterSpacing: '0.3em',
                     textTransform: 'uppercase',
-                    color: '#C9A24A',
+                    color: '#E6AC45',
                     fontWeight: 600,
                     margin: 0,
                   }}>

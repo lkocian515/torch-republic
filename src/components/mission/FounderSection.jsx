@@ -29,7 +29,7 @@ export default function FounderSection() {
             </p>
             <h2
               className="text-3xl md:text-4xl font-serif tracking-wide"
-              style={{ color: '#C9A24A', letterSpacing: '0.06em' }}
+              style={{ color: '#E6AC45', letterSpacing: '0.06em' }}
             >
               Meet the Founder
             </h2>
@@ -81,7 +81,7 @@ export default function FounderSection() {
               </p>
               <p
                 className="text-sm font-mono tracking-[0.3em] uppercase pt-2"
-                style={{ color: '#C9A24A' }}
+                style={{ color: '#E6AC45' }}
               >
                 — Lisa M. Kocian
               </p>

@@ -9,12 +9,12 @@ import BlogEmailCapture from '@/components/blog/BlogEmailCapture';
 import PopularArticles from '@/components/blog/PopularArticles';
 import ArticleShareBar from '@/components/social/ArticleShareBar';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_COLORS = {
-  'Coffee Origins': '#A8D5BA',
+  'Coffee Origins': '#264A35',
   'Mushroom Coffee Education': '#D4A574',
-  'Instant Coffee Education': '#E6B7AD',
+  'Instant Coffee Education': '#E6AC45',
   'Travel Coffee': '#A5C5D4',
   'Brewing Alternatives': '#B5A5D4',
   'Coffee Comparisons': '#D4B5A5',
@@ -31,7 +31,7 @@ function renderBlock(block, key) {
       );
     case 'heading3':
       return (
-        <h3 key={key} className="font-serif font-bold mt-8 mb-4" style={{ fontSize: '1.3rem', color: '#F5EFE6', lineHeight: 1.3 }}>
+        <h3 key={key} className="font-serif font-bold mt-8 mb-4" style={{ fontSize: '1.3rem', color: '#F7F2E9', lineHeight: 1.3 }}>
           {block.text}
         </h3>
       );
@@ -74,7 +74,7 @@ function renderBlock(block, key) {
               {block.rows.map((row, i) => (
                 <tr key={i} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
                   {row.map((cell, j) => (
-                    <td key={j} className="font-heading p-3" style={{ color: j === 0 ? '#F5EFE6' : 'rgba(240,235,225,0.7)', fontWeight: j === 0 ? 500 : 300, fontSize: '0.9rem', lineHeight: 1.6 }}>
+                    <td key={j} className="font-heading p-3" style={{ color: j === 0 ? '#F7F2E9' : 'rgba(240,235,225,0.7)', fontWeight: j === 0 ? 500 : 300, fontSize: '0.9rem', lineHeight: 1.6 }}>
                       {cell}
                     </td>
                   ))}
@@ -129,7 +129,7 @@ function renderBlock(block, key) {
                 <div className="mx-auto mb-3 flex items-center justify-center" style={{ width: 48, height: 48, borderRadius: '50%', background: `${RG}12`, border: `1px solid ${RG}30` }}>
                   <span className="font-mono font-bold" style={{ color: RG, fontSize: '0.9rem' }}>{i + 1}</span>
                 </div>
-                <p className="font-serif font-bold mb-1" style={{ fontSize: '0.85rem', color: '#F5EFE6' }}>{step.title}</p>
+                <p className="font-serif font-bold mb-1" style={{ fontSize: '0.85rem', color: '#F7F2E9' }}>{step.title}</p>
                 <p className="font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.6 }}>{step.description}</p>
               </div>
             ))}
@@ -305,7 +305,7 @@ export default function CornerstoneArticle({ article }) {
               <BookOpen size={14} style={{ color: categoryColor }} />
               <span className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: categoryColor }}>{article.category}</span>
             </Link>
-            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', color: '#F5EFE6', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', color: '#F7F2E9', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
               {article.title}
             </h1>
             <p className="font-heading text-lg mb-8" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -364,7 +364,7 @@ export default function CornerstoneArticle({ article }) {
                   transition={{ delay: sIdx * 0.05 }}
                   className="scroll-mt-24 mb-10"
                 >
-                  <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.6rem', color: '#F5EFE6', lineHeight: 1.3, paddingBottom: '0.5rem', borderBottom: `1px solid ${RG}15` }}>
+                  <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.6rem', color: '#F7F2E9', lineHeight: 1.3, paddingBottom: '0.5rem', borderBottom: `1px solid ${RG}15` }}>
                     {section.heading}
                   </h2>
                   {section.content.map((block, bIdx) => renderBlock(block, bIdx))}
@@ -376,7 +376,7 @@ export default function CornerstoneArticle({ article }) {
 
               {/* FAQ Section */}
               <section className="mt-12 pt-8" style={{ borderTop: `1px solid ${RG}15` }}>
-                <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.6rem', color: '#F5EFE6' }}>Frequently Asked Questions</h2>
+                <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.6rem', color: '#F7F2E9' }}>Frequently Asked Questions</h2>
                 <div className="space-y-3">
                   {article.faqs.map((faq, i) => (
                     <FAQItem key={i} faq={faq} />
@@ -394,7 +394,7 @@ export default function CornerstoneArticle({ article }) {
                         className="p-4 block transition-all hover:opacity-75"
                         style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
                         <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-2" style={{ color: `${RG}70` }}>{r.category}</p>
-                        <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 500, lineHeight: 1.4 }}>{r.title}</p>
+                        <p className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 500, lineHeight: 1.4 }}>{r.title}</p>
                         <div className="flex items-center gap-1 mt-2">
                           <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Read</span>
                           <ArrowRight className="w-3 h-3" style={{ color: 'rgba(230,183,173,0.5)' }} />
@@ -424,7 +424,7 @@ export default function CornerstoneArticle({ article }) {
               {/* Bottom CTA */}
               {article.cta && (
                 <section className="mt-8 p-8 text-center" style={{ background: 'linear-gradient(160deg, #0F0E0D 0%, #0A0908 100%)', border: `1px solid ${RG}20` }}>
-                  <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>{article.cta.title}</h3>
+                  <h3 className="font-serif font-bold mb-3" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>{article.cta.title}</h3>
                   <p className="font-heading mb-6 max-w-md mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.7 }}>{article.cta.body}</p>
                   <Link to={article.cta.buttonPath}
                     className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8"
@@ -465,7 +465,7 @@ function FAQItem({ faq }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-4 text-left"
       >
-        <span className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 500, lineHeight: 1.4 }}>{faq.question}</span>
+        <span className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 500, lineHeight: 1.4 }}>{faq.question}</span>
         <ChevronDown size={16} style={{ color: RG, flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
       </button>
       {open && (

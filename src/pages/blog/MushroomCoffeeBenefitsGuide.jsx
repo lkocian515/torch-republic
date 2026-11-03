@@ -5,7 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Brain, Shield, Zap, Heart, Clock, CheckCircle } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BENEFITS = [
   {
@@ -84,14 +84,14 @@ export default function MushroomCoffeeBenefitsGuide() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Science · Updated June 2025
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Mushroom Coffee Benefits: The Complete Science-Backed Guide
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -144,7 +144,7 @@ export default function MushroomCoffeeBenefitsGuide() {
 
           {/* The Science */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               What Makes Mushroom Coffee Different From Regular Coffee?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -162,7 +162,7 @@ export default function MushroomCoffeeBenefitsGuide() {
 
           {/* The Mushrooms */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               The 4 Mushrooms That Actually Matter
             </motion.h2>
             <div className="space-y-5">
@@ -218,7 +218,7 @@ export default function MushroomCoffeeBenefitsGuide() {
 
           {/* Who It's For */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Who Benefits Most From Mushroom Coffee?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -243,7 +243,7 @@ export default function MushroomCoffeeBenefitsGuide() {
 
           {/* FAQ Section */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Frequently Asked Questions
             </motion.h2>
             <div className="space-y-5">
@@ -272,7 +272,7 @@ export default function MushroomCoffeeBenefitsGuide() {
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Ready to Try It?</p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Mushroom Coffee</h3>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>Torch Republic Mushroom Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Instant. No equipment. Lion's Mane + Cordyceps + Reishi in every blend,  ready in 30 seconds. Your ritual shouldn't require a ceremony to prepare.
             </p>

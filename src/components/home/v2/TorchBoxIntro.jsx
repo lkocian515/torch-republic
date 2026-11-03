@@ -43,7 +43,7 @@ export default function TorchBoxIntro() {
                 <p className="font-mono text-[9px] tracking-widest uppercase mb-1" style={{ color: 'rgba(201,162,74,0.7)' }}>
                   Starting at
                 </p>
-                <p className="font-serif font-black" style={{ fontSize: '2.4rem', color: '#FFFFFF', lineHeight: 1 }}>
+                <p className="font-serif font-black" style={{ fontSize: '2.4rem', color: '#FFFCF7', lineHeight: 1 }}>
                   $39<span className="text-lg font-mono font-normal" style={{ color: 'rgba(255,255,255,0.5)' }}>/mo</span>
                 </p>
               </div>
@@ -58,17 +58,17 @@ export default function TorchBoxIntro() {
             transition={{ duration: 0.75, delay: 0.1 }}
           >
             <div className="flex items-center gap-2 mb-5">
-              <Flame className="w-4 h-4" style={{ color: '#C9A24A' }} />
-              <p className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C9A24A' }}>
+              <Flame className="w-4 h-4" style={{ color: '#E6AC45' }} />
+              <p className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>
                 Subscription
               </p>
             </div>
 
-            <h2 className="font-serif leading-tight mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            <h2 className="font-serif leading-tight mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
               The Torch Box
             </h2>
 
-            <div className="h-px w-12 mb-6" style={{ background: 'linear-gradient(90deg, #C9A24A, transparent)' }} />
+            <div className="h-px w-12 mb-6" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
 
             <p className="font-heading mb-8" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.95 }}>
               A monthly ritual for those who carry the flame. Fresh small-batch coffee, curated for your commitment.
@@ -77,7 +77,7 @@ export default function TorchBoxIntro() {
             <ul className="space-y-3 mb-10">
               {PERKS.map((perk, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#C9A24A' }} />
+                  <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#E6AC45' }} />
                   <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.85)', lineHeight: 1.7 }}>{perk}</span>
                 </li>
               ))}
@@ -87,7 +87,7 @@ export default function TorchBoxIntro() {
               <Link
                 to="/TheTorchBox"
                 className="inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-85 btn-glow"
-                style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '17px 40px' }}
+                style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '17px 40px' }}
               >
                 Join the Torch Box →
               </Link>

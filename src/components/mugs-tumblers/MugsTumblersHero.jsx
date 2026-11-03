@@ -26,7 +26,7 @@ export default function MugsTumblersHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="font-mono text-[10px] tracking-[0.6em] uppercase mb-6"
-            style={{ color: '#C9A24A' }}
+            style={{ color: '#E6AC45' }}
           >
             Torch Republic · Home & Lifestyle
           </motion.p>
@@ -39,7 +39,7 @@ export default function MugsTumblersHero() {
             style={{
               fontSize: 'clamp(2.4rem, 6vw, 4.8rem)',
               fontWeight: 800,
-              color: '#FFFFFF',
+              color: '#FFFCF7',
               letterSpacing: '-0.03em',
               textShadow: '0 4px 48px rgba(0,0,0,0.95)',
             }}
@@ -52,7 +52,7 @@ export default function MugsTumblersHero() {
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.25 }}
             className="origin-left mb-6"
-            style={{ height: '2px', width: '60px', background: '#C9A24A' }}
+            style={{ height: '2px', width: '60px', background: '#E6AC45' }}
           />
 
           <motion.p
@@ -62,7 +62,7 @@ export default function MugsTumblersHero() {
             className="font-heading mb-8"
             style={{
               fontSize: 'clamp(0.95rem, 1.3vw, 1.05rem)',
-              color: '#F0EBE1',
+              color: '#F7F2E9',
               fontWeight: 400,
               lineHeight: 1.7,
               maxWidth: '440px',
@@ -78,7 +78,7 @@ export default function MugsTumblersHero() {
             transition={{ duration: 0.6, delay: 0.45 }}
             href="/shop"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
-            style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
+            style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
           >
             Shop Drinkware →
           </motion.a>

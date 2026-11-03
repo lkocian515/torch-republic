@@ -28,13 +28,13 @@ export default function FirstOrderBonus() {
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm font-mono text-[9px] font-black tracking-[0.35em] uppercase"
-              style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.5)' }}>
+              style={{ background: 'rgba(201,162,74,0.2)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.5)' }}>
               <Zap className="w-3 h-3" />
               Limited Time Offer
             </div>
           </div>
 
-          <h3 className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h3 className="font-serif mb-2" style={{ fontSize: '2rem', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Exclusive First Box<br />Bonus
           </h3>
 
@@ -63,7 +63,7 @@ export default function FirstOrderBonus() {
             to="/TheTorchBox"
             className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.35em] uppercase font-black transition-all hover:opacity-90"
             style={{
-              background: '#C9A24A',
+              background: '#E6AC45',
               color: '#080808',
               padding: '15px 32px',
               boxShadow: '0 8px 24px rgba(201,162,74,0.25)',
@@ -85,7 +85,7 @@ export default function FirstOrderBonus() {
             🎁
           </motion.div>
           <div className="text-center">
-            <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-2" style={{ color: '#C9A24A', fontWeight: 700 }}>
+            <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-2" style={{ color: '#E6AC45', fontWeight: 700 }}>
               First Order Only
             </p>
             <p className="font-mono text-[8px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.3)' }}>

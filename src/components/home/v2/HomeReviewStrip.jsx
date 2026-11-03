@@ -33,7 +33,7 @@ function Stars({ n = 5 }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: n }).map((_, i) => (
-        <Star key={i} className="w-3 h-3 fill-current" style={{ color: '#C9A24A' }} />
+        <Star key={i} className="w-3 h-3 fill-current" style={{ color: '#E6AC45' }} />
       ))}
     </div>
   );
@@ -75,7 +75,7 @@ export default function HomeReviewStrip() {
               style={{ background: '#0E0E0E', border: '1px solid rgba(201,162,74,0.1)' }}
             >
               <Stars n={r.rating} />
-              <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
+              <p className="font-heading text-sm leading-relaxed flex-1" style={{ color: '#F7F2E9', fontWeight: 300, lineHeight: 1.8, fontStyle: 'italic' }}>
                 "{r.text}"
               </p>
               <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(201,162,74,0.07)' }}>
@@ -88,7 +88,7 @@ export default function HomeReviewStrip() {
 
         <div className="text-center mt-10">
           <a href="/reviews" className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all font-black"
-            style={{ background: '#C9A24A', color: '#080808', padding: '14px 28px' }}>
+            style={{ background: '#E6AC45', color: '#080808', padding: '14px 28px' }}>
             Read All Reviews →
           </a>
         </div>

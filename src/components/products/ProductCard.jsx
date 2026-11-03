@@ -76,8 +76,8 @@ export default function ProductCard({ product, index = 0 }) {
            }}
            className="absolute top-3 right-3 px-2 py-1 text-xs font-mono font-bold tracking-wider rounded opacity-90 hover:opacity-100 transition-opacity"
            style={{
-             background: showDetail ? '#C8A44D' : 'rgba(14,42,47,0.7)',
-             color: showDetail ? '#000' : '#C8A44D',
+             background: showDetail ? '#E6AC45' : 'rgba(14,42,47,0.7)',
+             color: showDetail ? '#000' : '#E6AC45',
              border: '1px solid rgba(200,164,77,0.5)',
            }}
          >
@@ -98,7 +98,7 @@ export default function ProductCard({ product, index = 0 }) {
             hovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
             <div className="space-y-2">
-              <div className="p-3 text-center" style={{ background: '#C4A35A' }}>
+              <div className="p-3 text-center" style={{ background: '#E6AC45' }}>
                 <span className="text-white font-heading font-black text-xs tracking-widest uppercase">
                   Shop Now →
                 </span>
@@ -109,7 +109,7 @@ export default function ProductCard({ product, index = 0 }) {
                   setSizeGuideOpen(true);
                 }}
                 className="w-full p-2 text-center flex items-center justify-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase rounded"
-                style={{ background: 'rgba(200,164,77,0.2)', color: '#C8A44D', border: '1px solid rgba(200,164,77,0.5)' }}
+                style={{ background: 'rgba(200,164,77,0.2)', color: '#E6AC45', border: '1px solid rgba(200,164,77,0.5)' }}
               >
                 <Ruler className="w-3 h-3" />
                 Size Guide
@@ -130,12 +130,12 @@ export default function ProductCard({ product, index = 0 }) {
 
           {/* Top rated badge */}
           {product.rating >= 4.8 && (
-            <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 text-xs font-mono font-bold tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #1B5060)', border: '1px solid rgba(200,164,77,0.5)', color: '#C8A44D' }}>
+            <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 text-xs font-mono font-bold tracking-wider" style={{ background: 'linear-gradient(135deg, #09243A, #09243A)', border: '1px solid rgba(200,164,77,0.5)', color: '#E6AC45' }}>
               <Flame className="w-3 h-3" /> HOT
             </div>
           )}
           {product.featured && product.rating < 4.8 && (
-            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-mono tracking-wider" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
+            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-mono tracking-wider" style={{ background: 'linear-gradient(135deg, #09243A, #E6AC45)', color: '#fff' }}>
               BEST SELLER
             </div>
           )}
@@ -150,7 +150,7 @@ export default function ProductCard({ product, index = 0 }) {
           {product.rating > 0 && (
             <div className="flex items-center gap-2 mb-2">
               <StarRow rating={product.rating} />
-              <span className="text-xs font-mono font-bold" style={{ color: '#C8A44D' }}>
+              <span className="text-xs font-mono font-bold" style={{ color: '#E6AC45' }}>
                 {product.rating?.toFixed(1)}
               </span>
               {product.review_count > 0 && (
@@ -161,7 +161,7 @@ export default function ProductCard({ product, index = 0 }) {
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="font-mono font-bold text-base" style={{ color: '#C8A44D' }}>
+              <span className="font-mono font-bold text-base" style={{ color: '#E6AC45' }}>
                 ${product.price?.toFixed(2)}
               </span>
               {product.compare_at_price > product.price && (
@@ -171,7 +171,7 @@ export default function ProductCard({ product, index = 0 }) {
               )}
             </div>
             {product.compare_at_price > product.price && (
-              <span className="font-mono text-[10px] font-bold px-1.5 py-0.5" style={{ backgroundColor: 'rgba(200,164,77,0.15)', color: '#C8A44D' }}>
+              <span className="font-mono text-[10px] font-bold px-1.5 py-0.5" style={{ backgroundColor: 'rgba(200,164,77,0.15)', color: '#E6AC45' }}>
                 SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
               </span>
             )}

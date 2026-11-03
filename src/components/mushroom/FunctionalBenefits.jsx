@@ -2,16 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Shield, Zap, Moon, Leaf, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const MUSHROOM_BENEFITS = [
-  { icon: Brain, title: "Lion's Mane", description: 'Supports cognitive function, memory, and mental clarity', color: '#A8D5BA' },
+  { icon: Brain, title: "Lion's Mane", description: 'Supports cognitive function, memory, and mental clarity', color: '#264A35' },
   { icon: Shield, title: 'Reishi', description: 'Rich in antioxidants, supports immune health and wellness', color: '#D4A574' },
-  { icon: Zap, title: 'Clean Energy', description: 'Sustained focus without jitters or afternoon crash', color: '#E6B7AD' },
+  { icon: Zap, title: 'Clean Energy', description: 'Sustained focus without jitters or afternoon crash', color: '#E6AC45' },
 ];
 
 const MATCHA_BENEFITS = [
-  { icon: Leaf, title: 'L-Theanine', description: 'Promotes relaxed alertness and calm focus', color: '#10B981' },
+  { icon: Leaf, title: 'L-Theanine', description: 'Promotes relaxed alertness and calm focus', color: '#264A35' },
   { icon: Zap, title: 'Natural Caffeine', description: 'Gentle, sustained energy from whole leaf matcha', color: '#8BC45A' },
   { icon: Moon, title: 'Antioxidants', description: 'Rich in EGCG and catechins for cellular health', color: '#C4A85A' },
 ];
@@ -40,7 +40,7 @@ export default function FunctionalBenefits({ product }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}60` }}>
             Functional Benefits
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F7F2E9' }}>
             {isMatcha ? 'The Power of Ceremonial Matcha' : 'The Science of Functional Mushrooms'}
           </h2>
           <p
@@ -93,7 +93,7 @@ export default function FunctionalBenefits({ product }) {
           className="p-6 text-center"
           style={{
             background: `radial-gradient(ellipse at center, ${isMatcha ? 'rgba(16,185,129,0.08)' : 'rgba(230,183,173,0.06)'} 0%, transparent 70%)`,
-            border: `1px solid ${isMatcha ? '#10B98125' : `${RG}20`}`,
+            border: `1px solid ${isMatcha ? '#264A3525' : `${RG}20`}`,
             borderRadius: '4px',
           }}
         >
@@ -101,7 +101,7 @@ export default function FunctionalBenefits({ product }) {
             className="font-heading text-base"
             style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.8 }}
           >
-            <span className="font-serif font-bold" style={{ color: isMatcha ? '#10B981' : RG }}>
+            <span className="font-serif font-bold" style={{ color: isMatcha ? '#264A35' : RG }}>
               {product.name}
             </span>{' '}
             {isMatcha

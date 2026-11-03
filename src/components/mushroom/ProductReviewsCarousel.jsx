@@ -4,8 +4,8 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 export default function ProductReviewsCarousel({ productSlug }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +77,7 @@ export default function ProductReviewsCarousel({ productSlug }) {
           </p>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.3rem, 3vw, 2rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(1.3rem, 3vw, 2rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             What People Are Saying
           </h2>
@@ -122,7 +122,7 @@ export default function ProductReviewsCarousel({ productSlug }) {
                 {/* Review text */}
                 <blockquote
                   className="font-heading mb-4 md:mb-5 flex-1"
-                  style={{ fontSize: '0.8rem', md: '0.9rem', color: '#F5EFE6', lineHeight: 1.6 }}
+                  style={{ fontSize: '0.8rem', md: '0.9rem', color: '#F7F2E9', lineHeight: 1.6 }}
                 >
                   "{review.body.length > 150 ? review.body.substring(0, 150) + '...' : review.body}"
                 </blockquote>

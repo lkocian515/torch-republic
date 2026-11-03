@@ -10,7 +10,7 @@ const PUMPKIN_SPICE_IMAGE =
 const COLORS = {
   bg: '#2A1A12',        // dark espresso brown (not pure black)
   bgAccent: '#3D2817',  // slightly lighter for gradient depth
-  cream: '#F7EEDD',    // label cream
+  cream: '#F7F2E9',    // label cream
   terracotta: '#D6743A', // pumpkin orange
   burntOrange: '#A93E26', // typography terracotta
   brown: '#5D2F20',    // dark brown

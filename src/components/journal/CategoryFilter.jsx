@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Articles', count: null },

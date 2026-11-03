@@ -51,7 +51,7 @@ function RoastBar({ level }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="h-full rounded-full"
-          style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.4), #C9A24A)' }}
+          style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.4), #E6AC45)' }}
         />
       </div>
       <p className="font-mono text-[10px] mt-2 text-center" style={{ color: 'rgba(196,163,90,0.6)' }}>{level}</p>
@@ -63,7 +63,7 @@ export default function QRStoryTemplate({ data }) {
   const {
     product_name, collection, TR_number, hero_quote, hook_text, symbolism_text,
     historical_anchor, flavor_notes, roast_level, brew_methods, takeaway_quote,
-    takeaway_text, hero_image, accent_color = '#C9A24A', series_blends = [],
+    takeaway_text, hero_image, accent_color = '#E6AC45', series_blends = [],
     shopify_handle,
   } = data;
 
@@ -73,7 +73,7 @@ export default function QRStoryTemplate({ data }) {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 0.06, 0.06, 0]);
 
   return (
-    <div ref={containerRef} style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div ref={containerRef} style={{ backgroundColor: '#0B0B0B', color: '#F7F2E9', minHeight: '100vh' }}>
 
       {/* ── AMBIENT TORCH GLOW ── */}
       <motion.div
@@ -127,7 +127,7 @@ export default function QRStoryTemplate({ data }) {
             <FadeUp delay={0.2}>
               <blockquote
                 className="font-serif italic leading-tight"
-                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#F0EBE1', fontWeight: 700 }}
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#F7F2E9', fontWeight: 700 }}
               >
                 "{hero_quote}"
               </blockquote>
@@ -183,7 +183,7 @@ export default function QRStoryTemplate({ data }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(196,163,90,0.4)' }}>
             What This Represents
           </p>
-          <h2 className="font-serif font-bold mb-10 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F0EBE1' }}>
+          <h2 className="font-serif font-bold mb-10 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F7F2E9' }}>
             {product_name}
           </h2>
         </FadeUp>
@@ -255,7 +255,7 @@ export default function QRStoryTemplate({ data }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(196,163,90,0.4)' }}>
             The Blend
           </p>
-          <h2 className="font-serif font-bold mb-12" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', color: '#F0EBE1' }}>
+          <h2 className="font-serif font-bold mb-12" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', color: '#F7F2E9' }}>
             Craft. Flavor. Meaning.
           </h2>
         </FadeUp>
@@ -343,7 +343,7 @@ export default function QRStoryTemplate({ data }) {
               Torchbearer Takeaway
             </p>
             <blockquote className="font-serif italic leading-tight mb-8"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F0EBE1', fontWeight: 700 }}>
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F7F2E9', fontWeight: 700 }}>
               "{takeaway_quote}"
             </blockquote>
             <p className="font-heading text-sm leading-relaxed" style={{ color: 'rgba(240,235,225,0.45)', maxWidth: '560px', margin: '0 auto' }}>
@@ -365,7 +365,7 @@ export default function QRStoryTemplate({ data }) {
               <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: 'rgba(196,163,90,0.4)' }}>
                 Complete the Series
               </p>
-              <h2 className="font-serif font-bold mb-12 text-center" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F0EBE1' }}>
+              <h2 className="font-serif font-bold mb-12 text-center" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F7F2E9' }}>
                 Carry Every Flame
               </h2>
             </FadeUp>
@@ -401,7 +401,7 @@ export default function QRStoryTemplate({ data }) {
                       </div>
                     )}
                     <div className="p-5">
-                      <p className="font-serif font-bold mb-1" style={{ color: '#F0EBE1', fontSize: '1.05rem' }}>{blend.name}</p>
+                      <p className="font-serif font-bold mb-1" style={{ color: '#F7F2E9', fontSize: '1.05rem' }}>{blend.name}</p>
                       <p className="font-mono text-[9px]" style={{ color: 'rgba(196,163,90,0.5)' }}>{blend.roast}</p>
                     </div>
                   </Link>
@@ -421,7 +421,7 @@ export default function QRStoryTemplate({ data }) {
             Torch Republic
           </p>
           <h2 className="font-serif font-bold mb-4 leading-tight"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#F0EBE1' }}>
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#F7F2E9' }}>
             Carry the Flame
           </h2>
           <p className="font-heading text-sm mb-12 max-w-md mx-auto" style={{ color: 'rgba(240,235,225,0.35)' }}>
@@ -431,16 +431,16 @@ export default function QRStoryTemplate({ data }) {
             <Link
               to="/TheTorchBox"
               className="px-8 py-4 font-mono text-xs tracking-widest uppercase transition-all"
-              style={{ background: '#C9A24A', color: '#000', border: '1px solid #C9A24A' }}
+              style={{ background: '#E6AC45', color: '#000', border: '1px solid #E6AC45' }}
               onMouseEnter={e => e.currentTarget.style.background = '#E4C46A'}
-              onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
+              onMouseLeave={e => e.currentTarget.style.background = '#E6AC45'}
             >
               Join Torchbearers
             </Link>
             <Link
               to="/Collections"
               className="px-8 py-4 font-mono text-xs tracking-widest uppercase transition-all"
-              style={{ background: 'transparent', color: '#C9A24A', border: '1px solid rgba(196,163,90,0.4)' }}
+              style={{ background: 'transparent', color: '#E6AC45', border: '1px solid rgba(196,163,90,0.4)' }}
               onMouseEnter={e => e.currentTarget.style.background = 'rgba(196,163,90,0.06)'}
               onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
             >

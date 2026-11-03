@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Flame } from 'lucide-react';
 
-export default function NextStepBridge({ productName = 'Washington Blend', accent = '#C9A24A' }) {
+export default function NextStepBridge({ productName = 'Washington Blend', accent = '#E6AC45' }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -35,7 +35,7 @@ export default function NextStepBridge({ productName = 'Washington Blend', accen
           </span>
         </div>
 
-        <h3 className="font-serif mb-3" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+        <h3 className="font-serif mb-3" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
           Loved {productName}?<br />
           <span style={{ color: accent }}>Never miss another blend.</span>
         </h3>

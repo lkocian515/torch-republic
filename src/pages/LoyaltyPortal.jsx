@@ -8,14 +8,14 @@ import { ChevronRight, Lock, CheckCircle } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const CLAY = '#B7653E';
-const PAGE = '#FBF8F2';
-const CARD = '#FFFFFF';
-const CREAM = '#FBF8F1';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const PAGE = '#F7F2E9';
+const CARD = '#FFFCF7';
+const CREAM = '#F7F2E9';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
 const GOLD = '#B89535';
 
 function LoyaltyCard({ points, lifetimePoints, nextTier, progressPercent }) {
@@ -234,7 +234,7 @@ export default function LoyaltyPortal() {
             className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
             style={{
               background: CLAY,
-              color: '#FFFFFF',
+              color: '#FFFCF7',
               fontSize: '0.7rem',
               fontWeight: 700,
               padding: '14px 36px',
@@ -319,7 +319,7 @@ export default function LoyaltyPortal() {
             <Link
               to="/shop"
               className="inline-flex items-center gap-2 font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
-              style={{ background: CLAY, color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '4px' }}
+              style={{ background: CLAY, color: '#FFFCF7', fontSize: '0.7rem', fontWeight: 700, padding: '14px 36px', borderRadius: '4px' }}
             >
               Start Earning <ChevronRight size={14} />
             </Link>

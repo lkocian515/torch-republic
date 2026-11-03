@@ -20,15 +20,15 @@ import WhyInstantRitualSection from '@/components/coffee/WhyInstantRitualSection
 import CoffeeTrustBar from '@/components/coffee/CoffeeTrustBar';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
-const RG = '#B7653E';
-const DEEP_CHARCOAL = '#FBF8F1';
-const WARM_CREAM = '#F7F1E7';
+const RG = '#9B4E2F';
+const DEEP_CHARCOAL = '#F7F2E9';
+const WARM_CREAM = '#F7F2E9';
 const MUSHROOM_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png';
 
 // Find Your Blend recommendations
 const BLEND_RECOMMENDATIONS = [
-  { goal: 'I want focus', blend: 'GlowMind Clarity', slug: 'glowmind-clarity', icon: Brain, color: '#E6B7AD' },
-  { goal: 'I want morning energy', blend: 'SunCap Rise', slug: 'suncap-rise', icon: Sun, color: '#D6B27A' },
+  { goal: 'I want focus', blend: 'GlowMind Clarity', slug: 'glowmind-clarity', icon: Brain, color: '#E6AC45' },
+  { goal: 'I want morning energy', blend: 'SunCap Rise', slug: 'suncap-rise', icon: Sun, color: '#E6AC45' },
   { goal: 'I want calm restoration', blend: 'MoonCap Restore', slug: 'mooncap-restore', icon: Moon, color: '#9EAD95' },
 ];
 
@@ -85,28 +85,28 @@ export default function MushroomCoffeeCollection() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F7F1E7' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F7F2E9' }}>
       {/* SEO Components */}
       <GlobalSEOHead page={{ url: '/shop/instant-mushroom-coffee', type: 'product.group' }} />
       <CategorySEO category="instant-mushroom-coffee" products={products} />
       <FAQSchema faqs={FAQS} />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative px-6 md:px-10 pt-20 pb-16" style={{ background: '#F7F1E7', borderBottom: `1px solid ${RG}25` }}>
+      <section className="relative px-6 md:px-10 pt-20 pb-16" style={{ background: '#F7F2E9', borderBottom: `1px solid ${RG}25` }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center mb-12">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center lg:text-left">
               <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
                 Torch Republic Coffee Co.,  Mushroom Coffee
               </p>
-              <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#32190F', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                  Premium Coffee Rituals<br />Powered By Nature
                </h1>
-               <p className="font-heading max-w-2xl mx-auto lg:mx-0 mb-8" style={{ fontSize: '1.05rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+               <p className="font-heading max-w-2xl mx-auto lg:mx-0 mb-8" style={{ fontSize: '1.05rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
                  Single-origin Papua New Guinea coffee meets Lion's Mane, Cordyceps and Reishi. Three premium instant mushroom coffee blends,  coffee-forward, freeze-dried to preserve dark chocolate and toasted almond notes. No machine, no pods, no compromise.
                 </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
+                <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F2E9', borderRadius: '4px' }}>
                   Shop Mushroom Coffee
                 </Link>
                 <Link to="#find-your-blend" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-4 px-10" style={{ border: `1px solid ${RG}`, color: RG, borderRadius: '4px' }}>
@@ -114,7 +114,7 @@ export default function MushroomCoffeeCollection() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${RG}30` }}>
+            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFCF7', border: `1px solid ${RG}30` }}>
               <img src={MUSHROOM_HERO_IMAGE} alt="Torch Republic SunCap Rise, MoonCap Restore, and GlowMind Clarity mushroom coffee blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
             </motion.div>
           </div>
@@ -133,7 +133,7 @@ export default function MushroomCoffeeCollection() {
                   <div style={{ width: 36, height: 36, borderRadius: '50%', background: `${RG}15`, border: `1px solid ${RG}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <item.icon size={16} style={{ color: RG }} />
                   </div>
-                  <p className="font-heading text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5F574F' }}>{item.label}</p>
+                  <p className="font-heading text-[9px] tracking-[0.2em] uppercase" style={{ color: '#5E4639' }}>{item.label}</p>
                 </div>
               ))}
             </div>
@@ -154,27 +154,27 @@ export default function MushroomCoffeeCollection() {
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>01,  The Ritual Upgrade</p>
-            <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#32190F' }}>
               Why Add Mushrooms to Your Coffee?
             </h2>
-            <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.9 }}>
+            <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.9 }}>
               Regular coffee can leave you jittery. Mushroom coffee is designed to give you cleaner energy,  less jittery, more sustained, and paired with functional support. Torch Republic blends premium instant coffee with Lion's Mane, Cordyceps and Reishi, traditionally chosen to support focus, balance, and calm clarity.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { title: 'Focus', desc: 'Blends featuring Lion\'s Mane are crafted for mornings when you want clarity and mental presence.', icon: Brain, color: '#E6B7AD' },
-              { title: 'Resilience', desc: 'Mushroom blends with Reishi are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#D6B27A' },
-              { title: 'Ritual', desc: 'Instant format means no grinder, no machine, and no complicated routine. Just scoop, stir, and begin.', icon: Coffee, color: '#C98F86' },
+              { title: 'Focus', desc: 'Blends featuring Lion\'s Mane are crafted for mornings when you want clarity and mental presence.', icon: Brain, color: '#E6AC45' },
+              { title: 'Resilience', desc: 'Mushroom blends with Reishi are often chosen by people building a steadier daily ritual.', icon: Shield, color: '#E6AC45' },
+              { title: 'Ritual', desc: 'Instant format means no grinder, no machine, and no complicated routine. Just scoop, stir, and begin.', icon: Coffee, color: '#9B4E2F' },
             ].map((card, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-6" style={{ background: '#FFFDF8', border: `1px solid ${card.color}25`, borderRadius: '6px' }}>
+                className="p-6" style={{ background: '#FFFCF7', border: `1px solid ${card.color}25`, borderRadius: '6px' }}>
                 <div className="mb-4" style={{ width: 48, height: 48, borderRadius: '50%', background: `${card.color}15`, border: `1px solid ${card.color}35`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <card.icon size={22} style={{ color: card.color }} />
                 </div>
                 <h3 className="font-serif font-bold  mb-3" style={{ fontSize: '1.2rem' }}>{card.title}</h3>
-                <p className="font-heading text-sm leading-relaxed" style={{ color: '#5F574F', fontWeight: 300 }}>{card.desc}</p>
+                <p className="font-heading text-sm leading-relaxed" style={{ color: '#5E4639', fontWeight: 300 }}>{card.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -184,24 +184,24 @@ export default function MushroomCoffeeCollection() {
       {/* ── SUBSCRIBER SAVINGS BANNER ── */}
       <div className="px-6 md:px-10 py-4" style={{ background: 'rgba(230,183,173,0.06)', borderTop: `1px solid ${RG}20`, borderBottom: `1px solid ${RG}20` }}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-heading text-sm text-center sm:text-left" style={{ color: '#5F574F' }}>
+          <p className="font-heading text-sm text-center sm:text-left" style={{ color: '#5E4639' }}>
             <span style={{ color: RG, fontWeight: 600 }}>Subscribers save 20% and never run out of focus fuel.</span> All blends available as subscriptions,  build a daily ritual that supports your brain, not just your caffeine habit.
           </p>
-          <Link to="/subscription" className="flex-shrink-0 font-mono text-[9px] tracking-[0.25em] uppercase font-bold px-5 py-2.5 transition-all hover:opacity-90 whitespace-nowrap" style={{ background: RG, color: '#F7F1E7', borderRadius: '2px' }}>
+          <Link to="/subscription" className="flex-shrink-0 font-mono text-[9px] tracking-[0.25em] uppercase font-bold px-5 py-2.5 transition-all hover:opacity-90 whitespace-nowrap" style={{ background: RG, color: '#F7F2E9', borderRadius: '2px' }}>
             Subscribe &amp; Save →
           </Link>
         </div>
       </div>
 
       {/* ── PRODUCT COLLECTION ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#F7F1E7' }}>
+      <section className="px-6 md:px-10 py-20" style={{ background: '#F7F2E9' }}>
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>02,  The Collection</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#32190F' }}>
               Choose Your Ritual
             </h2>
-            <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
               One purpose-built mushroom coffee,  premium instant coffee with Lion's Mane, Cordyceps and Reishi for a focused morning. Available as a subscription,  <Link to="/subscription" style={{ color: RG, textDecoration: 'none' }}>save 20% and never run out →</Link>
             </p>
           </motion.div>
@@ -229,10 +229,10 @@ export default function MushroomCoffeeCollection() {
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>04,  Transparency</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#32190F' }}>
               What's Inside Each Cup?
             </h2>
-            <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading max-w-2xl mx-auto mb-8" style={{ fontSize: '0.95rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
               Every blend is formulated with a different ritual in mind. Check individual product pages for exact ingredients and serving details.
             </p>
           </motion.div>
@@ -240,9 +240,9 @@ export default function MushroomCoffeeCollection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
             {INGREDIENTS.map((ing, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="p-6" style={{ background: '#FFFDF8', border: `1px solid ${RG}20`, borderRadius: '6px' }}>
+                className="p-6" style={{ background: '#FFFCF7', border: `1px solid ${RG}20`, borderRadius: '6px' }}>
                 <h3 className="font-serif font-bold  mb-3" style={{ fontSize: '1.15rem' }}>{ing.name}</h3>
-                <p className="font-heading text-sm mb-3" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.7 }}>{ing.benefit}</p>
+                <p className="font-heading text-sm mb-3" style={{ color: '#5E4639', fontWeight: 300, lineHeight: 1.7 }}>{ing.benefit}</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: RG }}>{ing.blends}</p>
               </motion.div>
             ))}
@@ -250,7 +250,7 @@ export default function MushroomCoffeeCollection() {
 
           {/* FDA Disclaimer */}
           <div className="p-6 text-center" style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}15`, borderRadius: '6px' }}>
-            <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: '#5F574F', lineHeight: 1.8 }}>
+            <p className="font-mono text-[7px] tracking-[0.15em] max-w-2xl mx-auto" style={{ color: '#5E4639', lineHeight: 1.8 }}>
               These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
             </p>
           </div>
@@ -261,11 +261,11 @@ export default function MushroomCoffeeCollection() {
       <MushroomTransparencyTable />
 
       {/* ── FAQ SECTION ── */}
-      <section className="px-6 md:px-10 py-20" style={{ background: '#F7F1E7', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
+      <section className="px-6 md:px-10 py-20" style={{ background: '#F7F2E9', borderTop: `1px solid ${RG}15`, borderBottom: `1px solid ${RG}15` }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: RG }}>05,  Questions</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#32190F' }}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -273,14 +273,14 @@ export default function MushroomCoffeeCollection() {
           <div className="flex flex-col gap-3">
             {FAQS.map((faq, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="p-5" style={{ background: '#FFFDF8', border: `1px solid ${RG}15`, borderRadius: '6px' }}>
+                className="p-5" style={{ background: '#FFFCF7', border: `1px solid ${RG}15`, borderRadius: '6px' }}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                   <span className="font-serif font-bold " style={{ fontSize: '1.05rem' }}>{faq.q}</span>
                   <span className="font-mono text-lg" style={{ color: RG }}>{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-4 pt-4" style={{ borderTop: `1px solid ${RG}15` }}>
-                    <p className="font-heading text-sm" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>{faq.a}</p>
+                    <p className="font-heading text-sm" style={{ color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>{faq.a}</p>
                   </motion.div>
                 )}
               </motion.div>
@@ -293,15 +293,15 @@ export default function MushroomCoffeeCollection() {
       <CollectionReviewCarousel category="mushroom-coffee" />
 
       {/* ── FINAL CTA ── */}
-      <section className="px-6 md:px-10 py-20 text-center" style={{ background: '#F7F1E7', borderTop: `1px solid ${RG}15` }}>
+      <section className="px-6 md:px-10 py-20 text-center" style={{ background: '#F7F2E9', borderTop: `1px solid ${RG}15` }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#292622' }}>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#32190F' }}>
             Premium Coffee Rituals Powered By Nature
           </h2>
-          <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+          <p className="font-heading mb-8" style={{ fontSize: '0.95rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
             Single-origin Papua New Guinea coffee. Functional mushrooms. A clearer morning,  powered by nature, crafted for your daily ritual.
           </p>
-          <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F1E7', borderRadius: '4px' }}>
+          <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4 px-10" style={{ background: RG, color: '#F7F2E9', borderRadius: '4px' }}>
             Shop Mushroom Coffee →
           </Link>
         </motion.div>

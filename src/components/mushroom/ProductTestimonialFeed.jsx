@@ -4,8 +4,8 @@ import { Star, Quote } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 function StarRow({ rating, size = 'sm' }) {
   const sz = size === 'lg' ? 'w-5 h-5' : 'w-3.5 h-3.5';
@@ -57,7 +57,7 @@ export default function ProductTestimonialFeed({ productHandle, productName, acc
         <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-2" style={{ color: `${RG}55` }}>
           Customer Experiences
         </p>
-        <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#FFFFFF' }}>
+        <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#FFFCF7' }}>
           {productName ? `What People Say About ${productName}` : 'What Our Customers Say'}
         </h2>
         {/* Summary row */}
@@ -87,7 +87,7 @@ export default function ProductTestimonialFeed({ productHandle, productName, acc
         <Quote className="w-8 h-8 mb-4 opacity-30" style={{ color }} />
         <blockquote
           className="font-serif mb-5"
-          style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', color: '#F5EFE6', lineHeight: 1.75, fontStyle: 'italic' }}
+          style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', color: '#F7F2E9', lineHeight: 1.75, fontStyle: 'italic' }}
         >
           "{heroReview.body}"
         </blockquote>

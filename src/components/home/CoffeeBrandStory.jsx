@@ -28,12 +28,12 @@ export default function CoffeeBrandStory() {
         {/* Header */}
         <div className="max-w-2xl mb-14">
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Why Torch Republic Coffee</span>
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>Why Torch Republic Coffee</span>
           </div>
           <h2 className="font-serif text-white leading-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
             Coffee is the medium.<br />
-            <span style={{ color: '#C8A44D' }}>History is the message.</span>
+            <span style={{ color: '#E6AC45' }}>History is the message.</span>
           </h2>
           <p className="text-gray-500 text-sm leading-relaxed">
             Torch Republic exists to preserve, teach, and pass down the ideas that built civilization — through everyday ritual. The flame is yours to carry.
@@ -53,7 +53,7 @@ export default function CoffeeBrandStory() {
               style={{ background: 'rgba(14,42,47,0.15)', border: '1px solid rgba(200,164,77,0.1)' }}
             >
               <div className="w-10 h-10 flex items-center justify-center mb-5" style={{ background: 'rgba(200,164,77,0.08)', border: '1px solid rgba(200,164,77,0.2)' }}>
-                <p.icon className="w-5 h-5" style={{ color: '#C8A44D' }} />
+                <p.icon className="w-5 h-5" style={{ color: '#E6AC45' }} />
               </div>
               <h3 className="font-serif text-white mb-3" style={{ fontSize: '1.25rem', fontWeight: 600 }}>{p.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{p.body}</p>

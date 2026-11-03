@@ -36,7 +36,7 @@ export default function HomeStoryStrip() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-6" style={{ color: 'rgba(196,163,90,0.45)' }}>
             Our Story
           </p>
-          <h2 className="font-serif mb-7" style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', fontWeight: 700, color: '#F0EBE1', lineHeight: 1.2 }}>
+          <h2 className="font-serif mb-7" style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', fontWeight: 700, color: '#F7F2E9', lineHeight: 1.2 }}>
             Every great movement begins over a cup of coffee.
           </h2>
           <p className="font-heading leading-relaxed mb-8" style={{ color: 'rgba(240,235,225,0.5)', fontSize: '0.95rem', fontWeight: 300, lineHeight: 1.9 }}>

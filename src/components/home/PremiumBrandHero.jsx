@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function PremiumBrandHero() {
   return (
@@ -28,7 +28,7 @@ export default function PremiumBrandHero() {
             
             <h1 className="font-serif font-bold mb-6" style={{
               fontSize: 'clamp(2.4rem, 5vw, 4.2rem)',
-              color: '#FFFFFF',
+              color: '#FFFCF7',
               letterSpacing: '-0.02em',
               lineHeight: 1.1
             }}>

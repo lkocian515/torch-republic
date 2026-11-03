@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // Community member photos (lifestyle/ritual imagery) — verified reachable.
 // Removed 4b8c7e3f1_14.png + 7a2d9f5e8_15.png (404).
@@ -75,7 +75,7 @@ export default function CustomerTestimonials() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Real Members, Real Rituals
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             See How Our Members Are Using Torch Republic
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -128,7 +128,7 @@ export default function CustomerTestimonials() {
                   </div>
 
                   {/* Testimonial */}
-                  <p className="font-heading text-sm mb-4 flex-1" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.7 }}>
+                  <p className="font-heading text-sm mb-4 flex-1" style={{ color: '#F7F2E9', fontWeight: 300, lineHeight: 1.7 }}>
                     "{review.body}"
                   </p>
 
@@ -137,7 +137,7 @@ export default function CustomerTestimonials() {
 
                   {/* User Info */}
                   <div>
-                    <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>
+                    <p className="font-serif font-bold text-sm" style={{ color: '#F7F2E9' }}>
                       {review.reviewer_name}
                     </p>
                     <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-2" style={{ color: RG }}>

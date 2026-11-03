@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 export default function ReviewsCarousel({ reviews }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,7 +42,7 @@ export default function ReviewsCarousel({ reviews }) {
           </p>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             What Our Community Says
           </h2>
@@ -85,7 +85,7 @@ export default function ReviewsCarousel({ reviews }) {
                 {/* Review text */}
                 <blockquote
                   className="font-heading mb-6 flex-1"
-                  style={{ fontSize: '0.95rem', color: '#F5EFE6', lineHeight: 1.7 }}
+                  style={{ fontSize: '0.95rem', color: '#F7F2E9', lineHeight: 1.7 }}
                 >
                   "{review.body}"
                 </blockquote>

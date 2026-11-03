@@ -17,16 +17,16 @@ import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 import { useMutation } from '@tanstack/react-query';
 
 // Light Torch Republic cart theme
-const PAGE_BG = '#FBF8F2';
-const CARD = '#FFFFFF';
-const INK = '#2D2824';
+const PAGE_BG = '#F7F2E9';
+const CARD = '#FFFCF7';
+const INK = '#32190F';
 const INK_SOFT = '#5C544C';
-const MUTED = '#6A5A4A';
-const MUTED_MED = '#6A5A4A';
-const BORDER = '#E4D8C9';
-const ACCENT = '#B86543';
+const MUTED = '#5E4639';
+const MUTED_MED = '#5E4639';
+const BORDER = '#B89A6D';
+const ACCENT = '#9B4E2F';
 const ACCENT_PANEL = 'rgba(184,101,67,0.06)';
-const BTN_TEXT = '#FBF8F1';
+const BTN_TEXT = '#F7F2E9';
 
 // What the shopper is actually buying: the grind they chose and the package
 // size for brewed coffee, servings for instant. "Ground · 12 oz (340 g)" reads
@@ -144,7 +144,7 @@ export default function Cart() {
                 className="flex items-center gap-4 p-4"
                 style={{ background: CARD, border: `1px solid ${BORDER}` }}
               >
-                <img src={getProductImage(item)} alt={item.imageAlt || getProductAltText(item)} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#F8F5EF', padding: '4px' }} />
+                <img src={getProductImage(item)} alt={item.imageAlt || getProductAltText(item)} className="w-16 h-16 object-contain flex-shrink-0" style={{ background: '#F7F2E9', padding: '4px' }} />
                 <div className="flex-1 min-w-0">
                   <p className="font-serif font-bold text-base mb-1 leading-snug" style={{ color: INK }}>{item.name}</p>
                   <p className="font-mono text-xs tracking-[0.1em] uppercase mb-2" style={{ color: MUTED }}>

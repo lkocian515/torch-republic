@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const DIM = 'rgba(240,232,220,0.55)';
 
 const FACTS = [
@@ -42,7 +42,7 @@ export default function LionsManeCoffee() {
         <motion.h1
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
           className="font-serif font-bold"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F7F2E9', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '20px' }}
         >
           Lion's Mane Coffee<br />
           <span style={{ color: RG }}>for Focus & Mental Clarity</span>
@@ -69,7 +69,7 @@ export default function LionsManeCoffee() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'start' }}>
           <div>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.45)', marginBottom: '12px' }}>The Mushroom</p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2, marginBottom: '16px' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F2E9', lineHeight: 1.2, marginBottom: '16px' }}>
               What Makes Lion's Mane Different
             </h2>
             <p className="font-heading" style={{ fontSize: '0.9rem', color: DIM, fontWeight: 300, lineHeight: 1.8 }}>
@@ -94,7 +94,7 @@ export default function LionsManeCoffee() {
       <section style={{ background: 'rgba(230,183,173,0.03)', borderTop: '1px solid rgba(230,183,173,0.07)', padding: 'clamp(48px, 6vw, 80px) 24px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.45)', marginBottom: '12px' }}>Our Blends</p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F5EFE6', marginBottom: '36px' }}>
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F7F2E9', marginBottom: '36px' }}>
             Find Your Lion's Mane Ritual
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
@@ -104,7 +104,7 @@ export default function LionsManeCoffee() {
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.12)'}
               >
                 <div>
-                  <p className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1rem', margin: '0 0 4px' }}>{p.name}</p>
+                  <p className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1rem', margin: '0 0 4px' }}>{p.name}</p>
                   <p className="font-heading" style={{ color: DIM, fontSize: '0.85rem', fontWeight: 300, margin: 0 }}>{p.tagline}</p>
                 </div>
                 <span style={{ color: RG, fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>View →</span>

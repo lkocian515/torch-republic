@@ -11,7 +11,7 @@ import { TYPE } from '@/components/home/drift/driftTheme';
 
 const T = {
   bg: '#1A0F0A',
-  cream: '#F7EEDD',
+  cream: '#F7F2E9',
   body: '#E6D8CA',
   terracotta: '#D6743A',
 };
@@ -47,7 +47,7 @@ export default function EditionHero() {
   // the exact square image intact, then place only the requested copy and CTA below it.
   if (campaign.slug === 'mushroom-morning') {
     return (
-      <section className="w-full overflow-hidden" style={{ background: '#F7EEDD' }} aria-label="Torch Republic Instant Mushroom Coffee">
+      <section className="w-full overflow-hidden" style={{ background: '#F7F2E9' }} aria-label="Torch Republic Instant Mushroom Coffee">
         <img
           src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/8d172a36b_01-15013.png"
           alt="Square image reading ‘A little magic in your morning’ and ‘Mushroom Instant Coffee,’ with a Torch Republic pouch and steaming cup at sunrise."
@@ -63,7 +63,7 @@ export default function EditionHero() {
           <Link
             to="/products/instant-mushroom-coffee"
             className="inline-flex min-h-[52px] items-center justify-center rounded-md px-7 font-heading font-semibold transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{ background: '#071326', color: '#F7EEDD', border: '1px solid #C9A24A', fontSize: '1rem', textDecoration: 'none' }}
+            style={{ background: '#071326', color: '#F7F2E9', border: '1px solid #E6AC45', fontSize: '1rem', textDecoration: 'none' }}
           >
             Shop Mushroom Coffee
           </Link>

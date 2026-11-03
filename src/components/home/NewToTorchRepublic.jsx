@@ -2,25 +2,25 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PATHS = [
   {
     label: 'Classic coffee drinker',
     link: '/shop/instant-coffee',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
     desc: 'Bold, smooth instant coffee — no machine',
   },
   {
     label: 'Mushroom coffee curious',
     link: '/shop/instant-mushroom-coffee',
-    accent: '#10B981',
+    accent: '#264A35',
     desc: 'Coffee-forward taste with functional mushrooms',
   },
   {
     label: 'Matcha drinker',
     link: '/shop/matcha',
-    accent: '#6EE7B7',
+    accent: '#264A35',
     desc: 'Ceremonial-grade matcha, ready in seconds',
   },
   {
@@ -59,7 +59,7 @@ export default function NewToTorchRepublic() {
             </p>
             <h2
               className="font-serif font-bold mb-2"
-              style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', color: '#F5EFE6', lineHeight: 1.25 }}
+              style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', color: '#F7F2E9', lineHeight: 1.25 }}
             >
               New to Torch Republic?
             </h2>

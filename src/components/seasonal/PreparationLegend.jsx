@@ -25,7 +25,7 @@ export default function PreparationLegend({ tone = 'light' }) {
             border: `1px solid ${border}`,
             borderRadius: 4,
             padding: '0.75rem 0.875rem',
-            background: tone === 'dark' ? 'rgba(255,255,255,0.03)' : '#FFFFFF',
+            background: tone === 'dark' ? 'rgba(255,255,255,0.03)' : '#FFFCF7',
           }}
         >
           <p

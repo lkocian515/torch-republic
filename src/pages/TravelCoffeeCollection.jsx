@@ -13,7 +13,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import { ritualCards } from '@/lib/collectionRitualProducts';
 
-const ACCENT = '#B7653E';
+const ACCENT = '#9B4E2F';
 
 const TRAVEL_PRODUCTS = [
   { name: 'Ember Reserve', path: '/products/ember-rise-instant-coffee' },
@@ -53,9 +53,9 @@ export default function TravelCoffeeCollection() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: '#F7F1E7' }}>
+    <div className="min-h-screen" style={{ background: '#F7F2E9' }}>
       {/* Hero */}
-      <section className="px-6 md:px-10 pt-16 pb-12 text-center" style={{ background: '#FBF8F1', borderBottom: `1px solid ${ACCENT}22` }}>
+      <section className="px-6 md:px-10 pt-16 pb-12 text-center" style={{ background: '#F7F2E9', borderBottom: `1px solid ${ACCENT}22` }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5" style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}30` }}>
             <Plane size={12} style={{ color: ACCENT }} />
@@ -77,7 +77,7 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* Travel Scenarios */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F1E7' }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>Wherever You Are</p>
@@ -88,8 +88,8 @@ export default function TravelCoffeeCollection() {
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                 className="card-torch p-5">
                 <p className="text-xl mb-3">{s.icon}</p>
-                <p className="font-serif font-bold mb-2" style={{ color: '#292622', fontSize: '0.95rem' }}>{s.title}</p>
-                <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.75 }}>{s.tip}</p>
+                <p className="font-serif font-bold mb-2" style={{ color: '#32190F', fontSize: '0.95rem' }}>{s.title}</p>
+                <p className="font-heading text-xs" style={{ color: '#5E4639', lineHeight: 1.75 }}>{s.tip}</p>
               </motion.div>
             ))}
           </div>
@@ -97,7 +97,7 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* Products */}
-      <section className="px-6 md:px-10 py-16" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <CollectionIntro
@@ -118,7 +118,7 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* Selection aid + cross-link */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F1E7' }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9' }}>
         <SelectionAid
           accent={ACCENT}
           items={[
@@ -133,17 +133,17 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* Why instant for travel */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="card-torch p-6">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>TSA Compliant</p>
-            <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.75 }}>
+            <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.75 }}>
               Instant coffee powder is a dry solid, not subject to the 3-1-1 liquids rule. Your pouch travels in carry-on with no restrictions.
             </p>
           </div>
           <div className="card-torch p-6">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>Zero Cleanup</p>
-            <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.75 }}>
+            <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.75 }}>
               No grounds, no filter, no machine. Add water to powder, stir, and you’re done,  in a tent, a conference room, or a plane seat.
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F1E7', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-16" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <p className="eyebrow mb-3" style={{ color: ACCENT }}>Questions</p>
@@ -161,12 +161,12 @@ export default function TravelCoffeeCollection() {
             {FAQS.map((faq, i) => (
               <div key={i} className="card-torch p-5">
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-                  <span className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#292622' }}>{faq.q}</span>
+                  <span className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#32190F' }}>{faq.q}</span>
                   <span className="font-mono text-lg" style={{ color: ACCENT }}>{openFaq === i ? '−' : '+'}</span>
                 </button>
                 {openFaq === i && (
                   <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-4 pt-4" style={{ borderTop: `1px solid ${ACCENT}18` }}>
-                    <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.8 }}>{faq.a}</p>
+                    <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.8 }}>{faq.a}</p>
                   </motion.div>
                 )}
               </div>
@@ -176,7 +176,7 @@ export default function TravelCoffeeCollection() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#FBF8F1', borderTop: `1px solid ${ACCENT}18` }}>
+      <section className="px-6 md:px-10 py-16 text-center" style={{ background: '#F7F2E9', borderTop: `1px solid ${ACCENT}18` }}>
         <div className="max-w-xl mx-auto">
           <h2 className="h2 mb-4">Pack your ritual.</h2>
           <p className="body-lg mb-8">Any 3 blends for $49.99. Tube fits anywhere. Ships free over $45.</p>

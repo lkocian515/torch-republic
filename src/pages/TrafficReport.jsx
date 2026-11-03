@@ -5,7 +5,7 @@ import { RefreshCw, ExternalLink, TrendingUp, Eye, Globe } from 'lucide-react';
 
 const CHANNEL_COLORS = {
   'Organic Search': '#4ADE80',
-  'Direct': '#E6B7AD',
+  'Direct': '#E6AC45',
   'Social': '#60A5FA',
   'Paid Search': '#FBBF24',
   'Email': '#A78BFA',
@@ -24,10 +24,10 @@ const StatCard = ({ icon: Icon, label, value, sub }) => (
     padding: '20px 24px',
   }}>
     <div className="flex items-center gap-2 mb-2">
-      <Icon size={14} style={{ color: '#E6B7AD' }} />
+      <Icon size={14} style={{ color: '#E6AC45' }} />
       <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{label}</span>
     </div>
-    <div className="font-serif font-bold text-3xl" style={{ color: '#F5EFE6' }}>{value}</div>
+    <div className="font-serif font-bold text-3xl" style={{ color: '#F7F2E9' }}>{value}</div>
     {sub && <div className="font-mono text-[9px] mt-1" style={{ color: 'rgba(200,185,165,0.45)' }}>{sub}</div>}
   </div>
 );
@@ -71,7 +71,7 @@ export default function TrafficReport() {
             <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.4)' }}>
               Google Analytics · Product Pages
             </p>
-            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
               Traffic Sources
             </h1>
             {data && (
@@ -84,7 +84,7 @@ export default function TrafficReport() {
             onClick={fetchData}
             disabled={loading}
             className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase px-4 py-2.5 transition-opacity hover:opacity-70"
-            style={{ background: 'rgba(230,183,173,0.1)', border: '1px solid rgba(230,183,173,0.2)', color: '#E6B7AD', borderRadius: '2px' }}
+            style={{ background: 'rgba(230,183,173,0.1)', border: '1px solid rgba(230,183,173,0.2)', color: '#E6AC45', borderRadius: '2px' }}
           >
             <RefreshCw size={12} className={loading ? 'animate-spin' : ''} />
             Refresh
@@ -125,7 +125,7 @@ export default function TrafficReport() {
                   <YAxis tick={{ fill: 'rgba(200,185,165,0.35)', fontSize: 9, fontFamily: 'var(--font-mono)' }} axisLine={false} tickLine={false} />
                   <Tooltip
                     contentStyle={{ background: '#111', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px', fontFamily: 'var(--font-mono)', fontSize: '11px' }}
-                    labelStyle={{ color: '#E6B7AD' }}
+                    labelStyle={{ color: '#E6AC45' }}
                     itemStyle={{ color: 'rgba(240,230,215,0.8)' }}
                     formatter={(value, name) => [value.toLocaleString(), name]}
                   />
@@ -159,7 +159,7 @@ export default function TrafficReport() {
                         <td className="px-6 py-3.5">
                           <div className="flex items-center gap-2.5">
                             <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: getColor(c.channel), flexShrink: 0 }} />
-                            <span className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{c.channel}</span>
+                            <span className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{c.channel}</span>
                           </div>
                         </td>
                         <td className="px-6 py-3.5 font-mono text-sm" style={{ color: 'rgba(240,230,215,0.75)' }}>{c.sessions.toLocaleString()}</td>
@@ -198,7 +198,7 @@ export default function TrafficReport() {
                         className="hover:bg-white/[0.02] transition-colors">
                         <td className="px-6 py-3.5">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs" style={{ color: '#E6B7AD' }}>{p.path}</span>
+                            <span className="font-mono text-xs" style={{ color: '#E6AC45' }}>{p.path}</span>
                             <a href={`https://torchrepublic.com${p.path}`} target="_blank" rel="noreferrer">
                               <ExternalLink size={10} style={{ color: 'rgba(230,183,173,0.35)' }} />
                             </a>

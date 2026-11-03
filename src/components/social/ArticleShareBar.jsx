@@ -16,7 +16,7 @@ import { Facebook, Twitter, Linkedin, Mail, Link as LinkIcon, Check, Share2, Mes
 import { base44 } from '@/api/base44Client';
 import { resolveLiveUrl, resolveImageUrl } from '@/lib/articleSocialMeta';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 /**
  * @param {object} props
@@ -227,7 +227,7 @@ export default function ArticleShareBar({
           onClick={handleCopy}
           aria-label="Copy article link"
           className={buttonBase}
-          style={iconBtnStyle(copied ? 'rgba(16,185,129,0.12)' : `${RG}10`, copied ? '#10B981' : RG, copied ? 'rgba(16,185,129,0.4)' : `${RG}30`)}
+          style={iconBtnStyle(copied ? 'rgba(16,185,129,0.12)' : `${RG}10`, copied ? '#264A35' : RG, copied ? 'rgba(16,185,129,0.4)' : `${RG}30`)}
         >
           {copied ? <Check size={13} /> : <LinkIcon size={13} />}
           {copied ? 'Link Copied' : 'Copy Link'}

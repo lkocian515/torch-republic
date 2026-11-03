@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, X } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const COMPARISON_ROWS = [
   { feature: 'No machine or pods needed', tr: true, generic: false },
@@ -70,7 +70,7 @@ export default function WhyTorchRepublic() {
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
             Why Choose Torch Republic?
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             A Better Daily Ritual
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '1.05rem', color: 'rgba(245,239,230,0.9)', fontWeight: 400, lineHeight: 1.9 }}>
@@ -115,12 +115,12 @@ export default function WhyTorchRepublic() {
                     <td className="py-2.5 font-heading text-sm" style={{ color: 'rgba(245,239,230,0.95)', fontWeight: 400 }}>{row.feature}</td>
                     <td className="py-2.5 text-center">
                       {row.tr
-                        ? <Check className="w-4 h-4 mx-auto" style={{ color: '#10B981' }} />
+                        ? <Check className="w-4 h-4 mx-auto" style={{ color: '#264A35' }} />
                         : <X className="w-4 h-4 mx-auto" style={{ color: 'rgba(255,255,255,0.2)' }} />}
                     </td>
                     <td className="py-2.5 text-center">
                       {row.generic
-                        ? <Check className="w-4 h-4 mx-auto" style={{ color: '#10B981' }} />
+                        ? <Check className="w-4 h-4 mx-auto" style={{ color: '#264A35' }} />
                         : <X className="w-4 h-4 mx-auto" style={{ color: 'rgba(255,255,255,0.2)' }} />}
                     </td>
                   </tr>

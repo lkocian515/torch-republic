@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, Leaf, Award, Truck, Star, User } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TRUST_ITEMS = [
   { icon: Shield, label: 'Secure Checkout', sub: 'SSL encrypted & protected' },
@@ -23,7 +23,7 @@ export default function TrustSection() {
           </p>
           <h2
             className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             Built on Trust & Quality
           </h2>
@@ -53,7 +53,7 @@ export default function TrustSection() {
           className="max-w-2xl mx-auto text-center"
           style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', padding: '32px', borderRadius: '4px' }}
         >
-          <p className="font-serif font-bold text-lg mb-3" style={{ color: '#F5EFE6' }}>
+          <p className="font-serif font-bold text-lg mb-3" style={{ color: '#F7F2E9' }}>
             A Note from the Founder
           </p>
           <p className="font-heading text-base mb-4" style={{ color: 'rgba(245,239,230,0.9)', fontWeight: 400, lineHeight: 1.8, fontStyle: 'italic' }}>

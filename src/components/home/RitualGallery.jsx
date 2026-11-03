@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Coffee, Sun, Book, Laptop, Music, Mountain } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const RITUAL_PHOTOS = [
   {
@@ -88,7 +88,7 @@ export default function RitualGallery() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Community Rituals
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             The Ritual Gallery
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -133,7 +133,7 @@ export default function RitualGallery() {
                         {photo.blend}
                       </p>
                     </div>
-                    <h3 className="font-serif font-bold text-lg mb-2" style={{ color: '#F5EFE6' }}>
+                    <h3 className="font-serif font-bold text-lg mb-2" style={{ color: '#F7F2E9' }}>
                       {photo.ritual}
                     </h3>
                     <p className="font-heading text-xs mb-3" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.6 }}>

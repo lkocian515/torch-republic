@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const TShirtIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14 6 L6 12 L10 16 L10 34 L30 34 L30 16 L34 12 L26 6 C25 9 22 11 20 11 C18 11 15 9 14 6Z" fill="url(#tg)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient></defs>
   </svg>
 );
 
@@ -14,25 +14,25 @@ const HoodieIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M13 5 C13 5 10 8 8 10 L4 14 L9 18 L10 34 L30 34 L31 18 L36 14 L32 10 C30 8 27 5 27 5 C25 10 22 12 20 12 C18 12 15 10 13 5Z" fill="url(#hg)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
     <path d="M16 12 L16 20 M24 12 L24 20 M16 20 Q20 22 24 20" stroke="rgba(201,162,74,0.5)" strokeWidth="0.8" fill="none"/>
-    <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient></defs>
   </svg>
 );
 
 const HatIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M6 26 Q20 14 34 26" fill="url(#hatg)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    <rect x="5" y="25" width="30" height="5" rx="1" fill="#C8A44D" opacity="0.8"/>
+    <rect x="5" y="25" width="30" height="5" rx="1" fill="#E6AC45" opacity="0.8"/>
     <path d="M15 25 Q20 16 25 25" fill="url(#hatg2)" stroke="rgba(201,162,74,0.4)" strokeWidth="0.6"/>
     <defs>
-      <linearGradient id="hatg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient>
-      <linearGradient id="hatg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient>
+      <linearGradient id="hatg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient>
+      <linearGradient id="hatg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient>
     </defs>
   </svg>
 );
 
 const TankIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="tank-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    <defs><linearGradient id="tank-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient></defs>
     {/* Shoulders */}
     <path d="M10 6 L6 14 L12 16 L12 34 L28 34 L28 16 L34 14 L30 6" fill="url(#tank-g)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
     {/* Neck scoop */}
@@ -47,17 +47,17 @@ const TankIcon = () => (
 const TeaIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 14 L12 32 Q12 34 14 34 L26 34 Q28 34 28 32 L30 14Z" fill="url(#teg)" stroke="rgba(201,162,74,0.6)" strokeWidth="0.8"/>
-    <rect x="9" y="13" width="22" height="3" rx="1" fill="#C8A44D" opacity="0.7"/>
+    <rect x="9" y="13" width="22" height="3" rx="1" fill="#E6AC45" opacity="0.7"/>
     <path d="M20 8 Q18 5 20 3 Q22 5 20 8" stroke="rgba(201,162,74,0.8)" strokeWidth="1" fill="none"/>
     <line x1="18" y1="13" x2="18" y2="7" stroke="rgba(201,162,74,0.5)" strokeWidth="0.8"/>
-    <defs><linearGradient id="teg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="100%" stopColor="#1B5060"/></linearGradient></defs>
+    <defs><linearGradient id="teg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="100%" stopColor="#09243A"/></linearGradient></defs>
   </svg>
 );
 
 const StickerIcon = () => (
   <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <polygon points="20,4 24,14 35,14 26,21 29,32 20,25 11,32 14,21 5,14 16,14" fill="url(#sg)" stroke="rgba(201,162,74,0.7)" strokeWidth="0.8"/>
-    <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0E2A2F"/><stop offset="60%" stopColor="#1B5060"/><stop offset="100%" stopColor="#C8A44D" stopOpacity="0.6"/></linearGradient></defs>
+    <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#09243A"/><stop offset="60%" stopColor="#09243A"/><stop offset="100%" stopColor="#E6AC45" stopOpacity="0.6"/></linearGradient></defs>
   </svg>
 );
 
@@ -75,7 +75,7 @@ export default function CategoryGrid() {
     <section className="py-14 px-6 md:px-8" style={{ backgroundColor: '#0B0B0B', borderTop: '1px solid rgba(201,162,74,0.1)' }}>
       <div className="max-w-[1280px] mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-xl font-heading font-black uppercase tracking-widest mb-1" style={{ color: '#C9A24A' }}>Quick Shop</h2>
+          <h2 className="text-xl font-heading font-black uppercase tracking-widest mb-1" style={{ color: '#E6AC45' }}>Quick Shop</h2>
           <p className="font-mono text-xs tracking-widest text-gray-500 uppercase">Browse by category</p>
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">

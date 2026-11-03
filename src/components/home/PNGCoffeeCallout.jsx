@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mountain, Flame, Snowflake, Coffee } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PILLARS = [
   { icon: Mountain, label: 'High-Altitude', detail: 'Highland growing regions' },
@@ -26,7 +26,7 @@ export default function PNGCoffeeCallout() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
             The Origin
           </p>
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Single-Origin Papua New Guinea Coffee
           </h2>
         </div>

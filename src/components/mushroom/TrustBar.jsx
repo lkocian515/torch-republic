@@ -22,7 +22,7 @@ export default function MushroomTrustBar() {
         {ITEMS.map(({ icon: Icon, label }, i) => (
           <div key={label} className="flex items-center">
             <div className="flex items-center gap-2.5 whitespace-nowrap py-3.5 px-5 md:px-7">
-              <Icon size={13} style={{ color: '#C4A35A', flexShrink: 0 }} />
+              <Icon size={13} style={{ color: '#E6AC45', flexShrink: 0 }} />
               <span className="font-mono text-[8px] tracking-[0.3em] uppercase"
                 style={{ color: 'rgba(214,195,160,0.7)' }}>
                 {label}

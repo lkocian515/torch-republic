@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Leaf, Coffee, Globe, X, ChevronRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SOURCING_LOCATIONS = [
   {
@@ -12,7 +12,7 @@ const SOURCING_LOCATIONS = [
     region: 'Pacific Northwest, USA',
     coordinates: { x: 28, y: 38 },
     icon: Leaf,
-    color: '#E6B7AD',
+    color: '#E6AC45',
     description: 'Our Lion\'s Mane is wild-harvested from the pristine forests of the Pacific Northwest, where cool, moist climates create ideal growing conditions.',
     practices: [
       'Sustainably wild-harvested',
@@ -30,7 +30,7 @@ const SOURCING_LOCATIONS = [
     region: 'Alaska, USA',
     coordinates: { x: 15, y: 25 },
     icon: Leaf,
-    color: '#D6B27A',
+    color: '#E6AC45',
     description: 'Wild-harvested from birch trees in the remote wilderness of Alaska, where extreme cold creates potent antioxidant profiles.',
     practices: [
       'Wild-harvested from birch trees',
@@ -48,7 +48,7 @@ const SOURCING_LOCATIONS = [
     region: 'Huila, Colombia',
     coordinates: { x: 42, y: 58 },
     icon: Coffee,
-    color: '#C98F86',
+    color: '#9B4E2F',
     description: 'Sourced from small family farms in the Huila region, known for producing some of the world\'s finest specialty coffee at high altitudes.',
     practices: [
       'Direct trade with farmers',
@@ -84,7 +84,7 @@ const SOURCING_LOCATIONS = [
     region: 'Uji, Japan',
     coordinates: { x: 78, y: 38 },
     icon: Leaf,
-    color: '#10B981',
+    color: '#264A35',
     description: 'Grown in the historic tea region of Uji, where traditional cultivation methods have been perfected over 800 years.',
     practices: [
       'Shade-grown for 30 days',
@@ -113,7 +113,7 @@ export default function SourcingMap() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Ethical Sourcing
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             Where Quality Begins
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -212,15 +212,15 @@ export default function SourcingMap() {
             {/* Map Legend */}
             <div className="absolute bottom-4 left-4 flex gap-4">
               <div className="flex items-center gap-2">
-                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#E6B7AD' }} />
+                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#E6AC45' }} />
                 <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.6)' }}>Mushrooms</span>
               </div>
               <div className="flex items-center gap-2">
-                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#C98F86' }} />
+                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#9B4E2F' }} />
                 <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.6)' }}>Coffee</span>
               </div>
               <div className="flex items-center gap-2">
-                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#10B981' }} />
+                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#264A35' }} />
                 <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.6)' }}>Matcha</span>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function SourcingMap() {
                   <ChevronRight size={16} style={{ color: location.color, opacity: 0.6 }} />
                 </div>
 
-                <h3 className="font-serif font-bold text-lg mb-2" style={{ color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold text-lg mb-2" style={{ color: '#F7F2E9' }}>
                   {location.name}
                 </h3>
 
@@ -312,7 +312,7 @@ export default function SourcingMap() {
           >
             <Globe size={24} style={{ color: RG }} />
             <div>
-              <p className="font-serif font-bold text-lg mb-2" style={{ color: '#F5EFE6' }}>
+              <p className="font-serif font-bold text-lg mb-2" style={{ color: '#F7F2E9' }}>
                 Our Sourcing Standards
               </p>
               <p className="font-heading text-sm max-w-xl" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -353,7 +353,7 @@ export default function SourcingMap() {
                 className="absolute top-4 right-4 p-2 rounded-full transition-all hover:opacity-70"
                 style={{ background: 'rgba(255,255,255,0.05)', border: 'none', cursor: 'pointer' }}
               >
-                <X size={20} style={{ color: '#F5EFE6' }} />
+                <X size={20} style={{ color: '#F7F2E9' }} />
               </button>
 
               {/* Header */}
@@ -374,7 +374,7 @@ export default function SourcingMap() {
                   <selectedLocation.icon size={32} style={{ color: selectedLocation.color }} />
                 </div>
 
-                <h3 className="font-serif font-bold text-2xl mb-2" style={{ color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold text-2xl mb-2" style={{ color: '#F7F2E9' }}>
                   {selectedLocation.name}
                 </h3>
 
@@ -406,7 +406,7 @@ export default function SourcingMap() {
                   <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: `${selectedLocation.color}80` }}>
                     Altitude
                   </p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 400 }}>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 400 }}>
                     {selectedLocation.altitude}
                   </p>
                 </div>
@@ -421,7 +421,7 @@ export default function SourcingMap() {
                   <p className="font-mono text-[8px] tracking-[0.35em] uppercase mb-2" style={{ color: `${selectedLocation.color}80` }}>
                     Harvest Season
                   </p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 400 }}>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 400 }}>
                     {selectedLocation.season}
                   </p>
                 </div>

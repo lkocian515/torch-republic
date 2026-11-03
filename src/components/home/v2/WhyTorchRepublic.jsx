@@ -31,8 +31,8 @@ export default function WhyTorchRepublic() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#C9A24A' }}>Why Torch Republic</p>
-          <h2 className="font-serif leading-tight" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#E6AC45' }}>Why Torch Republic</p>
+          <h2 className="font-serif leading-tight" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Not just coffee. A declaration.
           </h2>
         </motion.div>
@@ -52,7 +52,7 @@ export default function WhyTorchRepublic() {
                 style={{ background: 'rgba(201,162,74,0.1)', border: '1px solid rgba(201,162,74,0.2)' }}>
                 <span style={{ fontSize: '1.8rem' }}>{p.icon}</span>
               </div>
-              <h3 className="font-serif font-bold mb-4" style={{ fontSize: '1.2rem', color: '#FFFFFF' }}>{p.title}</h3>
+              <h3 className="font-serif font-bold mb-4" style={{ fontSize: '1.2rem', color: '#FFFCF7' }}>{p.title}</h3>
               <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.78)', fontWeight: 400, lineHeight: 1.9 }}>
                 {p.body}
               </p>

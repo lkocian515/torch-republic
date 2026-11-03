@@ -9,7 +9,7 @@ import { ChevronRight, HelpCircle } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { FAQ_PAGES, TOPIC_CLUSTERS } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CLUSTER_ORDER = ['mushroom-coffee', 'instant-coffee', 'wellness-rituals', 'focus-productivity'];
 
@@ -45,7 +45,7 @@ export default function FAQIndex() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
             Torch Republic
           </p>
-          <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Frequently Asked Questions
           </h1>
           <p className="font-heading max-w-xl mx-auto" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.85 }}>
@@ -95,7 +95,7 @@ export default function FAQIndex() {
                   transition={{ delay: ci * 0.04 }}>
                   <div className="flex items-center gap-3 mb-5 pb-3" style={{ borderBottom: `1px solid ${cluster.color}20` }}>
                     <div className="w-1 h-6" style={{ background: cluster.color }} />
-                    <h2 className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#F5EFE6' }}>{cluster.label}</h2>
+                    <h2 className="font-serif font-bold" style={{ fontSize: '1.25rem', color: '#F7F2E9' }}>{cluster.label}</h2>
                     <span className="font-mono text-[8px] tracking-[0.2em]" style={{ color: cluster.color }}>({cluster.faqs.length} questions)</span>
                   </div>
                   <div className="space-y-2">
@@ -144,7 +144,7 @@ export default function FAQIndex() {
       {/* CTA */}
       <section className="py-14 px-6 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.4)' }}>Still have questions?</p>
-        <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.6rem', color: '#F5EFE6' }}>We're here to help</h2>
+        <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.6rem', color: '#F7F2E9' }}>We're here to help</h2>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/contact" className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-3 px-8 transition-all hover:opacity-90"
             style={{ background: RG, color: '#080808' }}>Contact Us</Link>

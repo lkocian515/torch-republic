@@ -83,7 +83,7 @@ export default function DriftShopPaths() {
             >
               <div
                 className="flex items-center justify-center gap-2"
-                style={{ background: '#FFFFFF', padding: '1rem', minHeight: 180 }}
+                style={{ background: '#FFFCF7', padding: '1rem', minHeight: 180 }}
               >
                 {path.images.map((image) => (
                   <img
@@ -114,7 +114,7 @@ export default function DriftShopPaths() {
                   style={{
                     borderRadius: '6px',
                     background: D.terracotta,
-                    color: '#FFF7E8',
+                    color: '#F7F2E9',
                   }}
                 >
                   {path.cta}

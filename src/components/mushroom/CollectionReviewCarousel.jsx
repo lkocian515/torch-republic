@@ -70,10 +70,10 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: '#E6B7AD' }}>
+          <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: '#E6AC45' }}>
             Customer Stories
           </p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F7F2E9' }}>
             Real People. Real Rituals.
           </h2>
         </motion.div>
@@ -93,7 +93,7 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
                 <div className="text-center px-6 py-10" style={{ background: '#111111', borderRadius: '12px', border: '1px solid rgba(230,183,173,0.12)' }}>
                   {/* Quote icon */}
                   <div className="mb-6 flex justify-center">
-                    <Quote size={32} style={{ color: '#E6B7AD', opacity: 0.6 }} />
+                    <Quote size={32} style={{ color: '#E6AC45', opacity: 0.6 }} />
                   </div>
 
                   {/* Rating */}
@@ -102,20 +102,20 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
                       <Star
                         key={i}
                         size={16}
-                        fill={i < (displayReviews[currentIndex].rating || 5) ? '#E6B7AD' : 'none'}
-                        stroke={i < (displayReviews[currentIndex].rating || 5) ? '#E6B7AD' : '#444'}
+                        fill={i < (displayReviews[currentIndex].rating || 5) ? '#E6AC45' : 'none'}
+                        stroke={i < (displayReviews[currentIndex].rating || 5) ? '#E6AC45' : '#444'}
                       />
                     ))}
                   </div>
 
                   {/* Review text */}
-                  <p className="font-heading text-sm mb-6" style={{ color: '#F5EFE6', lineHeight: 1.8, fontStyle: 'italic' }}>
+                  <p className="font-heading text-sm mb-6" style={{ color: '#F7F2E9', lineHeight: 1.8, fontStyle: 'italic' }}>
                     "{displayReviews[currentIndex].body}"
                   </p>
 
                   {/* Reviewer info */}
                   <div className="flex flex-col items-center gap-1">
-                    <p className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ color: '#E6B7AD' }}>
+                    <p className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold" style={{ color: '#E6AC45' }}>
                       {displayReviews[currentIndex].reviewer_name}
                     </p>
                     <p className="font-heading text-xs" style={{ color: 'rgba(210,195,175,0.5)' }}>
@@ -133,14 +133,14 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
               <button
                 onClick={prevReview}
                 className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all hover:opacity-100"
-                style={{ background: 'rgba(230,183,173,0.15)', color: '#E6B7AD' }}
+                style={{ background: 'rgba(230,183,173,0.15)', color: '#E6AC45' }}
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={nextReview}
                 className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all hover:opacity-100"
-                style={{ background: 'rgba(230,183,173,0.15)', color: '#E6B7AD' }}
+                style={{ background: 'rgba(230,183,173,0.15)', color: '#E6AC45' }}
               >
                 <ChevronRight size={20} />
               </button>
@@ -158,7 +158,7 @@ export default function CollectionReviewCarousel({ category = 'matcha' }) {
                   style={{
                     width: index === currentIndex ? '28px' : '8px',
                     height: '8px',
-                    background: index === currentIndex ? '#E6B7AD' : 'rgba(230,183,173,0.25)',
+                    background: index === currentIndex ? '#E6AC45' : 'rgba(230,183,173,0.25)',
                   }}
                 />
               ))}

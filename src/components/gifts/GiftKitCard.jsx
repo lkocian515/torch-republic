@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ShoppingBag, Gift } from 'lucide-react';
 import { guardExternalPurchase } from '@/lib/purchaseFallback';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const fmtPrice = (n) =>
   n.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
@@ -33,7 +33,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
       transition={{ duration: 0.4 }}
       className="flex flex-col h-full"
       style={{
-        background: '#FFFFFF',
+        background: '#FFFCF7',
         border: '1px solid rgba(230,183,173,0.28)',
         borderRadius: '4px',
         overflow: 'hidden',
@@ -49,16 +49,16 @@ export default function GiftKitCard({ kit, index = 0 }) {
       }}
     >
       {/* 1. Text-only header — decorative top accent + icon medallion (no image) */}
-      <div aria-hidden="true" style={{ height: '4px', background: `linear-gradient(90deg, ${RG}30 0%, #B8654380 50%, ${RG}30 100%)` }} />
+      <div aria-hidden="true" style={{ height: '4px', background: `linear-gradient(90deg, ${RG}30 0%, #9B4E2F80 50%, ${RG}30 100%)` }} />
       <div
         className="flex items-center justify-center pt-6 pb-2"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.22)', background: `${RG}0A` }}
       >
         <div
           className="w-12 h-12 rounded-full flex items-center justify-center"
-          style={{ background: '#FBF8F1', border: `1px solid ${RG}50` }}
+          style={{ background: '#F7F2E9', border: `1px solid ${RG}50` }}
         >
-          <Gift size={22} style={{ color: '#B86543' }} aria-hidden="true" />
+          <Gift size={22} style={{ color: '#9B4E2F' }} aria-hidden="true" />
         </div>
       </div>
       {void priority}
@@ -68,7 +68,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {kit.featured && kit.featuredLabel && (
           <div
             className="self-start mb-3 px-3 py-1.5 font-mono text-[8px] tracking-[0.3em] uppercase font-bold rounded-sm"
-            style={{ background: '#B86543', color: '#FBF8F1' }}
+            style={{ background: '#9B4E2F', color: '#F7F2E9' }}
           >
             {kit.featuredLabel}
           </div>
@@ -77,7 +77,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {/* 3. Kit name (heading) */}
         <h3
           className="font-serif font-bold mb-2"
-          style={{ color: '#3F3027', fontSize: '1.4rem', lineHeight: 1.2 }}
+          style={{ color: '#32190F', fontSize: '1.4rem', lineHeight: 1.2 }}
         >
           <Link
             to={kit.detailPath}
@@ -91,7 +91,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         {/* 4. Description */}
         <p
           className="font-heading mb-4"
-          style={{ color: '#6A5A4A', fontWeight: 300, lineHeight: 1.6, fontSize: '0.92rem' }}
+          style={{ color: '#5E4639', fontWeight: 300, lineHeight: 1.6, fontSize: '0.92rem' }}
         >
           {kit.description}
         </p>
@@ -109,7 +109,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
               <li
                 key={i}
                 className="flex items-start gap-2 font-heading"
-                style={{ color: '#3F3027', fontSize: '0.86rem', lineHeight: 1.45 }}
+                style={{ color: '#32190F', fontSize: '0.86rem', lineHeight: 1.45 }}
               >
                 <span
                   aria-hidden="true"
@@ -136,7 +136,7 @@ export default function GiftKitCard({ kit, index = 0 }) {
         <div className="mb-4">
           <span
             className="font-serif font-bold"
-            style={{ color: '#B86543', fontSize: '1.5rem' }}
+            style={{ color: '#9B4E2F', fontSize: '1.5rem' }}
           >
             {fmtPrice(kit.price)}
           </span>
@@ -161,8 +161,8 @@ export default function GiftKitCard({ kit, index = 0 }) {
             aria-label={`Add ${kit.name} to cart`}
             className="flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
             style={{
-              background: '#B86543',
-              color: '#FBF8F1',
+              background: '#9B4E2F',
+              color: '#F7F2E9',
               minHeight: '44px',
               padding: '12px 16px',
             }}
@@ -178,13 +178,13 @@ export default function GiftKitCard({ kit, index = 0 }) {
             className="flex items-center justify-center gap-1 font-mono text-[9px] tracking-[0.3em] uppercase font-bold transition-all rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold"
             style={{
               background: 'transparent',
-              color: '#B86543',
-              border: `1px solid #E6B7AD`,
+              color: '#9B4E2F',
+              border: `1px solid #E6AC45`,
               minHeight: '44px',
               padding: '12px 16px',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#B86543'; e.currentTarget.style.background = `${RG}18`; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E6B7AD'; e.currentTarget.style.background = 'transparent'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#9B4E2F'; e.currentTarget.style.background = `${RG}18`; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E6AC45'; e.currentTarget.style.background = 'transparent'; }}
           >
             View Gift <ChevronRight className="w-3 h-3" aria-hidden="true" />
           </Link>

@@ -59,7 +59,7 @@ export default function SeasonalPairingPanel() {
   return (
     <section
       aria-labelledby="seasonal-pairing"
-      style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 2rem)' }}
+      style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 4, padding: 'clamp(1.25rem, 3vw, 2rem)' }}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>

@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Leaf, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
-const GREEN = '#10B981';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
+const GREEN = '#264A35';
 
 const CATEGORIES = [
   {
@@ -49,7 +49,7 @@ export default function BlendComparisonTable() {
           <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
             Category Guide
           </p>
-          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Not Sure Where to Start?
           </h2>
           <p className="font-heading text-sm max-w-xl mx-auto" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
@@ -67,7 +67,7 @@ export default function BlendComparisonTable() {
                   <th key={cat.name} className="text-center py-4 px-4" style={{ minWidth: '200px' }}>
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <cat.icon size={18} style={{ color: cat.accent }} />
-                      <span className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.1rem' }}>{cat.name}</span>
+                      <span className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1.1rem' }}>{cat.name}</span>
                     </div>
                   </th>
                 ))}
@@ -83,7 +83,7 @@ export default function BlendComparisonTable() {
                 <tr key={row.label} style={{ borderBottom: i < 3 ? `1px solid ${RG}15` : 'none' }}>
                   <td className="py-4 px-4 font-heading text-sm" style={{ color: 'rgba(245,239,230,0.7)' }}>{row.label}</td>
                   {CATEGORIES.map((cat) => (
-                    <td key={cat.name} className="text-center py-4 px-4 font-heading text-sm" style={{ color: '#F5EFE6' }}>
+                    <td key={cat.name} className="text-center py-4 px-4 font-heading text-sm" style={{ color: '#F7F2E9' }}>
                       {cat[row.key]}
                     </td>
                   ))}
@@ -106,24 +106,24 @@ export default function BlendComparisonTable() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <cat.icon size={20} style={{ color: cat.accent }} />
-                <h3 className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1.2rem' }}>{cat.name}</h3>
+                <h3 className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1.2rem' }}>{cat.name}</h3>
               </div>
               <div className="space-y-3">
                 <div>
                   <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Best For</p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.bestFor}</p>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{cat.bestFor}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Flavor</p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.flavor}</p>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{cat.flavor}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Mushrooms</p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.mushrooms}</p>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{cat.mushrooms}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1" style={{ color: 'rgba(245,239,230,0.5)' }}>Caffeine</p>
-                  <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{cat.caffeine}</p>
+                  <p className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{cat.caffeine}</p>
                 </div>
               </div>
             </motion.div>

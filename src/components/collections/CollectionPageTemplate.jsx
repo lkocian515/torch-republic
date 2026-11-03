@@ -13,7 +13,7 @@ import TorchBoxBanner from './TorchBoxBanner';
  *  - description: string (one paragraph below the banner)
  *  - quote: string (closing large serif quote)
  *  - quoteAttrib: string (optional attribution)
- *  - accentColor: string (default '#C9A24A')
+ *  - accentColor: string (default '#E6AC45')
  *  - children: product grid
  */
 export default function CollectionPageTemplate({
@@ -24,11 +24,11 @@ export default function CollectionPageTemplate({
   description,
   quote,
   quoteAttrib,
-  accentColor = '#C9A24A',
+  accentColor = '#E6AC45',
   children,
 }) {
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9' }}>
 
       {/* ════════════════════════════════════════════
           CINEMATIC BANNER
@@ -77,7 +77,7 @@ export default function CollectionPageTemplate({
               style={{
                 fontSize: 'clamp(3rem, 7vw, 6rem)',
                 fontWeight: 800,
-                color: '#FFFFFF',
+                color: '#FFFCF7',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 60px rgba(0,0,0,0.9)',
               }}
@@ -149,7 +149,7 @@ export default function CollectionPageTemplate({
               className="font-serif italic leading-tight"
               style={{
                 fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
-                color: '#F0EBE1',
+                color: '#F7F2E9',
                 fontWeight: 700,
                 lineHeight: 1.25,
               }}

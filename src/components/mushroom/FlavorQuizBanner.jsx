@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function FlavorQuizBanner() {
   return (
@@ -34,7 +34,7 @@ export default function FlavorQuizBanner() {
             className="font-serif font-bold mb-4"
             style={{
               fontSize: 'clamp(1.7rem, 3.5vw, 2.2rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
             }}

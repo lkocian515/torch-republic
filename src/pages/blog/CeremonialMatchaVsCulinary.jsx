@@ -24,7 +24,7 @@ export default function CeremonialMatchaVsCulinary() {
   });
 
   return (
-    <article style={{ background: '#080808', color: '#F7F1E8', minHeight: '100vh' }}>
+    <article style={{ background: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       <div className="max-w-[740px] mx-auto px-6 py-16 md:py-24">
 
         <nav className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase mb-10" style={{ color: 'rgba(255,255,255,0.28)' }}>
@@ -32,14 +32,14 @@ export default function CeremonialMatchaVsCulinary() {
           <span>›</span>
           <Link to="/journal" style={{ color: 'inherit', textDecoration: 'none' }} className="hover:text-white transition-colors">Journal</Link>
           <span>›</span>
-          <span style={{ color: '#E6B7AD' }}>Ceremonial vs Culinary Matcha</span>
+          <span style={{ color: '#E6AC45' }}>Ceremonial vs Culinary Matcha</span>
         </nav>
 
-        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(107,189,90,0.1)', color: '#6CBD5A', border: '1px solid rgba(107,189,90,0.25)' }}>
+        <span className="font-mono text-[8px] tracking-[0.4em] uppercase px-3 py-1.5 mb-6 inline-block" style={{ background: 'rgba(107,189,90,0.1)', color: '#264A35', border: '1px solid rgba(107,189,90,0.25)' }}>
           Matcha
         </span>
 
-        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+        <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           Ceremonial Matcha vs Culinary Matcha: What's the Difference?
         </h1>
 
@@ -70,7 +70,7 @@ export default function CeremonialMatchaVsCulinary() {
                 <thead>
                   <tr style={{ borderBottom: '1px solid rgba(107,189,90,0.2)' }}>
                     <th className="text-left py-3 font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}></th>
-                    <th className="py-3 font-mono text-[8px] tracking-[0.25em] uppercase text-center" style={{ color: '#6CBD5A' }}>Ceremonial</th>
+                    <th className="py-3 font-mono text-[8px] tracking-[0.25em] uppercase text-center" style={{ color: '#264A35' }}>Ceremonial</th>
                     <th className="py-3 font-mono text-[8px] tracking-[0.25em] uppercase text-center" style={{ color: 'rgba(255,255,255,0.35)' }}>Culinary</th>
                   </tr>
                 </thead>
@@ -86,7 +86,7 @@ export default function CeremonialMatchaVsCulinary() {
                   ].map(([f, c, cu]) => (
                     <tr key={f} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                       <td className="py-2.5 pr-4" style={{ color: 'rgba(247,241,232,0.7)' }}>{f}</td>
-                      <td className="py-2.5 text-center text-xs" style={{ color: '#6CBD5A' }}>{c}</td>
+                      <td className="py-2.5 text-center text-xs" style={{ color: '#264A35' }}>{c}</td>
                       <td className="py-2.5 text-center text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{cu}</td>
                     </tr>
                   ))}
@@ -115,7 +115,7 @@ export default function CeremonialMatchaVsCulinary() {
 
           <section>
             <h2 className="font-serif font-bold text-white mb-3" style={{ fontSize: '1.3rem' }}>Torch Republic Matcha: Ceremonial Grade, Instant Format</h2>
-            <p>Both Torch Republic matcha blends,  <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Monk</Link> and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6B7AD', textDecoration: 'none' }}>The Alchemist</Link>,  use 100% ceremonial grade matcha in instant format.</p>
+            <p>Both Torch Republic matcha blends,  <Link to="/products/the-monk-matcha-blend" style={{ color: '#E6AC45', textDecoration: 'none' }}>The Monk</Link> and <Link to="/products/the-alchemist-matcha-blend" style={{ color: '#E6AC45', textDecoration: 'none' }}>The Alchemist</Link>,  use 100% ceremonial grade matcha in instant format.</p>
             <p className="mt-3">That means you get the smooth, vibrant taste and full L-Theanine content of ceremonial matcha,  without needing a bamboo whisk, a chawan, or any equipment at all. Just add water and stir.</p>
             <p className="mt-3">25 servings per tin. $24.99. About $1.00 per ceremonial-grade serving.</p>
           </section>
@@ -137,7 +137,7 @@ export default function CeremonialMatchaVsCulinary() {
           <p className="font-heading text-sm mb-4" style={{ color: 'rgba(247,241,232,0.6)', fontWeight: 300, lineHeight: 1.7 }}>
             Explore our ceremonial grade matcha blends,  instant format, no equipment needed.
           </p>
-          <Link to="/shop/matcha" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#6CBD5A', color: '#080808' }}>
+          <Link to="/shop/matcha" className="inline-block font-mono text-[9px] tracking-[0.3em] uppercase font-bold px-6 py-3 transition-all hover:opacity-90" style={{ background: '#264A35', color: '#080808' }}>
             Shop Ceremonial Matcha →
           </Link>
         </div>
@@ -150,7 +150,7 @@ export default function CeremonialMatchaVsCulinary() {
               { to: '/journal/matcha-benefits', label: 'Matcha Benefits: What the Research Shows' },
               { to: '/journal/history-of-matcha', label: 'The History of Matcha' },
             ].map(({ to, label }) => (
-              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6B7AD', textDecoration: 'none' }}>→ {label}</Link>
+              <Link key={to} to={to} className="block font-heading text-sm" style={{ color: '#E6AC45', textDecoration: 'none' }}>→ {label}</Link>
             ))}
           </div>
         </div>

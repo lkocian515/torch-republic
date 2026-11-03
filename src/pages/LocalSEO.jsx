@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, Mail, Clock } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function LocalSEO() {
   useSEO({
@@ -28,7 +28,7 @@ export default function LocalSEO() {
           <p className="font-mono text-[11px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.45)' }}>
             Local Business
           </p>
-          <h1 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold text-4xl md:text-5xl mb-6" style={{ color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Torch Republic Coffee Company
           </h1>
           <p className="font-heading text-lg md:text-xl max-w-3xl mx-auto" style={{ color: 'rgba(245,239,230,0.85)', lineHeight: 1.8 }}>
@@ -49,7 +49,7 @@ export default function LocalSEO() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+              <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F7F2E9' }}>
                 Contact Information
               </h2>
               
@@ -100,7 +100,7 @@ export default function LocalSEO() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+              <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F7F2E9' }}>
                 About Our Business
               </h2>
               <p className="font-heading leading-relaxed" style={{ color: 'rgba(245,239,230,0.85)' }}>
@@ -133,7 +133,7 @@ export default function LocalSEO() {
               borderRadius: '4px'
             }}
           >
-            <h2 className="font-serif font-bold text-2xl mb-4" style={{ color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold text-2xl mb-4" style={{ color: '#F7F2E9' }}>
               Service Area
             </h2>
             <p className="font-heading mb-6" style={{ color: 'rgba(245,239,230,0.85)' }}>

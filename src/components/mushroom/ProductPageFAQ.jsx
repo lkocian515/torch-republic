@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const FAQS = [
   {
@@ -86,7 +86,7 @@ export default function ProductPageFAQ() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -133,7 +133,7 @@ export default function ProductPageFAQ() {
                   className="font-heading"
                   style={{
                     fontSize: '0.95rem',
-                    color: openIndex === i ? '#FFFFFF' : 'rgba(247,241,232,0.65)',
+                    color: openIndex === i ? '#FFFCF7' : 'rgba(247,241,232,0.65)',
                     fontWeight: openIndex === i ? 400 : 300,
                     lineHeight: 1.6,
                     paddingRight: '16px',

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Zap, Coffee, Leaf, Sparkles, Brain } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BENEFIT_ICONS = [
   { icon: Zap, label: 'Ready in Seconds' },
@@ -52,7 +52,7 @@ export default function PremiumHero() {
               className="font-serif font-bold mb-6"
               style={{
                 fontSize: 'clamp(3rem,6vw,5rem)',
-                color: '#F5EFE6',
+                color: '#F7F2E9',
                 lineHeight: 1.1,
                 letterSpacing: '-0.02em',
                 maxWidth: '900px',
@@ -221,7 +221,7 @@ export default function PremiumHero() {
             className="font-serif font-bold mb-4"
             style={{
               fontSize: '2.2rem',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
             }}

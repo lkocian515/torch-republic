@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const UPCOMING = [
   { name: 'Liberty Icons', timeline: '2026', status: 'Art Ready', desc: 'Patriotic symbols and archetypes of American identity.', color: '#9BB8CC' },
   { name: 'Commanders', timeline: 'Sep 2026', status: 'In Development', desc: 'Military leaders, battlefield legends, warrior culture.', color: '#7AC87A' },
-  { name: 'Visionaries', timeline: 'Dec 2026', status: 'In Development', desc: 'Scientists, inventors, and geniuses who changed the world.', color: '#C8A44D' },
+  { name: 'Visionaries', timeline: 'Dec 2026', status: 'In Development', desc: 'Scientists, inventors, and geniuses who changed the world.', color: '#E6AC45' },
   { name: 'Patriots', timeline: '2027', status: 'Planned', desc: 'Freedom fighters and abolitionists who expanded liberty for all.', color: '#C87070' },
 ];
 
@@ -16,9 +16,9 @@ export default function SeriesExpansionSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>The Universe Expands</span>
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>The Universe Expands</span>
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
             The Series Is Expanding.
@@ -63,7 +63,7 @@ export default function SeriesExpansionSection() {
           <a
             href="/shop/instant-coffee"
             className="inline-flex items-center gap-3 px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff' }}
+            style={{ background: 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)', color: '#fff' }}
           >
             Shop All Coffee
           </a>

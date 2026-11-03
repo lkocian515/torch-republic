@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Clock, Coffee, Moon, Sun, Zap, Heart } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const RITUALS = [
   {
     name: 'Focus',
     blend: 'GlowMind Clarity',
     slug: 'glowmind-clarity',
-    accent: '#E6B7AD',
+    accent: '#E6AC45',
     icon: Zap,
     bestTime: 'Morning · Deep work sessions',
     taste: 'Smooth medium roast, cocoa, balanced finish',
@@ -21,7 +21,7 @@ const RITUALS = [
     name: 'Energy',
     blend: 'SunCap Rise',
     slug: 'suncap-rise',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
     icon: Sun,
     bestTime: 'Early morning · Fresh starts',
     taste: 'Bright coffee, light cocoa, clean finish',
@@ -32,7 +32,7 @@ const RITUALS = [
     name: 'Calm',
     blend: 'MoonCap Restore',
     slug: 'mooncap-restore',
-    accent: '#C98F86',
+    accent: '#9B4E2F',
     icon: Moon,
     bestTime: 'Evening · Wind-down ritual',
     taste: 'Dark cocoa, smooth coffee, mellow finish',
@@ -93,7 +93,7 @@ export default function ChooseYourRitual() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -185,7 +185,7 @@ export default function ChooseYourRitual() {
                 className="font-serif font-bold"
                 style={{
                   fontSize: '1.35rem',
-                  color: '#FFFFFF',
+                  color: '#FFFCF7',
                   marginBottom: '4px',
                   lineHeight: 1.2,
                 }}

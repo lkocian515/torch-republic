@@ -25,7 +25,7 @@ export default function HomeTrustStrip() {
               <span style={{ fontSize: 'clamp(1.8rem, 3vw, 2.2rem)' }}>
                 {item.icon}
               </span>
-              <p className="font-heading text-sm md:text-base font-medium" style={{ color: '#F0EBE1', lineHeight: 1.4 }}>
+              <p className="font-heading text-sm md:text-base font-medium" style={{ color: '#F7F2E9', lineHeight: 1.4 }}>
                 {item.label}
               </p>
             </motion.div>

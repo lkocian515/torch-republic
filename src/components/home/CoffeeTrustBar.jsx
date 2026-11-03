@@ -24,7 +24,7 @@ export default function CoffeeTrustBar() {
               transition={{ delay: i * 0.07 }}
               className="flex items-center gap-2"
             >
-              <item.icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#C8A44D' }} />
+              <item.icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#E6AC45' }} />
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-gray-500">{item.label}</span>
             </motion.div>
           ))}

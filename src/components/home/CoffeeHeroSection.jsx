@@ -33,8 +33,8 @@ export default function CoffeeHeroSection() {
             transition={{ delay: 0.1 }}
             className="flex items-center gap-3 mb-7"
           >
-            <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>
+            <div className="h-px w-10" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>
               Founders Series — Now Available
             </span>
           </motion.div>
@@ -48,7 +48,7 @@ export default function CoffeeHeroSection() {
             style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', fontWeight: 800 }}
           >
             Carry the<br />
-            <span style={{ color: '#C8A44D' }}>Flame.</span>
+            <span style={{ color: '#E6AC45' }}>Flame.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -73,14 +73,14 @@ export default function CoffeeHeroSection() {
             <a
               href="/shop/instant-coffee"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
-              style={{ background: '#C4A35A', color: '#000', boxShadow: '0 4px 30px rgba(196,163,90,0.3)' }}
+              style={{ background: '#E6AC45', color: '#000', boxShadow: '0 4px 30px rgba(196,163,90,0.3)' }}
             >
               Shop Instant Coffee
             </a>
             <a
               href="/subscription"
               className="inline-flex items-center justify-center px-8 py-4 font-heading font-black text-sm tracking-[0.2em] uppercase transition-all"
-              style={{ background: 'transparent', border: '1px solid #C4A35A', color: 'white' }}
+              style={{ background: 'transparent', border: '1px solid #E6AC45', color: 'white' }}
             >
               Subscribe & Save →
             </a>

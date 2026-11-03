@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BRANDS = [
   { name: 'Torch Republic', short: 'Torch Republic', highlight: true },
@@ -28,7 +28,7 @@ const FEATURES = [
 
 function StatusCell({ status, highlight }) {
   if (status === 'yes') {
-    return <Check size={16} style={{ color: highlight ? RG : '#10B981', display: 'inline-block' }} />;
+    return <Check size={16} style={{ color: highlight ? RG : '#264A35', display: 'inline-block' }} />;
   }
   const symbol = status === 'partial' ? '◐' : '—';
   const color = status === 'partial' ? 'rgba(230,183,173,0.5)' : 'rgba(255,255,255,0.2)';
@@ -48,7 +48,7 @@ export default function PremiumComparisonTable() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>
             How We Compare
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             One Brand. Three Rituals. Zero Compromise.
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.9 }}>

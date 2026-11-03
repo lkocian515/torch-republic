@@ -30,7 +30,7 @@ function ProductCard({ product, index }) {
             onError={() => setImgError(true)}
             alt={getProductAltText(product)}
             className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            style={{ opacity: imgError ? 0.6 : 0.95, background: '#F8F5EF', padding: '12px' }}
+            style={{ opacity: imgError ? 0.6 : 0.95, background: '#F7F2E9', padding: '12px' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
           {product.compare_at_price > product.price && (
@@ -45,7 +45,7 @@ function ProductCard({ product, index }) {
           {product.title}
         </h3>
         <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-sm" style={{ color: '#C8A44D' }}>${product.price?.toFixed(2)}</span>
+          <span className="font-mono font-bold text-sm" style={{ color: '#E6AC45' }}>${product.price?.toFixed(2)}</span>
           {product.compare_at_price > product.price && (
             <span className="font-mono text-xs text-gray-600 line-through">${product.compare_at_price?.toFixed(2)}</span>
           )}

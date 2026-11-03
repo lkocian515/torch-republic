@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
  * items: [{ if: 'you want steady morning energy', pick: 'SunCap Rise', to: '/products/suncap-rise' }]
  * Uses only factual product attributes — no invented claims.
  */
-export default function SelectionAid({ title = 'Choose this if…', items, accent = '#B7653E' }) {
+export default function SelectionAid({ title = 'Choose this if…', items, accent = '#9B4E2F' }) {
   if (!items?.length) return null;
   return (
     <div className="max-w-4xl mx-auto px-6">

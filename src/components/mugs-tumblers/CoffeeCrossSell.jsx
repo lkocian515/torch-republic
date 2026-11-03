@@ -53,10 +53,10 @@ function CoffeeCard({ product, index }) {
       </div>
 
       <div className="p-4">
-        <h4 className="font-serif text-sm font-bold mb-1" style={{ color: '#FFFFFF' }}>
+        <h4 className="font-serif text-sm font-bold mb-1" style={{ color: '#FFFCF7' }}>
           {title}
         </h4>
-        <p className="font-mono text-[9px] mb-3" style={{ color: '#C9A24A', fontWeight: 600 }}>
+        <p className="font-mono text-[9px] mb-3" style={{ color: '#E6AC45', fontWeight: 600 }}>
           ${Number(product.price).toFixed(2)}
         </p>
         <p className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(240,235,225,0.4)' }}>
@@ -89,7 +89,7 @@ export default function CoffeeCrossSell() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.6)' }}>
             Complete the Experience
           </p>
-          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Pair with Your Coffee
           </h2>
           <p className="font-heading mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.6, maxWidth: '480px' }}>
@@ -117,7 +117,7 @@ export default function CoffeeCrossSell() {
           <a
             href="/shop/instant-coffee"
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
-            style={{ color: '#C9A24A', borderBottom: '1px solid rgba(201,162,74,0.4)', paddingBottom: '4px' }}
+            style={{ color: '#E6AC45', borderBottom: '1px solid rgba(201,162,74,0.4)', paddingBottom: '4px' }}
           >
             Explore All Blends →
           </a>

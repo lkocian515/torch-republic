@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Clock } from 'lucide-react';
 
-const AC = '#C9A24A';
+const AC = '#E6AC45';
 
 export default function ThisMonthFeature() {
   return (
@@ -48,7 +48,7 @@ export default function ThisMonthFeature() {
                     April 2026 Feature
                   </p>
                 </div>
-                <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
+                <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F7F2E9', fontWeight: 800, letterSpacing: '-0.02em' }}>
                   Washington Blend Pods
                 </h2>
                 <p style={{ color: 'rgba(240,235,225,0.6)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>

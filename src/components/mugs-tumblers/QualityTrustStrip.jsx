@@ -25,9 +25,9 @@ export default function QualityTrustStrip() {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center gap-3"
               >
-                <Icon className="w-6 h-6" style={{ color: '#C9A24A' }} />
+                <Icon className="w-6 h-6" style={{ color: '#E6AC45' }} />
                 <div>
-                  <p className="font-heading font-semibold text-sm" style={{ color: '#F0EBE1', marginBottom: '4px' }}>
+                  <p className="font-heading font-semibold text-sm" style={{ color: '#F7F2E9', marginBottom: '4px' }}>
                     {item.label}
                   </p>
                   <p className="font-mono text-[8px]" style={{ color: 'rgba(240,235,225,0.4)' }}>

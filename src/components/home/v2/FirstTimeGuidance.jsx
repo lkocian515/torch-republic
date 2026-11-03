@@ -17,9 +17,9 @@ export default function FirstTimeGuidance() {
     >
       <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3 flex-1">
-          <Lightbulb className="w-4 h-4 flex-shrink-0" style={{ color: '#C9A24A' }} />
+          <Lightbulb className="w-4 h-4 flex-shrink-0" style={{ color: '#E6AC45' }} />
           <div>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A', fontWeight: 700 }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: '#E6AC45', fontWeight: 700 }}>
               New Here?
             </p>
             <p className="font-heading text-[13px]" style={{ color: 'rgba(240,235,225,0.7)' }}>
@@ -32,7 +32,7 @@ export default function FirstTimeGuidance() {
           className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase transition-all hover:opacity-90 flex-shrink-0"
           style={{
             background: 'rgba(201,162,74,0.25)',
-            color: '#C9A24A',
+            color: '#E6AC45',
             padding: '10px 20px',
             border: '1px solid rgba(201,162,74,0.35)',
             textDecoration: 'none',

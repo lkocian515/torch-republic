@@ -52,12 +52,12 @@ export default function CollectibleBundlesSection() {
           style={{ marginBottom: '52px' }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <div style={{ width: 32, height: 1, background: '#C9A24A' }} />
+            <div style={{ width: 32, height: 1, background: '#E6AC45' }} />
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.5em', textTransform: 'uppercase', color: 'rgba(201,162,74,0.55)' }}>
               Limited Edition
             </p>
           </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#FFFFFF', fontFamily: 'var(--font-serif)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#FFFCF7', fontFamily: 'var(--font-serif)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
             Collectible Bundles
           </h2>
           <p style={{ fontSize: '0.92rem', color: 'rgba(240,235,225,0.5)', lineHeight: 1.65, maxWidth: '400px' }}>
@@ -120,7 +120,7 @@ export default function CollectibleBundlesSection() {
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: `${accent}60`, marginBottom: '6px' }}>
                     Coffee + Collectible
                   </p>
-                  <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F0EBE1', fontFamily: 'var(--font-serif)', marginBottom: '8px' }}>
+                  <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F7F2E9', fontFamily: 'var(--font-serif)', marginBottom: '8px' }}>
                     {bundle.name}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '14px' }}>
@@ -160,7 +160,7 @@ export default function CollectibleBundlesSection() {
               alignItems: 'center',
               gap: '8px',
               padding: '15px 38px',
-              background: '#C9A24A',
+              background: '#E6AC45',
               color: '#080808',
               fontFamily: 'var(--font-mono)',
               fontSize: '10px',

@@ -27,15 +27,15 @@ function ProductCard({ product, index }) {
             src={getProductImage(product)}
             alt={getProductAltText(product)}
             className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            style={{ opacity: 0.95, background: '#F8F5EF', padding: '12px' }}
+            style={{ opacity: 0.95, background: '#F7F2E9', padding: '12px' }}
           />
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)' }}>
-            <div className="w-full p-4 text-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ background: '#C9A24A', color: '#000' }}>
+            <div className="w-full p-4 text-center font-mono text-[10px] tracking-[0.3em] uppercase font-bold" style={{ background: '#E6AC45', color: '#000' }}>
               Shop Now →
             </div>
           </div>
           {product.compare_at_price > product.price && (
-            <div className="absolute top-3 left-3 font-mono text-[9px] font-bold px-2 py-1" style={{ background: '#C9A24A', color: '#000' }}>
+            <div className="absolute top-3 left-3 font-mono text-[9px] font-bold px-2 py-1" style={{ background: '#E6AC45', color: '#000' }}>
               SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
             </div>
           )}
@@ -45,7 +45,7 @@ function ProductCard({ product, index }) {
           {product.title}
         </h3>
         <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-sm" style={{ color: '#C9A24A' }}>${product.price?.toFixed(2)}</span>
+          <span className="font-mono font-bold text-sm" style={{ color: '#E6AC45' }}>${product.price?.toFixed(2)}</span>
           {product.compare_at_price > product.price && (
             <span className="font-mono text-xs text-gray-600 line-through">${product.compare_at_price?.toFixed(2)}</span>
           )}

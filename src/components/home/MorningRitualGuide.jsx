@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 
 const steps = [
   {
@@ -65,7 +65,7 @@ export default function MorningRitualGuide() {
           <p className="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
             The Practice
           </p>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-4" style={{ color: '#FFFFFF' }}>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-4" style={{ color: '#FFFCF7' }}>
             Your Morning Ritual
           </h2>
           <p
@@ -105,7 +105,7 @@ export default function MorningRitualGuide() {
               <div className="text-3xl mb-4">{step.icon}</div>
 
               {/* Title */}
-              <h3 className="font-serif font-bold text-lg sm:text-xl mb-3" style={{ color: '#FFFFFF' }}>
+              <h3 className="font-serif font-bold text-lg sm:text-xl mb-3" style={{ color: '#FFFCF7' }}>
                 {step.title}
               </h3>
 

@@ -18,7 +18,7 @@ import {
   WELCOME_DISCOUNT_PERCENT,
 } from '@/lib/siteConfig';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // ── Per-serving math derived from live pricing ────────────────────────────
 const SUNCAP_SERVINGS = 27;
@@ -38,7 +38,7 @@ const PATHWAYS = [
     subPrice: SUBSCRIPTION_PRICES['classic-coffee'],
     servings: 27,
     category: 'classic-coffee',
-    accent: '#D6B27A',
+    accent: '#E6AC45',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
     path: '/shop/instant-coffee',
     cta: 'Shop Instant Coffee',
@@ -52,7 +52,7 @@ const PATHWAYS = [
     subPrice: SUBSCRIPTION_PRICES['mushroom-coffee'],
     servings: 27,
     category: 'mushroom-coffee',
-    accent: '#10B981',
+    accent: '#264A35',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
     path: '/products/suncap-rise',
     cta: 'Shop Mushroom Coffee',
@@ -67,7 +67,7 @@ const PATHWAYS = [
     subPrice: SUBSCRIPTION_PRICES['matcha'],
     servings: 25,
     category: 'matcha',
-    accent: '#6EE7B7',
+    accent: '#264A35',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/de131e1b5_blank_bag_white_final_latest1.jpeg',
     path: '/shop/matcha',
     cta: 'Shop Matcha',
@@ -127,7 +127,7 @@ function CostCalculator() {
               className="w-8 h-8 flex items-center justify-center font-bold text-lg"
               style={{ background: '#1A1A1A', color: RG, border: '1px solid rgba(230,183,173,0.2)' }}
             >−</button>
-            <span className="font-mono text-xl font-bold" style={{ color: '#F5EFE6', minWidth: '2ch', textAlign: 'center' }}>{cupsPerDay}</span>
+            <span className="font-mono text-xl font-bold" style={{ color: '#F7F2E9', minWidth: '2ch', textAlign: 'center' }}>{cupsPerDay}</span>
             <button
               onClick={() => setCupsPerDay(Math.min(10, cupsPerDay + 1))}
               className="w-8 h-8 flex items-center justify-center font-bold text-lg"
@@ -152,7 +152,7 @@ function CostCalculator() {
             style={{
               background: '#1A1A1A',
               border: '1px solid rgba(230,183,173,0.2)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               outline: 'none',
             }}
           />
@@ -176,7 +176,7 @@ function CostCalculator() {
             style={{
               background: '#1A1A1A',
               border: '1px solid rgba(230,183,173,0.2)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               outline: 'none',
             }}
           />
@@ -219,7 +219,7 @@ function CostCalculator() {
             <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-1" style={{ color: 'rgba(240,235,225,0.5)' }}>
               Your current est. monthly cost
             </p>
-            <p className="font-mono text-2xl font-bold" style={{ color: '#F5EFE6' }}>
+            <p className="font-mono text-2xl font-bold" style={{ color: '#F7F2E9' }}>
               {formatPrice(currentMonthlyCost)}
             </p>
           </div>
@@ -235,10 +235,10 @@ function CostCalculator() {
 
         {isCheaper ? (
           <div className="pt-4" style={{ borderTop: '1px solid rgba(230,183,173,0.1)' }}>
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1" style={{ color: '#10B981' }}>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1" style={{ color: '#264A35' }}>
               Estimated monthly difference
             </p>
-            <p className="font-mono text-xl font-bold" style={{ color: '#10B981' }}>
+            <p className="font-mono text-xl font-bold" style={{ color: '#264A35' }}>
               Save ~{formatPrice(monthlySavings)}/mo
             </p>
             <p className="font-mono text-[9px] mt-1" style={{ color: 'rgba(240,235,225,0.5)' }}>
@@ -300,7 +300,7 @@ function StickyBar({ visible }) {
     >
       <div className="flex-1 min-w-0">
         <p className="font-mono text-[9px] tracking-[0.12em] uppercase truncate" style={{ color: RG }}>SunCap Rise · Mushroom Coffee</p>
-        <p className="font-mono text-[11px] font-bold" style={{ color: '#F5EFE6' }}>{formatPrice(SUNCAP_PRICE)} one-time · {formatPrice(SUNCAP_SUB_PRICE)} with sub</p>
+        <p className="font-mono text-[11px] font-bold" style={{ color: '#F7F2E9' }}>{formatPrice(SUNCAP_PRICE)} one-time · {formatPrice(SUNCAP_SUB_PRICE)} with sub</p>
       </div>
       <button
         onClick={handleAdd}
@@ -364,7 +364,7 @@ export default function SwitchFromPods() {
           className="font-serif font-bold mb-5 mx-auto"
           style={{
             fontSize: 'clamp(2rem, 5.5vw, 3.5rem)',
-            color: '#F5EFE6',
+            color: '#F7F2E9',
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
             maxWidth: '720px',
@@ -442,7 +442,7 @@ export default function SwitchFromPods() {
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: RG }}>
               As Simple as It Gets
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F7F2E9' }}>
               Ready in 4 Steps
             </h2>
           </div>
@@ -450,7 +450,7 @@ export default function SwitchFromPods() {
             {STEPS.map((step) => (
               <div key={step.num} className="text-center p-5" style={{ background: '#111', border: '1px solid rgba(230,183,173,0.08)' }}>
                 <p className="font-mono text-2xl font-bold mb-2" style={{ color: RG }}>{step.num}</p>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold mb-2" style={{ color: '#F5EFE6' }}>{step.label}</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold mb-2" style={{ color: '#F7F2E9' }}>{step.label}</p>
                 <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.75)', fontWeight: 400 }}>{step.body}</p>
               </div>
             ))}
@@ -465,7 +465,7 @@ export default function SwitchFromPods() {
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: RG }}>
               Three Pathways
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: '#F7F2E9' }}>
               Find Your Ritual
             </h2>
           </div>
@@ -487,7 +487,7 @@ export default function SwitchFromPods() {
                   }}
                 >
                   {p.featured && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1" style={{ background: '#10B981', color: '#080808' }}>
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1" style={{ background: '#264A35', color: '#080808' }}>
                       <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold">Featured — SunCap Rise</p>
                     </div>
                   )}
@@ -567,7 +567,7 @@ export default function SwitchFromPods() {
               />
             </div>
             <div className="flex-1">
-              <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: '#10B981' }}>
+              <p className="font-mono text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: '#264A35' }}>
                 Featured Product
               </p>
               <h2 className="font-serif font-bold text-white mb-2" style={{ fontSize: '1.4rem' }}>
@@ -584,7 +584,7 @@ export default function SwitchFromPods() {
                   "Lion's Mane + Cordyceps + Reishi",
                 ].map(item => (
                   <span key={item} className="flex items-center gap-1.5">
-                    <Check className="w-3 h-3 flex-shrink-0" style={{ color: '#10B981' }} />
+                    <Check className="w-3 h-3 flex-shrink-0" style={{ color: '#264A35' }} />
                     <span className="font-mono text-[9px] tracking-[0.1em] uppercase" style={{ color: 'rgba(240,235,225,0.8)' }}>{item}</span>
                   </span>
                 ))}
@@ -601,7 +601,7 @@ export default function SwitchFromPods() {
                 <Link
                   to="/products/suncap-rise"
                   className="flex items-center justify-center font-mono text-[10px] tracking-[0.2em] uppercase px-6 py-3 transition-all hover:opacity-75"
-                  style={{ border: '1px solid rgba(16,185,129,0.3)', color: '#10B981', textDecoration: 'none' }}
+                  style={{ border: '1px solid rgba(16,185,129,0.3)', color: '#264A35', textDecoration: 'none' }}
                 >
                   View Full Details →
                 </Link>

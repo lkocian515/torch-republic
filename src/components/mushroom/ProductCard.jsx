@@ -69,7 +69,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
     >
       <Link to={`/products/${product.slug}`} className="group block" style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
         <div className="relative overflow-hidden flex items-center justify-center product-image-wrap"
-          style={{ aspectRatio: '1/1', background: '#FFFFFF' }}>
+          style={{ aspectRatio: '1/1', background: '#FFFCF7' }}>
           <img
             src={imageUrl}
             alt={imageAlt}
@@ -98,7 +98,7 @@ export default function MushroomProductCard({ product, index = 0 }) {
 
       <div className="px-5 pt-4 pb-3 flex flex-col gap-2 flex-1">
         <Link to={`/products/${product.slug}`} style={{ textDecoration: 'none' }} onClick={handleLinkClick}>
-          <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#2D2824', lineHeight: 1.2 }}>
+          <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#32190F', lineHeight: 1.2 }}>
             {product.name}
           </h3>
         </Link>
@@ -108,12 +108,12 @@ export default function MushroomProductCard({ product, index = 0 }) {
         </p>
 
         {tasteNotes && (
-          <p className="font-heading text-xs" style={{ color: '#6D625A', lineHeight: 1.6 }}>
+          <p className="font-heading text-xs" style={{ color: '#5E4639', lineHeight: 1.6 }}>
             Taste: {tasteNotes.toLowerCase()}
           </p>
         )}
 
-        <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase" style={{ color: '#6D625A' }}>
+        <p className="font-mono text-[7.5px] tracking-[0.18em] uppercase" style={{ color: '#5E4639' }}>
           {product.category === 'matcha' ? 'Instant Matcha · 25 Servings' : 'Instant Powder Mix · 27 Servings'}
         </p>
         {product.category !== 'matcha' && (
@@ -124,19 +124,19 @@ export default function MushroomProductCard({ product, index = 0 }) {
 
         <div className="flex-1" />
 
-        <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid #E4D8C9' }}>
+        <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid #B89A6D' }}>
           <div>
-            <span className="font-mono font-bold" style={{ color: '#B86543', fontSize: '1.05rem' }}>
+            <span className="font-mono font-bold" style={{ color: '#9B4E2F', fontSize: '1.05rem' }}>
               ${product.price.toFixed(2)}
             </span>
-            <span className="font-mono text-[7px] ml-1.5" style={{ color: '#6D625A' }}>
+            <span className="font-mono text-[7px] ml-1.5" style={{ color: '#5E4639' }}>
               (${(product.price / (product.servings || (product.category === 'matcha' ? 25 : 27))).toFixed(2)}/cup)
             </span>
           </div>
           <Link to={`/products/${product.slug}`}
             onClick={handleLinkClick}
             className="font-mono text-[8px] tracking-[0.22em] uppercase transition-opacity hover:opacity-70"
-            style={{ color: '#B86543', textDecoration: 'none' }}>
+            style={{ color: '#9B4E2F', textDecoration: 'none' }}>
             Details →
           </Link>
         </div>

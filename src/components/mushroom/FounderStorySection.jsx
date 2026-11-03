@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 export default function FounderStorySection() {
   return (
@@ -38,7 +38,7 @@ export default function FounderStorySection() {
             className="font-serif font-bold mb-8"
             style={{
               fontSize: 'clamp(1.9rem, 3.5vw, 2.9rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
             }}

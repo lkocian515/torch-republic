@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { COFFEE_ORIGIN } from '@/lib/coffeeOrigin';
 
-export default function WhyFreezeDriedSection({ accent = '#E6B7AD' }) {
+export default function WhyFreezeDriedSection({ accent = '#E6AC45' }) {
   return (
     <div className="py-16 px-6 md:px-10" style={{ background: '#0A0908', borderTop: `1px solid ${accent}15`, borderBottom: `1px solid ${accent}15` }}>
       <div className="max-w-5xl mx-auto">
@@ -16,7 +16,7 @@ export default function WhyFreezeDriedSection({ accent = '#E6B7AD' }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: accent }}>
             The Process
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             {COFFEE_ORIGIN.freezeDried.title}
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.9 }}>
@@ -50,7 +50,7 @@ export default function WhyFreezeDriedSection({ accent = '#E6B7AD' }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {COFFEE_ORIGIN.freezeDried.benefits.map((benefit, i) => (
               <div key={i} className="flex items-center gap-3">
-                <Check size={14} style={{ color: '#10B981', flexShrink: 0 }} />
+                <Check size={14} style={{ color: '#264A35', flexShrink: 0 }} />
                 <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.6 }}>{benefit}</span>
               </div>
             ))}

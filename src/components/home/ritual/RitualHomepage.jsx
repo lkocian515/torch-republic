@@ -28,7 +28,7 @@ import RitualFounderTrust from './RitualFounderTrust';
 // - RitualConvenienceComparison (redundant with RitualComparison)
 export default function RitualHomepage() {
   return (
-    <main id="main-content" className="perf-home-main" style={{ background: '#FBF8F1' }}>
+    <main id="main-content" className="perf-home-main" style={{ background: '#F7F2E9' }}>
       <RitualHero />
       <ChooseYourRitual />
       <RitualWhy />

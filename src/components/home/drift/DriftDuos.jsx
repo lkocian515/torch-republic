@@ -41,7 +41,7 @@ export default function DriftDuos() {
         </motion.div>
 
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
-          <article style={{ background: '#FFFFFF', border: `1px solid ${D.rule}`, borderRadius: 4, padding: '1.5rem' }}>
+          <article style={{ background: '#FFFCF7', border: `1px solid ${D.rule}`, borderRadius: 4, padding: '1.5rem' }}>
             <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', margin: 0, color: D.espresso }}>
               {ORIGINALS_DUO.name}
             </h3>
@@ -59,13 +59,13 @@ export default function DriftDuos() {
             <Link
               to={ORIGINALS_DUO.path}
               className="mt-5 inline-flex min-h-[48px] items-center gap-2 px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-              style={{ borderRadius: 999, background: D.terracotta, color: '#FFF7E8' }}
+              style={{ borderRadius: 999, background: D.terracotta, color: '#F7F2E9' }}
             >
               Shop the Duo <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </article>
 
-          <article style={{ background: '#F5F0E8', border: `1px solid ${D.rule}`, borderRadius: 4, padding: '1.5rem' }}>
+          <article style={{ background: '#F7F2E9', border: `1px solid ${D.rule}`, borderRadius: 4, padding: '1.5rem' }}>
             <h3 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1.5rem', margin: 0, color: D.espresso }}>
               Seasonal pairing
             </h3>

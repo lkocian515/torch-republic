@@ -5,7 +5,7 @@ const RARITY_TIERS = [
   { tier: 'CORE', color: '#6B7280', bg: 'rgba(107,114,128,0.12)', desc: 'Always available — your everyday lineup', border: 'rgba(107,114,128,0.3)' },
   { tier: 'LIMITED', color: '#9BB8CC', bg: 'rgba(155,184,204,0.08)', desc: 'Seasonal drops — gone with the season', border: 'rgba(155,184,204,0.25)' },
   { tier: 'ARCHIVE', color: '#5BA87D', bg: 'rgba(91,168,125,0.08)', desc: 'Retired forever — never reprinted', border: 'rgba(91,168,125,0.25)' },
-  { tier: "FOUNDER'S EDITION", color: '#C8A44D', bg: 'rgba(200,164,77,0.1)', desc: 'First print only — original release', border: 'rgba(200,164,77,0.35)' },
+  { tier: "FOUNDER'S EDITION", color: '#E6AC45', bg: 'rgba(200,164,77,0.1)', desc: 'First print only — original release', border: 'rgba(200,164,77,0.35)' },
   { tier: 'TORCH BOX EXCLUSIVE', color: '#C87070', bg: 'rgba(200,112,112,0.08)', desc: 'Members only — never sold publicly', border: 'rgba(200,112,112,0.25)' },
 ];
 
@@ -23,13 +23,13 @@ export default function CollectorSystemSection() {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>The Torch Index</span>
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+              <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>The Torch Index</span>
             </div>
 
             <h2 className="font-serif text-white leading-tight mb-5" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
               More Than Coffee.<br />
-              <span style={{ color: '#C8A44D' }}>A Collection.</span>
+              <span style={{ color: '#E6AC45' }}>A Collection.</span>
             </h2>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -39,11 +39,11 @@ export default function CollectorSystemSection() {
             <div className="space-y-1 mb-8">
               <p className="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">Product Identity Format</p>
               <div className="inline-flex items-center gap-2 px-4 py-3" style={{ background: 'rgba(200,164,77,0.06)', border: '1px solid rgba(200,164,77,0.2)' }}>
-                <span className="font-mono text-sm font-bold" style={{ color: '#C8A44D' }}>TR-001</span>
+                <span className="font-mono text-sm font-bold" style={{ color: '#E6AC45' }}>TR-001</span>
                 <span className="font-mono text-sm text-gray-500">|</span>
                 <span className="font-mono text-sm text-white">Founders #01</span>
                 <span className="font-mono text-sm text-gray-500">|</span>
-                <span className="font-mono text-sm" style={{ color: '#C8A44D' }}>FOUNDER'S EDITION</span>
+                <span className="font-mono text-sm" style={{ color: '#E6AC45' }}>FOUNDER'S EDITION</span>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ export default function CollectorSystemSection() {
               <a
                 href="/shop/instant-coffee"
                 className="inline-flex items-center gap-2 px-6 py-3 font-mono text-xs tracking-[0.25em] uppercase"
-                style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#C8A44D' }}
+                style={{ border: '1px solid rgba(200,164,77,0.3)', color: '#E6AC45' }}
               >
                 Shop coffee rituals →
               </a>

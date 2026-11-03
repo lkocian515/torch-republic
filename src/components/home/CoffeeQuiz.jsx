@@ -108,7 +108,7 @@ const BLENDS = [
     notes: 'Caramel · Vanilla · Sweet Cream',
     route: '/LibertyTorchBlend',
     handle: 'liberty-torch-blend',
-    color: '#C9A24A',
+    color: '#E6AC45',
     match: (r, c, f) => r === 'medium' && f === 'chocolate' && c !== 'high',
   },
   {
@@ -157,7 +157,7 @@ function ProgressBar({ step, total }) {
         <div
           key={i}
           className="flex-1 h-0.5 transition-all duration-500"
-          style={{ background: i < step ? '#C9A24A' : 'rgba(201,162,74,0.15)' }}
+          style={{ background: i < step ? '#E6AC45' : 'rgba(201,162,74,0.15)' }}
         />
       ))}
     </div>
@@ -177,7 +177,7 @@ function QuizOption({ option, selected, onSelect }) {
     >
       <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>{option.icon}</span>
       <div className="flex-1 min-w-0">
-        <p className="font-serif font-bold text-sm" style={{ color: selected ? '#C9A24A' : '#F0EBE1' }}>
+        <p className="font-serif font-bold text-sm" style={{ color: selected ? '#E6AC45' : '#F7F2E9' }}>
           {option.label}
         </p>
         <p className="font-mono text-[10px] mt-0.5" style={{ color: 'rgba(240,235,225,0.38)' }}>
@@ -185,7 +185,7 @@ function QuizOption({ option, selected, onSelect }) {
         </p>
       </div>
       {selected && (
-        <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#C9A24A' }} />
+        <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#E6AC45' }} />
       )}
     </button>
   );
@@ -201,7 +201,7 @@ function ResultCard({ blend, answers, onReset }) {
       transition={{ duration: 0.7 }}
       className="text-center"
     >
-      <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#C9A24A' }}>
+      <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#E6AC45' }}>
         Your Torch Profile
       </p>
 
@@ -218,7 +218,7 @@ function ResultCard({ blend, answers, onReset }) {
             ☕
           </div>
 
-          <h3 className="font-serif font-bold mb-1" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h3 className="font-serif font-bold mb-1" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             {blend.name}
           </h3>
           <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: blend.color }}>
@@ -252,7 +252,7 @@ function ResultCard({ blend, answers, onReset }) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase py-4 px-8 transition-all hover:opacity-85 btn-glow"
-              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800 }}
+              style={{ background: '#E6AC45', color: '#080808', fontWeight: 800 }}
             >
               <ShoppingCart className="w-3.5 h-3.5" />
               Add to Cart
@@ -316,10 +316,10 @@ export default function CoffeeQuiz() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-3" style={{ color: '#C9A24A' }}>
+          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-3" style={{ color: '#E6AC45' }}>
             Torch Profile
           </p>
-          <h2 className="font-serif leading-tight mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif leading-tight mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Find Your Blend.
           </h2>
           <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', lineHeight: 1.8 }}>
@@ -347,7 +347,7 @@ export default function CoffeeQuiz() {
                 <button
                   onClick={() => setStep(1)}
                   className="inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.35em] uppercase py-4 px-10 transition-all hover:opacity-85 btn-glow"
-                  style={{ background: '#D4AE57', color: '#080808', fontWeight: 800 }}
+                  style={{ background: '#E6AC45', color: '#080808', fontWeight: 800 }}
                 >
                   Start the Quiz →
                 </button>
@@ -369,7 +369,7 @@ export default function CoffeeQuiz() {
               <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.45)' }}>
                 Question {step} of {STEPS.length}
               </p>
-              <h3 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              <h3 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
                 {currentStep.question}
               </h3>
               <p className="font-heading text-sm mb-7" style={{ color: 'rgba(240,235,225,0.4)', lineHeight: 1.7 }}>

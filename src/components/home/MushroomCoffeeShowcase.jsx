@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function MushroomCoffeeShowcase() {
   const sections = [
@@ -51,7 +51,7 @@ export default function MushroomCoffeeShowcase() {
                 <p className="font-mono text-[8px] sm:text-[9px] tracking-[0.25em] uppercase mb-3" style={{ color: RG }}>
                   Mushroom Coffee
                 </p>
-                <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl mb-2" style={{ color: '#FFFFFF' }}>
+                <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl mb-2" style={{ color: '#FFFCF7' }}>
                   {section.title}
                 </h2>
                 <p className="font-mono text-[8px] sm:text-[10px] tracking-[0.2em] uppercase mb-6" style={{ color: 'rgba(230,183,173,0.5)' }}>

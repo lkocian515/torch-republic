@@ -102,7 +102,7 @@ export default function FoundersFeatured() {
                 />
                 <div className="absolute inset-0" style={{ background: `linear-gradient(to top, #111111 0%, transparent 60%)` }} />
                 <div className="absolute top-3 left-3">
-                  <span className="font-mono text-[10px] font-black tracking-widest px-2.5 py-1" style={{ background: '#C9A24A', color: '#0B0B0B' }}>
+                  <span className="font-mono text-[10px] font-black tracking-widest px-2.5 py-1" style={{ background: '#E6AC45', color: '#0B0B0B' }}>
                     {f.code}
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export default function FoundersFeatured() {
                   to={f.route}
                   className="mt-auto pt-4 font-mono text-[10px] tracking-[0.25em] uppercase transition-all duration-200"
                   style={{ color: 'rgba(201,162,74,0.5)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#C9A24A'}
+                  onMouseEnter={e => e.currentTarget.style.color = '#E6AC45'}
                   onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,162,74,0.5)'}
                 >
                   View Blend →

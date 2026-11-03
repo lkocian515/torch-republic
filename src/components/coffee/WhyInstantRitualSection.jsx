@@ -12,7 +12,7 @@ const ICON_MAP = {
   check: Check,
 };
 
-export default function WhyInstantRitualSection({ accent = '#E6B7AD' }) {
+export default function WhyInstantRitualSection({ accent = '#E6AC45' }) {
   return (
     <div className="py-16 px-6 md:px-10" style={{ background: '#080808' }}>
       <div className="max-w-5xl mx-auto">
@@ -25,7 +25,7 @@ export default function WhyInstantRitualSection({ accent = '#E6B7AD' }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: accent }}>
             The Ritual
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             {COFFEE_ORIGIN.whyInstant.title}
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.9 }}>

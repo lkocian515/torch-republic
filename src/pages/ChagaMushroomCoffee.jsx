@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const DIM = 'rgba(240,232,220,0.58)';
 
 const FACTS = [
@@ -83,7 +83,7 @@ export default function ChagaMushroomCoffee() {
         </motion.p>
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
           className="font-serif font-bold mb-5"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F7F2E9', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
           Chaga Mushroom Coffee<br />
           <span style={{ color: RG }}>for Immunity & Antioxidant Defense</span>
         </motion.h1>
@@ -111,7 +111,7 @@ export default function ChagaMushroomCoffee() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           <div>
             <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.45)' }}>What Is Chaga?</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F5EFE6', lineHeight: 1.2 }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F2E9', lineHeight: 1.2 }}>
               The King of Mushrooms
             </h2>
             <p className="font-heading mb-4" style={{ fontSize: '0.9rem', color: DIM, fontWeight: 300, lineHeight: 1.85 }}>
@@ -138,7 +138,7 @@ export default function ChagaMushroomCoffee() {
       {/* Benefits */}
       <section className="px-6 md:px-10 py-14" style={{ background: 'rgba(230,183,173,0.03)', borderTop: '1px solid rgba(230,183,173,0.07)', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
         <div style={{ maxWidth: '1060px', margin: '0 auto' }}>
-          <h2 className="font-serif font-bold mb-10 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-10 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F2E9' }}>
             Why Chaga in Your Daily Coffee
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -152,7 +152,7 @@ export default function ChagaMushroomCoffee() {
                     style={{ background: 'rgba(230,183,173,0.08)', border: '1px solid rgba(230,183,173,0.18)' }}>
                     <b.icon size={15} style={{ color: RG }} />
                   </div>
-                  <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#F5EFE6', lineHeight: 1.3 }}>{b.title}</h3>
+                  <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#F7F2E9', lineHeight: 1.3 }}>{b.title}</h3>
                 </div>
                 <p className="font-heading text-sm" style={{ color: DIM, fontWeight: 300, lineHeight: 1.8 }}>{b.body}</p>
               </motion.div>
@@ -183,12 +183,12 @@ export default function ChagaMushroomCoffee() {
 
       {/* FAQ */}
       <section className="px-6 md:px-10 pb-20" style={{ maxWidth: '740px', margin: '0 auto' }}>
-        <h2 className="font-serif font-bold mb-8 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
+        <h2 className="font-serif font-bold mb-8 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F7F2E9' }}>
           People Also Ask
         </h2>
         {FAQS.map(({ q, a }) => (
           <div key={q} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)', paddingBottom: '20px', marginBottom: '20px' }}>
-            <h3 className="font-serif font-bold mb-2.5" style={{ fontSize: '0.97rem', color: '#F5EFE6' }}>{q}</h3>
+            <h3 className="font-serif font-bold mb-2.5" style={{ fontSize: '0.97rem', color: '#F7F2E9' }}>{q}</h3>
             <p className="font-heading text-sm" style={{ color: DIM, fontWeight: 300, lineHeight: 1.8 }}>{a}</p>
           </div>
         ))}

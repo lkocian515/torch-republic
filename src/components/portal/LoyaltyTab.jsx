@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ShoppingBag, TrendingUp, Gift, Clock } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const REWARD_TIERS = [
   { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
@@ -29,7 +29,7 @@ export default function LoyaltyTab({ points, lifetimePoints, nextTier, progressP
               Current Balance
             </p>
             <div className="flex items-baseline gap-3">
-              <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: '#F5EFE6', lineHeight: 1 }}>
+              <span className="font-serif font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: '#F7F2E9', lineHeight: 1 }}>
                 {points.toLocaleString()}
               </span>
               <span className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>
@@ -38,7 +38,7 @@ export default function LoyaltyTab({ points, lifetimePoints, nextTier, progressP
             </div>
             {lifetimePoints > 0 && (
               <p className="font-heading text-xs mt-3" style={{ color: 'rgba(210,195,175,0.55)' }}>
-                Lifetime earned: <span style={{ color: '#F5EFE6' }}>{lifetimePoints.toLocaleString()}</span> points
+                Lifetime earned: <span style={{ color: '#F7F2E9' }}>{lifetimePoints.toLocaleString()}</span> points
               </p>
             )}
           </div>
@@ -58,7 +58,7 @@ export default function LoyaltyTab({ points, lifetimePoints, nextTier, progressP
                   initial={{ width: 0 }}
                   animate={{ width: `${Math.min(progressPercent, 100)}%` }}
                   transition={{ duration: 1.2, ease: 'easeOut' }}
-                  style={{ height: '100%', background: `linear-gradient(90deg, ${RG} 0%, #C98F86 100%)` }}
+                  style={{ height: '100%', background: `linear-gradient(90deg, ${RG} 0%, #9B4E2F 100%)` }}
                 />
               </div>
               <p className="font-heading text-[10px] mt-2" style={{ color: 'rgba(210,195,175,0.45)' }}>
@@ -104,7 +104,7 @@ export default function LoyaltyTab({ points, lifetimePoints, nextTier, progressP
               <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.5)' }}>
                 {tier.points.toLocaleString()} pts
               </p>
-              <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: points >= tier.points ? '#F5EFE6' : 'rgba(245,239,230,0.4)' }}>
+              <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: points >= tier.points ? '#F7F2E9' : 'rgba(245,239,230,0.4)' }}>
                 {tier.label}
               </h3>
               <p className="font-mono text-[9px] tracking-[0.28em] uppercase font-bold" style={{ color: points >= tier.points ? RG : 'rgba(230,183,173,0.3)' }}>
@@ -150,7 +150,7 @@ export default function LoyaltyTab({ points, lifetimePoints, nextTier, progressP
                 <rule.icon size={16} style={{ color: RG }} />
               </div>
               <div className="flex-1">
-                <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{rule.action}</p>
+                <p className="font-serif font-bold text-sm" style={{ color: '#F7F2E9' }}>{rule.action}</p>
                 <p className="font-mono text-[8px] tracking-[0.25em] uppercase mt-1" style={{ color: RG }}>{rule.points}</p>
               </div>
             </div>

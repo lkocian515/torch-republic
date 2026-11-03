@@ -4,13 +4,13 @@ import { base44 } from '@/api/base44Client';
 import { useSEO } from '@/hooks/useSEO';
 import useNoIndex from '@/hooks/useNoIndex';
 
-const RG = '#E6B7AD';
-const PAGE = '#FBF8F2';
-const CARD = '#FFFFFF';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
-const CLAY = '#B7653E';
+const RG = '#E6AC45';
+const PAGE = '#F7F2E9';
+const CARD = '#FFFCF7';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
+const CLAY = '#9B4E2F';
 const ERROR = '#C0392B';
 
 export default function ResetPassword() {
@@ -91,7 +91,7 @@ export default function ResetPassword() {
             <button
               type="submit" disabled={loading}
               className="w-full py-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-90 disabled:opacity-50"
-              style={{ background: CLAY, border: `1px solid ${CLAY}`, color: '#FFFFFF' }}
+              style={{ background: CLAY, border: `1px solid ${CLAY}`, color: '#FFFCF7' }}
             >
               {loading ? 'Resetting…' : 'Reset Password'}
             </button>

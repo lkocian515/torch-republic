@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TrendingUp, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const POPULAR = [
   { slug: 'mushroom-coffee-benefits', title: 'Mushroom Coffee Benefits: What the Science Says', category: 'Science', readTime: '6 min' },
@@ -43,7 +43,7 @@ export default function PopularArticles() {
                   <span style={{ color: 'rgba(230,183,173,0.2)', fontSize: 8 }}>·</span>
                   <span className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: 'rgba(240,235,225,0.35)' }}>{article.readTime}</span>
                 </div>
-                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '0.95rem', color: '#F5EFE6', lineHeight: 1.3 }}>{article.title}</h3>
+                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '0.95rem', color: '#F7F2E9', lineHeight: 1.3 }}>{article.title}</h3>
                 <div className="flex items-center gap-1.5">
                   <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>Read</span>
                   <ArrowRight size={10} style={{ color: `${RG}70` }} className="transition-transform group-hover:translate-x-1" />

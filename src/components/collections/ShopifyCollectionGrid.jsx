@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80';
 
-function CoffeeProductCard({ product, index, accentColor = '#C9A24A', internalRoute }) {
+function CoffeeProductCard({ product, index, accentColor = '#E6AC45', internalRoute }) {
   const ac = accentColor;
   const title = product.title
     .replace(/[-–]\s*(Founders Series|Liberty Icons Series|Commanders Series|Women of the Republic|Coffee)\s*/gi, '')
@@ -42,7 +42,7 @@ function CoffeeProductCard({ product, index, accentColor = '#C9A24A', internalRo
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)' }} />
       </div>
       <div className="p-5 flex flex-col gap-2 flex-1">
-        <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#FFFFFF', lineHeight: 1.25 }}>{title}</h3>
+        <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#FFFCF7', lineHeight: 1.25 }}>{title}</h3>
         <div className="mt-auto pt-3 flex items-center justify-between" style={{ borderTop: `1px solid rgba(${hexToRgb(ac)},0.08)` }}>
           <span className="font-mono font-black text-sm" style={{ color: ac }}>
             ${product.price?.toFixed(2)}
@@ -99,7 +99,7 @@ const INTERNAL_ROUTES = {
 
 export default function ShopifyCollectionGrid({
   collectionHandle,
-  accentColor = '#C9A24A',
+  accentColor = '#E6AC45',
   maxItems,
   emptyMessage = 'Products loading…',
   useInternalRoutes = true,

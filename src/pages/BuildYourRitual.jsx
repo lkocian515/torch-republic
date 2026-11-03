@@ -6,13 +6,13 @@ import { useCart } from '@/contexts/CartContext';
 import { CORE_PRODUCTS } from '@/lib/coreProducts';
 import { BUNDLE_PRICE_DUO, DUO_COMPARE_AT } from '@/lib/pricingConfig';
 
-const RG = '#B86543';
+const RG = '#9B4E2F';
 const THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
+  page: '#F7F2E9',
+  cream: '#F7F2E9',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
   border: '#D9CDBA',
 };
 
@@ -120,7 +120,7 @@ export default function BuildYourRitual() {
                     </span>
                     <span
                       className="font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1"
-                      style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}
+                      style={{ background: 'rgba(16,185,129,0.15)', color: '#264A35', border: '1px solid rgba(16,185,129,0.3)' }}
                     >
                       Save ${STARTER_SAVINGS.toFixed(2)}
                     </span>
@@ -139,7 +139,7 @@ export default function BuildYourRitual() {
                 <div className="grid grid-cols-2 gap-3">
                   {CORE_PRODUCTS.map((p) => (
                     <div key={p.slug} className="flex flex-col items-center text-center p-3" style={{ background: THEME.cream, border: `1px solid ${THEME.border}` }}>
-                      <div className="w-full" style={{ aspectRatio: '1/1', background: '#F8F5EF' }}>
+                      <div className="w-full" style={{ aspectRatio: '1/1', background: '#F7F2E9' }}>
                         <img src={p.image} alt={p.alt} className="w-full h-full object-contain p-2" loading="lazy" />
                       </div>
                       <p className="font-serif font-bold text-[11px] mt-2 leading-tight" style={{ color: THEME.text }}>
@@ -173,7 +173,7 @@ export default function BuildYourRitual() {
                 const c = p.ritual;
                 return (
                   <div key={p.slug} className="flex flex-col p-4" style={{ background: THEME.card, border: `1px solid ${THEME.border}` }}>
-                    <div className="w-full mb-3" style={{ aspectRatio: '1/1', background: '#F8F5EF' }}>
+                    <div className="w-full mb-3" style={{ aspectRatio: '1/1', background: '#F7F2E9' }}>
                       <img src={p.image} alt={p.alt} className="w-full h-full object-contain p-3" loading="lazy" />
                     </div>
                     <h3 className="font-serif font-bold text-sm leading-tight" style={{ color: THEME.text }}>{p.name}</h3>
@@ -242,7 +242,7 @@ export default function BuildYourRitual() {
                       </div>
                       {isStarterCombo && (
                         <div className="flex items-center justify-between mb-1">
-                          <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>Starter Bundle</span>
+                          <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#264A35' }}>Starter Bundle</span>
                           <span className="font-mono text-xs line-through" style={{ color: '#9A9085' }}>${STARTER_REGULAR.toFixed(2)}</span>
                         </div>
                       )}
@@ -252,8 +252,8 @@ export default function BuildYourRitual() {
                       </div>
                       {savings > 0 && (
                         <div className="flex items-center justify-between">
-                          <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>You save</span>
-                          <span className="font-mono text-xs font-bold" style={{ color: '#10B981' }}>${savings.toFixed(2)}</span>
+                          <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#264A35' }}>You save</span>
+                          <span className="font-mono text-xs font-bold" style={{ color: '#264A35' }}>${savings.toFixed(2)}</span>
                         </div>
                       )}
                     </div>

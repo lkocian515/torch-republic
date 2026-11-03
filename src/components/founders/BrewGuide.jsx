@@ -75,7 +75,7 @@ function getRoastKey(roast = '') {
 
 const METHODS = ['drip', 'frenchPress', 'pourOver', 'espresso', 'coldBrew'];
 
-export default function BrewGuide({ roast, accent = '#C9A24A' }) {
+export default function BrewGuide({ roast, accent = '#E6AC45' }) {
   const [open, setOpen] = useState(false);
   const [activeMethod, setActiveMethod] = useState('drip');
 
@@ -92,7 +92,7 @@ export default function BrewGuide({ roast, accent = '#C9A24A' }) {
       >
         <div className="flex items-center gap-3">
           <Coffee className="w-4 h-4" style={{ color: accent }} />
-          <span className="font-mono text-[11px] tracking-[0.35em] uppercase font-bold" style={{ color: '#F0EBE1' }}>
+          <span className="font-mono text-[11px] tracking-[0.35em] uppercase font-bold" style={{ color: '#F7F2E9' }}>
             Brew Guide
           </span>
           <span className="font-mono text-[9px] tracking-[0.25em] uppercase px-2 py-0.5"
@@ -152,7 +152,7 @@ export default function BrewGuide({ roast, accent = '#C9A24A' }) {
                   <div key={label} className="flex flex-col gap-1.5 p-4"
                     style={{ background: '#0F0F0F', border: '1px solid rgba(196,163,90,0.08)' }}>
                     <p className="font-mono text-[9px] tracking-[0.3em] uppercase" style={{ color: `${accent}55` }}>{label}</p>
-                    <p className="font-mono font-bold text-sm leading-tight" style={{ color: '#F0EBE1' }}>{value}</p>
+                    <p className="font-mono font-bold text-sm leading-tight" style={{ color: '#F7F2E9' }}>{value}</p>
                   </div>
                 ))}
               </motion.div>

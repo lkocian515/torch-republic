@@ -48,7 +48,7 @@ export default function DriftSeasonalEditions() {
                       padding: 'clamp(1.25rem, 2.5vw, 2.25rem)',
                       borderRadius: '10px',
                       overflow: 'hidden',
-                      background: '#F8F5EF',
+                      background: '#F7F2E9',
                       border: D.borderHairline,
                       boxShadow: D.shadowSoft,
                     }}

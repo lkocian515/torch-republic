@@ -18,7 +18,7 @@ import { base44 } from '@/api/base44Client';
  *   onChange  — callback({ mode, sellingPlanId, price, sellingPlanName })
  *   accent   — theme accent color
  */
-export default function PurchaseOptionSelector({ product, onChange, accent = '#B7653E' }) {
+export default function PurchaseOptionSelector({ product, onChange, accent = '#9B4E2F' }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -108,7 +108,7 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
   // Do not show misleading "subscription unavailable" messaging — if the API call
   // fails, the product simply has no subscription option available.
   if (error) {
-    return <p role="status" className="mb-4 text-sm" style={{ color: '#5F574F' }}>Subscription options could not load. Refresh to try again, or choose a one-time purchase.</p>;
+    return <p role="status" className="mb-4 text-sm" style={{ color: '#5E4639' }}>Subscription options could not load. Refresh to try again, or choose a one-time purchase.</p>;
   }
   if (!data?.hasSellingPlans || !data?.sellingPlanAllocations?.length) {
     return null;
@@ -134,20 +134,20 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         onClick={() => handleSelect('onetime')}
         className="flex items-center gap-3 rounded-lg border p-3 text-left transition-all"
         style={{
-          borderColor: mode === 'onetime' ? accent : '#E4D8C9',
+          borderColor: mode === 'onetime' ? accent : '#B89A6D',
           borderWidth: mode === 'onetime' ? 2 : 1,
-          background: mode === 'onetime' ? `${accent}08` : '#FFFDF8',
+          background: mode === 'onetime' ? `${accent}08` : '#FFFCF7',
         }}
       >
         <span
           className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2"
-          style={{ borderColor: mode === 'onetime' ? accent : '#E4D8C9' }}
+          style={{ borderColor: mode === 'onetime' ? accent : '#B89A6D' }}
         >
           {mode === 'onetime' && <span className="h-2.5 w-2.5 rounded-full" style={{ background: accent }} />}
         </span>
         <div className="flex-1">
-          <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>Buy once</p>
-          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
+          <p className="font-heading text-sm font-semibold" style={{ color: '#32190F' }}>Buy once</p>
+          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5E4639' }}>
             ${oneTimePrice.toFixed(2)} · No recurring charge
           </p>
         </div>
@@ -163,22 +163,22 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         onClick={() => handleSelect('subscription')}
         className="flex items-center gap-3 rounded-lg border p-3 text-left transition-all"
         style={{
-          borderColor: mode === 'subscription' ? accent : '#E4D8C9',
+          borderColor: mode === 'subscription' ? accent : '#B89A6D',
           borderWidth: mode === 'subscription' ? 2 : 1,
-          background: mode === 'subscription' ? `${accent}08` : '#FFFDF8',
+          background: mode === 'subscription' ? `${accent}08` : '#FFFCF7',
         }}
       >
         <span
           className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2"
-          style={{ borderColor: mode === 'subscription' ? accent : '#E4D8C9' }}
+          style={{ borderColor: mode === 'subscription' ? accent : '#B89A6D' }}
         >
           {mode === 'subscription' && <span className="h-2.5 w-2.5 rounded-full" style={{ background: accent }} />}
         </span>
         <div className="flex-1">
-          <p className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>
+          <p className="font-heading text-sm font-semibold" style={{ color: '#32190F' }}>
             {planLabel}
           </p>
-          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5F574F' }}>
+          <p className="font-mono text-xs uppercase tracking-[0.1em]" style={{ color: '#5E4639' }}>
             ${subPrice.toFixed(2)}/delivery{savingsPercent > 0 ? ` · Save ${savingsPercent}%` : ''} · Renews automatically · Cancel anytime
           </p>
         </div>
@@ -189,8 +189,8 @@ export default function PurchaseOptionSelector({ product, onChange, accent = '#B
         <p className="font-mono text-[11px] uppercase tracking-[0.1em] mb-1.5" style={{ color: accent }}>
           Recurring Billing Terms
         </p>
-        <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.65 }}>
-          If you choose a subscription, you will be charged <strong style={{ color: '#292622' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({planLabel}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
+        <p className="font-heading text-xs" style={{ color: '#5E4639', lineHeight: 1.65 }}>
+          If you choose a subscription, you will be charged <strong style={{ color: '#32190F' }}>${subPrice.toFixed(2)}</strong> every delivery cycle ({planLabel}). Your subscription renews automatically at this price until you cancel. Cancel anytime through your customer account. Taxes and shipping are calculated at checkout.
         </p>
       </div>
     </div>

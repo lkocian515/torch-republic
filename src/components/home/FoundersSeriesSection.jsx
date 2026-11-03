@@ -9,7 +9,7 @@ const FOUNDERS = [
     notes: 'Cocoa · Toasted Nut · Full Body',
     hook: 'Steady, disciplined, foundational. The night was freezing. The river was filled with ice. Most men would have turned back. He didn\'t.',
     color: '#160D04',
-    accent: '#C8A44D',
+    accent: '#E6AC45',
     handle: 'washington-blend',
     route: '/WashingtonBlend',
     code: 'TR-001',
@@ -144,7 +144,7 @@ function FounderCard({ founder, index }) {
             className="font-mono text-[11px] tracking-wider px-3 py-1 font-black uppercase"
             style={{
               color: founder.rarity === "FOUNDER'S EDITION" ? '#0A0D14' : '#9CA3AF',
-              background: founder.rarity === "FOUNDER'S EDITION" ? '#C4A35A' : 'transparent',
+              background: founder.rarity === "FOUNDER'S EDITION" ? '#E6AC45' : 'transparent',
               border: founder.rarity === "FOUNDER'S EDITION" ? 'none' : '1px solid rgba(107,114,128,0.3)',
             }}
           >
@@ -178,7 +178,7 @@ function FounderCard({ founder, index }) {
         <a
           href={`https://torch-republic.com/products/${founder.handle}`}
           className="mt-1 py-3 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-90"
-          style={{ background: '#C4A35A', color: '#0A0D14', fontWeight: 800 }}>
+          style={{ background: '#E6AC45', color: '#0A0D14', fontWeight: 800 }}>
           Carry the Flame →
         </a>
       </div>
@@ -194,9 +194,9 @@ export default function FoundersSeriesSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Flagship Collection</span>
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>Flagship Collection</span>
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700 }}>
             The Founders Series
@@ -218,7 +218,7 @@ export default function FoundersSeriesSection() {
           <a
             href="/shop/instant-coffee"
             className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-all hover:opacity-90"
-            style={{ border: '1px solid rgba(196,163,90,0.4)', color: '#C4A35A' }}
+            style={{ border: '1px solid rgba(196,163,90,0.4)', color: '#E6AC45' }}
           >
             Shop All Coffee →
           </a>

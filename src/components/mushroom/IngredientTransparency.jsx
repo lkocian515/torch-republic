@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Droplet, Leaf, Clock, Package, ShieldCheck } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TRANSPARENCY_ITEMS = [
   {
@@ -62,7 +62,7 @@ export default function IngredientTransparency() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.9rem, 3.8vw, 2.6rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
             }}
@@ -115,7 +115,7 @@ export default function IngredientTransparency() {
                   <item.icon size={16} style={{ color: RG }} />
                 </div>
                 <div>
-                  <p className="font-serif font-bold text-sm" style={{ color: '#F5EFE6' }}>{item.label}</p>
+                  <p className="font-serif font-bold text-sm" style={{ color: '#F7F2E9' }}>{item.label}</p>
                 </div>
               </div>
               <p className="font-heading text-xs leading-relaxed" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.7 }}>

@@ -41,9 +41,9 @@ export default function NewsletterSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Become a Torchbearer</span>
-            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #09243A)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>Become a Torchbearer</span>
+            <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700 }}>
             Carry the Flame First.
@@ -53,7 +53,7 @@ export default function NewsletterSection() {
           </p>
 
           {optimisticSubmit ? (
-            <div className="flex items-center justify-center gap-2 font-mono text-sm" style={{ color: '#C8A44D' }}>
+            <div className="flex items-center justify-center gap-2 font-mono text-sm" style={{ color: '#E6AC45' }}>
               <Check className="w-5 h-5" />
               Welcome to the movement. Check your inbox.
             </div>
@@ -73,7 +73,7 @@ export default function NewsletterSection() {
                 type="submit"
                 disabled={mutation.isPending}
                 className="px-6 py-3 font-heading font-black text-xs tracking-widest uppercase whitespace-nowrap min-h-[44px] flex items-center justify-center disabled:opacity-70"
-                style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
+                style={{ background: 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,42,47,0.4)' }}
               >
                 {mutation.isPending ? <Loader className="w-4 h-4 animate-spin" /> : 'Join Now'}
               </button>

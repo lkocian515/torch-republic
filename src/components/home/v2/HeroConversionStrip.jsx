@@ -23,7 +23,7 @@ export default function HeroConversionStrip() {
         <div className="flex flex-col items-center md:items-start gap-1.5 text-center md:text-left md:min-w-[280px]">
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#C9A24A' }} />
+              <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#E6AC45' }} />
             ))}
           </div>
           <p
@@ -48,10 +48,10 @@ export default function HeroConversionStrip() {
                 className="flex items-center justify-center flex-shrink-0"
                 style={{ width: 36, height: 36, background: 'rgba(201,162,74,0.08)', border: '1px solid rgba(201,162,74,0.18)' }}
               >
-                <Icon className="w-4 h-4" style={{ color: '#C9A24A' }} />
+                <Icon className="w-4 h-4" style={{ color: '#E6AC45' }} />
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F0EBE1' }}>{label}</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F7F2E9' }}>{label}</p>
                 <p className="font-mono text-[9px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{sub}</p>
               </div>
             </div>

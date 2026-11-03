@@ -25,7 +25,7 @@ export default function EmailCapture() {
             The Ritual List
           </p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Join the Ritual List
           </h2>
           <p className="font-heading"
@@ -36,7 +36,7 @@ export default function EmailCapture() {
           {submitted ? (
             <div className="w-full py-5 px-6 text-center"
               style={{ border: '1px solid rgba(230,183,173,0.3)', background: 'rgba(230,183,173,0.06)' }}>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#E6B7AD' }}>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#E6AC45' }}>
                 ✓ You're on the list. Welcome to the ritual.
               </p>
             </div>
@@ -59,7 +59,7 @@ export default function EmailCapture() {
               <button
                 type="submit"
                 className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 whitespace-nowrap"
-                style={{ background: '#E6B7AD', color: '#050505', padding: '14px 24px' }}
+                style={{ background: '#E6AC45', color: '#050505', padding: '14px 24px' }}
               >
                 Join the List
               </button>

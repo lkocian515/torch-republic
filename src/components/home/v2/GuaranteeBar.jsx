@@ -16,7 +16,7 @@ export default function GuaranteeBar() {
       <div className="max-w-[720px] mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="h-px flex-1 max-w-16" style={{ background: 'rgba(201,162,74,0.2)' }} />
-          <ShieldCheck className="w-6 h-6" style={{ color: '#C9A24A' }} />
+          <ShieldCheck className="w-6 h-6" style={{ color: '#E6AC45' }} />
           <div className="h-px flex-1 max-w-16" style={{ background: 'rgba(201,162,74,0.2)' }} />
         </div>
 

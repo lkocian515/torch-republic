@@ -43,7 +43,7 @@ export default function LibertyIconsBanner() {
             <Flame
               size={48}
               style={{
-                color: '#C9A24A',
+                color: '#E6AC45',
                 opacity: 0.85,
                 filter: 'drop-shadow(0 0 24px rgba(201,162,74,0.3))',
               }}
@@ -56,7 +56,7 @@ export default function LibertyIconsBanner() {
               fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
               fontWeight: 800,
               fontFamily: 'var(--font-serif)',
-              color: '#FFFFFF',
+              color: '#FFFCF7',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
               marginBottom: '16px',
@@ -102,7 +102,7 @@ export default function LibertyIconsBanner() {
             style={{
               height: '1px',
               width: '60px',
-              background: '#C9A24A',
+              background: '#E6AC45',
               margin: '0 auto 40px',
               transformOrigin: 'center',
             }}
@@ -122,7 +122,7 @@ export default function LibertyIconsBanner() {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '16px 40px',
-                background: '#C9A24A',
+                background: '#E6AC45',
                 color: '#080808',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '11px',

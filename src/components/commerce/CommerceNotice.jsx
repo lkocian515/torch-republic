@@ -101,31 +101,31 @@ export default function CommerceNotice() {
     >
       <div
         className="w-full max-w-md"
-        style={{ background: '#FFFFFF', border: '1px solid #E4D8C9', borderRadius: '12px', boxShadow: '0 20px 60px rgba(45,40,36,0.18)' }}
+        style={{ background: '#FFFCF7', border: '1px solid #B89A6D', borderRadius: '12px', boxShadow: '0 20px 60px rgba(45,40,36,0.18)' }}
       >
-        <div className="flex items-start justify-between p-5" style={{ borderBottom: '1px solid #E4D8C9' }}>
-          <p id={titleId} className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#2D2824' }}>
+        <div className="flex items-start justify-between p-5" style={{ borderBottom: '1px solid #B89A6D' }}>
+          <p id={titleId} className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#32190F' }}>
             {title}
           </p>
           <button
             ref={closeRef}
             onClick={() => setOpen(false)}
             aria-label="Close"
-            className="rounded p-1 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B86543]"
+            className="rounded p-1 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9B4E2F]"
             style={{ color: '#5C544C' }}
           >
             <X className="w-4 h-4" />
           </button>
         </div>
         <div className="p-5">
-          <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: '#2D2824' }}>
+          <p className="font-heading text-sm leading-relaxed mb-5" style={{ color: '#32190F' }}>
             {message}
           </p>
           <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
             <button
               onClick={() => setOpen(false)}
               className="btn btn-secondary"
-              style={{ borderColor: '#E4D8C9', color: '#5C544C' }}
+              style={{ borderColor: '#B89A6D', color: '#5C544C' }}
             >
               Close
             </button>

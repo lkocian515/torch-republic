@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-const GOLD = '#C4A35A';
-const RG = '#E6B7AD';
+const GOLD = '#E6AC45';
+const RG = '#E6AC45';
 
 const FEATURES = [
   'Medium Roast',

@@ -152,7 +152,7 @@ export default function SpecialEditionProduct() {
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
           {/* Gallery */}
           <div>
-            <div className="product-image-wrap" style={{ background: '#F8F5EF' }}>
+            <div className="product-image-wrap" style={{ background: '#F7F2E9' }}>
               {shownImage && !imageFailed ? (
                 <img
                   src={shownImage}
@@ -190,7 +190,7 @@ export default function SpecialEditionProduct() {
                       border: `1px solid ${shownImage === src ? 'hsl(var(--primary))' : 'hsl(var(--border))'}`,
                       borderRadius: 10,
                       overflow: 'hidden',
-                      background: '#FFFFFF',
+                      background: '#FFFCF7',
                     }}
                   >
                     <img

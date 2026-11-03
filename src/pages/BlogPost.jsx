@@ -191,12 +191,12 @@ const DEFAULT_PRODUCTS = [
   { name: 'Take the Blend Quiz', path: '/quiz' },
 ];
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_COLORS = {
-  science: '#A8D5BA',
+  science: '#264A35',
   habits: '#D4A574',
-  recipes: '#E6B7AD',
+  recipes: '#E6AC45',
   wellness: '#B5A5D4',
   news: '#A5C5D4',
 };
@@ -328,7 +328,7 @@ export default function BlogPostPage() {
         </Helmet>
         <div className="min-h-screen flex items-center justify-center" style={{ background: '#0A0A0A' }}>
           <div className="text-center max-w-md px-6">
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: '2rem', color: '#F7F2E9' }}>
               Article Not Found
             </h1>
             <p className="font-heading mb-8" style={{ color: 'rgba(210,195,175,0.6)' }}>
@@ -410,7 +410,7 @@ export default function BlogPostPage() {
             {/* Title */}
             <h1
               className="font-serif font-bold mb-6"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#F5EFE6', lineHeight: 1.2, letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#F7F2E9', lineHeight: 1.2, letterSpacing: '-0.02em' }}
             >
               {post.title}
             </h1>
@@ -541,7 +541,7 @@ export default function BlogPostPage() {
                     <Link key={i} to={`/journal/${r.slug}`}
                       className="p-4 block transition-all hover:opacity-75"
                       style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(230,183,173,0.1)' }}>
-                      <p className="font-heading text-sm" style={{ color: '#F5EFE6', fontWeight: 500, lineHeight: 1.4 }}>{r.title}</p>
+                      <p className="font-heading text-sm" style={{ color: '#F7F2E9', fontWeight: 500, lineHeight: 1.4 }}>{r.title}</p>
                       <div className="flex items-center gap-1 mt-2">
                         <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>Read</span>
                         <ArrowRight className="w-3 h-3" style={{ color: 'rgba(230,183,173,0.5)' }} />
@@ -583,7 +583,7 @@ export default function BlogPostPage() {
               </div>
             ) : (
               <div className="mt-8 p-8 text-center" style={{ background: 'rgba(230,183,173,0.05)', border: `1px solid ${RG}20` }}>
-                <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>Try either coffee.</p>
+                <p className="font-serif font-bold text-xl mb-4" style={{ color: '#F7F2E9' }}>Try either coffee.</p>
                 <p className="font-heading mb-6" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300 }}>
                   Classic and Mushroom are both instant. Pick one, or keep both in the cupboard.
                 </p>

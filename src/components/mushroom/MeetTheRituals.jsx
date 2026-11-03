@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
+const GOLD = '#E6AC45';
 
 const PRODUCTS = {
   coffee: [
@@ -52,7 +52,7 @@ function ProductCard({ p, i }) {
         <p className="font-mono text-[8px] tracking-[0.3em] uppercase mb-1.5" style={{ color: `${p.accent}80` }}>
           {p.type}
         </p>
-        <h4 className="font-serif font-bold mb-1" style={{ fontSize: '1.1rem', color: '#F5EFE6', lineHeight: 1.2 }}>
+        <h4 className="font-serif font-bold mb-1" style={{ fontSize: '1.1rem', color: '#F7F2E9', lineHeight: 1.2 }}>
           {p.name}
         </h4>
         <p className="font-heading text-xs mb-4" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
@@ -92,7 +92,7 @@ export default function MeetTheRituals() {
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Meet the Rituals
           </p>
-          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
             Every Product, Every Ritual
           </h2>
           <p className="font-heading text-sm max-w-md mx-auto" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.75 }}>

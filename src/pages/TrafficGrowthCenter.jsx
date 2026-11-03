@@ -8,8 +8,8 @@ import {
 } from 'lucide-react';
 import UTMLinkBuilder from '@/components/admin/UTMLinkBuilder';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 const SITE_URL = 'https://torchrepublic.com';
 
@@ -22,14 +22,14 @@ function StatCard({ label, value, sub, icon: Icon, color = RG, trend, connected 
           <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.5)' }}>{label}</span>
         </div>
         {trend !== undefined && (
-          <span className="font-mono text-[8px]" style={{ color: trend > 0 ? '#6CBD5A' : trend < 0 ? '#E8697A' : 'rgba(255,255,255,0.3)' }}>
+          <span className="font-mono text-[8px]" style={{ color: trend > 0 ? '#264A35' : trend < 0 ? '#E8697A' : 'rgba(255,255,255,0.3)' }}>
             {trend > 0 ? <ArrowUp className="w-3 h-3 inline" /> : trend < 0 ? <ArrowDown className="w-3 h-3 inline" /> : <Minus className="w-3 h-3 inline" />}
             {Math.abs(trend)}%
           </span>
         )}
       </div>
       {connected ? (
-        <p className="font-serif font-bold" style={{ fontSize: '1.6rem', color: '#F5EFE6', lineHeight: 1 }}>{value}</p>
+        <p className="font-serif font-bold" style={{ fontSize: '1.6rem', color: '#F7F2E9', lineHeight: 1 }}>{value}</p>
       ) : (
         <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.35)' }}>Not Connected</p>
       )}
@@ -41,7 +41,7 @@ function StatCard({ label, value, sub, icon: Icon, color = RG, trend, connected 
 function SectionHeader({ title, sub }) {
   return (
     <div className="mb-6">
-      <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>{title}</h2>
+      <h2 className="font-serif font-bold text-xl" style={{ color: '#F7F2E9' }}>{title}</h2>
       {sub && <p className="font-heading text-sm mt-1" style={{ color: 'rgba(240,235,225,0.4)', fontWeight: 300 }}>{sub}</p>}
     </div>
   );
@@ -49,7 +49,7 @@ function SectionHeader({ title, sub }) {
 
 function ConnectionStatus({ name, status, actionUrl, actionLabel }) {
   const colors = {
-    connected: '#6CBD5A',
+    connected: '#264A35',
     partial: GOLD,
     disconnected: 'rgba(230,183,173,0.4)',
   };
@@ -64,7 +64,7 @@ function ConnectionStatus({ name, status, actionUrl, actionLabel }) {
       <div className="flex items-center gap-3">
         <Icon className="w-4 h-4" style={{ color: colors[status] }} />
         <div>
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F5EFE6' }}>{name}</p>
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F7F2E9' }}>{name}</p>
           <p className="font-heading text-xs" style={{ color: colors[status], fontWeight: 300 }}>
             {status === 'connected' ? 'Connected' : status === 'partial' ? 'Partial — action needed' : 'Not verified'}
           </p>
@@ -183,7 +183,7 @@ export default function TrafficGrowthCenter() {
       <div className="px-6 md:px-10 pt-12 pb-8" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <div className="max-w-7xl mx-auto">
           <p className="font-mono text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.45)' }}>Admin</p>
-          <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+          <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9' }}>
             Traffic Growth Center
           </h1>
           <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
@@ -268,11 +268,11 @@ export default function TrafficGrowthCenter() {
           ) : gaConnected && gaOverview ? (
             <>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-                <StatCard label="Sessions" value={gaOverview.sessions.toLocaleString()} icon={BarChart2} color="#6CBD5A" />
+                <StatCard label="Sessions" value={gaOverview.sessions.toLocaleString()} icon={BarChart2} color="#264A35" />
                 <StatCard label="Active Users" value={gaOverview.activeUsers.toLocaleString()} icon={Eye} color={RG} />
                 <StatCard label="Page Views" value={gaOverview.pageViews.toLocaleString()} icon={Globe} color={GOLD} />
                 <StatCard label="New Users" value={gaOverview.newUsers.toLocaleString()} icon={TrendingUp} color={RG} />
-                <StatCard label="Bounce Rate" value={`${(gaOverview.bounceRate * 100).toFixed(1)}%`} icon={ArrowDown} color={gaOverview.bounceRate > 0.6 ? '#E8697A' : '#6CBD5A'} />
+                <StatCard label="Bounce Rate" value={`${(gaOverview.bounceRate * 100).toFixed(1)}%`} icon={ArrowDown} color={gaOverview.bounceRate > 0.6 ? '#E8697A' : '#264A35'} />
                 <StatCard label="Avg Session" value={fmtSeconds(gaOverview.avgSessionDuration)} icon={RefreshCw} color={GOLD} />
               </div>
 
@@ -289,7 +289,7 @@ export default function TrafficGrowthCenter() {
                           <div key={i} className="flex items-center gap-3">
                             <div className="flex-1">
                               <div className="flex items-center justify-between mb-1">
-                                <span className="font-heading text-xs" style={{ color: '#F5EFE6' }}>{ch.channel}</span>
+                                <span className="font-heading text-xs" style={{ color: '#F7F2E9' }}>{ch.channel}</span>
                                 <span className="font-mono text-[8px]" style={{ color: 'rgba(230,183,173,0.6)' }}>{ch.sessions.toLocaleString()} sessions</span>
                               </div>
                               <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -348,11 +348,11 @@ export default function TrafficGrowthCenter() {
                     const opportunityLabel = k.position <= 10 ? 'On page 1 — optimize CTR' : 'Climb to page 1';
                     return (
                       <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                        <td className="py-3 pr-6 font-heading" style={{ color: '#F5EFE6', fontWeight: 400 }}>{k.query}</td>
+                        <td className="py-3 pr-6 font-heading" style={{ color: '#F7F2E9', fontWeight: 400 }}>{k.query}</td>
                         <td className="py-3 pr-6 font-mono text-sm" style={{ color: GOLD }}>#{k.position?.toFixed(1)}</td>
                         <td className="py-3 pr-6 font-mono text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>{k.impressions?.toLocaleString()}</td>
                         <td className="py-3 pr-6 font-mono text-sm" style={{ color: 'rgba(240,235,225,0.7)' }}>{k.clicks}</td>
-                        <td className="py-3 pr-6 font-mono text-sm" style={{ color: parseFloat(ctr) < 3 ? '#E8697A' : '#6CBD5A' }}>{ctr}%</td>
+                        <td className="py-3 pr-6 font-mono text-sm" style={{ color: parseFloat(ctr) < 3 ? '#E8697A' : '#264A35' }}>{ctr}%</td>
                         <td className="py-3 pr-6 font-heading text-xs" style={{ color: RG }}>{opportunityLabel}</td>
                       </tr>
                     );
@@ -367,7 +367,7 @@ export default function TrafficGrowthCenter() {
         <section>
           <SectionHeader title="Content Health" sub="Live counts from the database" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <StatCard label="Published Blog Posts" value={publishedPosts} icon={BookOpen} color="#6CBD5A" />
+            <StatCard label="Published Blog Posts" value={publishedPosts} icon={BookOpen} color="#264A35" />
             <StatCard label="Verified Reviews" value={reviewCount} icon={CheckCircle} color={GOLD} />
             <StatCard label="Avg Review Rating" value={avgRating} icon={TrendingUp} color={RG} />
             <StatCard label="Total Products" value="12" icon={ShoppingBag} color={RG} sub="6 mushroom + 3 classic + 3 matcha" />
@@ -383,15 +383,15 @@ export default function TrafficGrowthCenter() {
                 className="flex items-center justify-between p-4 transition-opacity hover:opacity-75"
                 style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)' }}>
                 <div className="flex items-center gap-3">
-                  <Map className="w-4 h-4" style={{ color: '#6CBD5A' }} />
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#F5EFE6' }}>{s.label}</span>
+                  <Map className="w-4 h-4" style={{ color: '#264A35' }} />
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#F7F2E9' }}>{s.label}</span>
                 </div>
                 <ExternalLink className="w-3.5 h-3.5" style={{ color: 'rgba(230,183,173,0.4)' }} />
               </a>
             ))}
           </div>
           <div className="mt-4 p-4" style={{ background: 'rgba(108,189,90,0.06)', border: '1px solid rgba(108,189,90,0.2)' }}>
-            <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: '#6CBD5A' }}>Sitemap Index Status</p>
+            <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-2" style={{ color: '#264A35' }}>Sitemap Index Status</p>
             <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.65)', fontWeight: 300 }}>
               Sitemap index live at <strong style={{ color: RG }}>torchrepublic.com/sitemap.xml</strong> — referenced in robots.txt.
               Submit to Google Search Console and Bing Webmaster Tools manually (see Owner Actions below).
@@ -422,11 +422,11 @@ export default function TrafficGrowthCenter() {
               { label: 'Google Merchant Center Feed', status: 'todo', detail: 'Shopify native feed recommended — see Owner Actions' },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 p-3" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.07)' }}>
-                {item.status === 'pass' && <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#6CBD5A' }} />}
+                {item.status === 'pass' && <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#264A35' }} />}
                 {item.status === 'warn' && <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: GOLD }} />}
                 {item.status === 'todo' && <Loader2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'rgba(230,183,173,0.4)' }} />}
                 <div>
-                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F5EFE6' }}>{item.label}</p>
+                  <p className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F7F2E9' }}>{item.label}</p>
                   <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>{item.detail}</p>
                 </div>
               </div>
@@ -526,7 +526,7 @@ export default function TrafficGrowthCenter() {
                   <span className="font-mono text-[7px] tracking-[0.3em] uppercase px-2 py-1" style={{ background: `${action.color}15`, color: action.color, border: `1px solid ${action.color}30` }}>
                     {action.priority}
                   </span>
-                  <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F5EFE6' }}>{action.title}</p>
+                  <p className="font-mono text-[9px] tracking-[0.2em] uppercase font-bold" style={{ color: '#F7F2E9' }}>{action.title}</p>
                 </div>
                 <ol className="space-y-1.5 pl-4">
                   {action.steps.map((step, j) => (

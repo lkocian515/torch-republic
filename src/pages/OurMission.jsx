@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { ALL_PRODUCTS } from '@/lib/mushroomProducts';
 
-const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
+const theme = { page: '#F7F2E9', section: '#F7F2E9', sage: '#EEF2E8', card: '#FFFCF7', text: '#292626', body: '#5E4639', border: '#B89A6D', accent: '#9B4E2F', gold: '#E6AC45' };
 
 // Only products with a valid image are rendered, so a missing asset can never
 // crash the entire page.
@@ -33,7 +33,7 @@ export default function OurMission() {
           <h1 className="font-serif text-5xl font-bold leading-tight md:text-6xl" style={{ color: theme.text }}>A Better Daily Ritual, Made Simple</h1>
           <p className="mx-auto mt-6 max-w-2xl font-heading text-lg leading-8" style={{ color: theme.body }}>Torch Republic Coffee Company is a modern coffee and wellness brand built around simple, intentional daily rituals — a few thoughtfully made products for the moments that start and shape your day.</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Explore the Collection</Link>
+            <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#F7F2E9' }}>Explore the Collection</Link>
             <Link to="/founder-story" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Read the Founder Story</Link>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function OurMission() {
           <div className="grid gap-6 md:grid-cols-2">
             {products.map((product) => (
               <article key={product.slug} className="overflow-hidden rounded-[2rem] border" style={{ background: theme.card, borderColor: theme.border }}>
-                <div className="p-6" style={{ background: '#F8F5EF' }}>
+                <div className="p-6" style={{ background: '#F7F2E9' }}>
                   <img src={product.image} alt={`${product.name} by Torch Republic`} className="mx-auto aspect-square w-full max-w-[220px] object-contain" loading="lazy" />
                 </div>
                 <div className="p-6">
@@ -111,7 +111,7 @@ export default function OurMission() {
         <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Find the Ritual That Fits Your Day</h2>
         <p className="mx-auto mt-4 max-w-2xl font-heading leading-8" style={{ color: theme.body }}>Explore instant coffee and mushroom coffee designed for simple daily routines.</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#FBF8F1' }}>Explore the Collection</Link>
+          <Link to="/shop" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.text, color: '#F7F2E9' }}>Explore the Collection</Link>
           <Link to="/quiz" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Find Your Blend</Link>
         </div>
         <p className="mt-10 font-heading text-xs leading-6" style={{ color: theme.body }}>Torch Republic Coffee Company is a DBA of LiberTees For All Apparel LLC.</p>

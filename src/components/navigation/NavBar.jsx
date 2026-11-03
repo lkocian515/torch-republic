@@ -80,7 +80,7 @@ export default function NavBar() {
               <Link
                 to="/shop"
                 className="hidden lg:inline-flex items-center font-mono text-[9px] tracking-[0.28em] uppercase transition-all hover:opacity-90 btn-glow"
-                style={{ background: '#E6B7AD', color: '#050505', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
+                style={{ background: '#E6AC45', color: '#050505', fontWeight: 800, padding: '7px 14px', whiteSpace: 'nowrap' }}
               >
                 Shop All
               </Link>

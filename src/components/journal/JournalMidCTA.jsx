@@ -6,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { trackJournalCTA } from '@/lib/analyticsEvents';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TOPIC_MAP = [
   {

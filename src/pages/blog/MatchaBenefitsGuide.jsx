@@ -5,8 +5,8 @@ import { useSEO } from '@/hooks/useSEO';
 import { Brain, Zap, Shield, Heart, Leaf } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
-const MATCHA_GREEN = '#6CBD5A';
+const RG = '#E6AC45';
+const MATCHA_GREEN = '#264A35';
 
 const BENEFITS = [
   { icon: Brain, title: 'Naturally Occurring L-Theanine', body: 'Matcha contains caffeine and L-theanine together,  a pairing that has been studied in tea research and is traditionally associated with mindful rituals.' },
@@ -47,14 +47,14 @@ export default function MatchaBenefitsGuide() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: `${MATCHA_GREEN}90` }}>
             Wellness Guide · Updated June 2025
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Matcha Benefits: The Complete Ceremonial Grade Guide
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -88,7 +88,7 @@ export default function MatchaBenefitsGuide() {
         <div className="max-w-[900px] mx-auto space-y-16">
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Why Matcha Is Different From Every Other Green Tea
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -104,7 +104,7 @@ export default function MatchaBenefitsGuide() {
           </section>
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               The L-Theanine + Caffeine Combination: Why It Works
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -116,7 +116,7 @@ export default function MatchaBenefitsGuide() {
           </section>
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Matcha vs. Coffee: An Honest Comparison
             </motion.h2>
             <div className="overflow-x-auto my-6">
@@ -141,7 +141,7 @@ export default function MatchaBenefitsGuide() {
                     ['Best for', 'Deep focus, calm work, anxiety-prone', 'High intensity, mornings, social energy'],
                   ].map((row, i) => (
                     <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                      <td className="px-5 py-3.5 font-heading text-xs font-semibold" style={{ color: '#F5EFE6' }}>{row[0]}</td>
+                      <td className="px-5 py-3.5 font-heading text-xs font-semibold" style={{ color: '#F7F2E9' }}>{row[0]}</td>
                       <td className="px-5 py-3.5 font-heading text-xs" style={{ color: `${MATCHA_GREEN}CC` }}>{row[1]}</td>
                       <td className="px-5 py-3.5 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.5)' }}>{row[2]}</td>
                     </tr>
@@ -153,7 +153,7 @@ export default function MatchaBenefitsGuide() {
 
           {/* FAQ */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Frequently Asked Questions
             </motion.h2>
             <div className="space-y-5">
@@ -174,7 +174,7 @@ export default function MatchaBenefitsGuide() {
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(108,189,90,0.05)', border: `1px solid ${MATCHA_GREEN}30` }}>
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: `${MATCHA_GREEN}90` }}>Try Ceremonial Grade</p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Instant Matcha</h3>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>Torch Republic Instant Matcha</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Single-origin ceremonial grade Uji matcha. Stone-ground. Instant. No whisking required,  just mix and your ritual begins.
             </p>

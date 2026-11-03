@@ -29,7 +29,7 @@ export const PRIZES = [
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
     sliceColor: '#15455F',
-    sliceTextColor: '#FFF7E8',
+    sliceTextColor: '#F7F2E9',
   },
   {
     id: 'ten_percent_2',
@@ -40,7 +40,7 @@ export const PRIZES = [
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
     sliceColor: '#061420',
-    sliceTextColor: '#FFF7E8',
+    sliceTextColor: '#F7F2E9',
   },
   {
     id: 'ten_percent_3',
@@ -51,7 +51,7 @@ export const PRIZES = [
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
     sliceColor: '#15455F',
-    sliceTextColor: '#FFF7E8',
+    sliceTextColor: '#F7F2E9',
   },
   {
     id: 'ten_percent',
@@ -62,7 +62,7 @@ export const PRIZES = [
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
     sliceColor: '#061420',
-    sliceTextColor: '#FFF7E8',
+    sliceTextColor: '#F7F2E9',
   },
 ];
 

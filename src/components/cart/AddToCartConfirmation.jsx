@@ -7,12 +7,12 @@ import { useCart } from '@/contexts/CartContext';
 const AUTO_DISMISS_MS = 5000;
 
 const THEME = {
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  clay: '#9B4E2F',
+  moss: '#264A35',
 };
 
 /**
@@ -144,7 +144,7 @@ export default function AddToCartConfirmation() {
                   src={line.image}
                   alt={line.imageAlt || line.name}
                   className="w-12 h-12 object-contain rounded-md flex-shrink-0"
-                  style={{ background: '#F8F5EF', padding: 2 }}
+                  style={{ background: '#F7F2E9', padding: 2 }}
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-heading font-bold truncate" style={{ color: THEME.text, fontSize: '0.875rem' }}>{line.name}</p>
@@ -165,7 +165,7 @@ export default function AddToCartConfirmation() {
           {isSet && (
             <div
               className="flex items-center justify-between px-4 py-2.5"
-              style={{ borderTop: `1px solid ${THEME.border}`, background: '#FBF8F2' }}
+              style={{ borderTop: `1px solid ${THEME.border}`, background: '#F7F2E9' }}
             >
               <span className="font-mono tracking-[0.15em] uppercase" style={{ color: THEME.secondary, fontSize: '0.625rem' }}>
                 {totalQty} items subtotal

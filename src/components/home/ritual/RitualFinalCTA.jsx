@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 // into the current shopping experience (no checkout behavior change).
 export default function RitualFinalCTA() {
   return (
-    <section style={{ background: '#292622' }}>
+    <section style={{ background: '#32190F' }}>
       <div className="mx-auto max-w-[900px] px-6 py-20 text-center md:px-10 md:py-24">
-        <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#E6B7AD' }}>
+        <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#E6AC45' }}>
           Your ritual starts here
         </p>
         <h2
           className="mx-auto mt-4 font-serif font-bold"
-          style={{ fontSize: 'clamp(1.9rem,4vw,2.8rem)', color: '#FBF8F1', lineHeight: 1.12, textWrap: 'balance', maxWidth: '40rem' }}
+          style={{ fontSize: 'clamp(1.9rem,4vw,2.8rem)', color: '#F7F2E9', lineHeight: 1.12, textWrap: 'balance', maxWidth: '40rem' }}
         >
           Two products. One simple daily ritual.
         </h2>
@@ -24,7 +24,7 @@ export default function RitualFinalCTA() {
           <Link
             to="/build-your-ritual"
             className="btn btn-ghost"
-            style={{ minWidth: '220px', color: '#FBF8F1', borderColor: 'rgba(251,248,241,0.4)' }}
+            style={{ minWidth: '220px', color: '#F7F2E9', borderColor: 'rgba(251,248,241,0.4)' }}
           >
             Build Your Ritual
           </Link>

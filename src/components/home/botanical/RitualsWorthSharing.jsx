@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const colors = { page: '#FBF8F1', sage: '#EEF2E8', card: '#FFFFFF', text: '#293626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543' };
+const colors = { page: '#F7F2E9', sage: '#EEF2E8', card: '#FFFCF7', text: '#264A35', body: '#5E4639', border: '#B89A6D', accent: '#9B4E2F' };
 
 export default function RitualsWorthSharing() {
   return <section className="px-5 py-16 md:px-10" style={{ background: colors.sage }}>

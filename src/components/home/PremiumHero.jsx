@@ -114,7 +114,7 @@ export default function PremiumHero() {
           <Link
             to="/CoffeeCollection"
             className="inline-flex items-center justify-center gap-3 font-mono uppercase tracking-[0.32em] transition-all btn-glow"
-            style={{ fontSize: '11px', fontWeight: 900, background: '#C9A24A', color: '#000', padding: '1.15rem 2.8rem' }}
+            style={{ fontSize: '11px', fontWeight: 900, background: '#E6AC45', color: '#000', padding: '1.15rem 2.8rem' }}
           >
             Explore the Collection
             <ArrowRight className="w-3.5 h-3.5" />

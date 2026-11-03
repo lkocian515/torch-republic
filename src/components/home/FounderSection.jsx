@@ -27,7 +27,7 @@ function Stars({ count = 5 }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#C8A44D' }} viewBox="0 0 20 20">
+        <svg key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#E6AC45' }} viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
@@ -48,9 +48,9 @@ export default function FounderSection() {
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(200,164,77,0.12)', border: '1px solid rgba(200,164,77,0.35)' }}>
-                <Flame className="w-5 h-5" style={{ color: '#C8A44D' }} />
+                <Flame className="w-5 h-5" style={{ color: '#E6AC45' }} />
               </div>
-              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>Why We Exist</span>
+              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#E6AC45' }}>Why We Exist</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6">
               We Don't Make Merch. <span style={{ color: '#D4AF5A' }}>We Make Statements.</span>
@@ -93,7 +93,7 @@ export default function FounderSection() {
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
-              <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Real Customers</span>
+              <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>Real Customers</span>
               <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
             </div>
             <h3 className="text-2xl md:text-3xl font-heading font-black uppercase tracking-tight text-white">

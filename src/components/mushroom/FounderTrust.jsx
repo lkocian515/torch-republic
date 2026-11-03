@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Coffee, Heart, Users } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const VALUES = [
   {
@@ -56,7 +56,7 @@ export default function FounderTrust() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               marginBottom: '20px',
@@ -160,7 +160,7 @@ export default function FounderTrust() {
                 className="font-serif font-bold"
                 style={{
                   fontSize: '1.1rem',
-                  color: '#FFFFFF',
+                  color: '#FFFCF7',
                   marginBottom: '10px',
                   lineHeight: 1.3,
                 }}

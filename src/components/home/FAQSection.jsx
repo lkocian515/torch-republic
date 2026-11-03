@@ -41,7 +41,7 @@ export default function FAQSection() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Got Questions?</span>
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>Got Questions?</span>
             <div className="h-px flex-1 max-w-16" style={{ backgroundColor: 'rgba(200,164,77,0.3)' }} />
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-black uppercase tracking-tight text-white">
@@ -62,7 +62,7 @@ export default function FAQSection() {
               >
                 <span className="font-heading font-bold text-sm uppercase tracking-wide text-white">{faq.q}</span>
                 <motion.div animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                  <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: '#C8A44D' }} />
+                  <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: '#E6AC45' }} />
                 </motion.div>
               </button>
               <AnimatePresence>
@@ -89,7 +89,7 @@ export default function FAQSection() {
           <Link
             to={createPageUrl('Contact')}
             className="inline-flex items-center justify-center font-mono font-bold text-xs tracking-widest uppercase px-8 py-3 transition-all"
-            style={{ border: '1px solid rgba(200,164,77,0.4)', color: '#C8A44D' }}
+            style={{ border: '1px solid rgba(200,164,77,0.4)', color: '#E6AC45' }}
           >
             Contact Us
           </Link>

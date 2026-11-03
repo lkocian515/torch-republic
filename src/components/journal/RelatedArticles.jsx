@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { ALL_BLOG_TOPICS, TOPIC_CLUSTERS, FAQ_PAGES, INGREDIENT_PAGES } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function RelatedArticles({ currentSlug, cluster, maxArticles = 4, showProducts = true }) {
   const clusterData = cluster ? TOPIC_CLUSTERS[cluster] : null;

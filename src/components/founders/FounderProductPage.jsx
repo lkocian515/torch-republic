@@ -76,7 +76,7 @@ function Stars({ n = 5 }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: n }).map((_, i) => (
-        <Star key={i} className="w-3 h-3 fill-current" style={{ color: '#C9A24A' }} />
+        <Star key={i} className="w-3 h-3 fill-current" style={{ color: '#E6AC45' }} />
       ))}
     </div>
   );
@@ -127,7 +127,7 @@ export default function FounderProductPage({ data, DATA }) {
   const [activeImg, setActiveImg] = useState(0);
   const [purchaseMode, setPurchaseMode] = useState('onetime');
   const images = normalized.images || [heroImage];
-  const ac = accent || '#C9A24A';
+  const ac = accent || '#E6AC45';
   
   // Only Torch Box subscription products show subscription toggle
   const isTorchBoxProduct = false; // Standard coffee/apparel products are one-time purchases
@@ -138,7 +138,7 @@ export default function FounderProductPage({ data, DATA }) {
     : `$${rawPrice.toFixed(2)}`;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F7F2E9' }}>
 
       {/* Breadcrumb + Brand */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 pt-5">
@@ -200,7 +200,7 @@ export default function FounderProductPage({ data, DATA }) {
               </div>
 
               {/* Product title + format */}
-              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
                 {title}
               </h1>
               <p className="font-mono text-[11px] tracking-[0.35em] uppercase mb-4" style={{ color: 'rgba(255,255,255,0.38)' }}>
@@ -210,7 +210,7 @@ export default function FounderProductPage({ data, DATA }) {
               {/* Rating */}
               <a href="#reviews" className="flex items-center gap-2 mb-5 w-fit">
                 <GoldStars rating={5} />
-                <span className="font-mono text-[10px]" style={{ color: '#C9A24A' }}>4.8</span>
+                <span className="font-mono text-[10px]" style={{ color: '#E6AC45' }}>4.8</span>
                 <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.28)' }}>(200+ reviews)</span>
               </a>
 
@@ -228,7 +228,7 @@ export default function FounderProductPage({ data, DATA }) {
             {/* Urgency + scarcity */}
             <div className="flex flex-col gap-1.5 mb-6">
               <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#C9A24A' }} />
+                <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#E6AC45' }} />
                 <span className="font-mono text-[9px] tracking-[0.3em] uppercase font-bold" style={{ color: 'rgba(255,255,255,0.65)' }}>
                   Small Batch Release · Limited Run Blend
                 </span>
@@ -247,7 +247,7 @@ export default function FounderProductPage({ data, DATA }) {
             {tastingNotes?.length > 0 && (
               <div className="mb-8 p-5" style={{ background: '#0D0D0D', border: `1px solid ${ac}14` }}>
                 <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${ac}55` }}>Tasting Notes</p>
-                <p className="font-serif" style={{ fontSize: '1.15rem', color: '#F0EBE1', fontWeight: 600, letterSpacing: '0.01em' }}>
+                <p className="font-serif" style={{ fontSize: '1.15rem', color: '#F7F2E9', fontWeight: 600, letterSpacing: '0.01em' }}>
                   {tastingNotes.join(' · ')}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-3">
@@ -306,7 +306,7 @@ export default function FounderProductPage({ data, DATA }) {
                   Part of a Collectible Series
                 </p>
               </div>
-              <p className="font-serif mb-1" style={{ fontSize: '1.1rem', color: '#F0EBE1', fontWeight: 700 }}>
+              <p className="font-serif mb-1" style={{ fontSize: '1.1rem', color: '#F7F2E9', fontWeight: 700 }}>
                 Collect All {seriesCount} Founders
               </p>
               <p className="font-mono text-[9px] mb-4" style={{ color: 'rgba(255,255,255,0.38)' }}>
@@ -471,7 +471,7 @@ export default function FounderProductPage({ data, DATA }) {
                 <div key={label} className="flex flex-col items-center text-center gap-1.5 py-4 px-2"
                   style={{ background: '#0C0C0C', border: '1px solid rgba(196,163,90,0.08)' }}>
                   <Icon className="w-4 h-4" style={{ color: ac }} />
-                  <p className="font-heading text-[11px] font-semibold leading-tight" style={{ color: '#F0EBE1' }}>{label}</p>
+                  <p className="font-heading text-[11px] font-semibold leading-tight" style={{ color: '#F7F2E9' }}>{label}</p>
                   <p className="font-mono text-[8px] leading-tight" style={{ color: 'rgba(240,235,225,0.3)' }}>{sub}</p>
                 </div>
               ))}
@@ -535,7 +535,7 @@ export default function FounderProductPage({ data, DATA }) {
       <section style={{ backgroundColor: '#0A0A0A', borderBottom: '1px solid rgba(201,162,74,0.07)' }}>
         <div className="max-w-[760px] mx-auto px-5 md:px-10 py-20 text-center">
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${ac}45` }}>The Torch Index</p>
-          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F0EBE1', fontWeight: 800 }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: '#F7F2E9', fontWeight: 800 }}>
             Build Your Set. Collect All {seriesCount}.
           </h2>
           <p style={{ color: 'rgba(240,235,225,0.35)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.9rem', maxWidth: '420px', margin: '0 auto 1.5rem' }}>
@@ -575,7 +575,7 @@ export default function FounderProductPage({ data, DATA }) {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3 text-center" style={{ color: `${ac}45` }}>
               Build Your Set
             </p>
-            <p className="font-serif text-center mb-2" style={{ fontSize: '1.4rem', color: '#F0EBE1', fontWeight: 800 }}>
+            <p className="font-serif text-center mb-2" style={{ fontSize: '1.4rem', color: '#F7F2E9', fontWeight: 800 }}>
               Collect All {seriesCount} Founders
             </p>
             <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-center mb-10" style={{ color: 'rgba(255,255,255,0.28)' }}>

@@ -3,15 +3,15 @@ import { ensureLoyaltyRecord, redeemReward } from '@/lib/loyalty';
 import { Flame, Zap, CheckCircle, Copy, Trophy, Star, TrendingUp, TrendingDown, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
-const CLAY = '#B7653E';
-const CARD = '#FFFFFF';
-const CREAM = '#FBF8F1';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const CARD = '#FFFCF7';
+const CREAM = '#F7F2E9';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
 const GOLD = '#B89535';
-const MOSS = '#566047';
+const MOSS = '#264A35';
 
 const REWARDS = [
   { points: 100, label: '10% Off',    code: 'LOYALTY10',   icon: '✦' },
@@ -285,7 +285,7 @@ export default function LoyaltySection({ user }) {
                     disabled={!canRedeem || redeeming === reward.code}
                     className="font-mono text-[8px] tracking-[0.2em] uppercase px-3 py-2 transition-all hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
                     style={canRedeem
-                      ? { background: CLAY, color: '#FFFFFF', borderRadius: '4px', fontWeight: 700, border: `1px solid ${CLAY}` }
+                      ? { background: CLAY, color: '#FFFCF7', borderRadius: '4px', fontWeight: 700, border: `1px solid ${CLAY}` }
                       : { background: CARD, color: SECONDARY, border: `1px solid ${BORDER}`, borderRadius: '4px' }
                     }
                   >

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Coffee, Leaf, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORIES = [
   {
@@ -13,7 +13,7 @@ const CATEGORIES = [
     desc: 'Torchbearer · Ember Reserve — 100% Arabica instant coffee. No mushrooms, no pods, no machine. Bold, smooth, and ready in seconds.',
     cta: 'Shop Classic Coffee',
     href: '/classic-coffee',
-    accent: '#C4A35A',
+    accent: '#E6AC45',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
   },
   {
@@ -33,7 +33,7 @@ const CATEGORIES = [
     desc: 'The Monk · The Ascendant · The Alchemist — ceremonial grade instant matcha for calm energy, focus, presence, and intentional daily rituals. No whisk required.',
     cta: 'Shop Matcha',
     href: '/matcha',
-    accent: '#10B981',
+    accent: '#264A35',
     image: 'https://cdn.shopify.com/s/files/1/0620/7140/6844/files/d81a10bd-110c-4588-be10-b501874e73a0.png?v=1780827652',
   },
 ];
@@ -51,7 +51,7 @@ export default function CategoryCards() {
           <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Choose Your Ritual
           </p>
-          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
             Three Categories. One Daily Ritual.
           </h2>
           <p className="font-heading text-sm max-w-md mx-auto" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
@@ -90,7 +90,7 @@ export default function CategoryCards() {
                   </span>
                 </div>
 
-                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.25rem', color: '#F5EFE6', lineHeight: 1.2 }}>
+                <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.25rem', color: '#F7F2E9', lineHeight: 1.2 }}>
                   {cat.label}
                 </h3>
                 <p className="font-heading text-xs mb-5" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.75 }}>

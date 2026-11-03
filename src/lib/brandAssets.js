@@ -67,7 +67,7 @@ export const BRAND_COLORS = {
   navyDeep: '#050A12',
   navy: '#0A1424',
   navyLight: '#16233B',
-  gold: '#EAC796', // champagne gold — labels and high-contrast accents
+  gold: '#E6AC45', // champagne gold — labels and high-contrast accents
   goldLight: '#F3DCBB',
   goldDeep: '#C89965',
   goldAntique: '#C5A059', // antique gold — fine rules, filigree, tick marks

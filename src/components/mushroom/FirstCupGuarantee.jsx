@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Check, Award } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function FirstCupGuarantee() {
   return (
@@ -62,7 +62,7 @@ export default function FirstCupGuarantee() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -142,7 +142,7 @@ export default function FirstCupGuarantee() {
                 <item.icon size={20} style={{ color: RG, flexShrink: 0 }} />
                 <h3
                   className="font-serif font-bold"
-                  style={{ fontSize: '1.05rem', color: '#FFFFFF', marginBottom: '6px', lineHeight: 1.3 }}
+                  style={{ fontSize: '1.05rem', color: '#FFFCF7', marginBottom: '6px', lineHeight: 1.3 }}
                 >
                   {item.title}
                 </h3>

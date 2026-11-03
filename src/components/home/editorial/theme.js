@@ -1,19 +1,19 @@
 export const colors = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
+  page: '#F7F2E9',
+  cream: '#F7F2E9',
   parchment: '#EFE5D6',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  forest: '#293626',
-  moss: '#566047',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  forest: '#264A35',
+  moss: '#264A35',
   sage: '#899078',
   coffee: '#35261D',
   espresso: '#35261D',
-  clay: '#B7653E',
+  clay: '#9B4E2F',
   rust: '#A95637',
   border: '#D9CDBA',
-  gold: '#A97B32',
+  gold: '#E6AC45',
 };
 
 export const routes = {

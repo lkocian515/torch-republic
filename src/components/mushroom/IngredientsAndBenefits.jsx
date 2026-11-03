@@ -18,21 +18,21 @@ const DEFAULT_INGREDIENTS = {
       scientific: 'Hericium erinaceus',
       benefits: ['Supports cognitive function and mental clarity', 'Promotes nerve growth factor (NGF) production', 'Enhances focus and concentration'],
       icon: Brain,
-      accent: '#E6B7AD',
+      accent: '#E6AC45',
     },
     {
       name: 'Organic Reishi Mushroom',
       scientific: 'Ganoderma lucidum',
       benefits: ['Rich in antioxidants for immune support', 'Helps reduce oxidative stress', 'Supports overall wellness and vitality'],
       icon: Shield,
-      accent: '#E6B7AD',
+      accent: '#E6AC45',
     },
     {
       name: 'Premium Instant Coffee',
       scientific: 'Coffea arabica',
       benefits: ['Clean, sustained energy without jitters', 'Rich in natural antioxidants', 'Supports mental alertness and physical performance'],
       icon: Coffee,
-      accent: '#E6B7AD',
+      accent: '#E6AC45',
     },
   ],
   'classic-coffee': [
@@ -41,7 +41,7 @@ const DEFAULT_INGREDIENTS = {
       scientific: 'Coffea arabica',
       benefits: ['Smooth, rich flavor with low acidity', 'Natural caffeine for sustained energy', 'High in antioxidants and beneficial compounds'],
       icon: Coffee,
-      accent: '#E6B7AD',
+      accent: '#E6AC45',
     },
   ],
   'matcha': [
@@ -50,7 +50,7 @@ const DEFAULT_INGREDIENTS = {
       scientific: 'Camellia sinensis',
       benefits: ['Rich in L-Theanine for calm focus', 'Packed with catechins and antioxidants', 'Supports metabolism and natural energy'],
       icon: Leaf,
-      accent: '#6CBD5A',
+      accent: '#264A35',
     },
   ],
 };
@@ -71,7 +71,7 @@ export default function IngredientsAndBenefits({ product }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Ingredients & Benefits
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
             What Makes This Blend Special
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.8, fontSize: '1.05rem' }}>
@@ -103,7 +103,7 @@ export default function IngredientsAndBenefits({ product }) {
                 </div>
 
                 {/* Name */}
-                <h3 className="font-serif font-bold mb-1" style={{ fontSize: '1.15rem', color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold mb-1" style={{ fontSize: '1.15rem', color: '#F7F2E9' }}>
                   {ingredient.name}
                 </h3>
                 
@@ -142,7 +142,7 @@ export default function IngredientsAndBenefits({ product }) {
           }}
         >
           <p className="font-heading" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.8, fontSize: '1.05rem' }}>
-            <span style={{ color: '#E6B7AD', fontWeight: 600 }}>Why These Ingredients Matter:</span>{' '}
+            <span style={{ color: '#E6AC45', fontWeight: 600 }}>Why These Ingredients Matter:</span>{' '}
             Each component works synergistically to support your physical and mental performance throughout the day. 
             Whether you're seeking focused energy, immune support, or simply a moment of calm in your busy routine, 
             this blend provides the tools you need to show up fully for what matters most.

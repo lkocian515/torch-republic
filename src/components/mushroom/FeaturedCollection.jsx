@@ -29,7 +29,7 @@ export default function FeaturedCollection() {
             Six Blends · Instant Mushroom Coffee
           </p>
           <h2 className="font-serif font-bold mb-3"
-            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             The Collection
           </h2>
           <p className="font-heading max-w-lg mx-auto"
@@ -54,7 +54,7 @@ export default function FeaturedCollection() {
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(11,45,42,0.65)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(11,45,42,0.35)'; e.currentTarget.style.background = 'linear-gradient(135deg, rgba(11,45,42,0.14) 0%, #1E1E1E 100%)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.background = '#1E1E1E'; }}>
               <span className="font-mono text-[7.5px] tracking-[0.22em] uppercase" style={{ color: 'rgba(230,183,173,0.45)' }}>Need {need}?</span>
-              <span className="font-heading font-medium text-sm" style={{ color: '#F0EBE1' }}>→ {blend}</span>
+              <span className="font-heading font-medium text-sm" style={{ color: '#F7F2E9' }}>→ {blend}</span>
             </Link>
           ))}
         </div>

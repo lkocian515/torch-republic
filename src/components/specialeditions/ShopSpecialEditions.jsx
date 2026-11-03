@@ -26,10 +26,10 @@ export default function ShopSpecialEditions({ format = null }) {
       <div className="mx-auto max-w-[1240px]">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#A97B32' }}>
+            <p className="font-mono text-xs uppercase tracking-[0.12em]" style={{ color: '#E6AC45' }}>
               Limited releases
             </p>
-            <h2 className="mt-2 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#292622' }}>
+            <h2 className="mt-2 font-serif font-semibold" style={{ fontSize: 'clamp(1.6rem,3vw,2rem)', color: '#32190F' }}>
               Special Editions
             </h2>
           </div>

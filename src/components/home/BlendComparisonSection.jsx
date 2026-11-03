@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BLENDS = [
   {
     name: 'Torchbearer',
     category: 'Classic Coffee',
-    categoryColor: '#C4A35A',
+    categoryColor: '#E6AC45',
     bestFor: 'Everyday morning energy',
     caffeine: 'Medium-High (~80–100mg)',
     flavor: 'Smooth, balanced, bold',
@@ -19,7 +19,7 @@ const BLENDS = [
   {
     name: 'Ember Reserve',
     category: 'Classic Coffee',
-    categoryColor: '#C4A35A',
+    categoryColor: '#E6AC45',
     bestFor: 'Fresh starts, renewal',
     caffeine: 'Medium-High (~80–100mg)',
     flavor: 'Warm, smooth, medium roast',
@@ -30,7 +30,7 @@ const BLENDS = [
   {
     name: 'Ember Reserve',
     category: 'Classic Coffee',
-    categoryColor: '#C4A35A',
+    categoryColor: '#E6AC45',
     bestFor: 'Deep focus, resilience',
     caffeine: 'Medium-High (~80–100mg)',
     flavor: 'Dark, rich, bold finish',
@@ -41,7 +41,7 @@ const BLENDS = [
   {
     name: 'GlowMind Clarity',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Focus + mental clarity',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth coffee, cocoa notes',
@@ -52,7 +52,7 @@ const BLENDS = [
   {
     name: 'SunCap Rise',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Morning vitality, energy',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Bright coffee, light cocoa',
@@ -63,7 +63,7 @@ const BLENDS = [
   {
     name: 'MoonCap Restore',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Calm reset, restoration',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Dark cocoa, earthy, smooth',
@@ -74,7 +74,7 @@ const BLENDS = [
   {
     name: 'DreamCap Blend',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Deep rest, subconscious renewal',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth, dark cocoa, mellow',
@@ -85,7 +85,7 @@ const BLENDS = [
   {
     name: 'The Oracle Blend',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Intuition, inner knowing',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth coffee, soft cocoa',
@@ -96,7 +96,7 @@ const BLENDS = [
   {
     name: 'Mystic Bloom Blend',
     category: 'Mushroom Coffee',
-    categoryColor: '#10B981',
+    categoryColor: '#264A35',
     bestFor: 'Transformation, growth',
     caffeine: 'Medium (~50–80mg)',
     flavor: 'Smooth, soft cocoa, rounded',
@@ -107,7 +107,7 @@ const BLENDS = [
   {
     name: 'The Monk',
     category: 'Matcha',
-    categoryColor: '#6EE7B7',
+    categoryColor: '#264A35',
     bestFor: 'Calm focus, discipline',
     caffeine: 'Low-Medium (~25–40mg)',
     flavor: 'Smooth, earthy, clean finish',
@@ -118,7 +118,7 @@ const BLENDS = [
   {
     name: 'The Ascendant',
     category: 'Matcha',
-    categoryColor: '#6EE7B7',
+    categoryColor: '#264A35',
     bestFor: 'Growth, elevated energy',
     caffeine: 'Low-Medium (~25–40mg)',
     flavor: 'Bright, vegetal, uplifting',
@@ -129,7 +129,7 @@ const BLENDS = [
   {
     name: 'The Alchemist',
     category: 'Matcha',
-    categoryColor: '#6EE7B7',
+    categoryColor: '#264A35',
     bestFor: 'Creativity, inspired work',
     caffeine: 'Low-Medium (~25–40mg)',
     flavor: 'Creative, focused, bright',
@@ -161,7 +161,7 @@ export default function BlendComparisonSection() {
           <p className="font-mono text-[8px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.5)' }}>
             Compare the Blends
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Find Your Perfect Blend
           </h2>
           <p className="font-heading mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.8, maxWidth: '520px' }}>
@@ -208,7 +208,7 @@ export default function BlendComparisonSection() {
                   style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}
                 >
                   <td className="py-4 pr-4">
-                    <Link to={`/products/${blend.slug}`} className="font-serif font-bold hover:opacity-70 transition-opacity" style={{ color: '#F5EFE6', fontSize: '0.95rem', textDecoration: 'none' }}>
+                    <Link to={`/products/${blend.slug}`} className="font-serif font-bold hover:opacity-70 transition-opacity" style={{ color: '#F7F2E9', fontSize: '0.95rem', textDecoration: 'none' }}>
                       {blend.name}
                     </Link>
                   </td>
@@ -247,7 +247,7 @@ export default function BlendComparisonSection() {
               style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)' }}
             >
               <div className="flex items-start justify-between mb-2">
-                <Link to={`/products/${blend.slug}`} className="font-serif font-bold" style={{ color: '#F5EFE6', fontSize: '1rem', textDecoration: 'none' }}>
+                <Link to={`/products/${blend.slug}`} className="font-serif font-bold" style={{ color: '#F7F2E9', fontSize: '1rem', textDecoration: 'none' }}>
                   {blend.name}
                 </Link>
                 <span className="font-mono text-[6px] tracking-[0.2em] uppercase px-2 py-0.5 flex-shrink-0" style={{ color: blend.categoryColor, border: `1px solid ${blend.categoryColor}30`, background: `${blend.categoryColor}10` }}>

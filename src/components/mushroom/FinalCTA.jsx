@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles } from 'lucide-react';
 
-const RG   = '#E6B7AD';
+const RG   = '#E6AC45';
 
 export default function FinalCTA() {
   return (
@@ -28,7 +28,7 @@ export default function FinalCTA() {
         </p>
 
         <h2 className="font-serif font-bold mb-5"
-          style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           Premium Instant Coffee<br />
           <span style={{ color: RG }}>For a Clearer Daily Ritual</span>
         </h2>

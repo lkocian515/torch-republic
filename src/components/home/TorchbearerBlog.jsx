@@ -40,8 +40,8 @@ export default function TorchbearerBlog() {
         <div className="flex items-end justify-between mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #0E2A2F, #C8A44D)' }} />
-              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#C8A44D' }}>
+              <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #09243A, #E6AC45)' }} />
+              <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: '#E6AC45' }}>
                 The Torchbearer
               </span>
             </div>
@@ -55,7 +55,7 @@ export default function TorchbearerBlog() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 font-mono text-sm tracking-wider hover:gap-3 transition-all"
-            style={{ color: '#C8A44D' }}
+            style={{ color: '#E6AC45' }}
           >
             View All <ArrowRight className="w-4 h-4" />
           </a>
@@ -76,7 +76,7 @@ export default function TorchbearerBlog() {
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,162,74,0.12)'; }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: '#C8A44D' }}>
+                <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: '#E6AC45' }}>
                   {post.category}
                 </span>
                 <span className="text-gray-700 font-mono text-[10px]">·</span>
@@ -112,7 +112,7 @@ export default function TorchbearerBlog() {
           target="_blank"
           rel="noopener noreferrer"
           className="md:hidden flex items-center justify-center gap-2 font-mono text-sm tracking-wider mt-8 hover:gap-3 transition-all"
-          style={{ color: '#C8A44D' }}
+          style={{ color: '#E6AC45' }}
         >
           View All Posts <ArrowRight className="w-4 h-4" />
         </a>

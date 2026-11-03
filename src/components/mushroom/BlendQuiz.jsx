@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const QUESTIONS = [
   {
@@ -63,7 +63,7 @@ export default function BlendQuiz() {
 
   const getBlendInfo = (slug) => {
     const blends = {
-      'instant-classic-coffee': { name: 'Instant Classic Coffee', tagline: 'Bold · Higher Caffeine', color: '#B86543', slug: 'instant-classic-coffee' },
+      'instant-classic-coffee': { name: 'Instant Classic Coffee', tagline: 'Bold · Higher Caffeine', color: '#9B4E2F', slug: 'instant-classic-coffee' },
       'instant-mushroom-coffee': { name: 'Instant Mushroom Coffee', tagline: 'Focus · Functional Mushrooms', color: '#2F4A73', slug: 'instant-mushroom-coffee' },
       'ceremonial-matcha': { name: 'Ceremonial Matcha', tagline: 'Calm · Smoother Energy', color: '#5E7A3E', slug: 'ceremonial-matcha' },
     };
@@ -85,7 +85,7 @@ export default function BlendQuiz() {
           <p className="font-mono text-[8px] md:text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}60` }}>
             Find Your Perfect Blend
           </p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Not sure where to start?
           </h2>
           <p className="font-heading mt-3" style={{ fontSize: '0.9rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300 }}>
@@ -116,7 +116,7 @@ export default function BlendQuiz() {
             </div>
 
             {/* Question */}
-            <h3 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#F5EFE6' }}>
+            <h3 className="font-serif font-bold mb-6" style={{ fontSize: '1.3rem', color: '#F7F2E9' }}>
               {QUESTIONS[currentQ].q}
             </h3>
 
@@ -162,7 +162,7 @@ export default function BlendQuiz() {
               Your Perfect Blend
             </p>
             
-            <h3 className="font-serif font-bold mb-2" style={{ fontSize: '2rem', color: '#F5EFE6' }}>
+            <h3 className="font-serif font-bold mb-2" style={{ fontSize: '2rem', color: '#F7F2E9' }}>
               {getBlendInfo(result).name}
             </h3>
             

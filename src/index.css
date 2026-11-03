@@ -730,7 +730,7 @@ label { font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem;
   pointer-events: none;
   transform: scaleX(0);
   transform-origin: 0 50%;
-  background: linear-gradient(90deg, hsl(var(--primary)) 0%, #D6B27A 50%, hsl(var(--primary)) 100%);
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, #E6AC45 50%, hsl(var(--primary)) 100%);
   will-change: transform;
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FlaskConical, ShieldCheck, Leaf, Award, Coffee } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PILLARS = [
   {
@@ -96,7 +96,7 @@ export default function ScienceCredibilityBar() {
                 <p.icon size={18} style={{ color: RG }} />
               </div>
               <div>
-                <p className="font-serif font-bold" style={{ fontSize: '0.95rem', color: '#F5EFE6', marginBottom: '5px', lineHeight: 1.3 }}>
+                <p className="font-serif font-bold" style={{ fontSize: '0.95rem', color: '#F7F2E9', marginBottom: '5px', lineHeight: 1.3 }}>
                   {p.headline}
                 </p>
                 <p className="font-heading" style={{ fontSize: '0.78rem', color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.6 }}>

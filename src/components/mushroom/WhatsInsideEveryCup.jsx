@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Droplet, Coffee, Leaf, Check, Zap } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SPECS = [
   {
@@ -72,7 +72,7 @@ export default function WhatsInsideEveryCup() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -141,7 +141,7 @@ export default function WhatsInsideEveryCup() {
                 <p className="font-mono text-[7px] tracking-[0.25em] uppercase" style={{ color: 'rgba(230,183,173,0.4)', marginBottom: '6px' }}>
                   {spec.label}
                 </p>
-                <p className="font-serif font-bold" style={{ fontSize: '1.35rem', color: '#FFFFFF', lineHeight: 1.2 }}>
+                <p className="font-serif font-bold" style={{ fontSize: '1.35rem', color: '#FFFCF7', lineHeight: 1.2 }}>
                   {spec.value}
                 </p>
               </div>

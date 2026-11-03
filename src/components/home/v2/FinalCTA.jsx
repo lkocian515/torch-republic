@@ -26,7 +26,7 @@ export default function FinalCTA() {
         transition={{ duration: 0.85 }}
         className="relative z-10 max-w-[600px] mx-auto"
       >
-        <h2 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+        <h2 className="font-serif leading-none mb-4" style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.03em' }}>
           Built for Those Who Carry the Flame.
         </h2>
 
@@ -38,14 +38,14 @@ export default function FinalCTA() {
           <Link
             to="/CoffeeCollection"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-90 btn-glow"
-            style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
+            style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
           >
             Explore the Collection
           </Link>
           <Link
             to="/TheTorchBox"
             className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-75"
-            style={{ color: '#C9A24A', border: '1px solid rgba(201,162,74,0.4)', padding: '16px 28px' }}
+            style={{ color: '#E6AC45', border: '1px solid rgba(201,162,74,0.4)', padding: '16px 28px' }}
           >
             Become a Torchbearer
           </Link>

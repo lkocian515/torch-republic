@@ -1,7 +1,7 @@
 import React from 'react';
 import { Package, Gift } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function TabNavigation({ activeTab, onTabChange }) {
   const tabs = [

@@ -65,7 +65,7 @@ function ProductCard({ product, index }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           {product.compare_at_price > product.price && (
-            <div className="absolute top-3 left-3 px-2 py-0.5 font-mono text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #0E2A2F, #C8A44D)', color: '#fff' }}>
+            <div className="absolute top-3 left-3 px-2 py-0.5 font-mono text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #09243A, #E6AC45)', color: '#fff' }}>
               SAVE {Math.round((1 - product.price / product.compare_at_price) * 100)}%
             </div>
           )}
@@ -78,17 +78,17 @@ function ProductCard({ product, index }) {
           </h3>
           <div className="flex items-center gap-2">
             <StarRow rating={product.rating || 4.8} />
-            <span className="font-mono text-[10px]" style={{ color: '#C8A44D' }}>{(product.rating || 4.8).toFixed(1)}</span>
+            <span className="font-mono text-[10px]" style={{ color: '#E6AC45' }}>{(product.rating || 4.8).toFixed(1)}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-sm" style={{ color: '#C8A44D' }}>${product.price?.toFixed(2)}</span>
+            <span className="font-mono font-bold text-sm" style={{ color: '#E6AC45' }}>${product.price?.toFixed(2)}</span>
             {product.compare_at_price > product.price && (
               <span className="font-mono text-xs text-gray-600 line-through">${product.compare_at_price?.toFixed(2)}</span>
             )}
           </div>
           <div
             className="mt-1 py-2.5 text-center font-mono font-bold text-[11px] tracking-[0.2em] uppercase"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C8A44D 100%)', color: '#fff' }}
+            style={{ background: 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)', color: '#fff' }}
           >
             View Product →
           </div>
@@ -150,9 +150,9 @@ export default function PremiumBestSellers() {
         {/* Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Top Picks</span>
-            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>Top Picks</span>
+            <div className="h-px w-12" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="text-3xl md:text-5xl font-heading font-black uppercase tracking-tight text-white">
             Best Sellers
@@ -182,7 +182,7 @@ export default function PremiumBestSellers() {
               onClick={() => setActiveTab(tab.key)}
               className="px-6 py-2 font-mono text-xs tracking-[0.25em] uppercase transition-all"
               style={activeTab === tab.key
-                ? { background: 'linear-gradient(135deg, #0E2A2F, #1B5060, #C8A44D)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
+                ? { background: 'linear-gradient(135deg, #09243A, #09243A, #E6AC45)', color: '#fff', border: '1px solid rgba(212,175,90,0.4)' }
                 : { background: 'transparent', color: 'rgba(212,175,90,0.5)', border: '1px solid rgba(212,175,90,0.2)' }}
             >
               {tab.label}
@@ -216,7 +216,7 @@ export default function PremiumBestSellers() {
           <a
             href="/shop"
             className="inline-flex items-center gap-2 px-8 py-4 font-mono font-bold text-sm tracking-[0.25em] uppercase transition-all hover:gap-3"
-            style={{ border: '1px solid rgba(212,175,90,0.4)', color: '#C8A44D' }}
+            style={{ border: '1px solid rgba(212,175,90,0.4)', color: '#E6AC45' }}
           >
             View All Products <ArrowRight className="w-4 h-4" />
           </a>

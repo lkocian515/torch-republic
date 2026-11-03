@@ -13,9 +13,9 @@ export default function ManifestoSection() {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #1B5060)' }} />
-          <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>Our Mission</span>
-          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, transparent, #09243A)' }} />
+          <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>Our Mission</span>
+          <div className="h-px flex-1 max-w-16" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
         </div>
 
         <motion.div
@@ -29,7 +29,7 @@ export default function ManifestoSection() {
           </p>
           <p className="text-lg md:text-xl font-serif text-gray-300 leading-relaxed">
             This is not just apparel.<br />
-            <span style={{ color: '#C9A24A' }}>This is identity.</span>
+            <span style={{ color: '#E6AC45' }}>This is identity.</span>
           </p>
           <p className="text-base font-serif italic text-gray-400">
             You don't wear the message.<br />
@@ -47,7 +47,7 @@ export default function ManifestoSection() {
           <Link
             to={createPageUrl('BestSellers')}
             className="inline-flex items-center justify-center font-heading font-black text-sm tracking-widest uppercase px-10 py-4"
-            style={{ background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C9A24A 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
+            style={{ background: 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)', color: '#fff', boxShadow: '0 4px 30px rgba(14,42,47,0.6), 0 0 0 1px rgba(201,162,74,0.3)' }}
           >
             Shop the Collection
           </Link>

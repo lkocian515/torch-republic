@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 
 export default function CollectionsShowcase() {
   const collections = [
@@ -66,7 +66,7 @@ export default function CollectionsShowcase() {
                   </p>
                   <h3
                     className="font-serif font-bold text-xl sm:text-2xl md:text-3xl mb-3 transition-colors duration-300 group-hover:opacity-80"
-                    style={{ color: '#FFFFFF' }}
+                    style={{ color: '#FFFCF7' }}
                   >
                     {collection.title}
                   </h3>

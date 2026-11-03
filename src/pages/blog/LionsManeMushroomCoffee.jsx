@@ -5,7 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Brain, Shield, Zap, Clock, CheckCircle } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SCIENCE_HIGHLIGHTS = [
   {
@@ -85,7 +85,7 @@ export default function LionsManeMushroomCoffee() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -94,7 +94,7 @@ export default function LionsManeMushroomCoffee() {
             The Science of Mushroom Coffee
           </p>
           <h1 className="font-serif font-bold mb-6"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Lion's Mane Mushroom Coffee: Benefits, Research, and Why Your Morning Ritual Just Leveled Up
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg"
@@ -161,7 +161,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-3xl md:text-4xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               What Is Lion's Mane, Really?
             </motion.h2>
@@ -190,7 +190,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Two Complementary Compound Classes
             </motion.h3>
@@ -234,7 +234,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Human Clinical Evidence
             </motion.h3>
@@ -271,7 +271,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               What Does Lion's Mane Coffee Actually Feel Like?
             </motion.h3>
@@ -307,7 +307,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Why Lion's Mane + Chaga Is the Right Combination
             </motion.h3>
@@ -346,7 +346,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               How to Make It (The Torch Republic Way)
             </motion.h3>
@@ -386,7 +386,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               Who Should Drink Mushroom Coffee?
             </motion.h3>
@@ -428,7 +428,7 @@ export default function LionsManeMushroomCoffee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-serif font-bold text-2xl md:text-3xl mb-6"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFCF7' }}
             >
               The Bottom Line
             </motion.h3>
@@ -458,7 +458,7 @@ export default function LionsManeMushroomCoffee() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
               Explore the Collection
             </p>
-            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFFFF' }}>
+            <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFCF7' }}>
               Torch Republic Mushroom Coffee
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>

@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import { Mail, Check, Gift } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsEvents';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -96,7 +96,7 @@ export default function NewsletterSignup() {
             className="font-serif font-bold mb-3"
             style={{
               fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
             }}
@@ -129,8 +129,8 @@ export default function NewsletterSignup() {
                 borderRadius: '2px',
               }}
             >
-              <Check className="w-5 h-5" style={{ color: '#10B981' }} />
-              <span className="font-heading" style={{ color: '#10B981', fontSize: '0.95rem' }}>
+              <Check className="w-5 h-5" style={{ color: '#264A35' }} />
+              <span className="font-heading" style={{ color: '#264A35', fontSize: '0.95rem' }}>
                 You're in! Check your email for the code.
               </span>
             </motion.div>
@@ -152,7 +152,7 @@ export default function NewsletterSignup() {
                   style={{
                     background: 'rgba(255,255,255,0.02)',
                     border: '1px solid rgba(230,183,173,0.2)',
-                    color: '#F5EFE6',
+                    color: '#F7F2E9',
                     borderRadius: '2px',
                   }}
                 />

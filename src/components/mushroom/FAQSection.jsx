@@ -71,7 +71,7 @@ function FAQItem({ item, isOpen, onToggle }) {
         <span className="font-heading font-medium" style={{ fontSize: '1rem', color: 'rgba(250,245,235,0.95)' }}>
           {item.q}
         </span>
-        <span className="flex-shrink-0" style={{ color: '#E6B7AD' }}>
+        <span className="flex-shrink-0" style={{ color: '#E6AC45' }}>
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
       </button>
@@ -108,7 +108,7 @@ export default function FAQSection() {
           className="text-center mb-10"
         >
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(230,183,173,0.5)' }}>FAQ</p>
-          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Common Questions
           </h2>
         </motion.div>

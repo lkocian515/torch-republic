@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getShopifyCartUrl } from '@/lib/shopifyCheckout';
 
-const GOLD = '#C4A35A';
-const RG = '#E6B7AD';
+const GOLD = '#E6AC45';
+const RG = '#E6AC45';
 
 function getCartUrl(qty = 1) {
   return getShopifyCartUrl('torchbearer-premium-instant-coffee', qty);
@@ -96,13 +96,13 @@ export default function Torchbearer() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F8F5EF' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F7F2E9' }}>
 
       {/* ── Hero Section ── */}
       <section
         className="relative overflow-hidden"
         style={{
-          background: '#F8F5EF',
+          background: '#F7F2E9',
           borderBottom: `1px solid ${GOLD}20`,
         }}
       >
@@ -127,7 +127,7 @@ export default function Torchbearer() {
                 <div
                   className="relative overflow-hidden rounded-sm flex items-center justify-center"
                   style={{
-                    background: '#FBF8F1',
+                    background: '#F7F2E9',
                     border: `1px solid ${GOLD}40`,
                     minHeight: '420px',
                   }}
@@ -156,14 +156,14 @@ export default function Torchbearer() {
                     className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-sm transition-opacity hover:opacity-70"
                     style={{ background: 'rgba(255,255,255,0.9)', border: `1px solid ${GOLD}25` }}
                   >
-                    <ChevronLeft className="w-4 h-4" style={{ color: '#9A7A24' }} />
+                    <ChevronLeft className="w-4 h-4" style={{ color: '#E6AC45' }} />
                   </button>
                   <button
                     onClick={() => setActiveImg((activeImg + 1) % PRODUCT_IMAGES.length)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-sm transition-opacity hover:opacity-70"
                     style={{ background: 'rgba(255,255,255,0.9)', border: `1px solid ${GOLD}25` }}
                   >
-                    <ChevronRight className="w-4 h-4" style={{ color: '#9A7A24' }} />
+                    <ChevronRight className="w-4 h-4" style={{ color: '#E6AC45' }} />
                   </button>
                 </div>
 
@@ -176,7 +176,7 @@ export default function Torchbearer() {
                       className="flex-1 overflow-hidden rounded-sm transition-all"
                       style={{
                         border: i === activeImg ? `2px solid ${GOLD}` : `1px solid ${GOLD}20`,
-                        background: '#FBF8F1',
+                        background: '#F7F2E9',
                         opacity: i === activeImg ? 1 : 0.55,
                       }}
                     >
@@ -200,7 +200,7 @@ export default function Torchbearer() {
                   className="inline-flex items-center gap-2 mb-5 px-3 py-1.5"
                   style={{ background: `${GOLD}0D`, border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
                 >
-                  <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: '#9A7A24' }}>
+                  <span className="font-mono text-[7px] tracking-[0.45em] uppercase" style={{ color: '#E6AC45' }}>
                     Torchbearer Reserve · Pure Instant Coffee · No Mushrooms
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export default function Torchbearer() {
                   className="font-serif font-bold mb-2"
                   style={{
                     fontSize: 'clamp(2rem, 4vw, 3.2rem)',
-                    color: '#3F3027',
+                    color: '#32190F',
                     letterSpacing: '-0.01em',
                     lineHeight: 1.1,
                   }}
@@ -218,7 +218,7 @@ export default function Torchbearer() {
                 </h1>
                 <p
                   className="font-mono tracking-[0.3em] uppercase mb-2"
-                  style={{ fontSize: '0.75rem', color: '#9A7A24', fontWeight: 500 }}
+                  style={{ fontSize: '0.75rem', color: '#E6AC45', fontWeight: 500 }}
                 >
                   Premium Single-Origin Instant Coffee · 27 Servings
                 </p>
@@ -228,16 +228,16 @@ export default function Torchbearer() {
                 {/* Stars */}
                 <div className="flex items-center gap-2 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#9A7A24' }} />
+                    <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#E6AC45' }} />
                   ))}
-                  <span className="font-mono text-[8px] tracking-[0.15em] uppercase ml-2" style={{ color: '#9A7A24' }}>
+                  <span className="font-mono text-[8px] tracking-[0.15em] uppercase ml-2" style={{ color: '#E6AC45' }}>
                     Premium Blend
                   </span>
                 </div>
 
                 <p
                   className="font-heading mb-8"
-                  style={{ fontSize: '0.95rem', color: '#6A5A4A', lineHeight: 1.8, maxWidth: '380px' }}
+                  style={{ fontSize: '0.95rem', color: '#5E4639', lineHeight: 1.8, maxWidth: '380px' }}
                 >
                   Single-Origin Papua New Guinea · Medium Roast · 27 Servings
                 </p>
@@ -247,7 +247,7 @@ export default function Torchbearer() {
                   {TASTING_NOTES.map((n) => (
                     <div key={n.label} className="text-center">
                       <div className="text-2xl mb-1">{n.icon}</div>
-                      <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: `#9A7A24` }}>
+                      <p className="font-mono text-[7px] tracking-[0.15em] uppercase" style={{ color: `#E6AC45` }}>
                         {n.label}
                       </p>
                     </div>
@@ -256,7 +256,7 @@ export default function Torchbearer() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-3 mb-6">
-                  <span className="font-serif font-bold text-3xl" style={{ color: '#3F3027' }}>$24.99</span>
+                  <span className="font-serif font-bold text-3xl" style={{ color: '#32190F' }}>$24.99</span>
                   <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#9A8A7A' }}>
                     54g · 27 servings
                   </span>
@@ -264,7 +264,7 @@ export default function Torchbearer() {
 
                 {/* Quantity */}
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#6A5A4A' }}>Qty</span>
+                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: '#5E4639' }}>Qty</span>
                   <div
                     className="flex items-center"
                     style={{ border: `1px solid ${GOLD}30`, borderRadius: '2px' }}
@@ -272,20 +272,20 @@ export default function Torchbearer() {
                     <button
                       onClick={() => setQty(Math.max(1, qty - 1))}
                       className="w-10 h-10 flex items-center justify-center font-mono text-lg transition-colors hover:opacity-70"
-                      style={{ color: '#9A7A24' }}
+                      style={{ color: '#E6AC45' }}
                     >
                       −
                     </button>
                     <span
                       className="w-10 h-10 flex items-center justify-center font-mono text-sm font-bold"
-                      style={{ color: '#3F3027', borderLeft: `1px solid ${GOLD}20`, borderRight: `1px solid ${GOLD}20` }}
+                      style={{ color: '#32190F', borderLeft: `1px solid ${GOLD}20`, borderRight: `1px solid ${GOLD}20` }}
                     >
                       {qty}
                     </span>
                     <button
                       onClick={() => setQty(qty + 1)}
                       className="w-10 h-10 flex items-center justify-center font-mono text-lg transition-colors hover:opacity-70"
-                      style={{ color: '#9A7A24' }}
+                      style={{ color: '#E6AC45' }}
                     >
                       +
                     </button>
@@ -306,7 +306,7 @@ export default function Torchbearer() {
                     className="flex-1 text-center font-mono text-[10px] tracking-[0.3em] uppercase py-4 px-6 transition-all hover:opacity-80"
                     style={{
                       background: 'transparent',
-                      color: '#9A7A24',
+                      color: '#E6AC45',
                       fontWeight: 600,
                       borderRadius: '2px',
                       border: `1px solid ${GOLD}50`,
@@ -327,15 +327,15 @@ export default function Torchbearer() {
       </section>
 
       {/* ── Description Section ── */}
-      <section className="py-20 px-6 md:px-10" style={{ background: '#FBF8F1', borderBottom: `1px solid ${GOLD}30` }}>
+      <section className="py-20 px-6 md:px-10" style={{ background: '#F7F2E9', borderBottom: `1px solid ${GOLD}30` }}>
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#9A7A24` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#E6AC45` }}>
               About Torchbearer
             </p>
             <p
               className="font-heading text-center leading-loose"
-              style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: '#6A5A4A', lineHeight: 1.9 }}
+              style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: '#5E4639', lineHeight: 1.9 }}
             >
               Torchbearer is a premium single-origin instant coffee crafted from high-altitude Arabica beans sourced from the volcanic highlands of Papua New Guinea. Smooth, balanced, and exceptionally drinkable, this medium roast delivers notes of toasted almond, berry brightness, and sweet toffee in every cup.
             </p>
@@ -343,7 +343,7 @@ export default function Torchbearer() {
           <FadeIn delay={0.1}>
             <p
               className="font-heading text-center mt-6"
-              style={{ fontSize: '0.95rem', color: '#6A5A4A', lineHeight: 1.9 }}
+              style={{ fontSize: '0.95rem', color: '#5E4639', lineHeight: 1.9 }}
             >
               Torchbearer is the no-frills option for those who want great coffee, quickly. Specialty-quality beans, freeze-dried for maximum convenience. Dissolves in seconds. Works with hot water, hot milk, or cold brew.
             </p>
@@ -352,15 +352,15 @@ export default function Torchbearer() {
       </section>
 
       {/* ── Tasting Notes ── */}
-      <section className="py-20 px-6 md:px-10" style={{ background: '#F8F5EF' }}>
+      <section className="py-20 px-6 md:px-10" style={{ background: '#F7F2E9' }}>
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#9A7A24` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#E6AC45` }}>
               Tasting Profile
             </p>
             <h2
               className="font-serif font-bold text-center mb-14"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#3F3027', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#32190F', letterSpacing: '-0.02em' }}
             >
               Toasted. Bright. Balanced.
             </h2>
@@ -372,7 +372,7 @@ export default function Torchbearer() {
                 <div
                   className="text-center p-8"
                   style={{
-                    background: '#FFFFFF',
+                    background: '#FFFCF7',
                     border: `1px solid ${GOLD}40`,
                     borderRadius: '2px',
                   }}
@@ -380,11 +380,11 @@ export default function Torchbearer() {
                   <div className="text-4xl mb-5">{note.icon}</div>
                   <h3
                     className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3 font-bold"
-                    style={{ color: '#9A7A24' }}
+                    style={{ color: '#E6AC45' }}
                   >
                     {note.label}
                   </h3>
-                  <p className="font-heading text-sm" style={{ color: '#6A5A4A', lineHeight: 1.7 }}>
+                  <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>
                     {note.desc}
                   </p>
                 </div>
@@ -397,7 +397,7 @@ export default function Torchbearer() {
       {/* ── Origin Section ── */}
       <section
         className="py-20 px-6 md:px-10 relative overflow-hidden"
-        style={{ background: '#FBF8F1', borderTop: `1px solid ${GOLD}30` }}
+        style={{ background: '#F7F2E9', borderTop: `1px solid ${GOLD}30` }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
@@ -405,18 +405,18 @@ export default function Torchbearer() {
         />
         <div className="max-w-5xl mx-auto relative z-10">
           <FadeIn className="text-center mb-14">
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: `#9A7A24` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: `#E6AC45` }}>
               Origin
             </p>
             <h2
               className="font-serif font-bold mb-6"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#3F3027', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#32190F', letterSpacing: '-0.02em' }}
             >
               Sourced From the Highlands<br className="hidden md:block" /> of Papua New Guinea
             </h2>
             <p
               className="font-heading mx-auto"
-              style={{ fontSize: '0.92rem', color: '#6A5A4A', lineHeight: 1.8, maxWidth: '560px' }}
+              style={{ fontSize: '0.92rem', color: '#5E4639', lineHeight: 1.8, maxWidth: '560px' }}
             >
               Single-origin Arabica sourced from elevations of 1,400–1,800 meters above sea level in Papua New Guinea's volcanic highlands. Carefully processed and freeze-dried to preserve the character, clarity, and complexity of the original beans.
             </p>
@@ -428,15 +428,15 @@ export default function Torchbearer() {
                 <div
                   className="text-center p-6"
                   style={{
-                    background: '#FFFFFF',
+                    background: '#FFFCF7',
                     border: `1px solid ${GOLD}40`,
                     borderRadius: '2px',
                   }}
                 >
-                  <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-2" style={{ color: `#9A7A24` }}>
+                  <p className="font-mono text-[7px] tracking-[0.3em] uppercase mb-2" style={{ color: `#E6AC45` }}>
                     {card.label}
                   </p>
-                  <p className="font-heading font-semibold text-sm" style={{ color: '#3F3027' }}>
+                  <p className="font-heading font-semibold text-sm" style={{ color: '#32190F' }}>
                     {card.value}
                   </p>
                 </div>
@@ -447,27 +447,27 @@ export default function Torchbearer() {
       </section>
 
       {/* ── Why Torchbearer ── */}
-      <section className="py-20 px-6 md:px-10" style={{ background: '#FBF8F1', borderTop: `1px solid ${GOLD}30` }}>
+      <section className="py-20 px-6 md:px-10" style={{ background: '#F7F2E9', borderTop: `1px solid ${GOLD}30` }}>
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: `#9A7A24` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: `#E6AC45` }}>
               About This Coffee
             </p>
             <h2
               className="font-serif font-bold mb-8"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#3F3027', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#32190F', letterSpacing: '-0.02em' }}
             >
               Premium instant coffee, pure and simple.
             </h2>
             <p
               className="font-heading mb-6"
-              style={{ fontSize: '1rem', color: '#6A5A4A', lineHeight: 1.9 }}
+              style={{ fontSize: '1rem', color: '#5E4639', lineHeight: 1.9 }}
             >
               Torchbearer is our classic instant coffee — no mushroom extracts, no added ingredients. Just a premium single-origin Arabica roasted to a smooth medium profile and freeze-dried to preserve natural flavor.
             </p>
             <p
               className="font-heading"
-              style={{ fontSize: '1rem', color: '#6A5A4A', lineHeight: 1.9 }}
+              style={{ fontSize: '1rem', color: '#5E4639', lineHeight: 1.9 }}
             >
               Ready in seconds. No equipment needed. A great cup of coffee, wherever you are.
             </p>
@@ -476,15 +476,15 @@ export default function Torchbearer() {
       </section>
 
       {/* ── Benefits ── */}
-      <section className="py-20 px-6 md:px-10" style={{ background: '#F8F5EF', borderTop: `1px solid ${GOLD}30` }}>
+      <section className="py-20 px-6 md:px-10" style={{ background: '#F7F2E9', borderTop: `1px solid ${GOLD}30` }}>
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#9A7A24` }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: `#E6AC45` }}>
               What You Get
             </p>
             <h2
               className="font-serif font-bold text-center mb-12"
-              style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#3F3027' }}
+              style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#32190F' }}
             >
               Product Benefits
             </h2>
@@ -496,13 +496,13 @@ export default function Torchbearer() {
                 <div
                   className="flex items-center gap-4 p-5"
                   style={{
-                    background: '#FFFFFF',
+                    background: '#FFFCF7',
                     border: `1px solid ${GOLD}40`,
                     borderRadius: '2px',
                   }}
                 >
                   <span style={{ color: GOLD, fontWeight: 700, fontSize: '1rem' }}>✓</span>
-                  <span className="font-heading text-sm" style={{ color: '#3F3027' }}>
+                  <span className="font-heading text-sm" style={{ color: '#32190F' }}>
                     {benefit}
                   </span>
                 </div>
@@ -513,19 +513,19 @@ export default function Torchbearer() {
       </section>
 
       {/* ── Specs Accordion ── */}
-      <section className="py-12 px-6 md:px-10" style={{ background: '#FBF8F1', borderTop: `1px solid ${GOLD}30` }}>
+      <section className="py-12 px-6 md:px-10" style={{ background: '#F7F2E9', borderTop: `1px solid ${GOLD}30` }}>
         <div className="max-w-2xl mx-auto">
           <button
             onClick={() => setSpecsOpen(!specsOpen)}
             className="w-full flex items-center justify-between py-4 transition-opacity hover:opacity-70"
           >
-            <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: '#9A7A24' }}>
+            <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: '#E6AC45' }}>
               Product Specifications
             </span>
             {specsOpen ? (
-              <ChevronUp className="w-4 h-4" style={{ color: '#9A7A24' }} />
+              <ChevronUp className="w-4 h-4" style={{ color: '#E6AC45' }} />
             ) : (
-              <ChevronDown className="w-4 h-4" style={{ color: '#9A7A24' }} />
+              <ChevronDown className="w-4 h-4" style={{ color: '#E6AC45' }} />
             )}
           </button>
           <div style={{ height: '1px', background: `${GOLD}20` }} />
@@ -533,10 +533,10 @@ export default function Torchbearer() {
             <div className="mt-4 space-y-3">
               {SPECS.map((spec) => (
                 <div key={spec.label} className="flex justify-between py-2" style={{ borderBottom: `1px solid ${GOLD}22` }}>
-                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `#9A7A24` }}>
+                  <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `#E6AC45` }}>
                     {spec.label}
                   </span>
-                  <span className="font-heading text-sm" style={{ color: '#3F3027' }}>
+                  <span className="font-heading text-sm" style={{ color: '#32190F' }}>
                     {spec.value}
                   </span>
                 </div>
@@ -553,31 +553,31 @@ export default function Torchbearer() {
       <section
         className="py-16 px-6 md:px-10"
         style={{
-          background: '#FBF8F1',
+          background: '#F7F2E9',
           borderTop: `1px solid rgba(230,183,173,0.22)`,
         }}
       >
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: '#E6B7AD' }}>
+            <p className="font-mono text-[8px] tracking-[0.4em] uppercase mb-4" style={{ color: '#E6AC45' }}>
               Explore The Full Collection
             </p>
             <h3
               className="font-serif font-bold mb-4"
-              style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#3F3027' }}
+              style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#32190F' }}
             >
               Also Try Our Mushroom Coffee Blends
             </h3>
             <p
               className="font-heading mb-8"
-              style={{ fontSize: '0.9rem', color: '#6A5A4A', lineHeight: 1.8 }}
+              style={{ fontSize: '0.9rem', color: '#5E4639', lineHeight: 1.8 }}
             >
               GlowMind Clarity, SunCap Rise, MoonCap Restore, and more — five functional mushroom coffee blends with Lion's Mane, Cordyceps and Reishi, crafted for focus, energy, calm, and daily wellness.
             </p>
             <Link
               to="/blends"
               className="inline-block font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-4 transition-all hover:opacity-90"
-              style={{ background: '#B86543', color: '#FBF8F1', fontWeight: 700, borderRadius: '2px' }}
+              style={{ background: '#9B4E2F', color: '#F7F2E9', fontWeight: 700, borderRadius: '2px' }}
             >
               Explore Mushroom Blends
             </Link>

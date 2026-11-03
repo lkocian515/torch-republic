@@ -23,10 +23,10 @@ export default function TorchBoxBanner() {
       <div className="flex items-center gap-3">
         <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center"
           style={{ background: 'rgba(201,162,74,0.1)', border: '1px solid rgba(201,162,74,0.25)' }}>
-          <Flame className="w-4 h-4" style={{ color: '#C9A24A' }} />
+          <Flame className="w-4 h-4" style={{ color: '#E6AC45' }} />
         </div>
         <div>
-          <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: '#C9A24A' }}>
+          <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase" style={{ color: '#E6AC45' }}>
             Your coffee, delivered regularly
           </p>
           <p className="font-heading text-xs mt-0.5" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300 }}>
@@ -37,7 +37,7 @@ export default function TorchBoxBanner() {
       <Link
         to="/subscription"
         className="flex-shrink-0 inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-80 whitespace-nowrap px-5 py-2.5"
-        style={{ background: '#C9A24A', color: '#0B0B0B', fontWeight: 800 }}
+        style={{ background: '#E6AC45', color: '#0B0B0B', fontWeight: 800 }}
       >
         Start Subscription →
       </Link>

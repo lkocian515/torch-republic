@@ -48,7 +48,7 @@ export default function DriftSeasonalPreview() {
             <article
               key={entry.slug}
               className="flex flex-col"
-              style={{ background: '#FFFFFF', border: `1px solid ${D.rule}`, borderRadius: 4, overflow: 'hidden' }}
+              style={{ background: '#FFFCF7', border: `1px solid ${D.rule}`, borderRadius: 4, overflow: 'hidden' }}
             >
               <SeasonalArtwork slug={entry.slug} className="h-[150px] w-full" />
               <div className="flex flex-1 flex-col gap-3" style={{ padding: '1.25rem' }}>
@@ -78,7 +78,7 @@ export default function DriftSeasonalPreview() {
                   <Link
                     to={`/special-editions/${edition.slug}`}
                     className="inline-flex min-h-[44px] items-center px-4 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-                    style={{ borderRadius: 999, background: D.terracotta, color: '#FFF7E8' }}
+                    style={{ borderRadius: 999, background: D.terracotta, color: '#F7F2E9' }}
                   >
                     Shop {entry.name}
                   </Link>

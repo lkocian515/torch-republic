@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Clock, Calendar, ChevronRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_COLORS = {
-  science: '#A8D5BA',
+  science: '#264A35',
   habits: '#D4A574',
-  recipes: '#E6B7AD',
+  recipes: '#E6AC45',
   wellness: '#B5A5D4',
   news: '#A5C5D4',
 };
@@ -73,7 +73,7 @@ export default function ArticleCard({ article }) {
             {/* Title */}
             <h3
               className="font-serif font-bold text-lg mb-2 line-clamp-2 transition-colors group-hover:opacity-80"
-              style={{ color: '#F5EFE6' }}
+              style={{ color: '#F7F2E9' }}
             >
               {article.title}
             </h3>

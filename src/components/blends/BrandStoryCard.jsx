@@ -69,7 +69,7 @@ export default function BrandStoryCard({ product, index = 0 }) {
             {/* Name */}
             <h3 
               className="font-serif font-bold mb-3"
-              style={{ fontSize: '1.4rem', color: '#F5EFE6', lineHeight: 1.1 }}
+              style={{ fontSize: '1.4rem', color: '#F7F2E9', lineHeight: 1.1 }}
             >
               {product.name}
             </h3>

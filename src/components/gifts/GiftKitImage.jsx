@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 /**
  * GiftKitImage — responsive 4:3 product image for a gift kit card.

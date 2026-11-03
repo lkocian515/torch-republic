@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sun, Moon, Coffee, Zap, Brain, Heart, Shield } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const CLAY = '#B86543';
-const CREAM = '#FBF8F1';
-const CARD = '#FFFFFF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const CREAM = '#F7F2E9';
+const CARD = '#FFFCF7';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
 
 const DAYS = [
   {
@@ -163,14 +163,14 @@ export default function GettingStartedGuide() {
             <Link
               to="/shop"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ background: CLAY, color: '#FBF8F1', padding: '14px 36px', borderRadius: '4px' }}
+              style={{ background: CLAY, color: '#F7F2E9', padding: '14px 36px', borderRadius: '4px' }}
             >
               Shop All Blends →
             </Link>
             <Link
               to="/build-your-ritual"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70"
-              style={{ border: '1px solid #E6B7AD', color: CLAY, padding: '14px 36px', borderRadius: '4px' }}
+              style={{ border: '1px solid #E6AC45', color: CLAY, padding: '14px 36px', borderRadius: '4px' }}
             >
               Get the Full Set →
             </Link>

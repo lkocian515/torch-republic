@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { SHOPIFY_CART_URL } from '@/lib/shopifyCheckout';
 import { BRAND_LOGO } from '@/lib/brandAssets';
 
-const RG = '#E6B7AD';
-const RG_DEEP = '#C98F86';
+const RG = '#E6AC45';
+const RG_DEEP = '#9B4E2F';
 
 const NAV_LINKS = [
   { label: 'Shop', href: '/shop' },
@@ -85,7 +85,7 @@ export default function MobileHeader() {
             </Link>
             <button
               onClick={() => setOpen(true)}
-              style={{ color: '#F5EFE6', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: 'none', cursor: 'pointer' }}>
+              style={{ color: '#F7F2E9', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: 'none', cursor: 'pointer' }}>
               <Menu className="w-[24px] h-[24px]" strokeWidth={2} />
             </button>
           </div>

@@ -22,7 +22,7 @@ const TIERS = [
     perks: ['10% off store', 'Bonus QR historical content', 'Priority shipping'],
     cta: 'JOIN NOW →',
     featured: true,
-    accent: '#C4A35A',
+    accent: '#E6AC45',
   },
   {
     name: 'KEEPER',
@@ -44,9 +44,9 @@ export default function TorchBoxTiers() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-5">
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #C4A35A)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C4A35A' }}>Monthly Drops</span>
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C4A35A, transparent)' }} />
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>Monthly Drops</span>
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700 }}>
             Become a Torchbearer.
@@ -77,7 +77,7 @@ export default function TorchBoxTiers() {
               {tier.tag && (
                 <div className="px-6 pt-5">
                   <span className="font-mono text-[9px] font-bold tracking-[0.4em] uppercase px-2.5 py-1"
-                    style={{ color: '#C4A35A', border: '1px solid rgba(196,163,90,0.35)', background: 'rgba(196,163,90,0.1)' }}>
+                    style={{ color: '#E6AC45', border: '1px solid rgba(196,163,90,0.35)', background: 'rgba(196,163,90,0.1)' }}>
                     {tier.tag}
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export default function TorchBoxTiers() {
 
                 <Link to="/TheTorchBox" className="mt-auto py-3.5 text-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all"
                   style={tier.featured
-                    ? { background: 'linear-gradient(135deg, #0E2A2F 0%, #1B5060 50%, #C4A35A 100%)', color: '#fff' }
+                    ? { background: 'linear-gradient(135deg, #09243A 0%, #09243A 50%, #E6AC45 100%)', color: '#fff' }
                     : { border: '1px solid rgba(196,163,90,0.35)', color: tier.accent }
                   }>
                   {tier.cta}

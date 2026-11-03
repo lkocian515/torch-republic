@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Coffee, Leaf, Sparkles, ArrowRight, Check } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../../lib/mushroomProducts';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 
 const PREFERENCES = [
   { id: 'bold', label: 'Bold & Rich', icon: Coffee, category: 'intensity' },
@@ -112,7 +112,7 @@ export default function FlavorDiscovery() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
             Flavor Discovery
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F7F2E9' }}>
             Find Your Perfect Blend
           </h2>
           <p
@@ -208,7 +208,7 @@ export default function FlavorDiscovery() {
                 <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: `${RG}70` }}>
                   Your Perfect Matches
                 </p>
-                <h3 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#F7F2E9' }}>
                   Based on your preferences
                 </h3>
               </div>
@@ -252,7 +252,7 @@ export default function FlavorDiscovery() {
 
                           {/* Content */}
                           <div className="p-5">
-                            <h4 className="font-serif font-bold text-lg mb-2" style={{ color: '#F5EFE6' }}>
+                            <h4 className="font-serif font-bold text-lg mb-2" style={{ color: '#F7F2E9' }}>
                               {blend.name}
                             </h4>
                             <p className="font-mono text-[8px] tracking-[0.25em] uppercase mb-3" style={{ color: `${RG}60` }}>

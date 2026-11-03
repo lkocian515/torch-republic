@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Sparkles, Crown, Gift, TrendingUp, Clock, Star } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const TIER_ICONS = {
   ember: Flame,
@@ -11,9 +11,9 @@ const TIER_ICONS = {
 };
 
 const TIER_COLORS = {
-  ember: '#C98F86',
-  beacon: '#E6B7AD',
-  flamekeeper: '#D4AF37',
+  ember: '#9B4E2F',
+  beacon: '#E6AC45',
+  flamekeeper: '#E6AC45',
 };
 
 export default function LoyaltyDashboard({ user, pointsData }) {
@@ -99,7 +99,7 @@ export default function LoyaltyDashboard({ user, pointsData }) {
               Lifetime Points
             </p>
           </div>
-          <p className="font-mono text-xl font-bold" style={{ color: '#F5EFE6' }}>
+          <p className="font-mono text-xl font-bold" style={{ color: '#F7F2E9' }}>
             {lifetimePoints.toLocaleString()}
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function LoyaltyDashboard({ user, pointsData }) {
               Referrals
             </p>
           </div>
-          <p className="font-mono text-xl font-bold" style={{ color: '#F5EFE6' }}>
+          <p className="font-mono text-xl font-bold" style={{ color: '#F7F2E9' }}>
             {referralCount}
           </p>
         </div>

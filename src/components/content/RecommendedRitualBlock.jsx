@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 /**
  * Reusable "Recommended Ritual" block for educational guide pages.
@@ -34,7 +34,7 @@ export default function RecommendedRitualBlock({
       <p className="font-mono text-[8px] tracking-[0.45em] uppercase mb-3" style={{ color: `${accentColor}70` }}>
         Recommended Ritual
       </p>
-      <h3 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: '#FFFFFF' }}>
+      <h3 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: '#FFFCF7' }}>
         Start with {productName}
       </h3>
       <p className="font-heading text-sm mb-5" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.75 }}>

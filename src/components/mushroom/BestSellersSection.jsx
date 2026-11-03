@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 const BEST_SELLERS = [
   {
@@ -43,7 +43,7 @@ const BEST_SELLERS = [
     type: 'Mushroom Coffee · Dark Roast',
     benefit: 'Grounding, restoration, and calm balance',
     badge: 'Calm Ritual',
-    badgeColor: '#C98F86',
+    badgeColor: '#9B4E2F',
     href: '/products/mooncap-restore',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/375860656_2.png',
     why: 'Strong emotional appeal: calm, recovery, evening ritual',
@@ -70,7 +70,7 @@ function BestSellerCard({ product, index }) {
           src={getProductImage(product)}
           alt={getProductAltText(product)}
           className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
-          style={{ opacity: 0.95, background: '#F8F5EF', padding: '12px' }}
+          style={{ opacity: 0.95, background: '#F7F2E9', padding: '12px' }}
         />
         {/* Badge */}
         <div className="absolute top-3 left-3">
@@ -100,7 +100,7 @@ function BestSellerCard({ product, index }) {
           <p className="font-mono text-[7px] tracking-[0.25em] uppercase mb-1.5" style={{ color: `${product.badgeColor}70` }}>
             {product.type}
           </p>
-          <h4 className="font-serif font-bold mb-2" style={{ fontSize: '1.2rem', color: '#F5EFE6', lineHeight: 1.2 }}>
+          <h4 className="font-serif font-bold mb-2" style={{ fontSize: '1.2rem', color: '#F7F2E9', lineHeight: 1.2 }}>
             {product.name}
           </h4>
           <p className="font-heading text-xs mb-3" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300 }}>
@@ -146,7 +146,7 @@ export default function BestSellersSection() {
           </p>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+            style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.15 }}
           >
             Our Best-Selling Rituals
           </h2>
@@ -180,7 +180,7 @@ export default function BestSellersSection() {
           </p>
           <h3
             className="font-serif font-bold mb-3"
-            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', color: '#F5EFE6', lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', color: '#F7F2E9', lineHeight: 1.2 }}
           >
             Try The Starter Ritual Kit
           </h3>

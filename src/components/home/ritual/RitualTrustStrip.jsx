@@ -14,13 +14,13 @@ const ITEMS = [
 
 export default function RitualTrustStrip() {
   return (
-    <section style={{ background: '#F7F1E7' }}>
+    <section style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-8 md:px-10">
         <div className="grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4">
           {ITEMS.map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center justify-center gap-2.5 text-center">
-              <Icon className="h-4 w-4 flex-shrink-0" style={{ color: '#B7653E' }} aria-hidden="true" />
-              <span className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>{label}</span>
+              <Icon className="h-4 w-4 flex-shrink-0" style={{ color: '#9B4E2F' }} aria-hidden="true" />
+              <span className="font-heading text-sm font-semibold" style={{ color: '#32190F' }}>{label}</span>
             </div>
           ))}
         </div>

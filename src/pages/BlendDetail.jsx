@@ -15,14 +15,14 @@ import { trackViewItem, trackAddToCart } from '@/lib/analyticsEvents';
 import { getProductImage, withApprovedProductImage } from '@/lib/productImageHelpers';
 
 const THEME = {
-  page: '#F7F1E7',
-  cream: '#FBF8F1',
-  card: '#FFFDF8',
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  clay: '#B7653E',
-  moss: '#566047',
+  page: '#F7F2E9',
+  cream: '#F7F2E9',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  clay: '#9B4E2F',
+  moss: '#264A35',
 };
 
 const DEPRECATED_PRODUCT_REDIRECTS = {

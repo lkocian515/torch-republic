@@ -20,15 +20,15 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const CLAY = '#B7653E';
-const PAGE = '#FBF8F2';
-const CARD = '#FFFFFF';
-const CREAM = '#FBF8F1';
-const INK = '#2D2824';
-const SECONDARY = '#5F574F';
-const BORDER = '#E4D8C9';
-const MOSS = '#566047';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const PAGE = '#F7F2E9';
+const CARD = '#FFFCF7';
+const CREAM = '#F7F2E9';
+const INK = '#32190F';
+const SECONDARY = '#5E4639';
+const BORDER = '#B89A6D';
+const MOSS = '#264A35';
 
 const REWARD_TIERS = [
   { points: 0, discount: '10%', value: '$10 off', label: 'Welcome' },
@@ -165,7 +165,7 @@ export default function CustomerPortal() {
             className="inline-block font-mono uppercase tracking-[0.28em] transition-all hover:opacity-90"
             style={{
               background: CLAY,
-              color: '#FFFFFF',
+              color: '#FFFCF7',
               fontSize: '0.7rem',
               fontWeight: 700,
               padding: '14px 36px',
@@ -331,7 +331,7 @@ export default function CustomerPortal() {
                     <Link
                       to="/subscription"
                       className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase transition-all hover:opacity-90 py-2 px-4 rounded-sm"
-                      style={{ background: CLAY, color: '#FFFFFF', fontWeight: 700 }}
+                      style={{ background: CLAY, color: '#FFFCF7', fontWeight: 700 }}
                     >
                       Start Subscription <ChevronRight size={12} />
                     </Link>

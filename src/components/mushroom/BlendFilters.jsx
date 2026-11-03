@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Sliders, Zap, Coffee } from 'lucide-react';
 import MobileSelect from '@/components/forms/MobileSelect';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const ROAST_OPTIONS = [
   { value: 'all', label: 'All Roasts', icon: Coffee },
@@ -40,7 +40,7 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
           onChange={(value) => onFilterChange('roast', value)}
           options={ROAST_OPTIONS}
           className="rounded-sm border px-4 font-mono text-[9px] uppercase tracking-[0.25em]"
-          style={{ background: '#FFFFFF', borderColor: '#E4D8C9', color: '#6D625A' }}
+          style={{ background: '#FFFCF7', borderColor: '#B89A6D', color: '#5E4639' }}
         />
         <MobileSelect
           ariaLabel="Filter by caffeine level"
@@ -49,14 +49,14 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
           onChange={(value) => onFilterChange('caffeine', value)}
           options={CAFFEINE_OPTIONS}
           className="rounded-sm border px-4 font-mono text-[9px] uppercase tracking-[0.25em]"
-          style={{ background: '#FFFFFF', borderColor: '#E4D8C9', color: '#6D625A' }}
+          style={{ background: '#FFFCF7', borderColor: '#B89A6D', color: '#5E4639' }}
         />
       </div>
 
       <div className="hidden flex-wrap gap-4 md:flex">
         {/* Roast Intensity */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#6D625A' }}>
+          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#5E4639' }}>
             Roast Intensity
           </span>
           <div className="flex gap-1.5">
@@ -69,9 +69,9 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
                   onClick={() => onFilterChange('roast', opt.value)}
                   className="min-h-[44px] px-3 py-2 transition-all"
                   style={{
-                    background: isActive ? `${RG}15` : '#FFFFFF',
-                    border: `1px solid ${isActive ? RG : '#E4D8C9'}`,
-                    color: isActive ? RG : '#6D625A',
+                    background: isActive ? `${RG}15` : '#FFFCF7',
+                    border: `1px solid ${isActive ? RG : '#B89A6D'}`,
+                    color: isActive ? RG : '#5E4639',
                   }}
                 >
                   <div className="flex items-center gap-1.5">
@@ -88,7 +88,7 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
 
         {/* Caffeine Level */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#6D625A' }}>
+          <span className="font-mono text-[8px] tracking-[0.25em] uppercase" style={{ color: '#5E4639' }}>
             Caffeine
           </span>
           <div className="flex gap-1.5">
@@ -101,9 +101,9 @@ export default function BlendFilters({ roastFilter, caffeineFilter, onFilterChan
                   onClick={() => onFilterChange('caffeine', opt.value)}
                   className="min-h-[44px] px-3 py-2 transition-all"
                   style={{
-                    background: isActive ? `${RG}15` : '#FFFFFF',
-                    border: `1px solid ${isActive ? RG : '#E4D8C9'}`,
-                    color: isActive ? RG : '#6D625A',
+                    background: isActive ? `${RG}15` : '#FFFCF7',
+                    border: `1px solid ${isActive ? RG : '#B89A6D'}`,
+                    color: isActive ? RG : '#5E4639',
                   }}
                 >
                   <div className="flex items-center gap-1.5">

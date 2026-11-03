@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const FAQ = [
   { question: 'Does coffee actually help with focus and concentration?', answer: "Yes,  caffeine is one of the most well-researched cognitive enhancers available. It works by blocking adenosine receptors, which reduces the sensation of tiredness and increases dopamine and norepinephrine activity. The result is improved alertness, concentration, and reaction time. The catch: the effect is temporary, tolerance builds quickly, and high doses often impair focus through anxiety and overstimulation." },
@@ -36,14 +36,14 @@ export default function CoffeeAndFocusGuide() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Science · Updated June 2025
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Coffee and Focus: What Caffeine Actually Does to Your Brain
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -56,7 +56,7 @@ export default function CoffeeAndFocusGuide() {
         <div className="max-w-[900px] mx-auto space-y-16">
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               How Caffeine Actually Creates Focus
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -72,7 +72,7 @@ export default function CoffeeAndFocusGuide() {
           </section>
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               The Inverted U: Why More Coffee Isn't Better for Focus
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -80,7 +80,7 @@ export default function CoffeeAndFocusGuide() {
               <p>The reason: caffeine's secondary mechanism is cortisol stimulation. It triggers the HPA axis (your stress response system), raising cortisol and adrenaline. In moderate doses, this creates alertness. In high doses, it creates anxiety, racing thoughts, reduced working memory, and impaired decision-making,  all of which directly undermine focus.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
                 {[
-                  { dose: '40–80 mg', effect: 'Sweet Spot', desc: 'Improved alertness, focus, and reaction time. Minimal anxiety. Best for deep work.', color: '#6EBD8E' },
+                  { dose: '40–80 mg', effect: 'Sweet Spot', desc: 'Improved alertness, focus, and reaction time. Minimal anxiety. Best for deep work.', color: '#264A35' },
                   { dose: '80–150 mg', effect: 'Mixed Results', desc: 'Strong alertness but noticeable anxiety in sensitive individuals. Tolerance builds quickly.', color: RG },
                   { dose: '200+ mg', effect: 'Diminishing Returns', desc: 'Anxiety often outweighs focus benefits. Jitteriness, reduced working memory, crash risk.', color: '#E06C6C' },
                 ].map(d => (
@@ -96,7 +96,7 @@ export default function CoffeeAndFocusGuide() {
           </section>
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Where Mushroom Coffee Changes the Equation
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -111,7 +111,7 @@ export default function CoffeeAndFocusGuide() {
                     <div>
                       <p className="font-heading text-sm font-semibold mb-1" style={{ color: '#E06C6C' }}>Problem: {item.issue}</p>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)' }}>
-                        <span style={{ color: '#6EBD8E' }}>Solution: </span>{item.solution}
+                        <span style={{ color: '#264A35' }}>Solution: </span>{item.solution}
                       </p>
                     </div>
                   </li>
@@ -122,7 +122,7 @@ export default function CoffeeAndFocusGuide() {
 
           {/* FAQ */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Frequently Asked Questions
             </motion.h2>
             <div className="space-y-5">
@@ -143,7 +143,7 @@ export default function CoffeeAndFocusGuide() {
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Optimize Your Focus</p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Coffee Built for Deep Work</h3>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>Coffee Built for Deep Work</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               40–60 mg caffeine. Lion's Mane for NGF. Adaptogens for the cortisol curve. The sweet spot, in a cup.
             </p>

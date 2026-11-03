@@ -62,7 +62,7 @@ export default function TrustBadges({ compact = false }) {
                   background: 'rgba(230,183,173,0.08)',
                   border: '1px solid rgba(230,183,173,0.15)'
                 }}>
-                <badge.icon className="w-5 h-5" style={{ color: '#E6B7AD' }} />
+                <badge.icon className="w-5 h-5" style={{ color: '#E6AC45' }} />
               </div>
               <h3 className="font-mono text-[8px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(247,241,232,0.7)' }}>
                 {badge.label}

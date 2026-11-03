@@ -18,7 +18,7 @@ const TIERS = [
   {
     name: 'Founder',
     price: '$54',
-    color: '#C9A24A',
+    color: '#E6AC45',
     savings: 'Save ~$22/mo',
     items: ['2 Founders Series Blends', 'Exclusive Collectible + Insert', 'Exclusive Coffee Access', 'Early Access', '+ Exclusive First Box Bonus'],
     handle: 'torch-box-beacon',
@@ -29,7 +29,7 @@ const TIERS = [
   {
     name: 'Legacy',
     price: '$89',
-    color: '#E8D08A',
+    color: '#E6AC45',
     savings: 'Save ~$40/mo + Free Ship',
     items: ['Full 3-Blend Rotation', 'Premium Collectible Object', 'Exclusive Torch Bonus', 'Inner Circle Access', '+ Exclusive First Box Bonus'],
     handle: 'torch-box-blaze',
@@ -53,32 +53,32 @@ export default function TorchBoxSection() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-5">
-            <div style={{ width: 36, height: 1, background: '#C9A24A' }} />
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase" style={{ color: '#C9A24A' }}>Step 2: Build Your Legacy · Membership</p>
+            <div style={{ width: 36, height: 1, background: '#E6AC45' }} />
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase" style={{ color: '#E6AC45' }}>Step 2: Build Your Legacy · Membership</p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <span className="font-mono text-[9px] tracking-[0.35em] uppercase px-3 py-1.5 font-black rounded-sm"
-                  style={{ background: 'rgba(201,162,74,0.2)', color: '#E8D08A', border: '1px solid rgba(201,162,74,0.5)' }}>
+                  style={{ background: 'rgba(201,162,74,0.2)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.5)' }}>
                   ⚡ Limited Monthly Availability
                 </span>
               </div>
-              <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+              <h2 className="font-serif leading-none mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.6rem)', fontWeight: 800, color: '#FFFCF7', letterSpacing: '-0.03em' }}>
                 Ready to Collect<br />All Six Founders?
               </h2>
               <p className="font-heading mb-2" style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', fontWeight: 400, lineHeight: 1.6, maxWidth: 420 }}>
                 Move beyond single purchases. Exclusive member-only blends delivered monthly. Build your complete Founders Series collection.
               </p>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#C9A24A', fontWeight: 600 }}>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: '#E6AC45', fontWeight: 600 }}>
                 Save up to $42/mo + exclusive first box bonus
               </p>
             </div>
             <Link
               to="/TheTorchBox"
               className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-80 btn-glow flex-shrink-0"
-              style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
+              style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '16px 36px' }}
             >
               Claim Your Box →
             </Link>
@@ -86,7 +86,7 @@ export default function TorchBoxSection() {
         </motion.div>
 
         {/* Gold rule */}
-        <div className="mb-10" style={{ height: '1px', background: 'linear-gradient(90deg, #C9A24A 0%, rgba(201,162,74,0.12) 55%, transparent 100%)' }} />
+        <div className="mb-10" style={{ height: '1px', background: 'linear-gradient(90deg, #E6AC45 0%, rgba(201,162,74,0.12) 55%, transparent 100%)' }} />
 
         {/* Tier Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -111,7 +111,7 @@ export default function TorchBoxSection() {
                  <span className="font-mono text-[9px] font-black tracking-[0.35em] uppercase px-4 py-1" style={{ background: tier.color, color: '#0B0B0B' }}>
                    Most Popular
                  </span>
-                 <span className="font-mono text-[8px] font-black tracking-[0.3em] uppercase px-2.5 py-1 animate-pulse" style={{ background: 'rgba(201,162,74,0.25)', color: '#C9A24A', border: '1px solid rgba(201,162,74,0.5)' }}>
+                 <span className="font-mono text-[8px] font-black tracking-[0.3em] uppercase px-2.5 py-1 animate-pulse" style={{ background: 'rgba(201,162,74,0.25)', color: '#E6AC45', border: '1px solid rgba(201,162,74,0.5)' }}>
                    Limited
                  </span>
                </div>
@@ -119,7 +119,7 @@ export default function TorchBoxSection() {
 
               <div className="p-6 flex flex-col gap-5 flex-1">
                 <div>
-                  <h3 className="font-serif mb-0.5" style={{ fontSize: '1.6rem', color: '#F0EBE1', fontWeight: 700 }}>{tier.name}</h3>
+                  <h3 className="font-serif mb-0.5" style={{ fontSize: '1.6rem', color: '#F7F2E9', fontWeight: 700 }}>{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mt-2">
                     <span className="font-mono font-black text-2xl" style={{ color: tier.color }}>{tier.price}</span>
                     <span className="font-mono text-xs" style={{ color: 'rgba(240,235,225,0.3)' }}>/mo</span>
@@ -135,9 +135,9 @@ export default function TorchBoxSection() {
                     const isExclusive = item.includes('Exclusive') && item.includes('Blends');
                     return (
                       <div key={item} className="flex items-start gap-2.5">
-                        <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: isBonus ? '#E8D08A' : tier.color }} />
+                        <Check className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: isBonus ? '#E6AC45' : tier.color }} />
                         <span style={{
-                          color: isBonus ? '#E8D08A' : 'rgba(240,235,225,0.55)',
+                          color: isBonus ? '#E6AC45' : 'rgba(240,235,225,0.55)',
                           fontSize: '0.82rem',
                           lineHeight: 1.65,
                           fontWeight: isBonus ? 600 : 300,

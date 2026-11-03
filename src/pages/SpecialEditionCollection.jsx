@@ -95,7 +95,7 @@ export default function SpecialEditionCollection() {
                   const image = option?.image_url || edition.image_url;
                   return (
                     <figure key={edition.id} style={{ margin: 0, minWidth: 0 }}>
-                      <div className="product-image-wrap" style={{ background: '#F8F5EF' }}>
+                      <div className="product-image-wrap" style={{ background: '#F7F2E9' }}>
                         {image ? (
                           <img
                             src={image}

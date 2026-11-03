@@ -110,16 +110,16 @@ export default function MushroomBundle() {
     url: '/build-your-ritual',
   });
   return (
-    <div style={{ backgroundColor: '#F8F5EF', color: '#3F3027', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#F7F2E9', color: '#32190F', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ minHeight: '420px' }}>
-        <div className="absolute inset-0" style={{ background: '#F8F5EF' }} />
+        <div className="absolute inset-0" style={{ background: '#F7F2E9' }} />
         <img src={BUNDLE_IMAGE} alt="Torch Republic coffee bundles lineup"
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.3 }} />
         <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, rgba(248,245,239,0.5) 0%, #F8F5EF 100%)' }} />
+          style={{ background: 'linear-gradient(to bottom, rgba(248,245,239,0.5) 0%, #F7F2E9 100%)' }} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-28">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -127,33 +127,33 @@ export default function MushroomBundle() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-5"
           >
-            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: '#B86543' }}>
+            <p className="font-mono text-[9px] tracking-[0.55em] uppercase" style={{ color: '#9B4E2F' }}>
               Build Your Ritual Bundle
             </p>
-            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#3F3027', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#32190F', letterSpacing: '-0.02em' }}>
               Build Your Ritual
             </h1>
-            <p className="font-heading max-w-2xl" style={{ fontSize: '0.95rem', color: '#6A5A4A', lineHeight: 1.85, fontWeight: 300 }}>
+            <p className="font-heading max-w-2xl" style={{ fontSize: '0.95rem', color: '#5E4639', lineHeight: 1.85, fontWeight: 300 }}>
               Choose any 3 products and save. Mix and match from our complete collection of premium instant coffee, functional mushroom coffee, and ceremonial matcha.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 mt-4">
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: '#B86543' }}>$19.99</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: '#9B4E2F' }}>$19.99</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Republic Reserve</p>
               </div>
               <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.28)' }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: '#B86543' }}>$22.99</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: '#9B4E2F' }}>$22.99</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Mushroom Coffee</p>
               </div>
               <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.28)' }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: '#B86543' }}>$24.99</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: '#9B4E2F' }}>$24.99</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Ceremonial Matcha</p>
               </div>
               <div className="w-px h-8" style={{ background: 'rgba(230,183,173,0.28)' }} />
               <div className="text-center">
-                <p className="font-serif font-bold text-2xl" style={{ color: '#10B981' }}>$59.99</p>
+                <p className="font-serif font-bold text-2xl" style={{ color: '#264A35' }}>$59.99</p>
                 <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>Any 3 Products</p>
               </div>
             </div>
@@ -170,10 +170,10 @@ export default function MushroomBundle() {
             viewport={{ once: true }}
             className="mb-10 text-center"
           >
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#B86543' }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#9B4E2F' }}>
               Build Your Ritual
             </p>
-            <h2 className="font-serif font-bold text-[#3F3027]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
+            <h2 className="font-serif font-bold text-[#32190F]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
               Three Ways to Save
             </h2>
           </motion.div>
@@ -188,7 +188,7 @@ export default function MushroomBundle() {
                 transition={{ delay: i * 0.08 }}
                 className="flex flex-col relative"
                 style={{ 
-                  background: '#FFFFFF', 
+                  background: '#FFFCF7', 
                   border: bundle.badge === 'Best Value' ? '2px solid rgba(230,183,173,0.5)' : '1px solid rgba(230,183,173,0.28)',
                   borderRadius: '4px'
                 }}
@@ -198,9 +198,9 @@ export default function MushroomBundle() {
                   {bundle.badge && (
                     <div className="px-4 py-1"
                       style={{ 
-                        background: bundle.badge === 'Best Value' ? '#B86543' : 'rgba(230,183,173,0.28)',
-                        color: bundle.badge === 'Best Value' ? '#FBF8F1' : '#B86543',
-                        border: `1px solid ${bundle.badge === 'Best Value' ? '#B86543' : 'rgba(230,183,173,0.5)'}`,
+                        background: bundle.badge === 'Best Value' ? '#9B4E2F' : 'rgba(230,183,173,0.28)',
+                        color: bundle.badge === 'Best Value' ? '#F7F2E9' : '#9B4E2F',
+                        border: `1px solid ${bundle.badge === 'Best Value' ? '#9B4E2F' : 'rgba(230,183,173,0.5)'}`,
                         borderRadius: '2px'
                       }}>
                       <p className="font-mono text-[7px] tracking-[0.3em] uppercase font-bold">{bundle.badge}</p>
@@ -209,7 +209,7 @@ export default function MushroomBundle() {
                   <div className="px-4 py-1"
                     style={{ 
                       background: 'rgba(16,185,129,0.15)',
-                      color: '#10B981',
+                      color: '#264A35',
                       border: '1px solid rgba(16,185,129,0.3)',
                       borderRadius: '2px'
                     }}>
@@ -219,21 +219,21 @@ export default function MushroomBundle() {
 
                 {/* Header */}
                 <div className="p-6 border-b pt-8" style={{ borderColor: 'rgba(230,183,173,0.22)' }}>
-                  <p className="font-mono text-[7px] tracking-[0.35em] uppercase mb-2" style={{ color: '#B86543' }}>
+                  <p className="font-mono text-[7px] tracking-[0.35em] uppercase mb-2" style={{ color: '#9B4E2F' }}>
                     {bundle.subtitle}
                   </p>
-                  <h3 className="font-serif font-bold text-[#3F3027] text-lg mb-2">{bundle.name}</h3>
+                  <h3 className="font-serif font-bold text-[#32190F] text-lg mb-2">{bundle.name}</h3>
                   <p className="font-mono text-[8px] tracking-[0.2em] uppercase mb-3" style={{ color: '#9A8A7A' }}>
                     {bundle.description}
                   </p>
                   <div className="flex items-baseline gap-3 flex-wrap">
-                    <p className="font-serif font-bold" style={{ fontSize: '2.25rem', color: '#B86543' }}>${bundle.price}</p>
+                    <p className="font-serif font-bold" style={{ fontSize: '2.25rem', color: '#9B4E2F' }}>${bundle.price}</p>
                     {bundle.compareAtPrice && (
                       <span className="font-mono text-[9px] line-through" style={{ color: '#9A8A7A' }}>${bundle.compareAtPrice}</span>
                     )}
                   </div>
                   {bundle.savings && (
-                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: '#10B981' }}>
+                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-1" style={{ color: '#264A35' }}>
                       You save ${bundle.savings.toFixed(2)}
                     </p>
                   )}
@@ -249,12 +249,12 @@ export default function MushroomBundle() {
                             className="w-8 h-8 object-contain flex-shrink-0" />
                         ) : (
                           <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center"
-                            style={{ background: '#FBF8F1', border: `1px dashed ${p.accent}30` }}>
+                            style={{ background: '#F7F2E9', border: `1px dashed ${p.accent}30` }}>
                             <span className="font-mono text-[5px]" style={{ color: `${p.accent}50` }}>IMG</span>
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <p className="font-serif font-bold text-[#3F3027] text-xs truncate">{p.name}</p>
+                          <p className="font-serif font-bold text-[#32190F] text-xs truncate">{p.name}</p>
                           <p className="font-mono text-[6px] tracking-[0.15em] uppercase truncate" style={{ color: `${p.accent}60` }}>
                             {p.category}
                           </p>
@@ -275,7 +275,7 @@ export default function MushroomBundle() {
                     <Link
                       to="/build-your-ritual"
                       className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-                      style={{ background: '#B86543', color: '#FBF8F1', padding: '12px 20px' }}
+                      style={{ background: '#9B4E2F', color: '#F7F2E9', padding: '12px 20px' }}
                     >
                       Build Your 3-Pack →
                     </Link>
@@ -288,8 +288,8 @@ export default function MushroomBundle() {
                       })()}
                       className="block w-full text-center font-mono text-[8px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
                       style={{ 
-                        background: bundle.badge === 'Best Value' ? '#B86543' : 'transparent',
-                        color: bundle.badge === 'Best Value' ? '#FBF8F1' : '#B86543',
+                        background: bundle.badge === 'Best Value' ? '#9B4E2F' : 'transparent',
+                        color: bundle.badge === 'Best Value' ? '#F7F2E9' : '#9B4E2F',
                         border: bundle.badge === 'Best Value' ? 'none' : '1px solid rgba(230,183,173,0.5)',
                         padding: '12px 20px'
                       }}
@@ -313,10 +313,10 @@ export default function MushroomBundle() {
             viewport={{ once: true }}
             className="mb-10 text-center"
           >
-            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#B86543' }}>
+            <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: '#9B4E2F' }}>
               By Category
             </p>
-            <h2 className="font-serif font-bold text-[#3F3027]" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
+            <h2 className="font-serif font-bold text-[#32190F]" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)' }}>
               Category-Specific Bundles
             </h2>
           </motion.div>
@@ -330,13 +330,13 @@ export default function MushroomBundle() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 className="flex flex-col"
-                style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.28)' }}
+                style={{ background: '#FFFCF7', border: '1px solid rgba(230,183,173,0.28)' }}
               >
                 <div className="p-5 flex-1">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-serif font-bold text-[#3F3027] text-sm">{bundle.name}</h3>
+                    <h3 className="font-serif font-bold text-[#32190F] text-sm">{bundle.name}</h3>
                     <span className="font-mono text-[6px] tracking-[0.25em] uppercase px-2 py-0.5"
-                      style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
+                      style={{ background: 'rgba(16,185,129,0.15)', color: '#264A35', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '2px' }}>
                       FREE SHIPPING
                     </span>
                   </div>
@@ -344,13 +344,13 @@ export default function MushroomBundle() {
                     {bundle.description}
                   </p>
                   <div className="flex items-baseline gap-2 flex-wrap mb-1">
-                    <p className="font-serif font-bold" style={{ fontSize: '1.5rem', color: '#B86543' }}>${bundle.price}</p>
+                    <p className="font-serif font-bold" style={{ fontSize: '1.5rem', color: '#9B4E2F' }}>${bundle.price}</p>
                     {bundle.compareAtPrice && (
                       <span className="font-mono text-[8px] line-through" style={{ color: '#9A8A7A' }}>${bundle.compareAtPrice}</span>
                     )}
                   </div>
                   {bundle.savings && (
-                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: '#10B981' }}>Save ${bundle.savings.toFixed(2)}</p>
+                    <p className="font-mono text-[7px] tracking-[0.2em] uppercase mb-3" style={{ color: '#264A35' }}>Save ${bundle.savings.toFixed(2)}</p>
                   )}
                   <div className="space-y-2">
                     {bundle.products.slice(0, 3).map((p) => (
@@ -360,11 +360,11 @@ export default function MushroomBundle() {
                             className="w-6 h-6 object-contain flex-shrink-0" />
                         ) : (
                           <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center"
-                            style={{ background: '#FBF8F1', border: `1px dashed ${p.accent}30` }}>
+                            style={{ background: '#F7F2E9', border: `1px dashed ${p.accent}30` }}>
                             <span className="font-mono text-[4px]" style={{ color: `${p.accent}50` }}>IMG</span>
                           </div>
                         )}
-                        <p className="font-mono text-[6px] tracking-[0.15em] uppercase truncate" style={{ color: '#6A5A4A' }}>
+                        <p className="font-mono text-[6px] tracking-[0.15em] uppercase truncate" style={{ color: '#5E4639' }}>
                           {p.name}
                         </p>
                       </div>
@@ -384,7 +384,7 @@ export default function MushroomBundle() {
                       return url || SHOPIFY_CART_URL;
                     })()}
                     className="block w-full text-center font-mono text-[7px] tracking-[0.3em] uppercase font-bold transition-all hover:opacity-90"
-                    style={{ border: '1px solid rgba(230,183,173,0.5)', color: '#B86543', padding: '10px 16px' }}
+                    style={{ border: '1px solid rgba(230,183,173,0.5)', color: '#9B4E2F', padding: '10px 16px' }}
                   >
                     {bundle.cta} →
                   </a>
@@ -403,18 +403,18 @@ export default function MushroomBundle() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="p-8 text-center"
-            style={{ background: '#FFFFFF', border: '1px solid rgba(230,183,173,0.28)' }}
+            style={{ background: '#FFFCF7', border: '1px solid rgba(230,183,173,0.28)' }}
           >
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: '#B86543' }}>
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: '#9B4E2F' }}>
               Subscribe &amp; Save
             </p>
-            <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: '#6A5A4A', fontWeight: 300, lineHeight: 1.8 }}>
+            <p className="font-heading max-w-2xl mx-auto mb-6" style={{ fontSize: '0.95rem', color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
               Get 20% off every order when you subscribe. Cancel anytime. Never run out of your daily ritual.
             </p>
             <Link
               to="/subscription"
               className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ border: '1px solid rgba(230,183,173,0.5)', color: '#B86543', padding: '14px 32px' }}
+              style={{ border: '1px solid rgba(230,183,173,0.5)', color: '#9B4E2F', padding: '14px 32px' }}
             >
               Build Your Subscription →
             </Link>

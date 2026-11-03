@@ -41,7 +41,7 @@ export default function TrustBadgeStrip() {
                 transition={{ delay: idx * 0.1 }}
                 className="flex flex-col items-center text-center"
               >
-                <Icon className="w-8 h-8 mb-3" style={{ color: '#C8A44D' }} />
+                <Icon className="w-8 h-8 mb-3" style={{ color: '#E6AC45' }} />
                 <p className="text-sm font-heading font-bold text-white mb-1">
                   {badge.title}
                 </p>

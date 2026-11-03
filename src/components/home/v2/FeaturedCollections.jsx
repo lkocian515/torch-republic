@@ -9,7 +9,7 @@ const COLLECTIONS = [
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5455ef981_generated_image.png',
     cta: 'Explore the Series',
     route: '/CoffeeCollection',
-    accent: '#C9A24A',
+    accent: '#E6AC45',
     tag: 'Limited Drops',
   },
   {
@@ -34,8 +34,8 @@ export default function FeaturedCollections() {
           viewport={{ once: true }}
           className="mb-14"
         >
-          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#C9A24A' }}>Collections</p>
-          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-4" style={{ color: '#E6AC45' }}>Collections</p>
+          <h2 className="font-serif leading-none" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Every Legacy Has a Blend.
           </h2>
         </motion.div>

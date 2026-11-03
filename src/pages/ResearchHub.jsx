@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Brain, Shield, Leaf, Coffee, ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
-const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
+const theme = { page: '#F7F2E9', section: '#F7F2E9', sage: '#EEF2E8', card: '#FFFCF7', text: '#292626', body: '#5E4639', border: '#B89A6D', accent: '#9B4E2F', gold: '#E6AC45' };
 
 const TOPICS = [
   { icon: Brain, title: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', summary: "Lion's Mane (Hericium erinaceus) is a functional mushroom traditionally used in East Asian practice and currently studied for compounds that may be associated with cognitive support. Research remains ongoing." },
@@ -44,7 +44,7 @@ export default function ResearchHub() {
           <div className="grid gap-6 md:grid-cols-2">
             {TOPICS.map(({ icon: Icon, title, slug, summary }) => (
               <article key={slug} className="rounded-[2rem] border p-6" style={{ background: theme.card, borderColor: theme.border }}>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F3ECE2' }}>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F7F2E9' }}>
                   <Icon className="h-5 w-5" style={{ color: theme.accent }} aria-hidden="true" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold" style={{ color: theme.text }}>{title}</h3>
@@ -77,7 +77,7 @@ export default function ResearchHub() {
           <h2 className="mb-4 font-serif text-3xl font-bold" style={{ color: theme.text }}>Read More</h2>
           <p className="font-heading leading-7" style={{ color: theme.body }}>Explore our Journal for articles on preparation, rituals, and ingredients, or visit the full ingredient overview.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link to="/journal" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Visit the Journal</Link>
+            <Link to="/journal" className="inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#F7F2E9' }}>Visit the Journal</Link>
             <Link to="/ingredients" className="inline-flex min-h-[48px] items-center justify-center rounded-full border px-8 py-3 font-heading font-semibold" style={{ borderColor: theme.accent, color: theme.accent }}>Ingredient Overview</Link>
           </div>
         </div>

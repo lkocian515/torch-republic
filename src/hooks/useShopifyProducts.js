@@ -108,7 +108,7 @@ function getProductMetadata(handle) {
   return {
     slug: handle,
     category: 'unknown',
-    accent: '#E6B7AD',
+    accent: '#E6AC45',
   };
 }
 

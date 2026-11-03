@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/useSEO';
 import { Shield, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const DIM = 'rgba(240,232,220,0.58)';
 
 const SCIENCE_POINTS = [
@@ -55,7 +55,7 @@ export default function ChagaMushroomCoffeePage() {
   });
 
   return (
-    <div style={{ background: '#100F0D', minHeight: '100vh', color: '#F5EFE6' }}>
+    <div style={{ background: '#100F0D', minHeight: '100vh', color: '#F7F2E9' }}>
       <div className="max-w-4xl mx-auto px-6 pt-6">
         <nav className="flex items-center gap-2 font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: 'rgba(230,183,173,0.4)' }}>
           <Link to="/" className="hover:opacity-70">Home</Link>
@@ -89,7 +89,7 @@ export default function ChagaMushroomCoffeePage() {
         <div className="space-y-10">
           {SCIENCE_POINTS.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-              <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: '#F5EFE6' }}>{s.heading}</h2>
+              <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: '#F7F2E9' }}>{s.heading}</h2>
               <p className="font-heading" style={{ fontSize: '0.93rem', color: DIM, fontWeight: 300, lineHeight: 1.9 }}>{s.body}</p>
             </motion.div>
           ))}
@@ -115,12 +115,12 @@ export default function ChagaMushroomCoffeePage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.08)' }}>
-        <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#F5EFE6' }}>People Also Ask About Chaga Coffee</h2>
+        <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#F7F2E9' }}>People Also Ask About Chaga Coffee</h2>
         <div className="space-y-6">
           {PAA.map((item, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="pb-6" style={{ borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
-              <h3 className="font-heading font-semibold mb-3" style={{ fontSize: '0.95rem', color: '#F5EFE6' }}>{item.q}</h3>
+              <h3 className="font-heading font-semibold mb-3" style={{ fontSize: '0.95rem', color: '#F7F2E9' }}>{item.q}</h3>
               <p className="font-heading text-sm" style={{ color: DIM, fontWeight: 300, lineHeight: 1.85 }}>{item.a}</p>
             </motion.div>
           ))}

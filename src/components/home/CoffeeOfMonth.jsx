@@ -5,8 +5,8 @@ import { Star, Award, TrendingUp, ArrowRight } from 'lucide-react';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS, CLASSIC_COFFEE_PRODUCTS } from '../../lib/mushroomProducts';
 import { getProductImage, getProductAltText } from '@/lib/productImageHelpers';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 const ALL_PRODUCTS = [...MUSHROOM_PRODUCTS, ...MATCHA_PRODUCTS, ...CLASSIC_COFFEE_PRODUCTS];
 
@@ -41,7 +41,7 @@ export default function CoffeeOfMonth({ topBlend, avgRating, reviewCount }) {
           </div>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             {product.name}
           </h2>
@@ -99,7 +99,7 @@ export default function CoffeeOfMonth({ topBlend, avgRating, reviewCount }) {
                 src={getProductImage(product)}
                 alt={getProductAltText(product)}
                 className="w-full h-auto object-contain"
-                style={{ minHeight: '400px', background: '#F8F5EF', padding: '16px' }}
+                style={{ minHeight: '400px', background: '#F7F2E9', padding: '16px' }}
               />
             </div>
             {/* Badge */}

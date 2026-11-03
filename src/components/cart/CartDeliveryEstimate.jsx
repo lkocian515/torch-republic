@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { addBusinessDays, format, isSameMonth } from 'date-fns';
 
-const ACCENT = '#B86543';
-const INK = '#2D2824';
-const MUTED = '#6A5A4A';
-const BORDER = '#E4D8C9';
+const ACCENT = '#9B4E2F';
+const INK = '#32190F';
+const MUTED = '#5E4639';
+const BORDER = '#B89A6D';
 
 function formatRange(start, end) {
   if (isSameMonth(start, end)) {
@@ -24,7 +24,7 @@ export default function CartDeliveryEstimate() {
   }, []);
 
   return (
-    <div className="mb-4 p-3" style={{ background: '#FBF8F2', border: `1px solid ${BORDER}` }}>
+    <div className="mb-4 p-3" style={{ background: '#F7F2E9', border: `1px solid ${BORDER}` }}>
       <div className="flex items-center gap-2 mb-3">
         <Calendar className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ACCENT }} />
         <p className="font-heading text-sm leading-relaxed" style={{ color: MUTED }}>

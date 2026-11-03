@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 
-const AC = '#C9A24A';
+const AC = '#E6AC45';
 
 const COLLECTIONS = [
   {
@@ -13,7 +13,7 @@ const COLLECTIONS = [
     descriptor: 'Premium small-batch blends inspired by American patriots',
     link: '/CoffeeCollection',
     shopifyHandle: 'founders-series',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'liberty-icons',
@@ -21,7 +21,7 @@ const COLLECTIONS = [
     descriptor: 'Historical coffee celebrating American icons',
     link: '/LibertyIcons',
     shopifyHandle: 'liberty-icons',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'women',
@@ -29,7 +29,7 @@ const COLLECTIONS = [
     descriptor: 'Honoring the women who shaped America',
     link: '/WomenOfTheRepublic',
     shopifyHandle: 'women-of-the-republic',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'commanders',
@@ -37,7 +37,7 @@ const COLLECTIONS = [
     descriptor: 'Bold blends honoring military leadership',
     link: '/CommandersSeries',
     shopifyHandle: 'commanders-series',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'pods',
@@ -45,7 +45,7 @@ const COLLECTIONS = [
     descriptor: 'Premium pods for easy brewing',
     link: '/CoffeeCollection',
     shopifyHandle: 'coffee-pods',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'mugs',
@@ -53,7 +53,7 @@ const COLLECTIONS = [
     descriptor: 'Premium drinkware for your daily ritual',
     link: '/mugs-tumblers',
     shopifyHandle: 'mugs-and-tumblers',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
   {
     id: 'shirts',
@@ -61,7 +61,7 @@ const COLLECTIONS = [
     descriptor: 'Historically themed apparel collection',
     link: '/Shop',
     shopifyHandle: 'apparel',
-    color: '#C9A24A',
+    color: '#E6AC45',
   },
 ];
 
@@ -249,7 +249,7 @@ export default function FeaturedCollectionsGrid() {
           <p style={{ fontSize: '9px', letterSpacing: '0.5em', textTransform: 'uppercase', marginBottom: '16px', color: 'rgba(201,162,74,0.6)' }}>
             Torch Republic Collections
           </p>
-          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em', marginBottom: '12px', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em', marginBottom: '12px', lineHeight: 1.1 }}>
             Explore the Collections
           </h2>
           <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto' }}>

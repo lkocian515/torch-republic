@@ -11,7 +11,7 @@ const HERO_IMAGE =
 
 export default function RitualHero() {
   return (
-    <section id="top" style={{ background: '#F7F1E7' }}>
+    <section id="top" style={{ background: '#F7F2E9' }}>
       {/* Visible H1 for SEO and accessibility */}
       <motion.div
         initial={{ opacity: 0 }}

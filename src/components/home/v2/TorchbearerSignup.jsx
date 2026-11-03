@@ -31,7 +31,7 @@ export default function TorchbearerSignup() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-5" style={{ color: 'rgba(196,163,90,0.45)' }}>
             Torchbearers
           </p>
-          <h2 className="font-serif mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#F0EBE1' }}>
+          <h2 className="font-serif mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#F7F2E9' }}>
             Join the Torchbearers
           </h2>
           <p className="font-heading text-sm mb-10 leading-relaxed" style={{ color: 'rgba(240,235,225,0.38)', fontWeight: 300 }}>
@@ -45,7 +45,7 @@ export default function TorchbearerSignup() {
               className="py-5 px-8"
               style={{ border: '1px solid rgba(196,163,90,0.25)', background: 'rgba(196,163,90,0.05)' }}
             >
-              <p className="font-mono text-xs tracking-widest uppercase" style={{ color: '#C4A35A' }}>
+              <p className="font-mono text-xs tracking-widest uppercase" style={{ color: '#E6AC45' }}>
                 Welcome to the movement.
               </p>
             </motion.div>
@@ -61,13 +61,13 @@ export default function TorchbearerSignup() {
                 style={{
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(196,163,90,0.2)',
-                  color: '#F0EBE1',
+                  color: '#F7F2E9',
                 }}
               />
               <button
                 type="submit"
                 className="px-7 py-4 font-mono text-xs tracking-[0.3em] uppercase transition-all hover:opacity-85 whitespace-nowrap"
-                style={{ background: '#C4A35A', color: '#000', fontWeight: 700 }}
+                style={{ background: '#E6AC45', color: '#000', fontWeight: 700 }}
               >
                 Join Now
               </button>

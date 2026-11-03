@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Check, Droplet, Thermometer } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const REASSURANCES = [
   {
@@ -56,7 +56,7 @@ export default function TastesLikeCoffee() {
             className="font-serif font-bold"
             style={{
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               marginBottom: '16px',
@@ -122,7 +122,7 @@ export default function TastesLikeCoffee() {
                 className="font-serif font-bold"
                 style={{
                   fontSize: '1.15rem',
-                  color: '#FFFFFF',
+                  color: '#FFFCF7',
                   marginBottom: '10px',
                   lineHeight: 1.3,
                 }}

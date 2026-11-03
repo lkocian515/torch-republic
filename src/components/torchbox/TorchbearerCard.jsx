@@ -31,9 +31,9 @@ export default function TorchbearerCard() {
         <div className="flex items-start justify-between mb-auto relative z-10">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <Flame style={{ color: '#C9A24A', width: 14, height: 14 }} />
+              <Flame style={{ color: '#E6AC45', width: 14, height: 14 }} />
               <span className="font-mono font-black tracking-[0.35em] uppercase"
-                style={{ fontSize: '10px', color: '#C9A24A' }}>
+                style={{ fontSize: '10px', color: '#E6AC45' }}>
                 Torch Republic
               </span>
             </div>
@@ -45,7 +45,7 @@ export default function TorchbearerCard() {
           {/* Three stars */}
           <div className="flex items-center gap-0.5">
             {[...Array(3)].map((_, i) => (
-              <Star key={i} style={{ color: '#C9A24A', width: 10, height: 10, fill: '#C9A24A' }} />
+              <Star key={i} style={{ color: '#E6AC45', width: 10, height: 10, fill: '#E6AC45' }} />
             ))}
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function TorchbearerCard() {
           <p className="font-mono tracking-[0.3em] uppercase mb-1"
             style={{ fontSize: '8px', color: 'rgba(201,162,74,0.4)' }}>Member</p>
           <p className="font-serif font-bold tracking-wide"
-            style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', color: '#F0EBE1', letterSpacing: '0.04em' }}>
+            style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', color: '#F7F2E9', letterSpacing: '0.04em' }}>
             TORCHBEARER
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function TorchbearerCard() {
           {/* QR mockup */}
           <div className="flex flex-col items-center gap-1">
             <div className="p-1.5" style={{ background: 'rgba(201,162,74,0.06)', border: '1px solid rgba(201,162,74,0.2)', borderRadius: 4 }}>
-              <QrCode style={{ color: '#C9A24A', width: 22, height: 22 }} />
+              <QrCode style={{ color: '#E6AC45', width: 22, height: 22 }} />
             </div>
             <p className="font-mono" style={{ fontSize: '6px', color: 'rgba(201,162,74,0.35)', letterSpacing: '0.15em' }}>SCAN TO ACCESS</p>
           </div>
@@ -85,12 +85,12 @@ export default function TorchbearerCard() {
         {/* Watermark torch icon */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none"
           style={{ opacity: 0.03 }}>
-          <Flame style={{ width: '60%', height: '60%', color: '#C9A24A' }} />
+          <Flame style={{ width: '60%', height: '60%', color: '#E6AC45' }} />
         </div>
 
         {/* Embossed shield bottom-right */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none" style={{ opacity: 0.06 }}>
-          <Shield style={{ width: 80, height: 80, color: '#C9A24A' }} />
+          <Shield style={{ width: 80, height: 80, color: '#E6AC45' }} />
         </div>
       </div>
 

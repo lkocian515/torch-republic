@@ -108,7 +108,7 @@ export function LazyImage({ src, alt, className, threshold = 0.1 }) {
             width: '24px', 
             height: '24px', 
             border: '2px solid rgba(230,183,173,0.3)', 
-            borderTopColor: '#E6B7AD',
+            borderTopColor: '#E6AC45',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }} />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, Brain, Coffee, ArrowRight, Zap, Heart } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
-const theme = { page: '#FBF8F1', section: '#F7F1E7', sage: '#EEF2E8', card: '#FFFFFF', text: '#292626', body: '#5F5145', border: '#E4D8C9', accent: '#B86543', gold: '#B48A4A' };
+const theme = { page: '#F7F2E9', section: '#F7F2E9', sage: '#EEF2E8', card: '#FFFCF7', text: '#292626', body: '#5E4639', border: '#B89A6D', accent: '#9B4E2F', gold: '#E6AC45' };
 
 // Conservative, educational ingredient descriptions. No disease-treatment
 // claims — only traditional use, naturally occurring compounds, and notes
@@ -48,7 +48,7 @@ const PRODUCTS = [
 // Local deep-dive links — kept inline so this page does not depend on a large
 // shared SEO module that delayed the route's initial render.
 const DEEP_DIVES = [
-  { name: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', category: 'Mushroom', color: '#B86543' },
+  { name: "Lion's Mane", slug: 'lions-mane-mushroom-coffee', category: 'Mushroom', color: '#9B4E2F' },
   { name: 'Reishi', slug: 'reishi-mushroom-coffee', category: 'Mushroom', color: '#8A6A3A' },
   { name: 'Freeze-Dried Coffee', slug: 'freeze-dried-instant-coffee', category: 'Coffee', color: '#7A5230' },
 ];
@@ -95,7 +95,7 @@ export default function Ingredients() {
               return (
                 <article key={ingredient.name} className="rounded-[2rem] border p-8" style={{ background: theme.card, borderColor: theme.border }}>
                   <div className="mb-6 flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F3ECE2' }}>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ background: '#F7F2E9' }}>
                       <Icon className="h-5 w-5" style={{ color: theme.accent }} aria-hidden="true" />
                     </div>
                     <div>
@@ -108,7 +108,7 @@ export default function Ingredients() {
                     <p className="mb-3 font-heading text-xs uppercase tracking-[0.2em]" style={{ color: theme.accent }}>Often associated with</p>
                     <div className="flex flex-wrap gap-2">
                       {ingredient.uses.map((use) => (
-                        <span key={use} className="rounded-full px-3 py-1.5 font-heading text-xs" style={{ background: '#F3ECE2', color: theme.body, border: `1px solid ${theme.border}` }}>{use}</span>
+                        <span key={use} className="rounded-full px-3 py-1.5 font-heading text-xs" style={{ background: '#F7F2E9', color: theme.body, border: `1px solid ${theme.border}` }}>{use}</span>
                       ))}
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function Ingredients() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-4xl font-bold" style={{ color: theme.text }}>Selected With Care</h2>
           <p className="mt-4 font-heading leading-7" style={{ color: theme.body }}>We keep the collection small on purpose. Our classic coffee is single-origin Arabica, and our mushroom coffee includes Lion's Mane, Cordyceps and Reishi extracts. We list every ingredient so you always know what is in your cup.</p>
-          <Link to="/our-story" className="mt-6 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#FBF8F1' }}>Read Our Story →</Link>
+          <Link to="/our-story" className="mt-6 inline-flex min-h-[48px] items-center rounded-full px-8 py-3 font-heading font-semibold" style={{ background: theme.accent, color: '#F7F2E9' }}>Read Our Story →</Link>
         </div>
       </section>
 

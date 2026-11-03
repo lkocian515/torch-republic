@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, RotateCcw, Pause, Lock } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const BADGES = [
   { icon: Check, label: '20% Off Every Order' },
@@ -75,7 +75,7 @@ export default function SubscribeAndSave() {
               className="font-serif font-bold"
               style={{
                 fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)',
-                color: '#F5EFE6',
+                color: '#F7F2E9',
                 lineHeight: 1.1,
                 letterSpacing: '-0.02em',
                 marginBottom: '16px',

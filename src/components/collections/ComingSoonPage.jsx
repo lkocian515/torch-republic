@@ -15,7 +15,7 @@ export default function ComingSoonPage({ name, description }) {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F0EBE1' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#0B0B0B', color: '#F7F2E9' }}>
 
       {/* ── HERO ── */}
       <section className="relative pt-24 pb-20 px-6 text-center overflow-hidden"
@@ -36,14 +36,14 @@ export default function ComingSoonPage({ name, description }) {
             <span className="inline-block font-mono text-[9px] tracking-[0.4em] uppercase px-4 py-1.5 mb-6"
               style={{
                 border: '1px solid rgba(196,163,90,0.35)',
-                color: '#C9A24A',
+                color: '#E6AC45',
                 background: 'rgba(196,163,90,0.06)',
               }}>
               Coming Soon
             </span>
 
             <h1 className="font-serif font-bold mb-5 leading-none"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
               {name}
             </h1>
 
@@ -70,7 +70,7 @@ export default function ComingSoonPage({ name, description }) {
           transition={{ duration: 5, repeat: Infinity }}
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
-          <Flame className="w-64 h-64" style={{ color: '#C9A24A' }} />
+          <Flame className="w-64 h-64" style={{ color: '#E6AC45' }} />
         </motion.div>
 
         <div className="relative max-w-2xl mx-auto">
@@ -81,7 +81,7 @@ export default function ComingSoonPage({ name, description }) {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-serif font-bold mb-5 leading-tight"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F0EBE1' }}>
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9' }}>
               This collection is currently in development.
             </h2>
             <p className="font-heading text-sm leading-relaxed mb-12"
@@ -103,15 +103,15 @@ export default function ComingSoonPage({ name, description }) {
                   style={{
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(196,163,90,0.25)',
-                    color: '#F0EBE1',
+                    color: '#F7F2E9',
                   }}
                 />
                 <button
                   type="submit"
                   className="px-6 py-3 font-mono text-xs tracking-widest uppercase transition-all"
-                  style={{ background: '#C9A24A', color: '#000', border: '1px solid #C9A24A' }}
+                  style={{ background: '#E6AC45', color: '#000', border: '1px solid #E6AC45' }}
                   onMouseEnter={e => e.currentTarget.style.background = '#E4C46A'}
-                  onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
+                  onMouseLeave={e => e.currentTarget.style.background = '#E6AC45'}
                 >
                   Get Early Access
                 </button>
@@ -121,7 +121,7 @@ export default function ComingSoonPage({ name, description }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="font-mono text-sm py-4"
-                style={{ color: '#C9A24A' }}
+                style={{ color: '#E6AC45' }}
               >
                 ✓ You're on the list. We'll notify you first.
               </motion.div>

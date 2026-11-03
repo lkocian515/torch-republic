@@ -10,7 +10,7 @@ const FOUNDER_IMAGE =
 // Attributes the brand vision to Lisa Kocian, Founder.
 export default function RitualFounderTrust() {
   return (
-    <section style={{ background: '#FBF8F1' }}>
+    <section style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-24">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           {/* Photo */}
@@ -38,12 +38,12 @@ export default function RitualFounderTrust() {
             viewport={{ once: true }}
             className="order-2"
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#9B4E2F' }}>
               Why Torch Republic Exists
             </p>
             <blockquote
               className="mt-5 font-serif"
-              style={{ fontSize: 'clamp(1.3rem,2.5vw,1.7rem)', color: '#292622', lineHeight: 1.4, textWrap: 'balance' }}
+              style={{ fontSize: 'clamp(1.3rem,2.5vw,1.7rem)', color: '#32190F', lineHeight: 1.4, textWrap: 'balance' }}
             >
               &ldquo;I wanted a morning ritual that removed friction, not added it.
               No machine, no pods &mdash; just a better cup, made intentionally.&rdquo;
@@ -52,7 +52,7 @@ export default function RitualFounderTrust() {
             <Link
               to="/founder-story"
               className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-semibold transition-opacity hover:opacity-75"
-              style={{ color: '#B7653E' }}
+              style={{ color: '#9B4E2F' }}
             >
               Read the Founder Story <ArrowRight size={15} />
             </Link>

@@ -7,11 +7,11 @@ import WhyInstant from '../components/mushroom/WhyInstant';
 import GettingStartedGuide from '../components/mushroom/GettingStartedGuide';
 import DriftRitualBuilder from '../components/home/drift/DriftRitualBuilder';
 
-const PAGE = '#F8F5EF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
-const RG = '#E6B7AD';
-const CLAY = '#B86543';
+const PAGE = '#F7F2E9';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
 
 export default function HowItWorks() {
   useSEO({
@@ -42,7 +42,7 @@ export default function HowItWorks() {
       <section className="px-6 py-20 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.22)' }}>
         <Link to="/shop"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90"
-          style={{ background: CLAY, color: '#FBF8F1', padding: '14px 32px', borderRadius: '4px' }}>
+          style={{ background: CLAY, color: '#F7F2E9', padding: '14px 32px', borderRadius: '4px' }}>
           Shop the Blends →
         </Link>
       </section>

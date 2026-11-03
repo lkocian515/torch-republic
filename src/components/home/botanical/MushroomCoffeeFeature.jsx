@@ -7,7 +7,7 @@ const IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/6
 export default function MushroomCoffeeFeature() {
   return (
     <section className="px-5 py-16 md:px-10" style={{ background: colors.page }}>
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-8 overflow-hidden rounded-[28px] p-5 md:grid-cols-[1.05fr_0.95fr] md:p-8" style={{ background: '#FFFDF8', border: `1px solid ${colors.border}` }}>
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-8 overflow-hidden rounded-[28px] p-5 md:grid-cols-[1.05fr_0.95fr] md:p-8" style={{ background: '#FFFCF7', border: `1px solid ${colors.border}` }}>
         <div className="overflow-hidden rounded-[22px]" style={{ background: '#E9DFD1' }}>
           <img src={IMAGE} alt="Torch Republic mushroom coffee blends with Lion's Mane, Cordyceps and Reishi" className="h-full min-h-[280px] w-full object-cover" loading="lazy" decoding="async" />
         </div>

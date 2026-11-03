@@ -65,10 +65,10 @@ export default function FAQ() {
       <section style={{ background: '#080808', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: '1px solid rgba(230,183,173,0.15)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: '#E6B7AD' }}>
+            <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: '#E6AC45' }}>
               Help & Information
             </p>
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Frequently Asked Questions
             </h1>
             <p className="font-heading text-sm max-w-xl mx-auto" style={{ color: 'rgba(210,195,175,0.6)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -100,7 +100,7 @@ export default function FAQ() {
       <section style={{ background: '#0A0A0A', padding: 'clamp(60px,8vw,100px) 24px', borderTop: '1px solid rgba(230,183,173,0.15)' }}>
         <div className="max-w-2xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#F7F2E9' }}>
               Still Have Questions?
             </h2>
             <p className="font-heading text-sm mb-8" style={{ color: 'rgba(210,195,175,0.55)' }}>
@@ -109,7 +109,7 @@ export default function FAQ() {
             <a
               href="/contact"
               className="inline-flex items-center font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90"
-              style={{ background: '#E6B7AD', color: '#050505', padding: '14px 36px', borderRadius: '999px' }}
+              style={{ background: '#E6AC45', color: '#050505', padding: '14px 36px', borderRadius: '999px' }}
             >
               Contact Us
             </a>

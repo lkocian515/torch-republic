@@ -9,7 +9,7 @@ import { ArrowRight, BookOpen, ChevronRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { FAQ_PAGES, TOPIC_CLUSTERS, ALL_BLOG_TOPICS } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function FAQPage() {
   const { slug } = useParams();
@@ -77,7 +77,7 @@ export default function FAQPage() {
               </div>
             )}
 
-            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.15 }}>
+            <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', lineHeight: 1.15 }}>
               {faq.question}
             </h1>
 
@@ -116,7 +116,7 @@ export default function FAQPage() {
           {/* Related FAQs */}
           {relatedFaqs.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-              <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.3rem', color: '#F5EFE6' }}>Related Questions</h2>
+              <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.3rem', color: '#F7F2E9' }}>Related Questions</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {relatedFaqs.map((rf, i) => (
                   <Link key={i} to={`/faq/${rf.slug}`}
@@ -124,7 +124,7 @@ export default function FAQPage() {
                     style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.08)' }}
                     onMouseEnter={e => e.currentTarget.style.borderColor = `${RG}30`}
                     onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
-                    <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F5EFE6', lineHeight: 1.35 }}>{rf.question}</p>
+                    <p className="font-heading text-sm font-medium mb-2" style={{ color: '#F7F2E9', lineHeight: 1.35 }}>{rf.question}</p>
                     <div className="flex items-center gap-1">
                       <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>Read Answer</span>
                       <ArrowRight size={10} style={{ color: `${RG}70` }} />
@@ -138,7 +138,7 @@ export default function FAQPage() {
           {/* Related Articles */}
           {clusterArticles.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.3rem', color: '#F5EFE6' }}>Deep-Dive Articles</h2>
+              <h2 className="font-serif font-bold mb-5" style={{ fontSize: '1.3rem', color: '#F7F2E9' }}>Deep-Dive Articles</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {clusterArticles.map((a, i) => (
                   <Link key={i} to={`/journal/${a.slug}`}
@@ -147,7 +147,7 @@ export default function FAQPage() {
                     onMouseEnter={e => e.currentTarget.style.borderColor = `${RG}30`}
                     onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.08)'}>
                     <BookOpen size={14} className="flex-shrink-0 mt-0.5" style={{ color: RG }} />
-                    <p className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{a.title}</p>
+                    <p className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{a.title}</p>
                   </Link>
                 ))}
               </div>

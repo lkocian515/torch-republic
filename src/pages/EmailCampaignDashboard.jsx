@@ -20,7 +20,7 @@ function StatCard({ title, value, icon: IconComponent, color, subtext }) {
                 </p>
                 <IconComponent className="w-5 h-5" style={{ color }} />
             </div>
-            <p className="font-serif font-bold text-3xl mb-2" style={{ color: '#F5EFE6' }}>
+            <p className="font-serif font-bold text-3xl mb-2" style={{ color: '#F7F2E9' }}>
                 {value}
             </p>
             {subtext && (
@@ -41,12 +41,12 @@ function SegmentCard({ segment, count, onSend }) {
             style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}
         >
             <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                <h3 className="font-serif font-bold text-lg" style={{ color: '#F7F2E9' }}>
                     {segment}
                 </h3>
                 <div className="flex items-center gap-2 px-3 py-1" style={{ background: 'rgba(230,183,173,0.1)', borderRadius: '4px' }}>
-                    <Users className="w-3.5 h-3.5" style={{ color: '#E6B7AD' }} />
-                    <span className="font-mono text-sm font-bold" style={{ color: '#E6B7AD' }}>{count}</span>
+                    <Users className="w-3.5 h-3.5" style={{ color: '#E6AC45' }} />
+                    <span className="font-mono text-sm font-bold" style={{ color: '#E6AC45' }}>{count}</span>
                 </div>
             </div>
             <p className="font-heading text-xs mb-4" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -57,7 +57,7 @@ function SegmentCard({ segment, count, onSend }) {
             <button
                 onClick={() => onSend(segment)}
                 className="w-full flex items-center justify-center gap-2 font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 transition-all hover:opacity-90"
-                style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px' }}
+                style={{ background: '#E6AC45', color: '#080808', borderRadius: '4px' }}
             >
                 <Send className="w-3.5 h-3.5" />
                 Send Email #1
@@ -93,22 +93,22 @@ function MetricsTable({ metrics }) {
                 <tbody>
                     {Object.entries(segments).map(([key, data]) => (
                         <tr key={key} style={{ borderBottom: '1px solid rgba(230,183,173,0.05)' }}>
-                            <td className="py-3 px-4 font-heading text-sm" style={{ color: '#F5EFE6' }}>
+                            <td className="py-3 px-4 font-heading text-sm" style={{ color: '#F7F2E9' }}>
                                 {key.replace(/([A-Z])/g, ' $1').trim()}
                             </td>
                             <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                                 {data.sent || 0}
                             </td>
-                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.openRate > 40 ? '#10B981' : 'rgba(255,255,255,0.7)' }}>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.openRate > 40 ? '#264A35' : 'rgba(255,255,255,0.7)' }}>
                                 {data.openRate || 0}%
                             </td>
-                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.clickRate > 20 ? '#10B981' : 'rgba(255,255,255,0.7)' }}>
+                            <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: data.clickRate > 20 ? '#264A35' : 'rgba(255,255,255,0.7)' }}>
                                 {data.clickRate || 0}%
                             </td>
                             <td className="text-right py-3 px-4 font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                                 {data.conversionRate || 0}%
                             </td>
-                            <td className="text-right py-3 px-4 font-mono text-sm font-bold" style={{ color: '#E6B7AD' }}>
+                            <td className="text-right py-3 px-4 font-mono text-sm font-bold" style={{ color: '#E6AC45' }}>
                                 ${data.revenue || 0}
                             </td>
                         </tr>
@@ -243,8 +243,8 @@ export default function EmailCampaignDashboard() {
                     className="mb-10"
                 >
                     <div className="flex items-center gap-3 mb-4">
-                        <Mail className="w-6 h-6" style={{ color: '#E6B7AD' }} />
-                        <h1 className="font-serif font-bold text-3xl" style={{ color: '#F5EFE6' }}>
+                        <Mail className="w-6 h-6" style={{ color: '#E6AC45' }} />
+                        <h1 className="font-serif font-bold text-3xl" style={{ color: '#F7F2E9' }}>
                             Torch Republic Relaunch Campaign
                         </h1>
                     </div>
@@ -259,14 +259,14 @@ export default function EmailCampaignDashboard() {
                         title="Total Customers"
                         value={customers?.data?.totalCustomers || 0}
                         icon={Users}
-                        color="#E6B7AD"
+                        color="#E6AC45"
                         subtext="Across all segments"
                     />
                     <StatCard
                         title="Emails Sent"
                         value={metrics?.totalSent || 0}
                         icon={Send}
-                        color="#10B981"
+                        color="#264A35"
                         subtext="Campaign total"
                     />
                     <StatCard
@@ -287,14 +287,14 @@ export default function EmailCampaignDashboard() {
                         title="Conversion Rate"
                         value={`${metrics?.overallConversionRate || 0}%`}
                         icon={ShoppingCart}
-                        color="#10B981"
+                        color="#264A35"
                         subtext="Purchases from emails"
                     />
                     <StatCard
                         title="Revenue Generated"
                         value={`$${metrics?.totalRevenue || 0}`}
                         icon={DollarSign}
-                        color="#E6B7AD"
+                        color="#E6AC45"
                         subtext="Total attributed revenue"
                     />
                 </div>
@@ -306,7 +306,7 @@ export default function EmailCampaignDashboard() {
                     transition={{ delay: 0.1 }}
                     className="mb-10"
                 >
-                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F7F2E9' }}>
                         Customer Segments
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -328,16 +328,16 @@ export default function EmailCampaignDashboard() {
                     transition={{ delay: 0.2 }}
                     className="mb-10"
                 >
-                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F7F2E9' }}>
                         Email Sequence
                     </h2>
                     <div className="space-y-4">
                         <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '8px' }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(16,185,129,0.1)' }}>
-                                <CheckCircle className="w-6 h-6" style={{ color: '#10B981' }} />
+                                <CheckCircle className="w-6 h-6" style={{ color: '#264A35' }} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F7F2E9' }}>
                                     Email #1: Relaunch Announcement
                                 </h3>
                                 <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -345,7 +345,7 @@ export default function EmailCampaignDashboard() {
                                 </p>
                             </div>
                             <div className="text-right">
-                                <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#10B981' }}>
+                                <p className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: '#264A35' }}>
                                     Sent Immediately
                                 </p>
                             </div>
@@ -353,10 +353,10 @@ export default function EmailCampaignDashboard() {
 
                         <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
-                                <Clock className="w-6 h-6" style={{ color: '#E6B7AD' }} />
+                                <Clock className="w-6 h-6" style={{ color: '#E6AC45' }} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F7F2E9' }}>
                                     Email #2: Best Sellers
                                 </h3>
                                 <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -372,10 +372,10 @@ export default function EmailCampaignDashboard() {
 
                         <div className="flex items-center gap-4 p-5" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(230,183,173,0.1)' }}>
-                                <Clock className="w-6 h-6" style={{ color: '#E6B7AD' }} />
+                                <Clock className="w-6 h-6" style={{ color: '#E6AC45' }} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F5EFE6' }}>
+                                <h3 className="font-serif font-bold text-lg" style={{ color: '#F7F2E9' }}>
                                     Email #3: Last Chance
                                 </h3>
                                 <p className="font-heading text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -397,7 +397,7 @@ export default function EmailCampaignDashboard() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                 >
-                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F5EFE6' }}>
+                    <h2 className="font-serif font-bold text-2xl mb-6" style={{ color: '#F7F2E9' }}>
                         Campaign Performance
                     </h2>
                     <div className="p-6" style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}>
@@ -433,7 +433,7 @@ export default function EmailCampaignDashboard() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="fixed bottom-6 right-6 p-5"
-                        style={{ background: '#10B981', borderRadius: '8px', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}
+                        style={{ background: '#264A35', borderRadius: '8px', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}
                     >
                         <div className="flex items-center gap-3">
                             <CheckCircle className="w-5 h-5 text-white" />
@@ -468,7 +468,7 @@ export default function EmailCampaignDashboard() {
                     className="mt-10 p-6"
                     style={{ background: '#141312', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '8px' }}
                 >
-                    <h3 className="font-serif font-bold text-xl mb-4" style={{ color: '#F5EFE6' }}>
+                    <h3 className="font-serif font-bold text-xl mb-4" style={{ color: '#F7F2E9' }}>
                         Quick Actions
                     </h3>
                     <div className="flex flex-wrap gap-3">
@@ -476,7 +476,7 @@ export default function EmailCampaignDashboard() {
                             onClick={() => importCustomersMutation.mutate()}
                             disabled={importCustomersMutation.isPending}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90 flex items-center gap-2"
-                            style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px', opacity: importCustomersMutation.isPending ? 0.6 : 1 }}
+                            style={{ background: '#E6AC45', color: '#080808', borderRadius: '4px', opacity: importCustomersMutation.isPending ? 0.6 : 1 }}
                         >
                             <Download className="w-3.5 h-3.5" />
                             {importCustomersMutation.isPending ? 'Importing...' : 'Import from Shopify'}
@@ -484,14 +484,14 @@ export default function EmailCampaignDashboard() {
                         <button
                             onClick={() => queryClient.invalidateQueries(['shopifyCustomers'])}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
-                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
+                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6AC45', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
                         >
                             Refresh Customer Data
                         </button>
                         <button
                             onClick={() => queryClient.invalidateQueries(['campaignMetrics'])}
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
-                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
+                            style={{ background: 'rgba(230,183,173,0.1)', color: '#E6AC45', border: '1px solid rgba(230,183,173,0.2)', borderRadius: '4px' }}
                         >
                             Refresh Metrics
                         </button>
@@ -507,7 +507,7 @@ export default function EmailCampaignDashboard() {
                         <Link
                             to="/shop"
                             className="font-mono text-[9px] tracking-[0.25em] uppercase font-bold py-3 px-6 transition-all hover:opacity-90"
-                            style={{ background: '#E6B7AD', color: '#080808', borderRadius: '4px' }}
+                            style={{ background: '#E6AC45', color: '#080808', borderRadius: '4px' }}
                         >
                             View Shop →
                         </Link>
@@ -524,7 +524,7 @@ export default function EmailCampaignDashboard() {
                     >
                         <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5" style={{ color: '#818CF8' }} />
-                            <h3 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>
+                            <h3 className="font-serif font-bold text-xl" style={{ color: '#F7F2E9' }}>
                                 Shopify Variant ID Verification
                             </h3>
                         </div>

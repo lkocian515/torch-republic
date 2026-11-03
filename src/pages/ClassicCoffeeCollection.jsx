@@ -21,7 +21,7 @@ import SelectionAid from '@/components/collection/SelectionAid';
 import CollectionCrossLink from '@/components/collection/CollectionCrossLink';
 import RitualMomentStrip from '@/components/home/ritual/RitualMomentStrip';
 
-const GOLD = '#B7653E';
+const GOLD = '#9B4E2F';
 const CLASSIC_HERO_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png';
 
 // FAQ data for schema
@@ -87,32 +87,32 @@ export default function ClassicCoffeeCollection() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F7F1E7' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F7F2E9' }}>
       {/* SEO Components */}
       <GlobalSEOHead page={{ url: '/shop/instant-coffee', type: 'product.group' }} />
       <CategorySEO category="instant-coffee" products={products} />
       <FAQSchema faqs={FAQS} />
 
       {/* Hero */}
-      <section style={{ background: '#FBF8F1', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${GOLD}25` }}>
+      <section style={{ background: '#F7F2E9', padding: 'clamp(60px,8vw,100px) 24px', borderBottom: `1px solid ${GOLD}25` }}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center lg:text-left">
             <p className="font-mono text-[9px] tracking-[0.45em] uppercase mb-4" style={{ color: GOLD }}>
               Torch Republic Coffee Co.,  Classic Instant Coffee
             </p>
-            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#292622', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+            <h1 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)', color: '#32190F', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                Premium Coffee Rituals<br />Powered By Nature
              </h1>
-             <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5F574F', fontWeight: 300, lineHeight: 1.8 }}>
+             <p className="font-heading text-sm max-w-2xl mx-auto lg:mx-0 mb-6" style={{ color: '#5E4639', fontWeight: 300, lineHeight: 1.8 }}>
                Single-origin Papua New Guinea coffee,  100% Arabica, freeze-dried to preserve dark chocolate, toasted almond, and sweet toffee notes. No machine, no pods, no compromise. Just add hot water.
              </p>
             <div style={{ background: 'rgba(196,163,90,0.08)', border: '1px solid rgba(196,163,90,0.15)', borderRadius: '6px', padding: '16px' }}>
-              <p className="font-heading text-xs" style={{ color: '#5F574F', lineHeight: 1.7 }}>
+              <p className="font-heading text-xs" style={{ color: '#5E4639', lineHeight: 1.7 }}>
                 <strong>Note:</strong> These are pure classic coffee blends. They do not contain mushrooms.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
-              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFDF8', padding: '14px 36px', borderRadius: '4px' }}>
+              <Link to="/shop" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFCF7', padding: '14px 36px', borderRadius: '4px' }}>
                 Shop Classic Coffee
               </Link>
               <Link to="/quiz" className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-75" style={{ border: `1px solid ${GOLD}`, color: GOLD, padding: '14px 36px', borderRadius: '4px' }}>
@@ -120,7 +120,7 @@ export default function ClassicCoffeeCollection() {
               </Link>
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFFFF', border: `1px solid ${GOLD}30` }}>
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="overflow-hidden rounded-[24px] shadow-2xl" style={{ background: '#FFFCF7', border: `1px solid ${GOLD}30` }}>
             <img src={CLASSIC_HERO_IMAGE} alt="Torch Republic Torchbearer Classic Coffee and Ember Reserve classic coffee blends" className="h-full min-h-[300px] w-full object-contain" style={{ padding: '24px' }} loading="eager" decoding="async" />
           </motion.div>
         </div>
@@ -147,10 +147,10 @@ export default function ClassicCoffeeCollection() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: GOLD }}>The Collection</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>
               Choose Your Classic Ritual
             </h2>
-            <p className="font-heading text-sm" style={{ color: '#5F574F' }}>
+            <p className="font-heading text-sm" style={{ color: '#5E4639' }}>
               One premium instant coffee. Pure coffee. No mushrooms. Just smooth, elevated mornings.
             </p>
           </motion.div>
@@ -171,7 +171,7 @@ export default function ClassicCoffeeCollection() {
       />
 
       {/* Selection aid + cross-link */}
-      <section className="px-6 md:px-10 py-14" style={{ background: '#FBF8F1' }}>
+      <section className="px-6 md:px-10 py-14" style={{ background: '#F7F2E9' }}>
         <SelectionAid
           accent={GOLD}
           items={[
@@ -187,11 +187,11 @@ export default function ClassicCoffeeCollection() {
       <CollectionReviewCarousel category="classic-coffee" />
 
       {/* FAQ Section */}
-      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#FBF8F1' }}>
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px', background: '#F7F2E9' }}>
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: GOLD }}>FAQ</p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -199,9 +199,9 @@ export default function ClassicCoffeeCollection() {
           <div className="space-y-3">
             {FAQS.map((faq, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="p-5" style={{ background: '#FFFDF8', border: `1px solid ${GOLD}15`, borderRadius: '6px' }}>
+                className="p-5" style={{ background: '#FFFCF7', border: `1px solid ${GOLD}15`, borderRadius: '6px' }}>
                 <h3 className="font-serif font-bold  mb-2" style={{ fontSize: '1.05rem' }}>{faq.q}</h3>
-                <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.7 }}>{faq.a}</p>
+                <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.7 }}>{faq.a}</p>
               </motion.div>
             ))}
           </div>
@@ -212,9 +212,9 @@ export default function ClassicCoffeeCollection() {
       <section style={{ padding: 'clamp(60px,8vw,100px) 24px' }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#292622' }}>Premium Coffee Rituals Powered By Nature</h2>
-            <p className="font-heading text-sm mb-8" style={{ color: '#5F574F' }}>Single-origin Papua New Guinea coffee,  freeze-dried to preserve dark chocolate, toasted almond, and toffee notes. A daily ritual that fits real life. No machine, no pods, no compromise. Just add hot water and begin.</p>
-            <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFDF8', padding: '14px 36px', borderRadius: '999px' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', color: '#32190F' }}>Premium Coffee Rituals Powered By Nature</h2>
+            <p className="font-heading text-sm mb-8" style={{ color: '#5E4639' }}>Single-origin Papua New Guinea coffee,  freeze-dried to preserve dark chocolate, toasted almond, and toffee notes. A daily ritual that fits real life. No machine, no pods, no compromise. Just add hot water and begin.</p>
+            <Link to="/shop" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.28em] uppercase font-bold transition-all hover:opacity-90" style={{ background: GOLD, color: '#FFFCF7', padding: '14px 36px', borderRadius: '999px' }}>
               Shop All Products <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>

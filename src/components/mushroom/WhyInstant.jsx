@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const PAGE = '#F8F5EF';
-const CARD = '#FFFFFF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
-const RG = '#E6B7AD';
-const CLAY = '#B86543';
+const PAGE = '#F7F2E9';
+const CARD = '#FFFCF7';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
 
 const PILLARS = [
   {

@@ -46,11 +46,11 @@ function ProductCard({ product, index }) {
 
       {/* Content */}
       <div className="p-5 flex flex-col gap-3 flex-1">
-        <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#FFFFFF', lineHeight: 1.3 }}>
+        <h3 className="font-serif font-bold" style={{ fontSize: '1rem', color: '#FFFCF7', lineHeight: 1.3 }}>
           {title}
         </h3>
 
-        <p className="font-mono font-bold text-sm" style={{ color: '#C9A24A' }}>
+        <p className="font-mono font-bold text-sm" style={{ color: '#E6AC45' }}>
           {price}
         </p>
 
@@ -63,7 +63,7 @@ function ProductCard({ product, index }) {
       <div className="p-4 border-t" style={{ borderColor: 'rgba(201,162,74,0.1)' }}>
         <button
           className="w-full font-mono text-[10px] tracking-[0.25em] uppercase py-2.5 transition-all hover:opacity-80"
-          style={{ color: '#C9A24A', fontWeight: 600 }}
+          style={{ color: '#E6AC45', fontWeight: 600 }}
         >
           View Product <ArrowRight className="inline w-3 h-3 ml-1" />
         </button>
@@ -86,7 +86,7 @@ export default function MugsTumblersGrid({ products, isLoading }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.55)' }}>
             Collection
           </p>
-          <h2 className="font-serif mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Premium Drinkware
           </h2>
           <p className="font-heading" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.6, maxWidth: '480px' }}>

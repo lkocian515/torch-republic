@@ -9,7 +9,7 @@ import { ArrowRight, BookOpen, ChevronRight, Leaf, FlaskConical, Star } from 'lu
 import { useSEO } from '@/hooks/useSEO';
 import { INGREDIENT_PAGES, ALL_BLOG_TOPICS, INGREDIENT_LONG_FORM } from '@/lib/seoContent';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function IngredientPage() {
   const { slug } = useParams();
@@ -68,7 +68,7 @@ export default function IngredientPage() {
               <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: ingredient.color }}>{ingredient.category}</span>
             </div>
 
-            <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
               {ingredient.name}
             </h1>
             {ingredient.scientificName && (
@@ -102,7 +102,7 @@ export default function IngredientPage() {
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="flex items-center gap-3 mb-5">
                 <FlaskConical size={18} style={{ color: ingredient.color }} />
-                <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>Overview</h2>
+                <h2 className="font-serif font-bold text-xl" style={{ color: '#F7F2E9' }}>Overview</h2>
               </div>
               <p className="font-heading" style={{ color: 'rgba(240,235,225,0.7)', fontWeight: 300, lineHeight: 1.9, fontSize: '0.95rem' }}>
                 {ingredient.description}
@@ -113,7 +113,7 @@ export default function IngredientPage() {
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="flex items-center gap-3 mb-5">
                 <Star size={18} style={{ color: ingredient.color }} />
-                <h2 className="font-serif font-bold text-xl" style={{ color: '#F5EFE6' }}>Properties & Research</h2>
+                <h2 className="font-serif font-bold text-xl" style={{ color: '#F7F2E9' }}>Properties & Research</h2>
               </div>
               <div className="space-y-4">
                 {ingredient.benefits.map((benefit, i) => (
@@ -144,7 +144,7 @@ export default function IngredientPage() {
                 </p>
                 {longForm.sections.map((section, i) => (
                   <div key={i}>
-                    <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.25rem', color: '#F5EFE6' }}>{section.heading}</h2>
+                    <h2 className="font-serif font-bold mb-4" style={{ fontSize: '1.25rem', color: '#F7F2E9' }}>{section.heading}</h2>
                     {section.body.split('\n\n').map((para, j) => (
                       <p key={j} className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.65)', fontWeight: 300, lineHeight: 1.9 }}>
                         {para}
@@ -171,7 +171,7 @@ export default function IngredientPage() {
                   <Link key={i} to={p.path}
                     className="flex items-center justify-between p-3 transition-opacity hover:opacity-75"
                     style={{ background: i === 0 ? `${ingredient.color}12` : 'rgba(255,255,255,0.02)', border: `1px solid ${ingredient.color}${i === 0 ? '30' : '10'}` }}>
-                    <span className="font-heading text-sm" style={{ color: '#F5EFE6' }}>{p.name}</span>
+                    <span className="font-heading text-sm" style={{ color: '#F7F2E9' }}>{p.name}</span>
                     <ArrowRight size={12} style={{ color: ingredient.color }} />
                   </Link>
                 ))}
@@ -200,7 +200,7 @@ export default function IngredientPage() {
       {/* Other Ingredients */}
       <section className="px-6 md:px-10 py-12" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F5EFE6' }}>All Ingredients</h2>
+          <h2 className="font-serif font-bold mb-6" style={{ fontSize: '1.4rem', color: '#F7F2E9' }}>All Ingredients</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {INGREDIENT_PAGES.map((ing, i) => (
               <Link key={i} to={`/ingredients/${ing.slug}`}

@@ -13,7 +13,7 @@ export default function DuoScene({ scene, bags = [], ratio = '3 / 2', className 
   return (
     <div
       className={`relative overflow-hidden ${className}`}
-      style={{ aspectRatio: ratio, borderRadius: 12, background: '#F5F0E8', ...style }}
+      style={{ aspectRatio: ratio, borderRadius: 12, background: '#F7F2E9', ...style }}
     >
       <img
         src={scene.src}

@@ -32,20 +32,20 @@ export default function BundleSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.75 }}
           >
-            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: '#C9A24A' }}>
+            <p className="font-mono text-[10px] tracking-[0.55em] uppercase mb-5" style={{ color: '#E6AC45' }}>
               Best Value · Starter Bundle
             </p>
-            <h2 className="font-serif leading-tight mb-5" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            <h2 className="font-serif leading-tight mb-5" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
               Your First Order,<br />Done Right.
             </h2>
-            <div className="h-px w-14 mb-7" style={{ background: 'linear-gradient(90deg, #C9A24A, transparent)' }} />
+            <div className="h-px w-14 mb-7" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
             <p className="font-heading mb-8" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.82)', fontWeight: 400, lineHeight: 1.95 }}>
               Not sure where to start? This 3-pack gives you the full Torch Republic experience — three legendary blends, one decision.
             </p>
             <ul className="space-y-3 mb-10">
               {INCLUDES.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#C9A24A' }} />
+                  <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#E6AC45' }} />
                   <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.85)', fontWeight: 400, lineHeight: 1.7 }}>{item}</span>
                 </li>
               ))}
@@ -53,7 +53,7 @@ export default function BundleSection() {
             <Link
               to="/Bundles"
               className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.35em] uppercase transition-all hover:opacity-85 btn-glow"
-              style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '18px 44px' }}
+              style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '18px 44px' }}
             >
               Get the Bundle →
             </Link>
@@ -81,10 +81,10 @@ export default function BundleSection() {
                 <div className="flex items-end justify-between">
                   <div>
                     <p className="font-mono text-[9px] tracking-widest uppercase mb-1" style={{ color: 'rgba(201,162,74,0.7)' }}>3-Bag Bundle</p>
-                    <p className="font-serif font-black" style={{ fontSize: '2.2rem', color: '#FFFFFF', lineHeight: 1 }}>$49.99</p>
+                    <p className="font-serif font-black" style={{ fontSize: '2.2rem', color: '#FFFCF7', lineHeight: 1 }}>$49.99</p>
                     <p className="font-mono text-xs line-through mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>$65.97</p>
                   </div>
-                  <div className="px-3 py-1.5" style={{ background: '#D4AE57' }}>
+                  <div className="px-3 py-1.5" style={{ background: '#E6AC45' }}>
                     <span className="font-mono text-[9px] font-black tracking-widest uppercase" style={{ color: '#080808' }}>Save 24%</span>
                   </div>
                 </div>

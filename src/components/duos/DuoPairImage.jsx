@@ -21,7 +21,7 @@ export default function DuoPairImage({ bags = [], scene = null }) {
         backgroundPosition: 'center',
         borderColor: 'rgba(228,216,201,0.9)',
       }
-    : { background: '#F5F0E8' };
+    : { background: '#F7F2E9' };
 
   return (
     <div

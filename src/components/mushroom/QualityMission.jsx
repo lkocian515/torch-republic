@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function QualityMission() {
   const COMMITMENTS = [
@@ -40,7 +40,7 @@ export default function QualityMission() {
                 fontFamily: 'var(--font-serif)',
                 fontWeight: 700,
                 fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)',
-                color: '#F5EFE6',
+                color: '#F7F2E9',
                 lineHeight: 1.15,
                 marginBottom: '16px',
                 letterSpacing: '-0.02em',

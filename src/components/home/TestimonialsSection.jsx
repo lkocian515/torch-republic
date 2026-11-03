@@ -41,7 +41,7 @@ function Stars({ count = 5 }) {
   return (
     <div className="flex gap-1">
       {Array.from({ length: count }).map((_, i) => (
-        <span key={i} style={{ color: '#C9A24A', fontSize: '0.75rem' }}>★</span>
+        <span key={i} style={{ color: '#E6AC45', fontSize: '0.75rem' }}>★</span>
       ))}
     </div>
   );
@@ -77,11 +77,11 @@ export default function TestimonialsSection() {
             className="flex flex-col items-center gap-8"
           >
             <Stars count={r.rating} />
-            <blockquote className="font-serif" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', color: '#F5EFE6', lineHeight: 1.65, fontStyle: 'italic', fontWeight: 500, maxWidth: '720px' }}>
+            <blockquote className="font-serif" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', color: '#F7F2E9', lineHeight: 1.65, fontStyle: 'italic', fontWeight: 500, maxWidth: '720px' }}>
               "{r.text}"
             </blockquote>
             <div className="flex flex-col items-center gap-1">
-              <p className="font-mono text-xs font-bold" style={{ color: '#C9A24A' }}>{r.name}</p>
+              <p className="font-mono text-xs font-bold" style={{ color: '#E6AC45' }}>{r.name}</p>
               <p className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>{r.location} · {r.product}</p>
               {r.verified && (
                 <span className="font-mono text-[9px] tracking-widest uppercase mt-1 px-3 py-1" style={{ color: '#7AC87A', background: 'rgba(122,200,122,0.08)', border: '1px solid rgba(122,200,122,0.2)' }}>
@@ -98,7 +98,7 @@ export default function TestimonialsSection() {
           </button>
           <div className="flex gap-2">
             {REVIEWS.map((_, i) => (
-              <button key={i} onClick={() => setActive(i)} className="w-1.5 h-1.5 rounded-full transition-all" style={{ background: i === active ? '#C9A24A' : 'rgba(201,162,74,0.2)' }} />
+              <button key={i} onClick={() => setActive(i)} className="w-1.5 h-1.5 rounded-full transition-all" style={{ background: i === active ? '#E6AC45' : 'rgba(201,162,74,0.2)' }} />
             ))}
           </div>
           <button onClick={next} className="w-10 h-10 flex items-center justify-center transition-opacity hover:opacity-60" style={{ border: '1px solid rgba(201,162,74,0.2)', color: 'rgba(201,162,74,0.6)' }}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Flame, BookOpen, Gift } from 'lucide-react';
 
-const AC = '#C9A24A';
+const AC = '#E6AC45';
 
 export default function WhatsInTheBox() {
   const items = [
@@ -35,7 +35,7 @@ export default function WhatsInTheBox() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,162,74,0.5)' }}>
             Every Delivery Includes
           </p>
-          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F7F2E9', fontWeight: 800, letterSpacing: '-0.02em' }}>
             What's Inside Your Torch Box
           </h2>
           <p style={{ color: 'rgba(240,235,225,0.5)', fontSize: '0.95rem', fontWeight: 300, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto' }}>
@@ -86,7 +86,7 @@ export default function WhatsInTheBox() {
               >
                 <Icon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: AC }} />
                 <div>
-                  <h3 className="font-heading font-bold text-sm mb-1.5" style={{ color: '#F0EBE1' }}>
+                  <h3 className="font-heading font-bold text-sm mb-1.5" style={{ color: '#F7F2E9' }}>
                     {item.title}
                   </h3>
                   <p style={{ color: 'rgba(240,235,225,0.5)', fontSize: '0.85rem', lineHeight: 1.6, fontWeight: 300 }}>

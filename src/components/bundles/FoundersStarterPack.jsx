@@ -93,12 +93,12 @@ export default function FoundersStarterPack({ compact = false }) {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5"
               style={{ background: 'rgba(212,174,87,0.12)', border: '1px solid rgba(212,174,87,0.35)' }}>
-              <Star className="w-3 h-3 fill-current" style={{ color: '#D4AE57' }} />
-              <span className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold" style={{ color: '#D4AE57' }}>
+              <Star className="w-3 h-3 fill-current" style={{ color: '#E6AC45' }} />
+              <span className="font-mono text-[9px] tracking-[0.35em] uppercase font-bold" style={{ color: '#E6AC45' }}>
                 Best Place to Start
               </span>
             </div>
-            <h2 className="font-serif leading-tight mb-3" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            <h2 className="font-serif leading-tight mb-3" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
               Founders Starter Pack
             </h2>
             <p className="font-heading" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.78)', fontWeight: 400, lineHeight: 1.85, maxWidth: '480px' }}>
@@ -109,11 +109,11 @@ export default function FoundersStarterPack({ compact = false }) {
           {/* Pricing summary — desktop */}
           <div className="hidden md:flex flex-col items-end gap-1">
             <div className="flex items-baseline gap-3">
-              <span className="font-serif font-black" style={{ fontSize: '2.2rem', color: '#D4AE57' }}>${BUNDLE_PRICE}</span>
+              <span className="font-serif font-black" style={{ fontSize: '2.2rem', color: '#E6AC45' }}>${BUNDLE_PRICE}</span>
               <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>${RETAIL_PRICE}</span>
             </div>
             <span className="font-mono text-[10px] tracking-widest uppercase px-2.5 py-1"
-              style={{ background: 'rgba(212,174,87,0.12)', color: '#D4AE57', border: '1px solid rgba(212,174,87,0.25)' }}>
+              style={{ background: 'rgba(212,174,87,0.12)', color: '#E6AC45', border: '1px solid rgba(212,174,87,0.25)' }}>
               Save ${SAVINGS}
             </span>
           </div>
@@ -155,18 +155,18 @@ export default function FoundersStarterPack({ compact = false }) {
                         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)' }} />
                         {/* Number badge */}
                         <div className="absolute top-4 left-4 w-7 h-7 flex items-center justify-center font-mono font-black text-xs"
-                          style={{ background: '#D4AE57', color: '#080808' }}>
+                          style={{ background: '#E6AC45', color: '#080808' }}>
                           0{i + 1}
                         </div>
                         {product.price && (
                           <div className="absolute top-4 right-4 font-mono font-bold text-xs px-2 py-1"
-                            style={{ background: 'rgba(0,0,0,0.7)', color: '#D4AE57', border: '1px solid rgba(212,174,87,0.3)' }}>
+                            style={{ background: 'rgba(0,0,0,0.7)', color: '#E6AC45', border: '1px solid rgba(212,174,87,0.3)' }}>
                             ${parseFloat(product.price).toFixed(2)}
                           </div>
                         )}
                       </div>
                       <div className="p-5 flex flex-col gap-1.5 flex-1">
-                        <h3 className="font-serif font-bold leading-snug" style={{ fontSize: '1.05rem', color: '#FFFFFF' }}>
+                        <h3 className="font-serif font-bold leading-snug" style={{ fontSize: '1.05rem', color: '#FFFCF7' }}>
                           {product.title.replace(/[-–]\s*Founders Series Coffee/i, '').trim()}
                         </h3>
                         {roast && (
@@ -195,7 +195,7 @@ export default function FoundersStarterPack({ compact = false }) {
           <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-wrap">
             {['3 small-batch boxes', '15% bundle savings', 'Free shipping'].map((item) => (
               <div key={item} className="flex items-center gap-2">
-                <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#D4AE57' }} />
+                <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#E6AC45' }} />
                 <span className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.78)' }}>{item}</span>
               </div>
             ))}
@@ -203,7 +203,7 @@ export default function FoundersStarterPack({ compact = false }) {
 
           {/* Mobile price */}
           <div className="flex md:hidden items-baseline gap-3">
-            <span className="font-serif font-black" style={{ fontSize: '1.8rem', color: '#D4AE57' }}>${BUNDLE_PRICE}</span>
+            <span className="font-serif font-black" style={{ fontSize: '1.8rem', color: '#E6AC45' }}>${BUNDLE_PRICE}</span>
             <span className="font-mono text-sm line-through" style={{ color: 'rgba(255,255,255,0.25)' }}>${RETAIL_PRICE}</span>
           </div>
 
@@ -212,7 +212,7 @@ export default function FoundersStarterPack({ compact = false }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase transition-all hover:opacity-85 btn-glow flex-shrink-0"
-            style={{ background: '#D4AE57', color: '#080808', fontWeight: 800, padding: '16px 40px' }}
+            style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '16px 40px' }}
           >
             <ShoppingCart className="w-4 h-4" />
             Add Bundle to Cart →

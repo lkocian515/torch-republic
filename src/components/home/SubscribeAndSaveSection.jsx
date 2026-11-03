@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Percent, Package, HeartHandshake } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const PERKS = [
   { icon: Percent, label: '10% Off Every Order', desc: 'Save automatically on each delivery.' },
@@ -24,7 +24,7 @@ export default function SubscribeAndSaveSection() {
               Subscribe &amp; Save
             </p>
             <h2 className="font-serif font-bold mb-4"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Never run out.<br />
               <span style={{ color: RG }}>Save 10% every time.</span>
             </h2>

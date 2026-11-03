@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { MUSHROOM_PRODUCTS, MATCHA_PRODUCTS } from '@/lib/mushroomProducts';
 
 const colors = {
-  page: '#FBF8F2',
-  card: '#FFFFFF',
-  text: '#2D2824',
-  secondary: '#6D625A',
-  border: '#E4D8C9',
-  accent: '#B86543',
+  page: '#F7F2E9',
+  card: '#FFFCF7',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  accent: '#9B4E2F',
 };
 
 export default function BlendComparisonChart() {
@@ -26,7 +26,7 @@ export default function BlendComparisonChart() {
             <thead>
               <tr>
                 {['Product', 'Category', 'Flavor', 'Best For'].map((heading) => (
-                  <th key={heading} className="text-left p-4 font-heading text-sm" style={{ color: colors.text, borderBottom: `1px solid ${colors.border}`, background: '#F3ECE2' }}>{heading}</th>
+                  <th key={heading} className="text-left p-4 font-heading text-sm" style={{ color: colors.text, borderBottom: `1px solid ${colors.border}`, background: '#F7F2E9' }}>{heading}</th>
                 ))}
               </tr>
             </thead>

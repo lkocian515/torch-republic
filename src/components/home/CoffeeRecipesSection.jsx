@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Coffee, Zap, Sun, Heart } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const FEATURED_RECIPES = [
   {
@@ -54,7 +54,7 @@ export default function CoffeeRecipesSection() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}70` }}>
             Brewing Guides
           </p>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#F7F2E9' }}>
             Coffee Recipes {'+'} Rituals
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -112,7 +112,7 @@ export default function CoffeeRecipesSection() {
                   <div className="flex flex-col flex-1 p-5">
                     <div className="flex items-center gap-2 mb-3">
                       <Icon className="w-4 h-4" style={{ color: RG }} />
-                      <h3 className="font-serif font-bold text-base" style={{ color: '#F5EFE6' }}>
+                      <h3 className="font-serif font-bold text-base" style={{ color: '#F7F2E9' }}>
                         {recipe.title}
                       </h3>
                     </div>

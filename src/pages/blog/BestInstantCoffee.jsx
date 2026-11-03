@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { CheckCircle, X } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const COMPARISON = [
   {
@@ -104,14 +104,14 @@ export default function BestInstantCoffee() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Coffee Guide · Updated June 2025
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Best Instant Coffee of 2025: Honest Reviews & Buyer's Guide
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -125,16 +125,16 @@ export default function BestInstantCoffee() {
         <div className="max-w-[900px] mx-auto space-y-16">
 
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               What Makes Instant Coffee Good (or Bad)?
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
               <p>Not all instant coffee is created equal. The quality gap between a supermarket jar of generic instant and a premium freeze-dried single-origin is enormous,  and it comes down to three factors: bean quality, processing method, and what else is in the can.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-8">
                 {[
-                  { title: 'Bean Quality', body: 'Arabica beans produce smoother, more nuanced flavor. Robusta is cheaper, higher in caffeine, and harsher. Many budget instants blend heavily toward Robusta. Always check the label.', color: '#C4A35A' },
+                  { title: 'Bean Quality', body: 'Arabica beans produce smoother, more nuanced flavor. Robusta is cheaper, higher in caffeine, and harsher. Many budget instants blend heavily toward Robusta. Always check the label.', color: '#E6AC45' },
                   { title: 'Processing Method', body: 'Freeze-drying preserves far more flavor compounds than spray-drying. Look for "freeze-dried" on the label. It costs more but the difference is audible in the flavor.', color: RG },
-                  { title: 'Added Ingredients', body: 'Quality instant coffee should be coffee,  or coffee plus clean functional extracts. Avoid products with added sugars, creamers, artificial flavors, or mystery "natural flavors" on the label.', color: '#6CBD5A' },
+                  { title: 'Added Ingredients', body: 'Quality instant coffee should be coffee,  or coffee plus clean functional extracts. Avoid products with added sugars, creamers, artificial flavors, or mystery "natural flavors" on the label.', color: '#264A35' },
                 ].map((f, i) => (
                   <div key={f.title} className="p-6" style={{ background: '#0E0C0B', border: `1px solid ${f.color}30` }}>
                     <h3 className="font-mono text-[8px] tracking-[0.3em] uppercase mb-3" style={{ color: f.color }}>{f.title}</h3>
@@ -147,7 +147,7 @@ export default function BestInstantCoffee() {
 
           {/* Comparison Table */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               2025 Instant Coffee Comparison
             </motion.h2>
             <div className="overflow-x-auto">
@@ -162,14 +162,14 @@ export default function BestInstantCoffee() {
                 <tbody>
                   {COMPARISON.map((row, i) => (
                     <tr key={row.brand} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', background: row.highlight ? 'rgba(230,183,173,0.04)' : 'transparent' }}>
-                      <td className="px-4 py-3.5 font-heading font-semibold" style={{ color: row.highlight ? RG : '#F5EFE6' }}>
+                      <td className="px-4 py-3.5 font-heading font-semibold" style={{ color: row.highlight ? RG : '#F7F2E9' }}>
                         {row.brand}
                         {row.highlight && <span className="ml-2 font-mono text-[7px] tracking-[0.15em] px-2 py-0.5" style={{ background: `${RG}20`, color: RG, border: `1px solid ${RG}30` }}>Our Pick</span>}
                       </td>
                       <td className="px-4 py-3.5 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.6)' }}>{row.type}</td>
                       <td className="px-4 py-3.5 font-mono text-xs" style={{ color: 'rgba(240,235,225,0.7)' }}>{row.caffeine}</td>
                       <td className="px-4 py-3.5 font-heading text-xs">
-                        {row.mushrooms !== 'No' ? <CheckCircle className="w-4 h-4 inline" style={{ color: '#6EBD8E' }} /> : <X className="w-4 h-4 inline" style={{ color: 'rgba(255,255,255,0.2)' }} />}
+                        {row.mushrooms !== 'No' ? <CheckCircle className="w-4 h-4 inline" style={{ color: '#264A35' }} /> : <X className="w-4 h-4 inline" style={{ color: 'rgba(255,255,255,0.2)' }} />}
                         {row.mushrooms !== 'No' && row.mushrooms !== 'Yes (varies)' && <span className="ml-1 text-[10px]" style={{ color: 'rgba(240,235,225,0.5)' }}>{row.mushrooms.replace('Yes ', '')}</span>}
                       </td>
                       <td className="px-4 py-3.5 font-heading text-xs" style={{ color: 'rgba(240,235,225,0.6)' }}>{row.process}</td>
@@ -183,7 +183,7 @@ export default function BestInstantCoffee() {
 
           {/* Why Functional */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Why Mushroom Instant Coffee Is the Category to Know in 2025
             </motion.h2>
             <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.65)', lineHeight: 1.85 }}>
@@ -195,7 +195,7 @@ export default function BestInstantCoffee() {
 
           {/* FAQ */}
           <section>
-            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF' }}>
+            <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7' }}>
               Frequently Asked Questions
             </motion.h2>
             <div className="space-y-5">
@@ -211,7 +211,7 @@ export default function BestInstantCoffee() {
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center py-12 px-6" style={{ background: 'rgba(230,183,173,0.06)', border: `1px solid ${RG}30` }}>
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>Try The Best</p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>Torch Republic Instant Coffee</h3>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>Torch Republic Instant Coffee</h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Freeze-dried Arabica base. Lion's Mane + Cordyceps + Reishi in every mushroom blend. Classic and matcha options available. No equipment. No waiting. Just great coffee.
             </p>

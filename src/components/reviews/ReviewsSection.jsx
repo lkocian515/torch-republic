@@ -133,7 +133,7 @@ export default function ReviewsSection({ productHandle }) {
               className="font-mono text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-sm transition-all"
               style={{
                 background: filter === f.key ? 'rgba(201,162,74,0.12)' : 'transparent',
-                color: filter === f.key ? '#C9A24A' : 'rgba(255,255,255,0.3)',
+                color: filter === f.key ? '#E6AC45' : 'rgba(255,255,255,0.3)',
                 border: filter === f.key ? '1px solid rgba(201,162,74,0.3)' : '1px solid rgba(255,255,255,0.08)',
               }}>
               {f.label}
@@ -164,7 +164,7 @@ export default function ReviewsSection({ productHandle }) {
         </p>
         <a href="https://torch-republic.com" target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center justify-center font-mono text-[11px] tracking-[0.3em] uppercase transition-opacity hover:opacity-75"
-          style={{ background: '#C9A24A', color: '#080808', fontWeight: 800, padding: '14px 36px' }}>
+          style={{ background: '#E6AC45', color: '#080808', fontWeight: 800, padding: '14px 36px' }}>
           Write a Review →
         </a>
       </div>

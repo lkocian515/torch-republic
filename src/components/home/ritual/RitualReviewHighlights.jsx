@@ -5,7 +5,7 @@ import { Star, ArrowRight } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 
-const GOLD = '#B48A4A';
+const GOLD = '#E6AC45';
 
 // Retired product names that should NOT appear on the homepage.
 // Reviews whose body text mentions these are filtered out.
@@ -53,15 +53,15 @@ export default function RitualReviewHighlights() {
   if (!cleanReviews.length) return null;
 
   return (
-    <section style={{ background: '#FBF8F1' }}>
+    <section style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#7A5C23' }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: '#9B4E2F' }}>
             Real Customer Reviews
           </p>
           <h2
             className="mt-4 font-serif font-semibold"
-            style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622', textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#32190F', textWrap: 'balance' }}
           >
             What customers are saying
           </h2>
@@ -96,22 +96,22 @@ export default function RitualReviewHighlights() {
                 {/* Body */}
                 <blockquote
                   className="flex-1 font-heading text-sm"
-                  style={{ color: '#292622', lineHeight: 1.7 }}
+                  style={{ color: '#32190F', lineHeight: 1.7 }}
                 >
                   &ldquo;{review.body}&rdquo;
                 </blockquote>
 
                 {/* Footer */}
-                <div className="mt-5 border-t pt-4" style={{ borderColor: '#E4D8C9' }}>
-                  <p className="font-heading font-semibold text-sm" style={{ color: '#292622' }}>
+                <div className="mt-5 border-t pt-4" style={{ borderColor: '#B89A6D' }}>
+                  <p className="font-heading font-semibold text-sm" style={{ color: '#32190F' }}>
                     {review.reviewer_name?.trim()}
                   </p>
                   {productName && (
-                    <p className="font-mono text-[8px] uppercase tracking-[0.15em] mt-1" style={{ color: '#A97B32' }}>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.15em] mt-1" style={{ color: '#E6AC45' }}>
                       {productName}
                     </p>
                   )}
-                  <p className="font-heading text-[10px] mt-1" style={{ color: '#8A8076' }}>
+                  <p className="font-heading text-[10px] mt-1" style={{ color: '#5E4639' }}>
                     Customer review
                   </p>
                 </div>

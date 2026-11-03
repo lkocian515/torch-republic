@@ -18,7 +18,7 @@ export default function SeasonalArtwork({ slug, className = 'h-16 w-16', alt }) 
       loading="lazy"
       decoding="async"
       className={`shrink-0 object-contain ${className}`}
-      style={{ background: '#F5F0E8', borderRadius: 4 }}
+      style={{ background: '#F7F2E9', borderRadius: 4 }}
     />
   );
 }

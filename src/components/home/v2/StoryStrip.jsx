@@ -39,7 +39,7 @@ export default function StoryStrip() {
 
             <blockquote
               className="font-serif leading-relaxed"
-              style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F0EBE1', fontWeight: 600, lineHeight: 1.55 }}
+              style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F7F2E9', fontWeight: 600, lineHeight: 1.55 }}
             >
               "We believe every great movement begins over a cup of coffee."
             </blockquote>
@@ -53,7 +53,7 @@ export default function StoryStrip() {
               </p>
             </div>
 
-            <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, #C4A35A, transparent)' }} />
+            <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
 
             <Link
               to="/CoffeeCollection"

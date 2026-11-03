@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { COFFEE_ORIGIN } from '@/lib/coffeeOrigin';
 
-export default function CoffeeTrustBar({ accent = '#E6B7AD' }) {
+export default function CoffeeTrustBar({ accent = '#E6AC45' }) {
   return (
     <div className="py-8 px-6 md:px-10" style={{ background: '#0A0908', borderTop: `1px solid ${accent}15`, borderBottom: `1px solid ${accent}15` }}>
       <div className="max-w-6xl mx-auto">

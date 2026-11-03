@@ -25,15 +25,15 @@ const TRADITIONAL_ROWS = [
 
 export default function RitualConvenienceComparison() {
   return (
-    <section style={{ background: '#F7F1E7' }}>
+    <section style={{ background: '#F7F2E9' }}>
       <div className="mx-auto max-w-[1000px] px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#A97B32' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: '#E6AC45' }}>
             Why Instant
           </p>
           <h2
             className="mt-4 font-serif font-semibold"
-            style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#292622', textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(1.8rem,3.5vw,2.4rem)', color: '#32190F', textWrap: 'balance' }}
           >
             Your ritual, without the equipment.
           </h2>
@@ -52,9 +52,9 @@ export default function RitualConvenienceComparison() {
                 className="flex h-10 w-10 items-center justify-center rounded-full"
                 style={{ background: '#EFE5D6' }}
               >
-                <Check size={18} style={{ color: '#566047' }} />
+                <Check size={18} style={{ color: '#264A35' }} />
               </div>
-              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#292622' }}>
+              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#32190F' }}>
                 Torch Republic
               </h3>
             </div>
@@ -64,10 +64,10 @@ export default function RitualConvenienceComparison() {
                   <span
                     style={{
                       width: 6, height: 6, borderRadius: '50%',
-                      background: '#566047', marginTop: 8, flexShrink: 0,
+                      background: '#264A35', marginTop: 8, flexShrink: 0,
                     }}
                   />
-                  <span className="font-heading text-sm" style={{ color: '#292622', lineHeight: 1.6 }}>
+                  <span className="font-heading text-sm" style={{ color: '#32190F', lineHeight: 1.6 }}>
                     {row}
                   </span>
                 </li>
@@ -83,8 +83,8 @@ export default function RitualConvenienceComparison() {
             transition={{ delay: 0.08 }}
             className="p-6 md:p-7"
             style={{
-              background: '#FBF8F1',
-              border: '1px solid #E4D8C9',
+              background: '#F7F2E9',
+              border: '1px solid #B89A6D',
               borderRadius: 'var(--radius-lg)',
             }}
           >
@@ -93,9 +93,9 @@ export default function RitualConvenienceComparison() {
                 className="flex h-10 w-10 items-center justify-center rounded-full"
                 style={{ background: '#F0E7DB' }}
               >
-                <X size={18} style={{ color: '#8A8076' }} />
+                <X size={18} style={{ color: '#5E4639' }} />
               </div>
-              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#5F574F' }}>
+              <h3 className="font-serif font-bold" style={{ fontSize: '1.15rem', color: '#5E4639' }}>
                 Traditional brewing
               </h3>
             </div>
@@ -108,7 +108,7 @@ export default function RitualConvenienceComparison() {
                       background: '#D8C9B6', marginTop: 8, flexShrink: 0,
                     }}
                   />
-                  <span className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.6 }}>
+                  <span className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.6 }}>
                     {row}
                   </span>
                 </li>

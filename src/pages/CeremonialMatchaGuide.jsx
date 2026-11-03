@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 const DIM = 'rgba(240,232,220,0.58)';
 
 const FACTS = [
@@ -72,7 +72,7 @@ export default function CeremonialMatchaGuide() {
         </motion.p>
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.06 }}
           className="font-serif font-bold mb-5"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F5EFE6', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F7F2E9', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
           Ceremonial Matcha<br />
           <span style={{ color: RG }}>The Complete Guide</span>
         </motion.h1>
@@ -97,7 +97,7 @@ export default function CeremonialMatchaGuide() {
 
       {/* Grade Comparison Table */}
       <section className="px-6 md:px-10 pb-14" style={{ maxWidth: '860px', margin: '0 auto' }}>
-        <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F5EFE6' }}>
+        <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F7F2E9' }}>
           Matcha Grades Explained
         </h2>
         <div className="overflow-x-auto">
@@ -112,7 +112,7 @@ export default function CeremonialMatchaGuide() {
             <tbody>
               {GRADES.map((g, i) => (
                 <tr key={g.grade} style={{ borderBottom: '1px solid rgba(230,183,173,0.06)', background: i === 0 ? 'rgba(230,183,173,0.04)' : 'transparent' }}>
-                  <td className="py-4 pr-4 font-heading text-sm font-medium" style={{ color: i === 0 ? '#F5EFE6' : DIM }}>
+                  <td className="py-4 pr-4 font-heading text-sm font-medium" style={{ color: i === 0 ? '#F7F2E9' : DIM }}>
                     {i === 0 && <span className="inline-block w-1.5 h-1.5 rounded-full mr-1.5 mb-0.5 align-middle" style={{ background: EMERALD }} />}
                     {g.grade}
                   </td>
@@ -131,7 +131,7 @@ export default function CeremonialMatchaGuide() {
       {/* Key Facts */}
       <section className="px-6 md:px-10 py-12" style={{ background: 'rgba(230,183,173,0.03)', borderTop: '1px solid rgba(230,183,173,0.07)', borderBottom: '1px solid rgba(230,183,173,0.07)' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F5EFE6' }}>
+          <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F7F2E9' }}>
             What Makes Ceremonial Matcha Unique
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -149,7 +149,7 @@ export default function CeremonialMatchaGuide() {
 
       {/* Products */}
       <section className="px-6 md:px-10 py-12" style={{ maxWidth: '860px', margin: '0 auto' }}>
-        <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F5EFE6' }}>
+        <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', color: '#F7F2E9' }}>
           Torch Republic Ceremonial Matcha Blends
         </h2>
         <div className="flex flex-col gap-3">
@@ -164,7 +164,7 @@ export default function CeremonialMatchaGuide() {
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.3)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(230,183,173,0.1)'}>
               <div>
-                <p className="font-serif font-bold mb-1" style={{ color: '#F5EFE6', fontSize: '1rem' }}>{p.name}</p>
+                <p className="font-serif font-bold mb-1" style={{ color: '#F7F2E9', fontSize: '1rem' }}>{p.name}</p>
                 <p className="font-heading text-sm" style={{ color: DIM, fontWeight: 300 }}>{p.tagline}</p>
               </div>
               <span className="font-mono text-[8px] tracking-[0.2em] uppercase whitespace-nowrap" style={{ color: RG }}>View →</span>
@@ -195,12 +195,12 @@ export default function CeremonialMatchaGuide() {
 
       {/* FAQ */}
       <section className="px-6 md:px-10 pb-20" style={{ maxWidth: '740px', margin: '0 auto' }}>
-        <h2 className="font-serif font-bold mb-8 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6' }}>
+        <h2 className="font-serif font-bold mb-8 text-center" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F7F2E9' }}>
           People Also Ask
         </h2>
         {FAQS.map(({ q, a }) => (
           <div key={q} style={{ borderBottom: '1px solid rgba(230,183,173,0.08)', paddingBottom: '20px', marginBottom: '20px' }}>
-            <h3 className="font-serif font-bold mb-2.5" style={{ fontSize: '0.97rem', color: '#F5EFE6' }}>{q}</h3>
+            <h3 className="font-serif font-bold mb-2.5" style={{ fontSize: '0.97rem', color: '#F7F2E9' }}>{q}</h3>
             <p className="font-heading text-sm" style={{ color: DIM, fontWeight: 300, lineHeight: 1.8 }}>{a}</p>
           </div>
         ))}

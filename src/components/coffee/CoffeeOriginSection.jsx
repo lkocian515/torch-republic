@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mountain, Globe2, Leaf } from 'lucide-react';
 import { COFFEE_ORIGIN } from '@/lib/coffeeOrigin';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function CoffeeOriginSection({ accent = RG }) {
   return (
@@ -18,7 +18,7 @@ export default function CoffeeOriginSection({ accent = RG }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: accent }}>
             Coffee Origin
           </p>
-          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             {COFFEE_ORIGIN.origin.title}
           </h2>
           <p className="font-heading max-w-2xl mx-auto" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.9 }}>

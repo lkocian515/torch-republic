@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Minus } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // ─── Comparison Data ──────────────────────────────────────────────────────────
 
@@ -308,7 +308,7 @@ function Cell({ value, accent, isHighlight }) {
     return (
       <td className="px-3 py-3.5 text-center">
         <div className="flex flex-col items-center gap-1">
-          <Check className="w-4 h-4" style={{ color: isHighlight ? RG : '#6CBD5A' }} />
+          <Check className="w-4 h-4" style={{ color: isHighlight ? RG : '#264A35' }} />
           {note && (
             <span className="font-mono text-[7px] tracking-[0.1em]" style={{ color: isHighlight ? `${RG}80` : 'rgba(247,241,232,0.35)' }}>
               {note}
@@ -349,7 +349,7 @@ function Cell({ value, accent, isHighlight }) {
   // type === 'text'
   return (
     <td className="px-3 py-3.5 text-center">
-      <span className="font-mono text-[9px] tracking-[0.1em]" style={{ color: isHighlight ? '#F7F1E8' : 'rgba(247,241,232,0.45)' }}>
+      <span className="font-mono text-[9px] tracking-[0.1em]" style={{ color: isHighlight ? '#F7F2E9' : 'rgba(247,241,232,0.45)' }}>
         {note}
       </span>
     </td>
@@ -390,7 +390,7 @@ export default function MushroomCoffeeComparison({ productName, product }) {
       {/* Legend */}
       <div className="flex items-center gap-5 mb-5 flex-wrap">
         {[
-          { icon: Check, color: '#6CBD5A', label: 'Yes / Included' },
+          { icon: Check, color: '#264A35', label: 'Yes / Included' },
           { icon: Minus, color: 'rgba(255,200,100,0.6)', label: 'Partial / Varies' },
           { icon: X, color: 'rgba(255,255,255,0.2)', label: 'No / Not available' },
         ].map(({ icon: Icon, color, label }) => (

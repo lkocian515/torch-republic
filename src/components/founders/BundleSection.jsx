@@ -40,7 +40,7 @@ const BUNDLES = [
 
 const SHOPIFY_COLLECTION_URL = 'https://libertees-for-all.myshopify.com/collections/founders-series';
 
-export default function BundleSection({ accent = '#C9A24A' }) {
+export default function BundleSection({ accent = '#E6AC45' }) {
   const [selected, setSelected] = useState('trio');
   const bundle = BUNDLES.find(b => b.id === selected);
   const savings = (bundle.retailPrice - bundle.bundlePrice).toFixed(2);

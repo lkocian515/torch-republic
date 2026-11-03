@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
-const RG = '#E6B7AD';
-const CLAY = '#B86543';
-const PAGE = '#F8F5EF';
-const CREAM = '#FBF8F1';
-const CARD = '#FFFFFF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
+const RG = '#E6AC45';
+const CLAY = '#9B4E2F';
+const PAGE = '#F7F2E9';
+const CREAM = '#F7F2E9';
+const CARD = '#FFFCF7';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
 const BORDER = 'rgba(230,183,173,0.28)';
 
 export default function Contact() {
@@ -129,7 +129,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-4"
-                  style={{ background: CLAY, color: '#FBF8F1' }}>
+                  style={{ background: CLAY, color: '#F7F2E9' }}>
                   Send Message →
                 </button>
               </form>
@@ -208,7 +208,7 @@ export default function Contact() {
 
             <Link to="/faq"
               className="inline-flex items-center justify-center font-mono text-[10px] tracking-[0.3em] uppercase transition-all hover:opacity-70 py-3.5"
-              style={{ border: '1px solid #E6B7AD', color: CLAY }}>
+              style={{ border: '1px solid #E6AC45', color: CLAY }}>
               View FAQ →
             </Link>
           </motion.div>

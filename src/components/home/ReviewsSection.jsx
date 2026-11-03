@@ -4,7 +4,7 @@ import { Star } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const FALLBACK_REVIEWS = [
   {
@@ -94,7 +94,7 @@ export default function ReviewsSection() {
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: RG }}>
             Torchbearer Reviews
           </p>
-          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             What Early Torchbearers Are Saying
           </h2>
           <div className="flex items-center justify-center gap-2 mt-4">
@@ -121,7 +121,7 @@ export default function ReviewsSection() {
             >
               <StarRating rating={reviews[currentIdx]?.rating || 5} />
               <p className="font-heading text-base mt-5 mb-5"
-                style={{ color: '#F5EFE6', fontWeight: 400, lineHeight: 1.85, fontStyle: 'italic' }}>
+                style={{ color: '#F7F2E9', fontWeight: 400, lineHeight: 1.85, fontStyle: 'italic' }}>
                 "{reviews[currentIdx]?.body}"
               </p>
               <div>

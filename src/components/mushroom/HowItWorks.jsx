@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Coffee, Droplet, RotateCcw, Flame } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const STEPS = [
   { icon: Coffee, title: 'Scoop', desc: 'Add one serving to your mug.' },
@@ -25,7 +25,7 @@ export default function HowItWorks() {
           <p className="font-mono text-[9px] tracking-[0.35em] uppercase mb-3" style={{ color: RG }}>
             Simple Ritual
           </p>
-          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-3" style={{ fontSize: 'clamp(1.9rem,3.5vw,2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Your Ritual in Seconds
           </h2>
           <p className="font-heading text-sm max-w-xl mx-auto" style={{ color: 'rgba(210,195,175,0.55)', fontWeight: 300, lineHeight: 1.75 }}>
@@ -55,7 +55,7 @@ export default function HowItWorks() {
               >
                 <step.icon size={24} style={{ color: RG }} />
               </div>
-              <h3 className="font-serif font-bold mb-2" style={{ color: '#F5EFE6', fontSize: '1.1rem' }}>{step.title}</h3>
+              <h3 className="font-serif font-bold mb-2" style={{ color: '#F7F2E9', fontSize: '1.1rem' }}>{step.title}</h3>
               <p className="font-heading text-sm" style={{ color: 'rgba(245,239,230,0.6)', lineHeight: 1.7 }}>{step.desc}</p>
             </motion.div>
           ))}

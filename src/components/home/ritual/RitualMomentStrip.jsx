@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export default function RitualMomentStrip({
   image,
   alt,
-  accent = '#B7653E',
+  accent = '#9B4E2F',
   eyebrow = 'The Ritual',
   title = 'Just add hot water.',
   subtitle = 'Scoop, stir, sip. A cafe-quality cup in seconds, with no machine, no pods and nothing to clean.',
@@ -42,7 +42,7 @@ export default function RitualMomentStrip({
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
             className="mt-3 font-serif font-bold"
-            style={{ fontSize: 'clamp(1.7rem, 4vw, 2.6rem)', color: '#FBF8F1', lineHeight: 1.1, textWrap: 'balance' }}
+            style={{ fontSize: 'clamp(1.7rem, 4vw, 2.6rem)', color: '#F7F2E9', lineHeight: 1.1, textWrap: 'balance' }}
           >
             {title}
           </motion.h2>

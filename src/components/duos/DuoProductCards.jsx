@@ -16,7 +16,7 @@ export default function DuoProductCards({ bags = [] }) {
           <article key={bag.slug} className="card-torch flex flex-col gap-2" style={{ padding: '1.25rem' }}>
             <div className="flex items-start gap-3">
               {bag.art ? (
-                <img src={bag.art.src} alt={bag.art.alt} width="96" height="96" loading="lazy" className="h-24 w-24 shrink-0 object-contain" style={{ background: '#F5F0E8', borderRadius: 6 }} />
+                <img src={bag.art.src} alt={bag.art.alt} width="96" height="96" loading="lazy" className="h-24 w-24 shrink-0 object-contain" style={{ background: '#F7F2E9', borderRadius: 6 }} />
               ) : null}
               <div className="min-w-0">
                 <h3 className="font-heading" style={{ fontSize: '1.125rem', margin: 0 }}>{bag.name}</h3>

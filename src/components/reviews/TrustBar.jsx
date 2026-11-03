@@ -4,10 +4,10 @@ import { Star, Shield, Flame, Lock } from 'lucide-react';
 
 export default function TrustBar({ avgRating = '4.8', totalReviews = null }) {
   const stats = [
-    { icon: <Star className="w-4 h-4 fill-current" style={{ color: '#C9A24A' }} />, value: `${avgRating}/5`, label: 'Verified Rating' },
-    { icon: <Flame className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Small Batch', label: 'Roasted to Order' },
-    { icon: <Shield className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Guaranteed', label: 'Quality Promise' },
-    { icon: <Lock className="w-4 h-4" style={{ color: '#C9A24A' }} />, value: 'Secure', label: 'Checkout' },
+    { icon: <Star className="w-4 h-4 fill-current" style={{ color: '#E6AC45' }} />, value: `${avgRating}/5`, label: 'Verified Rating' },
+    { icon: <Flame className="w-4 h-4" style={{ color: '#E6AC45' }} />, value: 'Small Batch', label: 'Roasted to Order' },
+    { icon: <Shield className="w-4 h-4" style={{ color: '#E6AC45' }} />, value: 'Guaranteed', label: 'Quality Promise' },
+    { icon: <Lock className="w-4 h-4" style={{ color: '#E6AC45' }} />, value: 'Secure', label: 'Checkout' },
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function TrustBar({ avgRating = '4.8', totalReviews = null }) {
           <div key={i} className="text-center flex flex-col items-center gap-2">
             <div className="flex items-center gap-2">
               {s.icon}
-              <span className="font-mono font-black" style={{ fontSize: '1.4rem', color: '#C9A24A' }}>{s.value}</span>
+              <span className="font-mono font-black" style={{ fontSize: '1.4rem', color: '#E6AC45' }}>{s.value}</span>
             </div>
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>{s.label}</p>
           </div>

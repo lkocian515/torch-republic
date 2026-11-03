@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Shield, Coffee } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const DEEP_CHARCOAL = '#0A0908';
 
 const PILLARS = [
@@ -10,19 +10,19 @@ const PILLARS = [
     title: 'Clarity',
     desc: 'Focused thinking without unnecessary noise. The quality of mind that sees through distraction.',
     icon: Sparkles,
-    color: '#E6B7AD'
+    color: '#E6AC45'
   },
   {
     title: 'Discipline',
     desc: 'Consistency over impulse. The daily choice to show up when it matters most.',
     icon: Shield,
-    color: '#D6B27A'
+    color: '#E6AC45'
   },
   {
     title: 'Transformation',
     desc: 'Growth unfolding from within. The person you are becoming, one ritual at a time.',
     icon: Coffee,
-    color: '#C98F86'
+    color: '#9B4E2F'
   }
 ];
 

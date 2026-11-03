@@ -7,13 +7,13 @@ import { ALL_BLOG_TOPICS, INGREDIENT_PAGES } from '@/lib/seoContent';
 import { COFFEE_FORMATS } from '@/lib/coffeeFormats';
 import { trackEvent } from '@/lib/analyticsEvents';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_META = {
   product: { label: 'Products', icon: Coffee, color: RG },
   article: { label: 'Journal Articles', icon: BookOpen, color: '#7BA5D4' },
   faq: { label: 'FAQs', icon: HelpCircle, color: '#D4A576' },
-  ingredient: { label: 'Ingredients', icon: Leaf, color: '#6CBD5A' },
+  ingredient: { label: 'Ingredients', icon: Leaf, color: '#264A35' },
   comparison: { label: 'Comparisons', icon: GitCompare, color: '#B88FA8' },
 };
 
@@ -195,12 +195,12 @@ export default function SearchModal({ isOpen, onClose }) {
                   onKeyDown={handleKeyDown}
                   placeholder="Search products, articles, ingredients..."
                   className="flex-1 bg-transparent outline-none font-heading text-base"
-                  style={{ color: '#2D2824' }}
+                  style={{ color: '#32190F' }}
                 />
                 <button
                   onClick={onClose}
                   className="flex items-center justify-center flex-shrink-0"
-                  style={{ color: '#655E56', minWidth: '44px', minHeight: '44px' }}
+                  style={{ color: '#5E4639', minWidth: '44px', minHeight: '44px' }}
                   aria-label="Close search"
                 >
                   <X className="w-5 h-5" />
@@ -211,7 +211,7 @@ export default function SearchModal({ isOpen, onClose }) {
               <div className="max-h-[60vh] overflow-y-auto">
                 {!query.trim() ? (
                   <div className="px-4 py-8">
-                    <p className="font-heading text-sm text-center" style={{ color: '#655E56' }}>
+                    <p className="font-heading text-sm text-center" style={{ color: '#5E4639' }}>
                       Search for coffee blends, journal articles, ingredients, and more.
                     </p>
                     <div className="mt-6">
@@ -225,7 +225,7 @@ export default function SearchModal({ isOpen, onClose }) {
                             type="button"
                             onClick={() => handleSelect(f.path)}
                             className="inline-flex items-center px-4 py-2 font-heading text-sm transition-colors"
-                            style={{ background: '#F8F5EF', border: '1px solid #E4D8C9', color: '#2D2824', borderRadius: '999px' }}
+                            style={{ background: '#F7F2E9', border: '1px solid #B89A6D', color: '#32190F', borderRadius: '999px' }}
                           >
                             {f.label}
                           </button>
@@ -235,7 +235,7 @@ export default function SearchModal({ isOpen, onClose }) {
                   </div>
                 ) : results.length === 0 ? (
                   <div className="px-4 py-12 text-center">
-                    <p className="font-heading text-sm mb-1" style={{ color: '#655E56' }}>
+                    <p className="font-heading text-sm mb-1" style={{ color: '#5E4639' }}>
                       No results for "{query}"
                     </p>
                     <p className="font-mono text-[10px] tracking-[0.15em]" style={{ color: '#8A6F3E' }}>
@@ -272,7 +272,7 @@ export default function SearchModal({ isOpen, onClose }) {
                             >
                               <Icon className="w-4 h-4 flex-shrink-0" style={{ color: meta.color }} />
                               <div className="flex-1 min-w-0">
-                                <p className="font-heading text-sm truncate" style={{ color: isActive ? '#2D2824' : '#655E56' }}>
+                                <p className="font-heading text-sm truncate" style={{ color: isActive ? '#32190F' : '#5E4639' }}>
                                   {item.title}
                                 </p>
                                 {item.subtitle && (
@@ -293,11 +293,11 @@ export default function SearchModal({ isOpen, onClose }) {
 
               {/* Footer hint */}
               {results.length > 0 && (
-                <div className="px-4 py-2.5 flex items-center justify-between" style={{ borderTop: `1px solid ${RG}10`, background: '#F8F5EF' }}>
-                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#6D625A' }}>
+                <div className="px-4 py-2.5 flex items-center justify-between" style={{ borderTop: `1px solid ${RG}10`, background: '#F7F2E9' }}>
+                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#5E4639' }}>
                     ↑↓ Navigate · ↵ Select · ESC Close
                   </p>
-                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#6D625A' }}>
+                  <p className="font-mono text-[8px] tracking-[0.15em]" style={{ color: '#5E4639' }}>
                     {results.length} result{results.length !== 1 ? 's' : ''}
                   </p>
                 </div>

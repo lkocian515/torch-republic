@@ -68,7 +68,7 @@ export default function SeasonalCalendar() {
         <section className="mt-10" aria-labelledby="this-month-feature">
           <article
             className="grid grid-cols-1 items-center gap-6 rounded-lg border p-5 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-8 md:p-8"
-            style={{ background: '#F7F1E8', borderColor: 'hsl(var(--border))' }}
+            style={{ background: '#F7F2E9', borderColor: 'hsl(var(--border))' }}
           >
             <img
               src="https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/e5cdd5116_fireside-smores-product-1600.png"
@@ -190,7 +190,7 @@ export default function SeasonalCalendar() {
                   {monthIndex === 11 && christmasDuo ? (
                     <article
                       className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-                      style={{ background: '#FFFFFF', border: '1px solid hsl(var(--border))', borderRadius: 8, padding: '1.25rem' }}
+                      style={{ background: '#FFFCF7', border: '1px solid hsl(var(--border))', borderRadius: 8, padding: '1.25rem' }}
                       aria-labelledby="christmas-duo-calendar"
                     >
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -203,7 +203,7 @@ export default function SeasonalCalendar() {
                                 loading="lazy"
                                 decoding="async"
                                 className="h-14 w-14 object-contain"
-                                style={{ background: '#F5F0E8', borderRadius: 4 }}
+                                style={{ background: '#F7F2E9', borderRadius: 4 }}
                               />
                               <figcaption className="font-heading" style={{ fontSize: '0.75rem', lineHeight: 1.2 }}>
                                 {item.name}

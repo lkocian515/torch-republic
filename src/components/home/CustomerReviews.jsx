@@ -57,11 +57,11 @@ export default function CustomerReviews() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-3">
-            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#C8A44D' }}>
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{ color: '#E6AC45' }}>
               Real Customers
             </span>
-            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px w-8" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 700 }}>
             What Torchbearers Are Saying
@@ -95,7 +95,7 @@ export default function CustomerReviews() {
 
               {/* Product */}
               <p className="text-xs font-mono text-gray-500 mb-2">
-                Purchased: <span style={{ color: '#C8A44D' }}>{review.product}</span>
+                Purchased: <span style={{ color: '#E6AC45' }}>{review.product}</span>
               </p>
 
               {/* Name */}

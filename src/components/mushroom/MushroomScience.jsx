@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SHROOMS = [
   {
@@ -43,7 +43,7 @@ export default function MushroomScience() {
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', letterSpacing: '0.6em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.5)', marginBottom: '12px' }}>
             The Science
           </p>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em', marginBottom: '12px' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Why Mushroom Coffee?
           </h2>
           <p style={{ fontSize: '0.9rem', color: 'rgba(250,245,235,0.78)', lineHeight: 1.9, fontWeight: 300, maxWidth: '520px', margin: '0 auto' }}>
@@ -68,7 +68,7 @@ export default function MushroomScience() {
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7px', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(230,183,173,0.4)', marginBottom: '8px' }}>
                 {s.latin}
               </p>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F5EFE6', marginBottom: '14px', lineHeight: 1.1 }}>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#F7F2E9', marginBottom: '14px', lineHeight: 1.1 }}>
                 {s.name}
               </h3>
               <p style={{ fontSize: '0.87rem', color: 'rgba(250,245,235,0.8)', lineHeight: 1.85, fontWeight: 300, marginBottom: '20px' }}>

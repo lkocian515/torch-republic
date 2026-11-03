@@ -71,7 +71,7 @@ export default function SeasonalFloatingCard() {
               onClick={dismiss}
               aria-label="Dismiss"
               className="absolute right-2.5 top-2.5 z-10 flex h-8 w-8 items-center justify-center rounded-full transition-opacity hover:opacity-70"
-              style={{ background: 'rgba(255,255,255,0.12)', color: '#F7EEDD' }}
+              style={{ background: 'rgba(255,255,255,0.12)', color: '#F7F2E9' }}
             >
               <X className="h-4 w-4" />
             </button>
@@ -92,7 +92,7 @@ export default function SeasonalFloatingCard() {
             >
               <p
                 className="font-heading text-sm font-semibold"
-                style={{ color: '#F7EEDD', lineHeight: 1.3 }}
+                style={{ color: '#F7F2E9', lineHeight: 1.3 }}
               >
                 Meet our limited Pumpkin Spice coffee, ground or whole bean.
               </p>

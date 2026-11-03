@@ -5,7 +5,7 @@ import { Star } from 'lucide-react';
  * ReviewSummaryBar — compact social proof block to place above Add to Cart.
  * Shows star rating, review count, and a short testimonial snippet.
  */
-export default function ReviewSummaryBar({ rating = 4.9, count = 127, snippet, accent = '#E6B7AD' }) {
+export default function ReviewSummaryBar({ rating = 4.9, count = 127, snippet, accent = '#E6AC45' }) {
   return (
     <div className="p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(230,183,173,0.1)' }}>
       <div className="flex items-center gap-3 mb-2">
@@ -16,13 +16,13 @@ export default function ReviewSummaryBar({ rating = 4.9, count = 127, snippet, a
           ))}
         </div>
         {/* Rating + count */}
-        <span className="font-mono text-[10px] font-bold" style={{ color: '#F7F1E8' }}>{rating}</span>
+        <span className="font-mono text-[10px] font-bold" style={{ color: '#F7F2E9' }}>{rating}</span>
         <span className="font-mono text-[8px] tracking-[0.1em]" style={{ color: 'rgba(247,241,232,0.4)' }}>
           ({count.toLocaleString()} verified reviews)
         </span>
       </div>
       {snippet && (
-        <p className="font-heading text-sm italic" style={{ color: '#F5EFE6', fontWeight: 300, lineHeight: 1.65 }}>
+        <p className="font-heading text-sm italic" style={{ color: '#F7F2E9', fontWeight: 300, lineHeight: 1.65 }}>
           "{snippet}"
         </p>
       )}

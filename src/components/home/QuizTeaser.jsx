@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function QuizTeaser() {
   return (
@@ -43,7 +43,7 @@ export default function QuizTeaser() {
               className="font-serif font-bold"
               style={{
                 fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
-                color: '#F5EFE6',
+                color: '#F7F2E9',
                 letterSpacing: '-0.01em',
                 lineHeight: 1.2,
               }}

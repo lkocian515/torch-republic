@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 /**
  * A single, restrained cross-link to a relevant ritual / quiz / ingredient / subscription page.
  */
-export default function CollectionCrossLink({ to, label, sub, accent = '#B7653E' }) {
+export default function CollectionCrossLink({ to, label, sub, accent = '#9B4E2F' }) {
   return (
     <div className="max-w-3xl mx-auto px-6">
       <Link

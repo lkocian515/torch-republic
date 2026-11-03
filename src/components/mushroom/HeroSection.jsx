@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Sparkles, Coffee, Leaf, Zap, X } from 'lucide-react';
 
-const RG   = '#E6B7AD';
+const RG   = '#E6AC45';
 
 const PROMO_MESSAGES = [
   'One-time: 10% off code WELCOME10',
@@ -83,7 +83,7 @@ export default function MushroomHero() {
             <motion.h1
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily:'var(--font-serif)', fontWeight:800,
-                fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F5EFE6',
+                fontSize:'clamp(2.1rem,3.4vw,3.2rem)', color:'#F7F2E9',
                 lineHeight:1.12, letterSpacing:'-0.02em', margin:'0 0 18px' }}
             >
               Instant Coffee + Matcha<br />
@@ -248,7 +248,7 @@ export default function MushroomHero() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.07 }}
             style={{
               fontFamily: 'var(--font-serif)', fontWeight: 800,
-              fontSize: 'clamp(1.9rem, 9vw, 2.6rem)', color: '#F5EFE6',
+              fontSize: 'clamp(1.9rem, 9vw, 2.6rem)', color: '#F7F2E9',
               lineHeight: 1.1, letterSpacing: '-0.01em',
               margin: '0 0 16px',
             }}

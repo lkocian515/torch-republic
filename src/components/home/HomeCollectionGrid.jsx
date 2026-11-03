@@ -8,7 +8,7 @@ const COLLECTIONS = [
     description: 'Heritage-crafted small-batch coffee. Collectible by design.',
     image: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/193fcf090_file_00000000d614822fbac1ab269ae9f60a.png',
     route: '/CoffeeCollection',
-    accent: '#C9A24A',
+    accent: '#E6AC45',
     comingSoon: false,
   },
   {

@@ -11,7 +11,7 @@ const BUNDLES = [
     was: '$56.97',
     price: '$49.99',
     savings: 'Save $6.98',
-    accent: '#C8A44D',
+    accent: '#E6AC45',
     handle: 'founders-starter-pack',
     featured: true,
   },
@@ -94,8 +94,8 @@ function BundleCard({ b, i }) {
           href={`https://torch-republic.com/products/${b.handle}`}
           className="py-3.5 text-center font-heading font-black text-xs tracking-[0.2em] uppercase transition-all"
           style={b.featured
-            ? { background: '#C4A35A', color: '#000', boxShadow: '0 4px 20px rgba(196,163,90,0.25)' }
-            : { border: '1px solid #C4A35A', color: 'white', background: 'transparent' }
+            ? { background: '#E6AC45', color: '#000', boxShadow: '0 4px 20px rgba(196,163,90,0.25)' }
+            : { border: '1px solid #E6AC45', color: 'white', background: 'transparent' }
           }
         >
           {b.featured ? 'Get The Starter Set →' : 'Shop This Set →'}
@@ -113,9 +113,9 @@ export default function BuildCollectionSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #C8A44D)' }} />
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#C8A44D' }}>Start Your Collection</span>
-            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #C8A44D, transparent)' }} />
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, transparent, #E6AC45)' }} />
+            <span className="font-mono text-[10px] tracking-[0.5em] uppercase" style={{ color: '#E6AC45' }}>Start Your Collection</span>
+            <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(90deg, #E6AC45, transparent)' }} />
           </div>
           <h2 className="font-serif text-white mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', fontWeight: 700 }}>
             Build Your Founders Collection

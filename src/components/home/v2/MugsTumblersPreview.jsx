@@ -45,7 +45,7 @@ export default function MugsTumblersPreview() {
             <p style={{ fontSize: '9px', letterSpacing: '0.5em', textTransform: 'uppercase', marginBottom: '16px', color: 'rgba(201,162,74,0.6)' }}>
               Drinkware Collection
             </p>
-            <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#F0EBE1', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '8px' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '8px' }}>
               Mugs & Tumblers
             </h2>
             <p style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.6)', lineHeight: 1.6, maxWidth: '500px', margin: '0 auto' }}>
@@ -118,7 +118,7 @@ export default function MugsTumblersPreview() {
 
                 {/* Product Name */}
                 <div style={{ padding: '16px 20px' }}>
-                  <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#F0EBE1', lineHeight: 1.4, margin: 0 }}>
+                  <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#F7F2E9', lineHeight: 1.4, margin: 0 }}>
                     {product.name}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function MugsTumblersPreview() {
             transition={{ duration: 0.65 }}
             style={{ textAlign: 'center' }}
           >
-            <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9A24A', fontWeight: 600, marginBottom: '16px' }}>
+            <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#E6AC45', fontWeight: 600, marginBottom: '16px' }}>
               Browse the Full Collection
             </p>
             <div style={{
@@ -142,7 +142,7 @@ export default function MugsTumblersPreview() {
               alignItems: 'center',
               gap: '8px',
               padding: '14px 36px',
-              background: '#C9A24A',
+              background: '#E6AC45',
               color: '#080808',
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',

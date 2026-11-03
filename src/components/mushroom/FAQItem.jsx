@@ -11,13 +11,13 @@ export default function FAQItem({ question, answer }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between py-5 text-left"
       >
-        <span className="font-heading text-sm font-medium" style={{ color: '#F5EFE6' }}>
+        <span className="font-heading text-sm font-medium" style={{ color: '#F7F2E9' }}>
           {question}
         </span>
         <ChevronDown
           size={18}
           style={{
-            color: '#E6B7AD',
+            color: '#E6AC45',
             transition: 'transform 0.3s ease',
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
           }}

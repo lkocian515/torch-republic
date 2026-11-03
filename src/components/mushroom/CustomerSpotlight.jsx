@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SPOTLIGHTS = [
   {
@@ -189,7 +189,7 @@ export default function CustomerSpotlight() {
               className="px-6 py-4 border-t flex items-center justify-between"
               style={{ borderColor: 'rgba(230,183,173,0.1)' }}
             >
-              <p className="text-xs" style={{ color: '#6A5A4A' }}>
+              <p className="text-xs" style={{ color: '#5E4639' }}>
                 Community member for {current.since}
               </p>
               {/* Navigation arrows */}

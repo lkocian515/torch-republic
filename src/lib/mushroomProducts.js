@@ -74,7 +74,7 @@ const CLASSIC = product({
   servings: 27,
   price: 22.99,
   shopifyHandle: 'instant-coffee-1',
-  accent: '#B86543',
+  accent: '#9B4E2F',
   category: 'classic-coffee',
   keyBenefits: ['Single-Origin Coffee', '27 Servings', 'No Machine', 'Instant Ritual'],
 });
@@ -96,7 +96,7 @@ const MUSHROOM = product({
   servings: 27,
   price: 25.99,
   shopifyHandle: 'instant-coffee-with-mushroom',
-  accent: '#566047',
+  accent: '#264A35',
   category: 'mushroom-coffee',
   keyBenefits: ['Focus', 'Lion’s Mane + Cordyceps + Reishi', '27 Servings', 'Balanced Coffee'],
 });

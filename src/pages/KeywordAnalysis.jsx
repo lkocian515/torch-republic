@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { TrendingUp, Search, MousePointerClick, Eye, Target, RefreshCw, AlertCircle } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 function StatCard({ icon: Icon, label, value, sub }) {
   /* Icon is passed as a prop — used as <Icon /> below */
@@ -102,7 +102,7 @@ export default function KeywordAnalysis() {
     (data?.opportunities || []);
 
   return (
-    <div style={{ backgroundColor: '#080808', minHeight: '100vh', color: '#F0EBE1' }}>
+    <div style={{ backgroundColor: '#080808', minHeight: '100vh', color: '#F7F2E9' }}>
       {/* Header */}
       <div className="px-6 md:px-10 pt-12 pb-8" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -198,7 +198,7 @@ export default function KeywordAnalysis() {
                   {tab.label}
                   {tab.id === 'opportunities' && (
                     <span className="ml-2 px-1.5 py-0.5 rounded text-[8px]"
-                      style={{ background: 'rgba(16,185,129,0.2)', color: '#10B981' }}>
+                      style={{ background: 'rgba(16,185,129,0.2)', color: '#264A35' }}>
                       {data.opportunities?.length || 0}
                     </span>
                   )}
@@ -217,12 +217,12 @@ export default function KeywordAnalysis() {
               columns={[
                 { key: 'clicks', label: 'Clicks', color: RG },
                 { key: 'impressions', label: 'Impressions', color: 'rgba(255,255,255,0.5)' },
-                { key: 'ctr', label: 'CTR %', color: '#10B981', format: (v) => `${v}%` },
+                { key: 'ctr', label: 'CTR %', color: '#264A35', format: (v) => `${v}%` },
                 {
                   key: 'position', label: 'Position',
                   color: 'rgba(255,255,255,0.5)',
                   format: (v) => {
-                    const color = v <= 3 ? '#10B981' : v <= 10 ? RG : 'rgba(255,255,255,0.4)';
+                    const color = v <= 3 ? '#264A35' : v <= 10 ? RG : 'rgba(255,255,255,0.4)';
                     return <span style={{ color }}>{v}</span>;
                   }
                 },

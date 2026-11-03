@@ -42,15 +42,15 @@ export default function CoffeeCollectionMenu() {
                 to={col.route}
                 className="inline-flex items-center justify-center px-7 py-3 font-mono text-xs tracking-widest uppercase transition-all duration-200"
                 style={{
-                  backgroundColor: col.outline ? 'transparent' : '#C9A24A',
-                  color: col.outline ? '#C9A24A' : '#000000',
-                  border: '1px solid #C9A24A',
+                  backgroundColor: col.outline ? 'transparent' : '#E6AC45',
+                  color: col.outline ? '#E6AC45' : '#000000',
+                  border: '1px solid #E6AC45',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.backgroundColor = col.outline ? 'rgba(201,162,74,0.08)' : '#E4C46A';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.backgroundColor = col.outline ? 'transparent' : '#C9A24A';
+                  e.currentTarget.style.backgroundColor = col.outline ? 'transparent' : '#E6AC45';
                 }}
               >
                 {col.label}

@@ -3,11 +3,11 @@ import { Check, Gift } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { FREE_GIFTS, FREE_GIFT_THRESHOLD, FREE_GIFT_ENABLED } from '@/lib/freeGiftConfig';
 
-const CARD = '#FFFFFF';
-const INK = '#2D2824';
+const CARD = '#FFFCF7';
+const INK = '#32190F';
 const MUTED = '#9A8A7A';
-const BORDER = '#E4D8C9';
-const ACCENT = '#B86543';
+const BORDER = '#B89A6D';
+const ACCENT = '#9B4E2F';
 const ACCENT_SOFT = 'rgba(184,101,67,0.08)';
 
 export default function FreeGiftSelection() {
@@ -46,10 +46,10 @@ export default function FreeGiftSelection() {
               aria-label={`Select ${gift.name} as free gift`}
             >
               <div className="mb-1 flex items-center justify-between">
-                <Gift size={14} style={{ color: isSelected ? '#FBF8F1' : ACCENT }} />
-                {isSelected && <Check size={14} style={{ color: '#FBF8F1' }} />}
+                <Gift size={14} style={{ color: isSelected ? '#F7F2E9' : ACCENT }} />
+                {isSelected && <Check size={14} style={{ color: '#F7F2E9' }} />}
               </div>
-              <p className="font-heading text-xs font-bold" style={{ color: isSelected ? '#FBF8F1' : INK }}>
+              <p className="font-heading text-xs font-bold" style={{ color: isSelected ? '#F7F2E9' : INK }}>
                 {gift.name}
               </p>
               <p className="font-mono text-[10px] tracking-[0.1em] uppercase mt-1" style={{ color: isSelected ? 'rgba(251,248,241,0.8)' : MUTED }}>

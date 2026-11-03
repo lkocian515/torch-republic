@@ -169,7 +169,7 @@ const PageLoader = () => (
   >
     <div className="text-center">
       <div className="w-10 h-10 border-2 border-rose-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-      <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6B7AD' }}>Loading...</p>
+      <p className="font-mono text-xs tracking-[0.2em] uppercase" style={{ color: '#E6AC45' }}>Loading...</p>
     </div>
   </motion.div>
 );

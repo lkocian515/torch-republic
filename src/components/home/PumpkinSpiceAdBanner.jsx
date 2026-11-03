@@ -11,7 +11,7 @@ const DEFAULT_IMAGE =
 const THEME = {
   bg: '#2A1A12',        // dark espresso brown — matches image background
   bgAccent: '#3D2817',  // gradient lift
-  cream: '#F7EEDD',     // label cream
+  cream: '#F7F2E9',     // label cream
   terracotta: '#D6743A', // pumpkin orange CTA
   terracottaHover: '#B8602C',
 };

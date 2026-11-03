@@ -48,7 +48,7 @@ const SPOTLIGHT_DATA = {
       name: 'L-Theanine',
       latin: 'Found naturally in Camellia sinensis',
       tagline: 'The Calm-Focus Amino Acid',
-      color: '#6CBD5A',
+      color: '#264A35',
       emoji: '🍵',
       heroStat: { value: '~25mg', unit: '', label: 'of L-Theanine per serving — naturally occurring in ceremonial matcha' },
       description:
@@ -86,7 +86,7 @@ const SPOTLIGHT_DATA = {
       name: 'Coffee Polyphenols',
       latin: 'Chlorogenic acids & beyond',
       tagline: 'The Antioxidant Most People Miss',
-      color: '#C4A35A',
+      color: '#E6AC45',
       emoji: '☕',
       heroStat: { value: '#1', unit: '', label: 'dietary source of antioxidants in the average Western diet (Journal of Nutrition, 2004)' },
       description:
@@ -137,7 +137,7 @@ function IngredientCard({ ingredient, isActive, onClick }) {
       <div className="flex items-center gap-3">
         <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>{ingredient.emoji}</span>
         <div className="flex-1 min-w-0">
-          <p className="font-serif font-bold text-sm" style={{ color: isActive ? ingredient.color : '#F7F1E8' }}>
+          <p className="font-serif font-bold text-sm" style={{ color: isActive ? ingredient.color : '#F7F2E9' }}>
             {ingredient.name}
           </p>
           <p className="font-mono text-[7px] tracking-[0.2em] uppercase mt-0.5" style={{ color: 'rgba(247,241,232,0.35)' }}>
@@ -259,7 +259,7 @@ export default function IngredientSpotlight({ product }) {
         <p className="font-mono text-[8px] tracking-[0.5em] uppercase mb-2" style={{ color: 'rgba(230,183,173,0.45)' }}>
           Ingredient Spotlight
         </p>
-        <h2 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#F7F1E8', letterSpacing: '-0.02em' }}>
+        <h2 className="font-serif font-bold mb-2" style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
           {product.category === 'matcha'
             ? "What's Inside Every Cup of Matcha"
             : product.category === 'classic-coffee'

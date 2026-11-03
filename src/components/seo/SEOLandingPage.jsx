@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import { ArrowRight, ChevronDown, Check } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left gap-4">
-        <span className="font-heading text-sm font-medium" style={{ color: '#F5EFE6', lineHeight: 1.45 }}>{question}</span>
+        <span className="font-heading text-sm font-medium" style={{ color: '#F7F2E9', lineHeight: 1.45 }}>{question}</span>
         <ChevronDown size={16} style={{ color: 'rgba(230,183,173,0.4)', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
       </button>
       {open && <p className="pb-5 font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.85 }}>{answer}</p>}
@@ -38,7 +38,7 @@ export default function SEOLandingPage({ seo, breadcrumb, hero, sections, featur
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: RG }}>{hero.eyebrow}</p>
-            <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.12, letterSpacing: '-0.02em' }}>
+            <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', color: '#F7F2E9', lineHeight: 1.12, letterSpacing: '-0.02em' }}>
               {hero.title}
             </h1>
             <p className="font-heading max-w-2xl" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
@@ -53,7 +53,7 @@ export default function SEOLandingPage({ seo, breadcrumb, hero, sections, featur
         <div className="max-w-3xl mx-auto space-y-12">
           {sections.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#F5EFE6' }}>{s.heading}</h2>
+              <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#F7F2E9' }}>{s.heading}</h2>
               {s.paragraphs.map((p, j) => (
                 <p key={j} className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.62)', fontWeight: 300, lineHeight: 1.95 }}>{p}</p>
               ))}
@@ -80,7 +80,7 @@ export default function SEOLandingPage({ seo, breadcrumb, hero, sections, featur
               {features.map((f, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                   className="p-6" style={{ background: '#0F0E0D', border: '1px solid rgba(230,183,173,0.1)' }}>
-                  <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: '#F5EFE6' }}>{f.title}</h3>
+                  <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.1rem', color: '#F7F2E9' }}>{f.title}</h3>
                   <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', fontWeight: 300, lineHeight: 1.7 }}>{f.detail}</p>
                 </motion.div>
               ))}
@@ -121,7 +121,7 @@ export default function SEOLandingPage({ seo, breadcrumb, hero, sections, featur
       {cta && (
         <section className="px-6 md:px-10 py-14 text-center" style={{ borderTop: '1px solid rgba(230,183,173,0.06)' }}>
           <div className="max-w-xl mx-auto">
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F5EFE6' }}>{cta.title}</h2>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#F7F2E9' }}>{cta.title}</h2>
             <p className="font-heading mb-6 text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>{cta.subtitle}</p>
             <Link to={cta.buttonLink}
               className="inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase font-bold py-3.5 px-7 transition-all hover:opacity-90"

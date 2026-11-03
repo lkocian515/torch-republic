@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
 
-const AC = '#C9A24A';
+const AC = '#E6AC45';
 
 export default function BecomeATorchbearer() {
   return (
@@ -15,7 +15,7 @@ export default function BecomeATorchbearer() {
             What It Means to Be a Torchbearer
           </p>
 
-          <h2 className="font-serif mb-7" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1 }}>
+          <h2 className="font-serif mb-7" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', color: '#F7F2E9', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1 }}>
             Carry the Flame.<br />
             <span style={{ color: AC }}>Build the Legacy.</span>
           </h2>

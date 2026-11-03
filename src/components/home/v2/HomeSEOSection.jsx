@@ -24,7 +24,7 @@ export default function HomeSEOSection() {
           style={{
             fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
             fontWeight: 700,
-            color: '#C9A24A',
+            color: '#E6AC45',
             letterSpacing: '0.02em',
             marginBottom: '16px',
             fontFamily: 'var(--font-serif)',

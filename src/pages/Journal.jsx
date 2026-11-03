@@ -8,7 +8,7 @@ import JournalHero from '../components/journal/JournalHero';
 import ArticleCard from '../components/journal/ArticleCard';
 import CategoryFilter from '../components/journal/CategoryFilter';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function Journal() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -32,14 +32,14 @@ export default function Journal() {
   });
 
   const FEATURED_GUIDES = [
-    { to: '/journal/mushroom-coffee-vs-regular-coffee', label: 'Mushroom Coffee vs Regular Coffee', cat: 'Mushroom Coffee', accent: '#E6B7AD' },
-    { to: '/journal/ceremonial-matcha-vs-culinary', label: 'Ceremonial Matcha vs Culinary Matcha', cat: 'Matcha', accent: '#6CBD5A' },
-    { to: '/journal/what-makes-premium-instant-coffee-different', label: 'What Makes Premium Instant Coffee Different?', cat: 'Instant Coffee', accent: '#C4A35A' },
-    { to: '/journal/lions-mane-mushroom-coffee', label: "What Is Lion's Mane Coffee?", cat: 'Mushroom Coffee', accent: '#E6B7AD' },
+    { to: '/journal/mushroom-coffee-vs-regular-coffee', label: 'Mushroom Coffee vs Regular Coffee', cat: 'Mushroom Coffee', accent: '#E6AC45' },
+    { to: '/journal/ceremonial-matcha-vs-culinary', label: 'Ceremonial Matcha vs Culinary Matcha', cat: 'Matcha', accent: '#264A35' },
+    { to: '/journal/what-makes-premium-instant-coffee-different', label: 'What Makes Premium Instant Coffee Different?', cat: 'Instant Coffee', accent: '#E6AC45' },
+    { to: '/journal/lions-mane-mushroom-coffee', label: "What Is Lion's Mane Coffee?", cat: 'Mushroom Coffee', accent: '#E6AC45' },
     { to: '/journal/science-of-lions-mane', label: "The Science of Lion's Mane", cat: 'Research', accent: '#4A9EE6' },
-    { to: '/journal/matcha-benefits', label: 'Matcha Benefits: What the Research Shows', cat: 'Matcha', accent: '#6CBD5A' },
-    { to: '/journal/morning-ritual-for-focus', label: 'How to Build a Better Morning Ritual', cat: 'Wellness', accent: '#D6B27A' },
-    { to: '/journal/adaptogens-guide', label: 'Adaptogens: A Practical Guide', cat: 'Wellness', accent: '#D6B27A' },
+    { to: '/journal/matcha-benefits', label: 'Matcha Benefits: What the Research Shows', cat: 'Matcha', accent: '#264A35' },
+    { to: '/journal/morning-ritual-for-focus', label: 'How to Build a Better Morning Ritual', cat: 'Wellness', accent: '#E6AC45' },
+    { to: '/journal/adaptogens-guide', label: 'Adaptogens: A Practical Guide', cat: 'Wellness', accent: '#E6AC45' },
   ];
 
   return (
@@ -91,7 +91,7 @@ export default function Journal() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
               Latest Insights
             </p>
-            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#F7F2E9' }}>
               {activeCategory === 'all' ? 'Latest Articles' : `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Articles`}
             </h2>
           </motion.div>
@@ -136,7 +136,7 @@ export default function Journal() {
             <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: `${RG}80` }}>
               Stay Updated
             </p>
-            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F5EFE6' }}>
+            <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', color: '#F7F2E9' }}>
               Join the Ritual
             </h2>
             <p className="font-heading mb-8" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, lineHeight: 1.8 }}>
@@ -147,7 +147,7 @@ export default function Journal() {
                 type="email"
                 placeholder="Your email address"
                 className="flex-1 px-4 py-3 font-heading text-sm bg-transparent border rounded-sm focus:outline-none"
-                style={{ borderColor: `${RG}30`, color: '#F5EFE6' }}
+                style={{ borderColor: `${RG}30`, color: '#F7F2E9' }}
               />
               <button
                 className="px-8 py-3 font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 rounded-sm"

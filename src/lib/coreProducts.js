@@ -27,7 +27,7 @@ export const RITUAL_COLORS = {
   mushroom: {
     key: 'mushroom',
     name: 'Mushroom Coffee',
-    accent: '#566047', // muted olive
+    accent: '#264A35', // muted olive
     soft: '#E0DDD3',
     deep: '#3D4633',
   },
@@ -35,7 +35,7 @@ export const RITUAL_COLORS = {
     key: 'pumpkin_spice',
     name: 'Seasonal Coffee',
     accent: '#A93E26', // terracotta / burnt orange
-    soft: '#F7EEDD',   // cream label background
+    soft: '#F7F2E9',   // cream label background
     deep: '#5D2F20',   // dark brown frame
   },
   duo: {

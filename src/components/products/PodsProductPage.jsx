@@ -14,7 +14,7 @@ export default function PodsProductPage({ data }) {
   const {
     title = 'Washington Blend Pods',
     code = 'TR-001',
-    accent = '#C9A24A',
+    accent = '#E6AC45',
     price = '$16.99',
     shopifyHandle = 'washington-blend-coffee-pods',
     heroImage = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/5e731e05f_file_00000000219c822f89492705850fcb90.png',
@@ -29,7 +29,7 @@ export default function PodsProductPage({ data }) {
   const ac = accent;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F0EBE1' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#080808', color: '#F7F2E9' }}>
 
       {/* Breadcrumb */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 pt-5">
@@ -92,7 +92,7 @@ export default function PodsProductPage({ data }) {
                 </span>
               </div>
 
-              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              <h1 className="font-serif leading-none mb-2" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, color: '#FFFCF7', letterSpacing: '-0.02em' }}>
                 {title}
               </h1>
 
@@ -119,7 +119,7 @@ export default function PodsProductPage({ data }) {
 
             {/* Hero Description */}
             <div className="mb-8 p-5" style={{ background: '#0D0D0D', border: `1px solid ${ac}14` }}>
-              <p className="font-heading" style={{ fontSize: '0.95rem', color: '#F0EBE1', lineHeight: 1.85, fontWeight: 400 }}>
+              <p className="font-heading" style={{ fontSize: '0.95rem', color: '#F7F2E9', lineHeight: 1.85, fontWeight: 400 }}>
                 {heroDescription}
               </p>
             </div>
@@ -132,15 +132,15 @@ export default function PodsProductPage({ data }) {
               <div className="space-y-3">
                 <div>
                   <p className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: `${ac}70` }}>Roast</p>
-                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F0EBE1' }}>{flavorNotes.roast}</p>
+                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F7F2E9' }}>{flavorNotes.roast}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: `${ac}70` }}>Body</p>
-                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F0EBE1' }}>{flavorNotes.body}</p>
+                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F7F2E9' }}>{flavorNotes.body}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: `${ac}70` }}>Finish</p>
-                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F0EBE1' }}>{flavorNotes.finish}</p>
+                  <p className="font-serif" style={{ fontSize: '1rem', color: '#F7F2E9' }}>{flavorNotes.finish}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-widest uppercase mb-2" style={{ color: `${ac}70` }}>Notes</p>
@@ -182,7 +182,7 @@ export default function PodsProductPage({ data }) {
               <p className="font-mono text-[10px] tracking-[0.35em] uppercase font-bold mb-3" style={{ color: ac }}>
                 The Founder's Discipline
               </p>
-              <p className="font-serif italic" style={{ fontSize: '0.95rem', color: '#F0EBE1', lineHeight: 1.8, fontWeight: 500 }}>
+              <p className="font-serif italic" style={{ fontSize: '0.95rem', color: '#F7F2E9', lineHeight: 1.8, fontWeight: 500 }}>
                 "{founderStory}"
               </p>
             </div>
@@ -304,7 +304,7 @@ export default function PodsProductPage({ data }) {
                 <div key={label} className="flex flex-col items-center text-center gap-1.5 py-4 px-2"
                   style={{ background: '#0C0C0C', border: '1px solid rgba(196,163,90,0.08)' }}>
                   <Icon className="w-4 h-4" style={{ color: ac }} />
-                  <p className="font-heading text-[11px] font-semibold leading-tight" style={{ color: '#F0EBE1' }}>
+                  <p className="font-heading text-[11px] font-semibold leading-tight" style={{ color: '#F7F2E9' }}>
                     {label}
                   </p>
                   <p className="font-mono text-[8px] leading-tight" style={{ color: 'rgba(240,235,225,0.3)' }}>
@@ -332,7 +332,7 @@ export default function PodsProductPage({ data }) {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-4" style={{ color: `${ac}45` }}>
             Get This Monthly
           </p>
-          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F0EBE1', fontWeight: 800 }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#F7F2E9', fontWeight: 800 }}>
             Join Torch Box
           </h2>
           <p style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.9, fontWeight: 300, fontSize: '0.95rem', maxWidth: '420px', margin: '0 auto 1.5rem' }}>

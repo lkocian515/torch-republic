@@ -19,7 +19,7 @@ export default function ProductImage({
   const [loaded, setLoaded] = useState(false);
 
   const wrapperBase = {
-    backgroundColor: '#F8F5EF',
+    backgroundColor: '#F7F2E9',
     position: 'relative',
     overflow: 'hidden',
     aspectRatio,
@@ -101,7 +101,7 @@ export default function ProductImage({
     <div style={wrapperBase} className={className}>
       {/* Loading skeleton */}
       {!loaded && (
-        <div className="absolute inset-0" style={{ backgroundColor: '#F8F5EF' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: '#F7F2E9' }} />
       )}
 
       <img

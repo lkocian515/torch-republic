@@ -30,7 +30,7 @@ export default function HomeFinalCTA() {
           <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(196,163,90,0.3), transparent)' }} />
         </div>
 
-        <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: '#F0EBE1', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+        <h2 className="font-serif mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: '#F7F2E9', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
           Join the Torchbearers
         </h2>
         <p className="font-heading mb-10 leading-relaxed" style={{ color: 'rgba(240,235,225,0.4)', fontSize: '0.95rem', fontWeight: 300 }}>
@@ -55,14 +55,14 @@ export default function HomeFinalCTA() {
               placeholder="your@email.com"
               required
               className="flex-1 px-5 py-4 font-mono text-sm outline-none"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(196,163,90,0.2)', borderRight: 'none', color: '#F0EBE1' }}
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(196,163,90,0.2)', borderRight: 'none', color: '#F7F2E9' }}
             />
             <button
               type="submit"
               className="px-8 py-4 font-mono text-xs tracking-[0.3em] uppercase font-bold transition-all"
-              style={{ background: '#C9A24A', color: '#000', border: '1px solid #C9A24A', flexShrink: 0 }}
+              style={{ background: '#E6AC45', color: '#000', border: '1px solid #E6AC45', flexShrink: 0 }}
               onMouseEnter={e => e.currentTarget.style.background = '#E4C46A'}
-              onMouseLeave={e => e.currentTarget.style.background = '#C9A24A'}
+              onMouseLeave={e => e.currentTarget.style.background = '#E6AC45'}
             >
               Subscribe
             </button>

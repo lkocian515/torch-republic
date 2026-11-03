@@ -6,7 +6,7 @@ import { useCart } from '@/contexts/CartContext';
 import { HOMEPAGE_FEATURED_PRODUCTS, FALLBACK_PRODUCT_IMAGE } from '@/lib/homepageFeaturedProducts';
 import { getPriceByCategory, getSubscriptionPriceByCategory } from '@/lib/pricingConfig';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 export default function StartHereSection() {
   const { addItem } = useCart();
@@ -42,7 +42,7 @@ export default function StartHereSection() {
           </p>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}
           >
             Our Most Loved Blends
           </h2>

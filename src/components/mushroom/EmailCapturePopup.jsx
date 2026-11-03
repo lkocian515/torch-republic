@@ -5,12 +5,12 @@ import { base44 } from '@/api/base44Client';
 import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 import openModalRegistry from '@/lib/openModalRegistry.js';
 
-const CLAY = '#B86543';
-const INK = '#2D2824';
-const BODY = '#6A5A4A';
-const CARD = '#FFFFFF';
-const CREAM = '#FBF8F2';
-const RG = '#E6B7AD';
+const CLAY = '#9B4E2F';
+const INK = '#32190F';
+const BODY = '#5E4639';
+const CARD = '#FFFCF7';
+const CREAM = '#F7F2E9';
+const RG = '#E6AC45';
 
 /**
  * Timed email capture popup — fires after 20s on first visit.
@@ -124,7 +124,7 @@ export default function EmailCapturePopup() {
                     />
                     <button type="submit"
                       className="w-full py-3.5 font-mono font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
-                      style={{ fontSize: '10px', background: CLAY, color: '#FBF8F1', borderRadius: '999px' }}>
+                      style={{ fontSize: '10px', background: CLAY, color: '#F7F2E9', borderRadius: '999px' }}>
                       Get {WELCOME_DISCOUNT_PERCENT}% Off →
                     </button>
                   </form>

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Truck, X, CheckCircle } from 'lucide-react';
 
-const AC = '#C9A24A';
+const AC = '#E6AC45';
 
 export default function SubscriptionTerms() {
   const terms = [
@@ -35,7 +35,7 @@ export default function SubscriptionTerms() {
           <p className="font-mono text-[9px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,162,74,0.5)' }}>
             Complete Transparency
           </p>
-          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F0EBE1', fontWeight: 800, letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif mb-3" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F7F2E9', fontWeight: 800, letterSpacing: '-0.02em' }}>
             How Your Subscription Works
           </h2>
           <p style={{ color: 'rgba(240,235,225,0.5)', fontSize: '0.95rem', fontWeight: 300, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto' }}>

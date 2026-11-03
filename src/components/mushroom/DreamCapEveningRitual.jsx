@@ -84,7 +84,7 @@ export default function DreamCapEveningRitual() {
             className="font-serif font-bold mb-4"
             style={{
               fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               letterSpacing: '-0.02em',
             }}
           >
@@ -202,7 +202,7 @@ export default function DreamCapEveningRitual() {
             className="font-serif font-bold mb-4"
             style={{
               fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-              color: '#F5EFE6',
+              color: '#F7F2E9',
               letterSpacing: '-0.01em',
             }}
           >

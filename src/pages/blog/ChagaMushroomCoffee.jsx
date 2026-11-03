@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const SOURCES = [
   {
@@ -34,7 +34,7 @@ export default function ChagaMushroomCoffee() {
   });
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       <section className="px-6 md:px-10 pt-20 pb-14 text-center"
         style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -42,7 +42,7 @@ export default function ChagaMushroomCoffee() {
             A research-informed overview
           </p>
           <h1 className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Chaga Mushroom: What Research Actually Shows
           </h1>
           <p className="font-heading max-w-3xl mx-auto"
@@ -55,7 +55,7 @@ export default function ChagaMushroomCoffee() {
       <article className="max-w-[900px] mx-auto px-6 md:px-10 py-16">
         <section className="mb-14">
           <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFFFF' }}>
+            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFCF7' }}>
             What is Chaga?
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.68)', lineHeight: 1.85 }}>
@@ -70,7 +70,7 @@ export default function ChagaMushroomCoffee() {
 
         <section className="mb-14">
           <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFFFF' }}>
+            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFCF7' }}>
             What the evidence can tell us
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.68)', lineHeight: 1.85 }}>
@@ -88,7 +88,7 @@ export default function ChagaMushroomCoffee() {
 
         <section className="mb-14">
           <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFFFF' }}>
+            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFCF7' }}>
             Safety and practical considerations
           </motion.h2>
           <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.68)', lineHeight: 1.85 }}>
@@ -108,7 +108,7 @@ export default function ChagaMushroomCoffee() {
 
         <section className="mb-14">
           <motion.h2 initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFFFF' }}>
+            className="font-serif font-bold text-2xl md:text-3xl mb-6" style={{ color: '#FFFCF7' }}>
             Sources
           </motion.h2>
           <ul className="space-y-3 font-heading" style={{ color: 'rgba(240,235,225,0.68)', lineHeight: 1.75 }}>
@@ -132,7 +132,7 @@ export default function ChagaMushroomCoffee() {
           <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Explore the Collection
           </p>
-          <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFFFF' }}>
+          <h3 className="font-serif font-bold text-2xl mb-6" style={{ color: '#FFFCF7' }}>
             Torch Republic Mushroom Coffee
           </h3>
           <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.62)', lineHeight: 1.7 }}>

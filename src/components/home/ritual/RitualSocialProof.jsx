@@ -34,16 +34,16 @@ export default function RitualSocialProof() {
             key={i}
             size={14}
             style={{
-              fill: i < Math.round(Number(stats.avg)) ? '#B48A4A' : 'none',
-              stroke: i < Math.round(Number(stats.avg)) ? '#B48A4A' : '#D8C9B6',
+              fill: i < Math.round(Number(stats.avg)) ? '#E6AC45' : 'none',
+              stroke: i < Math.round(Number(stats.avg)) ? '#E6AC45' : '#D8C9B6',
             }}
           />
         ))}
       </span>
-      <span className="font-heading text-sm font-semibold" style={{ color: '#292622' }}>
+      <span className="font-heading text-sm font-semibold" style={{ color: '#32190F' }}>
         {stats.avg}
       </span>
-      <span className="font-heading text-sm" style={{ color: '#5F574F' }}>
+      <span className="font-heading text-sm" style={{ color: '#5E4639' }}>
         from {stats.count} customer reviews
       </span>
     </Link>

@@ -28,7 +28,7 @@ export default function TrustStrip() {
                 {item.emoji ? (
                   <span className="text-base">{item.emoji}</span>
                 ) : (
-                  <Icon className="w-4 h-4 flex-shrink-0" style={{ color: '#C8A44D' }} />
+                  <Icon className="w-4 h-4 flex-shrink-0" style={{ color: '#E6AC45' }} />
                 )}
                 <span className="font-mono text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(212,175,90,0.8)' }}>
                   {item.label}

@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flame, Sparkles, Crown, ChevronRight, Award } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 // Mirrors the live program rules in src/lib/loyalty.js so the homepage never
 // promises a tier the program does not have.
 const TIERS = [
-  { name: 'WELCOME', icon: Flame, color: '#C98F86', rgb: '201,143,134', desc: '0 points · 10% off' },
-  { name: 'REGULAR', icon: Sparkles, color: '#E6B7AD', rgb: '230,183,173', desc: '500 points · 15% off' },
-  { name: 'DEVOTED', icon: Crown, color: '#D4AF37', rgb: '212,175,55', desc: '1,000 points · 20% off' },
+  { name: 'WELCOME', icon: Flame, color: '#9B4E2F', rgb: '201,143,134', desc: '0 points · 10% off' },
+  { name: 'REGULAR', icon: Sparkles, color: '#E6AC45', rgb: '230,183,173', desc: '500 points · 15% off' },
+  { name: 'DEVOTED', icon: Crown, color: '#E6AC45', rgb: '212,175,55', desc: '1,000 points · 20% off' },
   { name: 'TORCHBEARER', icon: Award, color: '#F0D77A', rgb: '240,215,122', desc: '2,500 points · 25% off' },
 ];
 
@@ -25,7 +25,7 @@ export default function TorchbearersRewardsSection() {
               Torchbearer Rewards
             </p>
           </div>
-          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em' }}>
             Carry the Flame. Earn Torchbearer Rewards.
           </h2>
           <p className="font-heading max-w-2xl mx-auto mb-8"

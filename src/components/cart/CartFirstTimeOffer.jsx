@@ -4,10 +4,10 @@ import { Gift } from 'lucide-react';
 import { useAuth } from '@/lib/AuthContext';
 import { WELCOME_DISCOUNT_CODE, WELCOME_DISCOUNT_PERCENT } from '@/lib/siteConfig';
 
-const ACCENT = '#B86543';
-const INK = '#2D2824';
-const MUTED = '#6A5A4A';
-const BORDER = '#E4D8C9';
+const ACCENT = '#9B4E2F';
+const INK = '#32190F';
+const MUTED = '#5E4639';
+const BORDER = '#B89A6D';
 
 export default function CartFirstTimeOffer() {
   const { isAuthenticated, isLoadingAuth } = useAuth();

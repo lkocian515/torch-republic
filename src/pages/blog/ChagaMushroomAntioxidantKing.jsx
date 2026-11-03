@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Shield, Heart, Droplet, Moon } from 'lucide-react';
 import ShareButtons from '../../components/social/ShareButtons';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 const CHAGA_IMAGE = 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/36e4293d0_Chaga1.png';
 
 export default function ChagaMushroomAntioxidantKing() {
@@ -30,9 +30,9 @@ export default function ChagaMushroomAntioxidantKing() {
 
   const BENEFITS = [
     { icon: Shield, title: 'Immune Support', body: 'Beta-glucans and polysaccharides support healthy immune function', color: '#E67F8A' },
-    { icon: Heart, title: 'Antioxidant Power', body: 'Highest ORAC value of any superfood, combats oxidative stress', color: '#C98F86' },
+    { icon: Heart, title: 'Antioxidant Power', body: 'Highest ORAC value of any superfood, combats oxidative stress', color: '#9B4E2F' },
     { icon: Moon, title: 'Evening Restoration', body: 'Supports calm, relaxation, and the body\'s natural recovery processes', color: '#6B7FD7' },
-    { icon: Droplet, title: 'Adaptogenic Balance', body: 'Helps the body adapt to stress and maintain homeostasis', color: '#6CBD5A' },
+    { icon: Droplet, title: 'Adaptogenic Balance', body: 'Helps the body adapt to stress and maintain homeostasis', color: '#264A35' },
   ];
 
   const COMPOUNDS = [
@@ -44,7 +44,7 @@ export default function ChagaMushroomAntioxidantKing() {
   ];
 
   return (
-    <div style={{ backgroundColor: '#080808', color: '#F0EBE1', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#080808', color: '#F7F2E9', minHeight: '100vh' }}>
       
       {/* Hero */}
       <section className="px-6 md:px-10 pt-20 pb-14 text-center" style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
@@ -52,7 +52,7 @@ export default function ChagaMushroomAntioxidantKing() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4" style={{ color: 'rgba(230,183,173,0.6)' }}>
             Journal · Mushroom Science
           </p>
-          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+          <h1 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Chaga Mushroom:<br />The Antioxidant King Behind Evening Restoration
           </h1>
           <p className="font-heading max-w-3xl mx-auto text-lg" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.85, fontWeight: 300 }}>
@@ -91,7 +91,7 @@ export default function ChagaMushroomAntioxidantKing() {
                 Traditional healers across cold climates recognized Chaga's extraordinary properties long before modern science could explain them. Today, research confirms what ancestral wisdom taught: Chaga is one of nature's most powerful antioxidants.
               </p>
               <div className="my-8 p-6" style={{ background: 'rgba(201,143,134,0.06)', border: '1px solid rgba(201,143,134,0.15)', borderRadius: '4px' }}>
-                <p className="font-serif font-bold text-lg mb-2" style={{ color: '#C98F86' }}>
+                <p className="font-serif font-bold text-lg mb-2" style={{ color: '#9B4E2F' }}>
                   Chaga has the highest ORAC (Oxygen Radical Absorbance Capacity) value of any known superfood.
                 </p>
                 <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.6)', lineHeight: 1.7 }}>
@@ -104,7 +104,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Key Benefits */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-8" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Key Benefits of Chaga
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -122,7 +122,7 @@ export default function ChagaMushroomAntioxidantKing() {
                       <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: `${b.color}15`, border: `1px solid ${b.color}40`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <b.icon size={14} style={{ color: b.color }} />
                       </div>
-                      <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{b.title}</h3>
+                      <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{b.title}</h3>
                     </div>
                     <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.6 }}>{b.body}</p>
                   </motion.div>
@@ -134,7 +134,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Antioxidant Power */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Antioxidant King
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -159,7 +159,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Bioactive Compounds */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Bioactive Compounds
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -180,7 +180,7 @@ export default function ChagaMushroomAntioxidantKing() {
                       style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.1)', borderRadius: '4px' }}
                     >
                       <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{c.name}</h3>
+                        <h3 className="font-serif font-bold" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{c.name}</h3>
                       </div>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{c.benefit}</p>
                     </motion.div>
@@ -197,7 +197,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Evening Restoration */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Evening Restoration Ritual
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -222,7 +222,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Traditional Uses */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 Traditional Wisdom
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -237,7 +237,7 @@ export default function ChagaMushroomAntioxidantKing() {
                     { culture: 'Indigenous North Americans', use: 'Applied topically and consumed for healing properties' },
                   ].map((item, i) => (
                     <div key={item.culture} className="p-4" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}>
-                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{item.culture}</h3>
+                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{item.culture}</h3>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{item.use}</p>
                     </div>
                   ))}
@@ -249,7 +249,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* How to Use */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 How to Incorporate Chaga
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -264,7 +264,7 @@ export default function ChagaMushroomAntioxidantKing() {
                     { title: 'Tinctures', body: 'Liquid extracts for rapid absorption and flexible dosing options.' },
                   ].map((item, i) => (
                     <div key={item.title} className="p-4" style={{ background: '#0E0C0B', border: '1px solid rgba(230,183,173,0.08)', borderRadius: '4px' }}>
-                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F5EFE6' }}>{item.title}</h3>
+                      <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F7F2E9' }}>{item.title}</h3>
                       <p className="font-heading text-sm" style={{ color: 'rgba(240,235,225,0.5)' }}>{item.body}</p>
                     </div>
                   ))}
@@ -279,7 +279,7 @@ export default function ChagaMushroomAntioxidantKing() {
           {/* Torch Republic */}
           <section>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFFFF' }}>
+              <h2 className="font-serif font-bold mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: '#FFFCF7' }}>
                 The Torch Republic Approach
               </h2>
               <div className="font-heading space-y-4" style={{ color: 'rgba(240,235,225,0.7)', lineHeight: 1.85, fontSize: '1.05rem' }}>
@@ -308,13 +308,13 @@ export default function ChagaMushroomAntioxidantKing() {
             <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: 'rgba(201,143,134,0.6)' }}>
               Experience Evening Restoration
             </p>
-            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFFFF' }}>
+            <h3 className="font-serif font-bold text-2xl mb-4" style={{ color: '#FFFCF7' }}>
               Try Torch Republic MoonCap Restore
             </h3>
             <p className="font-heading max-w-xl mx-auto mb-8" style={{ color: 'rgba(240,235,225,0.5)', lineHeight: 1.7 }}>
               Premium mushroom coffee infused with Chaga and Lion's Mane for calm evenings and restorative rituals.
             </p>
-            <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: '#C98F86', color: '#080808' }}>
+            <Link to="/shop/instant-mushroom-coffee" className="inline-flex items-center justify-center font-mono text-[9px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 py-3.5 px-8" style={{ background: '#9B4E2F', color: '#080808' }}>
               Shop Mushroom Coffee →
             </Link>
           </motion.div>

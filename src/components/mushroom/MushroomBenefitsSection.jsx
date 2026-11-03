@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Brain, Shield, Zap, Moon, Flame, Leaf } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 const TEAL = '#06B6D4';
 
 const MUSHROOMS = [
@@ -117,7 +117,7 @@ function MushroomPanel({ mushroom, isActive, onClick }) {
               <p className="font-mono text-[9px] tracking-[0.4em] uppercase mb-0.5" style={{ color: `${mushroom.color}90` }}>
                 {mushroom.latin}
               </p>
-              <h3 className="font-serif font-bold leading-none" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: '#FFFFFF' }}>
+              <h3 className="font-serif font-bold leading-none" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: '#FFFCF7' }}>
                 {mushroom.name}
               </h3>
               <p className="font-mono text-[9px] tracking-[0.3em] uppercase mt-1" style={{ color: mushroom.color }}>
@@ -227,7 +227,7 @@ export default function MushroomBenefitsSection() {
             <div className="h-px w-8" style={{ background: `linear-gradient(90deg, ${EMERALD}, transparent)` }} />
           </div>
           <h2 className="font-serif font-bold leading-tight mb-4"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Two Mushrooms.<br />Two Systems.
           </h2>
           <p className="font-heading text-sm font-light max-w-md mx-auto"

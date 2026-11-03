@@ -16,7 +16,7 @@ export default function BlendCompare() {
           <p className="font-mono text-[9px] tracking-[0.55em] uppercase mb-4"
             style={{ color: 'rgba(230,183,173,0.65)' }}>The Six Blends</p>
           <h2 className="font-serif font-bold"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFCF7', letterSpacing: '-0.02em' }}>
             Find Your Ritual
           </h2>
         </motion.div>

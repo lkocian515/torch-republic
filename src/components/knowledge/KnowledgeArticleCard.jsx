@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock } from 'lucide-react';
 
-const RG = '#E6B7AD';
+const RG = '#E6AC45';
 
 const CATEGORY_COLORS = {
-  'Coffee Origins': '#A8D5BA',
+  'Coffee Origins': '#264A35',
   'Mushroom Coffee Education': '#D4A574',
-  'Instant Coffee Education': '#E6B7AD',
+  'Instant Coffee Education': '#E6AC45',
   'Travel Coffee': '#A5C5D4',
   'Brewing Alternatives': '#B5A5D4',
   'Coffee Comparisons': '#D4B5A5',
@@ -38,7 +38,7 @@ export default function KnowledgeArticleCard({ article, index = 0 }) {
             <Clock size={9} /> {article.readTime} min
           </span>
         </div>
-        <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F5EFE6', lineHeight: 1.3 }}>{article.title}</h3>
+        <h3 className="font-serif font-bold mb-2" style={{ fontSize: '1.05rem', color: '#F7F2E9', lineHeight: 1.3 }}>{article.title}</h3>
         <p className="font-heading text-sm mb-4" style={{ color: 'rgba(240,235,225,0.45)', fontWeight: 300, lineHeight: 1.6 }}>{article.excerpt}</p>
         <div className="flex items-center gap-1.5">
           <span className="font-mono text-[8px] tracking-[0.2em] uppercase" style={{ color: `${RG}70` }}>Read Article</span>

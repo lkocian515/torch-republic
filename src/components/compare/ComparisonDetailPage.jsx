@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, ChevronDown, Scale } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const EMERALD = '#10B981';
+const RG = '#E6AC45';
+const EMERALD = '#264A35';
 
 // ── Comparison table row
 function TableRow({ label, tr, them, trWins }) {
   return (
     <tr style={{ borderBottom: '1px solid rgba(230,183,173,0.06)' }}>
       <td className="py-3.5 pr-4 font-heading text-sm" style={{ color: 'rgba(240,235,225,0.55)', fontWeight: 300, width: '30%' }}>{label}</td>
-      <td className="py-3.5 px-3 font-heading text-sm text-center" style={{ color: trWins ? '#F5EFE6' : 'rgba(240,235,225,0.8)', background: trWins ? `${RG}08` : 'transparent', width: '35%' }}>
+      <td className="py-3.5 px-3 font-heading text-sm text-center" style={{ color: trWins ? '#F7F2E9' : 'rgba(240,235,225,0.8)', background: trWins ? `${RG}08` : 'transparent', width: '35%' }}>
         {trWins && <span className="inline-block w-1.5 h-1.5 rounded-full mr-1.5 mb-0.5 align-middle" style={{ background: EMERALD }} />}
         {tr}
       </td>
@@ -30,7 +30,7 @@ function FAQItem({ question, answer }) {
     <div style={{ borderBottom: '1px solid rgba(230,183,173,0.08)' }}>
       <button onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left gap-4">
-        <span className="font-heading text-sm font-medium" style={{ color: '#F5EFE6', lineHeight: 1.45 }}>{question}</span>
+        <span className="font-heading text-sm font-medium" style={{ color: '#F7F2E9', lineHeight: 1.45 }}>{question}</span>
         <ChevronDown size={16} style={{ color: 'rgba(230,183,173,0.4)', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }} />
       </button>
       {open && (
@@ -67,7 +67,7 @@ export default function ComparisonDetailPage({ data }) {
               <Scale size={10} style={{ color: RG }} />
               <span className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: RG }}>Honest Comparison</span>
             </div>
-            <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', color: '#F5EFE6', lineHeight: 1.12 }}>
+            <h1 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', color: '#F7F2E9', lineHeight: 1.12 }}>
               {title}
             </h1>
             <p className="font-heading max-w-2xl" style={{ fontSize: '1rem', color: 'rgba(240,235,225,0.6)', fontWeight: 300, lineHeight: 1.9 }}>
@@ -135,7 +135,7 @@ export default function ComparisonDetailPage({ data }) {
         <div className="max-w-3xl mx-auto space-y-12">
           {bodySection.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#F5EFE6' }}>{s.heading}</h2>
+              <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#F7F2E9' }}>{s.heading}</h2>
               {s.body.split('\n\n').map((para, j) => (
                 <p key={j} className="font-heading mb-4" style={{ fontSize: '0.95rem', color: 'rgba(240,235,225,0.62)', fontWeight: 300, lineHeight: 1.95 }}>{para}</p>
               ))}

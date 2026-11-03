@@ -50,12 +50,12 @@ export default function SocialProof() {
               {/* Stars */}
               <div className="flex gap-1">
                 {Array.from({ length: r.stars }).map((_, si) => (
-                  <span key={si} style={{ color: '#C9A24A', fontSize: '12px' }}>★</span>
+                  <span key={si} style={{ color: '#E6AC45', fontSize: '12px' }}>★</span>
                 ))}
               </div>
 
               {/* Review */}
-              <p className="font-serif leading-relaxed flex-1" style={{ fontSize: '1rem', color: '#F5EFE6', fontStyle: 'italic', lineHeight: 1.75 }}>
+              <p className="font-serif leading-relaxed flex-1" style={{ fontSize: '1rem', color: '#F7F2E9', fontStyle: 'italic', lineHeight: 1.75 }}>
                 "{r.text}"
               </p>
 

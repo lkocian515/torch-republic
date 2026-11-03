@@ -12,7 +12,7 @@
 export const TOPIC_CLUSTERS = {
   'mushroom-coffee': {
     label: 'Mushroom Coffee',
-    color: '#6CBD5A',
+    color: '#264A35',
     pillarUrl: '/shop/instant-mushroom-coffee',
     products: [
       { name: 'Instant Mushroom Coffee', path: '/products/instant-mushroom-coffee' },
@@ -21,7 +21,7 @@ export const TOPIC_CLUSTERS = {
   },
   'instant-coffee': {
     label: 'Instant Coffee',
-    color: '#C4A35A',
+    color: '#E6AC45',
     pillarUrl: '/shop/instant-coffee',
     products: [
       { name: 'Instant Classic Coffee', path: '/products/instant-classic-coffee' },
@@ -31,7 +31,7 @@ export const TOPIC_CLUSTERS = {
   // Matcha cluster removed — product line discontinued.
   'wellness-rituals': {
     label: 'Wellness Rituals',
-    color: '#E6B7AD',
+    color: '#E6AC45',
     pillarUrl: '/how-it-works',
     products: [
       { name: 'Shop All Coffee', path: '/shop' },
@@ -69,7 +69,7 @@ export const TOPIC_CLUSTERS = {
   },
   'recipes': {
     label: 'Recipes',
-    color: '#C98F86',
+    color: '#9B4E2F',
     pillarUrl: '/recipes',
     products: [
       { name: 'All Recipes', path: '/recipes' },
@@ -213,7 +213,7 @@ export const INGREDIENT_PAGES = [
     name: "Lion's Mane",
     scientificName: 'Hericium erinaceus',
     category: 'Functional Mushroom',
-    color: '#E6B7AD',
+    color: '#E6AC45',
     tagline: 'The cognitive mushroom — traditionally paired with focus rituals.',
     description: "Lion's Mane (Hericium erinaceus) is a white, globe-shaped mushroom used in traditional East Asian medicine for centuries. Modern research has focused on its bioactive compounds — hericenones and erinacines — which may stimulate Nerve Growth Factor (NGF) production. It appears in Torch Republic's GlowMind Clarity, SunCap Rise, and MoonCap Restore — all three mushroom coffee blends.",
     benefits: [
@@ -239,7 +239,7 @@ export const INGREDIENT_PAGES = [
     name: 'Chaga',
     scientificName: 'Inonotus obliquus',
     category: 'Functional Mushroom',
-    color: '#C4A35A',
+    color: '#E6AC45',
     tagline: 'The antioxidant mushroom — traditionally used for resilience and balance.',
     description: "Chaga (Inonotus obliquus) grows on birch trees in cold climates and has been used in Russian and Eastern European folk medicine for centuries. It has one of the highest ORAC (antioxidant) scores of any natural food. It is not one of the mushrooms in Torch Republic's blends, which use Lion's Mane, Cordyceps and Reishi, but it is a functional mushroom worth understanding.",
     benefits: [
@@ -314,7 +314,7 @@ export const INGREDIENT_PAGES = [
     name: 'L-Theanine',
     scientificName: 'γ-Glutamylethylamide',
     category: 'Amino Acid',
-    color: '#10B981',
+    color: '#264A35',
     tagline: 'The calm-focus amino acid found naturally in matcha green tea.',
     description: "L-Theanine is a naturally occurring amino acid found almost exclusively in green tea leaves (Camellia sinensis). It is responsible for the calming, focused energy state that distinguishes matcha from coffee. Unlike caffeine alone, L-theanine is traditionally associated with calm-focus tea rituals and has been studied for relaxed alertness in some research contexts.",
     benefits: [
@@ -339,7 +339,7 @@ export const INGREDIENT_PAGES = [
     name: 'Arabica Coffee',
     scientificName: 'Coffea arabica',
     category: 'Coffee',
-    color: '#C98F86',
+    color: '#9B4E2F',
     tagline: 'The gold standard coffee bean — smoother, less bitter, higher quality.',
     description: "Coffea arabica is the world's premium coffee species, accounting for ~60% of global coffee production. It grows at high altitudes (600–2000m) and has lower caffeine content but significantly more complex flavor compounds than Robusta. Torch Republic uses 100% freeze-dried Arabica instant coffee as the base for all classic and mushroom coffee blends.",
     benefits: [

@@ -92,7 +92,7 @@ export default function BrewingGuide({ accent, deep, productName }) {
                 className="flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all"
                 style={{
                   background: isActive ? accent : 'transparent',
-                  color: isActive ? '#FFFFFF' : deep,
+                  color: isActive ? '#FFFCF7' : deep,
                   border: 'none',
                   cursor: 'pointer',
                   fontWeight: 600,
@@ -116,8 +116,8 @@ export default function BrewingGuide({ accent, deep, productName }) {
               key={`${method}-${i}`}
               className="flex gap-4 rounded-xl p-5"
               style={{
-                background: '#FFFDF8',
-                border: '1px solid #E4D8C9',
+                background: '#FFFCF7',
+                border: '1px solid #B89A6D',
                 boxShadow: '0 1px 2px rgba(45,40,36,0.03)',
               }}
             >
@@ -139,10 +139,10 @@ export default function BrewingGuide({ accent, deep, productName }) {
 
               {/* Text */}
               <div className="flex-1">
-                <h3 className="mb-1 font-heading text-sm font-bold" style={{ color: '#292622' }}>
+                <h3 className="mb-1 font-heading text-sm font-bold" style={{ color: '#32190F' }}>
                   {step.title}
                 </h3>
-                <p className="font-heading text-sm" style={{ color: '#5F574F', lineHeight: 1.65 }}>
+                <p className="font-heading text-sm" style={{ color: '#5E4639', lineHeight: 1.65 }}>
                   {step.body}
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default function BrewingGuide({ accent, deep, productName }) {
           <span className="font-mono text-[9px] uppercase tracking-[0.18em]" style={{ color: deep, fontWeight: 600 }}>
             Pro Tip
           </span>
-          <p className="mt-0.5 font-heading text-sm" style={{ color: '#292622', lineHeight: 1.65 }}>
+          <p className="mt-0.5 font-heading text-sm" style={{ color: '#32190F', lineHeight: 1.65 }}>
             {active.tip}
           </p>
         </div>

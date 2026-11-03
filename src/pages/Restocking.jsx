@@ -4,12 +4,12 @@ import { ArrowRight, Home } from 'lucide-react';
 import useNoIndex from '@/hooks/useNoIndex';
 import { useSEO } from '@/hooks/useSEO';
 
-const CLAY = '#B86543';
-const INK = '#2D2824';
+const CLAY = '#9B4E2F';
+const INK = '#32190F';
 const SECONDARY = '#5C544C';
-const RULE = '#E4D8C9';
-const CREAM = '#FBF8F2';
-const CARD = '#FFFFFF';
+const RULE = '#B89A6D';
+const CREAM = '#F7F2E9';
+const CARD = '#FFFCF7';
 
 export default function Restocking() {
   useNoIndex();

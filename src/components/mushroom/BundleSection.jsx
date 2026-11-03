@@ -43,7 +43,7 @@ export default function BundleSection() {
             {/* Badge */}
             <div className="absolute top-5 left-5">
               <span className="font-mono text-[8px] tracking-[0.35em] uppercase px-3 py-1.5"
-                style={{ background: 'rgba(230,183,173,0.12)', color: '#E6B7AD', border: '1px solid rgba(230,183,173,0.3)' }}>
+                style={{ background: 'rgba(230,183,173,0.12)', color: '#E6AC45', border: '1px solid rgba(230,183,173,0.3)' }}>
                 All Six Blends
               </span>
             </div>
@@ -61,7 +61,7 @@ export default function BundleSection() {
               The Six-Blend Bundle
             </p>
             <h2 className="font-serif font-bold"
-              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               Try All Six. Find the One That Changes Your Day.
             </h2>
             <p className="font-heading"
@@ -78,13 +78,13 @@ export default function BundleSection() {
               ))}
             </div>
 
-            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 35%, #E6B7AD 75%, transparent 100%)', opacity: 0.6 }} />
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, #0B2D2A 0%, #08101A 35%, #E6AC45 75%, transparent 100%)', opacity: 0.6 }} />
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={getFullBundleUrl()}
                 className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.35em] uppercase font-bold transition-all hover:opacity-90 w-fit"
-                style={{ background: '#E6B7AD', color: '#050505', padding: '14px 32px' }}
+                style={{ background: '#E6AC45', color: '#050505', padding: '14px 32px' }}
               >
                 Add All 6 to Cart →
               </a>

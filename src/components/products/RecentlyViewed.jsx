@@ -68,13 +68,13 @@ export default function RecentlyViewed({ currentSlug }) {
   };
 
   return (
-    <section className="py-12" style={{ borderTop: '1px solid #E4D8C9' }}>
-      <p className="font-mono text-[9px] uppercase tracking-[0.4em] mb-6" style={{ color: '#5F574F' }}>
+    <section className="py-12" style={{ borderTop: '1px solid #B89A6D' }}>
+      <p className="font-mono text-[9px] uppercase tracking-[0.4em] mb-6" style={{ color: '#5E4639' }}>
         Recently Viewed
       </p>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {items.map((item, i) => {
-          const accent = item.ritual?.accent || '#B7653E';
+          const accent = item.ritual?.accent || '#9B4E2F';
           return (
             <motion.div
               key={item.slug}
@@ -85,8 +85,8 @@ export default function RecentlyViewed({ currentSlug }) {
               <Link to={item.path || `/products/${item.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 <div
                   style={{
-                    background: '#FFFDF8',
-                    border: '1px solid #E4D8C9',
+                    background: '#FFFCF7',
+                    border: '1px solid #B89A6D',
                     borderRadius: 10,
                     overflow: 'hidden',
                     transition: 'border-color 0.2s, box-shadow 0.2s',
@@ -96,12 +96,12 @@ export default function RecentlyViewed({ currentSlug }) {
                     e.currentTarget.style.boxShadow = '0 4px 14px rgba(45,40,36,0.06)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#E4D8C9';
+                    e.currentTarget.style.borderColor = '#B89A6D';
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
                   {item.image && (
-                    <div style={{ aspectRatio: '1/1', background: '#FFFFFF', overflow: 'hidden' }}>
+                    <div style={{ aspectRatio: '1/1', background: '#FFFCF7', overflow: 'hidden' }}>
                       <img
                         src={item.image}
                         alt={item.alt || item.name}
@@ -114,13 +114,13 @@ export default function RecentlyViewed({ currentSlug }) {
                     </div>
                   )}
                   <div className="p-3">
-                    <p className="font-serif font-bold text-xs mb-0.5 truncate" style={{ color: '#292622' }}>
+                    <p className="font-serif font-bold text-xs mb-0.5 truncate" style={{ color: '#32190F' }}>
                       {item.name}
                     </p>
                     <p className="font-mono text-[7px] uppercase tracking-[0.15em] mb-1" style={{ color: accent }}>
                       {categoryLabel(item.category)}
                     </p>
-                    <span className="font-mono text-xs font-bold" style={{ color: item.ritual?.deep || '#292622' }}>
+                    <span className="font-mono text-xs font-bold" style={{ color: item.ritual?.deep || '#32190F' }}>
                       ${item.price?.toFixed(2)}
                     </span>
                   </div>

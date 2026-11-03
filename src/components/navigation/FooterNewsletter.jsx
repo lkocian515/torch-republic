@@ -3,12 +3,12 @@ import { base44 } from '@/api/base44Client';
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const THEME = {
-  text: '#292622',
-  secondary: '#5F574F',
-  border: '#E4D8C9',
-  card: '#FFFDF8',
-  clay: '#B7653E',
-  moss: '#566047',
+  text: '#32190F',
+  secondary: '#5E4639',
+  border: '#B89A6D',
+  card: '#FFFCF7',
+  clay: '#9B4E2F',
+  moss: '#264A35',
 };
 
 export default function FooterNewsletter() {

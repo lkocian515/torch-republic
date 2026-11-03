@@ -120,7 +120,7 @@ export default function SeasonalInterestForm({
           style={{
             borderRadius: 4,
             border: '1px solid hsl(var(--border))',
-            background: '#FFFFFF',
+            background: '#FFFCF7',
             color: 'hsl(var(--foreground))',
           }}
         />

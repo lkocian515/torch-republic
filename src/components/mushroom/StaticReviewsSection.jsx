@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-const RG = '#E6B7AD';
-const GOLD = '#C4A35A';
+const RG = '#E6AC45';
+const GOLD = '#E6AC45';
 
 const REVIEWS = [
   {
@@ -84,7 +84,7 @@ export default function StaticReviewsSection() {
           </p>
           <h2
             className="font-serif font-bold mb-4"
-            style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', color: '#F5EFE6', letterSpacing: '-0.02em', lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', color: '#F7F2E9', letterSpacing: '-0.02em', lineHeight: 1.2 }}
           >
             What Customers Are Saying
           </h2>
@@ -133,7 +133,7 @@ export default function StaticReviewsSection() {
               <p className="font-serif font-bold text-white text-sm leading-snug">"{r.headline}"</p>
 
               {/* Body */}
-              <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: '#F5EFE6', fontWeight: 300 }}>
+              <p className="font-heading text-xs leading-relaxed flex-1" style={{ color: '#F7F2E9', fontWeight: 300 }}>
                 {r.body}
               </p>
 

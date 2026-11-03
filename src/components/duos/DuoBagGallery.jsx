@@ -51,7 +51,7 @@ export default function DuoBagGallery({ bags = [], scene = null }) {
         );
         const frame = {
           aspectRatio: '1 / 1',
-          background: scene ? 'rgba(251,248,242,0.95)' : '#F5F0E8',
+          background: scene ? 'rgba(251,248,242,0.95)' : '#F7F2E9',
           borderRadius: 8,
           overflow: 'hidden',
           boxShadow: scene ? '0 8px 22px rgba(36,26,22,0.22)' : undefined,

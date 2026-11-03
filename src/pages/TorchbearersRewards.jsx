@@ -5,12 +5,12 @@ import { ArrowRight, Sparkles, Check } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import { REWARD_TIERS, EARNING_RULES, WELCOME_BONUS_POINTS } from '@/lib/loyalty';
 
-const CLAY = '#B86543';
-const BG = '#FBF8F1';
-const CARD = '#FFFFFF';
-const TEXT = '#3F3027';
-const BODY = '#6A5A4A';
-const BORDER = '#E4D8C9';
+const CLAY = '#9B4E2F';
+const BG = '#F7F2E9';
+const CARD = '#FFFCF7';
+const TEXT = '#32190F';
+const BODY = '#5E4639';
+const BORDER = '#B89A6D';
 
 export default function TorchbearersRewards() {
   useSEO({
