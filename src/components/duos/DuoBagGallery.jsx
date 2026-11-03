@@ -6,7 +6,7 @@ import { editionPath } from '@/lib/specialEditions';
  * Large, stacked bag images for the top of a duo page. Each bag links to that
  * coffee's own product page; nothing is hidden in a carousel.
  */
-export default function DuoBagGallery({ bags = [], scene = null }) {
+export default function DuoBagGallery({ bags = [], scene = null, lifestyleArt = null }) {
   const slots = bags.flatMap((bag) =>
     Array.from({ length: bag.qty || 1 }, (_, i) => ({ ...bag, key: `${bag.slug}-${i}` })),
   );
@@ -74,6 +74,20 @@ export default function DuoBagGallery({ bags = [], scene = null }) {
           </figure>
         );
       })}
+      {lifestyleArt ? (
+        <figure style={{ margin: 0, aspectRatio: '1 / 1', overflow: 'hidden', borderRadius: 8, background: '#FFFCF7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img
+            src={lifestyleArt.src}
+            alt={lifestyleArt.alt}
+            width="1536"
+            height="1152"
+            loading="eager"
+            decoding="async"
+            className="h-full w-full"
+            style={{ objectFit: 'contain' }}
+          />
+        </figure>
+      ) : null}
     </div>
   );
 }
