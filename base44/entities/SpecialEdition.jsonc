@@ -71,6 +71,11 @@
       "type": "string",
       "description": "Planned release month shown on coming-soon previews (e.g. August 2027). Leave empty once the release is live."
     },
+    "monthly_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Select this edition for the monthly Seasonal Reserve feature on the homepage. Keep only one edition selected."
+    },
     "options": {
       "type": "array",
       "items": {
