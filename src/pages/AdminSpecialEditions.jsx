@@ -27,6 +27,7 @@ const NEW_EDITION = {
   additional_images: [],
   display_order: 0,
   status: 'draft',
+  monthly_featured: false,
   seo_title: '',
   seo_description: '',
   social_image: '',
@@ -87,6 +88,12 @@ export default function AdminSpecialEditions() {
     try {
       const entity = editing.entity === 'edition' ? base44.entities.SpecialEdition : base44.entities.EditionCampaign;
       const payload = payloadOf(draft);
+      if (editing.entity === 'edition' && payload.monthly_featured) {
+        const previousMonthly = editions.filter((record) => record.monthly_featured && record.id !== draft.id);
+        await Promise.all(previousMonthly.map((record) =>
+          base44.entities.SpecialEdition.update(record.id, { monthly_featured: false })
+        ));
+      }
       if (draft.id) await entity.update(draft.id, payload);
       else await entity.create(payload);
       clearSpecialEditionsCache();
