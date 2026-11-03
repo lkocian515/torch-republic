@@ -102,7 +102,7 @@ export default function SpecialEditionCollection() {
                             alt={`Torch Republic ${edition.name}${option?.label ? ` ${option.label}` : ''} coffee bag`}
                             loading="lazy"
                             className="product-art-image"
-                            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.18 : 1 }}
+                            style={{ '--product-art-scale': edition.slug === 'midnight-hex' ? 1.06 : 1 }}
                           />
                         ) : (
                           <span className="font-heading" style={{ fontSize: '0.875rem', padding: '1rem', textAlign: 'center' }}>
