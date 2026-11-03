@@ -13,7 +13,7 @@ export default function DuoEntryCard({ entry, bySlug, catalog }) {
       bags={duoBags(pairing, bySlug)}
       title={entry.campaign || duoName(pairing)}
       kicker={entry.kicker}
-      windowText={`Checkout window: ${windowLabel(entry)}, 2027`}
+      windowText={`Planned checkout window: ${windowLabel(entry)}, 2027`}
       status={entryStatus(entry, pairing, catalog)}
       note={entry.note}
     />
