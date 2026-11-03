@@ -285,14 +285,14 @@ const AuthenticatedApp = ({ queryClient }) => {
         <Route path="/special-editions/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SpecialEditionProduct" queryClient={queryClient}><SpecialEditionProduct /></LayoutWrapper></Suspense>} />
 
         {/* ── WINTER DUO — seasonal pairing landing page ── */}
-        <Route path="/winter-duo" element={<Navigate to="/duos/harvest-fireside" replace />} />
+        <Route path="/winter-duo" element={<Navigate to="/duos/peppermint-fireside" replace />} />
 
         {/* ── SEASONAL CALENDAR, DUOS, TORCHBEARER CLUB ── */}
         <Route path="/seasonal-calendar" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="SeasonalCalendar" queryClient={queryClient}><SeasonalCalendar /></LayoutWrapper></Suspense>} />
-        <Route path="/duos" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="Duos" queryClient={queryClient}><Duos /></LayoutWrapper></Suspense>} />
-        <Route path="/duos/seasonal" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoSeasons" queryClient={queryClient}><DuoSeasons /></LayoutWrapper></Suspense>} />
+        <Route path="/duos" element={<Navigate to="/duos/holidays" replace />} />
+        <Route path="/duos/seasonal" element={<Navigate to="/duos/holidays" replace />} />
         <Route path="/duos/holidays" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoHolidays" queryClient={queryClient}><DuoHolidays /></LayoutWrapper></Suspense>} />
-        <Route path="/duo-calendar/2027" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoCalendar" queryClient={queryClient}><DuoCalendar /></LayoutWrapper></Suspense>} />
+        <Route path="/duo-calendar/2027" element={<Navigate to="/duos/holidays" replace />} />
         <Route path="/duo-calendar" element={<Navigate to="/duo-calendar/2027" replace />} />
         <Route path="/duos/:slug" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="DuoDetail" queryClient={queryClient}><DuoDetail /></LayoutWrapper></Suspense>} />
         <Route path="/torchbearer-club" element={<Suspense fallback={<PageLoader />}><LayoutWrapper currentPageName="TorchbearerClub" queryClient={queryClient}><TorchbearerClub /></LayoutWrapper></Suspense>} />
