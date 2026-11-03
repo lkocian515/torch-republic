@@ -112,7 +112,7 @@ export default function RitualReviewHighlights() {
                     </p>
                   )}
                   <p className="font-heading text-[10px] mt-1" style={{ color: '#8A8076' }}>
-                    Verified Customer
+                    Customer review
                   </p>
                 </div>
               </motion.div>
