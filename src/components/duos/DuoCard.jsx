@@ -20,7 +20,20 @@ export default function DuoCard({ pairing, bags, title, kicker, windowText, stat
   return (
     <article className="card-torch flex h-full flex-col" style={{ padding: '1rem' }}>
       <Link to={to} className={`block ${FOCUS}`} aria-label={`${heading}: ${names.join(' and ')}. View duo`}>
-        <DuoPairImage bags={bags} scene={pairing.scene || null} />
+        {pairing.heroArt ? (
+          <img
+            src={pairing.heroArt.src}
+            alt={pairing.heroArt.alt}
+            width="1536"
+            height="864"
+            loading="lazy"
+            decoding="async"
+            className="block h-auto w-full"
+            style={{ objectFit: 'contain', borderRadius: 6 }}
+          />
+        ) : (
+          <DuoPairImage bags={bags} scene={pairing.scene || null} />
+        )}
       </Link>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
