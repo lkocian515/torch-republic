@@ -25,7 +25,7 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
   // A verified edition photo wins; otherwise the approved label shot, if the
   // coffee has one. A release with neither keeps its text-only card.
   const artwork = edition?.image_url
-    ? { src: edition.image_url, alt: `${entry.name} coffee by Torch Republic`, fit: entry.slug === 'midnight-hex' ? 'contain' : 'cover' }
+    ? { src: edition.image_url, alt: `${entry.name} coffee by Torch Republic`, fit: 'contain' }
     : (() => {
         const seasonal = seasonalArtwork(entry.slug);
         return seasonal ? { ...seasonal, fit: 'contain' } : null;
@@ -43,12 +43,13 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
       aria-labelledby={`release-${entry.slug}`}
     >
       {artwork ? (
-        <div style={{ aspectRatio: '4 / 3', background: '#F5F0E8' }}>
+        <div style={{ aspectRatio: '4 / 3', background: '#F8F5EF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <img
             src={artwork.src}
             alt={artwork.alt}
             loading="lazy"
-            className={artwork.fit === 'cover' ? 'h-full w-full object-cover' : 'h-full w-full object-contain p-3'}
+            className="product-art-image h-full w-full object-contain p-3"
+            style={{ '--product-art-scale': entry.slug === 'midnight-hex' ? 1.18 : 1 }}
           />
         </div>
       ) : null}
