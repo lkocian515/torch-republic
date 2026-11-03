@@ -35,6 +35,18 @@ export default function DuoDetailView({ pairing }) {
   return (
     <div className="section-torch">
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
+        {pairing.heroArt ? (
+          <img
+            src={pairing.heroArt.src}
+            alt={pairing.heroArt.alt}
+            width="1536"
+            height="864"
+            loading="eager"
+            decoding="async"
+            className="mb-6 block h-auto w-full"
+            style={{ objectFit: 'contain', borderRadius: 'var(--radius-lg)' }}
+          />
+        ) : null}
         <Link to="/duos" className="body inline-flex items-center gap-1.5" style={{ fontSize: '0.875rem', color: 'hsl(var(--muted-foreground))' }}>
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" /> All coffee duos
         </Link>
@@ -50,12 +62,12 @@ export default function DuoDetailView({ pairing }) {
             {loading ? null : <DuoStatusBadge status={status} />}
             {window ? (
               <span className="font-mono" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>
-                Checkout window: {windowLabel(window)}, 2027
+                Planned 2027 checkout window: {windowLabel(window)}
               </span>
             ) : null}
           </div>
           <p className="body mt-3" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>
-            Contents: one bag of each named coffee{pairing.twoPack ? ' (two bags of the same coffee)' : ''}. Checkout dates are not delivery or arrival dates.
+            Contents: one bag of each named coffee{pairing.twoPack ? ' (two bags of the same coffee)' : ''}. Planned checkout dates are not delivery or arrival dates.
           </p>
           {pairing.extension ? (
             <p className="body mt-2" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>{pairing.extension.note}</p>
