@@ -4,8 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { editionState } from '@/lib/specialEditions';
-import { WINTER_DUO, THANKSGIVING_BAGS, winterDuoEditions } from '@/lib/winterDuo';
-import DuoScene from '@/components/duos/DuoScene';
+import { WINTER_DUO, winterDuoEditions } from '@/lib/winterDuo';
 import { SANS, TYPE, fadeUp } from './driftTheme';
 
 // Deep winter band — the homepage's editorial rhythm, lit for a cold evening
@@ -93,10 +92,8 @@ export default function DriftWinterDuo() {
           </Link>
         </motion.div>
 
-        {/* The autumn scene with both real package images in front of it, so
-            every label stays complete and legible. */}
-        <motion.div {...fadeUp} className="mt-10 md:mt-14" style={{ boxShadow: W.shadow, borderRadius: 10 }}>
-          <DuoScene scene={WINTER_DUO.scene} bags={THANKSGIVING_BAGS} ratio={WINTER_DUO.imageRatio} />
+        <motion.div {...fadeUp} className="mt-10 md:mt-14" style={{ boxShadow: W.shadow, borderRadius: 10, overflow: 'hidden' }}>
+          <img src={WINTER_DUO.image} alt={WINTER_DUO.imageAlt} width="1536" height="864" className="block h-auto w-full" style={{ objectFit: 'contain' }} loading="lazy" decoding="async" />
         </motion.div>
       </div>
     </section>
