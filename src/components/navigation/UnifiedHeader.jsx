@@ -83,13 +83,13 @@ export default function UnifiedHeader() {
 
   return (
     <>
-      <div className="px-4 py-2.5" style={{ background: '#382B24', color: '#F7EEDD', borderBottom: '1px solid rgba(201,162,74,0.65)' }}>
+      <div className="px-4 py-2.5" style={{ background: '#09243A', color: '#F7F2E9', borderBottom: '1px solid rgba(230,172,69,0.6)' }}>
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
           <p className="font-heading text-xs sm:text-sm leading-snug" style={{ margin: 0, fontWeight: 600 }}>
             Fireside S&rsquo;mores has entered the Republic.
           </p>
-          <span aria-hidden="true" className="hidden sm:block" style={{ width: 1, height: 14, background: 'rgba(201,162,74,0.7)' }} />
-          <p className="font-heading text-xs sm:text-sm leading-snug" style={{ margin: 0, color: '#EAC796', fontWeight: 500 }}>
+          <span aria-hidden="true" className="hidden sm:block" style={{ width: 1, height: 14, background: 'rgba(230,172,69,0.7)' }} />
+          <p className="font-heading text-xs sm:text-sm leading-snug" style={{ margin: 0, color: '#E6AC45', fontWeight: 500 }}>
             Free shipping on orders $45+
           </p>
         </div>
