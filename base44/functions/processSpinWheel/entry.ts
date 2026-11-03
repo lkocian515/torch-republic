@@ -222,6 +222,7 @@ export default async function (req) {
           email: email,
           source: 'spin_wheel',
           discount_code: prize.code,
+          marketing_consent: consent,
           description: descriptionParts.join(' | '),
         });
       } catch (createErr) {
