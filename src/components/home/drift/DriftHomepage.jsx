@@ -14,7 +14,7 @@ import DriftSeasonalEditions from './DriftSeasonalEditions';
 import DriftUpcomingReleases from './DriftUpcomingReleases';
 import DriftDuos from './DriftDuos';
 import DriftTorchbearerClub from './DriftTorchbearerClub';
-import { D } from './driftTheme';
+import { D, TYPE } from './driftTheme';
 
 // One journey down the page:
 // 1. The seasonal release on sale — the page's first fact
