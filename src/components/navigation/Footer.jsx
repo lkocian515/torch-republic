@@ -18,12 +18,13 @@ const THEME = {
 };
 
 const SHOP_LINKS = [
-  ['Shop All', '/shop'],
+  ['Shop Coffee', '/shop'],
   ['Instant Classic Coffee', '/products/instant-classic-coffee'],
   ['Instant Mushroom Coffee', '/products/instant-mushroom-coffee'],
-  ['Seasonal Calendar', '/seasonal-calendar'],
-  ['Duos', '/duos'],
-  ['Torchbearer Club', '/torchbearer-club'],
+  ['Monthly Edition', '/seasonal-calendar'],
+  ['Holiday Duos', '/duos/holidays'],
+  ['Subscriptions', '/subscription'],
+  ['Torchbearer Club Waitlist', '/torchbearer-club'],
   ['Republic Rewards', '/torchbearers-rewards'],
   ['Blend Advisor', '/blend-advisor'],
 ];
