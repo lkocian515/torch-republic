@@ -183,9 +183,9 @@ export function resolveDuoSlug(slug) {
 /** The four seasonal collections, in calendar order. */
 export const SEASON_ENTRIES = [
   { key: 'winter', kicker: 'Winter', start: '2027-12-01', end: '2027-12-31', duoSlug: 'peppermint-fireside', note: 'The Christmas and New Year\u2019s campaigns link to this same pair.' },
-  { key: 'spring', kicker: 'Spring', start: '2027-04-01', end: '2027-05-31', duoSlug: 'spring-bluebonnet-bunny', note: 'Release timing for this pairing needs confirmation.' },
+  { key: 'spring', kicker: 'Spring', start: '2027-04-01', end: '2027-05-31', duoSlug: 'spring-bluebonnet-bunny', scheduleNeedsConfirmation: true, note: 'Release timing for this pairing needs confirmation.' },
   { key: 'summer', kicker: 'Summer', start: '2027-06-01', end: '2027-06-30', duoSlug: 'coastal-summer', note: 'Father\u2019s Day links to this same pair.' },
-  { key: 'fall', kicker: 'Fall', start: '2027-09-01', end: '2027-10-31', duoSlug: 'autumn-coffee-duo', note: 'Release timing for this pairing needs confirmation.' },
+  { key: 'fall', kicker: 'Fall', start: '2027-09-01', end: '2027-10-31', duoSlug: 'autumn-coffee-duo', scheduleNeedsConfirmation: true, note: 'Release timing for this pairing needs confirmation.' },
 ];
 
 /** Holiday moments, chronological. Dates refer to 2027. */
