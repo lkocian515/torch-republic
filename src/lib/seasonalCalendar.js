@@ -125,7 +125,7 @@ export function seasonalArtwork(slug) {
   return SEASONAL_ARTWORK[slug] || null;
 }
 
-export const SEASONAL_PREP_LABEL = 'Seasonal Reserve — ground or whole bean; brewing required.';
+export const SEASONAL_PREP_LABEL = 'Seasonal Reserve — brewed coffee; brewing required.';
 export const INSTANT_PREP_LABEL = 'Instant Originals — just add water.';
 
 export function seasonalEntry(slug) {
