@@ -49,7 +49,7 @@ export default function SeasonalReleaseCard({ entry, release, source = 'seasonal
             alt={artwork.alt}
             loading="lazy"
             className="product-art-image h-full w-full object-contain p-3"
-            style={{ '--product-art-scale': entry.slug === 'midnight-hex' ? 1.18 : 1 }}
+            style={{ '--product-art-scale': entry.slug === 'midnight-hex' ? 1.06 : 1 }}
           />
         </div>
       ) : null}
