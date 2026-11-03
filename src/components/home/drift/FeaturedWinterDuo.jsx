@@ -5,7 +5,7 @@ import { duoBySlug, duoPath } from '@/lib/duos';
 import { D } from './driftTheme';
 
 const WINTER_ARTWORK =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/7a5d382e2_torch-republic-winter-duo.jpg';
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png';
 const winterDuo = duoBySlug('peppermint-fireside');
 
 export default function FeaturedWinterDuo() {
