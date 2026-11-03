@@ -197,7 +197,7 @@ export default function AdminSpecialEditions() {
                     <p className="font-heading font-semibold">{record.name}</p>
                     <p className="font-mono uppercase" style={{ fontSize: '10px', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground))' }}>
                       {tab === 'editions'
-                        ? `${record.status || 'draft'} / ${(record.options || []).length} option(s)`
+                        ? `${record.status || 'draft'} / ${(record.options || []).length} option(s)}${record.monthly_featured ? ' / monthly homepage feature' : ''}`
                         : `${record.featured ? 'featured' : 'not featured'}${record.archived ? ' / archived' : ''}`}
                     </p>
                   </div>
