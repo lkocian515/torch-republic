@@ -71,14 +71,14 @@ const ALL_DUOS = [
   },
   {
     slug: 'spring-bluebonnet-bunny',
-    name: 'Spring Coffee Duo',
+    name: 'Easter Coffee Duo',
     month: 3,
     components: ['bluebonnet-bloom', 'bunny-trail'],
     scheduleNeedsConfirmation: true,
-    intro: 'Bluebonnet Bloom and Bunny Trail.',
+    intro: 'Bluebonnet Bloom + Bunny Trail Cinnamon Roll. Availability and release timing must be confirmed before this duo can be ordered.'
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2df743515_03-15447.png',
-      alt: 'Torch Republic Spring Coffee Duo featuring Bluebonnet Bloom and Bunny Trail.',
+      alt: 'Torch Republic Easter Coffee Duo featuring Bluebonnet Bloom and Bunny Trail Cinnamon Roll.',
     },
   },
   {
@@ -116,7 +116,7 @@ const ALL_DUOS = [
     intro: 'Harvest Moon Pecan and Cinnamon Hearth.',
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b8e1fec7c_01-15443.png',
-      alt: 'Torch Republic Autumn Coffee Duo featuring Harvest Moon Pecan and Cinnamon Hearth.',
+      alt: 'Torch Republic Thanksgiving Coffee Duo featuring Harvest Moon Pecan and Cinnamon Hearth.',
     },
   },
   {
@@ -161,7 +161,7 @@ const ALL_DUOS = [
     intro: 'Peppermint Parade + Fireside S’mores. Availability and release timing must be confirmed before this duo can be ordered.',
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
-      alt: 'Torch Republic Winter Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
+      alt: 'Torch Republic Christmas Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
     },
   },
 ];
