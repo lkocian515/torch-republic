@@ -46,14 +46,14 @@ export default function DriftShopPaths() {
     if (path.title !== 'Seasonal Reserve') return path;
     return {
       ...path,
-      eyebrow: monthlyEdition ? 'Monthly edition' : path.eyebrow,
+      eyebrow: monthlyEdition ? 'Monthly feature' : path.eyebrow,
       title: monthlyEdition?.name || path.title,
       cta: monthlyEdition ? `View ${monthlyEdition.name}` : path.cta,
       to: monthlyEdition ? editionPath(monthlyEdition) : path.to,
       images: monthlyImage
         ? [{
             src: monthlyImage,
-            alt: `Torch Republic ${monthlyEdition.name} coffee pouch, featured as this month’s Seasonal Reserve.`,
+            alt: `Torch Republic ${monthlyEdition.name} coffee pouch, featured Seasonal Reserve coffee.`,
           }]
         : [],
     };
