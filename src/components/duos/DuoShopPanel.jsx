@@ -63,7 +63,7 @@ export default function DuoShopPanel({ pairing, bags, status }) {
         <p className="eyebrow">Coming soon</p>
         <h2 className="h3 mt-2">Not open for orders yet</h2>
         <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
-          This is a preview. Ordering opens on the start date once both coffees are in stock.
+          This duo is not open for orders. Price, package size, availability and release timing will be confirmed before launch.
         </p>
         <div className="mt-4">
           <SeasonalInterestForm kind="notify" productSlug={`duo-${pairing.slug}`} productName={duoName(pairing)} source="duo-page" buttonLabel="Tell me when it opens" />
