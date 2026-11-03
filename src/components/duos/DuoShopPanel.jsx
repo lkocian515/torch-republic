@@ -60,10 +60,10 @@ export default function DuoShopPanel({ pairing, bags, status }) {
   if (status !== 'available') {
     return (
       <div style={panel}>
-        <p className="eyebrow">Coming soon</p>
-        <h2 className="h3 mt-2">Not open for orders yet</h2>
+        <p className="eyebrow">Availability being confirmed</p>
+        <h2 className="h3 mt-2">Not available to order yet</h2>
         <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
-          This duo is not open for orders. Price, package size, availability and release timing will be confirmed before launch.
+          Shopify variant status, inventory, price, package size and release timing must be confirmed before this duo can be offered.
         </p>
         <div className="mt-4">
           <SeasonalInterestForm kind="notify" productSlug={`duo-${pairing.slug}`} productName={duoName(pairing)} source="duo-page" buttonLabel="Tell me when it opens" />
