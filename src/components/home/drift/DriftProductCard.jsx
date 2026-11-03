@@ -59,24 +59,25 @@ export default function DriftProductCard({
             padding: 'clamp(1.25rem, 2.5vw, 2.25rem)',
             borderRadius: '10px',
             overflow: 'hidden',
-            background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${ritualSoft}40 0%, ${D.cream} 70%)`,
+            background: '#F8F5EF',
             minWidth: 0,
             border: D.borderHairline,
             boxShadow: D.shadowSoft,
           }}
         >
           <img
-            className="pd-img"
+            className={`pd-img product-art-image${path?.includes('midnight-hex') ? ' product-art-image--midnight' : ''}`}
             src={image}
             alt={alt}
             loading="lazy"
             style={{
               width: 'clamp(220px, 72%, 380px)',
+              '--product-art-scale': path?.includes('midnight-hex') ? 1.18 : 1,
               aspectRatio: '3 / 4',
               height: 'auto',
               objectFit: 'contain',
               display: 'block',
-              filter: 'drop-shadow(0 8px 20px rgba(36,26,22,0.12))',
+              filter: 'none',
             }}
           />
         </TiltContainer>
