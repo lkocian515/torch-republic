@@ -60,7 +60,7 @@ export default function DuoDetailView({ pairing }) {
           <p className="body-lg mt-4">{pairing.intro}</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {loading ? null : <DuoStatusBadge status={status} />}
-            {window ? (
+            {window && !pairing.scheduleNeedsConfirmation ? (
               <span className="font-mono" style={{ fontSize: '0.8125rem', color: 'hsl(var(--muted-foreground))' }}>
                 Planned 2027 checkout window: {windowLabel(window)}
               </span>
