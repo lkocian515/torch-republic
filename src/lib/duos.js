@@ -74,6 +74,7 @@ export const DUOS = [
     name: 'Spring Coffee Duo',
     month: 3,
     components: ['bluebonnet-bloom', 'bunny-trail'],
+    scheduleNeedsConfirmation: true,
     intro: 'Bluebonnet Bloom and Bunny Trail.',
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2df743515_03-15447.png',
@@ -111,6 +112,7 @@ export const DUOS = [
     name: 'Autumn Coffee Duo',
     month: 8,
     components: ['harvest-moon-pecan', 'cinnamon-hearth'],
+    scheduleNeedsConfirmation: true,
     intro: 'Harvest Moon Pecan and Cinnamon Hearth.',
     heroArt: {
       src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b8e1fec7c_01-15443.png',
@@ -327,7 +329,8 @@ export function duoSeasonLabel(pairing) {
     ...seasons.map((e) => e.kicker),
     ...holidays.filter((e) => !e.gated).map((e) => e.kicker.split(' \u00b7 ')[0]),
   ];
-  return [monthLabelFor(pairing), ...names].join(' \u00b7 ');
+  const month = pairing.scheduleNeedsConfirmation ? '' : monthLabelFor(pairing);
+  return [month, ...names].filter(Boolean).join(' \u00b7 ');
 }
 
 export function monthLabelFor(pairing) {
