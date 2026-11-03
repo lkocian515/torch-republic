@@ -40,91 +40,93 @@
     --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --background: 38 53% 97%; /* #FBF8F2 */
-    --foreground: 28 11% 16%; /* #2D2824 */
+    --background: 39 47% 94%; /* Porcelain Cream #F7F2E9 */
+    --foreground: 17 54% 13%; /* Espresso #32190F */
 
-    --card: 0 0% 100%;
-    --card-foreground: 28 11% 16%;
+    --card: 38 100% 98%; /* Soft White #FFFCF7 */
+    --card-foreground: 17 54% 13%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 28 11% 16%;
+    --popover: 38 100% 98%;
+    --popover-foreground: 17 54% 13%;
 
-    --primary: 17 46% 49%; /* #B86543 */
-    --primary-foreground: 38 53% 97%;
+    --primary: 17 53% 40%; /* Torch Ember #9B4E2F */
+    --primary-foreground: 39 47% 94%;
 
-    --secondary: 34 39% 92%; /* #F3ECE2 */
-    --secondary-foreground: 28 11% 16%;
+    --secondary: 36 35% 57%; /* Mushroom Taupe #B89A6D */
+    --secondary-foreground: 17 54% 13%;
 
-    --muted: 34 39% 92%;
-    --muted-foreground: 25 15% 20%; /* #362E27 - darker secondary text for AA contrast on cream */
+    --muted: 42 65% 92%;
+    --muted-foreground: 17 32% 25%;
 
-    --accent: 95 17% 63%; /* #9EAD95 */
-    --accent-foreground: 28 11% 16%;
+    --accent: 145 32% 22%; /* Forest Green #264A35 */
+    --accent-foreground: 39 47% 94%;
 
     --destructive: 0 72% 47%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 32 34% 84%; /* #E4D8C9 */
-    --input: 32 34% 84%;
-    --ring: 17 46% 49%;
+    --border: 36 35% 57%; /* Mushroom Taupe #B89A6D */
+    --input: 36 35% 57%;
+    --ring: 17 53% 40%;
 
     --radius: 0.25rem;
     --bottom-nav-height: 60px;
 
-    --rose-gold: 17 46% 49%;
-    --rose-gold-deep: 17 46% 39%;
-    --champagne: 42 39% 60%;
-    --taupe: 24 10% 39%;
-    --ivory: 38 53% 97%;
-    --border-rose: 32 34% 84%;
+    --rose-gold: 17 53% 40%;
+    --rose-gold-deep: 17 54% 30%;
+    --champagne: 38 76% 59%; /* Antique Gold #E6AC45 */
+    --taupe: 36 35% 57%;
+    --ivory: 39 47% 94%;
+    --border-rose: 36 35% 57%;
 
     /* Brand plate — the approved light surface for the wordmark. Identical in
        both themes on purpose: no dark-surface cup-and-flame mark exists, and the
        espresso lettering must never sit on a dark ground. Components that carry
        the logo (UnifiedHeader) read these instead of hardcoded hex. */
-    --brand-plate: 38 53% 97%;
-    --brand-plate-solid: 0 0% 100%;
-    --brand-ink: 28 11% 16%;
-    --brand-ink-muted: 30 8% 33%;
-    --brand-rule: 32 34% 84%;
+    --brand-plate: 39 47% 94%;
+    --brand-plate-solid: 38 100% 98%;
+    --brand-ink: 17 54% 13%;
+    --brand-ink-muted: 17 32% 25%;
+    --brand-rule: 36 35% 57%;
 
-    --chart-1: 7 52% 79%;
-    --chart-2: 36 52% 65%;
-    --chart-3: 0 0% 60%;
-    --chart-4: 0 0% 15%;
-    --chart-5: 25 15% 70%;
+    --chart-1: 17 53% 40%;
+    --chart-2: 38 76% 59%;
+    --chart-3: 145 32% 22%;
+    --chart-4: 207 73% 13%;
+    --chart-5: 36 35% 57%;
   }
 
   .dark {
     /* True dark mode — charcoal backgrounds with warm ivory text.
        Activated automatically when the device prefers dark mode (App.jsx syncs
        the .dark class). The standalone portfolio uses its own inline styles. */
-    --background: 30 10% 9%;          /* #1B1815 — warm charcoal */
-    --foreground: 39 36% 88%;         /* #E8DDC9 — warm ivory */
-    --card: 33 12% 13%;              /* #252019 — lifted charcoal */
-    --card-foreground: 39 36% 88%;
-    --popover: 33 12% 13%;
-    --popover-foreground: 39 36% 88%;
-    --primary: 17 50% 55%;            /* lighter terracotta for dark bg contrast */
-    --primary-foreground: 39 36% 88%;
-    --secondary: 30 8% 17%;           /* darker charcoal surface */
-    --secondary-foreground: 39 36% 88%;
-    --muted: 30 8% 17%;
-    --muted-foreground: 33 9% 62%;    /* muted warm gray — AA on charcoal */
-    --accent: 95 17% 63%;
-    --accent-foreground: 30 10% 9%;
+    /* Keep store pages warm and light even when the device prefers dark mode;
+       intentional dark feature sections use Midnight Blue in their components. */
+    --background: 39 47% 94%;
+    --foreground: 17 54% 13%;
+    --card: 38 100% 98%;
+    --card-foreground: 17 54% 13%;
+    --popover: 38 100% 98%;
+    --popover-foreground: 17 54% 13%;
+    --primary: 17 53% 40%;
+    --primary-foreground: 39 47% 94%;
+    --secondary: 36 35% 57%;
+    --secondary-foreground: 17 54% 13%;
+    --muted: 42 65% 92%;
+    --muted-foreground: 17 32% 25%;
+    --accent: 145 32% 22%;
+    --accent-foreground: 39 47% 94%;
     --destructive: 0 62% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 8% 21%;             /* dark warm border */
-    --input: 30 8% 21%;
-    --ring: 17 50% 55%;
+    --border: 36 35% 57%;
+    --input: 36 35% 57%;
+    --ring: 17 53% 40%;
 
     /* Brand plate stays light in dark mode — see the :root note. */
-    --brand-plate: 38 53% 97%;
-    --brand-plate-solid: 0 0% 100%;
-    --brand-ink: 28 11% 16%;
-    --brand-ink-muted: 30 8% 33%;
-    --brand-rule: 32 34% 84%;
+    --brand-plate: 39 47% 94%;
+    --brand-plate-solid: 38 100% 98%;
+    --brand-ink: 17 54% 13%;
+    --brand-ink-muted: 17 32% 25%;
+    --brand-rule: 36 35% 57%;
   }
 }
 
