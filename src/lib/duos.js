@@ -70,12 +70,27 @@ export const DUOS = [
     intro: 'Bluebonnet Bloom beside Coastal Caramel, a spring pairing worth sharing.',
   },
   {
+    slug: 'spring-bluebonnet-bunny',
+    name: 'Spring Coffee Duo',
+    month: 3,
+    components: ['bluebonnet-bloom', 'bunny-trail'],
+    intro: 'Bluebonnet Bloom and Bunny Trail.',
+    heroArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/2df743515_03-15447.png',
+      alt: 'Torch Republic Spring Coffee Duo featuring Bluebonnet Bloom and Bunny Trail.',
+    },
+  },
+  {
     slug: 'coastal-summer',
-    name: 'Coastal Summer Duo',
+    name: 'Summer Coffee Duo',
     month: 5,
     components: ['gulf-coast-turtle', 'coastal-caramel'],
     endOverride: '2027-06-30',
-    intro: 'Gulf Coast Turtle and Coastal Caramel, two coastal-minded coffees for summer mornings.',
+    intro: 'Gulf Coast Turtle and Coastal Caramel.',
+    heroArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/c4e94d4c3_04-15448.png',
+      alt: 'Torch Republic Summer Coffee Duo featuring Gulf Coast Turtle and Coastal Caramel.',
+    },
   },
   {
     slug: 'stars-stripes-summer',
@@ -90,6 +105,17 @@ export const DUOS = [
     month: 7,
     components: ['harvest-moon-pecan', 'gulf-coast-turtle'],
     intro: 'Harvest Moon Pecan with Gulf Coast Turtle, a late-summer bridge into fall.',
+  },
+  {
+    slug: 'autumn-coffee-duo',
+    name: 'Autumn Coffee Duo',
+    month: 8,
+    components: ['harvest-moon-pecan', 'cinnamon-hearth'],
+    intro: 'Harvest Moon Pecan and Cinnamon Hearth.',
+    heroArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b8e1fec7c_01-15443.png',
+      alt: 'Torch Republic Autumn Coffee Duo featuring Harvest Moon Pecan and Cinnamon Hearth.',
+    },
   },
   {
     slug: 'autumn-pecan',
@@ -121,10 +147,14 @@ export const DUOS = [
   },
   {
     slug: 'peppermint-fireside',
-    name: 'Peppermint Fireside Duo',
+    name: 'Winter Coffee Duo',
     month: 11,
     components: ['peppermint-parade', 'fireside-smores'],
-    intro: 'Peppermint Parade and Fireside S\u2019mores, the December pairing for the holidays and winter.',
+    intro: 'Peppermint Parade and Fireside S\u2019mores.',
+    heroArt: {
+      src: 'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/db1441767_02-15444.png',
+      alt: 'Torch Republic Winter Coffee Duo featuring Peppermint Parade and Fireside S’mores.',
+    },
   },
 ];
 
@@ -153,9 +183,9 @@ export function resolveDuoSlug(slug) {
 /** The four seasonal collections, in calendar order. */
 export const SEASON_ENTRIES = [
   { key: 'winter', kicker: 'Winter', start: '2027-12-01', end: '2027-12-31', duoSlug: 'peppermint-fireside', note: 'The Christmas and New Year\u2019s campaigns link to this same pair.' },
-  { key: 'spring', kicker: 'Spring', start: '2027-04-01', end: '2027-05-31', duoSlug: 'bluebonnet-caramel', note: 'Both coffees are available together from May 1. Mother\u2019s Day and Memorial Day link to this same pair.' },
+  { key: 'spring', kicker: 'Spring', start: '2027-04-01', end: '2027-05-31', duoSlug: 'spring-bluebonnet-bunny', note: 'Release timing for this pairing needs confirmation.' },
   { key: 'summer', kicker: 'Summer', start: '2027-06-01', end: '2027-06-30', duoSlug: 'coastal-summer', note: 'Father\u2019s Day links to this same pair.' },
-  { key: 'fall', kicker: 'Fall', start: '2027-09-01', end: '2027-10-31', duoSlug: 'autumn-pecan', note: 'Labor Day links to this same pair.' },
+  { key: 'fall', kicker: 'Fall', start: '2027-09-01', end: '2027-10-31', duoSlug: 'autumn-coffee-duo', note: 'Release timing for this pairing needs confirmation.' },
 ];
 
 /** Holiday moments, chronological. Dates refer to 2027. */
