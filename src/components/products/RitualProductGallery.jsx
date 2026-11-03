@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Multi-image product gallery: main image + thumbnail strip.
-// Index 0 is the bag (white-bg product shot → object-contain so it shows fully);
-// scene / "what's inside" shots use object-cover to fill the frame.
+// Index 0 is the bag; supporting scenes retain their natural proportions.
 export default function RitualProductGallery({ images, alts, accent = '#9B4E2F' }) {
   const [active, setActive] = useState(0);
   const isBag = active === 0;
@@ -24,7 +23,7 @@ export default function RitualProductGallery({ images, alts, accent = '#9B4E2F' 
           loading={active === 0 ? 'eager' : 'lazy'}
           decoding="async"
           className="h-full w-full"
-          style={{ objectFit: isBag ? 'contain' : 'cover', padding: isBag ? '24px' : 0 }}
+          style={{ objectFit: 'contain', padding: isBag ? '24px' : 0 }}
         />
       </motion.div>
 
@@ -44,7 +43,7 @@ export default function RitualProductGallery({ images, alts, accent = '#9B4E2F' 
               loading="lazy"
               decoding="async"
               className="h-full w-full"
-              style={{ objectFit: i === 0 ? 'contain' : 'cover', padding: i === 0 ? 6 : 0 }}
+              style={{ objectFit: 'contain', padding: i === 0 ? 6 : 0 }}
             />
           </button>
         ))}
