@@ -1,27 +1,25 @@
 // Drift-inspired design tokens for the Torch Republic storefront homepage.
 // Warm, tactile, editorial — photography and typography first.
 export const D = {
-  paper: '#F1ECE5',
-  cream: '#FAF7F1',
-  espresso: '#382B24',
-  terracotta: '#B75B32',
-  taupe: '#D5C7B8',
-  ink: '#382B24',
-  secondary: '#6B5D54',
-  rule: '#E5DDD3',
-  surface: '#F5F0E8',
-  accentSoft: '#F2E2D2',
-  terracottaDeep: '#9A4A28',
+  paper: '#F7F2E9',
+  cream: '#FFFCF7',
+  espresso: '#32190F',
+  terracotta: '#9B4E2F',
+  taupe: '#B89A6D',
+  ink: '#32190F',
+  secondary: '#5E4639',
+  rule: 'rgba(184,154,109,0.42)',
+  surface: '#FFFCF7',
+  accentSoft: '#F3E9D8',
+  terracottaDeep: '#71371F',
 
-  // ── Cinematic tokens (derived from Halloween artwork palette) ──
-  // Used selectively for depth, shadows, and controlled dark sections.
-  // Ivory provides breathing room between darker surfaces.
-  obsidian: '#101112',
-  deepEspresso: '#241A16',
-  warmIvory: '#F4EFE7',
-  ember: '#F47735',
-  copper: '#B8734D',
-  copperDeep: '#8A5638',
+  // Selective Midnight Blue feature surfaces with warm cream text.
+  obsidian: '#09243A',
+  deepEspresso: '#09243A',
+  warmIvory: '#F7F2E9',
+  ember: '#9B4E2F',
+  copper: '#E6AC45',
+  copperDeep: '#B89A6D',
 
   // ── Depth utilities ──
   shadowSoft: '0 2px 8px rgba(36,26,22,0.05), 0 6px 20px rgba(36,26,22,0.04)',
