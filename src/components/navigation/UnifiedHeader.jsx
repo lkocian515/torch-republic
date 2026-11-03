@@ -38,7 +38,7 @@ const SECTIONS = [
       ['FAQ', '/faq'],
     ],
   },
-  { label: 'Monthly Edition', to: '/seasonal-calendar' }
+  { label: 'Monthly Edition', to: '/seasonal-calendar' },
   {
     label: 'Holiday Duos',
     to: '/duos/holidays',
@@ -50,7 +50,7 @@ const SECTIONS = [
       ['Thanksgiving Duo', '/duos/autumn-coffee-duo'],
     ],
   },
-  { label: 'Subscriptions', to: '/subscription' }
+  { label: 'Subscriptions', to: '/subscription' },
   {
     label: 'Our Story',
     items: [
