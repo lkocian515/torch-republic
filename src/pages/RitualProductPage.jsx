@@ -72,11 +72,9 @@ const GALLERY_EXTRA = {
   },
   'pumpkin-spice': {
     images: [
-      'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/14b580e7d_08-15481.png',
       'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/f9c58b8b7_file_00000000eb7481f68fa2a08c4f327f49.png',
     ],
     alts: [
-      'A mug of coffee with cinnamon and pumpkin bread beside a small pumpkin',
       'Pumpkin Spice Whole Bean Coffee in an autumn scene with whipped cream coffee, cinnamon, and roasted beans',
     ],
   },
