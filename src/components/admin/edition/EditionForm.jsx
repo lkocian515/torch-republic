@@ -90,6 +90,13 @@ export default function EditionForm({ value, onSave, onCancel, saving }) {
       <div className="flex flex-wrap gap-6">
         <FormField label="Requires brewing" type="checkbox" value={draft.requires_brewing} onChange={(v) => set({ requires_brewing: v })} />
         <FormField label="Instant product (just add water)" type="checkbox" value={draft.is_instant} onChange={(v) => set({ is_instant: v })} />
+        <FormField
+          label="Monthly homepage edition"
+          type="checkbox"
+          value={draft.monthly_featured}
+          onChange={(v) => set({ monthly_featured: v })}
+          hint="Only one edition is featured here at a time. Saving this selection clears the previous one."
+        />
       </div>
 
       {/* Options */}
