@@ -28,13 +28,13 @@ export default function SeasonalCalendar() {
   const [view, setView] = useState('short');
 
   useSEO({
-    title: 'Seasonal Calendar | Torch Republic Coffee Company',
+    title: 'Monthly Edition | Torch Republic Coffee Company',
     description:
-      'The Torch Republic seasonal coffee calendar: which flavored coffees arrive each month, when their selling windows open and close, and what is available now.',
+      'Torch Republic’s Monthly Edition follows a monthly release cycle. Check verified availability and product details before ordering.',
     url: '/seasonal-calendar',
     breadcrumbs: [
       { name: 'Home', url: '/' },
-      { name: 'Seasonal Calendar', url: '/seasonal-calendar' },
+      { name: 'Monthly Edition', url: '/seasonal-calendar' },
     ],
   });
 
@@ -54,11 +54,10 @@ export default function SeasonalCalendar() {
     <div className="section-torch">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <header className="max-w-[760px]">
-          <p className="eyebrow">Brewed seasonal coffee</p>
-          <h1 className="h1 mt-3">Seasonal Reserve Calendar</h1>
+          <p className="eyebrow">Monthly release cycle</p>
+          <h1 className="h1 mt-3">Monthly Edition</h1>
           <p className="body-lg mt-4">
-            Seasonal coffees are brewed, not instant. Each one has its own selling window, and windows overlap as the
-            year turns — so the shelf changes month by month while the two instant Originals stay available year round.
+            The Monthly Edition is a separate brewed coffee release that changes through the year. We update its product details and availability only after the catalog and supplier information are confirmed.
           </p>
         </header>
 
@@ -79,10 +78,10 @@ export default function SeasonalCalendar() {
               decoding="async"
             />
             <div>
-              <p className="eyebrow" style={{ margin: 0 }}>November feature · Coming soon</p>
-              <h2 id="this-month-feature" className="h2 mt-2">Fireside S’mores</h2>
+              <p className="eyebrow" style={{ margin: 0 }}>Planned November 2027 · Details unconfirmed</p>
+              <h2 id="this-month-feature" className="h2 mt-2">Monthly Edition preview</h2>
               <p className="body mt-3" style={{ color: 'hsl(var(--muted-foreground))' }}>
-                Fireside S’mores is the featured seasonal release for this month. Product details and ordering will appear when the release is ready.
+                Fireside S’mores is listed in the project as a planned November 2027 release. Shopify availability, price, package size and supplier readiness still need confirmation, so this preview is not an order offer.
               </p>
               <Link to="/special-editions/fireside-smores" className="mt-4 inline-flex min-h-[44px] items-center font-heading text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>
                 View Fireside S’mores <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -91,7 +90,7 @@ export default function SeasonalCalendar() {
           </article>
         </section>
 
-        {/* ── What Shopify confirms is buyable today, excluding the expired Pumpkin Spice monthly feature ── */}
+        {/* ── Products currently marked available by the connected catalog ── */}
         <section className="mt-12" aria-labelledby="available-now">
           <div className="flex flex-wrap items-center gap-3">
             <h2 id="available-now" className="h2">Available now</h2>
@@ -119,7 +118,7 @@ export default function SeasonalCalendar() {
             <p className="body mt-6" style={{ color: 'hsl(var(--muted-foreground))' }}>Checking Shopify…</p>
           ) : availableNow.length === 0 ? (
             <p className="body mt-6" style={{ color: 'hsl(var(--muted-foreground))' }}>
-              No seasonal coffee is on sale at this moment. The instant Originals are available year round in the{' '}
+              No brewed seasonal coffee is currently marked available. The instant Originals are available year round in the{' '}
               <Link to="/shop" style={{ color: 'hsl(var(--primary))' }}>shop</Link>.
             </p>
           ) : (
@@ -243,18 +242,18 @@ export default function SeasonalCalendar() {
 
         <section className="mt-12 flex flex-wrap gap-3">
           <Link
-            to="/duos"
+            to="/duos/holidays"
             className="inline-flex min-h-[44px] items-center justify-center px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
             style={{ borderRadius: 999, border: '1px solid hsl(var(--primary))', color: 'hsl(var(--primary))' }}
           >
-            See the seasonal pairings
+            Browse Holiday Duos
           </Link>
           <Link
             to="/torchbearer-club"
             className="inline-flex min-h-[44px] items-center justify-center px-5 font-heading text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
             style={{ borderRadius: 999, border: '1px solid hsl(var(--border))', color: 'hsl(var(--foreground))' }}
           >
-            About the Torchbearer Club
+            Torchbearer Club waitlist
           </Link>
         </section>
       </div>
