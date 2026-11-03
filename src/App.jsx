@@ -13,8 +13,9 @@ import PullToRefresh from './components/mobile/PullToRefresh';
 import { CartProvider } from '@/contexts/CartContext';
 import UnifiedHeader from './components/navigation/UnifiedHeader';
 import Footer from './components/navigation/Footer';
-// Spin wheel promotion removed from the storefront until discount and prize rules are verified.
+// Load the spin promotion separately so it does not increase the storefront's initial bundle size.
 import PortfolioLoading from './components/portfolio/PortfolioLoading';
+const SpinWheelPopup = lazy(() => import('./components/spinwheel/SpinWheelPopup'));
 import CommerceNotice from './components/commerce/CommerceNotice';
 import AddToCartConfirmation from './components/cart/AddToCartConfirmation';
 import BottomTabs from './components/mobile/BottomTabs';
@@ -622,6 +623,9 @@ function App() {
               <TechLayer />
               <CommerceNotice />
               <AddToCartConfirmation />
+              <Suspense fallback={null}>
+                <SpinWheelPopup />
+              </Suspense>
             </NavigationProvider>
           </Router>
           <Toaster />
