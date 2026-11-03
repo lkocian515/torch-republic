@@ -24,6 +24,11 @@
       "type": "string",
       "maxLength": 1000,
       "description": "Optional notes about this subscriber"
+    },
+    "marketing_consent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Explicit opt-in to marketing email; transactional prize delivery does not require this"
     }
   },
   "required": [
