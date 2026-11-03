@@ -18,8 +18,8 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.44';
 //   $5 off $40+      TORCH5OFF          $5 fixed amount       $40
 //   20% off          TORCH20            20% percentage        —
 //
-// WELCOME10 is already verified active. Fill in the remaining codes below
-// and set enabled: true. The wheel stays hidden until ALL prizes are enabled.
+// WELCOME10 is the only enabled prize. The wheel remains available with a
+// configured reward, and selectPrize() ignores disabled or code-less entries.
 // ═══════════════════════════════════════════════════════════════════════════
 
 const PRIZE_CONFIG = [
@@ -70,8 +70,8 @@ const STORE_URL = 'https://torchrepublic.base44.app';
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 // The wheel appears when at least one prize is fully configured (code + enabled).
-// This allows the wheel to go live with a subset of prizes while remaining
-// codes are created in Shopify. selectPrize() only picks from enabled prizes.
+// selectPrize() only picks from enabled prizes; disabled rewards never appear
+// as possible outcomes in the customer-facing wheel.
 function hasEnabledPrizes() {
   return PRIZE_CONFIG.some(function (p) {
     return p.enabled && p.code;
