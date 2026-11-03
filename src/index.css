@@ -96,11 +96,8 @@
   }
 
   .dark {
-    /* True dark mode — charcoal backgrounds with warm ivory text.
-       Activated automatically when the device prefers dark mode (App.jsx syncs
-       the .dark class). The standalone portfolio uses its own inline styles. */
-    /* Keep store pages warm and light even when the device prefers dark mode;
-       intentional dark feature sections use Midnight Blue in their components. */
+    /* Keep commerce pages warm and light across device color preferences;
+       feature sections request Midnight Blue explicitly in their components. */
     --background: 39 47% 94%;
     --foreground: 17 54% 13%;
     --card: 38 100% 98%;
@@ -109,7 +106,7 @@
     --popover-foreground: 17 54% 13%;
     --primary: 17 53% 40%;
     --primary-foreground: 39 47% 94%;
-    --secondary: 36 35% 57%;
+    --secondary: 42 65% 92%;
     --secondary-foreground: 17 54% 13%;
     --muted: 42 65% 92%;
     --muted-foreground: 17 32% 25%;
