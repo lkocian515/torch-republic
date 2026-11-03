@@ -375,7 +375,22 @@ export function featuredPairing(today = todayInChicago()) {
       .sort((a, b) => b.window.start.localeCompare(a.window.start));
     if (open.length) return open[0];
   }
-  return [...withWindows].sort((a, b) => a.window.start.localeCompare(b.window.start)).find((p) => p.window.start > today) || null;
+  const upcoming = [...withWindows]
+    .filter((p) => p.window.start > today)
+    .sort((a, b) => a.window.start.localeCompare(b.window.start));
+
+  // Before the 2027 calendar year begins, surface the owner-prioritized
+  // Fireside release first and Peppermint Parade second. Once that calendar
+  // year starts, the live/chronological schedule above remains authoritative.
+  if (!yearApplies) {
+    const releasePriority = ['harvest-fireside', 'peppermint-fireside'];
+    const prioritized = releasePriority
+      .map((slug) => upcoming.find((p) => p.slug === slug))
+      .find(Boolean);
+    if (prioritized) return prioritized;
+  }
+
+  return upcoming[0] || null;
 }
 
 /** All duos with their windows, in opening order. */
