@@ -5,8 +5,8 @@ import { duoBySlug, duoPath } from '@/lib/duos';
 import { D } from './driftTheme';
 
 const AUTUMN_ARTWORK =
-  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/a456c6d34_01-15443.png';
-const autumnDuo = duoBySlug('autumn-pecan');
+  'https://media.base44.com/images/public/69afc77e4c80e5e88ca6e3ec/b8e1fec7c_01-15443.png';
+const autumnDuo = duoBySlug('autumn-coffee-duo');
 
 export default function FeaturedSeasonalDuo() {
   return (
