@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useSpecialEditions from '@/hooks/useSpecialEditions';
 import { sortByReleaseDate } from '@/lib/seasonalCalendar';
+import { purchasableOptions } from '@/lib/specialEditions';
 import EditionCard from './EditionCard';
 
 /**
@@ -13,8 +14,9 @@ export default function ShopSpecialEditions({ format = null }) {
 
   // When a coffee format is active, only editions sold in that format appear.
   // Release order, earliest first, so the lineup follows the calendar.
+  const purchasable = editions.filter((edition) => purchasableOptions(edition).length > 0);
   const shown = sortByReleaseDate(
-    format ? editions.filter((e) => (e.options || []).some((o) => o.key === format)) : editions
+    format ? purchasable.filter((e) => purchasableOptions(e).some((o) => o.key === format)) : purchasable
   );
 
   if (loading || shown.length === 0) return null;
