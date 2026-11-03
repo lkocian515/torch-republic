@@ -91,7 +91,7 @@ export default function EditionForm({ value, onSave, onCancel, saving }) {
         <FormField label="Requires brewing" type="checkbox" value={draft.requires_brewing} onChange={(v) => set({ requires_brewing: v })} />
         <FormField label="Instant product (just add water)" type="checkbox" value={draft.is_instant} onChange={(v) => set({ is_instant: v })} />
         <FormField
-          label="Monthly homepage edition"
+          label="Monthly homepage feature"
           type="checkbox"
           value={draft.monthly_featured}
           onChange={(v) => set({ monthly_featured: v })}
