@@ -23,7 +23,7 @@ export const SPIN_WHEEL_VERSION = 2;
 
 export const PRIZES = [
   {
-    id: 'fifteen_percent',
+    id: 'ten_percent_1',
     label: '10% OFF',
     sublabel: 'Your next coffee order',
     weight: 25,
@@ -34,10 +34,10 @@ export const PRIZES = [
     sliceTextColor: '#FFF7E8',
   },
   {
-    id: 'twenty_percent',
+    id: 'ten_percent_2',
     label: '10% OFF',
     sublabel: 'Your next coffee order',
-    weight: 5,
+    weight: 25,
     minPurchase: null,
     minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
@@ -45,12 +45,12 @@ export const PRIZES = [
     sliceTextColor: '#FFF7E8',
   },
   {
-    id: 'five_off_40',
+    id: 'ten_percent_3',
     label: '10% OFF',
     sublabel: 'Your next coffee order',
-    weight: 10,
-    minPurchase: 40,
-    minPurchaseDisplay: '$40+',
+    weight: 25,
+    minPurchase: null,
+    minPurchaseDisplay: null,
     expiresText: 'Valid for 30 days from today',
     sliceColor: '#15455F',
     sliceTextColor: '#FFF7E8',
